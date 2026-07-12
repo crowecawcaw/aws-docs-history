@@ -59,29 +59,7 @@ exceed the perceived security benefits of external key stores.
 
 **Do I need an external key store?**
 
-For most users, the default AWS KMS key store, which is protected by [FIPS 140-3 Security Level 3 validated hardware security modules](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4884 "https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4884"), fulfills their security, control,
-and regulatory requirements. External key store users incur substantial cost, maintenance,
-and troubleshooting burden, and risks to latency, availability and reliability.
-
-When considering an external key store, take some time to understand the alternatives,
-including an [AWS CloudHSM key store](keystore-cloudhsm.md "keystore-cloudhsm.md") backed by an AWS CloudHSM
-cluster that you own and manage, and KMS keys with [imported
-key material](importing-keys.md "importing-keys.md") that you generate in your own HSMs and can delete from KMS keys on
-demand. In particular, importing key material with a very brief expiration interval might
-provide a similar level of control without the performance or availability risks.
-
-An external key store might be the right solution for your organization if you have the
-following requirements:
-
-- You are required to use cryptographic keys in your on-premises key manager or a
-  key manager outside of AWS that you control.
-- You must demonstrate that your cryptographic keys are retained solely
-  under your control outside of the cloud.
-- You must encrypt and decrypt using cryptographic keys with independent
-  authorization.
-- Key material must be subject to a secondary, independent audit path.
-  If you choose an external key store, limit its use to workloads that require protection
-  with cryptographic keys outside of AWS.
+To decide whether an external key store is right for your requirements, see [Choosing the right key store](key-store-overview.md#choosing-key-store "key-store-overview.md#choosing-key-store").
 
 **Shared responsibility model**
 

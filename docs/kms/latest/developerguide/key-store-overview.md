@@ -1,134 +1,196 @@
 # Key stores
 
 A _key store_ is a secure location for storing and using
-cryptographic keys. The default key store in AWS KMS also supports methods for generating and
-managing the keys that it stores. By default, the cryptographic key material for the
-AWS KMS keys that you create in AWS KMS is generated in and protected by hardware security
-modules (HSMs) that are [FIPS 140-3 Cryptographic Module Validation
-Program](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4884 "https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4884"). Key material for your KMS keys never leave the
-HSMs unencrypted.
+cryptographic keys. The standard key store in AWS KMS also supports methods
+for generating and managing the keys that it stores. The cryptographic key material for the
+KMS keys that you create is generated in and protected by hardware security modules (HSMs)
+that are [FIPS 140-3 Level 3 validated](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4884 "https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4884"). Key material for
+your KMS keys never leaves the HSMs unencrypted, and all cryptographic operations on your keys
+are performed within these FIPS 140-3 HSMs.
 
-AWS KMS supports several types of key stores to protect your key material when using AWS KMS
-to create and manage your encryption keys. All of the key store options supplied by AWS KMS are
-continually validated under FIPS 140-3 at Security Level 3 and are designed to prevent anyone,
-including AWS operators, from accessing your plaintext keys or using them without your
-permission.
+To meet specialized requirements, AWS KMS also supports custom key stores. There
+are two types: AWS CloudHSM key stores, backed by a dedicated, customer-owned AWS CloudHSM cluster, and
+external key stores, backed by an HSM or key management system outside the AWS Cloud. The
+following sections help you choose the right key store for your specific requirements.
+
+## Choosing the right key store
+
+For most customers, the AWS KMS standard key store provides the optimal balance of security,
+performance, cost, and operational simplicity. The AWS KMS HSMs are continuously audited
+and reviewed against a broad range of security standards and compliance certifications
+worldwide, spanning global, regional, governmental, and industry-specific programs. For
+details, see [AWS KMS
+compliance](kms-compliance.md "kms-compliance.md").
+
+For many compliance requirements, the control you have over key access through the
+KMS key policy is sufficient. If you need to demonstrate control over the key
+material itself, consider using [AWS KMS imported keys](importing-keys.md "importing-keys.md") with
+the AWS KMS standard key store. This approach provides compliance benefits of customer-controlled
+key material while maintaining the operational advantages of AWS KMS infrastructure, including
+high performance and availability.
+
+The following table compares the relative operational complexity of the AWS KMS key store options. All of the options are equally secure; the difference is in the operational trade-offs.
+
+![Comparison of four AWS KMS key store options across effort to manage, availability risk, TPS constraints, and latency. The standard key store and imported key material options rate Low with a 99.999% SLA. The AWS CloudHSM key store and external key store options rate Medium to High with no SLA.](images/key-store-options-comparison.png)
+
+Consider creating a custom key store only when your organization has regulatory
+requirements that explicitly mandate key material protection in a single-tenant HSM or in
+an HSM that you control outside of AWS. Even then, create one only when the risk of not
+meeting those requirements outweighs the additional cost, operational complexity, and reduced
+performance of custom key stores.
 
 ## AWS KMS standard key store
 
-By default, a KMS key is created using the standard AWS KMS HSM. This HSM type can be
-thought of as a multi-tenant fleet of HSMs that allows for the most scalable, lowest cost and
-easiest key store to manage from your perspective. If you are creating a KMS key for use
-within one or more AWS services so that service can encrypt your data on your behalf, you
-will create a symmetric key. If you are using a KMS key for your own application design, you
-may choose to create a symmetric encryption key, asymmetric key, or HMAC key.
+Every KMS key is a hardware-backed key, with its key material generated and
+protected by the standard AWS KMS HSMs. This HSM type can be thought of as a tenant-agnostic
+fleet of HSMs that allows for the most scalable, lowest-cost, and easiest key store to manage.
+If you are creating a KMS key for use within one or more AWS services so that service can
+encrypt your data on your behalf, you create a symmetric key. If you are using a
+KMS key for your own application design, you can choose to create a symmetric encryption
+key, asymmetric key, or HMAC key.
 
 In the standard key store option, AWS KMS creates your key, then encrypts it under keys that
-the service manages internally. Multiple copies of encrypted versions of your keys are then
-stored in systems that are designed for durability. Generating and protecting your key
-material in the standard key store type lets you take full advantage of the scalability,
-availability, and durability of AWS KMS with the lowest operational burden and cost of the AWS
-key stores.
+the service manages internally. AWS KMS then stores multiple encrypted copies of your keys in systems designed for durability. Generating and protecting your key material
+in the standard key store type lets you take full advantage of the scalability, availability,
+and durability of AWS KMS with the lowest operational burden and cost of the AWS key
+stores.
+
+### Features
+
+The standard key store supports all AWS KMS features.
+
+### Operations
+
+The standard key store provides the highest transactions per
+second (TPS) rates with the lowest latency, making it ideal for high-throughput applications
+and AWS service integrations. AWS KMS offers a public [SLA](https://aws.amazon.com/kms/sla/ "https://aws.amazon.com/kms/sla/") of 99.999% on the availability of keys in
+the standard key store and automatic performance scaling to meet your workload demands.
+
+### Responsibility model
+
+AWS manages all infrastructure, scaling, and maintenance. This results in zero operational burden for you, with full scalability, availability, and durability. You remain responsible for the IAM and KMS key policies that control when, where, who, and how each key can be used. You are also responsible for key tags, aliases, and lifecycle events such as rotation, enabling or disabling the key, and scheduling it for deletion.
 
 ## AWS KMS standard key store with imported key material
 
-Instead of asking AWS KMS to both generate and store the only copies of a given key, you can
-choose to import key material into AWS KMS, allowing you to generate your own 256-bit symmetric
-encryption key, RSA or elliptic curve (ECC) key, or Hash-Based Message Authentication Code
-(HMAC) key, and apply it to a KMS key identifier (keyId). This is sometimes referred to as
-_bring your own key_ (BYOK). Imported key material from
-your local key management system must be protected by using a public key issued by AWS KMS, a
-supported cryptographic wrapping algorithm, and a time-based import token provided by AWS KMS.
-This process verifies that your encrypted, imported key can only ever be decrypted by an AWS KMS
-HSM once it has left your environment.
+In the standard key store, a KMS key generates its key material using the
+FIPS-validated AWS KMS HSMs. However, you can create a KMS key without key material and
+[import your own](importing-keys.md "importing-keys.md")—sometimes called _bring your own key_ (BYOK). This gives you control over how the key
+material is generated, how long it remains available to AWS KMS, and when it is deleted. You can
+set an expiration time on import or call `DeleteImportedKeyMaterial` to revoke
+access immediately.
 
-Imported key material may be useful if you have specific requirements around the system
-that generates keys, or want a copy of your key outside of AWS as a backup. Note that you
-are responsible for an imported key material's overall availability and durability. While
-AWS KMS has a copy of your imported key and will keep highly available while you need it,
-imported keys offer a special API for deletion – DeleteImportedKeyMaterial. This API will
-immediately delete all copies of the imported key material that AWS KMS has, with no option for
-AWS to recover the key. In addition, you can set an expiration time on an imported key,
-after which the key will be unusable. To make the key useful again in AWS KMS, you will have to
-reimport the key material and assign it to the same keyId. This deletion action for imported
-keys is different than standard keys that AWS KMS generates and stored for you on your behalf.
-In the standard case, the key deletion process has a mandatory waiting period where a key
-scheduled for deletion is first blocked from usage. This action allows you to see access
-denied errors in logs from any application or AWS service that might need that key to access
-data. If you see such access requests, you can choose to cancel the scheduled deletion and
-re-enable the key. After a configurable waiting period (between 7 and 30 days), only then will
-KMS actually delete the key material, the keyID and all metadata associated with the key. For
-more information about availability and durability, see [Protecting imported key material](import-keys-protect.md "import-keys-protect.md") in the _AWS KMS Developer
-Guide_.
+Importing key material is useful when you need to generate keys using a specific system or
+source of entropy, retain a backup copy outside AWS, or remove key material on a defined
+schedule.
 
-There are some additional limitations with imported key material to be aware of. Since
-AWS KMS cannot generate new key material, there is no way to configure automatic rotation of
-imported keys. You will need to create a new KMS key with a new keyId, then import new key
-material to achieve an effective rotation. Also, ciphertexts created in AWS KMS under an
-imported symmetric key cannot be easily decrypted using your local copy of the key outside of
-AWS. This is because the authenticated encryption format used by AWS KMS appends additional
-metadata to the ciphertext to provide assurances during the decryption operation that the
-ciphertext was created by the expected KMS key under a previous encrypt operation. Most
-external cryptographic systems won’t understand how to parse this metadata to gain access to
-the raw ciphertext to be able to use their copy of a symmetric key. Ciphertexts created under
-imported asymmetric keys (e.g. RSA or ECC) can be used outside of AWS KMS with the matching
-(public or private) portion of the key because there is no additional metadata added by AWS KMS
-to the ciphertext.
+### Features
+
+Imported key material supports all AWS KMS features except automatic key rotation and post-quantum (ML-DSA) keys.
+
+### Operations
+
+Keys with imported key material are indistinguishable from keys in the standard key
+store in terms of performance, making them suitable for high-throughput applications and
+AWS service integrations. AWS KMS offers a public [SLA](https://aws.amazon.com/kms/sla/ "https://aws.amazon.com/kms/sla/") of 99.999% on the availability of keys
+with imported key material and automatic performance scaling to meet your workload
+demands.
+
+### Responsibility model
+
+In addition to the standard key
+store responsibilities described previously, you are responsible for the durability of your
+imported key material. AWS manages infrastructure and scaling for availability. You can
+immediately delete key material using the `DeleteImportedKeyMaterial` API; after
+you delete any key material associated with a KMS key, it becomes unusable for cryptographic
+operations until you re-import the key material associated with that key.
 
 ## AWS KMS custom key stores
 
-However, if you require even more control of the HSMs, you can create a custom key
-store.
+If you require direct ownership and management of the HSMs that store and protect your key
+material, you can create a custom key store. A _custom key
+store_ is a key store within AWS KMS that is backed by a key manager outside of
+AWS KMS, which you own and manage. Custom key stores combine and extend the familiar key
+management interface of AWS KMS with the ability to generate and use the key material in your
+own HSMs. When you use a KMS key in a custom key store, cryptographic operations are
+performed using key material that stays within your HSM or key manager.
 
-A _custom key store_ is a key store within AWS KMS that is
-backed by a key manager outside of AWS KMS, which you own and manage. Custom key stores combine
-the convenient and comprehensive key management interface of AWS KMS with the ability to own and
-control the key material and cryptographic operations. When you use a KMS key in a custom
-key store, the cryptographic operations are performed by your key manager using your
-cryptographic keys. As a result, you assume more responsibility for the availability and
-durability of cryptographic keys, and for the operation of the HSMs.
+Custom key stores are not more secure than the standard key store, but they have
+different (and higher) management and cost implications. Regardless of whether you use the
+standard key store or a custom key store, the service is designed so that no one, including
+AWS employees, can retrieve your plaintext keys or use them without your permission.
 
-Owning your HSMs may be useful to help meet certain regulatory requirements that don’t yet
-allow multi-tenant web services like the standard KMS key store to hold your cryptographic
-keys. Custom key stores are not more secure than KMS key store that use AWS-managed HSMs,
-but they have different (and higher) management and cost implications. As a result, you assume
-more responsibility for the availability and durability of cryptographic keys and for the
-operation of the HSMs. Regardless of whether you use the standard key store with AWS KMS HSMs or
-a custom key store, the service is designed so that no one, including AWS employees, can
-retrieve your plaintext keys or use them without your permission. AWS KMS supports two types of
-custom key stores, AWS CloudHSM key stores and external key stores.
+AWS KMS supports two types of custom key stores: AWS CloudHSM key stores and external key
+stores.
 
-**Unsupported features**
+### Supported features
 
-AWS KMS does not support the following features in custom key stores.
-
-- [Asymmetric KMS keys](symmetric-asymmetric.md "symmetric-asymmetric.md")
-- [HMAC KMS keys](hmac.md "hmac.md")
-- [KMS keys with imported key material](importing-keys.md "importing-keys.md")
-- [Automatic key rotation](rotate-keys.md "rotate-keys.md")
-- [Multi-Region keys](multi-region-keys-overview.md "multi-region-keys-overview.md")
+Custom key stores support symmetric encryption KMS keys only. Other AWS KMS features—such as asymmetric keys, HMAC keys, automatic key rotation, multi-Region keys, and imported key material—are not available in custom key stores.
 
 ### AWS CloudHSM key store
 
-You can create a KMS key in an [AWS CloudHSM](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/") key
-store, where root user keys are generated, stored and used in a AWS CloudHSM cluster that you
-own and manage. Requests to AWS KMS to use a key for some cryptographic operation are
-forwarded to your AWS CloudHSM cluster to perform the operation. While a AWS CloudHSM cluster is
-hosted by AWS, it is a single-tenant solution that is directly managed and operated by
-you. You own much of the availability and performance of KMS keys in a AWS CloudHSM cluster. To
-see if a AWS CloudHSM custom key store is a good fit for your requirements, read [Are AWS KMS
-custom key stores right for you?](https://aws.amazon.com/blogs/security/are-kms-custom-key-stores-right-for-you/ "https://aws.amazon.com/blogs/security/are-kms-custom-key-stores-right-for-you/") on the AWS security blog.
+AWS originally launched the AWS CloudHSM product to help customers migrate from
+on-premises HSMs to single-tenant HSMs in the cloud. By extension, AWS KMS later introduced
+the custom key store for those same customers to continue using AWS CloudHSM across their own
+applications and AWS services integrated through AWS KMS.
+
+You can configure AWS KMS to use an AWS CloudHSM key store, where keys are generated, stored and
+used in an AWS CloudHSM cluster that you own and manage. Requests to AWS KMS are forwarded to
+your AWS CloudHSM cluster. Although AWS CloudHSM clusters are hosted within AWS, they provide
+single-tenant HSM instances that are owned and managed by you. Because the AWS CloudHSM cluster is
+managed by you outside AWS KMS, the AWS CloudHSM key store provides low TPS with availability,
+durability, and performance consistency dependent on your AWS CloudHSM cluster.
+
+If you must use a custom key store, AWS CloudHSM key stores are preferred over external key
+stores: the connection between AWS KMS and your HSMs stays inside the AWS network, so AWS
+owns its availability and consistency rather than that path running outside AWS through
+your XKS proxy. Either way, you still control the functions that isolate your key material
+and can lock out access to your keys.
+
+#### Operations
+
+AWS CloudHSM key stores provide low TPS and higher latency than standard keys, with availability
+dependent on your cluster configuration and no SLA coverage. They are suitable only for
+low [transactions per second (TPS)](requests-per-second.md "requests-per-second.md") workloads
+such as Amazon Elastic Block Store volume encryption or Amazon RDS database encryption, and must not be used
+for high TPS scenarios including data analytics services, high-volume Amazon Simple Storage Service operations,
+or DynamoDB workloads.
+
+#### Responsibility model
+
+In addition to the standard key
+store responsibilities described previously, you assume responsibility for the availability
+and durability of cryptographic keys and the scalability of operations in your AWS CloudHSM
+cluster. By design, AWS CloudHSM has limited visibility into the configuration and logs of
+customer-owned clusters. This restricts the ability of AWS to resolve key access
+issues on your behalf.
 
 ### External key store
 
-You can configure AWS KMS to use an External Key Store (XKS), where root user keys are
-generated, stored and used in a key management system outside the AWS Cloud. Requests to
-AWS KMS to use a key for some cryptographic operation are forwarded to your externally hosted
-system to perform the operation. Specifically, requests are forwarded to an XKS Proxy in
-your network, which then forwards the request to whichever cryptographic system you use. The
-XKS Proxy is an open-source specification that anyone can integrate with. Many commercial
-key management vendors support the XKS Proxy specification. Because an External Key Store is
-hosted by you or some third party, you own all of the availability, durability, and
-performance of the keys in the system. To see if an External Key Store is a good fit for
-your requirements, read [Announcing
-AWS KMS External Key Store (XKS)](https://aws.amazon.com/blogs/aws/announcing-aws-kms-external-key-store-xks/ "https://aws.amazon.com/blogs/aws/announcing-aws-kms-external-key-store-xks/") on the AWS News blog.
+You can configure AWS KMS to use an external key store (XKS), where key material is
+generated, stored and used in a key management system outside AWS. Requests to AWS KMS are
+forwarded to your externally hosted system through an XKS proxy in your network. The XKS
+proxy API specification is open, and many commercial key management vendors support it.
+Because the XKS proxy is hosted by you or a third party outside AWS, external key stores
+provide the lowest TPS and highest latency of all key store options, with availability,
+durability, and performance consistency dependent on your external infrastructure.
+
+External key stores are not recommended. Consider an external key store only when you have an
+explicit and unchangeable requirement to keep key material outside AWS.
+
+#### Operations
+
+External key stores provide the lowest TPS and highest latency of all key store options, with
+availability, durability, and performance consistency dependent on your external
+infrastructure and no SLA coverage. They are suitable only for low [transactions per second (TPS)](requests-per-second.md "requests-per-second.md") workloads such as
+Amazon Elastic Block Store volume encryption or Amazon RDS database encryption, and must not be used for high
+TPS scenarios including data analytics services, high-volume Amazon Simple Storage Service operations, or
+DynamoDB workloads.
+
+#### Responsibility model
+
+In addition to the standard key
+store responsibilities described previously, you assume responsibility for the availability
+and durability of cryptographic keys and the scalability of the external key manager
+including the XKS proxy and the HSMs. Because the communication path between AWS and your
+XKS proxy runs outside the AWS network, AWS has limited visibility into networking
+issues on that path and has no ability to troubleshoot them on your behalf.
