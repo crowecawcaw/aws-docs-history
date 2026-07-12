@@ -13,7 +13,7 @@ These steps only apply to Windows devices.
 1. Choose the **Audio menu** icon, located next to the microphone icon
    (
 
-![Icon of a microphone and caret symbol.](/images/chime/latest/ug/images/icon-mic-caret.png)
+![Icon of a microphone and caret symbol.](images/icon-mic-caret.png)
 
 ). 2. Under **Device Assistance**, choose the desired troubleshooter. 3. Follow the steps in the troubleshooter.
 
