@@ -1,6 +1,6 @@
-# Migrate from non-MSK Apache Kafka clusters to Amazon MSK Express brokers
+# Migrate from non-MSK Apache Kafka clusters to Amazon MSK Provisioned
 
-You can use MSK Replicator to migrate Apache Kafka workloads from self-managed environments to Amazon MSK Provisioned clusters with Express brokers. MSK Replicator supports data migration from Kafka deployments (Kafka version 2.8.1 or later) that have SASL/SCRAM or mutual TLS (mTLS) authentication enabled.
+You can use MSK Replicator to migrate Apache Kafka workloads from self-managed environments to Amazon MSK Provisioned clusters. MSK Replicator supports data migration from Kafka deployments (Kafka version 2.8.1 or later) that have SASL/SCRAM or mutual TLS (mTLS) authentication enabled.
 
 ###### Note
 
@@ -17,9 +17,9 @@ Before you begin, ensure you have the following:
 5. VPC subnets configured for Secrets Manager access
    For detailed instructions, see [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](msk-replicator-external-prereqs.md "msk-replicator-external-prereqs.md").
 
-###### Step 1: Create an Amazon MSK Express cluster
+###### Step 1: Create an Amazon MSK Provisioned cluster
 
-Create an MSK Provisioned cluster with Express brokers with IAM authentication enabled. Minimum three brokers across three AZs. See [Prepare the target cluster](msk-replicator-prepare-clusters.md#msk-replicator-prepare-target "msk-replicator-prepare-clusters.md#msk-replicator-prepare-target").
+Create an MSK Provisioned cluster with IAM authentication enabled. Minimum three brokers across three AZs. See [Prepare the target cluster](msk-replicator-prepare-clusters.md#msk-replicator-prepare-target "msk-replicator-prepare-clusters.md#msk-replicator-prepare-target").
 
 ###### Step 2: Create an IAM execution role
 
@@ -39,7 +39,7 @@ Use `CreateReplicator` API with `EARLIEST` starting position, Identical topic na
 
 ###### Step 6: (Optional) Set up bidirectional replication
 
-Create a reverse Replicator from the MSK Express cluster back to the self-managed cluster for rollback capabilities. See [CreateReplicator API examples for self-managed Kafka clusters](msk-replicator-external-api-examples.md "msk-replicator-external-api-examples.md").
+Create a reverse Replicator from the MSK Provisioned cluster back to the self-managed cluster for rollback capabilities. See [CreateReplicator API examples for self-managed Kafka clusters](msk-replicator-external-api-examples.md "msk-replicator-external-api-examples.md").
 
 ###### Step 7: Monitor replication progress
 
@@ -57,11 +57,11 @@ Monitor the following metrics:
 Follow these steps to migrate your applications:
 
 1. Stop producers writing to self-managed cluster
-2. Reconfigure producers to MSK Express cluster with IAM authentication
+2. Reconfigure producers to MSK Provisioned cluster with IAM authentication
 3. Monitor `MessageLag` until it reaches 0
 4. Stop consumers on self-managed cluster
-5. Reconfigure consumers to MSK Express cluster
+5. Reconfigure consumers to MSK Provisioned cluster
 
 ###### Step 9: (Optional) Roll back to self-managed cluster
 
-If bidirectional replication was configured, you can reverse the migration steps to roll back to the self-managed cluster. The reverse Replicator (MSK Express → External) will have been keeping the self-managed cluster in sync, so consumers can be redirected back without data loss.
+If bidirectional replication was configured, you can reverse the migration steps to roll back to the self-managed cluster. The reverse Replicator (MSK Provisioned → External) will have been keeping the self-managed cluster in sync, so consumers can be redirected back without data loss.

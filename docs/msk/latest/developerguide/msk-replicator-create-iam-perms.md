@@ -2,7 +2,7 @@
 
 The IAM principal (user or role) that calls `CreateReplicator` needs the permissions described in this section. Attach this policy to the IAM identity that corresponds to your client. For general guidance on creating authorization policies, see [Create authorization policies](iam-access-control.md#create-iam-access-control-policies "iam-access-control.md#create-iam-access-control-policies").
 
-Start with the **base policy** below. If you also configure log delivery, append the snippet for each destination you use (see [Additional permissions for log delivery](msk-replicator-create-iam-perms-logs.md "msk-replicator-create-iam-perms-logs.md")). For self-managed Apache Kafka migration scenarios, see additional service execution role guidance in [Migrate from non-MSK Apache Kafka clusters to Amazon MSK Express brokers](msk-replicator-migrate-external.md "msk-replicator-migrate-external.md").
+Start with the **base policy** below. If you also configure log delivery, append the snippet for each destination you use (see [Additional permissions for log delivery](msk-replicator-create-iam-perms-logs.md "msk-replicator-create-iam-perms-logs.md")). For self-managed Apache Kafka migration scenarios, see additional service execution role guidance in [Migrate from non-MSK Apache Kafka clusters to Amazon MSK Provisioned](msk-replicator-migrate-external.md "msk-replicator-migrate-external.md").
 
 ## Base IAM policy
 

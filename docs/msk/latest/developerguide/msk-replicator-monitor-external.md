@@ -1,6 +1,6 @@
 # Monitor replication from self-managed Kafka clusters
 
-After you create an MSK Replicator to replicate data from an self-managed Apache Kafka cluster to Amazon MSK Express brokers, monitor the following Amazon CloudWatch metrics to track replication progress and determine when your applications are ready to migrate.
+After you create an MSK Replicator to replicate data from a self-managed Apache Kafka cluster to an Amazon MSK Provisioned cluster, monitor the following Amazon CloudWatch metrics to track replication progress and determine when your applications are ready to migrate.
 
 ###### Monitor Replicator creation status
 

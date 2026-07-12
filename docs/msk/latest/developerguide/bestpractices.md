@@ -55,7 +55,13 @@ prevented from performing the following operations:
   authentication
 
 A high number of partitions can also result in missing Kafka metrics on CloudWatch and
-on Prometheus scraping.
+on Prometheus scraping. This effect is compounded by a high number of consumer
+groups because each combination of consumer group, topic, and partition results in a
+tracked offset entry. Empty consumer groups (groups with no active consumers) also contribute to
+this overhead. Apache Kafka retains the offsets for these groups until the retention
+period defined by `offsets.retention.minutes` expires, or until you
+explicitly delete the group. To mitigate this, monitor your total consumer group count and delete unused
+consumer groups.
 
 For guidance on choosing the number of partitions, see [Apache Kafka Supports 200K Partitions Per Cluster](https://blogs.apache.org/kafka/entry/apache-kafka-supports-more-partitions "https://blogs.apache.org/kafka/entry/apache-kafka-supports-more-partitions"). We also recommend
 that you perform your own testing to determine the right size for your brokers. For

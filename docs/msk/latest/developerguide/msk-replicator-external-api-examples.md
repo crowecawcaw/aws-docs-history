@@ -1,15 +1,15 @@
 # CreateReplicator API examples for self-managed Kafka clusters
 
-## Forward replication (Self-managed Kafka to MSK Express)
+## Forward replication (Self-managed Kafka to MSK Provisioned)
 
-Use the following AWS CLI command to create a Replicator that replicates data from your self-managed Kafka cluster to an Amazon MSK Express cluster.
+Use the following AWS CLI command to create a Replicator that replicates data from your self-managed Kafka cluster to an Amazon MSK Provisioned cluster.
 
 **Using SASL/SCRAM authentication:**
 
 ```
 aws kafka create-replicator \
   --replicator-name my-selfmanaged-to-msk-replicator \
-  --description "Replicating from self-managed Kafka to MSK Express" \
+  --description "Replicating from self-managed Kafka to MSK Provisioned" \
   --service-execution-role-arn arn:aws:iam::123456789012:role/MSKReplicatorRole \
   --kafka-clusters '[
     {
@@ -34,7 +34,7 @@ aws kafka create-replicator \
     },
     {
       "amazonMskCluster": {
-        "mskClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-express/xxx"
+        "mskClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-provisioned/xxx"
       },
       "vpcConfig": {
         "subnetIds": ["subnet-ddd","subnet-eee","subnet-fff"],
@@ -43,7 +43,7 @@ aws kafka create-replicator \
     }]' \
   --replication-info-list '[{
     "sourceKafkaClusterId": "<self-managed-cluster-id>",
-    "targetKafkaClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-express/xxx",
+    "targetKafkaClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-provisioned/xxx",
     "targetCompressionType": "NONE",
     "topicReplication": {
       "topicsToReplicate": [".*"],
@@ -65,7 +65,7 @@ aws kafka create-replicator \
 ```
 aws kafka create-replicator \
   --replicator-name my-selfmanaged-to-msk-replicator \
-  --description "Replicating from self-managed Kafka to MSK Express" \
+  --description "Replicating from self-managed Kafka to MSK Provisioned" \
   --service-execution-role-arn arn:aws:iam::123456789012:role/MSKReplicatorRole \
   --kafka-clusters '[
     {
@@ -89,7 +89,7 @@ aws kafka create-replicator \
     },
     {
       "amazonMskCluster": {
-        "mskClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-express/xxx"
+        "mskClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-provisioned/xxx"
       },
       "vpcConfig": {
         "subnetIds": ["subnet-ddd","subnet-eee","subnet-fff"],
@@ -98,7 +98,7 @@ aws kafka create-replicator \
     }]' \
   --replication-info-list '[{
     "sourceKafkaClusterId": "<self-managed-cluster-id>",
-    "targetKafkaClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-express/xxx",
+    "targetKafkaClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-provisioned/xxx",
     "targetCompressionType": "NONE",
     "topicReplication": {
       "topicsToReplicate": [".*"],
@@ -121,12 +121,12 @@ To set up bidirectional replication for rollback capability, both the forward an
 
 **Using SASL/SCRAM authentication:**
 
-Create the forward Replicator (self-managed Kafka to MSK Express) with `ENHANCED` offset sync mode:
+Create the forward Replicator (self-managed Kafka to MSK Provisioned) with `ENHANCED` offset sync mode:
 
 ```
 aws kafka create-replicator \
   --replicator-name my-selfmanaged-to-msk-replicator \
-  --description "Replicating from self-managed Kafka to MSK Express" \
+  --description "Replicating from self-managed Kafka to MSK Provisioned" \
   --service-execution-role-arn arn:aws:iam::123456789012:role/MSKReplicatorRole \
   --kafka-clusters '[
     {
@@ -151,7 +151,7 @@ aws kafka create-replicator \
     },
     {
       "amazonMskCluster": {
-        "mskClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-express/xxx"
+        "mskClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-provisioned/xxx"
       },
       "vpcConfig": {
         "subnetIds": ["subnet-ddd","subnet-eee","subnet-fff"],
@@ -160,7 +160,7 @@ aws kafka create-replicator \
     }]' \
   --replication-info-list '[{
     "sourceKafkaClusterId": "<self-managed-cluster-id>",
-    "targetKafkaClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-express/xxx",
+    "targetKafkaClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-provisioned/xxx",
     "targetCompressionType": "NONE",
     "topicReplication": {
       "topicsToReplicate": [".*"],
@@ -178,7 +178,7 @@ aws kafka create-replicator \
     }}]'
 ```
 
-Then create the reverse Replicator (MSK Express to self-managed Kafka) also with `ENHANCED` offset sync mode:
+Then create the reverse Replicator (MSK Provisioned to self-managed Kafka) also with `ENHANCED` offset sync mode:
 
 ```
 aws kafka create-replicator \
@@ -188,7 +188,7 @@ aws kafka create-replicator \
   --kafka-clusters '[
     {
       "amazonMskCluster": {
-        "mskClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-express/xxx"
+        "mskClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-provisioned/xxx"
       },
       "vpcConfig": {
         "subnetIds": ["subnet-ddd","subnet-eee","subnet-fff"],
@@ -216,7 +216,7 @@ aws kafka create-replicator \
       }
     }]' \
   --replication-info-list '[{
-    "sourceKafkaClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-express/xxx",
+    "sourceKafkaClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-provisioned/xxx",
     "targetKafkaClusterId": "<self-managed-cluster-id>",
     "targetCompressionType": "NONE",
     "topicReplication": {
@@ -237,12 +237,12 @@ aws kafka create-replicator \
 
 **Using mTLS authentication:**
 
-Create the forward Replicator (self-managed Kafka to MSK Express) with `ENHANCED` offset sync mode:
+Create the forward Replicator (self-managed Kafka to MSK Provisioned) with `ENHANCED` offset sync mode:
 
 ```
 aws kafka create-replicator \
   --replicator-name my-selfmanaged-to-msk-replicator \
-  --description "Replicating from self-managed Kafka to MSK Express" \
+  --description "Replicating from self-managed Kafka to MSK Provisioned" \
   --service-execution-role-arn arn:aws:iam::123456789012:role/MSKReplicatorRole \
   --kafka-clusters '[
     {
@@ -266,7 +266,7 @@ aws kafka create-replicator \
     },
     {
       "amazonMskCluster": {
-        "mskClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-express/xxx"
+        "mskClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-provisioned/xxx"
       },
       "vpcConfig": {
         "subnetIds": ["subnet-ddd","subnet-eee","subnet-fff"],
@@ -275,7 +275,7 @@ aws kafka create-replicator \
     }]' \
   --replication-info-list '[{
     "sourceKafkaClusterId": "<self-managed-cluster-id>",
-    "targetKafkaClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-express/xxx",
+    "targetKafkaClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-provisioned/xxx",
     "targetCompressionType": "NONE",
     "topicReplication": {
       "topicsToReplicate": [".*"],
@@ -293,7 +293,7 @@ aws kafka create-replicator \
     }}]'
 ```
 
-Then create the reverse Replicator (MSK Express to self-managed Kafka) also with `ENHANCED` offset sync mode:
+Then create the reverse Replicator (MSK Provisioned to self-managed Kafka) also with `ENHANCED` offset sync mode:
 
 ```
 aws kafka create-replicator \
@@ -303,7 +303,7 @@ aws kafka create-replicator \
   --kafka-clusters '[
     {
       "amazonMskCluster": {
-        "mskClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-express/xxx"
+        "mskClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-provisioned/xxx"
       },
       "vpcConfig": {
         "subnetIds": ["subnet-ddd","subnet-eee","subnet-fff"],
@@ -330,7 +330,7 @@ aws kafka create-replicator \
       }
     }]' \
   --replication-info-list '[{
-    "sourceKafkaClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-express/xxx",
+    "sourceKafkaClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/msk-provisioned/xxx",
     "targetKafkaClusterId": "<self-managed-cluster-id>",
     "targetCompressionType": "NONE",
     "topicReplication": {

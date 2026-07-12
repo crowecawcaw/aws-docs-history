@@ -4,7 +4,7 @@ Use the `create-replicator` command to create an MSK Replicator. Before you begi
 
 ###### Note
 
-The examples below show replication between two MSK clusters. MSK Replicator also supports replication between self-managed Apache Kafka clusters and MSK Provisioned clusters with Express brokers. For API examples covering that scenario, see [CreateReplicator API examples for self-managed Kafka clusters](msk-replicator-external-api-examples.md "msk-replicator-external-api-examples.md").
+The examples below show replication between two MSK clusters. MSK Replicator also supports replication between self-managed Apache Kafka clusters and MSK Provisioned clusters. For API examples covering that scenario, see [CreateReplicator API examples for self-managed Kafka clusters](msk-replicator-external-api-examples.md "msk-replicator-external-api-examples.md").
 
 ```
 aws kafka create-replicator \
