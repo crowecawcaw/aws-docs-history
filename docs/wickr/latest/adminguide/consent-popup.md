@@ -21,14 +21,14 @@ To enable the consent pop-up, complete the following procedure.
    popup** section, toggle on **Enabled**.
 6. Complete the following fields:
 
-   - **Header** — Enter the title displayed at the
+   - **Header** – Enter the title displayed at the
      top of the consent pop-up. Use the header to provide a summary of the
      information or action being presented to the users.
-   - **Body content** — Enter the main message
+   - **Body content** – Enter the main message
      displayed in the consent pop-up. Use the body content to communicate
      terms, policies, organizational requirements, or other information that
      users must review before accessing the application.
-   - **Close button label (Optional)** — Enter the
+   - **Close button label (Optional)** – Enter the
      text displayed on the button that users select to acknowledge and
      dismiss the consent pop-up. For example, you can use
      **Acknowledge**, **Accept**, or

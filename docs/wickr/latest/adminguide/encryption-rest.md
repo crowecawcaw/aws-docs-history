@@ -20,12 +20,12 @@ rotate the key, and revoke access.
 ### How the Data Retention Service uses a customer managed KMS key
 
 When the Data Retention Service is deployed, a symmetric customer managed KMS key
-(RetentionKey) is created in the customer's AWS account. This key is used to
+(RetentionKey) is created in your AWS account. This key is used to
 encrypt the following resources:
 
 - **Retained messages** — All Wickr
   messages (text, reactions, and others) captured by the data retention bot
-  are encrypted with the CMK before being stored in the customer's S3 bucket.
+  are encrypted with the CMK before being stored in your S3 bucket.
   Messages are encrypted inside a Nitro Enclave using the AWS Encryption
   SDK, then uploaded to Amazon S3 with SSE-KMS using the same CMK.
 - **Retained file attachments** — File
@@ -66,7 +66,7 @@ only occur inside the verified enclave. This prevents any
 operator—including Wickr—from decrypting customer data outside the
 enclave.
 
-Messages are processed within AWS Nitro Enclaves, which use your KMS key to
+AWS Nitro Enclaves process messages using your KMS key to
 decrypt the data retention module's private keys, decrypt the Wickr-encrypted
 message content, and re-encrypt it with a unique data key per message before storing
 it in your S3 bucket.
@@ -175,7 +175,7 @@ Purpose of each statement:
 
 EnableIAMPolicies
 
-Allows the customer's account root to manage the key. This is the
+Allows your account root to manage the key. This is the
 standard key administrator statement.
 
 EnclaveGenerateDataKey
@@ -183,7 +183,7 @@ EnclaveGenerateDataKey
 `kms:GenerateDataKey` — Invoked by the Nitro
 Enclave to to generate data encryption keys for encrypting message
 content and account state before storing in S3. Only permitted when
-a valid Nitro Enclave attestation document is provided (PCR0/1/2
+the enclave provides a valid Nitro Enclave attestation document (PCR0/1/2
 conditions) and an encryption context key of aws:wickr:network:id or
 aws:wickr:app:id is present.
 
@@ -197,18 +197,18 @@ EnclaveDecryptWithAttestation
 
 `kms:Decrypt` — Invoked by the Nitro Enclave to
 decrypt account state (private keys) needed for Wickr message
-decryption. This is only permitted when a valid Nitro Enclave
-attestation document is provided (PCR0/1/2 conditions), and the
+decryption. This is only permitted when the enclave provides a valid Nitro Enclave
+attestation document (PCR0/1/2 conditions), and the
 encryption context key aws:wickr:app:id is present, ensuring
 decryption cannot occur outside the enclave.
 
 DRSDecryptionLambda
 
 `kms:Decrypt` — Invoked by the on-demand
-decryption Lambda to decrypt retained messages when the customer
-triggers the decryption state machine. This role is not accessible
-by the Wickr service and exists solely for the customer to decrypt
-their own messages from the encrypted S3 bucket.
+decryption Lambda to decrypt retained messages when you
+trigger the decryption state machine. This role is not accessible
+by the Wickr service and exists solely for you to decrypt
+your own messages from the encrypted S3 bucket.
 
 If migration is required from previous data retention installation, you must
 provide your Docker-bot module password to the service before serverless data
@@ -338,7 +338,7 @@ Key events to monitor:
   password recovery key when the enclave performs ECDH key agreement during the
   password recovery flow.
 - **GetPublicKey** — Occurs on the password
-  recovery key when the customer's `collect.py` script retrieves the
+  recovery key when your `collect.py` script retrieves the
   public key for local ECDH encryption.
 
 Additionally, the Service Catalog product creates a CloudWatch dashboard

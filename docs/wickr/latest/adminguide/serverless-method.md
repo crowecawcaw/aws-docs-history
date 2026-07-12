@@ -6,9 +6,8 @@ Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-clas
 
 AWS Wickr data retention can retain all conversations in your network, including direct
 message conversations and conversations in Groups or Rooms between in-network (internal)
-members and those with other teams (external) with whom your network is federated. Data
-retention is only available to AWS Wickr Premium plan users and AWS Wickr Enterprise
-customers who opt in for data retention.
+members and those with other teams (external) with whom your network is federated.
+Serverless data retention is available only if you have an AWS Wickr Premium plan and opt in. It is not available for AWS Wickr Enterprise.
 
 ###### Note
 
@@ -44,7 +43,7 @@ reasonable tradeoffs related to Wickr's end-to-end encryption (E2EE) model.
 When you enable the serverless data retention service, all messages and files shared in
 your network are retained in accordance with your organization's compliance policies. The
 service uses AWS Nitro Enclaves to Wickr decrypt message content and then uses Customer
-Managed KMS keys to reencrypt content for transit to the customer S3 bucket. Customers can
+Managed KMS keys to reencrypt content for transit to your S3 bucket. You can
 then decrypt messages on demand to access encrypted content.
 
 ###### Note
@@ -66,7 +65,6 @@ Before enabling serverless data retention, ensure you have the following:
 
 ###### Topics
 
-- [Data retention methods](data-retention-methods.md "data-retention-methods.md")
 - [Configure serverless method](configure-serverless-method.md "configure-serverless-method.md")
 - [Architecture Overview](architecture.md "architecture.md")
 - [Access retained data](retained-data.md "retained-data.md")

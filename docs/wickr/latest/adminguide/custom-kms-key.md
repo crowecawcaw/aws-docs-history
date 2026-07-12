@@ -151,8 +151,8 @@ Purpose of each statement:
 
 - kms:DeriveSharedSecret — Invoked by the Nitro Enclave to perform ECDH key
   agreement using the password recovery key's private key. This derives a shared
-  secret that is used to decrypt the customer's password during the migration
-  workflow. Only permitted when a valid Nitro Enclave attestation document is provided
+  secret that is used to decrypt your password during the migration
+  workflow. Only permitted when the enclave provides a valid Nitro Enclave attestation document
   (PCR0/1/2 conditions), ensuring the key agreement cannot occur outside the
   enclave.
 

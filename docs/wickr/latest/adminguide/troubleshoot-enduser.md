@@ -225,9 +225,10 @@ under Security Group settings. Requirements can include:
 - Required count of numbers
 - Required count of special characters
 
-Starting with client version 6.70, password complexity requirements are
-displayed inline during account creation and password changes on Android
-and iOS.
+You manage password complexity settings in the AWS Management Console for Wickr. By default,
+Wickr requires a minimum 8-character password with no additional character type
+requirements. If users experience issues, share your network's specific settings
+with them.
 
 ## Account suspension
 
