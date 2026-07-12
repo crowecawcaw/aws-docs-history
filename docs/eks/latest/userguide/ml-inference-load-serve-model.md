@@ -55,6 +55,8 @@ In this step, you deploy a Kubernetes Job that downloads the model from Hugging 
 
 To download the model, apply the following Job manifest:
 
+###### Example Model download Job manifest
+
 ```
 cat << EOF | kubectl apply -f -
 apiVersion: batch/v1
@@ -164,6 +166,8 @@ The image tag indicates vLLM 0.21.0 with GPU support, Python 3.12, CUDA 13.0, Ub
 This manifest creates a Deployment that runs vLLM on a GPU node and streams the model directly from S3 into GPU memory using Run:ai Model Streamer. The manifest also creates a ClusterIP Service that exposes the vLLM endpoint on port 8000 for in-cluster access.
 
 Apply the manifest:
+
+###### Example vLLM Deployment and Service YAML
 
 ```
 cat << EOF | kubectl apply -f -
@@ -419,6 +423,8 @@ The dashboard displays request rate, prompt and generation token throughput, lat
 In this step, you deploy Open WebUI as a chat frontend to interact with the model. Open WebUI is an open source, self-hosted AI interface that supports OpenAI-compatible APIs and provides a chat interface with conversation history and markdown rendering. Because vLLM exposes an OpenAI-compatible API, Open WebUI connects to it directly as a backend.
 
 To deploy the Open WebUI application, apply the following manifest:
+
+###### Example Open WebUI Deployment and Service YAML
 
 ```
 cat << 'EOF' | kubectl apply -f -

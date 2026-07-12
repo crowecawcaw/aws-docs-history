@@ -402,7 +402,7 @@ Before you upgrade a control plane to a new Kubernetes version, the minor versio
 
 If you launch many nodes simultaneously, you may see an error message in the [Amazon EC2 user data](../../../AWSEC2/latest/UserGuide/user-data.md#user-data-shell-scripts "../../../AWSEC2/latest/UserGuide/user-data.md#user-data-shell-scripts") execution logs that says `Too Many Requests`. This can occur because the control plane is being overloaded with `describeCluster` calls. The overloading results in throttling, nodes failing to run the bootstrap script, and nodes failing to join the cluster altogether.
 
-Make sure that `--apiserver-endpoint`, `--b64-cluster-ca`, and `--dns-cluster-ip` arguments are being passed to the node’s bootstrap script. When including these arguments, there’s no need for the bootstrap script to make a `describeCluster` call, which helps prevent the control plane from being overloaded. For more information, see [Provide user data to pass arguments to the bootstrap.sh file included with an Amazon EKS optimized Linux/Bottlerocket AMI](launch-templates.md#mng-specify-eks-ami "launch-templates.md#mng-specify-eks-ami").
+Make sure that `--apiserver-endpoint`, `--b64-cluster-ca`, and `--dns-cluster-ip` arguments are being passed to the node’s bootstrap script. When including these arguments, there’s no need for the bootstrap script to make a `describeCluster` call, which helps prevent the control plane from being overloaded. For more information, see [Specifying an AMI](launch-templates.md#launch-template-custom-ami "launch-templates.md#launch-template-custom-ami").
 
 ## HTTP 401 unauthorized error response on Kubernetes API server requests
 

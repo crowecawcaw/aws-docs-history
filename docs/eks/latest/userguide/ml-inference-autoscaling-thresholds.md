@@ -107,6 +107,8 @@ These are one-time costs, so measuring thresholds before warm-up records startup
 
 First, create the ConfigMap that holds the warm-up script (`warmup.js`). The script reads the target model from the `MODEL` environment variable, which the Job sets from the `MODEL_BUCKET` value you captured earlier:
 
+###### Example k6 warm-up ConfigMap
+
 ```
 cat << 'EOF' | kubectl apply -f -
 apiVersion: v1
@@ -132,6 +134,8 @@ EOF
 ```
 
 Then run the warm-up Job. A single client sends 100 sequential requests:
+
+###### Example Warm-up Job
 
 ```
 cat << EOF | kubectl apply -f -
@@ -188,6 +192,8 @@ The goal of this test is to identify the saturation point, which is the request 
 
 First, create the ConfigMap that holds the k6 load-test script (`script.js`). The script reads the target model from the `MODEL` environment variable, which each pod sets from the `MODEL_BUCKET` value you captured earlier:
 
+###### Example k6 load test ConfigMap
+
 ```
 cat << 'EOF' | kubectl apply -f -
 apiVersion: v1
@@ -235,6 +241,8 @@ EOF
 ```
 
 Then run the load test at each request rate. The following loop submits a separate Job for each rate:
+
+###### Example Load test loop
 
 ```
 for RPS in 10 20 30 40 50 60 70; do

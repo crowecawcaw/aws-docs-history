@@ -137,6 +137,8 @@ Store your Karpenter version in an environment variable for later use. For the l
 export KARPENTER_VERSION=1.12.0
 ```
 
+###### Example Cluster config YAML
+
 ```
 cat << EOF > /tmp/cluster-karpenter.yaml
 apiVersion: eksctl.io/v1alpha5
@@ -339,6 +341,8 @@ Self-managed Karpenter does not include a default NodeClass. You first create an
 
 **Create the EC2NodeClass**
 
+###### Example EC2NodeClass YAML
+
 ```
 cat << EOF | kubectl apply -f -
 apiVersion: karpenter.k8s.aws/v1
@@ -384,6 +388,8 @@ kubectl get ec2nodeclass gpu-inf
 Expected output: `READY True`. If `False`, run `kubectl describe ec2nodeclass gpu-inf` and check conditions for missing subnet or security group tags.
 
 **Create the GPU NodePool**
+
+###### Example NodePool YAML
 
 ```
 cat << EOF | kubectl apply -f -
@@ -605,6 +611,8 @@ Then apply the NodeClass and NodePool changes for your path:
 EKS Auto Mode
 In EKS Auto Mode, the bundled `default` NodeClass is read-only, so create a custom NodeClass that references the reservation, then update the NodePool to point at the NodeClass and add `reserved` capacity to the `capacity-type` list.
 
+###### Example Custom NodeClass YAML
+
 ```
 NODE_ROLE=$(kubectl get nodeclass default -o jsonpath='{.spec.role}')
 
@@ -632,6 +640,8 @@ EOF
 The `kubernetes.io/role/internal-elb: "1"` tag ensures nodes launch in private subnets only.
 
 Update the NodePool to use the ODCR-backed NodeClass and include `reserved` as a capacity type:
+
+###### Example Updated NodePool YAML
 
 ```
 cat << EOF | kubectl apply -f -
@@ -674,6 +684,8 @@ EOF
 Self-managed Karpenter
 For self-managed Karpenter, re-apply the `EC2NodeClass` you created in Step 2 with `capacityReservationSelectorTerms` added. The field name and shape match the EKS Auto Mode `NodeClass` shown in the other tab.
 
+###### Example Updated EC2NodeClass YAML
+
 ```
 cat << EOF | kubectl apply -f -
 apiVersion: karpenter.k8s.aws/v1
@@ -709,6 +721,8 @@ EOF
 The only change from Step 2 is the new `capacityReservationSelectorTerms` field. All other fields remain the same.
 
 Update the NodePool to include `reserved` as a capacity type:
+
+###### Example Updated NodePool YAML
 
 ```
 cat << EOF | kubectl apply -f -
@@ -937,6 +951,8 @@ helm repo update
 This values file omits a nodeSelector for Prometheus, Grafana, and the operator: the GPU nodes' `nvidia.com/gpu:NoSchedule` taint keeps them off GPU nodes, so they land on the system or general-purpose pool by default. Node-exporter uses a wildcard toleration so it runs on every node — including GPU nodes — to collect metrics fleet-wide.
 
 Create the values file:
+
+###### Example kube-prometheus-stack values file
 
 ```
 cat << EOF > /tmp/kube-prometheus-values.yaml
@@ -1172,6 +1188,8 @@ GPU_NODE_SELECTOR_KEY="karpenter.k8s.aws/instance-gpu-manufacturer"
 ```
 
 Create the DCGM exporter values file:
+
+###### Example dcgm-exporter values file
 
 ```
 cat << EOF > /tmp/dcgm-exporter-values.yaml

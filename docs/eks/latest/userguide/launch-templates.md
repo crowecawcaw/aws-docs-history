@@ -228,6 +228,8 @@ Write-Host "Running custom user data script"
 
 If you have either of the following requirements, then specify an AMI ID in the `ImageId` field of your launch template. Select the requirement you have for additional information.
 
+###### Example Provide user data to pass arguments to the `bootstrap.sh` file included with an Amazon EKS optimized Linux/Bottlerocket AMI
+
 Bootstrapping is a term used to describe adding commands that can be run when an instance starts. For example, bootstrapping allows using extra [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/ "https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/") arguments. You can pass arguments to the `bootstrap.sh` script by using `eksctl` without specifying a launch template. Or you can do so by specifying the information in the user data section of a launch template.
 
 **eksctl without specifying a launch template**
@@ -340,6 +342,8 @@ set -ex
 --==MYBOUNDARY==--
 ```
 
+###### Example Provide user data to pass arguments to the `Start-EKSBootstrap.ps1` file included with an Amazon EKS optimized Windows AMI
+
 Bootstrapping is a term used to describe adding commands that can be run when an instance starts. You can pass arguments to the `Start-EKSBootstrap.ps1` script by using `eksctl` without specifying a launch template. Or you can do so by specifying the information in the user data section of a launch template.
 
 If you want to specify a custom Windows AMI ID, keep in mind the following considerations:
@@ -382,6 +386,8 @@ If you’re using custom service CIDR, then you need to specify it using the `-S
 	 -DNSClusterIP service-cidr.10
 </powershell>
 ```
+
+###### Example Run a custom AMI due to specific security, compliance, or internal policy requirements
 
 For more information, see [Amazon Machine Images (AMI)](../../../AWSEC2/latest/UserGuide/AMIs.md "../../../AWSEC2/latest/UserGuide/AMIs.md") in the _Amazon EC2 User Guide_. The Amazon EKS AMI build specification contains resources and configuration scripts for building a custom Amazon EKS AMI based on Amazon Linux. For more information, see [Amazon EKS AMI Build Specification](https://github.com/awslabs/amazon-eks-ami/ "https://github.com/awslabs/amazon-eks-ami/") on GitHub. To build custom AMIs installed with other operating systems, see [Amazon EKS Sample Custom AMIs](https://github.com/aws-samples/amazon-eks-custom-amis "https://github.com/aws-samples/amazon-eks-custom-amis") on GitHub.
 

@@ -16,10 +16,9 @@ For more detailed information about how EKS zonal shift works, and how to design
 
 ## Considerations
 
-- EKS Auto Mode does not support Amazon Application Recovery Controller, zonal shift, and zonal autoshift.
 - We recommend waiting at least 60 seconds between zonal shift operations to ensure proper processing of each request.
 
-When attempting to perform zonal shifts in quick succession (within 60 seconds of each other), the Amazon EKS service may not properly process all shift requests. This is due to the current polling mechanism that updates the cluster’s zonal state. If you need to perform multiple zonal shifts, ensure there is adequate time between operations for the system to process each change.
+When attempting to perform zonal shifts in quick succession (within 60 seconds of each other), the Amazon EKS service might not properly process all shift requests. This is because of the current polling mechanism that updates the cluster’s zonal state. If you need to perform multiple zonal shifts, ensure there is adequate time between operations for the system to process each change.
 
 ## What is Amazon Application Recovery Controller?
 
@@ -29,7 +28,7 @@ Amazon Application Recovery Controller (ARC) helps you prepare for and accomplis
 
 ## What is zonal shift?
 
-Zonal shift is a capability in ARC that allows you to move traffic for a resource like an EKS cluster or an Elastic Load Balancer away from an Availability Zone in an AWS Region to quickly mitigate an issue and quickly recover your application. You might choose to shift traffic, for example, because a bad deployment is causing latency issues, or because the Availability Zone is impaired. A zonal shift requires no advance configuration steps.
+Zonal shift is a capability in ARC that allows you to move traffic for a resource like an EKS cluster or an Elastic Load Balancer away from an Availability Zone in an AWS Region to quickly mitigate an issue and quickly recover your application. You might choose to shift traffic, for example, because a bad deployment is causing latency issues, or because the Availability Zone is impaired. Zonal shift requires no advance configuration steps. However, your workloads must meet certain requirements to be zonally resilient before you start a shift. For more information, see [Learn about Amazon Application Recovery Controller (ARC) zonal shift in Amazon EKS](zone-shift.md "zone-shift.md").
 
 [Learn more about ARC zonal shift](../../../r53recovery/latest/dg/arc-zonal-shift.how-it-works.md "../../../r53recovery/latest/dg/arc-zonal-shift.how-it-works.md")
 
@@ -41,9 +40,15 @@ AWS ends autoshifts when indicators show that there is no longer an issue or pot
 
 [Learn more about ARC zonal autoshift](../../../r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.md "../../../r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.md")
 
-## What does EKS do during an autoshift?
+## What does EKS do during a zonal shift?
 
-EKS updates networking configurations to avoid directing traffic to impaired AZs. Additionally, if you are using Managed Node Groups, EKS will only launch new nodes in the healthy AZs during a zonal shift. When the shift expires or gets cancelled, the networking configurations will be restored to include the AZ that was previously detected as unhealthy.
+EKS updates networking configurations to avoid directing traffic to impaired AZs. The specific compute behavior depends on your cluster’s data plane configuration:
+
+- **EKS Auto Mode**: EKS Auto Mode automatically stops provisioning new nodes in the impaired AZ, stops voluntary node disruption (such as consolidation) that would affect the impaired AZ, and avoids launching capacity for Pods with strict scheduling requirements that target the impaired AZ (such as persistent volume bindings or strict topology spread constraints). You don’t need any additional configuration beyond enabling zonal shift on the cluster.
+- **Self-managed Karpenter (v1.12+)**: If you are running Karpenter v1.12 or greater with the `--enable-zonal-shift` flag, Karpenter stops provisioning capacity in the impaired AZ and stops voluntary disruption that relies on the impaired AZ.
+- **Managed Node Groups**: EKS will only launch new nodes in the healthy AZs during a zonal shift by suspending Availability Zone rebalancing and updating the Auto Scaling group.
+
+When the shift expires or is cancelled, the networking configurations and compute behavior are restored to include the AZ that was previously detected as unhealthy.
 
 [Learn more about EKS zonal shift](zone-shift.md "zone-shift.md").
 

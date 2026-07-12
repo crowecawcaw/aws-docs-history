@@ -251,9 +251,8 @@ For more on deletion policies, see [ACK concepts](ack-concepts.md "ack-concepts.
 
 For detailed information on using ACK:
 
-- [ACK usage guide](https://aws-controllers-k8s.github.io/community/docs/user-docs/usage/ "https://aws-controllers-k8s.github.io/community/docs/user-docs/usage/") - Creating and managing resources
-- [ACK API reference](https://aws-controllers-k8s.github.io/community/reference/ "https://aws-controllers-k8s.github.io/community/reference/") - Complete API documentation for all services
-- [ACK documentation](https://aws-controllers-k8s.github.io/community/docs/ "https://aws-controllers-k8s.github.io/community/docs/") - Comprehensive user documentation
+- [ACK API reference](https://aws-controllers-k8s.github.io/docs/api-reference "https://aws-controllers-k8s.github.io/docs/api-reference") - Complete API documentation for all services
+- [ACK documentation](https://aws-controllers-k8s.github.io/docs/intro "https://aws-controllers-k8s.github.io/docs/intro") - Comprehensive user documentation
 
 ## Next steps
 

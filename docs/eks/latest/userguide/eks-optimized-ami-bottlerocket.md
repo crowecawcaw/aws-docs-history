@@ -41,3 +41,4 @@ For more information about using Amazon EKS optimized Bottlerocket AMIs, see the
 - To launch self-managed Bottlerocket nodes, see [Create self-managed Bottlerocket nodes](launch-node-bottlerocket.md "launch-node-bottlerocket.md").
 - To retrieve the latest IDs of the Amazon EKS optimized Bottlerocket AMIs, see [Retrieve recommended Bottlerocket AMI IDs](retrieve-ami-id-bottlerocket.md "retrieve-ami-id-bottlerocket.md").
 - For details on compliance support, see [Meet compliance requirements with Bottlerocket](bottlerocket-compliance-support.md "bottlerocket-compliance-support.md").
+- To build a custom Bottlerocket variant with a specific NVIDIA driver, see [Build a custom Bottlerocket AMI variant for Amazon EKS](bottlerocket-custom-variant.md "bottlerocket-custom-variant.md").
