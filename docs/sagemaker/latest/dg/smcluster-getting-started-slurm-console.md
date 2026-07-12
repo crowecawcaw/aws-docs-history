@@ -296,8 +296,7 @@ scripts.
 ###### Note
 
 Optional node lifecycle configuration is supported only for
-Slurm-orchestrated clusters. Amazon EKS-orchestrated clusters and Slurm
-clusters using Continuous `NodeProvisioningMode` continue to
+Slurm-orchestrated clusters. Amazon EKS-orchestrated clusters continue to
 require lifecycle scripts on every instance group.
 
 ###### Note

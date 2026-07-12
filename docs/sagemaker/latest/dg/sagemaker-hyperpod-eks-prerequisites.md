@@ -172,6 +172,38 @@ configured with VPC and installed using Helm.
 | ml.g7e.12xlarge     | 49                 |
 | ml.g7e.24xlarge     | 49                 |
 | ml.g7e.48xlarge     | 49                 |
+| ml.g4dn.xlarge      | 9                  |
+| ml.g4dn.2xlarge     | 9                  |
+| ml.g4dn.4xlarge     | 9                  |
+| ml.g4dn.8xlarge     | 14                 |
+| ml.g4dn.12xlarge    | 29                 |
+| ml.g4dn.16xlarge    | 14                 |
+| ml.c6g.medium       | 3                  |
+| ml.c6g.large        | 9                  |
+| ml.c6g.xlarge       | 14                 |
+| ml.c6g.2xlarge      | 14                 |
+| ml.c6g.4xlarge      | 29                 |
+| ml.c6g.8xlarge      | 29                 |
+| ml.c6g.12xlarge     | 29                 |
+| ml.c6g.16xlarge     | 49                 |
+| ml.c7g.medium       | 3                  |
+| ml.c7g.large        | 9                  |
+| ml.c7g.xlarge       | 14                 |
+| ml.c7g.2xlarge      | 14                 |
+| ml.c7g.4xlarge      | 29                 |
+| ml.c7g.8xlarge      | 29                 |
+| ml.c7g.12xlarge     | 29                 |
+| ml.c7g.16xlarge     | 49                 |
+| ml.c8g.medium       | 3                  |
+| ml.c8g.large        | 9                  |
+| ml.c8g.xlarge       | 14                 |
+| ml.c8g.2xlarge      | 14                 |
+| ml.c8g.4xlarge      | 29                 |
+| ml.c8g.8xlarge      | 29                 |
+| ml.c8g.12xlarge     | 29                 |
+| ml.c8g.16xlarge     | 49                 |
+| ml.c8g.24xlarge     | 49                 |
+| ml.c8g.48xlarge     | 49                 |
 
 - Only Pods with `hostNetwork = true` have access to the Amazon EC2 Instance
   Metadata Service (IMDS) by default. Use the Amazon EKS Pod identity or the [IAM roles for

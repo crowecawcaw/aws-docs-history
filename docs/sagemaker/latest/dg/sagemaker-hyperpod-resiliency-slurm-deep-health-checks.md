@@ -232,12 +232,6 @@ On-demand deep health checks let you trigger hardware validation on existing
 cluster nodes at any time using the [StartClusterHealthCheck](../APIReference/API_StartClusterHealthCheck.md "../APIReference/API_StartClusterHealthCheck.md") API. This is useful for periodic health
 validation or after suspected hardware issues.
 
-###### Note
-
-On-demand deep health checks are not supported on clusters with
-`NodeProvisioningMode` set to
-`Continuous`.
-
 ### Running on-demand deep health checks from the console
 
 You can run deep health checks on HyperPod cluster instances
@@ -387,9 +381,6 @@ available.
 - Deep health checks require the latest AMI version. Run
   [UpdateClusterSoftware](../APIReference/API_UpdateClusterSoftware.md "../APIReference/API_UpdateClusterSoftware.md") to update your cluster before
   enabling deep health checks.
-- On-demand deep health checks are not supported on clusters with
-  `NodeProvisioningMode` set to
-  `Continuous`.
 - Deep health checks run on worker nodes only. Controller and login nodes
   are not subject to deep health checks.
 - Only one on-demand deep health check request can be active per cluster

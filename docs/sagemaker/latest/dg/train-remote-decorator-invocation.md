@@ -414,13 +414,41 @@ remote function, see [Configuration File](train-remote-decorator-config.md "trai
 
 #### Access to your serialized data
 
-Administrators can provide settings for your serialized data, including
-its location and any encryption settings in a configuration file. By
-default, the serialized data are encrypted with an AWS Key Management Service (AWS KMS) Key.
-Administrators can also restrict access to the root directory that you
-specify in your configuration file with a [bucket
-policy](../../../AmazonS3/latest/userguide/example-bucket-policies.md "../../../AmazonS3/latest/userguide/example-bucket-policies.md"). The configuration file can be shared and used across
-projects and jobs. For more information, see [Configuration File](train-remote-decorator-config.md "train-remote-decorator-config.md").
+By default, SageMaker AI stores serialized data in the default SageMaker AI bucket,
+which might be shared across projects. To prevent unauthorized
+modification, use the `s3_root_uri` parameter of the
+`@remote` decorator or `RemoteExecutor`.
+Specify a dedicated S3 bucket or prefix for your serialized function
+arguments, results, and code archives.
+
+###### Important
+
+Restrict write access to the `s3_root_uri` location
+to prevent tampering with serialized data. Apply a
+[bucket policy](../../../AmazonS3/latest/userguide/example-bucket-policies.md "../../../AmazonS3/latest/userguide/example-bucket-policies.md") to your dedicated S3 location. Grant
+write access only to the SageMaker AI execution role used by your jobs to
+prevent other principals from modifying the data.
+
+The following example shows how to specify a dedicated S3 location
+with the `@remote` decorator:
+
+```
+from sagemaker.remote_function import remote
+
+@remote(
+    instance_type="`ml.m5.xlarge`",
+    s3_root_uri="`s3://amzn-s3-demo-bucket/sagemaker-jobs`"
+)
+def my_training_function(data):
+    # Your training logic here
+    return model
+```
+
+By default, AWS Key Management Service (AWS KMS) encrypts the serialized data.
+You can configure the storage location and encryption settings
+in a configuration file. You can share the configuration file
+across projects and jobs. For more information about the
+configuration file, see [Configuration file](train-remote-decorator-config.md "train-remote-decorator-config.md").
 
 ## Use the `RemoteExecutor` API to invoke a function
 

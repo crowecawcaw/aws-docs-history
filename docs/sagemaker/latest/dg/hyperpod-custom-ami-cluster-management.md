@@ -91,6 +91,16 @@ You can specify your custom AMI in the `ImageId` field for the
 The following examples show how to create a cluster with a custom AMI, both with
 and without an AWS KMS customer managed key for encrypting the cluster volumes.
 
+###### Use Slurm orchestration
+
+The following examples use Amazon Elastic Kubernetes Service orchestration.
+To use a custom AMI with
+Slurm orchestration, replace
+`--orchestrator 'Eks={ClusterArn=<eks_cluster_arn>}'` with
+`--orchestrator 'Slurm={}'`. Both orchestrators use the same
+values for the other fields, including `ImageId` and
+`--node-provisioning-mode Continuous`.
+
 Standard example
 The following example shows how to create a cluster with a custom AMI.
 
@@ -179,6 +189,16 @@ custom AMI, you can use the `UpdateClusterSoftware` operation and specify
 your custom AMI in the `ImageId` field. Note that unless you specify
 the name of a specific instance group in your request, then the new image is applied to all
 of the instance groups in your cluster.
+
+###### Slurm limitation: patching from the default AMI
+
+For clusters using the Slurm orchestrator,
+`UpdateClusterSoftware` doesn't support patching from the default
+SageMaker HyperPod AMI to a custom AMI, including public SageMaker HyperPod Slurm AMIs. To
+use a custom AMI with Slurm, specify the AMI in `ImageId` at cluster
+creation, or add a new instance group with the custom AMI using
+`UpdateCluster`. Patching between two custom AMIs on an existing
+Slurm instance group is supported.
 
 The following example shows how to update a cluster's platform software with a custom AMI:
 

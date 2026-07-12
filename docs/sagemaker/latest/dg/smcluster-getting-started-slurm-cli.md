@@ -183,8 +183,7 @@ starts.
 ###### Note
 
 Optional node lifecycle configuration is supported only for
-Slurm-orchestrated clusters. EKS-orchestrated clusters and Slurm clusters
-using Continuous `NodeProvisioningMode` continue to require
+Slurm-orchestrated clusters. Amazon EKS-orchestrated clusters continue to require
 `LifeCycleConfig` with `OnCreate` and
 `SourceS3Uri` on every instance group.
 
@@ -754,16 +753,16 @@ After the status turns to `InService`, proceed to
 
 ### Common validation errors
 
-| Error                                                                             | Resolution                                                                                                       |
-| --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| "Cluster must have exactly one InstanceGroup with Controller node type"           | Ensure exactly one instance group has `SlurmConfig.NodeType`: `"Controller"`                                     |
-| "Partitions can only be assigned to Compute node types"                           | Remove `PartitionNames` from `Controller` or `Login` instance groups                                             |
-| "FSx configurations are only supported for Custom VPC"                            | Add `VpcConfig` to your request when using FSx                                                                   |
-| "LifeCycleConfig is required for instance group..."                               | EKS clusters or Slurm Continuous `NodeProvisioningMode`. Optional node lifecycle configuration is not supported. |
-| "OnCreate and OnInitComplete in LifeCycleConfig are mutually exclusive..."        | Remove either `OnCreate` or `OnInitComplete`. You cannot specify both.                                           |
-| "LifeCycleConfig for instance group is incomplete..."                             | When `OnCreate` or `OnInitComplete` is specified, `SourceS3Uri` must also be provided.                           |
-| "LifeCycleConfig is optional but requires a compatible AMI..."                    | Run `UpdateClusterSoftware` to update to an AMI that supports optional node lifecycle configuration.             |
-| "LifeCycleConfig for instance group is provided but contains no configuration..." | Specify `SourceS3Uri` with `OnCreate` or `OnInitComplete`, or omit `LifeCycleConfig` entirely.                   |
+| Error                                                                             | Resolution                                                                                           |
+| --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| "Cluster must have exactly one InstanceGroup with Controller node type"           | Ensure exactly one instance group has `SlurmConfig.NodeType`: `"Controller"`                         |
+| "Partitions can only be assigned to Compute node types"                           | Remove `PartitionNames` from `Controller` or `Login` instance groups                                 |
+| "FSx configurations are only supported for Custom VPC"                            | Add `VpcConfig` to your request when using FSx                                                       |
+| "LifeCycleConfig is required for instance group..."                               | EKS clusters. Optional node lifecycle configuration is not supported.                                |
+| "OnCreate and OnInitComplete in LifeCycleConfig are mutually exclusive..."        | Remove either `OnCreate` or `OnInitComplete`. You cannot specify both.                               |
+| "LifeCycleConfig for instance group is incomplete..."                             | When `OnCreate` or `OnInitComplete` is specified, `SourceS3Uri` must also be provided.               |
+| "LifeCycleConfig is optional but requires a compatible AMI..."                    | Run `UpdateClusterSoftware` to update to an AMI that supports optional node lifecycle configuration. |
+| "LifeCycleConfig for instance group is provided but contains no configuration..." | Specify `SourceS3Uri` with `OnCreate` or `OnInitComplete`, or omit `LifeCycleConfig` entirely.       |
 
 ## Connect to your cluster
 

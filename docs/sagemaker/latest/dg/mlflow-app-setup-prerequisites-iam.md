@@ -159,3 +159,117 @@ The following SageMaker AI MLflow actions are supported for authorization access
 control:
 
 - sagemaker:CallMlflowAppApi
+
+## IAM permissions for Model Registry sync and lifecycle management
+
+When you register MLflow models with the SageMaker AI Model Registry, the MLflow App IAM
+service role requires the following permissions to perform model registration, lifecycle
+management, and lineage tracking:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sagemaker:CreateModelPackageGroup",
+                "sagemaker:DescribeModelPackageGroup",
+                "sagemaker:CreateModelPackage",
+                "sagemaker:UpdateModelPackage",
+                "sagemaker:AddTags"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "S3ArtifactAccess",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:ListBucket"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "LineageTracking",
+            "Effect": "Allow",
+            "Action": [
+                "sagemaker:CreateAction",
+                "sagemaker:AddAssociation"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+The following table describes what each permission enables:
+
+| Action                                               | Purpose                                                                                                                            |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `sagemaker:CreateModelPackageGroup`                  | Creates a Model Package Group when you register a new model name.                                                                  |
+| `sagemaker:DescribeModelPackageGroup`                | Checks whether a Model Package Group already exists before creating one.                                                           |
+| `sagemaker:CreateModelPackage`                       | Creates a Model Package (version) when you register a model version.                                                               |
+| `sagemaker:UpdateModelPackage`                       | Updates the Model Package lifecycle stage and status when you set lifecycle aliases.                                               |
+| `sagemaker:AddTags`                                  | Tags the Model Package with metadata linking it back to the MLflow model.                                                          |
+| `s3:GetObject`                                       | Reads inference specification and evaluation artifacts from Amazon S3 during registration.                                         |
+| `sagemaker:CreateAction`, `sagemaker:AddAssociation` | Creates lineage associations between the MLflow model and the SageMaker AI Model Package. If missing, lineage is silently skipped. |
+
+### Restrict lifecycle transitions with IAM condition keys
+
+You can use IAM condition keys to control which lifecycle transitions a role is
+allowed to perform. The following condition keys are available for the
+`sagemaker:UpdateModelPackage` action:
+
+- `sagemaker:ModelLifeCycle/stage` — The lifecycle stage
+  being set. Values: `staging`, `production`.
+- `sagemaker:ModelLifeCycle/stageStatus` — The lifecycle
+  status being set. Values: `pending`, `active`.
+
+**Example: Deny production promotions**
+
+The following policy prevents a role from promoting models to the
+`production` stage:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": "sagemaker:UpdateModelPackage",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "sagemaker:ModelLifeCycle/stage": "production"
+                }
+            }
+        }
+    ]
+}
+```
+
+**Example: Allow only staging/pending transitions**
+
+The following policy restricts a role to only set models to the
+`staging` stage with `pending` status:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "sagemaker:UpdateModelPackage",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "sagemaker:ModelLifeCycle/stage": "staging",
+                    "sagemaker:ModelLifeCycle/stageStatus": "pending"
+                }
+            }
+        }
+    ]
+}
+```

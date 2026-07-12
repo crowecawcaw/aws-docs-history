@@ -35,6 +35,7 @@ Kubernetes v1.28
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86\_64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -77,6 +78,7 @@ Kubernetes v1.28
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.2.1
   - Linux Kernel version: 6.1.170-213.321.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -118,6 +120,7 @@ Kubernetes v1.29
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86\_64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -160,6 +163,7 @@ Kubernetes v1.29
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.2.1
   - Linux Kernel version: 6.1.170-213.321.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -201,6 +205,7 @@ Kubernetes v1.30
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86\_64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -246,6 +251,7 @@ Kubernetes v1.31
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86\_64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -288,6 +294,7 @@ Kubernetes v1.31
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.3.0
   - Linux Kernel version: 6.12.90-120.164.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -326,6 +333,7 @@ Kubernetes v1.31
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.3.0
   - Linux Kernel version: 6.12.90-120.164.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -367,6 +375,7 @@ Kubernetes v1.32
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86\_64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -409,6 +418,7 @@ Kubernetes v1.32
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.3.0
   - Linux Kernel version: 6.12.90-120.164.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -449,6 +459,7 @@ Kubernetes v1.33
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.3.0
   - Linux Kernel version: 6.12.90-120.164.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -487,6 +498,7 @@ Kubernetes v1.33
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.3.0
   - Linux Kernel version: 6.12.90-120.164.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -527,6 +539,7 @@ Kubernetes v1.34
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.3.0
   - Linux Kernel version: 6.12.90-120.164.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -565,6 +578,7 @@ Kubernetes v1.34
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.3.0
   - Linux Kernel version: 6.12.90-120.164.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -605,6 +619,7 @@ Kubernetes v1.35
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.3.0
   - Linux Kernel version: 6.12.90-120.164.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -643,6 +658,7 @@ Kubernetes v1.35
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.3.0
   - Linux Kernel version: 6.12.90-120.164.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -737,6 +753,7 @@ Kubernetes v1.28
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.2
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -820,6 +837,7 @@ Kubernetes v1.29
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.2
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -903,6 +921,7 @@ Kubernetes v1.30
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.2
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -986,6 +1005,7 @@ Kubernetes v1.31
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.2
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1024,6 +1044,7 @@ Kubernetes v1.31
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.1.2
   - Linux Kernel version: 6.12.83-113.160.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1107,6 +1128,7 @@ Kubernetes v1.32
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.2
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1145,6 +1167,7 @@ Kubernetes v1.32
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.1.2
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1185,6 +1208,7 @@ Kubernetes v1.33
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.2
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1223,6 +1247,7 @@ Kubernetes v1.33
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.1.2
   - Linux Kernel version: 6.12.80-105.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1263,6 +1288,7 @@ Kubernetes v1.34
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.2
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1301,6 +1327,7 @@ Kubernetes v1.34
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.1.2
   - Linux Kernel version: 6.12.80-106.156.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1341,6 +1368,7 @@ Kubernetes v1.35
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.2
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1379,6 +1407,7 @@ Kubernetes v1.35
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.1.2
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1473,6 +1502,7 @@ Kubernetes v1.28
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.1
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1556,6 +1586,7 @@ Kubernetes v1.29
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.1
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1639,6 +1670,7 @@ Kubernetes v1.30
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.1
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1722,6 +1754,7 @@ Kubernetes v1.31
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.1
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1760,6 +1793,7 @@ Kubernetes v1.31
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.1.1
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1843,6 +1877,7 @@ Kubernetes v1.32
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.1
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1881,6 +1916,7 @@ Kubernetes v1.32
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.1.1
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1921,6 +1957,7 @@ Kubernetes v1.33
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.1
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1959,6 +1996,7 @@ Kubernetes v1.33
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.1.1
   - Linux Kernel version: 6.12.80-105.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1999,6 +2037,7 @@ Kubernetes v1.34
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.1
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2037,6 +2076,7 @@ Kubernetes v1.34
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.1.1
   - Linux Kernel version: 6.12.80-106.156.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2077,6 +2117,7 @@ Kubernetes v1.35
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.1
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2115,6 +2156,7 @@ Kubernetes v1.35
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.1.1
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2209,6 +2251,7 @@ Kubernetes v1.28
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.0
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2292,6 +2335,7 @@ Kubernetes v1.29
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.0
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2375,6 +2419,7 @@ Kubernetes v1.30
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.0
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2458,6 +2503,7 @@ Kubernetes v1.31
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.0
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2496,6 +2542,7 @@ Kubernetes v1.31
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.1.0
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2579,6 +2626,7 @@ Kubernetes v1.32
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.0
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2617,6 +2665,7 @@ Kubernetes v1.32
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.1.0
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2657,6 +2706,7 @@ Kubernetes v1.33
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.0
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2695,6 +2745,7 @@ Kubernetes v1.33
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.1.0
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2735,6 +2786,7 @@ Kubernetes v1.34
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.0
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2773,6 +2825,7 @@ Kubernetes v1.34
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.1.0
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2813,6 +2866,7 @@ Kubernetes v1.35
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.1.0
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2851,6 +2905,7 @@ Kubernetes v1.35
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.1.0
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2945,6 +3000,7 @@ Kubernetes v1.28
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.3
   - Linux Kernel version: 6.1.163-186.299.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3028,6 +3084,7 @@ Kubernetes v1.29
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.3
   - Linux Kernel version: 6.1.163-186.299.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3111,6 +3168,7 @@ Kubernetes v1.30
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.3
   - Linux Kernel version: 6.1.163-186.299.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3194,6 +3252,7 @@ Kubernetes v1.31
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.3
   - Linux Kernel version: 6.1.163-186.299.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3232,6 +3291,7 @@ Kubernetes v1.31
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.3
   - Linux Kernel version: 6.12.73-95.123.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3315,6 +3375,7 @@ Kubernetes v1.32
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.3
   - Linux Kernel version: 6.1.163-186.299.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3353,6 +3414,7 @@ Kubernetes v1.32
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.3
   - Linux Kernel version: 6.12.73-95.123.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3393,6 +3455,7 @@ Kubernetes v1.33
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.3
   - Linux Kernel version: 6.1.163-186.299.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3431,6 +3494,7 @@ Kubernetes v1.33
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.3
   - Linux Kernel version: 6.12.73-95.123.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3471,6 +3535,7 @@ Kubernetes v1.34
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.3
   - Linux Kernel version: 6.1.163-186.299.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3509,6 +3574,7 @@ Kubernetes v1.34
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.3
   - Linux Kernel version: 6.12.73-95.123.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3601,6 +3667,7 @@ Kubernetes v1.28
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.2
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3680,6 +3747,7 @@ Kubernetes v1.29
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.2
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3759,6 +3827,7 @@ Kubernetes v1.30
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.2
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3838,6 +3907,7 @@ Kubernetes v1.31
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.2
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3874,6 +3944,7 @@ Kubernetes v1.31
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.2
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3953,6 +4024,7 @@ Kubernetes v1.32
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.2
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3989,6 +4061,7 @@ Kubernetes v1.32
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.2
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4027,6 +4100,7 @@ Kubernetes v1.33
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.2
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4063,6 +4137,7 @@ Kubernetes v1.33
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.2
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4101,6 +4176,7 @@ Kubernetes v1.34
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.2
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4137,6 +4213,7 @@ Kubernetes v1.34
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.2
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4227,6 +4304,7 @@ Kubernetes v1.28
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4306,6 +4384,7 @@ Kubernetes v1.29
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4385,6 +4464,7 @@ Kubernetes v1.30
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4464,6 +4544,7 @@ Kubernetes v1.31
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4500,6 +4581,7 @@ Kubernetes v1.31
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4579,6 +4661,7 @@ Kubernetes v1.32
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4615,6 +4698,7 @@ Kubernetes v1.32
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4653,6 +4737,7 @@ Kubernetes v1.33
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4689,6 +4774,7 @@ Kubernetes v1.33
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4727,6 +4813,7 @@ Kubernetes v1.34
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4763,6 +4850,7 @@ Kubernetes v1.34
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.1
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4852,6 +4940,7 @@ Kubernetes v1.28
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.0
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4929,6 +5018,7 @@ Kubernetes v1.29
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.0
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5006,6 +5096,7 @@ Kubernetes v1.30
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.0
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5083,6 +5174,7 @@ Kubernetes v1.31
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.0
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5118,6 +5210,7 @@ Kubernetes v1.31
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.0
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5195,6 +5288,7 @@ Kubernetes v1.32
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.0
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5230,6 +5324,7 @@ Kubernetes v1.32
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.0
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5267,6 +5362,7 @@ Kubernetes v1.33
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.0
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5302,6 +5398,7 @@ Kubernetes v1.33
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.0
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5339,6 +5436,7 @@ Kubernetes v1.34
 
 - AL2023 (x86\_64):
 
+  - AMI version: 1.0.0
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5374,6 +5472,7 @@ Kubernetes v1.34
 
 - AL2023 (ARM64):
 
+  - AMI version: 1.0.0
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2

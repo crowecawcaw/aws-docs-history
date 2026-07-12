@@ -20,7 +20,16 @@ kubernetes-native system that manages quotas and how jobs consume them.
 
 | EKS HyperPod task governance add-on version | Version of Kueue that is installed as part of the<br>add-on |
 | ------------------------------------------- | ----------------------------------------------------------- |
-| v1.1.3                                      | v0.12.0                                                     |
+| v1.5.0-eksbuild.1                           | v0.18.0                                                     |
+| v1.4.0-eksbuild.1                           | v0.14.0                                                     |
+| v1.3.2-eksbuild.1                           | v0.12.0                                                     |
+| v1.3.1-eksbuild.1                           | v0.12.0                                                     |
+
+###### Upgrading from v1.3.x to v1.5
+
+Direct upgrade from v1.3.x to v1.5 is not supported due to CRD schema
+migration requirements. Use the upgrade option in the SageMaker AI HyperPod
+console, which handles the migration automatically.
 
 ###### Note
 
@@ -43,7 +52,7 @@ The following information outlines the configuration settings utilized by the
 HyperPod task governance add-on for setting up Kueue.
 
 ```
-  apiVersion: config.kueue.x-k8s.io/v1beta1
+  apiVersion: config.kueue.x-k8s.io/v1beta2
     kind: Configuration
     health:
       healthProbeBindAddress: :8081
@@ -74,29 +83,30 @@ HyperPod task governance add-on for setting up Kueue.
       - "ray.io/rayjob"
       - "ray.io/raycluster"
       - "jobset.x-k8s.io/jobset"
-      - "kubeflow.org/mxjob"
       - "kubeflow.org/paddlejob"
       - "kubeflow.org/pytorchjob"
       - "kubeflow.org/tfjob"
       - "kubeflow.org/xgboostjob"
+      - "kubeflow.org/jaxjob"
+      - "workload.codeflare.dev/appwrapper"
       - "pod"
       - "deployment"
       - "statefulset"
       - "leaderworkerset.x-k8s.io/leaderworkerset"
-      podOptions:
-        namespaceSelector:
-          matchExpressions:
-            - key: kubernetes.io/metadata.name
-              operator: NotIn
-              values: [ kube-system, kueue-system ]
+      externalFrameworks:
+      - "HyperPodPyTorchJob.v1.sagemaker.amazonaws.com"
+    managedJobsNamespaceSelector:
+      matchExpressions:
+        - key: kubernetes.io/metadata.name
+          operator: NotIn
+          values: [ kube-system, kueue-system ]
     fairSharing:
-      enable: true
       preemptionStrategies: [LessThanOrEqualToFinalShare, LessThanInitialShare]
     resources:
       excludeResourcePrefixes: []
 ```
 
-For more information about each configuration entry, see [Configuration](https://kueue.sigs.k8s.io/docs/reference/kueue-config.v1beta1/#Configuration "https://kueue.sigs.k8s.io/docs/reference/kueue-config.v1beta1/#Configuration") in the Kueue documentation.
+For more information about each configuration entry, see [Configuration](https://kueue.sigs.k8s.io/docs/reference/kueue-config.v1beta2/#Configuration "https://kueue.sigs.k8s.io/docs/reference/kueue-config.v1beta2/#Configuration") in the Kueue documentation.
 
 ## HyperPod Task governance prerequisites
 

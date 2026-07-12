@@ -147,7 +147,7 @@ pip install fmeval
 The `fmeval` library supports: text summarization, question answering,
 classification, open-ended generation, factual knowledge, toxicity, robustness (semantic
 perturbations), and prompt stereotyping evaluation. For ongoing, in-production LLM quality
-monitoring on SageMaker endpoints, the AWS-published [LLM Inference Monitoring](https://github.com/aws-samples/sample-aiops-on-amazon-sagemakerai/tree/main/monitoring/sagemaker-endpoint-llm-monitoring "https://github.com/aws-samples/sample-aiops-on-amazon-sagemakerai/tree/main/monitoring/sagemaker-endpoint-llm-monitoring") and [LLM Quality Observability with Grafana](https://github.com/aws-samples/sample-aiops-on-amazon-sagemakerai/tree/main/monitoring/quality-monitoring-with-grafana "https://github.com/aws-samples/sample-aiops-on-amazon-sagemakerai/tree/main/monitoring/quality-monitoring-with-grafana") reference solutions run MLflow GenAI
+monitoring on SageMaker endpoints, the AWS-published [LLM Inference Monitoring](https://github.com/aws-samples/sample-aiops-on-amazon-sagemakerai/tree/main/monitoring/sagemaker-endpoint-llm-monitoring "https://github.com/aws-samples/sample-aiops-on-amazon-sagemakerai/tree/main/monitoring/sagemaker-endpoint-llm-monitoring") and [LLM Quality Observability with Grafana](https://github.com/aws-samples/sample-aiops-on-amazon-sagemakerai/tree/main/monitoring/quality-monitoring-with-grafana "https://github.com/aws-samples/sample-aiops-on-amazon-sagemakerai/tree/main/monitoring/quality-monitoring-with-grafana") reference solutions run MLflow generative AI
 evaluations (Safety, Relevance, Fluency, Guidelines, Coherence) using Amazon Bedrock
 models.
 

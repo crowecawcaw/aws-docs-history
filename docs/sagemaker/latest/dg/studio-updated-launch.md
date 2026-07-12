@@ -25,6 +25,7 @@ and the AWS Command Line Interface (AWS CLI).
 ###### Topics
 
 - [Prerequisites](#studio-updated-launch-prereq "#studio-updated-launch-prereq")
+- [Service quotas for Studio](#studio-updated-launch-quotas "#studio-updated-launch-quotas")
 - [Launch from the Amazon SageMaker AI console](#studio-updated-launch-console "#studio-updated-launch-console")
 - [Launch using the AWS CLI](#studio-updated-launch-cli "#studio-updated-launch-cli")
 
@@ -38,6 +39,60 @@ Before you begin, complete the following prerequisites:
 - Update the AWS CLI by following the steps in [Installing the current AWS CLI Version](../../../cli/latest/userguide/install-cliv1.md#install-tool-bundled "../../../cli/latest/userguide/install-cliv1.md#install-tool-bundled").
 - From your local machine, run `aws configure` and provide your AWS
   credentials. For information about AWS credentials, see [Understanding and getting your AWS credentials](../../../general/latest/gr/aws-sec-cred-types.md "../../../general/latest/gr/aws-sec-cred-types.md").
+
+## Service quotas for Studio
+
+Studio workloads are subject to service quotas. These quotas limit the
+number of instances you can use or concurrent jobs you can run. Quotas apply to
+different Studio features including endpoint deployments, training jobs,
+JupyterLab, and CodeEditor.
+
+After you verify your account, you receive default quotas for supported GPU
+instance types. You can start using these instances without requesting an
+increase.
+
+### View your Studio quotas using the
+
+Use the Service Quotas console to check your current quota limits.
+
+1. Open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
+2. In the left navigation pane, choose **AWS
+   services**.
+3. From the AWS services list, search for and choose
+   **Amazon SageMaker AI**.
+4. In the Service quotas list, review the quota name, applied value,
+   AWS default quota, and whether you can adjust the quota.
+5. Search for quotas relevant to your Studio workload. For example,
+   search for the instance type you plan to use.
+
+###### Note
+
+Quota limits are also visible within Studio when you choose compute
+resources. If your quota is too low, choose the limit increase message.
+This opens the Service Quotas console, where you can request an
+increase.
+
+### Request a quota increase
+
+If your default quota is too low, you can request an increase.
+
+1. In the Service Quotas console, choose the quota you want to
+   increase.
+2. If the quota is adjustable, choose **Request increase at
+   account level**.
+3. For **Increase quota value**, enter the new value. The
+   new value must be greater than the current value.
+4. Choose **Request**.
+5. To view pending or recently resolved requests, choose the
+   **Request history** tab.
+6. For pending requests, choose the status to open the receipt. When
+   the status changes to **Quota requested**, you see
+   the AWS Support case number.
+
+For more information about Amazon SageMaker AI quotas, see [Amazon SageMaker AI endpoints and
+quotas](../../../general/latest/gr/sagemaker.md "../../../general/latest/gr/sagemaker.md") in the AWS General Reference. For more information about
+requesting a quota increase, see [Requesting
+a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the Service Quotas User Guide.
 
 ## Launch from the Amazon SageMaker AI console
 

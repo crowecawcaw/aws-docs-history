@@ -10,6 +10,7 @@ EKS clusters.
 - [Policies](#hp-eks-troubleshoot-policies "#hp-eks-troubleshoot-policies")
 - [Deleting clusters](#hp-eks-troubleshoot-delete-policies "#hp-eks-troubleshoot-delete-policies")
 - [Unallocated resource sharing](#hp-eks-troubleshoot-unallocated-resource-sharing "#hp-eks-troubleshoot-unallocated-resource-sharing")
+- [Add-on upgrade from v1.3.x to v1.5.0 fails](#hp-eks-troubleshoot-addon-upgrade-v13-to-v15 "#hp-eks-troubleshoot-addon-upgrade-v13-to-v15")
 
 ## Dashboard tab
 
@@ -140,3 +141,39 @@ kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata
 ```
 
 Verify MIG-enabled nodes show `success` state.
+
+## Add-on upgrade from v1.3.x to v1.5.0 fails
+
+**Symptom:** When upgrading the task governance
+add-on directly from v1.3.x (Kueue v0.12) to v1.5.0 (Kueue v0.18) using
+`aws eks update-addon`, the add-on enters
+`UPDATE_FAILED` status with the following error:
+
+```
+CustomResourceDefinition.apiextensions.k8s.io "cohorts.kueue.x-k8s.io" is invalid:
+status.storedVersions[0]: Invalid value: "v1alpha1": missing from spec.versions;
+v1alpha1 was previously a storage version, and must remain in spec.versions until
+a storage migration ensures no data remains persisted in v1alpha1 and removes
+v1alpha1 from status.storedVersions
+```
+
+**Resolution:** Use the upgrade option in the
+SageMaker AI HyperPod console. The console automatically handles the CRD migration by
+backing up existing resources, migrating storedVersions, upgrading the add-on,
+and restoring resources.
+
+###### Note
+
+If you already attempted a direct v1.3.x to v1.5.0 upgrade and it failed,
+the add-on will be in `UPDATE_FAILED` status with stale CRD
+definitions. To recover:
+
+1. Delete the task governance add-on.
+2. Delete all Kueue CRDs manually:
+
+```
+kubectl get crds -o name | grep kueue | xargs kubectl delete
+```
+
+3. Reinstall the add-on at your target version using the SageMaker AI console
+   or Amazon EKS console.

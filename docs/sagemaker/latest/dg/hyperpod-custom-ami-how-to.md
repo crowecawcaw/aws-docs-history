@@ -25,9 +25,10 @@ To find SageMaker HyperPod AMIs in the console:
 4. In the search bar filters, set the **Owner alias** filter to
    `amazon`.
 5. Search for AMIs prefixed as **HyperPod
-   EKS** and select the AMI (preferably latest) that works
-   for your use case. For instance, you can choose an AMI between
-   Kubernetes 1.31 versus Kubernetes 1.30.
+   EKS** (for Amazon Elastic Kubernetes Service
+   orchestration) or **HyperPod Slurm**
+   (for Slurm orchestration), and select the latest AMI that works for
+   your use case.
 
 ### Fetch latest public AMI ID through the AWS CLI
 
@@ -49,9 +50,10 @@ aws ssm get-parameter \
 ###### Note
 
 Replace the parameter name with the corresponding Kubernetes version
-as required. For example, if you want to use Kubernetes 1.30, use the
-following parameter:
-`/aws/service/hyperpod/ami/x86_64/eks-1.30-amazon-linux-2/latest/ami-id`.
+or Slurm base OS as required. For example, for Kubernetes 1.30, use
+`/aws/service/sagemaker-hyperpod/ami/x86_64/eks-1.30-amazon-linux-2/latest/ami-id`.
+For Slurm on Ubuntu 22.04, use
+`/aws/service/sagemaker-hyperpod/ami/x86_64/slurm-ubuntu-22.04/latest/ami-id`.
 
 ## Build your custom AMI
 

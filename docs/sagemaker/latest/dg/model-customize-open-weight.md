@@ -39,10 +39,13 @@ The following table shows the base models that you can customize.
 | DeepSeek       | DeepSeek R1 Distill Qwen 7B         | `deepseek-llm-r1-distill-qwen-7b`                           | ✓          | ✓          | ✓            | ✓           |
 | DeepSeek       | DeepSeek R1 Distill Qwen 14B        | `deepseek-llm-r1-distill-qwen-14b`                          | ✓          | ✓          | ✓            | ✓           |
 | DeepSeek       | DeepSeek R1 Distill Qwen 32B        | `deepseek-llm-r1-distill-qwen-32b`                          | ✓          | ✓          | ✓            | ✓           |
+| Google         | Gemma 4 E4B                         | `huggingface-vlm-gemma-4-e4b-it`                            | ✓          | ✓          | ✓            | ✓           |
+| Google         | Gemma 4 31B                         | `huggingface-vlm-gemma-4-31b-it`                            | ✓          | ✓          | ✓            | ✓           |
 | Meta           | Llama 3.1 Instruct 8B               | `meta-textgeneration-llama-3-1-8b-instruct`                 | ✓          | ✓          | ✓            | ✓           |
 | Meta           | Llama 3.2 Instruct 1B               | `meta-textgeneration-llama-3-2-1b-instruct`                 | ✓          | ✓          | ✓            | ✓           |
 | Meta           | Llama 3.2 Instruct 3B               | `meta-textgeneration-llama-3-2-3b-instruct`                 | ✓          | ✓          | ✓            | ✓           |
 | Meta           | Meta Llama 3.3 Instruct 70B         | `meta-textgeneration-llama-3-3-70b-instruct`                | ✓          | ✓          | ✓            | ✓           |
-| Nvidia         | NVIDIA Nemotron 3 Nano A3B BF16 30B | `huggingface-reasoning-nvidia-nemotron-3-nano-30b-a3b-bf16` | ✓          |            | ✓            | ✓           |
+| Nvidia         | NVIDIA Nemotron 3 Nano 30B (A3B)    | `huggingface-reasoning-nvidia-nemotron-3-nano-30b-a3b-bf16` | ✓          |            | ✓            | ✓           |
+| Nvidia         | NVIDIA Nemotron 3 Super 120B (A12B) | `huggingface-llm-nvidia-nemotron-3-super-120b-a12b-bf16`    | ✓          |            | ✓            | ✓           |
 | OpenAI         | GPT OSS 20B                         | `openai-reasoning-gpt-oss-20b`                              | ✓          | ✓          | ✓            | ✓           |
 | OpenAI         | GPT OSS 120B                        | `openai-reasoning-gpt-oss-120b`                             | ✓          | ✓          | ✓            | ✓           |

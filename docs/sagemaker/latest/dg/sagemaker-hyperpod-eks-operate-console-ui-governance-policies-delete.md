@@ -105,10 +105,10 @@ aws sagemaker list-clusters \
    2. For each
       `cluster-scheduler-config-id`
       you wish to delete, run the following command to delete the
-      compute quota.
+      cluster policy.
 
    ```
-   aws sagemaker delete-cluster-scheduler-config
+   aws sagemaker delete-cluster-scheduler-config \
        --cluster-scheduler-config-id `scheduler-config-id` \
        --region ${REGION}
    ```

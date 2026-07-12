@@ -35,3 +35,32 @@ is shown as follows:
 ├── data/
 ├── test/
 ```
+
+## Secure your serialized data
+
+The `@step` decorator saves function inputs and outputs to Amazon S3.
+By default, SageMaker AI uses the default bucket. Other projects or users in your
+account might share this bucket.
+
+To keep your pipeline data safe, set `S3RootUri` in your SageMaker AI
+configuration file. Use a bucket that only your pipeline uses. The following example shows
+how to set this value:
+
+```
+SchemaVersion: '1.0'
+SageMaker:
+  PythonSDK:
+    Modules:
+      RemoteFunction:
+        S3RootUri: '`s3://amzn-s3-demo-bucket/pipeline-data`'
+```
+
+###### Important
+
+Restrict write access to the `S3RootUri` path. This prevents unauthorized
+users from modifying your pipeline data. Apply a bucket policy so that only the SageMaker AI
+execution role used by your jobs can write to this path.
+
+For more information about the configuration file, see
+[Configuration
+file](train-remote-decorator-config.md "train-remote-decorator-config.md").
