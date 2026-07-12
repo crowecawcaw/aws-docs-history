@@ -1,6 +1,6 @@
 # Configure Lambda durable functions
 
-Durable execution settings control how long your Lambda function can run and how long the service retains execution history. Configure these settings to enable durable execution for your function.
+Durable execution settings control how long your AWS Lambda function can run, how long the service retains execution history, and which AWS KMS key encrypts your execution data. Configure these settings to enable durable execution for your function.
 
 ## Enable durable execution
 
@@ -16,7 +16,7 @@ aws lambda create-function \
   --role arn:aws:iam::123456789012:role/my-durable-role \
   --handler index.handler \
   --zip-file fileb://function.zip \
-  --durable-config '{"ExecutionTimeout": 3600, "RetentionPeriodInDays": 30}'
+  --durable-config '{"ExecutionTimeout": 3600, "RetentionPeriodInDays": 30, "KMSKeyArn": "arn:aws:kms:us-east-1:111122223333:key/key-id"}'
 
 ```
 
@@ -37,6 +37,7 @@ Resources:
       DurableConfig:
         ExecutionTimeout: 3600
         RetentionPeriodInDays: 30
+        KMSKeyArn: "arn:aws:kms:us-east-1:111122223333:key/key-id"
 
 ```
 
@@ -44,6 +45,7 @@ Resources:
 
 - `ExecutionTimeout` – The maximum time in seconds that a durable execution can run before Lambda stops the execution. This timeout applies to the entire durable execution, not individual function invocations. Valid range: 1–31622400.
 - `RetentionPeriodInDays` – The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the `GetDurableExecutionHistory` API. Valid range: 1–90.
+- `KMSKeyArn` – Optional. The ARN of a customer managed key to encrypt durable execution data. For more information, see [Encrypting Lambda durable execution data](durable-encryption.md "durable-encryption.md").
 
 For the full API reference, see [DurableConfig](../api/API_DurableConfig.md "../api/API_DurableConfig.md") in the Lambda API Reference.
 
@@ -55,6 +57,7 @@ Follow these best practices when configuring durable functions for production us
 - **Balance retention with storage costs** – Set `RetentionPeriodInDays` based on your debugging and audit requirements. Longer retention periods increase storage costs.
 - **Monitor state size** – Large state objects increase storage costs and can impact performance. Keep state minimal and use external storage for large data.
 - **Configure appropriate logging** – Enable detailed logging for troubleshooting long-running workflows, but consider the impact on log volume and costs.
+- **Encrypt with your own AWS KMS key** – Set `KMSKeyArn` to a customer managed key to control key rotation, audit access, and meet compliance requirements. See [Encrypting AWS Lambda durable execution data](durable-encryption.md "durable-encryption.md").
 
 **Production configuration example:**
 
@@ -62,9 +65,10 @@ Follow these best practices when configuring durable functions for production us
 
 {
   "ExecutionTimeout": 86400,
-  "RetentionPeriodInDays": 7
+  "RetentionPeriodInDays": 7,
+  "KMSKeyArn": "arn:aws:kms:us-east-1:111122223333:key/key-id"
 }
 
 ```
 
-This example sets a 24-hour (86,400 seconds) execution timeout with a 7-day retention period, which balances debugging visibility with storage costs for most production workloads.
+This example sets a 24-hour (86,400 seconds) execution timeout, a 7-day retention period, and a customer managed key for encryption.

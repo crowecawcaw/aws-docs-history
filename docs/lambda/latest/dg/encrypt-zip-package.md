@@ -1,6 +1,6 @@
 # Encrypting Lambda .zip deployment packages
 
-Lambda always provides server-side encryption at rest for .zip deployment packages and function configuration details with an AWS KMS key. By default, Lambda uses an
+AWS Lambda always provides server-side encryption at rest for .zip deployment packages and function configuration details with an AWS KMS key. By default, Lambda uses an
 [AWS owned key](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk"). If this default behavior suits your workflow, you don't need to set up anything else. AWS doesn't charge you to use this key.
 
 If you prefer, you can provide an AWS KMS customer managed key instead. You might do this to have control over rotation of
@@ -94,6 +94,7 @@ Use the following API parameters to configure customer managed keys for .zip dep
 
 - [SourceKMSKeyArn](../api/API_FunctionCode.md#lambda-Type-FunctionCode-SourceKMSKeyArn "../api/API_FunctionCode.md#lambda-Type-FunctionCode-SourceKMSKeyArn"): Encrypts the source .zip deployment package (the file that you upload).
 - [KMSKeyArn](../api/API_CreateFunction.md#lambda-CreateFunction-request-KMSKeyArn "../api/API_CreateFunction.md#lambda-CreateFunction-request-KMSKeyArn"): Encrypts [environment variables](configuration-envvars-encryption.md "configuration-envvars-encryption.md") and [Lambda SnapStart](snapstart.md "snapstart.md") snapshots.
+- [DurableConfig.KMSKeyArn](../api/API_DurableConfig.md "../api/API_DurableConfig.md"): Encrypts [durable execution data](durable-encryption.md "durable-encryption.md"). This key is independent of the function-level `KMSKeyArn`.
 
 When `SourceKMSKeyArn` and `KMSKeyArn` are both specified, Lambda uses the `KMSKeyArn` key to encrypt the unzipped version of the package that Lambda uses to invoke the function. When `SourceKMSKeyArn` is specified but `KMSKeyArn` is not, Lambda uses an [AWS managed key](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk") to encrypt the unzipped version of the package.
 

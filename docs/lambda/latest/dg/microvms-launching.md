@@ -96,6 +96,9 @@ aws lambda-microvms run-microvm \
   --run-hook-payload 'tenant-specific-string'
 ```
 
+When you no longer need a MicroVM, terminate it to stop all charges.
+For instructions, see [Terminating a MicroVM](#microvms-launching-terminate "#microvms-launching-terminate").
+
 ## Connecting to a MicroVM
 
 Every MicroVM gets a unique public HTTPS endpoint URL, assigned when you

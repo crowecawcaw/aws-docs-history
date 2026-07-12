@@ -1,6 +1,6 @@
 # Lambda durable functions
 
-Lambda durable functions enable you to build resilient multi-step applications and AI workflows that can execute for up to one year while maintaining reliable progress despite interruptions. When a durable function runs, this complete lifecycle is called a durable execution, which uses checkpoints to track progress and automatically recover from failures through replay, re-executing from the beginning while skipping completed work.
+With AWS Lambda durable functions, you can build resilient multi-step applications and AI workflows that can execute for up to one year while maintaining reliable progress despite interruptions. When a durable function runs, this complete lifecycle is called a durable execution, which uses checkpoints to track progress and automatically recover from failures through replay, re-executing from the beginning while skipping completed work.
 
 Within each function, you use durable operations as fundamental building blocks. Steps execute business logic with built-in retries and progress tracking, while waits suspend execution without incurring compute charges, making them ideal for long-running processes like human-in-the-loop workflows or polling external dependencies. Whether you're processing orders, coordinating microservices, or orchestrating agentic AI applications, durable functions maintain state automatically and recover from failures while you write code in familiar programming languages.
 
@@ -57,4 +57,5 @@ With the SDK, you wrap your Lambda event handler, which then provides a DurableC
 - [Durable functions or Step Functions](durable-step-functions.md "durable-step-functions.md")
 - [Monitor and debug durable functions](durable-monitoring.md "durable-monitoring.md")
 - [Review security and permissions](durable-security.md "durable-security.md")
+- [Encrypting AWS Lambda durable execution data](durable-encryption.md "durable-encryption.md")
 - [Follow best practices](durable-best-practices.md "durable-best-practices.md")

@@ -1,6 +1,6 @@
 # Security and permissions for Lambda durable functions
 
-Lambda durable functions require specific IAM permissions to manage checkpoint operations. Follow the principle of least privilege by granting only the permissions your function needs.
+AWS Lambda durable functions require specific IAM permissions to manage checkpoint operations. Follow the principle of least privilege by granting only the permissions your function needs.
 
 ## Execution role permissions
 
@@ -70,13 +70,14 @@ Alternatively, you can use the AWS managed policy `AWSLambdaBasicDurableExecutio
 
 ## State encryption
 
-Lambda durable functions automatically enable encryption at rest using AWS owned keys at no charge. Each function execution maintains isolated state that other executions cannot access. Customer managed keys (CMK) are not supported.
+Lambda durable functions encrypt execution data at rest. Each function execution maintains isolated state that other executions cannot access. You can configure a customer managed key to encrypt durable execution data. For more information, see [Encrypting AWS Lambda durable execution data](durable-encryption.md "durable-encryption.md").
 
 Checkpoint data includes:
 
-- Step results and return values
-- Execution progress and timeline
-- Wait state information
+- Step results and errors
+- Chained invoke inputs
+
+For the complete list of durable execution data encrypted at rest, see [What is encrypted](durable-encryption.md#durable-encryption-what-is-encrypted "durable-encryption.md#durable-encryption-what-is-encrypted").
 
 All data is encrypted in transit using TLS when Lambda reads or writes checkpoint data.
 

@@ -101,7 +101,7 @@ For more information about Lambda execution environment phases, see [Understandi
 
 An example trace using the old-style X-Ray structure is shown in the following diagram.
 
-![Diagram showing an example old-style X-Ray trace containing invocation segment](images/V2_sandbox_images/my-function-2-v1.png)
+![Diagram showing an example old-style X-Ray trace containing invocation segment](/images/lambda/latest/dg/images/V2_sandbox_images/my-function-2-v1.png)
 
 Note the two segments in the example. Both are named **my-function**, but one has an origin of `AWS::Lambda`
 and the other has an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service

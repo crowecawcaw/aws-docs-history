@@ -56,11 +56,15 @@ claude mcp add awslabs-aws-serverless-mcp \
 
 ## Codex
 
-### Install AWS serverless skill
+### Install aws-core plugin from Agent Toolkit for AWS
+
+Run the following command to install the plugin:
 
 ```
-npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverless --yes --global
+codex plugin marketplace add aws/agent-toolkit-for-aws
 ```
+
+Then launch Codex and run `/plugins` to browse and install the aws-core plugin.
 
 ### Install Serverless MCP Server
 
@@ -162,7 +166,7 @@ Add the following to `.vscode/mcp.json` under `"mcpServers"`. Replace
 }
 ```
 
-## Windsurf
+## Devin Desktop
 
 ### Install AWS serverless skill
 
@@ -247,7 +251,7 @@ Add the Serverless MCP Server to your agent's MCP client configuration file unde
 
 ## Install additional Lambda skills
 
-The Agent Toolkit for AWS includes specialized serverless skills that give your AI agents knowledge of Lambda capabilities. Install these skills using any agent such as Claude Code, Cursor, Kiro CLI, GitHub Copilot, Codex, Windsurf, OpenCode or any other agents compatible with open-source [agent skills](https://agentskills.io/specification "https://agentskills.io/specification") format to enable your agent to help you build, deploy, and manage workloads using Lambda MicroVMs, Lambda Managed Instances, and Lambda durable functions.
+The Agent Toolkit for AWS includes specialized serverless skills that give your AI agents knowledge of Lambda capabilities. Install these skills using any agent such as Claude Code, Cursor, Kiro CLI, GitHub Copilot, Codex, Devin Desktop, OpenCode or any other agents compatible with open-source [agent skills](https://agentskills.io/specification "https://agentskills.io/specification") format to enable your agent to help you build, deploy, and manage workloads using Lambda MicroVMs, Lambda Managed Instances, and Lambda durable functions.
 
 1. **Lambda MicroVMs skill** — Lambda MicroVMs is a serverless compute primitive that provides VM-level isolation, near-instant launch and resume speeds, and state preservation for executing user or AI-generated code in isolated, stateful execution environments.
 
