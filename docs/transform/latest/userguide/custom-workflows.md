@@ -20,11 +20,41 @@ Use `atx custom def exec -n <transformation-name> -p <path>` to start a specific
 
 This is ideal for testing and refining transformations before running them autonomously.
 
-**Non-Interactive/Headless Mode**
+You can run transformations in non-interactive mode or headless mode. Non-interactive mode suppresses prompts during a named transformation. Headless mode lets you run the agent with a plain-text prompt, bypassing the interactive interface entirely.
 
-Use `atx custom def exec -n <transformation-name> -p <path> -x -t` for full automation. The `-x` flag enables non-interactive mode, and the `-t` flag automatically trusts all tools without prompting.
+#### Non-interactive mode
+
+Use `atx custom def exec -n <transformation-name> -p <path> -x -t` for full automation. Add `-x` to run in non-interactive mode, and `-t` to trust all tools automatically without prompting.
 
 This mode is designed for CI/CD pipeline integration and bulk execution where no human intervention is available or desired.
+
+#### Headless mode
+
+To complete tasks without interacting with the agent, run `atx -x "<prompt>" -t` and provide your instruction in plain text.
+
+##### Headless transformation execution
+
+Use this mode to apply an existing transformation definition to your codebase. The transformation runs each step automatically without requiring your approval.
+
+```
+atx -x "apply transformation definition <transformation_definition_name> to <codebase_path>" -t
+```
+
+##### Headless transformation development
+
+Create or modify transformation definitions.
+
+To convert a legacy transformation definition file (transformation\_definition.md) to the new skill format (SKILL.md + references/), run the following command:
+
+```
+atx -x "convert <legacy_transformation_definition_file_path> transformation definition to skill" -t
+```
+
+To create a new transformation definition, run the following command:
+
+```
+atx -x "create a transformation definition to <description> with references docs <reference_docs_path>" -t
+```
 
 ### Common Command Flags
 
@@ -249,12 +279,24 @@ This section describes advanced features and configuration options for AWS Trans
 
 You can customize CLI behavior using environment variables.
 
+###### Note
+
+The following examples show Linux and macOS syntax (`export`). On Windows, set environment variables in PowerShell using `$env:`NAME`="`value`"`. See the **Windows (PowerShell)** tabs for the equivalent commands.
+
 **ATX\_SHELL\_TIMEOUT**
 
 Override the default timeout for shell commands (900 seconds/15 minutes).
 
+Linux and macOS
+
 ```
 export ATX_SHELL_TIMEOUT=1800  # 30 minutes
+```
+
+Windows (PowerShell)
+
+```
+$env:ATX_SHELL_TIMEOUT=1800  # 30 minutes
 ```
 
 This is useful for large codebases or long-running build processes.
@@ -263,17 +305,34 @@ This is useful for large codebases or long-running build processes.
 
 Disable automatic version checks and update notifications during command execution.
 
+Linux and macOS
+
 ```
 export ATX_DISABLE_UPDATE_CHECK=true
+```
+
+Windows (PowerShell)
+
+```
+$env:ATX_DISABLE_UPDATE_CHECK="true"
 ```
 
 **ATX\_GIT\_COMMITTER\_NAME and ATX\_GIT\_COMMITTER\_EMAIL**
 
 Configure the author identity used for the checkpoint commits that AWS Transform custom creates in your repository as it applies changes during a transformation. When these variables are not set, checkpoint commits are attributed to a default identity (`ATX Bot <checkpoint@atx.bot>`). Set both variables to attribute checkpoints to a specific author.
 
+Linux and macOS
+
 ```
 export ATX_GIT_COMMITTER_NAME="Jane Developer"
 export ATX_GIT_COMMITTER_EMAIL="jane@example.com"
+```
+
+Windows (PowerShell)
+
+```
+$env:ATX_GIT_COMMITTER_NAME="Jane Developer"
+$env:ATX_GIT_COMMITTER_EMAIL="jane@example.com"
 ```
 
 ### Trust Settings
@@ -479,8 +538,16 @@ A disabled skill's files remain on disk. If a transformation definition instruct
 
 Check the CLI's debug log after a run to verify which skills were discovered:
 
+Linux and macOS
+
 ```
 grep -i "skill" ~/.aws/atx/logs/debug.log | tail -20
+```
+
+Windows (PowerShell)
+
+```
+Select-String -Pattern "skill" "$env:USERPROFILE\.aws\atx\logs\debug.log" | Select-Object -Last 20
 ```
 
 Skills that fail validation are skipped with a warning in the debug logs.
@@ -642,22 +709,51 @@ AWS Transform CLI maintains three types of logs for troubleshooting and debuggin
 
 **Conversation logs:**
 
-Location: `~/.aws/atx/custom/<conversation_id>/logs/<timestamp>-conversation.log`
+Linux and macOS
+
+```
+~/.aws/atx/custom/<conversation_id>/logs/<timestamp>-conversation.log
+```
+
+Windows
+
+```
+%USERPROFILE%\.aws\atx\custom\<conversation_id>\logs\<timestamp>-conversation.log
+```
 
 These logs contain the full conversation history for a specific session.
 
 **Subagent logs:**
 
-Location: `~/.aws/atx/custom/<conversation_id>/logs/subagents/<name>.log`
+Linux and macOS
+
+```
+~/.aws/atx/custom/<conversation_id>/logs/subagents/<name>.log
+```
+
+Windows
+
+```
+%USERPROFILE%\.aws\atx\custom\<conversation_id>\logs\subagents\<name>.log
+```
 
 These logs contain output from subagents that the main agent spawns during transformations. You do not need to manage subagents directly.
 
 **Developer debug logs:**
 
-Locations:
+Linux and macOS
 
-- `~/.aws/atx/logs/debug*.log`
-- `~/.aws/atx/logs/error.log`
+```
+~/.aws/atx/logs/debug*.log
+~/.aws/atx/logs/error.log
+```
+
+Windows
+
+```
+%USERPROFILE%\.aws\atx\logs\debug*.log
+%USERPROFILE%\.aws\atx\logs\error.log
+```
 
 These logs provide advanced troubleshooting information for the CLI itself.
 

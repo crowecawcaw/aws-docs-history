@@ -12,11 +12,8 @@ AWS Transform custom supports the following operating systems:
 
 - **Linux** - Full support for all Linux distributions
 - **macOS** - Full support for macOS systems
+- **Windows** - Full support for native Windows using Windows Terminal and PowerShell (The `atx ct` commands are not yet supported on Windows)
 - **Windows Subsystem for Linux (WSL)** - Supported when running under WSL
-
-###### Important
-
-Windows native execution is not supported. AWS Transform custom will detect native Windows environments and exit with an error message. For Windows users, install and use Windows Subsystem for Linux (WSL).
 
 ### Required Software
 
@@ -35,14 +32,23 @@ If you are working in an internet-restricted environment, update firewall rules 
 
 ## Installing the AWS Transform CLI
 
-The recommended installation method is using the installation script.
+The recommended installation method is using the installation script. Choose the tab for your operating system.
 
 **To install the AWS Transform CLI**
 
 1. Run the installation script:
 
+Linux and macOS
+
 ```
 curl -fsSL https://transform-cli.awsstatic.com/install.sh | bash
+```
+
+Windows (PowerShell)
+On native Windows, run the installation script from Windows Terminal using PowerShell.
+
+```
+irm https://transform-cli.awsstatic.com/install.ps1 | iex
 ```
 
 2. Verify the installation:
@@ -59,7 +65,9 @@ AWS Transform custom requires AWS credentials to authenticate with the service. 
 
 ### Environment Variables
 
-Set the following environment variables:
+Set the following environment variables.
+
+Linux and macOS
 
 ```
 export AWS_ACCESS_KEY_ID=your_access_key
@@ -67,15 +75,35 @@ export AWS_SECRET_ACCESS_KEY=your_secret_key
 export AWS_SESSION_TOKEN=your_session_token
 ```
 
-You can also specify a profile using the `AWS_PROFILE` environment variable:
+Windows (PowerShell)
+
+```
+$env:AWS_ACCESS_KEY_ID="your_access_key"
+$env:AWS_SECRET_ACCESS_KEY="your_secret_key"
+$env:AWS_SESSION_TOKEN="your_session_token"
+```
+
+You can also specify a profile using the `AWS_PROFILE` environment variable.
+
+Linux and macOS
 
 ```
 export AWS_PROFILE=your_profile_name
 ```
 
+Windows (PowerShell)
+
+```
+$env:AWS_PROFILE="your_profile_name"
+```
+
+###### Note
+
+Environment variables set with `$env:` in PowerShell apply to the current session only. To persist them across sessions, set them through **System Properties** > **Environment Variables**, or use `[System.Environment]::SetEnvironmentVariable()`.
+
 ### AWS Credentials File
 
-Configure credentials in `~/.aws/credentials`:
+Configure credentials in the AWS credentials file, located at `~/.aws/credentials` on Linux and macOS, or `%USERPROFILE%\.aws\credentials` on Windows:
 
 ```
 [default]
@@ -124,9 +152,13 @@ The CLI checks these sources in priority order to determine which region to use:
 
 1. `AWS_REGION` environment variable (highest priority)
 2. `AWS_DEFAULT_REGION` environment variable
-3. Selected profile in `~/.aws/config` (via `AWS_PROFILE` environment variable)
-4. Default profile in `~/.aws/config`
+3. Selected profile in the AWS config file (via `AWS_PROFILE` environment variable)
+4. Default profile in the AWS config file
 5. Default fallback to `us-east-1` if no configuration is found
+
+###### Note
+
+The AWS config file is located at `~/.aws/config` on Linux and macOS, or `%USERPROFILE%\.aws\config` on Windows.
 
 ###### Note
 
@@ -138,8 +170,16 @@ Choose one of these methods to configure your region:
 
 **Option 1: Environment variable (recommended for temporary use):**
 
+Linux and macOS
+
 ```
 export AWS_REGION=<your-region>
+```
+
+Windows (PowerShell)
+
+```
+$env:AWS_REGION="<your-region>"
 ```
 
 **Option 2: AWS CLI configuration (recommended for permanent setup):**
@@ -150,14 +190,23 @@ aws configure set region <your-region>
 
 **Option 3: Profile-specific configuration:**
 
+Linux and macOS
+
 ```
 aws configure set region <your-region> --profile your_profile_name
 export AWS_PROFILE=your_profile_name
 ```
 
+Windows (PowerShell)
+
+```
+aws configure set region <your-region> --profile your_profile_name
+$env:AWS_PROFILE="your_profile_name"
+```
+
 **Option 4: Direct file editing:**
 
-Edit `~/.aws/config` directly:
+Edit the AWS config file directly (`~/.aws/config` on Linux and macOS, or `%USERPROFILE%\.aws\config` on Windows):
 
 ```
 [default]
@@ -179,16 +228,34 @@ aws configure get region
 
 **Check environment variables:**
 
+Linux and macOS
+
 ```
 echo "AWS_REGION: $AWS_REGION"
 echo "AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION"
 echo "AWS_PROFILE: $AWS_PROFILE"
 ```
 
+Windows (PowerShell)
+
+```
+echo "AWS_REGION: $env:AWS_REGION"
+echo "AWS_DEFAULT_REGION: $env:AWS_DEFAULT_REGION"
+echo "AWS_PROFILE: $env:AWS_PROFILE"
+```
+
 **View detailed region resolution in debug logs:**
+
+Linux and macOS
 
 ```
 tail -f ~/.aws/atx/logs/debug.log
+```
+
+Windows (PowerShell)
+
+```
+Get-Content "$env:USERPROFILE\.aws\atx\logs\debug.log" -Wait -Tail 10
 ```
 
 Example log output showing region source:

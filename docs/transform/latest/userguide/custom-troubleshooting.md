@@ -8,25 +8,50 @@ AWS Transform CLI maintains logs in the following locations:
 
 **Conversation logs:**
 
+Linux and macOS
+
 ```
 ~/.aws/atx/custom/<conversation_id>/logs/<timestamp>-conversation.log
+```
+
+Windows
+
+```
+%USERPROFILE%\.aws\atx\custom\<conversation_id>\logs\<timestamp>-conversation.log
 ```
 
 These logs contain the full conversation history for debugging specific transformation executions.
 
 **Subagent logs:**
 
+Linux and macOS
+
 ```
 ~/.aws/atx/custom/<conversation_id>/logs/subagents/<name>.log
+```
+
+Windows
+
+```
+%USERPROFILE%\.aws\atx\custom\<conversation_id>\logs\subagents\<name>.log
 ```
 
 These logs contain output from subagents that the main agent spawns during transformations. You do not need to manage subagents directly.
 
 **Developer debug logs:**
 
+Linux and macOS
+
 ```
 ~/.aws/atx/logs/debug*.log
 ~/.aws/atx/logs/error.log
+```
+
+Windows
+
+```
+%USERPROFILE%\.aws\atx\logs\debug*.log
+%USERPROFILE%\.aws\atx\logs\error.log
 ```
 
 These logs provide detailed information about CLI operations and errors.
@@ -122,7 +147,17 @@ Please examine the [Log Locations](#custom-log-locations "#custom-log-locations"
 
 If you are using a VPN/Proxy server that leverages the `https_proxy` and `no_proxy` environment variables, consider adding the following values to your `no_proxy` environment variable value to bypass the proxy for the S3 and AWS Transform custom service endpoints, for example:
 
-`export no_proxy=.s3.amazonaws.com,transform-custom.<region>.api.aws`
+Linux and macOS
+
+```
+export no_proxy=.s3.amazonaws.com,transform-custom.<region>.api.aws
+```
+
+Windows (PowerShell)
+
+```
+$env:no_proxy=".s3.amazonaws.com,transform-custom.<region>.api.aws"
+```
 
 If you are using an [AWS PrivateLink for Amazon S3](../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md "../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md") in your VPC,
 this may have a policy defined to restrict S3 traffic. Please ensure your S3 VPC endpoint policy allows `GetObject` and `PutObject` operations for the AWS Transform

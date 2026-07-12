@@ -758,7 +758,7 @@ The cutover process includes the following steps:
    agents from sending data, removes replication agents from source
    servers, and locks the server lifecycle state. This action cannot be
    easily undone. To read more about it, see [Finalize
-   cutover](../../../mgn/latest/ug/finalize-cutover.md "../../../mgn/latest/ug/finalize-cutover.md") in the _MGN User
+   cutover](../../../mgn/latest/ug/finalizing-cutover-2.md "../../../mgn/latest/ug/finalizing-cutover-2.md") in the _MGN User
    Guide_.
 4. **Archive source servers (optional)** –
    After finalization, you can mark source servers as archived to free up
@@ -778,7 +778,7 @@ Plan your cutover window accordingly.
 
 During migration, each server progresses through the following lifecycle
 states. To read more about it, see [Source server
-lifecycle](../../../mgn/latest/ug/source-server-lifecycle.md "../../../mgn/latest/ug/source-server-lifecycle.md") in the _MGN User Guide_.
+lifecycle](../../../mgn/latest/ug/migration-dashboard.md "../../../mgn/latest/ug/migration-dashboard.md") in the _MGN User Guide_.
 
 - **Not ready** – The server is undergoing
   the initial sync process and is not yet ready for testing.
