@@ -18,8 +18,8 @@ information about setting up an AWS Control Tower landing zone, refer to [Gettin
 
 As you deploy CfCT, it packages and uploads the custom resources to the code pipeline
 source, by means of [Amazon Simple Storage Service](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/") (Amazon S3). The upload
-process automatically invokes the service control policies (SCPs) state machine and the
-[AWS CloudFormation StackSets](../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md "../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md") state machine to deploy the SCPs at the OU level, or to
+process automatically invokes the service control policies (SCPs) state machine, the resource control policies (RCPs) state machine, and the
+[AWS CloudFormation StackSets](../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md "../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md") state machine to deploy the SCPs and RCPs at the OU level, or to
 deploy stack instances at the OU or account level.
 
 ###### Note
@@ -36,10 +36,10 @@ source](cfct-s3-source.md "cfct-s3-source.md").
 - and an AWS Control Tower lifecycle event workflow.
   **The AWS CodePipeline workflow**
 
-The AWS CodePipeline workflow configures AWS CodePipeline, [AWS CodeBuild](https://aws.amazon.com/codebuild/ "https://aws.amazon.com/codebuild/") projects, and [AWS Step Functions](https://aws.amazon.com/step-functions/ "https://aws.amazon.com/step-functions/") that orchestrate the management of AWS CloudFormation StackSets and SCPs
+The AWS CodePipeline workflow configures AWS CodePipeline, [AWS CodeBuild](https://aws.amazon.com/codebuild/ "https://aws.amazon.com/codebuild/") projects, and [AWS Step Functions](https://aws.amazon.com/step-functions/ "https://aws.amazon.com/step-functions/") that orchestrate the management of AWS CloudFormation StackSets, SCPs, and RCPs
 in your organization.
 
-When you upload the configuration package, CfCT invokes the code pipeline to run three
+When you upload the configuration package, CfCT invokes the code pipeline to run four
 stages.
 
 - **Build Stage** – validates the contents
@@ -47,12 +47,15 @@ stages.
 - **SCP Stage** – invokes the service
   control policy state machine, which calls the AWS Organizations API to create
   SCPs.
+- **RCP Stage** – invokes the resource
+  control policy state machine, which calls the AWS Organizations API to create
+  RCPs.
 - **CloudFormation Stage** – invokes the
   stack set state machine to deploy the resources specified in the list of
   accounts or OUs, which you've provided in [the
   manifest file](the-manifest-file.md "the-manifest-file.md").
-  At each stage, the code pipeline invokes the stack set and SCP step functions, which
-  deploy custom stack sets and SCPs to the targeted individual accounts, or to an entire
+  At each stage, the code pipeline invokes the stack set, SCP, and RCP step functions, which
+  deploy custom stack sets, SCPs, and RCPs to the targeted individual accounts, or to an entire
   organizational unit.
 
 ###### Note
@@ -68,4 +71,4 @@ queue, and an [AWS Lambda](https://aws.amazon.com/lambda/ "https://aws.amazon.co
 
 When the Amazon EventBridge event rule detects a matching lifecycle event, it passes
 the event to the Amazon SQS FIFO queue, invokes the AWS Lambda function, and invokes the code
-pipeline to perform downstream deployment of stack sets and SCPs.
+pipeline to perform downstream deployment of stack sets, SCPs, and RCPs.

@@ -330,54 +330,51 @@ If you're provisioning accounts using Lambda functions, the identity that will
 perform this work must have the following IAM permissions policy, in addition to
 `AWSServiceCatalogEndUserFullAccess`.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AWSControlTowerAccountFactoryAccess",
- "Effect": "Allow",
- "Action": [
- "sso:GetProfile",
- "sso:CreateProfile",
- "sso:UpdateProfile",
- "sso:AssociateProfile",
- "sso:CreateApplicationInstance",
- "sso:GetSSOStatus",
- "sso:GetTrust",
- "sso:CreateTrust",
- "sso:UpdateTrust",
- "sso:GetPeregrineStatus",
- "sso:GetApplicationInstance",
- "sso:ListDirectoryAssociations",
- "sso:ListPermissionSets",
- "sso:GetPermissionSet",
- "sso:ProvisionApplicationInstanceForAWSAccount",
- "sso:ProvisionApplicationProfileForAWSAccountInstance",
- "sso:ProvisionSAMLProvider",
- "sso:ListProfileAssociations",
- "sso-directory:ListMembersInGroup",
- "sso-directory:AddMemberToGroup",
- "sso-directory:SearchGroups",
- "sso-directory:SearchUsers",
- "sso-directory:CreateUser",
- "sso-directory:DescribeGroups",
- "sso-directory:DescribeDirectory",
- "sso-directory:GetUserPoolInfo",
- "controltower:CreateManagedAccount",
- "controltower:DescribeManagedAccount",
- "controltower:DeregisterManagedAccount",
- "s3:GetObject",
- "organizations:describeOrganization",
- "sso:DescribeRegisteredRegions"
- ],
- "Resource": "*"
- }
- ]
-}`
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AWSControlTowerAccountFactoryAccess",
+            "Effect": "Allow",
+            "Action": [
+                "sso:GetProfile",
+                "sso:CreateProfile",
+                "sso:UpdateProfile",
+                "sso:AssociateProfile",
+                "sso:CreateApplicationInstance",
+                "sso:GetSSOStatus",
+                "sso:GetTrust",
+                "sso:CreateTrust",
+                "sso:UpdateTrust",
+                "sso:GetApplicationInstance",
+                "sso:ListDirectoryAssociations",
+                "sso:ListPermissionSets",
+                "sso:GetPermissionSet",
+                "sso:ProvisionApplicationInstanceForAWSAccount",
+                "sso:ProvisionApplicationProfileForAWSAccountInstance",
+                "sso:ProvisionSAMLProvider",
+                "sso:ListProfileAssociations",
+                "sso-directory:ListMembersInGroup",
+                "sso-directory:AddMemberToGroup",
+                "sso-directory:SearchGroups",
+                "sso-directory:SearchUsers",
+                "sso-directory:CreateUser",
+                "sso-directory:DescribeGroups",
+                "sso-directory:DescribeDirectory",
+                "sso-directory:GetUserPoolInfo",
+                "controltower:CreateManagedAccount",
+                "controltower:DescribeManagedAccount",
+                "controltower:DeregisterManagedAccount",
+                "s3:GetObject",
+                "organizations:describeOrganization",
+                "sso:DescribeRegisteredRegions"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
 
 ```
 
-The permissions `sso:GetPeregrineStatus`, `sso:ProvisionApplicationInstanceForAWSAccount`, `sso:ProvisionApplicationProfileForAWSAccountInstance`, and `sso:ProvisionSAMLProvide` are required by AWS Control Tower Account Factory to interact with AWS IAM Identity Center.
+The permissions `sso:ProvisionApplicationInstanceForAWSAccount`, `sso:ProvisionApplicationProfileForAWSAccountInstance`, and `sso:ProvisionSAMLProvider` are required by AWS Control Tower Account Factory to interact with AWS IAM Identity Center.

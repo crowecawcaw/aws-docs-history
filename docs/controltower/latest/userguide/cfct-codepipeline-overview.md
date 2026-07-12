@@ -60,10 +60,13 @@ The manual approval stage is optional. If you enable this stage, it provides
 additional control over the configuration pipeline. It pauses the pipeline during
 deployment, until an approval is given. You can opt into manual approval by editing the
 **Pipeline Approval Stage** parameter to **Yes**
-when you launch the stack. 4. **Policy stage**
+when you launch the stack. 4. **Service Control Policy stage**
 
-The policy stage invokes the service control policy (SCP) or resource control policy (RCP) state machine to
-call AWS Organizations APIs that create SCPs or RCPs. 5. **CloudFormation resource stage**
+The Service Control Policy stage invokes the service control policy (SCP) state machine to
+call AWS Organizations APIs that create SCPs. 5. **Resource Control Policy stage**
+
+The Resource Control Policy stage invokes the resource control policy (RCP) state machine to
+call AWS Organizations APIs that create RCPs. 6. **CloudFormation resource stage**
 
 The CloudFormation resource stage invokes the stack set state machine to deploy the resources
 specified in the list of accounts or organizational units (OUs), which you provided in
