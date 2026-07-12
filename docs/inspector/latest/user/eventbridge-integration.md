@@ -48,6 +48,32 @@ The following fields identify a finding event:
 - `detail` describes the finding.
 - `detail.resources.tags` is where key-value data is stored.
 
+Each object in `detail.resources` can also include the following fields.
+These fields are present for all resources, including AWS resources.
+
+For AWS resources, these fields appear alongside the AWS-specific fields. You can
+rely on a single, provider-agnostic representation regardless of where the resource is
+hosted.
+
+- `provider` is the cloud provider of the resource, for example
+  `AWS` or `AZURE`.
+- `providerAccountId` is the cloud provider account identifier for the
+  resource, such as an Azure subscription ID. For AWS resources, this matches
+  the `account` field.
+- `providerOrgId` is the cloud provider organization or tenant
+  identifier for the resource, such as an Azure tenant ID. Amazon Inspector populates
+  this field for `AZURE` resources.
+- `detail.resources.details` contains a provider-agnostic resource
+  detail object that corresponds to the resource `type`:
+  `vm` for a virtual machine, `image` for a container
+  image, or `serverlessFunction` for a serverless function. These are
+  the multi-cloud equivalents of the `awsEc2Instance`,
+  `awsEcrContainerImage`, and `awsLambdaFunction` objects.
+  For AWS resources, Amazon Inspector also includes the provider-agnostic object
+  alongside the corresponding AWS-specific object. For example, an Amazon EC2
+  instance finding includes both `awsEc2Instance` and
+  `vm`.
+
 You can filter the tabs to see finding event schemas for different resources and finding types.
 
 Amazon EC2 package vulnerability finding
@@ -138,8 +164,8 @@ Amazon EC2 package vulnerability finding
                         "iamInstanceProfileArn": "arn:aws:iam::123456789012:instance-profile/AmazonSSMRoleForInstancesQuickSetup",
                         "imageId": "ami-02ff980600c693b38",
                         "ipV4Addresses": [
-                            "1.23.456.789",
-                            "123.45.67.890"
+                            "192.0.2.10",
+                            "203.0.113.20"
                         ],
                         "ipV6Addresses": [],
                         "launchedAt": "Wed Sep 04 16:57:40.000 UTC 2024",
@@ -147,10 +173,28 @@ Amazon EC2 package vulnerability finding
                         "subnetId": "subnet-12345678",
                         "type": "t2.small",
                         "vpcId": "vpc-12345678"
+                    },
+                    "vm": {
+                        "type": "t2.small",
+                        "vmImageReference": "ami-02ff980600c693b38",
+                        "ipV4Addresses": [
+                            "192.0.2.10",
+                            "203.0.113.20"
+                        ],
+                        "ipV6Addresses": [],
+                        "networkId": "vpc-12345678",
+                        "subnetIds": [
+                            "subnet-12345678"
+                        ],
+                        "launchedAt": "Wed Sep 04 16:57:40.000 UTC 2024",
+                        "platform": "UBUNTU_22_04",
+                        "executionRole": "arn:aws:iam::123456789012:instance-profile/AmazonSSMRoleForInstancesQuickSetup"
                     }
                 },
                 "id": "i-12345678901234567",
                 "partition": "aws",
+                "provider": "AWS",
+                "providerAccountId": "123456789012",
                 "region": "eu-central-1",
                 "type": "AWS_EC2_INSTANCE"
             }
@@ -219,17 +263,30 @@ Amazon EC2 network reachability finding
                 "awsEc2Instance": {
                     "iamInstanceProfileArn": "arn:aws:iam::123456789012:instance-profile/AmazonSSMRoleForInstancesQuickSetup",
                     "imageId": "ami-02ff980600c693b38",
-                    "ipV4Addresses": ["1.23.456.789", "123.45.67.890"],
+                    "ipV4Addresses": ["192.0.2.10", "203.0.113.20"],
                     "ipV6Addresses": [],
                     "launchedAt": "Wed Sep 04 17:41:24.000 UTC 2024",
                     "platform": "UBUNTU_22_04",
                     "subnetId": "subnet-12345678",
                     "type": "t2.small",
                     "vpcId": "vpc-12345678"
+                },
+                "vm": {
+                    "type": "t2.small",
+                    "vmImageReference": "ami-02ff980600c693b38",
+                    "ipV4Addresses": ["192.0.2.10", "203.0.113.20"],
+                    "ipV6Addresses": [],
+                    "networkId": "vpc-12345678",
+                    "subnetIds": ["subnet-12345678"],
+                    "launchedAt": "Wed Sep 04 17:41:24.000 UTC 2024",
+                    "platform": "UBUNTU_22_04",
+                    "executionRole": "arn:aws:iam::123456789012:instance-profile/AmazonSSMRoleForInstancesQuickSetup"
                 }
             },
             "id": "i-12345678901234567",
             "partition": "aws",
+            "provider": "AWS",
+            "providerAccountId": "123456789012",
             "region": "eu-central-1",
             "type": "AWS_EC2_INSTANCE"
         }],
@@ -327,10 +384,23 @@ Amazon ECR package vulnerability finding
                         "pushedAt": "Wed Sep 04 16:55:28.000 UTC 2024",
                         "registry": "123456789012",
                         "repositoryName": "inspector2"
+                    },
+                    "image": {
+                        "repositoryName": "inspector2",
+                        "registry": "123456789012",
+                        "imageTags": [
+                            "ubuntu_latest"
+                        ],
+                        "imageDigest": "sha256:84f507df33c6864d49c296fb734192696e4cb6f78166ac51ac8b9b118181085d",
+                        "pushedAt": "Wed Sep 04 16:55:28.000 UTC 2024",
+                        "architecture": "arm64",
+                        "platform": "UBUNTU_24_04"
                     }
                 },
                 "id": "arn:aws:ecr:eu-central-1:123456789012:repository/inspector2/sha256:84f507df33c6864d49c296fb734192696e4cb6f78166ac51ac8b9b118181085d",
                 "partition": "aws",
+                "provider": "AWS",
+                "providerAccountId": "123456789012",
                 "region": "eu-central-1",
                 "type": "AWS_ECR_CONTAINER_IMAGE"
             }
@@ -434,10 +504,24 @@ Lambda package vulnerability finding
                         "packageType": "ZIP",
                         "runtime": "PYTHON_3_11",
                         "version": "$LATEST"
+                    },
+                    "serverlessFunction": {
+                        "serverlessFunctionName": "VulnerableFunction",
+                        "runtime": "PYTHON_3_11",
+                        "version": "$LATEST",
+                        "codeDigest": "O7jkFEmfPB+CK3Y6Pby5zW9gjG+zusAaqRRMGS8B27c=",
+                        "lastModifiedAt": "Wed Sep 04 16:50:20.000 UTC 2024",
+                        "executionRole": "arn:aws:iam::123456789012:role/service-role/VulnerableFunction-role-f9vs5mq8",
+                        "packageType": "ZIP",
+                        "architectures": [
+                            "X86_64"
+                        ]
                     }
                 },
                 "id": "arn:aws:lambda:eu-central-1:123456789012:function:VulnerableFunction:$LATEST",
                 "partition": "aws",
+                "provider": "AWS",
+                "providerAccountId": "123456789012",
                 "region": "eu-central-1",
                 "type": "AWS_LAMBDA_FUNCTION"
             }
@@ -514,10 +598,24 @@ Lambda code vulnerability finding
                         "packageType": "ZIP",
                         "runtime": "PYTHON_3_11",
                         "version": "$LATEST"
+                    },
+                    "serverlessFunction": {
+                        "serverlessFunctionName": "VulnerableFunction",
+                        "runtime": "PYTHON_3_11",
+                        "version": "$LATEST",
+                        "codeDigest": "O7jkFEmfPB+CK3Y6Pby5zW9gjG+zusAaqRRMGS8B27c=",
+                        "lastModifiedAt": "Wed Sep 04 16:50:20.000 UTC 2024",
+                        "executionRole": "arn:aws:iam::123456789012:role/service-role/VulnerableFunction-role-f9vs5mq8",
+                        "packageType": "ZIP",
+                        "architectures": [
+                            "X86_64"
+                        ]
                     }
                 },
                 "id": "arn:aws:lambda:eu-central-1:123456789012:function:VulnerableFunction:$LATEST",
                 "partition": "aws",
+                "provider": "AWS",
+                "providerAccountId": "123456789012",
                 "region": "eu-central-1",
                 "type": "AWS_LAMBDA_FUNCTION"
             }
@@ -527,6 +625,277 @@ Lambda code vulnerability finding
         "title": "CWE-798 - Hardcoded credentials",
         "type": "CODE_VULNERABILITY",
         "updatedAt": "Wed Sep 04 16:51:01.869 UTC 2024"
+    }
+}
+
+```
+
+Azure virtual machine package vulnerability finding
+
+```
+
+{
+    "version": "0",
+    "id": "a1b2c3d4-1111-2222-3333-444455556666",
+    "detail-type": "Inspector2 Finding",
+    "source": "aws.inspector2",
+    "account": "123456789012",
+    "time": "2024-09-04T17:00:36Z",
+    "region": "us-east-1",
+    "resources": [
+        "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourcegroups/example-rg/providers/microsoft.compute/virtualmachines/example-vm"
+    ],
+    "detail": {
+        "awsAccountId": "123456789012",
+        "description": "A package vulnerability was detected on an Azure virtual machine monitored by Amazon Inspector.",
+        "exploitAvailable": "NO",
+        "findingArn": "arn:aws:inspector2:us-east-1:123456789012:finding/`FINDING_ID`",
+        "firstObservedAt": "Wed Sep 04 16:59:44.356 UTC 2024",
+        "fixAvailable": "YES",
+        "lastObservedAt": "Wed Sep 04 16:59:44.476 UTC 2024",
+        "packageVulnerabilityDetails": {
+            "cvss": [
+                {
+                    "baseScore": 4.8,
+                    "scoringVector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:L",
+                    "source": "UBUNTU_CVE",
+                    "version": "3.1"
+                }
+            ],
+            "referenceUrls": [
+                "https://www.cve.org/CVERecord?id=CVE-2024-29069"
+            ],
+            "relatedVulnerabilities": [],
+            "source": "UBUNTU_CVE",
+            "sourceUrl": "https://people.canonical.com/~ubuntu-security/cve/2024/CVE-2024-29069.html",
+            "vendorSeverity": "medium",
+            "vulnerabilityId": "CVE-2024-29069",
+            "vulnerablePackages": [
+                {
+                    "arch": "ALL",
+                    "epoch": 0,
+                    "fixedInVersion": "0:2.63+22.04ubuntu0.1",
+                    "name": "snapd",
+                    "packageManager": "OS",
+                    "remediation": "apt-get update && apt-get upgrade",
+                    "version": "2.63"
+                }
+            ]
+        },
+        "remediation": {
+            "recommendation": {
+                "text": "None Provided"
+            }
+        },
+        "resources": [
+            {
+                "details": {
+                    "vm": {
+                        "type": "Standard_D2s_v3",
+                        "vmName": "example-vm",
+                        "vmImageReference": "Canonical:0001-com-ubuntu-server-jammy:22_04-lts:latest",
+                        "ipV4Addresses": [
+                            "10.0.0.4"
+                        ],
+                        "ipV6Addresses": [],
+                        "networkId": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourcegroups/example-rg/providers/microsoft.network/virtualnetworks/example-vnet",
+                        "subnetIds": [
+                            "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourcegroups/example-rg/providers/microsoft.network/virtualnetworks/example-vnet/subnets/default"
+                        ],
+                        "securityGroupIds": [
+                            "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourcegroups/example-rg/providers/microsoft.network/networksecuritygroups/example-nsg"
+                        ],
+                        "launchedAt": "Wed Sep 04 16:57:40.000 UTC 2024",
+                        "platform": "UBUNTU_22_04",
+                        "executionRole": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourcegroups/example-rg/providers/microsoft.managedidentity/userassignedidentities/example-identity",
+                        "keyName": "example-key"
+                    }
+                },
+                "id": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourcegroups/example-rg/providers/microsoft.compute/virtualmachines/example-vm",
+                "provider": "AZURE",
+                "providerAccountId": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+                "providerOrgId": "11111111-2222-3333-4444-555555555555",
+                "region": "eastus",
+                "type": "Microsoft.Compute/virtualMachines"
+            }
+        ],
+        "severity": "MEDIUM",
+        "status": "ACTIVE",
+        "title": "CVE-2024-29069 - snapd",
+        "type": "PACKAGE_VULNERABILITY",
+        "updatedAt": "Wed Sep 04 17:00:36.951 UTC 2024"
+    }
+}
+
+```
+
+Azure container image package vulnerability finding
+
+```
+
+{
+    "version": "0",
+    "id": "b2c3d4e5-2222-3333-4444-555566667777",
+    "detail-type": "Inspector2 Finding",
+    "source": "aws.inspector2",
+    "account": "123456789012",
+    "time": "2024-09-04T16:55:38Z",
+    "region": "us-east-1",
+    "resources": [
+        "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourcegroups/example-rg/providers/microsoft.containerregistry/registries/exampleregistry/repositories/inspector2/images/sha256:84f507df33c6864d49c296fb734192696e4cb6f78166ac51ac8b9b118181085d"
+    ],
+    "detail": {
+        "awsAccountId": "123456789012",
+        "description": "A package vulnerability was detected in an Azure Container Registry image monitored by Amazon Inspector.",
+        "exploitAvailable": "NO",
+        "findingArn": "arn:aws:inspector2:us-east-1:123456789012:finding/`FINDING_ID`",
+        "firstObservedAt": "Wed Sep 04 16:55:38.411 UTC 2024",
+        "fixAvailable": "YES",
+        "lastObservedAt": "Wed Sep 04 16:55:38.411 UTC 2024",
+        "packageVulnerabilityDetails": {
+            "cvss": [],
+            "referenceUrls": [
+                "https://www.cve.org/CVERecord?id=CVE-2024-6119"
+            ],
+            "relatedVulnerabilities": [],
+            "source": "UBUNTU_CVE",
+            "sourceUrl": "https://people.canonical.com/~ubuntu-security/cve/2024/CVE-2024-6119.html",
+            "vendorSeverity": "medium",
+            "vulnerabilityId": "CVE-2024-6119",
+            "vulnerablePackages": [
+                {
+                    "arch": "ARM64",
+                    "epoch": 0,
+                    "fixedInVersion": "0:3.0.13-0ubuntu3.4",
+                    "name": "openssl",
+                    "packageManager": "OS",
+                    "remediation": "apt-get update && apt-get upgrade",
+                    "version": "3.0.13"
+                }
+            ]
+        },
+        "remediation": {
+            "recommendation": {
+                "text": "None Provided"
+            }
+        },
+        "resources": [
+            {
+                "details": {
+                    "image": {
+                        "repositoryName": "inspector2",
+                        "registry": "exampleregistry.azurecr.io",
+                        "imageTags": [
+                            "ubuntu_latest"
+                        ],
+                        "imageDigest": "sha256:84f507df33c6864d49c296fb734192696e4cb6f78166ac51ac8b9b118181085d",
+                        "pushedAt": "Wed Sep 04 16:55:28.000 UTC 2024",
+                        "architecture": "arm64",
+                        "author": "example-author",
+                        "platform": "UBUNTU_24_04"
+                    }
+                },
+                "id": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourcegroups/example-rg/providers/microsoft.containerregistry/registries/exampleregistry/repositories/inspector2/images/sha256:84f507df33c6864d49c296fb734192696e4cb6f78166ac51ac8b9b118181085d",
+                "provider": "AZURE",
+                "providerAccountId": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+                "providerOrgId": "11111111-2222-3333-4444-555555555555",
+                "region": "eastus",
+                "type": "Microsoft.ContainerRegistry/registry/containerImage"
+            }
+        ],
+        "severity": "MEDIUM",
+        "status": "ACTIVE",
+        "title": "CVE-2024-6119 - openssl",
+        "type": "PACKAGE_VULNERABILITY",
+        "updatedAt": "Wed Sep 04 16:55:38.411 UTC 2024"
+    }
+}
+
+```
+
+Azure function app package vulnerability finding
+
+```
+
+{
+    "version": "0",
+    "id": "c3d4e5f6-3333-4444-5555-666677778888",
+    "detail-type": "Inspector2 Finding",
+    "source": "aws.inspector2",
+    "account": "123456789012",
+    "time": "2024-09-04T16:50:37Z",
+    "region": "us-east-1",
+    "resources": [
+        "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourcegroups/example-rg/providers/microsoft.web/sites/example-functionapp"
+    ],
+    "detail": {
+        "awsAccountId": "123456789012",
+        "description": "A package vulnerability was detected in an Azure function app monitored by Amazon Inspector.",
+        "exploitAvailable": "YES",
+        "findingArn": "arn:aws:inspector2:us-east-1:123456789012:finding/`FINDING_ID`",
+        "firstObservedAt": "Wed Sep 04 16:50:37.627 UTC 2024",
+        "fixAvailable": "YES",
+        "lastObservedAt": "Wed Sep 04 16:50:37.627 UTC 2024",
+        "packageVulnerabilityDetails": {
+            "cvss": [
+                {
+                    "baseScore": 7.5,
+                    "scoringVector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+                    "source": "NVD",
+                    "version": "3.1"
+                }
+            ],
+            "referenceUrls": [],
+            "relatedVulnerabilities": [],
+            "source": "NVD",
+            "sourceUrl": "https://nvd.nist.gov/vuln/detail/CVE-2023-30861",
+            "vendorSeverity": "HIGH",
+            "vulnerabilityId": "CVE-2023-30861",
+            "vulnerablePackages": [
+                {
+                    "epoch": 0,
+                    "filePath": "requirements.txt",
+                    "fixedInVersion": "2.3.2",
+                    "name": "flask",
+                    "packageManager": "PIP",
+                    "version": "2.0.0"
+                }
+            ]
+        },
+        "remediation": {
+            "recommendation": {
+                "text": "None Provided"
+            }
+        },
+        "resources": [
+            {
+                "details": {
+                    "serverlessFunction": {
+                        "serverlessFunctionName": "example-functionapp",
+                        "runtime": "PYTHON_3_11",
+                        "version": "1",
+                        "codeDigest": "O7jkFEmfPB+CK3Y6Pby5zW9gjG+zusAaqRRMGS8B27c=",
+                        "lastModifiedAt": "Wed Sep 04 16:50:20.000 UTC 2024",
+                        "executionRole": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourcegroups/example-rg/providers/microsoft.managedidentity/userassignedidentities/example-identity",
+                        "packageType": "ZIP",
+                        "architectures": [
+                            "X86_64"
+                        ]
+                    }
+                },
+                "id": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourcegroups/example-rg/providers/microsoft.web/sites/example-functionapp",
+                "provider": "AZURE",
+                "providerAccountId": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+                "providerOrgId": "11111111-2222-3333-4444-555555555555",
+                "region": "eastus",
+                "type": "Microsoft.Web/sites"
+            }
+        ],
+        "severity": "HIGH",
+        "status": "ACTIVE",
+        "title": "CVE-2023-30861 - flask",
+        "type": "PACKAGE_VULNERABILITY",
+        "updatedAt": "Wed Sep 04 16:50:37.627 UTC 2024"
     }
 }
 
@@ -658,6 +1027,24 @@ following fields identify a coverage event:
 - The `detail` object contains a `scanStatus` object that indicates the
   new scanning status for the resource.
 
+The `detail` object also includes the following fields. These fields are
+present for all resources, including AWS resources.
+
+- `provider` is the cloud provider of the resource, for example
+  `AWS` or `AZURE`.
+- `providerAccountId` is the cloud provider account identifier for the
+  resource, such as an Azure subscription ID. For AWS resources, this matches the
+  `account` field.
+- `providerRegion` is the cloud provider region of the resource. For
+  AWS resources, this matches the `region` field.
+- `providerOrgId` is the cloud provider organization or tenant
+  identifier for the resource, such as an Azure tenant ID. Amazon Inspector populates this field
+  for `AZURE` resources.
+
+Select from the options to see different coverage event schemas by resource type.
+
+Amazon EC2 instance coverage
+
 ```
 
 {
@@ -677,6 +1064,41 @@ following fields identify a coverage event:
             "statusCodeValue": "INACTIVE"
         },
         "scanType": "PACKAGE",
+        "provider": "AWS",
+        "providerAccountId": "111122223333",
+        "providerRegion": "us-east-1",
+        "eventTimestamp": "2023-01-20T22:51:35.665501Z",
+        "version": "1.0"
+    }
+}
+
+```
+
+Azure virtual machine coverage
+
+```
+
+{
+    "version": "0",
+    "id": "111b1dda-0fbf-913e-bc0e-10f0376412bb",
+    "detail-type": "Inspector2 Coverage",
+    "source": "aws.inspector2",
+    "account": "111122223333",
+    "time": "2023-01-20T22:51:39Z",
+    "region": "us-east-1",
+    "resources": [
+        "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourcegroups/example-rg/providers/microsoft.compute/virtualmachines/example-vm"
+    ],
+    "detail": {
+        "scanStatus": {
+            "reason": "SUCCESSFUL",
+            "statusCodeValue": "ACTIVE"
+        },
+        "scanType": "PACKAGE",
+        "provider": "AZURE",
+        "providerAccountId": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+        "providerRegion": "eastus",
+        "providerOrgId": "11111111-2222-3333-4444-555555555555",
         "eventTimestamp": "2023-01-20T22:51:35.665501Z",
         "version": "1.0"
     }

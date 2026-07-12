@@ -41,8 +41,8 @@ Amazon Inspector can provide only limited support for an operating system after 
 
 - [Supported operating systems](#supported-os "#supported-os")
 - [Discontinued operating systems](#formerly-supported-os "#formerly-supported-os")
-- [Supported programming languages](#w2aac64c19 "#w2aac64c19")
-- [Supported runtimes](#w2aac64c21 "#w2aac64c21")
+- [Supported programming languages](#w2aac66c19 "#w2aac66c19")
+- [Supported runtimes](#w2aac66c21 "#w2aac66c21")
 
 ## Supported operating systems
 
@@ -73,6 +73,7 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | Debian Server (Bookworm)            | 12              | DSA CVE                                | Yes                    | Yes                      |
 | Debian Server (Trixie)              | 13              | DSA CVE                                | Yes                    | Yes                      |
 | Fedora                              | 43              | Errata CVE                             | Yes                    | Yes                      |
+| Fedora                              | 44              | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux                        | 8               | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux                        | 9               | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux                        | 10              | Errata CVE                             | Yes                    | Yes                      |
@@ -83,11 +84,13 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | Rocky Linux                         | 9               | Errata CVE                             | Yes                    | Yes                      |
 | Rocky Linux                         | 10              | Errata CVE                             | Yes                    | Yes                      |
 | SUSE Linux Enterprise Server (SLES) | 15.7            | SUSE CVE                               | Yes                    | Yes                      |
+| SUSE Linux Enterprise Server (SLES) | 16.0            | SUSE CVE                               | Yes                    | Yes                      |
 | Ubuntu (Bionic)                     | 18.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Focal)                      | 20.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Jammy)                      | 22.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
-| Ubuntu (Noble Numbat)               | 24.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
-| Ubuntu (Questing Quokka)            | 25.10           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
+| Ubuntu (Noble)                      | 24.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
+| Ubuntu (Questing)                   | 25.10           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
+| Ubuntu (Resolute)                   | 26.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Windows Server                      | 2016            | MSKB                                   | Yes                    | Yes                      |
 | Windows Server                      | 2019            | MSKB                                   | Yes                    | Yes                      |
 | Windows Server                      | 2022            | MSKB                                   | Yes                    | Yes                      |
@@ -106,47 +109,49 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 The following table lists the operating systems Amazon Inspector supports for the scanning of container images in Amazon ECR repositories.
 It also specifies the vendor security advisory for each operating system.
 
-| Operating system                    | Version | Vendor security advisories             |
-| ----------------------------------- | ------- | -------------------------------------- |
-| AlmaLinux                           | 8       | Errata CVE                             |
-| AlmaLinux                           | 9       | Errata CVE                             |
-| AlmaLinux                           | 10      | Errata CVE                             |
-| Alpine Linux                        | 3.21    | Errata CVE                             |
-| Alpine Linux                        | 3.22    | Errata CVE                             |
-| Alpine Linux                        | 3.23    | Errata CVE                             |
-| Alpine Linux                        | 3.24    | Errata CVE                             |
-| Amazon Linux 2023 (AL2023)          | AL2023  | ALAS Errata CVE                        |
-| Azure Linux                         | 3       | Errata CVE                             |
-| BusyBox                             | –       | MITRE CVE                              |
-| Chainguard                          | –       | Errata CVE                             |
-| Debian Server (Bullseye)            | 11      | DSA CVE                                |
-| Debian Server (Bookworm)            | 12      | DSA CVE                                |
-| Debian Server (Trixie)              | 13      | DSA CVE                                |
-| Echo                                | 2       | Errata CVE                             |
-| Fedora                              | 43      | Errata CVE                             |
-| Minimus                             | –       | Errata CVE                             |
-| Oracle Linux                        | 8       | Errata CVE                             |
-| Oracle Linux                        | 9       | Errata CVE                             |
-| Oracle Linux                        | 10      | Errata CVE                             |
-| Photon OS                           | 4       | Errata CVE                             |
-| Photon OS                           | 5       | Errata CVE                             |
-| Red Hat Enterprise Linux (RHEL)     | 8       | RHEL CVE (BaseOS & EUS/E2S/E4S)        |
-| Red Hat Enterprise Linux (RHEL)     | 9       | RHEL CVE (BaseOS & EUS/E2S/E4S)        |
-| Red Hat Enterprise Linux (RHEL)     | 10      | RHEL CVE (BaseOS & EUS/E2S/E4S)        |
-| Rocky Linux                         | 8       | Errata CVE                             |
-| Rocky Linux                         | 9       | Errata CVE                             |
-| Rocky Linux                         | 10      | Errata CVE                             |
-| SUSE Linux Enterprise Server (SLES) | 15.7    | SUSE CVE                               |
-| Ubuntu (Bionic)                     | 18.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
-| Ubuntu (Focal)                      | 20.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
-| Ubuntu (Jammy)                      | 22.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
-| Ubuntu (Noble Numbat)               | 24.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
-| Ubuntu (Questing Quokka)            | 25.10   | USN, Ubuntu Pro (esm-infra & esm-apps) |
-| Windows Server                      | 2016    | MSKB                                   |
-| Windows Server                      | 2019    | MSKB                                   |
-| Windows Server                      | 2022    | MSKB                                   |
-| Windows Server                      | 2025    | MSKB                                   |
-| Wolfi                               | –       | Errata CVE                             |
+| Operating system                    | Version | Vendor security advisories             | Basic scanning | Enhanced scanning |
+| ----------------------------------- | ------- | -------------------------------------- | -------------- | ----------------- |
+| AlmaLinux                           | 8       | Errata CVE                             | Yes            | Yes               |
+| AlmaLinux                           | 9       | Errata CVE                             | Yes            | Yes               |
+| AlmaLinux                           | 10      | Errata CVE                             | Yes            | Yes               |
+| Alpine Linux                        | 3.21    | Errata CVE                             | Yes            | Yes               |
+| Alpine Linux                        | 3.22    | Errata CVE                             | Yes            | Yes               |
+| Alpine Linux                        | 3.23    | Errata CVE                             | Yes            | Yes               |
+| Alpine Linux                        | 3.24    | Errata CVE                             | Yes            | Yes               |
+| Amazon Linux 2023 (AL2023)          | AL2023  | ALAS Errata CVE                        | Yes            | Yes               |
+| Azure Linux                         | 3       | Errata CVE                             | Yes            | Yes               |
+| BusyBox                             | –       | MITRE CVE                              | Yes            | Yes               |
+| Chainguard                          | –       | Errata CVE                             | Yes            | Yes               |
+| Debian Server (Bullseye)            | 11      | DSA CVE                                | Yes            | Yes               |
+| Debian Server (Bookworm)            | 12      | DSA CVE                                | Yes            | Yes               |
+| Debian Server (Trixie)              | 13      | DSA CVE                                | Yes            | Yes               |
+| Echo                                | 2       | Errata CVE                             | Yes            | Yes               |
+| Fedora                              | 43      | Errata CVE                             | Yes            | Yes               |
+| Fedora                              | 44      | Errata CVE                             | Yes            | Yes               |
+| MinimOS                             | –       | Errata CVE                             | Yes            | Yes               |
+| Oracle Linux                        | 8       | Errata CVE                             | Yes            | Yes               |
+| Oracle Linux                        | 9       | Errata CVE                             | Yes            | Yes               |
+| Oracle Linux                        | 10      | Errata CVE                             | Yes            | Yes               |
+| Photon OS                           | 4       | Errata CVE                             | Yes            | Yes               |
+| Photon OS                           | 5       | Errata CVE                             | Yes            | Yes               |
+| Red Hat Enterprise Linux (RHEL)     | 8       | RHEL CVE (BaseOS & EUS/E2S/E4S)        | Yes            | Yes               |
+| Red Hat Enterprise Linux (RHEL)     | 9       | RHEL CVE (BaseOS & EUS/E2S/E4S)        | Yes            | Yes               |
+| Red Hat Enterprise Linux (RHEL)     | 10      | RHEL CVE (BaseOS & EUS/E2S/E4S)        | Yes            | Yes               |
+| Rocky Linux                         | 8       | Errata CVE                             | Yes            | Yes               |
+| Rocky Linux                         | 9       | Errata CVE                             | Yes            | Yes               |
+| Rocky Linux                         | 10      | Errata CVE                             | Yes            | Yes               |
+| SUSE Linux Enterprise Server (SLES) | 15.7    | SUSE CVE                               | Yes            | Yes               |
+| SUSE Linux Enterprise Server (SLES) | 16.0    | SUSE CVE                               | Yes            | Yes               |
+| Ubuntu (Bionic)                     | 18.04   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | Yes               |
+| Ubuntu (Focal)                      | 20.04   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | Yes               |
+| Ubuntu (Jammy)                      | 22.04   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | Yes               |
+| Ubuntu (Noble)                      | 24.04   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | Yes               |
+| Ubuntu (Questing)                   | 25.10   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | Yes               |
+| Ubuntu (Resolute)                   | 26.04   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | No                |
+| Windows Server                      | 2019    | MSKB                                   | Yes            | No                |
+| Windows Server                      | 2022    | MSKB                                   | Yes            | No                |
+| Windows Server                      | 2025    | MSKB                                   | Yes            | No                |
+| Wolfi                               | –       | Errata CVE                             | Yes            | Yes               |
 
 ### Supported operating systems: CIS scanning
 
@@ -169,7 +174,7 @@ Some checks may not be evaluated or return invalid remediation instructions on A
 | Ubuntu (Bionic)                 | 18.04   | 2.2.0                 |
 | Ubuntu (Focal)                  | 20.04   | 3.0.0                 |
 | Ubuntu (Jammy)                  | 22.04   | 2.0.0                 |
-| Ubuntu (Noble Numbat)           | 24.04   | 1.0.0                 |
+| Ubuntu (Noble)                  | 24.04   | 1.0.0                 |
 | Windows Server                  | 2016    | 3.0.0                 |
 | Windows Server                  | 2019    | 4.0.0                 |
 | Windows Server                  | 2022    | 4.0.0                 |
@@ -180,50 +185,53 @@ Some checks may not be evaluated or return invalid remediation instructions on A
 The following table lists the supported operating systems for the Amazon Inspector Scan API.
 For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md "../../v2/APIReference/API_scan_ScanSbom.md") in the _Amazon Inspector V2 API Reference_.
 
-| Operating system         | Version |
-| ------------------------ | ------- |
-| AlmaLinux 8              | 8       |
-| AlmaLinux                | 9       |
-| AlmaLinux                | 10      |
-| Alpine Linux             | 3.21    |
-| Alpine Linux             | 3.22    |
-| Alpine Linux             | 3.23    |
-| Alpine Linux             | 3.24    |
-| Amazon Linux             | 2023    |
-| Bottlerocket             | –       |
-| BusyBox                  | 1.36.0+ |
-| Chainguard               | –       |
-| Debian                   | 11      |
-| Debian                   | 12      |
-| Debian                   | 13      |
-| Debian Sid               | –       |
-| Echo                     | 2       |
-| Fedora                   | 43      |
-| macOS                    | 11+     |
-| MinimOS                  | –       |
-| Oracle Linux             | 8       |
-| Oracle Linux             | 9       |
-| Oracle Linux             | 10      |
-| Photon OS                | 4       |
-| Photon OS                | 5       |
-| Red Hat Enterprise Linux | 8       |
-| Red Hat Enterprise Linux | 9       |
-| Red Hat Enterprise Linux | 10      |
-| Rocky Linux              | 8       |
-| Rocky Linux              | 9       |
-| Rocky Linux              | 10      |
-| SUSE Server              | 15.7    |
-| SUSE Server              | 16.0    |
-| Ubuntu                   | 18.04   |
-| Ubuntu                   | 20.04   |
-| Ubuntu                   | 22.04   |
-| Ubuntu                   | 24.04   |
-| Ubuntu                   | 25.10   |
-| Wolfi Linux              | –       |
-| Windows Server           | 2016    |
-| Windows Server           | 2019    |
-| Windows Server           | 2022    |
-| Windows Server           | 2025    |
+| Operating system                    | Version |
+| ----------------------------------- | ------- |
+| AlmaLinux                           | 8       |
+| AlmaLinux                           | 9       |
+| AlmaLinux                           | 10      |
+| Alpine Linux                        | 3.21    |
+| Alpine Linux                        | 3.22    |
+| Alpine Linux                        | 3.23    |
+| Alpine Linux                        | 3.24    |
+| Amazon Linux 2023 (AL2023)          | AL2023  |
+| Azure Linux                         | 3       |
+| Bottlerocket                        | –       |
+| BusyBox                             | 1.36.0+ |
+| Chainguard                          | –       |
+| Debian Server (Bullseye)            | 11      |
+| Debian Server (Bookworm)            | 12      |
+| Debian Server (Trixie)              | 13      |
+| Debian Sid                          | –       |
+| Echo                                | 2       |
+| Fedora                              | 43      |
+| Fedora                              | 44      |
+| macOS                               | 11+     |
+| MinimOS                             | –       |
+| Oracle Linux                        | 8       |
+| Oracle Linux                        | 9       |
+| Oracle Linux                        | 10      |
+| Photon OS                           | 4       |
+| Photon OS                           | 5       |
+| Red Hat Enterprise Linux (RHEL)     | 8       |
+| Red Hat Enterprise Linux (RHEL)     | 9       |
+| Red Hat Enterprise Linux (RHEL)     | 10      |
+| Rocky Linux                         | 8       |
+| Rocky Linux                         | 9       |
+| Rocky Linux                         | 10      |
+| SUSE Linux Enterprise Server (SLES) | 15.7    |
+| SUSE Linux Enterprise Server (SLES) | 16.0    |
+| Ubuntu (Bionic)                     | 18.04   |
+| Ubuntu (Focal)                      | 20.04   |
+| Ubuntu (Jammy)                      | 22.04   |
+| Ubuntu (Noble)                      | 24.04   |
+| Ubuntu (Questing)                   | 25.10   |
+| Ubuntu (Resolute)                   | 26.04   |
+| Wolfi                               | –       |
+| Windows Server                      | 2016    |
+| Windows Server                      | 2019    |
+| Windows Server                      | 2022    |
+| Windows Server                      | 2025    |
 
 ## Discontinued operating systems
 
@@ -306,10 +314,10 @@ As a result, Amazon Inspector will stop generating findings for discontinued ope
 | Ubuntu (Hirsute)                    | 21.04   | January 20, 2022  |
 | Ubuntu (Impish)                     | 21.10   | July 31, 2022     |
 | Ubuntu (Kinetic)                    | 22.10   | July 20, 2023     |
-| Ubuntu (Lunar Lobster)              | 23.04   | January 25, 2024  |
-| Ubuntu (Mantic Minotaur)            | 23.10   | July 11, 2024     |
-| Ubuntu (Oracular Oriole)            | 24.10   | July 10, 2025     |
-| Ubuntu (Plucky Puffin)              | 25.04   | January 15, 2026  |
+| Ubuntu (Lunar)                      | 23.04   | January 25, 2024  |
+| Ubuntu (Mantic)                     | 23.10   | July 11, 2024     |
+| Ubuntu (Oracular)                   | 24.10   | July 10, 2025     |
+| Ubuntu (Plucky)                     | 25.04   | January 15, 2026  |
 | Windows Server                      | 2012    | October 10, 2023  |
 | Windows Server                      | 2012 R2 | October 10, 2023  |
 

@@ -69,6 +69,46 @@ The Amazon Inspector usage console tracks the following metrics for Lambda stand
   until when it's deleted or excluded from scans. If an excluded function is
   included again, coverage hours for that function will continue to accrue.
 
+**Azure Virtual Machine scanning**
+
+The Amazon Inspector usage console tracks the following metrics for Azure VM scanning:
+
+- **Number of Azure VMs (Avg)** — The average
+  number of Azure Virtual Machines monitored by Amazon Inspector VM Scanner during the
+  30-day period.
+- **Coverage hours** — The sum total number
+  of hours that Amazon Inspector provided active vulnerability scanning coverage for each
+  Azure VM in an account.
+
+**Azure Function App scanning**
+
+The Amazon Inspector usage console tracks the following metrics for Azure Function App scanning:
+
+- **Number of Function Apps (Avg)** — The
+  average number of Azure Function Apps monitored during the 30-day
+  period.
+- **Coverage hours** — The sum total number
+  of hours that Amazon Inspector provided active code dependency scanning coverage for each
+  Azure Function App in an account.
+
+**Azure Container Registry (ACR) image scanning**
+
+The Amazon Inspector usage console tracks the following metrics for Azure Container Registry image scanning:
+
+- **Initial scans** — The total number of
+  first-time scans of Azure container images within the last 30
+  days.
+- **Rescans** — The total number of rescans
+  for Azure container images within the last 30 days. A rescan occurs
+  automatically when Amazon Inspector adds a new CVE to its database that affects a
+  previously scanned image.
+
+###### Note
+
+Each Azure resource type includes a 30-day free trial. The free trial
+starts independently for each resource type when Amazon Inspector begins scanning that
+resource type in your account.
+
 ## Understanding how Amazon Inspector calculates usage costs
 
 The costs provided by Amazon Inspector are estimates, not actual costs, so they may differ from those in your AWS Billing console.

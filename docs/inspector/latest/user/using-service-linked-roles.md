@@ -85,3 +85,31 @@ IAM**
 
 Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForAmazonInspector2Agentless service-linked
 role. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
+
+## Creating a service-linked role for multi-cloud scanning
+
+You don't need to manually create the `AWSServiceRoleForAmazonInspector2ThirdParty` service-linked role. When you create a multi-cloud connector in Amazon Inspector, Amazon Inspector automatically creates the service-linked role for
+you.
+
+## Editing a service-linked role for multi-cloud scanning
+
+Amazon Inspector does not allow you to edit the `AWSServiceRoleForAmazonInspector2ThirdParty` service-linked role.
+After a service-linked role is created, you cannot change the name of the role because various
+entities might reference the role. However, you can edit the description of the role by using
+IAM. For more information, see [Editing
+a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
+
+## Deleting a service-linked role for multi-cloud scanning
+
+If you no longer need to use multi-cloud scanning, we recommend that you delete the
+`AWSServiceRoleForAmazonInspector2ThirdParty` service-linked role. That way you don't have an unused entity that isn't actively monitored or maintained.
+
+###### Important
+
+In order to delete the `AWSServiceRoleForAmazonInspector2ThirdParty` role, you must first delete all multi-cloud connectors in all Regions where multi-cloud scanning is enabled.
+
+**To manually delete the service-linked role using
+IAM**
+
+Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForAmazonInspector2ThirdParty service-linked
+role. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.

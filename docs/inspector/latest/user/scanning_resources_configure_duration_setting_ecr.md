@@ -36,6 +36,8 @@ Choose **Last in use date** (default) if you want to use the last in use date fr
 Choose **Last pull date** if you want to use the last pull date from your Amazon ECR images to re-scan images.
 The following options are available as re-scan durations:
 
+- 3 days
+- 7 days
 - 14 days (default)
 - 30 days
 - 60 days
@@ -47,6 +49,8 @@ The following options are available as re-scan durations:
 The image push date duration determines how long Amazon Inspector will continuously monitor images after being pushed to repositories.
 The following options are available as re-scan durations:
 
+- 3 days
+- 7 days
 - 14 days (default)
 - 30 days
 - 60 days
