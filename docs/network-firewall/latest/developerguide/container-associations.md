@@ -70,7 +70,6 @@ Container associations have the following networking requirements and limitation
 
 Before you create a container association, make sure that:
 
-- The Amazon ECS or Amazon EKS cluster exists and is in the same AWS Region and VPC as your Network Firewall.
 - Your IAM identity has the following permissions:
 
   - `network-firewall:CreateContainerAssociation` on the container association resource
