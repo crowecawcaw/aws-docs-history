@@ -254,5 +254,11 @@ This means that the default role session name, which is the serial number of the
 
 By default, the `acceptRoleSessionName` attached to the profile is `false`.
 If you provide a custom role session name in the CreateSession request but custom role session names are not accepted, you will receive an `Access Denied` error.
-However, when a role session name is not presented in the CreateSession request, the role session name will default to the serial number of the end-entity X.509 certificate that was used to authenticate the request,
+However, when a CreateSession request does not include a role session name, the role session name defaults to the serial number of the end-entity X.509 certificate used to authenticate the request,
 even when the `acceptRoleSessionName` on the profile is `true`.
+
+CloudTrail events for successfully authenticated `CreateSession` requests also include an `additionalEventData` object.
+This object records signing characteristics that IAM Roles Anywhere detected while authenticating the request.
+Examples include required signing headers not covered by the signature, and a mismatch between the declared signing algorithm and the certificate key type.
+Use these fields to audit whether the clients in your fleet conform to the IAM Roles Anywhere authentication signing process.
+For more information, see [CreateSession additionalEventData](logging-using-cloudtrail.md#create-session-additional-event-data "logging-using-cloudtrail.md#create-session-additional-event-data").

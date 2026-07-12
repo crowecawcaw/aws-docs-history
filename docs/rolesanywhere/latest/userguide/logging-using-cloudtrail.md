@@ -136,3 +136,83 @@ The following example shows a CloudTrail log entry that demonstrates the
   }
 }
 ```
+
+## CreateSession `additionalEventData`
+
+CloudTrail events for the `CreateSession` action include an
+`additionalEventData` object. This object records signing characteristics
+that IAM Roles Anywhere detected while authenticating the request. Use these fields to
+audit whether the clients in your fleet sign requests in a way that conforms to the
+IAM Roles Anywhere authentication signing process. Each field describes what
+IAM Roles Anywhere detected.
+
+The `additionalEventData` object appears only on `CreateSession`
+events for requests that authenticated successfully. IAM Roles Anywhere omits the object when
+it rejects a request because of an invalid signature, an untrusted signing certificate,
+or a revoked certificate.
+
+`missingSignedHeaders`
+
+Lists the HTTP headers that are relevant to authentication and that
+appeared on the request. These headers were not included in the
+`SignedHeaders` portion of the `Authorization`
+header.
+
+IAM Roles Anywhere checks a fixed set of headers that must be covered by the
+signature: `host`, `x-amz-x509`,
+`x-amz-x509-chain`, `x-amz-date`, and
+`content-type`. IAM Roles Anywhere checks `host` on every
+request and checks the other four only when they appear on the request.
+
+IAM Roles Anywhere does not evaluate infrastructure headers that intermediaries
+add after signing the request—for example, `X-Amzn-Trace-Id`,
+`X-Amz-Cf-Id`, or `X-Forwarded-For`. Those headers never
+appear in this list.
+
+An empty list means the signature covered every checked header.
+
+`postEmptyBody`
+
+Specifies whether the request combines a `POST` method, a
+non-empty query string, and an empty request body. That combination exercises a
+canonicalization code path that does not conform to the SigV4 specification. A
+`true` value identifies a client that sends `CreateSession`
+parameters in the query string instead of the JSON body. To clear the flag,
+move the parameters into the JSON body.
+
+`algorithmMismatch`
+
+Specifies whether the signing algorithm declared in the
+`Authorization` header is unsupported for the signing certificate.
+The value is `true` when the declared algorithm implies a key type
+that does not match the certificate's public key—for example,
+`AWS4-X509-RSA-SHA256` declared with an ECDSA certificate. The value
+is also `true` when the declared digest is not `SHA-256`.
+IAM Roles Anywhere supports only `SHA-256`. For more information about
+the supported algorithm strings, see [Task 2: Create a string to sign](authentication-sign-process.md#authentication-task2 "authentication-sign-process.md#authentication-task2").
+
+A request that conforms to the IAM Roles Anywhere authentication signing process
+produces an `additionalEventData` block with an empty
+`missingSignedHeaders` list and `false` for both boolean
+fields, as shown in the following example:
+
+```
+"additionalEventData": {
+  "missingSignedHeaders": [],
+  "postEmptyBody": false,
+  "algorithmMismatch": false
+}
+```
+
+The following example shows the `additionalEventData` block for a
+request flagged for two non-conforming behaviors: two required headers were not
+covered by the signature, and the request sent parameters in the query string with
+an empty body:
+
+```
+"additionalEventData": {
+  "missingSignedHeaders": ["host", "x-amz-date"],
+  "postEmptyBody": true,
+  "algorithmMismatch": false
+}
+```
