@@ -2,8 +2,8 @@
 
 Forecasts are a projection of the workload in your contact center. Connect Customer provides
 long-term and short-term forecasts for you to generate capacity plans and agent
-schedules. The forecasts include inbound, transfer, and callback contacts in both
-voice and chat channels.
+schedules. The forecasts include inbound, transfer, and callback contacts across
+voice, chat, tasks, and email channels.
 
 After creating a forecast, you do not need to generate it manually.
 

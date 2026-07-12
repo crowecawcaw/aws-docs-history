@@ -1801,7 +1801,7 @@ For more information, see [Set up customer authentication](customer-auth.md "cus
 
 #### Agent schedule data in Analytics data lake
 
-Published schedules data is provided in the Analytics data lake, which allows you to
+The Analytics data lake now includes published schedules data, which allows you to
 generate reports and insights. From agent schedules data in the Analytics data lake, you can
 automate key operational use cases such as generating reports for paid and unpaid hours for
 payroll, generating summarized views of how many agents are scheduled to work and how many have
@@ -1926,7 +1926,7 @@ For a list of new metrics included in this release, see [Connect Customer bot me
 You can record audio when your customer engages with self-service interactive voice
 response (IVR) and other automated interactions. On the **Contact details**
 page, you can listen to the recording or review logs which includes information such as the bot
-transcription or touch-tone menu selection. Recording settings can be configured using the
+transcription or touch-tone menu selection. You can configure recording settings using the
 **Set recording and analytics behavior** block on the Connect Customer drag-and-drop
 workflow designer. This allows you to easily specify portions of the experience to record. For
 example, pausing and resuming recordings before and after sensitive exchanges, such as when a

@@ -16,6 +16,9 @@ Connect Customer admin website.
 ## Important things to know
 
 - You can create up to three custom guardrails.
+- Orchestration AI agents do not support contextual grounding policies. If
+  you create or update an orchestration AI agent that uses an AI guardrail with
+  a contextual grounding policy, you will then see a validation error.
 - Guardrails for Connect AI agents support the same languages as Amazon Bedrock guardrails classic tier.
   For a complete list of supported languages, see
   [Languages supported by Amazon Bedrock Guardrails](../../../bedrock/latest/userguide/guardrails-supported-languages.md "../../../bedrock/latest/userguide/guardrails-supported-languages.md").

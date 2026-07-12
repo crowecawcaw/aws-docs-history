@@ -3,8 +3,8 @@
 ###### Tip
 
 **New user?** Check out the [Connect Customer
-Agent Evaluation Forms Workshop](https://catalog.workshops.aws/amazon-connect-evaluation-forms/en-US "https://catalog.workshops.aws/amazon-connect-evaluation-forms/en-US"). This online course guides you through
-creating a working example of an evaluation form.
+Contact Lens Workshop](https://catalog.workshops.aws/amazon-connect-contact-lens/en-US "https://catalog.workshops.aws/amazon-connect-contact-lens/en-US"). This online course includes guidance on
+creating evaluation forms.
 
 **IT administrators**: To enable Connect Customer evaluation
 capabilities, go to the Connect Customer console, choose your instance alias, choose

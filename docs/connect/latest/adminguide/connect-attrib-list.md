@@ -480,17 +480,24 @@ max size of 255 each) characters for the entire flow. This includes all values p
 
 ## Outbound campaign attributes
 
-You can use data in Amazon Pinpoint
-[segments](../../../pinpoint/latest/userguide/segments-building.md "../../../pinpoint/latest/userguide/segments-building.md") list to customize experiences in Connect Customer flows. To reference
-data in a segment list, use **$.Attributes.`attribute coming in the
- segment`**. For example, if you have a segment with two columns
-"Attributes.FirstName" and "Attributes.ItemDescription, you would refer to them as:
+The following table lists the attribute that Connect Customer automatically makes available in
+the contact flow when you run an outbound campaign that uses Customer Profiles
+segments.
 
-- $.Attributes.FirstName
-- $.Attributes.ItemDescription
+| Attribute  | Type         | JSONPath reference                                 | Description                                                                                                                                                        |
+| ---------- | ------------ | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Profile ID | user-defined | $.Attributes.connect\_customer-profile\_profile-id | The Customer Profiles profile ID associated with the contact being dialed.<br>Use this value with the *_Customer Profiles_<br>• block to retrieve<br>profile data. |
 
-For more information, see [Adding personalized
-content to message templates](../../../pinpoint/latest/userguide/message-templates-personalizing.md "../../../pinpoint/latest/userguide/message-templates-personalizing.md") in the _Amazon Pinpoint User Guide_.
+To access customer data from a segment in your contact flow, use the **Customer
+Profiles** block with the **Get profile** action. Set the
+identifier type to **Profile ID** and use
+`$.Attributes.connect_customer-profile_profile-id` as the identifier value.
+After the block runs, you can access standard profile attributes using
+`$.Customer.<AttributeName>` (for example,
+`$.Customer.FirstName`). To access custom attributes, use
+`$.Customer.Attributes.<CustomAttributeName>`.
+
+For more information about creating segments, see [Build customer segments in Connect Customer](customer-segments-building-segments.md "customer-segments-building-segments.md").
 
 ## Connect AI agents attribute
 

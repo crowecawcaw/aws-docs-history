@@ -13,7 +13,7 @@ to create custom flows for your specific scenario.
 - [Sample flows](contact-flow-samples.md "contact-flow-samples.md")
 - [Flow block definitions](contact-block-definitions.md "contact-block-definitions.md")
 - [Create a flow](create-contact-flow.md "create-contact-flow.md")
-- [Configure Amazon Nova Sonic Speech-to-Speech](nova-sonic-speech-to-speech.md "nova-sonic-speech-to-speech.md")
+- [Agentic voice](agentic-voice.md "agentic-voice.md")
 - [Associate a
   phone number with a flow](associate-claimed-ported-phone-number-to-flow.md "associate-claimed-ported-phone-number-to-flow.md")
 - [Flow modules](contact-flow-modules.md "contact-flow-modules.md")

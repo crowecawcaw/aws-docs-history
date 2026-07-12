@@ -2,11 +2,14 @@
 
 A scenario has two parts:
 
-- Scenario inputs: The maximum occupancy, daily attrition, FTE hours per
-  week. For example, you might enter data that represent your best case
-  scenarios (everyone is at work) or worst case scenarios (a large number of
-  people are out sick during winter months).
-- Optimization inputs: The service level or average speed of answer (ASA).
+- Scenario inputs: The maximum occupancy, daily attrition, full-time
+  equivalent (FTE) hours per week. For example, you might enter data that
+  represent your best case scenarios (everyone is at work) or worst case
+  scenarios (a large number of people are out sick during winter
+  months).
+- Optimization inputs: The optimization target for each channel that you
+  want FTE estimates for. Depending on the channel, you can set a service
+  level, average speed of answer (ASA), or average time to complete target.
   For example, 85% of calls are answered within 30 seconds of entering the
   queue.
   You can then use this scenario to generate a capacity plan that represents how
@@ -66,23 +69,63 @@ information:
 
     For example, you specify 40 as FTE hours per week, with 10 percent
      maximum time off. The total work week would be at least 36 hours.
+    5. **Hours of operation**: Select the hours of
+     operation that represent when your agents are available to work.
+     This list shows the hours of operation defined in your
+     Connect Customer instance. For more information, see [Set the hours of operation and time zone for a queue using Connect Customer](set-hours-operation.md "set-hours-operation.md").
 
-7. In the **Optimization inputs** section, enter the
-operational goals for your organization:
+
+    You must select an hours of operation to save a scenario. When you
+     select an hours of operation, Connect Customer displays a snapshot of its name,
+     time zone, and weekly hours. Capacity planning uses only the base weekly operating
+     hours, and doesn't include overrides or inherited hours.
+
+
+    For scenarios that were created before hours of operation became
+     a required input, Connect Customer asks you to select an hours of operation
+     before you can save your changes.
+
+
+    ###### Note
+
+    The time zone of the selected hours of operation must match
+     the time zone of the plan when you generate it.
+
+    When you generate a plan, Connect Customer saves a snapshot of the
+     selected hours of operation and uses that snapshot for the plan.
+     If you later change the hours of operation in your Connect Customer
+     instance, re-run the plan to use the updated hours.
+
+7. In the **Optimization inputs** section, configure an
+optimization target for each channel that you want FTE estimates for. You
+can configure one target per channel, for up to four channels: Voice, Chat,
+Task, and Email. The targets do not have to be the same type. For
+example, you can use service level for Voice and average time to complete
+for Task.
+
+The following image shows the **Optimization inputs**
+section with a different target type configured for each channel.
+
+![The Optimization inputs section with a different target type configured for each channel.](images/wfm-capacity-planning-optimization-inputs.png)
 
     1. **Service level**: The percentage of contacts
-     answered within a defined target time threshold.
-
-
-    The following image shows service level targets where 80 percent
-     of voice contacts and 70 percent of chat contacts will be answered
-     within 30 seconds.
-
-
-
-    ![The optimization inputs section, the service level option.](images/wfm-capacity-planning-servicelevel.png)
+     answered within a defined target time threshold. Service level is
+     available for all channels.
     2. **Average speed of answer** (ASA): The average
-     amount of time it takes for contacts to be answered in a call center
-     during a specific time period.
-    3. You can create one goal per channel. Choose **Add another
-     goal** to add another goal.
+     amount of time it takes for contacts to be answered during a
+     specific time period. Average speed of answer is available for the
+     Voice and Chat channels.
+    3. **Average time to complete**: The average amount
+     of time it takes for an agent to complete a contact. Average time to
+     complete is available for the Task and Email channels.
+
+
+    When you set this target for the Task or Email channel, capacity
+     planning treats the channel as asynchronous. It uses starting
+     backlog projections to estimate headcount. If you set a
+     **Service level** target for the Task or Email
+     channel instead, capacity planning treats the channel as
+     synchronous. For more information, see [Manage starting
+     backlog projections](capacity-planning-backlog-projections.md "capacity-planning-backlog-projections.md").
+    4. To add an optimization target for another channel, choose
+     **Add another goal**.

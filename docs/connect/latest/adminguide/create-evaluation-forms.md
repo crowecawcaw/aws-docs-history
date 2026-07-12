@@ -369,7 +369,7 @@ insights and metrics from conversational analytics. Automation can be used
 to:
 
 - **Assist evaluators with performance
-  evaluations**: Evaluators are provided with automated answers
+  evaluations**: Evaluators receive automated answers
   to questions on evaluation forms while performing evaluations. Evaluators
   can override automated answers before submission.
 - **Automatically fill and submit
@@ -395,11 +395,8 @@ evaluations:
   selection_ and _Text field_ questions can
   be automatically answered using generative AI.
 
-###### Note
-
-Currently integrated
-generative AI cannot be used to automate evaluations of self-service
-(automated) interactions with Lex bots and AI agents.
+For information about automating evaluations of self-service
+(automated) interactions, see [Performance evaluations of self-service interactions in Connect Customer](performance-evaluations-automated-interactions.md "performance-evaluations-automated-interactions.md").
 
 - **Metrics**: _Numeric_
   questions (for example, what was the longest that the customer was put on

@@ -73,7 +73,7 @@ profile:
      (redacted)**, **View Recorded conversations
      (unredacted)**, **All** or
      **Access** (least privilege is
-     **Access** which is recommended)
+     **Access**, which we recommend)
     * **Analysis and Optimization - View my contacts**  or **Contact Search**
     * **Analysis and Optimization -
      Contact Lens - conversational analytics**
@@ -116,7 +116,7 @@ profile:
      (redacted)**, **View Recorded conversations
      (unredacted)**, **All** or
      **Access** (least privilege is
-     **Access** which is recommended)
+     **Access**, which we recommend)
    - **Analysis and Optimization -
      Contact Lens - conversational analytics**
 

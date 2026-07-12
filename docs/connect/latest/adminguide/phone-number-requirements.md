@@ -767,7 +767,7 @@ requirements](#uifn-requirements "#uifn-requirements").
 | ---------------------- | ------------------------------------------------------------------------------------- |
 | Preset UIFN times only | Service Provider Change Authorization and Designation of Agency<br>provided by Amazon |
 
-## Macedonia (MK)
+## North Macedonia (MK)
 
 ### For ordering phone numbers
 

@@ -13,11 +13,13 @@ Following is a description of the metrics in the plan output:
 
 - **Forecasting Inputs**
 
-  - **Forecasted Contact Volume**: This metric is a
-    sum of both voice and chat volume for the selected forecast group.
+  - **Forecasted Contact Volume**: The total
+    forecasted contact volume across the channels in your selected
+    scenario's optimization targets.
   - **Forecasted Average Handling Time (AHT),
-    seconds**: This metric shows the aggregated AHT for the
-    selected forecast group.
+    seconds**: The forecasted average handling time across
+    the channels in your selected scenario's optimization
+    targets.
   - The forecasted contact volume and AHT in the plan output table
     reflects only the values from the selected forecast group. After
     there are newly published forecasts, consider re-running the

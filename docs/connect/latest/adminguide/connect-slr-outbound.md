@@ -19,8 +19,8 @@ documentation for that service.
 ## Service-linked role permissions for outbound campaigns
 
 Outbound campaigns uses the service-linked role prefixed
-`AWSServiceRoleForConnectCampaigns`—Grants outbound campaigns permission to
-access AWS resources on your behalf.
+`AWSServiceRoleForConnectCampaigns`. This role grants outbound campaigns
+permission to access AWS resources on your behalf.
 
 The `AWSServiceRoleForConnectCampaigns` service-linked role trusts the
 following services to assume the role:
@@ -37,34 +37,41 @@ permissions are added for the service-linked role to access the resources:
 
   - `connect:BatchPutContact`
   - `connect:StopContact`
-    for all Connect Customer instances.
-
-- Action: Connect Customer
-
-  - `connect:StartOutboundVoiceContact`
-  - `connect:GetMetricData`
-  - `connect:GetCurrentMetricData`
-  - `connect:BatchPutContact`
-  - `connect:StopContact`
-  - `connect:GetMetricDataV2`
   - `connect:DescribeContactFlow`
   - `connect:SendOutboundEmail`
-    For the Connect Customer instance specified.
+  - `connect:SendOutboundWebNotification`
+    on `arn:aws:connect:*:*:instance/*` resources.
 
-- Action: EventBridge:
-
-  - `events:ListRules`
-    For all events.
-
+- Action: Connect Customer `connect:SendOutboundChatMessage` on
+  `arn:aws:connect:*:*:instance/*` and
+  `arn:aws:connect:*:*:phone-number/*` resources in the same AWS
+  account as the calling principal.
+- Action: AWS End User Messaging Social
+  `social-messaging:SendWhatsAppMessage` on
+  `arn:aws:social-messaging:*:*:phone-number-id/*` resources that are
+  tagged with `AmazonConnectEnabled: True` and in the same AWS
+  account as the calling principal.
+- Action: AWS End User Messaging Social
+  `social-messaging:GetWhatsAppMessageTemplate` on
+  `arn:aws:social-messaging:*:*:waba/*` resources in the same AWS
+  account as the calling principal.
+- Action: Amazon Pinpoint SMS and Voice `sms-voice:SendTextMessage` on
+  `arn:aws:sms-voice:*:*:phone-number/*` resources in the same AWS
+  account as the calling principal.
+- Action: EventBridge `events:ListRules` on
+  `arn:aws:events:*:*:rule/*` resources in the same AWS account as
+  the calling principal.
 - Action: EventBridge:
 
   - `events:DeleteRule`
   - `events:PutRule`
   - `events:PutTargets`
   - `events:RemoveTargets`
-  - `events:ListTargetsByRule`
     for rules named `ConnectCampaignsRule*` managed by
-    `connect-campaigns.amazonaws.com`.
+    `connect-campaigns.amazonaws.com`, in the same AWS
+    account as the calling principal. The
+    `events:ListTargetsByRule` action is also permitted on
+    `ConnectCampaignsRule*` resources in the same account.
 
 - Action: Connect AI agents Message Templates:
 
@@ -73,8 +80,9 @@ permissions are added for the service-linked role to access the resources:
     on all resources tagged with
     `aws:ResourceTag/AmazonConnectCampaignsEnabled`.
 
-Permissions for Connect Customer Customer Profiles will be added to ezCRC template:
-`ConnectCampaignsCustomerProfilesIntegrationAccess`.
+Permissions for Connect Customer Customer Profiles are provided through the
+`ConnectCampaignsCustomerProfilesIntegrationAccess` managed
+policy.
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the

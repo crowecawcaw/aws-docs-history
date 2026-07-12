@@ -15,7 +15,7 @@ queue** page, the available phone numbers and hours of operation appear in
 dropdown lists, as shown in the following image.
 
 ![The add new queue page, the hours of operation dropdown list, the outbound caller id number dropdown list.](images/SecurityProfile_cloudscape_add_queue_dropdowns.png)
-However, the user doesn't have permissions to **Edit** the phone
+However, they don't have permissions to **Edit** the phone
 numbers and hours of operation.
 
 In this case, they also don't inherit permissions to **View** contact

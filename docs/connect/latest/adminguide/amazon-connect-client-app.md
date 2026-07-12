@@ -168,8 +168,8 @@ Connect Customer screen recording feature on ChromeOS requires two components:
 - Google Chrome Browser Extension
 
 The installation of these components on Agent Chrome devices can be performed
-through Google Enterprise Admin Console. The URLs to configure the installation of
-the Isolated Web App and Chrome browser extension are provided below and can be set
+through Google Enterprise Admin Console. The following URLs configure the installation of
+the Isolated Web App and Chrome browser extension, and you can set them
 to automatic update through web manifest configuration JSON.
 
 ### Download location and Install instructions

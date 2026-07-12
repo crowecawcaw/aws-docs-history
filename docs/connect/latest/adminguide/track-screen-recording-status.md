@@ -124,7 +124,7 @@ This event is emitted when the screen recording is successfully uploaded to your
 
 ### Event with screen recording status - FAILED
 
-This event is emitted if screen recording fails. Details on failure information are provided as a best-effort estimation of the possible failure reason that we are able to detect.
+This event is emitted if screen recording fails. The failure information includes a best-effort estimation of the possible failure reason that we are able to detect.
 
 ```
 {

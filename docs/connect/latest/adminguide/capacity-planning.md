@@ -21,7 +21,7 @@ required.
 The following diagram illustrates this integration among published long-term
 forecasts, capacity planning, and capacity planning output.
 
-![The input and output of forecasting and capacity planning.](images/wfm-capacity-planning-diagram.png)
+![The integration among published long-term forecasts, capacity planning inputs, and capacity planning output.](images/wfm-capacity-planning-diagram.png)
 
 ## Getting started
 
@@ -32,10 +32,15 @@ others.
    planning scenarios](capacity-planning-create-scenarios.md "capacity-planning-create-scenarios.md")
 2. [Import estimated future shrinkage and available full-time employees in Connect Customer](upload-estimated-future-shrinkage.md "upload-estimated-future-shrinkage.md"): This is an optional
    step but it can improve the accuracy of your capacity plan.
-3. [Create capacity plans
+3. [Manage starting
+   backlog projections](capacity-planning-backlog-projections.md "capacity-planning-backlog-projections.md"): If you use
+   an average time to complete target for the Task or Email channels, Connect Customer
+   automatically generates starting backlog projections for capacity planning
+   to use. You can review or override these projections.
+4. [Create capacity plans
    using forecasts and scenarios](capacity-planning-use-forecast.md "capacity-planning-use-forecast.md")
-4. [Create capacity
-   planning scenarios](capacity-planning-review-output.md "capacity-planning-review-output.md")
-5. [Review](capacity-planning-review-output.md "capacity-planning-review-output.md"), [override](override-capacity-plan.md "override-capacity-plan.md"), [re-run](rerun-capacity-plan.md "rerun-capacity-plan.md"), or [download](download-capacity-plan.md "download-capacity-plan.md") a capacity plan.
-6. [Publish a capacity
+5. [Review capacity plan
+   output](capacity-planning-review-output.md "capacity-planning-review-output.md")
+6. [Review](capacity-planning-review-output.md "capacity-planning-review-output.md"), [override](override-capacity-plan.md "override-capacity-plan.md"), [re-run](rerun-capacity-plan.md "rerun-capacity-plan.md"), or [download](download-capacity-plan.md "download-capacity-plan.md") a capacity plan.
+7. [Publish a capacity
    plan](publish-capacity-plan.md "publish-capacity-plan.md")

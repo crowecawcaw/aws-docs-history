@@ -51,4 +51,4 @@ Connect Customer admin website**
   case](associatecontactandcase.md "associatecontactandcase.md")
 - [Create a task from a
   case](create-task-from-case.md "create-task-from-case.md")
-- [Export cases to CSV](case-bulk-export.md "case-bulk-export.md")
+-

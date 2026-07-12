@@ -18,22 +18,43 @@ optimization**, **Scheduling**. 3. Choose the **Schedule Manager** tab, and then
 group from the dropdown menu.
 
 Currently you cannot schedule for multiple forecast groups. 6. Specify the duration of the schedule - the start and end dates. You can
-schedule up to 18 weeks out. 7. Under **Optimize schedule for**, choose **Service
-level** or **Average speed of answer**. 8. Average speed of answer (ASA) is an alternative to using service level
-percentage targets. For example, the following image shows an ASA set to 30
-seconds. The capacity planning and scheduling system will optimize headcount
-/ schedules to ensure that the goal is met.
+schedule up to 18 weeks out. 7. Select optimization goals for each channel in your forecast:
 
-![The Generate schedule page showing the average speed of answer option set to 30 seconds.](images/asa-gen-schedule.png) 9. Choose **Generate schedule**.
+    * **Voice**: **Service
+     level** or **Average speed of
+     answer**
+    * **Chat**: **Service
+     level** or **Average speed of
+     answer**
+    * **Task**: **Service
+     level** or **Average time to
+     complete**
+    * **Email**: **Service
+     level** or **Average time to
+     complete**
+
+For Task and Email: use **Service level** when the
+work is done synchronously, for example, a Task is picked up within 5
+minutes of arriving. Use **Average time to complete**
+when the work can be deferred and is completed over hours or
+days.
+
+###### Note
+
+Backlog metrics are only available when **Average time to
+complete** is selected as the optimization
+goal.
+
+![The Generate schedule page showing channel-based optimization with Voice, Chat, Email, and Task channels and their respective metric and goal settings.](images/wfm-scheduling-generate-schedule.png) 8. Choose **Generate schedule**.
 
 ###### Note
 
 Connect Customer generates a draft schedule. It will not be visible to agents or
-supervisors until you publish it. 10. In the list of schedules, the schedule you created shows a status of
+supervisors until you publish it. 9. In the list of schedules, the schedule you created shows a status of
 **In progress**. It takes 30 minutes to 3 hours to
 generate, depending on the number of agents, number of configured rules,
 schedule duration, and more. After the schedule is generated, it's status is
-**Complete** or **Failed**. 11. To view any warnings, breaches of rules, or constraints breaches, choose
+**Complete** or **Failed**. 10. To view any warnings, breaches of rules, or constraints breaches, choose
 the warnings icon, as shown in the following image. More information about
 the warnings is displayed. Schedule generation warnings come in three
 severities: **HIGH**, **MEDIUM**,
@@ -48,11 +69,11 @@ and **LOW**.
     3. **LOW** warnings indicate minor problems
      with the schedule (e.g. overstaffing occurring for a given day).
 
-![The schedule calendar, the warnings icon, an example of schedule warnings.](images/wfm-scheduling-warnings.png) 12. When the status is **Complete**, choose the draft
+![The schedule calendar, the warnings icon, an example of schedule warnings.](images/wfm-scheduling-warnings.png) 11. When the status is **Complete**, choose the draft
 schedule to view it. The following image shows a sample schedule for one
-day, for 10 agents.
+day, with staffing metrics and individual agent shifts.
 
-![A sample schedule for 10 agents.](images/wfm-scheduling-supervisors-schedule.png)
+![A sample draft schedule showing staffing metrics including Occupancy, Headcount, Service Level for Voice and Chat, ATC for Email and Task, and Backlog, along with individual agent shift assignments for the day.](images/wfm-scheduling-draft-schedule-view.png)
 
 Schedulers can:
 
@@ -61,7 +82,7 @@ Schedulers can:
     * Navigate back to today's date.
     * View failed rules and goals.
 
-13. When you're satisfied with the schedule, choose
+12. When you're satisfied with the schedule, choose
 **Publish**. You'll get a confirmation page. Choose
 **Proceed** to make the schedule official!
 

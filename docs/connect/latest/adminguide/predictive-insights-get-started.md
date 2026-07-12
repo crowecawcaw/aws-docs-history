@@ -14,7 +14,7 @@ To start using Predictive Insights, follow these steps:
 You can use the existing data connectors in Customer Profiles to map
 interactions data into standard Web Analytics Object.
 
-For more information, see [Object type mapping for Web Analytics Object](standard-loyalty-promotion-object-mapping-web-analytics.md "standard-loyalty-promotion-object-mapping-web-analytics.md").
+For more information, see [Object type mapping for the standard web analytics](standard-loyalty-promotion-object-mapping-web-analytics.md "standard-loyalty-promotion-object-mapping-web-analytics.md").
 
 ## Step 2: Adding Item Catalog data
 

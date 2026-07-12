@@ -55,8 +55,9 @@ Following are the requirements for imported data:
      choose the queue, select **Show additional queue
      information**. The queue ID is the last number
      after `/queue/`.
-    + `ChannelType`: Enter `CHAT` or
-     `VOICE`. You must capitalize the channel
+    + `ChannelType`: Enter `VOICE`,
+     `CHAT`, `TASK`, or
+     `EMAIL`. You must capitalize the channel
      type.
     + `TimeStamp`: Enter the timestamp in ISO8601 format.
      For `Daily` interval data, the time value must be

@@ -26,7 +26,7 @@ available.
   calculated attributes API](#customerprofiles_calculatedattributesregion "#customerprofiles_calculatedattributesregion")
 - [Forecasting, capacity planning, and
   scheduling](#optimization_region "#optimization_region")
-- [Generative Voice](#gv_region "#gv_region")
+- [Amazon Connect agentic voice](#gv_region "#gv_region")
 - [Global Resiliency](#gr_region "#gr_region")
 - [In-app, web, and video calling
   capabilities](#inapp_region "#inapp_region")
@@ -252,7 +252,7 @@ The calculated attributes API is available in the following AWS Regions:
 - Europe (London)
 - AWS GovCloud (US-West)
 
-## Generative Voice: Set Voice Block
+## Amazon Connect agentic voice
 
 - US East (N. Virginia)
 - US West (Oregon)
@@ -260,7 +260,9 @@ The calculated attributes API is available in the following AWS Regions:
 - Europe (London)
 - Asia Pacific (Sydney)
 - Asia Pacific (Seoul)
+- Asia Pacific (Tokyo)
 - Asia Pacific (Singapore)
+- Canada (Central)
 
 ## Global Resiliency availability by Region
 

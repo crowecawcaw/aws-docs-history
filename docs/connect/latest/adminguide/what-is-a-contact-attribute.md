@@ -83,6 +83,17 @@ For example, while carrying out transfers, a contact attribute updated in the tr
 flow updates the attribute's value in the contact attributes of both contact records (that
 is, the Inbound and Transfer contact attributes).
 
+###### Contact attributes are shared across transfers
+
+Do not use contact attributes to track data specific to a single contact during
+transfers. Contact attributes are shared across all contacts with the same
+`InitialContactId`. A transfer overwrites any previously set values, which
+can result in lost or incorrect data for individual contact legs.
+
+If you need contact-specific data that transfers do not share or overwrite,
+use [contact segment attributes](#segmentattributes-in-ctr "#segmentattributes-in-ctr")
+instead.
+
 ## Contact segment attributes in the contact record
 
 In contact records, the values of a contact segment attribute are specific to the

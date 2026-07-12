@@ -11,7 +11,6 @@ resolving CCP issues with their operations support teams.
 
 - [Validate connectivity to Connect Customer with the Endpoint Test Utility](check-connectivity-tool.md "check-connectivity-tool.md")
 - [Troubleshoot audio quality issues in Connect Customer](troubleshoot-audio-quality.md "troubleshoot-audio-quality.md")
-- [Troubleshoot audio quality issues by using QualityMetrics in the contact record](sop-audio-qa.md "sop-audio-qa.md")
 - [Contact Control Panel (CCP) Issues](common-ccp-issues.md "common-ccp-issues.md")
 - [Download and review Connect Customer Contact Control Panel (CCP) logs](download-ccp-logs.md "download-ccp-logs.md")
 - [Agent workspace and CCP do not support mobile phones (iPhone, Android) and iPads](mobile-devices-not-supported.md "mobile-devices-not-supported.md")

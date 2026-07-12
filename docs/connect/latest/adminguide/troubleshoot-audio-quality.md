@@ -1,11 +1,5 @@
 # Troubleshoot audio quality issues in Connect Customer
 
-###### Intended audience
-
-This guide assumes you are an IT administrator with experience investigating network,
-telephony, and workstation issues, and that you can access data in a Connect Customer contact
-record.
-
 Audio quality issues—choppy or robotic audio, echo, delay, one-way audio, humming, or
 dead air—can originate anywhere along the call path. This page is the starting point for
 diagnosing them. It helps you narrow down _where_ in the path the problem
@@ -15,6 +9,12 @@ occurs, then directs you to the specialized topic that resolves it.
 
 This page covers audio _quality_. If calls are dropping or
 disconnecting rather than sounding bad, see [Troubleshoot call disconnects by using DisconnectDetails in the contact record](troubleshoot-call-disconnects.md "troubleshoot-call-disconnects.md").
+
+###### Intended audience
+
+This guide assumes you are an IT administrator with experience investigating network,
+telephony, and workstation issues, and that you can access data in a Connect Customer contact
+record.
 
 ## Before you begin: gather this information
 

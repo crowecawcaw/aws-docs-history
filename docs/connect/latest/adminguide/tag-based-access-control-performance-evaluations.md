@@ -27,12 +27,12 @@ on the Contact Details page.
 
 ###### Important Notes
 
-- Once you enable tag based access control on evaluations, the users will lose
+- Once you enable tag based access control on evaluations, users will lose
   access to any evaluations before tagging the evaluation form. If you are already
   using performance evaluations, we recommend to first tag evaluation forms and
   accumulate evaluations over several months, before enabling tag based access to
   evaluations.
-- It is recommended to use a single tag on an evaluation form (e.g. "Department: New customer")
+- We recommend using a single tag on an evaluation form (e.g. "Department: New customer")
   while configuring tag-based access. While assigning and permitting access on multiple tags is
   possible, it creates complexity. This is discussed in more detail below.
 
@@ -103,7 +103,7 @@ updating tags on evaluation forms will not change evaluations on historically co
 4. Select **Allow: Tag-based access control**.
 5. Under resources, select **Evaluation forms** and
    **Contact Evaluations**.
-6. Enter the tag that you want to restrict the users' security profile to.
+6. Enter the tag that you want to use for restricting access.
 
 ![The tag-based access control setup screen.](images/evaluationforms-tags-tbac-setup.png)
 
@@ -124,8 +124,8 @@ access to historical evaluations you can:
 If you have enabled tag-based access control on **Contact Evaluations**, it is
 recommended to have consistency with tag-based-access on the **Evaluation Forms**. It is
 also recommended that users' security profiles have access to all tags on the form(s) that they need to use.
-For example, if a user is to use a form with tags "Department: New customer", "Product: Auto Insurance",
-the security profile of the user should have access control enabled for both these tags across both
+For example, if a user needs to use a form with tags "Department: New customer", "Product: Auto Insurance",
+their security profile should have access control enabled for both these tags across both
 **Evaluation Forms** and **Contact Evaluations**. If they have only one
 of the tags, then creating an evaluation manually in the UI will fail.
 

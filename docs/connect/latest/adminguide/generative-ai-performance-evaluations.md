@@ -63,8 +63,8 @@ The following is the overview of the automation process:
    and justification (reference points from the transcript that were used to
    provide answers).
 
-   1. The answer will get automatically selected based on the
-      generative AI recommendation, but can be changed by the user.
+   1. The answer is automatically selected based on the
+      generative AI recommendation, but you can change it.
    2. You can get generative AI-powered recommendations by choosing
       **Ask AI** for up to 10 questions per contact.
       For more information, see [Contact Lens service quotas](amazon-connect-service-limits.md#contactlens-quotas "amazon-connect-service-limits.md#contactlens-quotas").
@@ -132,121 +132,129 @@ To set the language of the evaluation form:
 
 ## Guidelines to improve generative AI accuracy
 
-###### Selecting questions for getting generative AI recommendations
+### Selecting questions to be answered by generative AI
 
-1. Use generative AI to respond to questions that can be answered using
-   information from the conversation transcript, without the need to validate
-   information through third-party applications such as CRM systems.
-2. Using generative AI to answer questions requiring numeric responses, such
-   as "How long did the agent interact with the customer?" is not recommended.
-   Instead, consider [setting up automation](create-evaluation-forms.md#step-automate "create-evaluation-forms.md#step-automate")
-   for such evaluation form questions using Contact Lens or contact
-   metrics.
-3. Avoid using generative AI to answer highly subjective questions, for
-   example, "Was the agent attentive during the call?"
-4. Don't ask questions that require information that cannot be known from the
-   conversation transcript alone. For example, generative AI cannot analyze the
-   agent's screen recording, access external systems such as a CRM, or evaluate
-   across multiple contacts. Generative AI also cannot determine the agent's or
-   customer's tone of voice.
-5. If a question measures more than one thing, split it into multiple simpler
-   questions. For example, instead of "Did the agent exhibit active listening?",
-   ask separate questions such as "Did the agent understand the customer's
-   problem the first time without the need for the customer to repeat
-   themselves?" and "Did the agent summarize the issue after the customer
-   explained it?". You can also use [conditionally enabled questions](create-evaluation-forms.md#step-conditionally-enable-questions "create-evaluation-forms.md#step-conditionally-enable-questions") so that a follow-up question is
-   only evaluated when a triggering question has a particular answer.
+###### Dos
 
-###### Improving phrasing of questions and associated instructions
+- Use generative AI to answer questions that only require the conversation
+  transcript. Examples are questions on soft skills, questions that check
+  for call flow, or compliance statements, among others.
+- Split complex questions into multiple simpler ones. For example, instead
+  of "Did the agent exhibit active listening?", ask two questions: "Did the
+  agent understand the customer's problem the first time, without the
+  customer needing to repeat themselves?" and "Did the agent summarize the
+  issue after the customer explained it?".
+- Use conditionally enabled questions to enable or disable questions that
+  are only applicable in certain situations. For example, you may have one
+  question, "Did the customer buy a product during the conversation?", and a
+  subsequent conditionally enabled question, "Did the agent provide mandatory
+  fee disclosures before completing the sale?". For more details, see [Step 4: Conditionally enable questions](create-evaluation-forms.md#step-conditionally-enable-questions "create-evaluation-forms.md#step-conditionally-enable-questions").
 
-1. Use complete sentences to word questions, for example, replacing
-   _ID validation_ with "Did the agent attempt to
-   validate the customer's identity?" enables the generative AI to better
-   understand the question.
-2. It is recommended that you provide detailed criteria for answering the
-   question within the **instructions to
-   evaluators,** especially if its not possible to answer the
-   question based on the question text alone. For example, for the question
-   "Did the agent try to validate the customer identity?" you may want to
-   provide additional instructions such as, _The agent is required to
-   always ask a customer their membership ID and postal code before
-   addressing the customer's questions_.
-3. If answering a question requires knowledge of some business specific
-   terms, then specify those terms in the instruction. For example, if the
-   agent needs to specify the name of the department in the greeting, then list
-   the required department name(s) that the agent needs to state as part of the
-   **instructions to evaluators** associated
-   with the question.
-4. If possible, use the term 'agent' instead of terms like 'colleague',
-   'employee', 'representative', 'advocate', or 'associate'. Similarly use the
-   term 'customer', instead of terms like 'member', 'caller', 'guest', or
-   'subscriber'.
-5. Only use double quotes in your instruction if you want to check for exact
-   words being spoken by the agent or the customer. For example, If the
-   instruction is to check for the agent saying `"Have a nice day"`,
-   then the generative AI will not detect _Have a nice
-   afternoon_. Instead the instruction should say: `The
- agent wished the customer a nice day`.
-6. Avoid using acronyms in questions and instructions. For example, instead of
-   "Did the agent follow CFPB guidelines?", spell out the full term so the
-   generative AI can interpret it correctly.
-7. Avoid using proper nouns that are likely to be misspelled in the
-   conversation transcript. For example, a product name such as
-   _O2 Pay_ might be transcribed differently, which can
-   prevent the generative AI from matching it.
-8. Avoid vaguely phrased questions, such as "Did the agent use appropriate
-   language?". Be specific, for example, "Did the agent use profanity?".
-9. Phrase questions so that it is clear who is being evaluated. For example,
-   "Did the agent avoid the usage of profanity?" can be interpreted as asking
-   whether profanity occurred anywhere in the conversation, so the answer becomes
-   "No" even when only the customer used profanity. To evaluate the agent's own
-   conduct, phrase the question as "Did the agent use profanity?".
-10. Avoid negatively phrased questions, such as "Did the agent miss the
-    greeting?". Negative phrasing can cause the generative AI to hallucinate
-    evidence when providing references. Instead, phrase the question positively,
-    for example, "Did the agent greet the customer?".
-11. In your instructions, explain when the answer is **Not Applicable** (N/A). For example, _The answer is
-    N/A if the call resulted in a transfer_.
-12. Avoid long verbatim scripts in your instructions, such as checking that the
-    agent said `"Thank you for calling ABC Bank. How may I assist
- you?"`. Minor transcription differences mean the generative AI is
-    unlikely to match the full script.
-13. Provide examples that cover the different scenarios your agents handle, not
-    only the standard call flow. If your agents handle situations such as
-    callbacks, escalations, or transfers, include examples in the
-    **instructions to evaluators** that reflect
-    those situations. For example, a question that asks whether the agent provided
-    a timeline might accept "It typically takes 3 to 5 business days" on a standard
-    call, but should also include an example of acceptable phrasing for a callback,
-    such as "I'll call you back within 30 minutes with an update". Questions that
-    include only standard-flow examples are more likely to be answered
-    inconsistently on non-standard contacts.
-14. Give extra attention to the instructions for questions that automatically
-    fail an evaluation, because a single failing answer affects the entire
-    evaluation score. Provide the most detailed criteria for these questions,
-    including edge cases and non-standard scenarios. For more information about
-    scoring, see [Step 5: Assign scores and ranges to answers](create-evaluation-forms.md#step-assignscores "create-evaluation-forms.md#step-assignscores").
+###### Don'ts
 
-###### Improving answer options
+- Don't use generative AI to answer questions that need information outside
+  the conversation transcript. Generative AI cannot analyze screen
+  recordings, access your internal or third-party systems such as CRM
+  applications, or evaluate conversations across multiple contacts.
+- Don't use generative AI to evaluate quantifiable activities such as "Was
+  the customer put on excessive hold?" or "Was the customer frequently
+  interrupted?". Instead, set the question type to **Number**
+  and use metrics such as the longest hold duration or the number of
+  interruptions. For more details, see [Step 6: Enable automated evaluations](create-evaluation-forms.md#step-automate "create-evaluation-forms.md#step-automate").
+- Don't automate questions that assess interactions between multiple parties
+  (another agent, a partner institution, or a second customer). Contact Lens
+  is aware of only two participants at a given time. For example, avoid a
+  question like "If another person other than the primary account holder
+  joined the conversation, did the agent first confirm with the primary
+  account holder before proceeding?".
+- Don't ask questions that depend on tone of voice. Generative AI cannot
+  determine the agent's or customer's tone.
+- Don't use generative AI for highly subjective questions, such as "Was the
+  agent attentive during the call?".
 
-1. Use simple and short answer options, such as **Yes**, **No**, and
-   **Partial**.
-2. Enable the **Optional question** setting when
-   there are situations where the question is not applicable. This lets
-   evaluators skip the question or mark it as **Not
-   Applicable**.
-3. Avoid spelling errors and special characters in answer options, because they
-   can reduce the accuracy of generative AI answers.
-4. Avoid using too many answer options. For example, for the question "How was
-   the customer experience?", a long list of options such as Great, Good, OK,
-   Poor, Very Poor, and Horrible reduces accuracy. Use a smaller set of
-   distinct options instead.
-5. Avoid long text in answer options, because it might be incorrectly
-   reproduced by the generative AI model.
+### Improving phrasing of questions and associated instructions
+
+###### Dos
+
+- Word questions as complete sentences. Instead of "ID validation", ask
+  "Did the agent attempt to validate the customer's identity?".
+- Add detailed evaluation criteria in the **Instructions to
+  evaluators** for the question. For "Did the agent try to
+  validate the customer's identity?", add the instruction:
+  _Answer is Yes if the agent asked for the customer's membership
+  number and postal code before addressing their questions. Answer is No
+  otherwise._
+- Define business-specific terms the question depends on. If the agent must
+  name a department in the greeting, list example department names in the
+  instructions.
+- Use "agent" and "customer" consistently. Avoid variations like
+  "colleague", "representative", or "associate", and "member", "caller", or
+  "subscriber".
+- Make it clear who is being evaluated. "Did the agent avoid the usage of
+  profanity?" can be read as asking whether profanity occurred anywhere,
+  returning "No" even when only the customer used it. Ask "Did the agent use
+  profanity?" instead.
+- Phrase questions positively. Use "Did the agent greet the customer?"
+  rather than "Did the agent skip the greeting?". Phrasing questions
+  positively provides better AI-evaluation reasoning and references.
+- Specify when the answer is **Not Applicable** (N/A). For
+  example: _The answer is N/A if the call resulted in a
+  transfer._
+- Clarify whether all or any of the specified agent behaviors is required.
+  "The agent must ask the customer's name and phone number" fails if the
+  agent asked for the name but not the phone number.
+- Include examples for non-standard scenarios, not just the standard call
+  flow. If you expect the agent to say "It typically takes 3 to 5 business
+  days" on a standard call, you should also include callback phrasing like
+  "I'll call you back within 30 minutes with an update". Standard-flow-only
+  examples lead to inconsistent answers on callbacks, escalations, and
+  transfers.
+- Give auto-fail questions the most attention, since one failing answer
+  affects the whole form's evaluation score. Cover edge cases and
+  non-standard scenarios. For more on scoring, see [Step 5: Assign scores and ranges to answers](create-evaluation-forms.md#step-assignscores "create-evaluation-forms.md#step-assignscores").
+
+###### Don'ts
+
+- Don't use double quotes unless you need exact wording. If the instruction
+  checks for `"Have a nice day"`, the AI won't match _Have
+  a nice afternoon_. Write instead: `The agent wished the
+ customer a nice day`.
+- Don't use acronyms. Spell out the full term, for example "CFPB", so the AI
+  can interpret it correctly.
+- Don't use proper nouns likely to be misspelled in the transcript. A
+  product name like _Klarity Pay_ may be transcribed
+  differently, preventing a match.
+- Don't use vague questions. Instead of "Did the agent use appropriate
+  language?", ask "Did the agent use profanity?".
+- Don't use long verbatim scripts. Checking for `"Thank you for calling
+ ABC Bank. How may I assist you?"` rarely matches, since minor
+  transcription differences break the full script.
+
+### Improving answer options
+
+###### Dos
+
+- Use simple, short answer options, such as **Yes**, **No**, and
+  **Partial**.
+- Enable the **Optional question** setting when a question
+  may not apply. This lets evaluators skip the question or mark it
+  **Not Applicable**.
+
+###### Don'ts
+
+- Don't use spelling errors or special characters in answer options, as
+  they can reduce the accuracy of generative AI answers.
+- Don't use too many answer options. For "How was the customer experience?",
+  a long list like Great, Good, OK, Poor, Very Poor, and Horrible reduces
+  accuracy. Use a smaller set of distinct options instead.
+- Don't use long text in answer options, since the generative AI model might
+  reproduce it incorrectly.
+
+### Example implementation following guidelines
 
 The following example shows a generative AI-answered question that follows these
-guidelines. The question title is a complete sentence, the instructions to evaluators
-define each answer option and explain the Not Applicable scenario, and the answer
-options are short.
+guidelines. The question title is a complete sentence, the instructions to
+evaluators define each answer option and explain the Not Applicable scenario, and
+the answer options are short.
 
 ![An evaluation form question configured with a full-sentence title, detailed instructions to evaluators, and short Yes and No answer options with the Not Applicable option enabled.](images/evaluationforms-genai-question-example.png)

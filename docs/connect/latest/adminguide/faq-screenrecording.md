@@ -219,7 +219,9 @@ instance data storage configuration.
 - **What are the bandwidth requirements for screen
   recording?**
 
-We recommend 500kbps per concurrent contact with screen recording enabled.
+We recommend 500 Kbps bandwidth for screen recording, regardless of the
+number of concurrent contacts. The system requirements specify 600 Kbps total
+network bandwidth to account for additional agent workstation traffic.
 
 - **Why do I see higher CPU usage after installing
   screen recording client application on my windows

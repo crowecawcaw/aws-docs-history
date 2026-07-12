@@ -49,6 +49,7 @@ For more information, see [Connect Customer service quotas](amazon-connect-servi
 - [Add a pre-contact or pre-chat
   form](add-precontact-form.md "add-precontact-form.md")
 - [Post-chat survey](enable-post-chat-survey.md "enable-post-chat-survey.md")
+- [Web data tracker](chat-widget-data-tracker.md "chat-widget-data-tracker.md")
 
 ## Supported browsers
 

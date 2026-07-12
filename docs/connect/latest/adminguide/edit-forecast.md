@@ -192,8 +192,9 @@ Following are the requirements for imported data:
      choose the queue, select **Show additional queue
      information**. The queue ID is the last number
      after `/queue/`.
-    + `ChannelType`: Enter `CHAT` or
-     `VOICE`.
+    + `ChannelType`: Enter `VOICE`,
+     `CHAT`, `TASK`, or
+     `EMAIL`.
     + `TimeStamp`: Enter the timestamp in ISO8601 format.
      For long-term forecast overrides, the time value must be
      midnight in the [selected

@@ -334,7 +334,7 @@ Ping, OneLogin, Shibboleth, ADFS, AzureAD, and more).
 3. Configure a relay state for the Region-specific console page.
 
    1. If you don't do this final step, there's no guarantee that the
-      Region-specific SAML sign in process will forward the user to the
+      Region-specific SAML sign in process will forward users to the
       console sign in page within the same Region. This step is most varied
       per identity provider, but there are a blogs (for example, [How to Use SAML to Automatically Direct Federated Users to a
       Specific AWS Management Console Page](https://aws.amazon.com/blogs//security/how-to-use-saml-to-automatically-direct-federated-users-to-a-specific-aws-management-console-page/ "https://aws.amazon.com/blogs//security/how-to-use-saml-to-automatically-direct-federated-users-to-a-specific-aws-management-console-page/")) that show the use of
@@ -391,8 +391,8 @@ page, or you can bulk upload users with the CSV template. After you add the user
 Connect Customer, you can assign security profiles and other user settings.
 
 When a user logs in to the identity provider, but no account with the same user name
-is found in Connect Customer, the following **Access denied** message is
-displayed.
+is found in Connect Customer, the following **Access denied** message
+appears.
 
 ![An Access denied error for a user whose name is not in Connect Customer.](images/saml-access-denied.png)
 
@@ -412,7 +412,7 @@ password.
 
 When you use SAML in Connect Customer, users must log in to Connect Customer through your identity provider
 (IdP). Your IdP is configured to integrate with AWS. After authentication, a token for
-their session is created. The user is then redirected to your Connect Customer instance and
+their session is created. They are then redirected to your Connect Customer instance and
 automatically logged in to Connect Customer using single sign-on.
 
 As a best practice, you should also define a process for your Connect Customer users to log out
@@ -430,8 +430,8 @@ logged in for more than 12 hours, they need to refresh the session token before 
 expires. To create a new session, agents need to log out of Connect Customer and your IdP and
 then log in again. This resets the session timer set on the token so that agents are
 not logged out during an active contact with a customer. When a session expires
-while a user is logged in, the following message is displayed. To use Connect Customer again,
-the user needs to log in to your identity provider.
+while a user is logged in, the following message appears. To use Connect Customer again,
+you must log in to your identity provider.
 
 ![Error message displayed when the session expires for a SAML-based user.](images/saml-session-expired.png)
 

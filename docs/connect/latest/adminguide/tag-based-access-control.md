@@ -34,7 +34,7 @@ _Key:value_ pairs. Access control tags are defined within
 security profiles, by first selecting the resource (routing profile, queue, users,
 etc.) for which to control access to, and then defining the
 _Key:value_ pair to match on. Once a security profile with
-access control tags has been applied to a user, it will limit the user's access
+access control tags has been applied to a user, it will limit their access
 based on the defined combination of the selected resource(s) and access control
 tag(s) (_Key:value_). Without access control tags applied, a user
 will be able to see all resources if given permission to do so.
@@ -52,7 +52,7 @@ Access control tags are configured on a security profile. You can configure up t
 4 access control tags on a single security profile. Adding additional access control
 tags will make that security profile more restrictive. For example, if you were to
 add two access control tags like `Department:X` and
-`Country:Y`, the user would only be able to see resources containing
+`Country:Y`, they would only be able to see resources containing
 both tags.
 
 Users can be assigned a maximum of seven security profiles

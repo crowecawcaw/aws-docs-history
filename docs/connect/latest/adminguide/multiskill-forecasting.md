@@ -1,12 +1,12 @@
 # Multi skill forecasting in Connect Customer
 
-The multi-skill feature optimizes staffing by scheduling agents based on their specialized capabilities. It introduces "demand groups" as distinct subsets of work within forecast groups, where each demand group represents specific workloads that are independently forecasted and require specialized agent skills. A demand group can contain one or more queues.
+The multi-skill feature optimizes staffing by scheduling agents based on their specialized capabilities. It introduces "demand groups" as distinct subsets of work within forecast groups, where each demand group represents specific workloads that are independently forecasted and require specialized agent skills. A demand group is a set of queue-channel pairings.
 
 ## Important things to know
 
 - You can enable demand groups within a forecast group if you want to schedule agents for specific queues.
-- A forecast group can contain multiple demand groups, each demand group can contain one or more queues.
-- Each queue can belong to only one demand group within the forecast group.
+- A demand group is a set of queue-channel pairings. A forecast group is segmented by multiple demand groups.
+- If you are using demand groups, every combination of queue and channel must belong to a demand group.
 - Before generating the first forecast for the forecast group, we strongly advise creating all necessary demand groups.
 
 ## Creating demand groups
@@ -25,9 +25,9 @@ groups](create-forecast-groups.md "create-forecast-groups.md")
 
 ![Image to activate demand groups.](images/wfm-forecasting-activatedemandgroups.png)
 
-- Create demand groups by searching and adding queues.
+- Create demand groups by searching and adding queues and channels.
 
-![search and add queues to create demand groups.](images/wfm-forecasting-createdemandgroups.png)
+![The Edit Forecast Group page showing demand groups with queues and channels (Voice, Chat, Email, Tasks) assigned to each group.](images/wfm-forecasting-createdemandgroups-multichannel.png)
 
 ## Generate and publish forecast
 
@@ -36,4 +36,4 @@ forecasters can generate both long term (64 weeks ahead) and short term (18 week
 
 For more information, see [Publish a forecast](publish-forecast.md "publish-forecast.md")
 
-![filter forecast by demand groups.](images/wfm-forecasting-viewdemandgroupforecast.png)
+![The forecast view showing demand groups with Voice, Chat, Email, and Task channels, a demand groups filter dropdown, and weekly forecast data.](images/wfm-forecasting-viewdemandgroupforecast.png)

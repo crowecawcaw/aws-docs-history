@@ -26,7 +26,7 @@ determined at the campaign's scheduled start time using the chosen segment. 
 
 ###### Important
 
-If you are running a campaign initiated by a customer event and using segment powered by Spark SQL, the campaign checks the segment membership as of the last time the segment was exported (segment snapshot), not at the point when the campaign is running. This is provided as an API attribute (lastComputedAt). If you receive a 4XX error, you also need to run a new export (segment snapshot). If you need Connect to automatically check membership as the campaign is running, please use Classic Segmentation. 5. Choose the **Channel** for the main communication of the campaign. The
+If you are running a campaign initiated by a customer event and using segment powered by Spark SQL, the campaign checks the segment membership as of the last time the segment was exported (segment snapshot), not at the point when the campaign is running. The API provides this as an attribute (lastComputedAt). If you receive a 4XX error, you also need to run a new export (segment snapshot). If you need Connect to automatically check membership as the campaign is running, please use Classic Segmentation. 5. Choose the **Channel** for the main communication of the campaign. The
 supported channels include **Agent assisted voice**, **Automated
 voice**, **Email**, and **SMS**.
 
@@ -475,8 +475,8 @@ active communication times:
 
 - Connect Customer Outbound campaigns will evaluate the **From** and **To** times relative to either the
   **Standard time zone** or the **Recipient's local time zone**, whichever is specified.
-- If no **Active communication time** is provided, communications to
-  intended recipients will be attempted as soon as the campaign is published.
+- If you don't provide an **Active communication time**, communications to
+  intended recipients are attempted as soon as the campaign is published.
 
 ![Active communication time configuration panel showing day and time selection for campaign outreach.](images/active-communication-time-1.png)
 

@@ -377,17 +377,15 @@ update your natural language prompt or make edits to the Spark SQL directly.
 You also have the option to create the Spark SQL segment directly.
 
 Like Classic segmentation, segments powered by Spark SQL can be
-used in segment membership calls, Flow blocks, and Outbound
-Campaigns.
+used in segment membership calls and Flow blocks. To use Outbound
+Campaigns or Journeys with Spark SQL segments, contact AWS Support to
+request access.
 
 When you use a Spark SQL segment in a segment membership call, Flow
 block, or Outbound Campaign initiated by a customer event, it uses the
 last exported segment (segment snapshot). The segment snapshot used for
 membership expires 1 year after creation. If you receive a 4XX error,
 ensure you have exported the segment (segment snapshot).
-
-Outbound campaigns initiated by a customer segment do not require
-you to export the segment (segment snapshot).
 
 ###### Note
 

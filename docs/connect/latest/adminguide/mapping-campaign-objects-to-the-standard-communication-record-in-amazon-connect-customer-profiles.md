@@ -171,6 +171,46 @@ record.
 | engagement.engagement\_details.whatsapp.errors[].message | Events.{{campaign\_event\_type}}.Errors[].Message |
 | campaign\_event\_timestamp                               | SourceLastUpdatedTimestamp                        |
 
+## Campaign-WebNotification object
+
+**Mapping a Campaign-WebNotification object to a
+standard communication record**
+
+A subset of the fields in the Campaign-WebNotification object map to the
+standard communication record object in Customer Profiles.
+
+The following table lists which fields can be mapped from the
+Campaign-WebNotification object to the standard communication
+record.
+
+| Campaign-WebNotification source field                           | Standard communication record target field                           |
+| --------------------------------------------------------------- | -------------------------------------------------------------------- |
+| campaign\_event\_id                                             | Attributes.LastCampaignEventId                                       |
+| engagement.outbound\_request\_id                                | Attributes.OutboundCampaignRequestId                                 |
+| campaign\_message\_id                                           | Attributes.CampaignMessageId                                         |
+| engagement.channel.name                                         | Channel                                                              |
+| engagement.channel.subtype                                      | Attributes.ChannelSubType                                            |
+| engagement.endpoint.endpoint\_address                           | Endpoint.EndpointAddress                                             |
+| engagement.endpoint.endpoint\_type                              | Endpoint.EndpointType                                                |
+| instance\_arn                                                   | ConnectInstanceArn                                                   |
+| campaign.campaign\_name                                         | Campaign.CampaignName                                                |
+| campaign.campaign\_id                                           | Campaign.CampaignId                                                  |
+| campaign.campaign\_run\_id                                      | Campaign.CampaignRunId                                               |
+| campaign.campaign\_activity\_id                                 | Campaign.CampaignActivityId                                          |
+| campaign.segment\_arn                                           | Campaign.SegmentArn                                                  |
+| engagement.outbound\_request\_creation\_timestamp               | CreatedDate                                                          |
+| campaign\_event\_timestamp                                      | UpdatedDate                                                          |
+| campaign\_event\_type                                           | LastEventType                                                        |
+| campaign\_event\_timestamp                                      | Events.{{campaign\_event\_type}}.UpdatedDate                         |
+| campaign\_event\_id                                             | Events.{{campaign\_event\_type}}.EventId                             |
+| campaign\_event\_type                                           | Events.{{campaign\_event\_type}}.EventType                           |
+| engagement.engagement\_details.webNotification.eventType        | Events.{{campaign\_event\_type}}.Attributes.WebNotificationEventType |
+| engagement.engagement\_details.webNotification.notificationType | Events.{{campaign\_event\_type}}.Attributes.NotificationType         |
+| engagement.engagement\_details.webNotification.deviceType       | Events.{{campaign\_event\_type}}.Attributes.DeviceType               |
+| engagement.engagement\_details.webNotification.deviceModel      | Events.{{campaign\_event\_type}}.Attributes.DeviceModel              |
+| engagement.engagement\_details.webNotification.browserName      | Events.{{campaign\_event\_type}}.Attributes.BrowserName              |
+| campaign\_event\_timestamp                                      | SourceLastUpdatedTimestamp                                           |
+
 ## Campaign-Orchestration object
 
 **Mapping a Campaign-Orchestration object to a
