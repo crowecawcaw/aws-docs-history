@@ -1,10 +1,11 @@
 # Enable a delegated admin account for AWS Account Management
 
-You enable a delegated admin account so you can call the AWS Account Management API operations for
-other member accounts in AWS Organizations. After you register a delegated admin account for your
-organization, users and roles in that account can call the AWS CLI and AWS SDK operations in
-the `account` namespace that can work in the Organizations mode by supporting an optional
-`AccountId` parameter.
+You can register one delegated admin account per organization for the AWS Account Management
+service. After you register this account, users and roles in that account can call the
+AWS CLI and AWS SDK operations in the `account` namespace that can work in the
+Organizations mode by supporting an optional `AccountId` parameter. This enables the
+delegated admin to call AWS Account Management API operations for other member accounts in
+AWS Organizations.
 
 To register a member account in your organization as a delegated admin account, use the
 following procedure.
