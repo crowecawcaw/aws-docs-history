@@ -10,6 +10,7 @@ Use the following sections to help troubleshoot issues with Amazon Managed Servi
 - [I see an error message related to a limit](#AMP-troubleshoot-limiterror "#AMP-troubleshoot-limiterror")
 - [Your local Prometheus server output exceeds the limit.](#AMP-understand-output "#AMP-understand-output")
 - [Some of my data isn't appearing](#AMP-troubleshoot-discarded-data "#AMP-troubleshoot-discarded-data")
+- [HTTP 422 error: query timeout](#AMP-troubleshoot-http-422 "#AMP-troubleshoot-http-422")
 
 ## 429 or limit exceeded errors
 
@@ -156,3 +157,24 @@ information, see [Use CloudWatch metrics to monitor Amazon Managed Service for P
 | native\_histogram\_buckets\_exceeded             | Native histogram exceeds the maximum bucket count limit and<br>resolution cannot be automatically reduced. Reduce the number of<br>buckets on the client side using<br>`NativeHistogramMaxBucketNumber`.        |
 | native\_histogram\_rate\_limited                 | Native histogram sample was rejected because the native histogram<br>ingestion rate limit was reached. Reduce the number of native<br>histogram series or the scrape frequency, or request a limit<br>increase. |
 | per\_user\_native\_histogram\_series\_limit      | User has hit the native histogram active series limit per<br>workspace. Reduce the number of native histogram series or request a<br>limit increase.                                                            |
+
+## HTTP 422 error: query timeout
+
+If your query runs for more than 1 minute, Amazon Managed Service for Prometheus returns an HTTP 422 status code.
+The following example shows this error:
+
+```
+{"status":"error","errorType":"execution","error":"query timed out - consider simplifying your query"}
+```
+
+To reduce evaluation time, use one or more of the following approaches:
+
+- Specify a shorter time window to evaluate fewer samples.
+- Add label matchers to reduce the number of series that your query
+  evaluates.
+- Use [recording rules](AMP-ruler-rulesfile.md "AMP-ruler-rulesfile.md") to precompute
+  expensive aggregations that you query frequently.
+- Avoid regex matchers on high-cardinality labels (labels with many unique
+  values).
+
+For more information, see [Query your Prometheus metrics](AMP-query.md "AMP-query.md").
