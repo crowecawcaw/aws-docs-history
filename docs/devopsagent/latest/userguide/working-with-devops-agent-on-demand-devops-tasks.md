@@ -26,6 +26,8 @@ AWS DevOps Agent On Demand Tasks provides comprehensive capabilities to help you
 
 Chat is available as a persistent panel on the left side of the DevOps Agent Space web app. The left sidebar includes a **+ New chat** button, a **Pages** section for navigating to Incidents, Improvements, and Topology, and a **Chats** section that displays your recent conversations. Choose **View all** to see your full conversation history.
 
+You can also start a new chat by adding the `?newChat` query parameter to any DevOps Agent web app URL for your Agent Space. Use this parameter to link to a fresh conversation from external tools, runbooks, or bookmarks.
+
 Chat provides context-aware responses based on where you access it:
 
 **Topology** – Ask general questions about your Agent Space resources, architecture, and operational health. Chat has full visibility into all connected accounts and services. From this context, you can query resource configurations, deployment history, topology information, and observability tool integrations.

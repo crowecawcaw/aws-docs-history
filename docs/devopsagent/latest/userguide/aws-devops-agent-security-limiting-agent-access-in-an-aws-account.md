@@ -59,13 +59,16 @@ Because `s3:GetObject` and `s3:ListBucket` are included in the guardrail, this i
 
 The following permissions are included in the guardrail and can be enabled by adding them to your role as an inline policy. These are not granted by default — you must explicitly opt in.
 
-| Service            | Actions                                                                                                                                                                                                               | Use case                                                                        |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Amazon Athena      | `athena:GetQuery*`, `athena:StartQueryExecution`, `athena:StopQueryExecution`                                                                                                                                         | Run Athena queries against your data catalog and retrieve managed query results |
-| Amazon S3          | `s3:GetObject`, `s3:ListBucket`                                                                                                                                                                                       | Read application data, logs, or configuration stored in S3                      |
-| AWS Direct Connect | `directconnect:DescribeConnections`, `directconnect:DescribeDirectConnectGatewayAssociations`, `directconnect:DescribeDirectConnectGateways`, `directconnect:DescribeLags`, `directconnect:DescribeVirtualInterfaces` | Investigate network connectivity issues                                         |
-| AWS Glue           | `glue:GetPartitions`                                                                                                                                                                                                  | Read partition metadata from the Glue Data Catalog for Athena queries           |
-| AWS KMS            | `kms:Decrypt`                                                                                                                                                                                                         | Decrypt encrypted resources such as S3 objects                                  |
+| Service                | Actions                                                                        | Use case                                                                        |
+| ---------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Amazon Athena          | `athena:GetQuery*`, `athena:StartQueryExecution`, `athena:StopQueryExecution`  | Run Athena queries against your data catalog and retrieve managed query results |
+| Amazon CloudWatch Logs | `logs:GetLogRecord`                                                            | Retrieve individual log records when investigating application issues           |
+| Amazon DynamoDB        | `dynamodb:Scan`, `dynamodb:Query`, `dynamodb:GetItem`, `dynamodb:BatchGetItem` | Read items from your DynamoDB tables during investigations                      |
+| Amazon S3              | `s3:GetObject`, `s3:ListBucket`                                                | Read application data, logs, or configuration stored in S3                      |
+| AWS Glue               | `glue:GetPartition`                                                            | Read partition metadata from the Glue Data Catalog for Athena queries           |
+| AWS KMS                | `kms:Decrypt`                                                                  | Decrypt encrypted resources such as S3 objects                                  |
+| AWS Support            | `support:DescribeCommunications`                                               | Read AWS Support case communications relevant to an investigation               |
+| AWS Systems Manager    | `ssm:GetParameter`                                                             | Read Systems Manager parameters used by your applications                       |
 
 ### Permissions blocked by the guardrail
 

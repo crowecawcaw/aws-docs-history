@@ -115,7 +115,7 @@ Private connections are account-level resources. After you create a private conn
     - **Public** (default) – The DNS name is resolved using public DNS. If you enter a DNS name as the host address, it must be publicly resolvable. Use this mode when your hostname has a public DNS record (which can point to a private IP address). If you specify an IP address as the host address, this setting has no effect.
     - **In VPC** – The DNS name is resolved from within your VPC context, so hostnames that exist only in a [private hosted zone](../../../Route53/latest/DeveloperGuide/hosted-zones-private.md "../../../Route53/latest/DeveloperGuide/hosted-zones-private.md") resolve correctly without any public DNS record. Use this mode when your target service's hostname is private to your VPC.
 
-13. (Optional) For **Certificate public key**, if the host address you specified uses TLS certificates issued by a private certificate authority, enter the PEM-encoded public key of the certificate. This allows AWS DevOps Agent to trust the TLS connection to your target service.
+13. (Optional) Complete this step if a private certificate authority (CA) issued the TLS certificates for your host address. For **Certificate public key**, enter the **full PEM-encoded certificate chain** for the target service. List the certificates in order: the leaf (server) certificate first, then all intermediate CA certificates, then the root CA certificate. If the chain is incomplete, the connection fails. AWS DevOps Agent then verifies and trusts the TLS connection.
 14. Choose **Create connection**.
 
 The connection status changes to **Create in progress**. This process can take up to 10 minutes. When the status changes to **Active**, the network path is ready.
