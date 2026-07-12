@@ -105,13 +105,10 @@ In the **Concurrency** section, choose an option:
      before Automation stops sending the workflow to other resources.
 
 11. (Optional) Choose a CloudWatch alarm to apply to your automation for monitoring.
-To attach a CloudWatch alarm to your automation, the IAM principal that starts
-the automation must have permission for the
-`iam:createServiceLinkedRole` action. For more information
-about CloudWatch alarms, see [Using
-Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md"). Note that if your alarm activates, the
-automation is stopped. If you use AWS CloudTrail, you will see the API call in
-your trail. 12. Choose **Execute**.
+If your alarm enters `ALARM` state, the automation is
+canceled and any defined `onCancel` steps run. If you use
+AWS CloudTrail, you will see the `StopAutomationExecution` API call in
+your trail. For more information, see [Configuring Automations to monitor CloudWatch Alarms](automation-cw-alarm-monitoring.md "automation-cw-alarm-monitoring.md"). 12. Choose **Execute**.
 
 To view automations started by your rate control automation, in the navigation
 pane, choose Automation, and then select **Show child

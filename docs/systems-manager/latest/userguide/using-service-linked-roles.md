@@ -41,6 +41,12 @@ For information about other services that support service-linked roles, see [AWS
 roles** column. Choose a **Yes** with a link
 to view the service-linked role documentation for that service.
 
+###### Note
+
+Systems Manager Automation no longer uses the service-linked role for CloudWatch alarm monitoring.
+This operation now uses your runbook execution identity. Make sure your execution
+identity has the required permissions. For more information, see [Configuring Automations to monitor CloudWatch Alarms](automation-cw-alarm-monitoring.md "automation-cw-alarm-monitoring.md").
+
 ###### Topics
 
 - [Using roles to collect inventory and view OpsData](using-service-linked-roles-service-action-1.md "using-service-linked-roles-service-action-1.md")

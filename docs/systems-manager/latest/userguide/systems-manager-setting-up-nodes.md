@@ -21,6 +21,7 @@ ensure that you're ready to use all Systems Manager tools.
 
 - [Managing EC2 instances with Systems Manager](systems-manager-setting-up-ec2.md "systems-manager-setting-up-ec2.md")
 - [Managing nodes in hybrid and multicloud environments with Systems Manager](systems-manager-hybrid-multicloud.md "systems-manager-hybrid-multicloud.md")
+- [Set up a Cloud Connector for Microsoft Azure in Systems Manager](systems-manager-cloud-connector.md "systems-manager-cloud-connector.md")
 - [Managing edge devices with Systems Manager](systems-manager-setting-up-edge-devices.md "systems-manager-setting-up-edge-devices.md")
 - [Creating an AWS Organizations delegated administrator for Systems Manager](setting_up_delegated_admin.md "setting_up_delegated_admin.md")
 - [General setup for AWS Systems Manager](#setting_up_prerequisites "#setting_up_prerequisites")

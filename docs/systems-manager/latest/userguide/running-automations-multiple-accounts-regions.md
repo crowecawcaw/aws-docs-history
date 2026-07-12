@@ -296,13 +296,10 @@ resource group. For example, if you chose the
 specify or choose instance IDs in the **Input
 parameters** section. The automation locates the instances
 to restart by using the tags you specified. 12. (Optional) Choose a CloudWatch alarm to apply to your automation for monitoring.
-To attach a CloudWatch alarm to your automation, the IAM principal that starts
-the automation must have permission for the
-`iam:createServiceLinkedRole` action. For more information
-about CloudWatch alarms, see [Using
-Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md"). Note that if your alarm activates, the
-automation is cancelled and any `OnCancel` steps you have defined
-run. If you use AWS CloudTrail, you will see the API call in your trail. 13. Use the options in the **Rate control** section to restrict the
+If your alarm enters `ALARM` state, the automation is
+canceled and any defined `onCancel` steps run. If you use
+AWS CloudTrail, you will see the `StopAutomationExecution` API call in
+your trail. For more information, see [Configuring Automations to monitor CloudWatch Alarms](automation-cw-alarm-monitoring.md "automation-cw-alarm-monitoring.md"). 13. Use the options in the **Rate control** section to restrict the
 number of AWS resources that can run the Automation within each account-Region pair.
 
 In the **Concurrency** section, choose an option:

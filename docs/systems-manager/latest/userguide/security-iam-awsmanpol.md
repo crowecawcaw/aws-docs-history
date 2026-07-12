@@ -96,6 +96,14 @@ arn:aws:cloudformation:*:*:type/resource/*
 
 - `cloudwatch` – Allows principals to retrieve information
   about Amazon CloudWatch alarms.
+
+###### Note
+
+The `AmazonSSMServiceRolePolicy` includes
+`cloudwatch:DescribeAlarms` permission. However, Automation
+no longer uses the service-linked role for CloudWatch alarm monitoring. This
+operation now uses your runbook execution identity.
+
 - `compute-optimizer` – Allows principals to retrieve the
   enrollment (opt in) status of an account to the AWS Compute Optimizer service, and to
   retrieve recommendations for Amazon EC2 instances that meet a specific set of stated

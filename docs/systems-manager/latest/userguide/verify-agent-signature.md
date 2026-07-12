@@ -21,19 +21,282 @@ _Amazon Web Services General Reference_.
 | x86\_64      | Debian Server, Ubuntu Server                                                     | `https://s3.`region`.amazonaws.com/amazon-ssm-`region`/latest/debian_amd64/amazon-ssm-agent.deb.sig`<br>`https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb.sig` | `amazon-ssm-agent.deb`   |
 | ARM64        | Amazon Linux 2, Amazon Linux 2023, RHEL                                          | `https://s3.`region`.amazonaws.com/amazon-ssm-`region`/latest/linux_arm64/amazon-ssm-agent.rpm.sig`<br>`https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm.sig`   | `amazon-ssm-agent.rpm`   |
 
+## Verifying the SSM Agent package on a Linux server (v3.3.4851.0 and later)
+
+###### Before you begin
+
+The procedures for **GPG** and **RPM** in this section apply to SSM Agent version
+3.3.4851.0 and later. Before you verify the signature of SSM Agent, make
+sure that you have downloaded the latest agent package for your
+operating system. For example,
+`https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm`.
+For more information about downloading SSM Agent packages, see [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
+
+If you use agent version 3.3.1802.0 through 3.3.4793.0,
+follow the instructions in [Verifying the SSM Agent package on a Linux server (v3.3.1802.0 and later)](#verify-agent-signature-previous "#verify-agent-signature-previous"). For agent version
+3.3.1611.0 or earlier, follow the instructions in [Verifying the SSM Agent package on a Linux server (v3.3.1611.0 and earlier)](#verify-agent-signature-older "#verify-agent-signature-older").
+
+GPG
+
+###### To verify the SSM Agent package on a Linux server (v3.3.4851.0 and later)
+
+1. Copy the following public key and save it to a file named
+   `amazon-ssm-agent.gpg`.
+
+###### Important
+
+The following public key expires on November 25, 2027. We will publish a new public key
+in this topic before the old one expires. To get a
+notification when the new key is available, subscribe
+to the RSS feed for this topic.
+
+```
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v2.0.22 (GNU/Linux)
+
+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
+M98H0Sl+MxUsAg==
+=TpOv
+-----END PGP PUBLIC KEY BLOCK-----
+```
+
+2. Import the public key into your keyring, and note the
+   returned key value.
+
+```
+gpg --import amazon-ssm-agent.gpg
+```
+
+3. Verify the fingerprint. Be sure to replace
+   `key-value` with the value from
+   the preceding step. Use GPG to verify the fingerprint even
+   if you use RPM to verify the installer package.
+
+```
+gpg --fingerprint `key-value`
+```
+
+This command returns output similar to the
+following:
+
+```
+pub   rsa4096 2026-06-04 [SCEA] [expires: 2027-11-25]
+      Key fingerprint = 1C5B 395C BE5E 74E2 F1CA  2159 2784 DBF3 88D1 9D46
+uid                  SSM Agent <ssm-agent-signer@amazon.com>
+```
+
+The fingerprint should match the following.
+
+`1C5B 395C BE5E 74E2 F1CA 2159 2784 DBF3 88D1
+ 9D46`
+
+If the fingerprint doesn't match, don't install the agent.
+Contact AWS Support. 4. Download the signature file according to your instance's
+architecture and operating system if you haven't already
+done so. 5. Verify the installer package signature. Be sure to replace
+the `signature-filename` and
+`agent-download-filename` with
+the values you specified when downloading the signature file
+and agent, as listed in the table earlier in this
+topic.
+
+```
+gpg --verify `signature-filename` `agent-download-filename`
+```
+
+For example, for the x86\_64 architecture on
+Amazon Linux 2:
+
+```
+gpg --verify amazon-ssm-agent.rpm.sig amazon-ssm-agent.rpm
+```
+
+This command returns output similar to the
+following:
+
+```
+gpg: Signature made Mon 14 Jul 2026 12:00:00 AM UTC using RSA key ID 88D19D46
+gpg: Good signature from "SSM Agent <ssm-agent-signer@amazon.com>"
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 1C5B 395C BE5E 74E2 F1CA  2159 2784 DBF3 88D1 9D46
+```
+
+If the output includes the phrase `BAD
+ signature`, check whether you performed the
+procedure correctly. If the issue persists, contact Support
+and don't install the agent.
+
+The warning about trust doesn't mean the signature is
+invalid. It means you haven't verified the public key. You
+can trust a key only if you or someone you trust has signed
+it.
+
+If the output includes the phrase `Can't check
+ signature: No public key`, verify that you
+downloaded SSM Agent version 3.3.4851.0 or later.
+
+RPM
+
+###### To verify the SSM Agent package on a Linux server (v3.3.4851.0 and later)
+
+1. Copy the following public key and save it to a file named
+   `amazon-ssm-agent.gpg`.
+
+###### Important
+
+The following public key expires on November 25, 2027. We will publish a new public key
+in this topic before the old one expires. To get a
+notification when the new key is available, subscribe
+to the RSS feed for this topic.
+
+```
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v2.0.22 (GNU/Linux)
+
+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
+M98H0Sl+MxUsAg==
+=TpOv
+-----END PGP PUBLIC KEY BLOCK-----
+```
+
+2. Import the public key into your keyring, and note the
+   returned key value.
+
+```
+rpm --import amazon-ssm-agent.gpg
+```
+
+3. Verify the fingerprint. Use GPG to verify the fingerprint
+   even if you use RPM to verify the installer package.
+
+```
+rpm -qa gpg-pubkey --qf '%{Description}' | gpg --with-fingerprint | grep -A 1 "ssm-agent-signer@amazon.com"
+```
+
+This command returns output similar to the
+following:
+
+```
+pub  4096R/88D19D46 2026-06-04 SSM Agent <ssm-agent-signer@amazon.com>
+      Key fingerprint = 1C5B 395C BE5E 74E2 F1CA  2159 2784 DBF3 88D1 9D46
+```
+
+The fingerprint should match the following.
+
+`1C5B 395C BE5E 74E2 F1CA 2159 2784 DBF3 88D1
+ 9D46`
+
+If the fingerprint doesn't match, don't install the agent.
+Contact AWS Support. 4. Verify the installer package signature. Be sure to replace
+the `agent-download-filename` with
+the values you specified when downloading the agent, as
+listed in the table earlier in this topic.
+
+```
+rpm --checksig `agent-download-filename`
+```
+
+For example, for the x86\_64 architecture on
+Amazon Linux 2:
+
+```
+rpm --checksig amazon-ssm-agent.rpm
+```
+
+This command returns output similar to the
+following.
+
+```
+amazon-ssm-agent.rpm: digests signatures OK
+```
+
+If the output contains `SIGNATURES NOT OK`
+or `NOT OK (MISSING KEYS: (MD5)
+ `key-id`)`, check
+whether you performed the procedure correctly and verify
+you downloaded SSM Agent version 3.3.4851.0 or later. If
+you continue to get this response, contact Support and
+don't install the agent.
+
 ## Verifying the SSM Agent package on a Linux server (v3.3.1802.0 and later)
 
 ###### Before you begin
 
 The procedures for **GPG** and **RPM** in this section apply to SSM Agent version
-3.3.1802.0 and later. Before verifying the signature of SSM Agent using the
-following procedure, ensure that you have downloaded the latest agent
-package for your operating system. For example,
-`https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm`.
-For more information about downloading SSM Agent packages, see [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
-
-If you have a reason to continue using agent version 3.3.1611.0 or earlier,
-follow the instructions in [Verifying the SSM Agent package on a Linux server (v3.3.1611.0 and earlier)](#verify-agent-signature-previous "#verify-agent-signature-previous") instead.
+3.3.1802.0 through 3.3.4793.0. We recommend always using the latest
+version of the agent. For information, see [Verifying the SSM Agent package on a Linux server (v3.3.4851.0 and later)](#verify-agent-signature-current "#verify-agent-signature-current"). However, if you have a
+specific reason to continue using agent version 3.3.1802.0 through
+3.3.4793.0, follow the instructions in one of the following
+procedures.
 
 GPG
 
@@ -294,7 +557,7 @@ don't install the agent.
 
 The procedures for **GPG** and **RPM** in this section apply to SSM Agent version
 3.3.1611.0 and earlier versions. We recommend always using the latest
-version of the agent. For information, see [Verifying the SSM Agent package on a Linux server (v3.3.1802.0 and later)](#verify-agent-signature-current "#verify-agent-signature-current"). However, if you have a
+version of the agent. For information, see [Verifying the SSM Agent package on a Linux server (v3.3.4851.0 and later)](#verify-agent-signature-current "#verify-agent-signature-current"). However, if you have a
 specific reason to continue using agent version 3.3.1611.0 or earlier,
 follow the instructions in one of the following procedures.
 

@@ -80,13 +80,10 @@ the following version options:
 **Simple execution**. 7. In the **Input parameters** section, specify the required inputs.
 Optionally, you can choose an IAM service role from the
 **AutomationAssumeRole** list. 8. (Optional) Choose a CloudWatch alarm to apply to your automation for monitoring.
-To attach a CloudWatch alarm to your automation, the IAM principal that starts
-the automation must have permission for the
-`iam:createServiceLinkedRole` action. For more information
-about CloudWatch alarms, see [Using
-Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md"). Note that if your alarm activates, the
-automation is stopped. If you use AWS CloudTrail, you will see the API call in
-your trail. 9. Choose **Execute**.
+If your alarm enters `ALARM` state, the automation is
+canceled and any defined `onCancel` steps run. If you use
+AWS CloudTrail, you will see the `StopAutomationExecution` API call in
+your trail. For more information, see [Configuring Automations to monitor CloudWatch Alarms](automation-cw-alarm-monitoring.md "automation-cw-alarm-monitoring.md"). 9. Choose **Execute**.
 
 The console displays the status of the automation. If the automation fails to run,
 see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md "automation-troubleshooting.md").

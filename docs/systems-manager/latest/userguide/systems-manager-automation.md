@@ -145,6 +145,7 @@ following components to run automations.
 - [Run an automation step by step](automation-working-executing-manually.md "automation-working-executing-manually.md")
 - [Scheduling automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md")
 - [Schedule automations with maintenance windows](scheduling-automations-maintenance-windows.md "scheduling-automations-maintenance-windows.md")
+- [Configuring Automations to monitor CloudWatch Alarms](automation-cw-alarm-monitoring.md "automation-cw-alarm-monitoring.md")
 - [Systems Manager Automation actions reference](automation-actions.md "automation-actions.md")
 - [Creating your own runbooks](automation-documents.md "automation-documents.md")
 - [Systems Manager Automation Runbook Reference](automation-documents-reference.md "automation-documents-reference.md")
