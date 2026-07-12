@@ -6,13 +6,7 @@ This sample project creates the state machine, the supporting AWS resources, and
 
 ## Prerequisites
 
-This sample project uses the Cohere Command large language model (LLM). To successfully run this sample project, you must add access to this LLM from the Amazon Bedrock console. To add the model access, do the following:
-
-1. Open the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
-2. On the navigation pane, choose **Model access**.
-3. Choose **Manage model access**.
-4. Select the check box next to **Cohere**.
-5. Choose **Request access**. The **Access status** for **Cohere** model shows as **Access granted**.
+This sample project uses the Amazon Nova Lite large language model (LLM). Amazon Nova Lite is available by default in all that have access to Amazon Bedrock. No additional model access configuration is required.
 
 ## Step 1: Create the state machine
 

@@ -71,7 +71,7 @@ You can (optionally) select and transform data from the state input into **Argum
 
 Note: **Assign** and **Output** steps occur in **parallel**. If you choose to transform data during variable assignment, that transformed data will **not** be available in the Output step. You must reapply the JSONata transformation in the Output step.
 
-![Logical diagram of a state that uses JSONata query language.](images/vars-jsonata.png)
+![Logical diagram of a state that uses JSONata query language.](/images/step-functions/latest/dg/images/vars-jsonata.png)
 
 ## QueryLanguage field
 
