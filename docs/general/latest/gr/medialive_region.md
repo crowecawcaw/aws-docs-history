@@ -15,28 +15,28 @@ When you submit requests using the AWS CLI or SDKs, either leave the Region and
 endpoint unspecified, or specify us-east-1 as the Region. When you submit requests
 using the MediaLive API, use the us-east-1 Region to sign requests.
 
-| Region Name               | Region         | Endpoint                                                                    | Protocol       |
-| ------------------------- | -------------- | --------------------------------------------------------------------------- | -------------- |
-| US East (Ohio)            | us-east-2      | medialive.us-east-2.amazonaws.com<br>medialive-fips.us-east-2.amazonaws.com | HTTPS<br>HTTPS |
-| US East (N. Virginia)     | us-east-1      | medialive.us-east-1.amazonaws.com<br>medialive-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| US West (Oregon)          | us-west-2      | medialive.us-west-2.amazonaws.com<br>medialive-fips.us-west-2.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Hyderabad)  | ap-south-2     | medialive.ap-south-2.amazonaws.com                                          | HTTPS          |
-| Asia Pacific (Malaysia)   | ap-southeast-5 | medialive.ap-southeast-5.amazonaws.com                                      | HTTPS          |
-| Asia Pacific (Melbourne)  | ap-southeast-4 | medialive.ap-southeast-4.amazonaws.com                                      | HTTPS          |
-| Asia Pacific (Mumbai)     | ap-south-1     | medialive.ap-south-1.amazonaws.com                                          | HTTPS          |
-| Asia Pacific (Osaka)      | ap-northeast-3 | medialive.ap-northeast-3.amazonaws.com                                      | HTTPS          |
-| Asia Pacific (Seoul)      | ap-northeast-2 | medialive.ap-northeast-2.amazonaws.com                                      | HTTPS          |
-| Asia Pacific (Singapore)  | ap-southeast-1 | medialive.ap-southeast-1.amazonaws.com                                      | HTTPS          |
-| Asia Pacific (Sydney)     | ap-southeast-2 | medialive.ap-southeast-2.amazonaws.com                                      | HTTPS          |
-| Asia Pacific (Tokyo)      | ap-northeast-1 | medialive.ap-northeast-1.amazonaws.com                                      | HTTPS          |
-| Canada (Central)          | ca-central-1   | medialive.ca-central-1.amazonaws.com                                        | HTTPS          |
-| Europe (Frankfurt)        | eu-central-1   | medialive.eu-central-1.amazonaws.com                                        | HTTPS          |
-| Europe (Ireland)          | eu-west-1      | medialive.eu-west-1.amazonaws.com                                           | HTTPS          |
-| Europe (London)           | eu-west-2      | medialive.eu-west-2.amazonaws.com                                           | HTTPS          |
-| Europe (Paris)            | eu-west-3      | medialive.eu-west-3.amazonaws.com                                           | HTTPS          |
-| Europe (Stockholm)        | eu-north-1     | medialive.eu-north-1.amazonaws.com                                          | HTTPS          |
-| Middle East (UAE)         | me-central-1   | medialive.me-central-1.amazonaws.com                                        | HTTPS          |
-| South America (São Paulo) | sa-east-1      | medialive.sa-east-1.amazonaws.com                                           | HTTPS          |
+| Region Name               | Region         | Endpoint                               | Protocol |
+| ------------------------- | -------------- | -------------------------------------- | -------- |
+| US East (Ohio)            | us-east-2      | medialive.us-east-2.amazonaws.com      | HTTPS    |
+| US East (N. Virginia)     | us-east-1      | medialive.us-east-1.amazonaws.com      | HTTPS    |
+| US West (Oregon)          | us-west-2      | medialive.us-west-2.amazonaws.com      | HTTPS    |
+| Asia Pacific (Hyderabad)  | ap-south-2     | medialive.ap-south-2.amazonaws.com     | HTTPS    |
+| Asia Pacific (Malaysia)   | ap-southeast-5 | medialive.ap-southeast-5.amazonaws.com | HTTPS    |
+| Asia Pacific (Melbourne)  | ap-southeast-4 | medialive.ap-southeast-4.amazonaws.com | HTTPS    |
+| Asia Pacific (Mumbai)     | ap-south-1     | medialive.ap-south-1.amazonaws.com     | HTTPS    |
+| Asia Pacific (Osaka)      | ap-northeast-3 | medialive.ap-northeast-3.amazonaws.com | HTTPS    |
+| Asia Pacific (Seoul)      | ap-northeast-2 | medialive.ap-northeast-2.amazonaws.com | HTTPS    |
+| Asia Pacific (Singapore)  | ap-southeast-1 | medialive.ap-southeast-1.amazonaws.com | HTTPS    |
+| Asia Pacific (Sydney)     | ap-southeast-2 | medialive.ap-southeast-2.amazonaws.com | HTTPS    |
+| Asia Pacific (Tokyo)      | ap-northeast-1 | medialive.ap-northeast-1.amazonaws.com | HTTPS    |
+| Canada (Central)          | ca-central-1   | medialive.ca-central-1.amazonaws.com   | HTTPS    |
+| Europe (Frankfurt)        | eu-central-1   | medialive.eu-central-1.amazonaws.com   | HTTPS    |
+| Europe (Ireland)          | eu-west-1      | medialive.eu-west-1.amazonaws.com      | HTTPS    |
+| Europe (London)           | eu-west-2      | medialive.eu-west-2.amazonaws.com      | HTTPS    |
+| Europe (Paris)            | eu-west-3      | medialive.eu-west-3.amazonaws.com      | HTTPS    |
+| Europe (Stockholm)        | eu-north-1     | medialive.eu-north-1.amazonaws.com     | HTTPS    |
+| Middle East (UAE)         | me-central-1   | medialive.me-central-1.amazonaws.com   | HTTPS    |
+| South America (São Paulo) | sa-east-1      | medialive.sa-east-1.amazonaws.com      | HTTPS    |
 
 ## Service quotas
 
