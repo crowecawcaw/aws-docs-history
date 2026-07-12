@@ -40,15 +40,20 @@ methods:
 
 - **AWS Management Console** – Direct sign-in using the
   console login page.
-- **AWS IAM Identity Center** – Console sign-in
-  using IAM Identity Center.
 - **Federated identity providers** – Sign-in
   through SAML or OIDC federation.
 - **Applications integrated with AWS Sign-In** –
   Amazon Connect, Amazon QuickSight, AWS Health Dashboard, Amazon AppStream, Amazon
   Lightsail, AWS IQ.
-  These controls do not apply to programmatic access using access keys (AWS SDKs or API
-  calls signed with SigV4).
+
+###### Note
+
+Console access through the IAM Identity Center portal is not currently compatible with AWS Sign-In
+policies that restrict access based on network condition keys. Enabling network-based
+restrictions will block console access for user in IAM Identity Center users.
+
+These controls do not apply to programmatic access using access keys (AWS SDKs or API
+calls signed with SigV4).
 
 ## How AWS Sign-In evaluates resource-based policies
 
@@ -693,6 +698,12 @@ resource control policy" to identify which policy statement denied access.
   globally.
 
 **Resolution:**
+
+**IAM Identity Center portal users:** Console access through the
+IAM Identity Center portal is not currently compatible with AWS Sign-In policies that restrict
+access based on network condition keys. To restore access for user in IAM Identity Center users,
+remove or adjust the network-based condition keys in your policy, or direct those
+users to sign in through an alternative authentication method.
 
 - Verify you are connected to your corporate network or VPN.
 - Confirm you are accessing through the correct VPC endpoint if VPC

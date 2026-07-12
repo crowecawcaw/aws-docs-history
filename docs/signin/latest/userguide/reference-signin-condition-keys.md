@@ -140,18 +140,245 @@ range, except for the account root user. The pre-authentication statement uses
 The post-authentication statement uses `aws:PrincipalArn` to exempt the same
 principal after authentication, during OAuth token exchange. See [Policy examples](console-access-control.md#console-access-control-policy-examples "console-access-control.md#console-access-control-policy-examples").
 
+## OAuth condition keys
+
+AWS Sign-In provides OAuth-specific condition keys that you can use in IAM policies
+to control how applications obtain OAuth authorization and OAuth tokens. These condition
+keys allow you to restrict which OAuth clients can connect, which redirect URIs are
+trusted, which OAuth authorization flows are permitted, how OAuth clients authenticate,
+and which OAuth tokens can be managed.
+
+OAuth condition keys can be used in IAM identity policies, service control policies
+(SCPs), resource control policies (RCPs), and other IAM policy types that support
+AWS Sign-In actions.
+
+The following OAuth condition keys are available.
+
+| Condition key                      | Type   | Description                                                                                                                   | Applicable actions                                                                                  |
+| ---------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `signin:OAuthClientId`             | String | Restricts authorization to approved OAuth clients.                                                                            | `signin:AuthorizeOAuth2Access`,<br>`signin:CreateOAuth2Token`,<br>`signin:IntrospectOAuth2Token`    |
+| `signin:OAuthRedirectUri`          | String | Restricts OAuth authorization to approved redirect URIs.                                                                      | `signin:AuthorizeOAuth2Access`,<br>`signin:CreateOAuth2Token`,<br>`signin:CreateOAuth2PublicClient` |
+| `signin:OAuthGrantType`            | String | Controls which OAuth grant types are permitted. Values:<br>`authorization_code`,<br>`refresh_token`,<br>`client_credentials`. | `signin:CreateOAuth2Token`                                                                          |
+| `signin:OAuthClientAuthentication` | String | Controls permitted OAuth client authentication methods.                                                                       | `signin:CreateOAuth2Token`                                                                          |
+| `signin:OAuthTokenType`            | String | Controls operations performed on OAuth access and refresh tokens.<br>Values: `access_token`,<br>`refresh_token`.              | `signin:RevokeOAuth2Token`,<br>`signin:IntrospectOAuth2Token`                                       |
+
+### signin:OAuthClientId
+
+Use `signin:OAuthClientId` to allow or deny OAuth authorization based
+on the registered OAuth client requesting access.
+
+OAuth client IDs are represented as AWS Sign-In Dynamic Client Registration (DCR)
+ARNs.
+
+For the non-interactive (client credentials) flow, the implicit client ID is
+`arn:aws:signin:::client-credentials/sigv4`.
+
+Applicable actions
+
+- `signin:AuthorizeOAuth2Access`
+- `signin:CreateOAuth2Token`
+- `signin:IntrospectOAuth2Token`
+
+**Example – Allow only a specific registered OAuth
+client:**
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "signin:AuthorizeOAuth2Access",
+        "signin:CreateOAuth2Token"
+      ],
+      "Resource": "arn:aws:signin:*:*:service-principal/aws-mcp.amazonaws.com",
+      "Condition": {
+        "StringEquals": {
+          "signin:OAuthClientId": "arn:aws:signin:us-east-1::external-client/dcr/081e0aeb-e779-4dfe-9648-bd5bf6e6afa4"
+        }
+      }
+    }
+  ]
+}
+```
+
+### signin:OAuthRedirectUri
+
+Use `signin:OAuthRedirectUri` to restrict where OAuth authorization
+responses are delivered.
+
+This is commonly used to ensure OAuth authorization responses are returned only
+to trusted redirect URIs, such as localhost during development.
+
+For the `signin:CreateOAuth2PublicClient` action, this condition key
+only applies in VPC endpoint (VPCE) policy evaluation.
+
+Applicable actions
+
+- `signin:AuthorizeOAuth2Access`
+- `signin:CreateOAuth2Token`
+- `signin:CreateOAuth2PublicClient`
+
+**Example – Allow browser-based authorization only for
+localhost redirect URIs and only for interactive OAuth flows:**
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "signin:AuthorizeOAuth2Access",
+        "signin:CreateOAuth2Token"
+      ],
+      "Resource": "arn:aws:signin:*:*:service-principal/aws-mcp.amazonaws.com",
+      "Condition": {
+        "StringLike": {
+          "signin:OAuthRedirectUri": "http://localhost:*"
+        },
+        "StringEquals": {
+          "signin:OAuthGrantType": [
+            "authorization_code",
+            "refresh_token"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+### signin:OAuthGrantType
+
+Use `signin:OAuthGrantType` to control which OAuth grant types
+applications are allowed to use.
+
+Supported values include:
+
+- `authorization_code`
+- `refresh_token`
+- `client_credentials`
+
+Applicable actions
+
+- `signin:CreateOAuth2Token`
+
+**Example – Allow only browser-based OAuth
+authorization while preventing applications from using the Client Credentials
+Grant:**
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "signin:CreateOAuth2Token",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "signin:OAuthGrantType": [
+            "authorization_code",
+            "refresh_token"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+### signin:OAuthClientAuthentication
+
+Use `signin:OAuthClientAuthentication` to control which client
+authentication methods OAuth clients can use when requesting access tokens.
+
+Currently supported value:
+
+- `none`
+
+Applicable actions
+
+- `signin:CreateOAuth2Token`
+
+**Example – Deny public clients for OAuth
+operations:**
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": "signin:CreateOAuth2Token",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "signin:OAuthClientAuthentication": "none"
+        }
+      }
+    }
+  ]
+}
+```
+
+### signin:OAuthTokenType
+
+Use `signin:OAuthTokenType` to control which OAuth token types may be
+introspected or revoked.
+
+Supported values include:
+
+- `access_token`
+- `refresh_token`
+
+Applicable actions
+
+- `signin:IntrospectOAuth2Token`
+- `signin:RevokeOAuth2Token`
+
+**Example – Allow revocation of refresh tokens
+only:**
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "signin:RevokeOAuth2Token",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "signin:OAuthTokenType": "refresh_token"
+        }
+      }
+    }
+  ]
+}
+```
+
 ## Condition key availability by action
 
-Condition key availability by action| Condition key | signin:Authenticate | signin:AuthorizeOAuth2Access | signin:CreateOAuth2Token |
-| --- | --- | --- | --- |
-| `aws:SourceIp` | Yes | Yes | Yes |
-| `aws:SourceVpc` | Yes | Yes | Yes |
-| `aws:SourceVpce` | Yes | Yes | Yes |
-| `aws:VpcSourceIp` | Yes | Yes | Yes |
-| `aws:RequestedRegion` | Yes | Yes | Yes |
-| `aws:PrincipalArn` | – | Yes | Yes |
-| `aws:PrincipalAccount` | – | Yes | Yes |
-| `signin:PrincipalArn` | Yes | – | – |
+The following table shows which condition keys are available for each action.
+
+| Condition key                      | signin:Authenticate | signin:AuthorizeOAuth2Access | signin:CreateOAuth2Token | signin:RevokeOAuth2Token | signin:IntrospectOAuth2Token | signin:CreateOAuth2PublicClient |
+| ---------------------------------- | ------------------- | ---------------------------- | ------------------------ | ------------------------ | ---------------------------- | ------------------------------- |
+| `aws:SourceIp`                     | Yes                 | Yes                          | Yes                      | Yes                      | Yes                          | No                              |
+| `aws:SourceVpc`                    | Yes                 | Yes                          | Yes                      | Yes                      | Yes                          | No                              |
+| `aws:SourceVpce`                   | Yes                 | Yes                          | Yes                      | Yes                      | Yes                          | No                              |
+| `aws:VpcSourceIp`                  | Yes                 | Yes                          | Yes                      | Yes                      | Yes                          | No                              |
+| `aws:RequestedRegion`              | Yes                 | Yes                          | Yes                      | Yes                      | Yes                          | No                              |
+| `aws:PrincipalArn`                 | No                  | Yes                          | Yes                      | Yes                      | Yes                          | No                              |
+| `aws:PrincipalAccount`             | No                  | Yes                          | Yes                      | Yes                      | Yes                          | No                              |
+| `signin:PrincipalArn`              | Yes                 | No                           | No                       | No                       | No                           | No                              |
+| `signin:OAuthClientId`             | No                  | Yes                          | Yes                      | No                       | Yes                          | No                              |
+| `signin:OAuthRedirectUri`          | No                  | Yes                          | Yes                      | No                       | No                           | Yes                             |
+| `signin:OAuthGrantType`            | No                  | No                           | Yes                      | No                       | No                           | No                              |
+| `signin:OAuthClientAuthentication` | No                  | No                           | Yes                      | No                       | No                           | No                              |
+| `signin:OAuthTokenType`            | No                  | No                           | No                       | Yes                      | Yes                          | No                              |
 
 ###### Note
 
