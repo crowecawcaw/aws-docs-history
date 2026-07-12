@@ -148,11 +148,52 @@ The following table describes the lifetime session lifecycle parameters for Agen
 
 When working with AgentCore Identity, you need to be aware of the service limits that apply to your account. These limits help ensure service stability and availability for all users.
 
-| Limit                                 | Value | Adjustable | Notes                                                                                                                              |
-| ------------------------------------- | ----- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Workload identities                   | 1,000 | No         | The maximum number of workload identities that you can create in this account in the current Region.                               |
-| Resource OAuth2 credential providers  | 50    | No         | The maximum number of OAuth2 credential providers for egress resources that you can create in this account in the current Region.  |
-| Resource API key credential providers | 50    | No         | The maximum number of API key credential providers for egress resources that you can create in this account in the current Region. |
+### Resource limits
+
+The following table describes the resource limits for AgentCore Identity. You can request increases for some quotas using the Service Quotas console.
+
+| Limit                                 | Default Value | Adjustable | Notes                                                                                                                              |
+| ------------------------------------- | ------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Workload identities                   | 11,000        | Yes        | The maximum number of workload identities that you can create in this account in the current Region.                               |
+| Resource OAuth2 credential providers  | 50            | Yes        | The maximum number of OAuth2 credential providers for egress resources that you can create in this account in the current Region.  |
+| Resource API key credential providers | 50            | Yes        | The maximum number of API key credential providers for egress resources that you can create in this account in the current Region. |
+| Resource Payment credential providers | 50            | Yes        | The maximum number of payment credential providers for egress resources that you can create in this account in the current Region. |
+
+### Throttling limits
+
+The following table describes the rate limits for AgentCore Identity APIs after which you will be throttled. You can request increases for some quotas using the Service Quotas console.
+
+| Limit                                    | Value   | Adjustable | Notes                               |
+| ---------------------------------------- | ------- | ---------- | ----------------------------------- |
+| CreateWorkloadIdentity API rate          | 20 TPS  | Yes        | Transactions per second per account |
+| GetWorkloadIdentity API rate             | 20 TPS  | Yes        | Transactions per second per account |
+| UpdateWorkloadIdentity API rate          | 20 TPS  | Yes        | Transactions per second per account |
+| DeleteWorkloadIdentity API rate          | 20 TPS  | Yes        | Transactions per second per account |
+| ListWorkloadIdentities API rate          | 20 TPS  | Yes        | Transactions per second per account |
+| GetWorkloadAccessToken API rate          | 200 TPS | Yes        | Transactions per second per account |
+| GetWorkloadAccessTokenForJWT API rate    | 200 TPS | Yes        | Transactions per second per account |
+| GetWorkloadAccessTokenForUserId API rate | 200 TPS | Yes        | Transactions per second per account |
+| CreateOauth2CredentialProvider API rate  | 20 TPS  | Yes        | Transactions per second per account |
+| GetOauth2CredentialProvider API rate     | 20 TPS  | Yes        | Transactions per second per account |
+| UpdateOauth2CredentialProvider API rate  | 20 TPS  | Yes        | Transactions per second per account |
+| DeleteOauth2CredentialProvider API rate  | 20 TPS  | Yes        | Transactions per second per account |
+| ListOauth2CredentialProviders API rate   | 20 TPS  | Yes        | Transactions per second per account |
+| CreateApiKeyCredentialProvider API rate  | 20 TPS  | Yes        | Transactions per second per account |
+| GetApiKeyCredentialProvider API rate     | 20 TPS  | Yes        | Transactions per second per account |
+| UpdateApiKeyCredentialProvider API rate  | 20 TPS  | Yes        | Transactions per second per account |
+| DeleteApiKeyCredentialProvider API rate  | 20 TPS  | Yes        | Transactions per second per account |
+| ListApiKeyCredentialProviders API rate   | 20 TPS  | Yes        | Transactions per second per account |
+| CreatePaymentCredentialProvider API rate | 20 TPS  | Yes        | Transactions per second per account |
+| GetPaymentCredentialProvider API rate    | 20 TPS  | Yes        | Transactions per second per account |
+| UpdatePaymentCredentialProvider API rate | 20 TPS  | Yes        | Transactions per second per account |
+| DeletePaymentCredentialProvider API rate | 20 TPS  | Yes        | Transactions per second per account |
+| ListPaymentCredentialProviders API rate  | 20 TPS  | Yes        | Transactions per second per account |
+| GetResourceOauth2Token API rate          | 200 TPS | Yes        | Transactions per second per account |
+| GetResourceApiKey API rate               | 200 TPS | Yes        | Transactions per second per account |
+| GetResourcePaymentToken API rate         | 200 TPS | Yes        | Transactions per second per account |
+| CompleteResourceTokenAuth API rate       | 100 TPS | Yes        | Transactions per second per account |
+
+For more information about service quotas and how to request increases, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
 
 ## AgentCore Gateway Service Quotas
 
@@ -370,7 +411,7 @@ The following table describes the rate quotas for AgentCore Batch Evaluation API
 | ------------------------------------- | ----- | ---------- | ------------------------------------------------------------------------------------------ |
 | Active evaluations per account        | 5     | No         | Maximum concurrent batch evaluations running                                               |
 | Maximum batch evaluations per account | 2,000 | No         | Total batch evaluations that can exist. To create more, delete existing batch evaluations. |
-| Spans per evaluation job              | 500   | No         | Maximum number of spans per batch evaluation job                                           |
+| Sessions per evaluation job           | 500   | No         | Maximum number of sessions per batch evaluation job                                        |
 | Evaluators per job                    | 10    | No         | Maximum number of evaluators per batch evaluation job                                      |
 
 ## AgentCore AB Testing Service Quotas
@@ -443,12 +484,11 @@ The following table describes the rate quotas for AgentCore Configuration Bundle
 
 ### Resource limits
 
-| Limit                                     | Value | Adjustable | Notes |
-| ----------------------------------------- | ----- | ---------- | ----- |
-| Maximum configuration bundles per account | 100   | No         |       |
-| Maximum bundle versions per account       | 1,000 | No         |       |
-| Branches per bundle                       | 20    | No         |       |
-| Maximum payload (JSON) size               | 5 MB  | No         |       |
+| Limit                                     | Value  | Adjustable | Notes |
+| ----------------------------------------- | ------ | ---------- | ----- |
+| Maximum configuration bundles per account | 1,000  | No         |       |
+| Maximum bundle versions per account       | 10,000 | No         |       |
+| Maximum payload (JSON) size               | 5 MB   | No         |       |
 
 ## AgentCore Policy Service Quotas
 

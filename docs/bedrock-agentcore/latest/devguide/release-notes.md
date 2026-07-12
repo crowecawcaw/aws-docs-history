@@ -2,6 +2,12 @@
 
 We recommend subscribing to the RSS feed so updates to these notes are delivered to your Inbox.
 
+## July 2026
+
+### Runtime and Built-in Tools: ActiveSessionCount Metric
+
+AgentCore runtime and built-in tools now publish an `ActiveSessionCount` metric directly to your AWS account in the `AWS/Bedrock-AgentCore` CloudWatch namespace. This real-time gauge shows how many sessions are currently active, published once per minute per service type. Use the `Service` dimension — with values `AgentCore.Runtime`, `AgentCore.CodeInterpreter`, or `AgentCore.Browser` — to filter by workload type. Use this metric to monitor capacity utilization, set CloudWatch alarms for unexpected usage spikes, and understand your session quota consumption. Available in all AWS Regions where AgentCore runtime is available. See [AgentCore runtime metrics](observability-runtime-metrics.md "observability-runtime-metrics.md").
+
 ## June 2026
 
 ### Runtime: Increased Default Service Quotas

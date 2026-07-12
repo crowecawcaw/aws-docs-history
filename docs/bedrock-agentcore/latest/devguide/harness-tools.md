@@ -180,6 +180,67 @@ Run `agentcore` in a project directory, select **add** , choose **Harness** , an
 
 Then run `agentcore deploy` to apply.
 
+## Web search
+
+To give your agent web search, put the [Web Search Tool](gateway-target-connector-web-search-tool.md "gateway-target-connector-web-search-tool.md") connector behind an [AgentCore Gateway](gateway.md "gateway.md") and attach that gateway to your harness as an `agentcore_gateway` tool. The gateway exposes web search as a standard MCP `WebSearch` tool. Your agent discovers and calls it like any other gateway tool. AgentCore Gateway serves all queries entirely within AWS. For more information about the privacy model and the purpose-built web index, see the Web Search Tool connector page.
+
+###### Region availability
+
+Web Search Tool is available in the US East (N. Virginia) `us-east-1` Region. Create the gateway and harness in `us-east-1`.
+
+Complete the following steps to set up web search for your harness.
+
+1. **Create the gateway and connector target.** Follow the steps in [Set up Web Search Tool](gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-setup "gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-setup") to create a Gateway (MCP protocol, `AWS_IAM` inbound auth) and add a target with `connectorId: "web-search"`. That target needs a Gateway service role with `bedrock-agentcore:InvokeWebSearch` on the connector. For more information, see [Configure the Gateway Service Role](gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-service-role "gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-service-role"). Note the gateway ARN once it reaches `READY`.
+2. **Grant the harness execution role access.** The harness execution role (distinct from the Gateway service role in the previous step) needs `bedrock-agentcore:InvokeGateway` on the gateway ARN. For more information about the required permissions, see the [AgentCore Gateway](harness-security.md "harness-security.md") optional-permissions policy in the security topic. If your harness uses managed memory (the default), the execution role also needs the [AgentCore Memory](harness-security.md "harness-security.md") permissions. The agent reads and writes session memory on each invocation.
+3. **Attach the gateway to the harness.** Add it as an `agentcore_gateway` tool with the default `AWS_IAM` outbound auth. The following examples show how to attach the gateway at create time.
+
+###### Example
+
+AWS CLI/boto3
+Attach the gateway at create time (or pass `tools` on `update_harness` / `invoke_harness`):
+
+```
+tools = [
+    {
+        "type": "agentcore_gateway",
+        "name": "web-search",
+        "config": {"agentCoreGateway": {
+            "gatewayArn": "arn:aws:bedrock-agentcore:us-east-1:123456789012:gateway/my-web-search-gateway",
+            "outboundAuth": {"awsIam": {}}
+        }},
+    },
+]
+
+client.create_harness(
+    harnessName="research-agent",
+    executionRoleArn="arn:aws:iam::123456789012:role/MyHarnessRole",
+    tools=tools,
+)
+```
+
+The gateway’s tools are now available to the agent. Invoke the harness with a prompt that needs current information:
+
+```
+response = client.invoke_harness(
+    harnessArn=HARNESS_ARN,
+    runtimeSessionId=SESSION_ID,
+    messages=[{"role": "user", "content": [{"text": "Search the web for the latest AWS announcements and cite your sources."}]}],
+)
+```
+
+AgentCore CLI
+
+```
+# Attach the web-search gateway to your harness
+agentcore add tool --harness research-agent --type agentcore_gateway \
+  --name web-search \
+  --gateway-arn arn:aws:bedrock-agentcore:us-east-1:123456789012:gateway/my-web-search-gateway
+
+# Deploy, then invoke
+agentcore deploy
+agentcore invoke --harness research-agent "Search the web for the latest AWS announcements and cite your sources."
+```
+
 ## Inline function calls
 
 Inline functions let you define a tool that executes in your code, not on the harness. This is useful for human-in-the-loop approvals, calling internal APIs, or any logic you want to control client-side.

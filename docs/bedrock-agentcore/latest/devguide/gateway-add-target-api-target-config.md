@@ -845,6 +845,28 @@ aws bedrock-agentcore-control create-gateway-target \
   --region "<REGION>"
 ```
 
+AgentCore CLI
+
+1. To add a managed knowledge base connector target, run `agentcore add gateway-target` with `--type connector --connector bedrock-knowledge-bases`:
+
+```
+agentcore add gateway-target \
+  --name MyKnowledgeBaseTarget \
+  --type connector \
+  --connector bedrock-knowledge-bases \
+  --knowledge-base-id <KB_ID> \
+  --gateway MyGateway
+agentcore deploy
+```
+
+Interactive
+
+1. In the AgentCore CLI interactive terminal UI, run `agentcore add gateway-target`, then select **Amazon Bedrock Knowledge Bases** from the target type picker:
+
+![Add Gateway Target menu with Amazon Bedrock Knowledge Bases highlighted in interactive terminal.](images/tui/knowledge-base-add.png)
+
+The wizard prompts you for a name, description, and allow you to select one or more source types & sources.
+
 After you call `CreateGatewayTarget`, the Gateway validates the configuration asynchronously (typically within about 30 seconds), which includes a `GetKnowledgeBase` check on each bound knowledge base. Poll `GetGatewayTarget` until `status` is `READY`; a `FAILED` status includes a reason describing the problem.
 
 To customize agentic retrieval — for example, to cap planning iterations or attach a guardrail — add the optional fields to `agenticRetrieveConfiguration`. If you omit them, service-managed defaults apply. For all accepted values, see [Configuration reference](gateway-target-connector-managed-kb.md#gateway-target-connector-managed-kb-config-reference "gateway-target-connector-managed-kb.md#gateway-target-connector-managed-kb-config-reference").
@@ -1042,6 +1064,27 @@ aws bedrock-agentcore-control create-gateway-target \
   --region "<REGION>"
 ```
 
+AgentCore CLI
+
+1. To add a Web Search Tool target, run `agentcore add gateway-target` with `--type connector --connector web-search`:
+
+```
+agentcore add gateway-target \
+  --name MyWebSearchTarget \
+  --type connector \
+  --connector web-search \
+  --gateway MyGateway
+agentcore deploy
+```
+
+Interactive
+
+1. In the AgentCore CLI interactive terminal UI, run `agentcore add gateway-target`, then select **Amazon Web Search** from the target type picker:
+
+![Add Gateway Target menu with Amazon Web Search highlighted in interactive terminal.](images/tui/web-search-add.png)
+
+The wizard prompts you for a target name, the gateway to attach to, and an optional list of domains to exclude from search results.
+
 ### Configure domain filtering
 
 You can restrict which domains the Web Search Tool is allowed to query by configuring a domain denylist. This is useful for administrators who want to prevent agents from returning results from specific websites.
@@ -1117,6 +1160,26 @@ aws bedrock-agentcore-control create-gateway-target \
   --credential-provider-configurations '[{"credentialProviderType": "GATEWAY_IAM_ROLE"}]' \
   --region "<REGION>"
 ```
+
+AgentCore CLI
+
+1. Pass a comma-separated list of domains via `--exclude-domains`:
+
+```
+agentcore add gateway-target \
+  --name MyWebSearchTarget \
+  --type connector \
+  --connector web-search \
+  --exclude-domains blocked-website-1.com,blocked-website-2.com \
+  --gateway MyGateway
+agentcore deploy
+```
+
+Interactive
+
+1. In the AgentCore CLI interactive terminal UI, the Add Gateway Target wizard prompts for an optional comma-separated list of domains to exclude from search results after you select **Amazon Web Search** and choose a gateway. Leaving the prompt empty creates the target with no domain filtering.
+
+![Domain filtering prompt for Web Search Tool in interactive terminal.](images/tui/web-search-domain-filter.png)
 
 You can also update an existing target to add or modify domain filtering using `UpdateGatewayTarget`.
 

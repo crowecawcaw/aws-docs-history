@@ -6,9 +6,36 @@ To process a payment, you need two resources:
 - **Payment session** — A time-bounded session that optionally enforces a spending budget. See [Create a payment session](payments-create-session.md "payments-create-session.md").
   Once both exist, call `ProcessPayment` with the payment session ID, payment instrument ID, and an x402 payment payload. The service validates the request, checks the budget, signs the transaction on the appropriate blockchain, and returns a cryptographic proof. For the complete request and response schema, see [ProcessPayment](../APIReference/API_ProcessPayment.md "../APIReference/API_ProcessPayment.md") in the API Reference.
 
-There are three ways to invoke the ProcessPayment API:
+###### Tip
+
+You can automate the steps on this page with the AgentCore Payments skill in the AWS agent toolkit. The skill is part of the **aws-agents** plugin and lets an AI coding agent create your Payment Manager, connector, credential provider, payment instrument, and session using the `agentcore` CLI, and add an x402 payment tool to your agent. For details, see the [quickstart](payments-getting-started.md "payments-getting-started.md") and the [AWS agent toolkit on GitHub](https://github.com/aws/agent-toolkit-for-aws/tree/main "https://github.com/aws/agent-toolkit-for-aws/tree/main").
+
+There are five ways to invoke the ProcessPayment API:
 
 ###### Example
+
+AgentCore CLI
+If your agent is deployed with payment capabilities configured, invoke it with payment context and the x402 interceptor handles payment processing automatically:
+
+```
+agentcore invoke \
+  --prompt "Access the premium endpoint at https://example-x402-merchant.com/paid-api" \
+  --payment-instrument-id <INSTRUMENT_ID> \
+  --auto-session \
+  --payment-user-id user@example.com
+```
+
+To use an explicit session instead of auto-creating one:
+
+```
+agentcore invoke \
+  --prompt "Access the premium endpoint at https://example-x402-merchant.com/paid-api" \
+  --payment-instrument-id <INSTRUMENT_ID> \
+  --payment-session-id <SESSION_ID> \
+  --payment-user-id user@example.com
+```
+
+The deployed agent’s x402 plugin intercepts HTTP 402 responses, calls `ProcessPayment`, and retries the request with proof. Requires AgentCore CLI v0.19.0 or later.
 
 AWS CLI
 
@@ -119,29 +146,6 @@ payment_proof_headers = manager.generate_payment_header(
 ```
 
 `payment_proof_headers` contains the payment proof header. Include this header when retrying the request to the paid endpoint. You can also call the `process_payment` method of `PaymentManager` for more control over inputs.
-
-AgentCore CLI
-If your agent is deployed with payment capabilities configured, invoke it with payment context and the x402 interceptor handles payment processing automatically:
-
-```
-agentcore invoke \
-  --prompt "Access the premium endpoint at https://example-x402-merchant.com/paid-api" \
-  --payment-instrument-id <INSTRUMENT_ID> \
-  --auto-session \
-  --payment-user-id user@example.com
-```
-
-To use an explicit session instead of auto-creating one:
-
-```
-agentcore invoke \
-  --prompt "Access the premium endpoint at https://example-x402-merchant.com/paid-api" \
-  --payment-instrument-id <INSTRUMENT_ID> \
-  --payment-session-id <SESSION_ID> \
-  --payment-user-id user@example.com
-```
-
-The deployed agent’s x402 plugin intercepts HTTP 402 responses, calls `ProcessPayment`, and retries the request with proof. Requires AgentCore CLI v0.19.0 or later.
 
 Strands SDK
 The AgentCore payments plugin provides automated payment processing for Strands Agents. It supports the [x402 Payment Required](https://www.x402.org/ "https://www.x402.org/") protocol, enabling agents to automatically handle HTTP 402 responses.

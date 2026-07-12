@@ -50,6 +50,10 @@ Sessions (aggregated)
 
 Shows the total number of new sessions created across all resources within the reporting period.
 
+ActiveSessionCount
+
+Shows the number of currently active sessions for your account. Unlike the `SessionCount` metric (a cumulative counter), this metric is a real-time gauge showing how many sessions are running at any given moment. Amazon Bedrock AgentCore publishes this metric once per minute per service type. Use it to monitor current capacity utilization, set alarms for unexpected usage spikes, and understand your session quota consumption. Use the `Service` dimension — with values `AgentCore.Runtime`, `AgentCore.CodeInterpreter`, or `AgentCore.Browser` — to filter this metric by workload type. Amazon Bedrock AgentCore publishes this metric directly to your AWS account in the `AWS/Bedrock-AgentCore` namespace.
+
 ActiveStreamingConnections
 
 **(WebSocket only)** Shows the current number of active WebSocket connections per agent. Monitor this metric to understand connection usage and detect connection drops or spikes for capacity planning. The only meaningful statistic is a 1-minute sum.

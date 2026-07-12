@@ -130,6 +130,7 @@ Protect credentials used by your agents and runtime environments:
 
 - **Use AgentCore Identity for outbound authentication** — AgentCore Identity manages OAuth credentials and API keys securely, preventing credential exposure in agent code or logs. Use it for all third-party service access (Slack, GitHub, Zoom).
 - **Understand MMDS credential exposure** — The MicroVM Metadata Service (MMDS) provides execution role credentials to any code running in the VM, similar to EC2’s IMDS. Scope execution role permissions to only what your agent requires.
+- **Enable MMDSv2** — Starting June 30, 2026, your agent runtimes must have MMDSv2 enabled. Runtimes without MMDSv2 enabled cannot be invoked and return a `ValidationException`. To enable, call `UpdateAgentRuntime` with `requireMMDSV2` set to `true` in `metadataConfiguration`. For more information about resolving this error, see [MMDSv2 ValidationException troubleshooting](runtime-troubleshooting.md#troubleshoot-runtime-mmdsv2-validation "runtime-troubleshooting.md#troubleshoot-runtime-mmdsv2-validation").
 - **Run containers as non-root users** — When building custom container images, configure them to run as a non-root user. This limits the impact of potential code execution vulnerabilities.
 - **Separate user-delegated and autonomous credentials** — Use user-delegated authentication (Authorization Code Grant) when your agent acts on behalf of a specific user. Use autonomous authentication (Client Credentials Grant) when the agent operates independently.
 

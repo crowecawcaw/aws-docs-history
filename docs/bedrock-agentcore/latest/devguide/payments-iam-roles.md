@@ -11,6 +11,10 @@ AgentCore payments uses a four-role IAM model that separates administrative, man
 | Payment execution (ProcessPaymentRole) | Executes payment transactions on behalf of agents                 |
 | Service role (ResourceRetrievalRole)   | Assumed by AgentCore payments at runtime to retrieve credentials  |
 
+###### Tip
+
+You can automate the steps on this page with the AgentCore Payments skill in the AWS agent toolkit. The skill is part of the **aws-agents** plugin and lets an AI coding agent create your Payment Manager, connector, credential provider, payment instrument, and session using the `agentcore` CLI, and add an x402 payment tool to your agent. For details, see the [quickstart](payments-getting-started.md "payments-getting-started.md") and the [AWS agent toolkit on GitHub](https://github.com/aws/agent-toolkit-for-aws/tree/main "https://github.com/aws/agent-toolkit-for-aws/tree/main").
+
 ## Why role separation matters
 
 Separating payment management from payment execution prevents a single compromised identity from both creating sessions with unlimited budgets and executing payments against those sessions. The explicit `Deny` on `ProcessPayment` in the management role and the narrow scope of the execution role enforce this boundary. This also ensures that audit trails clearly distinguish who configured payment resources from who executed transactions.

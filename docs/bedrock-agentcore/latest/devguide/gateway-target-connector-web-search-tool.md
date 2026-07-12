@@ -16,6 +16,7 @@ The following sections walk through the key capabilities, the architecture of th
 - [How it works](#gateway-target-connector-web-search-tool-how-it-works "#gateway-target-connector-web-search-tool-how-it-works")
 - [Use cases](#gateway-target-connector-web-search-tool-use-cases "#gateway-target-connector-web-search-tool-use-cases")
 - [Set up Web Search Tool](#gateway-target-connector-web-search-tool-setup "#gateway-target-connector-web-search-tool-setup")
+- [Use with a harness](#gateway-target-connector-web-search-tool-harness "#gateway-target-connector-web-search-tool-harness")
 - [Configure domain filtering](#gateway-target-connector-web-search-tool-domain-filtering "#gateway-target-connector-web-search-tool-domain-filtering")
 - [Configure the Gateway Service Role](#gateway-target-connector-web-search-tool-service-role "#gateway-target-connector-web-search-tool-service-role")
 - [Input schema](#gateway-target-connector-web-search-tool-input-schema "#gateway-target-connector-web-search-tool-input-schema")
@@ -80,6 +81,10 @@ The Web Search Tool is a built-in **connector**. The Gateway handles schema mana
 ## Set up Web Search Tool
 
 For instructions on how to create a Gateway Target with the Web Search Tool connector configuration, including setup examples using the Python SDK and CLI, see [Set up Web Search Tool](gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-setup "gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-setup") in the target configuration guide.
+
+## Use with a harness
+
+To give an [AgentCore harness](harness.md "harness.md") web search capability, attach the gateway that you created in Set up Web Search Tool to the harness as an `agentcore_gateway` tool. The harness execution role requires the `bedrock-agentcore:InvokeGateway` permission on the gateway ARN. For the end-to-end walkthrough, see [Tools](harness-tools.md "harness-tools.md") in the harness documentation.
 
 ## Configure domain filtering
 

@@ -41,6 +41,18 @@ agentcore add gateway-target \
 agentcore deploy
 ```
 
+Add a Connector target with Web Search Tool:
+
+```
+agentcore add gateway-target \
+  --name MyWebSearchToolTarget \
+  --type connector \
+  --connector web-search \
+  --exclude-domains blocked-website-1.com,blocked-website-2.com \
+  --gateway MyGateway
+agentcore deploy
+```
+
 Interactive
 
 1. You can also use the AgentCore CLI interactive terminal UI. Run `agentcore` to open the TUI, then select **add** and choose **Gateway Target** :

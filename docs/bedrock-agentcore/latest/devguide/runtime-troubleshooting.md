@@ -4,6 +4,7 @@ This troubleshooting topic helps you identify and resolve common issues when wor
 
 ###### Topics
 
+- [My agent invocations fail with "This runtime is not MMDSv2-enabled" ValidationException](#troubleshoot-runtime-mmdsv2-validation "#troubleshoot-runtime-mmdsv2-validation")
 - [My agent invocations fail with 504 Gateway Timeout errors](#troubleshoot-runtime-timeout "#troubleshoot-runtime-timeout")
 - [My Docker build fails with "403 Forbidden" when pulling Python base images](#troubleshoot-runtime-docker-403 "#troubleshoot-runtime-docker-403")
 - [I get "Unknown service: 'bedrock-agent-core-runtime'" error when using boto3](#troubleshoot-runtime-boto3 "#troubleshoot-runtime-boto3")
@@ -29,6 +30,35 @@ This troubleshooting topic helps you identify and resolve common issues when wor
 - [I get "Permission Denied" when writing to my mounted filesystem](#troubleshoot-byo-storage-write-permission-denied "#troubleshoot-byo-storage-write-permission-denied")
 - [My container fails to start with HTTP 424 error on high-layer images](#troubleshoot-runtime-overlay-mount-failure "#troubleshoot-runtime-overlay-mount-failure")
 - [Best practices](#best-practices "#best-practices")
+
+## My agent invocations fail with "This runtime is not MMDSv2-enabled" ValidationException
+
+**When this occurs:** When invoking an agent runtime via `InvokeAgentRuntime`, `ExecuteCommand`, `InvokeAgentRuntimeWithWebSocketStream`, `InvokeAgentRuntimeCommandShell`, or `GetAgentCard`
+
+**Why this happens:** Starting June 30, 2026, Amazon Bedrock AgentCore Runtime requires all agent runtimes to use MMDSv2 (MicroVM Metadata Service Version 2). The service rejects invocations targeting runtimes without `metadataConfiguration` set, or with `requireMMDSV2` set to `false` or `null`.
+
+**Solution:** Call [UpdateAgentRuntime](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.md") with `requireMMDSV2` set to `true` in `metadataConfiguration`:
+
+```
+import boto3
+
+client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
+
+try:
+    client.update_agent_runtime(
+        agentRuntimeId='your-agent-runtime-id',
+        metadataConfiguration={
+            'requireMMDSV2': True
+        }
+    )
+    print("MMDSv2 enabled successfully.")
+except client.exceptions.ResourceNotFoundException as e:
+    print(f"Runtime not found: {e}")
+except Exception as e:
+    print(f"Error enabling MMDSv2: {e}")
+```
+
+After you update, new invocations will succeed. Existing sessions are not affected.
 
 ## My agent invocations fail with 504 Gateway Timeout errors
 
