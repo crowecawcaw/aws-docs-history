@@ -9,8 +9,8 @@ has been tested by both Oracle and Amazon. We don't support applying one-off pat
 individual DB instances.
 
 You can specify any currently supported Oracle Database version when creating a new DB
-instance. You can specify the major version, such as Oracle Database 21c Release 1
-(21.0.0.0), and any supported minor version for the specified major version. If no version
+instance. You can specify the major version, such as Oracle Database 26ai
+(26.0.0.0), and any supported minor version for the specified major version. If no version
 is specified, Amazon RDS defaults to a supported version, typically the most recent version. If a
 major version is specified but a minor version isn't, Amazon RDS defaults to a recent release of
 the major version that you specified. To see a list of supported versions and defaults for
@@ -22,6 +22,7 @@ please see [Supported Regions and DB engines for RDS Custom](../UserGuide/Concep
 
 **Topics**
 
+- [Amazon RDS for Oracle Database 26ai (26.0.0.0)](oracle-version-26-0.md "oracle-version-26-0.md")
 - [Amazon RDS for Oracle Database 21c (21.0.0.0)](oracle-version-21-0.md "oracle-version-21-0.md")
 - [Amazon RDS for Oracle Database 19c (19.0.0.0)](oracle-version-19-0.md "oracle-version-19-0.md")
 - [Amazon RDS for Oracle Database 18c (18.0.0.0)](oracle-version-18-0.md "oracle-version-18-0.md")
