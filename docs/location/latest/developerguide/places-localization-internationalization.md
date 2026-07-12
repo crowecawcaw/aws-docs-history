@@ -4,12 +4,14 @@ Localization (L10n) and Internationalization (I18n) are key processes in adaptin
 software, content, or applications for different languages, regions, and views. Here's
 an overview in the context of specific factors:
 
-| Filter Type    | Geocode | Reverse Geocode | Autocomplete | Get Place | Search Text | Search Nearby | Suggest |
-| -------------- | ------- | --------------- | ------------ | --------- | ----------- | ------------- | ------- |
-| Language       | Yes     | Yes             | Yes          | N/A       | Yes         | Yes           | Yes     |
-| Political View | Yes     | Yes             | Yes          | N/A       | Yes         | Yes           | Yes     |
-| Time Zone      | Yes     | Yes             | No           | N/A       | Yes         | Yes           | Yes     |
-| Phonemes       | No      | No              | No           | N/A       | Yes         | Yes           | Yes     |
+| Filter Type          | Geocode | Reverse Geocode | Autocomplete | Get Place | Search Text | Search Nearby | Suggest |
+| -------------------- | ------- | --------------- | ------------ | --------- | ----------- | ------------- | ------- |
+| Language             | Yes     | Yes             | Yes          | N/A       | Yes         | Yes           | Yes     |
+| Political View       | Yes     | Yes             | Yes          | N/A       | Yes         | Yes           | Yes     |
+| Time Zone            | Yes     | Yes             | No           | N/A       | Yes         | Yes           | Yes     |
+| Phonemes             | No      | No              | No           | N/A       | Yes         | Yes           | Yes     |
+| Address Translations | Yes     | No              | No           | N/A       | No          | No            | No      |
+| Address Names Mode   | Yes     | Yes             | No           | Yes       | No          | No            | No      |
 
 **Language**
 
@@ -68,3 +70,21 @@ zone names and UTC offsets.
 
 The feature provides additional phoneme information on how to pronounce
 the various components of the address or place.
+
+**Address translations**
+
+All name translations and alternative names for the requested address
+fields in all available languages. Specify which components to translate
+using the `AddressTranslations` request parameter. Valid values
+are `District`, `Locality`, `Region`,
+and `SubRegion`.
+
+**Address names mode**
+
+Specifies how address names are returned. If not set, the service returns
+normalized (official) names by default. When set to `Matched`,
+address names in the response are based on the input query rather than
+official names. When set to `Administrative`, the service
+returns the official administrative names for address components.
+`Administrative` currently applies only to addresses in the
+United States.

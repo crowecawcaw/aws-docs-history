@@ -96,3 +96,36 @@ locations as reference points.
 Amazon Location Service Places use International Organization for Standardization (ISO)
 3166 country codes for identifying countries or regions. Find the code for
 each country on the ISO Online Browsing Platform.
+
+**Address translations**
+
+All name translations and alternative names for the requested address
+fields in all available languages. Specify which address components to
+include translations for using the `AddressTranslations`
+request parameter. Valid values are `District`,
+`Locality`, `Region`, and
+`SubRegion`. Available in Geocode.
+
+**Address names mode**
+
+Specifies how address names are returned. If not set, the service returns
+normalized (official) names by default. When set to `Matched`,
+address names in the response are based on the input query rather than
+official names. When set to `Administrative`, the service
+returns the official administrative names for address components.
+`Administrative` currently applies only to addresses in the
+United States. Available in Geocode, Reverse Geocode, and GetPlace.
+
+**Cross-references**
+
+The list of supplier references available for a place, enabling
+correlation of places across external systems. Requires the
+`CrossReferences` additional feature to be enabled. Available
+in GetPlace, SearchText, SearchNearby, and Suggest.
+
+**Travel mode**
+
+Indicates the mode of mobility you are traveling in. This improves
+the relevance of search results. Valid values are
+`Car`, `Scooter`, and `Truck`. Available
+in SearchText and Suggest.

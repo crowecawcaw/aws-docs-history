@@ -13,3 +13,5 @@ APIs.
 - [How to search for contact and opening hours](how-to-search-opening-hours.md "how-to-search-opening-hours.md")
 - [How to search places using query ID](how-to-search-query-id.md "how-to-search-query-id.md")
 - [How to search in a specific language](how-to-search-specific-language.md "how-to-search-specific-language.md")
+- [How to get cross-references for places](how-to-search-cross-references.md "how-to-search-cross-references.md")
+- [How to search with travel mode](how-to-search-travel-mode.md "how-to-search-travel-mode.md")

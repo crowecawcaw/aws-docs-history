@@ -17,6 +17,8 @@ _Amazon Location Service API Reference_.
 For example requests, responses, cURL, and CLI commands for this API, see [How to use
 Geocode](how-to-geocode.md "how-to-geocode.md").
 
+Try the Geocode API in the [API Playground](https://console.aws.amazon.com/location/api-playground/home#/geocode "https://console.aws.amazon.com/location/api-playground/home#/geocode").
+
 ## Use cases
 
 - **Add supplementary data to customer addresses:**

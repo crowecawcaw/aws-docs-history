@@ -23,6 +23,8 @@ _Amazon Location Service API Reference_.
 For example requests, responses, cURL, and CLI commands for this API, see [How to use
 Suggest](suggest-how-to.md "suggest-how-to.md").
 
+Try the Suggest API in the [API Playground](https://console.aws.amazon.com/location/api-playground/home#/suggest "https://console.aws.amazon.com/location/api-playground/home#/suggest").
+
 ## Use cases
 
 - **Ride-Hailing Services:** Provide real-time

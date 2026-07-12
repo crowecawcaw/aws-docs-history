@@ -19,8 +19,9 @@ cost.
 | Contacts            | No      | No              | No           | Yes       | Yes         | Yes           | No      |
 | Opening Hours       | No      | No              | No           | Yes       | Yes         | Yes           | No      |
 | Access Points       | No      | Yes             | No           | Yes       | Yes         | Yes           | Yes     |
-| Secondary Addresses | Yes     | Yes             | No           | No        | No          | No            | No      |
+| Secondary Addresses | Yes     | No              | No           | Yes       | No          | No            | No      |
 | Intersections       | Yes     | Yes             | No           | No        | No          | No            | No      |
+| Cross-References    | No      | No              | No           | Yes       | Yes         | Yes           | Yes     |
 
 To use these additional features, set the `additionalFeatures` parameter in
 the Place API requests. Refer to the Amazon Location Service [API documentation](../APIReference/API_geoplaces_GetPlace.md#API_geoplaces_GetPlace_RequestParameters "../APIReference/API_geoplaces_GetPlace.md#API_geoplaces_GetPlace_RequestParameters") for details.
@@ -61,3 +62,8 @@ Includes all secondary addresses that are under a main address.
 **Intersections**
 
 Includes nearby intersections.
+
+**Cross-references**
+
+The list of supplier references available for a place, enabling
+correlation of places across external systems.

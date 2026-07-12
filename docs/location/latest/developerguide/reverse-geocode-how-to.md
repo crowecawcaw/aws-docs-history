@@ -11,3 +11,4 @@ ReverseGeocode APIs.
 - [How to reverse geocode for the time zone of a city](how-to-reverse-geocode-timezone.md "how-to-reverse-geocode-timezone.md")
 - [How to reverse geocode with a political view](reverse-geocode-political-view.md "reverse-geocode-political-view.md")
 - [How to get intersections](reverse-how-to-get-intersections.md "reverse-how-to-get-intersections.md")
+- [How to get administrative address names](how-to-reverse-geocode-address-names-mode.md "how-to-reverse-geocode-address-names-mode.md")

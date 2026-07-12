@@ -65,7 +65,7 @@ Address Validation data is separate from Place Address and POI data.
 | Country/Area                                  | ISO A3 | ISO A2 | Maps Coverage | Route Coverage | Places Point Address (PA) Coverage | Place POI Coverage |
 | --------------------------------------------- | ------ | ------ | ------------- | -------------- | ---------------------------------- | ------------------ |
 | Afghanistan                                   | AFG    | AF     | Unsupported   | Unsupported    | Unsupported                        | Fair               |
-| Albania                                       | ALB    | AL     | Good          | Good           | Good                               | Fair               |
+| Albania                                       | ALB    | AL     | Good          | Good           | Comprehensive                      | Fair               |
 | Algeria                                       | DZA    | DZ     | Good          | Good           | Unsupported                        | Good               |
 | American Samoa                                | ASM    | AS     | Fair          | Fair           | Unsupported                        | Unsupported        |
 | Andorra                                       | AND    | AD     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
@@ -73,30 +73,30 @@ Address Validation data is separate from Place Address and POI data.
 | Anguilla                                      | AIA    | AI     | Fair          | Fair           | Unsupported                        | Fair               |
 | Antarctica                                    | ATA    | AQ     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
 | Antigua And Barbuda                           | ATG    | AG     | Fair          | Fair           | Unsupported                        | Good               |
-| Argentina                                     | ARG    | AR     | Comprehensive | Comprehensive  | Good                               | Good               |
-| Armenia                                       | ARM    | AM     | Fair          | Fair           | Fair                               | Fair               |
+| Argentina                                     | ARG    | AR     | Comprehensive | Comprehensive  | Comprehensive                      | Good               |
+| Armenia                                       | ARM    | AM     | Fair          | Fair           | Good                               | Fair               |
 | Aruba                                         | ABW    | AW     | Fair          | Fair           | Unsupported                        | Fair               |
 | Australia                                     | AUS    | AU     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Austria                                       | AUT    | AT     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
-| Azerbaijan                                    | AZE    | AZ     | Good          | Good           | Fair                               | Fair               |
-| Bahamas                                       | BHS    | BS     | Comprehensive | Comprehensive  | Good                               | Fair               |
+| Azerbaijan                                    | AZE    | AZ     | Good          | Good           | Good                               | Fair               |
+| Bahamas                                       | BHS    | BS     | Comprehensive | Comprehensive  | Comprehensive                      | Fair               |
 | Bahrain                                       | BHR    | BH     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Bangladesh                                    | BGD    | BD     | Good          | Good           | Unsupported                        | Fair               |
 | Barbados                                      | BRB    | BB     | Unsupported   | Unsupported    | Unsupported                        | Fair               |
-| Belarus                                       | BLR    | BY     | Good          | Good           | Good                               | Fair               |
+| Belarus                                       | BLR    | BY     | Good          | Good           | Comprehensive                      | Fair               |
 | Belgium                                       | BEL    | BE     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Belize                                        | BLZ    | BZ     | Fair          | Fair           | Unsupported                        | Fair               |
 | Benin                                         | BEN    | BJ     | Fair          | Fair           | Unsupported                        | Fair               |
 | Bermuda                                       | BMU    | BM     | Unsupported   | Unsupported    | Unsupported                        | Fair               |
 | Bhutan                                        | BTN    | BT     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
-| Bolivia                                       | BOL    | BO     | Good          | Good           | Fair                               | Fair               |
-| Bosnia And Herzegovina                        | BIH    | BA     | Good          | Good           | Good                               | Fair               |
+| Bolivia                                       | BOL    | BO     | Good          | Good           | Good                               | Fair               |
+| Bosnia And Herzegovina                        | BIH    | BA     | Good          | Good           | Comprehensive                      | Fair               |
 | Botswana                                      | BWA    | BW     | Good          | Good           | Unsupported                        | Fair               |
 | Brazil                                        | BRA    | BR     | Good          | Good           | Comprehensive                      | Comprehensive      |
 | British Indian Ocean Territory                | IOT    | IO     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
 | British Virgin Islands                        | VGB    | VG     | Fair          | Fair           | Unsupported                        | Good               |
 | Brunei                                        | BRN    | BN     | Good          | Good           | Fair                               | Fair               |
-| Bulgaria                                      | BGR    | BG     | Comprehensive | Comprehensive  | Good                               | Fair               |
+| Bulgaria                                      | BGR    | BG     | Comprehensive | Comprehensive  | Comprehensive                      | Fair               |
 | Burkina                                       | BFA    | BF     | Fair          | Fair           | Unsupported                        | Fair               |
 | Burundi                                       | BDI    | BI     | Fair          | Fair           | Unsupported                        | Fair               |
 | Cambodia                                      | KHM    | KH     | Good          | Good           | Fair                               | Fair               |
@@ -106,9 +106,9 @@ Address Validation data is separate from Place Address and POI data.
 | Cayman Islands                                | CYM    | KY     | Comprehensive | Comprehensive  | Unsupported                        | Fair               |
 | Central African Republic                      | CAF    | CF     | Fair          | Fair           | Unsupported                        | Fair               |
 | Chad                                          | TCD    | TD     | Fair          | Fair           | Unsupported                        | Fair               |
-| Chile                                         | CHL    | CL     | Comprehensive | Comprehensive  | Good                               | Fair               |
+| Chile                                         | CHL    | CL     | Comprehensive | Comprehensive  | Comprehensive                      | Fair               |
 | China                                         | CHN    | CN     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
-| Colombia                                      | COL    | CO     | Comprehensive | Comprehensive  | Fair                               | Fair               |
+| Colombia                                      | COL    | CO     | Comprehensive | Comprehensive  | Comprehensive                      | Fair               |
 | Comoros                                       | COM    | KM     | Fair          | Fair           | Unsupported                        | Fair               |
 | Congo, Republic of                            | COG    | CG     | Fair          | Fair           | Unsupported                        | Fair               |
 | Congo, The Democratic Republic of             | COD    | CD     | Fair          | Fair           | Unsupported                        | Fair               |
@@ -117,14 +117,14 @@ Address Validation data is separate from Place Address and POI data.
 | Croatia                                       | HRV    | HR     | Comprehensive | Comprehensive  | Comprehensive                      | Good               |
 | Cuba                                          | CUB    | CU     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
 | Curacao                                       | CUW    | CW     | Fair          | Fair           | Unsupported                        | Fair               |
-| Cyprus                                        | CYP    | CY     | Comprehensive | Comprehensive  | Good                               | Good               |
+| Cyprus                                        | CYP    | CY     | Comprehensive | Comprehensive  | Comprehensive                      | Good               |
 | Czechia                                       | CZE    | CZ     | Comprehensive | Comprehensive  | Comprehensive                      | Good               |
 | Denmark                                       | DNK    | DK     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Djibouti                                      | DJI    | DJ     | Fair          | Fair           | Unsupported                        | Unsupported        |
 | Dominica                                      | DMA    | DM     | Fair          | Fair           | Unsupported                        | Fair               |
 | Dominican Republic                            | DOM    | DO     | Good          | Good           | Unsupported                        | Fair               |
-| Ecuador                                       | ECU    | EC     | Good          | Good           | Fair                               | Good               |
-| Egypt                                         | EGY    | EG     | Fair          | Fair           | Good                               | Good               |
+| Ecuador                                       | ECU    | EC     | Good          | Good           | Good                               | Good               |
+| Egypt                                         | EGY    | EG     | Fair          | Fair           | Comprehensive                      | Good               |
 | El Salvador                                   | SLV    | SV     | Fair          | Fair           | Unsupported                        | Fair               |
 | Equatorial Guinea                             | GNQ    | GQ     | Fair          | Fair           | Unsupported                        | Fair               |
 | Eritrea                                       | ERI    | ER     | Fair          | Fair           | Unsupported                        | Fair               |
@@ -132,22 +132,22 @@ Address Validation data is separate from Place Address and POI data.
 | Eswatini                                      | SWZ    | SZ     | Good          | Good           | Unsupported                        | Fair               |
 | Ethiopia                                      | ETH    | ET     | Good          | Good           | Unsupported                        | Fair               |
 | Falkland Islands                              | FLK    | FK     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
-| Faroe Islands                                 | FRO    | FO     | Comprehensive | Comprehensive  | Unsupported                        | Unsupported        |
-| Fiji                                          | FJI    | FJ     | Unsupported   | Unsupported    | Unsupported                        | Fair               |
+| Faroe Islands                                 | FRO    | FO     | Comprehensive | Comprehensive  | Comprehensive                      | Unsupported        |
+| Fiji                                          | FJI    | FJ     | Unsupported   | Unsupported    | Good                               | Fair               |
 | Finland                                       | FIN    | FI     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | France                                        | FRA    | FR     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
-| French Guiana                                 | GUF    | GF     | Good          | Good           | Good                               | Fair               |
-| French Polynesia                              | PYF    | PF     | Fair          | Fair           | Unsupported                        | Fair               |
+| French Guiana                                 | GUF    | GF     | Good          | Good           | Comprehensive                      | Fair               |
+| French Polynesia                              | PYF    | PF     | Fair          | Fair           | Good                               | Fair               |
 | Gabon                                         | GAB    | GA     | Fair          | Fair           | Unsupported                        | Fair               |
 | Gambia                                        | GMB    | GM     | Fair          | Fair           | Unsupported                        | Fair               |
-| Georgia                                       | GEO    | GE     | Fair          | Fair           | Fair                               | Fair               |
+| Georgia                                       | GEO    | GE     | Fair          | Fair           | Good                               | Fair               |
 | Germany                                       | DEU    | DE     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Ghana                                         | GHA    | GH     | Good          | Good           | Unsupported                        | Fair               |
-| Gibraltar                                     | GIB    | GI     | Comprehensive | Comprehensive  | Unsupported                        | Unsupported        |
+| Gibraltar                                     | GIB    | GI     | Comprehensive | Comprehensive  | Comprehensive                      | Unsupported        |
 | Greece                                        | GRC    | GR     | Comprehensive | Comprehensive  | Good                               | Good               |
 | Greenland                                     | GRL    | GL     | Unsupported   | Unsupported    | Fair                               | Comprehensive      |
 | Grenada                                       | GRD    | GD     | Fair          | Fair           | Unsupported                        | Good               |
-| Guadeloupe                                    | GLP    | GP     | Good          | Good           | Unsupported                        | Fair               |
+| Guadeloupe                                    | GLP    | GP     | Good          | Good           | Comprehensive                      | Fair               |
 | Guam                                          | GUM    | GU     | Fair          | Fair           | Comprehensive                      | Good               |
 | Guatemala                                     | GTM    | GT     | Good          | Good           | Unsupported                        | Fair               |
 | Guernsey                                      | GGY    | GG     | Comprehensive | Comprehensive  | Unsupported                        | Unsupported        |
@@ -159,25 +159,25 @@ Address Validation data is separate from Place Address and POI data.
 | Hong Kong                                     | HKG    | HK     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Hungary                                       | HUN    | HU     | Comprehensive | Comprehensive  | Comprehensive                      | Good               |
 | Iceland                                       | ISL    | IS     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
-| India                                         | IND    | IN     | Good          | Good           | Good                               | Good               |
+| India                                         | IND    | IN     | Good          | Good           | Comprehensive                      | Good               |
 | Indonesia                                     | IDN    | ID     | Good          | Good           | Good                               | Comprehensive      |
 | Iran                                          | IRN    | IR     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
 | Iraq                                          | IRQ    | IQ     | Fair          | Fair           | Unsupported                        | Good               |
 | Ireland                                       | IRL    | IE     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
-| Isle Of Man                                   | IMN    | IM     | Comprehensive | Comprehensive  | Unsupported                        | Unsupported        |
+| Isle Of Man                                   | IMN    | IM     | Comprehensive | Comprehensive  | Good                               | Unsupported        |
 | Israel                                        | ISR    | IL     | Comprehensive | Comprehensive  | Comprehensive                      | Good               |
 | Italy                                         | ITA    | IT     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Ivory Coast                                   | CIV    | CI     | Good          | Good           | Unsupported                        | Fair               |
-| Jamaica                                       | JAM    | JM     | Good          | Good           | Unsupported                        | Fair               |
+| Jamaica                                       | JAM    | JM     | Good          | Good           | Good                               | Fair               |
 | Japan                                         | JPN    | JP     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Jersey                                        | JEY    | JE     | Comprehensive | Comprehensive  | Unsupported                        | Unsupported        |
-| Jordan                                        | JOR    | JO     | Comprehensive | Comprehensive  | Good                               | Comprehensive      |
-| Kazakhstan                                    | KAZ    | KZ     | Good          | Good           | Good                               | Good               |
+| Jordan                                        | JOR    | JO     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
+| Kazakhstan                                    | KAZ    | KZ     | Good          | Good           | Comprehensive                      | Good               |
 | Kenya                                         | KEN    | KE     | Comprehensive | Comprehensive  | Unsupported                        | Good               |
 | Kiribati                                      | KIR    | KI     | Unsupported   | Unsupported    | Unsupported                        | Fair               |
-| Kosovo                                        | KOS    | XK     | Good          | Good           | Unsupported                        | Unsupported        |
+| Kosovo                                        | KOS    | XK     | Good          | Good           | Comprehensive                      | Unsupported        |
 | Kuwait                                        | KWT    | KW     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
-| Kyrgyzstan                                    | KGZ    | KG     | Unsupported   | Unsupported    | Fair                               | Fair               |
+| Kyrgyzstan                                    | KGZ    | KG     | Unsupported   | Unsupported    | Good                               | Fair               |
 | Laos                                          | LAO    | LA     | Unsupported   | Unsupported    | Unsupported                        | Fair               |
 | Latvia                                        | LVA    | LV     | Comprehensive | Comprehensive  | Comprehensive                      | Fair               |
 | Lebanon                                       | LBN    | LB     | Comprehensive | Comprehensive  | Unsupported                        | Good               |
@@ -193,59 +193,59 @@ Address Validation data is separate from Place Address and POI data.
 | Malaysia                                      | MYS    | MY     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Maldives                                      | MDV    | MV     | Fair          | Fair           | Unsupported                        | Fair               |
 | Mali                                          | MLI    | ML     | Fair          | Fair           | Unsupported                        | Fair               |
-| Malta                                         | MLT    | MT     | Comprehensive | Comprehensive  | Fair                               | Comprehensive      |
+| Malta                                         | MLT    | MT     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Marshall Islands                              | MHL    | MH     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
-| Martinique                                    | MTQ    | MQ     | Good          | Good           | Good                               | Fair               |
+| Martinique                                    | MTQ    | MQ     | Good          | Good           | Comprehensive                      | Fair               |
 | Mauritania                                    | MRT    | MR     | Fair          | Fair           | Unsupported                        | Fair               |
 | Mauritius                                     | MUS    | MU     | Comprehensive | Comprehensive  | Unsupported                        | Fair               |
-| Mayotte                                       | MYT    | YT     | Comprehensive | Comprehensive  | Unsupported                        | Unsupported        |
+| Mayotte                                       | MYT    | YT     | Comprehensive | Comprehensive  | Good                               | Unsupported        |
 | Mexico                                        | MEX    | MX     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Micronesia                                    | FSM    | FM     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
 | Moldova                                       | MDA    | MD     | Fair          | Fair           | Good                               | Fair               |
 | Monaco                                        | MCO    | MC     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Mongolia                                      | MNG    | MN     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
-| Montenegro                                    | MNE    | ME     | Good          | Good           | Fair                               | Fair               |
+| Montenegro                                    | MNE    | ME     | Good          | Good           | Comprehensive                      | Fair               |
 | Montserrat                                    | MSR    | MS     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
-| Morocco                                       | MAR    | MA     | Good          | Good           | Fair                               | Good               |
+| Morocco                                       | MAR    | MA     | Good          | Good           | Comprehensive                      | Good               |
 | Mozambique                                    | MOZ    | MZ     | Fair          | Fair           | Unsupported                        | Fair               |
 | Myanmar                                       | MMR    | MM     | Good          | Good           | Fair                               | Fair               |
 | Namibia                                       | NAM    | NA     | Good          | Good           | Unsupported                        | Fair               |
 | Nauru                                         | NRU    | NR     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
 | Nepal                                         | NPL    | NP     | Fair          | Fair           | Unsupported                        | Fair               |
 | Netherlands                                   | NLD    | NL     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
-| New Caledonia                                 | NCL    | NC     | Fair          | Fair           | Unsupported                        | Fair               |
+| New Caledonia                                 | NCL    | NC     | Fair          | Fair           | Good                               | Fair               |
 | New Zealand                                   | NZL    | NZ     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Nicaragua                                     | NIC    | NI     | Fair          | Fair           | Unsupported                        | Fair               |
 | Niger                                         | NER    | NE     | Fair          | Fair           | Unsupported                        | Good               |
-| Nigeria                                       | NGA    | NG     | Good          | Good           | Fair                               | Good               |
+| Nigeria                                       | NGA    | NG     | Good          | Good           | Good                               | Good               |
 | Niue                                          | NIU    | NU     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
-| Norfolk Island                                | NFK    | NF     | Good          | Good           | Unsupported                        | Unsupported        |
+| Norfolk Island                                | NFK    | NF     | Good          | Good           | Comprehensive                      | Unsupported        |
 | North Korea                                   | PRK    | KP     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
-| North Macedonia                               | MKD    | MK     | Good          | Good           | Good                               | Fair               |
+| North Macedonia                               | MKD    | MK     | Good          | Good           | Comprehensive                      | Fair               |
 | Northern Mariana Islands                      | MNP    | MP     | Unsupported   | Unsupported    | Unsupported                        | Fair               |
 | Norway                                        | NOR    | NO     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Oman                                          | OMN    | OM     | Comprehensive | Comprehensive  | Unsupported                        | Comprehensive      |
 | Pakistan                                      | PAK    | PK     | Unsupported   | Unsupported    | Fair                               | Good               |
 | Palau                                         | PLW    | PW     | Fair          | Fair           | Unsupported                        | Unsupported        |
-| Panama                                        | PAN    | PA     | Good          | Good           | Fair                               | Good               |
+| Panama                                        | PAN    | PA     | Good          | Good           | Comprehensive                      | Good               |
 | Papua New Guinea                              | PNG    | PG     | Fair          | Fair           | Unsupported                        | Fair               |
-| Paraguay                                      | PRY    | PY     | Good          | Good           | Unsupported                        | Fair               |
-| Peru                                          | PER    | PE     | Good          | Good           | Good                               | Good               |
+| Paraguay                                      | PRY    | PY     | Good          | Good           | Good                               | Fair               |
+| Peru                                          | PER    | PE     | Good          | Good           | Comprehensive                      | Good               |
 | Philippines                                   | PHL    | PH     | Good          | Good           | Fair                               | Good               |
 | Pitcairn                                      | PCN    | PN     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
 | Poland                                        | POL    | PL     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Portugal                                      | PRT    | PT     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Puerto Rico                                   | PRI    | PR     | Good          | Good           | Comprehensive                      | Comprehensive      |
 | Qatar                                         | QAT    | QA     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
-| Reunion Island (La Reunion)                   | REU    | RE     | Comprehensive | Comprehensive  | Unsupported                        | Unsupported        |
-| Romania                                       | ROU    | RO     | Comprehensive | Comprehensive  | Good                               | Good               |
-| Russia                                        | RUS    | RU     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
+| Reunion Island (La Reunion)                   | REU    | RE     | Comprehensive | Comprehensive  | Comprehensive                      | Unsupported        |
+| Romania                                       | ROU    | RO     | Comprehensive | Comprehensive  | Comprehensive                      | Good               |
+| Russia                                        | RUS    | RU     | Unsupported   | Unsupported    | Good                               | Unsupported        |
 | Rwanda                                        | RWA    | RW     | Fair          | Fair           | Unsupported                        | Fair               |
 | Saint BarthÈlemy                              | BLM    | BL     | Comprehensive | Comprehensive  | Unsupported                        | Unsupported        |
 | Saint Helena, Ascension, and Tristan da Cunha | SHN    | SH     | Fair          | Fair           | Unsupported                        | Unsupported        |
 | Saint Kitts And Nevis                         | KNA    | KN     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
 | Saint Lucia                                   | LCA    | LC     | Fair          | Fair           | Unsupported                        | Fair               |
-| Saint-Martin                                  | MAF    | MF     | Comprehensive | Comprehensive  | Good                               | Good               |
+| Saint-Martin                                  | MAF    | MF     | Comprehensive | Comprehensive  | Comprehensive                      | Good               |
 | Saint Pierre And Miquelon                     | SPM    | PM     | Fair          | Fair           | Unsupported                        | Unsupported        |
 | Saint Vincent And The Grenadines              | VCT    | VC     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
 | Samoa                                         | WSM    | WS     | Unsupported   | Unsupported    | Unsupported                        | Fair               |
@@ -253,7 +253,7 @@ Address Validation data is separate from Place Address and POI data.
 | Sao Tome And Principe                         | STP    | ST     | Fair          | Fair           | Unsupported                        | Unsupported        |
 | Saudi Arabia                                  | SAU    | SA     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Senegal                                       | SEN    | SN     | Good          | Good           | Unsupported                        | Fair               |
-| Serbia                                        | SRB    | RS     | Good          | Good           | Good                               | Fair               |
+| Serbia                                        | SRB    | RS     | Good          | Good           | Comprehensive                      | Fair               |
 | Seychelles                                    | SYC    | SC     | Comprehensive | Comprehensive  | Unsupported                        | Unsupported        |
 | Sierra Leone                                  | SLE    | SL     | Fair          | Fair           | Unsupported                        | Fair               |
 | Singapore                                     | SGP    | SG     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
@@ -267,38 +267,38 @@ Address Validation data is separate from Place Address and POI data.
 | South Korea                                   | KOR    | KR     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
 | South Sudan                                   | SSD    | SS     | Fair          | Fair           | Unsupported                        | Fair               |
 | Spain                                         | ESP    | ES     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
-| Sri Lanka                                     | LKA    | LK     | Fair          | Fair           | Unsupported                        | Fair               |
+| Sri Lanka                                     | LKA    | LK     | Fair          | Fair           | Good                               | Fair               |
 | Sudan                                         | SDN    | SD     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
-| Suriname                                      | SUR    | SR     | Fair          | Fair           | Fair                               | Fair               |
-| Svalbard                                      | SJM    | SJ     | Comprehensive | Comprehensive  | Unsupported                        | Unsupported        |
+| Suriname                                      | SUR    | SR     | Fair          | Fair           | Good                               | Fair               |
+| Svalbard                                      | SJM    | SJ     | Comprehensive | Comprehensive  | Comprehensive                      | Unsupported        |
 | Sweden                                        | SWE    | SE     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Switzerland                                   | CHE    | CH     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Syria                                         | SYR    | SY     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
-| Taiwan                                        | TWN    | TW     | Comprehensive | Comprehensive  | Unsupported                        | Comprehensive      |
+| Taiwan                                        | TWN    | TW     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | Tajikistan                                    | TJK    | TJ     | Unsupported   | Unsupported    | Unsupported                        | Fair               |
 | Tanzania                                      | TZA    | TZ     | Good          | Good           | Unsupported                        | Fair               |
 | Thailand                                      | THA    | TH     | Good          | Good           | Comprehensive                      | Comprehensive      |
-| Timor-Leste                                   | TLS    | TL     | Unsupported   | Unsupported    | Unsupported                        | Fair               |
+| Timor-Leste                                   | TLS    | TL     | Unsupported   | Unsupported    | Good                               | Fair               |
 | Togo                                          | TGO    | TG     | Fair          | Fair           | Unsupported                        | Fair               |
 | Tokelau                                       | TKL    | TK     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
-| Tonga                                         | TON    | TO     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
+| Tonga                                         | TON    | TO     | Unsupported   | Unsupported    | Good                               | Unsupported        |
 | Trinidad And Tobago                           | TTO    | TT     | Unsupported   | Unsupported    | Unsupported                        | Fair               |
-| Tunisia                                       | TUN    | TN     | Good          | Good           | Fair                               | Fair               |
+| Tunisia                                       | TUN    | TN     | Good          | Good           | Comprehensive                      | Fair               |
 | Turkey                                        | TUR    | TR     | Good          | Good           | Comprehensive                      | Comprehensive      |
 | Turkmenistan                                  | TKM    | TM     | Unsupported   | Unsupported    | Unsupported                        | Fair               |
 | Turks And Caicos Islands                      | TCA    | TC     | Unsupported   | Unsupported    | Unsupported                        | Fair               |
 | Tuvalu                                        | TUV    | TV     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
 | Uganda                                        | UGA    | UG     | Good          | Good           | Unsupported                        | Fair               |
 | Ukraine                                       | UKR    | UA     | Good          | Good           | Comprehensive                      | Good               |
-| United Arab Emirates                          | ARE    | AE     | Comprehensive | Comprehensive  | Good                               | Comprehensive      |
+| United Arab Emirates                          | ARE    | AE     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | United Kingdom                                | GBR    | GB     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
 | United States                                 | USA    | US     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
-| Uruguay                                       | URY    | UY     | Good          | Good           | Fair                               | Fair               |
+| Uruguay                                       | URY    | UY     | Good          | Good           | Comprehensive                      | Fair               |
 | US Virgin Islands                             | VIR    | VI     | Comprehensive | Comprehensive  | Unsupported                        | Fair               |
-| Uzbekistan                                    | UZB    | UZ     | Fair          | Fair           | Fair                               | Fair               |
-| Vanuatu                                       | VUT    | VU     | Unsupported   | Unsupported    | Unsupported                        | Unsupported        |
+| Uzbekistan                                    | UZB    | UZ     | Fair          | Fair           | Good                               | Fair               |
+| Vanuatu                                       | VUT    | VU     | Unsupported   | Unsupported    | Good                               | Unsupported        |
 | Vatican                                       | VAT    | VA     | Comprehensive | Comprehensive  | Comprehensive                      | Comprehensive      |
-| Venezuela                                     | VEN    | VE     | Good          | Good           | Fair                               | Fair               |
+| Venezuela                                     | VEN    | VE     | Good          | Good           | Comprehensive                      | Fair               |
 | Vietnam                                       | VNM    | VN     | Good          | Good           | Good                               | Good               |
 | Wallis and Futuna                             | WLF    | WF     | Fair          | Fair           | Unsupported                        | Unsupported        |
 | Western Sahara                                | ESH    | EH     | Good          | Good           | Unsupported                        | Fair               |

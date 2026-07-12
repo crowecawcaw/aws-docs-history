@@ -20,6 +20,8 @@ For full details on all the Autocomplete request and response attributes, please
 For example requests, responses, cURL, and CLI commands for this API, see [How
 to use Autocomplete](autocomplete-how-to.md "autocomplete-how-to.md").
 
+Try the Autocomplete API in the [API Playground](https://console.aws.amazon.com/location/api-playground/home#/autocomplete "https://console.aws.amazon.com/location/api-playground/home#/autocomplete").
+
 ## Use cases
 
 - **Enhance checkout experience:** Provide real-time address completion as customers enter their address in e-commerce checkout experiences and other address entry experiences on websites or apps. Ensure that delivery or pick-up locations match known addresses, reducing costly errors and increasing customer satisfaction.

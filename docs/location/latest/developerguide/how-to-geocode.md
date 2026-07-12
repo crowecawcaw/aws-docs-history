@@ -15,3 +15,5 @@ APIs.
 - [How to geocode in a specific language](how-to-geocode-specific-language.md "how-to-geocode-specific-language.md")
 - [How to get secondary addresses](get-secondary-address.md "get-secondary-address.md")
 - [How to get intersections](get-intersections.md "get-intersections.md")
+- [How to get address translations](how-to-geocode-translations.md "how-to-geocode-translations.md")
+- [How to control address name variants](how-to-geocode-address-names-mode.md "how-to-geocode-address-names-mode.md")

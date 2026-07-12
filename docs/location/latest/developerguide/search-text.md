@@ -20,6 +20,8 @@ the _Amazon Location Service API Reference_.
 For example requests, responses, cURL, and CLI commands for this API, see [How to use
 Search Text](search-text-how-to.md "search-text-how-to.md").
 
+Try the Search Text API in the [API Playground](https://console.aws.amazon.com/location/api-playground/home#/search-text "https://console.aws.amazon.com/location/api-playground/home#/search-text").
+
 ## Use cases
 
 - **Neighborhood search by text:** Help customers

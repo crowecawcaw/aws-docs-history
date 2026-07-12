@@ -10,3 +10,5 @@ This section contains a variety of how-to guides and examples for using the
 - [Choose a route using Suggest and the ability to highlight matched query terms](suggest-highlight-matched-query-terms.md "suggest-highlight-matched-query-terms.md")
 - [Use Suggest and the ability to filter for a region or country](suggest-filter-region-country.md "suggest-filter-region-country.md")
 - [How to help users disambiguate between similar results](suggest-disambiguate-results.md "suggest-disambiguate-results.md")
+- [How to get cross-references from suggestions](how-to-suggest-cross-references.md "how-to-suggest-cross-references.md")
+- [How to get suggestions with travel mode](how-to-suggest-travel-mode.md "how-to-suggest-travel-mode.md")

@@ -122,10 +122,14 @@ types:
 | ------------------- | ------- | --------------- | ------------ | --------- | ----------- | ------------- | ------- |
 | PostalCode          | Yes     | No              | Yes          | N/A       | No          | No            | No      |
 | Locality            | Yes     | Yes             | Yes          | N/A       | No          | No            | No      |
-| Intersection        | Yes     | No              | No           | N/A       | No          | No            | No      |
-| Street              | Yes     | Yes             | No           | N/A       | No          | No            | No      |
-| PointAddress        | Yes     | Yes             | No           | N/A       | No          | No            | No      |
-| InterpolatedAddress | Yes     | Yes             | No           | N/A       | No          | No            | No      |
+| Intersection        | Yes     | Yes             | Yes          | N/A       | No          | No            | No      |
+| Street              | Yes     | Yes             | Yes          | N/A       | No          | No            | No      |
+| PointAddress        | Yes     | Yes             | Yes          | N/A       | No          | No            | No      |
+| InterpolatedAddress | Yes     | Yes             | Yes          | N/A       | No          | No            | No      |
+| SecondaryAddress    | Yes     | Yes             | No           | N/A       | No          | No            | No      |
+| PointOfInterest     | Yes     | Yes             | No           | N/A       | No          | No            | No      |
+| Country             | Yes     | No              | Yes          | N/A       | No          | No            | No      |
+| Region              | Yes     | No              | Yes          | N/A       | No          | No            | No      |
 
 ## Categories filters
 

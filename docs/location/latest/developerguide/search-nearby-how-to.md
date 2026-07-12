@@ -11,3 +11,4 @@ SearchNearby.
 - [How to search nearby based on business chain](how-to-search-nearby-business.md "how-to-search-nearby-business.md")
 - [How to search nearby within a country](how-to-search-nearby-country.md "how-to-search-nearby-country.md")
 - [How to search nearby using geospatial context](how-to-search-nearby-geospatial.md "how-to-search-nearby-geospatial.md")
+- [How to get cross-references for nearby places](how-to-search-nearby-cross-references.md "how-to-search-nearby-cross-references.md")
