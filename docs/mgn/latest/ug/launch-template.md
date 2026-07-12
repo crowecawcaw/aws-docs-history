@@ -1,10 +1,13 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Launch template settings
+# Launch template
 
 The **Launch template** allows you to control the way
-AWS Transform MGN launches instances in AWS. The default configuration defined in the template
-is automatically applied to every newly added server.
+MGN launches instances in AWS. The default configuration defined in the template
+is automatically applied to every newly added server. You can modify the template at
+any time. Template settings are applied to each newly added server, but changes do not
+affect servers already in the MGN console. You can change the settings for existing
+and newly added servers individually within the server details view.
 
 To edit the launch template for your entire account, you need to edit your launch
 template. Choose **Launch template** from the left-hand
@@ -35,25 +38,25 @@ In the **General launch settings** section, you can
 define:
 
 - **Instance type right sizing**: If you select this
-  option, AWS Transform MGN launches a test or cutover AWS instance type that best
+  option, MGN launches a test or cutover AWS instance type that best
   matches the OS, CPU, and RAM of your source server. Please note that the AWS
   instance type selected by MGN when this option is selected overwrites the
   instance type defined in your EC2 launch template.
 - **Start instance upon launch**: Choose whether to start your test and cutover instances automatically upon launch
   or launch them in a stopped state.
 - **Copy private IP**: Select if you want
-  AWS Transform MGN to ensure that the private IP used by the test or cutover instance matches
-  the private IP used by the source server. If selected, AWS Transform MGN monitors the source server on an
+  MGN to ensure that the private IP used by the test or cutover instance matches
+  the private IP used by the source server. If selected, MGN monitors the source server on an
   hourly basis to identify the Private IP and uses the private IP of the primary
   network interface. Make sure that the IP range of the
   subnet you set in the EC2 Launch Template includes the private IP address for this
   feature to work. Copy private IP is not supported for IPv6.
 - **Transfer server tags**: Select if you want
-  AWS Transform MGN to transfer user-configured custom tags from your source servers to
+  MGN to transfer user-configured custom tags from your source servers to
   your test or cutover instance. If selected, server tags are transferred. These
   tags are attached to all source servers, all launched test and cutover
   instances, and all of the ephemeral resources that are created on your AWS
-  account during the normal operation of AWS Transform MGN, such as snapshots, storage
+  account during the normal operation of MGN, such as snapshots, storage
   volumes (Amazon EBS and FSx for ONTAP), replication and conversion servers, and security groups.
 - **Operating system licensing**: Select if
   you want to Bring Your Own Licenses (BYOL) from the source server into the test or
@@ -118,7 +121,7 @@ type, the default gp3 volume type is used with maximum IOPS.
 
 ###### Note
 
-Note: if you manually delete the default launch template, AWS Transform MGN generates
+Note: if you manually delete the default launch template, MGN generates
 a new default launch template. Any changes previously made to the default template
 are discarded, including subnet and security groups. You can make the same changes
 on the new launch template, and they are applied to servers you add to the console

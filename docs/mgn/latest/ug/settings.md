@@ -20,6 +20,6 @@ deployment and prepare your migrated servers for disaster recovery with AWS Elas
 
 ###### Topics
 
-- [Replication settings](replication-settings-template.md "replication-settings-template.md")
-- [Launch template settings](launch-template.md "launch-template.md")
-- [Post-launch settings](post-launch-settings.md "post-launch-settings.md")
+- [Replication template](replication-settings-template.md "replication-settings-template.md")
+- [Launch template](launch-template.md "launch-template.md")
+- [Post-launch template](post-launch-settings.md "post-launch-settings.md")

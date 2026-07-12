@@ -1,17 +1,18 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Post-launch settings
+# Post-launch template
 
-Post-launch settings allow you to control and automate actions performed after the
-server has been launched in AWS. These settings are created automatically based on the
+The Post-launch template allows you to control and automate actions performed after the
+server has been launched in AWS. The server settings are created automatically based on the
 **Post-launch template**.
 
 To access the template, choose **Post-launch template**
 from the navigation menu.
 
-The settings defined in the template are applied to every newly added server. You can
-change the settings for existing and newly added servers individually within the server
-details view.
+The configuration defined in the template is applied to every newly added server.
+Changes to the template do not affect servers already available in the MGN console when
+the changes are made. You can change the settings for existing and newly added servers
+individually within the server details view.
 
 ###### Important
 

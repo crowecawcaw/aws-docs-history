@@ -1,15 +1,15 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Replication server settings reference
+# Replication template reference
 
 Replication servers are lightweight Amazon EC2 instances that are used to replicate
 data between your source servers and AWS. Replication servers are automatically
 launched and terminated as needed. You can modify the behavior of the replication
 servers by modifying the settings for a single source server or multiple source
-servers. Alternatively, you can run AWS Transform MGN with the default replication server
+servers. Alternatively, you can run MGN with the default replication
 settings.
 
-The replication server options, include:
+The replication options, include:
 
 - The subnet within which the replication server is launched. The subnet can
   use both IPv4 and IPv6 CIDRs.
@@ -129,18 +129,18 @@ the storage type that best suits your workload requirements:
 
 ## Store snapshots in AWS Local Zone
 
+MGN does not require special configuration for Local Zones. If you select
+a subnet in a Local Zone, MGN launches the replication server in that Local
+Zone the same way it would in any Availability Zone.
+
 When you replicate to a Local Zone, you can store Amazon EBS snapshots in the
-Local Zone instead of the parent AWS Region.
-
-By default, snapshots of Amazon EBS volumes in a Local Zone are stored in the
-parent AWS Region. If you replicate to a Local Zone that supports local
-snapshots, you can store the snapshots locally in the Local Zone to meet data
-residency requirements.
-
-This setting is available only when the staging area subnet is in a supported
-Local Zone.
-
-For more information about local snapshots in Local Zones, see [Local snapshots in Local Zones](../../../ebs/latest/userguide/snapshots-localzones.md "../../../ebs/latest/userguide/snapshots-localzones.md") in the Amazon EBS User Guide.
+Local Zone instead of the parent AWS Region. By default, snapshots of Amazon EBS
+volumes in a Local Zone are stored in the parent AWS Region. If you replicate
+to a Local Zone that supports local snapshots, you can store the snapshots
+locally in the Local Zone to meet data residency requirements. This setting is
+available only when the staging area subnet is in a supported Local Zone. For
+more information about local snapshots in Local Zones, see [Local snapshots in Local Zones](../../../ebs/latest/userguide/snapshots-localzones.md "../../../ebs/latest/userguide/snapshots-localzones.md") in the Amazon EBS User
+Guide.
 
 ## Always use Application Migration Service security group
 

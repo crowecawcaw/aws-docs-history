@@ -125,23 +125,31 @@ backups](../../../fsx/latest/ONTAPGuide/using-backups.md "../../../fsx/latest/ON
 
 **Symptom:**
 
-FSx for ONTAP volumes with the naming pattern
-`target_`source_server_id`_`timestamp``
-remain on the file system after a "Revert to Ready for testing", "Revert to Ready for cutover",
-or "Terminate launched instances" action.
+After a "Revert to Ready for testing", "Revert to Ready for cutover",
+or "Terminate launched instances" action, one or more FSx for ONTAP volumes prefixed with
+`atx_cleanup_required_` remain on the file system.
 
 **Cause:**
 
-MGN cannot delete FlexClone volumes that have FSx for ONTAP backups on them.
+MGN cannot delete FlexClone volumes that have active FSx for ONTAP backup relationships
+(SnapMirror) on them. When this occurs, MGN renames the volume with the
+`atx_cleanup_required_` prefix to indicate that it requires manual cleanup.
 
 **How to confirm:**
 
 1. Navigate to the MGN console → **Launch history**.
-2. Find the job corresponding to the termination action for the specific source server.
-3. Check the job event logs for the following error:
+2. Find the job corresponding to the termination action.
+3. Check the job event logs for the following message:
 
-`"Failed to delete FSx FlexClone volume due to active SnapMirror relationship.
- Disable automatic backups on the file system and manually delete the volume."`
+`"`N` FSx for ONTAP volume(s) (prefixed 'atx_cleanup_required_')
+ could not be deleted due to active backup relationships.
+ Delete these volumes from the FSx console manually."`
+
+**Finding volumes that require cleanup:**
+
+1. Open the FSx for ONTAP console → **Volumes**.
+2. Filter or search for volumes with names starting with
+   `atx_cleanup_required_`.
 
 **Resolution:**
 
@@ -149,6 +157,10 @@ Delete the orphaned volume manually via the FSx for ONTAP console:
 
 1. Open the FSx for ONTAP console → **Volumes**.
 2. Locate the volume matching the
-   `target_`source_server_id`_`timestamp``
-   pattern.
+   `atx_cleanup_required_` prefix.
 3. Delete the volume.
+
+**Verifying cleanup is complete:**
+
+Confirm that no volumes with the `atx_cleanup_required_` prefix remain in your
+FSx for ONTAP file system.

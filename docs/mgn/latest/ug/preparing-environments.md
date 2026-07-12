@@ -47,12 +47,15 @@ service as a staging area for data replicated from your source servers to AWS.
 
 ###### Note
 
-When planning to migrate to an AWS Local Zone, we recommend setting the staging area
-subnet within the AWS Region, and not the Local Zone. This ensures optimal launch conditions
-for the replication servers and conversion servers involved in the migration process. However,
-if you have specific requirements to use the Local Zone for the staging area subnet, we
-recommend performing thorough testing and validation to ensure you can successfully replicate
-and cut over your workloads without any issues.
+MGN does not require special configuration for AWS Local Zones. You specify a
+staging area subnet and a launch subnet. MGN uses whichever subnet you provide,
+regardless of whether it is in an Availability Zone or a Local Zone.
+
+For optimal performance of replication servers and conversion servers, we recommend
+placing the staging area subnet in the parent AWS Region rather than the Local Zone. If
+your requirements dictate using a Local Zone subnet for the staging area, we recommend
+testing replication and cutover thoroughly before proceeding with production
+migrations.
 
 ### Operational subnets
 
