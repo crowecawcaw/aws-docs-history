@@ -25,7 +25,7 @@ gateway, see [Placing and installing a Wi-Fi gateway](installing-gateway.md "ins
 alternatively yellow and blue. 4. Push the button on the side of the gateway to put it into
 commissioning mode. The lights will start rapidly blinking.
 
-![Orange device with smiley face being touched by a finger, connected to a power source.](images/gs-gateway-turnon.png) 5. Open the mobile app on your smartphone. 6. On the **Getting Started** page or the
+![Orange device with smiley face being touched by a finger, connected to a power source.](/images/Monitron/latest/user-guide/images/gs-gateway-turnon.png) 5. Open the mobile app on your smartphone. 6. On the **Getting Started** page or the
 **Gateways** page, choose **Add
 gateway**.
 
