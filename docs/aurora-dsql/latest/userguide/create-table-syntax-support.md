@@ -2,6 +2,8 @@
 
 `CREATE TABLE` defines a new table.
 
+## Supported syntax
+
 ```
 CREATE TABLE [ IF NOT EXISTS ] table_name ( [
   { column_name data_type [ STORAGE { PLAIN | EXTERNAL | EXTENDED | MAIN | DEFAULT } ] [ column_constraint [ ... ] ]

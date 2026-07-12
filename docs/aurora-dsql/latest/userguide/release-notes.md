@@ -6,6 +6,28 @@ history](doc-history.md "doc-history.md").
 
 ## 2026
 
+### July 2026
+
+July 6, 2026
+
+🐘 _PostgreSQL Compatibility_ — **Additional ALTER
+TABLE operations** — Aurora DSQL now supports additional `ALTER TABLE`
+operations: `SET DEFAULT`, `DROP DEFAULT`, `DROP NOT
+ NULL`, `DROP EXPRESSION`, `ADD GENERATED AS IDENTITY`, and
+`DROP CONSTRAINT`. These metadata DDL operations enable more flexible schema
+evolution without requiring table recreation. For more information, see [ALTER TABLE](sql-command-alter-table.md "sql-command-alter-table.md").
+
+July 8, 2026
+
+🆕 _Feature_ — **Change data capture now
+generally available** — Change data capture (CDC) for Aurora DSQL is now generally
+available. This release adds distinct operation types (`op: "u"` for updates,
+`op: "c"` for inserts) and documents write-set compaction, which consolidates
+multiple changes to the same row within a transaction into a single CDC record. If an
+application inserts and deletes a row in the same transaction, Aurora DSQL recognizes zero
+net change and omits the row from the stream. For more
+information, see [CDC streams](cdc-streams.md "cdc-streams.md").
+
 ### June 2026
 
 June 8, 2026

@@ -1,16 +1,5 @@
 # Monitoring streams
 
-###### Important
-
-This feature is provided as an AWS Preview and is subject to change. For more
-information, see section 2, Betas and Previews, in the [AWS Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/"). To learn more
-about pricing for CDC streams, see the [Aurora DSQL pricing page](https://aws.amazon.com/rds/aurora/dsql/pricing/ "https://aws.amazon.com/rds/aurora/dsql/pricing/").
-
-Before general availability, we will add new operation types (`"op": "u"` for
-updates) to your stream payload. To ensure your application handles these changes without
-modification, treat any unrecognized `op` value as an upsert by applying the
-`after` payload. See [Understanding CDC records](cdc-record-format.md "cdc-record-format.md") for details.
-
 When Aurora DSQL encounters an error delivering a CDC record, the stream transitions to
 `IMPAIRED` status. An impaired stream continues to process and deliver other
 records—Aurora DSQL retries only the failing record. Aurora DSQL measures replication lag from the

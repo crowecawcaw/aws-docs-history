@@ -79,7 +79,7 @@ the defaults. Aurora DSQL applies limits when you run `INSERT` or
 The 1 MiB limit applies to the compressed size, so you can store `json` and `jsonb` values
 significantly larger than 1 MiB as long as they compress below the limit.
 
-To disable compression, use the `STORAGE` keyword. For more information, see [CREATE TABLE](create-table-syntax-support.md#create-table-storage "create-table-syntax-support.md#create-table-storage") and [ALTER TABLE](alter-table-syntax-support.md#alter-table-storage "alter-table-syntax-support.md#alter-table-storage").
+To disable compression, use the `STORAGE` keyword. For more information, see [CREATE TABLE](create-table-syntax-support.md#create-table-storage "create-table-syntax-support.md#create-table-storage") and [ALTER TABLE](alter-table-syntax-support.md#alter-table-description "alter-table-syntax-support.md#alter-table-description").
 
 ### JSON functions and operators
 

@@ -1,16 +1,5 @@
 # Getting started with CDC streams
 
-###### Important
-
-This feature is provided as an AWS Preview and is subject to change. For more
-information, see section 2, Betas and Previews, in the [AWS Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/"). To learn more
-about pricing for CDC streams, see the [Aurora DSQL pricing page](https://aws.amazon.com/rds/aurora/dsql/pricing/ "https://aws.amazon.com/rds/aurora/dsql/pricing/").
-
-Before general availability, we will add new operation types (`"op": "u"` for
-updates) to your stream payload. To ensure your application handles these changes without
-modification, treat any unrecognized `op` value as an upsert by applying the
-`after` payload. See [Understanding CDC records](cdc-record-format.md "cdc-record-format.md") for details.
-
 This guide walks you through every step required to start streaming committed row-level
 changes from an Aurora DSQL cluster to an Amazon Kinesis data stream. By the end of this guide,
 you've created a working CDC pipeline and a Python script that reads and prints change
@@ -268,19 +257,29 @@ CREATE TABLE IF NOT EXISTS test_cdc (
 INSERT INTO test_cdc VALUES (1, 'hello cdc');
 ```
 
-Read from the Kinesis data stream to verify that the CDC record arrived:
+Read from the Kinesis data stream to verify that the CDC record arrived. Because Aurora DSQL
+uses randomized partition keys, the record can land on any shard. The following script
+checks the shards on the stream. CDC records can take a few seconds to arrive because of
+replication lag—if the output is empty, wait a moment and re-run the script.
 
 ```
-SHARD_ITERATOR=$(aws kinesis get-shard-iterator \
+for SHARD_ID in $(aws kinesis list-shards \
   --stream-name `my-cdc-stream` \
-  --shard-id shardId-000000000000 \
-  --shard-iterator-type TRIM_HORIZON \
   --region `region` \
-  --query 'ShardIterator' --output text)
+  --query 'Shards[].ShardId' --output text); do
 
-aws kinesis get-records \
-  --shard-iterator "$SHARD_ITERATOR" \
-  --region `region`
+  SHARD_ITERATOR=$(aws kinesis get-shard-iterator \
+    --stream-name `my-cdc-stream` \
+    --shard-id "$SHARD_ID" \
+    --shard-iterator-type TRIM_HORIZON \
+    --region `region` \
+    --query 'ShardIterator' --output text)
+
+  aws kinesis get-records \
+    --shard-iterator "$SHARD_ITERATOR" \
+    --region `region` \
+    --query 'Records[].Data' --output text
+done
 ```
 
 Each record's `Data` field contains a JSON payload. When you use the
@@ -378,11 +377,7 @@ def consume_cdc(stream_name: str, region: str) -> None:
                 tx_id = source["txId"]
                 table = f"{source['schema']}.{source['table']}"
 
-                # Aurora DSQL currently emits "c" for both inserts and updates. A subsequent
-                # release will emit "u" for updates, and "c" for inserts. Design your
-                # consumer to handle all three values; this map stays correct across the
-                # transition.
-                op_labels = {"c": "INSERT/UPDATE", "u": "UPDATE", "d": "DELETE"}
+                op_labels = {"c": "INSERT", "u": "UPDATE", "d": "DELETE"}
                 print(
                     f"[{op_labels.get(op, op)}] {table} "
                     f"txId={tx_id} ts_ns={ts_ns} type={record_type}"
@@ -423,7 +418,7 @@ following:
 
 ```
 Reading from my-cdc-stream (4 shard(s))
-[INSERT/UPDATE] public.test_cdc txId=ffthunp5stx6ffs2vyfqoatmfu ts_ns=1705318200000000000 type=full
+[INSERT] public.test_cdc txId=ffthunp5stx6ffs2vyfqoatmfu ts_ns=1705318200000000000 type=full
   after:  {"id": 1, "message": "hello cdc"}
 ```
 
@@ -454,7 +449,6 @@ def process_record(payload: dict) -> bool:
 
     source = payload["source"]
     ts_ns = source["ts_ns"]
-    op = payload["op"]
 
     # For inserts/updates the row is in "after"; for deletes it's in "before".
     row = payload.get("after") or payload.get("before") or {}

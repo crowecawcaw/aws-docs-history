@@ -1,16 +1,5 @@
 # Understanding CDC records
 
-###### Important
-
-This feature is provided as an AWS Preview and is subject to change. For more
-information, see section 2, Betas and Previews, in the [AWS Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/"). To learn more
-about pricing for CDC streams, see the [Aurora DSQL pricing page](https://aws.amazon.com/rds/aurora/dsql/pricing/ "https://aws.amazon.com/rds/aurora/dsql/pricing/").
-
-Before general availability, we will add new operation types (`"op": "u"` for
-updates) to your stream payload. To ensure your application handles these changes without
-modification, treat any unrecognized `op` value as an upsert by applying the
-`after` payload. See Understanding CDC records for details.
-
 Aurora DSQL CDC delivers each change as a JSON record. The record uses an envelope structure
 with operation type, before and after row images, and source metadata.
 
@@ -61,7 +50,7 @@ The payload uses the following JSON envelope format.
 
 ###### INSERT example
 
-The following example shows a CDC record for an insert operation:
+The following example shows a CDC record for an `INSERT` operation:
 
 ```
 {
@@ -86,16 +75,7 @@ The following example shows a CDC record for an insert operation:
 
 ###### UPDATE example
 
-The following example shows what a CDC record produced by an `UPDATE`
-statement will look like after Aurora DSQL begins emitting `op: "u"`:
-
-###### Important
-
-Currently Aurora DSQL emits `op: "c"` for both inserts and updates.
-A subsequent release will emit `op: "u"` for updates, and
-`op: "c"` for inserts. Design your app to handle `c`,
-`u`, and `d` so your consumer keeps working across the
-transition.
+The following example shows a CDC record for an `UPDATE` operation:
 
 ```
 {
@@ -120,8 +100,8 @@ transition.
 
 ###### DELETE example
 
-For deletes on tables with a primary key, the `before` field contains the
-primary key values of the deleted row:
+For a `DELETE` on a table with a primary key, the `before` field
+contains the primary key values:
 
 ```
 {
@@ -146,23 +126,23 @@ primary key values of the deleted row:
 
 ## Payload fields
 
-| Field            | Description                                                                                                                                                                                                                                                                                                                                                 |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`           | The record type. `full` for a complete record that includes inline<br>`before` and `after` values. `chunked` for a main<br>record that references fragment records for one or both images. `fragment`<br>for an individual piece of a chunked image. For details, see<br>[Handling oversized records](#cdc-oversized-records "#cdc-oversized-records").     |
-| `op`             | Operation type. `c` = create (insert), `u` = update,<br>`d` = delete. Currently Aurora DSQL emits `c` for both inserts and<br>updates. A subsequent release will emit `u` for updates, and<br>`c` for inserts. Design your app to handle all three values.                                                                                                  |
-| `before`         | For deletes on tables with a primary key, contains the primary key values of the<br>deleted row. Aurora DSQL sets this field to `null` for inserts, updates, and<br>deletes on tables without a primary key.                                                                                                                                                |
-| `after`          | The full row state after the change, including all columns. Aurora DSQL sets this field<br>to `null` for deletes.                                                                                                                                                                                                                                           |
-| `chunked`        | Present only when `type` is `chunked`. Contains reassembly<br>metadata for the `before` image, the `after` image, or both.<br>Aurora DSQL omits the chunked image from the top-level `before` or<br>`after` field and places it under `chunked` instead. For<br>details, see [Handling oversized records](#cdc-oversized-records "#cdc-oversized-records"). |
-| `source.version` | The CDC source metadata format version. The current version is<br>`1.0`.                                                                                                                                                                                                                                                                                    |
-| `source.ts_ms`   | The transaction commit timestamp in milliseconds since the Unix epoch, Coordinated<br>Universal Time (UTC).                                                                                                                                                                                                                                                 |
-| `source.ts_ns`   | Transaction commit timestamp in nanoseconds, UTC. The highest precision timestamp<br>available. Use this field to establish a total order of transactions.                                                                                                                                                                                                  |
-| `source.txId`    | A unique transaction identifier, encoded as base32. All records from the same<br>transaction share the same `txId` value. Use this field to group records<br>that belong to the same transaction.                                                                                                                                                           |
-| `source.schema`  | The PostgreSQL schema name (for example, `public`).                                                                                                                                                                                                                                                                                                         |
-| `source.table`   | The table name.                                                                                                                                                                                                                                                                                                                                             |
-| `source.db`      | The database name. Always `postgres` for Aurora DSQL.                                                                                                                                                                                                                                                                                                       |
-| `source.cluster` | The Aurora DSQL cluster identifier.                                                                                                                                                                                                                                                                                                                         |
-| `ts_ms`          | The time at which the CDC system processed the record, in milliseconds, UTC. The<br>difference between `ts_ms` and `source.ts_ms` is a measure of<br>replication lag.                                                                                                                                                                                       |
-| `ts_ns`          | The time at which the CDC system processed the record, in nanoseconds, UTC.                                                                                                                                                                                                                                                                                 |
+| Field            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`           | The record type. `full` for a complete record that includes inline<br>`before` and `after` values. `chunked` for a main<br>record that references fragment records for one or both images. `fragment`<br>for an individual piece of a chunked image. For details, see<br>[Handling oversized records](#cdc-oversized-records "#cdc-oversized-records").                                                                                           |
+| `op`             | Operation type. `c` = create (insert), `u` = update,<br>`d` = delete. The `op` reflects the row's net effect<br>across the transaction: a row that didn't exist before the transaction receives<br>`c`, a pre-existing row that the transaction modified receives<br>`u`, and a pre-existing row that the transaction removed receives<br>`d`. For details, see<br>[Write-set compaction](#cdc-write-set-compaction "#cdc-write-set-compaction"). |
+| `before`         | For deletes on tables with a primary key, contains the primary key values of the<br>deleted row. Aurora DSQL sets this field to `null` for inserts, updates, and<br>deletes on tables without a primary key.                                                                                                                                                                                                                                      |
+| `after`          | The full row state after the change, including all columns. Aurora DSQL sets this field<br>to `null` for deletes.                                                                                                                                                                                                                                                                                                                                 |
+| `chunked`        | Present only when `type` is `chunked`. Contains reassembly<br>metadata for the `before` image, the `after` image, or both.<br>Aurora DSQL omits the chunked image from the top-level `before` or<br>`after` field and places it under `chunked` instead. For<br>details, see [Handling oversized records](#cdc-oversized-records "#cdc-oversized-records").                                                                                       |
+| `source.version` | The CDC source metadata format version. The current version is<br>`1.0`.                                                                                                                                                                                                                                                                                                                                                                          |
+| `source.ts_ms`   | The transaction commit timestamp in milliseconds since the Unix epoch, Coordinated<br>Universal Time (UTC).                                                                                                                                                                                                                                                                                                                                       |
+| `source.ts_ns`   | Transaction commit timestamp in nanoseconds, UTC. The highest precision timestamp<br>available. Use this field to establish a total order of transactions.                                                                                                                                                                                                                                                                                        |
+| `source.txId`    | A unique transaction identifier, encoded as base32. All records from the same<br>transaction share the same `txId` value. Use this field to group records<br>that belong to the same transaction.                                                                                                                                                                                                                                                 |
+| `source.schema`  | The PostgreSQL schema name (for example, `public`).                                                                                                                                                                                                                                                                                                                                                                                               |
+| `source.table`   | The table name.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `source.db`      | The database name. Always `postgres` for Aurora DSQL.                                                                                                                                                                                                                                                                                                                                                                                             |
+| `source.cluster` | The Aurora DSQL cluster identifier.                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `ts_ms`          | The time at which the CDC system processed the record, in milliseconds, UTC. The<br>difference between `ts_ms` and `source.ts_ms` is a measure of<br>replication lag.                                                                                                                                                                                                                                                                             |
+| `ts_ns`          | The time at which the CDC system processed the record, in nanoseconds, UTC.                                                                                                                                                                                                                                                                                                                                                                       |
 
 ## Format details
 
@@ -171,11 +151,11 @@ handle these behaviors.
 
 - **Full after-image for inserts and updates.** Aurora DSQL
   includes the complete row state in the `after` field for all writes. The
-  `before` field is `null` for inserts and updates. Currently both
-  inserts and updates use `op: "c"`, but a subsequent release will emit
-  `op: "u"` for updates. Design your app to use `source.ts_ns`
-  per primary key for ordering rather than relying on the `op` field to
-  distinguish between inserts and updates.
+  `before` field is `null` for inserts and updates. Aurora DSQL emits
+  `op: "c"` for inserts and `op: "u"` for updates.
+- **Write-set compaction.** Aurora DSQL compacts the write set
+  of each transaction before publishing, emitting at most one record per row. For details and
+  examples, see [Write-set compaction](#cdc-write-set-compaction "#cdc-write-set-compaction").
 - **Post-change row state only.** CDC records include the
   full row state after each change. The state of the row before an update isn't
   included. For deletes on tables with a primary key, the `before` field
@@ -207,6 +187,35 @@ handle these behaviors.
   separate Kinesis records so you still receive the change. Design your app to reassemble
   the images. For details, see
   [Handling oversized records](#cdc-oversized-records "#cdc-oversized-records").
+
+## Write-set compaction
+
+Aurora DSQL compacts the write set of each committed transaction before publishing CDC
+records. Aurora DSQL compares each row's state before the transaction to its state after,
+and emits at most one record per row reflecting the net effect.
+
+### Compaction rules
+
+Aurora DSQL determines the `op` code based on the row's net state
+change:
+
+**`op: "c"` (create)**
+The row is new. It didn't exist before the transaction and exists
+after. The `after` field contains the final row state.
+
+**`op: "u"` (update)**
+The row existed before the transaction and still exists after. The
+`after` field contains the final row state. Aurora DSQL compacts operations, not
+row content.
+
+**`op: "d"` (delete)**
+The row existed before the transaction and doesn't exist after. The
+`before` field contains only the primary key values.
+
+**No record**
+The row didn't exist before the transaction and doesn't exist
+after (for example, an insert followed by a delete in the same transaction). Aurora DSQL
+recognizes zero net change and doesn't publish a record.
 
 ## Handling oversized records
 
