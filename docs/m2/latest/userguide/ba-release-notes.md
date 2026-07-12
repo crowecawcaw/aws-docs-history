@@ -72,7 +72,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for indexed file duplicate key when reading an indexed file (KSDS) sequentially via READ NEXT/READ PREVIOUS
   - Improved support for REWRITE operations on indexed files (KSDS) with duplicate alternate keys. When you rewrite a record without changing the key value, the original insertion order of duplicate keys is preserved during sequential READ NEXT processing.
   - Improved support for write behind flush during dataset close
-  - V7-18176 - Improved support for readNext and readPrevious operations on large indexed files (KSDS) when combined with delete operations across index page boundaries
+  - Improved support for readNext and readPrevious operations on large indexed files (KSDS) when combined with delete operations across index page boundaries
   - Added support for bulk delete operations on indexed files (KSDS) via a new bulkDelete() method, with configurable Redis batch size (bluesam.redis.deleteAllBatchSize, default: 1500) to handle large-scale deletions
   - Added support for bulk insert to Redis cache with custom TTL (insertToCache) and a fluent builder API for bulk read operations (bulkRead()) with SQL query validation and optional result caching
   - Improved support for index insertion (insertIndexes) where SkipList split operations maintain internal node references when inserting records into large indexed datasets
