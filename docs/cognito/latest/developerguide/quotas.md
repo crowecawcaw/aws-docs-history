@@ -313,25 +313,28 @@ breakdown of your MAUs for that billing period.
 
 Amazon Cognito has a quota for the maximum number of operations per second that you can
 perform in your user pools and identity pools in each AWS Region. You can purchase
-an increase to adjustable Amazon Cognito user pools API request rate quotas. Check your current quota
-and purchase an increase from the Service Quotas console or with the Service Quotas API operations
+an increase to adjustable Amazon Cognito user pools API request rate quotas. For adjustable user pools
+categories, you can request a higher account-level max limit in Service Quotas and then use the Amazon Cognito
+provisioning API to set your desired rate. For more information, see [Managing provisioned limits](#provisioned-quotas "#provisioned-quotas").
+
+To request a higher account-level max limit, use the Service Quotas console or the Service Quotas API operations
 `ListAWSDefaultServiceQuotas` and
 `RequestServiceQuotaIncrease`.
 
-- To purchase a quota increase using the Service Quotas console, see [Requesting a API quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the
+- To request an account-level max limit increase using the Service Quotas console, see [Requesting a API quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the
   _Service Quotas User Guide_.
-- AWS targets completion of quota increase requests within 10 days.
-  However, several considerations might cause the request processing time to
-  exceed 10 days. Some requests, for example, might require Amazon Cognito to provision
-  additional hardware capacity, and seasonal increases in request volumes
-  might introduce delays.
+- Some account-level max limit increases are auto-approved.
+  Otherwise, AWS targets completion of quota increase requests within 10
+  days. However, several considerations might cause the request processing
+  time to exceed 10 days. Some requests, for example, might require Amazon Cognito to
+  provision additional hardware capacity, and seasonal increases in request
+  volumes might introduce delays.
 - If the quota isn't available in Service Quotas, use the [Service limit increase
   form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").
 
-###### Important
+###### Note
 
-Only adjustable quotas can be increased. You must purchase increased quota
-capacity. For quota-increase pricing, see [Amazon Cognito pricing](https://aws.amazon.com/cognito/pricing/ "https://aws.amazon.com/cognito/pricing/").
+Only adjustable quotas can be increased.
 
 ###### Note
 
@@ -339,6 +342,182 @@ Quota increases are regional configurations. A quota increase in one
 AWS Region doesn't affect your quotas in other Regions. If you require higher
 API quotas in multiple Regions, you must request a quota increase in each Region
 separately.
+
+###### Note
+
+Requesting an account-level max limit increase is only the first step. After
+your request is approved, you must call `UpdateProvisionedLimit` or
+use the Amazon Cognito console to set your provisioned limit. For more information, see
+[Managing provisioned limits](#provisioned-quotas "#provisioned-quotas").
+
+### Managing provisioned limits
+
+Amazon Cognito user pools supports a two-tier quota model for adjustable API rate quotas.
+With this model, you can programmatically increase or decrease your provisioned
+request rate without contacting AWS Support. The two tiers work as follows:
+
+**Account-level max limit**
+
+The maximum rate that you can provision, set through Service Quotas. To increase
+your account-level max limit, submit a quota increase request in the Service Quotas console.
+Some requests are auto-approved. For more information, see [Requesting a quota increase](#api-request-rate-quotas "#api-request-rate-quotas").
+
+**Provisioned limit**
+
+The rate, in requests per second (RPS), that Amazon Cognito currently enforces
+for your account. You can adjust this value up to your account-level max limit with the
+Amazon Cognito provisioning API operations.
+
+For example, if your `UserAuthentication` account-level max limit is 500 RPS, you can
+use the `UpdateProvisionedLimit` API operation to set your provisioned
+limit to 300 RPS. You can later reduce the provisioned limit back to the default,
+and you are only billed for the time at the higher rate.
+
+###### Important
+
+You are billed for provisioned capacity above the default rate, prorated based on
+actual usage time. For pricing, see [Amazon Cognito pricing](https://aws.amazon.com/cognito/pricing/ "https://aws.amazon.com/cognito/pricing/").
+
+#### Managing provisioned limits in the console
+
+You can view and manage your provisioned limits in the Amazon Cognito console.
+Open the **User pools** page and choose the
+**Provisioned limits** tab. On this tab, you can view your
+current provisioned limits and account-level max limits for each adjustable
+API category. You can increase or decrease your provisioned rate within your
+approved account-level max limit.
+
+#### Provisioning API operations
+
+Amazon Cognito provides the following API operations for managing provisioned
+limits. These operations require authentication and the corresponding
+IAM permissions.
+
+**[GetProvisionedLimit](../../../cognito-user-identity-pools/latest/APIReference/API_GetProvisionedLimit.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetProvisionedLimit.md")**
+
+Returns the current provisioned limit value for a specific API
+category. The response includes the provisioned limit value and the
+default (free) limit value.
+
+**[UpdateProvisionedLimit](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateProvisionedLimit.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateProvisionedLimit.md")**
+
+Sets your provisioned limit value for a specific API category. The
+requested value must be between the default limit and your Service Quotas
+account-level max limit. This operation takes effect immediately.
+
+Both operations take a `LimitDefinition` parameter that identifies
+the limit to manage. For user pools API rate limits, the limit definition has a
+class of `API_CATEGORY` and an attributes map with the
+`Category` key. For example, to manage the
+`UserAuthentication` limit, specify a limit definition with
+`{"Category": "UserAuthentication"}`.
+
+###### Example GetProvisionedLimit request and response
+
+The following example returns the provisioned limit for the
+`UserAuthentication` API category.
+
+**Request**
+
+```
+{
+    "LimitDefinition": {
+        "LimitClass": "API_CATEGORY",
+        "Attributes": {"Category": "UserAuthentication"}
+    }
+}
+```
+
+**Response**
+
+```
+{
+    "Limit": {
+        "LimitDefinition": {
+            "LimitClass": "API_CATEGORY",
+            "Attributes": {"Category": "UserAuthentication"}
+        },
+        "ProvisionedLimitValue": 120,
+        "FreeLimitValue": 120
+    }
+}
+```
+
+###### Example UpdateProvisionedLimit request and response
+
+The following example sets the provisioned limit for the
+`UserAuthentication` API category to 300 RPS.
+
+**Request**
+
+```
+{
+    "LimitDefinition": {
+        "LimitClass": "API_CATEGORY",
+        "Attributes": {"Category": "UserAuthentication"}
+    },
+    "RequestedLimitValue": 300
+}
+```
+
+**Response**
+
+```
+{
+    "Limit": {
+        "LimitDefinition": {
+            "LimitClass": "API_CATEGORY",
+            "Attributes": {"Category": "UserAuthentication"}
+        },
+        "ProvisionedLimitValue": 300,
+        "FreeLimitValue": 120
+    }
+}
+```
+
+The following IAM actions control access to these operations:
+
+- `cognito-idp:GetProvisionedLimit`
+- `cognito-idp:UpdateProvisionedLimit`
+
+###### Note
+
+Cross-account access is not supported. Only the owning account can manage
+its provisioned limits.
+
+#### Provisioning workflow
+
+The following workflow describes how to increase your provisioned limit.
+
+1. Determine your required rate. For more information, see [Identify quota requirements](#identify-quota-requirements "#identify-quota-requirements").
+2. If your required rate exceeds your current Service Quotas account-level max limit, request an
+   increase in the [Service Quotas
+   console](https://console.aws.amazon.com/servicequotas/home/services/cognito-idp/quotas "https://console.aws.amazon.com/servicequotas/home/services/cognito-idp/quotas").
+3. After your account-level max limit is approved, call
+   `UpdateProvisionedLimit` with your desired rate.
+4. To reduce your provisioned rate and stop additional billing, call
+   `UpdateProvisionedLimit` with the default limit value or a
+   lower value.
+
+#### Considerations
+
+- Provisioned limits are account-level resources. They apply to the
+  aggregate rate of all requests from all user pools in one AWS Region in
+  your AWS account.
+- The `LimitManagement` category, which includes
+  `GetProvisionedLimit` and `UpdateProvisionedLimit`,
+  is rate-limited to 1 request per second per account.
+- Only adjustable quota categories support provisioning. For a list of
+  adjustable categories, see [Amazon Cognito user pools API operation categories and request rate quotas](#category_operations "#category_operations").
+- If your user pool uses managed login, you can't use the provisioning API
+  to adjust the `UserAuthentication` or `UserFederation`
+  categories. To increase these quotas, submit a Service Quotas increase request through
+  the [Service Quotas
+  console](https://console.aws.amazon.com/servicequotas/home/services/cognito-idp/quotas "https://console.aws.amazon.com/servicequotas/home/services/cognito-idp/quotas") or use the [Service limit
+  increase form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").
+- Changes to provisioned quotas are regional. A provisioned quota change
+  in one AWS Region doesn't affect your quotas in other Regions.
+- All calls to provisioning API operations are logged in AWS CloudTrail.
 
 ## Amazon Cognito user pools API operation categories and request rate quotas
 
@@ -393,6 +572,7 @@ You must limit per-category API requests as shown in the following table.
 | `UserPoolClientRead`<br>• [DescribeUserPoolClient](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.md")<br>• [ListUserPoolClients](../../../cognito-user-identity-pools/latest/APIReference/API_ListUserPoolClients.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListUserPoolClients.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Operations that retrieve information about your user pool<br>clients.[3](#cognito-quotas-individual-rates-note "#cognito-quotas-individual-rates-note")                                                                             | 15                  | No         |
 | `UserPoolClientUpdate`<br>• [CreateUserPoolClient](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md")<br>• [DeleteUserPoolClient](../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserPoolClient.md")<br>• [UpdateUserPoolClient](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Operations that create, update, and delete your user pool<br>clients.[3](#cognito-quotas-individual-rates-note "#cognito-quotas-individual-rates-note")                                                                             | 15                  | No         |
 | `ClientAuthentication``client_credentials`<br>grant type requests to the token endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Operations that generate credentials to be used in authorizing<br>machine-to-machine requests                                                                                                                                       | 150                 | No         |
+| `LimitManagement`<br>• [GetProvisionedLimit](../../../cognito-user-identity-pools/latest/APIReference/API_GetProvisionedLimit.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetProvisionedLimit.md")<br>• [UpdateProvisionedLimit](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateProvisionedLimit.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateProvisionedLimit.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Operations that retrieve or update your provisioned API rate<br>limits                                                                                                                                                              | 1                   | No         |
 
 1 A `RespondToAuthChallenge` or
 `AdminRespondToAuthChallenge` response with a `ChallengeName`

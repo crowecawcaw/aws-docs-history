@@ -77,6 +77,14 @@ Updated issuers take the format
 where `Region` is the primary AWS Region of
 your user pool.
 
+###### Note
+
+The updated issuer type is not currently compatible with
+Application Load Balancer authentication with Amazon Cognito ([Authenticate users using an Application Load
+Balancer](../../../elasticloadbalancing/latest/application/listener-authenticate-users.md "../../../elasticloadbalancing/latest/application/listener-authenticate-users.md")) or Amazon API Gateway Amazon Cognito authorizers
+([Control access to REST APIs using Amazon Cognito user pools as
+authorizer](../../../apigateway/latest/developerguide/apigateway-integrate-with-cognito.md "../../../apigateway/latest/developerguide/apigateway-integrate-with-cognito.md")).
+
 ###### Topics
 
 - [The redirect and authorization endpoint](authorization-endpoint.md "authorization-endpoint.md")
