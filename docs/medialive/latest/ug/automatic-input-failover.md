@@ -13,6 +13,7 @@ You can set up the following types of inputs for input failover:
 - RTMP Push
 - RTP
 - SRT caller
+- SRT listener
   You can configure the channel so that MediaLive detects one or more of the following problems
   in the input:
 
