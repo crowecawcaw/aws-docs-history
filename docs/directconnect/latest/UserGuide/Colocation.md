@@ -211,23 +211,23 @@ provide one or more of the following connectivity options:
 
 ## Europe (Frankfurt)
 
-| Location                            | How to request a connection                                                                                                                                           |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CE Colo, Prague, Czech Republic     | Contact CE Colo at [info@cecolo.com](mailto:info@cecolo.com "mailto:info@cecolo.com").                                                                                |
-| DigiPlex Ulven, Oslo, Norway        | Contact DigiPlex at [helpme@digiplex.com](mailto:helpme@digiplex.com "mailto:helpme@digiplex.com").                                                                   |
-| Equinix AM3, Amsterdam, Netherlands | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
-| Equinix FR5, Frankfurt              | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
-| Equinix HE6, Helsinki               | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
-| Equinix MU1, Munich                 | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
-| Equinix WA1, Warsaw                 | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
-| Interxion AMS7, Amsterdam           | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                              |
-| Interxion CPH2, Copenhagen          | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                              |
-| Interxion FRA6, Frankfurt           | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                              |
-| Interxion MAD2, Madrid              | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                              |
-| Interxion VIE2, Vienna              | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                              |
-| Interxion ZUR1, Zurich              | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                              |
-| IPB, Berlin                         | Contact IPB at [kontakt@ipb.de](mailto:kontakt@ipb.de "mailto:kontakt@ipb.de").                                                                                       |
-| Equinix ITConic MD2, Madrid         | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Location                            | How to request a connection                                                                                                                                                                                                   |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CE Colo, Prague, Czech Republic     | Contact CE Colo at [info@cecolo.com](mailto:info@cecolo.com "mailto:info@cecolo.com").                                                                                                                                        |
+| DigiPlex Ulven, Oslo, Norway        | Contact DigiPlex at [helpme@digiplex.com](mailto:helpme@digiplex.com "mailto:helpme@digiplex.com").                                                                                                                           |
+| Equinix AM3, Amsterdam, Netherlands | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").                                                         |
+| Equinix FR5, Frankfurt              | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").                                                         |
+| Equinix HE6, Helsinki               | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").                                                         |
+| Equinix MU1, Munich                 | End of support July 2027. No new connections available. Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Equinix WA1, Warsaw                 | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").                                                         |
+| Interxion AMS7, Amsterdam           | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                                                                                      |
+| Interxion CPH2, Copenhagen          | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                                                                                      |
+| Interxion FRA6, Frankfurt           | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                                                                                      |
+| Interxion MAD2, Madrid              | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                                                                                      |
+| Interxion VIE2, Vienna              | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                                                                                      |
+| Interxion ZUR1, Zurich              | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                                                                                      |
+| IPB, Berlin                         | Contact IPB at [kontakt@ipb.de](mailto:kontakt@ipb.de "mailto:kontakt@ipb.de").                                                                                                                                               |
+| Equinix ITConic MD2, Madrid         | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").                                                         |
 
 ## Europe (Ireland)
 
