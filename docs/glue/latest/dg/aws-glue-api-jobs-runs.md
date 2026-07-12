@@ -53,10 +53,15 @@ is assigned as the default value.
 
 - `JobRunQueuingEnabled` – Boolean.
 
-Specifies whether job run queuing is enabled for the job run.
+Specifies whether job run queuing is enabled for this job run.
 
-A value of true means job run queuing is enabled for the job run. If false
-or not populated, the job run will not be considered for queueing.
+A value of true means job run queuing is enabled for this job run, allowing it to wait in a queue when resources are unavailable (such as when concurrent job limits are reached or insufficient DPUs are available) instead of failing immediately.
+
+###### Note
+
+For VPC-based jobs experiencing IP exhaustion: queuing will activate only if the IP shortage is detected at job launch time. If IP exhaustion occurs after the driver has started (during executor provisioning), the job will fail instead of being queued.
+
+If false or not populated, the job run will fail immediately when resources are not available.
 
 - `StartedOn` – Timestamp.
 
@@ -437,8 +442,13 @@ The name of the job definition to use.
 
 Specifies whether job run queuing is enabled for the job run.
 
-A value of true means job run queuing is enabled for the job run. If false
-or not populated, the job run will not be considered for queueing.
+A value of true means job run queuing is enabled for the job run, allowing it to wait in a queue when resources are unavailable (such as when concurrent job limits are reached or insufficient DPUs are available) instead of failing immediately.
+
+###### Note
+
+For VPC-based jobs experiencing IP exhaustion: queuing will activate only if the IP shortage is detected at job launch time. If IP exhaustion occurs after the driver has started (during executor provisioning), the job will fail instead of being queued.
+
+If false or not populated, the job run will fail immediately when resources are not available.
 
 - `JobRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
 

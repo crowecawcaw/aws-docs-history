@@ -345,7 +345,8 @@ This example works only in AWS Glue 4.0. In AWS Glue 5.0 and later, follow the g
 
 ```
 # Example: Read an Iceberg table from the AWS Glue Data Catalog
-from awsglue.context import GlueContextfrom pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from pyspark.context import SparkContext
 
 sc = SparkContext()
 glueContext = GlueContext(sc)

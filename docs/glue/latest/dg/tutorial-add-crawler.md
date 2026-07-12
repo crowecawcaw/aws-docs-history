@@ -89,7 +89,7 @@ crawler.
    asks if you want to run it now. Choose **Run it now?** to run the
    crawler.
 
-The banner changes to show "Attempting to run" and Running" messages for your crawler.
+The banner changes to show "Attempting to run" and "Running" messages for your crawler.
 After the crawler starts running, the banner disappears, and the crawler display is
 updated to show a status of Starting for your crawler. After a minute, you can click the
 Refresh icon to update the status of the crawler that is displayed in the table. 2. When the crawler completes, a new banner appears that describes the changes made by

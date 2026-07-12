@@ -348,10 +348,10 @@ root
 `unnestDDBJson` transform is also available to simplify DynamoDB export JSON. We encourage users
 to transition to `simplifyDDBJson` from `unnestDDBJson`.
 
-## Configuring paralleism in DynamoDB operations
+## Configuring parallelism in DynamoDB operations
 
 To improve performance, you can tune certain parameters available for the DynamoDB connector. Your goal when
-tuning paralleism parameters is to maximize the use of the provisioned AWS Glue workers. Then, if you need more
+tuning parallelism parameters is to maximize the use of the provisioned AWS Glue workers. Then, if you need more
 performance, we recommend you to scale out your job by increasing the number of DPUs.
 
 You can alter the parallelism in a DynamoDB read operation using the `dynamodb.splits` parameter
@@ -464,7 +464,7 @@ using the AWS Glue DynamoDB ETL connector:
 
 `1` represents there is no parallelism. We highly recommend that you specify a
 larger value for better performance by using the below formula. For more information on
-appropriately setting a value, see [Configuring paralleism in DynamoDB operations](#aws-glue-programming-etl-connect-dynamodb-parallelism "#aws-glue-programming-etl-connect-dynamodb-parallelism").
+appropriately setting a value, see [Configuring parallelism in DynamoDB operations](#aws-glue-programming-etl-connect-dynamodb-parallelism "#aws-glue-programming-etl-connect-dynamodb-parallelism").
 
 - `"dynamodb.sts.roleArn"`: (Optional) The IAM role ARN to be assumed for
   cross-account access. This parameter is available in AWS Glue 1.0 or later.
@@ -545,7 +545,7 @@ Use the following connection options with `"connectionType": "dynamodb"` as a si
 
 - `"dynamodb.output.numParallelTasks"`: (Optional) Defines how many parallel tasks
   write into DynamoDB at the same time. Used to calculate permissive WCU per Spark task. In most cases, AWS Glue will calculate a
-  reasonable default for this value. For more information, see [Configuring paralleism in DynamoDB operations](#aws-glue-programming-etl-connect-dynamodb-parallelism "#aws-glue-programming-etl-connect-dynamodb-parallelism").
+  reasonable default for this value. For more information, see [Configuring parallelism in DynamoDB operations](#aws-glue-programming-etl-connect-dynamodb-parallelism "#aws-glue-programming-etl-connect-dynamodb-parallelism").
 - `"dynamodb.output.retry"`: (Optional) Defines how many retries we perform when
   there is a `ProvisionedThroughputExceededException` from DynamoDB. The default is set to
   "10".

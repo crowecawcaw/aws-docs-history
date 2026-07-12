@@ -163,11 +163,25 @@ information, see [Tracking processed data using job bookmarks](monitor-continuat
 
 **Job run queuing**
 
-Specifies whether job runs are queued to run later when they cannot run immediately due to service quotas.
+Specifies whether job runs are automatically queued when they cannot run immediately due to service quotas or resource constraints. When enabled, job runs wait in a queue and start automatically when resources become available, instead of failing immediately.
 
-When checked, job run queuing is enabled for the job runs. If not populated, the job runs will not be considered for queueing.
+When checked, job run queuing is enabled for all runs of this job. If not checked, job runs will fail immediately when resources are unavailable.
 
-If this setting does not match the value set in the job run, then the value from the job run field will be used.
+Job run queuing is recommended for:
+
+- High-volume ETL workloads that may exceed concurrent job limits
+- Automated pipelines that should be resilient to temporary resource constraints
+- Non-time-sensitive batch processing jobs
+
+###### VPC IP Exhaustion Limitation
+
+For VPC-based jobs experiencing IP exhaustion: queuing will activate only if the IP shortage is detected at job launch time. If IP exhaustion occurs after the driver has started (during executor provisioning), the job will fail instead of being queued. To avoid this scenario:
+
+- Ensure adequate IP addresses in your VPC subnets
+- Use secondary CIDR blocks or larger subnet prefixes if needed
+- Limit concurrent VPC job submissions during peak periods
+
+If this job-level setting differs from the job run-level setting specified when starting a job run, the job run-level setting takes precedence.
 
 **Flex execution**
 

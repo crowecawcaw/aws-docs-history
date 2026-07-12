@@ -6,7 +6,7 @@
    Choose **Crawlers** in the navigation pane.
 2. Choose **Create crawler**, and follow the instructions in the
    **Add crawler** wizard. The wizard will guide you the steps required to create a crawler.
-   If you want to add custom calssifiers to define the schema, see [Defining and managing classifiers](add-classifier.md "add-classifier.md").
+   If you want to add custom classifiers to define the schema, see [Defining and managing classifiers](add-classifier.md "add-classifier.md").
 3. Enter a name for your crawler and description (optional).
    Optionally, you can tag your crawler with a **Tag key** and optional **Tag value**.
    Once created, tag keys are read-only. Use tags on some resources to help you organize and identify them.

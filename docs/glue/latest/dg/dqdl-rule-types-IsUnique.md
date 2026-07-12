@@ -19,7 +19,7 @@ The following example rule checks whether all of the values in a column named
 
 ```
 IsUnique "email"
-IsUnique "Customer_ID" where "Customer_ID < 10"]
+IsUnique "Customer_ID" where "Customer_ID < 10"
 ```
 
 The following example rule checks multiple columns.

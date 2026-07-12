@@ -85,7 +85,7 @@ Run the following command:
 
 ```
 aws glue associate-glossary-terms \
-  --identifier "arn:aws:glue:us-east-1:123456789012:table/mydb/sales_transactions" \
+  --asset-identifier "arn:aws:glue:us-east-1:123456789012:table/mydb/sales_transactions" \
   --glossary-term-identifiers "c2fymbu18rtsx5"
 ```
 

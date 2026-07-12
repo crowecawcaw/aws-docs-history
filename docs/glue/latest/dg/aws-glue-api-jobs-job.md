@@ -39,8 +39,13 @@ is assigned as the default value.
 
 Specifies whether job run queuing is enabled for the job runs for this job.
 
-A value of true means job run queuing is enabled for the job runs. If false
-or not populated, the job runs will not be considered for queueing.
+A value of true means job run queuing is enabled, allowing job runs to wait in a queue when resources are unavailable instead of failing immediately. This includes scenarios such as hitting concurrent job run limits, insufficient compute resources (DPUs), or temporary resource constraints.
+
+###### Note
+
+For VPC-based jobs experiencing IP exhaustion: queuing will activate only if the IP shortage is detected at job launch time. If IP exhaustion occurs after the driver has started (during executor provisioning), the job will fail instead of being queued.
+
+If false or not populated, the job runs will fail immediately when resources are not available.
 
 If this field does not match the value set in the job run, then the value from
 the job run field will be used.
@@ -361,8 +366,13 @@ is assigned as the default value.
 
 Specifies whether job run queuing is enabled for the job runs for this job.
 
-A value of true means job run queuing is enabled for the job runs. If false
-or not populated, the job runs will not be considered for queueing.
+A value of true means job run queuing is enabled, allowing job runs to wait in a queue when resources are unavailable instead of failing immediately. This includes scenarios such as hitting concurrent job run limits, insufficient compute resources (DPUs), or temporary resource constraints.
+
+###### Note
+
+For VPC-based jobs experiencing IP exhaustion: queuing will activate only if the IP shortage is detected at job launch time. If IP exhaustion occurs after the driver has started (during executor provisioning), the job will fail instead of being queued.
+
+If false or not populated, the job runs will fail immediately when resources are not available.
 
 If this field does not match the value set in the job run, then the value from
 the job run field will be used.
@@ -648,8 +658,13 @@ is assigned as the default value.
 
 Specifies whether job run queuing is enabled for the job runs for this job.
 
-A value of true means job run queuing is enabled for the job runs. If false
-or not populated, the job runs will not be considered for queueing.
+A value of true means job run queuing is enabled, allowing job runs to wait in a queue when resources are unavailable instead of failing immediately. This includes scenarios such as hitting concurrent job run limits, insufficient compute resources (DPUs), or temporary resource constraints.
+
+###### Note
+
+For VPC-based jobs experiencing IP exhaustion: queuing will activate only if the IP shortage is detected at job launch time. If IP exhaustion occurs after the driver has started (during executor provisioning), the job will fail instead of being queued.
+
+If false or not populated, the job runs will fail immediately when resources are not available.
 
 If this field does not match the value set in the job run, then the value from
 the job run field will be used.

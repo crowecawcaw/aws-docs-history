@@ -4,7 +4,7 @@
 
 Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse service that makes it simple and cost-effective to efficiently analyze all your data using your existing business intelligence tools.
 
-Lakehouse architecture of Amazon SageMaker unifies all your data across Amazon Simple Storage Service (Amazon S3) data lakes and Amazon Redshift data warehouses, helping you build powerful analytics and AI/ML applications on a single copy of data. Lakehouse architecture of Amazon SageMaker gives you the flexibility to access and query your data in-place with all Apache Iceberg compatible tools and engines. With SageMaker Lakehouse, you also have the flexibility to access and query your data in-place with Apache Iceberg compatible tools and engines. Additionally, you can secure your data with integrated, fine-grained access controls, that are enforced across all your data in all analytic tools and engines. Define permissions once and confidently share data across your organization.
+Lakehouse architecture of Amazon SageMaker unifies all your data across Amazon Simple Storage Service (Amazon S3) data lakes and Amazon Redshift data warehouses, helping you build powerful analytics and AI/ML applications on a single copy of data. Lakehouse architecture of Amazon SageMaker gives you the flexibility to access and query your data in-place with all Apache Iceberg compatible tools and engines. Additionally, you can secure your data with integrated, fine-grained access controls, that are enforced across all your data in all analytic tools and engines. Define permissions once and confidently share data across your organization.
 
 ## Zero-ETL capabilities in AWS Glue
 

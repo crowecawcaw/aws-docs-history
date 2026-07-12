@@ -87,7 +87,7 @@ which is the specified upper limit.
 In the above example, the system monitors a few completed micro-batches to make a decision on
 whether to scale up or down. Longer windows require autoscaling to respond more quickly within the
 microbatch, rather than waiting for a few micro batches. For these cases, you can use an additional
-configuration `--auto-scaIe-within-microbatch` to `true`. You can add this to
+configuration `--auto-scale-within-microbatch` to `true`. You can add this to
 the AWS Glue job properties in AWS Glue Studio as shown below.
 
-![The screenshot shows job parameters for key and value. The Key field contains the value --auto-scaIe-within-microbatch and the Value field contains the value true.](images/glue-autoscaling-job-parameters-studio.png)
+![The screenshot shows job parameters for key and value. The Key field contains the value --auto-scale-within-microbatch and the Value field contains the value true.](images/glue-autoscaling-job-parameters-studio.png)
