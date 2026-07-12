@@ -100,14 +100,18 @@ elements:
     	- `codeguruprofiler`
     	- `codewhisperer`
     	- `comprehend`
+    	- `config`
     	- `connect`
     	- `connectamd`
     	- `connectoptimization`
     	- `contactlens`
     	- `connectdecision`
+    	- `connecthealth::operations`
+    	- `connecthealth::training`
     	- `datazone`
     	- `dms`
     	- `entityresolution`
+    	- `finopsagent`
     	- `frauddetector`
     	- `glue`
     	- `guardduty`

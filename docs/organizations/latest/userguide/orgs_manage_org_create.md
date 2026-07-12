@@ -19,6 +19,13 @@ following permissions:
 
 You can restrict this permission to only the service principal
 `organizations.amazonaws.com`.
+If you use the console to create an organization with all features, the
+console also applies default security controls. To allow the console to apply these
+controls, you also need the following permissions:
+
+- `organizations:EnablePolicyType`
+- `organizations:CreatePolicy`
+- `organizations:AttachPolicy`
 
 ###### To create an organization
 
@@ -58,7 +65,17 @@ must first complete email verification.
 
 If this account previously verified its email address, then it
 doesn't happen again when you use the account to create an
-organization.
+organization. 4. Organizations turns on service control policies (SCPs) and attaches
+an SCP to the root with the following controls:
+
+    * Prevents member accounts from leaving the
+     organization.
+    * Prevents member accounts from closing themselves.
+
+You can modify this SCP or attach it to different targets in
+your organization. We recommend keeping this SCP attached at
+the root to protect all member accounts. For more information, see
+[Default security controls in AWS Organizations](orgs_security_default_controls.md "orgs_security_default_controls.md").
 
 The following code examples show how to use `CreateOrganization`.
 

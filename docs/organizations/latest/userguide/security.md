@@ -27,9 +27,10 @@ _in_ the cloud:
 
 ###### Topics
 
-- [AWS PrivateLink for AWS Organizations](orgs_security_privatelink.md "orgs_security_privatelink.md")
-- [Identity and Access Management for AWS Organizations](orgs_security_iam.md "orgs_security_iam.md")
-- [Logging and monitoring in AWS Organizations](orgs_security_incident-response.md "orgs_security_incident-response.md")
 - [Compliance validation for AWS Organizations](orgs_security_compliance-validation.md "orgs_security_compliance-validation.md")
-- [Resilience in AWS Organizations](orgs_security_disaster-recovery-resiliency.md "orgs_security_disaster-recovery-resiliency.md")
+- [Default security controls in AWS Organizations](orgs_security_default_controls.md "orgs_security_default_controls.md")
+- [Identity and Access Management for AWS Organizations](orgs_security_iam.md "orgs_security_iam.md")
 - [Infrastructure security in AWS Organizations](orgs_security_infrastructure.md "orgs_security_infrastructure.md")
+- [Logging and monitoring in AWS Organizations](orgs_security_incident-response.md "orgs_security_incident-response.md")
+- [AWS PrivateLink for AWS Organizations](orgs_security_privatelink.md "orgs_security_privatelink.md")
+- [Resilience in AWS Organizations](orgs_security_disaster-recovery-resiliency.md "orgs_security_disaster-recovery-resiliency.md")

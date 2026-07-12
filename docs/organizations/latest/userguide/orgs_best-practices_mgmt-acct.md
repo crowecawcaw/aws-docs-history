@@ -10,6 +10,7 @@ those tasks that truly require it](../../../IAM/latest/UserGuide/root-user-best-
 - [Review and track who has access](#bp_mgmt-acct_review-access "#bp_mgmt-acct_review-access")
 - [Use the management account only for tasks that require the management account](#bp_mgmt-acct_use-mgmt "#bp_mgmt-acct_use-mgmt")
 - [Avoid deploying workloads to the organization’s management account](#bp_mgmt-acct_avoid-deploying "#bp_mgmt-acct_avoid-deploying")
+- [Prevent inadvertent account departures and closures with an SCP](#bp_mgmt-acct_default-controls "#bp_mgmt-acct_default-controls")
 - [Delegate responsibilities outside the management account for decentralization](#bp_mgmt-acct_ "#bp_mgmt-acct_")
 
 ## Limit who has access to the management account
@@ -47,6 +48,23 @@ Privileged operations can be performed within an organization’s management acc
 and SCPs do not apply to the management account. That's why you should limit the cloud
 resources and data contained in the management account to only those that must be
 managed in the management account.
+
+## Prevent inadvertent account departures and closures with an SCP
+
+Member accounts can leave your organization or close themselves, which can disrupt
+governance, billing, and security controls. We recommend that you attach an SCP at the
+root of your organization that denies the
+`organizations:LeaveOrganization` and
+`account:CloseAccount` actions to prevent member accounts from
+performing these actions without approval from the management account or a delegated
+administrator.
+
+AWS Organizations organizations created through the AWS Management Console after July 10, 2026
+automatically receive this SCP at the root. If you created your organization using the
+AWS Command Line Interface (AWS CLI), AWS SDKs, or CloudFormation, or if your organization
+was created before this date, you must create and attach this SCP manually. For the
+policy example and more information about these controls, see [Default security controls in AWS Organizations](orgs_security_default_controls.md "orgs_security_default_controls.md"). For instructions on configuring
+SCPs, see [Enabling a policy type](enable-policy-type.md "enable-policy-type.md"), [Creating organization policies with AWS Organizations](orgs_policies_create.md "orgs_policies_create.md"), and [Attaching organization policies with AWS Organizations](orgs_policies_attach.md "orgs_policies_attach.md").
 
 ## Delegate responsibilities outside the management account for decentralization
 

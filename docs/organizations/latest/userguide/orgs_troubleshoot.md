@@ -19,6 +19,7 @@ that you might encounter when working with AWS Organizations.
 - [I get an "Invitations are disabled" message when I try to invite an account to my organization.](#troubleshoot_general_error-changing-feature-set "#troubleshoot_general_error-changing-feature-set")
 - [Changes that I make aren't always immediately visible](#troubleshoot_general_eventual-consistency "#troubleshoot_general_eventual-consistency")
 - [I get a “Complete sign-up” message when I try to access an account that is already a part of an organization](#troubleshoot_general_complete-signup "#troubleshoot_general_complete-signup")
+- [I don't see default security controls after creating my organization](#troubleshoot_general_scp-not-enabled-on-org-creation "#troubleshoot_general_scp-not-enabled-on-org-creation")
 
 ### I get an "access denied" message when I make a request to AWS Organizations
 
@@ -132,3 +133,16 @@ the following resources:
   account’s billing details.
 - If the issue persists after 48 hours, you can open a support case to the
   Account and Billing support team. For more information, see [Creating a support case](../../../awssupport/latest/user/case-management.md#creating-a-support-case "../../../awssupport/latest/user/case-management.md#creating-a-support-case").
+
+### I don't see default security controls after creating my organization
+
+When you create an organization through the AWS Organizations console, AWS Organizations automatically
+enables service control policies (SCPs) and attaches a default SCP to the root. This
+default SCP denies the `organizations:LeaveOrganization` and
+`account:CloseAccount` actions. In rare cases, an intermittent error might
+prevent this automatic process from completing.
+
+If you don't see the default SCP attached to your organization root, for
+instructions on how to manually configure the recommended security controls, see
+[Default
+security controls in AWS Organizations](orgs_security_default_controls.md "orgs_security_default_controls.md").
