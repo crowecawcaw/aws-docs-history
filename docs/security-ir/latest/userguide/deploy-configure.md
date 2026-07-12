@@ -52,8 +52,8 @@ Before completing signup, the console displays the permissions that AWS Security
 - Access and review logs (such as VPC Flow Logs, CloudTrail management events, and S3 CloudTrail events) to expedite investigation and response.
 - Ingest alerts from Amazon GuardDuty and AWS Security Hub CSPM, apply suppression rules, and automatically escalate critical findings. This includes creating suppression filters and escalation cases in your accounts.
 
-Select the confirmation checkbox to acknowledge these permissions, then choose **Sign up**. For more information on how proactive response works, see [Proactive response](proactive-response.md "proactive-response.md").
+Select the confirmation checkbox to acknowledge these permissions, then choose **Sign up**. For more information on how proactive response works, see [Setup proactive response and alert triaging workflows](setup-monitoring-and-investigation-workflows.md "setup-monitoring-and-investigation-workflows.md").
 
 ## Configure containment actions
 
-After you complete signup, you can optionally configure containment actions to pre-authorize Security Incident Response Engineering to act on your behalf during active incidents. For details on supported containment actions and how to configure them, see [Containment actions](containment.md "containment.md").
+After you complete signup, you can optionally configure containment actions to pre-authorize Security Incident Response Engineering to act on your behalf during active incidents. For details on supported containment actions and how to configure them, see [Contain](contain.md "contain.md").

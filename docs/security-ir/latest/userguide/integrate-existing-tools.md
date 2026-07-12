@@ -53,7 +53,7 @@ AWS provides fully developed solutions for bi-directional integration with Jira,
 
 Integrating AWS Security Incident Response with your existing ITSM platform streamlines your security operations by centralizing incident tracking and response workflows. These pre-built solutions eliminate the need for custom development, allowing your security teams to maintain visibility across both AWS native and enterprise-wide incident management systems. By leveraging EventBridge for event-driven automation, updates flow seamlessly between platforms in real-time, helping make sure that security incidents are tracked consistently regardless of where they originate. This unified approach reduces context switching for security analysts, improves response times, and provides comprehensive audit trails across your entire incident response lifecycle.
 
-For deployment instructions, see [AWS sample solutions for Jira, Slack, and ServiceNow](https://github.com/aws-samples/ "https://github.com/aws-samples/").
+For deployment instructions, see [AWS sample solutions for Jira, Slack, and ServiceNow](https://github.com/aws-samples/sample-aws-security-incident-response-integrations/blob/main/README.md "https://github.com/aws-samples/sample-aws-security-incident-response-integrations/blob/main/README.md").
 
 ## SIEM and external tooling
 

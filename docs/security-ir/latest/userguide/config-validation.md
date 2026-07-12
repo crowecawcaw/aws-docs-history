@@ -118,7 +118,7 @@ accounts during onboarding.
 The `AWSServiceRoleForSecurityIncidentResponse_Triage` service-linked role
 must exist in your management account and all in-scope member accounts.
 
-To verify, run the folloiwng command in the management and in-scope member accounts:
+To verify, run the following command in the management and in-scope member accounts:
 
 ```
 aws iam get-role --role-name AWSServiceRoleForSecurityIncidentResponse_Triage
