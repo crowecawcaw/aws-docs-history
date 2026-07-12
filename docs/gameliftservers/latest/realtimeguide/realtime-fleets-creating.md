@@ -41,14 +41,14 @@ managed EC2 fleet** to start the fleet creation workflow.
       necessary permissions. For more information,
       including how to authorize other server-side
       applications (such as CloudWatch agent), see
-      [Communicate with other AWS resources from your fleets](../../../gameliftsevers/latest/developerguide/gamelift-sdk-server-resources.md "../../../gameliftsevers/latest/developerguide/gamelift-sdk-server-resources.md").
+      [Communicate with other AWS resources from your fleets](../developerguide/gamelift-sdk-server-resources.md "../developerguide/gamelift-sdk-server-resources.md").
       This setting can't be changed after you create the
       fleet.
 
    You must create the role before you create a fleet that uses
    it. In addition, to create a fleet with an instance role, your
    AWS user must have IAM `PassRole` permission. See
-   [IAM permission examples for Amazon GameLift Servers](../../../gameliftsevers/latest/developerguide/gamelift-iam-policy-examples.md "../../../gameliftsevers/latest/developerguide/gamelift-iam-policy-examples.md"). 2. Turn on the **Generate a TLS
+   [IAM permission examples for Amazon GameLift Servers](../developerguide/gamelift-iam-policy-examples.md "../developerguide/gamelift-iam-policy-examples.md"). 2. Turn on the **Generate a TLS
    certificate** option to set up
    authentication and encryption for your game. Game
    clients use this certificate to authenticate a game
@@ -105,7 +105,7 @@ type. Not all instance types are available in all locations.
    To learn more about supported locations, including
    how to use an AWS Region that isn't enabled by
    default, see
-   [Amazon GameLift Servers service locations](../../../gameliftsevers/latest/developerguide/gamelift-regions.md "../../../gameliftsevers/latest/developerguide/gamelift-regions.md") for managed EC2
+   [Amazon GameLift Servers service locations](../developerguide/gamelift-regions.md "../developerguide/gamelift-regions.md") for managed EC2
    hosting. Also review Amazon GameLift Servers [quotas](https://aws.amazon.com/general/latest/gr/gamelift.html#limits_gamelift "https://aws.amazon.com/general/latest/gr/gamelift.html#limits_gamelift") on locations per fleet. 2. Choose to use either **On-demand** or
    **Spot** instances for this fleet. For
    more information about fleet types, see
