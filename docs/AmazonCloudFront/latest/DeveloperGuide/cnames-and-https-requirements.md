@@ -131,9 +131,10 @@ For information about how to determine the size of an RSA key, see
 
 **For ECDSA certificates:**
 
-CloudFront supports 256-bit keys. To use an ECDSA certificate in ACM
-to require HTTPS between viewers and CloudFront, use the prime256v1
-elliptic curve.
+CloudFront supports 256-bit and 384-bit keys. To use an ECDSA
+certificate in ACM to require HTTPS between viewers and
+CloudFront, use the prime256v1 or secp384r1 elliptic
+curve.
 
 ## Supported types of certificates
 

@@ -41,7 +41,7 @@ Before you create a VPC origin for your CloudFront distribution, you must comple
 Your VPC must include the following:
 
 - **Internet gateway** – You need to add an internet gateway to the VPC that has your VPC origin resources. The internet gateway is required to denote that the VPC can receive traffic from the internet. The internet gateway is not used for routing traffic to origins inside the subnet, and you don't need to update the routing policies.
-- **Private subnet with at least one available IPv4 address** – CloudFront routes to your subnet by using a service-managed elastic network interface (ENI) that CloudFront creates after you define your VPC origin resource with CloudFront. You must have at least one available IPv4 address in your private subnet so that the ENI creation process can succeed. The IPv4 address can be private, and there is no additional cost for it. IPv6-only subnets are not supported.
+- **Private subnet with at least one available IPv4 address** – CloudFront routes to your subnet by using a service-managed elastic network interface (ENI) that CloudFront creates after you define your VPC origin resource with CloudFront. You must have at least one available IPv4 address in your private subnet so that the ENI creation process can succeed. The IPv4 address can be private, and there is no additional cost for it.
 
 ### Origin Resources
 
@@ -50,7 +50,6 @@ In the private subnet, launch an Application Load Balancer, a Network Load Balan
 **Origin restrictions:**
 
 - Gateway Load Balancers cannot be added as origins
-- Dual-stack Network Load Balancers cannot be added as origins
 - Network Load Balancers with TLS listeners cannot be added as origins
 - To be used as a VPC origin, a Network Load Balancer must have a security group attached to it
 

@@ -59,18 +59,24 @@ exports.handler = (event, context, callback) => {
     /*
      * Lambda at the Edge headers are array objects.
      *
-     * Client may send multiple Cookie headers, i.e.:
+     * When a client sends multiple headers with the same name, each
+     * header is a separate entry in the array. For example:
      * > GET /viewerRes/test HTTP/1.1
-     * > User-Agent: curl/7.18.1 (x86_64-unknown-linux-gnu) libcurl/7.18.1 OpenSSL/1.0.1u zlib/1.2.3
+     * > X-Custom: valueA
+     * > X-Custom: valueB
+     *
+     * You can access the first at headers["x-custom"][0].value
+     * and the second at headers["x-custom"][1].value.
+     *
+     * CloudFront concatenates multiple Cookie headers into a single entry, separated by "; ".
+     * For example:
      * > Cookie: First=1; Second=2
      * > Cookie: ClientCode=abc
-     * > Host: example.com
      *
-     * You can access the first Cookie header at headers["cookie"][0].value
-     * and the second at headers["cookie"][1].value.
+     * becomes headers["cookie"][0].value = "First=1; Second=2; ClientCode=abc"
+     * This behavior is consistent across HTTP/1.1, HTTP/2, and HTTP/3.
      *
-     * Header values are not parsed. In the example above,
-     * headers["cookie"][0].value is equal to "First=1; Second=2"
+     * Header values are not parsed.
      */
     let experimentUri;
     if (headers.cookie) {
@@ -122,18 +128,24 @@ def lambda_handler(event, context):
     '''
     Lambda at the Edge headers are array objects.
 
-    Client may send multiple cookie headers. For example:
+    When a client sends multiple headers with the same name, each
+    header is a separate entry in the array. For example:
     > GET /viewerRes/test HTTP/1.1
-    > User-Agent: curl/7.18.1 (x86_64-unknown-linux-gnu) libcurl/7.18.1 OpenSSL/1.0.1u zlib/1.2.3
+    > X-Custom: valueA
+    > X-Custom: valueB
+
+    You can access the first at headers["x-custom"][0].value
+    and the second at headers["x-custom"][1].value.
+
+    CloudFront concatenates multiple Cookie headers into a single entry, separated by "; ".
+    For example:
     > Cookie: First=1; Second=2
     > Cookie: ClientCode=abc
-    > Host: example.com
 
-    You can access the first Cookie header at headers["cookie"][0].value
-    and the second at headers["cookie"][1].value.
+    becomes headers["cookie"][0].value = "First=1; Second=2; ClientCode=abc"
+    This behavior is consistent across HTTP/1.1, HTTP/2, and HTTP/3.
 
-    Header values are not parsed. In the example above,
-    headers["cookie"][0].value is equal to "First=1; Second=2"
+    Header values are not parsed.
     '''
 
     experimentUri = ""

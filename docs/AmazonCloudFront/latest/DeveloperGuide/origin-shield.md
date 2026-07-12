@@ -9,7 +9,9 @@ CloudFront Origin Shield, you get the following benefits:
 Origin Shield can help improve the cache hit ratio of your CloudFront distribution
 because it provides an additional layer of caching in front of your origin. When
 you use Origin Shield, all requests from all of CloudFront’s caching layers to your
-origin go through Origin Shield, increasing the likelihood of a cache hit. CloudFront
+origin go through Origin Shield, increasing the likelihood of a cache hit.
+Requests that are made in the same region as your origin will bypass Origin
+Shield. CloudFront
 can retrieve each object with a single origin request from Origin Shield to your
 origin, and all other layers of the CloudFront cache (edge locations and [regional edge caches](HowCloudFrontWorks.md#CloudFrontRegionaledgecaches "HowCloudFrontWorks.md#CloudFrontRegionaledgecaches")) can
 retrieve the object from Origin Shield.
@@ -356,8 +358,7 @@ For non-dynamic requests with the HTTP methods `GET`, `HEAD`,
 and `OPTIONS`, Origin Shield is sometimes an incremental layer. When you
 enable Origin Shield, you choose the AWS Region for Origin Shield. For requests that
 naturally go to the [regional edge
-cache](HowCloudFrontWorks.md#CloudFrontRegionaledgecaches "HowCloudFrontWorks.md#CloudFrontRegionaledgecaches") in the same Region as Origin Shield, Origin Shield is not an
-incremental layer. You don't accrue Origin Shield charges for these requests. For
+cache](HowCloudFrontWorks.md#CloudFrontRegionaledgecaches "HowCloudFrontWorks.md#CloudFrontRegionaledgecaches") in the same Region as Origin Shield, Origin Shield will be skipped. You don't accrue Origin Shield charges for these requests. For
 requests that go to a regional edge cache in a different Region from Origin Shield, and
 then go to Origin Shield, Origin Shield is an incremental layer. You do accrue Origin
 Shield charges for these requests.
