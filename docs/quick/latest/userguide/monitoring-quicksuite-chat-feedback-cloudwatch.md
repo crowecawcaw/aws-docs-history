@@ -11,6 +11,7 @@ The following are examples of tasks you can complete with logs from Amazon Quick
 - Identify and Analyze cases where the chat returned no answer or the user query was blocked
 - Monitor agent and research hours usage
 - Track index storage usage across knowledge bases and Spaces
+- Track knowledge base sync operations and identify document crawl or indexing failures
 
 ###### Important
 
@@ -83,7 +84,7 @@ You must also allow the `delivery.logs.amazonaws.com` service principal in your 
 
 For example IAM policies with all the required permissions for your specific logging destination, see [Enable logging from AWS services](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") in the _Amazon CloudWatch Logs User Guide_.
 
-Create a delivery source with the [PutDeliverySource](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md") CloudWatch Logs API operation. Give the delivery source a name and for `resourceArn`, specify the ARN of your application. For `logType`, specify `CHAT_LOGS`, `AGENT_HOURS_LOGS`, `FEEDBACK_LOGS`, or `INDEX_USAGE_LOGS`.
+Create a delivery source with the [PutDeliverySource](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md") CloudWatch Logs API operation. Give the delivery source a name and for `resourceArn`, specify the ARN of your application. For `logType`, specify `CHAT_LOGS`, `AGENT_HOURS_LOGS`, `FEEDBACK_LOGS`, `INDEX_USAGE_LOGS`, or `KB_FILE_SYNC_LOGS`.
 
 ```
 {
@@ -113,6 +114,14 @@ Create a delivery source with the [PutDeliverySource](../../../AmazonCloudWatchL
 {
     "logType": "INDEX_USAGE_LOGS",
     "name": "my-quick-index-usage-delivery-source",
+    "resourceArn": "arn:aws:quicksight:your-region:your-account-id:account/account-id"
+}
+```
+
+```
+{
+    "logType": "KB_FILE_SYNC_LOGS",
+    "name": "my-quick-kb-file-sync-delivery-source",
     "resourceArn": "arn:aws:quicksight:your-region:your-account-id:account/account-id"
 }
 ```
@@ -294,6 +303,91 @@ the most recent event per `source_arn`.
 For information about building dashboards and running queries
 against index usage logs, see
 [Monitor index storage usage](index-usage-monitoring.md "index-usage-monitoring.md").
+
+## Knowledge base file sync logs
+
+Knowledge base file sync logs capture per-document sync status
+events. One log record is emitted per document per sync run.
+
+- `document_id` – Original document identifier
+  such as a URL or file path.
+- `document_title` – Document title.
+- `document_status` – Terminal document status.
+  Values: `ADDED`, `MODIFIED`,
+  `UNMODIFIED`, `DELETED`,
+  `SKIPPED`, `FAILED`.
+- `sync_result` – High-level availability
+  result. Values: `AVAILABLE` or
+  `UNAVAILABLE`.
+- `sync_id` – Sync job execution ID.
+- `data_source_id` – Identifier of the data
+  source that the knowledge base is connected to.
+- `source_uri` – Source URL of the
+  document.
+- `error_message` – Error description when
+  status is `FAILED` or
+  `SKIPPED`.
+- `error_mitigation` – Actionable guidance for
+  resolving the error.
+- `error_type` – Error code when status is
+  `FAILED` or `SKIPPED`.
+- `knowledge_base_id` – UUID of the knowledge
+  base that produced the log.
+
+The following table describes the `document_status`
+values and their corresponding `sync_result`.
+
+| document\_status | sync\_result  | Meaning                                                             |
+| ---------------- | ------------- | ------------------------------------------------------------------- |
+| `ADDED`          | `AVAILABLE`   | New document successfully indexed                                   |
+| `MODIFIED`       | `AVAILABLE`   | Existing document re-indexed with changes                           |
+| `UNMODIFIED`     | `AVAILABLE`   | Document content unchanged, no re-indexing needed                   |
+| `DELETED`        | `UNAVAILABLE` | Document removed from index                                         |
+| `SKIPPED`        | `UNAVAILABLE` | Document filtered during crawl, such as by robots.txt or size limit |
+| `FAILED`         | `UNAVAILABLE` | Document failed during crawl or indexing                            |
+
+The following example shows a successful knowledge base file
+sync log where a document was added to the knowledge base:
+
+```
+{
+    "resource_arn": "arn:aws:quicksight:us-west-2:111122223333:account/111122223333",
+    "event_timestamp": 1781296858575,
+    "log_type": "KB_FILE_SYNC_LOGS",
+    "account_id": "111122223333",
+    "document_id": "https://docs.aws.amazon.com/quick/latest/userguide/monitoring-quicksuite-chat-feedback-cloudwatch.html",
+    "document_title": "Monitoring Amazon QuickSight usage using CloudWatch Logs",
+    "document_status": "ADDED",
+    "sync_result": "AVAILABLE",
+    "sync_id": "86a70a9a-cad9-4fc6-8881-e3909c8954d2",
+    "data_source_id": "56225744-18bc-4373-a91f-861dd1c3d566",
+    "source_uri": "https://docs.aws.amazon.com/quick/latest/userguide/monitoring-quicksuite-chat-feedback-cloudwatch.html",
+    "knowledge_base_id": "b0bd0a47-8095-439d-9dff-c64bd5fe3fa3"
+}
+```
+
+The following example shows a skipped document log where
+crawling was skipped due to a validation error:
+
+```
+{
+    "resource_arn": "arn:aws:quicksight:us-west-2:111122223333:account/111122223333",
+    "event_timestamp": 1781296492951,
+    "log_type": "KB_FILE_SYNC_LOGS",
+    "account_id": "111122223333",
+    "document_id": "https://docs.aws.amazon.com/quick/latest/userguide/blocked-page.html",
+    "document_title": "Blocked Page",
+    "document_status": "SKIPPED",
+    "sync_result": "UNAVAILABLE",
+    "sync_id": "86a70a9a-cad9-4fc6-8881-e3909c8954d2",
+    "data_source_id": "56225744-18bc-4373-a91f-861dd1c3d566",
+    "source_uri": "https://docs.aws.amazon.com/quick/latest/userguide/blocked-page.html",
+    "error_message": "This URL wasn't crawled because crawling isn't allowed by its robots.txt file.",
+    "error_mitigation": "Contact the website administrator for assistance.",
+    "error_type": "VALIDATION_ERROR",
+    "knowledge_base_id": "b0bd0a47-8095-439d-9dff-c64bd5fe3fa3"
+}
+```
 
 ###### Note
 

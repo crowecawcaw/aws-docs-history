@@ -7,6 +7,16 @@ When using unsupported data sources, Amazon Quick Sight automatically defaults t
 features, select **Switch to legacy experience** in the top right corner of the data preparation page.
 Rules Datasets created in the legacy experience remain compatible with both legacy and new experience datasets.
 
+###### Note
+
+Starting May 2026, the following features are now supported in the new data preparation experience:
+
+- Incremental refresh
+- Column folders
+- Column descriptions
+- Geospatial data type
+- SPICE parent dataset selection from legacy experience (you can now use a legacy SPICE dataset as a parent for a new experience dataset). Direct Query parent datasets from the legacy experience are not yet supported.
+
 ## Unsupported data sources
 
 The following data sources are currently available only in the legacy experience.
@@ -21,12 +31,11 @@ The following data sources are currently available only in the legacy experience
 
 The following features are currently available only in the legacy experience.
 
-| Feature Category                                | Unsupported features                                                                                                                                                                                                                                                                                   |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Dataset Management                              | [Dataset parameters](dataset-parameters.md "dataset-parameters.md"),<br>[Column folders](organizing-fields-folder.md "organizing-fields-folder.md"),<br>[Column descriptions](describing-data.md "describing-data.md")                                                                                 |
-| Data Types                                      | [Geospatial](geospatial-data-prep.md "geospatial-data-prep.md"),<br>[ELF/CLF formats](supported-data-sources.md#file-data-sources "supported-data-sources.md#file-data-sources"),<br>[Zip/GZip files in S3](supported-data-sources.md#file-data-sources "supported-data-sources.md#file-data-sources") |
-| Configuration Options                           | ["Start from row" in file upload settings](choosing-file-upload-settings.md "choosing-file-upload-settings.md"),<br>JODA date format                                                                                                                                                                   |
-| Parent dataset selection from legacy experience | Parent and child datasets must exist in the same experience environment. You cannot use a<br>legacy experience dataset as a parent for a new experience dataset.                                                                                                                                       |
+| Feature Category      | Unsupported features                                                                                                                                                                                                               |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Dataset Management    | [Dataset parameters](dataset-parameters.md "dataset-parameters.md")                                                                                                                                                                |
+| Data Types            | [ELF/CLF formats](supported-data-sources.md#file-data-sources "supported-data-sources.md#file-data-sources"),<br>[Zip/GZip files in S3](supported-data-sources.md#file-data-sources "supported-data-sources.md#file-data-sources") |
+| Configuration Options | ["Start from row" in file upload settings](choosing-file-upload-settings.md "choosing-file-upload-settings.md"),<br>JODA date format                                                                                               |
 
 ## Future development
 

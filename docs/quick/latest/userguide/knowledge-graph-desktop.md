@@ -220,10 +220,3 @@ interactions with Quick.
 You can also interact with the knowledge graph directly in chat by asking
 Quick to add entities, explore relationships, or search for
 specific information.
-
-###### Note
-
-The knowledge graph is stored locally on your machine in the
-`~/.quickwork/` directory. Your knowledge graph data is backed
-up to your AWS account for cross-device continuity, but is never used
-for AI model training.

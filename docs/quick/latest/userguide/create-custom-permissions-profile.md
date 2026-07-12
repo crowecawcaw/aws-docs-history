@@ -16,6 +16,12 @@ level permissions for the specified user. _User level custom permissions_
 and _role level custom permissions_ override _account level
 custom permissions_.
 
+###### Tip
+
+For an in-depth explanation of using custom permissions to establish enterprise
+governance in Amazon Quick, see [Establishing enterprise governance in Amazon Quick using custom
+permissions](https://aws.amazon.com/blogs/business-intelligence/establishing-enterprise-governance-in-amazon-quick-using-custom-permissions/ "https://aws.amazon.com/blogs/business-intelligence/establishing-enterprise-governance-in-amazon-quick-using-custom-permissions/") on the AWS Business Intelligence Blog.
+
 The following limitations apply to custom permissions.
 
 - You can't grant permissions that are above a user's default role. For

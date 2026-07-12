@@ -64,6 +64,30 @@ If connections to Google services (Gmail, Google Calendar, Google Drive, Google 
 2. You have granted the required OAuth permissions during the sign-in flow.
 3. You are signing in with the correct Google account.
 
+Sign-in or responses fail on a corporate network or VPN
+
+The Amazon Quick desktop application might fail to sign in or load
+responses only when you are connected to a corporate network, VPN, or
+secure web gateway, but work normally when you disconnect. When that
+happens, your organization's network is likely blocking or inspecting the
+connection. Complete the following steps with your network
+administrator.
+
+1. Confirm that the required Amazon Quick domains are
+   reachable from your network. For the list of domains to add to your
+   allow list, see [Network access and required domains](desktop-security.md#desktop-network-access "desktop-security.md#desktop-network-access").
+2. If your organization inspects encrypted traffic (TLS or
+   SSL inspection), your operating system's certificate store must trust
+   the inspection certificate authority, or the Amazon Quick domains must
+   be excluded from inspection. Your network administrator can confirm
+   whether inspection is active and configure either
+   option.
+
+If the issue persists after your network administrator confirms the
+domains are reachable and resolves any inspection issues, export your
+application logs (see [Exporting diagnostics](#desktop-ts-diagnostics "#desktop-ts-diagnostics")) and contact AWS
+Support.
+
 ## Performance issues
 
 Slow responses
@@ -204,6 +228,17 @@ If you need to share diagnostic information for troubleshooting, you can export 
 2. Scroll to the **Troubleshooting** section.
 3. Select a time range from the dropdown (for example, **Last 2 hours**).
 4. Choose **Export Diagnostics** to save diagnostic logs to your desktop.
+
+If you cannot open the application to export diagnostics, you can find the
+log files directly on your machine at the following locations.
+
+- **macOS** –
+  `~/Library/Application Support/QuickWork/` for the
+  current log, and `~/Library/Logs/QuickWork/` for
+  dated logs.
+- **Windows** –
+  `%APPDATA%\QuickWork\` for the current log, and
+  `%APPDATA%\QuickWork\logs\` for dated logs.
 
 ## Resetting the application
 

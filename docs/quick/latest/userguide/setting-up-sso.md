@@ -35,7 +35,10 @@ In the regions listed below, Amazon Quick accounts can only use [IAM Identity Ce
 - `ap-southeast-3` Asia Pacific (Jakarta)
 - `ap-southeast-5` Asia Pacific (Malaysia)
 - `eu-south-1` Europe (Milan)
+- `eu-south-2` Europe (Spain)
 - `eu-central-2` Europe (Zurich)
+- `il-central-1` Israel (Tel Aviv)
+- `me-central-1` Middle East (UAE)
   IAM Identity Center helps you securely create or connect your workforce identities and manage their
   access across AWS accounts and applications.
 
@@ -84,28 +87,50 @@ in Amazon Quick based on the access type that you choose.
 To learn more how to sign up for an Amazon Quick account with IAM Identity Center, see [Signing up for an
 Amazon Quick subscription](../../../quicksight/latest/user/signing-up.md "../../../quicksight/latest/user/signing-up.md").
 
-| Admin action               | IAM permissions                 | Amazon Quick admin role permissions |
-| -------------------------- | ------------------------------- | ----------------------------------- |
-| **Manage assets**          | Yes                             | No                                  |
-| **Security & permissions** | Yes                             | No                                  |
-| **Manage VPC connections** | Yes                             | No                                  |
-| **KMS keys**               | Yes                             | No                                  |
-| **Account settings**       | Yes                             | No                                  |
-| **Account customization**  | No                              | Yes                                 |
-| **Manage users**           | Yes (IAM Identity Center users) | Yes (Amazon Quick and IAM users)    |
-| **Your subscriptions**     | No                              | Yes                                 |
-| **Mobile settings**        | No                              | Yes                                 |
-| **Domains and embedding**  | No                              | Yes                                 |
-| **SPICE capacity**         | No                              | Yes                                 |
+The following table lists admin actions and whether they require IAM
+permissions.
 
-The Amazon Quick mobile app is not supported with Amazon Quick accounts that are
-integrated with IAM Identity Center.
+| Admin action                         | IAM permissions required |
+| ------------------------------------ | ------------------------ |
+| **Account settings**                 | Yes                      |
+| **Manage assets**                    | Yes                      |
+| **Amazon Q**                         | Yes                      |
+| **Manage subscriptions**             | No                       |
+| **SPICE capacity**                   | No                       |
+| **Index capacity**                   | Yes                      |
+| **Manage users (view)**              | No                       |
+| **Manage users > Role groups**       | Yes                      |
+| **Manage domains**                   | No                       |
+| **Mobile settings**                  | No                       |
+| **Manage IP/VPC restrictions**       | Yes                      |
+| **Manage VPC connections**           | Yes                      |
+| **Manage OAuth client applications** | Yes                      |
+| **KMS keys**                         | Yes                      |
+| **AWS resources**                    | Yes                      |
+| **Default access policy**            | Yes                      |
+| **IAM policy assignments**           | Yes                      |
+| **AWS actions**                      | Yes                      |
+| **Extension access**                 | Yes                      |
+| **Custom permissions**               | Yes                      |
+| **Configure SageMaker**              | Yes                      |
+| **Brand customization**              | Yes                      |
+| **Agent customization**              | Yes                      |
+| **Email customization**              | Yes                      |
+| **Quick Usage Metrics**              | Yes                      |
+
+If you have the Amazon Quick admin role, you can perform actions that do not
+require IAM permissions. To perform actions that require IAM permissions, sign in to
+the AWS Management Console as an IAM principal with the appropriate
+`quicksight:*` permissions. You can also perform some admin actions
+programmatically through the Amazon Quick API. For a list of available API operations,
+see the [Amazon Quick API Reference](../../../quicksight/latest/APIReference/Welcome.md "../../../quicksight/latest/APIReference/Welcome.md").
 
 ### Considerations
 
-The following actions permanently remove the ability for Amazon Quick users to
-sign into Amazon Quick. Amazon Quick does not recommend that Amazon Quick users
-perform these actions.
+###### Irreversible actions
+
+The following actions permanently prevent all users from signing in to
+your Amazon Quick account. You cannot undo these actions.
 
 - Disabling or deleting the Amazon Quick application in the IAM Identity Center console.
   If you want to delete your Amazon Quick account, see [Closing your Amazon Quick account](../../../quicksight/latest/user/closing-account.md "../../../quicksight/latest/user/closing-account.md").

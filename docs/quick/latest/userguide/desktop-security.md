@@ -9,6 +9,11 @@ Amazon Quick on desktop handles security, privacy, and data storage.
 Your data is never used for AI model training. AWS does not use your
 conversations, files, or personal context to train or improve AI models.
 
+###### Note
+
+To control which Amazon Quick features your users can access after they sign in,
+configure custom permissions. For more information, see [Creating a custom permissions profile in Amazon Quick](create-custom-permissions-profile.md "create-custom-permissions-profile.md").
+
 ## How data is handled
 
 The Amazon Quick desktop application processes your requests using AI models
@@ -77,6 +82,25 @@ third-party service connections.
 - **Minimal permissions** –
   Quick requests only the permissions needed to provide its
   features for each connected service.
+
+## Network access and required domains
+
+The Amazon Quick desktop application makes outbound connections for discovery and
+data plane operations, remote configuration, application updates, and identity
+provider authentication. In restricted network environments, add the following
+domains to your allow list so that the application can operate.
+
+| Category             | Domains                                                                            | Purpose                                                       |
+| -------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Amazon Quick Service | `*.quicksight.aws.amazon.com`,<br>`*.aws.dev`                                      | Discovery, data plane (inference, search, Quick<br>resources) |
+| Remote configuration | `*.cloudfront.net`                                                                 | Feature flags, admin controls                                 |
+| Auto-update          | `*.cloudfront.net`                                                                 | Application updates                                           |
+| Telemetry            | `cognito-identity.*.amazonaws.com`                                                 | Usage and operational telemetry                               |
+| Identity provider    | Customer-specific (for example,<br>`login.microsoftonline.com` or<br>`*.okta.com`) | OIDC authentication                                           |
+
+If the application cannot sign in, load content, or update in a restricted
+environment, verify that these domains are reachable, and check your firewall and
+VPN settings, which might block the required connections.
 
 ## Privacy controls
 

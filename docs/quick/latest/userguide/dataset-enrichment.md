@@ -221,6 +221,73 @@ After you add semantic context to a dataset, users can reference the dataset
 in Q&A and query it through chat. The AI agent consumes the added metadata
 to deliver more accurate responses.
 
+## Dataset Q&A for Professional subscribers
+
+Dataset Q&A enables users to ask natural language questions directly
+against a dataset and receive AI-generated answers grounded in the underlying
+data. Previously, Dataset Q&A was available only to Author personas
+(Enterprise license holders) who could access datasets to build dashboards
+and analyses.
+
+Starting June 1, 2026, Dataset View permissions are available for
+Professional subscribers (Reader Pro). Professional subscribers can now see shared
+datasets, view the schema (dataset name, description, column names, and column
+descriptions), and use Chat to ask natural language questions against
+the data.
+
+###### Note
+
+This change does not grant Professional subscribers any authoring
+capabilities. Professional subscribers cannot create analyses, edit
+datasets, or modify schema. Access is strictly View and Q&A for
+shared datasets.
+
+### Access for already shared datasets
+
+Professional subscribers automatically gain Dataset View access if they
+meet either of the following criteria:
+
+- They are a member of an Amazon Quick Sight group where a dataset has been
+  shared.
+- They are a member of a folder that contains shared
+  datasets.
+
+No action is required from authors or admins – existing sharing
+configurations automatically extend Dataset View access to Professional
+subscribers who are already part of these groups or folders.
+
+### To share datasets with Professional subscribers
+
+To give Professional subscribers Dataset View access to additional
+datasets, use one of the following methods:
+
+- Add the Professional subscriber to an Amazon Quick Sight group, then share the
+  dataset with that group. The Professional subscriber automatically
+  receives View access to the dataset.
+- Place the dataset in a folder where the Professional subscriber
+  has membership. The Professional subscriber automatically inherits
+  View access through the folder.
+
+In both cases, Professional subscribers receive View-only access. They
+can see the dataset schema and use Dataset Q&A but cannot edit or
+create analyses from the dataset.
+
+### What Professional subscribers can do with shared datasets
+
+The following list summarizes the permissions that Professional
+subscribers have for shared datasets.
+
+- **Can** – View the Dataset
+  Details page (see schema including dataset name, description,
+  column names, and column descriptions).
+- **Can** – Chat against the
+  dataset using Q&A (ask natural language questions and receive
+  AI-generated answers).
+- **Cannot** – Create analyses
+  from the dataset.
+- **Cannot** – Edit datasets
+  (no transformations, no schema changes).
+
 ## Summary
 
 Dataset Enrichment adds semantic metadata to datasets for AI-powered analysis.

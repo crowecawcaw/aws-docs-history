@@ -109,11 +109,13 @@ see [Setting up Amazon Quick on desktop for enterprise deployments](desktop-ente
 ###### To sign in with an Enterprise account
 
 1. Open the Amazon Quick desktop application.
-2. On the sign-in screen, choose **Enterprise
-   login**.
-3. You are redirected to your organization's identity provider. Enter your
+2. On the sign-in screen, choose **Continue with
+   SSO**.
+3. (Optional) Select your AWS Region from the list, or choose **Dynamic** to have the application detect your
+   Region automatically.
+4. You are redirected to your organization's identity provider. Enter your
    corporate credentials.
-4. After authentication succeeds, the application loads the Home
+5. After authentication succeeds, the application loads the Home
    screen.
 
 After you sign in, you can verify your authentication status in **Settings → Capabilities → Connectors**. The **Authentication** section displays your signed-in account and
