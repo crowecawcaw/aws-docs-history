@@ -18,6 +18,7 @@ services.
 ###### Topics
 
 - [AWSResilienceHubV2AssessmentExecutionPolicy](#next-gen-security_iam_aws-v2-assessment-policy "#next-gen-security_iam_aws-v2-assessment-policy")
+- [AWSResilienceHubServiceRolePolicy](#next-gen-security-iam-awsmanpol-slr "#next-gen-security-iam-awsmanpol-slr")
 - [Next generation Resilience Hub updates to AWS managed policies](#next-gen-security-iam-awsmanpol-updates "#next-gen-security-iam-awsmanpol-updates")
 
 ## AWSResilienceHubV2AssessmentExecutionPolicy
@@ -379,13 +380,66 @@ AWS services while running assessments.
 }
 ```
 
+## AWSResilienceHubServiceRolePolicy
+
+The `AWSResilienceHubServiceRolePolicy` is a service-linked role (SLR) policy.
+You cannot attach this policy to your IAM entities. Next generation Resilience Hub automatically creates this
+service-linked role when you enable AWS Organizations support for multi-account resilience
+management. This role trusts the `resiliencehub.amazonaws.com` service principal.
+
+For more information about service-linked roles for AWS Resilience Hub, see [Using service-linked
+roles for AWS Resilience Hub](using-service-linked-roles.md "using-service-linked-roles.md").
+
+### Permission details
+
+With this policy, Next generation Resilience Hub can access read-only AWS Organizations information
+for multi-account resilience management.
+
+This policy includes the following permissions:
+
+- AWS Organizations – Provides `Describe` and `List`
+  permissions for Organizations resources. These permissions discover organization structure,
+  identify delegated administrators, and verify trusted access status.
+
+The following IAM policy provides required permissions for Next generation Resilience Hub to access AWS
+Organizations resources for multi-account resilience management.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AWSResilienceHubOrganizationsReadStatement",
+            "Effect": "Allow",
+            "Action": [
+                "organizations:DescribeAccount",
+                "organizations:DescribeOrganization",
+                "organizations:DescribeOrganizationalUnit",
+                "organizations:ListAWSServiceAccessForOrganization",
+                "organizations:ListAccounts",
+                "organizations:ListAccountsForParent",
+                "organizations:ListChildren",
+                "organizations:ListDelegatedAdministrators",
+                "organizations:ListDelegatedServicesForAccount",
+                "organizations:ListOrganizationalUnitsForParent",
+                "organizations:ListParents",
+                "organizations:ListRoots",
+                "organizations:ListTagsForResource"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
 ## Next generation Resilience Hub updates to AWS managed policies
 
 View details about updates to AWS managed policies for Next generation Resilience Hub since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to the
 RSS feed on the Next generation Resilience Hub Document history page.
 
-| Change                                                                                                                                                        | Description                                                                                                                                                            | Date          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| [AWSResilienceHubV2AssessmentExecutionPolicy](#next-gen-security_iam_aws-v2-assessment-policy "#next-gen-security_iam_aws-v2-assessment-policy") – New policy | Next generation Resilience Hub added a new policy to grant read-only access permissions to other AWS<br>services for resilience discovery, assessment, and management. | June 18, 2026 |
-| Next generation Resilience Hub started tracking changes                                                                                                       | Next generation Resilience Hub started tracking changes for its AWS managed policies.                                                                                  | June 18, 2026 |
+| Change                                                                                                                                                                                                                 | Description                                                                                                                                                                                                                                                                                                               | Date          |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| [AWSResilienceHubServiceRolePolicy](next-gen-security-iam-awsmanpol.md#next-gen-security-iam-awsmanpol-slr "next-gen-security-iam-awsmanpol.md#next-gen-security-iam-awsmanpol-slr") – Update to an existing<br>policy | Next generation Resilience Hub added read-only AWS Organizations permissions to the<br>`AWSResilienceHubServiceRolePolicy`. These permissions support multi-account<br>resilience management, including discovering organization structure, identifying delegated<br>administrators, and verifying trusted access status. | July 7, 2026  |
+| [AWSResilienceHubV2AssessmentExecutionPolicy](#next-gen-security_iam_aws-v2-assessment-policy "#next-gen-security_iam_aws-v2-assessment-policy") – New policy                                                          | Next generation Resilience Hub added a new policy to grant read-only access permissions to other AWS<br>services for resilience discovery, assessment, and management.                                                                                                                                                    | June 18, 2026 |
+| Next generation Resilience Hub started tracking changes                                                                                                                                                                | Next generation Resilience Hub started tracking changes for its AWS managed policies.                                                                                                                                                                                                                                     | June 18, 2026 |

@@ -11,6 +11,7 @@ infrequently accessed services that could cause failures during incidents.
 - [How dependency discovery works](next-gen-how-discovery-works.md "next-gen-how-discovery-works.md")
 - [Prerequisites for dependency discovery](next-gen-discovery-prerequisites.md "next-gen-discovery-prerequisites.md")
 - [Enabling dependency discovery for a service](next-gen-enabling-discovery.md "next-gen-enabling-discovery.md")
+- [Monitoring discovery status](next-gen-discovery-status.md "next-gen-discovery-status.md")
 - [Viewing discovered dependencies](next-gen-viewing-dependencies.md "next-gen-viewing-dependencies.md")
 - [Classifying dependencies as hard or soft](next-gen-classifying-dependencies.md "next-gen-classifying-dependencies.md")
 - [Coverage and known limitations](next-gen-discovery-limitations.md "next-gen-discovery-limitations.md")
