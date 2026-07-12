@@ -8,3 +8,4 @@ For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.
 ###### Change Type Items and Operations in the Managed Firewall Subcategory
 
 - [Network Firewall | Create Firewall Policy (Managed Automation)](management-managed-network-firewall-create-firewall-policy-managed-automation.md "management-managed-network-firewall-create-firewall-policy-managed-automation.md")
+- [Network Firewall | Manage Firewall Rules (Managed Automation)](management-managed-network-firewall-manage-firewall-rules-managed-automation.md "management-managed-network-firewall-manage-firewall-rules-managed-automation.md")

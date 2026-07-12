@@ -31476,6 +31476,105 @@ Change type schemas specify the execution input parameters for a change type.
 }
 ```
 
+## Schema for Change Type ct-2lo1hs6ks7chl
+
+###### Classifications:
+
+- [Management | Managed firewall | Network firewall | Manage firewall rules (managed automation)](management-managed-network-firewall-manage-firewall-rules-managed-automation.md "management-managed-network-firewall-manage-firewall-rules-managed-automation.md")
+
+```
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "Manage Network Firewall Rules",
+  "description": "Manage AWS Network Firewall egress rules by converting simple parameters (source IP, destination, port, protocol) into security policies, generating Suricata rules, and updating Network Firewall rule groups.",
+  "type": "object",
+  "properties": {
+    "SourceIP": {
+      "description": "Source IP address or CIDR block for the rule.",
+      "type": "string",
+      "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2]))?$"
+    },
+    "Destination": {
+      "description": "Destination IP address, CIDR block, or domain name.",
+      "type": "string",
+      "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2]))?$|^([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,}$",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "Protocol": {
+      "description": "Network protocol for the rule.",
+      "type": "string",
+      "enum": [
+        "TCP",
+        "UDP",
+        "ICMP",
+        "IP"
+      ]
+    },
+    "Port": {
+      "description": "Destination port number (1-65535) for TCP and UDP protocols.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 65535
+    },
+    "Action": {
+      "description": "Action to take for matching traffic.",
+      "type": "string",
+      "enum": [
+        "Allow",
+        "Deny"
+      ]
+    },
+    "RuleName": {
+      "description": "Name of the Network Firewall stateful rule group to update.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9-_]+$"
+    },
+    "Operation": {
+      "description": "The operation to perform on the Network Firewall rule.",
+      "type": "string",
+      "enum": [
+        "Create",
+        "Read",
+        "Update",
+        "Delete"
+      ],
+      "default": "Create"
+    },
+    "DryRun": {
+      "description": "If true, validate the request without making changes. If not specified, defaults to false.",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "metadata": {
+    "ui:order": [
+      "Operation",
+      "SourceIP",
+      "Destination",
+      "Protocol",
+      "Port",
+      "Action",
+      "RuleName",
+      "DryRun"
+    ]
+  },
+  "additionalProperties": false,
+  "required": [
+    "SourceIP",
+    "Destination",
+    "Protocol",
+    "Port",
+    "Action",
+    "RuleName",
+    "Operation"
+  ]
+}
+
+```
+
 ## Schema for Change Type ct-2lt0jeydeumpe
 
 ###### Classifications:

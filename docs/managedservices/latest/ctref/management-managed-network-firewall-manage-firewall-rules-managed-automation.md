@@ -3,30 +3,30 @@ will end support for AMS Advanced. After June 30, 2027, you will
 no longer be able to access the AMS Advanced console or AMS Advanced resources.
 For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
 
-# Stack from CloudFormation Template | Remediate Drift (Managed Automation)
+# Network Firewall | Manage Firewall Rules (Managed Automation)
 
-Remediate the drift (out-of-band changes) in a stack, bringing the stack in sync and enabling you to perform future updates using the available Update CTs. Drift remediation can be performed on EC2 resource types.
+Manages AWS Network Firewall egress rules by converting simple parameters (source IP, destination, port, protocol) into security policies, generating Suricata rules, and updating Network Firewall rule groups.
 
-**Full classification:** Management | Custom Stack | Stack From CloudFormation Template | Remediate drift (managed automation)
+**Full classification:** Management | Managed firewall | Network firewall | Manage firewall rules (managed automation)
 
 ## Change Type Details
 
 |                             |                           |
 | --------------------------- | ------------------------- |
-| Change type ID              | ct-34sxfo53yuzah          |
+| Change type ID              | ct-2lo1hs6ks7chl          |
 | Current version             | 1.0                       |
-| Expected execution duration | 240 minutes               |
+| Expected execution duration | 60 minutes                |
 | AWS approval                | Required                  |
 | Customer approval           | Not required if submitter |
 | Execution mode              | Manual                    |
 
 ## Additional Information
 
-### Remediate stack drift (Managed Automation)
+### Manage network firewall rules (managed automation)
 
 Screenshot of this change type in the AMS console:
 
-![Remediate Stack Drift interface showing ID, execution mode, version, and description details.](/images/managedservices/latest/ctref/images/guiStackRemediateDriftRrCT.png)
+![Manage Network Firewall Rules change type showing ID, execution mode, version, and classification.](images/guiManageNetworkFirewallRulesCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -73,82 +73,80 @@ RFC parameters part of the request (not the execution parameters). For a list of
 
 _INLINE CREATE_:
 
-Issue the create RFC command with execution parameters provided inline (escape quotation marks when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
+Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-34sxfo53yuzah" --change-type-version "1.0" --title "`Remediate stack drift`" --execution-parameters '{"StackName":"`stack-a1b2c3d4e5f67890e`","DryRun":`false`}'
+aws amscm create-rfc --change-type-id "ct-2lo1hs6ks7chl" --change-type-version "`1.0`" --title "`Manage Network Firewall Rules`" --execution-parameters "{\"SourceIP\": \"`192.168.1.0/24`\", \"Destination\": \"`example.com`\", \"Protocol\": \"`TCP`\", \"Port\": `443`, \"Action\": \"`Allow`\", \"RuleName\": \"`allow-https-traffic`\", \"Operation\": \"`Create`\"}"
 ```
 
 _TEMPLATE CREATE_:
 
-1. Output the execution parameters JSON schema for this change type to a file; this example names it RemediateDriftParams.json:
+1. Output the execution parameters JSON schema for this change type to a file; this example names
+   it ManageFirewallRulesParams.json.
 
 ```
-aws amscm create-rfc --generate-cli-skeleton > RemediateDriftParams.json
+aws amscm get-change-type-version --change-type-id "ct-2lo1hs6ks7chl" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > ManageFirewallRulesParams.json
 ```
 
-2. Modify and save the RemediateDriftParams file. For example, you can replace the contents with something like this:
-
-```
-{
-"StackName" : "`stack-a1b2c3d4e5f67890e`",
-"DryRun" : false
-}
-```
-
-3. Output the RFC template JSON file to a file; this example names it RemediateDriftRfc.json:
-
-```
-aws amscm create-rfc --generate-cli-skeleton > RemediateDriftRfc.json
-```
-
-4. Modify and save the RemediateDriftRfc.json file. For example, you can replace the contents with something like this:
+2. Modify and save the ManageFirewallRulesParams file. For example, you can replace the contents with something like this:
 
 ```
 {
-"ChangeTypeId": "ct-34sxfo53yuzah",
-"ChangeTypeVersion": "1.0",
-"Title": "`Remediate stack drift`"
+"SourceIP": "`192.168.1.0/24`",
+"Destination": "`example.com`",
+"Protocol": "`TCP`",
+"Port": `443`,
+"Action": "`Allow`",
+"RuleName": "`allow-https-traffic`",
+"Operation": "`Create`",
+"DryRun": `false`
 }
 ```
 
-5. Create the RFC, specifying the RemediateDriftRfc file and the RemediateDriftParams file:
+3. Output the RFC template JSON file to a file named ManageFirewallRulesRfc.json:
 
 ```
-aws amscm create-rfc --cli-input-json file://RemediateDriftRfc.json  --execution-parameters file://RemediateDriftParams.json
+aws amscm create-rfc --generate-cli-skeleton > ManageFirewallRulesRfc.json
+```
+
+4. Modify and save the ManageFirewallRulesRfc.json file. For example, you can replace the contents with something like this:
+
+```
+{
+"ChangeTypeVersion":    "`1.0`",
+"ChangeTypeId":         "ct-2lo1hs6ks7chl",
+"Title":                "`Manage-Network-Firewall-Rules-RFC`"
+}
+```
+
+5. Create the RFC, specifying the ManageFirewallRulesRfc file and the ManageFirewallRulesParams
+   file:
+
+```
+aws amscm create-rfc --cli-input-json file://ManageFirewallRulesRfc.json  --execution-parameters file://ManageFirewallRulesParams.json
 ```
 
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
-This is a manual change type (an AMS operator must review and run the CT), which means that the RFC can take longer
-to run and you might have to communicate with AMS through the RFC details page correspondance option. Additionally, if you schedule a manual change type RFC,
-be sure to allow at least 24 hours, if approval does not happen before the scheduled start time, the RFC is rejected automatically.
 
-###### Note
-
-When using manual CTs, AMS recommends that you use the ASAP **Scheduling** option
-(choose **ASAP** in the console, leave start and end time blank in the API/CLI) as these CTs require an AMS operator to examine the RFC, and
-possibly communicate with you before it can be approved and run. If you schedule these RFCs, be sure to allow at least 24 hours. If approval does not
-happen before the scheduled start time, the RFC is rejected automatically.
-
-- There is an automated version of this change type that runs more quickly, though there are some limitations. For more details, see
-  [Stack | Remediate Drift](management-standard-stack-remediate-drift-rr-auto.md "management-standard-stack-remediate-drift-rr-auto.md").
-- Stack remediation modifies the stack template and/or parameter values. Once remediation is complete,
-  you must update your local template repositories, or any automation, that would be updating the
-  remediated stack, with the latest template and parameters provided in the RFC summary of the remeditation. It is very
-  important to do this, because using the old template and/or parameters can cause destructive changes on the stack resources.
-
-For more details, see [Drift remediation FAQs](../userguide/drift-rr-remediate-faqs.md "../userguide/drift-rr-remediate-faqs.md").
+- Use the `DryRun` parameter set to `true` to validate your request without making changes.
+- The `Operation` parameter supports Create, Read, Update, and Delete actions on Network Firewall rules.
 
 ## Execution Input Parameters
 
 For detailed information about the execution input parameters, see
-[Schema for Change Type ct-34sxfo53yuzah](schemas.md#ct-34sxfo53yuzah-schema-section "schemas.md#ct-34sxfo53yuzah-schema-section").
+[Schema for Change Type ct-2lo1hs6ks7chl](schemas.md#ct-2lo1hs6ks7chl-schema-section "schemas.md#ct-2lo1hs6ks7chl-schema-section").
 
 ## Example: Required Parameters
 
 ```
 {
-  "StackName": "stack-a1b2c3d4e5f678900"
+  "SourceIP": "10.0.0.0/24",
+  "Destination": "203.0.113.0/24",
+  "Protocol": "TCP",
+  "Port": 443,
+  "Action": "Allow",
+  "RuleName": "test-rule",
+  "Operation": "Create"
 }
 
 ```
@@ -157,9 +155,14 @@ For detailed information about the execution input parameters, see
 
 ```
 {
-  "StackName": "stack-a1b2c3d4e5f678900",
-  "DryRun": false,
-  "Priority": "Medium"
+  "SourceIP": "192.168.1.0/24",
+  "Destination": "example.com",
+  "Protocol": "TCP",
+  "Port": 443,
+  "Action": "Allow",
+  "RuleName": "allow-https-traffic",
+  "Operation": "Create",
+  "DryRun": false
 }
 
 ```
