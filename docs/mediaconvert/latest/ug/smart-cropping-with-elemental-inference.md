@@ -111,4 +111,8 @@ Smart Cropping is a Professional Tier feature and enabled per output.
 Smart Cropping enabled jobs are available where Elemental Inference is available in the
 following regions:
 
+- US East (North Virginia) us-east-1
 - US West (Oregon) us-west-2
+- Europe (Ireland) eu-west-1
+- Asia Pacific (Mumbai) ap-south-1
+- Asia Pacific (Sydney) ap-southeast-2
