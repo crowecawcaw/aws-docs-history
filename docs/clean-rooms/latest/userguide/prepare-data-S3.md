@@ -32,9 +32,7 @@ following prerequisites:
 
 - Your data tables are saved as one of the [supported data formats for AWS Clean Rooms](data-formats.md "data-formats.md").
 - Your data tables are cataloged in AWS Glue and use the [supported data types for AWS Clean Rooms](data-formats.md#data-types "data-formats.md#data-types").
-- All of your data tables are stored in Amazon Simple Storage Service (Amazon S3) in the same
-  AWS Region in which the collaboration was created.
-- The AWS Glue Data Catalog must be in the same Region as the collaboration.
+- All of your data tables are stored in Amazon Simple Storage Service (Amazon S3).
 - The AWS Glue Data Catalog is in the same AWS account as the membership.
 - The Amazon S3 bucket isn't registered with AWS Lake Formation.
 
