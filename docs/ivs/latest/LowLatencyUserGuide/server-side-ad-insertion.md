@@ -1,9 +1,11 @@
 # Server-Side Ad Insertion (SSAI)
 
 Amazon IVS server-side ad insertion (SSAI) enables you to monetize your streams with video ads. IVS SSAI integrates with AWS Elemental
-MediaTailor, giving you access to capabilities such as ad decisioning, audience targeting, and personalization. IVS provides an API operation
-to insert ad breaks into your live stream, allowing you to give creators or operators control over when ads run. IVS stitches ads directly into the video stream.
-This provides a seamless viewing experience and avoids complex client-side logic.
+MediaTailor, giving you access to capabilities such as ad decisioning, audience targeting, and personalization. IVS supports two types of ad breaks:
+
+- **Mid-roll** — Manually triggered during a live stream using the `InsertAdBreak` API.
+- **Post-roll** — Automatically inserted at the end of a stream.
+  IVS stitches ads directly into the video stream. This provides a seamless viewing experience and avoids complex client-side logic.
 
 For information about costs associated with SSAI, see [IVS Costs](costs.md "costs.md").
 
@@ -65,8 +67,18 @@ To select a different one per viewing session, specify the `aws:ads-playback-con
 To create an ad configuration (AWS CLI):
 
 ```
-aws ivs create-ad-configuration --name "my-ad-config" --media-tailor-playback-configurations playbackConfigurationArn="arn:aws:mediatailor:us-west-2:123456789012:playbackConfiguration/my-mediatailor-config"
+aws ivs create-ad-configuration \
+	      --name "my-ad-config" \
+	      --media-tailor-playback-configurations playbackConfigurationArn="arn:aws:mediatailor:us-west-2:123456789012:playbackConfiguration/my-mediatailor-config" \
+              --post-roll-configuration enabled=true,durationSeconds=30
 ```
+
+The `--post-roll-configuration` parameter is optional. If omitted, post-roll configuration defaults to disabled
+(`enabled`: false) with a duration of 15 seconds (`durationSeconds`: 15). If provided, both `enabled` and `durationSeconds` are required.
+If omitted, you can enable it later using the [UpdateAdConfiguration](Https://https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_UpdateAdConfiguration.html "Https://https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_UpdateAdConfiguration.html") API.
+
+For [UpdateAdConfiguration](Https://https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_UpdateAdConfiguration.html "Https://https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_UpdateAdConfiguration.html"): if `--post-roll-configuration` is not included in
+the request, the existing post-roll configuration is not modified. If included, both fields are required.
 
 Save the arn value from the response. You need it in the next step.
 
@@ -85,7 +97,7 @@ Use the ingest endpoint and stream key from your channel to start streaming.
 ### Step 6: Insert Ad Break
 
 While your stream is live, call the InsertAdBreak operation to insert an ad break. Specify the channel ARN and the duration
-(in seconds) for the ad break.
+(in seconds) for the ad break. This step applies to **mid-roll** ad breaks only. Post-roll ad breaks are triggered automatically and do not require calling `InsertAdBreak`.
 
 To insert an ad break (AWS CLI):
 
@@ -116,7 +128,7 @@ With SSAI, an IVS Ad Break State Change event (called Ad Break Inserted) is adde
 | `duration_seconds`  | The value in seconds that was included on the InsertAdBreak request and specified by the customer.                                       |
 | `target_start_time` | The estimated timestamp for the live stream of when the ad break is inserted into the playlist.                                          |
 
-### Step 7: Player SDK Events
+### Player SDK Events
 
 Across platforms, the Player SDK surfaces events when an ad break is played, notifying when an ad starts, progresses, and stops. Here is a high-level summary of the available events and timing:
 

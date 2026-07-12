@@ -3,6 +3,52 @@
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first,
 organized by date of release.
 
+## July 9, 2026
+
+### IVS Player SDK: Web 1.54.0
+
+| Platform                                                                                                                                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Web player 1.54.0](player-web.md "player-web.md") &<br>[Video.js integration](player-videojs.md "player-videojs.md")<br>& [JW player<br>integration](player-jwplayer.md "player-jwplayer.md") | **NPM Package:**<br>[https://www.npmjs.com/package/amazon-ivs-player](https://www.npmjs.com/package/amazon-ivs-player "https://www.npmjs.com/package/amazon-ivs-player")<br>**Script asset:_<br>• [https://player.live-video.net/1.54.0/amazon-ivs-player.min.js](https://player.live-video.net/1.54.0/amazon-ivs-player.min.js "https://player.live-video.net/1.54.0/amazon-ivs-player.min.js")<br>**Video.js tech asset:_<br>• [https://player.live-video.net/1.54.0/amazon-ivs-videojs-tech.min.js](https://player.live-video.net/1.54.0/amazon-ivs-videojs-tech.min.js "https://player.live-video.net/1.54.0/amazon-ivs-videojs-tech.min.js")<br>**Reference documentation:*<br>• [https://aws.github.io/amazon-ivs-player-docs/1.54.0/web/](https://aws.github.io/amazon-ivs-player-docs/1.54.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.54.0/web/")<br>• Bug fixes and stability improvements. |
+
+## July 9, 2026
+
+### IVS Player SDK: Android 1.54.0, iOS 1.54.0
+
+| Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Android player<br>1.54.0](player-android.md "player-android.md") | **Reference documentation:*<br>• [https://aws.github.io/amazon-ivs-player-docs/1.54.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.54.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.54.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                         |
+| [iOS Player 1.54.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.54.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.54.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.54.0/AmazonIVSPlayer.xcframework.zip")**Reference documentation:*<br>• [https://aws.github.io/amazon-ivs-player-docs/1.54.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.54.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.54.0/ios/")<br>• Bug fixes and stability improvements. |
+
+#### Mobile SDK Size: Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 1.547 MB        | 3.964 MB          |
+| armeabi-v7a  | 1.375 MB        | 2.819 MB          |
+| x86\_64      | 1.549 MB        | 4.038 MB          |
+| x86          | 1.613 MB        | 4.052 MB          |
+
+#### Mobile SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 0.811 MB        | 1.739 MB          |
+
+## July 7, 2026
+
+### Amazon IVS Broadcast SDK: iOS 1.44.1 (Low-Latency Streaming)
+
+| Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [iOS Broadcast SDK<br>1.44.1](broadcast-ios.md "broadcast-ios.md") | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.44.1/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.44.1/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.44.1/AmazonIVSBroadcast.xcframework.zip")<br>**Reference documentation:*<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.44.1/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.44.1/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.44.1/ios/")<br>• There were no changes to the low-latency SDK in this release. |
+
+#### Broadcast SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 1.021 MB        | 2.248 MB          |
+
 ## July 2, 2026
 
 ### Amazon IVS Broadcast SDK: Android 1.44.0, iOS 1.44.0 (Low-Latency Streaming)
