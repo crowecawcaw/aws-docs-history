@@ -10,24 +10,26 @@ The following policy is NON\_COMPLIANT:
 
 ```
 "Statement": [
-{
-"Sid": "VisualEditor",
-"Effect": "Allow",
-"Action": "*",
-"Resource": "*"
-}
+    {
+        "Sid": "VisualEditor",
+        "Effect": "Allow",
+        "Action": "*",
+        "Resource": "*"
+    }
+]
 ```
 
 The following policy is COMPLIANT:
 
 ```
 "Statement": [
-{
-"Sid": "VisualEditor",
-"Effect": "Allow",
-"Action": "service:*",
-"Resource": "*"
-}
+    {
+        "Sid": "VisualEditor",
+        "Effect": "Allow",
+        "Action": "service:*",
+        "Resource": "*"
+    }
+]
 ```
 
 **Identifier:** IAM\_POLICY\_NO\_STATEMENTS\_WITH\_ADMIN\_ACCESS

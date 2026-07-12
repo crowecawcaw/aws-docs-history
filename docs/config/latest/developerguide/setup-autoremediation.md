@@ -72,5 +72,6 @@ Setting Up Auto Remediation
 (API)
 Use the following AWS Config API operation to set up auto remediation:
 
-- [PutRemediationExceptions](../APIReference/API_PutRemediationExceptions.md "../APIReference/API_PutRemediationExceptions.md"), adds a new exception or updates an existing exception for a specific resource with a specific AWS Config rule.
-- [DescribeRemediationExceptions](../APIReference/API_DescribeRemediationExceptions.md "../APIReference/API_DescribeRemediationExceptions.md"), returns the details of one or more remediation exceptions.
+- [PutRemediationConfigurations](../APIReference/API_PutRemediationConfigurations.md "../APIReference/API_PutRemediationConfigurations.md"), adds or updates the remediation configuration with a specific AWS Config rule with the selected target or action.
+- [DescribeRemediationExecutionStatus](../APIReference/API_DescribeRemediationExecutionStatus.md "../APIReference/API_DescribeRemediationExecutionStatus.md"), provides a detailed view of a Remediation Execution for a set of resources including state, timestamps for when steps for the remediation execution occur, and any error messages for steps that have failed.
+- [DescribeRemediationConfigurations](../APIReference/API_DescribeRemediationConfigurations.md "../APIReference/API_DescribeRemediationConfigurations.md"), returns the details of one or more remediation configurations.

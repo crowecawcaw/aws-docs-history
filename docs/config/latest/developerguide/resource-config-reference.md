@@ -88,24 +88,24 @@ AWS Config](../../../apigateway/latest/developerguide/apigateway-config.md "../.
 
 ## Amazon Bedrock
 
-| AWS Service                                     | Resource Type Value                         | Relationship | Related Resource                                                                            | Notes |
-| ----------------------------------------------- | ------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------- | ----- |
-| Amazon Bedrock                                  | `AWS::Bedrock::ApplicationInferenceProfile` | NA           | NA                                                                                          |       |
-| `AWS::Bedrock::DataSource`                      | NA                                          | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
-| `AWS::Bedrock::FlowAlias`                       | NA                                          | NA           |                                                                                             |
-| `AWS::Bedrock::Guardrail`                       | NA                                          | NA           |                                                                                             |
-| `AWS::Bedrock::KnowledgeBase`                   | NA                                          | NA           |                                                                                             |
-| `AWS::Bedrock::Prompt`                          | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::BrowserCustom`          | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::CodeInterpreterCustom`  | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::Evaluator`              | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::Gateway`                | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::GatewayTarget`          | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::Memory`                 | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::OnlineEvaluationConfig` | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::Runtime`                | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::RuntimeEndpoint`        | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::WorkloadIdentity`       | NA                                          | NA           |                                                                                             |
+| AWS Service                                     | Resource Type Value                         | Relationship | Related Resource                                                                                                | Notes |
+| ----------------------------------------------- | ------------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------- | ----- |
+| Amazon Bedrock                                  | `AWS::Bedrock::ApplicationInferenceProfile` | NA           | NA                                                                                                              |       |
+| `AWS::Bedrock::DataSource`                      | NA                                          | NA           | Recording configuration items for resource deletion events might take up to 120 hours to reflect in AWS Config. |
+| `AWS::Bedrock::FlowAlias`                       | NA                                          | NA           |                                                                                                                 |
+| `AWS::Bedrock::Guardrail`                       | NA                                          | NA           |                                                                                                                 |
+| `AWS::Bedrock::KnowledgeBase`                   | NA                                          | NA           |                                                                                                                 |
+| `AWS::Bedrock::Prompt`                          | NA                                          | NA           |                                                                                                                 |
+| `AWS::BedrockAgentCore::BrowserCustom`          | NA                                          | NA           |                                                                                                                 |
+| `AWS::BedrockAgentCore::CodeInterpreterCustom`  | NA                                          | NA           |                                                                                                                 |
+| `AWS::BedrockAgentCore::Evaluator`              | NA                                          | NA           |                                                                                                                 |
+| `AWS::BedrockAgentCore::Gateway`                | NA                                          | NA           |                                                                                                                 |
+| `AWS::BedrockAgentCore::GatewayTarget`          | NA                                          | NA           |                                                                                                                 |
+| `AWS::BedrockAgentCore::Memory`                 | NA                                          | NA           | Recording configuration items for resource deletion events might take up to 360 hours to reflect in AWS Config. |
+| `AWS::BedrockAgentCore::OnlineEvaluationConfig` | NA                                          | NA           |                                                                                                                 |
+| `AWS::BedrockAgentCore::Runtime`                | NA                                          | NA           |                                                                                                                 |
+| `AWS::BedrockAgentCore::RuntimeEndpoint`        | NA                                          | NA           |                                                                                                                 |
+| `AWS::BedrockAgentCore::WorkloadIdentity`       | NA                                          | NA           |                                                                                                                 |
 
 ## Amazon CloudFront
 
@@ -167,20 +167,20 @@ AWS Config](../../../apigateway/latest/developerguide/apigateway-config.md "../.
 
 ## Connect Customer
 
-| AWS Service                         | Resource Type Value             | Relationship | Related Resource                                                                            | Notes |
-| ----------------------------------- | ------------------------------- | ------------ | ------------------------------------------------------------------------------------------- | ----- |
-| Connect Customer                    | `AWS::Connect::Instance`        | NA           | NA                                                                                          |       |
-| `AWS::Connect::PhoneNumber`         | NA                              | NA           |                                                                                             |
-| `AWS::Connect::PredefinedAttribute` | NA                              | NA           |                                                                                             |
-| `AWS::Connect::Prompt`              | NA                              | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
-| `AWS::Connect::QuickConnect`        | NA                              | NA           |                                                                                             |
-| `AWS::Connect::RoutingProfile`      | NA                              | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
-| `AWS::Connect::Rule`                | NA                              | NA           |                                                                                             |
-| `AWS::Connect::SecurityProfile`     | NA                              | NA           |                                                                                             |
-| `AWS::Connect::TaskTemplate`        | NA                              | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
-| `AWS::Connect::User`                | NA                              | NA           |                                                                                             |
-| Connect Customer Customer Profiles  | `AWS::CustomerProfiles::Domain` | NA           | NA                                                                                          |       |
-| `AWS::CustomerProfiles::ObjectType` | NA                              | NA           |                                                                                             |
+| AWS Service                         | Resource Type Value             | Relationship | Related Resource                                                                                                | Notes |
+| ----------------------------------- | ------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------- | ----- |
+| Connect Customer                    | `AWS::Connect::Instance`        | NA           | NA                                                                                                              |       |
+| `AWS::Connect::PhoneNumber`         | NA                              | NA           |                                                                                                                 |
+| `AWS::Connect::PredefinedAttribute` | NA                              | NA           |                                                                                                                 |
+| `AWS::Connect::Prompt`              | NA                              | NA           | Recording configuration items for resource deletion events might take up to 120 hours to reflect in AWS Config. |
+| `AWS::Connect::QuickConnect`        | NA                              | NA           |                                                                                                                 |
+| `AWS::Connect::RoutingProfile`      | NA                              | NA           | Recording configuration items for resource deletion events might take up to 120 hours to reflect in AWS Config. |
+| `AWS::Connect::Rule`                | NA                              | NA           |                                                                                                                 |
+| `AWS::Connect::SecurityProfile`     | NA                              | NA           |                                                                                                                 |
+| `AWS::Connect::TaskTemplate`        | NA                              | NA           | Recording configuration items for resource deletion events might take up to 120 hours to reflect in AWS Config. |
+| `AWS::Connect::User`                | NA                              | NA           |                                                                                                                 |
+| Connect Customer Customer Profiles  | `AWS::CustomerProfiles::Domain` | NA           | NA                                                                                                              |       |
+| `AWS::CustomerProfiles::ObjectType` | NA                              | NA           |                                                                                                                 |
 
 ## Amazon Detective
 
@@ -514,14 +514,14 @@ You might continue to see your data for `AWS::OpenSearch::Domain` under the exis
 
 ## Amazon Kinesis
 
-| AWS Service                    | Resource Type Value                    | Relationship | Related Resource | Notes                                                                                       |
-| ------------------------------ | -------------------------------------- | ------------ | ---------------- | ------------------------------------------------------------------------------------------- |
-| Amazon Kinesis                 | `AWS::Kinesis::ResourcePolicy`         | NA           | NA               | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
+| AWS Service                    | Resource Type Value                    | Relationship | Related Resource | Notes                                                                                                           |
+| ------------------------------ | -------------------------------------- | ------------ | ---------------- | --------------------------------------------------------------------------------------------------------------- |
+| Amazon Kinesis                 | `AWS::Kinesis::ResourcePolicy`         | NA           | NA               | Recording configuration items for resource deletion events might take up to 120 hours to reflect in AWS Config. |
 | `AWS::Kinesis::Stream`         | NA                                     | NA           |                  |
 | `AWS::Kinesis::StreamConsumer` | NA                                     | NA           |                  |
-| Amazon Kinesis Analytics V2    | `AWS::KinesisAnalyticsV2::Application` | NA           | NA               |                                                                                             |
-| Amazon Data Firehose           | `AWS::KinesisFirehose::DeliveryStream` | NA           | NA               |                                                                                             |
-| Kinesis video stream           | `AWS::KinesisVideo::SignalingChannel`  | NA           | NA               |                                                                                             |
+| Amazon Kinesis Analytics V2    | `AWS::KinesisAnalyticsV2::Application` | NA           | NA               |                                                                                                                 |
+| Amazon Data Firehose           | `AWS::KinesisFirehose::DeliveryStream` | NA           | NA               |                                                                                                                 |
+| Kinesis video stream           | `AWS::KinesisVideo::SignalingChannel`  | NA           | NA               |                                                                                                                 |
 | `AWS::KinesisVideo::Stream`    | NA                                     | NA           |                  |
 
 ## Amazon Lex
@@ -780,9 +780,9 @@ Options](../../../AmazonS3/latest/userguide/UsingBucket.md#bucket-config-options
 
 ## Amazon Verified Permissions
 
-| AWS Service                 | Resource Type Value                        | Relationship | Related Resource | Notes                                                                                       |
-| --------------------------- | ------------------------------------------ | ------------ | ---------------- | ------------------------------------------------------------------------------------------- |
-| Amazon Verified Permissions | `AWS::VerifiedPermissions::IdentitySource` | NA           | NA               | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
+| AWS Service                 | Resource Type Value                        | Relationship | Related Resource | Notes                                                                                                           |
+| --------------------------- | ------------------------------------------ | ------------ | ---------------- | --------------------------------------------------------------------------------------------------------------- |
+| Amazon Verified Permissions | `AWS::VerifiedPermissions::IdentitySource` | NA           | NA               | Recording configuration items for resource deletion events might take up to 120 hours to reflect in AWS Config. |
 
 ## Amazon WorkSpaces
 
@@ -970,11 +970,11 @@ For more information, see [How to migrate from AWS Cloud9 to AWS IDE Toolkits or
 
 ## AWS CodeArtifact
 
-| AWS Service                       | Resource Type Value         | Relationship | Related Resource                                                                            | Notes |
-| --------------------------------- | --------------------------- | ------------ | ------------------------------------------------------------------------------------------- | ----- |
-| AWS CodeArtifact                  | `AWS::CodeArtifact::Domain` | NA           | NA                                                                                          |       |
-| `AWS::CodeArtifact::PackageGroup` | NA                          | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
-| `AWS::CodeArtifact::Repository`   | NA                          | NA           |                                                                                             |
+| AWS Service                       | Resource Type Value         | Relationship | Related Resource                                                                                                | Notes |
+| --------------------------------- | --------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------- | ----- |
+| AWS CodeArtifact                  | `AWS::CodeArtifact::Domain` | NA           | NA                                                                                                              |       |
+| `AWS::CodeArtifact::PackageGroup` | NA                          | NA           | Recording configuration items for resource deletion events might take up to 120 hours to reflect in AWS Config. |
+| `AWS::CodeArtifact::Repository`   | NA                          | NA           |                                                                                                                 |
 
 ## AWS CodeBuild
 
@@ -1076,14 +1076,14 @@ Recording for the `AWS::Config::ConformancePackCompliance` and `AWS::Config::Con
 
 ## AWS Deadline Cloud
 
-| AWS Service                            | Resource Type Value    | Relationship | Related Resource                                                                            | Notes |
-| -------------------------------------- | ---------------------- | ------------ | ------------------------------------------------------------------------------------------- | ----- |
-| AWS Deadline Cloud                     | `AWS::Deadline::Fleet` | NA           | NA                                                                                          |       |
-| `AWS::Deadline::LicenseEndpoint`       | NA                     | NA           |                                                                                             |
-| `AWS::Deadline::Monitor`               | NA                     | NA           |                                                                                             |
-| `AWS::Deadline::QueueEnvironment`      | NA                     | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
-| `AWS::Deadline::QueueFleetAssociation` | NA                     | NA           |                                                                                             |
-| `AWS::Deadline::StorageProfile`        | NA                     | NA           |                                                                                             |
+| AWS Service                            | Resource Type Value    | Relationship | Related Resource                                                                                                | Notes |
+| -------------------------------------- | ---------------------- | ------------ | --------------------------------------------------------------------------------------------------------------- | ----- |
+| AWS Deadline Cloud                     | `AWS::Deadline::Fleet` | NA           | NA                                                                                                              |       |
+| `AWS::Deadline::LicenseEndpoint`       | NA                     | NA           |                                                                                                                 |
+| `AWS::Deadline::Monitor`               | NA                     | NA           |                                                                                                                 |
+| `AWS::Deadline::QueueEnvironment`      | NA                     | NA           | Recording configuration items for resource deletion events might take up to 120 hours to reflect in AWS Config. |
+| `AWS::Deadline::QueueFleetAssociation` | NA                     | NA           |                                                                                                                 |
+| `AWS::Deadline::StorageProfile`        | NA                     | NA           |                                                                                                                 |
 
 ## AWS Device Farm
 
@@ -1314,15 +1314,15 @@ and inline policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-in
 
 ## AWS Private Certificate Authority
 
-| AWS Service                                   | Resource Type Value                 | Relationship | Related Resource                                                                            | Notes                                                                                       |
-| --------------------------------------------- | ----------------------------------- | ------------ | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| AWS Private Certificate Authority             | `AWS::ACMPCA::CertificateAuthority` | NA           | NA                                                                                          |                                                                                             |
-| `AWS::ACMPCA::CertificateAuthorityActivation` | NA                                  | NA           |                                                                                             |
-| AWS Private CA Connector for Active Directory | `AWS::PCAConnectorAD::Connector`    | NA           | NA                                                                                          |                                                                                             |
-| `AWS::PCAConnectorAD::DirectoryRegistration`  | NA                                  | NA           |                                                                                             |
-| `AWS::PCAConnectorAD::Template`               | NA                                  | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
-| AWS Private CA Connector for SCEP             | `AWS::PCAConnectorSCEP::Challenge`  | NA           | NA                                                                                          | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
-| `AWS::PCAConnectorSCEP::Connector`            | NA                                  | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
+| AWS Service                                   | Resource Type Value                 | Relationship | Related Resource                                                                                                | Notes                                                                                                           |
+| --------------------------------------------- | ----------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| AWS Private Certificate Authority             | `AWS::ACMPCA::CertificateAuthority` | NA           | NA                                                                                                              |                                                                                                                 |
+| `AWS::ACMPCA::CertificateAuthorityActivation` | NA                                  | NA           |                                                                                                                 |
+| AWS Private CA Connector for Active Directory | `AWS::PCAConnectorAD::Connector`    | NA           | NA                                                                                                              |                                                                                                                 |
+| `AWS::PCAConnectorAD::DirectoryRegistration`  | NA                                  | NA           |                                                                                                                 |
+| `AWS::PCAConnectorAD::Template`               | NA                                  | NA           | Recording configuration items for resource deletion events might take up to 120 hours to reflect in AWS Config. |
+| AWS Private CA Connector for SCEP             | `AWS::PCAConnectorSCEP::Challenge`  | NA           | NA                                                                                                              | Recording configuration items for resource deletion events might take up to 120 hours to reflect in AWS Config. |
+| `AWS::PCAConnectorSCEP::Connector`            | NA                                  | NA           | Recording configuration items for resource deletion events might take up to 120 hours to reflect in AWS Config. |
 
 ## AWS Resilience Hub
 
