@@ -28,7 +28,14 @@ For more information about the improvements in PostgreSQL 16.13, see
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL Limitless Database 16.13.101, July 13, 2026](#16.13.101 "#16.13.101")
 - [Aurora PostgreSQL Limitless Database 16.13.100, April 25, 2026](#16.13.100 "#16.13.100")
+
+### Aurora PostgreSQL Limitless Database 16.13.101, July 13, 2026
+
+**Bug fixes**
+
+- Fixed an issue with fast-path locking that might cause increased LWLock:LockManager contention.
 
 ### Aurora PostgreSQL Limitless Database 16.13.100, April 25, 2026
 
