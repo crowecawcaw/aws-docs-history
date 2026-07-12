@@ -40,9 +40,10 @@ Worker configurations and sizes| CPU | Memory | Default ephemeral storage |
 | 4 vCPU | Minimum 8 GB, maximum 30 GB, in 1 GB increments | 20 GB<br>• 200 GB |
 | 8 vCPU | Minimum 16 GB, maximum 60 GB, in 4 GB increments | 20 GB<br>• 200 GB |
 | 16 vCPU | Minimum 32 GB, maximum 120 GB, in 8 GB increments | 20 GB<br>• 200 GB |
+| 32 vCPU | Three discrete values: 60 GB, 120 GB, or 244 GB | 20 GB<br>• 200 GB |
 
-**CPU** — Each worker can have 1, 2, 4, 8, or
-16 vCPUs.
+**CPU** — Each worker can have 1, 2, 4, 8, 16, or
+32 vCPUs.
 
 **Memory** — Each worker has memory, specified in GB, within the
 limits listed in the earlier table. Spark jobs have a memory overhead, meaning that the
@@ -57,6 +58,18 @@ storage capacity of 30 GB, then set a value of approximately 27 GB as
 executor memory for your Spark job. This maximizes the utilization of your pre-initialized
 capacity. Usable memory is 27 GB, plus 10% of 27 GB (2.7 GB), for a
 total of 29.7 GB.
+
+For workers with 32 vCPUs, worker memory must match one of three discrete
+configurations: 60 GB, 120 GB, or 244 GB. EMR Serverless validates the
+total memory request (spark configured memory plus memory overhead) and rejects jobs whose
+total does not fit one of the three configurations.
+`spark.executor.memory` along with memory overhead (default of 10%) must be
+within 8 GB of the supported worker memory configuration. For example, a Spark job
+requesting a 32 vCPU worker with `spark.executor.memory` set to
+100 GB will be rejected because the total of 110 GB (after adding the default 10%
+overhead) is not within 8 GB of the supported 120 GB worker size. In this case,
+`spark.executor.memory` within the range of 102 GB to 109 GB will be
+accepted.
 
 **Disk** — You can configure each worker with temporary storage
 disks with a minimum size of 20 GB and a maximum of 200 GB. You only pay for

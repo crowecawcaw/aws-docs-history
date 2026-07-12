@@ -130,7 +130,7 @@ Optional Hive properties and default values| Setting | Description | Default val
 | `hive.driver.disk` | The disk size for the Hive driver. | 20G |
 | `hive.driver.disk.type` | The disk type for the Hive driver. | Standard |
 | `hive.tez.disk.type` | The disk size for the tez workers. | Standard |
-| `hive.driver.memory` | The amount of memory to use per Hive driver process. The Hive CLI and Tez<br>Application Master share this memory equally with 20% of headroom. | 6G |
+| `hive.driver.memory` | The amount of memory to use per Hive driver process. The Hive CLI and Tez<br>Application Master share this memory equally with 20% of headroom. | For workers smaller than 32 vCPUs, 6G<br>For 32 vCPUs, 109G |
 | `hive.emr-serverless.launch.env.[`KEY`]` | Option to set the `KEY` environment<br>variable in all Hive-specific processes, such as your Hive driver, Tez AM, and Tez<br>task. | |
 | `hive.exec.dynamic.partition` | Options that turns on dynamic partitions in DML/DDL. | `TRUE` |
 | `hive.exec.dynamic.partition.mode` | Option that specifies whether you want to use strict mode or non-strict mode.<br>In strict mode, specify at least one static partition in case you<br>accidentally overwrite all partitions. In non-strict mode, all partitions are<br>allowed to be dynamic. | `strict` |
@@ -165,7 +165,7 @@ Optional Hive properties and default values| Setting | Description | Default val
 | `hive.strict.checks.type.safety` | Option that turns on strict type safety checks and turns off comparison of<br>`bigint` with both `string` and `double`. | `TRUE` |
 | `hive.support.quoted.identifiers` | Expects value of `NONE` or `COLUMN`. `NONE`<br>implies only alphanumeric and underscore characters are valid in identifiers.<br>`COLUMN` implies column names can contain any character. | `COLUMN` |
 | `hive.tez.auto.reducer.parallelism` | Option that turns on the Tez auto-reducer parallelism feature. Hive still<br>estimates data sizes and sets parallelism estimates. Tez samples the output sizes of<br>source vertices and adjusts the estimates at runtime as necessary. | `TRUE` |
-| `hive.tez.container.size` | The amount of memory to use per Tez task process. | 6144 |
+| `hive.tez.container.size` | The amount of memory to use per Tez task process. | For workers smaller than 32 vCPUs, 6144<br>For 32 vCPUs, 122880 |
 | `hive.tez.cpu.vcores` | The number of cores to use for each Tez task. | 2 |
 | `hive.tez.disk.size` | The disk size for each task container. | 20G |
 | `hive.tez.input.format` | The input format for splits generation in the Tez AM. | `org.apache.hadoop.hive.ql.io.HiveInputFormat` |

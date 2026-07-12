@@ -152,7 +152,7 @@ Optional Spark properties and default values| Key | Description | Default value 
 | `spark.authenticate` | Option that turns on authentication of Spark's internal connections. | `TRUE` |
 | `spark.driver.cores` | The number of cores that the driver uses. | 4 |
 | `spark.driver.extraJavaOptions` | Extra Java options for the Spark driver. | `NULL` |
-| `spark.driver.memory` | The amount of memory that the driver uses. | 14G |
+| `spark.driver.memory` | The amount of memory that the driver uses. | For workers smaller than 32 vCPUs, 14G<br>For 32 vCPUs, 109G |
 | `spark.dynamicAllocation.enabled` | Option that turns on dynamic resource allocation. This option scales up or down<br>the number of executors registered with the application, based on the<br>workload. | `TRUE` |
 | `spark.dynamicAllocation.executorIdleTimeout` | The length of time that an executor can remain idle before Spark removes it.<br>This only applies if you turn on dynamic allocation. | 60s |
 | `spark.dynamicAllocation.initialExecutors` | The initial number of executors to run if you turn on dynamic<br>allocation. | `3` |
@@ -168,7 +168,7 @@ Optional Spark properties and default values| Key | Description | Default value 
 | `spark.executor.cores` | The number of cores that each executor uses. | 4 |
 | `spark.executor.extraJavaOptions` | Extra Java options for the Spark executor. | `NULL` |
 | `spark.executor.instances` | The number of Spark executor containers to allocate. | 3 |
-| `spark.executor.memory` | The amount of memory that each executor uses. | 14G |
+| `spark.executor.memory` | The amount of memory that each executor uses. | For workers smaller than 32 vCPUs, 14G<br>For 32 vCPUs, 109G |
 | `spark.executorEnv.`[KEY]`` | Option that adds environment variables to the Spark executors. | `NULL` |
 | `spark.files` | A comma-separated list of files to go in the working directory of each<br>executor. You can access the file paths of these files in the executor with<br>`SparkFiles.get(`fileName`)`. | `NULL` |
 | `spark.hadoop.hive.metastore.client.factory.class` | The Hive metastore implementation class. | `NULL` |
