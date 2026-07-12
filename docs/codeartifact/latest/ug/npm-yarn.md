@@ -50,8 +50,15 @@ The `login` command makes the following changes to your ~/.npmrc file:
 The default authorization period after calling `login` is 12 hours, and
 `login` must be called to refresh the token periodically. For more
 information about the authorization token created with the `login`
-command, see [Tokens created with the login command](tokens-authentication.md#auth-token-login "tokens-authentication.md#auth-token-login"). 4. **For npm 7.X and 8.X**, you must add `always-auth=true` to
+command, see [Tokens created with the login command](tokens-authentication.md#auth-token-login "tokens-authentication.md#auth-token-login"). 4. **For npm 7 and higher**, you must add `always-auth=true` to
 your ~/.npmrc file to use Yarn.
+
+###### Note
+
+Without `always-auth=true`, Yarn 1.X only sends authentication
+credentials for scoped package requests (for example, `@scope/package`).
+Requests for unscoped packages (for example, `lodash`) will fail with
+a 401 Unauthenticated error because Yarn does not include the authorization header.
 
     1. Open your ~/.npmrc file in a text editor and add `always-auth=true` on a new line.
 
