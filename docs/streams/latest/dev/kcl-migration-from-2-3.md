@@ -66,10 +66,23 @@ parameter:
 
 - CoordinatorConfig.clientVersionConfig: This configuration determines which
   KCL version compatibility mode the application will run in. When
-  migrating from KCL 2.x to 3.x, you need to set this configuration to
-  `CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X`. To set this
-  configuration, add the following line when creating your scheduler
-  object:
+  migrating from KCL 2.x to 3.x, the migration is performed in phases.
+  First, set this configuration to
+  `CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X_PHASE1` and deploy
+  to all workers. Add the following
+  line when creating your scheduler object:
+
+```
+configsBuilder.coordinatorConfig().clientVersionConfig(ClientVersionConfig.CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X_PHASE1)
+```
+
+In this phase, your application remains compatible with KCL 2.x and the migration does not start, which lets you safely roll out the KCL 3.x library across your fleet.
+
+After all workers are running with
+`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X_PHASE1`, set this
+configuration to `CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X` to start the
+migration. To set this configuration, add the following line when creating your
+scheduler object:
 
 ```
 configsBuilder.coordinatorConfig().clientVersionConfig(ClientVersionConfig.CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X)
