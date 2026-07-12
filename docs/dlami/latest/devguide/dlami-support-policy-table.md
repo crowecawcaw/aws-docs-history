@@ -3,12 +3,6 @@
 For more details see the [Support
 Policy](support-policy.md "support-policy.md").
 
-###### Important
-
-Amazon Linux 2 reaches end of life on June 30, 2026.
-
-After this date, no new Amazon Linux 2 DLAMI releases, updates, or security patches will be provided.
-
 ## Supported Framework Versions
 
 | Framework | Current version | CUDA version | GitHub GA  | End of patch |
@@ -24,7 +18,6 @@ After this date, no new Amazon Linux 2 DLAMI releases, updates, or security patc
 | Operating System  | End of patch |
 | ----------------- | ------------ |
 | Amazon Linux 2023 | 2029-06-30   |
-| Amazon Linux 2    | 2026-06-30   |
 | Ubuntu 24.04      | 2029-04-30   |
 | Ubuntu 22.04      | 2027-04-30   |
 
@@ -59,6 +52,7 @@ Versions listed in this table will appear for 2 years past their support date.
 
 | Operating System | End of patch |
 | ---------------- | ------------ |
+| Amazon Linux 2   | 2026-06-30   |
 | Ubuntu 20.04     | 2025-05-31   |
 | Ubuntu 18.04     | 2023-05-31   |
 
@@ -72,6 +66,22 @@ historical information for reference purposes.
 ###### Release Notes
 
 - [Base GPU AMI (Ubuntu 20.04)](aws-deep-learning-base-gpu-ami-ubuntu-20.04.md "aws-deep-learning-base-gpu-ami-ubuntu-20.04.md")
+- [Base Proprietary Nvidia GPU AMI (Amazon Linux 2)](aws-deep-learning-x86-base-gpu-ami-amazon-linux-2-prop.md "aws-deep-learning-x86-base-gpu-ami-amazon-linux-2-prop.md")
+- [Base GPU AMI (Amazon Linux 2)](aws-deep-learning-x86-base-gpu-ami-amazon-linux-2.md "aws-deep-learning-x86-base-gpu-ami-amazon-linux-2.md")
+- [ARM64 Base GPU AMI (Amazon Linux 2)](aws-deep-learning-arm64-base-gpu-ami-amazon-linux-2.md "aws-deep-learning-arm64-base-gpu-ami-amazon-linux-2.md")
+
+### Multi-Framework DLAMIs (Amazon Linux 2)
+
+###### Release Notes
+
+- [Multi Framework DLAMI (Amazon Linux 2)](aws-deep-learning-multiframework-ami-amazon-linux-2-prop.md "aws-deep-learning-multiframework-ami-amazon-linux-2-prop.md")
+- [Multi Framework DLAMI (Amazon Linux 2)](aws-deep-learning-multiframework-ami-amazon-linux-2.md "aws-deep-learning-multiframework-ami-amazon-linux-2.md")
+
+### Qualcomm DLAMIs (Amazon Linux 2)
+
+###### Release Notes
+
+- [Base Qualcomm AMI (Amazon Linux 2)](aws-deep-learning-x86-base-qualcomm-ami-amazon-linux-2.md "aws-deep-learning-x86-base-qualcomm-ami-amazon-linux-2.md")
 
 ### PyTorch DLAMIs
 

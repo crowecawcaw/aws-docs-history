@@ -28,8 +28,6 @@ GPU
 - [Base GPU AMI (Amazon Linux 2023)](aws-deep-learning-x86-base-gpu-ami-amazon-linux-2023.md "aws-deep-learning-x86-base-gpu-ami-amazon-linux-2023.md")
 - [Base GPU AMI (Ubuntu 24.04)](aws-deep-learning-x86-base-gpu-ami-ubuntu-24-04.md "aws-deep-learning-x86-base-gpu-ami-ubuntu-24-04.md")
 - [Base GPU AMI (Ubuntu 22.04)](aws-deep-learning-x86-base-gpu-ami-ubuntu-22-04.md "aws-deep-learning-x86-base-gpu-ami-ubuntu-22-04.md")
-- [Base GPU AMI (Amazon Linux 2)](aws-deep-learning-x86-base-gpu-ami-amazon-linux-2.md "aws-deep-learning-x86-base-gpu-ami-amazon-linux-2.md")
-- [Base Qualcomm AMI (Amazon Linux 2)](aws-deep-learning-x86-base-qualcomm-ami-amazon-linux-2.md "aws-deep-learning-x86-base-qualcomm-ami-amazon-linux-2.md")
 
 ### ARM64 Base DLAMI Release Notes
 
@@ -45,7 +43,6 @@ GPU
 - [ARM64 Base GPU AMI (Amazon Linux 2023)](aws-deep-learning-arm64-base-gpu-ami-amazon-linux-2023.md "aws-deep-learning-arm64-base-gpu-ami-amazon-linux-2023.md")
 - [ARM64 Base GPU AMI (Ubuntu 24.04)](aws-deep-learning-arm64-base-gpu-ami-ubuntu-24-04.md "aws-deep-learning-arm64-base-gpu-ami-ubuntu-24-04.md")
 - [ARM64 Base GPU AMI (Ubuntu 22.04)](aws-deep-learning-arm64-base-gpu-ami-ubuntu-22-04.md "aws-deep-learning-arm64-base-gpu-ami-ubuntu-22-04.md")
-- [ARM64 Base GPU AMI (Amazon Linux 2)](aws-deep-learning-arm64-base-gpu-ami-amazon-linux-2.md "aws-deep-learning-arm64-base-gpu-ami-amazon-linux-2.md")
 
 **AWS Neuron**
 
@@ -112,12 +109,6 @@ If you use only one machine learning framework, then we recommend a [single-fram
 ### Multi-Framework DLAMI Release Notes
 
 Below are the release notes for Multi-Framework X86 DLAMI:
-
-######
-
-GPU
-
-- [Multi Framework DLAMI (Amazon Linux 2)](aws-deep-learning-multiframework-ami-amazon-linux-2.md "aws-deep-learning-multiframework-ami-amazon-linux-2.md")
 
 **AWS Neuron**
 
