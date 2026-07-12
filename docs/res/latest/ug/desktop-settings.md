@@ -20,6 +20,13 @@ not apply to previously created desktops. This will only apply in cases where th
 Instance Type and Operating System supports either Virtual or Console Session
 types.
 
+###### Virtual session type deprecated
+
+Starting with the 2026.06 release, the _Virtual_ session
+type is no longer supported. All sessions now use the
+_Console_ session type. If your configuration or
+automation specifies the Virtual session type, update it to use Console.
+
 **Default Allowed Sessions Per User Per Project**
 
 The default value for the allowed number of VDI sessions per user per project.

@@ -21,7 +21,7 @@ this instance. See the [Amazon EC2 pricing page](https://aws.amazon.com/ec2/pric
    **Environment boundaries** select the **SSH access**
    toggle.
 
-![Permission policy page under environment management in the admin console](images/permission-policy-ssh-disabled.png) 2. Wait for SSH access to be enabled.
+![Permission policy page under environment management in the admin console](/images/res/latest/ug/images/permission-policy-ssh-disabled.png) 2. Wait for SSH access to be enabled.
 
 ![Advisory banner appears on the permission policy page under environment management in the admin console](images/permission-policy-enable-ssh.png) 3. Once the Bastion host is added, SSH access is enabled.
 

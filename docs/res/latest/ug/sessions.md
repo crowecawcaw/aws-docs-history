@@ -31,7 +31,13 @@ From the Sessions page, you can filter and view session information or create a 
 2. Enter details for the new session.
 3. (Optional.) Turn on **Show Advanced Options** to
    provide additional details such as subnet ID and DCV session type.
-4. Choose **Submit**.
+
+###### Virtual session type deprecated
+
+Starting with the 2026.06 release, the _Virtual_ session
+type is no longer supported. All sessions now use the
+_Console_ session type. If your configuration or
+automation specifies the Virtual session type, update it to use Console. 4. Choose **Submit**.
 
 ![Details of admin console page with fields to be filled out to launch a new virtual desktop](images/res-createsession.jpg)
 
@@ -39,4 +45,4 @@ From the Sessions page, you can filter and view session information or create a 
 
 From the **Sessions** list, select the **Session Name** to view session details.
 
-![Admin console page with view of session details](images/res-viewsessiondetails.jpg)
+![Admin console page with view of session details](images/res-viewsessiondetails.png)
