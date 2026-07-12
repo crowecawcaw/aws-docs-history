@@ -1,44 +1,29 @@
 # Amazon S3 source action reference
 
-Triggers the pipeline when a new object is uploaded to the configured bucket and object
+A source action triggers the pipeline when a new object is uploaded to the configured bucket and object
 key.
-
-###### Note
 
 This reference topic describes the Amazon S3 source action for CodePipeline where the source
 location is an Amazon S3 bucket configured for versioning. For reference information about
 the Amazon S3 deploy action in CodePipeline, see [Amazon S3 deploy action reference](action-reference-S3Deploy.md "action-reference-S3Deploy.md").
 
-You can create an Amazon S3 bucket to use as the source location for your application
-files.
+Before you connect the pipeline, create an Amazon S3 source bucket, enable versioning, and upload your source files as a single ZIP file.
 
-###### Note
+You can create a new bucket in Amazon S3 or select an existing Amazon S3 bucket to use as the source location for your application
+files. For more information about enabling versioning, see [Using versioning](../../../AmazonS3/latest/dev/Versioning.md "../../../AmazonS3/latest/dev/Versioning.md") in the _Amazon S3 User Guide_.
 
-When you create your source bucket, make sure you enable versioning on the bucket. If
-you want to use an existing Amazon S3 bucket, see [Using
-versioning](../../../AmazonS3/latest/dev/Versioning.md "../../../AmazonS3/latest/dev/Versioning.md") to enable versioning on an existing bucket.
-
-If you use the console to create or edit your pipeline, CodePipeline creates an EventBridge rule that
-starts your pipeline when a change occurs in the S3 source bucket.
-
-###### Note
-
-For Amazon ECR, Amazon S3, or CodeCommit sources, you can also create a source override using input
-transform entry to use the `revisionValue` in EventBridge for your pipeline event,
-where the `revisionValue` is derived from the source event variable for your
-object key, commit, or image ID. For more information, see the optional step for input
-transform entry included in the procedures under [Amazon ECR source actions and EventBridge resources](create-cwe-ecr-source.md "create-cwe-ecr-source.md"), [Connecting to Amazon S3 source actions with a source enabled for events](create-S3-source-events.md "create-S3-source-events.md"), or [CodeCommit source actions and EventBridge](triggering.md "triggering.md").
-
-You must have already created an Amazon S3 source bucket and uploaded the source files as a
-
-single ZIP file before you connect the pipeline through an Amazon S3 action.
-
-###### Note
-
-When Amazon S3 is the source provider for your pipeline, you may zip your source file or
-files into a single .zip and upload the .zip to your source bucket. You may also upload
+When Amazon S3 is the source provider for your pipeline, you can zip your source file, or
+files, into a single .zip and upload the .zip to your source bucket. You can also upload
 a single unzipped file; however, downstream actions that expect a .zip file will
 fail.
+
+If you use the console to create or edit your pipeline, CodePipeline creates an EventBridge rule that
+starts your pipeline when a change occurs in the Amazon S3 source bucket.
+
+You can also create a source override using input transform entry to use the `revisionValue` in EventBridge for your pipeline event,
+where the `revisionValue` is derived from the source event variable for your
+object key, commit, or image ID. For more information, see the optional step for input
+transform entry included in the procedures under [Connecting to Amazon S3 source actions with a source enabled for events](create-S3-source-events.md "create-S3-source-events.md").
 
 ###### Topics
 
