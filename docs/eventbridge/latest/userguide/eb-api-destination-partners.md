@@ -28,10 +28,10 @@ OAuth endpoint:
 
 The following OAuth key/value pair parameters:
 
-| Type       | Key          | Value                                               |
-| ---------- | ------------ | --------------------------------------------------- |
-| Body Field | grant\_type  | client\_credentials                                 |
-| Header     | Content-Type | application/x-www-form-urlencoded;<br>charset=utf-8 |
+| Type       | Key            | Value                                                 |
+| ---------- | -------------- | ----------------------------------------------------- |
+| Body Field | `grant_type`   | `client_credentials`                                  |
+| Header     | `Content-Type` | `application/x-www-form-urlencoded;<br>charset=utf-8` |
 
 **Cisco AppDynamics documentation:**
 
@@ -135,7 +135,7 @@ field as the partition key:
 **API destination invocation endpoint
 URL**
 
-For a full list of endpoints, see [Coralogix API Reference](https://coralogix.com/docs/log-query-simply-retrieve-data/ "https://coralogix.com/docs/log-query-simply-retrieve-data/").
+For a full list of endpoints, see [Coralogix API Reference](https://coralogix.com/docs/user-guides/alerting/outbound-webhooks/aws-eventbridge-outbound-webhook/ "https://coralogix.com/docs/user-guides/alerting/outbound-webhooks/aws-eventbridge-outbound-webhook/").
 
 **Supported authorization types**
 
@@ -195,9 +195,9 @@ documentation**
 
 **Commonly used API operations**
 
-POST https://api.datadoghq.com/api/v1/events
+`POST` https://api.datadoghq.com/api/v1/events
 
-POST https://http-intake.logs.datadoghq.com/v1/input
+`POST` https://http-intake.logs.datadoghq.com/v1/input
 
 **Additional information**
 
@@ -218,9 +218,9 @@ API Key
 
 **Additional authorization parameters required:**
 
-| Type   | Key           | Value                         |
-| ------ | ------------- | ----------------------------- |
-| Header | Authorization | Api-Token `DYNATRACE_API_KEY` |
+| Type   | Key             | Value                         |
+| ------ | --------------- | ----------------------------- |
+| Header | `Authorization` | Api-Token `DYNATRACE_API_KEY` |
 
 **Dynatrace documentation:**
 
@@ -229,7 +229,7 @@ API Key
 - [Ingest Amazon ECR vulnerability findings and scan events](https://docs.dynatrace.com/docs/platform-modules/application-security/security-events-ingest/ingest-aws-ecr-data "https://docs.dynatrace.com/docs/platform-modules/application-security/security-events-ingest/ingest-aws-ecr-data")
 
 **Commonly used API operations:**
-POST
+`POST`
 
 **Additional information:**
 
@@ -322,9 +322,9 @@ API Key
 
 **Additional authorization parameters required:**
 
-| Type   | Key           | Value             |
-| ------ | ------------- | ----------------- |
-| Header | Authorization | `MOMENTO_API_KEY` |
+| Type   | Key             | Value             |
+| ------ | --------------- | ----------------- |
+| Header | `Authorization` | `MOMENTO_API_KEY` |
 
 **Momento documentation:**
 
@@ -499,9 +499,9 @@ One of the following authorization endpoints:
 
 The following key/value pair:
 
-| **Key**     | **Value**           |
-| ----------- | ------------------- |
-| grant\_type | client\_credentials |
+| **Key**      | **Value**            |
+| ------------ | -------------------- |
+| `grant_type` | `client_credentials` |
 
 **Salesforce
 documentation**
@@ -608,13 +608,13 @@ authorization overview](https://shopify.dev/apps/auth "https://shopify.dev/apps/
 
 **Commonly used API operations**
 
-POST - /admin/api/2022-01/products.json
+`POST` - /admin/api/2022-01/products.json
 
-GET - admin/api/2022-01/products/{product\_id}.json
+`GET` - admin/api/2022-01/products/{product\_id}.json
 
-PUT - admin/api/2022-01/products/{product\_id}.json
+`PUT` - admin/api/2022-01/products/{product\_id}.json
 
-DELETE - admin/api/2022-01/products/{product\_id}.json
+`DELETE` - admin/api/2022-01/products/{product\_id}.json
 
 **Additional information**
 
@@ -656,7 +656,7 @@ Web](https://help.splunk.com/en/data-management/collect-http-event-data/use-hec-
 
 **Commonly used API operations**
 
-POST
+`POST`
 https://`SPLUNK_HEC_ENDPOINT`:`optional_port`/services/collector/raw
 
 **Additional information**
@@ -711,7 +711,7 @@ Metric Source endpoints.
 
 **Commonly used API operations**
 
-POST
+`POST`
 https://endpoint4.collection.us2.sumologic.com/receiver/v1/http/`UNIQUE_ID_PER_COLLECTOR`
 
 **Additional information**
@@ -741,7 +741,7 @@ documentation**
 
 **Commonly used API operations**
 
-POST
+`POST`
 https://`your_Zendesk_subdomain`/api/v2/tickets
 
 **Additional information**
