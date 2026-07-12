@@ -55,9 +55,6 @@ meet the varied requirements from your application teams. In a typical organizat
 application teams use an architecture that involves immutable instances whereas others deploy
 their applications on mutable instances.
 
-For more information on AWS Prescriptive Guidance for patching, see
-[Automated patching for mutable instances in the hybrid cloud using AWS Systems Manager](../../../prescriptive-guidance/latest/patch-management-hybrid-cloud/welcome.md "../../../prescriptive-guidance/latest/patch-management-hybrid-cloud/welcome.md").
-
 ###### Note
 
 Accelerate Patch Add-On is a feature that provides tag-based patching for AMS instances. It leverages AWS Systems Manager (SSM) functionality so
@@ -82,8 +79,6 @@ The patching process for persistent instances should involve the following teams
 - **The automated patching solution** runs on a
   regular basis and deploys the patches defined in the patch baselines, based on the user-defined patch groups and maintenance windows.
 - **The governance and compliance teams** define patching guidelines and exception processes & mechanisms.
-
-For more information, see [Patching solution design for mutable EC2 instances](../../../prescriptive-guidance/latest/patch-management-hybrid-cloud/design-standard.md "../../../prescriptive-guidance/latest/patch-management-hybrid-cloud/design-standard.md").
 
 ### Guidance for application teams
 
