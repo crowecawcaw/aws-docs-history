@@ -21,7 +21,7 @@ connection.
 The following diagram shows a VPN connection between a VPC and your on-premises
 network using a virtual private gateway.
 
-![A VPC with an attached virtual private gateway and a VPN connection to your on-premises network.](/images/vpn/latest/s2svpn/images/vpn-how-it-works-vgw.png)
+![A VPC with an attached virtual private gateway and a VPN connection to your on-premises network.](images/vpn-how-it-works-vgw.png)
 
 When you create a virtual private gateway, you can specify the private Autonomous
 System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN,
