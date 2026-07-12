@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: August 04, 2020, 17:12 UTC
-- **Edited time:** July 11, 2025, 21:37 UTC
+- **Edited time:** July 06, 2026, 18:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonBraketServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -41,6 +41,23 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource" : "arn:aws:s3:::*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        },
+        "StringEqualsIgnoreCase" : {
+          "aws:ResourceTag/AmazonBraket" : "true"
         }
       }
     },

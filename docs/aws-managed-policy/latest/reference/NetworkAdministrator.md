@@ -12,13 +12,13 @@ You can attach `NetworkAdministrator` to your users, groups, and roles.
 
 - **Type**: Job function policy
 - **Creation time**: November 10, 2016, 17:31 UTC
-- **Edited time:** February 12, 2026, 17:59 UTC
+- **Edited time:** July 09, 2026, 14:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/job-function/NetworkAdministrator`
 
 ## Policy version
 
-**Policy version:** v15 (default)
+**Policy version:** v16 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -183,6 +183,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "elasticbeanstalk:RequestEnvironmentInfo",
         "elasticbeanstalk:RetrieveEnvironmentInfo",
         "elasticloadbalancing:*",
+        "interconnect:AcceptConnectionProposal",
+        "interconnect:CreateConnection",
+        "interconnect:DeleteConnection",
+        "interconnect:DescribeConnectionProposal",
+        "interconnect:GetConnection",
+        "interconnect:GetEnvironment",
+        "interconnect:ListAttachPoints",
+        "interconnect:ListConnections",
+        "interconnect:ListEnvironments",
+        "interconnect:ListTagsForResource",
+        "interconnect:TagResource",
+        "interconnect:UntagResource",
+        "interconnect:UpdateConnection",
         "logs:DescribeLogGroups",
         "logs:DescribeLogStreams",
         "logs:GetLogEvents",

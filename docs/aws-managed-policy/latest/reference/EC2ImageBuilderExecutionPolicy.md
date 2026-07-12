@@ -12,13 +12,13 @@ You can attach `EC2ImageBuilderExecutionPolicy` to your users, groups, and roles
 
 - **Type**: AWS managed policy
 - **Creation time**: June 04, 2026, 17:12 UTC
-- **Edited time:** June 04, 2026, 17:12 UTC
+- **Edited time:** July 08, 2026, 16:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/EC2ImageBuilderExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -277,6 +277,21 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "EC2 Image Builder",
             "EC2 Fast Launch"
           ]
+        }
+      }
+    },
+    {
+      "Sid" : "AttachImageWatermarkPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:AttachImageWatermark"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*::image/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/CreatedBy" : "EC2 Image Builder"
         }
       }
     },

@@ -12,13 +12,13 @@ You can attach `AmazonInspector2FullAccess_v2` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: July 03, 2025, 16:07 UTC
-- **Edited time:** February 12, 2026, 18:03 UTC
+- **Edited time:** July 08, 2026, 19:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonInspector2FullAccess_v2`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -53,7 +53,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "StringEquals" : {
           "iam:AWSServiceName" : [
             "agentless.inspector2.amazonaws.com",
-            "inspector2.amazonaws.com"
+            "inspector2.amazonaws.com",
+            "thirdparty.inspector2.amazonaws.com"
           ]
         }
       }
@@ -71,7 +72,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "StringEquals" : {
           "organizations:ServicePrincipal" : [
             "inspector2.amazonaws.com",
-            "agentless.inspector2.amazonaws.com"
+            "agentless.inspector2.amazonaws.com",
+            "thirdparty.inspector2.amazonaws.com"
           ]
         }
       }
@@ -130,6 +132,32 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "organizations:PolicyType" : [
             "INSPECTOR_POLICY"
           ]
+        }
+      }
+    },
+    {
+      "Sid" : "AllowConfigConnectorWriteAndList",
+      "Effect" : "Allow",
+      "Action" : [
+        "config:PutConnector",
+        "config:ListConnectors"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowConfigConnectorRead",
+      "Effect" : "Allow",
+      "Action" : "config:GetConnector",
+      "Resource" : "arn:aws:config:*:*:connector/*"
+    },
+    {
+      "Sid" : "AllowCreateConfigThirdPartySLR",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/thirdparty.config.amazonaws.com/AWSServiceRoleForConfigThirdParty",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "thirdparty.config.amazonaws.com"
         }
       }
     }

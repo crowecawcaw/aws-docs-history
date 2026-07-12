@@ -12,13 +12,13 @@ You can attach `AmazonBraketFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: August 06, 2020, 20:12 UTC
-- **Edited time:** February 12, 2026, 18:01 UTC
+- **Edited time:** July 06, 2026, 19:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonBraketFullAccess`
 
 ## Policy version
 
-**Policy version:** v12 (default)
+**Policy version:** v13 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -43,6 +43,26 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:ListBucket",
+        "s3:CreateBucket",
+        "s3:PutBucketPublicAccessBlock",
+        "s3:PutBucketPolicy"
+      ],
+      "Resource" : "arn:aws:s3:::*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        },
+        "StringEqualsIgnoreCase" : {
+          "aws:ResourceTag/AmazonBraket" : "true"
         }
       }
     },

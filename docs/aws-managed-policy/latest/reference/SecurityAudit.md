@@ -12,13 +12,13 @@ You can attach `SecurityAudit` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:41 UTC
-- **Edited time:** June 15, 2026, 20:27 UTC
+- **Edited time:** July 09, 2026, 20:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SecurityAudit`
 
 ## Policy version
 
-**Policy version:** v89 (default)
+**Policy version:** v90 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -145,32 +145,60 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "bedrock:ListPrompts",
         "bedrock:ListProvisionedModelThroughputs",
         "bedrock:ListTagsForResource",
+        "bedrock-agentcore:GetABTest",
         "bedrock-agentcore:GetAgentRuntime",
         "bedrock-agentcore:GetAgentRuntimeEndpoint",
+        "bedrock-agentcore:GetBatchEvaluation",
         "bedrock-agentcore:GetBrowser",
         "bedrock-agentcore:GetBrowserProfile",
         "bedrock-agentcore:GetCodeInterpreter",
+        "bedrock-agentcore:GetConfigurationBundle",
+        "bedrock-agentcore:GetConfigurationBundleVersion",
+        "bedrock-agentcore:GetEvaluator",
         "bedrock-agentcore:GetGateway",
         "bedrock-agentcore:GetGatewayTarget",
         "bedrock-agentcore:GetHarness",
         "bedrock-agentcore:GetMemory",
+        "bedrock-agentcore:GetOnlineEvaluationConfig",
+        "bedrock-agentcore:GetPaymentConnector",
+        "bedrock-agentcore:GetPaymentCredentialProvider",
+        "bedrock-agentcore:GetPaymentInstrument",
+        "bedrock-agentcore:GetPaymentManager",
+        "bedrock-agentcore:GetPaymentSession",
         "bedrock-agentcore:GetPolicy",
         "bedrock-agentcore:GetPolicyEngine",
         "bedrock-agentcore:GetPolicyGeneration",
+        "bedrock-agentcore:GetRecommendation",
+        "bedrock-agentcore:GetRegistry",
+        "bedrock-agentcore:GetRegistryRecord",
+        "bedrock-agentcore:ListABTests",
         "bedrock-agentcore:ListAgentRuntimeEndpoints",
         "bedrock-agentcore:ListAgentRuntimeVersions",
         "bedrock-agentcore:ListAgentRuntimes",
+        "bedrock-agentcore:ListBatchEvaluations",
         "bedrock-agentcore:ListBrowserProfiles",
         "bedrock-agentcore:ListBrowsers",
         "bedrock-agentcore:ListCodeInterpreters",
+        "bedrock-agentcore:ListConfigurationBundleVersions",
+        "bedrock-agentcore:ListConfigurationBundles",
+        "bedrock-agentcore:ListEvaluators",
         "bedrock-agentcore:ListGatewayTargets",
         "bedrock-agentcore:ListGateways",
         "bedrock-agentcore:ListHarnesses",
         "bedrock-agentcore:ListMemories",
+        "bedrock-agentcore:ListOnlineEvaluationConfigs",
+        "bedrock-agentcore:ListPaymentConnectors",
+        "bedrock-agentcore:ListPaymentCredentialProviders",
+        "bedrock-agentcore:ListPaymentInstruments",
+        "bedrock-agentcore:ListPaymentManagers",
+        "bedrock-agentcore:ListPaymentSessions",
         "bedrock-agentcore:ListPolicies",
         "bedrock-agentcore:ListPolicyEngines",
         "bedrock-agentcore:ListPolicyGenerationAssets",
         "bedrock-agentcore:ListPolicyGenerations",
+        "bedrock-agentcore:ListRecommendations",
+        "bedrock-agentcore:ListRegistries",
+        "bedrock-agentcore:ListRegistryRecords",
         "braket:SearchJobs",
         "braket:SearchQuantumTasks",
         "chime:List*",

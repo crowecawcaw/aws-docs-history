@@ -12,13 +12,13 @@ You can attach `AmazonInspector2ReadOnlyAccess` to your users, groups, and roles
 
 - **Type**: AWS managed policy
 - **Creation time**: January 21, 2022, 14:45 UTC
-- **Edited time:** February 12, 2026, 17:58 UTC
+- **Edited time:** July 07, 2026, 18:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonInspector2ReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -78,6 +78,20 @@ request to access an AWS resource, AWS checks the default version of the policy 
           ]
         }
       }
+    },
+    {
+      "Sid" : "AllowCrossServiceReadsForConnectorHealth",
+      "Effect" : "Allow",
+      "Action" : [
+        "config:DescribeConfigurationRecorders",
+        "config:DescribeConfigurationRecorderStatus",
+        "config:ListConfigurationRecorders",
+        "config:GetConnector",
+        "config:ListConnectors",
+        "ssm:GetCloudConnector",
+        "ssm:ListCloudConnectors"
+      ],
+      "Resource" : "*"
     }
   ]
 }

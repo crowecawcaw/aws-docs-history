@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectRoleMachineLearningPolicy` to your users, 
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:55 UTC
-- **Edited time:** May 21, 2026, 16:57 UTC
+- **Edited time:** July 09, 2026, 17:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectRoleMachineLearningPolicy`
 
 ## Policy version
 
-**Policy version:** v40 (default)
+**Policy version:** v41 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -395,10 +395,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sagemaker:ListModelMetadata",
         "sagemaker:ListMlflowTrackingServers",
         "sagemaker:ListArtifacts",
+        "sagemaker:ListAssociations",
         "sagemaker:ListHubs",
         "sagemaker:ListPipelines",
         "sagemaker:ListContexts",
-        "sagemaker:ListMlflowApps"
+        "sagemaker:ListMlflowApps",
+        "sagemaker:ListFeatureGroups",
+        "scheduler:ListSchedules"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -427,7 +430,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "sagemaker:ListCandidatesForAutoMLJob",
         "sagemaker:ListTrainingJobsForHyperParameterTuningJob",
-        "sagemaker:ListAssociations",
         "sagemaker:ListHubContents",
         "sagemaker:ListPipelineExecutionSteps",
         "sagemaker:ListPipelineExecutions",
@@ -438,6 +440,24 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "StringEquals" : {
           "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true",
           "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
+        }
+      }
+    },
+    {
+      "Sid" : "SageMakerPublicHubReadPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "sagemaker:DescribeHub",
+        "sagemaker:DescribeHubContent",
+        "sagemaker:ListHubContents"
+      ],
+      "Resource" : [
+        "arn:aws:sagemaker:*:aws:hub/SageMakerPublicHub",
+        "arn:aws:sagemaker:*:aws:hub-content/SageMakerPublicHub/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true"
         }
       }
     },
@@ -891,6 +911,20 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "*"
       ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
+        }
+      }
+    },
+    {
+      "Sid" : "SageMakerFeatureStorePermission",
+      "Effect" : "Allow",
+      "Action" : [
+        "sagemaker:*Feature*",
+        "sagemaker:*Record"
+      ],
+      "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"

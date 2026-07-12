@@ -12,13 +12,13 @@ You can attach `AmazonBraketJobsExecutionPolicy` to your users, groups, and role
 
 - **Type**: AWS managed policy
 - **Creation time**: November 26, 2021, 19:34 UTC
-- **Edited time:** November 28, 2021, 05:34 UTC
+- **Edited time:** July 06, 2026, 19:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonBraketJobsExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -40,6 +40,23 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3:PutBucketPolicy"
       ],
       "Resource" : "arn:aws:s3:::amazon-braket-*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:ListBucket",
+        "s3:CreateBucket",
+        "s3:PutBucketPublicAccessBlock",
+        "s3:PutBucketPolicy"
+      ],
+      "Resource" : "arn:aws:s3:::*",
+      "Condition" : {
+        "StringEqualsIgnoreCase" : {
+          "aws:ResourceTag/AmazonBraket" : "true"
+        }
+      }
     },
     {
       "Effect" : "Allow",

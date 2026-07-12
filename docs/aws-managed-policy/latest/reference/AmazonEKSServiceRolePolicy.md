@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: February 21, 2020, 20:10 UTC
-- **Edited time:** April 21, 2026, 22:57 UTC
+- **Edited time:** July 10, 2026, 18:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonEKSServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v25 (default)
+**Policy version:** v26 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -222,7 +222,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "arn:aws:eks::aws:cluster-access-policy/AmazonEKSBlockStoragePolicy",
             "arn:aws:eks::aws:cluster-access-policy/AmazonEKSBlockStorageClusterPolicy",
             "arn:aws:eks::aws:cluster-access-policy/AmazonEKSHybridPolicy",
-            "arn:aws:eks::aws:cluster-access-policy/AmazonEKSEventPolicy"
+            "arn:aws:eks::aws:cluster-access-policy/AmazonEKSEventPolicy",
+            "arn:aws:eks::aws:cluster-access-policy/AmazonEKSPodIdentityPolicy"
           ]
         }
       }

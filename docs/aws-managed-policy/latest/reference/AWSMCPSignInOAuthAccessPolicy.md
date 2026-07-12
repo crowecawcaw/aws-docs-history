@@ -1,24 +1,24 @@
-# WellArchitectedConsoleReadOnlyAccess
+# AWSMCPSignInOAuthAccessPolicy
 
-**Description**: Provides read-only access to AWS Well-Architected Tool via the AWS Management Console
+**Description**: Provides access to authenticate to the AWS MCP server using AWS Sign-In OAuth
 
-`WellArchitectedConsoleReadOnlyAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSMCPSignInOAuthAccessPolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `WellArchitectedConsoleReadOnlyAccess` to your users, groups, and roles.
+You can attach `AWSMCPSignInOAuthAccessPolicy` to your users, groups, and roles.
 
 ## Policy details
 
 - **Type**: AWS managed policy
-- **Creation time**: November 29, 2018, 18:21 UTC
-- **Edited time:** July 09, 2026, 17:27 UTC
+- **Creation time**: July 09, 2026, 06:57 UTC
+- **Edited time:** July 09, 2026, 06:57 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/WellArchitectedConsoleReadOnlyAccess`
+  `arn:aws:iam::aws:policy/AWSMCPSignInOAuthAccessPolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -30,23 +30,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
+      "Sid" : "AllowOAuthForAWSMCP",
       "Effect" : "Allow",
       "Action" : [
-        "wellarchitected:Get*",
-        "wellarchitected:List*",
-        "wellarchitected:ExportLens",
-        "organizations:DescribeAccount",
-        "organizations:ListAWSServiceAccessForOrganization",
-        "organizations:ListDelegatedAdministrators",
-        "organizations:ListRoots",
-        "organizations:ListOrganizationalUnitsForParent",
-        "organizations:ListAccountsForParent",
-        "organizations:ListAccounts",
-        "organizations:DescribeOrganization",
-        "trustedadvisor:List*",
-        "trustedadvisor:Get*"
+        "signin:AuthorizeOAuth2Access",
+        "signin:CreateOAuth2Token"
       ],
-      "Resource" : "*"
+      "Resource" : "arn:aws:signin:*:*:service-principal/aws-mcp.amazonaws.com"
     }
   ]
 }
