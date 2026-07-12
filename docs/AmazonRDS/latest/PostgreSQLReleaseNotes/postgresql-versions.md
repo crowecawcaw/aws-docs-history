@@ -203,11 +203,16 @@ This version also includes the following extension changes:
 - The `mysql_fdw` updated to version 2.9.3.
 - The `tds_fdw` updated to version 2.0.5.
 
-The following extension supported in RDS for PostgreSQL version 17 isn't supported for
+The following extensions supported in RDS for PostgreSQL version 17 are not supported for
 RDS for PostgreSQL version 18:
 
 - `postgis_topology`
-- `plrust`
+- `plcoffee` – **The open source plv8 version 3.2 no longer includes the
+  `plcoffee` and `plls` extensions.**
+- `plls` – **The open source plv8 version 3.2 no longer includes the
+  `plcoffee` and `plls` extensions.**
+- `plrust` – **This extension is permanently discontinued and will not be
+  available in any future version.**
 
 For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 18](postgresql-extensions.md#postgresql-extensions-18x "postgresql-extensions.md#postgresql-extensions-18x").
 
