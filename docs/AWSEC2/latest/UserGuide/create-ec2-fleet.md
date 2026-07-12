@@ -49,9 +49,25 @@ subnet, and maximum price, and can include a different weighted capacity. As an 
 the attributes that an instance must have, and Amazon EC2 will identify all the
 instance types with those attributes. For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](ec2-fleet-attribute-based-instance-type-selection.md "ec2-fleet-attribute-based-instance-type-selection.md").
 
+For EC2 Fleets of type `instant`, you can also override the following
+launch template parameters:
+
+- `IamInstanceProfile` – The IAM instance profile to
+  associate with the instances. For more information, see [IAM roles for Amazon EC2](iam-roles-for-amazon-ec2.md "iam-roles-for-amazon-ec2.md").
+- `KeyName` – The name of the key pair to use for the
+  instances. For more information, see [Amazon EC2 key pairs and Amazon EC2 instances](ec2-key-pairs.md "ec2-key-pairs.md").
+- `MetadataOptions` – The instance metadata service
+  configuration for the instances. For more information, see [Use the Instance Metadata Service to access instance metadata](configuring-instance-metadata-service.md "configuring-instance-metadata-service.md").
+
 For EC2 Fleets of type `instant`, you can specify a Systems Manager
 parameter instead of the AMI ID. You can specify the Systems Manager parameter in
 the override or in the launch template. For more information, see [Use a Systems Manager parameter instead of an AMI ID](create-launch-template.md#use-an-ssm-parameter-instead-of-an-ami-id "create-launch-template.md#use-an-ssm-parameter-instead-of-an-ami-id").
+
+For EC2 Fleets of type `instant`, you can also specify user data at the
+launch template specification level using the
+`LaunchTemplateSpecificationUserData` parameter. With this parameter,
+you can provide base64-encoded user data without including it in the launch template
+itself. User data must not exceed 16 KB before base64 encoding.
 
 You can specify the fleet parameters in a JSON file. For information about all the
 possible parameters you can specify, see [View all the EC2 Fleet configuration options](#ec2-fleet-cli-skeleton "#ec2-fleet-cli-skeleton").
@@ -81,6 +97,9 @@ The following is example output for a fleet of type `request` or
 The following is example output for a fleet of type `instant` that
 launched the target capacity.
 
+The response includes the Availability Zone ID,
+Availability Zone name, and subnet ID for each set of launched instances.
+
 ```
 {
   "FleetId": "fleet-12a34b55-67cd-8ef9-ba9b-9208dEXAMPLE",
@@ -103,7 +122,10 @@ launched the target capacity.
         "i-9876543210abcdef9"
       ],
       "InstanceType": "c5.large",
-      "Platform": null
+      "Platform": null,
+      "AvailabilityZoneId": "use1-az1",
+      "AvailabilityZone": "us-east-1a",
+      "SubnetId": "subnet-0123456789abcdefEXAMPLE"
     },
     {
       "LaunchTemplateAndOverrides": {
@@ -120,7 +142,11 @@ launched the target capacity.
       "InstanceIds": [
         "i-5678901234abcdef0",
         "i-5432109876abcdef9"
-      ]
+      ],
+      "AvailabilityZoneId": "use1-az1",
+      "AvailabilityZone": "us-east-1a",
+      "SubnetId": "subnet-0123456789abcdefEXAMPLE"
+    }
   ]
 }
 ```

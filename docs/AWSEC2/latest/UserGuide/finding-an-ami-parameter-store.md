@@ -15,6 +15,73 @@ The public parameters are available from the following paths:
   `/aws/service/ami-windows-latest`
   For more information, see [Working with public parameters](../../../systems-manager/latest/userguide/parameter-store-public-parameters.md "../../../systems-manager/latest/userguide/parameter-store-public-parameters.md") in the _AWS Systems Manager User Guide_.
 
+## Find the SSM parameter for a public AMI
+
+When you describe a public AMI, the response includes the associated AWS Systems Manager (SSM)
+parameter in the `PublicSsmParameterName` field. Use this parameter to
+identify the SSM parameter that always points to the latest version of that AMI.
+
+Console
+
+###### To find the SSM parameter for a public AMI
+
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **AMIs**.
+3. Select a public AMI.
+4. On the **Details** tab, find **Public SSM
+   parameter name**.
+
+AWS CLI
+
+###### To find the SSM parameter for a public AMI
+
+Use the [describe-images](../../../cli/latest/reference/ec2/describe-images.md "../../../cli/latest/reference/ec2/describe-images.md") command. The response includes the
+`PublicSsmParameterName` field for public AMIs that have
+an associated SSM parameter.
+
+```
+aws ec2 describe-images \
+    --image-ids `ami-0abcdef1234567890`
+```
+
+The following example output shows the `PublicSsmParameterName` field.
+Some fields are omitted for brevity.
+
+```
+{
+    "Images": [
+        {
+            "ImageId": "ami-0abcdef1234567890",
+            "Name": "al2023-ami-2023.7.20260601.0-kernel-6.1-x86_64",
+            ...
+            "PublicSsmParameterName": "aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
+        }
+    ]
+}
+```
+
+PowerShell
+
+###### To find the SSM parameter for a public AMI
+
+Use the [Get-EC2Image](../../../powershell/latest/reference/items/Get-EC2Image.md "../../../powershell/latest/reference/items/Get-EC2Image.md") cmdlet. The response includes the
+`PublicSsmParameterName` field for public AMIs that have
+an associated SSM parameter.
+
+```
+Get-EC2Image -ImageId `ami-0abcdef1234567890`
+```
+
+The following example output shows the `PublicSsmParameterName` field.
+Some fields are omitted for brevity.
+
+```
+ImageId                : ami-0abcdef1234567890
+Name                   : al2023-ami-2023.7.20260601.0-kernel-6.1-x86_64
+...
+PublicSsmParameterName : aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64
+```
+
 ## List the Amazon Linux AMIs
 
 AWS CLI

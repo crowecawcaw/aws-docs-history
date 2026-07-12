@@ -28,8 +28,8 @@ replacement task_. The original root volume is detached from the instance, and t
 attached to the instance in its place. The instance's block device mapping is updated to
 reflect the ID of the replacement root volume.
 
-When you replace the root volume for an instance, you must specify the source of the
-snapshot for the new volume. The following are the possible options.
+When you replace the root volume for an instance, you must specify the source for the
+new volume. The following are the possible options.
 
 This option replaces the current root volume with a volume that is based on the
 snapshot that was used to create it.
@@ -113,6 +113,38 @@ SDKs:
 - The instance identity documents for the instance are automatically updated.
 - If the instance supports NitroTPM, the NitroTPM data for the instance is reset and
   new keys are generated.
+  Unlike the snapshot and AMI options, which create a new volume, this option replaces
+  the current root volume with an existing Amazon EBS volume that you have already configured.
+  This is useful for stateful workloads, such as databases, where you
+  want to prepare metadata or software on the root volume before you attach it to the
+  instance.
+
+Before you use this option, you must create and prepare the replacement Amazon EBS volume.
+You can prepare it by attaching it to an instance as a data volume, copying the required
+data to it, and then detaching it. The volume must be in the same Availability Zone as
+the instance.
+
+The replacement root volume retains the size, type, and other attributes that you
+configured when you created and prepared it. The delete on termination attribute of the original root volume does not transfer to
+the replacement root volume.
+
+###### Considerations for using an existing Amazon EBS volume
+
+- The replacement volume must be in the same Availability Zone as the instance.
+- The replacement volume must not be attached to any instance at the time of the
+  request.
+- The replacement volume must be in the `available` state.
+- If the replacement volume does not meet these requirements, the root volume
+  replacement request fails.
+- You can use this option with AWS Marketplace instances, but both the marketplace product
+  codes and the billing codes on the replacement volume must match those on the
+  instance.
+- If the original root volume is encrypted, the replacement volume must also be
+  encrypted. You can move from an unencrypted volume to an encrypted one, but not
+  from encrypted to unencrypted. When the replacement volume is encrypted, your
+  IAM principal must have the AWS KMS permissions required to detach the original
+  volume. You must also have the permissions to attach and decrypt the replacement
+  volume. These are the same permissions needed to attach an encrypted volume.
 
 You can choose whether to keep the original root volume after the root volume replacement
 process has completed. If you choose delete the original root volume after the replacement
@@ -151,8 +183,8 @@ Before you begin, consider the following.
   with Amazon EBS root volumes are supported.
 - You can replace the root volume for all virtualized instance types and EC2 Mac bare
   metal instances. No other bare metal instance types are supported.
-- You can only use snapshots that were created directly from the instance's current
-  or previous root volumes.
+- When using a snapshot, you can only use snapshots that you created directly from
+  the instance's current or previous root volumes.
 - If your account is enabled for Amazon EBS encryption by default in the current Region,
   the replacement root volume created by the root volume replacement task is always
   encrypted, regardless of the encryption status of the specified snapshot or the root
@@ -162,16 +194,20 @@ Before you begin, consider the following.
 
 The following table summarizes the possible encryption outcomes.
 
-|                                                                | Original root volume | Specified snapshot or AMI | Encryption by default | Replacement root volume                                                                                                                                                                                                                                                    | Encryption key used for replacement root volume |
-| -------------------------------------------------------------- | -------------------- | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| **Restore replacement root volume to<br>initial launch state** | Encrypted            | Not applicable            | Not considered        | Encrypted                                                                                                                                                                                                                                                                  | Same KMS key as original root volume            |
-| Unencrypted                                                    | Not applicable       | Disabled                  | Unencrypted           | Not applicable                                                                                                                                                                                                                                                             |
-| Unencrypted                                                    | Not applicable       | Enabled                   | Encrypted             | Account's default KMS key for Amazon EBS encryption                                                                                                                                                                                                                        |
-| **Restore replacement root volume from snapshot or AMI**       | Encrypted            | Unencrypted               | Not considered        | Encrypted                                                                                                                                                                                                                                                                  | Same KMS key as original root volume            |
-| Encrypted                                                      | Encrypted            | Not considered            | Encrypted             | Same KMS key as original root volume                                                                                                                                                                                                                                       |
-| Unencrypted                                                    | Unencrypted          | Disabled                  | Unencrypted           | Not applicable                                                                                                                                                                                                                                                             |
-| Unencrypted                                                    | Unencrypted          | Enabled                   | Encrypted             | Account's default KMS key for Amazon EBS encryption                                                                                                                                                                                                                        |
-| Unencrypted                                                    | Encrypted            | Not considered            | Encrypted             | If the AMI or snapshot is owned by the account, the replacement volume is encrypted<br>with the AMI or snapshot’s KMS key. If AMI or snapshot is shared with the account,<br>replacement volume is encrypted with the account's default KMS key for Amazon EBS encryption. |
+|                                                                           | Original root volume | Specified snapshot, AMI, or volume | Encryption by default                                                                                                            | Replacement root volume                                                                                                                                                                                                                                                    | Encryption key used for replacement root volume |
+| ------------------------------------------------------------------------- | -------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| **Restore replacement root volume to<br>initial launch state**            | Encrypted            | Not applicable                     | Not considered                                                                                                                   | Encrypted                                                                                                                                                                                                                                                                  | Same KMS key as original root volume            |
+| Unencrypted                                                               | Not applicable       | Disabled                           | Unencrypted                                                                                                                      | Not applicable                                                                                                                                                                                                                                                             |
+| Unencrypted                                                               | Not applicable       | Enabled                            | Encrypted                                                                                                                        | Account's default KMS key for Amazon EBS encryption                                                                                                                                                                                                                        |
+| **Restore replacement root volume from snapshot or AMI**                  | Encrypted            | Unencrypted                        | Not considered                                                                                                                   | Encrypted                                                                                                                                                                                                                                                                  | Same KMS key as original root volume            |
+| Encrypted                                                                 | Encrypted            | Not considered                     | Encrypted                                                                                                                        | Same KMS key as original root volume                                                                                                                                                                                                                                       |
+| Unencrypted                                                               | Unencrypted          | Disabled                           | Unencrypted                                                                                                                      | Not applicable                                                                                                                                                                                                                                                             |
+| Unencrypted                                                               | Unencrypted          | Enabled                            | Encrypted                                                                                                                        | Account's default KMS key for Amazon EBS encryption                                                                                                                                                                                                                        |
+| Unencrypted                                                               | Encrypted            | Not considered                     | Encrypted                                                                                                                        | If the AMI or snapshot is owned by the account, the replacement volume is encrypted<br>with the AMI or snapshot’s KMS key. If AMI or snapshot is shared with the account,<br>replacement volume is encrypted with the account's default KMS key for Amazon EBS encryption. |
+| **Restore replacement root volume from an<br>existing Amazon EBS volume** | Encrypted            | Encrypted                          | Not applicable                                                                                                                   | Encrypted                                                                                                                                                                                                                                                                  | KMS key of the specified volume                 |
+| Encrypted                                                                 | Unencrypted          | Not applicable                     | Not allowed. You cannot replace an encrypted root volume with an<br>unencrypted volume. Amazon EC2 rejects the replacement task. | Not applicable                                                                                                                                                                                                                                                             |
+| Unencrypted                                                               | Unencrypted          | Not applicable                     | Unencrypted                                                                                                                      | Not applicable                                                                                                                                                                                                                                                             |
+| Unencrypted                                                               | Encrypted            | Not applicable                     | Encrypted                                                                                                                        | KMS key of the specified volume                                                                                                                                                                                                                                            |
 
 ## Replace a root volume
 
@@ -264,6 +300,22 @@ aws ec2 create-replace-root-volume-task \
 --volume-initialization-rate `150`
 ```
 
+###### To replace the root volume using an existing Amazon EBS volume
+
+Use the [create-replace-root-volume-task](../../../cli/latest/reference/ec2/create-replace-root-volume-task.md "../../../cli/latest/reference/ec2/create-replace-root-volume-task.md") command. For `--instance-id`, specify the ID of the instance
+for which to replace the root volume (for example, `i-1234567890abcdef0`). For `--volume-id`, specify the ID of the Amazon EBS volume to use
+as the new root volume. To delete the original root volume after the replacement completes, include
+`--delete-replaced-root-volume`. Amazon EC2 accepts the
+`--volume-initialization-rate` parameter but ignores it with this option
+because it does not download snapshot data.
+
+```
+aws ec2 create-replace-root-volume-task \
+--instance-id `i-1234567890abcdef0` \
+--volume-id `vol-0123456789abcdef0` \
+--delete-replaced-root-volume
+```
+
 ###### To view the status of a root volume replacement task
 
 Use the [describe-replace-root-volume-tasks](../../../cli/latest/reference/ec2/describe-replace-root-volume-tasks.md "../../../cli/latest/reference/ec2/describe-replace-root-volume-tasks.md") command and specify the IDs of the
@@ -339,6 +391,22 @@ New-EC2ReplaceRootVolumeTask `
     -InstanceId `i-1234567890abcdef0` `
     -ImageId `ami-0abcdef1234567890` `
     -VolumeInitializationRate `150` `
+    -DeleteReplacedRootVolume $true
+```
+
+###### To replace the root volume using an existing Amazon EBS volume
+
+Use the [New-EC2ReplaceRootVolumeTask](../../../powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.md "../../../powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.md")
+command. For `-InstanceId`, specify the ID of the instance for which to replace the root volume (for example, `i-1234567890abcdef0`). For
+`-VolumeId`, specify the ID of the Amazon EBS volume to use as the new root volume. To delete the original
+root volume after the replacement completes, include `-DeleteReplacedRootVolume` and specify
+`$true`. Amazon EC2 accepts the `-VolumeInitializationRate` parameter
+but ignores it with this option because it does not download snapshot data.
+
+```
+New-EC2ReplaceRootVolumeTask `
+    -InstanceId `i-1234567890abcdef0` `
+    -VolumeId `vol-0123456789abcdef0` `
     -DeleteReplacedRootVolume $true
 ```
 

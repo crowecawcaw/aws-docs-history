@@ -487,7 +487,6 @@ shows the supported operating systems.
 | Operating system                       | Intel/AMD (`x86_64`) instance types | AWS Graviton (`arm64`) instance types |
 | -------------------------------------- | ----------------------------------- | ------------------------------------- |
 | Amazon Linux 2023                      | ✓                                   | ✓                                     |
-| Amazon Linux 2                         | ✓                                   | ✓                                     |
 | RHEL 8, 9, and 10                      | ✓                                   | ✓                                     |
 | Debian 11, 12, and 13                  | ✓                                   | ✓                                     |
 | Rocky Linux 8 and 9                    | ✓                                   | ✓                                     |

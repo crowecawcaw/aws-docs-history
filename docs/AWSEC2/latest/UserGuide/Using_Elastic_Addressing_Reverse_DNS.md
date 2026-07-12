@@ -9,8 +9,10 @@ addresses will be flagged as spam.
 
 ###### Considerations
 
-- Before you create a reverse DNS record, you must set a corresponding forward DNS record
-  (record type A) that points to your Elastic IP address.
+- Before you create a reverse DNS record, you must set a corresponding forward DNS
+  record (record type A) that resolves to an Elastic IP address in your account. As a
+  best practice, include all Elastic IP addresses for which you intend to create reverse
+  DNS records in the forward DNS record.
 - If a reverse DNS record is associated with an Elastic IP address, the Elastic IP address
   is locked to your account and cannot be released from your account until the record is
   removed.

@@ -103,7 +103,12 @@ EOF
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert_2026_03_02.cert"
     ```
-    - For version 460.39 to 580.95:
+    - For version 575.64 to 580.105.08:
+
+    ```
+    `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2025_07_01.cert"
+    ```
+    - For version 460.39 to 575.57:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2024_02_22.cert"
@@ -241,7 +246,12 @@ EOF
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert_2026_03_02.cert"
     ```
-    - For version 460.39 to 580.95:
+    - For version 575.64 to 580.105.08:
+
+    ```
+    `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2025_07_01.cert"
+    ```
+    - For version 460.39 to 575.57:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2024_02_22.cert"
@@ -401,7 +411,12 @@ EOF
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert_2026_03_02.cert"
     ```
-    - For version 460.39 to 580.95:
+    - For version 575.64 to 580.105.08:
+
+    ```
+    `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2025_07_01.cert"
+    ```
+    - For version 460.39 to 575.57:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2024_02_22.cert"
@@ -527,7 +542,12 @@ EOF
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert_2026_03_02.cert"
     ```
-    - For version 460.39 to 580.95:
+    - For version 575.64 to 580.105.08:
+
+    ```
+    `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2025_07_01.cert"
+    ```
+    - For version 460.39 to 575.57:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2024_02_22.cert"
@@ -652,7 +672,12 @@ EOF
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert_2026_03_02.cert"
     ```
-    - For version 460.39 to 580.95:
+    - For version 575.64 to 580.105.08:
+
+    ```
+    `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2025_07_01.cert"
+    ```
+    - For version 460.39 to 575.57:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2024_02_22.cert"
@@ -813,7 +838,12 @@ EOF
     ```
     `$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert_2026_03_02.cert"
     ```
-    - For version 460.39 to 580.95:
+    - For version 575.64 to 580.105.08:
+
+    ```
+    `$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2025_07_01.cert"
+    ```
+    - For version 460.39 to 575.57:
 
     ```
     `$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2024_02_22.cert"
@@ -979,7 +1009,12 @@ reg add "HKLM\SOFTWARE\NVIDIA Corporation\Global" /v vGamingMarketplace /t REG_D
    ```
    Invoke-WebRequest -Uri "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert_2026_03_02.cert" -OutFile "$Env:PUBLIC\Documents\GridSwCert.txt"
    ```
-   - For version 460.39 to 581.80:
+   - For version 576.80 to 581.80:
+
+   ```
+   Invoke-WebRequest -Uri "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertWindows_2025_07_01.cert" -OutFile "$Env:PUBLIC\Documents\GridSwCert.txt"
+   ```
+   - For version 460.39 to 576.72:
 
    ```
    Invoke-WebRequest -Uri "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertWindows_2024_02_22.cert" -OutFile "$Env:PUBLIC\Documents\GridSwCert.txt"

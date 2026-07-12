@@ -9,7 +9,7 @@ workloads. For more information, see the [NCCL](https://developer.nvidia.com/ncc
 
 - Only accelerated computing P series instance types are supported. For more
   information, see [Amazon EC2 accelerated computing instances](../../../ec2/latest/instancetypes/ac.md#ac-sizes "../../../ec2/latest/instancetypes/ac.md#ac-sizes").
-- Only Amazon Linux 2023, Amazon Linux 2, Ubuntu 24.04, and Ubuntu 22.04 base AMIs are supported.
+- Only Amazon Linux 2023, Ubuntu 24.04, and Ubuntu 22.04 base AMIs are supported.
 - Only NCCL 2.4.2 and later is supported with EFA.
   For more information about running machine learning workloads with EFA and
   NCCL using an AWS Deep Learning AMIs, see [Using EFA on the DLAMI](../../../dlami/latest/devguide/tutorial-efa-using.md "../../../dlami/latest/devguide/tutorial-efa-using.md") in the _AWS Deep Learning AMIs Developer Guide_.
@@ -137,7 +137,7 @@ instance**.
 
 ## Step 3: Install Nvidia GPU drivers, Nvidia CUDA toolkit, and cuDNN
 
-Amazon Linux 2023 and Amazon Linux 2
+Amazon Linux 2023
 
 ###### To install the Nvidia GPU drivers, Nvidia CUDA toolkit, and cuDNN
 
@@ -185,34 +185,14 @@ CUDA toolkit.
 4. Reboot the instance and reconnect to it.
 5. Prepare the required repositories
 
-   1. Enable the EPEL repository and set the distribution to `rhel7`.
+   1. Set the distribution variable and set up the CUDA network repository.
 
    ```
-   `$` sudo amazon-linux-extras install epel \
-   && distribution='rhel7'
-   ```
-   2. Set up the CUDA network repository and update the repository cache.
-
-   ```
-   `$` ARCH=$( /bin/arch ) \
+   `$` distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
+   && ARCH=$( /bin/arch ) \
    && sudo yum-config-manager --add-repo http://developer.download.nvidia.com/compute/cuda/repos/$distribution/${ARCH}/cuda-$distribution.repo \
    && sudo yum clean expire-cache
    ```
-   3. (_Kernel version 5.10 only_) Perform these steps only if you are using Amazon Linux 2 with
-      kernel version 5.10. If you are using Amazon Linux 2 with kernel version 4.12, skip these steps. To check your
-      kernel version, run **uname -r**.
-
-      1. Create the Nvidia driver configuration file named `/etc/dkms/nvidia.conf`.
-
-      ```
-      `$` sudo mkdir -p /etc/dkms \
-      && echo "MAKE[0]=\"'make' -j2 module SYSSRC=\${kernel_source_dir} IGNORE_XEN_PRESENCE=1 IGNORE_PREEMPT_RT_PRESENCE=1 IGNORE_CC_MISMATCH=1 CC=/usr/bin/gcc10-gcc\"" | sudo tee /etc/dkms/nvidia.conf
-      ```
-      2. (`p4d.24xlarge` and `p5.48xlarge` only) Copy the Nvidia driver configuration file.
-
-      ```
-      `$` sudo cp /etc/dkms/nvidia.conf /etc/dkms/nvidia-open.conf
-      ```
 
 6. Install the Nvidia GPU drivers, NVIDIA CUDA toolkit, and cuDNN.
 
@@ -410,7 +390,7 @@ GPU drivers, and Nvidia CUDA toolkit.
 Install GDRCopy to improve the performance of Libfabric. For more information about
 GDRCopy, see the [GDRCopy repository](https://github.com/NVIDIA/gdrcopy "https://github.com/NVIDIA/gdrcopy").
 
-Amazon Linux 2023 and Amazon Linux 2
+Amazon Linux 2023
 
 ###### To install GDRCopy
 
@@ -719,7 +699,7 @@ repository](https://github.com/NVIDIA/nccl-tests "https://github.com/NVIDIA/nccl
 
 3. Add the Libfabric directory to the `LD_LIBRARY_PATH` variable.
 
-   - Amazon Linux 2023 and Amazon Linux 2
+   - Amazon Linux 2023
 
    ```
    `$` export LD_LIBRARY_PATH=`/opt/amazon/efa/lib64`:$LD_LIBRARY_PATH
@@ -810,7 +790,7 @@ ip-192-168-2-54:14:14 [0] NCCL INFO NET/OFI Running on P4d platform, Setting NCC
 
 Install the machine learning applications on the temporary instance. The installation procedure varies
 depending on the specific machine learning application. For more information about installing
-software on your Linux instance, see [Manage software on your Amazon Linux 2 instance](../../../linux/al2/ug/managing-software.md "../../../linux/al2/ug/managing-software.md").
+software on your Linux instance, see [Manage OS updates](../../../linux/al2023/ug/managing-repos-os-updates.md "../../../linux/al2023/ug/managing-repos-os-updates.md") in the _Amazon Linux 2023 User Guide_.
 
 ###### Note
 

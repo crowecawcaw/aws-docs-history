@@ -40,5 +40,4 @@ an instance, we release the public IPv4 address and give your instance a new pub
 IPv4 address.
 
 To retain the public IPv4 address between instance stops and starts, we
-recommend that you use an Elastic IP address, at no extra cost provided your
-instance is running. For more information, see [Elastic IP addresses](elastic-ip-addresses-eip.md "elastic-ip-addresses-eip.md").
+recommend that you use an Elastic IP address. For more information, see [Elastic IP addresses](elastic-ip-addresses-eip.md "elastic-ip-addresses-eip.md").

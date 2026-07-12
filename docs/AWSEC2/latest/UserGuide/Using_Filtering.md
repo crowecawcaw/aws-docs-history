@@ -540,8 +540,8 @@ You can use the following option to list all stopped instances whose type is
 -Filter @{Name="instance-state-name"; Values="stopped"}, @{Name="instance-type"; Values="t2.micro"}
 ```
 
-## View resources across Regions using Amazon EC2 Global View
+## View resources across Regions using AWS Global View
 
-Amazon EC2 Global View enables you to view and search for Amazon EC2 and Amazon VPC resources
+AWS Global View enables you to view and search for resources
 in a single AWS Region, or across multiple Regions simultaneously in a single
 console. For more information, see [View resources across Regions using AWS Global View](global-view.md "global-view.md").

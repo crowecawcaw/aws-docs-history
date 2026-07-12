@@ -1,6 +1,6 @@
 # View resources across Regions using AWS Global View
 
-AWS Global View enables you to view some of your Amazon EC2 and Amazon VPC resources across a
+AWS Global View enables you to view some of your resources across a
 single AWS Region, or across multiple Regions in a single console. AWS Global View
 also provides _global search_ functionality that lets you search for
 specific resources or specific resource types across multiple Regions simultaneously.
@@ -18,6 +18,9 @@ across all of the Regions for which your AWS account is enabled.
 - DB clusters
 - DB instances
 - DHCP option set
+- Amazon Elastic Container Service (Amazon ECS) clusters
+- ECS services
+- ECS tasks
 - Egress-only internet gateways
 - Elastic IPs
 - Endpoint services
@@ -73,6 +76,9 @@ JSON
  "ec2:DescribeAvailabilityZones",
  "ec2:DescribeVpcEndpointServiceConfigurations",
  "ec2:DescribeManagedPrefixLists",
+ "ecs:ListClusters",
+ "ecs:DescribeServices",
+ "ecs:ListTasks",
  "outposts:ListOutposts",
  "rds:DescribeDBInstances",
  "rds:DescribeDBClusters",

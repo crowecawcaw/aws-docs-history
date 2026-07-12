@@ -9,12 +9,14 @@ When you tag a fleet request, the instances and volumes that are launched by the
 are not automatically tagged. You need to explicitly tag the instances and volumes
 launched by the fleet. You can choose to assign tags to only the fleet request, or to
 only the instances launched by the fleet, or to only the volumes attached to the
-instances launched by the fleet, or to all of them.
+instances launched by the fleet, or to only the network interfaces created by the fleet,
+or to all of them.
 
 ###### Note
 
 For `instant` fleet types, you can tag volumes that are attached to
-On-Demand Instances and Spot Instances. For `request` or `maintain` fleet types, you
+On-Demand Instances and Spot Instances. You can also tag network interfaces for `instant` fleet
+types. For `request` or `maintain` fleet types, you
 can only tag volumes that are attached to On-Demand Instances.
 
 For more information about how tags work, see [Tag your Amazon EC2 resources](Using_Tags.md "Using_Tags.md").

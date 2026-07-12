@@ -34,3 +34,4 @@ options** under **Advanced details** in the
   license-included AMIs, you must configure a minimum of four vCPUs. If you configure
   fewer than four vCPUs, default billing is applied.
 - Optimize CPUs for License-Included instances is not supported on T3 instance types.
+- Optimize CPUs for License-Included instances is not supported on Dedicated Instances.

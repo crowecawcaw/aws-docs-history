@@ -47,12 +47,21 @@ For more information, see [Connect to your Linux instance using the Amazon EC2 c
 
 When you connect to an instance using the Amazon EC2 console, your browser
 establishes a WebSocket connection on port 443 to the EC2 Instance Connect proxy
-service at the following Region-specific endpoint:
+service at a Region-specific endpoint.
 
-- `prod.`region`.oneclickv2-proxy.ec2.aws.dev`
+The endpoint format depends on the [partition](../../../glossary/latest/reference/glos-chap.md#partition "../../../glossary/latest/reference/glos-chap.md#partition"):
 
-For example, for the US East (N. Virginia) Region, the endpoint is
-`prod.us-east-1.oneclickv2-proxy.ec2.aws.dev`.
+- Commercial AWS Regions and AWS GovCloud (US) Regions use the endpoint format:
+  `prod.`region`.oneclickv2-proxy.ec2.aws.dev`.
+- China Regions use the endpoint format:
+  `prod.`region`.oneclickv2-proxy.ec2.a2z.org.cn`.
+
+The following examples show the endpoint for each partition:
+
+- For the US East (N. Virginia) Region, the endpoint is
+  `prod.us-east-1.oneclickv2-proxy.ec2.aws.dev`.
+- For the China (Beijing) Region, the endpoint is
+  `prod.cn-north-1.oneclickv2-proxy.ec2.a2z.org.cn`.
 
 ###### Note
 

@@ -147,7 +147,7 @@ refer to the [Intel MPI documentation](https://www.intel.com/content/www/us/en/d
 2. To ensure that all of your software packages are up to date, perform a quick software update
    on your instance. This process may take a few minutes.
 
-   - Amazon Linux 2023, Amazon Linux 2, RHEL 8/9, Rocky Linux 8/9
+   - Amazon Linux 2023, RHEL 8/9, Rocky Linux 8/9
 
    ```
    `$` sudo yum update -y
@@ -625,7 +625,7 @@ provider: efa
 
 Install the HPC application on the temporary instance. The installation procedure varies
 depending on the specific HPC application. For more information,
-see [Manage software on your AL2 instance](../../../linux/al2/ug/managing-software.md "../../../linux/al2/ug/managing-software.md") in the _Amazon Linux 2 User Guide_.
+see [Manage OS updates](../../../linux/al2023/ug/managing-repos-os-updates.md "../../../linux/al2023/ug/managing-repos-os-updates.md") in the _Amazon Linux 2023 User Guide_.
 
 ###### Note
 
