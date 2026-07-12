@@ -28,14 +28,16 @@ After submitting a bulk match request, you can poll the job status using:
 GET [base]/$bulk-member-match-status/{jobId}
 ```
 
-Each request supports up to 500 members (5 MB maximum payload).
+Each request supports up to 500 members with a maximum payload of 5 MB.
 
 ## Quick start
 
-1. Submit: `POST [base]/Group/$bulk-member-match` with MemberBundles → receive jobId
-2. Poll: `GET [base]/$bulk-member-match-status/{jobId}` until status = COMPLETED
-3. Extract the MatchedMembers Group ID from the completed job response
-4. Export: `POST [base]/Group/{matched-group-id}/$davinci-data-export` to retrieve clinical data
+To get started with bulk member match, follow these steps:
+
+1. Submit a bulk match request with MemberBundles using the `Group/$bulk-member-match` operation. The response includes a job ID.
+2. Poll the job status using the `$bulk-member-match-status` operation until the status is COMPLETED.
+3. Extract the `MatchedMembers` Group ID from the completed job response.
+4. Export clinical data using the `Group/$davinci-data-export` operation on the matched Group.
 
 ## Supported parameters
 
@@ -466,16 +468,18 @@ All checks must pass for the member to be placed in MatchedMembers and for the C
 
 ###### Note
 
-The `performer` reference is not cross-validated against `patient`. A parent/guardian consenting on behalf of a dependent is valid.
+The operation does not validate the `performer` reference against the `patient` field. A parent or guardian can consent on behalf of a dependent.
 
-**Consent classification decision table:**
+The following table describes how consent classification determines member placement:
 
-- `permit` + `#regular` + `active` + period covers now → **MatchedMembers (Consent stored)**
-- `permit` + `#sensitive` + `active` + period covers now → **MatchedMembers (Consent stored)**
-- `permit` + #regular or #sensitive + `active` + period expired/not started → **ConsentConstrainedMembers**
-- `deny` + any + any + any → **400 Bad Request (Step 1)**
-- `permit` + URI not ending in #regular or #sensitive + any + any → **400 Bad Request (Step 1)**
-- any + any + not active + any → **400 Bad Request (Step 1)**
+| Provision type | Policy URI                               | Status       | Period                 | Outcome                         |
+| -------------- | ---------------------------------------- | ------------ | ---------------------- | ------------------------------- |
+| `permit`       | `#regular`                               | `active`     | Covers current date    | MatchedMembers (Consent stored) |
+| `permit`       | `#sensitive`                             | `active`     | Covers current date    | MatchedMembers (Consent stored) |
+| `permit`       | `#regular` or `#sensitive`               | `active`     | Expired or not started | ConsentConstrainedMembers       |
+| `deny`         | Any                                      | Any          | Any                    | 400 Bad Request (Step 1)        |
+| `permit`       | Not ending in `#regular` or `#sensitive` | Any          | Any                    | 400 Bad Request (Step 1)        |
+| Any            | Any                                      | Not `active` | Any                    | 400 Bad Request (Step 1)        |
 
 ## Coverage matching behavior
 

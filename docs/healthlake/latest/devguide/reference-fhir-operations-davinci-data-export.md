@@ -20,16 +20,24 @@ POST [base]/Group/[id]/$davinci-data-export
 
 ## Request Parameters
 
-| Parameter                  | Cardinality | Description                                                                                                                                                                                                                                                                                                                                                                      |
-| -------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `patient`                  | 0..\*       | Specific members whose data to export. When omitted, all members in the Group are exported.                                                                                                                                                                                                                                                                                      |
-| `_type`                    | 0..1        | Comma-delimited list of FHIR resource types to export. When omitted, all supported resource types for the specified export type are included. For ATR exports, this defaults to the 8 attribution resource types. For PDex exports, this includes all attribution resource types plus clinical and claims resource types from the US Core, CARIN Blue Button, and PDex profiles. |
-| `_since`                   | 0..1        | Only include resources updated after this date and time.                                                                                                                                                                                                                                                                                                                         |
-| `_until`                   | 0..1        | Only include resources updated before this date and time.                                                                                                                                                                                                                                                                                                                        |
-| `exportType`               | 0..1        | Type of export to perform. Valid values: `hl7.fhir.us.davinci-atr`, `hl7.fhir.us.davinci-pdex`, `hl7.fhir.us.davinci-pdex.p2p`, `hl7.fhir.us.davinci-pdex.member`. Default: `hl7.fhir.us.davinci-atr`.                                                                                                                                                                           |
-| `_includeEOB2xWoFinancial` | 0..1        | Specifies whether to include CARIN BB 2.x ExplanationOfBenefit resources with financial data removed. Default: `false`.                                                                                                                                                                                                                                                          |
-| `_security`                | 0..\*       | Filter exported resources by `meta.security` Coding values. Use the `system                                                                                                                                                                                                                                                                                                      | code`format (pipe character must be URL-encoded as`%7C`). When multiple values are provided, resources must match all of them (AND semantics). Use `system | ` (trailing pipe, no code) to match any code from a given system. |
-| `_tag`                     | 0..\*       | Filter exported resources by `meta.tag` Coding values. Uses the same `system                                                                                                                                                                                                                                                                                                     | code`format and AND semantics as`_security`. When both `_security`and`_tag` are specified, resources must match both filters.                              |
+| Parameter                  | Cardinality | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| -------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `patient`                  | 0..\*       | Specific members whose data to export. When omitted, all members in the Group are exported.                                                                                                                                                                                                                                                                                                                                                                                                |
+| `_type`                    | 0..1        | Comma-delimited list of FHIR resource types to export. When omitted, all supported resource types for the specified export type are included. For ATR exports, this defaults to the 8 attribution resource types. For PDex exports, this includes all attribution resource types plus clinical and claims resource types from the US Core, CARIN Blue Button, and PDex profiles.                                                                                                           |
+| `_since`                   | 0..1        | Only include resources updated after this date and time.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `_until`                   | 0..1        | Only include resources updated before this date and time.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `exportType`               | 0..1        | The type of export to perform. Valid values: `hl7.fhir.us.davinci-atr` (ATR), `hl7.fhir.us.davinci-pdex` (Provider Access), `hl7.fhir.us.davinci-pdex#provider-snapshot` (Provider Access snapshot), `hl7.fhir.us.davinci-pdex.p2p` (Payer-to-Payer), `hl7.fhir.us.davinci-pdex.member` (Member Access). Default: `hl7.fhir.us.davinci-atr`.                                                                                                                                               |
+| `_includeEOB2xWoFinancial` | 0..1        | When set to `true`, includes `ExplanationOfBenefit` resources that declare a CARIN BB 2.x Financial (non-Basis) profile in the export with financial data stripped. The exported resource conforms to the corresponding Basis profile, but the original resource in the data store is not modified. This parameter has no effect on resources that already declare a Basis profile, as those are always included and have residual financial data removed automatically. Default: `false`. |
+| `_security`                | 0..\*       | Filter exported resources by `meta.security` Coding values. Use the `system                                                                                                                                                                                                                                                                                                                                                                                                                | code`format (pipe character must be URL-encoded as`%7C`). When multiple values are provided, resources must match all of them (AND semantics). Use `system | ` (trailing pipe, no code) to match any code from a given system. |
+| `_tag`                     | 0..\*       | Filter exported resources by `meta.tag` Coding values. Uses the same `system                                                                                                                                                                                                                                                                                                                                                                                                               | code`format and AND semantics as`_security`. When both `_security`and`_tag` are specified, resources must match both filters.                              |
+
+###### Filter behavior for \_security and \_tag
+
+The `_security` and `_tag` filters apply to all export types, including `hl7.fhir.us.davinci-atr`. These filters also support the following FHIR search modifiers: `:not`, `:missing`, `:text`, `:above`, and `:below`. For example, you can use `_tag:not=archived` or `_security:missing=true`. The operation excludes from the export any resources that do not match the supplied filters.
+
+###### ExplanationOfBenefit financial data
+
+The following financial data fields are removed from all exported CARIN BB 2.x `ExplanationOfBenefit` resources, regardless of whether the resource declares a Basis or a Financial profile: adjudication amounts, `payment`, `total`, `benefitPeriod`, `benefitBalance`, and item `net` and `unitPrice`. This ensures that financial data is not exported on Da Vinci Provider Access and Payer-to-Payer paths. `ExplanationOfBenefit` resources that declare only a PDex Prior Authorization profile (without a CARIN BB 2.x profile) are exported unchanged and no financial data is removed. If a resource declares both profiles, financial data is stripped.
 
 ### Supported Resource Types
 
@@ -50,16 +58,21 @@ For PDex exports (Provider Access, Payer-to-Payer, and Member Access), all clini
 
 The `$davinci-data-export` operation supports the following export types. You specify the export type by using the `exportType` parameter.
 
-| Export Type                       | Purpose                 | Data Scope                                       | Temporal Limit |
-| --------------------------------- | ----------------------- | ------------------------------------------------ | -------------- |
-| `hl7.fhir.us.davinci-atr`         | Member Attribution List | Attribution-related resources                    | None           |
-| `hl7.fhir.us.davinci-pdex`        | Provider Access API     | Clinical and claims data for attributed patients | 5 years        |
-| `hl7.fhir.us.davinci-pdex.p2p`    | Payer-to-Payer Exchange | Historical member data for insurance transitions | 5 years        |
-| `hl7.fhir.us.davinci-pdex.member` | Member Access API       | Member's own health data                         | 5 years        |
+| Export Type                                  | Purpose                        | Data Scope                                                                                             | Temporal Limit |
+| -------------------------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------ | -------------- |
+| `hl7.fhir.us.davinci-atr`                    | Member Attribution List        | Attribution-related resources                                                                          | None           |
+| `hl7.fhir.us.davinci-pdex`                   | Provider Access API            | Clinical and claims data for attributed patients                                                       | None           |
+| `hl7.fhir.us.davinci-pdex#provider-snapshot` | Provider Access API (snapshot) | All clinical, prior authorization, and non-financial claims and encounter data for attributed patients | None           |
+| `hl7.fhir.us.davinci-pdex.p2p`               | Payer-to-Payer Exchange        | Historical member data for insurance transitions                                                       | 5 years        |
+| `hl7.fhir.us.davinci-pdex.member`            | Member Access API              | Member's own health data                                                                               | 5 years        |
 
-###### Note
+###### Temporal limits by export type
 
-For PDex exports, the 5-year temporal limit does not apply to ATR resource types (`Group`, `Patient`, `Coverage`, `RelatedPerson`, `Practitioner`, `PractitionerRole`, `Organization`, `Location`). These resources are always included regardless of age.
+The 5-year temporal limit applies only to the Payer-to-Payer (`hl7.fhir.us.davinci-pdex.p2p`) and Member Access (`hl7.fhir.us.davinci-pdex.member`) export types. The Provider Access export types (`hl7.fhir.us.davinci-pdex` and `hl7.fhir.us.davinci-pdex#provider-snapshot`) have no temporal restriction. For the export types that are temporally limited, the 5-year limit does not apply to ATR resource types (`Group`, `Patient`, `Coverage`, `RelatedPerson`, `Practitioner`, `PractitionerRole`, `Organization`, `Location`). These resources are always included regardless of age.
+
+###### Temporal filtering basis
+
+Temporal limits and the `_since` and `_until` parameters are evaluated against each resource's `meta.lastUpdated` timestamp rather than clinical or service dates. This provides consistent temporal filtering across all resource types.
 
 ### ATR (hl7.fhir.us.davinci-atr)
 
@@ -84,11 +97,14 @@ For PDex exports, clinical and claims resources are automatically discovered for
 Provider Access (`hl7.fhir.us.davinci-pdex`)
 Enables in-network providers to retrieve patient data for attributed patients.
 
+Provider Access — snapshot (`hl7.fhir.us.davinci-pdex#provider-snapshot`)
+Returns a full snapshot of all clinical, prior authorization, and non-financial claims and encounter data for attributed patients. This export type behaves the same as `hl7.fhir.us.davinci-pdex` and is not subject to a temporal limit.
+
 Payer-to-Payer (`hl7.fhir.us.davinci-pdex.p2p`)
 Enables data exchange between payers when a patient changes insurance.
 
 Member Access (`hl7.fhir.us.davinci-pdex.member`)
-Enables members to access their own health data. This export type may include financial data in claims resources.
+Enables members to access their own health data.
 
 ## Profile Support and Inclusion Logic
 
@@ -100,19 +116,28 @@ For PDex exports, the `$davinci-data-export` operation uses profile declarations
 
 - ExplanationOfBenefit resources with a CARIN BB 1.x profile are excluded from the export.
 - ExplanationOfBenefit resources with no `meta.profile` set are excluded from the export.
-- ExplanationOfBenefit resources with a CARIN BB 2.x Basis profile are always included.
+- ExplanationOfBenefit resources with a CARIN BB 2.x Basis profile are always included, with any residual financial data removed so that the resource conforms to the CARIN BB 2.x Non-Financial Basis profile.
 - ExplanationOfBenefit resources with a CARIN BB 2.x profile that contains financial data are excluded by default. When `_includeEOB2xWoFinancial=true` is set, they are included with financial data stripped and the resource is transformed to the corresponding Basis profile.
 - ExplanationOfBenefit resources with a PDex Prior Authorization profile are always included.
+
+###### Profile precedence for financial-data stripping
+
+When an ExplanationOfBenefit resource declares multiple profiles, financial-data stripping takes precedence over pass-through. For a resource that declares both a Basis (or Financial) profile and a PDex Prior Authorization profile, the operation removes financial data before exporting the resource.
 
 ### Financial Data Transformation
 
 When you set `_includeEOB2xWoFinancial=true`, the operation transforms [CARIN BB 2.x](https://hl7.org/fhir/us/carin-bb/ "https://hl7.org/fhir/us/carin-bb/") ExplanationOfBenefit resources to their corresponding Basis profiles by removing financial data. For example, a `C4BB ExplanationOfBenefit Oral` resource is transformed to `C4BB ExplanationOfBenefit Oral Basis`, which strips financial data from the record per the FHIR specification.
 
-The following financial data elements are removed during transformation:
+The operation removes the following financial data elements in two scenarios: when it transforms a CARIN BB 2.x Financial resource to its Basis profile (using `_includeEOB2xWoFinancial=true`), and when it removes residual financial data from a CARIN BB 2.x Basis resource:
 
-- All slicing on `total` elements
-- All `adjudication` elements with `amounttype` slice
-- All `item.adjudication` elements with amount information
+- The `total` element
+- The `payment` element
+- The `benefitPeriod` element
+- The `benefitBalance` element
+- The `adjudication` amount entries (the `amount` slice; non-financial entries such as `benefitpaymentstatus` and `billingnetworkstatus` are preserved)
+- The `item.net` element
+- The `item.unitPrice` element
+- The `item.adjudication` amount entries
 
 The operation also updates profile metadata during transformation:
 
@@ -129,9 +154,9 @@ The operation uses the following rules to detect and validate profiles:
 - A resource is included if ANY of its declared profiles match the export criteria
 - Profile validation occurs during export processing
 
-## Five-Year Temporal Filtering for PDex Exports
+## Temporal filtering for PDex exports
 
-For all PDex export types, HealthLake applies a 5-year temporal filter based on when the resource was last updated. The temporal filter applies to all resources except the following core attribution resource types, which are always exported regardless of age:
+HealthLake applies a 5-year temporal filter for the Payer-to-Payer (`hl7.fhir.us.davinci-pdex.p2p`) and Member Access (`hl7.fhir.us.davinci-pdex.member`) export types. The filter is based on when the resource was last updated. The Provider Access export types (`hl7.fhir.us.davinci-pdex` and `hl7.fhir.us.davinci-pdex#provider-snapshot`) are not subject to any temporal limit. For the temporally limited export types, the filter applies to all resources except the following core attribution resource types, which are always exported regardless of age:
 
 - `Patient`
 - `Coverage`
@@ -172,6 +197,12 @@ _Provider Access export with ExplanationOfBenefit financial data removal_
 
 ```
 GET https://healthlake.{region}.amazonaws.com/datastore/{datastoreId}/r4/Group/example-group/$davinci-data-export?_type=Patient,Observation,Condition,MedicationRequest,ExplanationOfBenefit&exportType=hl7.fhir.us.davinci-pdex&_includeEOB2xWoFinancial=true
+```
+
+_Provider Access snapshot export_
+
+```
+GET https://healthlake.{region}.amazonaws.com/datastore/{datastoreId}/r4/Group/example-group/$davinci-data-export?exportType=hl7.fhir.us.davinci-pdex%23provider-snapshot
 ```
 
 _Payer-to-Payer export_
@@ -273,6 +304,8 @@ Resource Validation Errors
 
 ## Security and Authorization
 
+`$davinci-data-export` is a backend bulk operation authorized through IAM permissions or system-level SMART on FHIR (OAuth 2.0) scopes; requests presenting patient- or user-level scopes are rejected. The operation does not evaluate FHIR Consent resources to filter or restrict the exported data.
+
 - Standard FHIR authorization mechanisms apply
 - The data access role must have the required IAM permissions for S3 and KMS operations. For the complete list of required permissions, see [Setting up permissions for export jobs](getting-started-setting-up.md#setting-up-export-permissions "getting-started-setting-up.md#setting-up-export-permissions").
 
@@ -283,7 +316,7 @@ Resource Validation Errors
 - _Patient Filtering_: Use the `patient` parameter when you only need data for specific members
 - _Job Monitoring_: Regularly check job status for large exports
 - _Error Handling_: Implement proper retry logic for failed jobs
-- _Temporal Filter Awareness_: For PDex exports, consider the 5-year temporal filter when you select resource types
+- _Temporal Filter Awareness_: For Payer-to-Payer and Member Access exports, consider the 5-year temporal filter when you select resource types
 - _Financial Data Removal_: Use `_includeEOB2xWoFinancial=true` when you need claims data without financial information
 - _Profile Management_: Ensure resources have appropriate profile declarations, validate against target profiles before ingestion, and use profile versioning to control export behavior
 
@@ -293,7 +326,7 @@ Resource Validation Errors
 - Export is limited to Group-level operations only
 - Only supports the predefined set of resource types for each export type
 - Output is always in NDJSON format
-- PDex exports are limited to 5 years of clinical and claims data
+- Payer-to-Payer and Member Access exports are limited to 5 years of clinical and claims data
 - Financial data transformation only applies to CARIN BB 2.x ExplanationOfBenefit profiles
 
 ## Additional Resources
