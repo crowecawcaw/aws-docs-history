@@ -19,7 +19,7 @@ Proton, we recommend that you test how your application runs on a local machine.
 
 ### Limitations
 
-The Ubuntu 22.04 LTS runtime environment supports gamepads for applications that use the Simple DirectMedia Layer (SDL) libraries. If your application uses other input libraries, gamepad functionality might not work. If you experience issues, consider using a Proton or Windows runtime environment instead. For more information, see [Supported browsers and input](sdk-browsers-input.md "sdk-browsers-input.md").
+The Ubuntu 22.04 LTS runtime environment supports gamepads for applications that use the Simple DirectMedia Layer (SDL) libraries. If your application uses other input libraries, gamepad functionality might not work. If you experience issues, consider using a Proton or Windows runtime environment instead. For more information, see [Amazon GameLift Streams compatible devices and browsers](compatible-devices-browsers.md "compatible-devices-browsers.md").
 
 ## Stream classes
 
@@ -53,3 +53,13 @@ stream session and the tenancy model (how many concurrent streams can run on a s
 | `gen5n_high`   | Linux runtime on a g5.2xlarge Amazon EC2 instance with 2:1 tenancy   | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity.<br>Uses NVIDIA A10G Tensor Core GPU.<br>Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 12 GB.<br>Tenancy: Supports up to two concurrent stream sessions.                               |
 | `gen4n_ultra`  | Linux runtime on a g4dn.2xlarge Amazon EC2 instance                  | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Uses NVIDIA T4 Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 16 GB.<br>Tenancy: Supports one concurrent stream session.                                                   |
 | `gen4n_high`   | Linux runtime on a g4dn.2xlarge Amazon EC2 instance with 2:1 tenancy | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity.<br>Uses NVIDIA T4 Tensor Core GPU.<br>Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 8 GB.<br>Tenancy: Supports up to two concurrent stream sessions.                                  |
+
+## IPv6 support
+
+Amazon GameLift Streams supports streaming to IPv6-only clients only with Windows runtime applications.
+
+| Runtime                            | Streaming over IPv4 | Streaming over IPv6 |
+| ---------------------------------- | ------------------- | ------------------- |
+| Microsoft Windows Server 2022 Base | Yes                 | Yes                 |
+| Ubuntu 22.04 LTS                   | Yes                 | No                  |
+| Proton runtimes                    | Yes                 | No                  |

@@ -2,6 +2,15 @@
 
 The following release notes are in reverse chronological order, with the latest updates listed first. Amazon GameLift Streams was first released in 2025.
 
+Amazon GameLift Streams now offers Stream Session Admin Shell, a secure terminal connection to
+the live runtime environment of a stream session. Inspect logs, query running
+processes, check GPU utilization, and examine application state in real time.
+Available at no additional cost in all AWS Regions where Amazon GameLift Streams is offered.
+
+###### Learn more:
+
+- [Stream Session Admin Shell](troubleshoot-admin-shell-guide.md "troubleshoot-admin-shell-guide.md"), _Amazon GameLift Streams Developer Guide_
+
 Amazon GameLift Streams now offers Generation 6e stream classes, powered by the EC2 G6e instance
 family. Generation 6e features NVIDIA L40S Tensor Core GPUs and 3rd generation AMD
 EPYC processors, delivering 2x the GPU memory and up to 2.9x faster GPU memory

@@ -8,7 +8,7 @@ service. You can also use these samples to test how Amazon GameLift Streams stre
 
 ###### Topics
 
-- [Supported browsers and input](sdk-browsers-input.md "sdk-browsers-input.md")
+- [Amazon GameLift Streams compatible devices and browsers](compatible-devices-browsers.md "compatible-devices-browsers.md")
 - [Required ports](required-ports.md "required-ports.md")
 - [Setting up a web server and client with Amazon GameLift Streams](setting-up-web-sdk.md "setting-up-web-sdk.md")
 - [Customize stream appearance](sdk-stream-appearance.md "sdk-stream-appearance.md")

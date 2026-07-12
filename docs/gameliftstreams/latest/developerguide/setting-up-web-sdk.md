@@ -11,7 +11,7 @@ the Amazon GameLift Streams console in your browser.
 
 - An AWS account with proper credentials for programmatic access. For more information, see [Setting up Amazon GameLift Streams as a developer](setting-up.md "setting-up.md").
 - The AWS SDK.
-- An Amazon GameLift Streams-supported web browser — see [Supported browsers and input](sdk-browsers-input.md "sdk-browsers-input.md").
+- An Amazon GameLift Streams-supported web browser — see [Amazon GameLift Streams compatible devices and browsers](compatible-devices-browsers.md "compatible-devices-browsers.md").
 - Node.js — see [Node.js downloads](https://nodejs.org/en/download "https://nodejs.org/en/download") page.
 
 ## Download the Web SDK
@@ -71,8 +71,7 @@ Amazon GameLift Streams Web SDK package. You can also look at the web page sourc
 
 ###### Note
 
-The Windows runtime in Amazon GameLift Streams supports stream sessions over IPv4 or IPv6. However, Linux and Proton runtime environments only support
-streaming over IPv4.
+For information about IPv6 support across runtime environments, see [IPv6 support](configuration-options.md#configuration-options-ipv6-support "configuration-options.md#configuration-options-ipv6-support").
 
 ###### To launch a web client application
 

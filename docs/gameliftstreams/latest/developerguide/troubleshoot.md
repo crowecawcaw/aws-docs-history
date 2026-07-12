@@ -334,15 +334,13 @@ This section identifies potential causes and solutions for issues related to use
   desktop application for the best end-user experience and maximum compatibility, particularly with game controllers.
 - Log input events sent from client and received by the application to identify where there is an input mismatch in your front
   end code.
-- Be sure to check [Supported browsers and input](sdk-browsers-input.md "sdk-browsers-input.md") for additional information on
-  supported browsers and input devices, including known issues and limitations.
+- For more information about supported browsers and input devices, including known issues and limitations, see [Amazon GameLift Streams compatible devices and browsers](compatible-devices-browsers.md "compatible-devices-browsers.md").
 
 ### Gamepad input issues on the Ubuntu 22.04 LTS runtime environment
 
 Gamepad input on the Ubuntu 22.04 LTS runtime environment is supported for applications that use the Simple DirectMedia Layer (SDL) libraries.
 If your application uses other input libraries, gamepad functionality might not work. If you experience issues, consider using a
-Proton or Windows runtime environment instead. See [Supported browsers and input](sdk-browsers-input.md "sdk-browsers-input.md") for
-additional information on supported input devices, including known issues and limitations.
+Proton or Windows runtime environment instead. For more information about supported input devices, including known issues and limitations, see [Amazon GameLift Streams compatible devices and browsers](compatible-devices-browsers.md "compatible-devices-browsers.md").
 
 ### Key input appears stuck on MacOS client
 
