@@ -147,6 +147,11 @@ For Wickr-managed accounts (non-SSO):
 5. Enter and confirm a new password that meets your organization's
    complexity requirements.
 
+Your Wickr network administrator manages password complexity settings. By
+default, Wickr requires a minimum 8-character password with no additional
+character type requirements. If you experience issues, contact your network
+administrator for your network's specific settings.
+
 ## Collect logs for your administrator
 
 Your administrator or AWS Support may ask you to collect logs. Follow
