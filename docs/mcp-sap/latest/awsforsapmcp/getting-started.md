@@ -27,7 +27,7 @@ The AWS for SAP MCP Server can be deployed via a CloudFormation template (see [D
 
 ## SAP Prerequisites
 
-- SAP S/4HANA or SAP ERP Central Component (ECC) system with OData (Open Data Protocol) enabled. SAP Gateway supports OData V2 from SAP Application Server ABAP (AS ABAP) 7.00. For more information, see [SAP documentation](https://learning.sap.com/courses/learning-the-basics-of-sap-fiori/explaining-data-services_d3477b9d-aa60-43fd-90b3-9ef71ccf75f8 "https://learning.sap.com/courses/learning-the-basics-of-sap-fiori/explaining-data-services_d3477b9d-aa60-43fd-90b3-9ef71ccf75f8").
+- SAP S/4HANA or SAP ERP Central Component (ECC) system with OData (Open Data Protocol) enabled. For more information about SAP Gateway and OData support, see [SAP documentation](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/88/889a8cbf6046378e274d6d9cd04e4d/content.htm?no_cache=true "https://help.sap.com/saphelp_gateway20sp12/helpdata/en/88/889a8cbf6046378e274d6d9cd04e4d/content.htm?no_cache=true").
 - SAP OData Service Activation via [OData Service in SAP Gateway Hub](https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/1b/023c1cad774eeb8b85b25c86d94f87/frameset.htm "https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/1b/023c1cad774eeb8b85b25c86d94f87/frameset.htm").
 - Enable the OData API to use service type `WEB_API`. This setting is recommended and applies only to SAP S/4HANA.
 - SAP’s OData Service Catalog `IWFND/CATALOGSERVICE;v=2` must be available on the SAP system for service discovery. This is required only for the use of Standard Catalog.
