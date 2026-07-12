@@ -10,6 +10,7 @@ mode:
 
 - EMR on EC2
 - EMR Serverless
+- EMR on EKS
 - AWS Glue
 
 Please refer to [Features and Capabilities](spark-troubleshooting-features.md "spark-troubleshooting-features.md") to

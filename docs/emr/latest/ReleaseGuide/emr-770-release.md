@@ -84,7 +84,7 @@ The following release notes include information for Amazon EMR release 7.7.0.
 - The Iceberg version in use as of EMR 7.7.0 no longer supports Java 8. Additionally, Iceberg is excluded from the
   following Java 8 images: `emr-7.7.0-java8-latest` and `emr-7.7.0-spark-rapids-java8-latest`.
 - Lake Formation for FGAC with Amazon EMR on EKS – With Amazon EMR release 7.7 and higher, you can leverage AWS Lake Formation to apply fine-grained access controls on Data Catalog tables that are backed by Amazon S3. This
-  capability lets you configure table, row, column, and cell-level access controls for read queries within your Amazon Amazon EMR on EKS Spark Jobs. For more information, see
+  capability lets you configure table, row, column, and cell-level access controls for read and write queries within your Amazon Amazon EMR on EKS Spark Jobs. For more information, see
   [Using Amazon Amazon EMR on EKS with AWS Lake Formation for fine-grained access control](../EMR-on-EKS-DevelopmentGuide/security_iam_fgac-lf.md "../EMR-on-EKS-DevelopmentGuide/security_iam_fgac-lf.md").
 
 - | OsReleaseLabel (Amazon Linux version) | Amazon Linux kernel version | Available date | Supported Regions |

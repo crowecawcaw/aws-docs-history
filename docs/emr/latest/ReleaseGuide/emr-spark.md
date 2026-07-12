@@ -20,7 +20,7 @@ Spark. A Hive context is included in the spark-shell as `sqlContext`.
 For an example tutorial on setting up an EMR cluster with Spark and analyzing a sample
 data set, see [Tutorial: Getting started with Amazon EMR](../ManagementGuide/emr-gs.md "../ManagementGuide/emr-gs.md") on the AWS News blog.
 
-You can use Apache Spark Troubleshooting Agent to troubleshoot your Apache Spark applications on EMR on EC2 and EMR Serverless. To learn more, please refer to [What is Apache Spark Troubleshooting Agent for Amazon EMR and AWS Glue](spark-troubleshoot.md "spark-troubleshoot.md").
+You can use the Apache Spark Troubleshooting Agent to troubleshoot your Apache Spark applications on EMR on EC2, Amazon EMR Serverless, and EMR on EKS. To learn more, see [What is Apache Spark Troubleshooting Agent for Amazon EMR and AWS Glue](spark-troubleshoot.md "spark-troubleshoot.md").
 
 ###### Important
 

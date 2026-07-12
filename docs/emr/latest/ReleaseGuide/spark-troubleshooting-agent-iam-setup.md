@@ -139,7 +139,7 @@ cat > glue-policy.json << EOF
       "Sid": "GlueCloudWatchLogsAccess",
       "Effect": "Allow",
       "Action": ["logs:GetLogEvents", "logs:FilterLogEvents"],
-      "Resource": ["arn:aws:logs:*:${ACCOUNT_ID}:log-group:/aws/glue/*"]
+      "Resource": ["arn:aws:logs:*:${ACCOUNT_ID}:log-group:/aws-glue/*"]
     },
     {
       "Sid": "GlueSparkWebUI",
@@ -237,6 +237,69 @@ aws iam put-role-policy \
   --role-name SparkTroubleshootingMCPRole \
   --policy-name EMRServerlessTroubleshootingAccess \
   --policy-document file://emr-serverless-policy.json
+```
+
+### Option D: EMR on EKS
+
+1. Create the policy document:
+
+```
+cat > emr-eks-policy.json << EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "emr-containers:DescribeVirtualCluster",
+                "emr-containers:DescribeJobRun",
+                "emr-containers:ListJobRuns",
+                "emr-containers:ListVirtualClusters"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "EMREKSReadAccess"
+        },
+        {
+            "Action": [
+                "logs:GetLogEvents",
+                "logs:DescribeLogGroups",
+                "logs:DescribeLogStreams"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "EMRCloudWatchLogAccess"
+        },
+        {
+            "Action": [
+                "elasticmapreduce:CreatePersistentAppUI",
+                "elasticmapreduce:DescribePersistentAppUI",
+                "elasticmapreduce:GetPersistentAppUIPresignedURL"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "EMRPersistentApp"
+        },
+        {
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "EMREKSS3LogAccess"
+        }
+    ]
+}
+EOF
+```
+
+2. Attach the policy:
+
+```
+aws iam put-role-policy \
+  --role-name SparkTroubleshootingMCPRole \
+  --policy-name EMREKSTroubleshootingAccess \
+  --policy-document file://emr-eks-policy.json
 ```
 
 ### Optional: KMS permissions for encrypted CloudWatch Logs

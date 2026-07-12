@@ -1,6 +1,6 @@
 # Spark Troubleshooting Agent Workflow in Details
 
-To initiate the troubleshooting process, you will need access to your failed Spark application identifiers running on supported platforms (EMR-EC2, EMR Serverless, AWS Glue, or Amazon SageMaker Data Notebooks). The application should have accessible logs, Spark History Server, and configuration details. Ensure you have the necessary permissions to access the platform resources and application metadata. Once these requirements are established, you can submit a prompt like the following to kick off the troubleshooting workflow:
+To initiate the troubleshooting process, you will need access to your failed Spark application identifiers running on supported platforms (EMR on EC2, EMR Serverless, EMR on EKS, AWS Glue, or Amazon SageMaker Data Notebooks). The application should have accessible logs, Spark History Server, and configuration details. Ensure you have the necessary permissions to access the platform resources and application metadata. Once these requirements are established, you can submit a prompt like the following to kick off the troubleshooting workflow:
 
 ```
 Analyze my EMR step execution failure, EMR id <step-id> with cluster id <cluster-id>

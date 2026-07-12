@@ -8,6 +8,10 @@ schemes, including the following:
 - **s3a://**
   This change applies across all EMR deployments, including EC2, EKS, and EMR Serverless.
 
+###### Performance tuning for HBase on S3
+
+If you use HBase on Amazon S3, for performance tuning guidance on affected versions, see [Configuring S3A read policy for HBase](emr-hbase-s3.md#emr-hbase-s3a-read-policy "emr-hbase-s3.md#emr-hbase-s3a-read-policy").
+
 If you want to continue using EMRFS, you can configure this by adding the following property to the `core-site.xml` configuration file:
 
 ```

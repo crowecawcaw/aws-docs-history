@@ -72,6 +72,7 @@ The following release notes include information for Amazon EMR release 7.10.0.
 
 ###### Known issues
 
+- **HBase on S3 read performance** – HBase read performance for compactions, scans, and bulk loads might degrade because of S3A adaptive read policy behavior. For resolution steps, see [Configuring S3A read policy for HBase](emr-hbase-s3.md#emr-hbase-s3a-read-policy "emr-hbase-s3.md#emr-hbase-s3a-read-policy").
 - **ACCEPTED State** – YARN Application stuck In ACCEPTED State due to open-source bug [YARN-11834](https://issues.apache.org/jira/browse/YARN-11834 "https://issues.apache.org/jira/browse/YARN-11834"). Reach out to
   the AWS support team if you encounter this issue.
 - **ConcurrentModificationException exception** – YARN restarting frequently with ConcurrentModificationException exception due to open-source

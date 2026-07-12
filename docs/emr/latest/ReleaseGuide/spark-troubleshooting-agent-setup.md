@@ -58,6 +58,8 @@ the following information and proceed to create the stack.
   (default: true)
 - **EnableEMRServerless** - Enable EMR-Serverless troubleshooting
   permissions (default: true)
+- **EnableEMREKS** - Enable EMR on EKS troubleshooting
+  permissions (default: true)
 - **EnableGlue** - Enable Glue troubleshooting permissions
   (default: true)
 - **CloudWatchKmsKeyArn** - (Optional) ARN of existing KMS key for

@@ -222,6 +222,62 @@ To disable the FileBasedStoreFileTracker implementation, specify the following c
 
 When reconfiguring the Amazon EMR cluster, all instance groups must be updated.
 
+## Configuring S3A read policy for HBase
+
+Starting with Amazon EMR version 7.10, HBase on Amazon S3 uses the S3A file system client. By default, the `fs.s3a.experimental.input.fadvise` property is set to `normal`. In this mode, S3A automatically adapts between sequential and random read policies based on the observed access pattern of the input stream.
+
+HBase on Amazon S3 relies on sequential reads for compactions, scans, and bulk loads. In some cases, the normal mode might switch to the random read policy. This can happen even though subsequent reads remain sequential. When this occurs, read performance for compactions, scans, and bulk loads can degrade significantly.
+
+###### Affected versions
+
+This issue applies to Amazon EMR versions 7.10, 7.11, 7.12, and 7.13 with HBase.
+
+If you experience any of the following symptoms, set the S3A read policy to `sequential`:
+
+- Slow compactions
+- An increasing number of HFiles
+- Blocked flush operations resulting in `RegionTooBusyException` errors
+- Slower scan and bulk load operations compared to earlier Amazon EMR versions
+
+Specify the following configuration when you create your cluster:
+
+```
+[
+  {
+    "Classification": "hbase-site",
+    "Properties": {
+      "fs.s3a.experimental.input.fadvise": "sequential"
+    }
+  }
+]
+```
+
+Apply this property to `hbase-site.xml` on all nodes. The change takes effect after you restart the HBase primary and region server processes.
+
+###### Cluster-wide configuration recommended
+
+We recommend that you set `fs.s3a.experimental.input.fadvise` to `sequential` cluster-wide for all HBase workloads on affected versions. If you apply the setting only to individual commands, performance degradation for compactions and scans persists.
+
+### Configuring the read policy for bulk load operations
+
+If you need to improve only bulk load performance without changing the cluster-wide configuration, you can pass the property directly to the `completebulkload` command.
+
+To use the sequential read policy for a single bulk load operation:
+
+```
+sudo -u hbase hbase completebulkload \
+  -Dfs.s3a.experimental.input.fadvise=sequential \
+  s3://amzn-s3-demo-bucket/path/to/hfiles table_name
+```
+
+Alternatively, you can use EMRFS for the bulk load operation:
+
+```
+sudo -u hbase hbase completebulkload \
+  -Dfs.s3.impl=com.amazon.ws.emr.hadoop.fs.EmrFileSystem \
+  s3://amzn-s3-demo-bucket/path/to/hfiles table_name
+```
+
 ## Operational considerations
 
 HBase region servers use BlockCache to store data reads in memory and BucketCache to store

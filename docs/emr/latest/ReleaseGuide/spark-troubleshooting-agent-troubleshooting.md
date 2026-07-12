@@ -28,7 +28,7 @@ Topics
 - Tools may take a few seconds to be loaded on first attempt of launching the server.
 - If tools don't appear, try restarting the chat.
 - Run `/tools` command to verify tool availability.
-- Run `/mcp` if the server is launched without error.
+- Run `/mcp` to verify if the server launched without error.
 
 ### Error: Tool Invocation Failed with Throttling Error
 

@@ -4,8 +4,8 @@
 
 - **Languages**: Python and Scala Spark
   applications
-- **Target Platforms**: Amazon EMR, EMR Serverless
-  and AWS Glue
+- **Target Platforms**: Amazon EMR on EC2, EMR Serverless,
+  EMR on EKS, and AWS Glue
 
 ## How It Works
 
@@ -24,6 +24,7 @@ logs, query plans, executor timelines, log traces, configurations and metrics):
   UI](../../../glue/latest/dg/monitor-spark-ui-jobs.md "../../../glue/latest/dg/monitor-spark-ui-jobs.md") for the job
 - On EMR-Serverless: it connects to EMR-Serverless [Spark
   History Server](../../../emr-serverless/latest/APIReference/API_GetDashboardForJobRun.md "../../../emr-serverless/latest/APIReference/API_GetDashboardForJobRun.md") for the job
+- On EMR on EKS: it connects to EMR Persistent UI for the job.
 - The agent also analyzes your error stack traces and configuration details to
   give you actionable insights.
 
@@ -47,7 +48,7 @@ The Spark Troubleshooting Agent is available in the following regions:
 - **Supported Spark workload states**: The tools
   will only support responses for failed Spark workloads.
 - **EMR Persistent UI:** When analyzing Amazon
-  EMR-EC2 workloads, the analyze tool will attempt to connect to EMR Persistent UI
+  EMR on EC2 and EMR on EKS workloads, the analyze tool will attempt to connect to EMR Persistent UI
   to retrieve key Spark information. EMR Persistent UI considerations are
   documented [here](../ManagementGuide/app-history-spark-UI.md#app-history-spark-UI-limitations "../ManagementGuide/app-history-spark-UI.md#app-history-spark-UI-limitations").
 - **Glue Studio Spark UI**: When analyzing AWS
@@ -55,7 +56,7 @@ The Spark Troubleshooting Agent is available in the following regions:
   by parsing user's Spark event logs from Amazon S3. Maximum allowed Spark event log
   size is documented [here](../../../glue/latest/dg/monitor-spark-ui-jobs.md "../../../glue/latest/dg/monitor-spark-ui-jobs.md"): 512 MB and 2 GB for rolling logs.
 - **Code Recommendations:** Only supported for
-  Amazon EMR-EC2 and AWS Glue workloads for PySpark workloads
+  Amazon EMR on EC2, EMR Serverless, EMR on EKS, and AWS Glue PySpark workloads
 - **Regional resources:** The Spark Troubleshooting Agent is
   regional and uses the underlying EMR resources in that region for the troubleshooting
   process. Cross-region troubleshooting is not supported.
