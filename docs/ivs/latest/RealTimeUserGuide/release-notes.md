@@ -3,6 +3,20 @@
 This document contains all Amazon IVS Real-Time Streaming release notes, latest first,
 organized by date of release.
 
+## July 7, 2026
+
+### Amazon IVS Broadcast SDK: iOS 1.44.1 (Real-Time Streaming)
+
+| Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [iOS Broadcast SDK<br>1.44.1](broadcast-ios.md "broadcast-ios.md") | **Download for real-time streaming:**<br>[https://broadcast.live-video.net/1.44.1/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.44.1/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.44.1/AmazonIVSBroadcast-Stages.xcframework.zip")<br>**Reference documentation:**<br>[https://aws.github.io/amazon-ivs-broadcast-docs/1.44.1/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.44.1/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.44.1/ios/")<br>• Fixed a rare deadlock when leaving and deallocating an `IVSStage`. |
+
+#### Broadcast SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 4.073 MB        | 8.281 MB          |
+
 ## July 2, 2026
 
 ### Amazon IVS Broadcast SDK: Android 1.44.0, iOS 1.44.0 (Real-Time Streaming)
