@@ -185,7 +185,7 @@ monitored per internal access analyzer per month.
 IAM Access Analyzer charges for custom policy checks based on the number of API requests made to
 IAM Access Analyzer to check for new access.
 
-For a complete list of charges and prices for IAM Access Analyzer, see [IAM Access Analyzer pricing](https://aws.amazon.com/iam/access-analyzer/pricing "https://aws.amazon.com/iam/access-analyzer/pricing").
+For a complete list of prices and charges for IAM Access Analyzer, see [IAM Access Analyzer pricing](https://aws.amazon.com/iam/access-analyzer/pricing "https://aws.amazon.com/iam/access-analyzer/pricing").
 
 To see your bill, go to the **Billing and Cost Management Dashboard** in
 the [AWS Billing and Cost Management console](https://console.aws.amazon.com/billing/ "https://console.aws.amazon.com/billing/"). Your bill contains links

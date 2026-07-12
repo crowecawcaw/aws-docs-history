@@ -53,9 +53,9 @@ use the `ForAllValues` or `ForAnyValue` set operators. Use set
 operators only with multivalued condition keys. Do not use set operators with
 single-valued condition keys. For more information, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
-| Properties of the principal                                                                                                                                                                                                                                                            | Properties of a role session                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Properties of the network                                                                                                                                      | Properties of the resource                                                                          | Properties of the request                                                                                                                                                                                                                                                                                                                                                                                                              |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `aws:PrincipalArn`<br>`aws:PrincipalAccount`<br>`aws:PrincipalOrgPaths`<br>`aws:PrincipalOrgID`<br>`aws:PrincipalTag/tag-key`<br>`aws:PrincipalIsAWSService`<br>`aws:PrincipalServiceName`<br>`aws:PrincipalServiceNamesList`<br>`aws:PrincipalType`<br>`aws:userid`<br>`aws:username` | `aws:AssumedRoot`<br>`aws:FederatedProvider`<br>`aws:TokenIssueTime`<br>`aws:MultiFactorAuthAge`<br>`aws:MultiFactorAuthPresent`<br>`aws:ChatbotSourceArn`<br>`aws:Ec2InstanceSourceVpc`<br>`aws:Ec2InstanceSourcePrivateIPv4`<br>`aws:SourceIdentity`<br>`ec2:RoleDelivery`<br>`ec2:SourceInstanceArn`<br>`glue:RoleAssumedBy`<br>`glue:CredentialIssuingService`<br>`codebuild:BuildArn`<br>`codebuild:ProjectArn`<br>`lambda:SourceFunctionArn`<br>`ssm:SourceInstanceArn`<br>`identitystore:UserId` | `aws:SourceIp`<br>`aws:SourceVpc`<br>`aws:SourceVpcArn`<br>`aws:SourceVpce`<br>`aws:VpceAccount`<br>`aws:VpceOrgID`<br>`aws:VpceOrgPaths`<br>`aws:VpcSourceIp` | `aws:ResourceAccount`<br>`aws:ResourceOrgID`<br>`aws:ResourceOrgPaths`<br>`aws:ResourceTag/tag-key` | `aws:CalledVia`<br>`aws:CalledViaFirst`<br>`aws:CalledViaLast`<br>`aws:CalledViaAWSMCP`<br>`aws:ViaAWSService`<br>`aws:ViaAWSMCPService`<br>`aws:CurrentTime`<br>`aws:EpochTime`<br>`aws:referer`<br>`aws:RequestedRegion`<br>`aws:RequestTag/tag-key`<br>`aws:TagKeys`<br>`aws:SecureTransport`<br>`aws:SourceAccount`<br>`aws:SourceArn`<br>`aws:SourceOrgID`<br>`aws:SourceOrgPaths`<br>`aws:UserAgent`<br>`aws:IsMcpServiceAction` |
+| Properties of the principal                                                                                                                                                                                                                                                            | Properties of a role session                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Properties of the network                                                                                                                                      | Properties of the resource                                                                          | Properties of the request                                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `aws:PrincipalArn`<br>`aws:PrincipalAccount`<br>`aws:PrincipalOrgPaths`<br>`aws:PrincipalOrgID`<br>`aws:PrincipalTag/tag-key`<br>`aws:PrincipalIsAWSService`<br>`aws:PrincipalServiceName`<br>`aws:PrincipalServiceNamesList`<br>`aws:PrincipalType`<br>`aws:userid`<br>`aws:username` | `aws:AssumedRoot`<br>`aws:FederatedProvider`<br>`aws:TokenIssueTime`<br>`aws:SignInSessionArn`<br>`aws:MultiFactorAuthAge`<br>`aws:MultiFactorAuthPresent`<br>`aws:ChatbotSourceArn`<br>`aws:Ec2InstanceSourceVpc`<br>`aws:Ec2InstanceSourcePrivateIPv4`<br>`aws:SourceIdentity`<br>`ec2:RoleDelivery`<br>`ec2:SourceInstanceArn`<br>`glue:RoleAssumedBy`<br>`glue:CredentialIssuingService`<br>`codebuild:BuildArn`<br>`codebuild:ProjectArn`<br>`lambda:SourceFunctionArn`<br>`ssm:SourceInstanceArn`<br>`identitystore:UserId` | `aws:SourceIp`<br>`aws:SourceVpc`<br>`aws:SourceVpcArn`<br>`aws:SourceVpce`<br>`aws:VpceAccount`<br>`aws:VpceOrgID`<br>`aws:VpceOrgPaths`<br>`aws:VpcSourceIp` | `aws:ResourceAccount`<br>`aws:ResourceOrgID`<br>`aws:ResourceOrgPaths`<br>`aws:ResourceTag/tag-key` | `aws:CalledVia`<br>`aws:CalledViaFirst`<br>`aws:CalledViaLast`<br>`aws:CalledViaAWSMCP`<br>`aws:ViaAWSService`<br>`aws:ViaAWSMCPService`<br>`aws:CurrentTime`<br>`aws:EpochTime`<br>`aws:referer`<br>`aws:RequestedRegion`<br>`aws:RequestTag/tag-key`<br>`aws:TagKeys`<br>`aws:SecureTransport`<br>`aws:SourceAccount`<br>`aws:SourceArn`<br>`aws:SourceOrgID`<br>`aws:SourceOrgPaths`<br>`aws:UserAgent`<br>`aws:IsMcpServiceAction` |
 
 ## Sensitive condition keys
 
@@ -660,6 +660,56 @@ issued with the date and time that you specify in the policy.
 - **Value type** – Single-valued
 
 To learn which services support using temporary credentials, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+
+### aws:SignInSessionArn
+
+Use this key to compare your AWS Sign-In OAuth session with the session
+that you specify in the policy.
+
+When you use an OAuth-based flow such as AWS CLI login (`aws login`) or
+AWS MCP Server, AWS Sign-In includes a sign-in session ARN in the issued
+credentials. AWS Sign-In propagates that ARN to subsequent requests made using
+OAuth access tokens. With this key, you can correlate API activity with the
+originating sign-in session and apply IAM policies to individual
+sessions.
+
+For interactive OAuth flows, the refresh token determines the sign-in session ARN
+lifecycle. A new access token issued during a refresh continues to carry the same
+sign-in session ARN.
+
+For non-interactive OAuth flows, the access token determines the sign-in session
+ARN lifecycle. Each new access token contains a new sign-in session ARN.
+
+- **Availability** – This key is included
+  in the request context when the request originates from an AWS Sign-In
+  OAuth session. This key is not available for console sessions.
+- **Data type** – [ARN](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN")
+- **Value type** – Single-valued
+
+Use ARN operators instead of string operators when you compare ARNs.
+
+The following policy denies all actions associated with a specific AWS
+Sign-In session, although requests from other active sessions
+continue:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenySpecificSignInSession",
+      "Effect": "Deny",
+      "Action": "*",
+      "Resource": "*",
+      "Condition": {
+        "ArnEquals": {
+          "aws:SignInSessionArn": "arn:aws:signin:us-east-1:111122223333:session/session-id"
+        }
+      }
+    }
+  ]
+}
+```
 
 ### aws:MultiFactorAuthAge
 
