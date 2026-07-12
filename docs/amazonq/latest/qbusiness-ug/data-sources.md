@@ -26,7 +26,7 @@ data source to your application.
   index](../../../kendra/latest/dg/create-index.md "../../../kendra/latest/dg/create-index.md") as a retriever.
 
 If you're connecting a Amazon Kendra GenAI Enterprise Edition index from an Amazon Q Business
-application, you can detach it and use it with other AWS Gen AI services, like
+application, you can detach it and use it with other AWS generative AI services, like
 Amazon Bedrock. Detaching an Amazon Kendra index automatically deletes the retriever
 Amazon Q Business created for it. For a list of features supported by Amazon Kendra GenAI
 Enterprise indices, see [Amazon Kendra GenAI Enterprise Edition

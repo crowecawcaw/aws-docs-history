@@ -30,7 +30,7 @@ The option to create an Amazon Kendra index is visible on the console only if
 you're already an Amazon Kendra user.
 
 If you're connecting a Amazon Kendra GenAI Enterprise Edition index from an
-Amazon Q Business application, you can detach it and use it with other AWS Gen AI
+Amazon Q Business application, you can detach it and use it with other AWS generative AI
 services, like Amazon Bedrock. Detaching an Amazon Kendra index automatically
 deletes the retriever Amazon Q Business created for it. For a list of features
 supported by Amazon Kendra GenAI Enterprise indices, see [Amazon Kendra GenAI Enterprise Edition
@@ -160,7 +160,7 @@ Amazon Kendra index](../../../kendra/latest/dg/create-index.md "../../../kendra/
 Amazon Q Business, you can use the Amazon Q Business console or the [CreateRetriever](../api-reference/API_CreateRetriever.md "../api-reference/API_CreateRetriever.md") API operation.
 
 If you're connecting a Amazon Kendra GenAI Enterprise Edition index from an Amazon Q Business
-application, you can detach it and use it with other AWS Gen AI services, like
+application, you can detach it and use it with other AWS generative AI services, like
 Amazon Bedrock. Detaching an Amazon Kendra index automatically deletes the retriever
 Amazon Q Business created for it. For a list of features supported by Amazon Kendra GenAI
 Enterprise indices, see [Amazon Kendra GenAI Enterprise Edition
