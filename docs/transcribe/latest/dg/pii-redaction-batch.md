@@ -6,7 +6,7 @@ transcription job, Amazon Transcribe replaces each identified instance of PII wi
 that is redacted in the word-for-word portion of the transcription output. For an output sample,
 see [Example redacted output (batch)](pii-redaction-output.md#pii-redaction-output-batch "pii-redaction-output.md#pii-redaction-output-batch").
 
-Redaction with batch transcriptions is available with English dialect: US (`en-US`); Spanish dialect: US (`es-US`); French dialects: French (`fr-FR`), Canada (`fr-CA`); German dialects: Germany (`de-DE`), Swiss (`de-CH`); Italian dialect: Italy (`it-IT`); and Portuguese dialects: Portugal (`pt-PT`), Brazil (`pt-BR`).
+Redaction with batch transcriptions is available with English dialects: US (`en-US`), Australia (`en-AU`), British (`en-GB`), India (`en-IN`), Ireland (`en-IE`), New Zealand (`en-NZ`), Scotland (`en-AB`), South Africa (`en-ZA`), Wales (`en-WL`); Spanish dialect: US (`es-US`); French dialects: France (`fr-FR`), Canada (`fr-CA`); German dialects: Germany (`de-DE`), Swiss (`de-CH`); Italian dialect: Italy (`it-IT`); and Portuguese dialects: Portugal (`pt-PT`), Brazil (`pt-BR`).
 Redaction is not compatible with [language identification](lang-id-batch.md "lang-id-batch.md").
 
 Both redacted and unredacted transcripts are stored in the same output Amazon S3
