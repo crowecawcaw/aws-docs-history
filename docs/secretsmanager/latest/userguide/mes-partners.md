@@ -19,13 +19,15 @@ secret to rotate.
 
 Topics| Integration Partner | Secret type |
 | --- | --- |
-| Salesforce | [SalesforceClientSecret](mes-partner-salesforce.md "mes-partner-salesforce.md") |
 | BigID | [BigIDClientSecret](mes-partner-BigId.md "mes-partner-BigId.md") |
-| Snowflake | [SnowflakeKeyPairAuthentication](mes-partner-Snowflake.md "mes-partner-Snowflake.md") |
-| MongoDB Atlas | [MongoDBAtlasServiceAccount](mes-partner-MongoDBAtlasServiceAccount.md "mes-partner-MongoDBAtlasServiceAccount.md") |
-| MongoDB Atlas | [MongoDBAtlasDatabaseUser](mes-partner-MongoDBAtlasDatabaseUser.md "mes-partner-MongoDBAtlasDatabaseUser.md") |
 | Confluent Cloud | [ConfluentCloudApiKey](mes-partner-ConfluentCloudApiKey.md "mes-partner-ConfluentCloudApiKey.md") |
 | Datadog | [DatadogApiKey](mes-partner-DatadogApiKey.md "mes-partner-DatadogApiKey.md") |
 | Datadog | [DatadogApplicationKey](mes-partner-DatadogApplicationKey.md "mes-partner-DatadogApplicationKey.md") |
 | Datadog | [DatadogAdminKey](mes-partner-DatadogAdminKey.md "mes-partner-DatadogAdminKey.md") |
+| GitLab | [GitLabAccessToken](mes-partner-GitLabAccessToken.md "mes-partner-GitLabAccessToken.md") |
+| MongoDB Atlas | [MongoDBAtlasServiceAccount](mes-partner-MongoDBAtlasServiceAccount.md "mes-partner-MongoDBAtlasServiceAccount.md") |
+| MongoDB Atlas | [MongoDBAtlasDatabaseUser](mes-partner-MongoDBAtlasDatabaseUser.md "mes-partner-MongoDBAtlasDatabaseUser.md") |
+| Paddle | [PaddleApiKey](mes-partner-PaddleApiKey.md "mes-partner-PaddleApiKey.md") |
+| Salesforce | [SalesforceClientSecret](mes-partner-salesforce.md "mes-partner-salesforce.md") |
+| Snowflake | [SnowflakeKeyPairAuthentication](mes-partner-Snowflake.md "mes-partner-Snowflake.md") |
 | Snowflake | [SnowflakePat](mes-partner-SnowflakePat.md "mes-partner-SnowflakePat.md") |

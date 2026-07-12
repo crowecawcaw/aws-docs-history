@@ -24,7 +24,7 @@ consumerSecret
 
 The consumer secret, also known as the client secret, is the private password used with the
 consumer key to authenticate using the OAuth 2.0 client credentials flow. You can retrieve the consumer
-secret directly from the Salesforce External Client App Manager OAuth settings..
+secret directly from the Salesforce External Client App Manager OAuth settings.
 
 baseUri
 
@@ -72,16 +72,16 @@ this secret to authenticate with Salesforce.
 
 ## Usage Flow
 
-Customers storing Salesforce Secrets in AWS Secrets Manager have an option to rotate a secret with the credentials stored in the same secret or use the credentials
+With AWS Secrets Manager, you can rotate a Salesforce secret using the credentials in the same secret or use the credentials
 in the Admin secret for rotation. You can create your secret using the [CreateSecret](../apireference/API_CreateSecret.md "../apireference/API_CreateSecret.md") call with the secret
 value containing the fields mentioned above and secret type as SalesforceClientSecret. The rotation configurations can be set using a
 [RotateSecret](../apireference/API_RotateSecret.md "../apireference/API_RotateSecret.md") call. This call requires the specification of the metadata fields as in the example above -
 If you opt for a rotation using credentials in the same secret, you can skip the adminSecretArn field. Additionally,
 customers must provide a role ARN in the [RotateSecret](../apireference/API_RotateSecret.md "../apireference/API_RotateSecret.md") call which grants the service the required permissions to
-rotate the secret. For an example of a permissions policy see [Security and Permissions](mes-security.md "mes-security.md").
+rotate the secret. For an example of a permissions policy, see [Security and Permissions](mes-security.md "mes-security.md").
 
-For customers opting to rotate their secrets using a seperate set of credentials (stored in an Admin Secret), be sure to
-create the Admin Secret in AWS Secrets Manager following the exact same steps as your consumer secret.
+To rotate your secrets using a separate set of credentials stored in an Admin Secret,
+create the Admin Secret in AWS Secrets Manager following the same steps as your consumer secret.
 You must provide the ARN of this Admin Secret in the rotation metadata in a [RotateSecret](../apireference/API_RotateSecret.md "../apireference/API_RotateSecret.md") call for your consumer secret.
 
 The rotation logic follows the guidance provided by Salesforce.

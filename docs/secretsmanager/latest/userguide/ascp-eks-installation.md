@@ -22,6 +22,10 @@ files for creating and mounting a secret.
 During installation, you can configure the ASCP to use a FIPS endpoint. For a list of
 endpoints, see [AWS Secrets Manager endpoints](asm_access.md#endpoints "asm_access.md#endpoints").
 
+###### Add-on schema validation scope
+
+During installation, the add-on validates only your AWS provider configuration options against the schema. It does not validate Secrets Store CSI Driver options. For more information about Secrets Store CSI Driver configuration options, see [Configuration](https://github.com/kubernetes-sigs/secrets-store-csi-driver/blob/main/charts/secrets-store-csi-driver/README.md#configuration "https://github.com/kubernetes-sigs/secrets-store-csi-driver/blob/main/charts/secrets-store-csi-driver/README.md#configuration") in the Helm chart README on the GitHub website.
+
 ###### To install the ASCP as an EKS add-on
 
 1. Install `eksctl` ([installation instructions](../../../eks/latest/eksctl/installation.md "../../../eks/latest/eksctl/installation.md"))

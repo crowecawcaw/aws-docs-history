@@ -72,7 +72,7 @@ value containing the fields mentioned above and secret type as MongoDBAtlasDatab
 [RotateSecret](../apireference/API_RotateSecret.md "../apireference/API_RotateSecret.md") call.
 You must provide the `adminSecretArn` in the rotation metadata. You must also provide a role ARN in the
 [RotateSecret](../apireference/API_RotateSecret.md "../apireference/API_RotateSecret.md") call which grants the service the required permissions to
-rotate the secret. For an example of a permissions policy see [Security and Permissions](mes-security.md "mes-security.md").
+rotate the secret. For an example of a permissions policy, see [Security and Permissions](mes-security.md "mes-security.md").
 
 Because the admin secret is of a different type (MongoDBAtlasServiceAccount) than the user secret
 (MongoDBAtlasDatabaseUser), the default rotation role policy scoped by `secretsmanager:resource/Type`

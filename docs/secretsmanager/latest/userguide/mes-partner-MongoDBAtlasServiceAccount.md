@@ -60,7 +60,7 @@ value containing the fields mentioned above and secret type as MongoDBAtlasServi
 [RotateSecret](../apireference/API_RotateSecret.md "../apireference/API_RotateSecret.md") call.
 If you opt for self-rotation, you can omit the optional `adminSecretArn` field. You must provide a role ARN in the
 [RotateSecret](../apireference/API_RotateSecret.md "../apireference/API_RotateSecret.md") call which grants the service the required permissions to
-rotate the secret. For an example of a permissions policy see [Security and Permissions](mes-security.md "mes-security.md").
+rotate the secret. For an example of a permissions policy, see [Security and Permissions](mes-security.md "mes-security.md").
 
 For customers opting to rotate their secrets using a separate set of credentials (stored in an Admin Secret),
 create the Admin Secret in AWS Secrets Manager containing the admin service account's `clientId` and `clientSecret`.

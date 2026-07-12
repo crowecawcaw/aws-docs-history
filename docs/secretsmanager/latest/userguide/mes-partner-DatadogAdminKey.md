@@ -68,7 +68,7 @@ value containing the fields mentioned above and secret type as DatadogAdminKey. 
 [RotateSecret](../apireference/API_RotateSecret.md "../apireference/API_RotateSecret.md") call.
 If you opt for self-rotation, you can omit the optional `adminSecretArn` field. You must provide a role ARN in the
 [RotateSecret](../apireference/API_RotateSecret.md "../apireference/API_RotateSecret.md") call which grants the service the required permissions to
-rotate the secret. For an example of a permissions policy see [Security and Permissions](mes-security.md "mes-security.md").
+rotate the secret. For an example of a permissions policy, see [Security and Permissions](mes-security.md "mes-security.md").
 
 During rotation, the driver validates the current API key, creates a new API key and a new Application key
 (inheriting scopes from the current key), verifies both new keys, deletes the old pair using the new credentials,

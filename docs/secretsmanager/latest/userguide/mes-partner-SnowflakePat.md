@@ -73,7 +73,7 @@ value containing the fields mentioned above and secret type as SnowflakePat. The
 [RotateSecret](../apireference/API_RotateSecret.md "../apireference/API_RotateSecret.md") call.
 The rotation metadata field can be left empty to use default values. You must provide a role ARN in the
 [RotateSecret](../apireference/API_RotateSecret.md "../apireference/API_RotateSecret.md") call which grants the service the required permissions to
-rotate the secret. For an example of a permissions policy see [Security and Permissions](mes-security.md "mes-security.md").
+rotate the secret. For an example of a permissions policy, see [Security and Permissions](mes-security.md "mes-security.md").
 
 During rotation, the driver connects to Snowflake via key-pair authentication and executes the
 `ALTER USER ... ROTATE PAT` command, which atomically generates a new token and expires the old one

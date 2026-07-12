@@ -45,7 +45,7 @@ value containing the fields mentioned above and secret type as DatadogApiKey. Th
 [RotateSecret](../apireference/API_RotateSecret.md "../apireference/API_RotateSecret.md") call.
 You must provide the `adminSecretArn` in the rotation metadata. You must also provide a role ARN in the
 [RotateSecret](../apireference/API_RotateSecret.md "../apireference/API_RotateSecret.md") call which grants the service the required permissions to
-rotate the secret. For an example of a permissions policy see [Security and Permissions](mes-security.md "mes-security.md").
+rotate the secret. For an example of a permissions policy, see [Security and Permissions](mes-security.md "mes-security.md").
 
 The admin secret type (`DatadogAdminKey`) differs from the user secret type
 (`DatadogApiKey`). Because of this difference, the default rotation role policy scoped by

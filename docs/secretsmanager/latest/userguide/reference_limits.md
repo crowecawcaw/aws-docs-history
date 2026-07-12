@@ -35,8 +35,7 @@ the secret use applies only to the quotas in account A.
 
 ## Add retries to your application
 
-Your AWS client might see calls to Secrets Manager fail due to unexpected issues on the client
-side. Or calls might fail due to rate limiting from Secrets Manager. When you exceed an API request
+Your AWS client might see calls to Secrets Manager fail due to unexpected issues. Or calls might fail due to rate limiting from Secrets Manager. When you exceed an API request
 quota, Secrets Manager throttles the request. It rejects an otherwise valid request and returns a
 throttling error. For both kinds of failures, we recommend you retry the call
 after a brief waiting period. This is called a [backoff and retry strategy](../../../general/latest/gr/api-retries.md "../../../general/latest/gr/api-retries.md").
