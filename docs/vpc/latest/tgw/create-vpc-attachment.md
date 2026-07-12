@@ -18,8 +18,11 @@
 If appliance mode is chosen, traffic flow between a source and destination
 uses the same Availability Zone for the VPC attachment for the lifetime of
 that flow. 8. Choose whether to enable **Security Group Referencing support**. Enable this feature to reference
-a security group across VPCs attached to a transit gateway. For more information about security group referencing, see [Security group referencing](tgw-vpc-attachments.md#vpc-attachment-security "tgw-vpc-attachments.md#vpc-attachment-security"). 9. Choose whether to enable **IPv6
-Support**. 10. For **VPC ID**, choose the VPC to attach to the transit gateway.
+a security group across VPCs attached to a transit gateway. For more information about security group referencing, see [Security group referencing](tgw-vpc-attachments.md#vpc-attachment-security "tgw-vpc-attachments.md#vpc-attachment-security"). 9. Choose whether to enable **IPv6 Support**. When enabled, the
+transit gateway network interface receives an IPv6 address. IPv6 VPC CIDRs propagate to
+transit gateway route tables when route propagation is configured. When disabled, the
+network interface does not receive an IPv6 address, and IPv6 CIDRs do not
+propagate. For more information, see [IPv6 support](tgw-vpc-attachments.md#tgw-vpc-attachment-ipv6 "tgw-vpc-attachments.md#tgw-vpc-attachment-ipv6"). 10. For **VPC ID**, choose the VPC to attach to the transit gateway.
 
 This VPC must have at least one subnet associated with it. 11. For **Subnet IDs**, select one subnet for each Availability Zone
 to be used by the transit gateway to route traffic. You must select at least one subnet. You can

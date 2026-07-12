@@ -225,6 +225,29 @@ The following limitations apply when using security group referencing with a VPC
 - We recommend disabling this feature at the VPC attachment level for VPCs with subnets in unsupported Local Zones, AWS Outposts, and AWS Wavelength Zones, as it might cause service disruption.
 - If you have an inspection VPC, then security group referencing through the transit gateway does not work across AWS Gateway Load Balancer or an AWS Network Firewall.
 
+## IPv6 support
+
+When you create or modify a VPC attachment, you can enable or disable IPv6 support.
+The default value is `disable`.
+
+Enabling IPv6 support does the following:
+
+- Assigns an IPv6 address to the transit gateway network interface in the attachment
+  subnet. The transit gateway uses this address to send and receive IPv6 traffic through
+  the attachment.
+- Propagates IPv6 VPC CIDRs to the transit gateway route table when route propagation
+  is configured.
+
+When you disable IPv6 support, the following behaviors still apply:
+
+- You can still create static IPv6 routes that target the
+  attachment.
+- IPv6 traffic can still enter the transit gateway from the VPC if the VPC route
+  table has an IPv6 route that points to the transit gateway, and network ACLs and
+  security groups permit the traffic.
+
+This setting controls only network interface addressing and route propagation—it does not filter packets.
+
 ###### Tasks
 
 - [Create a VPC attachment](create-vpc-attachment.md "create-vpc-attachment.md")
