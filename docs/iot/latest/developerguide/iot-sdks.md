@@ -187,8 +187,8 @@ These are earlier versions of AWS IoT Device SDKs that have been replaced by the
 These SDKs are receiving only maintenance and security updates. They will not be updated to include new features
 and should not be used on new projects.
 
-- [AWS IoT C++ Device SDK on GitHub](https://github.com/aws/aws-iot-device-sdk-cpp/tree/release "https://github.com/aws/aws-iot-device-sdk-cpp/tree/release")
-- [AWS IoT C++ Device SDK Readme](https://github.com/aws/aws-iot-device-sdk-python/blob/master/README.rst#new-version-available "https://github.com/aws/aws-iot-device-sdk-python/blob/master/README.rst#new-version-available")
+- [AWS IoT C++ Device SDK on GitHub](https://github.com/aws/aws-iot-device-sdk-cpp/tree/master "https://github.com/aws/aws-iot-device-sdk-cpp/tree/master")
+- [AWS IoT C++ Device SDK Readme](https://github.com/aws/aws-iot-device-sdk-cpp/tree/master#new-version-available "https://github.com/aws/aws-iot-device-sdk-cpp/tree/master#new-version-available")
 - [AWS IoT Device SDK
   for Python v1 on GitHub](https://github.com/aws/aws-iot-device-sdk-python "https://github.com/aws/aws-iot-device-sdk-python")
 - [AWS IoT Device SDK for Python v1 Readme](https://github.com/aws/aws-iot-device-sdk-python#new-version-available "https://github.com/aws/aws-iot-device-sdk-python#new-version-available")
