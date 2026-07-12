@@ -17,7 +17,7 @@ The GLE feature notifies customers of Resource Group membership changes by emitt
 removed from a Resource Group as a result of resource tag changes (Tag-based Resource Group) or CloudFormation stack updates (CloudFormation-based
 Resource Group), depending on the group type.
 
-As an alternative to GLE, AWS recommends that customers use a combination of native and already existing AWS services including EventBridge,
+As an alternative to GLE, we recommend that you use a combination of native and already existing AWS services including EventBridge,
 Lambda, and DynamoDB to replicate the GLE feature.
 
 At a high level, customers will need to create an EventBridge rule that invokes a Lambda function on Tag Change on Resource events (`aws.tag`),
