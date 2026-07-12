@@ -271,8 +271,4 @@ The following limitations apply to Amazon Aurora DB clusters when enhanced binlo
 
 Enhanced binlog provides similar read performance improvements as binlog I/O cache and better write performance improvements.
 
-- The backtrack feature is not supported. Enhanced binlog can't be turned on in a DB cluster under the following conditions:
-
-  - DB cluster with the backtrack feature currently enabled.
-  - DB cluster where the backtrack feature was previously enabled, but is now disabled.
-  - DB cluster restored from a source DB cluster or a snapshot with the backtrack feature enabled.
+- Enhanced binlog can't be turned on in a DB cluster with the backtrack feature currently enabled.

@@ -133,15 +133,17 @@ increases.
 
 In Aurora MySQL version 3.10 and higher, Aurora introduces an optimization known as in-memory relay log to improve replication throughput. This optimization enhances relay log I/O performance by caching all intermediate relay log content in memory. As a result, it reduces commit latency by minimizing storage I/O operations since the relay log content remains readily accessible in memory.
 
-By default, the in-memory relay log feature is automatically enabled for Aurora-managed replication scenarios (including blue-green deployments, Aurora-Aurora replication, and cross-region replicas) when the replica meets any of these configurations:
+By default, the in-memory relay log feature is disabled. To enable it, set `aurora_in_memory_relaylog` to `ON` in the DB cluster parameter group.
 
-- Single-threaded replication mode (replica\_parallel\_workers = 0)
+Once enabled, the in-memory relay log feature takes effect only for Aurora-managed replication scenarios (including blue-green deployments, Aurora-Aurora replication, and cross-region replicas) when the replica uses one of the following settings:
+
+- Single-threaded replication mode (`replica_parallel_workers = 0`)
 - Multi-threaded replication with GTID mode enabled:
 
   - Auto-position enabled
-  - GTID mode set to ON on the replica
+  - GTID mode set to `ON` on the replica
 
-- File-based replication with replica\_preserve\_commit\_order = ON
+- File-based replication with `replica_preserve_commit_order = ON`
 
 The in-memory relay log feature is supported on instance classes larger than t3.large, but is not available on Aurora Serverless instances. The relay log circular buffer has a fixed size of 128 MB. To monitor the memory consumption of this feature, you can run the following query:
 

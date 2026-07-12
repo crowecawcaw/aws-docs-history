@@ -29,7 +29,7 @@ in the VPC using the DB cluster writer endpoint.
 3. [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.CreateWebServer.md "CHAP_Tutorials.WebServerDB.CreateWebServer.md")
    The following diagram shows the configuration when the tutorial is complete.
 
-![Single VPC Scenario.](/images/AmazonRDS/latest/AuroraUserGuide/images/con-VPC-sec-grp-aurora.png)
+![Single VPC Scenario.](images/con-VPC-sec-grp-aurora.png)
 
 ###### Note
 

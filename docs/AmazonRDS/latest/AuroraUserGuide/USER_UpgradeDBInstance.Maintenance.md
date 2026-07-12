@@ -137,6 +137,9 @@ The following maintenance actions apply to Aurora DB clusters:
 
 - `os-upgrade` – Update the operating systems of all the DB instances in the DB cluster, using rolling upgrades.
   For more information, see [Operating system updates for Aurora DB clusters](#Aurora_OS_updates "#Aurora_OS_updates").
+- `serverless-platform-version-update` – Update the platform version of all the serverless
+  DB instances in the DB cluster, using rolling upgrades. For more information about platform versions, see
+  [Aurora serverless capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity").
 - `system-update` – Patch the DB engine for Aurora PostgreSQL.
 
 The following maintenance actions apply to Aurora DB instances:

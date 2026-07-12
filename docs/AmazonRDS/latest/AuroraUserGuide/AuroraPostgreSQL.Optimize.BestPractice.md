@@ -13,6 +13,10 @@ when new plans get approved for use.
 
   - [Ensuring plan stability after a major version upgrade](AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade "AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade")
 
+    - [Version-specific considerations](AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade.VersionSpecific "AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade.VersionSpecific")
+
+      - [Amazon Aurora PostgreSQL version 18 and later](AuroraPostgreSQL.Optimize.BestPractice.md#w2aac34d108c15b9b7c19b3 "AuroraPostgreSQL.Optimize.BestPractice.md#w2aac34d108c15b9b7c19b3")
+
 - [Reactive plan management to detect and repair performance regressions](AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.Reactive "AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.Reactive")
 
 ## Proactive plan management to help prevent performance regression
@@ -85,6 +89,28 @@ When you perform a major version upgrade using logical replication or
 AWS DMS, make sure that you replicate the `apg_plan_mgmt` schema to
 ensure existing plans are copied to the upgraded instance. For more
 information on logical replication, see [Using logical replication to perform a major version upgrade for Aurora PostgreSQL](AuroraPostgreSQL.MajorVersionUpgrade.md "AuroraPostgreSQL.MajorVersionUpgrade.md").
+
+For information about upgrading the query plan management extension, see
+[Upgrading Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.overview.md#AuroraPostgreSQL.Optimize.Upgrade "AuroraPostgreSQL.Optimize.overview.md#AuroraPostgreSQL.Optimize.Upgrade").
+
+#### Version-specific considerations
+
+##### Amazon Aurora PostgreSQL version 18 and later
+
+After upgrading to Aurora PostgreSQL version 18 and later, queries that
+include preceding C-style comments (`/* ... */`) have a
+different `sql_hash` than in previous versions. For these
+queries, the plan `status` and `enabled` settings
+captured before the upgrade are not automatically applied because the
+SQL hashes differ.
+
+To manage affected queries, run
+`apg_plan_mgmt.evolve_plan_baselines()` after the upgrade.
+The function evaluates all captured plans for the same query, regardless
+of whether they were captured under the previous or current
+`sql_hash`. It then applies the appropriate action based on
+relative performance. After evaluation, plans are associated with the
+current `sql_hash` value.
 
 ## Reactive plan management to detect and repair performance regressions
 
