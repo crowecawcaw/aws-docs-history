@@ -318,40 +318,19 @@ function cleanup() {
   done
 };
 
-# Clean up for cloud-init files
-CLOUD_INIT_FILES=(
-  "/etc/sudoers.d/90-cloud-init-users"
-  "/etc/locale.conf"
-  "/var/log/cloud-init.log"
-  "/var/log/cloud-init-output.log"
-)
-if [[ -f {{workingDirectory}}/skip_cleanup_cloudinit_files ]]; then
-  echo "Skipping cleanup of cloud init files"
+# Reset EC2 macOS Init instance history so the image behaves as a first boot
+if [[ -f {{workingDirectory}}/skip_cleanup_ec2_macos_init_files ]]; then
+  echo "Skipping cleanup of ec2-macos-init instance history"
 else
-  echo "Cleaning up cloud init files"
-  cleanup "${CLOUD_INIT_FILES[@]}"
-  if [[ $( sudo find /var/lib/cloud -type f | sudo wc -l ) -gt 0 ]]; then
-      echo "Deleting files within /var/lib/cloud/*"
-      sudo find /var/lib/cloud -type f -exec rm -f {} \;
-  fi;
-
-  if [[ $( sudo ls /var/lib/cloud | sudo wc -l ) -gt 0 ]]; then
-      echo "Deleting /var/lib/cloud/*"
-      sudo rm -rf /var/lib/cloud/* || true
-  fi;
-fi;
-
+  echo "Cleaning up ec2-macos-init instance history"
+  if [[ -x /usr/local/bin/ec2-macos-init ]]; then
+      sudo /usr/local/bin/ec2-macos-init clean -all
+  fi
+fi
 
 # Clean up for temporary instance files
 INSTANCE_FILES=(
-  "/etc/.updated"
-  "/etc/aliases.db"
-  "/etc/hostname"
-  "/var/lib/misc/postfix.aliasesdb-stamp"
-  "/var/lib/postfix/master.lock"
-  "/var/spool/postfix/pid/master.pid"
-  "/var/.updated"
-  "/var/cache/yum/x86_64/2/.gpgkeyschecked.yum"
+  "/Library/Preferences/SystemConfiguration/NetworkInterfaces.plist"
 )
 if [[ -f {{workingDirectory}}/skip_cleanup_instance_files ]]; then
   echo "Skipping cleanup of instance files"
@@ -369,21 +348,23 @@ SSH_FILES=(
   "/etc/ssh/ssh_host_ecdsa_key.pub"
   "/etc/ssh/ssh_host_ed25519_key"
   "/etc/ssh/ssh_host_ed25519_key.pub"
-  "/root/.ssh/authorized_keys"
+  "/var/root/.ssh/authorized_keys"
 )
 if [[ -f {{workingDirectory}}/skip_cleanup_ssh_files ]]; then
   echo "Skipping cleanup of ssh files"
 else
   echo "Cleaning up ssh files"
   cleanup "${SSH_FILES[@]}"
-  USERS=$(ls /home/)
+  USERS=$(ls /Users/)
   for user in $USERS; do
-      echo Deleting /home/"$user"/.ssh/authorized_keys;
-      sudo find /home/"$user"/.ssh/authorized_keys -type f -exec rm -f {} \;
+      if [[ -f /Users/"$user"/.ssh/authorized_keys ]]; then
+          echo Deleting /Users/"$user"/.ssh/authorized_keys;
+          sudo rm -f /Users/"$user"/.ssh/authorized_keys;
+      fi;
   done
   for user in $USERS; do
-      if [[ -f /home/"$user"/.ssh/authorized_keys ]]; then
-          echo Failed to delete /home/"$user"/.ssh/authorized_keys;
+      if [[ -f /Users/"$user"/.ssh/authorized_keys ]]; then
+          echo Failed to delete /Users/"$user"/.ssh/authorized_keys;
           exit 1
       fi;
   done;
@@ -392,10 +373,6 @@ fi;
 
 # Clean up for instance log files
 INSTANCE_LOG_FILES=(
-  "/var/log/audit/audit.log"
-  "/var/log/boot.log"
-  "/var/log/dmesg"
-  "/var/log/cron"
   "/var/log/amazon/ec2/ec2-macos-init.log"
   "/var/log/amazon/ec2/ena-ethernet.log"
   "/var/log/amazon/ec2/system-monitoring.log"
@@ -412,21 +389,32 @@ if [[ -f {{workingDirectory}}/skip_cleanup_toe_files ]]; then
   echo "Skipping cleanup of TOE files"
 else
   echo "Cleaning TOE files"
-  if [[ $( sudo find {{workingDirectory}}/TOE_* -type f | sudo wc -l) -gt 0 ]]; then
-      echo "Deleting files within {{workingDirectory}}/TOE_*"
-      sudo find {{workingDirectory}}/TOE_* -type f -exec rm -f {} \;
-  fi
-  if [[ $( sudo find {{workingDirectory}}/TOE_* -type f | sudo wc -l) -gt 0 ]]; then
-      echo "Failed to delete {{workingDirectory}}/TOE_*"
-      exit 1
-  fi
-  if [[ $( sudo find {{workingDirectory}}/TOE_* -type d | sudo wc -l) -gt 0 ]]; then
-      echo "Deleting {{workingDirectory}}/TOE_*"
-      sudo rm -rf {{workingDirectory}}/TOE_*
-  fi
-  if [[ $( sudo find {{workingDirectory}}/TOE_* -type d | sudo wc -l) -gt 0 ]]; then
-      echo "Failed to delete {{workingDirectory}}/TOE_*"
-      exit 1
+  shopt -s nullglob
+  TOE_MATCHES=({{workingDirectory}}/TOE_*)
+  shopt -u nullglob
+  if [[ ${#TOE_MATCHES[@]} -gt 0 ]]; then
+      if [[ $( sudo find "${TOE_MATCHES[@]}" -type f | sudo wc -l) -gt 0 ]]; then
+          echo "Deleting files within {{workingDirectory}}/TOE_*"
+          sudo find "${TOE_MATCHES[@]}" -type f -exec rm -f {} \;
+      fi
+      shopt -s nullglob
+      TOE_REMAINING=({{workingDirectory}}/TOE_*)
+      shopt -u nullglob
+      if [[ ${#TOE_REMAINING[@]} -gt 0 ]]; then
+          if [[ $( sudo find "${TOE_REMAINING[@]}" -type f | sudo wc -l) -gt 0 ]]; then
+              echo "Failed to delete {{workingDirectory}}/TOE_*"
+              exit 1
+          fi
+          echo "Deleting {{workingDirectory}}/TOE_*"
+          sudo rm -rf "${TOE_REMAINING[@]}"
+      fi
+      shopt -s nullglob
+      TOE_FINAL=({{workingDirectory}}/TOE_*)
+      shopt -u nullglob
+      if [[ ${#TOE_FINAL[@]} -gt 0 ]]; then
+          echo "Failed to delete {{workingDirectory}}/TOE_*"
+          exit 1
+      fi
   fi
 fi
 
@@ -435,41 +423,39 @@ if [[ -f {{workingDirectory}}/skip_cleanup_ssm_log_files ]]; then
   echo "Skipping cleanup of ssm log files"
 else
   echo "Cleaning up ssm log files"
-  if [[ $( sudo find /var/log/amazon/ssm -type f | sudo wc -l) -gt 0 ]]; then
-      echo "Deleting files within /var/log/amazon/ssm/*"
-      sudo find /var/log/amazon/ssm -type f -exec rm -f {} \;
-  fi
-  if [[ $( sudo find /var/log/amazon/ssm -type f | sudo wc -l) -gt 0 ]]; then
-      echo "Failed to delete /var/log/amazon/ssm"
-      exit 1
-  fi
   if [[ -d "/var/log/amazon/ssm" ]]; then
+      if [[ $( sudo find /var/log/amazon/ssm -type f | sudo wc -l) -gt 0 ]]; then
+          echo "Deleting files within /var/log/amazon/ssm/*"
+          sudo find /var/log/amazon/ssm -type f -exec rm -f {} \;
+      fi
+      if [[ $( sudo find /var/log/amazon/ssm -type f | sudo wc -l) -gt 0 ]]; then
+          echo "Failed to delete /var/log/amazon/ssm"
+          exit 1
+      fi
       echo "Deleting /var/log/amazon/ssm/*"
       sudo rm -rf /var/log/amazon/ssm
+      if [[ -d "/var/log/amazon/ssm" ]]; then
+          echo "Failed to delete /var/log/amazon/ssm"
+          exit 1
+      fi
   fi
-  if [[ -d "/var/log/amazon/ssm" ]]; then
-      echo "Failed to delete /var/log/amazon/ssm"
+fi
+
+
+# Clean up for DHCP lease files
+shopt -s nullglob
+DHCP_LEASE_MATCHES=(/var/db/dhcpclient/leases/*)
+shopt -u nullglob
+if [[ ${#DHCP_LEASE_MATCHES[@]} -gt 0 ]]; then
+  echo "Deleting /var/db/dhcpclient/leases/*"
+  sudo rm -f "${DHCP_LEASE_MATCHES[@]}"
+  shopt -s nullglob
+  DHCP_LEASE_REMAINING=(/var/db/dhcpclient/leases/*)
+  shopt -u nullglob
+  if [[ ${#DHCP_LEASE_REMAINING[@]} -gt 0 ]]; then
+      echo "Failed to delete /var/db/dhcpclient/leases/*"
       exit 1
   fi
-fi
-
-
-if [[ $( sudo find /var/log/sa/sa* -type f | sudo wc -l ) -gt 0 ]]; then
-  echo "Deleting /var/log/sa/sa*"
-  sudo rm -f /var/log/sa/sa*
-fi
-if [[ $( sudo find /var/log/sa/sa* -type f | sudo wc -l ) -gt 0 ]]; then
-  echo "Failed to delete /var/log/sa/sa*"
-  exit 1
-fi
-
-if [[ $( sudo find /var/lib/dhclient/dhclient*.lease -type f | sudo wc -l ) -gt 0 ]]; then
-      echo "Deleting /var/lib/dhclient/dhclient*.lease"
-      sudo rm -f /var/lib/dhclient/dhclient*.lease
-fi
-if [[ $( sudo find /var/lib/dhclient/dhclient*.lease -type f | sudo wc -l ) -gt 0 ]]; then
-      echo "Failed to delete /var/lib/dhclient/dhclient*.lease"
-      exit 1
 fi
 
 if [[ $( sudo find /var/tmp -type f | sudo wc -l) -gt 0 ]]; then
@@ -485,21 +471,8 @@ if [[ $( sudo ls /var/tmp | sudo wc -l ) -gt 0 ]]; then
       sudo rm -rf /var/tmp/*
 fi
 
-# Shredding is not guaranteed to work well on rolling logs
-
-if [[ -f "/var/lib/rsyslog/imjournal.state" ]]; then
-      echo "Deleting /var/lib/rsyslog/imjournal.state"
-      sudo rm -f /var/lib/rsyslog/imjournal.state
-      sudo rm -f /var/lib/rsyslog/imjournal.state
-fi
-
-if [[ $( sudo ls /var/log/journal/ | sudo wc -l ) -gt 0 ]]; then
-      echo "Deleting /var/log/journal/*"
-      sudo find /var/log/journal/ -type f -exec rm -f {} \;
-      sudo rm -rf /var/log/journal/*
-fi
-
-sudo touch /etc/machine-id
+# Flush all pending writes to disk before instance shutdown and snapshot
+sync
 
 ```
 
@@ -539,5 +512,44 @@ Input| Clean up section | Files removed | Skip section file name |
 | `INSTANCE_FILES` | `/etc/.updated`<br>`/etc/aliases.db`<br>`/etc/hostname`<br>`/var/lib/misc/postfix.aliasesdb-stamp`<br>`/var/lib/postfix/master.lock`<br>`/var/spool/postfix/pid/master.pid`<br>`/var/.updated`<br>`/var/cache/yum/x86_64/2/.gpgkeyschecked.yum` | `skip_cleanup_instance_files` |
 | `SSH_FILES` | `/etc/ssh/ssh_host_rsa_key`<br>`/etc/ssh/ssh_host_rsa_key.pub`<br>`/etc/ssh/ssh_host_ecdsa_key`<br>`/etc/ssh/ssh_host_ecdsa_key.pub`<br>`/etc/ssh/ssh_host_ed25519_key`<br>`/etc/ssh/ssh_host_ed25519_key.pub`<br>`/root/.ssh/authorized_keys`<br>`/home/<all users>/.ssh/authorized_keys;` | `skip_cleanup_ssh_files` |
 | `INSTANCE_LOG_FILES` | `/var/log/audit/audit.log`<br>`/var/log/boot.log`<br>`/var/log/dmesg`<br>`/var/log/cron` | `skip_cleanup_instance_log_files` |
+| `TOE_FILES` | `{{workingDirectory}}/TOE_*` | `skip_cleanup_toe_files` |
+| `SSM_LOG_FILES` | `/var/log/amazon/ssm/*` | `skip_cleanup_ssm_log_files` |
+
+## Override the macOS clean up script
+
+Image Builder creates images that are secure by default and follow our security best
+practices. However, some more advanced use-cases might require you to skip one
+or more sections of the built-in clean up script. If you do need to skip
+some of the clean up, we strongly recommend that you test your output AMI
+to ensure the security of your image.
+
+###### Important
+
+Skipping sections in the clean up script can result in sensitive information,
+such as owner account details or SSH keys being included in the final image, and
+in any instance launched from that image. You might also experience problems
+with launching in different Availability Zones, Regions, or accounts.
+
+The following table outlines the sections of the clean up script, the files that
+are deleted in that section, and the file names that you can use to flag a section that
+Image Builder should skip. To skip a specific section of the clean up script, you can use
+the [CreateFile](toe-action-modules.md#action-modules-createfile "toe-action-modules.md#action-modules-createfile")
+component action module or a command in your user data (if overriding) to create
+an empty file with the name specified in the **Skip section file name** column.
+
+###### Note
+
+The files that you create to skip a section of the clean up script should
+not include a file extension. For example, if you want to skip the
+`INSTANCE_FILES` section of the script, but you create a file named
+`skip_cleanup_instance_files.txt`, Image Builder will not recognize
+the skip file.
+
+Input| Clean up section | Files removed | Skip section file name |
+| --- | --- | --- |
+| `EC2_MACOS_INIT_FILES` | Runs `ec2-macos-init clean -all` to reset the EC2 macOS Init<br>instance history so the image behaves as a first boot. | `skip_cleanup_ec2_macos_init_files` |
+| `INSTANCE_FILES` | `/Library/Preferences/SystemConfiguration/NetworkInterfaces.plist` | `skip_cleanup_instance_files` |
+| `SSH_FILES` | `/etc/ssh/ssh_host_rsa_key`<br>`/etc/ssh/ssh_host_rsa_key.pub`<br>`/etc/ssh/ssh_host_ecdsa_key`<br>`/etc/ssh/ssh_host_ecdsa_key.pub`<br>`/etc/ssh/ssh_host_ed25519_key`<br>`/etc/ssh/ssh_host_ed25519_key.pub`<br>`/var/root/.ssh/authorized_keys`<br>`/Users/<all users>/.ssh/authorized_keys` | `skip_cleanup_ssh_files` |
+| `INSTANCE_LOG_FILES` | `/var/log/amazon/ec2/ec2-macos-init.log`<br>`/var/log/amazon/ec2/ena-ethernet.log`<br>`/var/log/amazon/ec2/system-monitoring.log` | `skip_cleanup_instance_log_files` |
 | `TOE_FILES` | `{{workingDirectory}}/TOE_*` | `skip_cleanup_toe_files` |
 | `SSM_LOG_FILES` | `/var/log/amazon/ssm/*` | `skip_cleanup_ssm_log_files` |

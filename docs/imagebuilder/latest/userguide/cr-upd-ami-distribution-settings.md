@@ -31,6 +31,18 @@ can only specify one Image Builder execution role. If you have defined an Image 
 execution role, you would add any additional feature permissions to that role.
 Otherwise, you would create a new custom role that includes the required permissions.
 
+###### Important
+
+We recommend that you don't pass the
+[AWSServiceRoleForImageBuilder](security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder "security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder") service-linked
+role as your execution role. Instead, create a custom IAM role and
+attach the [EC2ImageBuilderExecutionPolicy](security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy "security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy") AWS managed
+policy. This policy grants the same permissions that Image Builder needs to call
+AWS services on your behalf. Using a custom role gives you full control
+over the permissions that Image Builder uses. It also keeps your service control
+policies (SCPs) and resource control policies (RCPs) in effect for
+operations that Image Builder performs on your behalf.
+
 - To store the output AMI ID in an SSM parameter during distribution,
   you must specify the `ssm:PutParameter` action in your Image Builder execution
   role, with the parameter listed as a resource.
@@ -52,6 +64,13 @@ that you've met the following prerequisites.
   can only specify one Image Builder execution role. If you have defined an Image Builder workflow
   execution role, you would add any additional feature permissions to that role.
   Otherwise, you would create a new custom role that includes the required permissions.
+
+This feature requires additional permissions beyond those in the base
+execution policy, so you must use a custom role. We recommend that you create a
+custom role with the
+[EC2ImageBuilderExecutionPolicy](security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy "security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy") AWS managed policy
+attached, and then add the EC2FastLaunchFullAccess policy to that
+role.
 
 Then, when Image Builder copies your image, EC2 Fast Launch automatically
 creates an CloudFormation stack with the following resources in your AWS account.

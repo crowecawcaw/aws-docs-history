@@ -1,54 +1,52 @@
 # Lifecycle management prerequisites for Image Builder images
 
-Before you can define EC2 Image Builder lifecycle management policies and rules for your image
-resources, you must meet the following prerequisites.
+Complete these steps before you create lifecycle policies.
 
-- Create an IAM role that grants permission for Image Builder to run lifecycle policies.
-  You can create this role in one of the following ways:
+- Create an IAM role that grants Image Builder permission to run lifecycle
+  policies. You have three options:
 
-  - Use the **Create lifecycle execution role using service defaults** option
-    in the Image Builder console when creating a lifecycle policy. This automatically creates a
-    role with the `EC2ImageBuilderLifecycleExecutionPolicy` managed policy attached.
-  - Use the **Create a new lifecycle execution role** option in the Image Builder
-    console, which opens IAM with pre-filled settings for one-click role creation.
-  - Manually create the role in the IAM console. For step-by-step instructions, see
+  - Choose **Create lifecycle execution role using service
+    defaults** in the Image Builder console when you create a lifecycle
+    policy. This attaches the
+    `EC2ImageBuilderLifecycleExecutionPolicy` managed policy
+    automatically.
+  - Choose **Create a new lifecycle execution role**
+    in the Image Builder console. This opens IAM with pre-filled settings for
+    one-click role creation.
+  - Create the role manually. For instructions, see
     [Create an IAM role for Image Builder lifecycle management](#image-lifecycle-prereq-role "#image-lifecycle-prereq-role").
 
-- Create an IAM role in the destination account for associated resources that
-  were distributed across accounts. The role grants permission for Image Builder to perform lifecycle
-  actions in the destination account for associated resources. To create the role, see
+- Create an IAM role in each destination account where you distributed
+  associated resources across accounts. This role grants Image Builder permission to
+  perform lifecycle actions in that account. For instructions, see
   [Create an IAM role for Image Builder cross-account lifecycle management](#image-lifecycle-prereq-cross-acct-role "#image-lifecycle-prereq-cross-acct-role").
 
 ###### Note
 
-This prerequisite doesn't apply if you've granted launch permissions for an
-output AMI. With launch permissions, the account you shared with owns the
-instances that are launched from the shared AMI, but all of the AMI resources
-remain in your account.
+This prerequisite does not apply if you only granted launch
+permissions for an output AMI. With launch permissions, all AMI
+resources remain in your account.
 
-- For container images, you must add the following tag to your
-  ECR repositories to grant access for Image Builder to run lifecycle actions on the
-  container images stored in the repository:
-  `LifecycleExecutionAccess: EC2 Image Builder`.
+- For container images, add the tag
+  `LifecycleExecutionAccess: EC2 Image Builder` to your ECR
+  repositories. This tag grants Image Builder access to run lifecycle actions on
+  container images in the repository.
 
 ## Create an IAM role for Image Builder lifecycle management
 
-To grant permission for Image Builder to run lifecycle policies, you must first
-create the IAM role that it uses to perform lifecycle actions. Follow these
-steps to create the service role that grants permission.
+Create a service role that grants Image Builder permission to perform lifecycle
+actions on your image resources.
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. Choose **Roles** from the navigation pane.
-3. Choose **Create role**. This opens to the first
-   step in the process **Select trusted entity** to
-   create your role.
-4. Select the **Custom trust policy** option for the
+3. Choose **Create role**.
+4. Select **Custom trust policy** for the
    **Trusted entity type**.
-5. Copy the following JSON trust policy and paste it into the
-   **Custom trust policy** text area, replacing the sample text.
-   This trust policy allows Image Builder to assume the role that you create to
-   run lifecycle actions.
+5. Paste the following JSON trust policy into the
+   **Custom trust policy** text area, replacing the
+   sample text. This policy allows Image Builder to assume the role for lifecycle
+   actions.
 
 JSON
 
@@ -72,44 +70,38 @@ JSON
 
 ```
 
-6. Select the following managed policy from the list:
-   **EC2ImageBuilderLifecycleExecutionPolicy**,
-   then choose **Next**. This opens the
-   **Name, review, and create** page.
+6. Select
+   **EC2ImageBuilderLifecycleExecutionPolicy**
+   from the managed policy list, then choose
+   **Next**.
 
 ###### Tip
 
-Filter on `image` to streamline results. 7. Enter a **Role name**. 8. After you've reviewed your settings, choose **Create role**.
+Filter on `image` to streamline results. 7. Enter a **Role name**. 8. Review your settings, then choose **Create
+role**.
 
 ## Create an IAM role for Image Builder cross-account lifecycle management
 
-To grant permission for Image Builder to perform lifecycle actions in destination accounts
-for associated resources, you must first create the IAM role that it uses to perform
-lifecycle actions in those accounts. You must create the role in the destination account.
-
-Follow these steps to create the service role that grants permission
-_in the destination account_.
+Create this role in each destination account where Image Builder distributed
+associated resources. The role grants Image Builder permission to perform lifecycle
+actions in that account.
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. Choose **Roles** from the navigation pane.
-3. Choose **Create role**. This opens to the first
-   step in the process **Select trusted entity** to
-   create your role.
-4. Select the **Custom trust policy** option for the
+3. Choose **Create role**.
+4. Select **Custom trust policy** for the
    **Trusted entity type**.
-5. Copy the following JSON trust policy and paste it into the
-   **Custom trust policy** text area, replacing the sample text.
-   This trust policy allows Image Builder to assume the role that you create to
-   run lifecycle actions.
+5. Paste the following JSON trust policy into the
+   **Custom trust policy** text area, replacing the
+   sample text. This policy allows Image Builder to assume the role for lifecycle
+   actions.
 
 ###### Note
 
-When Image Builder uses this role in the destination account to act on associated
-resources that were distributed across accounts, it's acting on behalf of
-the destination account owner. The AWS account that you configure as the
-`aws:SourceAccount` in the trust policy is
-the account where Image Builder distributed those resources.
+Image Builder uses this role on behalf of the destination account owner.
+Set the `aws:SourceAccount` to the
+account where Image Builder distributed the resources.
 
 ```
 {
@@ -136,17 +128,13 @@ the account where Image Builder distributed those resources.
 }
 ```
 
-6. Select the following managed policy from the list:
-   **EC2ImageBuilderLifecycleExecutionPolicy**,
-   then choose **Next**. This opens the
-   **Name, review, and create** page.
+6. Select
+   **EC2ImageBuilderLifecycleExecutionPolicy**
+   from the managed policy list, then choose
+   **Next**.
 
 ###### Tip
 
 Filter on `image` to streamline results. 7. Enter `Ec2ImageBuilderCrossAccountLifecycleAccess` as the
-**Role name**.
-
-###### Important
-
-`Ec2ImageBuilderCrossAccountLifecycleAccess` must be
-the name of this role. 8. After you've reviewed your settings, choose **Create role**.
+**Role name**. You must use this exact name. 8. Review your settings, then choose **Create
+role**.

@@ -1,51 +1,48 @@
 # Manage lifecycle policies for Image Builder images
 
-When you create custom images, it's important that you have a plan to retire those images
-before they become obsolete. Image Builder pipelines can apply updates and security patches
-automatically. However, each build creates a new version of the image and all of the
-associated resources that it distributes. Earlier versions remain in your account until you
-manually delete them, or create a script to perform the task.
+EC2 Image Builder lifecycle policies automate deprecation, disabling, and deletion
+of outdated images and their associated resources. Each pipeline build creates a new image
+version and distributes associated resources. Without lifecycle policies, earlier versions
+remain in your account until you delete them manually.
 
-With Image Builder lifecycle management policies, you can automate the process of deprecating,
-disabling, and deleting outdated images and their associated resources. Associated
-resources can include output images that you've distributed to other AWS accounts,
-organizations, and organizational units (OUs) across AWS Regions. You define the rules
-for how and when to take each step in the lifecycle process, and which steps to include
-in your policy.
+Lifecycle policies define rules that control when and how Image Builder retires outdated images.
+Associated resources include output images distributed to other AWS accounts,
+organizations, and organizational units (OUs). These resources can span multiple
+AWS Regions. You specify which lifecycle steps to include and when each step runs.
+
+Enabled lifecycle policies run automatically once per day. Image Builder manages the
+execution schedule. For execution details, see
+[How lifecycle policy execution works](lifecycle-policy-execution.md "lifecycle-policy-execution.md").
 
 ###### Benefits of automated lifecycle management
 
-Overall benefits of automated lifecycle management include the following:
+Automated lifecycle management:
 
-- Simplifies lifecycle management for your custom images with an automated way to
-  retire images and associated resources.
-- Helps to prevent compliance risks that come from using outdated images to launch
-  new instances.
-- Keeps image inventories fresh by removing outdated images.
-- Can reduce storage and data transfer costs by optionally removing associated
-  resources for images that are deleted.
+- Automates retirement of images and their associated resources across
+  accounts and Regions.
+- Eliminates compliance risks from launching new instances with outdated
+  images.
+- Maintains fresh image inventories by removing obsolete versions.
+- Reduces infrastructure costs by removing associated resources
+  when you delete images.
 
-###### Realize cost savings
+###### Cost savings
 
 There is no cost to use EC2 Image Builder to create custom AMI or container images. However,
-standard pricing applies for other services that are used in the process. When you remove unused or outdated images and their associated
-resources from your AWS account, you can realize time and cost savings in the
-following ways:
+standard pricing applies for other services that are used in the process. Removing outdated images and associated resources reduces
+costs:
 
-- Reduce the time it takes to patch existing images when you're not also patching
-  unused or outdated images.
-- For AMI image resources that you delete, you can choose to also remove distributed
-  AMIs and their associated snapshots. This approach can save on the cost of storing
-  snapshots.
-- For container image resources that you delete, you can choose to delete underlying
-  resources. This approach can save on Amazon ECR storage costs and data transfer rates for
-  your Docker images that are stored in ECR repositories.
+- Reduces the number of images you need to patch by removing outdated versions.
+- Removes distributed AMIs and their associated snapshots when you delete AMI image
+  resources, eliminating snapshot storage costs.
+- Deletes underlying resources when you delete container image resources,
+  eliminating Amazon ECR storage costs and data transfer charges.
 
 ###### Note
 
-Image Builder can't evaluate the potential impact for all possible downstream dependencies,
-such as Auto Scaling groups or launch templates. You must consider downstream
-dependencies for your images when you configure policy actions.
+Before you configure policy actions, verify that no downstream dependencies
+reference images the policy removes. Image Builder does not evaluate the impact on downstream
+dependencies such as Auto Scaling groups or launch templates.
 
 ###### Contents
 
@@ -53,4 +50,5 @@ dependencies for your images when you configure policy actions.
 - [List lifecycle management policies for Image Builder image resources](list-lifecycle-policies.md "list-lifecycle-policies.md")
 - [View lifecycle policy details](view-lifecycle-policy.md "view-lifecycle-policy.md")
 - [Create lifecycle policies](create-lifecycle-policies.md "create-lifecycle-policies.md")
+- [How lifecycle policy execution works](lifecycle-policy-execution.md "lifecycle-policy-execution.md")
 - [How lifecycle management rules work for Image Builder image resources](image-lifecycle-rules.md "image-lifecycle-rules.md")

@@ -2,9 +2,11 @@
 
 An EC2 Image Builder recipe defines the base image to use as your starting point to create a new
 image, along with the set of components that you add to customize your image and verify that
-everything works as expected. Image Builder provides automatic version choices for each component.
-By default, you can apply up to 20 components to a recipe. This includes both build and
-test components.
+everything works as expected. For image recipes, you can also specify watermark names to
+track the lineage of output AMIs. For more information, see
+[Track AMI lineage with watermarks](ami-watermarks.md "ami-watermarks.md"). Image Builder provides automatic
+version choices for each component. By default, you can apply up to 20 components to a recipe.
+This includes both build and test components.
 
 After you create a recipe, you can't modify or replace it. To update components
 after you create a recipe, you must create a new recipe or recipe version. You can
@@ -28,6 +30,7 @@ This section covers how to list, view, and create recipes.
 - [List and view container recipe details](container-recipe-details.md "container-recipe-details.md")
 - [Create a new version of an image recipe](create-image-recipes.md "create-image-recipes.md")
 - [Create a new version of a container recipe](create-container-recipes.md "create-container-recipes.md")
+- [Track AMI lineage with watermarks](ami-watermarks.md "ami-watermarks.md")
 - [Clean up resources](#recipes-cleanup "#recipes-cleanup")
 
 ## Clean up resources

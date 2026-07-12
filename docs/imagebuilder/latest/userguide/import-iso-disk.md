@@ -87,10 +87,19 @@ Copy-S3Object -BucketName `amzn-s3-demo-bucket` -Key `Win11_24H2_English`.iso -D
 **Execution role**
 
 This role grants permission for Image Builder to call AWS services on
-your behalf. You can specify the
+your behalf during the import process.
+
+###### Important
+
+We recommend that you don't pass the
 [AWSServiceRoleForImageBuilder](security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder "security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder") service-linked
-role, which includes the permissions needed for the execution role, or
-you can create your own role.
+role as your execution role. Instead, create a custom IAM role and
+attach the [EC2ImageBuilderExecutionPolicy](security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy "security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy") AWS managed
+policy. This policy grants the same permissions that Image Builder needs to call
+AWS services on your behalf. Using a custom role gives you full control
+over the permissions that Image Builder uses. It also keeps your service control
+policies (SCPs) and resource control policies (RCPs) in effect for
+operations that Image Builder performs on your behalf.
 
 **Instance profile role**
 
@@ -246,8 +255,9 @@ Here is a summary of the parameters that we specify in this example:
 - executionRole (string)
   – The name or Amazon Resource Name (ARN) for the IAM role that
   grants Image Builder access to perform workflow actions to import
-  an image from a Microsoft ISO file. You can specify the [AWSServiceRoleForImageBuilder](security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder "security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder") service-linked
-  role, or you can specify your own custom role for service access.
+  an image from a Microsoft ISO file. We recommend that you specify a custom
+  role that has the [EC2ImageBuilderExecutionPolicy](security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy "security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy") AWS managed
+  policy attached.
 - platform (string, required) –
   The operating system platform for the ISO disk image. Valid values include
   `Windows`.
@@ -288,7 +298,7 @@ aws imagebuilder import-disk-image \
     --name "`example-iso-disk-import`" \
     --semantic-version "`1.0.0`" \
     --description "`Import an ISO disk image`" \
-    --execution-role "`AWSServiceRoleForImageBuilder`" \
+    --execution-role "`ImageBuilderExecutionRole`" \
     --platform "Windows" \
     --os-version "Microsoft Windows 11" \
     --infrastructure-configuration-arn "arn:aws:imagebuilder:`us-east-1`:`111122223333`:infrastructure-configuration/`example-infrastructure-configuration-123456789abc`" \
@@ -319,8 +329,9 @@ Here is a summary of the parameters that we specify in this example:
 - executionRole (string)
   – The name or Amazon Resource Name (ARN) for the IAM role that
   grants Image Builder access to perform workflow actions to import
-  an image from a Microsoft ISO file. You can specify the [AWSServiceRoleForImageBuilder](security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder "security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder") service-linked
-  role, or you can specify your own custom role for service access.
+  an image from a Microsoft ISO file. We recommend that you specify a custom
+  role that has the [EC2ImageBuilderExecutionPolicy](security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy "security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy") AWS managed
+  policy attached.
 - platform (string, required) –
   The operating system platform for the ISO disk image. Valid values include
   `Windows`.
@@ -361,7 +372,7 @@ Import-EC2IBDiskImage `
     -Name "`example-iso-disk-import`" `
     -SemanticVersion "`1.0.0`" `
     -Description "`Import an ISO disk image`" `
-    -ExecutionRole "`AWSServiceRoleForImageBuilder`" `
+    -ExecutionRole "`ImageBuilderExecutionRole`" `
     -Platform "Windows" `
     -OsVersion "Microsoft Windows 11" `
     -InfrastructureConfigurationArn "arn:aws:imagebuilder:`us-east-1`:`111122223333`:infrastructure-configuration/`example-infrastructure-configuration-123456789abc`" `

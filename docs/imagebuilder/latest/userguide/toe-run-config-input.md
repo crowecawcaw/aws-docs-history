@@ -91,7 +91,7 @@ Each object consists of the following fields:
     To learn more about component parameters, see the **Parameters**
      section in the [Use variables in your custom component document](toe-user-defined-variables.md "toe-user-defined-variables.md") page.
 
-- executonId (String) –
+- executionId (String) –
   This is the unique ID that applies to the execution of the current
   **run** command. This ID is included in output and log file names, to uniquely
   identify those files, and link them to the current command execution. If this setting is left

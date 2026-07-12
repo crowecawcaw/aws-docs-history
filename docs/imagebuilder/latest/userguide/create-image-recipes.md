@@ -315,6 +315,13 @@ Here is a summary of the parameters that these examples specify:
     		 – Contains an array of strings to set the value
     		 for the named component parameter. If there is a default value defined for the component,
     		 and no other value is provided, AWSTOE uses the default value.
+    * amiWatermarks (array of strings, optional) –
+     A list of watermark names to attach to output AMIs built from this recipe.
+     Watermarks are lineage markers that help you trace the history
+     of your images. Specify 1 to 5 names. Each name must be 3 to 128 characters,
+     and can include letters, numbers, spaces, and the following special characters:
+     `( ) [ ] . / - ' @ _`. For more information, see
+     [Track AMI lineage with watermarks](ami-watermarks.md "ami-watermarks.md").
     * additionalInstanceConfiguration (object) –
      Specify additional settings and launch scripts for your build instances.
 

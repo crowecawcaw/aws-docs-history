@@ -74,17 +74,29 @@ Each parameter displays the following attributes that your workflow document def
 ## Specify the IAM service role that Image Builder uses to run workflow actions
 
 To run image workflows, Image Builder needs permission to perform
-workflow actions. You can specify the [AWSServiceRoleForImageBuilder](security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder "security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder") service-linked role, or
-you can specify your own custom role for service access, as follows.
+workflow actions. You grant this permission with an execution role that Image Builder assumes on your
+behalf. You assign the execution role as follows.
+
+###### Important
+
+We recommend that you don't pass the
+[AWSServiceRoleForImageBuilder](security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder "security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder") service-linked
+role as your execution role. Instead, create a custom IAM role and
+attach the [EC2ImageBuilderExecutionPolicy](security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy "security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy") AWS managed
+policy. This policy grants the same permissions that Image Builder needs to call
+AWS services on your behalf. Using a custom role gives you full control
+over the permissions that Image Builder uses. It also keeps your service control
+policies (SCPs) and resource control policies (RCPs) in effect for
+operations that Image Builder performs on your behalf.
 
 - **Console** – In the pipeline wizard
-  **Step 3 Define image creation process**, select the
-  service-linked role or your own custom role from the **IAM role**
-  list in the **Service access** panel.
+  **Step 3 Define image creation process**, select your custom role
+  from the **IAM role** list in the **Service access**
+  panel.
 - **Image Builder API** – In the [CreateImage](../APIReference/API_CreateImage.md "../APIReference/API_CreateImage.md") action request,
-  specify the service-linked role or your own custom role as the value for the
+  specify your custom role as the value for the
   `executionRole` parameter.
 
-To learn more about how to create a service role, see
+To create a custom execution role, see
 [Creating a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the
 _AWS Identity and Access Management User Guide_.

@@ -127,7 +127,8 @@ awstoe run [--config <file path>] [--cw-ignore-failures <?>]
       [--execution-id <?>] [--log-directory <file path>]
       [--log-s3-bucket-name <name>] [--log-s3-bucket-owner <owner>]
       [--log-s3-key-prefix <?>] [--parameters `name1`=`value1`,`name2`=`value2`...]
-      [--phases <phase name>] [--state-directory <directory path>] [--version <?>]
+      [--phases <phase name>] [--blocked-action-modules <module,module,...>]
+      [--state-directory <directory path>] [--version <?>]
       [--help] [--trace]
 ```
 
@@ -190,7 +191,7 @@ The component documents _(conditional)_.
 This parameter contains a comma-separated list of file locations for the
 YAML component documents to run. If you specify YAML documents for the
 **run** command using the `--documents` parameter,
-you must not specify the `--config` parameter.
+you must not specify the `--config` parameter. Do not include spaces between items in the list.
 
 Valid locations include:
 
@@ -198,10 +199,6 @@ Valid locations include:
 - S3 URIs (`s3://`bucket/key``).
 - Image Builder component build version ARNs
   (arn:aws:imagebuilder:us-west-`2:123456789012`:component/`my-example-component`/2021.12.02/1).
-
-###### Note
-
-There are no spaces between items in the list, only commas.
 
 **--execution-id**
 
@@ -266,6 +263,14 @@ Short form: -s
 
 The file path where state tracking files are stored.
 
+**--blocked-action-modules**
+
+Short form: N/A
+
+A comma-separated list of action modules that cannot run in the
+component document. If a document contains a blocked action module,
+validation fails before execution begins.
+
 **--version**
 
 Short form: -v
@@ -287,6 +292,33 @@ Short form: -t
 
 Enables verbose logging to the console.
 
+#### Output
+
+The **run** command produces a JSON execution summary.
+The following example shows output from a successful execution.
+
+```
+`{
+ "executionId": "12345678-abcd-efgh-1234-example12345",
+ "status": "success",
+ "failedStepCount": 0,
+ "executedStepCount": 3,
+ "ignoredFailedStepCount": 0,
+ "skippedStepCount": 0,
+ "failureMessage": "",
+ "logUrl": "s3://my-bucket/my-prefix/12345678-abcd-efgh-1234-example12345"
+}`
+```
+
+The `status` field reports the overall execution result:
+
+- `success` – All phases and steps completed
+  successfully.
+- `failed` – One or more steps failed because the
+  `onFailure` action is `Abort`.
+- `timedOut` – One or more steps exceeded their
+  `timeoutSeconds` value.
+
 ### awstoe validate command
 
 When you run this command, it validates the YAML document syntax for each
@@ -295,13 +327,22 @@ of the component documents specified by the `--documents` parameter.
 #### Syntax
 
 ```
-awstoe validate [--document-s3-bucket-owner <owner>]
+awstoe validate [--blocked-action-modules <module,module,...>]
+      [--document-s3-bucket-owner <owner>]
       --documents <file path,file path,...> [--help] [--trace]
 ```
 
 #### Parameters and options
 
 ###### Parameters
+
+**--blocked-action-modules**
+
+Short form: N/A
+
+A comma-separated list of action modules that cannot run in the
+component document. If a document contains a blocked action module,
+validation fails.
 
 **--document-s3-bucket-owner**
 
@@ -315,16 +356,12 @@ Short form: -d `./doc-1.yaml`,`./doc-n`
 
 The component documents _(required)_.
 This parameter contains a comma-separated list of file locations for the
-YAML component documents to run. Valid locations include:
+YAML component documents to run, with no spaces between items. Valid locations include:
 
 - local file paths (`./component-doc-example.yaml`)
 - S3 URIs (`s3://`bucket/key``)
 - Image Builder component build version ARNs
   (arn:aws:imagebuilder:us-west-`2:123456789012`:component/`my-example-component`/2021.12.02/1)
-
-###### Note
-
-There are no spaces between items in the list, only commas.
 
 ###### Options
 
@@ -340,3 +377,25 @@ application options.
 Short form: -t
 
 Enables verbose logging to the console.
+
+#### Output
+
+The **validate** command produces a JSON validation
+result. The following example shows output from a successful
+validation.
+
+```
+`{
+ "validationStatus": "success",
+ "message": "Validation successful."
+}`
+```
+
+The following example shows output when validation fails.
+
+```
+`{
+ "validationStatus": "failed",
+ "message": "Document has 0 phases. Phases list must not be empty."
+}`
+```

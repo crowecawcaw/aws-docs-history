@@ -7,10 +7,18 @@ the image building process. Additionally, Image Builder can export logs to an Am
 For advanced troubleshooting, you can run predefined commands and scripts using
 [AWS Systems Manager Run Command](../../../systems-manager/latest/userguide/run-command.md "../../../systems-manager/latest/userguide/run-command.md").
 
+###### Tip
+
+You can use the Troubleshoot feature, powered by AWS DevOps Agent, to
+diagnose failed builds and get AI-powered root cause analysis with remediation
+steps. For more information, see
+[Troubleshoot failed builds with AI - Preview](devops-agent-troubleshooting.md "devops-agent-troubleshooting.md").
+
 ###### Contents
 
 - [Troubleshoot pipeline builds](#troubleshooting-pipelines "#troubleshooting-pipelines")
 - [Troubleshooting scenarios](#image-builder-troubleshooting-scenarios "#image-builder-troubleshooting-scenarios")
+- [Troubleshoot failed builds with AI - Preview](devops-agent-troubleshooting.md "devops-agent-troubleshooting.md")
 
 ## Troubleshoot pipeline builds
 

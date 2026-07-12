@@ -25,6 +25,15 @@ To make an AMI public, set the launch permission authorized accounts to
 `all`. For information and examples, see
 **[ModifyImageAttribute](../../../AWSEC2/latest/APIReference/API_ModifyImageAttribute.md "../../../AWSEC2/latest/APIReference/API_ModifyImageAttribute.md")** in the _Amazon EC2 API Reference_.
 
+###### Important
+
+You cannot make AMIs with watermarks public. If your image recipe
+includes watermarks, or if the source AMI has watermarks attached, you
+cannot set launch permissions to public. Image Builder rejects the distribution
+configuration. Watermarks propagate automatically when you copy or
+distribute an AMI across Regions or accounts. For more information, see
+[Track AMI lineage with watermarks](ami-watermarks.md "ami-watermarks.md").
+
 - Create a copy of the output AMI for each of the specified target accounts,
   organizations, and OUs in the destination Region. The target accounts, organizations,
   and OUs own their AMI copies, and are billed for any associated charges. For more information about

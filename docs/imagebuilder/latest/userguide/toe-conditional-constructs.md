@@ -19,6 +19,12 @@ An `if` statement is only evaluated one time, even if the step triggers
 a restart. If a step restarts, it recognizes that the `if` statement has
 already been evaluated, and continues where it left off.
 
+###### Note
+
+Conditional expressions support a maximum nesting depth of 4 levels. If you
+nest logical operators (`and`, `or`, `not`)
+beyond 4 levels deep, validation fails.
+
 ### Syntax
 
 ```

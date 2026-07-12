@@ -1,11 +1,7 @@
 # View lifecycle policy details
 
-The lifecycle policy detail page in the Image Builder console includes a summary section, with
-additional information grouped into tabs. The page heading is the name of the policy.
-
-On the lifecycle policy details page in the Image Builder console, you can view details for a specific
-lifecycle policy. You can also use commands or actions with the Image Builder API, SDKs, or
-AWS CLI to get policy details.
+Use the EC2 Image Builder console, the AWS CLI, or the API to view lifecycle policy
+configuration, execution history, and rule definitions.
 
 ###### Contents
 
@@ -13,9 +9,8 @@ AWS CLI to get policy details.
 
 ## View lifecycle policy details in the Image Builder console
 
-The image detail page in the Image Builder console includes a summary section, with
-additional information grouped into tabs. The page heading is the
-name and build version of the recipe that created the image.
+The lifecycle policy detail page displays a summary section and
+tabs with additional information.
 
 ###### Console detail sections and tabs
 
@@ -26,96 +21,101 @@ name and build version of the recipe that created the image.
 
 ### Summary section
 
-The summary section spans the width of the page and includes the following details.
-These details are always displayed.
+The summary section shows these details:
 
 **Policy status**
 
-Whether the policy is active or inactive.
+Active (policy runs on schedule) or Inactive (policy is paused).
 
 **Type**
 
-The type of output image that Image Builder distributes when you create
-a new image version (AMI or container image).
+Output image type: AMI or container image.
 
 **Date created**
 
-The timestamp from the creation of the lifecycle policy.
+Timestamp when you created the policy.
 
 **Date modified**
 
-The last time the lifecycle policy was updated.
+Timestamp of the most recent policy update.
 
 **Last run date**
 
-The last time the lifecycle policy ran.
+Timestamp of the most recent policy execution.
 
 **IAM role**
 
-The IAM role that Image Builder uses to perform lifecycle actions.
+IAM role that Image Builder assumes to perform lifecycle actions.
 
 **ARN**
 
-The Amazon Resource Name (ARN) of the lifecycle policy resource.
+Amazon Resource Name (ARN) of the lifecycle policy.
 
 **Description**
 
-The description for the lifecycle policy, if entered.
+Policy description, if provided.
 
 ### Rules tab
 
-The **Rules** tab displays the lifecycle rules that you
-configured for the policy you're viewing. The tab includes the following details:
+The **Rules** tab displays the lifecycle rules
+configured for this policy:
 
-- **Name** – The name of the rule. These names are
-  static, based on policy actions you can configure.
+- **Name** – A fixed name that matches the
+  policy action type:
 
   - `Deprecation rule`
   - `Disable rule`
   - `Deletion rule`
 
-- **Rule** – A short description of the action
-  that's configured for the rule.
-- **Rule conditions** – Lists configuration for
-  associated resource handling, exceptions to the rule, and retention
-  settings, if applicable.
+- **Rule** – Short description of the
+  configured action.
+- **Rule conditions** – Resource handling
+  configuration, rule exceptions, and retention settings.
 
 For more information about rule configuration, see [How lifecycle rules work](image-lifecycle-rules.md "image-lifecycle-rules.md").
 
 ### Scope tab
 
-The **Scope** tab displays the resource selection criteria that are
-configured for the policy you're viewing. The tab includes the following details:
+The **Scope** tab displays the resource selection
+criteria for this policy:
 
 - **Filter: `type of filter`** –
-  The filter type you used to define the scope. The filter type can be one of the
-  following:
+  The filter type that defines the scope:
 
-  - `recipes` – The recipes that were used to create
-    the images that the lifecycle policy applies to.
-  - `tags` – A set of tags that Image Builder uses to select
-    image resources that the lifecycle policy applies to.
+  - `recipes` – Recipes used to create the
+    images this policy applies to.
+  - `tags` – Tags that Image Builder uses to select
+    images this policy applies to.
 
-- A search bar – You can filter the list by **Name** to
-  streamline results that display in the tab.
-- **Name** – Each row contains a name or tag that you've
-  configured for the filter criteria.
-- **Version** – If you've configured a recipe filter, Image Builder
-  displays the recipe version.
+- **Search** bar – Filters the list by
+  **Name**.
+- **Name** – Name or tag configured as
+  filter criteria.
+- **Version** – Recipe version
+  (recipe filter only).
 
 ### RunLog tab
 
-Each time you run the policy for your configured resources, Image Builder saves runtime details.
-Each row in the table represents a single runtime instance. The tab includes the following
-details:
+Image Builder saves runtime details for each policy execution. Each table
+row represents one execution:
 
-- **Execution ID** – Identifies the lifecycle policy
-  runtime instance.
-- **Execution status** – Runtime status that reports if the
-  policy action is currently running, ran successfully, failed, or was canceled.
-- **Resource impacted** – Indicates whether the runtime
-  instance identified any image resources for lifecycle actions.
-- **Start date** – The timestamp when the runtime
-  instance started.
-- **End date** – The timestamp when the runtime
-  instance ended.
+- **Execution ID** – Unique identifier
+  for the execution instance.
+- **Execution status** – Current execution
+  state.
+- **Resource impacted** – Indicates whether the
+  execution identified image resources for lifecycle actions.
+- **Start date** – Timestamp when the
+  execution started.
+- **End date** – Timestamp when the
+  execution ended. This field is empty if the execution is in progress or pending.
+
+For execution status descriptions, see
+[Execution statuses](lifecycle-policy-execution.md#lifecycle-execution-statuses "lifecycle-policy-execution.md#lifecycle-execution-statuses").
+
+###### Viewing per-resource details
+
+Run the [list-lifecycle-execution-resources](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-lifecycle-execution-resources.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-lifecycle-execution-resources.html") AWS CLI command with the
+execution ID to view individual resource outcomes. Each entry shows
+the action taken, its result (succeeded, failed, or skipped), and
+the reason.

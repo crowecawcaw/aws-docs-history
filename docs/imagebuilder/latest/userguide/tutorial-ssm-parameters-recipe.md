@@ -70,6 +70,18 @@ execution role, you would add any additional feature permissions to that role.
 Otherwise, you would create a new custom role that includes the required permissions. If you already have a custom execution role defined,
 you can skip this step.
 
+###### Important
+
+We recommend that you don't pass the
+[AWSServiceRoleForImageBuilder](security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder "security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder") service-linked
+role as your execution role. Instead, create a custom IAM role and
+attach the [EC2ImageBuilderExecutionPolicy](security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy "security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy") AWS managed
+policy. This policy grants the same permissions that Image Builder needs to call
+AWS services on your behalf. Using a custom role gives you full control
+over the permissions that Image Builder uses. It also keeps your service control
+policies (SCPs) and resource control policies (RCPs) in effect for
+operations that Image Builder performs on your behalf.
+
 Follow the process for [Creating a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the
 _AWS Identity and Access Management User Guide_. 2. ###### Add permissions to your custom role
 
