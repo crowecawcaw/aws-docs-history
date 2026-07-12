@@ -4,7 +4,7 @@ Amazon ECS provides two methods for detecting deployment failures:
 
 - Deployment Circuit Breaker
 - CloudWatch Alarms
-  Both methods can be configured to automatically roll back failed deployments to the last known good state.
+  You can configure both methods to automatically roll back failed deployments to the last known good state.
 
 Consider the following:
 

@@ -1,11 +1,5 @@
 # AWS Fargate Linux platform version deprecation
 
-###### Important
-
-We are ending support for PV 1.3.0 in Fargate on June 30, 2026. Starting June 15, 2026, we will make the platform version 1.3.0 as Retired. At that time, you will not be able to launch new tasks or create new services configured with platform version 1.3.0, but your existing tasks will continue running. On June 30, 2026, we will terminate all the remaining running tasks configured with platform version 1.3.0.
-
-For information about how to migrate to platform version 1.4, see [Migrating to Linux platform version 1.4.0 on Amazon ECS](platform-version-migration.md "platform-version-migration.md").
-
 The following table lists Linux platform versions that AWS Fargate has deprecated or have been scheduled for deprecation. These platform versions remain available until the published deprecation date.
 
 A _force update date_ is provided for each platform version scheduled for deprecation.

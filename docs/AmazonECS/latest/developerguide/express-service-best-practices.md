@@ -111,7 +111,7 @@ Examples might include external API calls, CPU or memory intensive opeartions, o
 
 - **Use appropriate timeouts** - Configure health check timeouts that allow for normal response times while detecting failures quickly.
 
-Health check timeouts for Express Mode can be configured on the Application Load Balancer target group. In the Amazon EC2 Console, Navigate to the **Target Groups** section and
+Health check timeouts for Express Mode is configurable on the Application Load Balancer target group. In the Amazon EC2 Console, Navigate to the **Target Groups** section and
 select your Express Mode target group. Select the **Health Checks** Tab and click **Edit**, under **Advanced health
 check settings** you can adjust the timeout. Or, use `aws elbv2 modify-target-group --target-group-arn <targetgroup> --health-check-timeout`.
 
@@ -138,7 +138,7 @@ CloudWatch Log Groups created by Express Mode are configured to never expire and
 ### Deployment strategies
 
 - **Implement bake times** - Express Mode implements a canary bake time to ensure deployments have time to stabilize
-  while reducing blast radius of problematic deployments. If your application needs more time to stabilize, this can be configured in the Amazon ECS Service definition of your
+  while reducing blast radius of problematic deployments. If your application needs more time to stabilize, you can configure this in the Amazon ECS Service definition of your
   Express Mode service. Refer to [Creating an Amazon ECS canary deployment](AmazonECS/latest/developerguide/deploy-canary-service.md "AmazonECS/latest/developerguide/deploy-canary-service.md") for more details.
 - **Implement rollback procedures** - Have a plan to quickly revert to previous versions if issues occur.
 

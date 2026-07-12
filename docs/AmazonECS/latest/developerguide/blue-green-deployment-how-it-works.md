@@ -37,7 +37,7 @@ The blue/green deployment process progresses through distinct lifecycle stages (
 Each lifecycle stage can last up to 24 hours. We recommend that the value remains below the 24-hour mark. This is because asynchronous processes need time to trigger the hooks. The system times out, fails the deployment, and then initiates a rollback after a stage reaches 24 hours.
 CloudFormation deployments have additional timeout restrictions. While the 24-hour stage limit remains in effect, CloudFormation enforces a 36-hour limit on the entire deployment. CloudFormation fails the deployment, and then initiates a rollback if the process doesn't complete within 36 hours.
 
-For pause hooks, the timeout can be configured up to 20,160 minutes (14 days). The
+For pause hooks, you can configure the timeout up to 20,160 minutes (14 days). The
 overall deployment timeout is 30 days.
 
 | Lifecycle stages                 | Description                                                                                                                                                                                        | Use this stage for lifecycle hook? |

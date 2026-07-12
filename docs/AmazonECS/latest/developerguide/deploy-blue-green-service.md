@@ -197,7 +197,7 @@ Under **Compute configuration**, choose your option.
          must be provided.
         * **Amazon S3** – Configure the task to send
          container logs to an Amazon S3 bucket. The default log driver options
-         are provided, but you must specify a valid Amazon S3 bucket
+         are set by default, but you must specify a valid Amazon S3 bucket
          name.
 
 10. (Optional) Configure **Load balancing** for blue/green

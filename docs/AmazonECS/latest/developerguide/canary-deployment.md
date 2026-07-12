@@ -67,7 +67,7 @@ Each lifecycle stage can last up to 24 hours and in addition each traffic shift 
 
 CloudFormation deployments have additional timeout restrictions. While the 24-hour stage limit remains in effect, CloudFormation enforces a 36-hour limit on the entire deployment. CloudFormation fails the deployment, and then initiates a rollback if the process doesn't complete within 36 hours.
 
-For pause hooks, the timeout can be configured up to 20,160 minutes (14 days). The
+For pause hooks, you can configure the timeout up to 20,160 minutes (14 days). The
 overall deployment timeout is 30 days.
 
 Lifecycle stages| Lifecycle stages | Description | Lifecycle hook support |

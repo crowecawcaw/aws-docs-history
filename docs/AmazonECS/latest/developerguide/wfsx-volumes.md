@@ -75,7 +75,7 @@ failover events.
   Each task with an FSx for Windows File Server volume gets a drive letter assigned to it.
 - By default, task resource cleanup time is three hours after the task ended.
   Even if no tasks use it, a file mapping that's created by a task persists for
-  three hours. The default cleanup time can be configured by using the Amazon ECS
+  three hours. You can configure the default cleanup time by using the Amazon ECS
   environment variable `ECS_ENGINE_TASK_CLEANUP_WAIT_DURATION`. For
   more information, see [Amazon ECS container agent configuration](ecs-agent-config.md "ecs-agent-config.md").
 - Tasks typically only run in the same VPC as the FSx for Windows File Server file system.

@@ -19,7 +19,7 @@ recipe. Your image recipe must meet the following requirements:
   may not be compatible with the component.
 - When specifying the **Build components**, the
   `ecs-optimized-ami-windows` component is required. The
-  `update-windows` component is recommended, which ensures the image
+  `update-windows` component, which we recommend, ensures the image
   contains the latest security updates.
 
 To specify a different component version, expand the **Versioning

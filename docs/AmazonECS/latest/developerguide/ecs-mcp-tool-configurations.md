@@ -265,14 +265,3 @@ This tool reads the content of AWS documentation pages and returns them in markd
     - `start_index` (integer, optional): Character position to start reading from (default 0)
 
 - Response: The tool returns the documentation page content in markdown format. Long pages are returned in chunks with navigation support.
-
-**aws\_knowledge\_aws\_\_\_recommend**
-
-This tool returns related documentation pages for a given AWS documentation URL.
-
-- Required IAM actions: None
-- Required parameters:
-
-  - `url` (string): An AWS documentation URL (must be a docs.aws.amazon.com page)
-
-- Response: The tool provides recommendations for related AWS documentation pages across four categories: popular, new, similar, and commonly read next.

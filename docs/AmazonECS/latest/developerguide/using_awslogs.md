@@ -13,7 +13,7 @@ on their `ENTRYPOINT` command. By default, the logs that are captured show
 the command output that you typically might see in an interactive terminal if you ran
 the container locally, which are the `STDOUT` and `STDERR` I/O
 streams. The `awslogs` log driver simply passes these logs from Docker to
-CloudWatch Logs. For more information about how Docker logs are processed, including alternative
+CloudWatch Logs. For more information about how Docker processes logs, including alternative
 ways to capture different file data or streams, see [View logs for a container
 or service](https://docs.docker.com/engine/logging/ "https://docs.docker.com/engine/logging/") in the Docker documentation.
 

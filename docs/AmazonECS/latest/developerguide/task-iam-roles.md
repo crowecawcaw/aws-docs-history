@@ -95,7 +95,7 @@ tasks.
 
 ###### Important
 
-When creating your task IAM role, it is recommended that you use the
+When creating your task IAM role, we recommend that you use the
 `aws:SourceAccount` or `aws:SourceArn` condition keys in
 the trust relationship policy associated with the role to scope
 the permissions further to prevent the confused deputy security issue. Using the

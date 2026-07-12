@@ -71,7 +71,7 @@ For more information about these and other agent runtime options, see [Amazon EC
 
 You can optionally store your agent environment variables in Amazon S3 (which
 can be downloaded to your container instances at launch time using Amazon EC2
-user data). This is recommended for sensitive information such as
+user data). We recommend this approach for sensitive information such as
 authentication credentials for private repositories. For more information,
 see [Storing Amazon ECS container instance configuration in Amazon S3](ecs-config-s3.md "ecs-config-s3.md") and [Using non-AWS container images in Amazon ECS](private-auth.md "private-auth.md"). 7. Pull the latest Amazon ECS container agent image from Amazon Elastic Container Registry Public.
 

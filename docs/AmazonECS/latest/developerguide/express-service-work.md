@@ -225,7 +225,7 @@ the task execution role and task role are read from your task definition.
 
 ## Application Auto Scaling defaults
 
-The following Application Auto Scaling settings can be configured in Express Mode:
+You can configure the following Application Auto Scaling settings in Express Mode:
 
 - autoScalingTargetValue: 60 - Target CPU utilization percentage for scaling
 - autoScalingMetric: "CPUUtilization" - Metric used for auto scaling decisions
@@ -271,7 +271,7 @@ The following defaults are set by Express Mode but can be changed in the Applica
 
 ## Application Load Balancer defaults
 
-The following Application Load Balancer defaults can be configured in Express Mode:
+You can configure the following Application Load Balancer defaults in Express Mode:
 
 - scheme: depends on subnets - Creates an Internet-facing load balancer with public IP addresses when public subnets are provided.
   Creates an Internal load balancer with private IP addresses when private subnets are provided.
@@ -279,7 +279,7 @@ The following Application Load Balancer defaults can be configured in Express Mo
   a dual-stack Application Load Balancer will be created. Note that if you have IPv6-enabled subnets, the first Express Mode service in a VPC defines the internal or
   internet-facing load balancer for that VPC. Because of this, we recommend creating your IPv6-only subnets first, or in a new VPC.
 
-The following defaults are set in Express Mode and can be configured in Application Load Balancer:
+The following defaults are set in Express Mode and you can configure them in Application Load Balancer:
 
 - desync-mitigation-mode: Off - HTTP desync mitigation is disabled
 - access-logs.enabled: false - Access logging is disabled
@@ -289,13 +289,13 @@ The following defaults are set in Express Mode and can be configured in Applicat
 
 ## Target group defaults
 
-The following Amazon EC2 Target Group defaults can be configured in Express Mode:
+You can configure the following Amazon EC2 Target Group defaults in Express Mode:
 
 - health-check-path: (default "/") Express Mode service health check path - URL path for health check requests
 - port: (default 80) - Port on which targets receive traffic
 - health-check-port: (default 80) - Port for health check requests
 
-The following defaults are set by Express Mode and can be configured in Amazon EC2 Target Groups:
+The following defaults are set by Express Mode and you can configure them in Amazon EC2 Target Groups:
 
 - protocol: HTTP - Protocol for routing traffic to targets
 - protocol-version: HTTP1 - HTTP protocol version for communication
