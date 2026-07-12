@@ -1,5 +1,9 @@
 # Running kube-proxy in IPVS Mode
 
+###### Important
+
+Kubernetes v1.35 deprecated kube-proxy’s IPVS mode. Instead, use the [nftables](https://kubernetes.io/docs/reference/networking/virtual-ips/#proxy-mode-nftables "https://kubernetes.io/docs/reference/networking/virtual-ips/#proxy-mode-nftables") mode on the Kubernetes website. The nftables mode has been generally available since v1.33. For more information about the v1.35 release, see the [Kubernetes v1.35 release announcement](https://kubernetes.io/blog/2025/12/17/kubernetes-v1-35-release/ "https://kubernetes.io/blog/2025/12/17/kubernetes-v1-35-release/").
+
 EKS in IP Virtual Server (IPVS) mode solves the [network latency issue](control-plane.md#reliability_cprunning_large_clusters "control-plane.md#reliability_cprunning_large_clusters") often seen when running large clusters with over 1,000 services with kube-proxy running in legacy iptables mode. This performance issue is the result of sequential processing of iptables packet filtering rules for each packet. This latency issue has been addressed in nftables, the successor to iptables. However, as of the time of this writing, [kube-proxy is still under development](https://kubernetes.io/docs/reference/networking/virtual-ips/#proxy-mode-nftables "https://kubernetes.io/docs/reference/networking/virtual-ips/#proxy-mode-nftables") to make use of nftables. To get around this issue, you can configure your cluster to run `kube-proxy` in IPVS mode.
 
 ## Overview
