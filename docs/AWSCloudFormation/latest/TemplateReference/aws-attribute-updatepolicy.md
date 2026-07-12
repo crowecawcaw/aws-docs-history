@@ -13,6 +13,7 @@ resources during stack update operations.
 - [WorkSpaces Applications update policy](#aws-attribute-update-policy-app-stream-fleet "#aws-attribute-update-policy-app-stream-fleet")
 - [AutoScalingReplacingUpdate policy](#cfn-attributes-updatepolicy-replacingupdate "#cfn-attributes-updatepolicy-replacingupdate")
 - [AutoScalingRollingUpdate policy](#cfn-attributes-updatepolicy-rollingupdate "#cfn-attributes-updatepolicy-rollingupdate")
+- [AutoScalingInstanceRefresh policy](#cfn-attributes-updatepolicy-instancerefresh "#cfn-attributes-updatepolicy-instancerefresh")
 - [AutoScalingScheduledAction policy](#cfn-attributes-updatepolicy-scheduledactions "#cfn-attributes-updatepolicy-scheduledactions")
 - [UseOnlineResharding policy](#cfn-attributes-updatepolicy-useonlineresharding "#cfn-attributes-updatepolicy-useonlineresharding")
 - [EnableVersionUpgrade policy](#cfn-attributes-updatepolicy-upgradeopensearchdomain "#cfn-attributes-updatepolicy-upgradeopensearchdomain")
@@ -49,6 +50,15 @@ resources are updated, as described here:
       `WillReplace` property to `true` gives
       `AutoScalingReplacingUpdate` precedence.
 
+  - `AutoScalingInstanceRefresh` policy
+    – CloudFormation runs an Auto Scaling instance refresh when you change certain properties of
+    the Auto Scaling group.
+    Compared to `AutoScalingRollingUpdate`, this policy supports instance
+    maintenance policies (including launch-before-terminate), termination policies,
+    scale-in protection, root volume replacement, and additional Amazon EC2 Auto Scaling features. You
+    can't specify both `AutoScalingInstanceRefresh` and
+    `AutoScalingRollingUpdate` on the same Auto Scaling group. For more information,
+    see the [AutoScalingInstanceRefresh policy](#cfn-attributes-updatepolicy-instancerefresh "#cfn-attributes-updatepolicy-instancerefresh").
   - `AutoScalingScheduledAction` policy
     – This policy applies when you update a stack that includes an Auto Scaling group with
     scheduled actions that scale the group at specific times. CloudFormation can't modify the
@@ -174,6 +184,15 @@ once without replacing the entire resource.
 
 Things to consider when using an `AutoScalingRollingUpdate` policy:
 
+###### Warning
+
+Rolling updates don't honor the instance maintenance policy configured on your Auto Scaling
+group. During a rolling update, healthy capacity can drop below the
+`MinHealthyPercentage` set on the group, and CloudFormation doesn't launch new
+instances before terminating existing ones, regardless of
+`MaxHealthyPercentage`. To preserve your instance maintenance policy during
+stack updates, use the [AutoScalingInstanceRefresh policy](#cfn-attributes-updatepolicy-instancerefresh "#cfn-attributes-updatepolicy-instancerefresh") instead.
+
 - When CloudFormation rolls back an update, it uses the `UpdatePolicy`
   configuration specified in the template before the current stack update. For example, you
   change the `MaxBatchSize` from 1 to 10 in the `UpdatePolicy`,
@@ -185,6 +204,12 @@ Things to consider when using an `AutoScalingRollingUpdate` policy:
   temporarily suspend Amazon EC2 Auto Scaling processes that might interfere with the rolling update and
   cause it to fail. For more information, see [How can I update
   my Auto Scaling group when I update my CloudFormation stack?](https://repost.aws/knowledge-center/auto-scaling-group-rolling-updates "https://repost.aws/knowledge-center/auto-scaling-group-rolling-updates")
+
+Alternatively, the `AutoScalingInstanceRefresh` policy supports all Auto Scaling group
+processes during stack updates, so you don't need to suspend them. If you need processes
+such as health checks and AZ rebalance to remain active, use
+`AutoScalingInstanceRefresh` instead. For more information, see the [AutoScalingInstanceRefresh policy](#cfn-attributes-updatepolicy-instancerefresh "#cfn-attributes-updatepolicy-instancerefresh").
+
 - CloudFormation supports using Amazon EC2 Auto Scaling lifecycle hooks when launching or terminating
   instances. This gives you time to perform custom actions on an instance before it moves to
   the next state. To make sure that new instances reach the `InService` state,
@@ -192,9 +217,9 @@ Things to consider when using an `AutoScalingRollingUpdate` policy:
   finishes. By default, if no response is received and the lifecycle hook times out, the
   instance launch will be considered unsuccessful and abandoned. If no instances reach the
   `InService` state, the rolling update will eventually fail.
-- Amazon EC2 Auto Scaling features such as instance maintenance policies, termination policies, and
-  scale-in protection are not available for use with CloudFormation rolling updates. Plan your
-  rolling updates accordingly.
+- Other Amazon EC2 Auto Scaling features such as termination policies and scale-in protection aren't
+  available for use with CloudFormation rolling updates. If you need any of these features, use
+  `AutoScalingInstanceRefresh` instead. For more information, see [AutoScalingInstanceRefresh policy](#cfn-attributes-updatepolicy-instancerefresh "#cfn-attributes-updatepolicy-instancerefresh").
 - If you use an `AutoScalingRollingUpdate` policy and remove the placement
   group setting, the placement group will be removed from the Auto Scaling group and the CloudFormation
   template. Also this triggers a rolling update, so new instances won't be launched into a
@@ -382,6 +407,325 @@ _Type_: Boolean
 _Required_: Conditional. If you specify the
 `MinSuccessfulInstancesPercent` property, the
 `WaitOnResourceSignals` property must be set to `true`.
+
+## AutoScalingInstanceRefresh policy
+
+To update the instances in an Auto Scaling group by performing an Auto Scaling instance refresh, use the
+`AutoScalingInstanceRefresh` policy. For the full list of instance refresh
+capabilities, see [Use an instance refresh to update
+instances in an Auto Scaling group](../../../autoscaling/ec2/userguide/asg-instance-refresh.md "../../../autoscaling/ec2/userguide/asg-instance-refresh.md") in the _Amazon EC2 Auto Scaling User Guide_.
+
+CloudFormation performs an instance refresh only when you update one of the following
+properties of an `AWS::AutoScaling::AutoScalingGroup`
+resource:
+
+- `LaunchTemplate`
+- `MixedInstancesPolicy`
+- `VPCZoneIdentifier`
+- `AvailabilityZones`
+- `AvailabilityZoneIds`
+- `PlacementGroup`
+
+When you use the `AutoScalingInstanceRefresh` policy, consider the following:
+
+- You can't specify both `AutoScalingInstanceRefresh` and
+  `AutoScalingRollingUpdate` policies on the same Auto Scaling group. If you do,
+  the stack update fails.
+- CloudFormation stack rollback is the rollback mechanism for
+  `AutoScalingInstanceRefresh`. If an instance refresh fails, CloudFormation rolls
+  back the stack and starts a new instance refresh to restore the group to its previous
+  configuration. You can't use the Auto Scaling `RollbackInstanceRefresh` API operation
+  on an instance refresh that CloudFormation has already started. To revert a refresh, use the
+  `CancelInstanceRefresh` API or roll back the stack update.
+- An Auto Scaling group can run only one instance refresh at a time. If a user-initiated
+  instance refresh is in progress when you start a stack update with the
+  `AutoScalingInstanceRefresh` policy, the stack update may fail.
+- When you set the instance refresh `Strategy` to `ReplaceRootVolume`,
+  only changes to `ImageId` within the launch template or mixed instances policy are allowed.
+  Other property changes may cause the stack update to fail. For more information, see [Replace root volumes during instance refresh](../../../autoscaling/ec2/userguide/replace-root-volume.md "../../../autoscaling/ec2/userguide/replace-root-volume.md") in the
+  _Amazon EC2 Auto Scaling User Guide_.
+- Each direction of the stack update (forward and rollback) is bounded by the
+  CloudFormation resource timeout of 36 hours.
+- Long-running instance refreshes might exceed the lifetime of the temporary
+  credentials CloudFormation uses to call Auto Scaling. To avoid this, configure a service role on the
+  stack. For more information, see [CloudFormation service
+  role](../UserGuide/using-iam-servicerole.md "../UserGuide/using-iam-servicerole.md").
+
+###### Note
+
+Instance refresh doesn't support the [cfn-signal](cfn-signal.md "cfn-signal.md") helper script.
+For information about how to verify instance readiness during an instance refresh, see [Verify instance readiness during an instance refresh](#cfn-attributes-updatepolicy-instancerefresh-readiness "#cfn-attributes-updatepolicy-instancerefresh-readiness").
+
+### Syntax
+
+#### JSON
+
+```
+"UpdatePolicy" : {
+  "AutoScalingInstanceRefresh" : {
+    "Strategy" : `String`,
+    "Preferences" : {
+      "AlarmSpecification" : {
+        "Alarms" : [ `List of alarm names` ]
+      },
+      "BakeTime" : `Integer`,
+      "CheckpointDelay" : `Integer`,
+      "CheckpointPercentages" : [ `List of integers` ],
+      "InstanceWarmup" : `Integer`,
+      "MaxHealthyPercentage" : `Integer`,
+      "MinHealthyPercentage" : `Integer`,
+      "ScaleInProtectedInstances" : `String`,
+      "SkipMatching" : `Boolean`,
+      "StandbyInstances" : `String`
+    }
+  }
+}
+```
+
+#### YAML
+
+```
+UpdatePolicy:
+  AutoScalingInstanceRefresh:
+    Strategy: `String`
+    Preferences:
+      AlarmSpecification:
+        Alarms:
+          - `List of alarm names`
+      BakeTime: `Integer`
+      CheckpointDelay: `Integer`
+      CheckpointPercentages:
+        - `List of integers`
+      InstanceWarmup: `Integer`
+      MaxHealthyPercentage: `Integer`
+      MinHealthyPercentage: `Integer`
+      ScaleInProtectedInstances: `String`
+      SkipMatching: `Boolean`
+      StandbyInstances: `String`
+```
+
+### Properties
+
+`Strategy`
+
+The strategy to use for the instance refresh. Valid values are
+`Rolling` and `ReplaceRootVolume`. For information about
+the `ReplaceRootVolume` strategy, see [Replace root volumes during instance refresh](../../../autoscaling/ec2/userguide/replace-root-volume.md "../../../autoscaling/ec2/userguide/replace-root-volume.md") in the
+_Amazon EC2 Auto Scaling User Guide_.
+
+_Type_: String
+
+_Required_: Yes
+
+`Preferences`
+
+Sets the preferences for the instance refresh. Includes the instance warmup
+time, the minimum and maximum healthy percentages, and the behaviors that Amazon EC2 Auto Scaling
+uses if instances are in `Standby` state or protected from scale in. You
+can also enable additional features:
+
+- Checkpoints
+- CloudWatch alarms
+- Skip matching
+- Bake time
+
+_Type_: [Preferences](#cfn-attributes-updatepolicy-instancerefresh-preferences "#cfn-attributes-updatepolicy-instancerefresh-preferences")
+
+_Required_: No
+
+### Preferences
+
+`AlarmSpecification`
+
+The CloudWatch alarm specification. You can use CloudWatch alarms to identify any issues
+during the instance refresh and roll back the stack if an alarm threshold is met. For
+more information, see [Start an instance refresh with auto rollback](../../../autoscaling/ec2/userguide/instance-refresh-rollback.md#instance-refresh-using-auto-rollback "../../../autoscaling/ec2/userguide/instance-refresh-rollback.md#instance-refresh-using-auto-rollback") in the
+_Amazon EC2 Auto Scaling User Guide_.
+
+_Type_: [AlarmSpecification](#cfn-attributes-updatepolicy-instancerefresh-alarmspecification "#cfn-attributes-updatepolicy-instancerefresh-alarmspecification")
+
+_Required_: No
+
+`BakeTime`
+
+The amount of time, in seconds, to wait at the end of an instance refresh before
+the instance refresh is considered complete.
+
+_Default_: `0`
+
+_Minimum_: `0`
+
+_Maximum_: `172800`
+
+_Type_: Integer
+
+_Required_: No
+
+`CheckpointDelay`
+
+The amount of time, in seconds, to wait after a checkpoint before continuing. If
+you specify a value for `CheckpointPercentages` but not for
+`CheckpointDelay`, the `CheckpointDelay` defaults to
+`3600` (1 hour).
+
+_Minimum_: `0`
+
+_Maximum_: `172800`
+
+_Type_: Integer
+
+_Required_: No
+
+`CheckpointPercentages`
+
+Threshold values for each checkpoint in ascending order. Each number must be
+unique. To replace all instances in the Auto Scaling group, the last number in the array must
+be `100`. For usage examples, see [Add
+checkpoints to an instance refresh](../../../autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.md "../../../autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.md") in the
+_Amazon EC2 Auto Scaling User Guide_.
+
+_Type_: List of integers
+
+_Required_: No
+
+`InstanceWarmup`
+
+A time period, in seconds, during which an instance refresh waits before moving
+on to replacing the next instance after a new instance enters the
+`InService` state.
+
+If you don't specify `InstanceWarmup`, Auto Scaling uses the value for the
+`DefaultInstanceWarmup` property instead. We recommend that you set a
+value for `DefaultInstanceWarmup` in all use cases.
+
+If you don't specify a value for either property, Auto Scaling uses the value of the
+`HealthCheckGracePeriod` property.
+
+_Type_: Integer
+
+_Required_: No
+
+`MaxHealthyPercentage`
+
+Specifies the maximum percentage of the group that can be in service and healthy,
+or pending, to support your workload when replacing instances. The value is expressed
+as a percentage of the desired capacity of the Auto Scaling group. If you specify
+`MaxHealthyPercentage`, you must also specify
+`MinHealthyPercentage`, and the difference between them cannot be
+greater than 100. A larger range increases the number of instances that can be
+replaced at the same time.
+
+_Default_: The value set in the Auto Scaling group's instance
+maintenance policy, if defined. Otherwise, `110` when
+`Strategy` is `Rolling`, or `100` when
+`Strategy` is `ReplaceRootVolume`.
+
+_Minimum_: `100`
+
+_Maximum_: `200`
+
+_Type_: Integer
+
+_Required_: No
+
+`MinHealthyPercentage`
+
+Specifies the minimum percentage of the group to keep in service, healthy, and
+ready to use to support your workload to allow the operation to continue. The value
+is expressed as a percentage of the desired capacity of the Auto Scaling group.
+
+_Default_: The value set in the Auto Scaling group's instance
+maintenance policy, if defined. Otherwise, `100` when
+`Strategy` is `Rolling`, or `90` when
+`Strategy` is `ReplaceRootVolume`.
+
+_Minimum_: `0`
+
+_Maximum_: `100`
+
+_Type_: Integer
+
+_Required_: No
+
+`ScaleInProtectedInstances`
+
+Choose the behavior that you want Amazon EC2 Auto Scaling to use if instances protected from
+scale in are found. The following lists the valid values:
+
+- _Refresh_: Amazon EC2 Auto Scaling replaces instances that are protected
+  from scale in.
+- _Ignore_: Amazon EC2 Auto Scaling ignores instances that are protected
+  from scale in and continues to replace instances that are not protected.
+- _Wait_: Amazon EC2 Auto Scaling waits one hour for you to remove
+  scale-in protection. Otherwise, the instance refresh fails.
+
+_Default_: `Wait`
+
+_Type_: String
+
+_Required_: No
+
+`SkipMatching`
+
+Indicates whether skip matching is enabled. If enabled (`true`),
+Auto Scaling skips replacing instances that already match the configuration specified in
+your stack template. For more information, see [Use an
+instance refresh with skip matching](../../../autoscaling/ec2/userguide/asg-instance-refresh-skip-matching.md "../../../autoscaling/ec2/userguide/asg-instance-refresh-skip-matching.md") in the
+_Amazon EC2 Auto Scaling User Guide_.
+
+_Default_: `true`
+
+_Type_: Boolean
+
+_Required_: No
+
+`StandbyInstances`
+
+Choose the behavior that you want Amazon EC2 Auto Scaling to use if instances in
+`Standby` state are found. The following lists the valid values:
+
+- _Terminate_: Amazon EC2 Auto Scaling terminates instances that are in
+  `Standby`.
+- _Ignore_: Amazon EC2 Auto Scaling ignores instances that are in
+  `Standby` and continues to replace instances that are in the
+  `InService` state.
+- _Wait_: Amazon EC2 Auto Scaling waits one hour for you to return the
+  instances to service. Otherwise, the instance refresh fails.
+
+_Default_: `Wait`
+
+_Type_: String
+
+_Required_: No
+
+### AlarmSpecification
+
+`Alarms`
+
+The names of one or more CloudWatch alarms to monitor for the instance refresh. You
+can specify up to 10 alarms.
+
+_Type_: List of strings
+
+_Required_: No
+
+### Verify instance readiness during an instance refresh
+
+By default, instance refresh automatically proceeds to the next set of instances when
+newly launched instances pass the health checks configured on your Auto Scaling group. These
+include the Amazon EC2 health checks and, if configured, the Elastic Load Balancing health checks. For more
+information, see [Health checks for
+instances in an Auto Scaling group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md") in the _Amazon EC2 Auto Scaling User Guide_.
+
+If your instances require application bootstrapping before moving to
+`InService`, add an `autoscaling:EC2_INSTANCE_LAUNCHING` lifecycle
+hook to the Auto Scaling group. The instance refresh waits for the lifecycle hook to complete before
+it proceeds to the next set of instances. Complete the hook by calling the
+`CompleteLifecycleAction` API. You can make this call from the instance itself
+using a launch template user data script, or from an external service. For more information,
+see [Amazon EC2 Auto Scaling lifecycle hooks](../../../autoscaling/ec2/userguide/lifecycle-hooks.md "../../../autoscaling/ec2/userguide/lifecycle-hooks.md") and
+[Complete a lifecycle
+action in an Auto Scaling group](../../../autoscaling/ec2/userguide/completing-lifecycle-hooks.md "../../../autoscaling/ec2/userguide/completing-lifecycle-hooks.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 ## AutoScalingScheduledAction policy
 
@@ -768,6 +1112,138 @@ CreationPolicy:
     Timeout: PT10M
   AutoScalingCreationPolicy:
     MinSuccessfulInstancesPercent: !Ref 'MinSuccessfulPercentParameter'
+```
+
+### AutoScalingInstanceRefresh policy
+
+The following examples show two common configurations of the
+`AutoScalingInstanceRefresh` policy. The first example uses
+launch-before-terminate to maintain capacity during the refresh. The second example uses a
+CloudWatch alarm to roll back the stack if the deployment causes problems.
+
+#### Launch-before-terminate refresh
+
+The following example declares an `AutoScalingInstanceRefresh` policy that
+uses launch-before-terminate. Setting `MinHealthyPercentage` to `100`
+ensures new instances launch before existing ones terminate, and
+`MaxHealthyPercentage` of `200` lets the group temporarily double in
+size. The policy also skips instances that already match the configuration.
+
+##### JSON
+
+```
+"ASG" : {
+  "Type" : "AWS::AutoScaling::AutoScalingGroup",
+  "Properties" : {
+    "VPCZoneIdentifier" : [ "`subnetIdAz1`", "`subnetIdAz2`", "`subnetIdAz3`" ],
+    "LaunchTemplate" : {
+      "LaunchTemplateId" : { "Ref" : "`logicalName`" },
+      "Version" : { "Fn::GetAtt" : [ "`logicalName`", "LatestVersionNumber" ] }
+    },
+    "MaxSize" : "4",
+    "MinSize" : "1"
+  },
+  "UpdatePolicy" : {
+    "AutoScalingInstanceRefresh" : {
+      "Strategy" : "Rolling",
+      "Preferences" : {
+        "MinHealthyPercentage" : 100,
+        "MaxHealthyPercentage" : 200,
+        "SkipMatching" : true
+      }
+    }
+  }
+}
+```
+
+##### YAML
+
+```
+ASG:
+  Type: AWS::AutoScaling::AutoScalingGroup
+  Properties:
+    VPCZoneIdentifier:
+      - `subnetIdAz1`
+      - `subnetIdAz2`
+      - `subnetIdAz3`
+    LaunchTemplate:
+      LaunchTemplateId: !Ref `logicalName`
+      Version: !GetAtt `logicalName`.LatestVersionNumber
+    MaxSize: '4'
+    MinSize: '1'
+  UpdatePolicy:
+    AutoScalingInstanceRefresh:
+      Strategy: Rolling
+      Preferences:
+        MinHealthyPercentage: 100
+        MaxHealthyPercentage: 200
+        SkipMatching: true
+```
+
+#### Refresh with alarm-based rollback
+
+The following example declares an `AutoScalingInstanceRefresh` policy with
+checkpoints, alarm-based rollback, and a bake time. Auto Scaling pauses for 5 minutes at each
+checkpoint, and waits 10 minutes after completion before declaring success.
+
+##### JSON
+
+```
+"ASG" : {
+  "Type" : "AWS::AutoScaling::AutoScalingGroup",
+  "Properties" : {
+    "VPCZoneIdentifier" : [ "`subnetIdAz1`", "`subnetIdAz2`", "`subnetIdAz3`" ],
+    "LaunchTemplate" : {
+      "LaunchTemplateId" : { "Ref" : "`logicalName`" },
+      "Version" : { "Fn::GetAtt" : [ "`logicalName`", "LatestVersionNumber" ] }
+    },
+    "MaxSize" : "4",
+    "MinSize" : "1"
+  },
+  "UpdatePolicy" : {
+    "AutoScalingInstanceRefresh" : {
+      "Strategy" : "Rolling",
+      "Preferences" : {
+        "CheckpointPercentages" : [ 33, 66, 100 ],
+        "CheckpointDelay" : 300,
+        "BakeTime" : 600,
+        "AlarmSpecification" : {
+          "Alarms" : [ "`my-cloud-watch-alarm`" ]
+        }
+      }
+    }
+  }
+}
+```
+
+##### YAML
+
+```
+ASG:
+  Type: AWS::AutoScaling::AutoScalingGroup
+  Properties:
+    VPCZoneIdentifier:
+      - `subnetIdAz1`
+      - `subnetIdAz2`
+      - `subnetIdAz3`
+    LaunchTemplate:
+      LaunchTemplateId: !Ref `logicalName`
+      Version: !GetAtt `logicalName`.LatestVersionNumber
+    MaxSize: '4'
+    MinSize: '1'
+  UpdatePolicy:
+    AutoScalingInstanceRefresh:
+      Strategy: Rolling
+      Preferences:
+        CheckpointPercentages:
+          - 33
+          - 66
+          - 100
+        CheckpointDelay: 300
+        BakeTime: 600
+        AlarmSpecification:
+          Alarms:
+            - `my-cloud-watch-alarm`
 ```
 
 ### Maintain availability when updating the metadata for the cfn-init helper script
