@@ -3,6 +3,22 @@
 These release notes provide details of enhancements, features, known issues, and workflow
 changes in the Amazon Athena ODBC 2.x driver.
 
+## 2.2.0.1
+
+Released 2026-07-06
+
+### Fixes
+
+- Fixed an issue that caused some browser-based authentication
+  requests to fail because of a missing
+  `Content-Length` header.
+- Fixed an issue that caused query parameters to be truncated when
+  you use `SQL_C_WCHAR` bindings.
+- The license file now includes a reference to the AWS Service
+  Terms.
+
+To download the new ODBC v2 driver, see [ODBC 2.x driver download](odbc-v2-driver.md#odbc-v2-driver-download "odbc-v2-driver.md#odbc-v2-driver-download"). For connection information, see [Amazon Athena ODBC 2.x](odbc-v2-driver.md "odbc-v2-driver.md").
+
 ## 2.2.0.0
 
 Released 2026-05-29

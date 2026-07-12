@@ -39,23 +39,23 @@ When you use the ODBC 2.x driver, be sure to note the following:
 
 | Driver version                 | Download link                                                                                                                                                                                                                                                            |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ODBC 2.2.0.0 for Linux x86\_64 | [Linux x86\_64 ODBC driver 2.2.0.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Linux/AmazonAthenaODBC-2.2.0.0-x86_64.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Linux/AmazonAthenaODBC-2.2.0.0-x86_64.rpm") |
+| ODBC 2.2.0.1 for Linux x86\_64 | [Linux x86\_64 ODBC driver 2.2.0.1](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.1/Linux/AmazonAthenaODBC-2.2.0.1-x86_64.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.1/Linux/AmazonAthenaODBC-2.2.0.1-x86_64.rpm") |
 
 ### macOS
 
 | Driver version         | Download link                                                                                                                                                                                                                                                                      |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ODBC 2.2.0.0 for macOS | [macOS ODBC driver 2.2.0.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Mac/AmazonAthenaODBC-2.2.0.0-macos11-universal.pkg "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Mac/AmazonAthenaODBC-2.2.0.0-macos11-universal.pkg") |
+| ODBC 2.2.0.1 for macOS | [macOS ODBC driver 2.2.0.1](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.1/Mac/AmazonAthenaODBC-2.2.0.1-macos11-universal.pkg "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.1/Mac/AmazonAthenaODBC-2.2.0.1-macos11-universal.pkg") |
 
 ### Windows
 
 | Driver version                 | Download link                                                                                                                                                                                                                                                                              |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ODBC 2.2.0.0 for Windows amd64 | [Windows amd64 ODBC driver 2.2.0.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Windows/AmazonAthenaODBC-2.2.0.0-windows-amd64.msi "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Windows/AmazonAthenaODBC-2.2.0.0-windows-amd64.msi") |
+| ODBC 2.2.0.1 for Windows amd64 | [Windows amd64 ODBC driver 2.2.0.1](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.1/Windows/AmazonAthenaODBC-2.2.0.1-windows-amd64.msi "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.1/Windows/AmazonAthenaODBC-2.2.0.1-windows-amd64.msi") |
 
 ### Licenses
 
-- [AWS license](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/LICENSE.txt "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/LICENSE.txt")
+- [AWS license](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.1/LICENSE.txt "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.1/LICENSE.txt")
 
 ## Trusted identity propagation with ODBC
 

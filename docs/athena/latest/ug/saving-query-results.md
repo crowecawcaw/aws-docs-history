@@ -23,7 +23,7 @@ the query results. 2. To download a CSV file of the query results, choose **Down
 results** above the query results pane. Depending on your browser
 and browser configuration, you may need to confirm the download.
 
-![Saving query results to a .csv file in the Athena console.](/images/athena/latest/ug/images/getting-started-query-results-download-csv.png)
+![Saving query results to a .csv file in the Athena console.](images/getting-started-query-results-download-csv.png)
 
 ###### To download a query results file for an earlier query
 

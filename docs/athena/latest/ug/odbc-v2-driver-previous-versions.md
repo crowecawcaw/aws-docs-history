@@ -6,6 +6,7 @@ only if your application experiences incompatibilities with the latest version.
 
 ## Windows
 
+- [2.2.0.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Windows/AmazonAthenaODBC-2.2.0.0-windows-amd64.msi "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Windows/AmazonAthenaODBC-2.2.0.0-windows-amd64.msi")
 - [2.1.0.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Windows/AmazonAthenaODBC-2.1.0.0.msi "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Windows/AmazonAthenaODBC-2.1.0.0.msi")
 - [2.0.6.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Windows/AmazonAthenaODBC-2.0.6.0.msi "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Windows/AmazonAthenaODBC-2.0.6.0.msi")
 - [2.0.5.1](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/Windows/AmazonAthenaODBC-2.0.5.1.msi "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/Windows/AmazonAthenaODBC-2.0.5.1.msi")
@@ -20,6 +21,7 @@ only if your application experiences incompatibilities with the latest version.
 
 ## Linux
 
+- [2.2.0.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Linux/AmazonAthenaODBC-2.2.0.0-x86_64.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Linux/AmazonAthenaODBC-2.2.0.0-x86_64.rpm")
 - [2.1.0.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Linux/AmazonAthenaODBC-2.1.0.0.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Linux/AmazonAthenaODBC-2.1.0.0.rpm")
 - [2.0.6.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Linux/AmazonAthenaODBC-2.0.6.0.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Linux/AmazonAthenaODBC-2.0.6.0.rpm")
 - [2.0.5.1](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/Linux/AmazonAthenaODBC-2.0.5.1.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/Linux/AmazonAthenaODBC-2.0.5.1.rpm")
@@ -30,6 +32,7 @@ only if your application experiences incompatibilities with the latest version.
 
 ## macOS
 
+- [2.2.0.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Mac/AmazonAthenaODBC-2.2.0.0-macos11-universal.pkg "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Mac/AmazonAthenaODBC-2.2.0.0-macos11-universal.pkg")
 - [2.1.0.0 (ARM)](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Mac/arm/AmazonAthenaODBC-2.1.0.0_arm.pkg "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Mac/arm/AmazonAthenaODBC-2.1.0.0_arm.pkg")
 - [2.1.0.0 (Intel)](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Mac/Intel/AmazonAthenaODBC-2.1.0.0_x86.pkg "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Mac/Intel/AmazonAthenaODBC-2.1.0.0_x86.pkg")
 - [2.0.6.0 (ARM)](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Mac/arm/AmazonAthenaODBC-2.0.6.0_arm.pkg "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Mac/arm/AmazonAthenaODBC-2.0.6.0_arm.pkg")
