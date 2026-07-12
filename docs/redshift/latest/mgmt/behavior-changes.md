@@ -24,7 +24,7 @@ The following describes upcoming behavior changes.
 - [Scalar Python UDFs will reach end of support after June 30, 2026](#python-udf-jun2026 "#python-udf-jun2026")
 - [Materialized View (MV) Auto-REFRESH Behavior Change after February 27, 2026](#autorefresh-feb272026 "#autorefresh-feb272026")
 - [Amazon Redshift won’t support functions that access consumer information through datasharing after February 16, 2026](#datasharing-feb2026 "#datasharing-feb2026")
-- [Minimum Transport Layer Security (TLS) version changes effective starting January 31, 2026](#tls-changes-jan2026 "#tls-changes-jan2026")
+- [Minimum Transport Layer Security (TLS) version changes effective starting July 30, 2026](#tls-changes-jul2026 "#tls-changes-jul2026")
 - [Amazon Redshift won’t support the creation of new scalar Python UDFs after October 30, 2025](#python-udf-oct2025 "#python-udf-oct2025")
 
 ### Enhanced billing model for manual snapshots on Amazon Redshift Serverless and Amazon Redshift RG instances effective June 08, 2026
@@ -171,9 +171,9 @@ Starting February 16, 2026, Amazon Redshift will no longer support the usage of
 `user_is_member_of` and related functions that access consumer user, role, or
 group information through datasharing.
 
-### Minimum Transport Layer Security (TLS) version changes effective starting January 31, 2026
+### Minimum Transport Layer Security (TLS) version changes effective starting July 30, 2026
 
-Beginning January 31, 2026, Amazon Redshift will enforce a minimum Transport Layer Security
+Beginning July 30, 2026, Amazon Redshift will enforce a minimum Transport Layer Security
 (TLS) version of 1.2. Incoming connections that use TLS versions 1.0 or 1.1 will be
 rejected. This applies to both Amazon Redshift provisioned clusters and serverless workgroups.
 Amazon Redshift data warehouses not using TLS will not be affected by this change.

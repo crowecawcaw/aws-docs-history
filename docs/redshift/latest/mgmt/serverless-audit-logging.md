@@ -95,12 +95,12 @@ CloudWatch data and storage metrics are the following:
 | `TotalTableCount` | Number of tables | The number of user tables existing at a point in time. This total<br>doesn't include Amazon Redshift Spectrum tables. | {Database, Namespace} |
 | `DataStorage`     | Megabytes        | The number of megabytes used, in disk or storage space, for<br>Redshift data.                                         | {Namespace}           |
 
-The `SnapshotStorage` metric is namespace- and workgroup-agnostic.
-CloudWatch's `SnapshotStorage` metric is as follows:
+The `ServerlessUniqueSnapshotStorage` metric is namespace- and workgroup-agnostic.
+CloudWatch's `ServerlessUniqueSnapshotStorage` metric is as follows:
 
-| Metric name       | Units     | Description                                                               | Dimension sets |
-| ----------------- | --------- | ------------------------------------------------------------------------- | -------------- |
-| `SnapshotStorage` | Megabytes | The number of megabytes used, in disk or storage space, for<br>Snapshots. | {}             |
+| Metric name                       | Units     | Description                                                                                 | Dimension sets |
+| --------------------------------- | --------- | ------------------------------------------------------------------------------------------- | -------------- |
+| `ServerlessUniqueSnapshotStorage` | Megabytes | The number of megabytes of unique data blocks stored across all<br>active manual snapshots. | {}             |
 
 Dimension sets are the grouping dimensions applied to your metrics. You can use
 these dimension groups to specify how your statistics are retrieved.

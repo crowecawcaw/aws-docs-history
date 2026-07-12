@@ -40,7 +40,7 @@ billed at the transfer rates outlined on the pricing page. For more information,
 
 ### Visualizing billing usage with CloudWatch
 
-The metric `SnapshotStorage`, which tracks snapshot storage usage, is
+The metric `ServerlessUniqueSnapshotStorage`, which tracks snapshot storage usage, is
 generated and sent to CloudWatch. For more information about CloudWatch, see [What is Amazon CloudWatch?](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md")
 
 ## Using the Amazon Redshift Serverless free trial

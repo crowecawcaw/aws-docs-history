@@ -285,6 +285,8 @@ The RG node types are available only in the following AWS Regions:
 - Europe (Paris) Region (eu-west-3)
 - Mexico (Central) Region (mx-central-1)
 - South America (São Paulo) Region (sa-east-1)
+- (us-gov-east-1)
+- (us-gov-west-1)
 
 ### RA3 node type availability in AWS Regions
 

@@ -59,7 +59,7 @@ Consider the following when calling the Data API:
 - The maximum query result size is 500 MB (after gzip compression). If a call
   returns more than 500 MB of response data, the call is ended.
 - The maximum retention time for query results is 24 hours.
-- The maximum query statement size is 100 KB.
+- The maximum query statement size is 200 KB.
 - The Data API is available to query single-node and multiple-node clusters
   of the following node types:
 

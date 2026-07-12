@@ -26,6 +26,7 @@ and avoid potential disruptions to your workloads, see
 
 ###### Topics
 
+- [Amazon Redshift patch 203](#cluster-version-203 "#cluster-version-203")
 - [Amazon Redshift patch 202](#cluster-version-202 "#cluster-version-202")
 - [Amazon Redshift patch 201](#cluster-version-201 "#cluster-version-201")
 - [Amazon Redshift patch 200](#cluster-version-200 "#cluster-version-200")
@@ -61,6 +62,51 @@ and avoid potential disruptions to your workloads, see
 - [Amazon Redshift patch 170](#cluster-version-170 "#cluster-version-170")
 - [Amazon Redshift patch 169](#cluster-version-169 "#cluster-version-169")
 - [Amazon Redshift patch 168](#cluster-version-168 "#cluster-version-168")
+
+## Amazon Redshift patch 203
+
+Cluster versions in this patch:
+
+- 1.0.347559 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released July 6, 2026
+
+### New features and improvements in this patch
+
+- A new column was added to stl\_alter\_dist\_sort to indicate whether ALTER DISTKEY and ALTER SORTKEY operations executed on the main cluster, a data sharing consumer, or a concurrency scaling cluster.
+- Added SHOW GRANTS FOR GROUP syntax to discover permissions granted to a specific user group.
+- Added account lockout support including ALTER USER NOLOGIN or LOGIN to disable or re-enable login access, and SHOW USER LOCKOUT to display lockout status.
+- Enhanced zero-ETL integration observability by adding granular success status for checkpoints, enabling finer-grained monitoring of replication progress in system tables.
+- Introduced graceful handling of unsupported UTF-8 characters in source table schemas and DDL metadata within zero-ETL integrations, preventing integration failures.
+- Starting with Patch 203, existing Python UDFs will gradually reach end of life across all AWS Regions. We recommend that you migrate from Python UDFs to ensure continued functionality. For more information about migration guidance, see [Best practices for Amazon Redshift Lambda user-defined functions](https://aws.amazon.com/blogs/big-data/best-practices-for-amazon-redshift-lambda-user-defined-functions/ "https://aws.amazon.com/blogs/big-data/best-practices-for-amazon-redshift-lambda-user-defined-functions/") on the AWS Big Data Blog.
+- Tables loaded with COPY from Amazon Redshift Spectrum, with explicit column encodings, or into non-empty tables are now eligible for automatic DISTKEY assignment when the table has a primary key, improving query performance for joins on the primary key.
+- Updated the ALTER TABLE … ALTER DISTKEY error message on data sharing tables to display the customer-facing table name.
+- Reduced background activity from automatic vacuum on clusters with a very large number of tables, improving cluster stability for clusters that previously experienced excessive maintenance activity.
+- Optimized query performance by combining subqueries with mismatched filters, aggregation, and window functions in certain cases.
+- Improved timestamp accuracy for time-travel queries on zero-ETL tables with Amazon DynamoDB history mode following a table resynchronization.
+- Zero-ETL integrations no longer enter a resync loop when processing CDC checkpoints on tables with certain primary key configurations.
+- Improved zero-ETL integration error reporting for invalid channel filter expressions.
+- Original query text is no longer masked with Secure Logging (applies to queries against external AWS Lake Formation view or database with Federated Amazon Redshift Permissions).
+- Improved the DROP USER error message to include the number of object ownerships and privileges that must be resolved before the user can be dropped.
+- Improved the performance of ANALYZE for large tables by up to 30%.
+- Enhanced performance for queries using AWS Lambda User-Defined Functions with ROLLUP aggregations.
+- Enhanced query performance for ORDER BY with LIMIT clause by skipping unnecessary data scans on the outer table of Hash Join.
+- Reduced memory consumption during background tree-sweep operations eliminating node crash fleet wide. Bounded the memory footprint of compute-node tree-sweep by implementing survivor-counted batch drain, preventing unbounded memory growth under high metadata churn. Tree-sweep paths are now gated on background tree replay completion.
+- Improved fault recovery after Amazon S3 read failures, eliminating node crashes. The trickle tree iterator is now properly reset after an Amazon S3 read failure, ensuring subsequent reads retry correctly instead of silently returning stale or incomplete data.
+- Fixed an issue where tables that were modified with ALTER TABLE … ALTER DISTSTYLE AUTO after an Adaptive Cluster Resize could remain in Pending state in sys\_restore\_state indefinitely.
+- Fixed an issue where the SYS\_QUERY\_TEXT system view could display query text with missing whitespace or incorrectly split words at chunk boundaries.
+- Fixed a startup failure because of zero-ETL integrations for clusters created between August 2023 and March 2024, caused by Amazon Redshift Catalog metadata inconsistencies.
+- Fixed an issue where SHOW GRANTS incorrectly displayed permissions granted to a user group with identity\_type "role".
+- Fixed an issue where queries could hang indefinitely during session suspension handling.
+- Fixed an issue where non-superusers with SYSLOG ACCESS UNRESTRICTED could only see their own session data in sys\_session\_history instead of all users' sessions as expected.
+- Fixed an issue where database or user connection limits set to 1000 or higher were truncated, preventing the correct number of connections.
+- Fixed an issue where queries could hang indefinitely under memory pressure.
+- Fixed an issue where Amazon Redshift Serverless endpoints could experience brief unavailability during pause operations.
+- Fixed an issue where COPY commands with certain parameter combinations could fail unexpectedly during query compilation.
+- Fixed an issue where queries using APPROXIMATE PERCENTILE\_DISC with GROUP BY could fail with a compilation error.
+- Fixed a wrong-results issue where queries using COLLATE expressions could return incorrect column values.
+- Fixed an issue where LEAST and GREATEST functions with SUPER type values could cause queries to fail.
+- Fixed a wrong-results issue in REGEXP\_REPLACE where replacement strings with capture group references could produce truncated output.
+- Fixed potential data corruption during aborted re-replication reads. Resolved a double-free condition that could occur when a re-replication read was aborted mid-flight, preventing possible memory corruption or crashes.
 
 ## Amazon Redshift patch 202
 
@@ -137,7 +183,7 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
-- Added support for RG node types (rg.xlarge and rg.4xlarge multi-node). This is the minimum required cluster version to migrate to rg.xlarge and rg.4xlarge. Available on the CURRENT maintenance track only.
+- Added support for RG node types (rg.xlarge and rg.4xlarge multi-node). This is the minimum required cluster version to migrate to rg.xlarge and rg.4xlarge.
 - Added support for ALTERs on Iceberg tables.
 - Added support to write to Iceberg tables mounted under AwsDataCatalog.
 - Added support for the SHOW GRANTS command when connected to a database using the USE command.
