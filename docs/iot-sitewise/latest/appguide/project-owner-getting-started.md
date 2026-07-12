@@ -34,7 +34,7 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
 
 - In the navigation bar, choose the **Assets** icon.
 
-![The "Assets" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png)
 The **Assets** page
 appears.
 
