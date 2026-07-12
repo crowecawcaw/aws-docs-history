@@ -39,7 +39,7 @@ Explore the 3 phases of migration defined in the AWS migration process:
 
 [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/") for migrations
 accelerates enterprise cloud migrations with purpose-built AI agents that automate the entire
-lifecycle - from discovery and wave planning through network conversion and cutover. By
+lifecycle—from discovery and wave planning through network conversion and cutover. By
 unifying teams, tools, and workflows in a single collaborative workbench, migrations that
 once took years now complete in months. It offers purpose-built transformations for mainframe,
 VMware, and Windows workloads, and automates code modernization at scale, from version and
@@ -54,7 +54,7 @@ Migration programs can be delivered through in-house staff, external resources, 
 combination of both. AWS cloud expertise is essential to ensure a successful migration, so
 it is critical to invest in this early on.
 
-To get started, see [Education and Enablement](https://studio.us-east-1.prod.workshops.aws/preview/362af3d7-2088-478c-80b7-1c14eb7e2095/builds/49e49224-f95c-4971-ad3d-1f0d7b2d3e84/en-US/5-education-and-enablement/ "https://studio.us-east-1.prod.workshops.aws/preview/362af3d7-2088-478c-80b7-1c14eb7e2095/builds/49e49224-f95c-4971-ad3d-1f0d7b2d3e84/en-US/5-education-and-enablement/").
+To get started, see [Education and Enablement](education.md "education.md").
 
 ### Cloud Center of Excellence (CCoE)
 
@@ -186,3 +186,5 @@ Watch a [video
 about the pillars of the AWS Well-Architected Framework](https://aws.amazon.com/video/watch/883325fcd08/ "https://aws.amazon.com/video/watch/883325fcd08/").
 
 You can also refer to [Migration Lens - AWS Well-Architected Framework](../../../wellarchitected/latest/migration-lens/migration-lens.md "../../../wellarchitected/latest/migration-lens/migration-lens.md").
+
+For more information, contact your AWS account team.

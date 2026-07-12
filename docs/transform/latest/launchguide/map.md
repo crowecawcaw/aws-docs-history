@@ -119,3 +119,5 @@ the filters below.
 | Filters               | Tag                      | Choose to view either tagged spend or untagged spend. You can also leave it<br>blank and then use the 'Dimension' to show the split of tagged versus untagged<br>spend |
 | Advanced options      | Aggregate costs by       | Amortized costs                                                                                                                                                        |
 | Advanced options      | Additional data settings | Untick all                                                                                                                                                             |
+
+For more information, contact your AWS account team.

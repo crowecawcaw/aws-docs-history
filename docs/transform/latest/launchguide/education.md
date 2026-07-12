@@ -79,3 +79,5 @@ your AWS account team to discuss your EBA options.
 
 For an introduction to EBA, watch the following video: [AWS re:Invent 2024 - Lockheed
 Martin's path to digital transformation through innovation](https://www.youtube.com/watch?v=h3ZeeJJYpz4 "https://www.youtube.com/watch?v=h3ZeeJJYpz4").
+
+For more information, contact your AWS account team.

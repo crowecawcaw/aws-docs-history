@@ -4,7 +4,7 @@ AWS Transform is a collaborative enterprise IT transformation workbench powered 
 specialized AI agents, agentic workflows, and continuous learning that accelerates cloud
 migration, legacy application modernization, and tech debt reduction. It offers purpose-built
 transformations for mainframe, VMware, and Windows workloads, and automates code modernization
-at scale - from version and framework upgrades to fully custom, organization-specific
+at scale—from version and framework upgrades to fully custom, organization-specific
 transformations.
 
 By automating complex tasks like assessments, code analysis, refactoring, dependency
@@ -18,9 +18,7 @@ over 4.5 billion lines of code, saving 1.69 million hours of manual effort acros
 Windows/.NET, infrastructure, and custom code modernization.
 
 To get started, see [AWS Transform
-in the AWS Management Console](https://console.aws.amazon.com/transform "https://console.aws.amazon.com/transform"). We are constantly adding new features on a regular
-basis therefore please visit the [AWS Transform
-product site](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), the information below is correct as of the time of publishing. For
+in the AWS Management Console](https://console.aws.amazon.com/transform "https://console.aws.amazon.com/transform"). For the latest features, see [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"). For
 detailed guidance, see the [AWS Transform User
 Guide](../userguide.md "../userguide.md").
 
@@ -76,7 +74,7 @@ assessments](../userguide/transform-app-assessments.md "../userguide/transform-a
 ### AWS Transform for VMware migrations
 
 AWS Transform for VMware migrations accelerates enterprise cloud migrations with
-purpose-built AI agents that automate the entire lifecycle - from discovery and wave planning
+purpose-built AI agents that automate the entire lifecycle—from discovery and wave planning
 through network conversion and cutover. By unifying teams, tools, and workflows in a single
 collaborative workbench, migrations that once took years now complete in months.
 
@@ -113,7 +111,7 @@ large-scale migration planning with agentic AI](https://www.youtube.com/results?
 AWS Transform accelerates full-stack Windows modernization by up to 5x across
 application, UI framework, database, and deployment layers. Using the specialized Windows
 modernization agent, teams can modernize .NET applications, SQL Server databases, and
-deployment processes - reducing operating costs by up to 70% by moving away from costly
+deployment processes—reducing operating costs by up to 70% by moving away from costly
 licenses.
 
 Key capabilities include:
@@ -138,8 +136,8 @@ Transform for Windows](https://aws.amazon.com/transform/windows/ "https://aws.am
 ### AWS Transform for mainframe modernization
 
 AWS Transform accelerates mainframe application modernization from years to months.
-The specialized mainframe agent streamlines the entire transformation process - from initial
-analysis and planning to code refactoring and application reimagining - reducing risk and
+The specialized mainframe agent streamlines the entire transformation process—from initial
+analysis and planning to code refactoring and application reimagining—reducing risk and
 costs.
 
 Key capabilities include:
@@ -161,8 +159,8 @@ Transform for mainframe](https://aws.amazon.com/transform/mainframe/ "https://aw
 ### AWS Transform custom (code modernization)
 
 AWS Transform custom is the agentic AI service for eliminating technical debt at
-scale. It transforms any code pattern - from any language, framework, or runtime to any
-other - through both built-in (AWS managed) and custom transformation recipes.
+scale. It transforms any code pattern—from any language, framework, or runtime to any
+other—through both built-in (AWS managed) and custom transformation recipes.
 
 Key capabilities include:
 
@@ -251,14 +249,14 @@ The following are the primary benefits of using AWS Transform:
 
 The following table describes the interfaces you can use to access AWS Transform.
 
-| Interface            | Description                                                                                                                                                                                                    |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Web console          | AWS Transform console ([https://console.aws.amazon.com/transform](https://console.aws.amazon.com/transform "https://console.aws.amazon.com/transform"))<br>• collaborative workbench for planning and tracking |
-| CLI                  | Command-line interface for automation, CI/CD integration, and batch<br>operations                                                                                                                              |
-| IDE (Kiro Power)     | VS Code extension and Kiro IDE for developer-centric workflows                                                                                                                                                 |
-| Visual Studio (VSIX) | Visual Studio extension for .NET modernization                                                                                                                                                                 |
-| Agent skills         | Pre-built plugins for Claude Code, Cursor, and Codex                                                                                                                                                           |
-| MCP                  | Model Context Protocol integration for orchestrators and custom toolchains                                                                                                                                     |
+| Interface            | Description                                                                                                                                                                                               |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Web console          | AWS Transform console ([https://console.aws.amazon.com/transform](https://console.aws.amazon.com/transform "https://console.aws.amazon.com/transform"))—collaborative workbench for planning and tracking |
+| CLI                  | Command-line interface for automation, CI/CD integration, and batch<br>operations                                                                                                                         |
+| IDE (Kiro Power)     | VS Code extension and Kiro IDE for developer-centric workflows                                                                                                                                            |
+| Visual Studio (VSIX) | Visual Studio extension for .NET modernization                                                                                                                                                            |
+| Agent skills         | Pre-built plugins for Claude Code, Cursor, and Codex                                                                                                                                                      |
+| MCP                  | Model Context Protocol integration for orchestrators and custom toolchains                                                                                                                                |
 
 ## Customer success
 
@@ -290,3 +288,5 @@ To get started with AWS Transform, use the following resources:
   on the broader migration journey and how AWS Transform fits within it.
 - **Partners** – Explore [AWS Transform Partners](https://aws.amazon.com/transform/partners/ "https://aws.amazon.com/transform/partners/") for
   assistance with your transformation initiative.
+
+For more information, contact your AWS account team.

@@ -18,3 +18,5 @@ technical support from high-quality engineers, tools and technology to automatic
 health of your environment. You also get access to a Technical Account Manager (TAM) who will
 provide consultative architectural and operational guidance delivered in the context of your
 applications and use-cases to help you achieve the greatest value from AWS.
+
+For more information, contact your AWS account team.

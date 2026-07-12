@@ -99,3 +99,5 @@ security.
   machine-learning-based analytics to reduce costs by up to 25%. By using [memory metrics](../../../compute-optimizer/latest/ug/metrics.md#cw-agent "../../../compute-optimizer/latest/ug/metrics.md#cw-agent") collected by the CloudWatch agent, the
   recommendations for right-sizing EC2 instances are improved. For more information, see
   [Getting started with AWS Compute Optimizer](../../../compute-optimizer/latest/ug/getting-started.md "../../../compute-optimizer/latest/ug/getting-started.md").
+
+For more information, contact your AWS account team.

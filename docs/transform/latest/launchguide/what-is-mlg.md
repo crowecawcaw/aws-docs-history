@@ -13,7 +13,7 @@ of cloud maturity an organization may have. If you are participating in the [Mig
 onboarding requirements, to help you to fully leverage its advantages.
 
 The section on [AWS Transform](aws-transform.md "aws-transform.md") introduces the agentic AI services and
-specialized agents available to accelerate your migration and modernization journey - from
+specialized agents available to accelerate your migration and modernization journey—from
 assessments and VMware migrations to Windows, mainframe, and custom code
 transformations.
 
