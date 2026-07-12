@@ -39,7 +39,7 @@ Assurance Assistant responses are generated using AI and grounded in verified,
 publicly available AWS compliance documentation, including AWS SOC reports, ISO
 certifications, and other published materials.
 
-Citations are provided so you can independently review and verify information
+Responses include citations so you can independently review and verify information
 against the original source documents. As with any AI-generated content, review
 responses in the context of your specific requirements before relying on them for
 official purposes.
