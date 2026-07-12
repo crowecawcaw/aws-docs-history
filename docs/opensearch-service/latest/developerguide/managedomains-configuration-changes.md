@@ -33,7 +33,7 @@ The following operations cause blue/green deployments:
 - Performing service software updates
 - Enabling or disabling dedicated master nodes
 - Enabling or disabling Multi-AZ without Standby
-- Changing the storage type, volume type, or volume size
+- Changing the storage type, volume type, or decreasing volume size
 - Choosing different VPC subnets
 - Adding or removing VPC security groups
 - Adding or removing dedicated coordinator nodes
@@ -69,8 +69,10 @@ blue/green deployments:
 - Changing the automated snapshot hour
 - Enabling or disabling **Require HTTPS**
 - Enabling Auto-Tune or disabling it without rolling back its changes
-- If your domain has dedicated master nodes, changing the data node or UltraWarm node
+- Changing the data node or UltraWarm node
   count
+- If your domain already has dedicated coordinator nodes, changing the dedicated
+  coordinator node count.
 - If your domain has dedicated master nodes, changing the dedicated master instance type
   or count (except for Multi-AZ domains with two dedicated master nodes)
 - Enabling or disabling the publication of error logs or slow logs to CloudWatch
@@ -86,6 +88,7 @@ this limitation was removed, the first volume increase will require a blue/green
 deployment. All subsequent volume increases for that cluster will be performed as
 in-place updates and will not require a blue/green deployment.
 
+- Increasing the EBS volume size
 - Adding or removing tags
 
 ###### Note

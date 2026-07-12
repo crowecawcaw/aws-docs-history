@@ -102,3 +102,13 @@ a larger instance type.
 | 64 GB  | 125                                                                      | 75K                                                                       | 240                                                    | 120K                                                    |
 | 128 GB | 200                                                                      | 75K                                                                       | 480                                                    | 240K                                                    |
 | 256 GB | Not applicable                                                           | Not applicable                                                            | 1002                                                   | 500K                                                    |
+
+**Multi-AZ with Standby master node sizing:**
+When using Multi-AZ with Standby, three dedicated master nodes are automatically
+provisioned across three Availability Zones. For standby deployments, use the
+same sizing recommendations as above but ensure that the master node instance
+type has sufficient RAM to manage the expected shard count across all AZs. For
+example, a cluster with 60 data nodes and 40,000 shards in a standby
+configuration should use dedicated master nodes with at least 32 GB RAM (such as
+`r6g.xlarge.search` or
+`m6g.2xlarge.search`).

@@ -62,7 +62,16 @@ aws iam create-policy \
 ```
 
 2. Attach `TutorialPolicy` to the IAM role who will index and search
-   data in the collection. In this example, the role is named `TutorialRole`:
+   data in the collection. In this example, the role is named `TutorialRole`.
+
+Before attaching the policy, create the `TutorialRole` if it
+doesn't already exist:
+
+```
+aws iam create-role \
+  --role-name `TutorialRole` \
+  --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{"Effect": "Allow","Principal": {"AWS": "arn:aws:iam::`123456789012`:root"},"Action": "sts:AssumeRole"}]}'
+```
 
 ```
 aws iam attach-role-policy \
@@ -258,7 +267,9 @@ The collection endpoint isn't available until the collection
 status changes to `ACTIVE`. You might need to make multiple calls
 to check the status until the collection is successfully created. 8. Use an HTTP tool such as [Postman](https://www.getpostman.com/ "https://www.getpostman.com/") or curl to index data into the _books_
 collection. The following example creates an index called _books-index_ and
-adds a single document.
+adds a single document. OpenSearch Serverless endpoints require AWS Signature Version 4
+(SigV4) authentication. If you use curl, use the `--aws-sigv4`
+option or a tool like `awscurl` to sign your requests.
 
 Send the following request to the collection endpoint that you retrieved in
 the previous step, using the credentials for `TutorialRole`.

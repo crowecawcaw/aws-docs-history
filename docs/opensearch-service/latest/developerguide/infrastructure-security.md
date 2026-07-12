@@ -13,9 +13,12 @@ support the following:
 - Cipher suites with perfect forward secrecy (PFS) such as DHE (Ephemeral
   Diffie-Hellman) or ECDHE (Elliptic Curve Ephemeral Diffie-Hellman). Most modern systems
   such as Java 7 and later support these modes.
-  You use AWS published API calls to access the OpenSearch Service configuration API through the network.
-  To configure the minimum required TLS version to accept, specify the
-  `TLSSecurityPolicy` value in the domain endpoint options:
+  As a managed service, Amazon OpenSearch Service is protected by AWS global network security. For more
+  information, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/").
+
+You use AWS published API calls to access Amazon OpenSearch Service through the network.
+To configure the minimum required TLS version for your domain, specify the
+`TLSSecurityPolicy` value in the domain endpoint options:
 
 ```
 aws opensearch update-domain-config --domain-name `my-domain` --domain-endpoint-options '{"TLSSecurityPolicy": "Policy-Min-TLS-1-2-2019-07"}'

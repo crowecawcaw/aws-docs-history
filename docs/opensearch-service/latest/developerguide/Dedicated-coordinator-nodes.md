@@ -25,6 +25,12 @@ Dedicated coordinator nodes are most beneficial in the following scenarios.
 - **Heavy Dashboards use** –
   OpenSearch Dashboards can be resource-intensive. Offloading this responsibility to
   dedicated coordinator nodes reduces the strain on data nodes.
+- Specific use cases where coordinator nodes improve performance include: (1)
+  Complex aggregation queries spanning multiple shards that require significant
+  memory for merge operations, (2) High-concurrency search workloads where data
+  nodes become CPU-bound from both serving data and coordinating requests, and (3)
+  Clusters where indexing throughput degrades because data nodes are also handling
+  search coordination overhead.
 
 ## Architecture and behavior
 

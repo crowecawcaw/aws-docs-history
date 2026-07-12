@@ -350,6 +350,9 @@ addresses can access the domain. For more information, see the following topics:
 - [Control traffic
   to your AWS resources using security groups](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md") in the
   _Amazon VPC User Guide_
+  If you use an open access policy on a VPC domain without specifying an AWS
+  principal, the domain accepts unsigned HTTP requests from any traffic that the
+  security group permits. For more information, see [About access policies on VPC domains](vpc.md#vpc-security "vpc.md#vpc-security").
 
 The following policy grants all HTTP requests that originate from the specified IP
 range access to `test-domain`:

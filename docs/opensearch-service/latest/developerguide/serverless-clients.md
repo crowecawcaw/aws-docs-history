@@ -277,9 +277,9 @@ OpenSearchClient client = new OpenSearchClient(
     new AwsSdk2Transport(
         httpClient,
         "...us-west-2.aoss.amazonaws.com", // serverless collection endpoint
-        "aoss" // signing service name
+        "aoss", // signing service name
         Region.US_WEST_2, // signing service region
-        AwsSdk2TransportOptions.builder().build()
+        AwsSdk2TransportOptions.builder().setCredentials(credentialsProvider).build()
     )
 );
 
@@ -314,9 +314,9 @@ OpenSearchClient client = new OpenSearchClient(
     new AwsSdk2Transport(
         httpClient,
         "...us-west-2.aoss.amazonaws.com", // serverless collection endpoint
-        "aoss" // signing service name
+        "aoss", // signing service name
         Region.US_WEST_2, // signing service region
-        AwsSdk2TransportOptions.builder().build()
+        AwsSdk2TransportOptions.builder().setCredentials(credentialsProvider).build()
     )
 );
 

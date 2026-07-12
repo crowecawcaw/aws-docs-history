@@ -2,7 +2,7 @@
 
 After you understand your storage requirements, you can investigate your indexing
 strategy. By default in OpenSearch Service, each index is divided into five primary shards and one
-replica (total of 10 shards). This behavior differs from open source OpenSearch,
+replica for each primary shard (total of 10 shards). This behavior differs from open source OpenSearch,
 which defaults to one primary and one replica shard. Because you can't easily change
 the number of primary shards for an existing index, you should decide about shard
 count _before_ indexing your first document.

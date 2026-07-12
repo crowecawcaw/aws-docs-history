@@ -48,7 +48,7 @@ The following is an example event of this type (search OCU):
   "account": "123456789012",
   "time": "2016-11-01T13:12:22Z",
   "region": "us-east-1",
-  "resources": ["arn:aws:es:us-east-1:123456789012:domain/test-domain"],
+  "resources": [],
   "detail": {
     "eventTime" : 1678943345789,
     "description": "Your search OCU usage is at 75% and is approaching the configured maximum limit."
@@ -67,7 +67,7 @@ The following is an example event of this type (index OCU):
   "account": "123456789012",
   "time": "2016-11-01T13:12:22Z",
   "region": "us-east-1",
-  "resources": ["arn:aws:es:us-east-1:123456789012:domain/test-domain"],
+  "resources": [],
   "detail": {
     "eventTime" : 1678943345789,
     "description": "Your indexing OCU usage is at 75% and is approaching the configured maximum limit."
@@ -94,7 +94,7 @@ The following is an example event of this type (search OCU):
   "account": "123456789012",
   "time": "2016-11-01T13:12:22Z",
   "region": "us-east-1",
-  "resources": ["arn:aws:es:us-east-1:123456789012:domain/test-domain"],
+  "resources": [],
   "detail": {
     "eventTime" : 1678943345789,
     "description": "Your search OCU usage has reached the configured maximum limit."
@@ -113,7 +113,7 @@ The following is an example event of this type (index OCU):
   "account": "123456789012",
   "time": "2016-11-01T13:12:22Z",
   "region": "us-east-1",
-  "resources": ["arn:aws:es:us-east-1:123456789012:domain/test-domain"],
+  "resources": [],
   "detail": {
     "eventTime" : 1678943345789,
     "description": "Your indexing OCU usage has reached the configured maximum limit."

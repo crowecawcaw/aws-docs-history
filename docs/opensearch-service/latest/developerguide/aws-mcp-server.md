@@ -148,67 +148,70 @@ AWS-native agent SDK with built-in MCP support and Amazon Bedrock as the
 default model provider.
 
 ```
-import boto3
-import os
 from strands import Agent
 from strands.tools.mcp import MCPClient
-from mcp.client.streamable_http import streamablehttp_client
+from mcp_proxy_for_aws.client import aws_iam_streamablehttp_client
 
-# Get credentials for signing
-session = boto3.Session()
-credentials = session.get_credentials().get_frozen_credentials()
+ENDPOINT = "https://aws-mcp.us-east-1.api.aws/mcp"
+AWS_REGION = "us-east-1"
 
 opensearch_client = MCPClient(
-    lambda: streamablehttp_client(
-        "https://aws-mcp.us-east-1.api.aws/mcp",
-        headers={
-            "AWS_REGION": os.environ.get("AWS_REGION", "us-east-1"),
-        }
+    lambda: aws_iam_streamablehttp_client(
+        endpoint=ENDPOINT,
+        aws_service="aws-mcp",
+        aws_region=AWS_REGION,
     )
 )
 
 with opensearch_client:
     agent = Agent(tools=opensearch_client.list_tools_sync())
-    response = agent("List all OpenSearch Service domains and show the cluster health for each")
+    response = agent("What OpenSearch Service domains do I have?")
     print(response)
+```
+
+Install the required packages:
+
+```
+pip install strands-agents mcp-proxy-for-aws
 ```
 
 ### LangGraph
 
 [LangGraph](https://github.com/langchain-ai/langgraph "https://github.com/langchain-ai/langgraph") is
 a low-level orchestration framework for building stateful agents. The following
-example uses `langchain-mcp-adapters` to load AWS MCP tools into
-a LangGraph ReAct agent backed by Amazon Bedrock.
+example uses `mcp-proxy-for-aws` to provide an authenticated
+transport and `langchain-mcp-adapters` to load the AWS MCP tools
+into a LangChain agent backed by Amazon Bedrock.
 
 ```
 import asyncio
-import os
+from mcp import ClientSession
+from mcp_proxy_for_aws.client import aws_iam_streamablehttp_client
+from langchain_mcp_adapters.tools import load_mcp_tools
 from langchain_aws import ChatBedrock
-from langchain_mcp_adapters.client import MultiServerMCPClient
-from langgraph.prebuilt import create_react_agent
+from langchain.agents import create_agent
+
+ENDPOINT = "https://aws-mcp.us-east-1.api.aws/mcp"
+AWS_REGION = "us-east-1"
 
 async def main():
-    async with MultiServerMCPClient(
-        {
-            "aws-mcp": {
-                "url": "https://aws-mcp.us-east-1.api.aws/mcp",
-                "transport": "streamable_http",
-                "headers": {
-                    "AWS_REGION": os.environ.get("AWS_REGION", "us-east-1"),
-                },
-            }
-        }
-    ) as mcp_client:
-        tools = mcp_client.get_tools()
-        model = ChatBedrock(
-            model_id="anthropic.claude-3-5-sonnet-20241022-v2:0",
-            region_name=os.environ["AWS_REGION"],
-        )
-        agent = create_react_agent(model, tools)
-        result = await agent.ainvoke(
-            {"messages": [{"role": "user", "content": "Check cluster health and list all OpenSearch indexes"}]}
-        )
-        print(result["messages"][-1].content)
+    async with aws_iam_streamablehttp_client(
+        endpoint=ENDPOINT,
+        aws_service="aws-mcp",
+        aws_region=AWS_REGION,
+    ) as (read_stream, write_stream, _get_session_id):
+        async with ClientSession(read_stream, write_stream) as session:
+            await session.initialize()
+            tools = await load_mcp_tools(session)
+            model = ChatBedrock(
+                model_id="us.anthropic.claude-opus-4-8",
+                region_name=AWS_REGION,
+            )
+            agent = create_agent(model, tools)
+            result = await agent.ainvoke(
+                {"messages": [{"role": "user", "content": "What OpenSearch Service domains do I have?"}]}
+            )
+            print(result["messages"][-1].content)
 
 asyncio.run(main())
 ```
@@ -216,7 +219,7 @@ asyncio.run(main())
 Install the required packages:
 
 ```
-pip install langchain-aws langchain-mcp-adapters langgraph
+pip install mcp-proxy-for-aws langchain langchain-aws langchain-mcp-adapters langgraph
 ```
 
 ## More information

@@ -233,17 +233,24 @@ domain, you must have a sufficient number of IP addresses available in each subn
 to accommodate the network interfaces.
 
 Here's the basic formula: The number of IP addresses that OpenSearch Service reserves in each
-subnet is three times the number of data nodes, divided by the number of
-Availability Zones.
+subnet is three times the number of data nodes per Availability Zone (rounded
+up).
+
+`IP addresses per subnet = ceil(data_nodes / number_of_AZs) × 3`
+
+The ceiling function (rounding up) accounts for the fact that data nodes may not
+divide evenly across Availability Zones.
 
 **Examples**
 
 - If a domain has nine data nodes across three Availability Zones, the IP
-  count per subnet is 9 \* 3 / 3 = 9.
+  count per subnet is ceil(9/3) × 3 = 3 × 3 = 9.
+- If a domain has eight data nodes across three Availability Zones, the IP
+  count per subnet is ceil(8/3) × 3 = 3 × 3 = 9.
 - If a domain has eight data nodes across two Availability Zones, the IP
-  count per subnet is 8 \* 3 / 2 = 12.
+  count per subnet is ceil(8/2) × 3 = 4 × 3 = 12.
 - If a domain has six data nodes in one Availability Zone, the IP count per
-  subnet is 6 \* 3 / 1 = 18.
+  subnet is ceil(6/1) × 3 = 6 × 3 = 18.
 
 When you create the domain, OpenSearch Service reserves the IP addresses, uses some for the
 domain, and reserves the rest for [blue/green deployments](managedomains-configuration-changes.md "managedomains-configuration-changes.md"). You

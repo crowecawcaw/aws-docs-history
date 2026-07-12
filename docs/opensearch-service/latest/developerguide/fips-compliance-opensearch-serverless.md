@@ -10,6 +10,13 @@ endpoints use TLS 1.2 or later and FIPS-validated cryptographic algorithms for a
 communications. For more information, see [FIPS compliance](../../../verified-access/latest/ug/fips-compliance.md "../../../verified-access/latest/ug/fips-compliance.md") in the
 _AWS Verified access User Guide_.
 
+###### Note
+
+FIPS endpoints for Amazon OpenSearch Serverless apply to data plane operations only (accessing
+collections and OpenSearch Dashboards). Control plane API operations (such as
+`CreateCollection`, `DeleteCollection`, and other
+configuration APIs) do not currently support FIPS endpoints.
+
 ###### Topics
 
 - [Using FIPS endpoints with OpenSearch Serverless](#using-fips-endpoints-opensearch-serverless "#using-fips-endpoints-opensearch-serverless")

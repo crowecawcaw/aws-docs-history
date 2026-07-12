@@ -13,7 +13,9 @@ compared to self-managed OpenSearch clusters, which require manual provisioning.
 
 Collections use the same high-capacity, distributed, and highly available storage as
 provisioned OpenSearch Service domains, but further reduce complexity by eliminating manual
-configuration and tuning. Data within a collection is encrypted in transit. OpenSearch Serverless also
+configuration and tuning. All communication with OpenSearch Serverless endpoints uses TLS 1.2
+encryption, ensuring data is encrypted in transit from client to endpoint. Data is also
+encrypted in transit between internal components of a collection. OpenSearch Serverless also
 supports OpenSearch Dashboards, providing an interface for data analysis.
 
 OpenSearch Serverless is compatible with open source OpenSearch. As new versions are released,

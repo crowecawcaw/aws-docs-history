@@ -197,6 +197,20 @@ JSON
 
 ```
 
+###### Note
+
+If you use a Amazon CloudWatch Logs monitoring account to aggregate logs from
+multiple source accounts, you must update the `Resource`
+element in the IAM policy to include the log groups from each source
+account. For example:
+
+```
+"Resource": [
+    "arn:aws:logs:`us-east-1`:`111122223333`:log-group:*",
+    "arn:aws:logs:`us-east-1`:`444455556666`:log-group:*"
+]
+```
+
 The role must also have the following trust policy, which specifies the
 target ID.
 

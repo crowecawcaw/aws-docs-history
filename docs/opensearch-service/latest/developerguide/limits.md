@@ -386,6 +386,13 @@ The following table shows the maximum size of HTTP request payloads.
 | c6g.4xlarge.search    | 100 MiB                               |
 | c6g.8xlarge.search    | 100 MiB                               |
 | c6g.12xlarge.search   | 100 MiB                               |
+| c7g.large.search      | 10 MiB                                |
+| c7g.xlarge.search     | 100 MiB                               |
+| c7g.2xlarge.search    | 100 MiB                               |
+| c7g.4xlarge.search    | 100 MiB                               |
+| c7g.8xlarge.search    | 100 MiB                               |
+| c7g.12xlarge.search   | 100 MiB                               |
+| c7g.16xlarge.search   | 100 MiB                               |
 | r3.large.search       | 10 MiB                                |
 | r3.xlarge.search      | 100 MiB                               |
 | r3.2xlarge.search     | 100 MiB                               |
@@ -415,6 +422,22 @@ The following table shows the maximum size of HTTP request payloads.
 | r6gd.8xlarge.search   | 100 MiB                               |
 | r6gd.12xlarge.search  | 100 MiB                               |
 | r6gd.16xlarge.search  | 100 MiB                               |
+| r7g.medium.search     | 100 MiB                               |
+| r7g.large.search      | 100 MiB                               |
+| r7g.xlarge.search     | 100 MiB                               |
+| r7g.2xlarge.search    | 100 MiB                               |
+| r7g.4xlarge.search    | 100 MiB                               |
+| r7g.8xlarge.search    | 100 MiB                               |
+| r7g.12xlarge.search   | 100 MiB                               |
+| r7g.16xlarge.search   | 100 MiB                               |
+| r7gd.medium.search    | 100 MiB                               |
+| r7gd.large.search     | 100 MiB                               |
+| r7gd.xlarge.search    | 100 MiB                               |
+| r7gd.2xlarge.search   | 100 MiB                               |
+| r7gd.4xlarge.search   | 100 MiB                               |
+| r7gd.8xlarge.search   | 100 MiB                               |
+| r7gd.12xlarge.search  | 100 MiB                               |
+| r7gd.16xlarge.search  | 100 MiB                               |
 | i2.xlarge.search      | 100 MiB                               |
 | i2.2xlarge.search     | 100 MiB                               |
 | i3.large.search       | 100 MiB                               |
@@ -577,6 +600,14 @@ The following section lists the maximum shard count for OpenSearch versions.
 ## Java process quota
 
 OpenSearch Service limits Java processes memory to 50% of total available memory(max upto 32 GiB). The upper limit of 32 GB doesn't apply to r7g and OpenSearch optimized instances.
+
+###### Note
+
+While r7g and OpenSearch optimized (OR) instances support heap sizes above 32 GB,
+the increased heap allocation is not automatic. The default heap allocation remains
+32 GB even on these instance types. Heap above 32 GB may be enabled via Auto-Tune
+(automatically, when Auto-Tune determines it beneficial) or by opening a support
+case with proper justification.
 
 To request limit increase, contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 

@@ -70,6 +70,23 @@ identity pool. For example,
 
 ## Step 2: Create a domain with Cognito authentication
 
+Both roles also need an identity-based permissions policy that allows access to the
+OpenSearch domain. Attach the following policy to both `MasterUserRole` and
+`LimitedUserRole`:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "es:ESHttp*",
+      "Resource": "arn:aws:es:us-east-1:111122223333:domain/`domain-name`/*"
+    }
+  ]
+}
+```
+
 Navigate to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home/](https://console.aws.amazon.com/aos/home/ "https://console.aws.amazon.com/aos/home/") and [create a domain](createupdatedomains.md "createupdatedomains.md") with the following settings:
 
 - OpenSearch 1.0 or later, or Elasticsearch 7.8 or later

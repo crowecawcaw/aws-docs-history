@@ -15,6 +15,15 @@ OpenSearch UI. In these procedures, we use the steps for configuring the Okta id
 and access management application as an example. The configuration steps for other
 identity providers, such as Azure Active Directory and Ping, are similar.
 
+###### Note
+
+If you use AWS IAM Identity Center, you do not need to configure SAML federation as described
+in this topic. OpenSearch UI supports IAM Identity Center natively, which provides SSO access
+without additional SAML configuration. IAM Identity Center also supports organization-level user
+and group management. The SAML integration described here is intended for
+third-party identity providers (such as Okta, Azure Active Directory, and Ping)
+that are not IAM Identity Center.
+
 ###### Topics
 
 - [Step 1: Set up identity provider application (Okta)](#SAML-identity-federation-step-1 "#SAML-identity-federation-step-1")

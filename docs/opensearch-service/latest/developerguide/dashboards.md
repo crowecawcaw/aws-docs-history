@@ -183,7 +183,7 @@ Region map visualizations only support the default map service.
 ###### To configure Dashboards to use a WMS map server:
 
 1. Open Dashboards.
-2. Choose **Stack Management**.
+2. Choose **Dashboards Management** (called **Stack Management** in earlier versions).
 3. Choose **Advanced Settings**.
 4. Locate **visualization:tileMap:WMSdefaults**.
 5. Change `enabled` to `true` and `url` to the

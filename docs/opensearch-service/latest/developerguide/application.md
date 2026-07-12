@@ -39,6 +39,14 @@ The following are key features of OpenSearch UI:
   analysis and visualizations.
   To get started and create your first OpenSearch UI, follow the instructions in [Getting started with the OpenSearch user interface in Amazon OpenSearch Service](application-getting-started.md "application-getting-started.md").
 
+###### Note
+
+**Required IAM permissions:** To access the
+OpenSearch UI application, users must have the following IAM permissions:
+`es:getApplication`, `es:DescribeApplication`, and
+`es:ListApplications`. Without these permissions, users will receive
+access denied errors when attempting to access the OpenSearch UI.
+
 For information about the latest features released for OpenSearch UI, see [Amazon OpenSearch Service user interface release history](application-release-history.md "application-release-history.md").
 
 ###### Topics

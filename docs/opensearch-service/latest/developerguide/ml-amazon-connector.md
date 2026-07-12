@@ -63,7 +63,7 @@ JSON
 
 **For OpenSearch Service**
 
-`opensearchservice.amazonaws.com`
+`opensearchservice.amazonaws.com` or `es.amazonaws.com`
 
 **For OpenSearch Serverless**
 

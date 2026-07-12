@@ -76,6 +76,15 @@ consuming vectors from the specified vector index using the Amazon S3 ListVector
 API. The service processes vectors in parallel to optimize ingestion speed while
 respecting the scaling limits of both OpenSearch Ingestion and Amazon OpenSearch Serverless.
 
+###### Important
+
+The integration performs a one-time import of vector data from Amazon S3
+Vectors into Amazon OpenSearch Serverless. After the initial export is complete, the pipeline
+automatically stops. If you subsequently add or modify vectors in the Amazon S3
+vector index, you must initiate a new import to synchronize the changes with
+your OpenSearch collection. The integration does not provide continuous or
+automatic synchronization.
+
 During ingestion, the service:
 
 - Transforms vector data to match the expected format for OpenSearch Service

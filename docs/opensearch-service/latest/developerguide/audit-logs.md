@@ -408,7 +408,6 @@ PUT _opendistro/_security/api/audit/config
       "kibanaserver"
     ],
     "ignore_requests": [
-      "SearchRequest",
       "indices:data/read/*",
       "/_cluster/health"
     ]

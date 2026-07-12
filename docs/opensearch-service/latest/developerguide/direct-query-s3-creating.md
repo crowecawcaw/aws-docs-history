@@ -113,7 +113,7 @@ POST https://es.`region`.amazonaws.com/2021-01-01/opensearch/domain/`domain-name
         }
     }
    "Description": "`data-source-description`",
-   "Name": "`my-data-source`"
+   "Name": "`my_data_source`"
 }
 ```
 

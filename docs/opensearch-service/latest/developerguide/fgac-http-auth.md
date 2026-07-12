@@ -6,6 +6,18 @@ authentication for OpenSearch Dashboards. The master user can then sign in to Op
 create an internal user, map the user to a role, and use fine-grained access control to limit
 the user's permissions.
 
+###### Note
+
+When using HTTP Basic Authentication with a resource-based access policy that
+specifies an IAM principal, unsigned requests authenticated via HTTP Basic Auth are
+handled solely by the fine-grained access control internal user database. Signed
+requests (using SigV4) are evaluated against both the domain access policy and
+fine-grained access control. If your access policy specifies a principal such as
+`"AWS": "arn:aws:iam::111122223333:root"`, only SigV4-signed requests
+from that account will be allowed by the access policy, while HTTP Basic Auth requests
+bypass the access policy and are controlled entirely by fine-grained access control
+roles.
+
 You'll complete the following steps in this tutorial:
 
 1. [Create a domain with a master user](#fgac-http-auth-domain "#fgac-http-auth-domain")
