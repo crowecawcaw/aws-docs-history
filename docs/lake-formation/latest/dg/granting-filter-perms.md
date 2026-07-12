@@ -35,7 +35,7 @@ Console
    resources**. Then choose the database, table, and data filter for which
    you want to grant permissions.
 
-![The image is a screenshot of the Permissions page in the console. The "LF-Tags or catalog resources" section is shown, with the "Named data catalog resources" option selected. Under Databases, there is one value provided: cloudtrail. For Tables, there is one value provided: cloudtrail-logs-aws_logs. For data filters, there is one value provided: cloudtrail_lakeformation_filter.](images/grant-data-filter-perms-step2.png) 6. In the **Data filter permissions** section, choose the
+![The image is a screenshot of the Permissions page in the console. The "LF-Tags or catalog resources" section is shown, with the "Named data catalog resources" option selected. Under Databases, there is one value provided: cloudtrail. For Tables, there is one value provided: cloudtrail-logs-aws_logs. For data filters, there is one value provided: cloudtrail_lakeformation_filter.](/images/lake-formation/latest/dg/images/grant-data-filter-perms-step2.png) 6. In the **Data filter permissions** section, choose the
 permissions you want to grant to the selected principals.
 
 ![The image is a screenshot of the Data filter permissions section on the Permissions page in the Lake Formation console. For "Data filter permissions", the Select permission is not selected, and the Describe and Drop permissions are selected. Under "Grantable permissions", none of the permissions are selected (Select, Describe, Drop).](images/grant-perms-on-filters.png)
