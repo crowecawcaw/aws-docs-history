@@ -22,6 +22,10 @@ The following procedures show you how to create a subnet group called
 `mysubnetgroup` (console), the AWS CLI, and the
 ElastiCache API.
 
+###### Subnet group name casing
+
+Amazon ElastiCache converts subnet group names to lowercase at creation time. For example, if you specify `MySubnetGroup`, the resulting name is `mysubnetgroup`. To avoid update failures, use lowercase names in your infrastructure-as-code templates.
+
 ## Creating a subnet group (Console)
 
 The following procedure shows how to create a subnet group (console).

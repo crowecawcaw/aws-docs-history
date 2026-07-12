@@ -64,18 +64,24 @@ aws elasticache create-serverless-cache \
 JSON
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": {
- "Effect": "Allow",
- "Principal": { "AWS": "arn:aws:iam::123456789012:root" },
- "Action": "sts:AssumeRole"
- }
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::`123456789012`:role/`my-application-role`"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
 ```
 
-3. Create an IAM policy document, as shown below. Save the policy to a file named _policy.json_.
+###### Note
+
+Replace `my-application-role` with the IAM role or user that needs to connect to your cache.
+Use a least-privilege principal rather than the account root to limit which identities can assume this role. 3. Create an IAM policy document, as shown below. Save the policy to a file named _policy.json_.
 
 JSON
 
@@ -161,12 +167,12 @@ String region = "`insert region`";
 
 // Create a default AWS Credentials provider.
 // This will look for AWS credentials defined in environment variables or system properties.
-AWSCredentialsProvider awsCredentialsProvider = new DefaultAWSCredentialsProviderChain();
+AwsCredentialsProvider awsCredentialsProvider = DefaultCredentialsProvider.create();
 
 // Create an IAM authentication token request and signed it using the AWS credentials.
 // The pre-signed request URL is used as an IAM authentication token for ElastiCache with Redis OSS.
 IAMAuthTokenRequest iamAuthTokenRequest = new IAMAuthTokenRequest(userId, cacheName, region, isServerless);
-String iamAuthToken = iamAuthTokenRequest.toSignedRequestUri(awsCredentialsProvider.getCredentials());
+String iamAuthToken = iamAuthTokenRequest.toSignedRequestUri(awsCredentialsProvider.resolveCredentials());
 
 // Construct Redis OSS URL with IAM Auth credentials provider
 RedisURI redisURI = RedisURI.builder()
@@ -185,7 +191,7 @@ Below is the definition for `IAMAuthTokenRequest`.
 
 ```
 public class IAMAuthTokenRequest {
-    private static final HttpMethodName REQUEST_METHOD = HttpMethodName.GET;
+    private static final SdkHttpMethod REQUEST_METHOD = SdkHttpMethod.GET;
     private static final String REQUEST_PROTOCOL = "http://";
     private static final String PARAM_ACTION = "Action";
     private static final String PARAM_USER = "User";
@@ -193,7 +199,7 @@ public class IAMAuthTokenRequest {
     private static final String RESOURCE_TYPE_SERVERLESS_CACHE = "ServerlessCache";
     private static final String ACTION_NAME = "connect";
     private static final String SERVICE_NAME = "elasticache";
-    private static final long TOKEN_EXPIRY_SECONDS = 900;
+    private static final Duration TOKEN_EXPIRY_DURATION = Duration.ofSeconds(900);
 
     private final String userId;
     private final String cacheName;
@@ -207,47 +213,39 @@ public class IAMAuthTokenRequest {
         this.isServerless = isServerless;
     }
 
-    public String toSignedRequestUri(AWSCredentials credentials) throws URISyntaxException {
-        Request<Void> request = getSignableRequest();
-        sign(request, credentials);
-        return new URIBuilder(request.getEndpoint())
-            .addParameters(toNamedValuePair(request.getParameters()))
-            .build()
-            .toString()
-            .replace(REQUEST_PROTOCOL, "");
+    public String toSignedRequestUri(AwsCredentials credentials) {
+        SdkHttpFullRequest request = getSignableRequest();
+        SdkHttpFullRequest signedRequest = sign(request, credentials);
+        return signedRequest.getUri().toString().replace(REQUEST_PROTOCOL, "");
     }
 
-    private <T> Request<T> getSignableRequest() {
-        Request<T> request  = new DefaultRequest<>(SERVICE_NAME);
-        request.setHttpMethod(REQUEST_METHOD);
-        request.setEndpoint(getRequestUri());
-        request.addParameters(PARAM_ACTION, Collections.singletonList(ACTION_NAME));
-        request.addParameters(PARAM_USER, Collections.singletonList(userId));
+    private SdkHttpFullRequest getSignableRequest() {
+        SdkHttpFullRequest.Builder builder = SdkHttpFullRequest.builder()
+            .method(REQUEST_METHOD)
+            .uri(getRequestUri())
+            .appendRawQueryParameter(PARAM_ACTION, ACTION_NAME)
+            .appendRawQueryParameter(PARAM_USER, userId);
         if (isServerless) {
-            request.addParameters(PARAM_RESOURCE_TYPE, Collections.singletonList(RESOURCE_TYPE_SERVERLESS_CACHE));
+            builder.appendRawQueryParameter(PARAM_RESOURCE_TYPE, RESOURCE_TYPE_SERVERLESS_CACHE);
         }
-        return request;
+        return builder.build();
     }
 
     private URI getRequestUri() {
         return URI.create(String.format("%s%s/", REQUEST_PROTOCOL, cacheName));
     }
 
-    private <T> void sign(SignableRequest<T> request, AWSCredentials credentials) {
-        AWS4Signer signer = new AWS4Signer();
-        signer.setRegionName(region);
-        signer.setServiceName(SERVICE_NAME);
-
-        DateTime dateTime = DateTime.now();
-        dateTime = dateTime.plus(Duration.standardSeconds(TOKEN_EXPIRY_SECONDS));
-
-        signer.presignRequest(request, credentials, dateTime.toDate());
-    }
-
-    private static List<NameValuePair> toNamedValuePair(Map<String, List<String>> in) {
-        return in.entrySet().stream()
-            .map(e -> new BasicNameValuePair(e.getKey(), e.getValue().get(0)))
-            .collect(Collectors.toList());
+    private SdkHttpFullRequest sign(SdkHttpFullRequest request, AwsCredentials credentials) {
+        AwsV4HttpSigner signer = AwsV4HttpSigner.create();
+        SignedRequest signedRequest = signer.sign(r -> r.identity(credentials)
+            .request(request)
+            .putProperty(AwsV4HttpSigner.SERVICE_SIGNING_NAME, SERVICE_NAME)
+            .putProperty(AwsV4HttpSigner.REGION_NAME, region)
+            .putProperty(AwsV4HttpSigner.AUTH_LOCATION, AwsV4HttpSigner.AuthLocation.QUERY_STRING)
+            .putProperty(AwsV4HttpSigner.EXPIRATION_DURATION, TOKEN_EXPIRY_DURATION)
+            .build()
+        );
+        return (SdkHttpFullRequest) signedRequest.request();
     }
 }
 ```
@@ -264,7 +262,7 @@ String region = "`insert region`";
 
 // Create a default AWS Credentials provider.
 // This will look for AWS credentials defined in environment variables or system properties.
-AWSCredentialsProvider awsCredentialsProvider = new DefaultAWSCredentialsProviderChain();
+AwsCredentialsProvider awsCredentialsProvider = DefaultCredentialsProvider.create();
 
 // Create an IAM authentication token request. Once this request is signed it can be used as an
 // IAM authentication token for ElastiCache with Redis OSS.
@@ -293,14 +291,14 @@ Below is an example of a Lettuce Redis OSS client that wraps the IAMAuthTokenReq
 public class RedisIAMAuthCredentialsProvider implements RedisCredentialsProvider {
     private static final long TOKEN_EXPIRY_SECONDS = 900;
 
-    private final AWSCredentialsProvider awsCredentialsProvider;
+    private final AwsCredentialsProvider awsCredentialsProvider;
     private final String userId;
     private final IAMAuthTokenRequest iamAuthTokenRequest;
     private final Supplier<String> iamAuthTokenSupplier;
 
     public RedisIAMAuthCredentialsProvider(String userId,
         IAMAuthTokenRequest iamAuthTokenRequest,
-        AWSCredentialsProvider awsCredentialsProvider) {
+        AwsCredentialsProvider awsCredentialsProvider) {
         this.userId = userId;
         this.awsCredentialsProvider = awsCredentialsProvider;
         this.iamAuthTokenRequest = iamAuthTokenRequest;
@@ -313,7 +311,7 @@ public class RedisIAMAuthCredentialsProvider implements RedisCredentialsProvider
     }
 
     private String getIamAuthToken() {
-        return iamAuthTokenRequest.toSignedRequestUri(awsCredentialsProvider.getCredentials());
+        return iamAuthTokenRequest.toSignedRequestUri(awsCredentialsProvider.resolveCredentials());
     }
 }
 ```

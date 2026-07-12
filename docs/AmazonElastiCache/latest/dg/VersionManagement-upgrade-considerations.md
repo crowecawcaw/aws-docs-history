@@ -51,12 +51,14 @@ Clusters and replication groups with multiple shards are processed and patched a
 
     + All shards are processed in parallel. Only one upgrade operation is performed
      on a shard at any time.
-    + In each shard, all replicas are processed before the primary is processed. If there are
-     fewer replicas in a shard, the primary in that shard might be
-     processed before the replicas in other shards are finished
-     processing.
-    + Across all the shards, primary nodes are processed in series.
-     Only one primary node is upgraded at a time.
+    + In each shard, Amazon ElastiCache creates a new set of nodes running the new engine version. A new node
+     syncs with the existing primary node. After the sync is complete, a failover promotes the new node to primary.
+     The remaining new nodes then sync with the new primary, and the old nodes are removed from the cluster.
+    + During this process, there is a brief period where both old and new nodes are visible in the cluster topology.
+     Clients connecting to new replica nodes that are still loading data might receive errors. To handle
+     this transient state, we recommend implementing [Best practices for clients (Valkey and Redis OSS)](BestPractices.Clients.redis.md "BestPractices.Clients.redis.md") with error retries and exponential backoff.
+    + Across all the shards, primary failovers are processed in series.
+     Only one primary node is failed over at a time.
 
 - If encryption is enabled on your current cluster or replication group, you cannot upgrade to
   an engine version that does not support encryption, such as from 3.2.6 to 3.2.10.
