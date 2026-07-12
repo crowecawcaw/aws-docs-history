@@ -100,8 +100,8 @@ language to generate and update CloudWatch Logs Insights queries](CloudWatchLogs
 Queries using any of the supported query languages time out after 60 minutes, if they have
 not completed. Query results are available for seven days.
 
-CloudWatch Logs Insights queries incur charges based on the amount of data that is queried,
-regardless of query language. For more information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
+CloudWatch Logs Insights queries incur charges based on the amount of uncompressed log data
+scanned, regardless of query language. For more information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
 You can use CloudWatch Logs Insights to search log data that was sent to CloudWatch Logs on November 5, 2018 or
 later.

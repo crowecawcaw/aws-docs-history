@@ -32,6 +32,8 @@ when creating subscription filters:
   from which the log event originated.
 - `@aws.region` - This dimension represents the AWS region where
   the log event was generated.
+- `@source.log` - This dimension represents the source log group
+  from which the log event originated.
   These dimensions help in identifying the source of log data, allowing for more
   granular filtering and analysis of metrics derived from centralized logs.
 

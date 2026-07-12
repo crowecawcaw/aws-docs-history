@@ -3,8 +3,9 @@
 You can use a subscription filter with Amazon Kinesis Data Streams, AWS Lambda, Amazon Data Firehose, or Amazon OpenSearch Service.
 Logs sent to a service through a subscription filter are base64 encoded and compressed
 with the gzip format. If you are using centralized logs with your AWS Organizations, you can
-choose to emit the `@aws.account` and `@aws.region` system field
-to identify which data comes from which accounts and regions in your organization. This
+choose to emit the `@aws.account`, `@aws.region`, and
+`@source.log` system fields to identify which data comes from which accounts,
+Regions, and source log groups in your organization. This
 section provides examples you can follow to create a CloudWatch Logs subscription filter that
 sends log data to Firehose, Lambda, Amazon Kinesis Data Streams, and OpenSearch Service.
 

@@ -62,3 +62,8 @@ originated.
 
 This field identifies the AWS Region where the log event
 was generated.
+
+**@source.log**
+
+This field identifies the source log group from which the log event
+originated.
