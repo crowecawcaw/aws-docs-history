@@ -32,7 +32,7 @@ the rule groups that you define here. For information about Firewall Manager AWS
 
 Web ACLs that Firewall Manager creates can't participate in CloudFront flat-rate pricing plans.
 If you attempt to manage a web ACL that's part of a CloudFront flat-rate pricing plan,
-Firewall Manager permanently displays a noncompliant status for both the CloudFront distribution
+Firewall Manager does not report compliance status for both the CloudFront distribution
 and the Firewall Manager policy. This state can't be remediated through Firewall Manager or any other
 action.
 

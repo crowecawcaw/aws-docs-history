@@ -58,7 +58,7 @@ quotas can't be changed.
 | Maximum number of unique regex patterns per regex pattern set                                                                                                                              | 10                           |
 | Maximum size of a web request body that can be inspected for Application Load Balancer and AWS AppSync protections                                                                         | 8 KB                         |
 | Maximum size of a web request body that can be inspected for Amazon Bedrock AgentCore Gateway protections                                                                                  | 16 KB                        |
-| Maximum size of a web request body that can be inspected for CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access<br>protections\*\*                                   | 64 KB                        |
+| Maximum size of a web request body that can be inspected for CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, and Amazon Bedrock AgentCore Gateway<br>protections\*\* | 64 KB                        |
 | Maximum number of text transformations per rule statement                                                                                                                                  | 10                           |
 | Maximum size of the custom response body content for a single custom response<br>definition                                                                                                | 4 KB                         |
 | Maximum number of custom headers for a single custom response definition                                                                                                                   | 10                           |
@@ -69,7 +69,7 @@ quotas can't be changed.
 \*Using more than 1,500 WCUs in a protection pack (web ACL) incurs costs beyond the basic protection pack (web ACL) price. For more information, see [Web ACL capacity units (WCUs) in AWS WAF](aws-waf-capacity-units.md "aws-waf-capacity-units.md") and [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/ "https://aws.amazon.com/waf/pricing/").
 
 \*\*By default, the body inspection limit is set to 16 KB for
-CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources, but you can increase this for any of these resources in your protection pack (web ACL) configuration, up to the listed maximum. For more
+CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, and Amazon Bedrock AgentCore Gateway resources, but you can increase this for any of these resources in your protection pack (web ACL) configuration, up to the listed maximum. For more
 information, see [Considerations for managing body inspection in AWS WAF](web-acl-setting-body-inspection-limit.md "web-acl-setting-body-inspection-limit.md").
 
 AWS WAF has the following fixed quotas on calls per account per Region. These quotas apply

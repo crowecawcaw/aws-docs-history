@@ -235,7 +235,7 @@ web ACL.
 You only need to choose this option for Regional resource
 types. For CloudFront distributions, the Region is hard-coded to the
 US East (N. Virginia) Region, `us-east-1`, for Global (CloudFront)
-applications. 8. (CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access) For **Web request inspection size
+applications. 8. (CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, and Amazon Bedrock AgentCore Gateway) For **Web request inspection size
 limit - optional**, if you want to specify a different body
 inspection size limit, select the limit. Inspecting body sizes over the
 default of 16 KB can incur additional costs. For information about this

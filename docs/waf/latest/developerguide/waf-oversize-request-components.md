@@ -23,7 +23,7 @@ including any contents that are outside of the count and size limits that AWS WA
 The component inspection size limits are as follows:
 
 - **`Body` and `JSON Body`**
-  – For Application Load Balancer and AWS AppSync, AWS WAF can inspect the first 8 KB of the body of a request. For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, by default, AWS WAF can inspect the first 16 KB, and
+  – For Application Load Balancer and AWS AppSync, AWS WAF can inspect the first 8 KB of the body of a request. For CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, and Amazon Bedrock AgentCore Gateway, by default, AWS WAF can inspect the first 16 KB, and
   you can increase the limit up to 64 KB in your protection pack (web ACL) configuration. For more information, see
   [Considerations for managing body inspection in AWS WAF](web-acl-setting-body-inspection-limit.md "web-acl-setting-body-inspection-limit.md").
 - **`Headers`** – AWS WAF can inspect at most the first 8 KB (8,192 bytes) of the request headers and at most the first 200 headers. The content is available for inspection by AWS WAF up to the first limit reached.
@@ -126,7 +126,7 @@ You can add a rule in your protection pack (web ACL) that blocks requests with o
    2. For **Match type**, choose **Size greater than**.
    3. For **Size**, type a number that's at least the
       minimum size for the component type. For headers and cookies, type `8192`. In Application Load Balancer or AWS AppSync protection packs (web ACLs), for bodies, type
-      `8192`. For bodies in CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access protection packs (web ACLs),
+      `8192`. For bodies in CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, or Amazon Bedrock AgentCore Gateway protection packs (web ACLs),
       if you're using the default body size limit, type `16384`.
       Otherwise, type the body size limit that you've defined for your protection pack (web ACL).
    4. For **Oversize handling**, select

@@ -339,7 +339,7 @@ request, for example, data from a form.
   specification, you specify `Body` to inspect the
   request body as plain text.
 
-For Application Load Balancer and AWS AppSync, AWS WAF can inspect the first 8 KB of the body of a request. For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, by default, AWS WAF can inspect the first 16 KB, and
+For Application Load Balancer and AWS AppSync, AWS WAF can inspect the first 8 KB of the body of a request. For CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, and Amazon Bedrock AgentCore Gateway, by default, AWS WAF can inspect the first 16 KB, and
 you can increase the limit up to 64 KB in your protection pack (web ACL) configuration. For more information, see
 [Considerations for managing body inspection in AWS WAF](web-acl-setting-body-inspection-limit.md "web-acl-setting-body-inspection-limit.md").
 
@@ -369,7 +369,7 @@ request, for example, data from a form.
 - In the API, in the rule's `FieldToMatch`
   specification, you specify `JsonBody`.
 
-For Application Load Balancer and AWS AppSync, AWS WAF can inspect the first 8 KB of the body of a request. For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, by default, AWS WAF can inspect the first 16 KB, and
+For Application Load Balancer and AWS AppSync, AWS WAF can inspect the first 8 KB of the body of a request. For CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, and Amazon Bedrock AgentCore Gateway, by default, AWS WAF can inspect the first 16 KB, and
 you can increase the limit up to 64 KB in your protection pack (web ACL) configuration. For more information, see
 [Considerations for managing body inspection in AWS WAF](web-acl-setting-body-inspection-limit.md "web-acl-setting-body-inspection-limit.md").
 

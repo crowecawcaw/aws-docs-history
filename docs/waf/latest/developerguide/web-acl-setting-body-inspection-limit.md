@@ -11,8 +11,7 @@ only forwards the contents that are within the limit to AWS WAF for inspection.
 
 - For Application Load Balancer and AWS AppSync, the limit is fixed at
   8 KB (8,192 bytes).
-- For Amazon Bedrock AgentCore Gateway, the limit is fixed at 16 KB.
-- For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is
+- For CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, and Amazon Bedrock AgentCore Gateway, the default limit is
   16 KB (16,384 bytes), and you can increase the limit for
   any of the resource types by increments of 16 KB, up to 64 KB. The setting
   options are 16 KB, 32 KB, 48 KB, and 64 KB.
@@ -35,14 +34,14 @@ oversize handling, see [Oversize web request components in AWS WAF](waf-oversize
 AWS WAF charges a base rate for inspecting traffic that's within the default limit
 for the resource type.
 
-For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources, if you increase the limit setting, the
+For CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, and Amazon Bedrock AgentCore Gateway resources, if you increase the limit setting, the
 traffic that AWS WAF can inspect includes body sizes up to your new limit. You're charged
 extra only for the inspection of requests that have body sizes larger than the default
 16 KB. For more information about pricing, see [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/ "https://aws.amazon.com/waf/pricing/").
 
 ###### Options for modifying the body inspection size limit
 
-You can configure the body inspection size limit for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access
+You can configure the body inspection size limit for CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, or Amazon Bedrock AgentCore Gateway
 resources.
 
 When you create or edit a protection pack (web ACL), you can modify the body inspection size limits in the
