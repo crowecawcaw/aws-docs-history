@@ -41,8 +41,9 @@ should consider setting up a `$connect` integration if:
 - You want to throttle connections or control who connects.
 - You want your backend to send messages back to clients using a callback
   URL.
-- You want to store each connection ID and other information into a database
-  (for example, Amazon DynamoDB).
+- You want to store connection IDs, domain names, or other connection
+  details in a database (for example, Amazon DynamoDB). The connection ID is a
+  variable-length string whose length and format might change.
 
 ## Passing connection information from the `$connect` route
 
