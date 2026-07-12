@@ -38,6 +38,7 @@ option. For more information, see [Reading files in a DB instance directory](App
 You can use the `rdsadmin_diagnostic_util` procedures in the following Amazon RDS for Oracle DB
 engine versions:
 
+- All Oracle Database 26ai versions
 - All Oracle Database 21c versions
 - 19.0.0.0.ru-2020-04.rur-2020-04.r1 and higher Oracle Database 19c versions
 

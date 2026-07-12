@@ -132,9 +132,21 @@ Following are some limitations to using Management Agent:
 
 Amazon RDS supports the following settings for the Management Agent option.
 
+###### Note
+
+For Oracle Database 26ai, the Management Agent option has the following requirements:
+
+- The only supported Management Agent version is `24.1.0.0.v1`.
+- Only the following TLS cipher suites are supported:
+
+  - TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA256
+  - TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384
+  - TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384
+  - TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA384
+
 | Option setting                    | Required | Valid values                                                                                                                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                              |
 | --------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| *_Version_<br>• (`AGENT_VERSION`) | Yes      | `24.1.0.0.v1`<br>`13.5.0.0.v3`<br>`13.5.0.0.v2`<br>`13.5.0.0.v1`<br>`13.4.0.9.v2`<br>`13.4.0.9.v1`<br>`13.3.0.0.v2`<br>`13.3.0.0.v1`<br>`13.2.0.0.v3`<br>`13.2.0.0.v2`<br>`13.2.0.0.v1`<br>`13.1.0.0.v1` | The version of the Management Agent software. The minimum<br>supported version is `13.1.0.0.v1`.<br>The AWS CLI option name is `OptionVersion`.<br>NoteIn the AWS GovCloud (US) Regions, 13.1 versions aren't<br>available.                                                                                                                                                              |
+| *_Version_<br>• (`AGENT_VERSION`) | Yes      | `24.1.0.0.v1`<br>`13.5.0.0.v3`<br>`13.5.0.0.v2`<br>`13.5.0.0.v1`<br>`13.4.0.9.v2`<br>`13.4.0.9.v1`<br>`13.3.0.0.v2`<br>`13.3.0.0.v1`<br>`13.2.0.0.v3`<br>`13.2.0.0.v2`<br>`13.2.0.0.v1`<br>`13.1.0.0.v1` | The version of the Management Agent software. The minimum<br>supported version is `13.1.0.0.v1`.<br>The AWS CLI option name is `OptionVersion`.<br>NoteIn the AWS GovCloud (US) Regions, 13.1 versions aren't<br>available.<br>NoteFor Oracle Database 26ai, the only supported agent version is<br>`24.1.0.0.v1`.                                                                       |
 | *_Port_<br>• (`AGENT_PORT`)       | Yes      | An integer value                                                                                                                                                                                         | The port on the DB instance that listens for the OMS host. The<br>default is 3872. Your OMS host must belong to a security group that<br>has access to this port.<br>The AWS CLI option name is `Port`.                                                                                                                                                                                  |
 | **Security Groups**               | Yes      | Existing security groups                                                                                                                                                                                 | A security group that has access to **Port**.<br>Your OMS host must belong to this security group.<br>The AWS CLI option name is `VpcSecurityGroupMemberships`<br>or `DBSecurityGroupMemberships`.                                                                                                                                                                                       |
 | **OMS\_HOST**                     | Yes      | A string value, for example<br>`my.example.oms`                                                                                                                                                          | The publicly accessible host name or IP address of the OMS.<br>The AWS CLI option name is `OMS_HOST`.                                                                                                                                                                                                                                                                                    |
@@ -147,18 +159,18 @@ Amazon RDS supports the following settings for the Management Agent option.
 The following table lists the TLS cipher suites that the Management Agent option
 supports.
 
-| Cipher suite                                   | Agent version supported | FedRAMP compliant |
-| ---------------------------------------------- | ----------------------- | ----------------- |
-| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA             | All                     | No                |
-| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256          | 13.1.0.0.v1 and higher  | No                |
-| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA             | 13.2.0.0.v3 and higher  | No                |
-| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA256          | 13.2.0.0.v3 and higher  | No                |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA      | 13.2.0.0.v3 and higher  | Yes               |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA      | 13.2.0.0.v3 and higher  | Yes               |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256   | 13.2.0.0.v3 and higher  | Yes               |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384   | 13.2.0.0.v3 and higher  | Yes               |
-| TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 | 13.4.0.9.v1 and higher  | Yes               |
-| TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA384 | 13.4.0.9.v1 and higher  | Yes               |
+| Cipher suite                                   | Agent version supported | FedRAMP compliant | Supported Oracle versions |
+| ---------------------------------------------- | ----------------------- | ----------------- | ------------------------- |
+| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA             | All                     | No                | 19c, 21c                  |
+| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256          | 13.1.0.0.v1 and higher  | No                | 19c, 21c                  |
+| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA             | 13.2.0.0.v3 and higher  | No                | 19c, 21c                  |
+| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA256          | 13.2.0.0.v3 and higher  | No                | 19c, 21c, 26ai            |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA      | 13.2.0.0.v3 and higher  | Yes               | 19c, 21c                  |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA      | 13.2.0.0.v3 and higher  | Yes               | 19c, 21c                  |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256   | 13.2.0.0.v3 and higher  | Yes               | 19c, 21c                  |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384   | 13.2.0.0.v3 and higher  | Yes               | 19c, 21c, 26ai            |
+| TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 | 13.4.0.9.v1 and higher  | Yes               | 19c, 21c, 26ai            |
+| TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA384 | 13.4.0.9.v1 and higher  | Yes               | 19c, 21c, 26ai            |
 
 ### Certificate compatibility with cipher suites
 

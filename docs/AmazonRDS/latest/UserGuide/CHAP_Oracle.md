@@ -2,6 +2,7 @@
 
 Amazon RDS supports DB instances that run the following versions and editions of Oracle Database:
 
+- Oracle Database 26ai (26.0.0.0)
 - Oracle Database 21c (21.0.0.0)
 - Oracle Database 19c (19.0.0.0)
 
@@ -46,6 +47,7 @@ Telnet or Secure Shell (SSH).
 - [Administering your RDS for Oracle DB instance](Appendix.Oracle.CommonDBATasks.md "Appendix.Oracle.CommonDBATasks.md")
 - [Working with storage in RDS for Oracle](User_Oracle_AdditionalStorage.md "User_Oracle_AdditionalStorage.md")
 - [Configuring advanced RDS for Oracle features](CHAP_Oracle.advanced-features.md "CHAP_Oracle.advanced-features.md")
+- [AI features for Oracle](CHAP_Oracle.ai-features.md "CHAP_Oracle.ai-features.md")
 - [Importing data into Oracle on Amazon RDS](Oracle.Procedural.Importing.md "Oracle.Procedural.Importing.md")
 - [Working with read replicas for Amazon RDS for Oracle](oracle-read-replicas.md "oracle-read-replicas.md")
 - [Adding options to Oracle DB instances](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")

@@ -6,8 +6,8 @@ the `modify-db-instance` command. In most cases, this technique is preferable to
 creating a new CDB and importing data. The conversion operation incurs downtime.
 
 When you upgrade your database engine version, you can't change the database architecture
-in the same operation. Therefore, to upgrade an Oracle Database 19c non-CDB to an Oracle Database 21c CDB, you first
-need to convert the non-CDB to a CDB in one step, and then upgrade the 19c CDB to a 21c CDB
+in the same operation. Therefore, to upgrade an Oracle Database 19c non-CDB to an Oracle Database 21c or Oracle Database 26ai CDB, you first
+need to convert the non-CDB to a CDB in one step, and then upgrade the 19c CDB to a 21c or 26ai CDB
 in a separate step.
 
 The non-CDB conversion operation has the following requirements:

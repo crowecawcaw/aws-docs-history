@@ -17,7 +17,7 @@ concepts.
 ## Major and minor version upgrades
 
 Major versions are major releases of Oracle Database that occur every 1-2 years.
-Oracle Database 19c and Oracle Database 21c are major releases.
+Oracle Database 19c, Oracle Database 21c, and Oracle Database 26ai are major releases.
 
 Every quarter, RDS for Oracle releases new minor engine versions for every supported major
 engine. A Release Update (RU) engine version incorporates bug fixes from Oracle by
@@ -39,7 +39,7 @@ RDS for Oracle supports the following upgrades to a DB instance.
 
 | Upgrade type  | Application compatibility                                                                                 | Upgrade methods     | Sample upgrade path                                                              |
 | ------------- | --------------------------------------------------------------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------- |
-| Major version | A major version upgrade can introduce changes that aren't compatible<br>with existing applications.       | Manual only         | From Oracle Database 19c to Oracle Database 21c                                  |
+| Major version | A major version upgrade can introduce changes that aren't compatible<br>with existing applications.       | Manual only         | From Oracle Database 19c to Oracle Database 26ai                                 |
 | Minor version | A minor version upgrade includes only changes that are<br>backward-compatible with existing applications. | Automatic or manual | From 21.0.0.0.ru-2023-07.rur-2022-07.r1 to<br>21.0.0.0.ru-2023-10.rur-2022-10.r1 |
 
 ###### Important
@@ -94,10 +94,15 @@ this table to reflect the later date.
 You can view the major versions of your Oracle databases by running the [describe-db-major-engine-versions](../../../cli/latest/reference/rds/describe-db-major-engine-versions.md "../../../cli/latest/reference/rds/describe-db-major-engine-versions.md") AWS CLI command or by using the
 [DescribeDBMajorEngineVersions](../APIReference/API_DescribeDBMajorEngineVersions.md "../APIReference/API_DescribeDBMajorEngineVersions.md") RDS API operation.
 
+###### Note
+
+Oracle Database 26ai is available only in Enterprise Edition.
+
 | Oracle Database major release version | Expected date for upgrading to a newer version                                                                                                                                                                                      |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Oracle Database 19c                   | December 31, 2029 with BYOL Premier Support (fees waived for<br>Extended Support)<br>December 31, 2032 with BYOL Extended Support (extra cost) or<br>an Unlimited License Agreement<br>December 31, 2029 with License Included (LI) |
 | Oracle Database 21c                   | July 31, 2027 (not available for Extended Support)                                                                                                                                                                                  |
+| Oracle Database 26ai                  | December 31, 2031 with BYOL Premier Support<br>To be announced, with BYOL Extended Support (extra cost)                                                                                                                             |
 
 RDS notifies you at least 12 months before you need to upgrade to a newer major
 version. The notification describes the upgrade process, including the timing of

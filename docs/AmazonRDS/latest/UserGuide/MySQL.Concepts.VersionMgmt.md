@@ -47,6 +47,7 @@ supports.
 
 | MySQL engine version | Community release date | RDS release date | RDS end of standard support date |
 | -------------------- | ---------------------- | ---------------- | -------------------------------- |
+| 8.4.10               | 16 June 2026           | 7 July 2026      | 7 July 2027                      |
 | 8.4.9                | 21 April 2026          | 8 May 2026       | 8 May 2027                       |
 | 8.4.8                | 20 January 2026        | 3 February 2026  | 3 February 2027                  |
 | 8.4.7                | 21 October 2025        | 13 November 2025 | 30 November 2026                 |
@@ -177,6 +178,7 @@ minor version. And then choose the MySQL minor version under **Affected Products
 
 ###### Minor versions
 
+- [MySQL version 8.4.10](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.10 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.10")
 - [MySQL version 8.4.9](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.9 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.9")
 - [MySQL version 8.4.8](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.8 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.8")
 - [MySQL version 8.4.7](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.7 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.7")
@@ -193,12 +195,20 @@ minor version. And then choose the MySQL minor version under **Affected Products
 - [MySQL version 8.0.39](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.39 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.39")
 - [MySQL version 8.0.37](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.37 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.37")
 
+#### MySQL version 8.4.10
+
+MySQL version 8.4.10 is now available on Amazon RDS. This release contains fixes and
+improvements added by the MySQL community and Amazon RDS.
+
 #### MySQL version 8.4.9
 
 MySQL version 8.4.9 is now available on Amazon RDS. This release contains fixes and
 improvements added by the MySQL community and Amazon RDS.
 
 **New features and enhancements**
+
+- Updated the time zone information to base it on
+  `tzdata2026b`.
 
 - Fixed an issue that could cause a "Row size too large" error with tables using InnoDB DYNAMIC row format.
 - Fixed an issue that could cause incorrect sort order for queries using ORDER BY DESC with range comparisons and LIMIT.

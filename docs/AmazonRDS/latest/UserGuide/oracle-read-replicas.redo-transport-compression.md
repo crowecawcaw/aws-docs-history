@@ -8,7 +8,7 @@ Redo transport compression is part of the [Oracle Advanced Compression](https://
 
 ## Configuring redo transport compression
 
-To configure redo transport compression, you can use the `rds.replica.redo_compression` parameter. This parameter is available for Oracle versions 19c and 21c.
+To configure redo transport compression, you can use the `rds.replica.redo_compression` parameter. This parameter is available for Oracle versions 19c, 21c, and 26ai.
 
 The `rds.replica.redo_compression` parameter accepts the following values:
 

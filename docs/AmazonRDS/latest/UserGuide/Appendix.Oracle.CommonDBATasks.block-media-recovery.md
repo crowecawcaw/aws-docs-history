@@ -22,6 +22,7 @@ This procedure uses the following additional parameters.
 
 This procedure is supported for the following Amazon RDS for Oracle DB engine versions:
 
+- Oracle Database 26ai (26.0.0)
 - Oracle Database 21c (21.0.0)
 - Oracle Database 19c (19.0.0)
   The following example recovers block 100 in data file 5.

@@ -16,8 +16,20 @@ connection encryption. For more information, see [Oracle native network encrypti
 SSL/TLS and NNE are no longer part of Oracle Advanced Security. In RDS for Oracle, you can
 use SSL encryption with all licensed editions of the following database versions:
 
-- Oracle Database 21c (21.0.0)
-- Oracle Database 19c (19.0.0)
+- Oracle Database 26ai (26.0.0.0)
+- Oracle Database 21c (21.0.0.0)
+- Oracle Database 19c (19.0.0.0)
+
+###### Note
+
+For Oracle Database 26ai, the Oracle SSL option supports only TLS 1.2, and the default cipher
+suite is `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`. Oracle Database 26ai supports the
+following cipher suites:
+
+- `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384` (default)
+- `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
+- `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
+- `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`
 
 ###### Topics
 
@@ -36,19 +48,20 @@ use SSL encryption with all licensed editions of the following database versions
 
 Amazon RDS for Oracle supports Transport Layer Security (TLS) versions 1.0 and 1.2.
 When you add a new Oracle SSL option, set `SQLNET.SSL_VERSION` explicitly to
-a valid value. The following values are allowed for this option setting:
+a valid value. The following table shows the allowed values for this option setting:
 
-- `"1.0"` – Clients can connect to the DB instance using TLS version 1.0
-  only. For existing Oracle SSL options, `SQLNET.SSL_VERSION` is set to
-  `"1.0"` automatically. You can change the setting if
-  necessary.
-- `"1.2"` – Clients can connect to the DB instance using TLS 1.2 only.
-- `"1.2 or 1.0"` – Clients can connect to the DB instance using either TLS 1.2 or 1.0.
+| Value          | Supported Oracle versions | Description                                                                                                                                                                                                 |
+| -------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"1.0"`        | 19c, 21c                  | Clients can connect to the DB instance using TLS version 1.0<br>only. For existing Oracle SSL options, `SQLNET.SSL_VERSION` is set to<br>`"1.0"` automatically. You can change the setting if<br>necessary. |
+| `"1.2"`        | All                       | Clients can connect to the DB instance using TLS 1.2 only.                                                                                                                                                  |
+| `"1.2 or 1.0"` | 19c, 21c                  | Clients can connect to the DB instance using either TLS 1.2 or 1.0.                                                                                                                                         |
 
 ## Cipher suites for the Oracle SSL option
 
 Amazon RDS for Oracle supports multiple SSL cipher suites. By default, the Oracle SSL
-option is configured to use the `SSL_RSA_WITH_AES_256_CBC_SHA` cipher suite.
+option is configured to use the `SSL_RSA_WITH_AES_256_CBC_SHA` cipher suite
+for Oracle Database 19c and Oracle Database 21c. For Oracle Database 26ai, the default cipher suite is
+`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`.
 To specify a different cipher suite to use over SSL connections, use the
 `SQLNET.CIPHER_SUITE` option setting.
 
@@ -57,21 +70,21 @@ is useful if you have database links between your DB instances and decide to upd
 cipher suites.
 
 The following table summarizes SSL support for RDS for Oracle in all editions of Oracle
-Database 19c and 21c.
+Database 19c, 21c, and 26ai.
 
-| Cipher suite (SQLNET.CIPHER\_SUITE)            | TLS version support (SQLNET.SSL\_VERSION) | FIPS support | FedRAMP compliant |
-| ---------------------------------------------- | ----------------------------------------- | ------------ | ----------------- |
-| SSL\_RSA\_WITH\_AES\_256\_CBC\_SHA (default)   | 1.0 and 1.2                               | Yes          | No                |
-| SSL\_RSA\_WITH\_AES\_256\_CBC\_SHA256          | 1.2                                       | Yes          | No                |
-| SSL\_RSA\_WITH\_AES\_256\_GCM\_SHA384          | 1.2                                       | Yes          | No                |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384   | 1.2                                       | Yes          | Yes               |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256   | 1.2                                       | Yes          | Yes               |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384   | 1.2                                       | Yes          | Yes               |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256   | 1.2                                       | Yes          | Yes               |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA      | 1.2                                       | Yes          | Yes               |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA      | 1.2                                       | Yes          | Yes               |
-| TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 | 1.2                                       | Yes          | Yes               |
-| TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA384 | 1.2                                       | Yes          | Yes               |
+| Cipher suite (SQLNET.CIPHER\_SUITE)                             | TLS version support (SQLNET.SSL\_VERSION) | FIPS support | FedRAMP compliant | Supported Oracle versions |
+| --------------------------------------------------------------- | ----------------------------------------- | ------------ | ----------------- | ------------------------- |
+| SSL\_RSA\_WITH\_AES\_256\_CBC\_SHA (default for 19c and 21c)    | 1.0 and 1.2                               | Yes          | No                | 19c, 21c                  |
+| SSL\_RSA\_WITH\_AES\_256\_CBC\_SHA256                           | 1.2                                       | Yes          | No                | 19c, 21c                  |
+| SSL\_RSA\_WITH\_AES\_256\_GCM\_SHA384                           | 1.2                                       | Yes          | No                | 19c, 21c                  |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384 (default for 26ai) | 1.2                                       | Yes          | Yes               | 19c, 21c, 26ai            |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256                    | 1.2                                       | Yes          | Yes               | 19c, 21c                  |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384                    | 1.2                                       | Yes          | Yes               | 19c, 21c, 26ai            |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256                    | 1.2                                       | Yes          | Yes               | 19c, 21c                  |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA                       | 1.2                                       | Yes          | Yes               | 19c, 21c                  |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA                       | 1.2                                       | Yes          | Yes               | 19c, 21c                  |
+| TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384                  | 1.2                                       | Yes          | Yes               | 19c, 21c, 26ai            |
+| TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA384                  | 1.2                                       | Yes          | Yes               | 19c, 21c, 26ai            |
 
 ## FIPS support
 

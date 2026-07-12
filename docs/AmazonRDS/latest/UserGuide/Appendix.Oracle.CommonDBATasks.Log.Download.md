@@ -15,6 +15,7 @@ files from directory objects, see [Listing files in a DB instance directory](App
 [Reading files in a DB instance directory](Appendix.Oracle.CommonDBATasks.Misc.md#Appendix.Oracle.CommonDBATasks.ReadingFiles "Appendix.Oracle.CommonDBATasks.Misc.md#Appendix.Oracle.CommonDBATasks.ReadingFiles").
 Accessing transaction logs is supported for the following releases:
 
+- Oracle Database 26ai
 - Oracle Database 21c
 - Oracle Database 19c
   The following code creates directories that provide read-only access to your

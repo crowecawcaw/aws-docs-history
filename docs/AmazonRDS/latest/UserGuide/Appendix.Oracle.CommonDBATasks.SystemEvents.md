@@ -5,6 +5,7 @@ To set and unset diagnostic events at the session level, you can use the Oracle 
 use the system event procedures in the `rdsadmin.rdsadmin_util` package. The system event
 procedures are available in the following engine versions:
 
+- All Oracle Database 26ai versions
 - All Oracle Database 21c versions
 - 19.0.0.0.ru-2020-10.rur-2020-10.r1 and higher Oracle Database 19c versions
 

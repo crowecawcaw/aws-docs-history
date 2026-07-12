@@ -15,6 +15,7 @@ backups.
 Block change tracking procedures are supported in Enterprise Edition only for the
 following DB engine versions:
 
+- Oracle Database 26ai (26.0.0)
 - Oracle Database 21c (21.0.0)
 - Oracle Database 19c (19.0.0)
 

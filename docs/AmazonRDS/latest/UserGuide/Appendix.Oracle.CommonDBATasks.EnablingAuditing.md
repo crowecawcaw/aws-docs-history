@@ -6,6 +6,7 @@ To enable auditing on the database audit trail table `SYS.AUD$`, use the Amazon 
 
 Enabling auditing is supported for Oracle DB instances running the following versions:
 
+- Oracle Database 26ai (26.0.0)
 - Oracle Database 21c (21.0.0)
 - Oracle Database 19c (19.0.0)
   The `audit_all_sys_aud_table` procedure has the following

@@ -110,6 +110,7 @@ smaller.
 
 The instance store is supported for the following RDS for Oracle engine versions:
 
+- All versions for Oracle Database 26ai
 - 21.0.0.0.ru-2022-01.rur-2022-01.r1 or higher Oracle Database 21c versions
 - 19.0.0.0.ru-2021-10.rur-2021-10.r1 or higher Oracle Database 19c versions
 

@@ -6,6 +6,7 @@ Amazon RDS Oracle DB instance.
 The procedures for backing up archived redo logs are supported for the following Amazon RDS for Oracle DB engine
 versions:
 
+- Oracle Database 26ai (26.0.0)
 - Oracle Database 21c (21.0.0)
 - Oracle Database 19c (19.0.0)
 

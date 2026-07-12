@@ -88,6 +88,7 @@ following common parameters for RMAN tasks:
 For more information, see [Common parameters for RMAN procedures](Appendix.Oracle.CommonDBATasks.CommonParameters.md "Appendix.Oracle.CommonDBATasks.CommonParameters.md"). This
 procedure is supported for the following DB engine versions:
 
+- Oracle Database 26ai (26.0.0) CDB
 - Oracle Database 21c (21.0.0) CDB
 - Oracle Database 19c (19.0.0) CDB
 

@@ -40,7 +40,7 @@ You can use the following Oracle GoldenGate features:
 
 - Oracle GoldenGate Remote Capture (extract) is supported.
 - Capture (extract) is supported on RDS for Oracle DB instances that use the traditional non-CDB database
-  architecture. Oracle GoldenGate Remote PDB capture is supported on CDBs running Oracle Database 21c or
+  architecture. Oracle GoldenGate Remote PDB capture is supported on CDBs running Oracle Database 26ai, Oracle Database 21c, or
   Oracle Database 19c version 19.0.0.0.ru-2024-04.rur-2024-04.r1 or higher.
 - Oracle GoldenGate Remote Delivery (replicat) is supported on RDS for Oracle DB
   instances that use either the non-CDB or CDB architectures. Remote Delivery

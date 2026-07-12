@@ -25,11 +25,24 @@ Amazon RDS for Oracle supports the following Oracle Database features:
 The following list isn't exhaustive.
 
 - Advanced Compression
+- AI Vector Search (Oracle Database 26ai and higher)
+
+For more information, see [AI Vector Search](https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/index.html "https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/index.html") in the Oracle Database
+documentation.
+
+- Amazon Bedrock Integration (Oracle Database 26ai and higher)
+
+For more information, see [Amazon Bedrock integration for RDS for Oracle](Oracle.BedrockIntegration.md "Oracle.BedrockIntegration.md").
+
 - Oracle Application Express (APEX)
 
 For more information, see [Oracle Application Express (APEX)](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md").
 
 - Automatic Memory Management
+- Automatic SQL Error Mitigation (Oracle Database 26ai and higher)
+
+For more information, see [SQL\_ERROR\_MITIGATION](https://docs.oracle.com/en/database/oracle/oracle-database/26/refrn/SQL_ERROR_MITIGATION.html "https://docs.oracle.com/en/database/oracle/oracle-database/26/refrn/SQL_ERROR_MITIGATION.html") in the Oracle Database documentation.
+
 - Automatic Undo Management
 - Automatic Workload Repository (AWR)
 
@@ -81,6 +94,16 @@ For more information, see [Oracle Java virtual machine](oracle-options-java.md "
 
 For more information, see [DBMS\_MLE](https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/dbms_mle.html#GUID-3F5B47A5-2C73-4317-ACD7-E93AE8B8E301 "https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/dbms_mle.html#GUID-3F5B47A5-2C73-4317-ACD7-E93AE8B8E301") in the Oracle Database documentation.
 
+- JavaScript stored procedures (Oracle Database 26ai and higher)
+
+For more information, see [JavaScript Developer's Guide](https://docs.oracle.com/en/database/oracle/oracle-database/26/mlejs/index.html "https://docs.oracle.com/en/database/oracle/oracle-database/26/mlejs/index.html") in the Oracle Database
+documentation.
+
+- JSON Duality Views (Oracle Database 26ai and higher)
+
+For more information, see [JSON-Relational Duality](https://docs.oracle.com/en/database/oracle/oracle-database/26/jsnvu/index.html "https://docs.oracle.com/en/database/oracle/oracle-database/26/jsnvu/index.html") in the Oracle
+Database documentation.
+
 - Label Security
 
 For more information, see [Oracle Label Security](Oracle.Options.OLS.md "Oracle.Options.OLS.md").
@@ -100,6 +123,14 @@ and higher releases. For more information, see [Working with CDBs in RDS for Ora
 For more information, see [Oracle native network encryption](Appendix.Oracle.Options.NetworkEncryption.md "Appendix.Oracle.Options.NetworkEncryption.md") and [Oracle Secure Sockets Layer](Appendix.Oracle.Options.SSL.md "Appendix.Oracle.Options.SSL.md").
 
 - Partitioning
+- PL/SQL to SQL Transpiler (Oracle Database 26ai and higher)
+
+For more information, see [SQL\_TRANSPILER](https://docs.oracle.com/en/database/oracle/oracle-database/26/refrn/SQL_TRANSPILER.html "https://docs.oracle.com/en/database/oracle/oracle-database/26/refrn/SQL_TRANSPILER.html") in the Oracle Database documentation.
+
+- Property Graph Views (Oracle Database 26ai and higher)
+
+For more information, see [Oracle Property Graph](https://docs.oracle.com/en/database/oracle/property-graph/index.html "https://docs.oracle.com/en/database/oracle/property-graph/index.html") in the Oracle Database documentation.
+
 - Real Application Testing
 
 To use the full capture and replay capabilities, you must use Amazon Elastic File System
@@ -107,7 +138,19 @@ To use the full capture and replay capabilities, you must use Amazon Elastic Fil
 information, see [Amazon EFS integration](oracle-efs-integration.md "oracle-efs-integration.md") and the blog post [Use Oracle Real Application Testing features with
 Amazon RDS for Oracle](https://aws.amazon.com/blogs/database/use-oracle-real-application-testing-features-with-amazon-rds-for-oracle/ "https://aws.amazon.com/blogs/database/use-oracle-real-application-testing-features-with-amazon-rds-for-oracle/").
 
+- Real-time SQL plan management (Oracle Database 26ai and higher)
+
+For more information, see [Real-time SQL plan management in RDS for Oracle](Oracle.RealTimeSPM.md "Oracle.RealTimeSPM.md").
+
+- Schema Privileges (Oracle Database 26ai and higher)
+
+For more information, see [Managing Schema Privileges](https://docs.oracle.com/en/database/oracle/oracle-database/26/dbseg/configuring-privilege-and-role-authorization.html#GUID-483D04AF-BC5B-4B3D-9D9A-1D2C3CE8F12F "https://docs.oracle.com/en/database/oracle/oracle-database/26/dbseg/configuring-privilege-and-role-authorization.html#GUID-483D04AF-BC5B-4B3D-9D9A-1D2C3CE8F12F") in the Oracle Database documentation.
+
 - Sharding at the application level (but not the Oracle Sharding feature)
+- Shrinking Tablespaces (Oracle Database 26ai and higher)
+
+For more information, see [Shrinking tablespaces in RDS for Oracle](Oracle.ShrinkTablespace.md "Oracle.ShrinkTablespace.md").
+
 - Spatial and Graph
 
 For more information, see [Oracle Spatial](Oracle.Options.Spatial.md "Oracle.Options.Spatial.md").
@@ -156,8 +199,11 @@ Amazon RDS for Oracle](https://aws.amazon.com/blogs/database/alternatives-to-the
 - Hybrid partitioned tables
 - Messaging Gateway
 - Oracle Enterprise Manager Cloud Control Management Repository
+- Priority Transactions
 - Real Application Clusters (Oracle RAC)
 - Real Application Security (RAS)
+- SQL Firewall
+- True Cache
 - Unified Auditing, Pure Mode
 - Workspace Manager (WMSYS) schema
 

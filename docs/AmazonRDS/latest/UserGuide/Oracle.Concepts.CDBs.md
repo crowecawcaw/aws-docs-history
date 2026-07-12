@@ -56,7 +56,7 @@ RDS for Oracle CDB instance can contain only one tenant (PDB). You can't create 
 
 ## Creation and conversion options for CDBs
 
-Oracle Database 21c supports only CDBs, whereas Oracle Database 19c supports both CDBs
+Oracle Database 21c and Oracle Database 26ai support only CDBs, whereas Oracle Database 19c supports both CDBs
 and non-CDBs. All RDS for Oracle CDB instances support both the multi-tenant and single-tenant
 configurations.
 
@@ -65,15 +65,16 @@ configurations.
 The following table shows the different architecture options for creating and
 upgrading RDS for Oracle databases.
 
-| Release             | Database creation options   | Architecture conversion options                       | Major version upgrade targets |
-| ------------------- | --------------------------- | ----------------------------------------------------- | ----------------------------- |
-| Oracle Database 21c | CDB architecture only       | N/A                                                   | N/A                           |
-| Oracle Database 19c | CDB or non-CDB architecture | Non-CDB to CDB architecture (April 2021 RU or higher) | Oracle Database 21c CDB       |
+| Release              | Database creation options   | Architecture conversion options                       | Major version upgrade targets                     |
+| -------------------- | --------------------------- | ----------------------------------------------------- | ------------------------------------------------- |
+| Oracle Database 26ai | CDB architecture only       | N/A                                                   | N/A                                               |
+| Oracle Database 21c  | CDB architecture only       | N/A                                                   | Oracle Database 26ai CDB                          |
+| Oracle Database 19c  | CDB or non-CDB architecture | Non-CDB to CDB architecture (April 2021 RU or higher) | Oracle Database 21c CDB, Oracle Database 26ai CDB |
 
 As shown in the preceding table, you can't directly upgrade a non-CDB to a CDB in
 a new major database version. But you can convert an Oracle Database 19c non-CDB to
 an Oracle Database 19c CDB, and then upgrade the Oracle Database 19c CDB to an
-Oracle Database 21c CDB. For more information, see [Converting an RDS for Oracle non-CDB to a CDB](oracle-cdb-converting.md "oracle-cdb-converting.md").
+Oracle Database 21c or Oracle Database 26ai CDB. For more information, see [Converting an RDS for Oracle non-CDB to a CDB](oracle-cdb-converting.md "oracle-cdb-converting.md").
 
 ### Conversion options for CDB architecture configurations
 
@@ -120,6 +121,7 @@ information about Secrets Manager integration, see [Managing the master user pas
 CDBs have their own parameter group families and default parameter values. The CDB
 parameter group families are as follows:
 
+- oracle-ee-cdb-26
 - oracle-ee-cdb-21
 - oracle-se2-cdb-21
 - oracle-ee-cdb-19

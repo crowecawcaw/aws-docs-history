@@ -17,6 +17,7 @@ releases.
 
 | Oracle Database release | RDS support status | Architecture   |
 | ----------------------- | ------------------ | -------------- |
+| Oracle Database 26ai    | Supported          | CDB only       |
 | Oracle Database 21c     | Supported          | CDB only       |
 | Oracle Database 19c     | Supported          | CDB or non-CDB |
 

@@ -254,7 +254,8 @@ package to manage some advisor tasks.
 
 The advisor task procedures are available in the following engine versions:
 
-- Oracle Database 21c (21.0.0)
+- Oracle Database 26ai (26.0.0.0)
+- Oracle Database 21c (21.0.0.0)
 - Version 19.0.0.0.ru-2021-01.rur-2021-01.r1 and higher Oracle Database 19c versions
 
 For more information, see [Version 19.0.0.0.ru-2021-01.rur-2021-01.r1](../OracleReleaseNotes/oracle-version-19-0.md#oracle-version-RU-RUR.19.0.0.0.ru-2021-01.rur-2021-01.r1 "../OracleReleaseNotes/oracle-version-19-0.md#oracle-version-RU-RUR.19.0.0.0.ru-2021-01.rur-2021-01.r1")

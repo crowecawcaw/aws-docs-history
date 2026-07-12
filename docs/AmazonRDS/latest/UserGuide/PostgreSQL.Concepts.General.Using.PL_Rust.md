@@ -11,6 +11,12 @@ language extension is available in the following versions:
 - RDS for PostgreSQL 13.12 and higher 13 versions
   For more information, see [PL/Rust](https://github.com/tcdi/plrust#readme "https://github.com/tcdi/plrust#readme") on GitHub.
 
+###### Important
+
+Starting with PostgreSQL 18, Amazon RDS for PostgreSQL no longer supports the
+`plrust` extension. We recommend that you stop using PL/Rust in your
+applications so that you can upgrade to future engine versions.
+
 ###### Topics
 
 - [Setting up PL/Rust](#PL_Rust-setting-up "#PL_Rust-setting-up")

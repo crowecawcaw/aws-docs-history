@@ -108,7 +108,7 @@ Choose the subnets for the directory servers. The two subnets must be in differe
 Availability Zones. 7. Choose **Next**. 8. Review the directory information. If changes are needed, choose **Previous**. When the
 information is correct, choose **Create directory**.
 
-![Review and create page.](/images/AmazonRDS/latest/UserGuide/images/WinAuth2.png)
+![Review and create page.](images/WinAuth2.png)
 
 It takes several minutes for the directory to be created. When it has been
 successfully created, the **Status** value changes to

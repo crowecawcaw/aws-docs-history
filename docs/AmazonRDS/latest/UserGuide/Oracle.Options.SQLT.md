@@ -18,11 +18,11 @@ SQLT is a collection of SQL, PL/SQL, and SQL\*Plus files that collect, store, an
 
 Following are the supported Oracle versions for each SQLT version.
 
-| SQLT version  | Oracle Database 21c | Oracle Database 19c |
-| ------------- | ------------------- | ------------------- |
-| 2018-07-25.v1 | Supported           | Supported           |
-| 2018-03-31.v1 | Not supported       | Not supported       |
-| 2016-04-29.v1 | Not supported       | Not supported       |
+| SQLT version  | Oracle Database 26ai | Oracle Database 21c | Oracle Database 19c |
+| ------------- | -------------------- | ------------------- | ------------------- |
+| 2018-07-25.v1 | Supported            | Supported           | Supported           |
+| 2018-03-31.v1 | Not supported        | Not supported       | Not supported       |
+| 2016-04-29.v1 | Not supported        | Not supported       | Not supported       |
 
 To download SQLT and access instructions for using it:
 

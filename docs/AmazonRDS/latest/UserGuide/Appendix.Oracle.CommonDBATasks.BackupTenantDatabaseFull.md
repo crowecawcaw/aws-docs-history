@@ -21,6 +21,7 @@ for RMAN tasks:
 The `rdsadmin_rman_util.backup_tenant_full` procedure is supported for
 the following RDS for Oracle DB engine versions:
 
+- Oracle Database 26ai (26.0.0) CDB
 - Oracle Database 21c (21.0.0) CDB
 - Oracle Database 19c (19.0.0) CDB
   The following example performs a full backup of the current tenant database using

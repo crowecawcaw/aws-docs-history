@@ -14,6 +14,12 @@ Database documentation.
 EM Express isn't supported on the db.t3.small DB instance class. For more information about
 DB instance classes, see [RDS for Oracle DB instance classes](Oracle.Concepts.InstanceClasses.md "Oracle.Concepts.InstanceClasses.md").
 
+###### Note
+
+Oracle Enterprise Manager Database Express (EM Express) is desupported in Oracle Database 26ai. For
+more information, see [Oracle Database 26ai Database Administrator's Guide](https://docs.oracle.com/en/database/oracle/oracle-database/26/admin/getting-started-with-database-administration.html#GUID-07D26F18-6C6D-41E5-898D-DBA9A96724C6 "https://docs.oracle.com/en/database/oracle/oracle-database/26/admin/getting-started-with-database-administration.html#GUID-07D26F18-6C6D-41E5-898D-DBA9A96724C6") in the Oracle
+Database documentation.
+
 ## OEM option settings
 
 Amazon RDS supports the following settings for the OEM option.

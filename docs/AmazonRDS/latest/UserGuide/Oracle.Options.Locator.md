@@ -15,7 +15,7 @@ or other announced security vulnerabilities.
 ## Supported database releases for Oracle Locator
 
 RDS for Oracle supports Oracle Locator for Oracle Database 19c. Oracle Locator isn't
-supported for Oracle Database 21c, but its functionality is available in the Oracle
+supported for Oracle Database 21c and later, but its functionality is available in the Oracle
 Spatial option. Formerly, the Spatial option required additional licenses. Oracle
 Locator represented a subset of Oracle Spatial features and didn't require additional
 licenses. In 2019, Oracle announced that all Oracle Spatial features were included in

@@ -129,46 +129,46 @@ RDS for MySQL.
 The following Regions and engine versions are available for Kerberos authentication with
 RDS for Oracle.
 
-| Region                                   | RDS for Oracle 21c | RDS for Oracle 19c |
-| ---------------------------------------- | ------------------ | ------------------ |
-| US East (N. Virginia)                    | All versions       | All versions       |
-| US East (Ohio)                           | All versions       | All versions       |
-| US West (N. California)                  | All versions       | All versions       |
-| US West (Oregon)                         | All versions       | All versions       |
-| Africa (Cape Town) (opt-in Region)       | All versions       | All versions       |
-| Asia Pacific (Hong Kong) (opt-in Region) | All versions       | All versions       |
-| Asia Pacific (Hyderabad) (opt-in Region) | All versions       | All versions       |
-| Asia Pacific (Jakarta) (opt-in Region)   | All versions       | All versions       |
-| Asia Pacific (Malaysia)                  | Not available      | Not available      |
-| Asia Pacific (Melbourne) (opt-in Region) | All versions       | All versions       |
-| Asia Pacific (Mumbai)                    | All versions       | All versions       |
-| Asia Pacific (New Zealand)               | Not available      | Not available      |
-| Asia Pacific (Osaka)                     | Not available      | Not available      |
-| Asia Pacific (Seoul)                     | All versions       | All versions       |
-| Asia Pacific (Singapore)                 | All versions       | All versions       |
-| Asia Pacific (Sydney)                    | All versions       | All versions       |
-| Asia Pacific (Taipei)                    | Not available      | Not available      |
-| Asia Pacific (Thailand)                  | Not available      | Not available      |
-| Asia Pacific (Tokyo)                     | All versions       | All versions       |
-| Canada (Central)                         | All versions       | All versions       |
-| Canada West (Calgary)                    | Not available      | Not available      |
-| China (Beijing)                          | Not available      | Not available      |
-| China (Ningxia)                          | Not available      | Not available      |
-| Europe (Frankfurt)                       | All versions       | All versions       |
-| Europe (Ireland)                         | All versions       | All versions       |
-| Europe (London)                          | All versions       | All versions       |
-| Europe (Milan) (opt-in Region)           | All versions       | All versions       |
-| Europe (Paris)                           | Not available      | Not available      |
-| Europe (Spain) (opt-in Region)           | All versions       | All versions       |
-| Europe (Stockholm)                       | All versions       | All versions       |
-| Europe (Zurich) (opt-in Region)          | All versions       | All versions       |
-| Israel (Tel Aviv) (opt-in Region)        | All versions       | All versions       |
-| Mexico (Central)                         | Not available      | Not available      |
-| Middle East (Bahrain) (opt-in Region)    | All versions       | All versions       |
-| Middle East (UAE) (opt-in Region)        | All versions       | All versions       |
-| South America (São Paulo)                | All versions       | All versions       |
-| AWS GovCloud (US-East)                   | All versions       | All versions       |
-| AWS GovCloud (US-West)                   | All versions       | All versions       |
+| Region                                   | RDS for Oracle 26ai | RDS for Oracle 21c | RDS for Oracle 19c |
+| ---------------------------------------- | ------------------- | ------------------ | ------------------ |
+| US East (N. Virginia)                    | All versions        | All versions       | All versions       |
+| US East (Ohio)                           | All versions        | All versions       | All versions       |
+| US West (N. California)                  | All versions        | All versions       | All versions       |
+| US West (Oregon)                         | All versions        | All versions       | All versions       |
+| Africa (Cape Town) (opt-in Region)       | All versions        | All versions       | All versions       |
+| Asia Pacific (Hong Kong) (opt-in Region) | All versions        | All versions       | All versions       |
+| Asia Pacific (Hyderabad) (opt-in Region) | All versions        | All versions       | All versions       |
+| Asia Pacific (Jakarta) (opt-in Region)   | All versions        | All versions       | All versions       |
+| Asia Pacific (Malaysia)                  | Not available       | Not available      | Not available      |
+| Asia Pacific (Melbourne) (opt-in Region) | All versions        | All versions       | All versions       |
+| Asia Pacific (Mumbai)                    | All versions        | All versions       | All versions       |
+| Asia Pacific (New Zealand)               | Not available       | Not available      | Not available      |
+| Asia Pacific (Osaka)                     | Not available       | Not available      | Not available      |
+| Asia Pacific (Seoul)                     | All versions        | All versions       | All versions       |
+| Asia Pacific (Singapore)                 | All versions        | All versions       | All versions       |
+| Asia Pacific (Sydney)                    | All versions        | All versions       | All versions       |
+| Asia Pacific (Taipei)                    | Not available       | Not available      | Not available      |
+| Asia Pacific (Thailand)                  | Not available       | Not available      | Not available      |
+| Asia Pacific (Tokyo)                     | All versions        | All versions       | All versions       |
+| Canada (Central)                         | All versions        | All versions       | All versions       |
+| Canada West (Calgary)                    | Not available       | Not available      | Not available      |
+| China (Beijing)                          | Not available       | Not available      | Not available      |
+| China (Ningxia)                          | Not available       | Not available      | Not available      |
+| Europe (Frankfurt)                       | All versions        | All versions       | All versions       |
+| Europe (Ireland)                         | All versions        | All versions       | All versions       |
+| Europe (London)                          | All versions        | All versions       | All versions       |
+| Europe (Milan) (opt-in Region)           | All versions        | All versions       | All versions       |
+| Europe (Paris)                           | Not available       | Not available      | Not available      |
+| Europe (Spain) (opt-in Region)           | All versions        | All versions       | All versions       |
+| Europe (Stockholm)                       | All versions        | All versions       | All versions       |
+| Europe (Zurich) (opt-in Region)          | All versions        | All versions       | All versions       |
+| Israel (Tel Aviv) (opt-in Region)        | All versions        | All versions       | All versions       |
+| Mexico (Central)                         | Not available       | Not available      | Not available      |
+| Middle East (Bahrain) (opt-in Region)    | All versions        | All versions       | All versions       |
+| Middle East (UAE) (opt-in Region)        | All versions        | All versions       | All versions       |
+| South America (São Paulo)                | All versions        | All versions       | All versions       |
+| AWS GovCloud (US-East)                   | All versions        | All versions       | All versions       |
+| AWS GovCloud (US-West)                   | All versions        | All versions       | All versions       |
 
 ## Kerberos authentication with RDS for PostgreSQL
 

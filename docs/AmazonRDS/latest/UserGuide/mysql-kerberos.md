@@ -319,7 +319,7 @@ When you use the console to create, modify, or restore a DB instance, choose **P
 authentication** in the **Database authentication** section. Choose **Browse
 Directory** and then select the directory, or choose **Create a new directory**.
 
-![The Database authentication section with Password and Kerberos authentication selected in the Amazon RDS console.](images/kerberos-authentication.png)
+![The Database authentication section with Password and Kerberos authentication selected in the Amazon RDS console.](/images/AmazonRDS/latest/UserGuide/images/kerberos-authentication.png)
 
 When you use the AWS CLI or RDS API, associate a DB instance with a directory. The following parameters are required for the
 DB instance to use the domain directory you created:

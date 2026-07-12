@@ -143,7 +143,7 @@ To see information about your directory, choose the directory ID in the director
 listing. Make a note of the **Directory ID** value. You need this
 value when you create or modify your PostgreSQL DB instance.
 
-![The details page.](/images/AmazonRDS/latest/UserGuide/images/WinAuth3.png)
+![The details page.](images/WinAuth3.png)
 
 ## Step 2: (Optional) Create a trust relationship between your on-premises Active Directory and Directory Service
 

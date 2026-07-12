@@ -55,7 +55,7 @@ Comparison of mounted and read-only replica modes| Feature | Mounted mode | Read
 
 ## Read replicas of CDBs
 
-RDS for Oracle supports Data Guard read replicas for Oracle Database 19c and 21c CDBs in both single-tenant and multi-tenant configurations.
+RDS for Oracle supports Data Guard read replicas for Oracle Database 19c, 21c, and 26ai CDBs in both single-tenant and multi-tenant configurations.
 You can create, manage, and promote read replicas in a
 CDB just as you can in a non-CDB. Mounted replicas are also supported. You get the
 following benefits:

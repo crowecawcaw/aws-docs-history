@@ -24,6 +24,7 @@ common parameters for RMAN tasks:
 
 This procedure is supported for the following Amazon RDS for Oracle DB engine versions:
 
+- Oracle Database 26ai (26.0.0) CDB
 - Oracle Database 21c (21.0.0) CDB
 - Oracle Database 19c (19.0.0) CDB
   This procedure also uses the following additional parameter.

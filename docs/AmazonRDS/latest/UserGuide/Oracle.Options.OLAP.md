@@ -12,8 +12,13 @@ If you use Oracle OLAP, Amazon RDS automatically updates your DB instance to the
 if there are security vulnerabilities with a Common Vulnerability Scoring System (CVSS) score of 9+
 or other announced security vulnerabilities.
 
-Amazon RDS supports Oracle OLAP for the Enterprise Edition of Oracle Database 19c and
-higher.
+Amazon RDS supports Oracle OLAP for the Enterprise Edition of Oracle Database 19c and Oracle Database 21c.
+
+###### Note
+
+RDS for Oracle doesn't support OLAP in Oracle Database 26ai because Oracle deprecated OLAP in that
+release. In some use cases, you can use Oracle Analytic Views instead. For more
+information, see [Oracle Analytic Views](https://docs.oracle.com/en/database/oracle/oracle-database/26/dwhsg/part-analytic-views.html "https://docs.oracle.com/en/database/oracle/oracle-database/26/dwhsg/part-analytic-views.html") in the Oracle documentation.
 
 ## Prerequisites for Oracle OLAP
 
