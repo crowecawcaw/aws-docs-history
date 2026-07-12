@@ -106,7 +106,15 @@ group. To add devices:
     Optionally, you can choose the gateways that you want to
      use for receiving the downlink message and the transmission
      interval between them. For more information, see [Choose participating gateways to receive multicast downlink messages](lorawan-multicast-choose-gateways.md "lorawan-multicast-choose-gateways.md").
-    5. To create your multicast group, choose
+    5. ###### (Optional) Default session parameters
+
+
+    Specify default session parameters for your multicast
+     group, such as the downlink data rate and downlink
+     frequency. AWS IoT Wireless uses these default values for
+     future multicast sessions when you do not specify
+     session-specific values.
+    6. To create your multicast group, choose
      **Create**.
 
 
@@ -140,6 +148,15 @@ gateways that you want to use for receiving the multicast downlink
 message using the `ParticipatingGateways` parameter. For
 more information, see [Choose participating gateways to receive multicast downlink messages](lorawan-multicast-choose-gateways.md "lorawan-multicast-choose-gateways.md").
 
+###### Note
+
+Alternatively, you can specify default session parameters, such as the
+downlink data rate (`DlDr`) and downlink frequency
+(`DlFreq`), by using the
+`DefaultSessionParameters` parameter. AWS IoT Wireless uses these default
+values for future multicast sessions when you do not specify session-specific
+values.
+
 ```
 aws iotwireless create-multicast-group \
     --cli-input-json file://input.json
@@ -154,7 +171,11 @@ where:
    "Description": "Multicast group to send downlink payload and perform FUOTA.",
    "LoRaWAN": {
       "DlClass": "ClassB",
-      "RfRegion": "US915"
+      "RfRegion": "US915",
+      "DefaultSessionParameters": {
+         "DlDr": 8,
+         "DlFreq": 923300000
+      }
    },
    "Name": "MC_group_FUOTA"
 }

@@ -143,6 +143,13 @@ using the API. In addition:
   the FUOTA task, the session timeout will be automatically
   updated.
 
+Alternatively, you can configure default session parameters at the
+multicast group level. Specify the `DefaultSessionParameters`
+parameter — including the downlink data rate (`DlDr`) and downlink frequency (`DlFreq`) — when you create the multicast group.
+Use the [CreateMulticastGroup](../apireference/API_CreateMulticastGroup.md "../apireference/API_CreateMulticastGroup.md") API operation to set these parameters. AWS IoT Wireless uses these default
+values for future FUOTA sessions associated with
+that group when you do not specify session-specific values.
+
 For information about starting a FUOTA task, see [Schedule FUOTA session](#lorawan-fuota-devices-api-schedule "#lorawan-fuota-devices-api-schedule").
 
 ### Add devices and multicast groups to FUOTA task
