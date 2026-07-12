@@ -34,7 +34,7 @@ Amazon DocumentDB supports on-demand instances and the following instance types:
   - **R8G instance types:**
     `db.r8g.large`, `db.r8g.xlarge`, `db.r8g.2xlarge`,
     `db.r8g.4xlarge`, `db.r8g.8xlarge`, `db.r8g.12xlarge`,
-    `db.r8g.16xlarge`, `db.r8g.24xlarge`.
+    `db.r8g.16xlarge`, `db.r8g.24xlarge`, `db.r8g.48xlarge`.
   - **R6G instance types:**
     `db.r6g.large`, `db.r6g.xlarge`, `db.r6g.2xlarge`,
     `db.r6g.4xlarge`, `db.r6g.8xlarge`, `db.r6g.12xlarge`, `db.r6g.16xlarge`.
@@ -220,6 +220,7 @@ Amazon DocumentDB 8.0
 | R8G.12xlarge   | 384                   | 60000             | 2280         | 4800              | 4500                 |
 | R8G.16xlarge   | 512                   | 60000             | 3040         | 6400              | 4500                 |
 | R8G.24xlarge   | 768                   | 60000             | 4560         | 9600              | 4500                 |
+| R8G.48xlarge   | 1536                  | 60000             | 9120         | 9600              | 4500                 |
 
 \* including R6GD
 
@@ -251,6 +252,7 @@ Amazon DocumentDB 5.0
 | R8G.12xlarge   | 384                   | 60000             | 2280         | 4800              | 4500                 |
 | R8G.16xlarge   | 512                   | 60000             | 3040         | 6400              | 4500                 |
 | R8G.24xlarge   | 768                   | 60000             | 4560         | 9600              | 4500                 |
+| R8G.48xlarge   | 1536                  | 60000             | 9120         | 9600              | 4500                 |
 
 \* including R6GD
 

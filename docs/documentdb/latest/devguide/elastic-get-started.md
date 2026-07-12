@@ -236,7 +236,7 @@ This button is enabled only after you have clicked the checkbox next to your clu
 The CloudShell **Run command** screen appears. 3. In the **New environment name** field, enter a unique name, such as "test" and choose **Create and run**.
 VPC environment details are automatically configured for your Amazon DocumentDB database.
 
-![Elastic cluster CloudShell Run command screen requesting new environment name](/images/documentdb/latest/devguide/images/ec-gs-run-command.png) 4. When prompted, enter the password you created in Step 1: Create an Amazon DocumentDB elastic cluster (sub-step 5).
+![Elastic cluster CloudShell Run command screen requesting new environment name](images/ec-gs-run-command.png) 4. When prompted, enter the password you created in Step 1: Create an Amazon DocumentDB elastic cluster (sub-step 5).
 
 ![Elastic cluster CloudShell screen requesting user password](images/ec-gs-cs-password.png)
 

@@ -136,7 +136,7 @@ VPC environment details are automatically configured for your Amazon DocumentDB 
 
 ![Cluster cluster CloudShell Run command screen requesting new environment name](images/ec-gs-run-command.png) 4. When prompted, enter the password you created in Step 1: Create an Amazon DocumentDB cluster (sub-step 7).
 
-![Cluster CloudShell screen requesting user password](/images/documentdb/latest/devguide/images/ec-gs-cs-password.png)
+![Cluster CloudShell screen requesting user password](images/ec-gs-cs-password.png)
 
 After you enter your password and your prompt becomes `rs0 [direct: primary] <env-name>>`, you are successfully connected to your Amazon DocumentDB cluster.
 
