@@ -6,9 +6,20 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## June 29, 2026 – present
+## July 8, 2026 – present
 
-The following Elastic Beanstalk platform versions for .NET Core on Linux have been current since June 29, 2026:
+The following Elastic Beanstalk platform versions for .NET Core on Linux have been current since July 8, 2026:
+
+| Platform Version and _Solution Stack Name_                                                | Framework                    | Proxy Server | AMI              | AWS X-Ray |
+| ----------------------------------------------------------------------------------------- | ---------------------------- | ------------ | ---------------- | --------- |
+| **.NET 10 on AL2023 version 3.11.3**<br>_64bit Amazon Linux 2023 v3.11.3 running .NET 10_ | .NET 10.0.9, supports 10.0.9 | nginx 1.30.2 | 2023.12.20260622 | 3.6.5     |
+| **.NET 9 on AL2023 version 3.11.3**<br>_64bit Amazon Linux 2023 v3.11.3 running .NET 9_   | .NET 9.0.17, supports 9.0.17 | nginx 1.30.2 | 2023.12.20260622 | 3.6.5     |
+| **.NET 8 on AL2023 version 3.11.3**<br>_64bit Amazon Linux 2023 v3.11.3 running .NET 8_   | .NET 8.0.28, supports 8.0.28 | nginx 1.30.2 | 2023.12.20260622 | 3.6.5     |
+| **.NET Core on AL2 version 2.16.3**<br>_64bit Amazon Linux 2 v2.16.3 running .NET Core_   | .NET 8.0.28, supports 8.0.28 | nginx 1.30.2 | 2.0.20260629     | 3.6.5     |
+
+## June 29, 2026 – July 7, 2026
+
+The following Elastic Beanstalk platform versions for .NET Core on Linux were current between June 29, 2026 and July 7, 2026:
 
 | Platform Version and _Solution Stack Name_                                                | Framework                    | Proxy Server | AMI              | AWS X-Ray |
 | ----------------------------------------------------------------------------------------- | ---------------------------- | ------------ | ---------------- | --------- |

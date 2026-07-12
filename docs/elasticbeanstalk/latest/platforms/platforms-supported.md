@@ -42,8 +42,8 @@ _AWS Elastic Beanstalk Developer Guide_ for more information about the Docker pl
 | ------------------------------------------------------------------------------------ | ---------------- | --------- | ------- | -------------- | ------------ |
 | **Docker AL2023 version 4.13.3**<br>_64bit Amazon Linux 2023 v4.13.3 running Docker_ | 2023.12.20260622 |           | 25.0.16 | 5.2.0          | nginx 1.30.2 |
 | **ECS AL2023 version 4.7.3**<br>_64bit Amazon Linux 2023 v4.7.3 running ECS_         | 2023.12.20260622 | 1.104.0   | 25.0.16 |                |              |
-| **Docker AL2 version 4.9.2**<br>_64bit Amazon Linux 2 v4.9.2 running Docker_         | 2.0.20260622     |           | 25.0.16 | 5.2.0          | nginx 1.30.2 |
-| **ECS AL2 version 3.10.2**<br>_64bit Amazon Linux 2 v3.10.2 running ECS_             | 2.0.20260622     | 1.104.0   | 25.0.14 |                |              |
+| **Docker AL2 version 4.9.3**<br>_64bit Amazon Linux 2 v4.9.3 running Docker_         | 2.0.20260629     |           | 25.0.16 | 5.3.0          | nginx 1.30.2 |
+| **ECS AL2 version 3.10.3**<br>_64bit Amazon Linux 2 v3.10.3 running ECS_             | 2.0.20260629     | 1.104.0   | 25.0.14 |                |              |
 
 For information
 about platform versions scheduled for retirement as published in [Platform Support
@@ -57,7 +57,7 @@ Elastic Beanstalk supports the following Go platform versions.
 | Platform Version and _Solution Stack Name_                                     | AMI              | Language   | AWS X-Ray | Proxy Server |
 | ------------------------------------------------------------------------------ | ---------------- | ---------- | --------- | ------------ |
 | **Go 1 AL2023 version 4.9.3**<br>_64bit Amazon Linux 2023 v4.9.3 running Go 1_ | 2023.12.20260622 | Go 1.25.11 | 3.6.5     | nginx 1.30.2 |
-| **Go 1 AL2 version 3.19.2**<br>_64bit Amazon Linux 2 v3.19.2 running Go 1_     | 2.0.20260622     | Go 1.26.4  | 3.6.5     | nginx 1.30.2 |
+| **Go 1 AL2 version 3.19.3**<br>_64bit Amazon Linux 2 v3.19.3 running Go 1_     | 2.0.20260629     | Go 1.26.4  | 3.6.5     | nginx 1.30.2 |
 
 For information about platform
 versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
@@ -75,9 +75,9 @@ Elastic Beanstalk supports the following Java SE platform versions.
 | **Corretto 17 AL2023 version 4.12.3**<br>_64bit Amazon Linux 2023 v4.12.3 running Corretto 17_ | 2023.12.20260622 | Corretto 17.0.19.10.1 | Ant 1.10.17, Gradle 9.6.0, Maven 3.9.16  | 3.6.5     | nginx 1.30.2 |
 | **Corretto 11 AL2023 version 4.12.3**<br>_64bit Amazon Linux 2023 v4.12.3 running Corretto 11_ | 2023.12.20260622 | Corretto 11.0.31.11.1 | Ant 1.10.17, Gradle 8.14.5, Maven 3.9.16 | 3.6.5     | nginx 1.30.2 |
 | **Corretto 8 AL2023 version 4.12.3**<br>_64bit Amazon Linux 2023 v4.12.3 running Corretto 8_   | 2023.12.20260622 | Corretto 8.492.09.1   | Ant 1.10.17, Gradle 8.14.5, Maven 3.9.16 | 3.6.5     | nginx 1.30.2 |
-| **Corretto 17 version 3.14.2**<br>_64bit Amazon Linux 2 v3.14.2 running Corretto 17_           | 2.0.20260622     | Corretto 17.0.19.10.1 | Ant 1.10.17, Gradle 8.14.5, Maven 3.9.16 | 3.6.5     | nginx 1.30.2 |
-| **Corretto 11 version 3.14.2**<br>_64bit Amazon Linux 2 v3.14.2 running Corretto 11_           | 2.0.20260622     | Corretto 11.0.31.11.1 | Ant 1.10.17, Gradle 8.14.5, Maven 3.9.16 | 3.6.5     | nginx 1.30.2 |
-| **Corretto 8 version 3.14.2**<br>_64bit Amazon Linux 2 v3.14.2 running Corretto 8_             | 2.0.20260622     | Corretto 8.492.09.1   | Ant 1.10.17, Gradle 8.14.5, Maven 3.9.16 | 3.6.5     | nginx 1.30.2 |
+| **Corretto 17 version 3.14.3**<br>_64bit Amazon Linux 2 v3.14.3 running Corretto 17_           | 2.0.20260629     | Corretto 17.0.19.10.1 | Ant 1.10.17, Gradle 8.14.5, Maven 3.9.16 | 3.6.5     | nginx 1.30.2 |
+| **Corretto 11 version 3.14.3**<br>_64bit Amazon Linux 2 v3.14.3 running Corretto 11_           | 2.0.20260629     | Corretto 11.0.31.11.1 | Ant 1.10.17, Gradle 8.14.5, Maven 3.9.16 | 3.6.5     | nginx 1.30.2 |
+| **Corretto 8 version 3.14.3**<br>_64bit Amazon Linux 2 v3.14.3 running Corretto 8_             | 2.0.20260629     | Corretto 8.492.09.1   | Ant 1.10.17, Gradle 8.14.5, Maven 3.9.16 | 3.6.5     | nginx 1.30.2 |
 
 For information about platform
 versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
@@ -98,8 +98,8 @@ Elastic Beanstalk supports the following Tomcat platform versions.
 | **Corretto 17 with Tomcat 9 AL2023 version 5.14.3**<br>_64bit Amazon Linux 2023 v5.14.3 running Tomcat 9 Corretto 17_   | 2023.12.20260622 | Corretto 17.0.19.10.1 | 3.6.5     | Tomcat 9.0.118     | nginx 1.30.2 (default), Apache 2.4.68 |
 | **Corretto 11 with Tomcat 9 AL2023 version 5.14.3**<br>_64bit Amazon Linux 2023 v5.14.3 running Tomcat 9 Corretto 11_   | 2023.12.20260622 | Corretto 11.0.31.11.1 | 3.6.5     | Tomcat 9.0.118     | nginx 1.30.2 (default), Apache 2.4.68 |
 | **Corretto 8 with Tomcat 9 AL2023 version 5.14.3**<br>_64bit Amazon Linux 2023 v5.14.3 running Tomcat 9 Corretto 8_     | 2023.12.20260622 | Corretto 8.492.09.1   | 3.6.5     | Tomcat 9.0.119     | nginx 1.30.2 (default), Apache 2.4.68 |
-| **Corretto 11 with Tomcat 9 AL2 version 4.14.2**<br>_64bit Amazon Linux 2 v4.14.2 running Tomcat 9 Corretto 11_         | 2.0.20260622     | Corretto 11.0.31.11.1 | 3.6.5     | Tomcat 9.0.118     | nginx 1.30.2 (default), Apache 2.4.68 |
-| **Corretto 8 with Tomcat 9 AL2 version 4.14.2**<br>_64bit Amazon Linux 2 v4.14.2 running Tomcat 9 Corretto 8_           | 2.0.20260622     | Corretto 8.492.09.1   | 3.6.5     | Tomcat 9.0.118     | nginx 1.30.2 (default), Apache 2.4.68 |
+| **Corretto 11 with Tomcat 9 AL2 version 4.14.3**<br>_64bit Amazon Linux 2 v4.14.3 running Tomcat 9 Corretto 11_         | 2.0.20260629     | Corretto 11.0.31.11.1 | 3.6.5     | Tomcat 9.0.118     | nginx 1.30.2 (default), Apache 2.4.68 |
+| **Corretto 8 with Tomcat 9 AL2 version 4.14.3**<br>_64bit Amazon Linux 2 v4.14.3 running Tomcat 9 Corretto 8_           | 2.0.20260629     | Corretto 8.492.09.1   | 3.6.5     | Tomcat 9.0.118     | nginx 1.30.2 (default), Apache 2.4.68 |
 
 For information about platform
 versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
@@ -115,7 +115,7 @@ Elastic Beanstalk supports the following .NET Core on Linux platform versions.
 | **.NET 10 on AL2023 version 3.11.3**<br>_64bit Amazon Linux 2023 v3.11.3 running .NET 10_ | .NET 10.0.9, supports 10.0.9 | nginx 1.30.2 | 2023.12.20260622 | 3.6.5     |
 | **.NET 9 on AL2023 version 3.11.3**<br>_64bit Amazon Linux 2023 v3.11.3 running .NET 9_   | .NET 9.0.17, supports 9.0.17 | nginx 1.30.2 | 2023.12.20260622 | 3.6.5     |
 | **.NET 8 on AL2023 version 3.11.3**<br>_64bit Amazon Linux 2023 v3.11.3 running .NET 8_   | .NET 8.0.28, supports 8.0.28 | nginx 1.30.2 | 2023.12.20260622 | 3.6.5     |
-| **.NET Core on AL2 version 2.16.2**<br>_64bit Amazon Linux 2 v2.16.2 running .NET Core_   | .NET 8.0.28, supports 8.0.28 | nginx 1.30.2 | 2.0.20260622     | 3.6.5     |
+| **.NET Core on AL2 version 2.16.3**<br>_64bit Amazon Linux 2 v2.16.3 running .NET Core_   | .NET 8.0.28, supports 8.0.28 | nginx 1.30.2 | 2.0.20260629     | 3.6.5     |
 
 For information about
 platform versions scheduled for retirement as published in [Platform Support
