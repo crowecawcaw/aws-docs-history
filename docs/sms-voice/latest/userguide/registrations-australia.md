@@ -153,12 +153,21 @@ same time. Because registration is processed through a downstream partner, there
 delay of up to one to two days between when ACMA sends the confirmation email and when the
 registration status updates to **Complete** in the console.
 
-If you receive the ACMA confirmation email, your sender ID is registered with ACMA. It
-is compliant for the July 1, 2026 enforcement date and will not be labeled
-"Unverified" by Australian carriers, even if the console has not yet updated to
-**Complete**. The ACMA confirmation email is the authoritative signal that
-your sender ID is registered. The console status updates to **Complete**
-shortly afterward to reflect the completed registration in AWS End User Messaging SMS.
+If you receive the ACMA confirmation email, your sender ID is registered with ACMA
+and is compliant for the July 1, 2026 enforcement date. The ACMA confirmation email is
+the authoritative signal of ACMA registration. Because registration is processed through
+a downstream partner, the console status typically updates to
+**Complete** within one to two days afterward.
+
+ACMA compliance and AWS End User Messaging SMS sending behavior are separate. The ACMA confirmation email
+confirms your sender ID is registered with ACMA and is compliant for the July 1, 2026
+enforcement date. However, AWS End User Messaging SMS does not apply your sender ID to outbound messages until
+the registration status is **Complete** in the console. Although the
+registration is still in **Reviewing**, the service treats the sender
+ID as unregistered — even after you have received the ACMA confirmation email.
+Your messages continue to be sent from a shared Australian long code or
+displayed as "Unverified" until the console status changes to
+**Complete**.
 
 ## Delivery behavior for unregistered sender IDs after July 1, 2026
 

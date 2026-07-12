@@ -155,8 +155,7 @@ message. You can attach message-level suggestions to any content type
 [Configuring RCS suggestions](rcs-suggestions.md "rcs-suggestions.md"). 12. (Optional) Configure the time-to-live (TTL) setting. Expand
 **Advanced options** and enter a value in the
 **Time to live (seconds)** field. Valid values
-range from 1 to 172,800 seconds (48 hours). A minimum value of 10 seconds
-is recommended.
+range from 1 to 172,800 seconds (48 hours). We recommend a minimum value of 10 seconds.
 
 If the message is not delivered before the TTL expires, the service
 triggers a TTL expiration event. If you configured fallback, the fallback

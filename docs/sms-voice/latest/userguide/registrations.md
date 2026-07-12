@@ -99,8 +99,30 @@ The following registration forms can be filled out and submitted through the AWS
 
 ###### Topics
 
+- [Registration status and sending behavior](#registrations-status-sending-behavior "#registrations-status-sending-behavior")
 - [Estimated registration times](registration-eta.md "registration-eta.md")
 - [Manage registrations](registrations-manage.md "registrations-manage.md")
 - [Gen-AI Feedback on Registrations](registrations-genai-feedback.md "registrations-genai-feedback.md")
 - [Registration forms](registrations-country.md "registrations-country.md")
 - [Dedicated number registration forms](registrations-dedicated-number.md "registrations-dedicated-number.md")
+
+## Registration status and sending behavior
+
+A sender ID or other origination identity that requires registration is only treated as
+registered after its registration status reaches **Complete** in AWS End User Messaging SMS. A registration
+in any other status — including **Reviewing** or another in-progress
+state — is treated the same as unregistered, even though you have submitted it. The
+service does not consider a sender ID registered, and does not apply it to your outbound
+messages, until AWS End User Messaging SMS reflects the registration as **Complete**.
+
+Although a registration is not yet **Complete**, how your messages are
+delivered and displayed depends on the destination country, its carriers, and its regulator.
+Depending on the destination, messages might be sent from a shared or random long code, displayed
+with a generic identifier such as `NOTICE` or "Unverified", or, in
+some countries, not delivered at all. After the status changes to
+**Complete**, your registered origination identity is applied and messages
+display accordingly.
+
+The authoritative signal that a registration is in effect is the
+**Complete** status in the AWS End User Messaging SMS console. A submitted registration, or a
+registration in review, does not make the sender ID active.
