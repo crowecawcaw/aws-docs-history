@@ -24,8 +24,6 @@ The remediation guidance provided in this topic might require additional consult
 - [Misconfiguration traits for EC2 instances](exposure-ec2-instance.md#misconfiguration "exposure-ec2-instance.md#misconfiguration")
 
   - [The EC2 instance allows access to IMDS using version 1](exposure-ec2-instance.md#metadata-misconfiguration "exposure-ec2-instance.md#metadata-misconfiguration")
-  - [The IAM role associated with the Amazon EC2 instance has an administrative access policy](exposure-ec2-instance.md#administrative-access-policy "exposure-ec2-instance.md#administrative-access-policy")
-  - [The IAM role associated with the Amazon EC2 instance has a service admin policy](exposure-ec2-instance.md#service-admin-policy "exposure-ec2-instance.md#service-admin-policy")
   - [The Amazon EC2 instance has a security group or network ACL that allows SSH or RDP access](exposure-ec2-instance.md#remote-access-allowed "exposure-ec2-instance.md#remote-access-allowed")
   - [The Amazon EC2 instance has an open security group](exposure-ec2-instance.md#open-security-group "exposure-ec2-instance.md#open-security-group")
 
@@ -40,6 +38,25 @@ The remediation guidance provided in this topic might require additional consult
   - [The EC2 instance has an End-Of-Life operating system](exposure-ec2-instance.md#end-of-life-operating-system-detected "exposure-ec2-instance.md#end-of-life-operating-system-detected")
   - [The EC2 instance has malicious software packages](exposure-ec2-instance.md#malicious-package "exposure-ec2-instance.md#malicious-package")
   - [The EC2 instance has malicious files](exposure-ec2-instance.md#malicious-file "exposure-ec2-instance.md#malicious-file")
+
+- [Impact traits for EC2 instances](exposure-ec2-instance.md#ec2-impact "exposure-ec2-instance.md#ec2-impact")
+
+  - [Full control privileged executor](exposure-ec2-instance.md#full-control-privileged-executor "exposure-ec2-instance.md#full-control-privileged-executor")
+  - [Direct policy escalation](exposure-ec2-instance.md#direct-policy-escalation "exposure-ec2-instance.md#direct-policy-escalation")
+  - [Trust policy hijack](exposure-ec2-instance.md#trust-policy-hijack "exposure-ec2-instance.md#trust-policy-hijack")
+  - [Data ransomware](exposure-ec2-instance.md#data-ransomware "exposure-ec2-instance.md#data-ransomware")
+  - [Remove restriction](exposure-ec2-instance.md#remove-restriction "exposure-ec2-instance.md#remove-restriction")
+  - [Pass role create executor](exposure-ec2-instance.md#pass-role-create-executor "exposure-ec2-instance.md#pass-role-create-executor")
+  - [Swap role existing executor](exposure-ec2-instance.md#swap-role-existing-executor "exposure-ec2-instance.md#swap-role-existing-executor")
+  - [Role chain escalation](exposure-ec2-instance.md#role-chain-escalation "exposure-ec2-instance.md#role-chain-escalation")
+  - [Inject code privileged executor](exposure-ec2-instance.md#inject-code-privileged-executor "exposure-ec2-instance.md#inject-code-privileged-executor")
+  - [Disable audit trail](exposure-ec2-instance.md#disable-audit-trail "exposure-ec2-instance.md#disable-audit-trail")
+  - [Access existing executor](exposure-ec2-instance.md#access-existing-executor "exposure-ec2-instance.md#access-existing-executor")
+  - [Credential minting](exposure-ec2-instance.md#credential-minting "exposure-ec2-instance.md#credential-minting")
+  - [Pass role data access](exposure-ec2-instance.md#pass-role-data-access "exposure-ec2-instance.md#pass-role-data-access")
+  - [Pass role task hijack](exposure-ec2-instance.md#pass-role-task-hijack "exposure-ec2-instance.md#pass-role-task-hijack")
+  - [Single hop data access](exposure-ec2-instance.md#single-hop-data-access "exposure-ec2-instance.md#single-hop-data-access")
+  - [Capability advancing](exposure-ec2-instance.md#capability-advancing "exposure-ec2-instance.md#capability-advancing")
 
 ## Misconfiguration traits for EC2 instances
 
@@ -67,105 +84,6 @@ For more information, see [Modify instance metadata options for existing instanc
 ###### Apply updates to instances in an Auto Scaling group
 
 If your instance is part of an Auto Scaling group, update your launch template or launch configuration with a new configuration, and perform an instance refresh.
-
-### The IAM role associated with the Amazon EC2 instance has an administrative access policy
-
-Administrative access policies provide Amazon EC2 instances with broad permissions to AWS services and resources.
-These policies typically include permissions not required for instance functionality.
-Providing an IAM identity with an administrative access policy on an Amazon EC2 instance (instead of the minimum set of permissions the role attached to your instance profile needs) can increase the scope of an attack if the Amazon EC2 instance is compromised.
-If an instance is compromised, attackers could utilize these excessive permissions to move laterally across your environment, access data, or manipulate resources.
-Following standard security principles, we recommend you grant least privileges, which means you only grant the permissions required to perform a task.
-
-###### Review and identify administrative policies
-
-In the IAM dashboard, find the role with the role name.
-Review the permissions policy attached to the IAM role.
-If the policy is an AWS managed policy, look for `AdministratorAccess` or `IAMFullAccess`.
-Otherwise, in the policy document, look for statements with `"Effect": "Allow", "Action": "*"`, and `"Resource": "*"`.
-
-###### Implement least privilege access
-
-Replace administrative policies with policies that grant only the specific permissions required for the instance to function.
-For more information about security best practices for IAM roles, see [Apply least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") in Security best practices in the _AWS Identity and Access Management User Guide_.
-To identify unnecessary permissions, you can use the IAM Access Analyzer to understand how to modify your policy based on access history.
-For more information, see [Findings for external and unused access](../../../IAM/latest/UserGuide/access-analyzer-findings.md "../../../IAM/latest/UserGuide/access-analyzer-findings.md") in the _AWS Identity and Access Management User Guide_.
-Alternatively, you can create a new IAM role to avoid impacting other applications using the existing role.
-In this scenario, create a new IAM role, then associate the new IAM role with the instance.
-For instructions on replacing an IAM role for an instance, see [Attach an IAM role to an instance](../../../AWSEC2/latest/UserGuide/attach-iam-role.md "../../../AWSEC2/latest/UserGuide/attach-iam-role.md") in the _Amazon Elastic Compute Cloud User Guide_.
-
-###### Secure configuration considerations
-
-If service-level administrative permissions are necessary for the instance, consider implementing these additional security controls to mitigate risk:
-
-- **Secure configuration considerations**
-
-  - **Multi-factor authentication (MFA)** –
-    MFA adds an additional security layer by requiring an additional form of authentication.
-    This helps prevent unauthorized access even if credentials are compromised.
-    For more information, see [Require multi-factor authentication (MFA)](../../../IAM/latest/UserGuide/best-practices.md#enable-mfa-for-privileged-users "../../../IAM/latest/UserGuide/best-practices.md#enable-mfa-for-privileged-users") in the _AWS Identity and Access Management User Guide_.
-  - **IAM conditions** –
-    Setting up condition elements allow you to restrict when and how administrative permissions can be used based on factors like source IP or MFA age.
-    For more information, see [Use conditions in IAM policies to further restrict access](../../../IAM/latest/UserGuide/best-practices.md#use-policy-conditions "../../../IAM/latest/UserGuide/best-practices.md#use-policy-conditions") in the _AWS Identity and Access Management User Guide_.
-  - **Permissions boundaries** –
-    Permission boundaries establish the maximum permissions a role can have, providing guardrails for roles with administrative access.
-    For more information, see [Use permissions boundaries to delegate permissions management within an account](../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries "../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries") in the _AWS Identity and Access Management User Guide_.
-
-###### Apply updates to instances in an auto scaling group
-
-For Amazon EC2 instances in an AWS auto scaling group, update the launch template or launch configuration with the new instance profile, and perform an instance refresh.
-For information about updating a launch template, see [Modify a launch template (manage launch template versions)](../../../AWSEC2/latest/UserGuide/manage-launch-template-versions.md "../../../AWSEC2/latest/UserGuide/manage-launch-template-versions.md") in the _Amazon Elastic Compute Cloud User Guide_.
-For more information, see [Use an instance refresh to update instances in an Auto Scaling group](../../../autoscaling/ec2/userguide/asg-instance-refresh.md "../../../autoscaling/ec2/userguide/asg-instance-refresh.md").
-For more information about using IAM roles with Auto Scaling groups, see [IAM role for applications that run on Amazon EC2](../../../autoscaling/ec2/userguide/us-iam-role.md "../../../autoscaling/ec2/userguide/us-iam-role.md") instances in the _Amazon EC2 Auto Scaling User Guide_.
-
-### The IAM role associated with the Amazon EC2 instance has a service admin policy
-
-Service access policies provide Amazon EC2 instances with broad permissions to AWS services and resources.
-These policies typically include permissions that are not required for instance functionality.
-Providing an IAM identity with an administrative access policy on an Amazon EC2 instance instead of the minimum set of permissions the role attached to your instance profile needs can increase the scope of an attack if an instance is compromised.
-Following standard security principles, we recommend that you grant least privileges, which means that you grant only the permissions required to perform a task.
-
-###### Review and identify administrative policies
-
-In the IAM dashboard, find the role with the role name.
-Review the permissions policy attached to the IAM role.
-If the policy is an AWS managed policy, look for `AdministratorAccess` or `IAMFullAccess`.
-Otherwise, in the policy document, look for statements with `"Effect": "Allow", "Action": "*"`, and `"Resource": "*"`.
-
-###### Implement least privilege access
-
-Replace service admin policies with those that grant only the specific permissions required for the instance to function.
-For more information on security best practices for IAM roles, see [Apply least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") in Security best practices in the _AWS Identity and Access Management User Guide_.
-To identify unnecessary permissions, you can use the IAM Access Analyzer to understand how to modify your policy based on access history.
-For more information, see [Findings for external and unused access](../../../IAM/latest/UserGuide/access-analyzer-findings.md "../../../IAM/latest/UserGuide/access-analyzer-findings.md") in the _AWS Identity and Access Management User Guide_.
-Alternatively, you can create a new IAM role to avoid impacting other applications that are using the existing role.
-In this scenario, create a new IAM role, then associate the new IAM role with the instance.
-For information about replacing an IAM role for an instance, see [Attach an IAM role to an instance](../../../AWSEC2/latest/UserGuide/attach-iam-role.md "../../../AWSEC2/latest/UserGuide/attach-iam-role.md") in the _Amazon Elastic Compute Cloud User Guide_
-
-###### Secure configuration considerations
-
-If service-level administrative permissions are necessary for the instance, consider implementing these additional security controls to mitigate risk:
-
-###### Secure configuration considerations
-
-If service-level administrative permissions are necessary for the instance, consider implementing these additional security controls to mitigate risk:
-
-- **Multi-factor authentication (MFA)** –
-  MFA adds an additional security layer by requiring an additional form of authentication.
-  This helps prevent unauthorized access even if credentials are compromised.
-  For more information, see [Require multi-factor authentication (MFA)](../../../IAM/latest/UserGuide/best-practices.md#enable-mfa-for-privileged-users "../../../IAM/latest/UserGuide/best-practices.md#enable-mfa-for-privileged-users") in the _AWS Identity and Access Management User Guide_.
-- **IAM conditions** –
-  Setting up condition elements allows you to restrict when and how administrative permissions can be used based on factors like source IP or MFA age.
-  For more information, see [Use conditions in IAM policies to further restrict access](../../../IAM/latest/UserGuide/best-practices.md#use-policy-conditions "../../../IAM/latest/UserGuide/best-practices.md#use-policy-conditions") in the _AWS Identity and Access Management User Guide_.
-- **Permissions boundaries** –
-  Permission boundaries establish the maximum permissions a role can have, providing guardrails for roles with administrative access.
-  For more information, see [Use permissions boundaries to delegate permissions management within an account](../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries "../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries") in the _AWS Identity and Access Management User Guide_.
-
-###### Apply updates to instances in Auto Scaling group
-
-For Amazon EC2 instances in an AWS auto scaling group, update the launch template or launch configuration with the new instance profile, and perform an instance refresh.
-For information about updating a launch template, see [Modify a launch template (manage launch template versions)](../../../AWSEC2/latest/UserGuide/manage-launch-template-versions.md "../../../AWSEC2/latest/UserGuide/manage-launch-template-versions.md") in the _Amazon Elastic Compute Cloud User Guide_.
-For more information, see [Use an instance refresh to update instances in an Auto Scaling group](../../../autoscaling/ec2/userguide/asg-instance-refresh.md "../../../autoscaling/ec2/userguide/asg-instance-refresh.md").
-For more information about using IAM roles with Auto Scaling groups, see [IAM role for applications that run on Amazon EC2](../../../autoscaling/ec2/userguide/us-iam-role.md "../../../autoscaling/ec2/userguide/us-iam-role.md") instances in the _Amazon EC2 Auto Scaling User Guide_.
 
 ### The Amazon EC2 instance has a security group or network ACL that allows SSH or RDP access
 
@@ -348,3 +266,85 @@ To identify the specific Amazon Elastic Block Store (Amazon EBS) volume that has
 Once you have identified the volume with the malicious file, remove the identified malicious files.
 After removing the malicious files, consider performing a scan to ensure that all files that may have been installed by the malicious file have been removed.
 For more information, see [Starting On-demand malware scan in GuardDuty](../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md "../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md") in the .
+
+## Impact traits for EC2 instances
+
+Impact traits describe the potential blast radius of an exposure. Security Hub analyzes the
+effective permissions of the AWS Identity and Access Management principal associated with the EC2 instance
+to determine the downstream resources an attacker could reach if the instance
+is compromised. Each impact trait identifies a specific privilege escalation pattern.
+To reduce your blast radius, review the permission paths described in each trait and
+remove any unnecessary privileges.
+
+Following standard security principles, AWS recommends that you grant least
+privilege — only the permissions required to perform a task. Replace broad
+policies with scoped-down policies that grant only the specific actions and
+resources needed. To identify unused permissions to remove, use IAM Access Analyzer to
+generate recommendations based on access history. For more information, see [Findings for external
+and unused access](../../../IAM/latest/UserGuide/access-analyzer-findings.md "../../../IAM/latest/UserGuide/access-analyzer-findings.md") and [Apply
+least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") in the
+_IAM User Guide_.
+
+### Full control privileged executor
+
+The associated principal can pass a role to and inject code into a compute resource that already has elevated permissions. This allows the principal to gain full control over the executor and perform any action that the executor's role permits.
+
+### Direct policy escalation
+
+The associated principal can directly modify IAM policies to grant itself additional permissions, escalating its own privileges without intermediate resources.
+
+### Trust policy hijack
+
+The associated principal can modify the trust policy of an IAM role to allow itself to assume that role, gaining the role's permissions.
+
+### Data ransomware
+
+The associated principal can encrypt or delete data in a way that could be used for ransomware, such as encrypting Amazon S3 objects with a customer-managed AWS KMS key and then modifying the key policy.
+
+### Remove restriction
+
+The associated principal can remove security restrictions such as permission boundaries, service control policies, or resource-based policy deny statements, expanding what other principals or the resource itself can do.
+
+### Pass role create executor
+
+The associated principal can create a new compute resource (such as a Lambda function or Amazon EC2 instance) and pass it a privileged role, effectively laundering its own permissions through the new resource.
+
+### Swap role existing executor
+
+The associated principal can change the IAM role attached to an existing compute resource, replacing it with a more privileged role to escalate access.
+
+### Role chain escalation
+
+The associated principal can assume a sequence of roles, where each role in the chain has progressively broader permissions, ultimately reaching a highly privileged role.
+
+### Inject code privileged executor
+
+The associated principal can inject code into a running compute resource that has elevated permissions, executing arbitrary operations under that resource's privileged role.
+
+### Disable audit trail
+
+The associated principal can disable logging or monitoring services such as CloudTrail, effectively covering its tracks during or after an escalation.
+
+### Access existing executor
+
+The associated principal can invoke or connect to an existing compute resource and use its attached role to perform privileged actions.
+
+### Credential minting
+
+The associated principal can create new long-term credentials (such as access keys or login profiles) for other principals, establishing persistent access paths that survive password rotations or session expirations.
+
+### Pass role data access
+
+The associated principal can create a service resource and pass it a role that has access to sensitive data, gaining indirect access to that data through the new resource.
+
+### Pass role task hijack
+
+The associated principal can pass a role to a scheduled or event-driven task (such as a Lambda function triggered by an event), allowing it to execute arbitrary code with that role's permissions.
+
+### Single hop data access
+
+The associated principal can directly access sensitive data resources (such as Amazon S3 buckets or DynamoDB tables) through its existing permissions, without needing intermediate escalation steps.
+
+### Capability advancing
+
+The associated principal has a privilege escalation path that advances its overall capabilities beyond what its directly assigned permissions would suggest. This is a general classification for paths that do not match a more specific pattern.

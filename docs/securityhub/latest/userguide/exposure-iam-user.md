@@ -28,50 +28,34 @@ use case, we recommend switching to roles or federation instead of using IAM use
 
 - [Misconfiguration traits for IAM users](exposure-iam-user.md#iam-user-misconfiguration "exposure-iam-user.md#iam-user-misconfiguration")
 
-  - [The IAM user has a policy with administrative access](exposure-iam-user.md#administrative-access-policy "exposure-iam-user.md#administrative-access-policy")
   - [The IAM user does not have MFA enabled](exposure-iam-user.md#user-mfa-disabled "exposure-iam-user.md#user-mfa-disabled")
-  - [The IAM user has a policy with administrative access to an AWS service](exposure-iam-user.md#service-admin-policy "exposure-iam-user.md#service-admin-policy")
   - [The AWS account for the IAM user has weak password policies](exposure-iam-user.md#weak-password-policies "exposure-iam-user.md#weak-password-policies")
   - [The IAM user has unrotated access keys](exposure-iam-user.md#unrotated-access-keys "exposure-iam-user.md#unrotated-access-keys")
   - [The IAM user has a policy that allows unrestricted access to KMS key decryption](exposure-iam-user.md#unrestricted-kms-decryption-allowed "exposure-iam-user.md#unrestricted-kms-decryption-allowed")
 
 - [Unused access traits for IAM users](exposure-iam-user.md#iam-user-unused-access "exposure-iam-user.md#iam-user-unused-access")
+- [Impact traits for IAM users](exposure-iam-user.md#iam-user-impact "exposure-iam-user.md#iam-user-impact")
+
+  - [Full control privileged executor](exposure-iam-user.md#full-control-privileged-executor "exposure-iam-user.md#full-control-privileged-executor")
+  - [Direct policy escalation](exposure-iam-user.md#direct-policy-escalation "exposure-iam-user.md#direct-policy-escalation")
+  - [Trust policy hijack](exposure-iam-user.md#trust-policy-hijack "exposure-iam-user.md#trust-policy-hijack")
+  - [Data ransomware](exposure-iam-user.md#data-ransomware "exposure-iam-user.md#data-ransomware")
+  - [Remove restriction](exposure-iam-user.md#remove-restriction "exposure-iam-user.md#remove-restriction")
+  - [Pass role create executor](exposure-iam-user.md#pass-role-create-executor "exposure-iam-user.md#pass-role-create-executor")
+  - [Swap role existing executor](exposure-iam-user.md#swap-role-existing-executor "exposure-iam-user.md#swap-role-existing-executor")
+  - [Role chain escalation](exposure-iam-user.md#role-chain-escalation "exposure-iam-user.md#role-chain-escalation")
+  - [Inject code privileged executor](exposure-iam-user.md#inject-code-privileged-executor "exposure-iam-user.md#inject-code-privileged-executor")
+  - [Disable audit trail](exposure-iam-user.md#disable-audit-trail "exposure-iam-user.md#disable-audit-trail")
+  - [Access existing executor](exposure-iam-user.md#access-existing-executor "exposure-iam-user.md#access-existing-executor")
+  - [Credential minting](exposure-iam-user.md#credential-minting "exposure-iam-user.md#credential-minting")
+  - [Pass role data access](exposure-iam-user.md#pass-role-data-access "exposure-iam-user.md#pass-role-data-access")
+  - [Pass role task hijack](exposure-iam-user.md#pass-role-task-hijack "exposure-iam-user.md#pass-role-task-hijack")
+  - [Single hop data access](exposure-iam-user.md#single-hop-data-access "exposure-iam-user.md#single-hop-data-access")
+  - [Capability advancing](exposure-iam-user.md#capability-advancing "exposure-iam-user.md#capability-advancing")
 
 ## Misconfiguration traits for IAM users
 
 Here are misconfiguration traits for IAM users and suggested remediation steps.
-
-### The IAM user has a policy with administrative access
-
-IAM policies grant a set of privileges to IAM users when accessing resources.
-Administrative policies provide IAM users with broad permissions to AWS services and resources.
-Providing full administrative privileges, instead of the minimum set of permissions that the user needs, can increase the scope of an attack if credentials are compromised.
-Following standard security principles, AWS recommends that you grant least privileges, which means that you grant only the permissions required to perform a task.
-
-1. **Review and identify administrative policies** –
-   In the **Resource ID**, identify the IAM role name.
-   Go to the IAM dashboard and select the identified role.
-   Review the permissions policy attached to the IAM user.
-   If the policy is an AWS managed policy, look for `AdministratorAccess` or `IAMFullAccess`.
-   Otherwise, in the policy document, look for statements that have the statements `"Effect":` `"Allow"` with `"Action": "*"` over `"Resource": "*"`.
-2. **Implement least privilege access** –
-   Replace service administrative policies with those that grant only the specific permissions required for the user to function.
-   For more information on security best practices for IAM policies, see [Apply least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") in the _AWS Identity and Access Management User Guide_.
-   To identify unnecessary permissions, you can use the IAM Access Analyzer to understand how to modify your policy based on access history.
-   For more information, see [Findings for external and unused access](../../../IAM/latest/UserGuide/access-analyzer-findings.md "../../../IAM/latest/UserGuide/access-analyzer-findings.md") in the _AWS Identity and Access Management User Guide_.
-3. **Secure configuration considerations** –
-   If service administrative permissions are necessary for the instance, consider implementing these additional security controls to mitigate risk:
-
-   - **Multi-factor authentication (MFA)** –
-     MFA adds an additional security layer by requiring an additional form of authentication.
-     This helps prevent unauthorized access even if credentials are compromised.
-     For more information, see [Require multi-factor authentication (MFA)](../../../IAM/latest/UserGuide/best-practices.md#enable-mfa-for-privileged-users "../../../IAM/latest/UserGuide/best-practices.md#enable-mfa-for-privileged-users") in the _AWS Identity and Access Management User Guide_.
-   - **IAM conditions** –
-     Setting up condition elements allow you to restrict when and how administrative permissions can be used based on factors like source IP or MFA age.
-     For more information, see [Use conditions in IAM policies](../../../IAM/latest/UserGuide/best-practices.md#use-policy-conditions "../../../IAM/latest/UserGuide/best-practices.md#use-policy-conditions") to further restrict access in the _AWS Identity and Access Management User Guide_.
-   - **Permission boundaries** –
-     Permission boundaries establish the maximum permissions a role can have, providing guardrails for roles with administrative access.
-     For more information, see [Use permissions boundaries to delegate permissions management within an account](../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries "../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries") in the _AWS Identity and Access Management User Guide_.
 
 ### The IAM user does not have MFA enabled
 
@@ -95,35 +79,6 @@ Although authentication with a physical device typically provides more stringent
 
 To enable the MFA type that suits your requirements, see [AWS multi-factor authentication in IAM](../../../IAM/latest/UserGuide/id_credentials_mfa.md "../../../IAM/latest/UserGuide/id_credentials_mfa.md") in the _IAM User Guide_.
 Follow the steps for the specific MFA type you want to implement. For organizations managing many users, you may want to enforce MFA usage by requiring MFA to access sensitive resources.
-
-### The IAM user has a policy with administrative access to an AWS service
-
-Service admin policies provide IAM users with permissions to perform all actions within a specific AWS service.
-These policies typically include permissions that are not required for users to perform their job functions.
-Providing an IAM user with service administrator privileges, instead of the minimum set of permissions needed, increases the scope of an attack if credentials are compromised.
-Following standard security principles, AWS recommends that you grant least privileges, which means that you grant only the permissions required to perform a task.
-
-###### Review and identify service admin policies
-
-In the **Resource ID**, identify the IAM role name.
-Go to the IAM dashboard and select the identified role.
-Review the permissions policy attached to the IAM user.
-If the policy is an AWS managed policy, look for `AdministratorAccess` or `IAMFullAccess`.
-Otherwise, in the policy document, look for statements that have the statements "`Effect": "Allow" with "Action": "*" over "Resource": "*"`.
-
-###### Implement least privilege access
-
-Replace service administrative policies with those that grant only the specific permissions required for the user to function.
-To identify unnecessary permissions, you can use the IAM Access Analyzer to understand how to modify your policy based on access history.
-
-###### Secure configuration considerations
-
-If service administrative permissions are necessary for the instance, consider implementing these additional security controls to mitigate exposure:
-
-- MFA adds an additional security layer by requiring an additional form of authentication.
-  This helps prevent unauthorized access even if credentials are compromised.
-- Use condition elements to restrict when and how administrative permissions can be used based on factors like source IP or MFA age.
-- Use permission boundaries to establish the maximum permissions a role can have, providing guardrails for roles with administrative access.
 
 ### The AWS account for the IAM user has weak password policies
 
@@ -190,3 +145,85 @@ You can also configure key policies to further restrict who can use specific KMS
 When an IAM user has unused permissions, access keys, or passwords, Security Hub may include these as contextual traits in exposure findings for that user. These traits are generated by the service-managed IAM Access Analyzer and provide additional context about the user's security posture. Unused access traits are not the primary cause of the exposure finding, but they indicate that the user has more permissions than needed, which increases the potential impact if the user's credentials are compromised.
 
 For unused permissions specifically, you can generate a least-privilege policy recommendation that shows you a scoped-down replacement policy. For more information, see [Generating policy recommendations for unused access findings](unused-access-recommendations.md "unused-access-recommendations.md").
+
+## Impact traits for IAM users
+
+Impact traits describe the potential blast radius of an exposure. Security Hub analyzes the
+effective permissions of the AWS Identity and Access Management principal associated with the IAM user
+to determine the downstream resources an attacker could reach if the IAM user
+is compromised. Each impact trait identifies a specific privilege escalation pattern.
+To reduce your blast radius, review the permission paths described in each trait and
+remove any unnecessary privileges.
+
+Following standard security principles, AWS recommends that you grant least
+privilege — only the permissions required to perform a task. Replace broad
+policies with scoped-down policies that grant only the specific actions and
+resources needed. To identify unused permissions to remove, use IAM Access Analyzer to
+generate recommendations based on access history. For more information, see [Findings for external
+and unused access](../../../IAM/latest/UserGuide/access-analyzer-findings.md "../../../IAM/latest/UserGuide/access-analyzer-findings.md") and [Apply
+least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") in the
+_IAM User Guide_.
+
+### Full control privileged executor
+
+The associated principal can pass a role to and inject code into a compute resource that already has elevated permissions. This allows the principal to gain full control over the executor and perform any action that the executor's role permits.
+
+### Direct policy escalation
+
+The associated principal can directly modify IAM policies to grant itself additional permissions, escalating its own privileges without intermediate resources.
+
+### Trust policy hijack
+
+The associated principal can modify the trust policy of an IAM role to allow itself to assume that role, gaining the role's permissions.
+
+### Data ransomware
+
+The associated principal can encrypt or delete data in a way that could be used for ransomware, such as encrypting Amazon S3 objects with a customer-managed AWS KMS key and then modifying the key policy.
+
+### Remove restriction
+
+The associated principal can remove security restrictions such as permission boundaries, service control policies, or resource-based policy deny statements, expanding what other principals or the resource itself can do.
+
+### Pass role create executor
+
+The associated principal can create a new compute resource (such as a Lambda function or Amazon EC2 instance) and pass it a privileged role, effectively laundering its own permissions through the new resource.
+
+### Swap role existing executor
+
+The associated principal can change the IAM role attached to an existing compute resource, replacing it with a more privileged role to escalate access.
+
+### Role chain escalation
+
+The associated principal can assume a sequence of roles, where each role in the chain has progressively broader permissions, ultimately reaching a highly privileged role.
+
+### Inject code privileged executor
+
+The associated principal can inject code into a running compute resource that has elevated permissions, executing arbitrary operations under that resource's privileged role.
+
+### Disable audit trail
+
+The associated principal can disable logging or monitoring services such as CloudTrail, effectively covering its tracks during or after an escalation.
+
+### Access existing executor
+
+The associated principal can invoke or connect to an existing compute resource and use its attached role to perform privileged actions.
+
+### Credential minting
+
+The associated principal can create new long-term credentials (such as access keys or login profiles) for other principals, establishing persistent access paths that survive password rotations or session expirations.
+
+### Pass role data access
+
+The associated principal can create a service resource and pass it a role that has access to sensitive data, gaining indirect access to that data through the new resource.
+
+### Pass role task hijack
+
+The associated principal can pass a role to a scheduled or event-driven task (such as a Lambda function triggered by an event), allowing it to execute arbitrary code with that role's permissions.
+
+### Single hop data access
+
+The associated principal can directly access sensitive data resources (such as Amazon S3 buckets or DynamoDB tables) through its existing permissions, without needing intermediate escalation steps.
+
+### Capability advancing
+
+The associated principal has a privilege escalation path that advances its overall capabilities beyond what its directly assigned permissions would suggest. This is a general classification for paths that do not match a more specific pattern.

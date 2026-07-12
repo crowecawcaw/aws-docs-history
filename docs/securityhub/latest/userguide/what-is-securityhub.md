@@ -37,6 +37,7 @@ Amazon EventBridge to trigger automatic responses to specific findings.
 - [Understanding security standards in Security Hub CSPM](standards-view-manage.md "standards-view-manage.md")
 - [Understanding security controls in Security Hub CSPM](controls-view-manage.md "controls-view-manage.md")
 - [Understanding integrations in Security Hub CSPM](securityhub-findings-providers.md "securityhub-findings-providers.md")
+- [Integrating Security Hub CSPM with Microsoft Azure](securityhub-azure.md "securityhub-azure.md")
 - [Creating and updating findings in Security Hub CSPM](securityhub-findings.md "securityhub-findings.md")
 - [Viewing insights in Security Hub CSPM](securityhub-insights.md "securityhub-insights.md")
 - [Automatically modifying and acting on findings in Security Hub CSPM](automations.md "automations.md")

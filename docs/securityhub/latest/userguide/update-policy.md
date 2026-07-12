@@ -6,6 +6,15 @@ updated policy.
 
 For background information about the benefits of central configuration and how it works, see [Understanding central configuration in Security Hub CSPM](central-configuration-intro.md "central-configuration-intro.md").
 
+###### Note
+
+Configuration policies support AWS standards and controls only. You cannot
+include multicloud standards (such as CIS Azure Foundations Benchmark v4.0.0) or
+Azure controls in a configuration policy. Including a multicloud standard ARN or
+control ID returns `InvalidInputException`. To enable or configure
+multicloud standards, use local configuration mechanisms directly in the desired
+AWS account.
+
 The delegated administrator can update the following policy settings:
 
 - Enable or disable Security Hub CSPM.

@@ -132,6 +132,15 @@ all existing and new FSBP controls are enabled. Controls that accept parameters 
 To apply different settings to the organization, or apply different configuration policies to different accounts and OUs, create
 a custom configuration policy.
 
+###### Note
+
+Configuration policies support AWS security standards and
+controls only. Multicloud standards, such as CIS Azure Foundations
+Benchmark v4.0.0, and their associated multicloud controls cannot be
+included in a configuration policy. To enable or configure multicloud
+standards, use local configuration mechanisms directly in the desired
+AWS account.
+
 **Local configuration**
 
 The default configuration type for an organization, after integrating Security Hub CSPM and AWS Organizations. With local configuration, the delegated administrator can choose to automatically enable Security Hub CSPM and

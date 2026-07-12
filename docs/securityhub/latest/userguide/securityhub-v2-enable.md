@@ -90,7 +90,7 @@ A standalone account is an AWS account that has not enabled AWS organizations.
    1. (Option 1) Choose **Enable all capabilities**.
       This will turn on all of the Security Hub essential capabilties, threat analytics, and additional capabilties.
    2. (Option 2) Choose **Customize capabilities**.
-      Select the threat analytics and additional capabilities that should be turned on.
+      Select the capabilities to turn on from the Security management, Threat analytics, and Vulnerability management sections.
       You cannot deselect any capabilities that are part of the Security Hub essential plan capabilities.
 
 4. In the **Regions** section, choose **Enable all Regions** or **Enable specific Regions**.

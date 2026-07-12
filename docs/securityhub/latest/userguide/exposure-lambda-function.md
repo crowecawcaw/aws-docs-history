@@ -24,8 +24,6 @@ The remediation guidance provided in this topic might require additional consult
 - [Misconfiguration traits for Lambda functions](exposure-lambda-function.md#lambda-function-misconfiguration "exposure-lambda-function.md#lambda-function-misconfiguration")
 
   - [Lambda function is deployed outside of an Amazon VPC](exposure-lambda-function.md#deployed-outside-vpc "exposure-lambda-function.md#deployed-outside-vpc")
-  - [The IAM Role associated with the Lambda function has an Administrative access policy](exposure-lambda-function.md#administrative-access-policy "exposure-lambda-function.md#administrative-access-policy")
-  - [The IAM Role associated with the Lambda function has a policy with administrative access to an AWS Service](exposure-lambda-function.md#service-admin-policy "exposure-lambda-function.md#service-admin-policy")
   - [The Lambda function is accessible through API Gateway without authorization](exposure-lambda-function.md#api-gateway-no-authorization "exposure-lambda-function.md#api-gateway-no-authorization")
 
 - [Reachability traits for Lambda functions](exposure-lambda-function.md#lambda-function-reachability "exposure-lambda-function.md#lambda-function-reachability")
@@ -38,6 +36,25 @@ The remediation guidance provided in this topic might require additional consult
   - [The Lambda function has software vulnerabilities](exposure-lambda-function.md#low-priority-vulnerability "exposure-lambda-function.md#low-priority-vulnerability")
   - [The Lambda function has malicious software packages](exposure-lambda-function.md#malicious-package "exposure-lambda-function.md#malicious-package")
   - [The Lambda function has code vulnerabilities](exposure-lambda-function.md#code-vulnerability "exposure-lambda-function.md#code-vulnerability")
+
+- [Impact traits for Lambda functions](exposure-lambda-function.md#lambda-impact "exposure-lambda-function.md#lambda-impact")
+
+  - [Full control privileged executor](exposure-lambda-function.md#full-control-privileged-executor "exposure-lambda-function.md#full-control-privileged-executor")
+  - [Direct policy escalation](exposure-lambda-function.md#direct-policy-escalation "exposure-lambda-function.md#direct-policy-escalation")
+  - [Trust policy hijack](exposure-lambda-function.md#trust-policy-hijack "exposure-lambda-function.md#trust-policy-hijack")
+  - [Data ransomware](exposure-lambda-function.md#data-ransomware "exposure-lambda-function.md#data-ransomware")
+  - [Remove restriction](exposure-lambda-function.md#remove-restriction "exposure-lambda-function.md#remove-restriction")
+  - [Pass role create executor](exposure-lambda-function.md#pass-role-create-executor "exposure-lambda-function.md#pass-role-create-executor")
+  - [Swap role existing executor](exposure-lambda-function.md#swap-role-existing-executor "exposure-lambda-function.md#swap-role-existing-executor")
+  - [Role chain escalation](exposure-lambda-function.md#role-chain-escalation "exposure-lambda-function.md#role-chain-escalation")
+  - [Inject code privileged executor](exposure-lambda-function.md#inject-code-privileged-executor "exposure-lambda-function.md#inject-code-privileged-executor")
+  - [Disable audit trail](exposure-lambda-function.md#disable-audit-trail "exposure-lambda-function.md#disable-audit-trail")
+  - [Access existing executor](exposure-lambda-function.md#access-existing-executor "exposure-lambda-function.md#access-existing-executor")
+  - [Credential minting](exposure-lambda-function.md#credential-minting "exposure-lambda-function.md#credential-minting")
+  - [Pass role data access](exposure-lambda-function.md#pass-role-data-access "exposure-lambda-function.md#pass-role-data-access")
+  - [Pass role task hijack](exposure-lambda-function.md#pass-role-task-hijack "exposure-lambda-function.md#pass-role-task-hijack")
+  - [Single hop data access](exposure-lambda-function.md#single-hop-data-access "exposure-lambda-function.md#single-hop-data-access")
+  - [Capability advancing](exposure-lambda-function.md#capability-advancing "exposure-lambda-function.md#capability-advancing")
 
 ## Misconfiguration traits for Lambda functions
 
@@ -60,79 +77,6 @@ Before attaching your function to a VPC, plan for any AWS service access it may 
 For information about how to attach a Lambda function to an Amazon VPC in your account, see [Attaching Lambda functions to an Amazon VPC in your AWS account](../../../lambda/latest/dg/configuration-vpc.md#configuration-vpc-attaching "../../../lambda/latest/dg/configuration-vpc.md#configuration-vpc-attaching").
 Consider using VPC endpoints for service connectivity without internet access if your function requires to access AWS services from within a private subnet.
 Configure a NAT Gateway if you require outbound internet connectivity from private subnets.
-
-### The IAM Role associated with the Lambda function has an Administrative access policy
-
-Administrative access policies provide Lambda functions with broad permissions to AWS services and resources.
-These policies typically include permissions that are not required for functionality.
-Providing an IAM identity with an administrative access policy on a Lambda function, instead of the minimum set of permissions that the execution role needs, can increase the scope of an attack if the function is compromised.
-Following standard security principles, AWS recommends that you grant least privileges, which means that you grant only the permissions required to perform a task.
-
-1. **Review and identify administrative policies**
-
-In the exposure finding, identify the role name.
-Go to the IAM dashboard and find the role with the role name identified previously.
-Review the permissions policy attached to the IAM role.
-If the policy is an AWS managed policy, look for `AdministratorAccess` or `IAMFullAccess`.
-Otherwise, in the policy document, look for statements that have the statements `"Effect": "Allow", "Action": "*"` and `"Resource": "*"` together. 2. **Implement least privilege access**
-
-Replace administrative policies with those that grant only the specific permissions required for the function to operate.
-For more information on security best practices for IAM roles, see [Apply least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") in the _AWS Identity and Access Management User Guide_.
-To identify unnecessary permissions, you can use the IAM Access Analyzer to understand how to modify your policy based on access history.
-For more information, see [Findings for external and unused access](../../../IAM/latest/UserGuide/access-analyzer-findings.md "../../../IAM/latest/UserGuide/access-analyzer-findings.md") in the _AWS Identity and Access Management User Guide_.
-Alternatively, you can create a new IAM role to avoid impacting other Lambda functions using the existing role.
-In this scenario, create a new IAM role.
-Then associate the new role with the instance.
-For information about replacing an IAM role for a function, see [Update a function’s execution role](../../../lambda/latest/dg/permissions-executionrole-update.md#update-execution-role "../../../lambda/latest/dg/permissions-executionrole-update.md#update-execution-role") in the _AWS Lambda Developer Guide_. 3. **Secure configuration considerations**
-
-If administrative access permissions are necessary for the instance, consider implementing these additional security controls to mitigate risk:
-
-    * **Multi-factor authentication (MFA)** –
-     MFA adds an additional security layer by requiring an additional form of authentication.
-     This helps prevent unauthorized access even if credentials are compromised.
-     For more information, see [Require multi-factor authentication (MFA)](../../../IAM/latest/UserGuide/best-practices.md#enable-mfa-for-privileged-users "../../../IAM/latest/UserGuide/best-practices.md#enable-mfa-for-privileged-users") in the *AWS Identity and Access Management User Guide*.
-    * **IAM conditions** –
-     Setting up condition elements allows you to restrict when and how administrative permissions can be used based on factors like source IP or MFA age.
-     For more information, see [Use conditions in IAM policies to further restrict access](../../../IAM/latest/UserGuide/best-practices.md#use-policy-conditions "../../../IAM/latest/UserGuide/best-practices.md#use-policy-conditions") in the *IAM User Guide*.
-    * **Permission boundaries** –
-     Permission boundaries establish the maximum permissions a role can have, providing guardrails for roles with administrative access.
-     For more information, see [Use permissions boundaries to delegate permissions management within an account](../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries "../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries") in the *AWS Identity and Access Management User Guide*.
-
-### The IAM Role associated with the Lambda function has a policy with administrative access to an AWS Service
-
-Service admin policies allow Lambda functions to perform all actions within a specific AWS service.
-These policies typically grant more permissions than necessary for a function's operation.
-If a Lambda function with a service admin policy is compromised, an attacker could use those permissions to potentially access or modify sensitive data or services within your AWS environment.
-Following standard security principles, we recommend that you grant least privileges, which means that you grant only the permissions required to perform a task.
-
-1. **Review and identify administrative policies**
-
-In the exposure finding, identify the role name in the ARN.
-Go to the IAM dashboard, and find the role name.
-Review the permissions policy attached to the role.
-If the policy is an AWS managed policy, look for `AdministratorAccess` or `IAMFullAccess`.
-Otherwise, in the policy document, look for statements that have the statements `"Effect": "Allow", "Action": "*"` and `"Resource": "*"` . 2. **Implement least privilege access**
-
-Replace administrative policies with those that grant only the specific permissions required for the function to operate.
-For more information, see [Apply least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") in the _AWS Identity and Access Management User Guide_.
-To identify unnecessary permissions, you can use the IAM Access Analyzer to understand how to modify your policy based on access history.
-For more information, see [Findings for external and unused access](../../../IAM/latest/UserGuide/access-analyzer-findings.md "../../../IAM/latest/UserGuide/access-analyzer-findings.md") in the _AWS Identity and Access Management User Guide_.
-Alternatively, you can create a new IAM role to avoid impacting other Lambda functions that are using the existing role.
-In this scenario, create a new IAM role, then associate the new IAM role with the instance.
-For instructions on replacing an IAM role for a function, see [Update a function’s execution role](../../../lambda/latest/dg/permissions-executionrole-update.md#update-execution-role "../../../lambda/latest/dg/permissions-executionrole-update.md#update-execution-role") in the _AWS Lambda Developer Guide_. 3. **Secure configuration considerations**
-
-If service-level administrative permissions are necessary for the instance, consider implementing these additional security controls to mitigate risk:
-
-    * **Multi-factor authentication (MFA)** –
-     MFA adds an additional security layer by requiring an additional form of authentication.
-     This helps prevent unauthorized access even if credentials are compromised.
-     For more information, see [Require multi-factor authentication (MFA)](../../../IAM/latest/UserGuide/best-practices.md#enable-mfa-for-privileged-users "../../../IAM/latest/UserGuide/best-practices.md#enable-mfa-for-privileged-users") in the *AWS Identity and Access Management User Guide*.
-    * **IAM conditions** –
-     Setting up condition elements allows you to restrict when and how administrative permissions can be used based on factors like source IP or MFA age.
-     For more information, see [Use conditions in IAM policies to further restrict access](../../../IAM/latest/UserGuide/best-practices.md#use-policy-conditions "../../../IAM/latest/UserGuide/best-practices.md#use-policy-conditions") in the *AWS Identity and Access Management User Guide*.
-    * **Permissions boundaries** –
-     Permission boundaries establish the maximum permissions a role can have, providing guardrails for roles with administrative access.
-     For more information, see [Use permissions boundaries to delegate permissions management](../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries "../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries") in the *AWS Identity and Access Management User Guide*.
 
 ### The Lambda function is accessible through API Gateway without authorization
 
@@ -238,3 +182,85 @@ For instructions, see [Updating function code](../../../lambda/latest/dg/configu
 Afterwards, deploy the updated version.
 For instructions, see [Deploying Lambda functions as .zip file archives](../../../lambda/latest/dg/configuration-function-zip.md "../../../lambda/latest/dg/configuration-function-zip.md") for .zip file archives or [Create a Lambda function using a container image](../../../lambda/latest/dg/images-create.md "../../../lambda/latest/dg/images-create.md") for container images.
 For more information about Amazon Inspector code scanning, see [Amazon Inspector Lambda code scanning](../../../inspector/latest/user/scanning_resources_lambda_code.md "../../../inspector/latest/user/scanning_resources_lambda_code.md") in the _Amazon Inspector User Guide_.
+
+## Impact traits for Lambda functions
+
+Impact traits describe the potential blast radius of an exposure. Security Hub analyzes the
+effective permissions of the AWS Identity and Access Management principal associated with the Lambda function
+to determine the downstream resources an attacker could reach if the function
+is compromised. Each impact trait identifies a specific privilege escalation pattern.
+To reduce your blast radius, review the permission paths described in each trait and
+remove any unnecessary privileges.
+
+Following standard security principles, AWS recommends that you grant least
+privilege — only the permissions required to perform a task. Replace broad
+policies with scoped-down policies that grant only the specific actions and
+resources needed. To identify unused permissions to remove, use IAM Access Analyzer to
+generate recommendations based on access history. For more information, see [Findings for external
+and unused access](../../../IAM/latest/UserGuide/access-analyzer-findings.md "../../../IAM/latest/UserGuide/access-analyzer-findings.md") and [Apply
+least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") in the
+_IAM User Guide_.
+
+### Full control privileged executor
+
+The associated principal can pass a role to and inject code into a compute resource that already has elevated permissions. This allows the principal to gain full control over the executor and perform any action that the executor's role permits.
+
+### Direct policy escalation
+
+The associated principal can directly modify IAM policies to grant itself additional permissions, escalating its own privileges without intermediate resources.
+
+### Trust policy hijack
+
+The associated principal can modify the trust policy of an IAM role to allow itself to assume that role, gaining the role's permissions.
+
+### Data ransomware
+
+The associated principal can encrypt or delete data in a way that could be used for ransomware, such as encrypting Amazon S3 objects with a customer-managed AWS KMS key and then modifying the key policy.
+
+### Remove restriction
+
+The associated principal can remove security restrictions such as permission boundaries, service control policies, or resource-based policy deny statements, expanding what other principals or the resource itself can do.
+
+### Pass role create executor
+
+The associated principal can create a new compute resource (such as a Lambda function or Amazon EC2 instance) and pass it a privileged role, effectively laundering its own permissions through the new resource.
+
+### Swap role existing executor
+
+The associated principal can change the IAM role attached to an existing compute resource, replacing it with a more privileged role to escalate access.
+
+### Role chain escalation
+
+The associated principal can assume a sequence of roles, where each role in the chain has progressively broader permissions, ultimately reaching a highly privileged role.
+
+### Inject code privileged executor
+
+The associated principal can inject code into a running compute resource that has elevated permissions, executing arbitrary operations under that resource's privileged role.
+
+### Disable audit trail
+
+The associated principal can disable logging or monitoring services such as CloudTrail, effectively covering its tracks during or after an escalation.
+
+### Access existing executor
+
+The associated principal can invoke or connect to an existing compute resource and use its attached role to perform privileged actions.
+
+### Credential minting
+
+The associated principal can create new long-term credentials (such as access keys or login profiles) for other principals, establishing persistent access paths that survive password rotations or session expirations.
+
+### Pass role data access
+
+The associated principal can create a service resource and pass it a role that has access to sensitive data, gaining indirect access to that data through the new resource.
+
+### Pass role task hijack
+
+The associated principal can pass a role to a scheduled or event-driven task (such as a Lambda function triggered by an event), allowing it to execute arbitrary code with that role's permissions.
+
+### Single hop data access
+
+The associated principal can directly access sensitive data resources (such as Amazon S3 buckets or DynamoDB tables) through its existing permissions, without needing intermediate escalation steps.
+
+### Capability advancing
+
+The associated principal has a privilege escalation path that advances its overall capabilities beyond what its directly assigned permissions would suggest. This is a general classification for paths that do not match a more specific pattern.

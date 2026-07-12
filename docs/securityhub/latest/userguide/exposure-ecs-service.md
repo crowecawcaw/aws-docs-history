@@ -29,8 +29,6 @@ The remediation guidance provided in this topic might require additional consult
   - [The Amazon ECS service has an open security group](exposure-ecs-service.md#open-security-group "exposure-ecs-service.md#open-security-group")
   - [The Amazon ECS service has public IP addresses](exposure-ecs-service.md#public-ip-assigned "exposure-ecs-service.md#public-ip-assigned")
   - [The Amazon ECS service uses a task definition that is configured with host networking mode enabled](exposure-ecs-service.md#host-networking-mode-enabled "exposure-ecs-service.md#host-networking-mode-enabled")
-  - [The IAM role associated with the Amazon ECS service has an administrative access policy](exposure-ecs-service.md#administrative-access-policy "exposure-ecs-service.md#administrative-access-policy")
-  - [The IAM Role associated with the ECS service has a Service Admin Policy](exposure-ecs-service.md#service-admin-policy "exposure-ecs-service.md#service-admin-policy")
 
 - [Reachability traits for Amazon ECS services](exposure-ecs-service.md#reachability "exposure-ecs-service.md#reachability")
 
@@ -42,6 +40,25 @@ The remediation guidance provided in this topic might require additional consult
   - [The Amazon ECS service has a container with software vulnerabilities](exposure-ecs-service.md#low-priority-vulnerability "exposure-ecs-service.md#low-priority-vulnerability")
   - [The Amazon ECS service has a container with an End-Of-Life operating system](exposure-ecs-service.md#end-of-life-operating-system-detected "exposure-ecs-service.md#end-of-life-operating-system-detected")
   - [The Amazon ECS service has a container with malicious software packages](exposure-ecs-service.md#malicious-package "exposure-ecs-service.md#malicious-package")
+
+- [Impact traits for Amazon ECS services](exposure-ecs-service.md#ecs-impact "exposure-ecs-service.md#ecs-impact")
+
+  - [Full control privileged executor](exposure-ecs-service.md#full-control-privileged-executor "exposure-ecs-service.md#full-control-privileged-executor")
+  - [Direct policy escalation](exposure-ecs-service.md#direct-policy-escalation "exposure-ecs-service.md#direct-policy-escalation")
+  - [Trust policy hijack](exposure-ecs-service.md#trust-policy-hijack "exposure-ecs-service.md#trust-policy-hijack")
+  - [Data ransomware](exposure-ecs-service.md#data-ransomware "exposure-ecs-service.md#data-ransomware")
+  - [Remove restriction](exposure-ecs-service.md#remove-restriction "exposure-ecs-service.md#remove-restriction")
+  - [Pass role create executor](exposure-ecs-service.md#pass-role-create-executor "exposure-ecs-service.md#pass-role-create-executor")
+  - [Swap role existing executor](exposure-ecs-service.md#swap-role-existing-executor "exposure-ecs-service.md#swap-role-existing-executor")
+  - [Role chain escalation](exposure-ecs-service.md#role-chain-escalation "exposure-ecs-service.md#role-chain-escalation")
+  - [Inject code privileged executor](exposure-ecs-service.md#inject-code-privileged-executor "exposure-ecs-service.md#inject-code-privileged-executor")
+  - [Disable audit trail](exposure-ecs-service.md#disable-audit-trail "exposure-ecs-service.md#disable-audit-trail")
+  - [Access existing executor](exposure-ecs-service.md#access-existing-executor "exposure-ecs-service.md#access-existing-executor")
+  - [Credential minting](exposure-ecs-service.md#credential-minting "exposure-ecs-service.md#credential-minting")
+  - [Pass role data access](exposure-ecs-service.md#pass-role-data-access "exposure-ecs-service.md#pass-role-data-access")
+  - [Pass role task hijack](exposure-ecs-service.md#pass-role-task-hijack "exposure-ecs-service.md#pass-role-task-hijack")
+  - [Single hop data access](exposure-ecs-service.md#single-hop-data-access "exposure-ecs-service.md#single-hop-data-access")
+  - [Capability advancing](exposure-ecs-service.md#capability-advancing "exposure-ecs-service.md#capability-advancing")
 
 ## Misconfiguration traits for Amazon ECS services
 
@@ -203,87 +220,6 @@ Create a new revision of your task definition with the updated network mode
 configuration. Then update your Amazon ECS service to use the new task definition
 revision.
 
-### The IAM role associated with the Amazon ECS service has an administrative access policy
-
-IAM roles with administrative access policies attached to Amazon ECS tasks provide
-broad permissions that exceed what is typically required for container operation.
-This configuration increases the risk that a compromised container could be used to
-access or modify resources throughout your AWS environment. Following standard
-security principles, AWS recommends implementing least privilege access by
-granting only the permissions required for a task to function.
-
-###### Review and identify administrative policies
-
-In the **Resource ID**, identify the IAM role name. Go to the
-IAM dashboard and select the identified role. Review the permissions policy
-attached to the IAM role. If the policy is an AWS managed policy, look for
-`AdministratorAccess`. Otherwise, in the policy document, look
-for statements that have the statements `"Effect": "Allow", "Action": "*",
- and "Resource": "*"` together.
-
-###### Implement least privilege access
-
-Replace administrative policies with those that grant only the specific
-permissions required for the instance to function.
-To identify unnecessary permissions, you can use IAM Access Analyzer to understand how
-to modify your policy based on access history.
-Alternatively, you can create a new IAM role to avoid impacting other
-applications that are using the existing role. In this scenario, create a new
-IAM role, then associate the new IAM role with the instance.
-
-###### Secure configuration considerations
-
-If service-level administrative permissions are necessary for the instance,
-consider implementing these additional security controls to mitigate risk:
-
-- MFA adds an additional security layer by requiring an additional form of authentication.
-  This helps prevent unauthorized access even if credentials are compromised.
-- Setting up condition elements allow you to restrict when and how administrative permissions can be used based on factors like source IP or MFA age.
-
-###### Update task definitions
-
-Create a new revision of your task definition that references the new or
-updated IAM roles. Then update your Amazon ECS service to use the new task
-definition revision.
-
-### The IAM Role associated with the ECS service has a Service Admin Policy
-
-Service admin policies provide Amazon ECS tasks and services with permissions to perform all actions within specific AWS services.
-These policies typically include permissions that are required for Amazon ECS task functionality.
-Providing an IAM role with a service admin policy for Amazon ECS tasks, instead of the minimum set of permissions needed, can increase the scope of an attack if a container is compromised.
-Following standard security principles, AWS recommends that you grant least privileges, which means granting only the permissions required to perform a task.
-
-###### Review and identify administrative policies
-
-In the **Resource ID**, identify the Amazon ECS task role and execution role names.
-Go to the [IAM dashboard](https://console.aws.amazon.com/iam/home/#roles "https://console.aws.amazon.com/iam/home/#roles") and select the identified roles.
-Review the permissions policies attached to these IAM roles.
-Look for policy statements that grant full access to services (e.g., `"s3": "*", "ecr": "*"`).
-For instructions on editing IAM policies, see [Edit IAM policies](../../../IAM/latest/UserGuide/access_policies_manage-edit.md#edit-policy-details "../../../IAM/latest/UserGuide/access_policies_manage-edit.md#edit-policy-details") in the _IAM User Guide_.
-
-###### Implement least privilege access
-
-Replace service admin policies with those that grant only the specific permissions required for Amazon ECS tasks to function.
-To identify unnecessary permissions, you can use IAM Access Analyzer to understand how to modify your policy based on access history.
-Alternatively, you can create a new IAM role to avoid impacting other applications that are using the existing role.
-In this scenario, create a new IAM role, then associate the new IAM role with the instance.
-
-###### Secure configuration considerations
-
-If service-level administrative permissions are necessary for Amazon ECS tasks, consider implementing these additional security controls:
-
-- **IAM conditions** –
-  Set up condition elements to restrict when and how administrative permissions can be used based on factors like VPC endpoints or specific Amazon ECS clusters.
-  For more information, see [Use conditions in IAM policies to further restrict access](../../../IAM/latest/UserGuide/best-practices.md#use-policy-conditions "../../../IAM/latest/UserGuide/best-practices.md#use-policy-conditions") in the _IAM User Guide_.
-- **Permission boundaries** –
-  Establish maximum permissions a role can have, providing guardrails for roles with administrative access.
-  For more information, see [Use permissions boundaries to delegate permissions management within an account](../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries "../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries") in the _IAM User Guide_.
-
-###### Update task definitions
-
-Create a new revision of your task definition that references the new or updated IAM roles.
-Then update your Amazon ECS service to use the new task definition revision.
-
 ## Reachability traits for Amazon ECS services
 
 Here are reachability traits for Amazon ECS services and suggested remediation steps.
@@ -418,3 +354,85 @@ Remove the identified malicious packages from your container images then rebuild
 For more information, see [ContainerDependency](../../../AmazonECS/latest/APIReference/API_ContainerDependency.md "../../../AmazonECS/latest/APIReference/API_ContainerDependency.md") in the _AWS Amazon ECS API Reference_.
 After updating your container image, push it to your container registry and update your Amazon ECS task definition to use the new image.
 For more information, see [Updating an Amazon ECS task definition using the console](../../../AmazonECS/latest/developerguide/update-task-definition-console-v2.md "../../../AmazonECS/latest/developerguide/update-task-definition-console-v2.md") in the _AWS Amazon ECS Developer Guide_.
+
+## Impact traits for Amazon ECS services
+
+Impact traits describe the potential blast radius of an exposure. Security Hub analyzes the
+effective permissions of the AWS Identity and Access Management principal associated with the Amazon ECS service
+to determine the downstream resources an attacker could reach if the service
+is compromised. Each impact trait identifies a specific privilege escalation pattern.
+To reduce your blast radius, review the permission paths described in each trait and
+remove any unnecessary privileges.
+
+Following standard security principles, AWS recommends that you grant least
+privilege — only the permissions required to perform a task. Replace broad
+policies with scoped-down policies that grant only the specific actions and
+resources needed. To identify unused permissions to remove, use IAM Access Analyzer to
+generate recommendations based on access history. For more information, see [Findings for external
+and unused access](../../../IAM/latest/UserGuide/access-analyzer-findings.md "../../../IAM/latest/UserGuide/access-analyzer-findings.md") and [Apply
+least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") in the
+_IAM User Guide_.
+
+### Full control privileged executor
+
+The associated principal can pass a role to and inject code into a compute resource that already has elevated permissions. This allows the principal to gain full control over the executor and perform any action that the executor's role permits.
+
+### Direct policy escalation
+
+The associated principal can directly modify IAM policies to grant itself additional permissions, escalating its own privileges without intermediate resources.
+
+### Trust policy hijack
+
+The associated principal can modify the trust policy of an IAM role to allow itself to assume that role, gaining the role's permissions.
+
+### Data ransomware
+
+The associated principal can encrypt or delete data in a way that could be used for ransomware, such as encrypting Amazon S3 objects with a customer-managed AWS KMS key and then modifying the key policy.
+
+### Remove restriction
+
+The associated principal can remove security restrictions such as permission boundaries, service control policies, or resource-based policy deny statements, expanding what other principals or the resource itself can do.
+
+### Pass role create executor
+
+The associated principal can create a new compute resource (such as a Lambda function or Amazon EC2 instance) and pass it a privileged role, effectively laundering its own permissions through the new resource.
+
+### Swap role existing executor
+
+The associated principal can change the IAM role attached to an existing compute resource, replacing it with a more privileged role to escalate access.
+
+### Role chain escalation
+
+The associated principal can assume a sequence of roles, where each role in the chain has progressively broader permissions, ultimately reaching a highly privileged role.
+
+### Inject code privileged executor
+
+The associated principal can inject code into a running compute resource that has elevated permissions, executing arbitrary operations under that resource's privileged role.
+
+### Disable audit trail
+
+The associated principal can disable logging or monitoring services such as CloudTrail, effectively covering its tracks during or after an escalation.
+
+### Access existing executor
+
+The associated principal can invoke or connect to an existing compute resource and use its attached role to perform privileged actions.
+
+### Credential minting
+
+The associated principal can create new long-term credentials (such as access keys or login profiles) for other principals, establishing persistent access paths that survive password rotations or session expirations.
+
+### Pass role data access
+
+The associated principal can create a service resource and pass it a role that has access to sensitive data, gaining indirect access to that data through the new resource.
+
+### Pass role task hijack
+
+The associated principal can pass a role to a scheduled or event-driven task (such as a Lambda function triggered by an event), allowing it to execute arbitrary code with that role's permissions.
+
+### Single hop data access
+
+The associated principal can directly access sensitive data resources (such as Amazon S3 buckets or DynamoDB tables) through its existing permissions, without needing intermediate escalation steps.
+
+### Capability advancing
+
+The associated principal has a privilege escalation path that advances its overall capabilities beyond what its directly assigned permissions would suggest. This is a general classification for paths that do not match a more specific pattern.

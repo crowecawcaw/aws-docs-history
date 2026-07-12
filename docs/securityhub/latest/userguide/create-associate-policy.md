@@ -7,6 +7,15 @@ associate a self-managed configuration with accounts, OUs, or the root.
 
 If this is your first time creating a configuration policy, we recommend first reviewing [How configuration policies work in Security Hub CSPM](configuration-policies-overview.md "configuration-policies-overview.md").
 
+###### Note
+
+Configuration policies support AWS standards and controls only. You cannot
+include multicloud standards (such as CIS Azure Foundations Benchmark v4.0.0) or
+Azure controls in a configuration policy. Including a multicloud standard ARN or
+control ID returns `InvalidInputException`. To enable or configure
+multicloud standards, use local configuration mechanisms directly in the desired
+AWS account.
+
 Choose your preferred access method, and follow the steps to create and associate a configuration policy or self-managed configuration. When using the Security Hub CSPM console, you
 can associate a configuration with multiple accounts or OUs at the same time. When using the Security Hub CSPM API or AWS CLI, you can associate a configuration with only
 one account or OU in each request.

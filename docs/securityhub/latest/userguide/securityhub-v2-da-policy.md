@@ -9,7 +9,7 @@ As an alternative, auto-enable features, for new member accounts, are available 
 
 ## Security Hub configuration catalog
 
-The configuration catalog of Security Hub offers multiple options to help configure your AWS Organization accounts for the security capabilities provided by .
+The configuration catalog of Security Hub offers multiple options to help configure your AWS Organization accounts for the security capabilities provided by Security Hub.
 
 The following are the options available in the Security Hub configuration catalog.
 
@@ -19,7 +19,7 @@ This is the recommended configuration to deploy for Security Hub.
 
 **Type**: Policy and Deployments
 
-**Description**: This configuration tyurns on Security Hub's essential security management, posture management, threat analytics, and vulnerability management capabilities.
+**Description**: This configuration turns on Security Hub's essential security management, posture management, threat analytics, and vulnerability management capabilities.
 It optionally enables additional capabilities.
 
 ### Threat analytics from GuardDuty
@@ -28,7 +28,7 @@ It optionally enables additional capabilities.
 
 **Description**: Turn on selected Amazon GuardDuty capabilities to continuously monitor, analyze, and process AWS data sources and logs in your AWS environment.
 
-### Posture management from AWS Security Hub CSPM)
+### Posture management from AWS Security Hub CSPM
 
 **Type**: Deployment
 
@@ -43,7 +43,7 @@ It optionally enables additional capabilities.
 ## Enabling a configuration with a type of policy
 
 The following procedure describes how to create a configuration with a type of policy for your AWS Organization accounts.
-To create a configuration policy the delegated administrator policy needs to be created in the AWS Organization management account.
+To create a configuration policy, you must first create the delegated administrator policy in the AWS Organization management account.
 For information about creating the delegated administrator policy in Security Hub, see [Creating the delegated administrator policy in Security Hub](securityhub-v2-policy-statement.md "securityhub-v2-policy-statement.md").
 
 ###### To create a policy that enables and disables member accounts
@@ -52,97 +52,112 @@ For information about creating the delegated administrator policy in Security Hu
    Open the Security Hub console at [https://console.aws.amazon.com/securityhub/v2/home](https://console.aws.amazon.com/securityhub/v2/home? "https://console.aws.amazon.com/securityhub/v2/home?").
 2. From the navigation pane, choose **Management**, and then choose **Configurations**.
 3. Choose an item with a type of **policy** or **policy and deployment** from the Configuration catalog.
-   To fully configure Security Hub it is recommended to choose **Security Hub (essential and additional capabilities)**.
-4. On the **Configure Security Hub** page in the **Details** section enter a name and a description for the policy.
-5. In the **Security capabilities** section do one of the following:
+   To fully configure Security Hub, we recommend choosing **Security Hub (essential and additional capabilities)**.
+4. On the **Configure Security Hub** page, in the **Details** section, enter a name and a description for the policy.
+5. In the **Security capabilities** section, choose one of the following:
 
-   1. (Option 1) Choose **Enable all capabilities**.
-      This will turn on all of the Security Hub essential capabilties, threat analytics, and additional capabilties.
-   2. (Option 2) Choose **Customize capabilities**.
-      Select the threat analytics and additional capabilities that should be turned on.
-      You cannot deselect any capabilities that are part of the Security Hub essential plan capabilities.
+   - **Enable all capabilities** – Turns on all Security Hub essential capabilities, threat analytics, and additional capabilities.
+   - **Customize capabilities** – Select capabilities from the Security management, Threat analytics, and Vulnerability management sections. You cannot deselect capabilities that are part of the Security Hub essential plan.
 
-6. In the **Account selection** section, select one of the following options.
-   Choose **All organizational units and accounts** if you want to apply the configuration to all organizational units and accounts.
-   Choose **Specific organizational units and accounts** if you want to apply the configuration to specific organizational units and accounts.
-   If you choose this option, use the search bar or organizational structure tree to specify the organizational units and accounts where the policy will be applied.
-   Choose **No organizational units or accounts** if you do not want to apply the configuration to any organizational unit or account.
-7. In the **Regions** section, choose **Enable all Regions**, **Disable all Regions**, or **Specify Regions**.
-   If you choose **Enable all Regions**, you can determine whether to automatically enable new Regions.
-   If you choose **Disable all Regions**, you can determine whether to automatically disable new Regions.
-   If you choose **Specify Regions**, you must choose which Regions you want to enable and disable.
-8. (Optional) For **Advanced settings**, please refer to the [guidance](../../../organizations/latest/userguide/policy-operators.md "../../../organizations/latest/userguide/policy-operators.md") from AWS Organizations.
-9. (Optional) For **Resource tags**, add tags as key-value pairs to help you easily identify the configuration.
+6. In the **Account selection** section, choose one of the following options:
+
+   - **All organizational units and accounts** – Applies the configuration to your entire organization.
+   - **Specific organizational units and accounts** – Use the search bar or organizational structure tree to select the organizational units and accounts where the policy applies.
+   - **No organizational units or accounts** – Does not apply the configuration to any organizational unit or account.
+
+7. In the **Regions** section, choose one of the following:
+
+   - **Enable all Regions** – Optionally choose whether to automatically enable new Regions.
+   - **Disable all Regions** – Optionally choose whether to automatically disable new Regions.
+   - **Specify Regions** – Choose which Regions to enable and disable.
+
+8. (Optional) For **Advanced settings**, see [Inheritance operators](../../../organizations/latest/userguide/policy-operators.md "../../../organizations/latest/userguide/policy-operators.md") in the _AWS Organizations User Guide_.
+9. (Optional) For **Resource tags**, add tags as key-value pairs to help you identify the configuration.
 10. Choose **Next**.
 11. Review your changes, and then choose **Apply**.
-    Your target accounts are configured based on the policy. The configuration status of your policy will display at the top of the Policies page.
-    Each capability will provide a status on if it was configured or where there are deployment failures.
-    For any failures click on the link for the failure message to see more details.
-    To view the effective policy at the account level, you can review the **Organization** tab on the **Configurations** page where you can choose an account.
+
+The configuration status of your policy displays at the top of the Policies page.
+Each capability provides a status indicating whether it was configured successfully or has deployment failures.
+For any failures, choose the failure link to see more details.
+To view the effective policy at the account level, review the **Organization** tab on the **Configurations** page.
 
 ## Enabling a configuration with a type of deployment
 
 The following procedure describes how to create a configuration with a type of deployment for your AWS Organization accounts.
 
-###### To create a deployment that enables and disables member accounts
+###### To create a deployment that enables member accounts
 
 1. Sign in using your AWS account with your delegated administrator credentials.
    Open the Security Hub console at [https://console.aws.amazon.com/securityhub/v2/home](https://console.aws.amazon.com/securityhub/v2/home? "https://console.aws.amazon.com/securityhub/v2/home?").
 2. From the navigation pane, choose **Management**, and then choose **Configurations**.
 3. Choose an item with a type of **deployment** from the Configuration catalog.
-   To fully configure Security Hub it is recommended to choose **Security Hub (essential and additional capabilities)**.
-4. In the **Security capabilities** section
-   Select the security capabilities that should be turned on.
-5. In the **Account selection** section, select one of the following options.
-   Choose **All organizational units and accounts** if you want to apply the configuration to all organizational units and accounts.
-   Choose **Specific organizational units and accounts** if you want to apply the configuration to specific organizational units and accounts.
-   If you choose this option, use the search bar or organizational structure tree to specify the organizational units and accounts where the policy will be applied.
-   Choose **No organizational units or accounts** if you do not want to apply the configuration to any organizational unit or account.
-6. In the **Regions** section, choose **Enable all Regions**, **Disable all Regions**, or **Specify Regions**.
-   If you choose **Enable all Regions**, you can determine whether to automatically enable new Regions.
-   If you choose **Disable all Regions**, you can determine whether to automatically disable new Regions.
-   If you choose **Specify Regions**, you must choose which Regions you want to enable and disable.
+4. In the **Security capabilities** section, select the security capabilities to turn on.
+5. In the **Account selection** section, choose one of the following options:
+
+   - **All organizational units and accounts** – Applies the deployment to your entire organization.
+   - **Specific organizational units and accounts** – Use the search bar or organizational structure tree to select the organizational units and accounts where the deployment applies.
+   - **No organizational units or accounts** – Does not apply the deployment to any organizational unit or account.
+
+6. In the **Regions** section, choose one of the following:
+
+   - **Enable all Regions** – Optionally choose whether to automatically enable new Regions.
+   - **Disable all Regions** – Optionally choose whether to automatically disable new Regions.
+   - **Specify Regions** – Choose which Regions to enable and disable.
+
 7. Choose **Configure**.
 
 ## Editing a configuration policy
 
-You can edit the capabilities, Regions, and accounts assocaited with configurations that have a type of **policy**.
+You can edit the capabilities, Regions, and accounts associated with a configuration policy.
+When you open a policy for editing, the console displays the current configuration.
 
-The following describes how to edit a configuration policy in Security Hub
+###### Note
 
-###### To create edit a configuration policy
+Changes apply only to the capabilities you select in the updated policy. Unselected capabilities retain their existing configuration across the accounts and Regions in the policy.
+
+###### To edit a configuration policy
 
 1. Sign in using your AWS account with your delegated administrator credentials.
    Open the Security Hub console at [https://console.aws.amazon.com/securityhub/v2/home](https://console.aws.amazon.com/securityhub/v2/home? "https://console.aws.amazon.com/securityhub/v2/home?").
 2. From the navigation pane, choose **Management**, and then choose **Configurations**.
-3. In the **Configured policies** tab select the radio button for the policy you want to edit.
-   Choose the **Edit**.
-4. To make changes in the **Account selection** section, select one of the following options.
-   Choose **All organizational units and accounts** if you want to apply the configuration to all organizational units and accounts.
-   Choose **Specific organizational units and accounts** if you want to apply the configuration to specific organizational units and accounts.
-   If you choose this option, use the search bar or organizational structure tree to specify the organizational units and accounts where the policy will be applied.
-   Choose **No organizational units or accounts** if you do not want to apply the configuration to any organizational unit or account.
-5. To make changes in the **Regions** section, choose **Enable all Regions**, **Disable all Regions**, or **Specify Regions**.
-   If you choose **Enable all Regions**, you can determine whether to automatically enable new Regions.
-   If you choose **Disable all Regions**, you can determine whether to automatically disable new Regions.
-   If you choose **Specify Regions**, you must choose which Regions you want to enable and disable.
-6. Choose **Next**.
-7. Review your changes, and then choose **Update**.
-   Your target accounts are configured based on the policy.
+3. In the **Configured policies** tab, select the radio button for the policy you want to edit, and then choose **Edit**.
+4. In the **Capability** section, choose one of the following:
+
+   - **Configure and enable all capabilities** – Enables all capabilities in the policy.
+   - Select individual capabilities and choose **Enable**, **Disable**, or **Custom** for each one.
+
+5. In the **Account selection** section, choose one of the following options:
+
+   - **All organizational units and accounts** – Applies the policy to your entire organization.
+   - **Specific organizational units and accounts** – Use the search bar or organizational structure tree to select the organizational units and accounts where the policy applies.
+   - **No organizational units or accounts** – Removes the policy from all targets.
+
+6. In the **Regions** section, configure which Regions the policy applies to. The options depend on your **Capability** selections.
+
+**If you chose to enable all capabilities:**
+
+    * **Across all selected capabilities** – Sets the same Region configuration for all capabilities.
+    * **Per capability** – Lets you choose Regions individually for each capability.
+
+Then choose **Enable all Regions** (with the option to automatically enable new Regions) or **Enable in some Regions** to select specific Regions.
+
+**If you chose mixed actions (enable, disable, or custom) for individual capabilities:**
+
+    * If all selected capabilities share the same action, choose **Across all selected capabilities** to set Regions uniformly. To set Regions for each capability individually, choose **Per capability**.
+    * If capabilities have different actions, you must assign Regions for each capability individually.
+    * For capabilities with the **Custom** action, choose **Across all selected capabilities** to set Regions uniformly for all capabilities. To configure Regions for each capability separately, choose **Per capability**.
+
+7. Choose **Next**. 8. Review your changes, and then choose **Update**.
+The updated policy configures the target accounts.
 
 ## Deleting a configuration policy
 
-You can delete configuration that you have a type of **policy**.
-When you delete a policy all attached accounts and organiational units will be removed from the policy.
+You can delete a configuration policy. When you delete a policy, the service removes all attached accounts and organizational units from the policy.
 
-The following describes how to delete a configuration policy in Security Hub.
-
-###### To create delete a configuration policy
+###### To delete a configuration policy
 
 1. Sign in using your AWS account with your delegated administrator credentials.
    Open the Security Hub console at [https://console.aws.amazon.com/securityhub/v2/home](https://console.aws.amazon.com/securityhub/v2/home? "https://console.aws.amazon.com/securityhub/v2/home?").
 2. From the navigation pane, choose **Management**, and then choose **Configurations**.
-3. In the **Configured policies** tab select the radio button for the policy you want to edit.
-   Choose the **Delete** button.
-4. Type **delete** in the confirmation box.
-   Choose the **Delete**.
+3. In the **Configured policies** tab, select the policy you want to delete, and then choose **Delete**.
+4. Enter `delete` in the confirmation box, and then choose **Delete**.

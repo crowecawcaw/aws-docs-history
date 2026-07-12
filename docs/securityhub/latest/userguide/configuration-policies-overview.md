@@ -45,6 +45,12 @@ available. You lack coverage for a control that isn't available in the home Regi
 - **Configuration policies are resources** – As a resource, a configuration policy has an Amazon Resource Name (ARN) and a universally unique identifier (UUID). The ARN uses the following format:
   `arn:`partition:`securityhub:`region`:`delegated administrator account ID`:configuration-policy/`configuration policy UUID``. A self-managed
   configuration has no ARN or UUID. The identifier for a self-managed configuration is `SELF_MANAGED_SECURITY_HUB`.
+- **Multicloud standards are not supported in configuration policies** –
+  Configuration policies can only include AWS security standards and controls. Multicloud standards, such as CIS Azure
+  Foundations Benchmark v4.0.0, and their associated controls (for example, `Azure.Storage.1`) cannot be included in a
+  configuration policy. If you include a multicloud standard ARN or control ID in a configuration policy, the request returns an
+  `InvalidInputException`. To enable or configure multicloud standards, use local configuration mechanisms directly
+  in the desired AWS account.
 
 ## Types of configuration policies
 

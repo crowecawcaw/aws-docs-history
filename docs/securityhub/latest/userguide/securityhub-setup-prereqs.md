@@ -17,6 +17,14 @@ manually enable or configure AWS Config. For more information, see [Using the se
 If you have Security Hub CSPM enabled without Security Hub, you must manually enable AWS Config and turn on
 resource recording. For more information, see [Manually configuring AWS Config](#manual-config-setup "#manual-config-setup").
 
+The AWS Config prerequisites described on this page apply only to AWS security
+standards, such as AWS Foundational Security Best Practices and CIS AWS Foundations
+Benchmark. Multicloud standards, such as CIS Azure Foundations Benchmark v4.0.0, do
+_not_ require you to enable AWS Config recording or configure a
+configuration recorder. The Security Hub CSPM multicloud connector automatically sets up a
+service-linked recorder to evaluate external cloud resources. The only prerequisite for
+multicloud standards is a Security Hub CSPM connector for the external cloud provider.
+
 ###### Topics
 
 - [Using the service-linked configuration recorder](#service-linked-config-recorder "#service-linked-config-recorder")

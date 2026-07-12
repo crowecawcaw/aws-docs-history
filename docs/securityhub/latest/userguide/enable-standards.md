@@ -9,6 +9,13 @@ standard. Otherwise, Security Hub CSPM might not be able to evaluate the appropr
 generate accurate findings for controls that apply to the standard. For more information,
 see [Enabling and configuring AWS Config for Security Hub CSPM](securityhub-setup-prereqs.md "securityhub-setup-prereqs.md").
 
+Multicloud security standards, such as CIS Azure Foundations Benchmark v4.0.0,
+have different requirements than AWS standards. Multicloud standards require a Security Hub CSPM
+connector for the external cloud provider and do not require you to configure AWS Config or
+manually create a configuration recorder. The Security Hub CSPM multicloud connector automatically
+sets up a service-linked recorder to evaluate resources in the external cloud
+environment.
+
 After you enable a standard, you can disable or later re-enable individual controls that
 apply to the standard. If you disable a control for a standard, Security Hub CSPM stops generating
 findings for the control. In addition, Security Hub CSPM ignores the control when it calculates the
@@ -149,7 +156,13 @@ If a standard has this status, you can retrieve the details of individual contro
 
 Security Hub CSPM wasn't able to enable the standard completely for the account. Security Hub CSPM can't run security checks and generate findings for all the controls that apply to the standard and are currently enabled. In addition, Security Hub CSPM can't calculate a security score for the standard.
 
-To determine why the standard wasn't enabled completely, refer to the information in the `StandardsStatusReason` array. This array specifies issues that prevented Security Hub CSPM from enabling the standard. If an internal error occurred, try enabling the standard for the account again. For other types of issues, [check your AWS Config settings](securityhub-setup-prereqs.md "securityhub-setup-prereqs.md"). You can also [disable individual controls](disable-controls-overview.md "disable-controls-overview.md") that you don't want to check, or disable the standard completely.
+For multicloud standards, the subscription enters `INCOMPLETE`
+with a status reason of `NO_AVAILABLE_MULTICLOUD_CONNECTOR` if
+you enable the standard without a CSPM connector. The subscription
+automatically transitions to `READY` when a connector becomes
+available.
+
+To determine why the standard wasn't able to be enabled completely, refer to the information in the `StandardsStatusReason` array. This array specifies issues that prevented Security Hub CSPM from enabling the standard. If an internal error occurred, try enabling the standard for the account again. For other types of issues, [check your AWS Config settings](securityhub-setup-prereqs.md "securityhub-setup-prereqs.md"). You can also [disable individual controls](disable-controls-overview.md "disable-controls-overview.md") that you don't want to check, or disable the standard completely.
 
 **DELETING**
 
