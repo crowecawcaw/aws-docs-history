@@ -99,7 +99,7 @@ certificates as ACM resources:
   and held by the ACME client. ACM never sees the private key.
 - **AWS integrated services:**
   ACME-issued certificates cannot be bound to [Managed automation with integrated services](acm-services.md "acm-services.md") such as Elastic Load Balancing, CloudFront,
-  or API Gateway. Use the certificate on the customer-managed infrastructure where the
+  or API Gateway. Use the certificate on your managed infrastructure where the
   ACME client holds the private key.
 - **Renewal:** The ACME client requests a
   new certificate before the existing one expires. ACM managed renewal does not

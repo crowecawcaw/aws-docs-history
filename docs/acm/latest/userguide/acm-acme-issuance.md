@@ -48,9 +48,9 @@ certificate**
 
 ###### Important
 
-Certificate issuance through the ACM ACME endpoint can take several
-minutes. Configure your ACME client's issuance timeout to at least 600
-seconds (10 minutes) to prevent the client from timing out before the certificate
+Certificate issuance through the ACM ACME endpoint can take up to
+two minutes. Configure your ACME client's issuance timeout to at least 120
+seconds (2 minutes) to prevent the client from timing out before the certificate
 is delivered. Many ACME clients default to 30-90 seconds, which is not
 sufficient.
 
@@ -65,7 +65,7 @@ certbot certonly \
     --server https://acm-acme-enroll.`region`.api.aws/`00000000-0000-0000-0000-000000000000`/directory \
     --eab-kid `AAABBBCCC111222333` \
     --eab-hmac-key `base64encodedmackey` \
-    --issuance-timeout 600 \
+    --issuance-timeout 120 \
     --domain `www.example.com`
 ```
 

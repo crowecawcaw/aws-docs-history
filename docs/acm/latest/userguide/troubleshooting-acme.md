@@ -5,12 +5,34 @@ resolve them.
 
 ###### Topics
 
+- [ACME failures not appearing in the console Monitoring tab](#troubleshooting-acme-monitoring "#troubleshooting-acme-monitoring")
 - [Domain validation does not become valid](#troubleshooting-acme-dv "#troubleshooting-acme-dv")
 - [Certificate issuance or revocation fails with access denied](#troubleshooting-acme-access-denied "#troubleshooting-acme-access-denied")
 - [Certificate request is rejected](#troubleshooting-acme-rejected "#troubleshooting-acme-rejected")
 - [Certificate issuance fails with a DNS CNAME error after the domain validation was previously valid](#troubleshooting-acme-cname-deleted "#troubleshooting-acme-cname-deleted")
 - [Account registration fails](#troubleshooting-acme-account "#troubleshooting-acme-account")
 - [ACME client times out waiting for certificate](#troubleshooting-acme-timeout "#troubleshooting-acme-timeout")
+
+## ACME failures not appearing in the console Monitoring tab
+
+The **Monitoring** tab on the ACME endpoint details page in
+the ACM console shows events for the final step of certificate issuance—when ACM
+creates the certificate (see [Monitoring ACME endpoints](acm-acme-endpoints.md#acm-acme-endpoint-monitoring "acm-acme-endpoints.md#acm-acme-endpoint-monitoring")). If your request failed before that
+step, it doesn't appear there.
+
+Some failures happen earlier in the process—for example, invalid credentials, an
+unvalidated domain, or a domain that the endpoint doesn't allow. Your ACME client
+receives these failures directly.
+
+To diagnose these failures, use one of the following options:
+
+- **Check your ACME client logs**—Your
+  ACME client logs the exact error the server returns. Consult your
+  client's documentation for the location of its log files.
+- **Enable CloudTrail data events**—To get a
+  centralized view of all ACME activity in your AWS account for debugging or
+  auditing, enable CloudTrail data event logging for ACM ACME endpoints.
+  For more information about these events, see [Data events](acm-supported-actions-in-cloudtrail.md#ct-data-events "acm-supported-actions-in-cloudtrail.md#ct-data-events").
 
 ## Domain validation does not become valid
 
@@ -127,14 +149,14 @@ following:
 
 ## ACME client times out waiting for certificate
 
-Certificate issuance through the ACM ACME endpoint can take several minutes.
+Certificate issuance through the ACM ACME endpoint can take up to two minutes.
 If your ACME client times out before receiving the certificate, increase the
-client's issuance timeout to at least 600 seconds (10 minutes).
+client's issuance timeout to at least 120 seconds (2 minutes).
 
 For Certbot, use the `--issuance-timeout` flag:
 
 ```
-certbot certonly --issuance-timeout 600 ...
+certbot certonly --issuance-timeout 120 ...
 ```
 
 For other ACME clients, consult your client's documentation for the equivalent
