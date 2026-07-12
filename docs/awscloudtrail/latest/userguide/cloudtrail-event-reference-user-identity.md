@@ -51,6 +51,7 @@ additional details about the role that was assumed to get credentials.
             "accountId": "123456789012",
             "userName": "RoleToBeAssumed"
         },
+        "signInSessionArn": "arn:aws:signin:us-east-1:123456789012:session/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
         "attributes": {
             "mfaAuthenticated": "false",
             "creationDate": "20131102T010628Z"
@@ -329,6 +330,17 @@ an empty value signifies that there is no information about the identity provide
   management account or delegated administrator calls AWS STS [`AssumedRoot`](../../../STS/latest/APIReference/API_AssumeRoot.md "../../../STS/latest/APIReference/API_AssumeRoot.md"). For more information, see
   [Track privileged
   tasks in CloudTrail](../../../IAM/latest/UserGuide/cloudtrail-track-privileged-tasks.md "../../../IAM/latest/UserGuide/cloudtrail-track-privileged-tasks.md") in the _IAM User Guide_. This is an optional field.
+- `signInSessionArn` – The ARN of the sign-in session that supports the
+  request, in the form `arn:aws:signin:<region>:<account-id>:session/<uuid>`.
+  This ARN is the value of the `aws:SignInSessionArn` global condition key. The key
+  identifies the session more specifically than the principal ARN. Use it to audit API activity by
+  sign-in session, or to write policies that revoke a specific session.
+
+The session that originates the request can be a sign-in session. The session can also come from an access token
+that you obtain through an OAuth or Signature Version 4 (SigV4) machine flow. CloudTrail does not change
+the ARN of the principal. CloudTrail records this field on API events that occur under such a session.
+This is an optional field.
+
 - `attributes` – The attributes for the session.
 
   - `creationDate` – The date and
