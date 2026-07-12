@@ -89,13 +89,8 @@ With verbatim compilation, the IonQ QPUs support the following native
 gates.
 
 ```
-'gpi', 'gpi2', 'ms'
+'gpi', 'gpi2', 'zz'
 ```
-
-If you only specify two phase parameters when using the native MS gate, a fully-
-entangling MS gate runs. A fully-entangling MS gate always performs a π/2 rotation. To
-specify a different angle and run a partially-entangling MS gate, you specify the desired
-angle by adding a third parameter. For more information, see the [braket.circuits.gate module](https://amazon-braket-sdk-python.readthedocs.io/en/latest/_apidoc/braket.circuits.gate.html "https://amazon-braket-sdk-python.readthedocs.io/en/latest/_apidoc/braket.circuits.gate.html").
 
 These native gates can only be used with verbatim compilation. To learn more about
 verbatim compilation, see [Verbatim Compilation](braket-constructing-circuit.md#verbatim-compilation "braket-constructing-circuit.md#verbatim-compilation").

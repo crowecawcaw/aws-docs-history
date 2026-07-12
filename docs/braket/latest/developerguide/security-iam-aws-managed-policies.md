@@ -51,7 +51,9 @@ permissions for Amazon Braket operations, including permissions for these tasks:
 - **Create and store data in Amazon S3 buckets, and list all
   buckets** – To create S3 buckets, list the S3 buckets in your
   account, and put objects into and get objects from any bucket in your account
-  whose name begins with _amazon-braket-_. These permissions
+  whose name begins with _amazon-braket-_ or that is
+  [ABAC-enabled](../../../AmazonS3/latest/userguide/buckets-tagging-enable-abac.md "../../../AmazonS3/latest/userguide/buckets-tagging-enable-abac.md")
+  and tagged with `"AmazonBraket": "true"`. These permissions
   are required for Braket to put files containing results from processed quantum
   tasks into the bucket and to retrieve them from the bucket.
 - **Pass IAM roles** – To pass in IAM roles to the
@@ -85,7 +87,10 @@ permissions for execution roles used in Amazon Braket Hybrid Jobs as follows:
   putting log data. Put metric data in CloudWatch.
 - **Store data in Amazon S3 buckets** – List the S3
   buckets in your account, put objects into and get objects from any bucket in
-  your account that starts with _amazon-braket-_ in its name.
+  your account that starts with _amazon-braket-_ in its name
+  or that is
+  [ABAC-enabled](../../../AmazonS3/latest/userguide/buckets-tagging-enable-abac.md "../../../AmazonS3/latest/userguide/buckets-tagging-enable-abac.md")
+  and tagged with `"AmazonBraket": "true"`.
   These permissions are required for Braket to put files containing results from
   processed quantum tasks into the bucket, and to retrieve them from the bucket.
 - **Pass IAM roles** – Passing in IAM roles to the
@@ -103,7 +108,10 @@ permissions for Amazon Braket operations, including permissions for these tasks:
 
 - **Amazon S3** – permissions to list the buckets in your account,
   and put objects into and get objects from any bucket in your account with a name that starts
-  with `amazon-braket-`.
+  with `amazon-braket-` or that is
+  [ABAC-enabled](../../../AmazonS3/latest/userguide/buckets-tagging-enable-abac.md "../../../AmazonS3/latest/userguide/buckets-tagging-enable-abac.md")
+  and tagged with
+  `"AmazonBraket": "true"`.
 - **Amazon CloudWatch Logs** – permissions to list and create log groups,
   create the associated log streams, and put events into the log group created for Amazon Braket.
 
@@ -118,13 +126,16 @@ in the _AWS Managed Policy Reference_.
 The following table provides details about updates to AWS managed policies for
 Amazon Braket from the time this service began tracking these changes.
 
-| **Change**                                                                                                                                                                | **Description**                                                                                                              | **Date**          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| [AmazonBraketServiceRolePolicy](#about-amazonbraketservicerolepolicy "#about-amazonbraketservicerolepolicy")<br>• Resource management policy                              | Added the **"aws:ResourceAccount" : "${aws:PrincipalAccount}"**<br>condition scope to Amazon S3 and CloudWatch logs actions. | July 11, 2025     |
-| [AmazonBraketFullAccess](#about-amazonbraketfullaccess "#about-amazonbraketfullaccess")<br>• Full access policy for Braket                                                | Added the **"pricing:GetProducts"*<br>• action.                                                                              | April 14, 2025    |
-| [AmazonBraketFullAccess](#about-amazonbraketfullaccess "#about-amazonbraketfullaccess")<br>• Full access policy for Braket                                                | Added the **"aws:ResourceAccount":<br>"${aws:PrincipalAccount}"*<br>• condition scope to S3 actions.                         | March 7, 2025     |
-| [AmazonBraketFullAccess](#about-amazonbraketfullaccess "#about-amazonbraketfullaccess")<br>• Full access policy for Braket                                                | Added the *_servicequotas:GetServiceQuota_<br>• and *_cloudwatch:GetMetricData_<br>• actions.                                | March 24, 2023    |
-| [AmazonBraketFullAccess](#about-amazonbraketfullaccess "#about-amazonbraketfullaccess")<br>• Full access policy for Braket                                                | Added the **s3:ListAllMyBuckets**<br>permissions to view and inspect the used Amazon S3 buckets.                             | March 31, 2022    |
-| [AmazonBraketFullAccess](#about-amazonbraketfullaccess "#about-amazonbraketfullaccess")<br>• Full access policy for Braket                                                | Braket adjusted iam:PassRole permissions for<br>AmazonBraketFullAccess to include the `service-role/`<br>path.               | November 29, 2021 |
-| [AmazonBraketJobsExecutionPolicy](#about-amazonbraketjobsexecution "#about-amazonbraketjobsexecution")<br>• Hybrid jobs execution policy<br>for Amazon Braket Hybrid Jobs | Braket updated the hybrid jobs execution role ARN to include the<br>`service-role/` path.                                    | November 29, 2021 |
-| Braket started tracking changes                                                                                                                                           | Braket started tracking changes for its AWS managed<br>policies.                                                             | November 29, 2021 |
+| **Change**                                                                                                                                                                | **Description**                                                                                                                                                                                   | **Date**          |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [AmazonBraketFullAccess](#about-amazonbraketfullaccess "#about-amazonbraketfullaccess")<br>• Full access policy for Braket                                                | Added Amazon S3 permissions for arbitrarily-named buckets with the<br>**"aws:ResourceAccount": "${aws:PrincipalAccount}"**<br>and **"aws:ResourceTag/AmazonBraket": "true"*<br>• condition scope. | July 6, 2026      |
+| [AmazonBraketJobsExecutionPolicy](#about-amazonbraketjobsexecution "#about-amazonbraketjobsexecution")<br>• Jobs execution policy                                         | Added Amazon S3 permissions for arbitrarily-named buckets with the<br>**"aws:ResourceTag/AmazonBraket": "true"*<br>• condition scope.                                                             | July 6, 2026      |
+| [AmazonBraketServiceRolePolicy](#about-amazonbraketservicerolepolicy "#about-amazonbraketservicerolepolicy")<br>• Resource management policy                              | Added Amazon S3 permissions for arbitrarily-named buckets with the<br>**"aws:ResourceAccount": "${aws:PrincipalAccount}"**<br>and **"aws:ResourceTag/AmazonBraket": "true"*<br>• condition scope. | July 6, 2026      |
+| [AmazonBraketServiceRolePolicy](#about-amazonbraketservicerolepolicy "#about-amazonbraketservicerolepolicy")<br>• Resource management policy                              | Added the **"aws:ResourceAccount" : "${aws:PrincipalAccount}"**<br>condition scope to Amazon S3 and CloudWatch logs actions.                                                                      | July 11, 2025     |
+| [AmazonBraketFullAccess](#about-amazonbraketfullaccess "#about-amazonbraketfullaccess")<br>• Full access policy for Braket                                                | Added the **"pricing:GetProducts"*<br>• action.                                                                                                                                                   | April 14, 2025    |
+| [AmazonBraketFullAccess](#about-amazonbraketfullaccess "#about-amazonbraketfullaccess")<br>• Full access policy for Braket                                                | Added the **"aws:ResourceAccount":<br>"${aws:PrincipalAccount}"*<br>• condition scope to S3 actions.                                                                                              | March 7, 2025     |
+| [AmazonBraketFullAccess](#about-amazonbraketfullaccess "#about-amazonbraketfullaccess")<br>• Full access policy for Braket                                                | Added the *_servicequotas:GetServiceQuota_<br>• and *_cloudwatch:GetMetricData_<br>• actions.                                                                                                     | March 24, 2023    |
+| [AmazonBraketFullAccess](#about-amazonbraketfullaccess "#about-amazonbraketfullaccess")<br>• Full access policy for Braket                                                | Added the **s3:ListAllMyBuckets**<br>permissions to view and inspect the used Amazon S3 buckets.                                                                                                  | March 31, 2022    |
+| [AmazonBraketFullAccess](#about-amazonbraketfullaccess "#about-amazonbraketfullaccess")<br>• Full access policy for Braket                                                | Braket adjusted iam:PassRole permissions for<br>AmazonBraketFullAccess to include the `service-role/`<br>path.                                                                                    | November 29, 2021 |
+| [AmazonBraketJobsExecutionPolicy](#about-amazonbraketjobsexecution "#about-amazonbraketjobsexecution")<br>• Hybrid jobs execution policy<br>for Amazon Braket Hybrid Jobs | Braket updated the hybrid jobs execution role ARN to include the<br>`service-role/` path.                                                                                                         | November 29, 2021 |
+| Braket started tracking changes                                                                                                                                           | Braket started tracking changes for its AWS managed<br>policies.                                                                                                                                  | November 29, 2021 |

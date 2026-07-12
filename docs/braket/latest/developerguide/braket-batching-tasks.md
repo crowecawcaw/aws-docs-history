@@ -10,8 +10,8 @@ task. Program sets provides
 and cost savings compared to submitting programs individually, especially when the number of program
 executions approaches 100.
 
-Currently, IQM and Rigetti devices support program sets. Before
-submitting program sets to QPUs, it is recommend to [test on the Amazon Braket Local Simulator](braket-send-to-local-simulator.md "braket-send-to-local-simulator.md")
+Program sets are supported on all gate-based QPUs on Braket and the Amazon Braket Local Simulator. Before
+submitting program sets to QPUs, it is recommended to [test on the Amazon Braket Local Simulator](braket-send-to-local-simulator.md "braket-send-to-local-simulator.md")
 first. To check whether a device supports program sets, you can view the
 [device's properties](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/braket_features/Getting_Devices_and_Checking_Device_Properties.ipynb "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/braket_features/Getting_Devices_and_Checking_Device_Properties.ipynb") using Amazon Braket
 SDK or view the device page in [Amazon Braket Console](https://console.aws.amazon.com/braket/ "https://console.aws.amazon.com/braket/").
@@ -81,8 +81,7 @@ Program sets efficiently run multiple quantum programs by packaging up to 100 pr
 sets into a single quantum task. With program sets, you pay only one per-task fee plus per-shot fees
 based on the total shots across all programs, significantly reducing costs compared to submitting programs
 individually. This approach is particularly beneficial for workloads with many programs and with low
-number of shots per program. Program sets are currently supported on IQM and Rigetti
-devices, as well as the Amazon Braket Local Simulator.
+number of shots per program. Program sets are supported on all gate-based QPUs on Braket and the Amazon Braket Local Simulator.
 
 For more information, see the
 [Program sets](braket-constructing-circuit.md#braket-program-set "braket-constructing-circuit.md#braket-program-set")
