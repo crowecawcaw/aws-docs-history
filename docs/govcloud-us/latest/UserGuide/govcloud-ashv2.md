@@ -37,6 +37,10 @@ The Security Hub Extended plan is not available in the AWS GovCloud (US) Region.
 
 In the AWS GovCloud (US) Region the unused access analyzer runs in the us-gov-west-1 region. For more information about unused access findings see: [Understanding unused access findings in Security Hub](../../../securityhub/latest/userguide/unused-access-findings.md "../../../securityhub/latest/userguide/unused-access-findings.md") in the _AWS Security Hub User Guide_.
 
+**Network Scanning**
+
+The Network Scanning feature is not available in the AWS GovCloud (US) Region. For more information about Network Scanning in Security Hub see [Network Scanning in Security Hub](../../../securityhub/latest/userguide/securityhub-v2-network-scanning.md "../../../securityhub/latest/userguide/securityhub-v2-network-scanning.md") in the _AWS Security Hub User Guide_.
+
 **AWS Security Hub CSPM and Amazon Inspector**
 
 Security Hub uses findings from AWS Security Hub CSPM (Cloud Security Posture Management) and Amazon Inspector. For information about the availability of these features in AWS GovCloud (US) Region, see the following:

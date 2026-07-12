@@ -19,7 +19,6 @@ The following differences apply to Amazon EMR:
 - In AWS GovCloud (US) Regions, you launch all Amazon EMR job flows in Amazon Virtual Private Cloud (Amazon VPC). For information about configuring an Amazon VPC that can run a job flow, see [Set up a VPC to host clusters](../../../emr/latest/ManagementGuide/emr-vpc-host-job-flows.md "../../../emr/latest/ManagementGuide/emr-vpc-host-job-flows.md").
 - Launching a job flow with debugging is not currently supported.
 - Auto-termination for idle clusters using an auto-termination policy is not available.
-- Shuffle-optimized disks in Amazon EMR Serverless are not available.
 - Amazon EMR on EKS on Fargate is not available.
 - Amazon EMR with AWS Lake Formation is not available.
 
