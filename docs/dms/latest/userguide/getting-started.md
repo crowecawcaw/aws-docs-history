@@ -22,7 +22,7 @@ interface and helps you get familiar with the core components of this service.
 
 - [Complete prerequisites for working with DMS Schema Conversion](set-up.md "set-up.md")
 - [Create an instance profile for DMS Schema Conversion](getting-started-instance.md "getting-started-instance.md")
-- [Configure your data providers for DMS Schema Conversion](getting-started-data-providers.md "getting-started-data-providers.md")
+- [Create data providers for DMS Schema Conversion](getting-started-data-providers.md "getting-started-data-providers.md")
 - [Create a migration project in DMS Schema Conversion](getting-started-project.md "getting-started-project.md")
 - [Create an assessment report in DMS Schema Conversion](getting-started-assessment.md "getting-started-assessment.md")
 - [Convert your source code in DMS Schema Conversion](getting-started-convert.md "getting-started-convert.md")

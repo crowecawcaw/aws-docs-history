@@ -1,88 +1,149 @@
-# Virtual data provider
+# Virtual mode for offline source and virtual target
 
-AWS Database Migration Service (DMS) offers Virtual Mode for data providers in schema
-conversion. This feature allows you to perform schema conversion without connecting to a
-target database, reducing infrastructure costs and providing flexibility for migration
-planning. With Virtual Mode, you can start conversion work immediately to plan optimal
-migration strategy before committing resources. You can evaluate compatibility, convert and
-review schema code, and even test different target options. Then you can connect to a
-database when you are ready. Virtual Mode supports all target databases compatible with
-AWS DMS Schema Conversion, including MySQL, PostgreSQL, Amazon Redshift, and Amazon RDS
-for Db2.
+AWS Database Migration Service (DMS) offers **Virtual Mode** for data providers
+in schema conversion. **Virtual Mode** supports two use cases:
 
-## Create virtual data provider
+- Offline source – Convert schemas from exported script files without connecting to your source database.
+  Use this when direct connectivity to your source database is not available.
+  **Virtual Mode** for offline source is currently available for Microsoft SQL Server source databases.
+- Virtual target – Convert schemas without provisioning a target database.
 
-To create a virtual data provider, simply enable Virtual Mode in the form for creating the data provider. For more information, see [Configure your data providers for DMS Schema Conversion](getting-started-data-providers.md "getting-started-data-providers.md").
+You can evaluate compatibility, convert and review schema code, and test different target options before provisioning target infrastructure.
+**Virtual Mode** is available for all supported target databases.
+To get the list of supported target databases, see [Targets for AWS DMS Schema Conversion](CHAP_Introduction.Targets.SchemaConversion.md "CHAP_Introduction.Targets.SchemaConversion.md").
 
-## Virtual data provider usage
+## Create a data provider in Virtual Mode
 
-To use a virtual data provider, create a new migration project or modify an existing
-migration project. Then set the project's target data provider to the virtual data
-provider you've created.
+To create a data provider in **Virtual Mode**, turn on **Virtual Mode** on the **Create data provider** page.
+For more information, see [Create data providers for DMS Schema Conversion](getting-started-data-providers.md "getting-started-data-providers.md").
 
-To use a virtual provider for the Secret and IAM role for reading that secret's
-fields, use any secret that is granted to the IAM role to successfully setup the
-migration project.
+## Work with a data provider in Virtual Mode
 
-After target provider is set, choose the **Schema conversion** tab.
-Then choose the **Launch schema conversion** button. Wait until the
-project is started.
+###### To use a data provider in Virtual Mode in a migration project
 
-You can now use schema conversion with the virtual target data provider just as you
-would with a real target data provider. Actions that require connection to a real target
-database will be disabled, but **Save as SQL** will be available for
-the target tree.
+1. Create a new migration project, or choose an existing one and then choose **Modify**.
+2. For the source or target data provider, choose the data provider with **Virtual Mode** turned on.
+3. For **Secret**, choose any existing valid secret.
 
-## Transition from a virtual data provider to a real data provider
+###### Note
 
-When you are ready to proceed with the actual migration, you can make the transition
-to a real data provider .
+When you create or modify a migration project, you specify a Secret and an IAM role for all data providers, including data providers with **Virtual Mode** turned on.
+For data providers in **Virtual Mode**, these credentials are not used to connect to a database. 4. For **IAM role**, choose the IAM role that has read access to the secret. 5. Choose **Save changes**. 6. Choose the **Schema conversion** tab. 7. Choose **Launch schema conversion**. Wait until the project starts.
 
-###### To transition from a virtual data provider to a real data provider, follow these steps.
+Schema conversion works with a data provider in **Virtual Mode** the same way as with a direct connection.
+DMS Schema Conversion disables actions that require a database connection.
+
+For an offline source, **Refresh from database** is available on the **Databases** node of the source tree.
+This action clears the object tree and reloads the metadata from the data definition language (DDL) scripts in the S3 bucket.
+
+For a virtual target, use **Save as SQL** on the target tree to export the converted schema code.
+
+## Offline source
+
+When you turn on **Virtual Mode** for a source data provider, you can convert schemas from exported script files without connecting to your source database.
+Use this when direct connectivity to your source database is not available.
+You provide DDL scripts that describe your source database objects.
+Before you begin, make sure the following requirements are met.
+
+### Prerequisites for an offline source
+
+Supported source databases dialects
+
+- DDL scripts exported from Microsoft SQL Server
+
+###### Note
+
+You can export database objects using SQL Server Management Studio (SSMS) or SQL Server Management Objects (SMO). For more information, see
+[Export SQL Server database objects](export-sql-server-database-objects.md "export-sql-server-database-objects.md").
+
+DDL scripts requirements
+
+- Each database object is stored as a separate `.sql` file with Unicode encoding.
+- Organize exported script files into one subdirectory per database. Include a file with a `CREATE DATABASE` statement in each subdirectory.
+- Each object file starts with a `USE [`database_name`]` statement that identifies which source database the object belongs to.
+- Each file contains one `CREATE` statement for the database object.
+- Database objects referenced in the script use schema-qualified names (for example, `dbo.TableName`). If no schema is specified, `dbo` is used.
+- Any `ALTER` and `DROP` statements in the file are skipped.
+
+###### Note
+
+When exporting, SQL Server may include additional statements in the same file alongside the
+primary `CREATE` statement. DMS Schema Conversion processes the following:
+
+- `CREATE INDEX` – indexes defined on the table
+- `CREATE TRIGGER` – triggers associated with the table
+- `ALTER TABLE ... ADD DEFAULT` – default values for columns
+- `ALTER TABLE ... ADD CONSTRAINT DEFAULT` – named default constraints
+- `ALTER TABLE ... ALTER COLUMN ... NOT FOR REPLICATION` – column replication settings
+  All other `ALTER` and `DROP` statements in the file are skipped.
+
+S3 folder structure
+
+DMS Schema Conversion reads the `.sql` files in your S3 folder structure to load the database objects.
+
+- The S3 path you provide points to a folder containing your database directories.
+- Each subdirectory under this path represents a separate database.
+- Each subdirectory requires at least one `.sql` file with a valid DDL script.
+
+S3 bucket configuration
+
+- Upload the DDL scripts to an Amazon S3 bucket.
+- Create an IAM role that allows the DMS service principal (`dms.amazonaws.com`)
+  to assume it, and attach a policy granting `s3:GetObject` and `s3:ListBucket`
+  permissions scoped to your S3 bucket.
+  For more information, see [Configure S3 access permissions for an offline source](virtual-source-s3-permissions.md "virtual-source-s3-permissions.md").
+
+## Virtual target
+
+**Virtual Mode** in a target data provider lets you perform schema
+conversion without provisioning a target database. When you are ready to migrate,
+you can switch to a direct database connection.
+
+### Switch a target data provider from virtual mode to a direct database connection
+
+When you are ready to proceed with the migration, modify the data provider to clear
+**Virtual Mode** and use a direct database connection.
+
+###### Important
+
+After you turn off **Virtual Mode** and save the data provider, you can't turn it back on.
+You must provide database connection details for the data provider and a valid secret and IAM role in the associated migration project.
+
+###### To switch from **Virtual Mode** to a direct database connection
 
 1. Sign in to the AWS Management Console, and open the AWS DMS console.
-2. In the navigation pane, choose **Data providers**. Then
-   choose the data provider you wish to modify.
-3. Go to the section **Associated migration projects** , to see
-   all the migration projects using this virtual data provider.
+2. In the navigation pane, choose **Data providers**.
+   Then choose the data provider to modify.
+3. In the **Associated migration projects** section, review all
+   migration projects that use this data provider.
 4. Choose the first associated project.
 5. Choose the **Schema conversion** tab.
-6. Check the option **Details section** -
-   **Status**.
+6. Check the option **Details section** - **Status**.
 7. If the status is **Open** and the button **Close
    schema conversion** is not greyed out, choose it and wait until the
    project is closed.
-8. Repeat the previous steps for all remaining associated migration
-   projects.
+8. Repeat the previous steps for all remaining associated migration projects.
 9. Confirm that there are no remaining open projects.
 10. Return to the data provider and choose **Modify**.
-11. Turn **Virtual Mode** off.
-12. Fill the connection settings correctly. The connection parameters depend on
-    your database engine. For more information, see [Creating data providers](data-providers-create.md "data-providers-create.md").
+11. Turn off **Virtual Mode**.
+12. Enter the connection settings for the database.
+    The connection parameters depend on the database engine.
+    For more information, see [Creating data providers](data-providers-create.md "data-providers-create.md").
 13. Choose **Save changes**.
 
 ###### Note
 
-After changes have been saved, it won't be possible to turn Virtual Mode
-back to on. 14. Return to the AWS DMS console. 15. In the navigation pane, choose **Migration Projects**. Then
-choose the migration project you want to change the data provider for. 16. Choose **Modify**. 17. Fill the Secret to be used to connect to target data provider. Use the correct
-secret, containing the credentials needed to connect to the database. 18. Fill the IAM role to use to read the target secret. Check that the IAM role
+After you save the changes, you can't turn **Virtual Mode** back on. 14. Return to the AWS DMS console. 15. In the navigation pane, choose **Migration Projects**.
+Then choose the migration project to change the data provider for. 16. Choose **Modify**. 17. For **Secret**, choose the secret that contains the credentials for the database. 18. For **IAM role**, choose the IAM role to use to read the secret. Check that the IAM role
 specified here is correct, is granted read on the connection credentials secret,
-and is available to AWS DMS Schema Conversion service. 19. Choose **Save changes**. 20. Choose **Schema conversion** tab. 21. Choose **Launch schema conversion** button. 22. Wait until the project is started.
+and is available to AWS DMS Schema Conversion service. 19. Choose **Save changes**. 20. Choose the **Schema conversion** tab. 21. Choose **Launch schema conversion**. Wait until the project is started.
 
-###### Important
-
-Once you disable Virtual Mode and save this change the data provider, this action
-cannot be undone. You will be required to provide actual database connection details
-for the data provider, and working Secret and IAM role to access the Secret in the
-associated migration project.
-
-On the very first start of the project containing the transited data provider, you
-will have conversion results. Only these actions will be available:
+When you first start the project after transitioning the data provider, you can view the conversion results.
+You can perform only the following actions:
 
 - **On node schemas** - Refresh from database.
 - **On database objects** - Apply changes, then save as SQL.
 
-The **Apply** action will apply converted objects to the real database.
+The **Apply** action will apply converted objects to the database.
 
 The **Refresh from database** action loads database objects from the real database. Any unsaved conversion objects will be lost.

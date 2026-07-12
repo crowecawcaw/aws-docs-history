@@ -144,9 +144,9 @@ with DMS Schema Conversion.
 - **Review converted SQL before applying**
   — Export the converted code as SQL scripts and review it before applying
   to your target database, especially for code objects.
-- **Enable GenAI-assisted conversion** —
-  Enable GenAI-assisted conversion to improve the conversion rate for
-  code objects. GenAI-assisted conversion uses machine learning to convert
+- **Enable generative AI-assisted conversion** —
+  Enable generative AI-assisted conversion to improve the conversion rate for
+  code objects. Generative AI-assisted conversion uses machine learning to convert
   objects that the rule-based converter cannot handle automatically. For
   more information, see
   [Converting database objects with generative AI](schema-conversion-convert.databaseobjects.md "schema-conversion-convert.databaseobjects.md").

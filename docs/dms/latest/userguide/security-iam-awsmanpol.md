@@ -93,7 +93,8 @@ This policy is attached to the `AWSServiceRoleForDMSServerless` role, which
 allows AWS DMS to perform actions on your behalf. For more information, see [Service-linked role for AWS DMS](slr-services-sl.md "slr-services-sl.md").
 
 This policy grants contributor permissions that allow AWS DMS to manage replication
-resources.
+resources. It also grants permissions that allow DMS Schema Conversion to list and read the contents of a designated
+Amazon S3 bucket containing source database metadata.
 
 **Permissions details**
 
@@ -101,9 +102,15 @@ This policy includes the following permissions.
 
 - **AWS DMS** – Allows principals to interact
   with AWS DMS resources.
-- **Amazon S3** – Allows DMS to create an S3
-  bucket to store a premigration assessment. The S3 bucket is created for one user
-  per Region and its bucket policy limits access to only the service's service role.
+- **Amazon S3**:
+
+  1.  Allows AWS DMS to create an Amazon S3
+      bucket to store a premigration assessment. The Amazon S3 bucket is created for one user
+      per Region and its bucket policy limits access to only the service's service role.
+  2.  Allows DMS Schema Conversion to list and read the contents of an ABAC-enabled Amazon S3
+      bucket designated with a resource tag. It is used to parse source database metadata
+      from a data provider in **Virtual Mode**. For more information, see
+      [Virtual mode for offline source and virtual target](virtual-data-provider.md "virtual-data-provider.md").
 
 ```
 {
@@ -215,6 +222,30 @@ This policy includes the following permissions.
             "Condition": {
                 "StringEquals": {
                     "aws:ResourceAccount": "${aws:PrincipalAccount}"
+                }
+            }
+        },
+        {
+            "Sid": "ReadDDLScript",
+            "Effect": "Allow",
+            "Action": "s3:GetObject",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceAccount": "${aws:PrincipalAccount}",
+                    "aws:ResourceTag/ResourceUsedBy": "DMSDatabaseMigrations"
+                }
+            }
+        },
+        {
+            "Sid": "ListDDLScript",
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceAccount": "${aws:PrincipalAccount}",
+                    "aws:ResourceTag/ResourceUsedBy": "DMSDatabaseMigrations"
                 }
             }
         }

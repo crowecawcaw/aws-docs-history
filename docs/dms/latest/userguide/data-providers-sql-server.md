@@ -1,9 +1,15 @@
 # Using a Microsoft SQL Server database as a source in DMS Schema Conversion
 
-You can use SQL Server databases as a migration source in DMS Schema Conversion.
+DMS Schema Conversion supports the following modes for Microsoft SQL Server as a migration source:
 
-You can use DMS Schema Conversion to convert database code objects from SQL Server
-to the following targets:
+- **Online mode** – DMS Schema Conversion connects directly to your source database to read metadata.
+  This requires network connectivity between DMS Schema Conversion and your database, and the database user must have the required privileges.
+  For more information about network configuration, see [Networking for schema conversion](instance-profiles-network.md "instance-profiles-network.md").
+- **Offline mode** – DMS Schema Conversion reads metadata from exported script files stored in an Amazon S3 bucket
+  without connecting to the source database. Use this when network connectivity to your source database is restricted or unavailable.
+  To use offline mode, turn on **Virtual Mode** when you create the data provider.
+  For more information, see [Virtual mode for offline source and virtual target](virtual-data-provider.md "virtual-data-provider.md").
+  You can use DMS Schema Conversion to convert database code objects from SQL Server to the following targets:
 
 - Aurora MySQL
 - Aurora PostgreSQL
@@ -16,8 +22,7 @@ For more information about using DMS Schema Conversion with a source SQL Server 
 
 ## Privileges for Microsoft SQL Server as a source
 
-View the following list of privileges required for Microsoft SQL Server as a
-source:
+View the following list of privileges required for Microsoft SQL Server as a source:
 
 - VIEW DEFINITION
 - VIEW DATABASE STATE
@@ -30,8 +35,8 @@ Repeat the grant for each database whose schema you are converting.
 
 In addition, grant the following privileges on the `master` database:
 
-- VIEW SERVER STATE
-- VIEW ANY DEFINITION
+- `VIEW SERVER STATE`
+- `VIEW ANY DEFINITION`
 
 DMS Schema Conversion uses the `VIEW SERVER STATE` privilege to collect server
 settings and configuration. Make sure that you grant the `VIEW ANY DEFINITION`
@@ -68,8 +73,7 @@ To detect log shipping, grant the `SELECT on dbo.log_shipping_primary_databases`
 privilege on the `msdb` database.
 
 To use the notification approach of the data definition language (DDL)
-replication, grant the `RECEIVE ON
- `<schema_name>`.`<queue_name>`  privilege on your source databases. In this example, replace the
+replication, grant the `RECEIVE ON `<schema_name>`.`<queue_name>`  privilege on your source databases. In this example, replace the
  `<schema_name>`placeholder
  with the schema name of your database. Then, replace the
 `<queue_name>`` placeholder

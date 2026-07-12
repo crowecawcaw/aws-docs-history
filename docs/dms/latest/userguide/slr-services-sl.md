@@ -1,7 +1,7 @@
 # Service-linked role for AWS DMS
 
 AWS DMS uses the service-linked role named **AWSServiceRoleForDMSServerless**.
-AWS DMS uses this service-linked role to create and manage AWS DMS resources on your behalf. AWS DMS uses this role for automatic instance management so that you only have to manage replications.
+AWS DMS uses this service-linked role to create and manage AWS DMS resources on your behalf. AWS DMS uses this role for automatic instance management so that you only have to manage replications. DMS Schema Conversion also uses this role to access designated Amazon S3 resources on your behalf.
 
 The [AWSServiceRoleForDMSServerless](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDMSServerlessServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDMSServerlessServiceRolePolicy") service-linked role
 trusts the following services to assume the role:
@@ -12,12 +12,13 @@ trusts the following services to assume the role:
 
 ## Creating a service-linked role for AWS DMS
 
-When you start a replication task, or start a premigration assessment, AWS DMS programmatically creates a AWS DMS
-service linked role. You can view this role in the IAM console. You can also
-choose to create this role manually. To create the role manually, use the IAM console to
-create a service-linked role with the **DMS** use case. In the AWS CLI or the
-AWS API, create a service-linked role using `dms.amazonaws.com` for the service
-name. For more information, see [Creating a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role") in the
+AWS DMS programmatically creates a AWS DMS service-linked role when you start a replication task,
+start a premigration assessment, or create a migration project with a virtual data provider within
+DMS Schema Conversion. You can view this role in the IAM console. You can also choose to create this role manually.
+To create the role manually, use the IAM console to create a service-linked role with the
+**DMS** use case.
+In the AWS CLI or the AWS API, create a service-linked role using `dms.amazonaws.com`
+for the service name. For more information, see [Creating a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role") in the
 _IAM User Guide_. If you delete this service-linked role, you can use
 this same process to create the role again.
 

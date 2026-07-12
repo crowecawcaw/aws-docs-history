@@ -1,155 +1,171 @@
 # Converting database schemas using DMS Schema Conversion
 
+DMS Schema Conversion is a feature of AWS Database Migration Service (AWS DMS) that converts your source database schemas to a
+format compatible with your target database on Aurora, Amazon RDS, or Amazon Redshift.
+
+To convert a database, you create a migration project for your source and target
+databases. If you don't have a target database yet, you can use a virtual target and add a
+real one before you apply your code. DMS Schema Conversion reads your source metadata, and you
+can run an assessment to see what converts automatically and what needs manual work. You
+then convert the schema, review the results, and either apply the converted code to your
+target database or export it as SQL scripts.
+
 ###### Note
 
-DMS Schema Conversion with generative AI feature is now available. For more information, see [Viewing your database migration assessment report for DMS Schema Conversion](assessment-reports-view.md "assessment-reports-view.md") and
-[Converting database schemas in DMS Schema Conversion: step-by-step guide](schema-conversion-convert.md "schema-conversion-convert.md").
+DMS Schema Conversion converts your database schema, not your data. To migrate your data, use the
+data migration features of AWS DMS.
 
-DMS Schema Conversion in AWS Database Migration Service (AWS DMS) makes database migrations between different types of
-databases more predictable. Use DMS Schema Conversion to assess the complexity of your migration for your
-source data provider, and to convert database schemas and code objects. You can then apply
-the converted code to your target database.
+You can use DMS Schema Conversion in the AWS Management Console, with the AWS CLI and SDKs, or with
+an AI agent that drives it through the AWS API. For more information about using an AI
+agent, see [Using AI agents with DMS Schema Conversion](sc-genai-agents.md "sc-genai-agents.md").
 
-DMS Schema Conversion automatically converts your source database schemas and most of the database code
-objects to a format compatible with the target database. This conversion includes tables,
-views, stored procedures, functions, data types, synonyms, and so on. Any objects that
-DMS Schema Conversion can't convert automatically are clearly marked. To complete the migration, you can
-convert these objects manually.
-
-At a high level, [DMS Schema Conversion](https://aws.amazon.com/dms/schema-conversion-tool/ "https://aws.amazon.com/dms/schema-conversion-tool/") operates with the following three components: instance profiles, data
-providers, and migration projects. An _instance profile_ specifies
-network and security settings. A _data provider_ stores database
-connection credentials. A _migration project_ contains data providers, an
-instance profile, and migration rules. AWS DMS uses data providers and an instance profile to
-design a process that converts database schemas and code objects.
-
-For the list of supported source databases, see [Sources for DMS Schema Conversion](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion").
-
-For the list of supported target databases, see [Targets for DMS Schema Conversion](CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.SchemaConversion "CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.SchemaConversion").
-
-The following diagram illustrates the DMS Schema Conversion process.
-
-![An architecture diagram of the DMS Schema Conversion feature.](images/dms-schema-conversion-diagram.png)
-Use the following topics to better understand how to use DMS Schema Conversion.
+Use the following topics to learn how to use DMS Schema Conversion.
 
 ###### Topics
 
+- [How DMS Schema Conversion works](#how-schema-conversion-works "#how-schema-conversion-works")
+- [Key capabilities](#schema-conversion-features "#schema-conversion-features")
+- [Supported conversion paths](#schema-conversion-supported-paths "#schema-conversion-supported-paths")
 - [Supported AWS Regions](#schema-conversion-supported-regions "#schema-conversion-supported-regions")
-- [Schema conversion features](#schema-conversion-features "#schema-conversion-features")
-- [Schema conversion limitations](#schema-conversion-limitations "#schema-conversion-limitations")
 - [Getting started with DMS Schema Conversion](getting-started.md "getting-started.md")
 - [DMS Schema Conversion concepts](sc-concepts.md "sc-concepts.md")
 - [Setting up a network for DMS Schema Conversion](instance-profiles-network.md "instance-profiles-network.md")
 - [Creating source data providers in DMS Schema Conversion](data-providers-source.md "data-providers-source.md")
 - [Creating and setting target data providers in DMS Schema Conversion](data-providers-target.md "data-providers-target.md")
-- [Virtual data provider](virtual-data-provider.md "virtual-data-provider.md")
+- [Virtual mode for offline source and virtual target](virtual-data-provider.md "virtual-data-provider.md")
 - [Managing migration projects in DMS Schema Conversion](sc-migration-projects.md "sc-migration-projects.md")
 - [Creating database migration assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md")
 - [Using DMS Schema Conversion](schema-conversion.md "schema-conversion.md")
 - [Using AI agents with DMS Schema Conversion](sc-genai-agents.md "sc-genai-agents.md")
 - [Using extension packs in DMS Schema Conversion](extension-pack.md "extension-pack.md")
 
+## How DMS Schema Conversion works
+
+DMS Schema Conversion converts your schema with a rules-based engine. The rules produce consistent,
+repeatable results, so you can rely on them across a large schema without checking every
+object by hand. When the rules can't fully convert an object, DMS Schema Conversion can use
+generative AI to convert more of it, so you have less to finish manually.
+
+###### Note
+
+DMS Schema Conversion is a fully managed, web-based feature that builds on the AWS Schema Conversion Tool
+(AWS SCT) conversion engine.
+
+DMS Schema Conversion uses three resources to work with your databases:
+
+Instance profile
+
+Specifies the network and security settings DMS Schema Conversion uses to connect to
+your source and target databases and to encrypt your conversion data.
+
+Data provider
+
+Stores the connection details for a source or target database, such as its
+type, server name, and port.
+
+Migration project
+
+Brings together a source data provider, a target data provider, and an
+instance profile, along with the AWS Secrets Manager secrets that hold your database
+credentials.
+
+The following diagram shows how these resources fit together. Each of your source and
+target databases is represented by a data provider. The migration project uses both data
+providers and the instance profile, and it's where DMS Schema Conversion converts your schema.
+
+![Source and target databases each connect through a data provider to a migration project, where the schema is converted.](images/dms-schema-conversion-diagram.png)
+
+## Key capabilities
+
+Assess your migration
+
+DMS Schema Conversion reads your source metadata and creates a conversion assessment
+report that shows what it can convert automatically and what needs manual
+work. Use the report to estimate the effort of a migration before you commit
+to it. For more information, see [Creating database migration assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md").
+
+Convert your schema
+
+DMS Schema Conversion converts tables, views, stored procedures, functions, and other
+objects. You can customize the results with transformation rules, which
+change object names and data types, and with conversion settings for each
+conversion path. For objects that the rules can't fully convert, generative
+AI conversion can convert more of them for you to review. For more
+information, see [Using DMS Schema Conversion](schema-conversion.md "schema-conversion.md").
+
+Apply or export your converted code
+
+You can compare the source and converted code, and edit the converted SQL.
+When you're ready, apply the converted code to your target database, or
+export it as SQL scripts to an Amazon S3 bucket. If your source database uses
+features that the target database doesn't have, DMS Schema Conversion adds an extension
+pack that emulates some of them. For more information, see [Saving and applying your converted code in DMS Schema Conversion](schema-conversion-save-apply.md "schema-conversion-save-apply.md") and [Using extension packs in DMS Schema Conversion](extension-pack.md "extension-pack.md").
+
+## Supported conversion paths
+
+The following table lists the conversion paths that DMS Schema Conversion supports, including
+which paths support generative AI conversion.
+
+| Source database  | Target database                         | Generative AI conversion |
+| ---------------- | --------------------------------------- | ------------------------ |
+| Oracle           | Aurora PostgreSQL or RDS for PostgreSQL | Yes                      |
+| Oracle           | Aurora MySQL or RDS for MySQL           | No                       |
+| Oracle           | Amazon Redshift                         | No                       |
+| SQL Server       | Aurora PostgreSQL or RDS for PostgreSQL | Yes                      |
+| SQL Server       | Aurora MySQL or RDS for MySQL           | No                       |
+| PostgreSQL       | Aurora MySQL or RDS for MySQL           | No                       |
+| MySQL            | Aurora PostgreSQL or RDS for PostgreSQL | No                       |
+| IBM Db2 for LUW  | Aurora PostgreSQL or RDS for PostgreSQL | Yes                      |
+| IBM Db2 for z/OS | Aurora PostgreSQL or RDS for PostgreSQL | Yes                      |
+| IBM Db2 for z/OS | Amazon RDS for Db2                      | No                       |
+| SAP ASE          | Aurora PostgreSQL or RDS for PostgreSQL | Yes                      |
+
+For the supported versions of each database, see [Sources for DMS Schema Conversion](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion") and [Targets for DMS Schema Conversion](CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.SchemaConversion "CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.SchemaConversion"). For more
+information about generative AI conversion, including how it uses cross-Region inference,
+see [Converting database objects with generative AI](schema-conversion-convert.databaseobjects.md "schema-conversion-convert.databaseobjects.md").
+
 ## Supported AWS Regions
 
-You can create a DMS Schema Conversion migration project in the following AWS Regions. In other
-Regions, you can use the AWS Schema Conversion Tool. For more information about AWS SCT, see the
-[AWS Schema Conversion Tool User Guide](../../../SchemaConversionTool/latest/userguide.md "../../../SchemaConversionTool/latest/userguide.md").
+The following table lists the AWS Regions where you can create a DMS Schema Conversion migration
+project, including where generative AI conversion is available.
 
-| Region Name               | Region         |
-| ------------------------- | -------------- |
-| Africa (Cape Town)        | af-south-1     |
-| Asia Pacific (Hong Kong)  | ap-east-1      |
-| Asia Pacific (Mumbai)     | ap-south-1     |
-| Asia Pacific (Hyderabad)  | ap-south-2     |
-| Asia Pacific (Tokyo)      | ap-northeast-1 |
-| Asia Pacific (Seoul)      | ap-northeast-2 |
-| Asia Pacific (Singapore)  | ap-southeast-1 |
-| Asia Pacific (Sydney)     | ap-southeast-2 |
-| Asia Pacific (Jakarta)    | ap-southeast-3 |
-| Asia Pacific (Melbourne)  | ap-southeast-4 |
-| Canada (Central)          | ca-central-1   |
-| Canada West (Calgary)     | ca-west-1      |
-| Europe (Frankfurt)        | eu-central-1   |
-| Europe (Zurich)           | eu-central-2   |
-| Europe (Stockholm)        | eu-north-1     |
-| Europe (Milan)            | eu-south-1     |
-| Europe (Spain)            | eu-south-2     |
-| Europe (Ireland)          | eu-west-1      |
-| Europe (Paris)            | eu-west-3      |
-| Israel (Tel Aviv)         | il-central-1   |
-| Middle East (UAE)         | me-central-1   |
-| South America (São Paulo) | sa-east-1      |
-| US East (N. Virginia)     | us-east-1      |
-| US East (Ohio)            | us-east-2      |
-| US West (N. California)   | us-west-1      |
-| US West (Oregon)          | us-west-2      |
+| Region name                | Region         | Generative AI conversion |
+| -------------------------- | -------------- | ------------------------ |
+| Africa (Cape Town)         | af-south-1     | No                       |
+| Asia Pacific (Hong Kong)   | ap-east-1      | No                       |
+| Asia Pacific (Taipei)      | ap-east-2      | No                       |
+| Asia Pacific (Tokyo)       | ap-northeast-1 | Yes                      |
+| Asia Pacific (Seoul)       | ap-northeast-2 | No                       |
+| Asia Pacific (Osaka)       | ap-northeast-3 | Yes                      |
+| Asia Pacific (Mumbai)      | ap-south-1     | No                       |
+| Asia Pacific (Hyderabad)   | ap-south-2     | No                       |
+| Asia Pacific (Singapore)   | ap-southeast-1 | No                       |
+| Asia Pacific (Sydney)      | ap-southeast-2 | Yes                      |
+| Asia Pacific (Jakarta)     | ap-southeast-3 | No                       |
+| Asia Pacific (Melbourne)   | ap-southeast-4 | No                       |
+| Asia Pacific (Malaysia)    | ap-southeast-5 | No                       |
+| Asia Pacific (New Zealand) | ap-southeast-6 | No                       |
+| Asia Pacific (Thailand)    | ap-southeast-7 | No                       |
+| Canada (Central)           | ca-central-1   | Yes                      |
+| Canada West (Calgary)      | ca-west-1      | No                       |
+| Europe (Frankfurt)         | eu-central-1   | Yes                      |
+| Europe (Zurich)            | eu-central-2   | Yes                      |
+| Europe (Stockholm)         | eu-north-1     | Yes                      |
+| Europe (Milan)             | eu-south-1     | Yes                      |
+| Europe (Spain)             | eu-south-2     | Yes                      |
+| Europe (Ireland)           | eu-west-1      | Yes                      |
+| Europe (London)            | eu-west-2      | Yes                      |
+| Europe (Paris)             | eu-west-3      | Yes                      |
+| Israel (Tel Aviv)          | il-central-1   | No                       |
+| Middle East (UAE)          | me-central-1   | No                       |
+| Middle East (Bahrain)      | me-south-1     | No                       |
+| Mexico (Central)           | mx-central-1   | No                       |
+| South America (São Paulo)  | sa-east-1      | No                       |
+| US East (N. Virginia)      | us-east-1      | Yes                      |
+| US East (Ohio)             | us-east-2      | Yes                      |
+| US West (N. California)    | us-west-1      | No                       |
+| US West (Oregon)           | us-west-2      | Yes                      |
 
-## Schema conversion features
-
-DMS Schema Conversion provides the following features:
-
-- DMS Schema Conversion automatically manages the AWS Cloud resources that are required for
-  your database migration project. These resources include instance profiles, data
-  providers, and AWS Secrets Manager secrets. They also include AWS Identity and Access Management (IAM) roles,
-  Amazon S3 buckets, and migration projects.
-- You can use DMS Schema Conversion to connect to your source database, read the metadata,
-  and create database migration assessment reports. You can then save the report
-  to an Amazon S3 bucket. With these reports, you get a summary of your schema
-  conversion tasks and the details for items that DMS Schema Conversion can't automatically
-  convert to your target database. Database migration assessment reports help
-  evaluate how much of your migration project DMS Schema Conversion can automate. These reports
-  also help to estimate the amount of manual effort that is required to complete
-  the conversion. For more information, see [Creating database migration assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md").
-- After you connect to your source and target data providers, DMS Schema Conversion can
-  convert your existing source database schemas to the target database engine. You
-  can choose any schema item from your source database to convert. After you
-  convert your database code in DMS Schema Conversion, you can review your source code and the
-  converted code. You can save the converted SQL code to an Amazon S3 bucket.
-- Before you convert your source database schemas, you can set up transformation
-  rules. You can use transformation rules to change the data type of columns, move
-  objects from one schema to another, and change the names of objects. You can
-  apply transformation rules to databases, schemas, tables, and columns. For more
-  information, see [Transformation rules](sc-transformation-rules.md "sc-transformation-rules.md").
-- You can change conversion settings to improve the performance of the converted
-  code. These settings are specific for each conversion pair and depend on the
-  features of the source database that you use in your code. For more information,
-  see [Specifying schema conversion
-  settings](schema-conversion-settings.md "schema-conversion-settings.md").
-- In some cases, DMS Schema Conversion can't convert source database features to equivalent
-  Amazon RDS features. For these cases, DMS Schema Conversion creates an extension pack in your
-  target database to emulate the features that weren't converted. For more
-  information, see [Using extension packs](extension-pack.md "extension-pack.md").
-- You can apply the converted code and the extension pack schema to your target
-  database. For more information, see [Applying your converted
-  code](schema-conversion-save-apply.md#schema-conversion-apply "schema-conversion-save-apply.md#schema-conversion-apply").
-- DMS Schema Conversion supports all of the features in the latest AWS SCT release. For more
-  information, see [The
-  latest release notes for AWS SCT](../../../SchemaConversionTool/latest/userguide/CHAP_ReleaseNotes.md "../../../SchemaConversionTool/latest/userguide/CHAP_ReleaseNotes.md") .
-- You can edit converted SQL code before DMS migrates it to the target database.
-  For more information, see [Editing and saving your converted SQL code](schema-conversion-convert.md#schema-conversion-convert-editsql "schema-conversion-convert.md#schema-conversion-convert-editsql").
-
-## Schema conversion limitations
-
-DMS Schema Conversion is a web-version of the AWS Schema Conversion Tool (AWS SCT). DMS Schema Conversion supports fewer
-database platforms and provides more limited functionality compared to the AWS SCT
-desktop application. To convert data warehouse schemas, big data frameworks, application
-SQL code, and ETL processes, use AWS SCT. For more information about AWS SCT, see the
-[AWS Schema Conversion Tool User Guide](../../../SchemaConversionTool/latest/userguide.md "../../../SchemaConversionTool/latest/userguide.md").
-
-The following limitations apply when you use DMS Schema Conversion for database schema
-conversion:
-
-- You can't save a migration project and use it in an offline mode.
-- You can't edit SQL code for the source in a migration project for DMS Schema Conversion. To
-  edit the SQL code of your source database, use your regular SQL editor. Choose
-  **Refresh from database** to add the updated code in your
-  migration project.
-- Migration rules in DMS Schema Conversion don't support changing column collation. You can't
-  use migration rules to move objects to a new schema.
-- You can't apply filters to your source and target database trees to display
-  only those database objects that meet the filter clause.
-- DMS Schema Conversion extension pack doesn't include AWS Lambda functions that emulate email
-  sending, job scheduling, and other features in your converted code.
-- DMS Schema Conversion doesn't use customer-managed KMS keys for access to any customer
-  AWS resources. For example, DMS Schema Conversion doesn't support using a customer-managed
-  KMS key to access customer data in Amazon S3.
+To convert a database that runs in a Region that isn't listed, create your migration
+project in a supported Region. Then set up cross-Region connectivity between the VPC in
+that Region and the VPC where your database runs. For more information, see [Setting up a network for DMS Schema Conversion](instance-profiles-network.md "instance-profiles-network.md").

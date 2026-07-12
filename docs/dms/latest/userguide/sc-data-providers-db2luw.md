@@ -2,7 +2,7 @@
 
 You can use an IBM Db2 for Linux, UNIX and Windows databases as a migration source in DMS Schema Conversion.
 
-You can use DMS Schema Conversion to convert database code objects from Db2 for for Linux, UNIX and Windows Database to the following targets:
+You can use DMS Schema Conversion to convert database code objects from Db2 for Linux, UNIX and Windows Database to the following targets:
 
 - Aurora PostgreSQL
 - Amazon RDS for PostgreSQL
@@ -21,7 +21,6 @@ SELECT SERVICE_LEVEL FROM SYSIBMADM.ENV_INST_INFO;
 The privileges needed to connect to a Db2 for Linux, UNIX and Windows database and read system catalogs and tables are as follows:
 
 ```
-
 EXECUTE ON PACKAGE NULLID.SYSSH200
 EXECUTE ON PACKAGE NULLID.SQLC2O26 /* If Db2 LUW runs on a Linux operating system */
 EXECUTE ON FUNCTION SYSPROC.ENV_GET_INST_INFO
@@ -61,5 +60,4 @@ SELECT ON SYSCAT.VARIABLEDEP
 SELECT ON SYSCAT.VARIABLES
 SELECT ON SYSCAT.VIEWS
 SELECT ON SYSIBM.SYSDUMMY1
-
 ```

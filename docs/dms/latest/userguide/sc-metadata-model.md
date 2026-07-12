@@ -52,7 +52,7 @@ The typical workflow includes the following steps:
    You can export both source and target metadata as SQL scripts to your Amazon S3
    bucket. For non-virtual targets, you can also apply converted objects
    directly to your target database. For more information about virtual
-   targets, see [Virtual data provider](virtual-data-provider.md "virtual-data-provider.md"). For more information
+   targets, see [Virtual mode for offline source and virtual target](virtual-data-provider.md "virtual-data-provider.md"). For more information
    about applying converted objects, see [Applying your converted code](schema-conversion-save-apply.md#schema-conversion-apply "schema-conversion-save-apply.md#schema-conversion-apply").
 
 After you assess or convert source metadata models, you can generate an assessment
