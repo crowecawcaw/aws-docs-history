@@ -18,7 +18,7 @@ cost allocation percentages you specify.
 ## Key Concepts
 
 **Revenue Attribution ID:** A unique identifier created within
-that associates AWS revenue to one or more Marketplace offers and/or ACE
+AWS Partner Central that associates AWS revenue to one or more Marketplace offers and/or ACE
 opportunities. You can use a revenue attribution ID in two ways:
 
 - **Deal-level overlay:** on your existing product-level PRM
@@ -53,7 +53,7 @@ user agent string, you do not need to change that implementation to use a Revenu
 ID.
 
 You can leverage this additional capability by creating a Revenue Attribution ID,
-associating it to the PRM-enabled product in Step 1 of the Revenue Attribution ID
+associating it to the PRM-enabled product in Step 1 of the AWS Partner Central Revenue Attribution ID
 creation wizard, and providing your monthly deal-level cost allocation percentages in Step 2.
 Revenue Attribution IDs are designed to map product-level revenue to specific AWS Marketplace
 offers and/or ACE opportunities — eliminating rework.
@@ -62,7 +62,7 @@ offers and/or ACE opportunities — eliminating rework.
 
 To create and use Revenue Attribution IDs, you must have:
 
-1. Migrated to in the AWS Console
+1. Migrated to AWS Partner Central in the AWS Console
 2. At least one AWS Marketplace product listing
 3. A valid buyer account ID (for AWS Marketplace offer associations)
 4. An opportunity in Launched stage with a customer AWS Account ID specified (for ACE

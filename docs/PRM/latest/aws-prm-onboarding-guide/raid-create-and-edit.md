@@ -6,7 +6,7 @@ identifier.
 
 ## Creating a Revenue Attribution ID
 
-The Revenue Attribution ID creation flow guides you through three steps in .
+The Revenue Attribution ID creation flow guides you through three steps. To get started, navigate to the [Revenue attribution](https://us-east-1.console.aws.amazon.com/partnercentral/revenue-attr?region=us-east-1 "https://us-east-1.console.aws.amazon.com/partnercentral/revenue-attr?region=us-east-1") under Sell menu in AWS Partner Central Console.
 
 ### Step 1: Select your AWS Marketplace Product
 
@@ -23,7 +23,7 @@ Alternatively, if multiple AWS Marketplace products share the same underlying AW
 resources — for example, a single deployment that spans more than one AWS Marketplace
 product listing — you can proceed without selecting a specific product. In this case,
 attribution applies across all consumption measured under the Revenue Attribution ID,
-regardless of which product the customer purchased.
+regardless of which product you purchased.
 
 ### Step 2: Associate offers or opportunities
 
@@ -31,7 +31,7 @@ On this page, you associate your Revenue Attribution ID with the AWS Marketplace
 and/or ACE opportunities and provide cost allocation percentages on a month-by-month
 basis.
 
-For each entry, the following information is provided:
+Each entry includes the following information:
 
 - **Offer ID or Opportunity ID:** The unique identifier of
   the deal you are associating. If an AWS Marketplace offer is already linked to an ACE

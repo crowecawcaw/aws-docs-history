@@ -1,6 +1,6 @@
 # API Access
 
-In addition to managing Revenue Attribution IDs through , you can manage them
+In addition to managing Revenue Attribution IDs through AWS Partner Central, you can manage them
 programmatically through the Partner Revenue Measurement APIs and the Marketplace Revenue Share
 APIs.
 
