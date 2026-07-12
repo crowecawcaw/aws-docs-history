@@ -112,6 +112,33 @@ with the `cdk deploy` command:
 cdk deploy --express
 ```
 
+### Using express mode with AWS SAM
+
+To use express mode with the AWS SAM CLI, add the `--express` flag to your
+deploy or sync commands:
+
+```
+sam deploy --express
+```
+
+```
+sam sync --express
+```
+
+To persist the setting in your project configuration, use
+`--save-params`:
+
+```
+sam deploy --express --save-params
+```
+
+This saves `express = true` to your `samconfig.toml` file so
+subsequent deployments use Express mode automatically.
+
+When express mode is enabled, the AWS SAM CLI passes the deployment configuration to
+CloudFormation. The `--disable-rollback` flag controls rollback behavior within the
+deployment configuration.
+
 ### Using express mode with the console
 
 When creating or updating a stack in the CloudFormation console, you can enable express mode
@@ -176,10 +203,6 @@ The following features and services are not supported with express mode:
 CloudFormation StackSets
 
 CloudFormation does not support express mode with StackSets operations.
-
-AWS Serverless Application Model (AWS SAM)
-
-CloudFormation does not support express mode with AWS SAM deployments.
 
 The following resources have specific behavior with express mode:
 

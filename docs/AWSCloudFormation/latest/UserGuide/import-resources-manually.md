@@ -101,7 +101,7 @@ This table describes the various status types used with the resource import feat
   operation to succeed. The `DeletionPolicy` can be set to any possible value. Only
   the resources you're importing need a `DeletionPolicy`. Resources that are already
   part of the stack don't need a `DeletionPolicy`.
-- You can't import the same resource into multiple stacks.
+- You can't import the same resource into multiple stacks in the same Region.
 - You can use the `cloudformation:ImportResourceTypes` IAM policy condition to
   control which resource types users can work with during an import operation. For more
   information, see [Policy condition keys for CloudFormation](control-access-with-iam.md#using-iam-conditions "control-access-with-iam.md#using-iam-conditions").

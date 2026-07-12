@@ -197,26 +197,30 @@ card:
 "Resource" : ["LogicalResourceId/CriticalResource*"]
 ```
 
-You can also use a `Not` element with resources. For example, to allow
-updates to all resources except for one, use a `NotResource` element to
-protect that resource:
+You can also use a `NotResource` element to allow updates to all
+resources except for those you specify. However, using `NotResource` with
+`Effect: Allow` does not reliably prevent updates to the excluded resources.
+To protect a specific resource from updates, use an explicit `Deny` statement
+instead, as shown in the following example:
 
 ```
 {
   "Statement" : [
     {
+      "Effect" : "Deny",
+      "Action" : "Update:*",
+      "Principal": "*",
+      "Resource" : "LogicalResourceId/ProductionDatabase"
+    },
+    {
       "Effect" : "Allow",
       "Action" : "Update:*",
       "Principal": "*",
-      "NotResource" : "LogicalResourceId/ProductionDatabase"
+      "Resource" : "*"
     }
   ]
 }
 ```
-
-When you set a stack policy, any update not explicitly allowed is denied. By
-allowing updates to all resources except for the `ProductionDatabase`
-resource, you deny updates to the `ProductionDatabase` resource.
 
 Conditions
 
@@ -519,10 +523,11 @@ overrides allow actions.
 }
 ```
 
-You can achieve the same result as the previous example by using a default denial. When
-you set a stack policy, CloudFormation denies any update that is not explicitly allowed. The
-following policy allows updates to all resources except for the
-`ProductionDatabase` resource, which is denied by default.
+###### Avoid using NotResource to protect resources
+
+Consider using a `NotResource` element with
+`Effect: Allow` to protect a resource through default denial, as in the
+following example:
 
 ```
 {
@@ -537,13 +542,15 @@ following policy allows updates to all resources except for the
 }
 ```
 
-###### Important
+This policy does _not_ reliably prevent updates to the
+`ProductionDatabase` resource. AWS CloudFormation evaluates stack policies against
+both the logical resource ID and the resource type independently. A default denial blocks
+an update only when both evaluations result in a denied status. Because this policy excludes
+only the logical resource ID from the `Allow` statement, the resource type
+remains implicitly allowed. AWS CloudFormation then permits the update.
 
-There is risk in using a default denial. If you have an `Allow` statement
-elsewhere in the policy (such as an `Allow` statement that uses a wildcard),
-you might unknowingly grant update permission to resources that you don't intend to.
-Because an explicit denial overrides any allow actions, you can ensure that a resource is
-protected by using a `Deny` statement.
+Always use an explicit `Deny` statement to protect resources, as shown in
+the previous example.
 
 ### Prevent updates to all instances of a resource type
 
