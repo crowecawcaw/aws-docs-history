@@ -28,6 +28,13 @@ aws ec2 describe-vpc-endpoint-services \
   --service-names com.amazonaws.us-west-2.comprehend
 ```
 
+For FIPS endpoints:
+
+```
+aws ec2 describe-vpc-endpoint-services \
+  --service-names com.amazonaws.us-west-2.comprehend-fips
+```
+
 Amazon Comprehend supports making calls to all of its API actions from your VPC.
 
 ## Creating an interface VPC endpoint for Amazon Comprehend
@@ -39,9 +46,17 @@ interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-inter
 Create a VPC endpoint for Amazon Comprehend using the following service name:
 
 - com.amazonaws.`region`.comprehend
+- com.amazonaws.`region`.comprehend-fips
 
 If you enable private DNS for the endpoint, you can make API requests to Amazon Comprehend using
-its default DNS name for the Region, for example, `*comprehend.us-east-1.amazonaws.com*`.
+its default DNS name for the Region, for example, `*comprehend.us-east-1.amazonaws.com*`, or `*comprehend-fips.us-east-1.amazonaws.com*` for
+FIPS.
+
+###### Note
+
+The FIPS endpoint service (`comprehend-fips`) is available in
+us-east-1, us-east-2, us-west-2, ca-central-1, us-gov-west-1, and
+us-iso-east-1.
 
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
