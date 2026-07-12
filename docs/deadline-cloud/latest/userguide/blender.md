@@ -160,6 +160,15 @@ If you require an unsupported version of Blender, you have the following options
 - When submitting the job from Blender, you may override the CondaPackages queue parameter to specify a supported version to use on the worker (for example, `blender=4.5, blender-openjd=*`). This may or may not work, depending on the features used by your scene and how Blender works with scenes from your workstation version.
 - You may build a custom conda recipe and channel for your desired version to be installed on the worker. Use the conda recipe for a supported version linked below as a starting point, and package your desired version in a custom conda channel. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
 
+## Blender add-ons
+
+You can make Blender add-ons available on service-managed fleet workers by building a conda package from a conda recipe and adding it to a custom conda channel. When the conda environment activates on a worker, the add-on is installed through Blender's API; when it deactivates, the add-on is removed. For more information about custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
+
+The following conda recipes are available as starting points:
+
+- [FLIP Fluids add-on conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-flipfluids "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-flipfluids") packages the demo version of the FLIP Fluids liquid simulation add-on.
+- [Blender add-on bundle conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-plugin-bundle "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-plugin-bundle") packages multiple Blender add-ons from a single archive so that they install together when the conda environment activates.
+
 ## Blender render engines
 
 Blender includes several built-in render engines that are supported:

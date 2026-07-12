@@ -402,6 +402,37 @@ Go to the Windows Start menu and search for "Manage app execution aliases". Then
 
 See [Font attachment system](#after-effects-font-attachment "#after-effects-font-attachment") for supported font types.
 
+## After Effects plugins
+
+You can make After Effects plugins available on service-managed fleet workers by
+using either a conda package or a host configuration script. Plugins that are packaged
+as a conda package install into the After Effects `Plug-ins` directory when
+the conda environment activates. Plugins that require a full installer instead use a
+host configuration script that runs when each worker launches. To package several
+`.aex` plugins together, use the [aftereffects-plugin-bundle
+conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/aftereffects-plugin-bundle "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/aftereffects-plugin-bundle").
+
+### Saber
+
+Saber is a visual effects plugin for After Effects. You can build a conda package
+that installs the `Saber.aex` plugin on Windows workers with the
+aftereffects-saber conda recipe, and then add it to a custom conda channel. You can
+also use the recipe as a template for packaging other `.aex` plugins.
+
+Conda recipe: [aftereffects-saber
+conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/aftereffects-saber "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/aftereffects-saber")
+
+### Red Giant
+
+You can install Maxon Red Giant on your workers with a host configuration script
+that fetches and silently installs the Red Giant installer when each worker
+launches. The script has been tested and verified on Windows GPU service-managed
+fleets. A persistent-volume variant is also available that installs the software
+once and restores it on later boots to reduce worker startup time.
+
+Host configuration scripts: [aftereffects\_redgiant](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects/aftereffects_redgiant "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects/aftereffects_redgiant")
+and [aftereffects\_redgiant\_persistent](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects/aftereffects_redgiant_persistent "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects/aftereffects_redgiant_persistent").
+
 ## Advanced configurations
 
 ### Using unsupported versions

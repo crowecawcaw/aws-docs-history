@@ -259,6 +259,15 @@ The tile rendering job bundle uses Open Job Description templates to define:
 - V-Ray Standalone installed on worker nodes.
 - FFmpeg or similar tool for tile assembly (can be provided using conda).
 
+## 3ds Max plugins
+
+Because 3ds Max is installed with host configuration scripts instead of conda packages, third-party 3ds Max plugins are also installed with host configuration scripts that run when each worker launches. The following architectural visualization (AEC) plugins from iToo Software are included in the example scripts alongside 3ds Max and V-Ray:
+
+- **Forest Pack** provides scattering and distribution tools for creating forests, vegetation, and other scattered objects.
+- **RailClone** is a parametric modeling plugin for creating linear and area-based structures such as fences, roads, and buildings.
+
+For example host configuration scripts that include these plugins, see [3dsmax-2025-vray-and-aec-plugins](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-vray-and-aec-plugins "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-vray-and-aec-plugins") and [3dsmax-2027-vray-and-aec-plugins](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-vray-and-aec-plugins "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-vray-and-aec-plugins").
+
 ## Advanced configurations
 
 ### Using unsupported versions

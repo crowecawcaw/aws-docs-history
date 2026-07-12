@@ -175,6 +175,16 @@ You can set the `NUKE_EXECUTABLE` environment variable to point to a specific Nu
 
 The Nuke integration includes full support for OpenColorIO (OCIO) color management workflows. Color configurations are automatically detected and included with job submissions to ensure consistent color handling across the render farm.
 
+## Nuke plugins
+
+You can add third-party Nuke plugins to a service-managed fleet by building a conda package from a conda recipe and adding it to a custom conda channel. For more information, see [Create a conda package for an application or plugin](../developerguide/conda-package.md "../developerguide/conda-package.md"). To include Nuke gizmos with a job instead, use the **Include gizmos in job bundle** option in the submitter.
+
+### RevisionFX DENoise
+
+RevisionFX DENoise is a noise-reduction plugin for Nuke compositing jobs. You can build a conda package for DENoise 3.6.9 on Linux workers with the nuke-denoise conda recipe, and then add it to a custom conda channel. A commercial DENoise license is required.
+
+Conda recipe: [nuke-denoise conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-denoise "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-denoise")
+
 ## Nuke compositing features
 
 Nuke's compositing engine provides comprehensive support for:
