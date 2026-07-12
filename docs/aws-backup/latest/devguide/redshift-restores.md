@@ -21,6 +21,33 @@ Guide_.
 - **Configuration summary**
 - **Cluster Permissions**
 
+###### Additional permissions for clusters with managed passwords
+
+If the cluster uses Amazon Redshift managed passwords, you must set
+`ManageMasterPassword` to `true` in the restore metadata.
+
+You must also add the required permissions to the IAM role for the restore
+operation. For more information about Amazon Redshift managed passwords, see [Managing Amazon Redshift
+admin passwords with AWS Secrets Manager](../../../redshift/latest/mgmt/redshift-secrets-manager-integration.md "../../../redshift/latest/mgmt/redshift-secrets-manager-integration.md") in the _Amazon Redshift Management
+Guide_.
+
+Add the following AWS Secrets Manager permissions to the restore role:
+
+- `secretsmanager:CreateSecret`
+- `secretsmanager:DeleteSecret`
+- `secretsmanager:DescribeSecret`
+- `secretsmanager:GetRandomPassword`
+- `secretsmanager:RotateSecret`
+- `secretsmanager:TagResource`
+- `secretsmanager:UpdateSecret`
+  If the cluster uses a customer managed key for the managed password secret, you must
+  also grant the following AWS KMS permissions on the AWS KMS key:
+
+- `kms:CreateGrant`
+- `kms:Decrypt`
+- `kms:GenerateDataKey`
+- `kms:RetireGrant`
+
 ## To restore an Amazon Redshift cluster or table using the AWS Backup console
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").

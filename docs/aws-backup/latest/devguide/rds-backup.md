@@ -58,6 +58,20 @@ backups and manual snapshots combined. Storage beyond that allocation is billed.
 run both scheduled AWS Backup snapshots and Amazon RDS automated backups, both contribute to this
 total, and you should factor this into your cost planning.
 
+When you use AWS Backup to back up an Amazon RDS DB instance, an automated snapshot might
+appear with an unexpected timestamp; it matches the AWS Backup snapshot creation time rather
+than the Amazon RDS automated backup window. If Amazon RDS does not find a recent automated backup
+within the past day, it consolidates the backup. Amazon RDS attaches automated backup metadata
+to the manual snapshot that AWS Backup created. This ensures the DB instance maintains a
+regular automated backup. This most commonly occurs when an AWS Backup operation runs long
+enough to overlap with the Amazon RDS automated backup window.
+
+When a backup is consolidated, both the manual and automated snapshot entries
+reference the same underlying snapshot data. You are charged only once for that single
+underlying snapshot and your data remains fully protected. Also, backup retention and
+point-in-time restore functionality are unaffected regardless of whether entries are
+consolidated.
+
 ## Amazon RDS continuous backups and point in time restore
 
 Continuous backups involve using AWS Backup to create a full backup of your Amazon RDS resource,

@@ -180,6 +180,7 @@ Amazon EKS backups support all copy types:
 - Amazon S3 buckets with specific prefixes attached to CSI Driver MountPoints cannot be backed up. Only Amazon S3 buckets as targets are supported, not specific prefixes.
 - Amazon S3 bucket backups as part of an EKS cluster backup will only support snapshot backups.
 - Backups of EFS file systems in a cross-account are not supported via EKS Backups.
+- Amazon EFS persistent volumes with non-root subpath mounts are not supported. Only root file system handles or access point handles are supported for backup. Unsupported configurations will produce a failed child backup job with the corresponding error message.
 - Amazon FSx via CSI driver is not supported via EKS Backups.
 - AWS Backup does not support Amazon EKS on AWS Outposts.
 - Subject to [backup and restore quotas](aws-backup-limits.md "aws-backup-limits.md").

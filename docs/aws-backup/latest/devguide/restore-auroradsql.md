@@ -67,18 +67,17 @@ aws backup start-restore-job \
 
 ## Restore an Aurora DSQL multi-Region cluster
 
-Aurora DSQL multi-Region cluster restore occurs within a closed Region triplet, which
-is a group of three AWS Regions peers. Multi-Region restore requires that the Regions
-you specify in the operation are contained in one triplet. For more information about
+Aurora DSQL multi-Region cluster restore occurs within a continent group, which
+is a set of AWS Regions peers. Multi-Region restore requires that the Regions
+you specify in the operation are contained in one continent group. For more information about
 multi-Region clusters, see [Configuring
 multi-Region clusters](../../../aurora-dsql/latest/userguide/configuring-multi-region-clusters.md "../../../aurora-dsql/latest/userguide/configuring-multi-region-clusters.md").
 
-Triplets from the following groups are supported. Where there are more than
-Regions, choose three in the same group.
+The following continent groups are supported:
 
-- US East (N. Virginia); US East (Ohio); US West (N. California)
-- Europe (Ireland); Europe (London); Europe (Paris); Europe (Frankfurt)
-- Asia Pacific (Tokyo); Asia Pacific (Seoul); Asia Pacific (Osaka)
+- **Americas**: US East (N. Virginia), US East (Ohio), US West (Oregon), Canada West (Calgary), Canada (Central)
+- **Europe**: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)
+- **Asia-Pacific**: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)
 
 To complete multi-Region restore, ensure you have the following permissions:
 
@@ -120,11 +119,11 @@ For more information about multi-Region clusters, see [Configuring multi-Region 
 5. On the restore page, under **Restore options**, select
    **Add peer Regions** to enable multi-Region restore.
 6. Select a **Peer cluster Region** from the dropdown menu.
-   This Region must be within the same triplet as your current Region and
+   This Region must be within the same continent group as your current Region and
    also must contain a cross-Region copy from the recovery point in the current
    (first) Region.
 7. Select a **Witness Region** from the dropdown menu. This
-   Region must also be within the same triplet.
+   Region must also be within the same continent group.
 8. Configure the **Cluster settings** for both the primary and
    peer Region clusters:
 
@@ -155,13 +154,12 @@ clusters programmatically, see [Configuring multi-Region clusters](../../../auro
 ###### Important
 
 Both the primary cluster and peer cluster must be in Regions within the same
-group. The operation will fail if the clusters are in Regions outside the
-group. Supported groups include:
+continent group. The operation will fail if the clusters are in Regions outside the
+continent group. Supported continent groups include:
 
-- US East (N. Virginia); US East (Ohio); US West (N. California)
-- Europe (Ireland); Europe (London); Europe (Paris); Europe (Frankfurt)
-- Asia Pacific (Tokyo); Asia Pacific (Seoul);
-  Asia Pacific (Osaka)
+- **Americas**: US East (N. Virginia), US East (Ohio), US West (Oregon), Canada West (Calgary), Canada (Central)
+- **Europe**: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)
+- **Asia-Pacific**: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)
 
 ###### Multi-Region restore through AWS CLI using orchestrated restore metadata
 
@@ -176,7 +174,7 @@ aws backup start-restore-job \
 --recovery-point-arn "arn:aws:backup:us-east-1:123456789012:recovery-point:abcd1234" \
 --iam-role-arn "arn:aws:iam::123456789012:role/service-role/AWSBackupDefaultServiceRole" \
 --metadata '{
-    "witnessRegion":"us-west-1",
+    "witnessRegion":"us-west-2",
     "useMultiRegionOrchestration":"true",
     "peerRegion":"[\"us-east-2\"]",
     "regionalConfig":"[{\"region\":\"us-east-1\",\"isDeletionProtectionEnabled\":true,\"kmsKeyId\":\"arn:aws:kms:us-east-1:123456789012:key/ba4b3773-4bb8-4a7a-994c-46ede70202f5\"},{\"region\":\"us-west-2\",\"isDeletionProtectionEnabled\":true,\"kmsKeyId\":\"arn:aws:kms:us-west-2:123456789012:key/ba4b3773-4bb8-4a7a-994c-46ede70202f5\"}]"

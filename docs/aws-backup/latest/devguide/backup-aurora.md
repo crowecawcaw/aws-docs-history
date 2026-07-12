@@ -18,14 +18,13 @@ When you backup a multi-Region cluster, consider the following items:
   multi-Region cluster.
 - As a best practice, AWS Backup recommends you create a recovery point in one Region and
   copy it to another related Region. For [multi-Region restore](restore-auroradsql.md#restore-auroradsql-multiregion "restore-auroradsql.md#restore-auroradsql-multiregion"), you need a recovery point in one supported Region, and a
-  copy of that recovery point in another Region within the same Regional triplet.
+  copy of that recovery point in another Region within the same continent group.
 
-The following supported triplets are available. Where there are more than
-Regions, choose three in the same grouping.
+The following supported continent groups are available:
 
-    + US East (N. Virginia); US East (Ohio); US West (N. California)
-    + Europe (Ireland); Europe (London); Europe (Paris); Europe (Frankfurt)
-    + Asia Pacific (Tokyo); Asia Pacific (Seoul); Asia Pacific (Osaka)
+    + **Americas**: US East (N. Virginia), US East (Ohio), US West (Oregon), Canada West (Calgary), Canada (Central)
+    + **Europe**: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)
+    + **Asia-Pacific**: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)
 
 AWS Backup recommends that you add the backup copy rule to the backup plan. If you do not add
 the copy rule to the backup plan, you must manually copy the backup to the required Region
