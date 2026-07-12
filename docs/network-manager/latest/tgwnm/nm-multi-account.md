@@ -97,11 +97,12 @@ organization using CloudFormation StackSets and AWS Identity and Access Manageme
 - The global networks console switch role
   (`IAMRoleForAWSNetworkManagerCrossAccountResourceAccess`) to
   all member accounts
-- The Amazon CloudWatch monitoring role
-  (`AWSServiceRoleForCloudWatchCrossAccount`) to the management
-  account
 
 For more information about enabling trusted access, see [Enable trusted access in an AWS global network](nm-enable-trusted.md "nm-enable-trusted.md").
+
+###### Note
+
+To configure the Amazon CloudWatch monitoring roles in any of the accounts in your organization, [follow the onboarding steps for CloudWatch cross-account observability](../../../AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.md "../../../AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.md"). Amazon CloudFormation StackSets deployed through the console manage the metrics sharing roles.
 
 ##### Disable trusted access
 
