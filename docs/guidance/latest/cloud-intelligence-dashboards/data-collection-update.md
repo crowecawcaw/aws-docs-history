@@ -50,7 +50,7 @@ To ensure full visibility of data across your organization accounts, in the para
 
 1. Make sure to select all modules that you want to allow access to your organization accounts data.
 
-![Data Read Role CloudFormation - modules selection](/images/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2c-data-read-permissions-stack-create-modules.png)
+![Data Read Role CloudFormation - modules selection](images/data-collection/update-process/data-read-permissions/2c-data-read-permissions-stack-create-modules.png)
 
 ### Step 2. [Data Collection Account] Update Data Collection stack
 
