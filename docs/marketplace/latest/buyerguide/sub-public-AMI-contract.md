@@ -10,7 +10,7 @@ Private offers typically have a fixed duration that you can't change.
 
 ###### To subscribe to a public offer AMI-based product with a contract pricing model
 
-1. Sign in to AWS Marketplace and find a container-based software product with a contract pricing
+1. Sign in to AWS Marketplace and find an AMI-based software product with a contract pricing
    model.
 2. On the **Procurement** page, view the **Pricing
    Information**.
