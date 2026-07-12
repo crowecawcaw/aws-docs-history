@@ -16,8 +16,9 @@ By default, the following metrics are displayed. For a full list of Amazon ECS C
 metrics, see [Amazon ECS Container
 Insights Metrics](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md") in the _Amazon CloudWatch User Guide_.
 
-- `JobCount` – The number of jobs that run
-  in the compute environment.
+- `TaskCount` – The number of AWS Batch jobs running
+  in the cluster. In the AWS Batch console, this metric is displayed as "Job Count" because
+  AWS Batch jobs run as Amazon ECS tasks.
 - `ContainerInstanceCount` – The number of
   Amazon Elastic Compute Cloud instances that run the Amazon ECS agent and are registered in the compute
   environment.

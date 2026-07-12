@@ -62,3 +62,11 @@ following:
 
   - [Verify that the aws-auth ConfigMap is configured correctly](verify-configmap-config.md "verify-configmap-config.md")
   - [RBAC permissions or bindings aren't configured properly](batch_eks_rbac.md "batch_eks_rbac.md")
+
+- [AWS Batch for SageMaker Training jobs](batch-sm-troubleshooting.md "batch-sm-troubleshooting.md")
+
+  - [Jobs stuck in a RUNNABLE status](sm_job_stuck_in_runnable.md "sm_job_stuck_in_runnable.md")
+
+    - [Jobs stuck in RUNNABLE due to capacity](sm_job_stuck_in_runnable_capacity.md "sm_job_stuck_in_runnable_capacity.md")
+    - [Jobs stuck in RUNNABLE due to misconfiguration](sm_job_stuck_in_runnable_misconfiguration.md "sm_job_stuck_in_runnable_misconfiguration.md")
+    - [Automatic remediation with jobStateTimeLimitActions](sm_job_stuck_in_runnable_time_limit_actions.md "sm_job_stuck_in_runnable_time_limit_actions.md")
