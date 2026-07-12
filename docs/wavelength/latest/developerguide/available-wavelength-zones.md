@@ -7,7 +7,6 @@ latency or edge resiliency. Review the locations, carriers, and other details of
 
 - [US East (N. Virginia) Wavelength Zones](#wavelength-zones-us-east-1 "#wavelength-zones-us-east-1")
 - [US West (Oregon) Wavelength Zones](#wavelength-zones-us-west-2 "#wavelength-zones-us-west-2")
-- [Asia Pacific (Seoul) Wavelength Zones](#wavelength-zones-ap-northeast-2 "#wavelength-zones-ap-northeast-2")
 - [Asia Pacific (Tokyo) Wavelength Zones](#wavelength-zones-ap-northeast-1 "#wavelength-zones-ap-northeast-1")
 - [Canada (Central) Wavelength zones](#wavelength-zones-ca-central-1 "#wavelength-zones-ca-central-1")
 - [Europe (Frankfurt) Wavelength Zones](#wavelength-zones-eu-central-1 "#wavelength-zones-eu-central-1")
@@ -45,13 +44,6 @@ latency or edge resiliency. Review the locations, carriers, and other details of
 | Phoenix                | Verizon | `us-west-2-wl1-phx-wlz-1` | `usw2-wl1-phx-wlz1`       |
 | San Francisco Bay area | Verizon | `us-west-2-wl1-sfo-wlz-1` | `us-west-2-wl1-sfo-wlz-1` |
 | Seattle                | Verizon | `us-west-2-wl1-sea-wlz-1` | `usw2-wl1-sea-wlz1`       |
-
-## Asia Pacific (Seoul) Wavelength Zones
-
-| Location | Carrier | Wavelength Zone Name           | Wavelength Zone ID   |
-| -------- | ------- | ------------------------------ | -------------------- |
-| Daejeon  | SKT     | `ap-northeast-2-wl1-cjj-wlz-1` | `apne2-wl1-cjj-wlz1` |
-| Seoul    | SKT     | `ap-northeast-2-wl1-sel-wlz-1` | `apne2-wl1-sel-wlz1` |
 
 ## Asia Pacific (Tokyo) Wavelength Zones
 
