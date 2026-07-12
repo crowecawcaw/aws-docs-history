@@ -117,7 +117,7 @@ echo $DOMAIN && echo $WILDCARD
 
 You should see a result similar to the following:
 
-![Confirm the domain environment variables.](images/instances/lets-encrypt/confirm-variables.png) 3. Enter the following command to start Certbot in interactive mode. This command tells
+![Confirm the domain environment variables.](/images/lightsail/latest/userguide/images/instances/lets-encrypt/confirm-variables.png) 3. Enter the following command to start Certbot in interactive mode. This command tells
 Certbot to use a manual authorization method with DNS challenges to verify domain
 ownership. It requests a wildcard certificate for your top-level domain, as well as its
 subdomains.

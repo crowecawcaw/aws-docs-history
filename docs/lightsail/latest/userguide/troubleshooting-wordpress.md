@@ -7,5 +7,5 @@ stable, and secure.
 
 ###### Topics
 
-- [Lightsail Setup](troubleshooting-wordpress-lightsail-setup.md "troubleshooting-wordpress-lightsail-setup.md")
 - [Tips and best practices for WordPress instances in Amazon Lightsail](amazon-lightsail-wordpress-tips-best-practices.md "amazon-lightsail-wordpress-tips-best-practices.md")
+- [Lightsail Setup](troubleshooting-wordpress-lightsail-setup.md "troubleshooting-wordpress-lightsail-setup.md")

@@ -134,7 +134,7 @@ console, or see [Connect to your Linux or Unix instance](lightsail-how-to-connec
 
 A swap file gives the operating system room to offload inactive memory to disk,
 which helps prevent out-of-memory crashes on instances with less than about 1.5
-GB of RAM. Adding swap is recommended on nano or micro bundles, and is usually
+GB of RAM. We recommend adding swap on nano or micro bundles, and it is usually
 unnecessary on larger ones.
 
 First, check whether swap is already active:

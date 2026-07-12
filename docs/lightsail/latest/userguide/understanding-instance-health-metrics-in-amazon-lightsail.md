@@ -200,7 +200,5 @@ Bucket metric data is not reported when your bucket is empty.
 ###### Topics
 
 - [Metric notifications](amazon-lightsail-notifications.md "amazon-lightsail-notifications.md")
-- [View instance metrics](amazon-lightsail-viewing-instance-health-metrics.md "amazon-lightsail-viewing-instance-health-metrics.md")
 - [Metric alarms](amazon-lightsail-alarms.md "amazon-lightsail-alarms.md")
-- [Create instance alarms](amazon-lightsail-adding-instance-health-metric-alarms.md "amazon-lightsail-adding-instance-health-metric-alarms.md")
 - [Delete or disable alarms](amazon-lightsail-deleting-health-metric-alarms.md "amazon-lightsail-deleting-health-metric-alarms.md")
