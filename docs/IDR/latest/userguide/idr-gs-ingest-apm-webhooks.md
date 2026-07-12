@@ -210,7 +210,7 @@ AWS Incident Detection and Response**
 
 ## Option 2: Manual integration
 
-![Diagram showing an example of integration using API Gateway.](/images/IDR/latest/userguide/images/example-int-api-gateway.png)
+![Diagram showing an example of integration using API Gateway.](images/example-int-api-gateway.png)
 
 Use the following steps to set up integration with
 AWS Incident Detection and Response.
