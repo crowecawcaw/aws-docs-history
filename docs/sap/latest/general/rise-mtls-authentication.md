@@ -17,22 +17,22 @@ mTLS authentication enhances security, improves user experience, and reduces ope
 - **Seamless User Experience with Single Sign On (SSO)**: mTLS integrates with SSO solutions so users can access multiple SAP applications and services without repeatedly entering credentials.
 - **Automated Certificate Rotation**: mTLS allows for automated rotation of certificates, enhancing security by regularly updating authentication credentials without manual intervention. This reduces the risk of using expired or compromised certificates and minimizes administrative overhead.
 - **Principal Propagation for Interfaces**: mTLS enables secure principal propagation across different SAP interfaces and systems. This eliminates the need for generic and privileged accounts (like SAP user with SAP\_ALL authorization) for system-to-system communication, significantly improving security and auditability.
-- **Scalability and Performance**: With ALB handling mTLS verification, certificate-based authentication is offloaded from SAP application servers. This improves scalability and performance of SAP systems.
+- **Scalability and Performance**: ALB handles mTLS verification, offloading certificate-based authentication from SAP application servers. This improves scalability and performance of SAP systems.
 - **Support for Zero Trust Architecture**: mTLS aligns well with zero trust security models, where trust is never assumed and always verified.
 
 ## mTLS Client Authentication with Application Load Balancer
 
 Application Load Balancer (ALB) supports mTLS authentication. It offers two modes: verify and passthrough mode.
 
-**Prerequisites**
+### Prerequisites
 
 We recommend that all SSL/TLS certificates used across the infrastructure originate from a single, trusted root certificate authority (CA). This includes certificates at the ALB, SAP Web Dispatcher, and S/4HANA systems, which simplifies implementation and maintenance.
 
-**mTLS Architecture Diagram**
+### mTLS Architecture Diagram
 
-The following diagram describes a basic SAP on AWS architecture that is adapted to align with the RISE with SAP SKU offering.
+The following diagram shows a basic SAP on AWS architecture adapted for the RISE with SAP SKU offering.
 
-![mTLS Authentication with Application Load Balancer for RISE with SAP.](images/rise-mtls-alb.png)
+![mTLS client certificate verification at ALB before routing to SAP Web Dispatcher and S/4HANA.](images/rise-mtls-alb.png)
 
 ### mTLS Verify Mode
 
@@ -40,11 +40,11 @@ To enable mTLS verify mode, create a trust store containing a CA certificate bun
 
 ALB handles client certificate verification against the trust store, effectively blocking unauthorized requests. This approach offloads mTLS processing from backend targets, improving overall system efficiency. ALB imports CRLs from S3 and performs checks without repeated S3 fetches, minimizing latency.
 
-Beyond client authentication, ALB transmits client certificate metadata to the backend SAP Web Dispatcher through HTTP headers (for example, `X-Amzn-Mtls-Clientcert-Leaf`). This allows backend targets to implement additional logic based on certificate details and preserves the original Host Header information required by SAP Servers.
+Beyond client authentication, ALB transmits client certificate metadata to the backend SAP Web Dispatcher through HTTP headers (for example, `X-Amzn-Mtls-Clientcert-Leaf`). Backend targets can implement additional logic based on certificate details. ALB also preserves the original Host Header information required by SAP Servers.
 
-This enables the server to process client certificate metadata consistently, even when the TLS connection is terminated by a non-SAP component such as the ALB.
+This enables the server to process client certificate metadata consistently, even when a non-SAP component such as ALB terminates the TLS connection.
 
-RISE with SAP customers can request mTLS verify through an Additional Service Request TO\_LRP\_1.1.08A - Enable X.509 certificate for ALB in Amazon Web Services (AWS) with WebDispatcher and related backends.
+To request mTLS verify mode, submit an Additional Service Request TO\_LRP\_1.1.08A—Enable X.509 certificate for ALB in AWS with WebDispatcher and related backends.
 
 ### mTLS Passthrough Mode
 
@@ -57,7 +57,7 @@ In mTLS passthrough mode, ALB forwards the client’s entire certificate chain t
 
 ### NLB Passthrough
 
-When you have stringent security compliance rules requiring server-side termination of client TLS connections, you can utilize a Network Load Balancer (NLB). Key points to note:
+When you have stringent security compliance rules requiring server-side termination of client TLS connections, you can use a Network Load Balancer (NLB). Key points to note:
 
 - NLB operates at the transport layer (Layer 4 of the OSI model).
 - It provides low-latency load balancing for TCP/UDP connections.
@@ -65,7 +65,7 @@ When you have stringent security compliance rules requiring server-side terminat
 
 This approach ensures that sensitive decryption processes occur on your controlled server environment, potentially meeting specific security mandates while maintaining efficient traffic distribution.
 
-**Comparison of mTLS verify mode vs mTLS passthrough mode vs NLB passthrough**
+### Comparison of mTLS verify mode, mTLS passthrough mode, and NLB passthrough
 
 | Considerations                    | ALB with mTLS Verify mode | ALB with mTLS passthrough mode     | NLB                                  |
 | --------------------------------- | ------------------------- | ---------------------------------- | ------------------------------------ |

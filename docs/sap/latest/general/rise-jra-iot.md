@@ -38,7 +38,7 @@ Customers have the option to sanitize data at the edge using AWS Edge computing 
 
 **Business Actions on RISE with SAP** - Finally, based on the business rules, appropriate SAP business processes are triggered on the RISE with SAP systems like creation of maintenance order for predictive maintenance or creation of a safety observation for EHS.
 
-![JRA for Internet Of Things and Generative AI.](images/rise-jra-iot-genai.png)
+![IoT services with Amazon Bedrock generative AI for SAP RISE environments.](images/rise-jra-iot-genai.png)
 This is an alternative architecture to the one discussed in the previous section, with the following differences.
 
 **IoT events** – Same as Figure 1.

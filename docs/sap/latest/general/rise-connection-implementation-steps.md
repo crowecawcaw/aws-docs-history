@@ -80,7 +80,7 @@ By following these steps, you can establish a resilient AWS Direct Connect solut
 
 ![Cost Effective Alternative for Non-Critical Workloads.](images/rise-option-2-cost-effective-connectivity.png)
 
-Some AWS customers prefer the benefits of one or more AWS Direct Connect connections as their primary connectivity to AWS, coupled with a lower-cost backup solution. Additionally, they may want an agile and adaptable connection that can be quickly established or decommissioned between network locations globally. To achieve these objectives, they can implement AWS Direct Connect connections with an AWS Site-to-Site VPN backup.
+Some AWS customers prefer the benefits of one or more AWS Direct Connect connections as their primary connectivity to AWS, coupled with a lower-cost backup solution. Additionally, they might want an agile and adaptable connection that can be quickly established or decommissioned between network locations globally. To achieve these objectives, they can implement AWS Direct Connect connections with an AWS Site-to-Site VPN backup.
 
 The Site-to-Site VPN connection consists of three key components:
 

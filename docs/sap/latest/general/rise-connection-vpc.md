@@ -37,9 +37,10 @@ Costs vary between AWS Regions. For more information, see [Amazon EC2 pricing Da
 
 A Site-to-Site VPN connection is created and connected directly to the RISE Account VPC in US East (Ohio). The connection is active for 30 days, 24 hours a day, with 1 TB transferred.
 
-- AWS Site-to-Site VPN connection fee (1.25 Gbps): At USD $0.05 per hour in US East (Ohio) per VPN connection, the monthly connection fee is USD $36.00.
-- Data transfer out fee: The first 100 GB are free, leaving 924 GB (1 TB = 1,024 GB) chargeable at $0.09 per GB — a monthly fee of $83.16.
-- For example, total monthly cost: USD $119.16
+- AWS Site-to-Site VPN connection fee (1.25 Gbps): At USD 0.05 per hour in US East (Ohio) per VPN connection, the monthly connection fee is USD 36.00.
+- Data transfer out fee: The first 100 GB are free, leaving 924 GB (1 TB = 1,024 GB) chargeable at USD 0.09 per GB — a monthly fee of USD 83.16.
+
+The total estimated monthly cost is approximately USD 119.16.
 
 When you connect your remote network directly to RISE using AWS Site-to-Site VPN, the RISE subscription covers the AWS VPN Connection and data transfer out costs.
 
@@ -51,7 +52,7 @@ As the cost associated with the lifecycle and operation of a "Customer gateway d
 
 With Large Bandwidth Tunnels, you can configure Site-to-Site VPN tunnels that support up to 5 Gbps bandwidth per tunnel, compared to the standard 1.25 Gbps. For more information, see [Large Bandwidth Tunnels](../../../vpn/latest/s2svpn/vpn-limits.md "../../../vpn/latest/s2svpn/vpn-limits.md").
 
-Large Bandwidth Tunnels work with VPN connections attached to a Transit Gateway or AWS Cloud WAN — not Virtual Private Gateways — so you cannot use them to connect directly from your remote network to the RISE with SAP VPC. To use Large Bandwidth Tunnels, route traffic through your own AWS managed account. For more information on this architecture pattern, see [Connecting to RISE using your single AWS account](rise-connection-accounts.md "rise-connection-accounts.md").
+Large Bandwidth Tunnels work only with VPN connections attached to a Transit Gateway or AWS Cloud WAN. They do not work with Virtual Private Gateways, so you cannot use them to connect directly from your remote network to the RISE with SAP VPC. To use Large Bandwidth Tunnels, route traffic through your own AWS managed account. For more information on this architecture pattern, see [Connecting to RISE using your single AWS account](rise-connection-accounts.md "rise-connection-accounts.md").
 
 The following diagram shows the architecture for a Large Bandwidth Tunnel VPN connection through your own AWS account to the RISE with SAP VPC.
 
@@ -69,11 +70,12 @@ Costs vary between AWS Regions. For more information, see [Amazon EC2 pricing Da
 
 Create a Large Bandwidth Site-to-Site VPN connection in your Amazon VPC, terminating in an AWS Transit Gateway in US East (Ohio). The connection is active for 30 days, 24 hours a day, with 1 TB transferred.
 
-- AWS Site-to-Site VPN connection fee (5 Gbps): At USD $0.60 per hour in US East (Ohio) per VPN connection, the monthly connection fee is USD $432.00.
-- AWS Transit Gateway fee: At $0.05 per hour per attachment in US East (Ohio), the monthly fee for 1 attachment is $36.00.
-- AWS Transit Gateway data processing fee: At $0.02 per GB, the monthly fee is $20.48.
-- Data transfer out fee: The first 100 GB are free, leaving 924 GB (1 TB = 1,024 GB) chargeable at $0.09 per GB — a monthly fee of $83.16.
-- For example, total monthly cost: USD $571.64
+- AWS Site-to-Site VPN connection fee (5 Gbps): At USD 0.60 per hour in US East (Ohio) per VPN connection, the monthly connection fee is USD 432.00.
+- AWS Transit Gateway fee: At USD 0.05 per hour per attachment in US East (Ohio), the monthly fee for 1 attachment is USD 36.00.
+- AWS Transit Gateway data processing fee: At USD 0.02 per GB, the monthly fee is USD 20.48.
+- Data transfer out fee: The first 100 GB are free, leaving 924 GB (1 TB = 1,024 GB) chargeable at USD 0.09 per GB — a monthly fee of USD 83.16.
+
+The total estimated monthly cost is approximately USD 571.64.
 
 For more information, see [AWS Site-to-Site VPN pricing](https://aws.amazon.com/vpn/pricing/ "https://aws.amazon.com/vpn/pricing/").
 
@@ -83,12 +85,12 @@ Because you connect via VPN to your own AWS account, which is then connected to 
 
 Because the cost associated with the lifecycle and operation of a "Customer gateway device" (a physical device or software application on your side of the Site-to-Site AWS VPN connection) varies, this is not taken into consideration in this document.
 
-To scale beyond the default limit of 5 Gbps throughput per VPN tunnel, see [Achieve ECMP routing with multiple Site-to-Site VPN tunnels associated with a transit gateway](https://repost.aws/knowledge-center/transit-gateway-ecmp-multiple-tunnels "https://repost.aws/knowledge-center/transit-gateway-ecmp-multiple-tunnels").
+To scale beyond the 5 Gbps throughput of a single Large Bandwidth Tunnel, see [Achieve ECMP routing with multiple Site-to-Site VPN tunnels associated with a transit gateway](https://repost.aws/knowledge-center/transit-gateway-ecmp-multiple-tunnels "https://repost.aws/knowledge-center/transit-gateway-ecmp-multiple-tunnels").
 
 ## Summary
 
-- **Standard VPN (up to 1.25 Gbps)** — Connects directly to the RISE VPC. The RISE subscription covers these costs. Best for use when you don’t have your own AWS account.
-- **Large Bandwidth Tunnel (up to 5 Gbps)** — Routes through the customer’s own AWS account via Transit Gateway. Costs (approximately $572/month) are split between customer and RISE subscription based on data traffic direction — expect some additional cost beyond the subscription.
-- **ECMP (above 5 Gbps)** — Aggregates multiple VPN connections via Transit Gateway to scale bandwidth beyond 5 Gbps. Same cost-split model as above, but costs scale linearly with each additional VPN connection.
+- **Standard VPN (up to 1.25 Gbps)**: Connects directly to the RISE VPC. The RISE subscription covers these costs. Best for use when you don’t have your own AWS account.
+- **Large Bandwidth Tunnel (up to 5 Gbps)**: Routes through your own AWS account via Transit Gateway. Costs (approximately USD 572 per month) are split between your account and the RISE subscription based on data traffic direction. You might incur some additional cost beyond the subscription.
+- **ECMP (above 5 Gbps)**: Aggregates multiple VPN connections via Transit Gateway to scale bandwidth beyond 5 Gbps. Same cost-split model as above, but costs scale linearly with each additional VPN connection.
 
 For a full decision tree on how to connect to RISE on AWS, see [Decision tree on connectivity to RISE](rise-decision-tree.md "rise-decision-tree.md").

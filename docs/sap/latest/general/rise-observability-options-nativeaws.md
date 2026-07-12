@@ -26,20 +26,22 @@ High-Level Implementation Steps:
 
 By implementing this approach, you gain scalable, secure, and cost-effective monitoring for your SAP ABAP systems, enabling proactive issue detection and performance visibility. This foundation allows you to expand observability over time, incorporate additional metrics, and integrate monitoring seamlessly into your operational workflows via native AWS services.
 
-**Leveraging Quick Sight Visualization for SAP Monitoring**
+## Leveraging QuickSight Visualization for SAP Monitoring
 
-Building on the “Monitoring SAP ABAP-based Systems on AWS", you can gain deeper, business-level visibility into your RISE with SAP environment by integrating Amazon CloudWatch Logs with Amazon Quick Sight using Amazon Athena. This lets you take raw operational log data, store and query it efficiently, and build interactive dashboards and reports that non-technical stakeholders can use, offering you a unified picture of system health, user behaviour, and security from a single pane.
+Building on the “Monitoring SAP ABAP-based Systems on AWS", you can gain deeper, business-level visibility into your RISE with SAP environment by integrating Amazon CloudWatch Logs with Amazon QuickSight using Amazon Athena. This lets you take raw operational log data, store and query it efficiently, and build interactive dashboards and reports that non-technical stakeholders can use, offering you a unified picture of system health, user behavior, and security from a single pane.
 
-![RISE observability with Quick Sight.](images/rise-observability-quicksight.png)
-To implement this integration, you first set up the Athena CloudWatch Logs connector by deploying a Lambda function that enables Athena to query your CloudWatch Logs. Next, you define Athena views that structure and extract the relevant log fields, such as timestamps, error codes, or custom SAP log entries, to make them ready for analysis. With the views in place, you connect Amazon Quick Sight to Athena by granting the necessary IAM permissions and configuring S3 access, then import or directly query the log data. Finally, you build interactive dashboards and visualizations in Quick Sight to monitor trends, error rates, and operational KPIs, and optionally enable Amazon Q in Quick Sight so your business users can ask natural language questions against the SAP log data without writing SQL.
+![RISE observability with QuickSight.](images/rise-observability-quicksight.png)
 
-Once you have setup SAP metrics from RISE environment into Amazon CloudWatch in your own AWS account, you can follow [Integrate Amazon CloudWatch Logs with Amazon Quick Sight using Amazon Athena](https://aws.amazon.com/blogs/business-intelligence/integrate-amazon-cloudwatch-logs-with-amazon-quicksight-using-amazon-athena/ "https://aws.amazon.com/blogs/business-intelligence/integrate-amazon-cloudwatch-logs-with-amazon-quicksight-using-amazon-athena/") for detailed steps and implementation guidance.
+To implement this integration, you first set up the Athena CloudWatch Logs connector by deploying a Lambda function that enables Athena to query your CloudWatch Logs. Next, you define Athena views that structure and extract the relevant log fields, such as timestamps, error codes, or custom SAP log entries, to make them ready for analysis. With the views in place, you connect Amazon QuickSight to Athena by granting the necessary IAM permissions and configuring S3 access, then import or directly query the log data. Finally, you build interactive dashboards and visualizations in QuickSight to monitor trends, error rates, and operational KPIs, and optionally enable Amazon Q in QuickSight so your business users can ask natural language questions against the SAP log data without writing SQL.
+
+After you set up SAP metrics from the RISE environment in Amazon CloudWatch in your own AWS account, you can follow [Integrate Amazon CloudWatch Logs with Amazon QuickSight using Amazon Athena](https://aws.amazon.com/blogs/business-intelligence/integrate-amazon-cloudwatch-logs-with-amazon-quicksight-using-amazon-athena/ "https://aws.amazon.com/blogs/business-intelligence/integrate-amazon-cloudwatch-logs-with-amazon-quicksight-using-amazon-athena/") for detailed steps and implementation guidance.
 
 **Monitoring and optimizing SAP Fiori user experience on AWS**
 
 You can monitor and improve the user experience of your SAP Fiori applications by leveraging [Amazon CloudWatch Real User Monitoring (RUM)](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.md"). This enables you to capture how actual users interact with the SAP Fiori launchpad and apps in real-time, measuring performance, error rates, and user drop-offs. By understanding user experience metrics, you can proactively optimize your front-end performance and ensure a smooth, responsive SAP Fiori environment.
 
 ![RISE observability for SAP Fiori.](images/rise-observability-fiori.png)
+
 High-Level Implementation Steps:
 
 1. Create a CloudWatch RUM app monitor in the AWS console.
@@ -48,7 +50,8 @@ High-Level Implementation Steps:
 4. Optionally configure sampling to balance data volume and cost.
 5. Create dashboards and alarms in CloudWatch to monitor performance trends and user-impacting issues.
 6. Add manual route-change events where necessary to properly capture single-page application navigation.
-   You can follow [Monitor and Optimize SAP Fiori User Experience on AWS](https://aws.amazon.com/blogs/awsforsap/monitor-and-optimize-sap-fiori-user-experience-on-aws/ "https://aws.amazon.com/blogs/awsforsap/monitor-and-optimize-sap-fiori-user-experience-on-aws/") for detailed steps and implementation guidance.
+
+You can follow [Monitor and Optimize SAP Fiori User Experience on AWS](https://aws.amazon.com/blogs/awsforsap/monitor-and-optimize-sap-fiori-user-experience-on-aws/ "https://aws.amazon.com/blogs/awsforsap/monitor-and-optimize-sap-fiori-user-experience-on-aws/") for detailed steps and implementation guidance.
 
 By implementing CloudWatch RUM for SAP Fiori, you gain deep insight into end-user experience, allowing your team to proactively identify and resolve front-end performance bottlenecks. This approach ensures higher user satisfaction, continuous improvement of SAP Fiori apps, and actionable data for IT and business teams.
 
@@ -65,7 +68,8 @@ High-Level Implementation Steps:
 5. Install the Amazon Q Developer CLI, configure it to use the MCP Servers, and map it to your AWS profile and region.
 6. Validate that MCP Servers are loaded correctly and responding to Q CLI.
 7. Start using natural-language queries in Q CLI to troubleshoot issues, detect latency spikes, validate SLO compliance, and accelerate root-cause analysis across your SAP stack.
-   Once operational, you use Q CLI to ask for natural-language-style queries like “Which backend operations are failing most often in my S/4HANA system?”, “Is there any breach in our SLOs for SAP services over past 24 hours?”, or “Please check any clues of threat in my SAP system in the latest 7 days from my cloudtrail log”, letting the tools do much of the correlation and log/pattern detection for you.
+
+Once operational, you use Q CLI to ask for natural-language-style queries like “Which backend operations are failing most often in my S/4HANA system?”, “Is there any breach in our SLOs for SAP services over past 24 hours?”, or “Please check any clues of threat in my SAP system in the latest 7 days from my cloudtrail log”, letting the tools do much of the correlation and log/pattern detection for you.
 
 You can follow [Streamline SAP Operation with CloudWatch MCP server and Amazon Q CLI](https://aws.amazon.com/blogs/awsforsap/streamline-sap-operation-with-cloudwatch-mcp-server-and-amazon-q-cli-part-3/ "https://aws.amazon.com/blogs/awsforsap/streamline-sap-operation-with-cloudwatch-mcp-server-and-amazon-q-cli-part-3/") for detailed steps and implementation guidance.
 
@@ -73,6 +77,6 @@ By adopting CloudWatch and Application Signals MCP Servers with Q CLI, you make 
 
 **Conclusion**
 
-By combining Amazon CloudWatch, CloudWatch RUM, Application Insights, MCP Servers, Amazon Q CLI, Athena, and Quick Sight, you can create a fully integrated, end-to-end observability strategy for your RISE with SAP environment on AWS. This approach enables you to monitor backend systems, SAP Fiori user experience, and service-level objectives, while correlating metrics, logs, and traces across your entire SAP stack.
+By combining Amazon CloudWatch, CloudWatch RUM, Application Insights, MCP Servers, Amazon Q CLI, Athena, and QuickSight, you can create a fully integrated, end-to-end observability strategy for your RISE with SAP environment on AWS. This approach enables you to monitor backend systems, SAP Fiori user experience, and service-level objectives, while correlating metrics, logs, and traces across your entire SAP stack.
 
 MCP Servers and Amazon Q CLI provide powerful capabilities to interact with observability data using natural-language queries, automate routine operational tasks, generate health reports, and accelerate root-cause analysis, reducing manual effort and improving operational efficiency. At the same time, the solution is fully customizable, giving you the opportunity to design dashboards, alerts, data collection, and workflows to meet your specific business requirements and compliance needs. Overall, this strategy improves system reliability, enhances user satisfaction, and empowers both technical teams and business stakeholders to proactively optimize and maintain SAP workloads on AWS in a secure, cost-effective, and resilient manner.

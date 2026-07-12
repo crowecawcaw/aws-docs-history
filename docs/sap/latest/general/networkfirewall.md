@@ -17,7 +17,7 @@ Key features of AWS Network Firewall include:
   Below is example architecture of AWS Network Firewall inspecting network traffic before it reaches RISE with SAP
 
 ![Network Firewall inspecting network traffic before it reaches RISE with SAP.](images/rise-security-network-firewall.png)
-In the diagram above
+In the preceding diagram
 
 1. A malicious actor exploits network misconfiguration to get access to SAP system on RISE.
 2. Traffic is first routed through AWS Transit Gateway.

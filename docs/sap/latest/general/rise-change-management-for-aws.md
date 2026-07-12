@@ -4,7 +4,7 @@ You manage the change management of the AWS services that are connected to RISE 
 
 [AWS for DevOps](https://aws.amazon.com/devops/ "https://aws.amazon.com/devops/") provides a comprehensive set of flexible services designed to help companies build and deliver products more rapidly and reliably using AWS and DevOps practices. These services simplify infrastructure provisioning, application code deployment, software release process automation, and performance monitoring. For more information, see [AWS for DevOps](https://aws.amazon.com/devops/ "https://aws.amazon.com/devops/").
 
-AWS offers fully managed services that require no setup, are ready to use with an AWS account, and can scale from a single instance to thousands. The platform supports automation of manual tasks, secure access control through IAM, and integrates with a large ecosystem of partners.
+AWS offers fully managed services that require no setup, are ready to use with an AWS account, and can scale from a single instance to thousands. With this platform, you can automate manual tasks, control access securely through IAM, and integrate with a large ecosystem of partners.
 
 ## CI/CD Automation Suite
 

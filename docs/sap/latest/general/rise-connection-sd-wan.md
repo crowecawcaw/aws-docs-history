@@ -79,7 +79,7 @@ Outbound from RISE with SAP:
 **Pattern B-2: SD-WAN appliances in AWS integrated with AWS Site-to-Site VPN**
 
 ![SD-WAN appliances integrated with Site-to-Site VPN.](images/rise-pattern-b-2-sd-wan-s2svpn.png)
-The diagram above illustrates a pattern of integrating your SD-WAN network with Transit Gateway using an AWS Site-Site VPN connection and placing (third party) virtual appliances of the SD-WAN network in an Appliance VPC within AWS. You may use this option when your third-party virtual appliance does not support GRE. It’s common to have SD-WAN edge appliances deployed at branch locations, and on-premises data center to create a full mesh topology.
+The preceding diagram illustrates a pattern of integrating your SD-WAN network with Transit Gateway using an AWS Site-Site VPN connection and placing (third party) virtual appliances of the SD-WAN network in an Appliance VPC within AWS. You can use this option when your third-party virtual appliance does not support GRE. It’s common to have SD-WAN edge appliances deployed at branch locations, and on-premises data center to create a full mesh topology.
 
 Outbound from RISE with SAP:
 

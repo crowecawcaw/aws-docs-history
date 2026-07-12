@@ -2,23 +2,23 @@
 
 ## Background
 
-As enterprises modernize their digital commerce platforms, many are adopting SAP Commerce Cloud SaaS while operating core SAP ERP workloads through SAP Cloud ERP Private on AWS. The end of mainstream maintenance for SAP Commerce (SAP Hybris) 2205 on July 31, 2026 has made integrating these two platforms a critical enterprise architecture priority.
+When you modernize your digital commerce platform, you might adopt SAP Commerce Cloud SaaS while operating core SAP ERP workloads through SAP Cloud ERP Private on AWS. If you plan to migrate from SAP Commerce (SAP Hybris) 2205 before its mainstream maintenance ends on July 31, 2026, integrating these two platforms is a critical architecture priority.
 
 SAP Commerce Cloud is a unified e-commerce platform purpose-built for complex B2B, B2C, and B2B2C enterprises, delivered as a fully managed SaaS solution with hosting location determined by SAP.
 
 When you design this integration following the practices in this guide, it delivers:
 
 - **Security** — Defense-in-depth using native AWS security services and AWS compliance programs. For more information, see [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/").
-- **High performance** — Sub hundred milliseconds latency for synchronous interactions through strategic Region selection and Amazon CloudFront acceleration.
+- **High performance** — Latency under 100 milliseconds for synchronous interactions through Region selection and Amazon CloudFront acceleration.
 - **Operational simplicity** — Middleware-driven decoupling that replaces complex networking configurations with managed services, reducing dependency on geographic proximity.
 
-This guide presents proven architectural best practices across four critical dimensions: (1) Region Selection, (2) Latency Optimization, (3) Networking, and (4) Security Implementation. Additionally, it addresses extended integration with Amazon fulfillment services and provides guidance on obtaining SAP and AWS support.
+Use this guide to implement proven architectural best practices across four critical dimensions: Region Selection, Latency Optimization, Networking, and Security Implementation. It also covers extended integration with Amazon fulfillment services and guidance on obtaining SAP and AWS support.
 
 ## Architecture Overview
 
 ### Integration Architecture Model
 
-The integration between SAP Commerce Cloud SaaS and SAP Cloud ERP Private on AWS follows a hybrid cloud architecture pattern in which a managed SaaS platform communicates with enterprise workloads hosted in a customer-controlled cloud environment. This model is consistent with industry-standard enterprise integration patterns used to connect SaaS applications—including CRM, HR, payment processing, logistics, and analytics platforms—with core enterprise systems.
+The integration between SAP Commerce Cloud SaaS and SAP Cloud ERP Private on AWS follows a hybrid cloud architecture pattern in which a managed SaaS platform communicates with enterprise workloads hosted in a customer-controlled cloud environment. You can use this model with industry-standard enterprise integration patterns to connect SaaS applications—including CRM, HR, payment processing, logistics, and analytics platforms—with core enterprise systems.
 
 ### Core Integration Characteristics
 
@@ -77,11 +77,11 @@ The following table provides the recommended AWS Region for each SAP Commerce Cl
 
 The Intelligent Selling Services for SAP Commerce Cloud delivers real-time personalization that enhances customer experiences across the commerce platform.
 
-For authoritative region listings, consult [SAP Data Center Locations](https://www.sap.com/about/trust-center/data-center.html "https://www.sap.com/about/trust-center/data-center.html") and [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
+For authoritative region listings, consult [SAP Data Center Locations](https://www.sap.com/about/trust-center/data-center.html "https://www.sap.com/about/trust-center/data-center.html") on the SAP website and [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
 
 ### Latency Optimization
 
-**Content Delivery Network (CDN) Acceleration**
+#### Content Delivery Network (CDN) Acceleration
 
 To optimize storefront performance, deploy Amazon CloudFront as a CDN layer in front of SAP Commerce Cloud storefronts. These storefronts serve significant static content—images, scripts, stylesheets, and product media—that benefits from caching and edge distribution.
 
@@ -93,9 +93,9 @@ Amazon CloudFront provides the following optimization capabilities for SAP Comme
 
 For detailed implementation guidance, see the AWS Blog post [Supercharge your SAP Composable Storefront with Amazon CloudFront](https://aws.amazon.com/blogs/awsforsap/supercharge-your-sap-composable-storefront-with-amazon-cloudfront/ "https://aws.amazon.com/blogs/awsforsap/supercharge-your-sap-composable-storefront-with-amazon-cloudfront/").
 
-**Middleware-Driven Resilient Integration**
+#### Middleware-Driven Resilient Integration
 
-A robust middleware layer is required for reliable integration between SAP Commerce Cloud and SAP Cloud ERP Private systems. SAP BTP Integration Suite is the recommended integration platform, supplemented by API gateways and event brokers as appropriate.
+To ensure reliable integration between SAP Commerce Cloud and SAP Cloud ERP Private systems, use a robust middleware layer. SAP BTP Integration Suite is the recommended integration platform, supplemented by API gateways and event brokers as appropriate.
 
 The middleware layer provides the following capabilities:
 
@@ -106,7 +106,7 @@ The middleware layer provides the following capabilities:
 
 This architectural pattern ensures that temporary network delays or latency variations do not block critical business transactions, and removes any dependency on cloud provider alignment or geographic proximity between the two platforms.
 
-**Asynchronous Integration Design**
+#### Asynchronous Integration Design
 
 Most interactions between SAP Commerce Cloud and SAP S/4HANA are asynchronous by design. Use asynchronous patterns as the default for all non-time-sensitive interactions. The following processes are candidates for asynchronous integration:
 
@@ -118,18 +118,18 @@ Most interactions between SAP Commerce Cloud and SAP S/4HANA are asynchronous by
 
 These business transactions do not require millisecond-level responses and are designed to tolerate normal internet latencies without affecting correctness or user experience.
 
-**Synchronous Integration Guidelines**
+#### Synchronous Integration Guidelines
 
 Some interactions require synchronous responses. When you select the AWS Region closest to the SAP Commerce Cloud hosting Region—typically within the same metropolitan area—round-trip latency between SAP Commerce Cloud and SAP S/4HANA Cloud ERP Private on AWS remains low enough for real-time use cases (typically under 100 ms). Synchronous integration use cases include:
 
 - Real-time product pricing retrieval
-- Live inventory availability checks (Available-to-Promise (ATP))
+- Live inventory availability checks using Available-to-Promise (ATP)
 - Credit card authorization and payment processing
 - Customer credit limit verification
 
 ### Networking
 
-**AWS Networking Services for SAP Integration**
+#### AWS Networking Services for SAP Integration
 
 AWS provides global networking services that reduce latency, provide observability insights, and improve availability between end users, SAP Cloud ERP Private workloads, and SAP Commerce Cloud endpoints. Evaluate the following services for each deployment:
 
@@ -140,7 +140,7 @@ AWS provides global networking services that reduce latency, provide observabili
 | Amazon CloudWatch      | Metrics, logs, and alarms for AWS resources and applications                     | Full observability into integration traffic and performance         |
 | VPC Flow Logs          | Captures IP traffic information for network interfaces in a VPC                  | Detailed visibility into integration traffic patterns and anomalies |
 
-**Network Monitoring and Observability**
+#### Network Monitoring and Observability
 
 Monitor all integration traffic between SAP Cloud ERP Private on AWS and SAP Commerce Cloud using the following AWS observability services:
 
@@ -150,11 +150,11 @@ Monitor all integration traffic between SAP Cloud ERP Private on AWS and SAP Com
 
 ### Security Implementation
 
-**AWS Security Foundation**
+#### AWS Security Foundation
 
-We provide the security infrastructure for SAP Cloud ERP Private workloads. Our security services and compliance programs support a defense-in-depth architecture for SAP environments.
+We provide the underlying security infrastructure for SAP Cloud ERP Private workloads. Our security services and compliance programs support a defense-in-depth architecture for SAP environments.
 
-Implement the following security services if you are responsible for the management of the SAP Cloud ERP deployment:
+Implement the following security services if you manage the SAP Cloud ERP deployment:
 
 - **AWS Identity and Access Management (IAM)** — Enforce least-privilege access for all SAP integration service accounts. Use IAM roles for service-to-service authentication within AWS.
 - **AWS Key Management Service (AWS KMS)** — Encrypt all data at rest within the SAP ERP environment. Manage encryption keys centrally with automatic rotation.
@@ -163,7 +163,7 @@ Implement the following security services if you are responsible for the managem
 - **Amazon GuardDuty** — Monitor SAP workloads for anomalous API calls, unauthorized access attempts, and compromised credentials.
 - **AWS Web Application Firewall (AWS WAF)** — Protect SAP Commerce Cloud API endpoints and storefronts from common web exploits, including SQL injection and cross-site scripting.
 
-**Cross-Platform Communication Security**
+#### Cross-Platform Communication Security
 
 Secure all communication between SAP Cloud ERP Private on AWS and SAP Commerce Cloud according to the following requirements:
 
@@ -186,16 +186,16 @@ Before you begin implementation, complete the following assessments:
 - **Latency baseline** — Measure round-trip latency from the selected AWS Region to SAP Commerce Cloud endpoints before go-live to establish performance baselines.
 - **Security requirements review** — Identify applicable compliance frameworks (GDPR, PCI DSS, SOC 2) and map the required AWS security controls to each integration flow.
 
-**Middleware Implementation with SAP BTP Integration Suite**
+#### Middleware Implementation with SAP BTP Integration Suite
 
 You can use SAP BTP Integration Suite as the middleware layer. Follow these implementation guidelines:
 
-- **Integration Package Selection**: Utilize pre-built SAP Integration Suite packages for SAP Commerce Cloud to SAP S/4HANA integration wherever available to reduce implementation time and risk.
+- **Integration Package Selection**: Use pre-built SAP Integration Suite packages for SAP Commerce Cloud to SAP S/4HANA integration wherever available to reduce implementation time and risk.
 - **Error Handling**: Implement comprehensive error handling with dead-letter queues for all asynchronous integration flows. Define escalation procedures for failed message processing.
 - **Idempotency**: Design all integration handlers to be idempotent, ensuring that duplicate message delivery does not result in duplicate business transactions.
 - **Monitoring Configuration**: Configure SAP Integration Suite monitoring dashboards and alerting to provide real-time visibility into integration health and throughput metrics.
 
-**Amazon CloudFront Configuration**
+#### Amazon CloudFront Configuration
 
 Configure Amazon CloudFront for SAP Commerce Cloud storefront acceleration using these guidelines:
 
@@ -206,28 +206,28 @@ Configure Amazon CloudFront for SAP Commerce Cloud storefront acceleration using
 
 ## Amazon Fulfillment Services Integration
 
-If you’re running SAP Commerce Cloud, you can extend e-commerce operations by integrating with Amazon fulfillment services. With this integration, SAP customers can use Amazon MCF and Buy with Prime with their existing SAP S/4HANA implementation, so they can use the full Amazon fulfillment infrastructure to grow their business and improve customer experience.
+If you’re running SAP Commerce Cloud, you can extend e-commerce operations by integrating with Amazon fulfillment services. With this integration, you can use Amazon MCF and Buy with Prime with your existing SAP S/4HANA implementation to access the full Amazon fulfillment infrastructure, grow your business, and improve customer experience.
 
 Two primary integration options are available:
 
-**Buy with Prime Integration**
+### Buy with Prime Integration
 
-Buy with Prime enables brands to offer Prime shopping benefits—including fast free delivery, easy returns, 24/7 customer support, and Reviews from Amazon—directly on their own website. Integrated with SAP Commerce Cloud, this capability delivers the following documented business outcomes:
+With Buy with Prime, brands can offer Prime shopping benefits—including fast free delivery, easy returns, 24/7 customer support, and Reviews from Amazon—directly on their own website. Integrated with SAP Commerce Cloud, this capability delivers the following documented business outcomes:
 
 - 95% of shoppers report high likelihood to use Buy with Prime again
 - Merchants report an average 16% increase in revenue per shopper
 
-**Amazon Multi-Channel Fulfillment (MCF)**
+### Amazon Multi-Channel Fulfillment (MCF)
 
-Amazon Multi-Channel Fulfillment (MCF) is a third-party logistics (3PL) solution that you can use to leverage Amazon’s fulfillment network for pick, pack, ship, and delivery across all sales channels. Key capabilities include:
+Amazon Multi-Channel Fulfillment (MCF) is a third-party logistics (3PL) solution that uses the Amazon fulfillment network for pick, pack, ship, and delivery across all sales channels. Key capabilities include:
 
-- Single inventory pool within Amazon’s fulfillment network across all sales channels
+- Single inventory pool within the Amazon fulfillment network across all sales channels
 - Reduced out-of-stock rates and improved inventory turnover
 - Merchants report an average 19% increase in sales or revenue since adding MCF to off-Amazon channels
 
-**Accelerated Integration with SAP S/4HANA**
+### Accelerated Integration with SAP S/4HANA
 
-The Amazon MCF and Buy with Prime Accelerators for SAP S/4HANA provide a pre-built integration approach that uses SAP Business Technology Platform (SAP BTP) with SAP Integration Suite and pre-built Amazon APIs:
+The Amazon MCF and Buy with Prime Accelerators for SAP S/4HANA provide a pre-built integration approach that uses SAP Business Technology Platform (SAP BTP) with SAP Integration Suite and pre-built Amazon fulfillment APIs:
 
 - **Implementation Efficiency**: Reduces integration work by up to 75% compared to custom integration development.
 - **Go-Live Timeline**: Enables production go-live in under six weeks for many customers.

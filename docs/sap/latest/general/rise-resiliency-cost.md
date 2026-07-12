@@ -1,6 +1,6 @@
 # Resiliency and Cost Considerations
 
-SAP has options available for RISE to meet different resiliency requirements. The following key requirements are adjustable for RISE via option packages available from SAP.
+SAP has options available for RISE to meet different resiliency requirements. SAP adjusts the following key requirements for RISE through option packages.
 
 - Service Level Agreement (SLA) – describes the targeted availability of the solution.
 - Recovery Time Objective (RTO) – describes the targeted duration within which a recovery from a disaster event should be completed.

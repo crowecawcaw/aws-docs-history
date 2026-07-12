@@ -32,7 +32,7 @@ In summary, these are the architecture patterns in multi Availability Zones depl
 
 To achieve high reliability of SAP workloads, we recommend the following tasks:
 
-1. Discuss with SAP on the Availability SLA requirement for RISE deployment. This will drive the components (i.e. database and application servers) that will be deployed across multiple Availability Zones to maximise reliability and availability of RISE.
+1. Discuss with SAP the Availability SLA requirement for your RISE deployment. This will drive the components (that is, database and application servers) that will be deployed across multiple Availability Zones to maximize reliability and availability of RISE.
 2. If you have business scenarios involving batch jobs and/or transactions that makes frequent calls to the database servers, it might be adversely impacted by inter-AZ network latency, you can consider using SAP’s workload distribution mechanism (SAP Logon Groups, RFC Server Groups and Batch Server Groups) to ensure these jobs and transactions run on the application servers located in the same Availability Zone as the database server
 3. You can implement further optimization of network latency by referring to AWS re:Post article Inter-AZ Latency for SAP.
 4. When active-active mode is not feasible, you can run in active–passive mode of application servers utilizing ABAPSetServerInactive (SAP Note 3075829).

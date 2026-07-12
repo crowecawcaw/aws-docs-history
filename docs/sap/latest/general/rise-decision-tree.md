@@ -17,8 +17,9 @@ You must establish required connectivity to proceed with RISE with SAP on AWS. T
 - or through AWS Local Zone (nearest AWS Direct Connect POP) to benefit from lower setup and running costs, with the same or lower network latency to connect to your RISE with SAP VPC
   The decision tree displayed in the following diagram helps you decide which connectivity is suitable based on your requirements, such as future plan of additional AWS or RISE accounts, dedicated private connectivity (security, performance), bandwidth needs, and global multi-region deployments.
 
-![Example connections across Regions.](images/rise-decision-tree.png)
-NOTE:
+![Decision tree for choosing RISE with SAP connectivity options based on bandwidth](images/rise-decision-tree.png)
+
+###### Note
 
 1. ECMP requires Transit Gateway for S2S VPN.
 2. Direct Connect Gateway is recommended to connect to multiple AWS regions. This simplifies the connectivity setup and avoids TGW peering between AWS regions.

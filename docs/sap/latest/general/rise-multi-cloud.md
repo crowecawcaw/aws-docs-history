@@ -26,31 +26,39 @@ The following options are available to establish private connectivity between cl
 - Private interconnect using an AWS Direct Connect in a facility with a multi-cloud connectivity provider
 - Using AWS Interconnect Service to connect privately to other Cloud Providers (currently only Google Cloud)
 
-AWS Interconnect is a fully managed service providing direct private connectivity between AWS and other clouds (currently Google Cloud) without requiring physical routers or on-premises routing, with built-in Media Access Control Security (MACsec) encryption.
+With AWS Interconnect, you can establish direct private connectivity between AWS and other clouds (currently Google Cloud). You don’t need physical routers or on-premises routing, and AWS Interconnect includes built-in Media Access Control Security (MACsec) encryption.
 
-To check which regions are supported, see [Region availability](../../../interconnect/latest/userguide/interconnect-region-availability.md "../../../interconnect/latest/userguide/interconnect-region-availability.md").
+For more information about supported regions, see [Region availability](../../../interconnect/latest/userguide/interconnect-region-availability.md "../../../interconnect/latest/userguide/interconnect-region-availability.md").
 
-## Example use-case 1: RISE on AWS to GCP BigQuery
+## Example use case 1: RISE on AWS to GCP BigQuery
 
-If you run SAP S/4HANA on RISE with AWS and use Google Cloud BigQuery for analytics and machine learning, you can benefit from real-time data replication over a private, high-speed connection that continuously streams data from the SAP application layer to the Google Cloud data warehouse without exposing it to the public internet.
+If you run SAP S/4HANA on RISE with AWS and use Google Cloud BigQuery for analytics and machine learning, you can benefit from real-time data replication over a private, high-speed connection. This connection continuously streams data from the SAP application layer to the Google Cloud data warehouse without exposing it to the public internet.
 
-After you establish AWS Interconnect and deliver traffic from AWS RISE into GCP, complete the remaining connectivity configuration on the Google Cloud Platform side to ensure that data stays within the Google Cloud network.
+After you establish AWS Interconnect and deliver traffic from AWS RISE into GCP, complete the remaining connectivity configuration on the Google Cloud side. This ensures that data stays within the Google Cloud network.
 
-![Interconnect from RISE to GCP BigQuery.](images/rise-interconnect-aws-rise-gcp-big-query.png)
+![Interconnect connecting RISE with SAP to Google Cloud BigQuery.](images/rise-interconnect-aws-rise-gcp-big-query.png)
 
-## Example use-case 2: RISE on GCP to AWS services
+## Example use case 2: RISE on GCP to AWS services
 
-If you run SAP S/4HANA on RISE on Google Cloud, you can use the AWS SDK for SAP ABAP to natively consume AWS services, such as Amazon Bedrock, Amazon Textract, and Amazon S3, directly from your ABAP application layer. With this integration, they can extend their core business processes with intelligent cloud services that drive automation, document processing, and scalable data management.
+If you run SAP S/4HANA on RISE on Google Cloud, you can use the AWS SDK for SAP ABAP to natively consume AWS services, such as Amazon Bedrock, Amazon Textract, and Amazon S3, directly from your ABAP application layer. With this integration, you can extend your core business processes with intelligent cloud services that drive automation, document processing, and scalable data management.
 
-AWS Interconnect connects the Google Cloud RISE environment to an AWS VPC, where VPC endpoints (AWS PrivateLink) expose the required services. This ensures all traffic between the SAP system on Google Cloud and AWS remains on private network infrastructure without traversing the public internet, delivering low-latency, secure cross-cloud service consumption.
+AWS Interconnect connects the Google Cloud RISE environment to an AWS VPC. VPC endpoints (AWS PrivateLink) expose the required AWS services. All traffic between the SAP system on Google Cloud and AWS remains on private network infrastructure and does not traverse the public internet. This delivers low-latency, secure cross-cloud service consumption.
 
-Complete the necessary routing configuration on the Google Cloud side within GCP to direct traffic from the RISE environment toward AWS Interconnect.
+Complete the necessary routing configuration on the Google Cloud side to direct traffic from the RISE environment toward AWS Interconnect.
 
 For more information, see [Custom VPC Endpoints in the AWS SDK for SAP ABAP](../../../sdk-for-sapabap/latest/developer-guide/custom-vpc-endpoints.md "../../../sdk-for-sapabap/latest/developer-guide/custom-vpc-endpoints.md").
 
-![Interconnect from RISE on GCP to cloud services.](images/rise-interconnect-gcp-rise-aws-sdk.png)
+![Interconnect connecting RISE on Google Cloud to Amazon VPC endpoints for the SDK for SAP ABAP.](images/rise-interconnect-gcp-rise-aws-sdk.png)
 
-AWS Interconnect is a fully managed service that provides private, high-speed connectivity between AWS and other cloud providers. You don’t need to configure physical routers, order cross-connects, or manage BGP peering. Unlike Site-to-Site VPN or self-managed Direct Connect, AWS Interconnect requires no colocation facilities. It enables Media Access Control Security (MACsec) Layer 2 encryption by default, delivering low latency, dedicated bandwidth, and built-in redundancy through pre-provisioned capacity pools between cloud provider points of presence (PoPs). This significantly reduces operational complexity. Performance and reliability exceed what internet-based VPN connections or self-managed Direct Connect implementations offer.
+AWS Interconnect is a fully managed service that provides private, high-speed connectivity between AWS and other cloud providers. Unlike Site-to-Site VPN or self-managed AWS Direct Connect, it requires no colocation facilities, physical routers, cross-connects, or BGP peering configuration.
+
+AWS Interconnect provides the following benefits:
+
+- Media Access Control Security (MACsec) Layer 2 encryption by default.
+- Low latency and dedicated bandwidth.
+- Built-in redundancy through pre-provisioned capacity pools between cloud provider points of presence (PoPs).
+- Reduced operational complexity.
+- Performance and reliability that exceed internet-based VPN connections or self-managed AWS Direct Connect implementations.
 
 The following table compares AWS Interconnect with traditional connectivity approaches.
 

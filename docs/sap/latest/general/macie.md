@@ -11,7 +11,7 @@ In the context of RISE with SAP, Amazon Macie can protect Amazon S3 buckets in c
   Below is example architecture of Amazon Macie continuously scanning an S3 bucket with SAP data extracted from RISE
 
 ![Amazon Macie continuously scanning an S3 bucket with SAP data extracted from RISE.](images/rise-security-macie.png)
-In the diagram above
+In the preceding diagram
 
 1. Data is written to S3 bucket for data lake/compliance reporting purposes.
 2. Amazon Macie continuously analyzes bucket to detect Personally Identifiable Information.

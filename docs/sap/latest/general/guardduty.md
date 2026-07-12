@@ -15,7 +15,7 @@ Amazon GuardDuty monitors the following:
   Below is example architecture of GuardDuty monitoring CloudTrail trails of a RISE with SAP deployment on AWS
 
 ![GuardDuty monitoring CloudTrail trails of a RISE with SAP deployment.](images/rise-security-guardduty.png)
-In the diagram above
+In the preceding diagram
 
 1. Data is written to S3 bucket for data lake/compliance reporting purposes.
 2. A malicious actor changes IAM rules and IAM permissions on S3 bucket to obtain access.
@@ -24,14 +24,14 @@ In the diagram above
    Below is example architecture of GuardDuty monitoring DNS logs of a RISE with SAP deployment on AWS
 
 ![GuardDuty monitoring DNS logs of a RISE with SAP deployment.](images/rise-security-guardduty-dnslogs.png)
-In the diagram above
+In the preceding diagram
 
 1. A malicious actor introduces rogue DNS redirecting users to makeshift SAP systems.
 2. The rogue DNS entries are detected by GuardDuty and reported to administrators.
    Below is example architecture of GuardDuty monitoring VPC Flow Logs of RISE with SAP VPC
 
 ![GuardDuty monitoring VPC Flow Logs of RISE with SAP VPC.](images/rise-security-guardduty-vpcflowlogs.png)
-In the diagram above
+In the preceding diagram
 
 1. A malicious actor attempts to access SAP systems from VPC managed by customer peered to RISE VPC or scan ports.
 2. The connection attempt from malicious actor IP logged in VPC Flow Logs.

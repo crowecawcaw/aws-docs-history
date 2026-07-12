@@ -127,4 +127,4 @@ Verified Access provides centralized policy management through [AWS Cedar Policy
 
 ![Verified Access for RISE.](images/rise-verified-access.png)
 
-The preceding diagram describes on how AWS verified Access deployed and integrated with RISE with SAP
+The preceding diagram describes how AWS Verified Access integrates with RISE with SAP.
