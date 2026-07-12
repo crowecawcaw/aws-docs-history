@@ -1,13 +1,13 @@
-# Managed integrations notifications
+# Managed Integrations notifications
 
-Managed integrations notifications deliver updates and key insights from devices. Notifications
+Managed Integrations notifications deliver updates and key insights from devices. Notifications
 include connector events, device commands, lifecycle events, OTA (Over-the-Air) updates, and
 error reports. These insights provide actionable information to create automated workflows, take
 immediate actions, or store event data for troubleshooting.
 
 Currently, only Amazon Kinesis data streams are supported as a destination for managed
 integrations notifications. You will first need to set up an Amazon Kinesis data stream and
-allow managed integrations access to the data stream before setting up notifications.
+allow Managed Integrations access to the data stream before setting up notifications.
 
 ## Set up Amazon Kinesis for notifications
 
@@ -20,7 +20,7 @@ allow managed integrations access to the data stream before setting up notificat
 - [Step 5: Apply your permissions policy](managedintegrations-notifications.md#apply-permissions-policy "managedintegrations-notifications.md#apply-permissions-policy")
 - [Step 6: Enter a role name](managedintegrations-notifications.md#finalize-role "managedintegrations-notifications.md#finalize-role")
 
-To setup Amazon Kinesis for managed integrations notifications, follow these steps:
+To setup Amazon Kinesis for Managed Integrations notifications, follow these steps:
 
 ### Step 1: Create an Amazon Kinesis data stream
 
@@ -34,7 +34,7 @@ and make the data available for consumption by applications.
 
 ### Step 2: Create a permissions policy
 
-Create a permissions policy that allows managed integrations to access your Kinesis data stream.
+Create a permissions policy that allows Managed Integrations to access your Kinesis data stream.
 
 ###### To create a permissions policy
 
@@ -68,13 +68,13 @@ For more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_r
 
 ### Step 4: Use a Custom trust policy
 
-You can use a custom trust policy to grant managed integrations access to the Kinesis data stream.
+You can use a custom trust policy to grant Managed Integrations access to the Kinesis data stream.
 
 ###### To use a custom trust policy
 
 - **Create a new role and choose Custom trust policy. Click Next.**
 
-The following policy allows managed integrations to assume the role, and the `Condition` statement helps prevent confused deputy issues.
+The following policy allows Managed Integrations to assume the role, and the `Condition` statement helps prevent confused deputy issues.
 
 JSON
 
@@ -114,7 +114,7 @@ Add the permissions policy you created in step 2 to the role.
 
 - **Enter a role name and click Create role.**
 
-## Set up managed integrations notifications
+## Set up Managed Integrations notifications
 
 ###### Notification setup steps
 
@@ -122,7 +122,7 @@ Add the permissions policy you created in step 2 to the role.
 - [Step 2: Call the CreateDestination API](#call-createdestination "#call-createdestination")
 - [Step 3: Call the CreateNotificationConfiguration API](#call-notification-config "#call-notification-config")
 
-To setup managed integrations notifications, follow these steps:
+To setup Managed Integrations notifications, follow these steps:
 
 ### Step 1: Give user permissions to call the CreateDestination API
 
@@ -202,9 +202,9 @@ when you initially called the `CreateDestination` API.
 }
 ```
 
-## Event types monitored with managed integrations
+## Event types monitored with Managed Integrations
 
-The following are the event types monitored with managed integrations
+The following are the event types monitored with Managed Integrations
 notifications:
 
 - `DEVICE_COMMAND`
@@ -240,7 +240,7 @@ notifications:
   - The command request from Web Real-Time Communication (WebRTC).
 
   The WebRTC standard allows communication between two peers. These peers can
-  transmit real-time video, audio, and arbitrary data. Managed integrations supports WebRTC to
+  transmit real-time video, audio, and arbitrary data. Managed Integrations supports WebRTC to
   enable these types of streaming between a customer mobile application and an
   end-user's device. For more information on the WebRTC standard, see [WebRTC](https://webrtc.org/ "https://webrtc.org/").
 
@@ -309,6 +309,7 @@ notifications:
           "/quit/1b15b39992f9460ba82c6c04595d1f4f"
         ],
         "payload":{
+          "iotMiArrivalTimestamp":"2026-06-26T21:28:14.697Z",
           "endpoints":[{
             "endpointId":"1",
             "capabilities":[{
@@ -324,6 +325,21 @@ notifications:
         }
   }
   ```
+
+  The `DEVICE_EVENT` payload contains the following fields:
+
+        - `iotMiArrivalTimestamp`, String (ISO 8601): The timestamp
+         indicating when the device event was published by the device into Managed Integrations. Use
+         this field to determine the latency between when the event was generated by the
+         device and when Managed Integrations received it.
+        - `endpoints`: The list of device endpoints and their updated
+         capability properties.
+
+  The `timestamp` field in the outer message envelope indicates when
+  the notification was delivered to Kinesis. The `iotMiArrivalTimestamp`
+  in the payload indicates when the event arrived into Managed Integrations. These two
+  timestamps can differ if there is processing latency between event arrival and the
+  notification delivery.
 
 - `DEVICE_LIFE_CYCLE`
 
@@ -531,3 +547,45 @@ Reflects changes in status of device life cycle (this includes onboarding status
       }
   }
   ```
+
+- `CONNECTOR_ERROR_REPORT`
+
+  - This notification is sent when a cloud-to-cloud (C2C) connector reports an
+    error while processing a request on your behalf, such as a command or device
+    discovery that returned a non-success response.
+
+  ```
+  {
+      "version": "1.0.0",
+      "messageId": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+      "messageType": "CONNECTOR_ERROR_REPORT",
+      "source": "aws.iotmanagedintegrations",
+      "customerAccountId": "123456789012",
+      "timestamp": "2026-01-20T23:59:34.009284802Z",
+      "region": "ca-central-1",
+      "resources": [
+          "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:account-association/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6"
+      ],
+      "payload": {
+          "statusCode": 0,
+          "resourceType": "account-association",
+          "resourceId": [
+              "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6"
+          ],
+          "associationArn": [
+              "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:account-association/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6"
+          ],
+          "connectorDestinationId": "b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7",
+          "connectorDeviceId": "connectorDeviceId11597664a",
+          "operation": "AWS.SendCommand",
+          "operationVersion": "1.0",
+          "traceId": "f4be7a5d55d34cc=_1",
+          "logLevel": "ERROR",
+          "message": "AWS.SendCommand operation failed during asynchronous invocation of the connector: Connector response exception: responseCode=xxx, responseMessage=Mocking a ValidationException with error code xxx",
+          "managedThingId": "c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8"
+      }
+  }
+  ```
+
+  The `managedThingId` field is included when it can be resolved for
+  the request. Fields without a value are omitted from the payload.

@@ -43,8 +43,8 @@ Follow these steps to offboard the hub:
 
 ### Retrieve hub\_managed\_thing ID
 
-The `iotmi_config.json` file is used to store the managed thing ID for a Managed integrations hub.
-This identifier is a critical piece of information that allows the hub to communicate with the AWS IoT Managed integrations service.
+The `iotmi_config.json` file is used to store the managed thing ID for a Managed Integrations hub.
+This identifier is a critical piece of information that allows the hub to communicate with the AWS IoT Managed Integrations service.
 
 The managed thing ID is stored within the **rw** (read-write) section of the JSON file,
 under the `managed_thing_id` field. This is seen in the following sample configuration:
@@ -157,8 +157,8 @@ response is expected:
 - If **ProvisioningStatus** is `DELETE_IN_PROGRESS`,
   follow instructions in [Hub recovery](#hub-recovery "#hub-recovery").
 - If **ProvisioningStatus** is not `DELETE_IN_PROGRESS`,
-  the command to offboard the hub either failed in the Managed integrations cloud,
-  or was not received by Managed integrations cloud. Follow instructions in
+  the command to offboard the hub either failed in the Managed Integrations cloud,
+  or was not received by Managed Integrations cloud. Follow instructions in
   [Hub recovery](#hub-recovery "#hub-recovery").
 - If offboarding was unsuccessful, your `iotmi_config.json` file
   will look like the sample file below.

@@ -1,4 +1,4 @@
-# AWS managed policies for managed integrations
+# AWS managed policies for Managed Integrations
 
 To add permissions to users, groups, and roles, it is easier to use AWS managed policies
 than to write policies yourself. It takes time and expertise to [create IAM customer
@@ -27,14 +27,14 @@ job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md ".
 You can attach the `AWSIoTManagedIntegrationsFullAccess` policy to your IAM
 identities.
 
-This policy grants full access permissions to managed integrations and related services. To view
+This policy grants full access permissions to Managed Integrations and related services. To view
 this policy in the AWS Management Console, see [AWSIoTManagedIntegrationsFullAccess](https://console.aws.amazon.com//iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTManagedIntegrationsFullAccess?section=permissions "https://console.aws.amazon.com//iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTManagedIntegrationsFullAccess?section=permissions").
 
 **Permissions details**
 
 This policy includes the following permissions:
 
-- `iotmanagedintegrations` – Provides full access to managed integrations and
+- `iotmanagedintegrations` – Provides full access to Managed Integrations and
   related services for the IAM users, groups, and roles you add this policy
   to.
 - `iam` – Allows the assigned IAM users, groups, and roles to
@@ -71,7 +71,7 @@ JSON
 You can attach the `AWSIoTManagedIntegrationsRolePolicy` policy to your
 IAM identities.
 
-This policy grants managed integrations permission to publish Amazon CloudWatch logs and metrics on your
+This policy grants Managed Integrations permission to publish Amazon CloudWatch logs and metrics on your
 behalf.
 
 To view this policy in the AWS Management Console, see [AWSIoTManagedIntegrationsRolePolicy](https://console.aws.amazon.com//iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTManagedIntegrationsRolePolicy?section=permissions "https://console.aws.amazon.com//iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTManagedIntegrationsRolePolicy?section=permissions").
@@ -143,12 +143,12 @@ JSON
 
 ```
 
-## Managed integrations updates to AWS managed policies
+## Managed Integrations updates to AWS managed policies
 
-View details about updates to AWS managed policies for managed integrations since this service
+View details about updates to AWS managed policies for Managed Integrations since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to
-the RSS feed on the managed integrations Document history page.
+the RSS feed on the Managed Integrations Document history page.
 
 | Change                                        | Description                                                                 | Date           |
 | --------------------------------------------- | --------------------------------------------------------------------------- | -------------- |
-| Managed integrations started tracking changes | Managed integrations started tracking changes for its AWS managed policies. | March 03, 2025 |
+| Managed Integrations started tracking changes | Managed Integrations started tracking changes for its AWS managed policies. | March 03, 2025 |

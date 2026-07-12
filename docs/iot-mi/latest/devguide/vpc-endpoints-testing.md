@@ -1,11 +1,11 @@
 # Testing your VPC endpoint
 
-After you create your VPC endpoint, you can test the connection by making API calls to AWS IoT Managed integrations from an EC2 instance in your VPC.
+After you create your VPC endpoint, you can test the connection by making API calls to AWS IoT Managed Integrations from an EC2 instance in your VPC.
 
 ## Prerequisites
 
 - An EC2 instance in a private subnet within your VPC
-- Appropriate IAM permissions for AWS IoT Managed integrations operations
+- Appropriate IAM permissions for AWS IoT Managed Integrations operations
 - Security group rules that allow HTTPS traffic (port 443) to the VPC endpoint
 
 ## Testing the connection
@@ -23,7 +23,7 @@ dig api.iotmanagedintegrations.region.api.aws
 curl -v https://api.iotmanagedintegrations.region.api.aws
 ```
 
-4. Make an AWS IoT Managed integrations API call:
+4. Make an AWS IoT Managed Integrations API call:
 
 ```
 aws iot-managed-integrations list-destinations \

@@ -12,7 +12,7 @@ C2C connector must meet the [OAuth configuration requirements](#oauth-config-req
 
 ###### Note
 
-Managed integrations for AWS IoT Device Management only supports OAuth 2.0 with an authorization code flow. See [RFC
+Managed Integrations for AWS IoT Device Management only supports OAuth 2.0 with an authorization code flow. See [RFC
 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3.1 "https://datatracker.ietf.org/doc/html/rfc6749#section-1.3.1") for more information.
 
 Account linking is a process that allows managed integrations and the connector to access an end user’s devices by
@@ -23,7 +23,7 @@ We recommend that you don't log these sensitive tokens in any logs. If however t
 CloudWatch Logs data protection policies to mask the tokens in the logs. For more information, see
 [Help protect sensitive log data with masking](../../../AmazonCloudWatch/latest/logs/mask-sensitive-log-data.md "../../../AmazonCloudWatch/latest/logs/mask-sensitive-log-data.md").
 
-Managed integrations for AWS IoT Device Management does not get an access token directly; it does so through the
+Managed Integrations for AWS IoT Device Management does not get an access token directly; it does so through the
 Authorization Code Grant Type. First, managed integrations for AWS IoT Device Management must obtain an authorization code. It
 then exchanges the code for an access token and refresh token. The refresh token is used to
 request a new access token when the old access token expires. If both the access token and

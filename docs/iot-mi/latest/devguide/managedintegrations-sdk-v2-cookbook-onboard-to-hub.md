@@ -1,6 +1,6 @@
 # Onboard devices and operate them in hub
 
-Set up your devices to be onboarded to your managed integrations hub by creating a managed thing and
+Set up your devices to be onboarded to your Managed Integrations hub by creating a managed thing and
 connecting it to your hub. Devices can be onboarded to a hub through simple setup,
 user guided setup, or WiFi Simple Setup.
 

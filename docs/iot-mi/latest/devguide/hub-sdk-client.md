@@ -113,7 +113,7 @@ For the .so files, you can place them in a lib folder. The final layout will be 
 
 Before you run your custom application, complete the following steps to set up your hub and start the managed integrations Hub SDK:
 
-- Follow the onboarding instructions at [Onboard your hubs to managed integrations](managedintegrations-sdk-v2-cookbook-usinghub.md "managedintegrations-sdk-v2-cookbook-usinghub.md").
+- Follow the onboarding instructions at [Onboard your hubs to Managed Integrations](managedintegrations-sdk-v2-cookbook-usinghub.md "managedintegrations-sdk-v2-cookbook-usinghub.md").
 - Complete the installation process documented in [Install and validate the managed integrations Hub SDK](managedintegrations-sdk-v2-cookbook-deployment.md "managedintegrations-sdk-v2-cookbook-deployment.md").
 
 Once the prerequisites are met, you can run your custom application. For example:

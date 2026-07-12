@@ -1,4 +1,4 @@
-# Managed integrations Hub SDK Docker container on Raspberry Pi
+# Managed Integrations Hub SDK Docker container on Raspberry Pi
 
 ###### Note
 
@@ -36,12 +36,12 @@ The following prerequisites are required to for the docker container.
 - Connect a [Silicon Labs SLUSB001A Dongle](https://www.digikey.com/en/products/detail/silicon-labs/SLUSB001A/9867108 "https://www.digikey.com/en/products/detail/silicon-labs/SLUSB001A/9867108").
 - [Sign up for an AWS account](setting-up.md#sign-up-for-aws "setting-up.md#sign-up-for-aws").
 - Install the latest version of [AWS CLI from the
-  Managed integrations AWS CLI Command Reference](../../../cli/latest/reference/iot-managed-integrations.md "../../../cli/latest/reference/iot-managed-integrations.md").
+  Managed Integrations AWS CLI Command Reference](../../../cli/latest/reference/iot-managed-integrations.md "../../../cli/latest/reference/iot-managed-integrations.md").
 - SSH access to the Raspberry Pi with IP address or hostname.
 
-## Use Managed integrations Hub SDK Docker container on Raspberry Pi
+## Use Managed Integrations Hub SDK Docker container on Raspberry Pi
 
-1. Download [Managed integrations Raspberry Pi Hub SDK Docker](https://d2no7dt1utuyzo.cloudfront.net/IotMI-HubSDK-RaspberryPi/1.0.0/IotMI-HubSDK-Docker-v1.0.0.tar.gz "https://d2no7dt1utuyzo.cloudfront.net/IotMI-HubSDK-RaspberryPi/1.0.0/IotMI-HubSDK-Docker-v1.0.0.tar.gz").
+1. Download [Managed Integrations Raspberry Pi Hub SDK Docker](https://d2no7dt1utuyzo.cloudfront.net/IotMI-HubSDK-RaspberryPi/1.0.0/IotMI-HubSDK-Docker-v1.0.0.tar.gz "https://d2no7dt1utuyzo.cloudfront.net/IotMI-HubSDK-RaspberryPi/1.0.0/IotMI-HubSDK-Docker-v1.0.0.tar.gz").
 2. Copy the file to the Raspberry Pi using SCP:
 
 ```

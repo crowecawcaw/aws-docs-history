@@ -1,23 +1,23 @@
 # Implement C2C connector interface operations
 
-Managed integrations for AWS IoT Device Management defines four operations your AWS Lambda must handle to qualify as a
+Managed Integrations for AWS IoT Device Management defines four operations your AWS Lambda must handle to qualify as a
 connector. Your C2C connector must implement each of the following operations:
 
-1. `AWS.ActivateUser` - Managed integrations for AWS IoT Device Management service calls this API to retrieve
+1. `AWS.ActivateUser` - Managed Integrations for AWS IoT Device Management service calls this API to retrieve
    a globally unique user identifier. For OAuth 2.0, this is associated with the provided
    OAuth 2.0 token. This operation can optionally be used to perform any additional
    requirements for the account linking process.
-2. `AWS.DiscoverDevices` - Managed integrations for AWS IoT Device Management service calls this API to your
+2. `AWS.DiscoverDevices` - Managed Integrations for AWS IoT Device Management service calls this API to your
    connector for discovering user’s devices
-3. `AWS.SendCommand` - Managed integrations for AWS IoT Device Management service calls this API to your
+3. `AWS.SendCommand` - Managed Integrations for AWS IoT Device Management service calls this API to your
    connector for sending commands for user’s devices
-4. `AWS.DeactivateUser` - Managed integrations for AWS IoT Device Management service calls this API to your
+4. `AWS.DeactivateUser` - Managed Integrations for AWS IoT Device Management service calls this API to your
    connector for deactivating user's access token to delink in your authorization
    server.
 
 ## Invocation Details
 
-Managed integrations for AWS IoT Device Management always invokes the Lambda function with a JSON string payload through the
+Managed Integrations for AWS IoT Device Management always invokes the Lambda function with a JSON string payload through the
 AWS Lambda `invokeFunction` action. Request operations must include an
 `operationName` field in every request payload.
 
@@ -64,7 +64,7 @@ The developer of the connector must implement the `activateUserManager.activateU
 
 ## Request Format Examples
 
-The following examples detail generic connector requests from managed integrations, in which common
+The following examples detail generic connector requests from Managed Integrations, in which common
 fields to every required interface are present. From the examples, you can see there is both a
 request header and request payload. Request headers are common throughout every operation
 interface.
@@ -172,7 +172,7 @@ that will always be present.
   `AWS.DiscoverDevices`, `AWS.DeactivateUser`.
 - `operationVersion`: Every operation is versioned to allow its evolution
   over time and providing stable interface definition for third-party connectors.
-  managed integrations passes a version ﬁeld in the payload of all requests.
+  Managed Integrations passes a version ﬁeld in the payload of all requests.
 - `connectorId`: The ID of the connector in which the request has been sent
   to.
 
@@ -219,7 +219,7 @@ and its execution. Preferably, any errors resulting in a status code other than
 
 ## Respond to C2C connector operation requests with the SendConnectorEvent API
 
-Managed integrations for AWS IoT Device Management expects your connector to behave asynchronously for every
+Managed Integrations for AWS IoT Device Management expects your connector to behave asynchronously for every
 `AWS.SendCommand` and `AWS.DiscoverDevices` operation. This means
 that the initial response to these operations, simply “acknowledges” that your
 C2C connector has received the request.
@@ -232,7 +232,7 @@ light being manually turned on and off).
 ###### Example Workflow
 
 If your C2C connector receives a `DiscoverDevices` request,
-Managed integrations for AWS IoT Device Management expects it to:
+Managed Integrations for AWS IoT Device Management expects it to:
 
 - Respond synchronously with the response format defined above
 - Invoke the `SendConnectorEvent` API with a DEVICE\_DISCOVERY event

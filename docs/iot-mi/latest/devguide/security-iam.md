@@ -1,8 +1,8 @@
-# Identity and access management for managed integrations
+# Identity and access management for Managed Integrations
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
-(have permissions) to use managed integrations resources. IAM is an AWS service that you can
+(have permissions) to use Managed Integrations resources. IAM is an AWS service that you can
 use with no additional charge.
 
 ###### Topics
@@ -10,10 +10,10 @@ use with no additional charge.
 - [Audience](#security_iam_audience "#security_iam_audience")
 - [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
-- [AWS managed policies for managed integrations](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [How managed integrations works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [Identity-based policy examples for managed integrations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-- [Troubleshooting managed integrations identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [AWS managed policies for Managed Integrations](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
+- [How Managed Integrations works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
+- [Identity-based policy examples for Managed Integrations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Troubleshooting Managed Integrations identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 - [Using service-linked roles for managed integrations](using-service-linked-roles.md "using-service-linked-roles.md")
 
 ## Audience
@@ -21,11 +21,11 @@ use with no additional charge.
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting managed integrations identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
+  administrator if you cannot access features (see [Troubleshooting Managed Integrations identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
-  submit permission requests (see [How managed integrations works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
+  submit permission requests (see [How Managed Integrations works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
-  access (see [Identity-based policy examples for managed integrations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+  access (see [Identity-based policy examples for Managed Integrations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
 ## Authenticating with identities
 

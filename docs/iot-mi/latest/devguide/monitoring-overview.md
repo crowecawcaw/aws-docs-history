@@ -1,8 +1,8 @@
-# Monitoring Managed integrations
+# Monitoring Managed Integrations
 
 Monitoring is an important part of maintaining the reliability, availability, and
-performance of Managed integrations and your other AWS solutions. AWS provides the following monitoring
-tools to watch managed integrations, report when something is wrong, and take automatic actions when
+performance of Managed Integrations and your other AWS solutions. AWS provides the following monitoring
+tools to watch Managed Integrations, report when something is wrong, and take automatic actions when
 appropriate:
 
 - _AWS CloudTrail_ captures API calls and related events made by or on behalf

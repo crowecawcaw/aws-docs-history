@@ -1,9 +1,9 @@
 # Provisionee
 
-The provisionee is a component of managed integrations that enables fleet provisioning by claim. With
+The provisionee is a component of Managed Integrations that enables fleet provisioning by claim. With
 the provisionee, you securely provision your devices. The SDK creates the necessary resources
 for device provisioning, which includes the device certificate and private keys that are
-obtained from the managed integrations cloud. When you want to provision your devices, or if there are
+obtained from the Managed Integrations cloud. When you want to provision your devices, or if there are
 any changes that can require you to re-provision your devices, you can use the
 provisionee.
 
@@ -25,13 +25,13 @@ Customers configure
 cloud requirements like custom endpoints, provisioning profiles, and managed things. At
 first device power-on, the provisionee:
 
-1. Connects to the managed integrations endpoint using a claim certificate
+1. Connects to the Managed Integrations endpoint using a claim certificate
 2. Validates device parameters through fleet provisioning hooks
 3. Obtains and stores a permanent certificate and private key on the device
 4. The device uses the permanent certificate to reconnect
-5. Discovers and uploads device capabilities to managed integrations
+5. Discovers and uploads device capabilities to Managed Integrations
 
-After successful provisioning, the device communicates directly with managed integrations. The
+After successful provisioning, the device communicates directly with Managed Integrations. The
 provisionee activates only for re-provisioning tasks.
 
 ## Set environment variables
@@ -67,7 +67,7 @@ use the `GetCustomEndpoint` API, to return endpoint information.
 For more information, see
 [GetCustomEndpoint](../APIReference/API_GetCustomEndpoint.md "../APIReference/API_GetCustomEndpoint.md") API, and
 [RegisterCustomEndpoint](../APIReference/API_RegisterCustomEndpoint.md "../APIReference/API_RegisterCustomEndpoint.md") API
-in the _Managed integrations API Reference Guide_.
+in the _Managed Integrations API Reference Guide_.
 
 ## Create a provisioning profile
 
@@ -100,7 +100,7 @@ hardware security module (HSM) or a trusted platform module (TPM).
 
 ## Create a managed thing
 
-Register your device with managed integrations cloud by using the [CreateManagedThing](../APIReference/API_CreateManagedThing.md "../APIReference/API_CreateManagedThing.md") API. Include the serial number (SN) and universal product code
+Register your device with Managed Integrations cloud by using the [CreateManagedThing](../APIReference/API_CreateManagedThing.md "../APIReference/API_CreateManagedThing.md") API. Include the serial number (SN) and universal product code
 (UPC) of your device:
 
 ```
@@ -153,7 +153,7 @@ Alternatively, the End device SDK can be built using the `IOTMI_USE_WSS_PROVISIO
 ## Fleet provisioning by claim
 
 Using the provisionee, the end user can provision a unique certificate and register it
-with managed integrations using provisioning by claim.
+with Managed Integrations using provisioning by claim.
 
 The client ID can be acquired either from the provisioning template response or the
 device certificate `<common name>“_”<serial number>`
@@ -161,6 +161,6 @@ device certificate `<common name>“_”<serial number>`
 ## Managed thing capabilities
 
 The provisionee discovers the managed thing capabilities, then uploads the capabilities
-to managed integrations. It makes the capabilities available to apps and other services to access.
+to Managed Integrations. It makes the capabilities available to apps and other services to access.
 Devices, other web clients, and services can update the capabilities by using MQTT and the
 reserved MQTT topic, or HTTP using the REST API.

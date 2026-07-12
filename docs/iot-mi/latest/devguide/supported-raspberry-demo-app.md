@@ -1,4 +1,4 @@
-# Managed integrations demo application
+# Managed Integrations demo application
 
 ###### Note
 
@@ -24,7 +24,7 @@ connection of development peripherals and testing devices. For production, imple
 These configurations enable straightforward testing and must notcbe used in production environments. When deploying to production,
 please follow security best practices to prevent host system compromise and unauthorized access to credentials.
 
-The demo application is a React-based demo application showcasing Managed integrations capabilities for smart home device management.
+The demo application is a React-based demo application showcasing Managed Integrations capabilities for smart home device management.
 This application demonstrates device onboarding, control, and monitoring for Z-Wave and Zigbee devices through a modern web interface.
 
 ## Prerequisites
@@ -40,12 +40,12 @@ This application demonstrates device onboarding, control, and monitoring for Z-W
   [Hub onboarding setup](managedintegrations-sdk-v2-cookbook-hubsetup.md "managedintegrations-sdk-v2-cookbook-hubsetup.md").
 - [Node.js 18+ and npm](https://nodejs.org/en/download "https://nodejs.org/en/download").
 - Install the latest version of
-  [AWS CLI from the Managed integrations AWS CLI Command Reference](../../../cli/latest/reference/iot-managed-integrations.md "../../../cli/latest/reference/iot-managed-integrations.md").
+  [AWS CLI from the Managed Integrations AWS CLI Command Reference](../../../cli/latest/reference/iot-managed-integrations.md "../../../cli/latest/reference/iot-managed-integrations.md").
 - Modern web browser (Chrome, Firefox, Safari, Edge)
 
 ## Install and configure the Application
 
-1. Download [Managed integrations demo application](https://d2no7dt1utuyzo.cloudfront.net/IotMI-HubSDK-DemoApp/1.0.0/IotMI-HubSDK-DemoApp-v1.0.0.tar.gz "https://d2no7dt1utuyzo.cloudfront.net/IotMI-HubSDK-DemoApp/1.0.0/IotMI-HubSDK-DemoApp-v1.0.0.tar.gz").
+1. Download [Managed Integrations demo application](https://d2no7dt1utuyzo.cloudfront.net/IotMI-HubSDK-DemoApp/1.0.0/IotMI-HubSDK-DemoApp-v1.0.0.tar.gz "https://d2no7dt1utuyzo.cloudfront.net/IotMI-HubSDK-DemoApp/1.0.0/IotMI-HubSDK-DemoApp-v1.0.0.tar.gz").
 2. Extract the package:
 
 ```
@@ -89,4 +89,4 @@ npm start
 http://localhost:3000
 ```
 
-For pricing information, refer to [Managed integrations section on the AWS IoT Device Management pricing page](https://aws.amazon.com/iot-device-management/pricing/ "https://aws.amazon.com/iot-device-management/pricing/").
+For pricing information, refer to [Managed Integrations section on the AWS IoT Device Management pricing page](https://aws.amazon.com/iot-device-management/pricing/ "https://aws.amazon.com/iot-device-management/pricing/").

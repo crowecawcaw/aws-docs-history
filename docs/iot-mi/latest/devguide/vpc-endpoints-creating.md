@@ -1,8 +1,8 @@
-# Creating an interface VPC endpoint for AWS IoT Managed integrations
+# Creating an interface VPC endpoint for AWS IoT Managed Integrations
 
-You can create a VPC endpoint for the AWS IoT Managed integrations service using either the Amazon VPC Console or the AWS CLI (AWS CLI).
+You can create a VPC endpoint for the AWS IoT Managed Integrations service using either the Amazon VPC Console or the AWS CLI (AWS CLI).
 
-## To create an interface VPC endpoint for AWS IoT Managed integrations (console)
+## To create an interface VPC endpoint for AWS IoT Managed Integrations (console)
 
 1. Open the Amazon VPC Console at
    [Amazon VPC Console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
@@ -14,9 +14,9 @@ You can create a VPC endpoint for the AWS IoT Managed integrations service using
    - `com.amazonaws.ca-central-1.iotmanagedintegrations.api`
    - `com.amazonaws.eu-west-1.iotmanagedintegrations.api`
 
-6. For **VPC**, select the VPC from which you'll access AWS IoT Managed integrations.
+6. For **VPC**, select the VPC from which you'll access AWS IoT Managed Integrations.
 7. For **Additional settings**, **Enable DNS name** is selected by default. We recommend that you keep this setting.
-   This ensures that requests to the AWS IoT Managed integrations public service endpoints resolve to your Amazon VPC endpoint.
+   This ensures that requests to the AWS IoT Managed Integrations public service endpoints resolve to your Amazon VPC endpoint.
 8. For **Subnets**, select the subnets in which to create endpoint network interfaces.
    You can select one subnet per Availability Zone.
 9. For **IP address type**, choose from the following options:

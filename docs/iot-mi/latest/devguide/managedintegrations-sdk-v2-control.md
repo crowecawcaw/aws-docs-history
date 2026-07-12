@@ -1,6 +1,6 @@
 # Device control
 
-Managed integrations handles device registration, command execution, and control. You can build
+Managed Integrations handles device registration, command execution, and control. You can build
 end-user experiences without knowledge of device-specific protocols using its vendor and
 protocol-agnostic device management.
 
@@ -37,7 +37,7 @@ Track state changes from multiple sources, device manufacturer apps, and manual
 device adjustments.
 
 Review the Hub SDK components and processes you need to control devices through
-managed integrations. This topic describes how the Edge Agent, Common Data Model Bridge (CDMB), and
+Managed Integrations. This topic describes how the Edge Agent, Common Data Model Bridge (CDMB), and
 protocol-specific plugins work together to handle device commands, manage device states, and
 process responses across different protocols.
 
@@ -63,7 +63,7 @@ control on IoT hubs.
 
 **Edge agent**
 
-Acts as a gateway between the IoT hub and managed integrations.
+Acts as a gateway between the IoT hub and Managed Integrations.
 
 **Common data model bridge (CDMB)**
 
@@ -84,8 +84,8 @@ communication.
 
 **MQTT proxy**
 
-Provides MQTT connections to the managed integrations cloud.
+Provides MQTT connections to the Managed Integrations cloud.
 
 **Logger**
 
-Writes logs locally or to the managed integrations cloud.
+Writes logs locally or to the Managed Integrations cloud.

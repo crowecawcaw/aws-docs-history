@@ -75,7 +75,7 @@ enables extension of Matter Data Model for your devices and device software.
 Custom schemas can help describe device capabilities for device-to-cloud communication.
 
 For detailed information about managed integrations data models, including format, structure, and requirements,
-see [Managed integrations data model](managedintegrations-data-model.md "managedintegrations-data-model.md").
+see [Managed Integrations data model](managedintegrations-data-model.md "managedintegrations-data-model.md").
 
 Use `codegen.py` tool to generate C source files for custom schema, as follows:
 

@@ -45,12 +45,12 @@ The authorization server must either:
 - Be able to return the end-user ID for each issued access token
   Otherwise, your connector will not be able to support the required
   `AWS.ActivateUser`operation. This will prevent connector usage with
-  managed integrations.
+  Managed Integrations.
 
 If the connector developer or owner does not maintain their own authorization
 server, the authorization server used must provide authorization for resources
 managed by the connector developers third party platform. This means that any tokens
-received by managed integrations from the authorization server must provide meaningful security
+received by Managed Integrations from the authorization server must provide meaningful security
 boundaries on devices (the resource). For example, an end users token does not allow
 for commands on another end users device; the permissions provided by the token are
 mapped to resources within the platform. Consider the _Lights

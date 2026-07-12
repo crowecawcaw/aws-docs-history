@@ -1,6 +1,6 @@
 # Get started with managed integrations for AWS IoT Device Management
 
-The following sections outline the steps that you need to take to start using managed integrations.
+The following sections outline the steps that you need to take to start using Managed Integrations.
 
 ###### Topics
 
@@ -10,13 +10,13 @@ The following sections outline the steps that you need to take to start using ma
 
 ## Device types
 
-Managed integrations manages many types of devices. Each device is within one of the
+Managed Integrations manages many types of devices. Each device is within one of the
 following three categories:
 
 - _Direct-connected devices_: This type of device directly connects to
-  an managed integrations endpoint. Typically, these devices are built and managed by device manufacturers
-  that include the managed integrations end device SDK for the direct connectivity.
-- _Hub-connected devices_: These devices connect to managed integrations through a
+  an Managed Integrations endpoint. Typically, these devices are built and managed by device manufacturers
+  that include the Managed Integrations end device SDK for the direct connectivity.
+- _Hub-connected devices_: These devices connect to Managed Integrations through a
   hub running the managed integrations Hub SDK, which manages device discovery, onboarding, and control functions.
   End-users can onboard these devices using button press initiation or barcode
   scanning.
@@ -33,27 +33,27 @@ device:
 
 When the end user powers on a C2C device
 for the first time, it must be provisioned with its respective third-party cloud provider for
-managed integrations to obtain its device capabilities and metadata. After completing that provisioning
-workflow, managed integrations can communicate with the cloud device and the third-party cloud provider
+Managed Integrations to obtain its device capabilities and metadata. After completing that provisioning
+workflow, Managed Integrations can communicate with the cloud device and the third-party cloud provider
 on behalf of the end user.
 
 ###### Note
 
 A hub is not a specific device type as listed above. Its purpose is serving the role as a
-controller of smart home devices and facilitating a connection between managed integrations and
+controller of smart home devices and facilitating a connection between Managed Integrations and
 third-party cloud providers. It can serve the role as both a device type as listed above and as
 a hub.
 
 ## Configure encryption key
 
-Security is of paramount importance for data routed between the end user, managed integrations, and
+Security is of paramount importance for data routed between the end user, Managed Integrations, and
 third-party clouds. One of the methods we support to protect your device data is end-to-end
 encryption leveraging a secure encryption key for routing your data.
 
-As a customer of managed integrations, you have the following two options for using encryption
+As a customer of Managed Integrations, you have the following two options for using encryption
 keys:
 
-- Use the default managed integrations-managed encryption key.
+- Use the default Managed Integrations-managed encryption key.
 - Provide an AWS KMS key that you created.
 
 For more information on the AWS KMS service, see [Key management
@@ -61,7 +61,7 @@ service (KMS)](../../../kms/latest/developerguide/overview.md "../../../kms/late
 
 Calling the
 [PutDefaultEncryptionConfiguration](../APIReference/API_PutDefaultEncryptionConfiguration.md "../APIReference/API_PutDefaultEncryptionConfiguration.md") API
-in the _Managed integrations API Reference Guide_ grants you access to update
+in the _Managed Integrations API Reference Guide_ grants you access to update
 which encryption key option you want to use. By default, managed integrations uses the default managed integrations
 managed encryption key. You can update your encryption key configuration at any time using the
 [PutDefaultEncryptionConfiguration](../APIReference/API_PutDefaultEncryptionConfiguration.md "../APIReference/API_PutDefaultEncryptionConfiguration.md") API.
@@ -81,7 +81,7 @@ for steps to onboard a direct connected device.
 
 ### Hub onboarding
 
-See [Onboard your hubs to managed integrations](managedintegrations-sdk-v2-cookbook-usinghub.md "managedintegrations-sdk-v2-cookbook-usinghub.md")
+See [Onboard your hubs to Managed Integrations](managedintegrations-sdk-v2-cookbook-usinghub.md "managedintegrations-sdk-v2-cookbook-usinghub.md")
 for steps to onboard the hub.
 
 ### Hub-connected device onboarding

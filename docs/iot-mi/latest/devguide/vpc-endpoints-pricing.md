@@ -1,4 +1,4 @@
 # Pricing
 
-You are charged standard rates for creating and using an interface VPC endpoint with AWS IoT Managed integrations.
+You are charged standard rates for creating and using an interface VPC endpoint with AWS IoT Managed Integrations.
 For more information, see [AWS PrivateLink pricing](https://aws.amazon.com/privatelink/pricing/ "https://aws.amazon.com/privatelink/pricing/").

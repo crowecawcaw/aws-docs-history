@@ -1,9 +1,9 @@
-# Data protection in managed integrations
+# Data protection in Managed Integrations
 
 The AWS
 [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
 
-applies to data protection in Managed integrations for AWS IoT Device Management.
+applies to data protection in Managed Integrations for AWS IoT Device Management.
 
 As described in this model, AWS is
 responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are
@@ -37,16 +37,16 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   provide a URL to an external server, we strongly recommend that you do not include credentials
   information in the URL to validate your request to that server.
 
-## Data encryption at rest for managed integrations
+## Data encryption at rest for Managed Integrations
 
-Managed integrations for AWS IoT Device Management encrypts sensitive customer data at rest by default using encryption keys.
+Managed Integrations for AWS IoT Device Management encrypts sensitive customer data at rest by default using encryption keys.
 
 There are two types of encryption keys that are used to protect sensitive data for
-managed integrations customers:
+Managed Integrations customers:
 
 **Customer managed keys (CMK)**
 
-Managed integrations supports the use of symmetric customer managed key that you can create, own,
+Managed Integrations supports the use of symmetric customer managed key that you can create, own,
 and manage. You have full control over these KMS keys, including establishing and
 maintaining their key policies, IAM policies, and grants, enabling and disabling them,
 rotating their cryptographic material, adding tags, creating aliases that refer to the
@@ -54,7 +54,7 @@ KMS keys, and scheduling the KMS keys for deletion.
 
 **AWS owned keys**
 
-Managed integrations uses these keys by default to automatically encrypt sensitive customer data.
+Managed Integrations uses these keys by default to automatically encrypt sensitive customer data.
 You can't view, manage, or audit their use. You don't have to take any action or change any
 programs to protect the keys that encrypt your data. Encryption of data at rest by default
 helps reduce the operational overhead and complexity involved in protecting sensitive data. At
@@ -67,9 +67,9 @@ update your encryption key is [`PutDefaultEncryptionConfiguration`](../APIRefere
 For more information on the types of AWS KMS encryption keys, see [AWS KMS
 keys](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md").
 
-### AWS KMS usage for managed integrations
+### AWS KMS usage for Managed Integrations
 
-Managed integrations encrypts and decrypts all customer data using envelope encryption. This
+Managed Integrations encrypts and decrypts all customer data using envelope encryption. This
 type of encryption will take your plaintext data and encrypt it with a data key. Next, an
 encryption key called a wrapping key will encrypt the original data key used to encrypt your
 plaintext data. In envelope encryption, additional wrapping keys can be used to encrypt
@@ -92,7 +92,7 @@ encryption](../../../kms/latest/developerguide/kms-cryptography.md#enveloping ".
 [Wrapping
 key](../../../database-encryption-sdk/latest/devguide/concepts.md#wrapping-key "../../../database-encryption-sdk/latest/devguide/concepts.md#wrapping-key"), and [Keyrings](../../../database-encryption-sdk/latest/devguide/concepts.md#keyring-concept "../../../database-encryption-sdk/latest/devguide/concepts.md#keyring-concept").
 
-Managed integrations requires the services to use your customer managed key for the following
+Managed Integrations requires the services to use your customer managed key for the following
 internal operations:
 
 - Send `DescribeKey` requests to AWS KMS to verify that the symmetric
@@ -106,7 +106,7 @@ internal operations:
 
 **Types of data encrypted using encryption keys**
 
-Managed integrations uses encryption keys to encrypt multiple types of data stored at rest. The
+Managed Integrations uses encryption keys to encrypt multiple types of data stored at rest. The
 following list outlines types of data encrypted at rest using encryption keys:
 
 - Cloud--to-cloud (C2C) connector events such as device discovery and device status
@@ -114,31 +114,31 @@ following list outlines types of data encrypted at rest using encryption keys:
 - Creation of a _Managed Thing_ that represents the physical device and a
   device profile containing the capabilities for a specific device type. For more
   information on a device and device profile, see [Device](device-and-device-profile-lifecycle-management.md#device "device-and-device-profile-lifecycle-management.md#device") and [Device](device-and-device-profile-lifecycle-management.md#device "device-and-device-profile-lifecycle-management.md#device").
-- Managed integrations notifications on various aspects of your device implementation. For
-  more information on managed integrations notifications, see [Set up managed integrations notifications](managedintegrations-notifications.md#managedintegrations-notification-setup "managedintegrations-notifications.md#managedintegrations-notification-setup").
+- Managed Integrations notifications on various aspects of your device implementation. For
+  more information on Managed Integrations notifications, see [Set up Managed Integrations notifications](managedintegrations-notifications.md#managedintegrations-notification-setup "managedintegrations-notifications.md#managedintegrations-notification-setup").
 - Personally Identifiable Information (PII) of an end-user such as device
   authentication material, device serial number, end-user's name, device identifier, and
   device Amazon Resource Name (arn).
 
-### How managed integrations uses key policies in AWS KMS
+### How Managed Integrations uses key policies in AWS KMS
 
-For branch key rotation and asynchronous calls, managed integrations requires a key policy to
+For branch key rotation and asynchronous calls, Managed Integrations requires a key policy to
 use your encryption key. A key policy is used for the following reasons:
 
 - Programmatically authorize the use of an encryption key to other AWS
   principals.
 
 For an example of a key policy used to manage access to your encryption key in
-managed integrations, see [Create an encryption key](#encryption-rest-create-key "#encryption-rest-create-key")
+Managed Integrations, see [Create an encryption key](#encryption-rest-create-key "#encryption-rest-create-key")
 
 ###### Note
 
 For an AWS owned key, a key policy is not required as the AWS owned key is owned
-by AWS and you can't view, manage, or use it. Managed integrations uses the AWS owned key by
+by AWS and you can't view, manage, or use it. Managed Integrations uses the AWS owned key by
 default to automatically encrypt your sensitive customer data.
 
 In addition to using key policies for managing your encryption configuration with AWS KMS
-keys, managed integrations uses IAM policies. For more information on IAM policies, see [Policies and
+keys, Managed Integrations uses IAM policies. For more information on IAM policies, see [Policies and
 permissions in AWS Identity and Access Management.](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md")
 
 ### Create an encryption key
@@ -157,7 +157,7 @@ they may use it. For more information on managing access and usage of AWS KMS ke
 policy statements, see [Managing access using policies](../../../kms/latest/developerguide/access-glossary.md#security_iam_access-manage "../../../kms/latest/developerguide/access-glossary.md#security_iam_access-manage").
 
 The following is an example of a key policy statement you can use for managing access
-and usage to AWS KMS keys stored in your AWS account for managed integrations:
+and usage to AWS KMS keys stored in your AWS account for Managed Integrations:
 
 ```
 {
@@ -256,8 +256,8 @@ stores](../../../kms/latest/developerguide/key-store-overview.md "../../../kms/l
 ### Updating encryption configuration
 
 The ability to seamlessly update your encryption configuration is critical to managing
-your data encryption implementation for managed integrations. When you initially onboard with
-managed integrations, you will be prompted to select your encryption configuration. Your options
+your data encryption implementation for Managed Integrations. When you initially onboard with
+Managed Integrations, you will be prompted to select your encryption configuration. Your options
 will be either the default AWS owned keys or create your own AWS KMS key.
 
 **AWS Management Console**
@@ -274,7 +274,7 @@ managed key.
 **API Commands**
 
 There are two APIs used for managing your encryption configuration of AWS KMS keys in
-managed integrations: `PutDefaultEncryptionConfiuration` and
+Managed Integrations: `PutDefaultEncryptionConfiuration` and
 `GetDefaultEncryptionConfiguration`.
 
 To update the default encryption configuration, call

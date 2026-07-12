@@ -79,14 +79,14 @@ The continuous OTA update workflow follows these steps:
    [ListOtaTaskExecutions](../APIReference/API_ListOtaTaskExecutions.md "../APIReference/API_ListOtaTaskExecutions.md")
    API or OTA notifications through Kinesis stream (if enabled).
 
-## Differences between Managed integrations OTA and IoT Jobs
+## Differences between Managed Integrations OTA and IoT Jobs
 
-The fundamental distinction between Managed integrations OTA and IoT Jobs lies in
-**service orchestration and automation**. Managed integrations OTA provides a
+The fundamental distinction between Managed Integrations OTA and IoT Jobs lies in
+**service orchestration and automation**. Managed Integrations OTA provides a
 **single-service solution** that
 abstracts away the complexity of multi-service coordination.
 
-What Managed integrations OTA does automatically:
+What Managed Integrations OTA does automatically:
 
 - **Dynamic Thing Group creation:** Automatically generates AWS IoT Core
   thing groups based on your query criteria.
@@ -103,7 +103,7 @@ What MI OTA eliminates:
 - Adding things to groups.
 - Creating IoT Jobs.
 
-Managed integrations OTA handles all three operations internally based on your query string,
+Managed Integrations OTA handles all three operations internally based on your query string,
 automatically discovering devices that match your criteria,
 creating IoT Jobs under the hood, and orchestrating the
 complete OTA workflow without requiring you to interact with multiple AWS services directly.

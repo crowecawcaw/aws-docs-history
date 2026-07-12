@@ -1,10 +1,10 @@
-# Logging Managed integrations API calls using AWS CloudTrail
+# Logging Managed Integrations API calls using AWS CloudTrail
 
-Managed integrations is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service that provides a record of actions taken by a user, role, or an
+Managed Integrations is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service that provides a record of actions taken by a user, role, or an
 AWS service. CloudTrail captures all
-API calls for managed integrations as events. The calls captured include calls from the managed integrations console
-and code calls to the managed integrations API operations. Using the information collected by CloudTrail, you can
-determine the request that was made to managed integrations, the IP address from which the request was
+API calls for Managed Integrations as events. The calls captured include calls from the Managed Integrations console
+and code calls to the Managed Integrations API operations. Using the information collected by CloudTrail, you can
+determine the request that was made to Managed Integrations, the IP address from which the request was
 made, when it was made, and additional details.
 
 Every event or log entry contains information about who generated the request. The identity
@@ -42,7 +42,7 @@ CloudTrail Lake event data stores and queries incur costs. When you create an ev
 
 [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
 
-Managed integrations logs the following managed integrations control plane operations to CloudTrail as _management events_.
+Managed Integrations logs the following Managed Integrations control plane operations to CloudTrail as _management events_.
 
 - `CreateCloudConnector`
 - `UpdateCloudConnector`

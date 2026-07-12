@@ -17,12 +17,12 @@ structures, and configure the required certificates.
 ## Step 1: Register a custom endpoint
 
 Create a dedicated communication endpoint that your devices use to exchange data with
-managed integrations. This endpoint establishes a secure connection point for all device-to-cloud
+Managed Integrations. This endpoint establishes a secure connection point for all device-to-cloud
 messaging, including device commands, status updates, and notifications.
 
 ###### To register an endpoint
 
-- Use the [RegisterCustomEndpoint](../APIReference/API_RegisterCustomEndpoint.md "../APIReference/API_RegisterCustomEndpoint.md") API to create an endpoint for device-to-managed integrations
+- Use the [RegisterCustomEndpoint](../APIReference/API_RegisterCustomEndpoint.md "../APIReference/API_RegisterCustomEndpoint.md") API to create an endpoint for device-to-Managed Integrations
   communication.
 
 **RegisterCustomEndpoint Request example**
@@ -46,12 +46,12 @@ Store the endpoint address. You'll need it for future device communication.
 
 To return the endpoint information, use the `GetCustomEndpoint` API.
 
-For more information, see the [RegisterCustomEndpoint](../APIReference/API_RegisterCustomEndpoint.md "../APIReference/API_RegisterCustomEndpoint.md") API and the [GetCustomEndpoint](../APIReference/API_GetCustomEndpoint.md "../APIReference/API_GetCustomEndpoint.md") API in the managed integrations _API Reference Guide_.
+For more information, see the [RegisterCustomEndpoint](../APIReference/API_RegisterCustomEndpoint.md "../APIReference/API_RegisterCustomEndpoint.md") API and the [GetCustomEndpoint](../APIReference/API_GetCustomEndpoint.md "../APIReference/API_GetCustomEndpoint.md") API in the Managed Integrations _API Reference Guide_.
 
 ## Step 2: Create a provisioning profile
 
 A provisioning profile contains the security credentials and configuration settings your
-devices need to connect to managed integrations.
+devices need to connect to Managed Integrations.
 
 ###### To create a fleet provisioning profile
 
@@ -63,7 +63,7 @@ devices need to connect to managed integrations.
 ###### Important
 
 Store the claim certificate, private key, and template ID securely. You'll need
-these credentials to onboard devices to managed integrations. If you lose these credentials, you
+these credentials to onboard devices to Managed Integrations. If you lose these credentials, you
 must create a new provisioning profile.
 
 **`CreateProvisioningProfile` example
@@ -99,7 +99,7 @@ aws iot-managed-integrations create-provisioning-profile \
 
 Use the `CreateManagedThing` API to create a managed thing for your hub
 device. Each hub requires its own managed thing with unique authentication materials. For
-more information, see the [CreateManagedThing](../APIReference/API_CreateManagedThing.md "../APIReference/API_CreateManagedThing.md") API in the managed integrations _API Reference_.
+more information, see the [CreateManagedThing](../APIReference/API_CreateManagedThing.md "../APIReference/API_CreateManagedThing.md") API in the Managed Integrations _API Reference_.
 
 When you create a managed thing, specify these parameters:
 
@@ -126,13 +126,13 @@ material.
 }
 ```
 
-For more information, see [CreateManagedThing](../APIReference/API_CreateManagedThing.md "../APIReference/API_CreateManagedThing.md") in the managed integrations _API Reference_.
+For more information, see [CreateManagedThing](../APIReference/API_CreateManagedThing.md "../APIReference/API_CreateManagedThing.md") in the Managed Integrations _API Reference_.
 
 ### (Optional) Get managed thing
 
 The `ProvisioningStatus` of your managed thing must be `PRE_ASSOCIATED` before you can proceed. For more information on ProvisioningStatus, see [Device Provisioning](device-provisioning.md "device-provisioning.md").
 Use the `GetManagedThing` API to verify that your managed thing exists and is ready for provisioning.
-For more information, see [GetManagedThing](../APIReference/API_GetManagedThing.md "../APIReference/API_GetManagedThing.md") in the managed integrations _API Reference_.
+For more information, see [GetManagedThing](../APIReference/API_GetManagedThing.md "../APIReference/API_GetManagedThing.md") in the Managed Integrations _API Reference_.
 
 ## Step 4: Create the directory structure
 
@@ -156,7 +156,7 @@ mkdir -p /data/aws/iotmi/certs
 ## Step 5: Add authentication materials to hub device
 
 Copy certificates and keys to your hub device, then create a device-specific
-configuration file. These files establish secure communication between your hub and managed integrations
+configuration file. These files establish secure communication between your hub and Managed Integrations
 during the provisioning process.
 
 ###### To copy claim certificate and key
@@ -217,7 +217,7 @@ Configure these required fields in the device configuration file:
 
 
     	1. `fp_template_name`: The `ProvisioningProfile` name from earlier.
-    	2. `endpoint_url`: Your managed integrations endpoint URL from the
+    	2. `endpoint_url`: Your Managed Integrations endpoint URL from the
     	 `RegisterCustomEndpoint` API response (same for all devices in a
     	 Region).
     + Device identifiers
@@ -259,7 +259,7 @@ Contents| Key | Values | Added by customer? | Notes |
 | `iot_claim_cert_path` | The file path that you specify or `SECURE_STORAGE`. For example,<br>`/data/aws/iotmi/certs/claim_cert.pem` | Yes | Specify the file path that you want to use or<br>`SECURE_STORAGE`. |
 | `iot_claim_pk_path` | The file path that you specify or `SECURE_STORAGE`. For example,<br>`/data/aws/iotmi/certs/claim_pk.pem` | Yes | Specify the file path that you want to use or<br>`SECURE_STORAGE`. |
 | `fp_template_name` | The fleet provisioning template name should be equal to the name of the `ProvisioningProfile` that was used earlier. | Yes | Equal to the name of the `ProvisioningProfile` that was used earlier |
-| `endpoint_url` | The endpoint URL for managed integrations. | Yes | Your devices use this URL to connect to the managed integrations cloud. To obtain this<br>information, use the [RegisterCustomEndpoint](../APIReference/API_RegisterCustomEndpoint.md "../APIReference/API_RegisterCustomEndpoint.md") API. |
+| `endpoint_url` | The endpoint URL for Managed Integrations. | Yes | Your devices use this URL to connect to the Managed Integrations cloud. To obtain this<br>information, use the [RegisterCustomEndpoint](../APIReference/API_RegisterCustomEndpoint.md "../APIReference/API_RegisterCustomEndpoint.md") API. |
 | `SN` | The device serial number. For example, `AIDACKCEVSQ6C2EXAMPLE`. | Yes | You must provide this unique information for each device. |
 | `UPC` | Device universal product code. For example,<br>`841667145075`. | Yes | You must provide this information for the device. |
 | `managed_thing_id` | The ID of the managed thing. | No | This information is added later by the onboarding process after hub<br>provisioning. |

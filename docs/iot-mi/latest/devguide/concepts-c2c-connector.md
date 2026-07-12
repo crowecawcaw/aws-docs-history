@@ -8,7 +8,7 @@ communication between third-party devices and AWS.
 - [What is a cloud-to-cloud (C2C) connector?](#concepts-what-is-c2c-connector "#concepts-what-is-c2c-connector")
 - [What is the C2C connector catalog?](#concepts-connector-catalog "#concepts-connector-catalog")
 - [AWS Lambda functions as C2C connectors](#lambda-connector "#lambda-connector")
-- [Managed integrations connector workflow](#c2c-workflow "#c2c-workflow")
+- [Managed Integrations connector workflow](#c2c-workflow "#c2c-workflow")
 - [Guidelines for using a C2C (cloud-to-cloud) connector](#c2c-cloud-connector-disclaimer "#c2c-cloud-connector-disclaimer")
 - [Build a C2C (Cloud-to-Cloud) connector](concepts-building-connector.md "concepts-building-connector.md")
 - [Use a C2C (Cloud-to-Cloud) connector](use-c2c-create-cloud-connector.md "use-c2c-create-cloud-connector.md")
@@ -20,10 +20,10 @@ AWS Cloud to a third-party cloud provider's endpoint. Using the C2C connector,
 solution providers can leverage managed integrations for AWS IoT Device Management to control devices that are connected to
 third-party clouds.
 
-Managed integrations includes a catalog of connectors where AWS customers can view and
+Managed Integrations includes a catalog of connectors where AWS customers can view and
 select connectors they want to integrate with. For more information, see [What is the C2C connector catalog?](#concepts-connector-catalog "#concepts-connector-catalog")
 
-Managed integrations requires every connector be implemented as an AWS Lambda
+Managed Integrations requires every connector be implemented as an AWS Lambda
 function.
 
 ## What is the C2C connector catalog?
@@ -40,7 +40,7 @@ bidirectional communication between managed integrations for AWS IoT Device Mana
 ## AWS Lambda functions as C2C connectors
 
 Every C2C connector Lambda function translates and transports commands and events between
-managed integrations and the corresponding actions on third-party platforms. For more information about Lambda, see [What is AWS Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md").
+Managed Integrations and the corresponding actions on third-party platforms. For more information about Lambda, see [What is AWS Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md").
 
 For example, suppose an end user owns a smart light-bulb manufactured by a third-party OEM.
 With a C2C connector, an end user can issue a command to turn on or off this light through a managed integrations platform. This command will then be forwarded to the Lambda function
@@ -52,7 +52,7 @@ The Lambda function is required when you call the `CreateCloudConnector` API. Th
 code that is deployed into the Lambda function must implement all of the interfaces and
 functionality as mentioned in [Build a C2C (Cloud-to-Cloud) connector](concepts-building-connector.md "concepts-building-connector.md").
 
-## Managed integrations connector workflow
+## Managed Integrations connector workflow
 
 Developers must register C2C connectors with managed integrations for AWS IoT Device Management. This registration process creates a logical connector
 resource that customers can access to use the connector.

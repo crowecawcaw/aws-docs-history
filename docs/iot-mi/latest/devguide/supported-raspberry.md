@@ -60,6 +60,6 @@ The setup and validation steps for both approaches are listed below.
 
 ###### Topics
 
-- [Managed integrations Hub SDK image on Raspberry Pi](raspberrypi-device-hub-sdk.md "raspberrypi-device-hub-sdk.md")
-- [Managed integrations Hub SDK Docker container on Raspberry Pi](raspberrypi-container-docker-sdk.md "raspberrypi-container-docker-sdk.md")
-- [Managed integrations demo application](supported-raspberry-demo-app.md "supported-raspberry-demo-app.md")
+- [Managed Integrations Hub SDK image on Raspberry Pi](raspberrypi-device-hub-sdk.md "raspberrypi-device-hub-sdk.md")
+- [Managed Integrations Hub SDK Docker container on Raspberry Pi](raspberrypi-container-docker-sdk.md "raspberrypi-container-docker-sdk.md")
+- [Managed Integrations demo application](supported-raspberry-demo-app.md "supported-raspberry-demo-app.md")

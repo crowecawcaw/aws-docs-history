@@ -1,6 +1,6 @@
 # AWS implementation of the Matter data model
 
-The AWS implementation of the Matter Data Model manages all communication between managed integrations and third-party cloud
+The AWS implementation of the Matter Data Model manages all communication between Managed Integrations and third-party cloud
 providers.
 
 For more information, see [Matter Data Model: Developer Resources](https://csa-iot.org/resources/developer-resources/page/2/?dr_keywords&dr_solution%5B0%5D=935&dr_lang=1019 "https://csa-iot.org/resources/developer-resources/page/2/?dr_keywords&dr_solution%5B0%5D=935&dr_lang=1019").

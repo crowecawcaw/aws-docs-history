@@ -1,6 +1,6 @@
 # Simple setup to onboard and operate devices
 
-Set up your devices to be onboarded to your managed integrations hub by creating a managed thing and
+Set up your devices to be onboarded to your Managed Integrations hub by creating a managed thing and
 connecting it to your hub. This section describes the steps to complete the device
 onboarding process using simple setup.
 
@@ -8,7 +8,7 @@ onboarding process using simple setup.
 
 Complete these steps before attempting to onboard a device:
 
-- Onboard a hub device to the managed integrations hub.
+- Onboard a hub device to the Managed Integrations hub.
 - Install the latest version of AWS CLI from the [Managed Integrations AWS CLI Command Reference](../../../cli/latest/reference/iot-managed-integrations.md "../../../cli/latest/reference/iot-managed-integrations.md")
 - Subscribe to [DEVICE\_LIFE\_CYCLE](managedintegrations-notifications.md#managedintegrations-notification-setup "managedintegrations-notifications.md#managedintegrations-notification-setup") event notifications.
 
@@ -49,7 +49,7 @@ aws iot-managed-integrations create-credential-locker \
 }
 ```
 
-For more information, see the [create-credential-locker](../../../cli/latest/reference/iot-managed-integrations/create-credential-locker.md "../../../cli/latest/reference/iot-managed-integrations/create-credential-locker.md") command in the managed integrations AWS CLI
+For more information, see the [create-credential-locker](../../../cli/latest/reference/iot-managed-integrations/create-credential-locker.md "../../../cli/latest/reference/iot-managed-integrations/create-credential-locker.md") command in the Managed Integrations AWS CLI
 _Command Reference_.
 
 ## Step 2: Add the credential locker to your hub
@@ -106,7 +106,7 @@ There are separate commands for Z-wave and Zigbee devices.
 }
 ```
 
-For more information, see the [create-managed-thing](../../../cli/latest/reference/iot-managed-integrations/create-managed-thing.md "../../../cli/latest/reference/iot-managed-integrations/create-managed-thing.md") command in the managed integrations AWS CLI
+For more information, see the [create-managed-thing](../../../cli/latest/reference/iot-managed-integrations/create-managed-thing.md "../../../cli/latest/reference/iot-managed-integrations/create-managed-thing.md") command in the Managed Integrations AWS CLI
 _Command Reference_.
 
 ## Step 4: Plug in the device and check its status.
@@ -153,7 +153,7 @@ aws iot-managed-integrations get-managed-thing \
 }
 ```
 
-For more information, see the [get-managed-thing](../../../cli/latest/reference/iot-managed-integrations/get-managed-thing.md "../../../cli/latest/reference/iot-managed-integrations/get-managed-thing.md") command in the managed integrations AWS CLI
+For more information, see the [get-managed-thing](../../../cli/latest/reference/iot-managed-integrations/get-managed-thing.md "../../../cli/latest/reference/iot-managed-integrations/get-managed-thing.md") command in the Managed Integrations AWS CLI
 _Command Reference_.
 
 ## Step 5: Get Device Capabilities
@@ -205,7 +205,7 @@ aws iotmi get-managed-thing-capabilities \
 }
 ```
 
-For more information, see the [get-managed-thing-capabilities](../../../cli/latest/reference/iot-managed-integrations/get-managed-thing-capabilities.md "../../../cli/latest/reference/iot-managed-integrations/get-managed-thing-capabilities.md") command in the managed integrations AWS CLI
+For more information, see the [get-managed-thing-capabilities](../../../cli/latest/reference/iot-managed-integrations/get-managed-thing-capabilities.md "../../../cli/latest/reference/iot-managed-integrations/get-managed-thing-capabilities.md") command in the Managed Integrations AWS CLI
 _Command Reference_.
 
 ## Step 6: Send a command to the managed thing
@@ -259,7 +259,7 @@ This example uses jq cli to but you can also pass the entire `endpointId` string
 }
 ```
 
-For more information, see the [send-managed-thing-command](../../../cli/latest/reference/iot-managed-integrations/send-managed-thing-command.md "../../../cli/latest/reference/iot-managed-integrations/send-managed-thing-command.md") command in the managed integrations AWS CLI
+For more information, see the [send-managed-thing-command](../../../cli/latest/reference/iot-managed-integrations/send-managed-thing-command.md "../../../cli/latest/reference/iot-managed-integrations/send-managed-thing-command.md") command in the Managed Integrations AWS CLI
 _Command Reference_.
 
 ## Step 7: Remove the managed thing from your hub
@@ -279,7 +279,7 @@ aws iot-managed-integrations delete-managed-thing \
 --identifier `"DEVICE_MANAGED_THING_ID"`
 ```
 
-For more information, see the [delete-managed-thing](../../../cli/latest/reference/iot-managed-integrations/delete-managed-thing.md "../../../cli/latest/reference/iot-managed-integrations/delete-managed-thing.md") command in the managed integrations AWS CLI
+For more information, see the [delete-managed-thing](../../../cli/latest/reference/iot-managed-integrations/delete-managed-thing.md "../../../cli/latest/reference/iot-managed-integrations/delete-managed-thing.md") command in the Managed Integrations AWS CLI
 _Command Reference_.
 
 ###### Note

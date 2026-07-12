@@ -17,7 +17,7 @@ will trigger a notification automatically sent to a customer-managed destination
 A command request is the command being sent to the device. A command request
 includes a payload that specifies the action to be taken such as turning on the light bulb. To
 send a device command, the `SendManagedThingCommand` API is called on behalf of the
-end user by managed integrations and the command request is sent to the device.
+end user by Managed Integrations and the command request is sent to the device.
 
 The response to a `SendManagedThingCommand` is a `traceId` and you can use this `traceId` to track the command delivery and any
 related command response workflows wherever possible.
@@ -132,5 +132,5 @@ has completed or thermostat has reached the targeted temperature set by the end 
 
 An end user can subscribe to specific customer-managed destinations that they create for
 updates on specific device events. To create a customer-managed destination, call the
-`CreateDestination` API. When a device event is reported to managed integrations by the device,
+`CreateDestination` API. When a device event is reported to Managed Integrations by the device,
 the customer-managed destination is notified if one exists.

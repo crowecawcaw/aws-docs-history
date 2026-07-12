@@ -1,6 +1,6 @@
 # Create a custom certificate handler for secure storage
 
-Device certificate management is crucial when onboarding the managed integrations hub. While certificates are stored in the file system by default, you can create a custom certificate handler for enhanced security and flexible credential management.
+Device certificate management is crucial when onboarding the Managed Integrations hub. While certificates are stored in the file system by default, you can create a custom certificate handler for enhanced security and flexible credential management.
 
 The managed integrations End device SDK provides a certificate handler to secure storage interface that you can implement as a shared object (.so) library. Build your secure storage implementation to read and write certificates, then link the library file to the HubOnboarding process at runtime.
 
@@ -76,7 +76,7 @@ Review the following `secure_storage_cert_handler_interface.hpp` file to underst
   - CLAIM - the claim cert originally on the hub, will be exchanged for a permanent
     cert.
   - DHA - unused for now.
-  - PERMANENT - permanent cert to connect with managed integrations endpoint.
+  - PERMANENT - permanent cert to connect with Managed Integrations endpoint.
 
 - read\_cert\_and\_private\_key - (FUNCTION TO BE IMPLEMENTED) Reads cert and key value in
   to the reference input. This function must be able to read both the CLAIM and PERMANENT

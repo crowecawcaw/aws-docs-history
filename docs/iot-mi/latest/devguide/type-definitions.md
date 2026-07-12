@@ -430,7 +430,7 @@ OneOf example:
 ## Namespaced type definitions
 
 Namespaced type definitions are types built from primitive types. These types must follow the format ``namespace`.`typename`.`
-Managed integrations provides predefined types under the `aws` and `matter` namespaces. You can use any namespace for custom types except the reserved `aws` and `matter` namespaces.
+Managed Integrations provides predefined types under the `aws` and `matter` namespaces. You can use any namespace for custom types except the reserved `aws` and `matter` namespaces.
 
 To find available namespaced type definitions, use the [ListSchemaVersions](../APIReference/API_ListSchemaVersions.md "../APIReference/API_ListSchemaVersions.md")
 API with the `Type` filter set to `definition`.

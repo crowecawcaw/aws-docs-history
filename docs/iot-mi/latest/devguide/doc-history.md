@@ -1,8 +1,9 @@
-# Document history for the managed integrations Developer Guide
+# Document history for the Managed Integrations Developer Guide
 
-The following table describes the documentation releases for managed integrations.
+The following table describes the documentation releases for Managed Integrations.
 
-| Change                       | Description                                                              | Date          |
-| ---------------------------- | ------------------------------------------------------------------------ | ------------- |
-| General availability release | General availability release of the managed integrations Developer Guide | June 25, 2025 |
-| Initial preview release      | Initial preview release of the managed integrations Developer Guide      | March 3, 2025 |
+| Change                                                   | Description                                                                                                                                                                                                                                                                                               | Date          |
+| -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| Updated notifications and device discovery documentation | Added the `iotMiArrivalTimestamp` field to the `DEVICE_EVENT`<br>notification payload. Documented how `Brand` and `Model` fields are<br>populated for C2C devices (via `DeviceMetadata` in the<br>`DEVICE_DISCOVERY` event) and for hub-connected devices (from the Matter Basic<br>Information cluster). | July 2, 2026  |
+| General availability release                             | General availability release of the Managed Integrations Developer Guide                                                                                                                                                                                                                                  | June 25, 2025 |
+| Initial preview release                                  | Initial preview release of the Managed Integrations Developer Guide                                                                                                                                                                                                                                       | March 3, 2025 |

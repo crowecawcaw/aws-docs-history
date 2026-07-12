@@ -17,7 +17,7 @@ the system
 1. User initiates delinking process between AWS customer's account and the
    third-party authorization server associated with the C2C connector.
 2. Customer initiates deletion of user's association through managed integrations for AWS IoT Device Management.
-3. Managed integrations initiates the deactivation process via request to your connector
+3. Managed Integrations initiates the deactivation process via request to your connector
    using the `AWS.DeactivateUser` operation interface.
 
    1. For OAuth 2.0, the user's access token is included in the header. For General
@@ -29,15 +29,15 @@ the system
    notifying your third-party platform.
 
    1. For example, events from an unlinked user account should no longer be sent to
-      managed integrations after performing `AWS.DeactivateUser`.
+      Managed Integrations after performing `AWS.DeactivateUser`.
 
 5. Your authorization server or third-party platform processes the deactivation and
    sends a response back to your C2C connector.
 6. Your C2C connector sends managed integrations for AWS IoT Device Management an ACK that the deactivation has been
    processed.
-7. Managed integrations deletes all resources owned by the end user which were associated
+7. Managed Integrations deletes all resources owned by the end user which were associated
    with your resource server.
-8. Managed integrations sends an ACK to the customer, stating all associations relating
+8. Managed Integrations sends an ACK to the customer, stating all associations relating
    to your system are deleted.
 9. The customer notifies the end user that their account has been unlinked from your
    platform.

@@ -1,7 +1,7 @@
-# Feature and device interactions in managed integrations
+# Feature and device interactions in Managed Integrations
 
 This section describes the role of the C-Function implementation and the interaction
-between the device and the managed integrations device feature.
+between the device and the Managed Integrations device feature.
 
 ###### Topics
 
@@ -17,10 +17,10 @@ can turn on a light bulb using this interaction.
 **MQTT client receives payload and passes to Data Model Handler**
 
 When you send a remote command, the MQTT client receives the message from
-managed integrations in JSON format. It then passes the payload to the data model handler. For
-example, say you want to use managed integrations to turn on a light bulb. The light bulb has an
+Managed Integrations in JSON format. It then passes the payload to the data model handler. For
+example, say you want to use Managed Integrations to turn on a light bulb. The light bulb has an
 endpoint#1 that supports the OnOff cluster. In this case, when you send
-the command to turn on the light bulb, managed integrations sends a request over MQTT to the
+the command to turn on the light bulb, Managed Integrations sends a request over MQTT to the
 device, which says that it wants to invoke the On command on endpoint#1.
 
 **Data Model Handler checks for callback functions and invokes them**
@@ -45,7 +45,7 @@ light bulb as a result.
 
 Once all callback functions have been called, the Data Model Handler combines all
 results. It then packs the response in JSON format and publishes the result to the
-managed integrations cloud using the MQTT client. In the case of the light bulb, the MQTT message
+Managed Integrations cloud using the MQTT client. In the case of the light bulb, the MQTT message
 in the response will contain the result that the light bulb was turned on by the
 callback function.
 
@@ -68,5 +68,5 @@ AWS data model.
 
 **Data Model Handler publishes notification to the Cloud**
 
-The Data Model Handler then publishes an unsolicited event to the managed integrations cloud
+The Data Model Handler then publishes an unsolicited event to the Managed Integrations cloud
 using the MQTT client.

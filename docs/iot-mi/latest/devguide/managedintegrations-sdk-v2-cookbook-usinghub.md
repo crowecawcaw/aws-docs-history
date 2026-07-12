@@ -1,6 +1,6 @@
-# Onboard your hubs to managed integrations
+# Onboard your hubs to Managed Integrations
 
-Set up your hub devices to communicate with managed integrations by configuring the required
+Set up your hub devices to communicate with Managed Integrations by configuring the required
 directory structure, certificates, and device configuration files. This section describes how
 the hub onboarding subsystem components work together, where to store certificates and
 configuration files, how to create and modify the device configuration file, and the steps to
@@ -41,7 +41,7 @@ Manages device-to-cloud communication using:
 
 - Provisioned client certificates and keys
 - Device state information from the config file
-- MQTT connections to managed integrations
+- MQTT connections to Managed Integrations
 
 The following diagram describes the hub onboarding subsystem architecture and its components. If you're not using AWS IoT Greengrass, you can disregard that component of the diagram.
 

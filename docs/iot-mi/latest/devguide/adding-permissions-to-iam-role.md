@@ -1,8 +1,8 @@
 # Add permissions to your IAM Role
 
-All managed integrations APIs require AWS sigV4 authentication to invoke. SigV4 is signing
+All Managed Integrations APIs require AWS sigV4 authentication to invoke. SigV4 is signing
 protocol to authenticate AWS API requests using your AWS account credentials. The
-IAM role you use to invoke the managed integrations APIs must have the following permissions
+IAM role you use to invoke the Managed Integrations APIs must have the following permissions
 to be able to successfully invoke the APIs:
 
 ```

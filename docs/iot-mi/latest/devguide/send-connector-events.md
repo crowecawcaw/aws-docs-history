@@ -23,9 +23,9 @@ explain the working flow of these events:
    C2C connector.
 3. Your connector translates this event to the managed integrations for AWS IoT Device Management
    `DEVICE_EVENT` interface.
-4. Your C2C connector sends this device event to managed integrations using the
+4. Your C2C connector sends this device event to Managed Integrations using the
    `SendConnectorEvent` API with Operation set to "DEVICE\_EVENT".
-5. Managed integrations identifies the relevant customer, and relays this event back to
+5. Managed Integrations identifies the relevant customer, and relays this event back to
    the customer.
 6. The customer receives this event and displays it to user via user
    identifier.

@@ -8,10 +8,10 @@ It's a separate policy for controlling access from the endpoint to the specified
 Endpoint policies must be written in JSON format. For more information,
 see [Controlling access to services with VPC endpoints](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the _Amazon VPC User Guide_.
 
-## Example: VPC endpoint policy for AWS IoT Managed integrations actions
+## Example: VPC endpoint policy for AWS IoT Managed Integrations actions
 
-The following is an example of an endpoint policy for AWS IoT Managed integrations.
-This policy allows users connecting to AWS IoT Managed integrations through the VPC endpoint to access destinations but denies access to credential lockers.
+The following is an example of an endpoint policy for AWS IoT Managed Integrations.
+This policy allows users connecting to AWS IoT Managed Integrations through the VPC endpoint to access destinations but denies access to credential lockers.
 
 ```
 {
@@ -46,7 +46,7 @@ This policy allows users connecting to AWS IoT Managed integrations through the 
 
 ## Example: VPC endpoint policy that restricts access to a specific IAM role
 
-The following VPC endpoint policy allows access to AWS IoT Managed integrations only for IAM principals that have the specified IAM role in their trust chain.
+The following VPC endpoint policy allows access to AWS IoT Managed Integrations only for IAM principals that have the specified IAM role in their trust chain.
 All other IAM principals are denied access.
 
 ```

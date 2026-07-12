@@ -1,6 +1,6 @@
 # Low level C-Function APIs
 
-Integrate your device-specific code with managed integrations using the provided low level C-Function
+Integrate your device-specific code with Managed Integrations using the provided low level C-Function
 APIs. This section describes the API operations available for each cluster in the AWS data
 model for efficient device to cloud interactions. Learn how to implement callback functions,
 emit events, notify attribute changes, and register clusters for your device endpoints.
@@ -12,7 +12,7 @@ emit events, notify attribute changes, and register clusters for your device end
 3. Attribute change notification functions
 4. Cluster registration functions
    By implementing these APIs, you create a bridge between your device's physical operations
-   and the managed integrations cloud features, ensuring seamless communication and control.
+   and the Managed Integrations cloud features, ensuring seamless communication and control.
 
 The following section illustrates the [OnOff cluster](https://github.com/project-chip/connectedhomeip/blob/v1.3.0.0/data_model/clusters/OnOff.xml "https://github.com/project-chip/connectedhomeip/blob/v1.3.0.0/data_model/clusters/OnOff.xml") API.
 

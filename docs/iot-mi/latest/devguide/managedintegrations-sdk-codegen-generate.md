@@ -1,6 +1,6 @@
 # Generate code for devices
 
-Create customized C code for your devices using the managed integrations code generation tools.
+Create customized C code for your devices using the Managed Integrations code generation tools.
 This section describes how to generate code from sample files included with the SDK or from
 your own specifications. Learn how to use the generation scripts, understand the
 workflow process, and create code that matches your device requirements.
@@ -81,5 +81,5 @@ to extract and format the necessary information. Finally, it applies Jinja2 temp
 formatting to create the final C code output.
 
 This workflow ensures that your device-specific requirements from the .matter file are
-accurately translated into functional C code that integrates with the managed integrations
+accurately translated into functional C code that integrates with the Managed Integrations
 system.

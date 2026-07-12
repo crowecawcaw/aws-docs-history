@@ -1,4 +1,4 @@
-# Managed integrations Hub SDK image on Raspberry Pi
+# Managed Integrations Hub SDK image on Raspberry Pi
 
 ###### Note
 
@@ -36,13 +36,13 @@ Complete these requirements before deploying the Raspberry Pi image:
 - Connect a [Silicon Labs SLUSB001A Dongle](https://www.digikey.com/en/products/detail/silicon-labs/SLUSB001A/9867108 "https://www.digikey.com/en/products/detail/silicon-labs/SLUSB001A/9867108").
 - [Sign up for an AWS account](setting-up.md#sign-up-for-aws "setting-up.md#sign-up-for-aws").
 - Install the latest version of [AWS CLI from the
-  Managed integrations AWS CLI Command Reference](../../../cli/latest/reference/iot-managed-integrations.md "../../../cli/latest/reference/iot-managed-integrations.md").
+  Managed Integrations AWS CLI Command Reference](../../../cli/latest/reference/iot-managed-integrations.md "../../../cli/latest/reference/iot-managed-integrations.md").
 
 ## Flash a Raspberry Pi image on a new SD card
 
-Flash the Managed integrations image to your SD card using these steps:
+Flash the Managed Integrations image to your SD card using these steps:
 
-1. Download the [Managed integrations Raspberry Pi Hub SDK Image](https://d2no7dt1utuyzo.cloudfront.net/IotMI-HubSDK-RaspberryPi/1.0.0/IotMI-HubSDK-RPi-Image-v1.0.0.img.gz "https://d2no7dt1utuyzo.cloudfront.net/IotMI-HubSDK-RaspberryPi/1.0.0/IotMI-HubSDK-RPi-Image-v1.0.0.img.gz").
+1. Download the [Managed Integrations Raspberry Pi Hub SDK Image](https://d2no7dt1utuyzo.cloudfront.net/IotMI-HubSDK-RaspberryPi/1.0.0/IotMI-HubSDK-RPi-Image-v1.0.0.img.gz "https://d2no7dt1utuyzo.cloudfront.net/IotMI-HubSDK-RaspberryPi/1.0.0/IotMI-HubSDK-RPi-Image-v1.0.0.img.gz").
 2. Launch Raspberry Pi Imager on your desktop.
 3. Insert SD card into your computer's built-in SD card reader, or external USB card reader.
 4. Select **Choose Device** → Raspberry Pi 5.

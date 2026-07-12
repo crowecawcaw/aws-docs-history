@@ -1,6 +1,6 @@
 # Supported resource types
 
-Each resource type corresponds to specific managed integrations workflows:
+Each resource type corresponds to specific Managed Integrations workflows:
 
 | Resource type          | Workflows                                                                          |
 | ---------------------- | ---------------------------------------------------------------------------------- |

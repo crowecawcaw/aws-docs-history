@@ -11,7 +11,7 @@ Platform Abstraction Layer (PAL) implementation in `platform/posix` are
 for reference only. Do not use these in production environments.
 
 Review each step of the following procedure carefully to ensure proper device integration
-with managed integrations.
+with Managed Integrations.
 
 ###### Integrate the End device SDK
 
@@ -55,8 +55,8 @@ Provisioning parameters| Macro parameters | Description | How to obtain this inf
 | `IOTMI_ROOT_CA_PATH` | The root CA certificate file. | You can download this file from the [Download the Amazon Root CA certificate](../../../iot/latest/developerguide/iot-dc-prepare-device-test.md#iot-dc-prepare-device-test-step3 "../../../iot/latest/developerguide/iot-dc-prepare-device-test.md#iot-dc-prepare-device-test-step3") section in the<br>_AWS IoT Core developer guide_. |
 | `IOTMI_CLAIM_CERTIFICATE_PATH` | The path to the claim certificate file. | To obtain the claim certificate and private key, create a<br>provisioning profile using the [CreateProvisioningProfile](../APIReference/API_CreateProvisioningProfile.md "../APIReference/API_CreateProvisioningProfile.md") API. For instructions, see [Create a provisioning profile](managedintegrations-sdk-device-provisionee.md#sdk-provisionee-template-create "managedintegrations-sdk-device-provisionee.md#sdk-provisionee-template-create"). |
 | `IOTMI_CLAIM_PRIVATE_KEY_PATH` | The path to the claim private key file. |
-| `IOTMI_MANAGEDINTEGRATIONS_ENDPOINT` | Endpoint URL for managed integrations. | To obtain the managed integrations endpoint, use the [RegisterCustomEndpoint](../APIReference/API_RegisterCustomEndpoint.md "../APIReference/API_RegisterCustomEndpoint.md") API. For instructions, see [Register a custom endpoint](managedintegrations-sdk-device-provisionee.md#sdk-provisionee-endpoint-create "managedintegrations-sdk-device-provisionee.md#sdk-provisionee-endpoint-create"). |
-| IOTMI\_MANAGEDINTEGRATIONS\_ENDPOINT\_PORT | The port number for the managed integrations endpoint | By default, the port 8883 is used for MQTT publish and subscribe operations.<br>Port 443 is set for Application Layer Protocol Negotiation (ALPN) TLS extension<br>that devices use. | 5. ###### Build and run the demo applications
+| `IOTMI_MANAGEDINTEGRATIONS_ENDPOINT` | Endpoint URL for Managed Integrations. | To obtain the Managed Integrations endpoint, use the [RegisterCustomEndpoint](../APIReference/API_RegisterCustomEndpoint.md "../APIReference/API_RegisterCustomEndpoint.md") API. For instructions, see [Register a custom endpoint](managedintegrations-sdk-device-provisionee.md#sdk-provisionee-endpoint-create "managedintegrations-sdk-device-provisionee.md#sdk-provisionee-endpoint-create"). |
+| IOTMI\_MANAGEDINTEGRATIONS\_ENDPOINT\_PORT | The port number for the Managed Integrations endpoint | By default, the port 8883 is used for MQTT publish and subscribe operations.<br>Port 443 is set for Application Layer Protocol Negotiation (ALPN) TLS extension<br>that devices use. | 5. ###### Build and run the demo applications
 
 This section demonstrates two Linux demo applications: a simple security camera and an
 air purifier, both using CMake as the build system.
@@ -208,9 +208,9 @@ air purifier, both using CMake as the build system.
 
 6. ###### Next steps:
 
-The Managed integrations End device SDK and demo applications are now running on your Amazon EC2 instances.
+The Managed Integrations End device SDK and demo applications are now running on your Amazon EC2 instances.
 This allows you to develop and test your applications on your own physical hardware.
-With this setup, you can leverage the Managed integrations service to control your AWS IoT devices.
+With this setup, you can leverage the Managed Integrations service to control your AWS IoT devices.
 
     1. ###### Develop hardware callback functions
 
@@ -361,7 +361,7 @@ With this setup, you can leverage the Managed integrations service to control yo
     	```
     	2. Call `iotmi_JobsHandler_start` to initialize the jobs handler.
     	3. Call `iotmi_JobsHandler_getJobDocument` to retrieve the job Document
-    	 from managed integrations.
+    	 from Managed Integrations.
     	4. When the Jobs Document is obtained successfully, write your custom OTA operation
     	 in the `processOTA` function and return a `JobSucceeded`
     	 status.

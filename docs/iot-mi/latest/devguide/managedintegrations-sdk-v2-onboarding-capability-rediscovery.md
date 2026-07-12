@@ -7,7 +7,7 @@ using capability rediscovery.
 
 Complete these steps before attempting capability rediscovery:
 
-- Onboard a hub device to the managed integrations hub.
+- Onboard a hub device to the Managed Integrations hub.
 - Onboard one or more end devices to the hub.
 - Install the latest version of AWS CLI from the [Managed Integrations AWS CLI Command Reference](../../../cli/latest/reference/iot-managed-integrations.md "../../../cli/latest/reference/iot-managed-integrations.md")
 - (Optional) Subscribe to [DEVICE\_DISCOVERY\_STATUS](managedintegrations-notifications.md#managedintegrations-notification-setup "managedintegrations-notifications.md#managedintegrations-notification-setup") event notifications.
@@ -18,7 +18,7 @@ Use capability rediscovery in the following scenarios:
 
 - After a firmware update to an end device that adds or modifies device capabilities
 - After a hub software update that enables support for new device features
-- When device capabilities are not accurately reflected in managed integrations
+- When device capabilities are not accurately reflected in Managed Integrations
 - To refresh the capability information for a single device or all devices connected to a hub
 
 ## Start capability rediscovery
@@ -61,7 +61,7 @@ The `--protocol` parameter accepts `ZIGBEE`, `ZWAVE`, or `CUSTOM`.
 
 If the optional `--end-device-identifier` parameter is not provided, all devices associated with the hub for the selected protocol are rediscovered.
 
-For more information, see the [start-device-discovery](../../../cli/latest/reference/iot-managed-integrations/start-device-discovery.md "../../../cli/latest/reference/iot-managed-integrations/start-device-discovery.md") command in the managed integrations AWS CLI _Command
+For more information, see the [start-device-discovery](../../../cli/latest/reference/iot-managed-integrations/start-device-discovery.md "../../../cli/latest/reference/iot-managed-integrations/start-device-discovery.md") command in the Managed Integrations AWS CLI _Command
 Reference_.
 
 To verify that the device capabilities have been updated, see [Get managed thing capabilities](managedintegrations-sdk-v2-cookbook-ugs.md#managedintegrations-sdk-v2-cookbook-check-device-capabilties "managedintegrations-sdk-v2-cookbook-ugs.md#managedintegrations-sdk-v2-cookbook-check-device-capabilties").
@@ -69,7 +69,7 @@ To verify that the device capabilities have been updated, see [Get managed thing
 ## Troubleshooting
 
 Use the following guidance to troubleshoot common issues with capability rediscovery.
-When capability rediscovery is in progress, managed integrations sends notifications through Kinesis or EventBridge
+When capability rediscovery is in progress, Managed Integrations sends notifications through Kinesis or EventBridge
 as JSON messages.
 
 ### Success notifications
@@ -149,7 +149,7 @@ as JSON messages.
 
 If you do not receive notifications about the discovery status, verify that you have
 subscribed to `DEVICE_DISCOVERY_STATUS` event notifications. For more information
-on setting up notifications, see [Set up managed integrations notifications](managedintegrations-notifications.md#managedintegrations-notification-setup "managedintegrations-notifications.md#managedintegrations-notification-setup").
+on setting up notifications, see [Set up Managed Integrations notifications](managedintegrations-notifications.md#managedintegrations-notification-setup "managedintegrations-notifications.md#managedintegrations-notification-setup").
 
 ### Some devices not updated
 
@@ -176,6 +176,6 @@ aws iot-managed-integrations get-device-discovery \
 
 If the discovery is stuck:
 
-- Verify that the hub is online and connected to managed integrations
+- Verify that the hub is online and connected to Managed Integrations
 - Wait up to 15 minutes for the discovery to timeout automatically
 - Retry the capability rediscovery after confirming the hub and devices are operational

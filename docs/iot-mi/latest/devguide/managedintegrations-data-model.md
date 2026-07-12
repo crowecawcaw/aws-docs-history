@@ -1,11 +1,11 @@
-# Managed integrations data model
+# Managed Integrations data model
 
-The managed integrations data model manages all communication between the end user and
-managed integrations.
+The Managed Integrations data model manages all communication between the end user and
+Managed Integrations.
 
 **Device Hierarchy**
 
-The `endpoint` and `capability` data elements are used to describe a device in the managed integrations data model.
+The `endpoint` and `capability` data elements are used to describe a device in the Managed Integrations data model.
 
 **`endpoint`**
 

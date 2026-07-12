@@ -1,9 +1,9 @@
-# How managed integrations works with IAM
+# How Managed Integrations works with IAM
 
-Before you use IAM to manage access to managed integrations, learn what IAM features are
-available to use with managed integrations.
+Before you use IAM to manage access to Managed Integrations, learn what IAM features are
+available to use with Managed Integrations.
 
-IAM features you can use with managed integrations| IAM feature | Managed integrations support |
+IAM features you can use with Managed Integrations| IAM feature | Managed Integrations support |
 | --- | --- |
 | [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies") | Yes |
 | [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies") | No |
@@ -17,11 +17,11 @@ IAM features you can use with managed integrations| IAM feature | Managed integr
 | [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service") | Yes |
 | [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked") | Yes |
 
-To get a high-level view of how managed integrations and other AWS services work with most IAM
+To get a high-level view of how Managed Integrations and other AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based policies for managed integrations
+## Identity-based policies for Managed Integrations
 
 **Supports identity-based policies:**
 
@@ -38,11 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-### Identity-based policy examples for managed integrations
+### Identity-based policy examples for Managed Integrations
 
-To view examples of managed integrations identity-based policies, see [Identity-based policy examples for managed integrations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Managed Integrations identity-based policies, see [Identity-based policy examples for Managed Integrations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based policies within managed integrations
+## Resource-based policies within Managed Integrations
 
 **Supports resource-based policies:**
 
@@ -58,7 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions for managed integrations
+## Policy actions for Managed Integrations
 
 **Supports policy actions:**
 
@@ -70,10 +70,10 @@ Administrators can use AWS JSON policies to specify who has access to what. That
 The `Action` element of a JSON policy describes the
 actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-To see a list of managed integrations actions, see [Actions Defined by Managed integrations](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") in the
+To see a list of Managed Integrations actions, see [Actions Defined by Managed Integrations](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") in the
 _Service Authorization Reference_.
 
-Policy actions in managed integrations use the following prefix before the action:
+Policy actions in Managed Integrations use the following prefix before the action:
 
 ```
 iot-mi
@@ -88,9 +88,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of managed integrations identity-based policies, see [Identity-based policy examples for managed integrations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Managed Integrations identity-based policies, see [Identity-based policy examples for Managed Integrations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy resources for managed integrations
+## Policy resources for Managed Integrations
 
 **Supports policy resources:**
 
@@ -105,14 +105,14 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-To see a list of managed integrations resource types and their ARNs, see
-[Resources Defined by Managed integrations](../../../IAM/latest/UserGuide/list_your_service.md#your_service-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_your_service.md#your_service-resources-for-iam-policies") in the _Service Authorization Reference_. To learn with
+To see a list of Managed Integrations resource types and their ARNs, see
+[Resources Defined by Managed Integrations](../../../IAM/latest/UserGuide/list_your_service.md#your_service-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_your_service.md#your_service-resources-for-iam-policies") in the _Service Authorization Reference_. To learn with
 which actions you can specify the ARN of each resource, see
-[Actions Defined by Managed integrations](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") .
+[Actions Defined by Managed Integrations](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") .
 
-To view examples of managed integrations identity-based policies, see [Identity-based policy examples for managed integrations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Managed Integrations identity-based policies, see [Identity-based policy examples for Managed Integrations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy condition keys for managed integrations
+## Policy condition keys for Managed Integrations
 
 **Supports service-specific policy condition keys:**
 
@@ -127,13 +127,13 @@ policy with values in the request. To see all AWS global
 condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
 _IAM User Guide_.
 
-To see a list of managed integrations condition keys, see [Condition Keys for Managed integrations](../../../IAM/latest/UserGuide/list_your_service.md#your_service-policy-keys "../../../IAM/latest/UserGuide/list_your_service.md#your_service-policy-keys") in the
+To see a list of Managed Integrations condition keys, see [Condition Keys for Managed Integrations](../../../IAM/latest/UserGuide/list_your_service.md#your_service-policy-keys "../../../IAM/latest/UserGuide/list_your_service.md#your_service-policy-keys") in the
 _Service Authorization Reference_. To learn with which actions and resources you
-can use a condition key, see [Actions Defined by Managed integrations](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") .
+can use a condition key, see [Actions Defined by Managed Integrations](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") .
 
-To view examples of managed integrations identity-based policies, see [Identity-based policy examples for managed integrations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Managed Integrations identity-based policies, see [Identity-based policy examples for Managed Integrations](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## ACLs in managed integrations
+## ACLs in Managed Integrations
 
 **Supports ACLs:**
 
@@ -142,7 +142,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## ABAC with managed integrations
+## ABAC with Managed Integrations
 
 **Supports ABAC (tags in policies):**
 
@@ -159,7 +159,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary credentials with managed integrations
+## Using temporary credentials with Managed Integrations
 
 **Supports temporary credentials:**
 
@@ -171,7 +171,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service principal permissions for managed integrations
+## Cross-service principal permissions for Managed Integrations
 
 **Supports forward access sessions (FAS):**
 
@@ -180,7 +180,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for managed integrations
+## Service roles for Managed Integrations
 
 **Supports service roles:**
 
@@ -192,10 +192,10 @@ more information, see [Create a role to delegate permissions to an AWS service](
 
 ###### Warning
 
-Changing the permissions for a service role might break managed integrations functionality.
-Edit service roles only when managed integrations provides guidance to do so.
+Changing the permissions for a service role might break Managed Integrations functionality.
+Edit service roles only when Managed Integrations provides guidance to do so.
 
-## Service-linked roles for managed integrations
+## Service-linked roles for Managed Integrations
 
 **Supports service-linked roles:**
 

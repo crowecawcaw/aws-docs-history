@@ -4,24 +4,24 @@ This section describes the End device SDK architecture and how its components in
 low level C-Functions. The following diagram illustrates the core components and their
 relationships in the SDK framework.
 
-![The End device SDK architecture and how it connects your end devices to the managed integrations cloud.](images/iot-managedintegrations-device-sdk-architecture.png)
+![The End device SDK architecture and how it connects your end devices to the Managed Integrations cloud.](images/iot-managedintegrations-device-sdk-architecture.png)
 
 ###### End device SDK components
 
-The End device SDK architecture contains these components for managed integrations feature
+The End device SDK architecture contains these components for Managed Integrations feature
 integration:
 
 **Provisionee**
 
-Creates device resources in the managed integrations cloud, including device certificates and
+Creates device resources in the Managed Integrations cloud, including device certificates and
 private keys for secure MQTT communication. These credentials establish trusted
-connections between your device and managed integrations.
+connections between your device and Managed Integrations.
 
 **MQTT Agent**
 
 Manages MQTT connections through a thread-safe C client library. This background
 process handles command queues in multi-threaded environments, with configurable queue
-sizes for memory-constrained devices. Messages route through managed integrations for
+sizes for memory-constrained devices. Messages route through Managed Integrations for
 processing.
 
 **Jobs handler**
@@ -32,7 +32,7 @@ devices.
 
 **Data Model Handler**
 
-Translates operations between managed integrations and your Low Level C-Functions using AWS' implementation of the Matter Data Model. For more information, see the
+Translates operations between Managed Integrations and your Low Level C-Functions using AWS' implementation of the Matter Data Model. For more information, see the
 [Matter
 documentation](https://project-chip.github.io/connectedhomeip-doc/index.html "https://project-chip.github.io/connectedhomeip-doc/index.html") on _GitHub_.
 

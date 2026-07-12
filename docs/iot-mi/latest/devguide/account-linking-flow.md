@@ -16,13 +16,13 @@ token through the following workflow:
 3. The third-party platform creates an authorization code. The end user is redirected to
    managed integrations for AWS IoT Device Management platform callback URI including the code attached to the redirect
    request.
-4. Managed integrations exchanges this code with the third-party platform token
+4. Managed Integrations exchanges this code with the third-party platform token
    URI.
 5. The token URI validates the authorization code and returns an OAuth2.0 access
    token and refresh token, associated with the end user.
-6. Managed integrations calls the C2C connector with `AWS.ActivateUser`
+6. Managed Integrations calls the C2C connector with `AWS.ActivateUser`
    operation to complete the Account Linking flow and get UserId.
-7. Managed integrations returns OAuthRedirectUrl (from the Connector Policy configuration)
+7. Managed Integrations returns OAuthRedirectUrl (from the Connector Policy configuration)
    of the successful authentication page to the customer application.
 
 ###### Note

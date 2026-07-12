@@ -28,7 +28,7 @@ for an existing connector, see [General/Custom Authorization requirements](conce
 
 General Authorization is any non-OAuth authorization mechanism that allows your connector
 to authorize with third-party platforms using customer credentials. With
-General Authorization, Managed integrations delegates credential management to your connector,
+General Authorization, Managed Integrations delegates credential management to your connector,
 and a single set of credentials can control devices across multiple end users.
 
 This is useful for scenarios where you have a business relationship with the
@@ -69,7 +69,7 @@ third-party platform.
 
 ###### Important
 
-Managed integrations does not access or manage the credentials stored in the customer's
+Managed Integrations does not access or manage the credentials stored in the customer's
 AWS Secrets Manager. Your connector has full control over credential
 retrieval, parsing, and usage.
 
@@ -82,7 +82,7 @@ sensitive log data with masking](../../../AmazonCloudWatch/latest/logs/mask-sens
 
 ## General Authorization request format
 
-When Managed integrations invokes your connector for a General Authorization account
+When Managed Integrations invokes your connector for a General Authorization account
 association, the request header contains a AWS Secrets Manager reference
 instead of an OAuth token. The request structure is consistent across all connector
 operations (`AWS.ActivateUser`, `AWS.DiscoverDevices`,
@@ -156,7 +156,7 @@ When your connector receives a General Authorization request, follow this workfl
 ###### Note
 
 Your connector is responsible for all credential management, including token
-generation, refresh, and error handling. Managed integrations only provides the reference to
+generation, refresh, and error handling. Managed Integrations only provides the reference to
 the secret; it does not manage the credentials themselves.
 
 ## Lambda permissions for GeneralAuthorization

@@ -1,4 +1,4 @@
-# Set up managed integrations
+# Set up Managed Integrations
 
 The following sections guide you through initial setup for using managed integrations for AWS IoT Device Management.
 

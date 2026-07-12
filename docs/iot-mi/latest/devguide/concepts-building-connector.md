@@ -22,7 +22,7 @@ Before you create a C2C (Cloud-to-Cloud) connector, you need the following:
   through managed integrations. For more information, see [Create an
   AWS account](../../../accounts/latest/reference/manage-acct-creating.md "../../../accounts/latest/reference/manage-acct-creating.md").
 - When you build your connector, you need certain IAM permissions (see Required Permissions section below).
-- Determine which authorization type your connector will support. Managed integrations supports
+- Determine which authorization type your connector will support. Managed Integrations supports
   OAuth 2.0 authorization and General Authorization.
 
 **For OAuth 2.0 Connectors:**
@@ -83,7 +83,7 @@ information, see [Lambda permissions for GeneralAuthorization](concepts-general-
 ###### Additional Resources
 
 For more information about `iotmanagedintegrations:` permissions and actions, see
-[Actions defined by AWS Managed integrations](../../../service-authorization/latest/reference/list_awsiotmanagedintegrations.md#awsiotmanagedintegrations-actions-as-permissions "../../../service-authorization/latest/reference/list_awsiotmanagedintegrations.md#awsiotmanagedintegrations-actions-as-permissions").
+[Actions defined by AWS Managed Integrations](../../../service-authorization/latest/reference/list_awsiotmanagedintegrations.md#awsiotmanagedintegrations-actions-as-permissions "../../../service-authorization/latest/reference/list_awsiotmanagedintegrations.md#awsiotmanagedintegrations-actions-as-permissions").
 
 ## C2C connector requirements
 
@@ -132,7 +132,7 @@ The connector must implement the following four operations:
 5. **Event Forwarding**
 
 When your C2C connector receives third-party events related to device command responses or
-device discovery, it must forward them to managed integrations with the `SendConnectorEvent` API. For more
+device discovery, it must forward them to Managed Integrations with the `SendConnectorEvent` API. For more
 information on these events and the `SendConnectorEvent` API, see [SendConnectorEvent](https://amazonaws.com/iot-mi/latest/APIReference/API_SendConnectorEvent.html "https://amazonaws.com/iot-mi/latest/APIReference/API_SendConnectorEvent.html").
 
 ###### Note

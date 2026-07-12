@@ -1,7 +1,7 @@
 # Hub control
 
 Hub control is an extension to the managed integrations End device SDK that allows it to interface with the `MQTTProxy` component in the Hub SDK.
-With hub control, you can implement code using the End device SDK and control your hub through the managed integrations cloud as a separate device.
+With hub control, you can implement code using the End device SDK and control your hub through the Managed Integrations cloud as a separate device.
 The hub control SDK will be provided as a separate package with-in the Hub SDK, labeled as `iot-managed-integrations-hub-control-x.x.x`.
 
 ###### Topics
@@ -193,7 +193,7 @@ cmake -build .
 ./examples/iotmi_device_sample_camera/iotmi_device_sample_camera
 ```
 
-See [Managed integrations data model](managedintegrations-data-model.md "managedintegrations-data-model.md") for the data model.
+See [Managed Integrations data model](managedintegrations-data-model.md "managedintegrations-data-model.md") for the data model.
 Follow Step 5 in [Get started with End device SDK](managedintegrations-sdk-device-onboarding.md "managedintegrations-sdk-device-onboarding.md") to
 set up endpoints and manage communications between the end-user and iot-managed-integrations.
 

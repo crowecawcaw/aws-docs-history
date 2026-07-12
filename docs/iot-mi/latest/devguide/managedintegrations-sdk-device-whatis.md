@@ -10,7 +10,7 @@ and real-time operating systems (RTOS). Download the latest version of the End d
 ###### Core components
 
 The SDK combines an MQTT agent for cloud communication,
-a jobs handler for task management, and a managed integrations, Data Model Handler. These components work together to provide secure connectivity and
-automated data translation between your devices and managed integrations.
+a jobs handler for task management, and a Managed Integrations, Data Model Handler. These components work together to provide secure connectivity and
+automated data translation between your devices and Managed Integrations.
 
 For detailed technical requirements, see the [Technical reference](managedintegrations-sdk-device-appendix.md "managedintegrations-sdk-device-appendix.md").

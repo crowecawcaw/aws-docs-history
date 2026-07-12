@@ -1,7 +1,7 @@
 # Device onboarding
 
 Review how the Hub SDK components support device onboarding before you begin working with
-managed integrations. This section covers the essential architectural components you need for device
+Managed Integrations. This section covers the essential architectural components you need for device
 onboarding, including how the core provisioner and protocol-specific plugins
 work together to handle device authentication, communication, and user
 setup.
@@ -17,7 +17,7 @@ setup.
 ### Core provisioner
 
 The core provisioner is the central component that orchestrates device onboarding in
-your IoT hub deployment. It coordinates all communication between managed integrations and your
+your IoT hub deployment. It coordinates all communication between Managed Integrations and your
 protocol-specific provisioner plugins, ensuring secure and reliable device onboarding.
 When you onboard a device, the core provisioner handles the authentication flow, manages
 MQTT messaging, and processes device requests through these functions:
@@ -39,7 +39,7 @@ managing authentication and radio joining modes.
 **Hub SDK client APIs**
 
 Receive and forward device capability reports from protocol-specific CDMB
-plugins to managed integrations.
+plugins to Managed Integrations.
 
 ### Protocol-specific provisioner plugins
 
@@ -55,7 +55,7 @@ perform:
 ### Protocol-specific middleware
 
 Protocol-specific middleware acts as a translation layer between your device protocols
-and managed integrations. This component processes communication in both directions—receiving
+and Managed Integrations. This component processes communication in both directions—receiving
 commands from the provisioner plugins and sending them to protocol stacks, while also
 collecting responses from devices and routing them back through the
 system.
@@ -77,7 +77,7 @@ outlines the supported onboarding methods.
 
 The end user powers on the IoT device and scans its QR code using the device
 manufacturer application. The device is then enrolled onto
-the managed integrations cloud and connects to the IoT hub.
+the Managed Integrations cloud and connects to the IoT hub.
 
 ![The Hub SDK architecture and components for the simple setup onboarding flow.](images/new-simple-setup-june-2025.png)
 
@@ -94,7 +94,7 @@ When the end user receives and powers on the device, it automatically enrolls in
 ### User guided setup (UGS)
 
 The end user powers on the device and follows interactive steps to onboard it to
-managed integrations. This might include pressing a button on the IoT hub, using a device
+Managed Integrations. This might include pressing a button on the IoT hub, using a device
 manufacturer app, or pressing buttons on both the hub and device. You can use this method
 if Simple setup fails.
 
@@ -108,4 +108,4 @@ If WSS is unavailable or fails (for example, no provisioner available or connect
 
 The following diagram shows the WiFi Simple Setup flow:
 
-![Diagram showing the Hub SDK architecture and components for the WiFi Simple Setup onboarding flow, including barcode scanning, temporary network discovery, and automatic WiFi credential provisioning.](images/wifi-simple-setup-flow.png)
+![Diagram showing the Hub SDK architecture and components for the WiFi Simple Setup onboarding flow, including barcode scanning, temporary network discovery, and automatic WiFi credential provisioning.](/images/iot-mi/latest/devguide/images/wifi-simple-setup-flow.png)

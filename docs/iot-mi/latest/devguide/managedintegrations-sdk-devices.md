@@ -1,6 +1,6 @@
-# Managed integrations End device SDK
+# Managed Integrations End device SDK
 
-Build an IoT platform that connects smart devices to managed integrations and processes commands
+Build an IoT platform that connects smart devices to Managed Integrations and processes commands
 through a unified control interface. The End device SDK integrates with your device firmware and
 provides simplified setup with the SDK edge components, and secure connectivity to AWS IoT Core and
 AWS IoT Device Management. Download the latest version of the End device SDK from the AWS Management Console

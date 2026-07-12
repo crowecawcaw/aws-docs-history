@@ -6,7 +6,7 @@ because the secret isn't there. For an overview, see the [AWS Secrets Manager Us
 
 Secrets Manager encrypts secrets using AWS Key Management Service keys. For more information, see [Secret encryption and decryption in AWS Key Management Service](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md").
 
-Managed integrations for AWS IoT Device Management integrates with AWS Secrets Manager so that you can store your data in Secrets Manager and use the secret ID in your configurations.
+Managed Integrations for AWS IoT Device Management integrates with AWS Secrets Manager so that you can store your data in Secrets Manager and use the secret ID in your configurations.
 
 ## How managed integrations uses secrets
 
@@ -16,8 +16,8 @@ data on behalf of the user, providing a more secure alternative to sharing passw
 
 In OAuth, a client ID and client secret are credentials that identify and authenticate a client application when it requests an access token.
 
-Managed integrations for AWS IoT Device Management uses OAuth to communicate with customers that use the C2C workflows. Customers need to provide the client ID and client secret to communicate.
-Managed integrations customers will store a client ID and client secret in their AWS accounts, and managed integrations reads the client ID and client secret in our customer account.
+Managed Integrations for AWS IoT Device Management uses OAuth to communicate with customers that use the C2C workflows. Customers need to provide the client ID and client secret to communicate.
+Managed Integrations customers will store a client ID and client secret in their AWS accounts, and managed integrations reads the client ID and client secret in our customer account.
 
 ## How to create a secret
 

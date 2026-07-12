@@ -1,6 +1,6 @@
 # Data model schemas
 
-Managed integrations supports two schema types: _capability_ and _type definition_. If you are creating a custom data model, you use a JSON schema
+Managed Integrations supports two schema types: _capability_ and _type definition_. If you are creating a custom data model, you use a JSON schema
 document to define either type of schema.
 Each schema document has a limit of 50,000 characters.
 
