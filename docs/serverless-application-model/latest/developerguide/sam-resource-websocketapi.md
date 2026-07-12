@@ -264,6 +264,16 @@ _Required_: No
 _CloudFormation compatibility_: This property is unique to AWS SAM and
 doesn't have an CloudFormation equivalent.
 
+## Return Values
+
+### Ref
+
+When you pass the logical ID of this resource to the intrinsic `Ref`
+function, `Ref` returns the API ID of the underlying
+`AWS::ApiGatewayV2::Api` resource, for example, `a1bcdef2gh`.
+
+For more information about using the `Ref` function, see [`Ref`](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.md") in the _AWS CloudFormation User Guide_.
+
 ## Examples
 
 ### Simple WebSocket API

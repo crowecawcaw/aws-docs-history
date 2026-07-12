@@ -15,6 +15,8 @@ The `Globals` section supports the following AWS SAM resource types:
 - `AWS::Serverless::HttpApi`
 - `AWS::Serverless::SimpleTable`
 - `AWS::Serverless::StateMachine`
+- `AWS::Serverless::MicrovmImage`
+- `AWS::Serverless::NetworkConnector`
   Example:
 
 ```
@@ -142,6 +144,25 @@ Globals:
     SSESpecification:
 
   StateMachine:
+    PropagateTags:
+
+  MicrovmImage:
+    BaseImageArn:
+    BaseImageVersion:
+    BuildRoleArn:
+    Hooks:
+    EnvironmentVariables:
+    EgressNetworkConnectors:
+    CpuConfigurations:
+    Resources:
+    AdditionalOsCapabilities:
+    Logging:
+    Tags:
+    PropagateTags:
+
+  NetworkConnector:
+    OperatorRole:
+    Tags:
     PropagateTags:
 ```
 

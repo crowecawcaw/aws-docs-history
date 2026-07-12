@@ -17,5 +17,7 @@ and property types reference](../../../AWSCloudFormation/latest/UserGuide/aws-te
 - [AWS::Serverless::HttpApi](sam-resource-httpapi.md "sam-resource-httpapi.md")
 - [AWS::Serverless::WebSocketApi](sam-resource-websocketapi.md "sam-resource-websocketapi.md")
 - [AWS::Serverless::LayerVersion](sam-resource-layerversion.md "sam-resource-layerversion.md")
+- [AWS::Serverless::MicrovmImage](sam-resource-microvmimage.md "sam-resource-microvmimage.md")
+- [AWS::Serverless::NetworkConnector](sam-resource-networkconnector.md "sam-resource-networkconnector.md")
 - [AWS::Serverless::SimpleTable](sam-resource-simpletable.md "sam-resource-simpletable.md")
 - [AWS::Serverless::StateMachine](sam-resource-statemachine.md "sam-resource-statemachine.md")
