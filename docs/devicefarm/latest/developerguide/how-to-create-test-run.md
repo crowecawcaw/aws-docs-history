@@ -570,7 +570,7 @@ In the Device Farm console, the clock icon
 ![Device Farm scheduled a job.](images/df-run-calendar.png)
 changes to a result icon such as
 success
-![The test succeeded.](/images/devicefarm/latest/developerguide/images/df-run-success.png)
+![The test succeeded.](images/df-run-success.png)
 when the run is complete. A report for the run appears as soon as
 tests are complete. For more information, see [Reports in AWS Device Farm](reports.md "reports.md").
 
