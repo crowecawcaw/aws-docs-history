@@ -442,7 +442,7 @@ console
    - Select the **my-demo-environment** card, and then choose
      **Delete**.
 
-   ![Deleting an environment in the environments list](/images/cloud9/latest/user-guide/images/console-delete-env-card.png)
+   ![Deleting an environment in the environments list](images/console-delete-env-card.png)
 
 3. In the **Delete** dialog box, enter `Delete`, and
    then choose **Delete**. The delete operation takes a few

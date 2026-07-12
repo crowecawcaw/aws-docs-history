@@ -145,7 +145,7 @@ this case, we suggest opening a different web browser and signing in to the AWS 
 console as that entity. 2. In the AWS Cloud9 console, choose the AWS Region that matches the one you created the
 instance in frameworks.
 
-![AWS Region selector in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/consolas_region_new_UX.png) 3. If a welcome page is displayed, for **New AWS Cloud9 environment**, choose **Create environment**.
+![AWS Region selector in the AWS Cloud9 console](images/consolas_region_new_UX.png) 3. If a welcome page is displayed, for **New AWS Cloud9 environment**, choose **Create environment**.
 Otherwise, choose **Create environment**.
 
 ![Choosing the Next step button if welcome page is displayed](images/create_welcome_env_new_UX.png)

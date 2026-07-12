@@ -33,7 +33,7 @@ following actions:
 
 
 
-    ![Choosing an environment using the Open in Cloud9 button](/images/cloud9/latest/user-guide/images/console_create_env_new_UX.png)
+    ![Choosing an environment using the Open in Cloud9 button](images/console_create_env_new_UX.png)
 
 If your environment isn't displayed in the console, try doing one or more of the following
 actions to have it be displayed.
