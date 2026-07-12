@@ -155,7 +155,7 @@ Follow these steps to configure the automation:
 
    - **AutomationAssumeRole (Optional):**
 
-   The Amazon Resource Name (ARN) of the IAM role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
+   The Amazon Resource Name (ARN) of the IAM role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your permissions.
    - **ApiId (Required):**
 
    The API ID of the API Gateway API that requires troubleshooting.

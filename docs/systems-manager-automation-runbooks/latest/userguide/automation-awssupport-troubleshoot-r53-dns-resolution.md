@@ -40,10 +40,10 @@ Zones, DNS Firewall, and public DNS delegation chains.
 **How does it work?**
 
 The runbook determines the analysis path based on the provided `ResourceId`
-parameter. If an Amazon EC2 instance ID or Amazon VPC ID is provided, it performs Amazon VPC-specific DNS
+parameter. If you provide an Amazon EC2 instance ID or Amazon VPC ID, it performs Amazon VPC-specific DNS
 analysis including Amazon VPC DNS configuration, Route 53 Resolver rules, DNS Firewall evaluation,
-Private Hosted Zones, and Resolver Outbound Endpoint connectivity. If no
-`ResourceId` is provided, it performs public DNS resolution analysis only.
+Private Hosted Zones, and Resolver Outbound Endpoint connectivity. If you don't provide a
+`ResourceId`, it performs public DNS resolution analysis only.
 After completion, the runbook generates a comprehensive report with findings, severity
 levels, and actionable recommendations.
 
@@ -273,8 +273,7 @@ Follow these steps to configure the automation:
 
    The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager
    Automation to perform the actions on your behalf. If no role is specified,
-   Systems Manager Automation uses the permissions of the user that starts this
-   runbook.
+   Systems Manager Automation uses your permissions.
    - **ResourceId (Optional):**
 
    The Amazon EC2 instance ID (`i-xxxxxxxxx`) or Amazon VPC ID

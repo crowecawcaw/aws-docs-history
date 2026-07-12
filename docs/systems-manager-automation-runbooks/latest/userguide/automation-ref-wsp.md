@@ -8,3 +8,4 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 
 - [AWS-CreateWorkSpace](aws-create-workspace.md "aws-create-workspace.md")
 - [AWSSupport-RecoverWorkSpace](automation-awssupport-recover-workspace.md "automation-awssupport-recover-workspace.md")
+- [AWSSupport-RecoverWorkSpaceWithApproval](automation-aws-recoverworkspacewithapproval.md "automation-aws-recoverworkspacewithapproval.md")

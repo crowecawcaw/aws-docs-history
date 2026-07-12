@@ -116,7 +116,7 @@ Follow these steps to configure the automation:
 
    - **AutomationAssumeRole (Optional):**
 
-   The Amazon Resource Name (ARN) of the IAM role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
+   The Amazon Resource Name (ARN) of the IAM role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your permissions.
    - **S3ResourceArn (Required):**
 
    The ARN of your Amazon S3 resource (bucket or key). For object operations such as `PutObject` or `GetObject`, provide the ARN of the object. Example: `arn:aws:s3:::bucket_name`, or `arn:aws:s3:::bucket_name/key_name`.

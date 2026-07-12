@@ -6,6 +6,7 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 
 ###### Topics
 
+- [AWSSupport-TroubleshootEC2ConnectivityToRedshift](automation-awssupport-troubleshootec2connectivitytoredshift.md "automation-awssupport-troubleshootec2connectivitytoredshift.md")
 - [AWSConfigRemediation-DeleteRedshiftCluster](automation-aws-delete-redshift.md "automation-aws-delete-redshift.md")
 - [AWSConfigRemediation-DisablePublicAccessToRedshiftCluster](automation-aws-disable-redshift-public-access.md "automation-aws-disable-redshift-public-access.md")
 - [AWSConfigRemediation-EnableRedshiftClusterAuditLogging](automation-aws-enable-redshift-audit.md "automation-aws-enable-redshift-audit.md")
