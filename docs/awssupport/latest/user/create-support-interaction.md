@@ -6,7 +6,6 @@ Support interactions differ from support cases in that support cases include eng
 
 ###### Notes
 
-- You can revert to the legacy method of case management by choosing **Use the old experience** in the banner at the top of the Support Center Console. For more information, see [Legacy experience: Creating support cases and case management](case-management-legacy.md "case-management-legacy.md").
 - You can sign in to the Support Center Console as an AWS Identity and Access Management (IAM) user. For more information, see
   [Manage access to AWS Support Center](accessing-support.md "accessing-support.md").
 - If you can't sign in to the Support Center Console and create a support case, you can use the

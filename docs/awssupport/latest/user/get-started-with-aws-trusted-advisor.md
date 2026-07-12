@@ -112,7 +112,7 @@ You can view the check descriptions and results for the following check categori
      have excluded items, such as resources that you want a check to ignore.
 
 4. For each check, choose the refresh icon (
-   ![Circular arrow icon representing a refresh or reload action.](images/refresh.png)
+   ![Circular arrow icon representing a refresh or reload action.](/images/awssupport/latest/user/images/refresh.png)
    ) to refresh this check.
 5. Choose the download icon (
    ![Icon representing the action to download content, showing an arrow pointing downwards.](images/download.png)

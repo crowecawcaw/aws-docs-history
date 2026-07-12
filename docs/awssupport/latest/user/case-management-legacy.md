@@ -1,9 +1,5 @@
 # Legacy experience: Creating support cases and case management
 
-###### Important
-
-You can revert to the legacy method of case management by choosing **Use the old experience** in the banner at the top of the Support Center console.
-
 In the AWS Management Console, you can create three types of customer cases in Support:
 
 - **Account and billing** support cases are available to all AWS

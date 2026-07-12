@@ -71,46 +71,18 @@ _IAM User Guide_.
 
 ### Example IAM policy
 
-You can attach the following example policy to your IAM role. This policy allows
+You can attach the `AWSSupportAppFullAccess` policy to your IAM role. This policy allows
 the role to have full permissions to all required actions for the AWS Support App. After
 you configure a Slack channel with the role, any user in your channel has the same
 permissions.
+
+To view the permissions for the `AWSSupportAppFullAccess` policy, see [AWSSupportAppFullAccess](../../../aws-managed-policy/latest/reference/AWSSupportAppFullAccess.md#AWSSupportAppFullAccess-json.html "../../../aws-managed-policy/latest/reference/AWSSupportAppFullAccess.md#AWSSupportAppFullAccess-json.html") in the _AWS Managed Policy Reference_.
 
 ###### Note
 
 For a list of AWS managed policies, see [AWS managed policies for AWS Support App in Slack](support-app-managed-policies.md "support-app-managed-policies.md").
 
 You can update the policy to remove a permission from the AWS Support App.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "supportapp:GetSlackOauthParameters",
- "supportapp:RedeemSlackOauthCode",
- "supportapp:DescribeSlackChannels",
- "supportapp:ListSlackWorkspaceConfigurations",
- "supportapp:ListSlackChannelConfigurations",
- "supportapp:CreateSlackChannelConfiguration",
- "supportapp:DeleteSlackChannelConfiguration",
- "supportapp:DeleteSlackWorkspaceConfiguration",
- "supportapp:GetAccountAlias",
- "supportapp:PutAccountAlias",
- "supportapp:DeleteAccountAlias",
- "supportapp:UpdateSlackChannelConfiguration",
- "iam:ListRoles"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
 
 For descriptions for each action, see the following topics in the
 _Service Authorization Reference_:
