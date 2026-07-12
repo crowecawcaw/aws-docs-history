@@ -28,7 +28,13 @@ For DynamoDB triggers using AWS Lambda, we recommend the following:
   duration of the container's lifetime.
 - In general, you do not need to explicitly manage connections or implement
   connection pooling because AWS Lambda manages this for you.
-  A Lambda consumer for a DynamoDB stream doesn't guarantee exactly once delivery and may lead to occasional duplicates. Make sure your Lambda function code is idempotent to prevent unexpected issues from arising because of duplicate processing.
+  A Lambda consumer for a DynamoDB stream provides at-least-once delivery: it doesn't
+  guarantee exactly-once delivery and might process the same record more than once (for
+  example, when a function invocation is retried). This is distinct from the DynamoDB Streams
+  guarantee that each stream record appears exactly once _in the
+  stream_ — that guarantee describes the records that are stored in the
+  stream, not the number of times a consumer processes them. To prevent unexpected issues
+  from duplicate processing, make sure your Lambda function code is idempotent.
 
 For more information, see [Best practices
 for working with AWS Lambda functions](../../../lambda/latest/dg/best-practices.md "../../../lambda/latest/dg/best-practices.md") in the

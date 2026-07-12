@@ -6,7 +6,8 @@ imported in uncompressed form. Source data can either be a single Amazon S3 obje
 Amazon S3 objects that use the same prefix.
 
 Your data will be imported into a new DynamoDB table, which will be created when you initiate
-the import request. You can create this table with secondary indexes, then query and update
+the import request. You can create this table with global secondary indexes (local secondary
+indexes are not supported), then query and update
 your data across all primary and secondary indexes as soon as the import is complete. You
 can also add a global table replica after the import is complete.
 

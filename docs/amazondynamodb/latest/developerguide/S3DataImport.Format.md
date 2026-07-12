@@ -45,6 +45,49 @@ id,value
 "123",Women's Full "Length" Dress
 ```
 
+DynamoDB follows the standard CSV quoting convention (RFC 4180): a double quote inside a
+field value is escaped by preceding it with another double quote
+(`""`). Backslash escaping (`\"`), which is common in programming
+languages and in the output of many data-export tools, is _not_ recognized, and a file that uses it will fail to import. If your source
+data uses backslash escaping, convert each escaped quote to a doubled quote before
+importing. For example, a value exported as:
+
+```
+"Women's \"Full Length\" Dress"
+```
+
+must be reformatted as follows before it can be imported:
+
+```
+"Women's ""Full Length"" Dress"
+```
+
+**Formatting key values**
+
+In DynamoDB, a primary key is either a _simple_ primary
+key (a partition key) or a _composite_ primary key (a
+partition key and a sort key). Each key attribute holds a single scalar value. If you
+want a key value that combines several fields — for example, joining
+`organizationId` and `barcode` with a delimiter as
+`organizationId#barcode` — you concatenate those fields into one string
+and store it in a single key attribute. This concatenation is an application convention;
+DynamoDB stores and matches the key attribute as one value.
+
+When you import this data from CSV, put the fully joined value in a single column whose
+header matches the name of the key attribute. Do not split the parts into separate
+columns: the import maps each column to one attribute and does not concatenate columns
+into a key value. For example, for a table whose partition key attribute is named
+`pk` and sort key attribute is named `sk`:
+
+```
+pk,sk,barcode
+org123#ABC123,number#001,ABC123
+org456#XYZ789,number#002,XYZ789
+```
+
+If a key value itself contains the comma delimiter, enclose the entire value in double
+quotes, for example `"org123,east#ABC123"`.
+
 **Importing heterogeneous item types**
 
 You can use a single CSV file to import different item types into one table. Define

@@ -24,6 +24,31 @@ version number each time you update the item. Your update or delete requests suc
 only if the client-side object version matches the corresponding version number of the
 item in the DynamoDB table.
 
+###### Note
+
+When you save an item that does not yet exist in the table, the value of the
+version property determines how `DynamoDBMapper` builds the
+write:
+
+- If the version property is `null`,
+  `DynamoDBMapper` treats the operation as a new-item insert. It
+  adds a condition that the version attribute does not yet exist and sets the
+  stored version to `1`. The save succeeds only if no item with the
+  same key already exists.
+- If the version property is set to any value (for example,
+  `0`, `1`, or `5`),
+  `DynamoDBMapper` treats the operation as an update to an existing
+  item. It adds a condition that the stored version equals that value and then
+  increments it. If the item does not already exist, the condition fails and
+  the save throws `ConditionalCheckFailedException`.
+  To insert a new item, leave the version property `null`; to update an
+  existing item, set the version property to the value you last read. You don't need
+  to inspect the version value yourself to distinguish an insert from an update —
+  `DynamoDBMapper` uses the null-versus-set distinction to decide. The
+  version property must be a nullable type (for example, `Long` rather than
+  `long`) so that `DynamoDBMapper` can detect an unset
+  version.
+
 `ConditionalCheckFailedException` is thrown if:
 
 - You use optimistic locking with `@DynamoDBVersionAttribute` and

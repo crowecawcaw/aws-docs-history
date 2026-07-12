@@ -270,9 +270,9 @@ within a transaction. Transaction conflicts can occur in the following scenarios
   `TransactionCanceledException`. If that request fails, AWS SDKs do not
   retry the request.
 
-If you are using the AWS SDK for Java, the exception contains the list of [CancellationReasons](../APIReference/API_CancellationReason.md "../APIReference/API_CancellationReason.md"), ordered according to the list of items in the
-`TransactItems` request parameter. For other languages, a string
-representation of the list is included in the exception’s error message.
+The exception contains the list of [CancellationReasons](../APIReference/API_CancellationReason.md "../APIReference/API_CancellationReason.md"), ordered according to the list of items in the
+`TransactItems` request parameter. The exception's error message also
+includes a string representation of the cancellation reason codes.
 
 - If an ongoing `TransactWriteItems` or `TransactGetItems`
   operation conflicts with a concurrent `GetItem` request, both operations

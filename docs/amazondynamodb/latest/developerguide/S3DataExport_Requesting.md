@@ -104,6 +104,19 @@ files.
 
 ###### Note
 
+You must call `ExportTableToPointInTime` as a principal in the same
+AWS account as the source table. Although the destination bucket can belong to a
+different account (as described earlier), the export request itself must originate
+from the table's account. A request made from a different account fails with a
+`ValidationException`: "This action is only supported by accounts that
+match the resource owner's account." To export a table that is owned by another
+account, assume an IAM role in the table's account and make the export request with
+that role's credentials. When that role writes to a bucket in a different account,
+include the bucket owner and grant the role write access in the bucket policy as
+described above.
+
+###### Note
+
 If the table or bucket you're exporting to is encrypted with customer managed keys, that
 KMS key's policies must give DynamoDB permission to use it. This permission is given
 through the IAM User/Role that triggers the export job. For more information on

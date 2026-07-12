@@ -14,6 +14,14 @@ The following table lists the data types you can use with PartiQL for DynamoDB.
 | `String Set`       | <<'string1', 'string2'>> | The elements in a string set must be of type String.                                                                                                |
 | `String`           | 'string value'           | Single quotes must be used to specify String values.                                                                                                |
 
+###### Note
+
+To include a literal single quote (`'`) within a String value, escape it
+by using two consecutive single quotes (`''`). For example, the string
+`it's here` is written as `'it''s here'`. A backslash
+(`\`) does not escape a single quote in PartiQL for DynamoDB; using one
+results in a validation error.
+
 ## Examples
 
 The following statement demonstrates how to insert the following data types:

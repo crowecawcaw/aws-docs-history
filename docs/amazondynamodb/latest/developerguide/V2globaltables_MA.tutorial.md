@@ -68,7 +68,36 @@ JSON
 
     1. Add `arn:aws:dynamodb:us-east-2:`111122223333`:table/MusicTable` as the table arn for the source table.
     2. In the **Replica Table ARNs**, add the ARN of the source table again `arn:aws:dynamodb:us-east-2:`111122223333`:table/MusicTable`. If there are multiple replicas already existing as part of a Multi Account Global Table, you must add every existing replica to the ReplicaTableARN.
-    3. Keep the other default settings and choose **Submit**.
+    3. In the **Resource-based policy** section, add the following resource policy for the table in this account (`444455556666`). Multi-account global table replication is bi-directional, so each replica table must grant the DynamoDB replication service and the other participating account the permissions required to replicate. This mirrors the policy you added in the first account, with the account references reversed:
+
+    ```
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
+                "Effect": "Allow",
+                "Action": [
+                    "dynamodb:ReadDataForReplication",
+                    "dynamodb:WriteDataForReplication",
+                    "dynamodb:ReplicateSettings"
+                ],
+                "Resource": "arn:aws:dynamodb:us-east-1:444455556666:table/MusicTable",
+                "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
+                "Condition": {
+                    "StringEquals": {
+                        "aws:SourceAccount": ["444455556666","111122223333"],
+                        "aws:SourceArn": [
+                            "arn:aws:dynamodb:us-east-1:444455556666:table/MusicTable",
+                            "arn:aws:dynamodb:us-east-2:111122223333:table/MusicTable"
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+    ```
+    4. Keep the other default settings and choose **Submit**.
 
 15. The **Global tables** tab for the Music table (and for any other replica tables) shows that the table has been replicated in multiple Regions.
 16. To test replication:

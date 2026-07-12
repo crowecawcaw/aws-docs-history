@@ -122,7 +122,8 @@ The way you specify an endpoint depends on the programming language and
 AWS SDK you're using. The following sections describe how to do this:
 
 - [Java: Setting the AWS Region and endpoint](CodeSamples.Java.md#CodeSamples.Java.RegionAndEndpoint "CodeSamples.Java.md#CodeSamples.Java.RegionAndEndpoint") (DynamoDB local
-  supports the AWS SDK for Java V1 and V2)
+  supports the AWS SDK for Java 1.x and 2.x; for the SDK for Java
+  2.x, see the [AWS SDK for Java 2.x Developer Guide](../../../sdk-for-java/latest/developer-guide/home.md "../../../sdk-for-java/latest/developer-guide/home.md"))
 - CodeSamples.Java.RegionAndEndpoint [.NET: Setting the AWS Region and endpoint](CodeSamples.DotNet.md#CodeSamples.DotNet.RegionAndEndpoint "CodeSamples.DotNet.md#CodeSamples.DotNet.RegionAndEndpoint")
 
 ## Differences between downloadable DynamoDB and the DynamoDB web service

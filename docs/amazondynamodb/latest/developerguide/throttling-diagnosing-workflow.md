@@ -216,7 +216,17 @@ keys_ mode helps you look for patterns in your most accessed
 keys. 2. Analyze the reports to identify problematic patterns. Look for keys with
 disproportionately high access or throttling rates, correlate throttling and
 traffic patterns. You can create integrated dashboards combining Contributor
-Insights graphs and DynamoDB CloudWatch metrics.
+Insights graphs and DynamoDB CloudWatch metrics. 3. If no individual keys show disproportionately high access or throttling
+rates, key-range throttling might be caused by _unbounded sequential access_ across a range of keys rather
+than a single hot key. When you run continued `Scan` operations,
+rate-limit the read traffic to stay below the per-partition maximum of 3,000
+read units per second for a key range. To achieve higher overall read
+throughput, use parallel (segmented) scans to distribute read traffic more
+uniformly across partitions. Similarly, writing items in the same key order
+in which they are returned by a `Scan` concentrates writes on one
+key range at a time and can cause key-range throttling when the write rate
+to that range exceeds 1,000 write units per second. Rate-limit writes to a
+single key range to stay below that limit.
 
 For detailed information about enabling and using CloudWatch Contributor Insights, see
 [Using CloudWatch Contributor Insights for

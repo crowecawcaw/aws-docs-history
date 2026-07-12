@@ -358,8 +358,10 @@ IAM with CloudWatch Contributor Insights for DynamoDB](Contributor_Insights_IAM.
 ## CloudWatch contributor insights for DynamoDB billing
 
 Charges for CloudWatch Contributor Insights for DynamoDB appear in the [CloudWatch](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") section of your
-monthly bill. These charges are calculated based on the number of DynamoDB events that are
-processed, and the selected mode.
+monthly bill. These charges have two components: a fixed monthly charge for each
+Contributor Insights rule that is created when you enable the feature, and a charge based
+on the number of DynamoDB events that are processed, which varies with the selected
+mode.
 
 ### Billing by mode
 

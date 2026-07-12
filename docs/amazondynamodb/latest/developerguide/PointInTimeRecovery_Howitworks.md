@@ -130,6 +130,17 @@ Run the [UpdateContinuousBackups](../APIReference/API_UpdateContinuousBackups.md
 }
 ```
 
+###### Note
+
+`ContinuousBackupsStatus` is always `ENABLED` for a DynamoDB
+table and can't be disabled. An `ENABLED` value doesn't mean that
+point-in-time recovery is turned on. Whether you can restore the table to a point in
+time is controlled separately by `PointInTimeRecoveryStatus`, which is
+`DISABLED` by default until you enable PITR. A newly created table
+therefore reports `ContinuousBackupsStatus` as `ENABLED`
+together with `PointInTimeRecoveryStatus` as
+`DISABLED`.
+
 **Python**
 
 ```

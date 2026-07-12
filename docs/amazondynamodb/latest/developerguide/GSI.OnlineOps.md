@@ -244,6 +244,17 @@ operation.
 You can delete only one global secondary index per `UpdateTable`
 operation.
 
+To delete a global secondary index, use the `UpdateTable` operation with a
+`Delete` action in the `GlobalSecondaryIndexUpdates`
+parameter, specifying the name of the index to delete. The following AWS CLI example
+deletes the index named `MyGSI`.
+
+```
+aws dynamodb update-table \
+    --table-name `MyTable` \
+    --global-secondary-index-updates '[{"Delete": {"IndexName": "`MyGSI`"}}]'
+```
+
 While the global secondary index is being deleted, there is no effect on any read or write activity in
 the parent table. While the deletion is in progress, you can still modify the
 provisioned throughput on other indexes.

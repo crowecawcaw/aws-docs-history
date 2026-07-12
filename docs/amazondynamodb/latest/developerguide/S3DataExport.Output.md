@@ -58,10 +58,16 @@ follows:
    "manifestFilesS3Key": "AWSDynamoDB/01693685827463-2d8752fd/manifest-files.json",
    "billedSizeBytes": 0,
    "itemCount": 8,
-   "outputFormat": "DYNAMODB_JSON",
-   "exportType": "FULL_EXPORT"
+   "outputFormat": "DYNAMODB_JSON"
 }
 ```
+
+###### Note
+
+The `exportType` field is present in the
+`manifest-summary.json` file only for incremental
+exports, where it has a value of `INCREMENTAL_EXPORT`. It is
+not included in the summary manifest for full exports.
 
 #### The files manifest
 

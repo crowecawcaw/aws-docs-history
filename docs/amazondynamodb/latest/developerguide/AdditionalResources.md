@@ -37,7 +37,7 @@ helping customers achieve their business objectives.
 
 **Data modeling and migration**
 
-- [A hierarchical data model in DynamoDB](../../../prescriptive-guidance/latest/dynamodb-hierarchical-data-model/introduction.md "../../../prescriptive-guidance/latest/dynamodb-hierarchical-data-model/introduction.md")
+- [A hierarchical data model in DynamoDB](../../../prescriptive-guidance/latest/dynamodb-data-modeling/hierarchical-data-modeling.md "../../../prescriptive-guidance/latest/dynamodb-data-modeling/hierarchical-data-modeling.md")
 - [Modeling data with DynamoDB](../../../prescriptive-guidance/latest/dynamodb-data-modeling/welcome.md "../../../prescriptive-guidance/latest/dynamodb-data-modeling/welcome.md")
 - [Migrate an Oracle database to DynamoDB using AWS DMS](../../../prescriptive-guidance/latest/patterns/migrate-an-oracle-database-to-amazon-dynamodb-using-aws-dms.md "../../../prescriptive-guidance/latest/patterns/migrate-an-oracle-database-to-amazon-dynamodb-using-aws-dms.md")
 

@@ -235,9 +235,9 @@ public class UpdateTTLConditional {
     private static final String UPDATED_AT_ATTR = "updatedAt";
     private static final String EXPIRE_AT_ATTR = "expireAt";
     private static final String UPDATE_EXPRESSION = "SET " + UPDATED_AT_ATTR + "=:c, " + EXPIRE_AT_ATTR + "=:e";
-    private static final String CONDITION_EXPRESSION = "attribute_exists(" + PRIMARY_KEY_ATTR + ")";
+    private static final String CONDITION_EXPRESSION = EXPIRE_AT_ATTR + " > :c";
     private static final String SUCCESS_MESSAGE = "%s UpdateItem operation with TTL successful.";
-    private static final String CONDITION_FAILED_MESSAGE = "Condition check failed. Item does not exist.";
+    private static final String CONDITION_FAILED_MESSAGE = "Condition check failed. The item may have already expired.";
     private static final String TABLE_NOT_FOUND_ERROR = "Error: The Amazon DynamoDB table \"%s\" can't be found.";
 
     private final DynamoDbClient dynamoDbClient;

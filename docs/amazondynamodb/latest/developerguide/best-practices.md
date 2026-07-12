@@ -22,5 +22,6 @@ throughput costs when working with DynamoDB.
 - [Best practices for understanding your AWS billing and usage reports in DynamoDB](bp-understanding-billing.md "bp-understanding-billing.md")
 - [Migrating a DynamoDB table from one account to another](bp-migrating-table-between-accounts.md "bp-migrating-table-between-accounts.md")
 - [Prescriptive guidance to integrate DAX with DynamoDB applications](dax-prescriptive-guidance.md "dax-prescriptive-guidance.md")
+- [Best practices for PITR recovery in DynamoDB](bp-pitr-recovery.md "bp-pitr-recovery.md")
 
 - [Considerations when using AWS PrivateLink for Amazon DynamoDB](privatelink-interface-endpoints.md#privatelink-considerations "privatelink-interface-endpoints.md#privatelink-considerations")

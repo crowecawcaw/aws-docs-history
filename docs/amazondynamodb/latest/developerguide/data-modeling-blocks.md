@@ -25,7 +25,13 @@ sort key. The most common style for designing one is with each layer of the hier
 (parent layer > child layer > grandchild layer) separated by a hashtag. For example,
 `PARENT#CHILD#GRANDCHILD#ETC`.
 
-![Image showing an item in a table with a userID as the primary key, and a combination of other attributes as the sort key.](images/DataModeling/ShoppingCart.png)
+| Partition key: PK | Sort key: SK         |
+| ----------------- | -------------------- |
+| UserID            | CART#ACTIVE#Apples   |
+| UserID            | CART#ACTIVE#Bananas  |
+| UserID            | CART#SAVED#Oranges   |
+| UserID            | CART#SAVED#Pears     |
+| UserID            | WISH#VEGGIES#Carrots |
 
 While a partition key in DynamoDB always requires the exact value to query for data, we
 can apply a partial condition to the sort key from left to right similar to traversing a
@@ -58,7 +64,13 @@ tenant in its own logical partition of the table. This leverages the concept of 
 Collection, which is a term for all items in a DynamoDB table with the same partition key.
 For more information on how DynamoDB approaches multitenancy, see [Multitenancy on DynamoDB](../../../whitepapers/latest/multi-tenant-saas-storage-strategies/multitenancy-on-dynamodb.md "../../../whitepapers/latest/multi-tenant-saas-storage-strategies/multitenancy-on-dynamodb.md").
 
-![Image showing a table that could represent a multi-tenant photo site. The primary key is made up of users as the partition key and different photos as the sort key. The attribute for each item shows the URL the photo is hosted at.](images/DataModeling/MultiTenant.png)
+| Partition key: PK | Sort key: SK | ImageURL                                                       |
+| ----------------- | ------------ | -------------------------------------------------------------- |
+| UserOne           | PhotoID1     | https://s3.amazonaws.com/[BUCKET-NAME]/[FILE-NAME].[FILE-TYPE] |
+| UserOne           | PhotoID2     | https://s3.amazonaws.com/[BUCKET-NAME]/[FILE-NAME].[FILE-TYPE] |
+| UserTwo           | PhotoID3     | https://s3.amazonaws.com/[BUCKET-NAME]/[FILE-NAME].[FILE-TYPE] |
+| UserTwo           | PhotoID4     | https://s3.amazonaws.com/[BUCKET-NAME]/[FILE-NAME].[FILE-TYPE] |
+| UserThree         | PhotoID5     | https://s3.amazonaws.com/[BUCKET-NAME]/[FILE-NAME].[FILE-TYPE] |
 
 For this example, we are running a photo hosting site with potentially thousands of
 users. Each user will only upload photos to their own profile initially, but by default
@@ -94,9 +106,21 @@ regularly query across the entire dataset for these items, we can leverage the f
 with data. This means that only items in the base table that have the attributes defined
 in the index will be replicated to the index.
 
-![Image showing a base table that receives a large amount of steady state data](images/DataModeling/SparseBaseTable.png)
+| Partition key: DeviceID | Sort key: State#Date         | Operator | Date       | EscalatedTo |
+| ----------------------- | ---------------------------- | -------- | ---------- | ----------- |
+| d#12345                 | NORMAL#2020-04-24T14:55:00   | Liz      | 2020-04-24 |             |
+| d#12345                 | WARNING1#2020-04-24T14:45:00 | Liz      | 2020-04-24 |             |
+| d#12345                 | WARNING1#2020-04-24T14:50:00 | Liz      | 2020-04-24 |             |
+| d#54321                 | NORMAL#2020-04-11T06:00:00   | Liz      | 2020-04-11 |             |
+| d#54321                 | NORMAL#2020-04-11T09:30:00   | Sue      | 2020-04-11 |             |
+| d#54321                 | WARNING2#2020-04-11T09:25:00 | Sue      | 2020-04-11 |             |
+| d#54321                 | WARNING3#2020-04-11T05:55:00 | Liz      | 2020-04-11 |             |
+| d#11223                 | WARNING4#2020-04-27T16:10:00 | Sue      | 2020-04-27 |             |
+| d#11223                 | WARNING4#2020-04-27T16:15:00 | Sue      | 2020-04-27 | Sara        |
 
-![Image showing a global secondary index that only receives items that have been escalated](images/DataModeling/SparseGSI.png)
+| Partition key: EscalatedTo | Sort key: State#Date         | DeviceID | Operator |
+| -------------------------- | ---------------------------- | -------- | -------- |
+| Sara                       | WARNING4#2020-04-27T16:15:00 | d#11223  | Sue      |
 
 In this example, we see an IOT use case where each device in the field is reporting
 back a status on a regular basis. For the majority of the reports we expect the device
@@ -139,7 +163,11 @@ does not consume write capacity in the Region in which the TTL expiry occurs.
 However, the replicated TTL delete to the replica table(s) consumes replicated write
 capacity in each of the replica Regions and applicable charges will apply.
 
-![Image showing a table with a user's messages with a time to live attribute](images/DataModeling/TTL.png)
+| Partition key: PK | Sort key: MessageTimestamp | TTL        | Message  |
+| ----------------- | -------------------------- | ---------- | -------- |
+| UserID            | 2030-06-30T12:12:12        | 1909570332 | Hello    |
+| UserID            | 2030-06-30T12:17:22        | 1909570647 | DynamoDB |
+| UserID            | 2030-06-30T12:22:27        | 1909570947 | TTL      |
 
 In this example, we have an application designed to let a user create messages that
 are short-lived. When a message is created in DynamoDB, the TTL attribute is set to a date
@@ -200,11 +228,54 @@ To better optimize the writes and reads of DynamoDB, we recommend breaking apart
 document's individual entities into individual DynamoDB items, also referred to as
 **vertical partitioning**.
 
-![Image showing a large data structure formatted as a nested JSON object.](images/DataModeling/DocumentBlob.png)
+For example, consider the following single JSON document that stores a user's
+profile, store, shopping cart, shipping address, and order history together:
 
-![Image showing an item collection where the item's sort key helps keep DynamoDB usage optimized.](images/DataModeling/SingleTableSchema.png)
+```
+{
+    "UserProfile": {
+        "FirstName": "Paul",
+        "LastName": "Atreides",
+        "DateJoined": "1965-08-01"
+    },
+    "Store": {
+        "store_id": "STOREUID",
+        "city": "Los Angeles",
+        "zip_code": "90029"
+    },
+    "ShoppingCart": [
+        { "Spice": { "SKU": "SpiceSKU", "CategoryID": "FictionalSpice", "DateAdded": "2019-06-11" } },
+        { "EspressoBeans": { "SKU": "CaffeineSKU", "CategoryID": "FOODANDDRINK", "DateAdded": "2019-06-10" } }
+    ],
+    "ShippingAddress": {
+        "street_address": "1234 Arrakis Dr",
+        "city": "Los Angeles",
+        "zip_code": "90029",
+        "status": "default"
+    },
+    "OrderHistory#OrderUID": {
+        "ProductA": "SKU_A",
+        "ProductB": "SKU_B",
+        "DateOrdered": "2018-09-28"
+    }
+}
+```
 
-Vertical partitoning, as shown above, is a key example of single table design in
+Using vertical partitioning, the single document is broken apart into individual items
+that share the same partition key (`UserID`) but use a sort key prefix to
+identify each entity. The following table shows the same data stored as separate
+items:
+
+| Partition key: UserID | Sort key: SK              | Attributes                                                                             |
+| --------------------- | ------------------------- | -------------------------------------------------------------------------------------- |
+| UserID                | UserProfile               | FirstName: Paul, LastName: Atreides, DateJoined: 1965-08-01                            |
+| UserID                | Store#STOREUID            | city: Los Angeles, zip\_code: 90029                                                    |
+| UserID                | Cart#ACTIVE#Spice         | SKU: SpiceSKU, CategoryID: FictionalSpice, DateAdded: 2019-06-11                       |
+| UserID                | Cart#ACTIVE#EspressoBeans | SKU: CaffeineSKU, CategoryID: FOODANDDRINK, DateAdded: 2019-06-10                      |
+| UserID                | Address#default           | street\_address: 1234 Arrakis Dr, city: Los Angeles, zip\_code: 90029, status: default |
+| UserID                | OrderHistory#OrderUID     | ProductA: SKU\_A, ProductB: SKU\_B, DateOrdered: 2018-09-28                            |
+
+Vertical partitioning, as shown above, is a key example of single table design in
 action but can also be implemented across multiple tables if desired. Since DynamoDB bills
 writes in 1KB increments, you should ideally partition the document in a way that
 results in items under 1KB.
@@ -241,7 +312,12 @@ sharding**.
 
 ![Image showing how DynamoDB shards partition keys across multiple partitions to prevent throttling from spikes in traffic.](images/DataModeling/WriteShardingProblem.png)
 
-![Image showing how DynamoDB shards partition keys across multiple partitions to prevent throttling from spikes in traffic.](images/DataModeling/WriteShardingSolution.png)
+| Partition key: Candidate | Vote-Counter | Last-Update         |
+| ------------------------ | ------------ | ------------------- |
+| CandidateA#1             | 10238        | 2019-09-30T11:35:53 |
+| CandidateA#2             | 8452         | 2019-09-30T11:35:53 |
+| CandidateA#3             | 9148         | 2019-09-30T11:35:53 |
+| CandidateA#4             | 11092        | 2019-09-30T11:35:53 |
 
 To solve this problem, we'll append a random integer onto the end of the partition key
 for each contestant in the application's `UpdateItem` code. The range of the

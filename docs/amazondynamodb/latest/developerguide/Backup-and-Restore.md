@@ -62,3 +62,4 @@ For more information about AWS Region availability and pricing, see [Amazon Dyna
 - [Understanding Amazon DynamoDB billing for backups](backup-restore-billing.md "backup-restore-billing.md")
 - [Restore a table in DynamoDB](pointintimerecovery_restores.md "pointintimerecovery_restores.md")
 - [Using AWS Backup with DynamoDB](backuprestore_HowItWorksAWS.md "backuprestore_HowItWorksAWS.md")
+- [Choosing your disaster recovery strategy for Amazon DynamoDB workloads](DynamodbDisasterRecoveryStrategy.md "DynamodbDisasterRecoveryStrategy.md")
