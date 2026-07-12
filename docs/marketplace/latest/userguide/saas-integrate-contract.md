@@ -88,10 +88,7 @@ outlines the steps to verify your product integration.
 ###### Note
 
 Use your own accounts to subscribe to your product and test that the integration
-is successful. Prices can be temporarily reduced so that you can test the purchase
-flow without incurring high charges in those accounts. For more information about
-temporarily reducing the prices or allowing additional test accounts to access your
-product, [contact us](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/").
+is successful.
 
 After your product is launched, the service must continue to respond to these
 scenarios for new customers.

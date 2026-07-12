@@ -104,9 +104,14 @@ records to AWS. Keep the following in mind:
   - If you send multiple requests for the same customer/dimension/hour, the records
     are not aggregated.
 
-- Sellers can send metering records with a timestamp up to 6 hours in the past if the
+- Sellers can send metering records with a timestamp up to 24 hours in the past if the
   customer is subscribed to your product. If the customer unsubscribes, sellers have to send
   the metering records within 1 hour of the customer unsubscribing.
+
+At the end of each billing cycle, you have a 6-hour grace period to submit usage
+records for the previous billing month. Submit records before 06:00 UTC on the first day
+of the next month. After this grace period, we don't accept those records.
+
 - `BatchMeterUsage` payloads must not exceed 1MB. Choose the number of usage
   records to send in a `BatchMeterUsage` request so that you don't exceed the
   size of the payload.

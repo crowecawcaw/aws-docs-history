@@ -82,14 +82,14 @@ in JSON format that inform you of customer actions:
      product. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md "saas-eventbridge-integration.md").
 
 We recommend that you use Amazon Simple Queue Service (Amazon SQS) as a target for your EventBridge rules to capture these events. After you receive
-a subscription notification with `subscribe-success`, the customer account is
+a subscription event with `License Updated`, the customer account is
 ready for metering. Records that you send before this event aren't metered. For
 information about how to set up EventBridge rules with SQS targets, see [Amazon SQS targets](../../../eventbridge/latest/userguide/eb-targets.md#eb-targets-sqs "../../../eventbridge/latest/userguide/eb-targets.md#eb-targets-sqs") in the _Amazon EventBridge User Guide_.
 
 ###### Note
 
 Do not activate a product subscription unless you receive a
-`subscribe-success` notification. 10. Use the AWS account ID stored in your database to meter for usage through the
+`License Updated` event. 10. Use the AWS account ID stored in your database to meter for usage through the
 AWS Marketplace Metering Service or check for entitlements through the AWS Marketplace Entitlement Service.
 
 ## Security and ordering
