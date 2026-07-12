@@ -38,3 +38,35 @@ Core vs Enterprise Feature Comparison| Feature | Core | Enterprise |
 **Which AWS Regions support Amazon Timestream for InfluxDB 3?**
 
 For the current list of supported AWS Regions and endpoints, see [Amazon Timestream endpoints and quotas](../../../general/latest/gr/timestream.md "../../../general/latest/gr/timestream.md") in the AWS General Reference.
+
+**Does Amazon Timestream for InfluxDB 3 support event notifications?**
+
+Yes. Amazon Timestream for InfluxDB publishes events to Amazon EventBridge when clusters undergo state changes, including creation, scaling, parameter group updates, and maintenance. You can create EventBridge rules to route events to targets such as Lambda, Amazon SNS, Amazon SQS, or Amazon CloudWatch Logs. Events use source `aws.timestream-influxdb`. For details, see [Amazon EventBridge event notifications](influxdb3-eventbridge-events.md "influxdb3-eventbridge-events.md").
+
+**Is there an additional charge for event notifications?**
+
+No. Publishing events to Amazon EventBridge is included at no additional Amazon Timestream for InfluxDB charge. Standard Amazon EventBridge pricing applies for rule evaluation and target delivery, and downstream target costs (such as Lambda invocations or Amazon SNS deliveries) follow their respective service pricing.
+
+**In which Regions are event notifications available?**
+
+Event notifications are available in all AWS Regions where Amazon Timestream for InfluxDB is available. Events are published in the same Region as your database resource.
+
+**Do I need to enable event notifications?**
+
+No. Events are published automatically for all Amazon Timestream for InfluxDB resources. You do not need to opt in or configure anything on the database side. To receive events, create an Amazon EventBridge rule that matches the events you want and routes them to a target.
+
+**What types of operations generate events?**
+
+Events are generated for creation, deletion, compute scaling, storage scaling, port changes, parameter group updates, log delivery changes, maintenance window updates, reboots, node addition/removal, engine type conversion, and Multi-AZ/Single-AZ changes. Both successful completions and failures emit events.
+
+**Can I filter events by cluster name or event type?**
+
+Yes. Amazon EventBridge supports content-based filtering on any event field. You can filter by `detail.SourceIdentifier` (cluster name), `detail.EventCategories` (creation, notification, maintenance, failure), `detail.EventID` (specific event type), or `detail-type` (instance vs. cluster events).
+
+**How quickly are events delivered after an operation completes?**
+
+Amazon EventBridge provides at-least-once delivery with a 24-hour retry window. Events are emitted only when a workflow reaches a terminal state (success or failure), not when the operation starts. Under normal conditions events are delivered shortly after completion, but delivery timing depends on target availability and is not guaranteed within a specific timeframe.
+
+**Can I send events to another AWS account?**
+
+Yes. You can configure Amazon EventBridge rules to forward events to an event bus in another account for centralized observability. Configure the target event bus to accept events from your source account.

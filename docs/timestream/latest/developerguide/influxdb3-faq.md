@@ -6,7 +6,7 @@ data ingestion and single-digit millisecond query response times for real-time a
 Amazon Timestream for InfluxDB 3 is a fully managed time-series database service on AWS built on Apache Arrow, Apache DataFusion, and Apache Parquet. It supports SQL and InfluxQL queries, line protocol writes, and is available in Core (single-node, real-time monitoring) and Enterprise (multi-node, compaction, high availability) editions. This section answers the most common questions organized by topic.
 
 **General**
-What Amazon Timestream for InfluxDB 3 is, how it differs from v2, Core vs Enterprise editions, and regional availability.
+What Amazon Timestream for InfluxDB 3 is, how it differs from v2, Core vs Enterprise editions, regional availability, and event notifications.
 
 **Clusters and instances**
 Instance types from db.influx.medium to db.influx.24xlarge, creating clusters, multi-node Enterprise deployments, scaling, cluster endpoints, and maintenance windows.
