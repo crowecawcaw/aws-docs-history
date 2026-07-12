@@ -423,6 +423,7 @@ You can also search the AWS documentation website for a product's API reference.
 - [Data retrieval APIs for AWS Supply Chain](awssupplychain.md "awssupplychain.md")
 - [Data retrieval APIs for AWS Support](awssupport.md "awssupport.md")
 - [Data retrieval APIs for AWS Support App in Slack](awssupportappinslack.md "awssupportappinslack.md")
+- [Data retrieval APIs for AWS Support Authorization](awssupportauthorization.md "awssupportauthorization.md")
 - [Data retrieval APIs for AWS Support Console](awssupportconsole.md "awssupportconsole.md")
 - [Data retrieval APIs for AWS Support Plans](awssupportplans.md "awssupportplans.md")
 - [Data retrieval APIs for AWS Sustainability](awssustainability.md "awssustainability.md")

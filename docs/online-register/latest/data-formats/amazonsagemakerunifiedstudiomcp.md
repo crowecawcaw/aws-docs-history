@@ -2,7 +2,6 @@
 
 Amazon SageMaker Unified Studio MCP provides the following APIs for data retrieval.
 
-| Actions                                                                                                                           | Description                         | Access level |
-| --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ------------ |
-| [CallReadOnlyTool](../../../sagemaker-unified-studio/latest/userguide.md "../../../sagemaker-unified-studio/latest/userguide.md") | Call read-only tools in MCP service | Read         |
-| [InvokeMcp](../../../sagemaker-unified-studio/latest/userguide.md "../../../sagemaker-unified-studio/latest/userguide.md")        | Use MCP service                     | Read         |
+| Actions                                                                                                                        | Description                  | Access level |
+| ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- | ------------ |
+| [AuthorizeVpce](../../../sagemaker-unified-studio/latest/userguide.md "../../../sagemaker-unified-studio/latest/userguide.md") | Use MCP service VPC endpoint | Read         |
