@@ -21,7 +21,7 @@ AWS Proton uses the environment template and parameter values to provision your 
 When you, as a developer or administrator, select a service template with AWS Proton, you provide values for required input parameters.
 You also select an environment to deploy your application or service to.
 
-![Number 4 icon.](images/label-four.png)
+![Number 4 icon.](/images/proton/latest/userguide/images/label-four.png)
 AWS Proton uses the service template, and both your service and selected environment parameter values, to provision your service.
 
 You provide values for the input parameters to customize your template for re-use and multiple use cases, applications, or services.
