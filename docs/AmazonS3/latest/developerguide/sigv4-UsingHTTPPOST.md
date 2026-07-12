@@ -24,7 +24,7 @@ potential to reduce latency.
 
 The following figure shows an Amazon S3 upload using a POST request.
 
-![Comparison of S3 PUT workflow with customer to server to S3, versus POST workflow with direct customer to S3 transfer.](images/s3_post.png)
+![Comparison of S3 PUT workflow with customer to server to S3, versus POST workflow with direct customer to S3 transfer.](/images/AmazonS3/latest/developerguide/images/s3_post.png)
 
 1. The user accesses your page from a web browser.
 2. Your webpage contains an
