@@ -141,7 +141,7 @@ Supported OSs include:
 
 - CentOS 6–8
 - Oracle 6–8
-- RHEL 6–9
+- RHEL 6–10
 - Rocky 8 and 9
 - SLES 12 and 15
 - Debian 9–11
