@@ -218,7 +218,7 @@ commits**.
 For more information, see [Browse the commit history of a repository](how-to-view-commit-details.md#how-to-view-commit-details-console-history "how-to-view-commit-details.md#how-to-view-commit-details-console-history") and [Compare commits](how-to-compare-commits.md "how-to-compare-commits.md"). 9. In **Commits**, choose the **Commit
 visualizer** tab.
 
-![A graphical view of a repository in the console](images/codecommit-cv-complex1.png)
+![A graphical view of a repository in the console](/images/codecommit/latest/userguide/images/codecommit-cv-complex1.png)
 
 The commit graph is displayed, with the subject line for each commit shown
 next to its point in the graph. The subject line display is limited to 80
