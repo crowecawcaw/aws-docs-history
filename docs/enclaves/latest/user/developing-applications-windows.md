@@ -34,7 +34,7 @@ Keep the following in mind when using a Windows parent instance.
 - You must run a Linux-based environment inside the enclave.
 - The Hello enclaves sample application is supported on Windows parent
   instances, but the enclave image file (`.eif`) must be built
-  on a Linux instance. For more information, see [Getting started with the Hello Enclaves sample application](getting-started.md "getting-started.md").
+  on a Linux instance. For more information, see [Getting started: Hello Enclaves sample application](getting-started.md "getting-started.md").
 - The KMS Tool sample application is supported on Windows parent
   instances, but the enclave image file (`.eif`) must be built
   on a Linux instance. For more information, see [Getting started with cryptographic attestation using the KMS Tool sample application](hello-kms.md "hello-kms.md").

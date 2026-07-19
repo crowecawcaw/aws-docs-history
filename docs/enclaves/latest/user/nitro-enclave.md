@@ -28,7 +28,7 @@ instance. The Nitro Hypervisor ensures that the parent instance has no access to
 isolated vCPUs and memory of the enclave.
 
 To learn more about creating your first
-enclave using a sample enclave application, see [Getting started with the Hello Enclaves sample application](getting-started.md "getting-started.md").
+enclave using a sample enclave application, see [Getting started: Hello Enclaves sample application](getting-started.md "getting-started.md").
 
 ###### Topics
 
@@ -42,7 +42,7 @@ enclave using a sample enclave application, see [Getting started with the Hello 
 
 - To learn about the concepts used in Nitro Enclaves, see [Nitro Enclaves concepts](nitro-enclave-concepts.md "nitro-enclave-concepts.md").
 - To get started with your first enclave using a sample enclave application, see
-  [Getting started with the Hello Enclaves sample application](getting-started.md "getting-started.md").
+  [Getting started: Hello Enclaves sample application](getting-started.md "getting-started.md").
 - To learn about using the AWS Nitro Enclaves CLI to manage the lifecycle of
   enclaves, see [Nitro Enclaves Command Line Interface](nitro-enclave-cli.md "nitro-enclave-cli.md").
 - To learn about developing custom enclave applications and the

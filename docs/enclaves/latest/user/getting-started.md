@@ -1,4 +1,4 @@
-# Getting started with the Hello Enclaves sample application
+# Getting started: Hello Enclaves sample application
 
 The following tutorial walks you through the basics of using AWS Nitro Enclaves. It shows you how to
 launch an enclave-enabled parent instance, how to build an enclave image file, how to validate that
