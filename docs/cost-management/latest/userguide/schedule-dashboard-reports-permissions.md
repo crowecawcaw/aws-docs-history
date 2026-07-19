@@ -38,6 +38,7 @@ The execution role requires the following permissions and trust policy.
         "ce:GetSavingsPlansUtilizationDetails",
         "budgets:ViewBudget",
         "budgets:DescribeBudgetActionsForAccount",
+        "cost-optimization-hub:ListEfficiencyMetrics",
         "billing:ListBillingViews"
       ],
       "Resource": "*"

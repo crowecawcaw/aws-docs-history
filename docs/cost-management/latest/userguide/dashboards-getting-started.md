@@ -2,7 +2,7 @@
 
 AWS Billing and Cost Management Dashboards are collections of widgets that visualize your
 cost and usage data. Each dashboard can contain up to 20 widgets, which can show costs, usage,
-and savings plans and reserved instances coverage and utilization, and budgets data. One of the powerful features
+and savings plans and reserved instances coverage and utilization, budgets data, and cost efficiency metrics. One of the powerful features
 of dashboards is that they can be shared within or outside your organization, allowing for
 collaborative cost management.
 
@@ -103,5 +103,5 @@ permissions:
   `ce:GetUsageForecast`, `ce:GetCostCategories`,
   `ce:GetSavingsPlansCoverage`, `ce:GetReservationUtilization`,
   `ce:GetReservationCoverage`, `ce:GetSavingsPlansUtilization`,
-  `ce:GetSavingsPlansUtilizationDetails`, `budgets:ViewBudget`, `budgets:DescribeBudgetActionsForAccount`, `billing:ListBillingViews` – Required for the execution role
+  `ce:GetSavingsPlansUtilizationDetails`, `budgets:ViewBudget`, `budgets:DescribeBudgetActionsForAccount`, `cost-optimization-hub:ListEfficiencyMetrics`, `billing:ListBillingViews` – Required for the execution role
   to retrieve dashboard and cost data. For more information, see [Execution role permissions for scheduled reports](schedule-dashboard-reports.md#schedule-dashboard-reports-permissions "schedule-dashboard-reports.md#schedule-dashboard-reports-permissions").
