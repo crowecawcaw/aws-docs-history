@@ -114,7 +114,13 @@ machine. If the file is larger than 50 MB, upload the file to the function from 
 
 5. (Alternative to step 4) Choose **Amazon S3 location**.
 
-   1. In the text box, enter the S3 link URL of the .zip file archive, then choose **Save**.
+   1. In the text box, enter the S3 link URL of the .zip file archive.
+   2. Under **Code storage mode**, choose one of the following:
+
+      - **Copy mode (default)**
+      - **Reference mode**
+
+   3. Choose **Save**.
 
 When updating function code from an Amazon S3 bucket using the AWS CLI, you can specify the code storage mode. Set `S3ObjectStorageMode` to `REFERENCE` to use [self-managed S3 code storage](configuration-self-managed-storage.md "configuration-self-managed-storage.md"), or `COPY` (default) to use Lambda-managed storage. You can change the storage mode on each update.
 

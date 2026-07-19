@@ -290,7 +290,7 @@ When you invoke your function outside of the Lambda console, you must use CloudW
    function printed to the console.
 3. Scroll down and choose the **Log stream** for the function invocations you want to look at.
 
-![List of log streams for a Lambda function.](/images/lambda/latest/dg/images/log-stream.png)
+![List of log streams for a Lambda function.](images/log-stream.png)
 
 You should see output similar to the following:
 

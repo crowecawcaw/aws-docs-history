@@ -2,18 +2,71 @@
 
 ## Throttling and scaling issues
 
-### High error rates during scale-up
+### Occasional throttling
+
+**Problem:** You experience throttling errors (HTTP 429) during normal operations.
+
+**Cause:** Lambda Managed Instances may reject new invokes to protect invokes that are already in flight. If your execution environments have consistently high utilization, new invocations may be throttled.
+
+**Solution:**
+
+- **Monitor scaling metrics:** Examine the Throttle Reasons graph to understand the reason for throttles and capacity scaling issues. In the following example, high CPU is causing throttles.
+- **Review function configuration:** Ensure your function memory and vCPU settings support multi-concurrent executions. Increase function memory or vCPU allocation if needed. If `ExecutionEnvironmentVCPUUtilization` is high, try adding more vCPU per function.
+
+```
+aws lambda update-function \
+  --function-name my-function \
+  ...
+  --memory-size 8192
+```
+
+If `ExecutionEnvironmentMemoryUtilization` is high, try adding more memory per vCPU:
+
+```
+aws lambda update-function \
+  --function-name my-function \
+  --capacity-provider-config '{
+    "LambdaManagedInstancesCapacityProviderConfig": {
+      "ExecutionEnvironmentMemoryGiBPerVCpu": 4.0
+    }
+  }'
+```
+
+### Throttles during scale-up
 
 **Problem:** You experience throttling errors (HTTP 429) when traffic increases rapidly.
 
 **Cause:** Lambda Managed Instances scale asynchronously based on CPU resource utilization and multi-concurrency saturation. If your traffic more than doubles within 5 minutes, you may see throttles as Lambda scales up instances and execution environments to meet demand.
 
-**Solution:**
+**Solutions:**
 
 - **Adjust target resource utilization:** If your workload has predictable traffic patterns, set a lower target resource utilization to maintain additional headroom for traffic bursts.
-- **Pre-warm capacity:** For planned traffic increases, gradually ramp up traffic over a longer period to allow scaling to keep pace.
-- **Monitor scaling metrics:** Track throttle error metrics to understand the reason for throttles and capacity scaling issues.
-- **Review function configuration:** Ensure your function memory and vCPU settings support multi-concurrent executions. Increase function memory or vCPU allocation if needed.
+
+```
+aws lambda create-capacity-provider \
+  --name my-capacity-provider \
+  ...
+  --capacity-provider-scaling-config '{
+    "ScalingMode": "Manual",
+    "ScalingPolicies": [
+      {
+        "PredefinedMetricType": "LambdaCapacityProviderAverageCPUUtilization",
+        "TargetValue": 30.0
+      }
+    ]
+  }'
+```
+
+- **Pre-warm capacity:** For planned traffic increases, use the `PutFunctionScalingConfig` API to pre-warm additional capacity.
+
+```
+aws lambda put-function-scaling-config \
+  --function-name my-function \
+  --qualifier 1 \
+  --function-scaling-config '{
+    "MinExecutionEnvironments": 100
+  }'
+```
 
 ### Slow scale-down
 
@@ -33,9 +86,20 @@ This is expected behavior. Lambda scales down instances conservatively to ensure
 
 **Cause:** Execution environments with very low maximum concurrency may have difficulty scaling effectively. Lambda Managed Instances are designed for multi-concurrent applications.
 
-**Solution:**
+**Solutions:**
 
 - **Increase maximum concurrency:** If your function invocations use very little CPU, increase the maximum concurrency setting up to 64 per vCPU.
+
+```
+aws lambda update-function \
+  --function-name ordering-api-backend \
+  --capacity-provider-config '{
+    "LambdaManagedInstancesCapacityProviderConfig": {
+      "PerExecutionEnvironmentMaxConcurrency": 32
+    }
+  }'
+```
+
 - **Optimize function code:** Review your function code to reduce CPU consumption per invocation, allowing higher concurrency.
 - **Adjust function memory and vCPU:** Ensure your function has sufficient resources to handle multiple concurrent invocations.
 

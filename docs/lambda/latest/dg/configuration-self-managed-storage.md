@@ -64,7 +64,26 @@ To use self-managed S3 code storage, grant the Lambda service principal (`lambda
 
 ## Creating a function with self-managed S3 storage
 
-You can create a function with self-managed S3 code storage using the AWS CLI or AWS CloudFormation.
+You can create a function with self-managed S3 code storage using the console, the AWS CLI, or AWS CloudFormation.
+
+###### Note
+
+The Lambda console code editor is not available for functions that use Reference mode. To edit function code, update the .zip file in your S3 bucket and update the function.
+
+### Using the console
+
+When you update a function from an S3 location in the Lambda console, you can choose the code storage mode.
+
+###### To update a function to use Reference mode (console)
+
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
+2. Choose the function to update and choose the **Code** tab.
+3. Under **Code source**, choose **Update**, then choose **Update from a file in Amazon S3**.
+4. For **Amazon S3 link URL**, enter the S3 link URL of your .zip file.
+5. Under **Code storage mode**, choose **Reference mode**.
+6. Choose **Save**.
+
+After you configure Reference mode, the **Code properties** section on the function's **Code** tab displays **Code storage mode: Reference** and the **S3 location** pointing to your S3 bucket.
 
 ### Using the AWS CLI
 

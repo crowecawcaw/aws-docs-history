@@ -50,12 +50,17 @@ other configuration changes, you must create a new version of the layer.
      Amazon S3**. Then, for **Amazon S3 link URL**,
      enter a link to the file.
 
-6. (Optional) For **Compatible architectures**, choose one
+6. If you chose to upload from Amazon S3, under **Code storage mode**, choose one of the following:
+
+   - **Copy mode (default)**
+   - **Reference mode**
+
+7. (Optional) For **Compatible architectures**, choose one
    value or both values. For more information, see [Selecting and configuring an instruction set architecture for your Lambda function](foundation-arch.md "foundation-arch.md").
-7. (Optional) For **Compatible runtimes**, choose the
+8. (Optional) For **Compatible runtimes**, choose the
    runtimes that your layer is compatible with.
-8. (Optional) For **License**, enter any necessary license information.
-9. Choose **Create**.
+9. (Optional) For **License**, enter any necessary license information.
+10. Choose **Create**.
 
 Alternatively, you can run the [publish-layer-version](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-layer-version.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-layer-version.html") AWS Command Line Interface (CLI) command. When uploading from Amazon S3, include `S3ObjectStorageMode=REFERENCE` to use [self-managed S3 code storage](configuration-self-managed-storage.md "configuration-self-managed-storage.md"), or omit it (defaults to `COPY`) to use Lambda-managed storage. Example:
 

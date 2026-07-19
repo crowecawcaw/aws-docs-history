@@ -69,7 +69,7 @@ Add this policy to your execution role. This is an AWS managed policy that conta
 your function needs to read from an Amazon SQS queue. For more information about this policy, see
 [AWSLambdaSQSQueueExecutionRole](../../../aws-managed-policy/latest/reference/AWSLambdaSQSQueueExecutionRole.md "../../../aws-managed-policy/latest/reference/AWSLambdaSQSQueueExecutionRole.md") in the _AWS Managed Policy Reference_. 7. Go back to your function in the Lambda console. Under **Function overview**, choose **Add trigger**.
 
-![Function overview section of the Lambda console](/images/lambda/latest/dg/images/add-trigger.png) 8. Choose a trigger type. 9. Configure the required options, and then choose **Add**.
+![Function overview section of the Lambda console](images/add-trigger.png) 8. Choose a trigger type. 9. Configure the required options, and then choose **Add**.
 
 Lambda supports the following configuration options for Amazon SQS event sources:
 

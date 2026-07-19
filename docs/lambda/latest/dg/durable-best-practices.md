@@ -6,7 +6,7 @@ The following recommendations are best practices for deploying, invoking, and mo
 
 ## Function versions and aliases
 
-Invoke functions with version numbers or aliases to pin executions to specific code versions. Ensure new code versions can handle state from older versions. Don't rename steps or change their behavior in ways that break replay.
+Invoke functions with version numbers or aliases to pin executions to specific code versions. Ensure new code versions can handle state from older versions. Don't rename steps or change their behavior in ways that break replay. If you rename a step or alter its behavior while executions are in progress, those executions can fail to resume or produce incorrect results. This happens because the runtime can no longer match saved state to the expected step definition.
 
 ## Monitoring
 
@@ -20,7 +20,7 @@ To configure a DLQ, set the `DeadLetterConfig` property on your function to an A
 
 Follow these best practices for error handling with durable functions:
 
-- **Configure a DLQ for async invocations** – Always attach a dead-letter queue when invoking durable functions asynchronously. Unlike standard Lambda functions, durable executions are not automatically retried on failure, so the DLQ is your safety net for capturing events that led to permanently failed executions.
+- **Configure a DLQ for async invocations** – Always attach a dead-letter queue when invoking durable functions asynchronously. Unlike standard Lambda functions, the service does not automatically retry durable executions on failure. A properly configured DLQ captures events that led to permanently failed executions. Make sure the DLQ has the correct permissions and sufficient capacity to receive messages.
 - **Use retry strategies within steps** – Configure explicit retry strategies with appropriate backoff for transient failures. For guidance on configuring retries, see [Retries for durable functions](durable-execution-sdk-retries.md "durable-execution-sdk-retries.md").
 - **Combine DLQs with EventBridge notifications** – Use EventBridge rules to alert on FAILED, STOPPED, and TIMED\_OUT status changes for real-time visibility, and use a DLQ to preserve the original event payload for later analysis or reprocessing.
 - **Monitor DLQ depth** – Create a CloudWatch alarm on the `ApproximateNumberOfMessagesVisible` metric for your DLQ to detect when failures are accumulating.

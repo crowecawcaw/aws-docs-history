@@ -29,6 +29,8 @@ By resource type, the general design of how to restrict the scope of an action i
   `arn:aws:lambda:`us-west-2`:`123456789012`:function:`my-function`:`1``
 - Function alias –
   `arn:aws:lambda:`us-west-2`:`123456789012`:function:`my-function`:`TEST``
+- Durable execution –
+  `arn:aws:lambda:`us-west-2`:`123456789012`:function:`my-function`:`1`/durable-execution/`execution-name`/`execution-id``
 - Event source mapping –
   `arn:aws:lambda:`us-west-2`:`123456789012`:event-source-mapping:`fa123456-14a1-4fd2-9fec-83de64ad683de6d47``
 - Layer –
@@ -69,6 +71,7 @@ operation ([Invoke](../api/API_Invoke.md "../api/API_Invoke.md")). For other act
 
 - [Understanding the Condition section in policies](#authorization-conditions "#authorization-conditions")
 - [Referencing functions in the Resource section of policies](#function-resources "#function-resources")
+- [Referencing durable executions in the Resource section of policies](#durable-execution-resources "#durable-execution-resources")
 - [Supported IAM actions and function behaviors](#permissions-resources "#permissions-resources")
 
 ## Understanding the Condition section in policies
@@ -215,6 +218,90 @@ JSON
 
 ```
 
+## Referencing durable executions in the Resource section of policies
+
+A durable execution is a sub-resource of a function version. For the durable execution ARN structure and policy guidance, see [IAM permissions for durable functions](durable-security.md#durable-iam-permissions "durable-security.md#durable-iam-permissions").
+
+You can invoke durable functions only with a qualified function name or ARN, so policies that allow invocation of durable functions must match qualified ARNs. For more information, see [Qualified ARNs requirement](durable-invoking.md#durable-invoking-qualified-arns "durable-invoking.md#durable-invoking-qualified-arns").
+
+If your policy references the unqualified function ARN, Lambda denies requests to durable execution actions. The unqualified ARN never matches a durable execution ARN.
+
+###### Example Policy that does not grant access to durable executions
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "lambda:GetDurableExecution",
+            "Resource": "arn:aws:lambda:us-west-2:123456789012:function:myDurableFunction"
+        }
+    ]
+}
+```
+
+If your policy references the function ARN with `:*`, Lambda accepts requests to durable executions of every version.
+
+###### Example Allowing access to durable executions of any version
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "lambda:GetDurableExecution",
+            "Resource": "arn:aws:lambda:us-west-2:123456789012:function:myDurableFunction:*"
+        }
+    ]
+}
+```
+
+If your policy references the function ARN with `:1/durable-execution/*`, Lambda accepts requests to durable executions of version 1 only.
+
+###### Example Allowing access to durable executions of a specific version
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "lambda:GetDurableExecution",
+            "Resource": "arn:aws:lambda:us-west-2:123456789012:function:myDurableFunction:1/durable-execution/*"
+        }
+    ]
+}
+```
+
+###### Alias patterns never match durable execution ARNs
+
+Alias names never appear in durable execution ARNs. A resource pattern such as `my-function:prod/durable-execution/*` never matches any durable execution because Lambda resolves the alias to a version number when the function executes.
+
+Lambda authorizes the `lambda:ListDurableExecutionsByFunction` action against the function ARN from the request, not a durable execution ARN. The following rules apply to ARN matching:
+
+- A policy that grants the unqualified function ARN matches only requests that use the unqualified function name.
+- A policy that grants a qualified ARN matches only requests that use a qualified function name.
+
+###### Example Allowing listing of durable executions with either name form
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "lambda:ListDurableExecutionsByFunction",
+            "Resource": [
+                "arn:aws:lambda:us-west-2:123456789012:function:myDurableFunction",
+                "arn:aws:lambda:us-west-2:123456789012:function:myDurableFunction:*"
+            ]
+        }
+    ]
+}
+```
+
 ## Supported IAM actions and function behaviors
 
 Actions define what can be permitted through IAM policies. For a list of actions supported in Lambda, see
@@ -235,5 +322,6 @@ function by function, version, or alias ARN, as described in the following table
 | Action                                                                                                                                                                                                                                                                                                                                                                                                                              | Resource                           | Condition                     |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ----------------------------- |
 | [AddPermission](../api/API_AddPermission.md "../api/API_AddPermission.md")<br>[RemovePermission](../api/API_RemovePermission.md "../api/API_RemovePermission.md")<br>[Invoke](../api/API_Invoke.md "../api/API_Invoke.md") (**Permission:**<br>`lambda:InvokeFunction`)                                                                                                                                                             | Function version<br>Function alias | N/A                           |
+| [ListDurableExecutionsByFunction](../api/API_ListDurableExecutionsByFunction.md "../api/API_ListDurableExecutionsByFunction.md")                                                                                                                                                                                                                                                                                                    | Function version                   | N/A                           |
 | [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md")                                                                                                                                                                                                                                                                                                                | N/A                                | `lambda:CodeSigningConfigArn` |
 | [CreateFunctionUrlConfig](../api/API_CreateFunctionUrlConfig.md "../api/API_CreateFunctionUrlConfig.md")<br>[DeleteFunctionUrlConfig](../api/API_DeleteFunctionUrlConfig.md "../api/API_DeleteFunctionUrlConfig.md")<br>[GetFunctionUrlConfig](../api/API_GetFunctionUrlConfig.md "../api/API_GetFunctionUrlConfig.md")<br>[UpdateFunctionUrlConfig](../api/API_UpdateFunctionUrlConfig.md "../api/API_UpdateFunctionUrlConfig.md") | Function alias                     | N/A                           |
