@@ -64,9 +64,6 @@ Use the following topics to learn more about VPCs and subnets.
     with Public and Private Subnets (NAT)](../../../vpc/latest/userguide/VPC_Scenario2.md "../../../vpc/latest/userguide/VPC_Scenario2.md")
   - [NAT
     Instances](../../../vpc/latest/userguide/VPC_NAT_Instance.md "../../../vpc/latest/userguide/VPC_NAT_Instance.md")
-  - [High
-    Availability for Amazon VPC NAT Instances: An
-    Example](https://aws.amazon.com/articles/2781451301784570 "https://aws.amazon.com/articles/2781451301784570")
 
 - Public Subnets in a VPC
 

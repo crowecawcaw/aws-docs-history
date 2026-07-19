@@ -1,5 +1,9 @@
 # Configure Docker for use with Amazon EMR clusters
 
+###### Note
+
+The procedure described works only with Amazon EMR version 6.x.
+
 Amazon EMR 6.x supports Hadoop 3, which allows the YARN NodeManager to launch containers either
 directly on the Amazon EMR cluster or inside a Docker container. Docker containers provide
 custom execution environments in which application code runs. The custom execution
