@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 26, 2023, 14:19 UTC
-- **Edited time:** April 26, 2024, 20:25 UTC
+- **Edited time:** July 17, 2026, 08:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonPrometheusScraperServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -114,6 +114,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : "aps:RemoteWrite",
       "Resource" : "arn:aws:aps:*:*:workspace/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:PrincipalAccount" : "${aws:ResourceAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "CloudWatchMetricsWriting",
+      "Effect" : "Allow",
+      "Action" : "cloudwatch:PutMetricData",
+      "Resource" : "arn:aws:cloudwatch:*:*:dataset/*",
       "Condition" : {
         "StringEquals" : {
           "aws:PrincipalAccount" : "${aws:ResourceAccount}"

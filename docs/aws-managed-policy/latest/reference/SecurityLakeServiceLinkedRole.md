@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 29, 2022, 14:03 UTC
-- **Edited time:** April 19, 2024, 16:00 UTC
+- **Edited time:** July 15, 2026, 17:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/SecurityLakeServiceLinkedRole`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -67,6 +67,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "cloudtrail:ListServiceLinkedChannels"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowOrganizationTrailValidation",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudtrail:DescribeTrails",
+        "cloudtrail:GetTrailStatus",
+        "cloudtrail:GetEventSelectors"
       ],
       "Resource" : "*"
     },

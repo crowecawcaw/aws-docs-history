@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: April 27, 2026, 23:42 UTC
-- **Edited time:** June 19, 2026, 17:27 UTC
+- **Edited time:** July 15, 2026, 17:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/EC2ApplicationStatusChecksServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -55,6 +55,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeNetworkInterfaces"
       ],
       "Resource" : "*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "cloudwatch:PutMetricData",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "cloudwatch:namespace" : "AWS/Usage"
+        }
+      }
     }
   ]
 }

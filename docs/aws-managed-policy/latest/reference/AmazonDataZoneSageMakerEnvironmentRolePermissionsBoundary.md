@@ -12,13 +12,13 @@ You can attach `AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary` to yo
 
 - **Type**: AWS managed policy
 - **Creation time**: April 23, 2024, 23:01 UTC
-- **Edited time:** June 27, 2026, 00:57 UTC
+- **Edited time:** July 17, 2026, 17:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary`
 
 ## Policy version
 
-**Policy version:** v12 (default)
+**Policy version:** v13 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -1217,7 +1217,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Deny",
       "Action" : [
         "sagemaker:CreateNotebookInstanceLifecycleConfig",
-        "sagemaker:UpdateNotebookInstanceLifecycleConfig"
+        "sagemaker:UpdateNotebookInstanceLifecycleConfig",
+        "sagemaker:DeleteNotebookInstanceLifecycleConfig"
       ],
       "Resource" : "*"
     }

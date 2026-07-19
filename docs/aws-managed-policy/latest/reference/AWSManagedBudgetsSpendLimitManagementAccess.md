@@ -1,24 +1,24 @@
-# AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy
+# AWSManagedBudgetsSpendLimitManagementAccess
 
-**Description**: Provides Bedrock Model inference permission to Bedrock agent core memory
+**Description**: Grants the AWS Budgets service permissions to attach and detach Service Control Policies and manage accounts in an AWS Organization to enforce spend limit guardrails on member accounts.
 
-`AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSManagedBudgetsSpendLimitManagementAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy` to your users, groups, and roles.
+You can attach `AWSManagedBudgetsSpendLimitManagementAccess` to your users, groups, and roles.
 
 ## Policy details
 
 - **Type**: AWS managed policy
-- **Creation time**: July 16, 2025, 13:37 UTC
-- **Edited time:** July 17, 2026, 17:12 UTC
+- **Creation time**: July 17, 2026, 21:12 UTC
+- **Edited time:** July 17, 2026, 21:12 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy`
+  `arn:aws:iam::aws:policy/AWSManagedBudgetsSpendLimitManagementAccess`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -30,38 +30,35 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "BedrockInvokeModel",
+      "Sid" : "SCPActions",
       "Effect" : "Allow",
       "Action" : [
-        "bedrock:InvokeModel",
-        "bedrock:InvokeModelWithResponseStream"
+        "organizations:AttachPolicy",
+        "organizations:DescribePolicy",
+        "organizations:DetachPolicy",
+        "organizations:ListPolicies"
       ],
-      "Resource" : [
-        "arn:aws:bedrock:*::foundation-model/*",
-        "arn:aws:bedrock:*:*:inference-profile/*"
-      ],
+      "Resource" : "arn:aws:organizations::*:policy/*/service_control_policy/*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          "aws:ResourceTag/ManagedBy" : "SpendLimit"
         }
       }
     },
     {
-      "Sid" : "BedrockMantleInference",
+      "Sid" : "SCPTargetActions",
       "Effect" : "Allow",
-      "Action" : "bedrock-mantle:CreateInference",
-      "Resource" : "arn:aws:bedrock-mantle:*:*:project/*",
-      "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        }
-      }
+      "Action" : [
+        "organizations:AttachPolicy",
+        "organizations:DetachPolicy"
+      ],
+      "Resource" : "arn:aws:organizations::*:account/*"
     },
     {
-      "Sid" : "BedrockMantleCallWithBearerToken",
+      "Sid" : "AccountActions",
       "Effect" : "Allow",
-      "Action" : "bedrock-mantle:CallWithBearerToken",
-      "Resource" : "*"
+      "Action" : "organizations:CloseAccount",
+      "Resource" : "arn:aws:organizations::*:account/*"
     }
   ]
 }

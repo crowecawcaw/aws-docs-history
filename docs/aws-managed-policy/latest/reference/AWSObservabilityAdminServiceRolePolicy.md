@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 27, 2024, 19:36 UTC
-- **Edited time:** November 27, 2024, 19:36 UTC
+- **Edited time:** July 14, 2026, 22:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSObservabilityAdminServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -38,7 +38,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "organizations:ListChildren",
         "organizations:ListParents",
         "organizations:DescribeOrganization",
-        "organizations:DescribeOrganizationalUnit"
+        "organizations:DescribeOrganizationalUnit",
+        "organizations:ListAWSServiceAccessForOrganization"
       ],
       "Resource" : "*"
     },

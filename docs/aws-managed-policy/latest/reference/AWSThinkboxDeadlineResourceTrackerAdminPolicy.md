@@ -12,13 +12,13 @@ You can attach `AWSThinkboxDeadlineResourceTrackerAdminPolicy` to your users, gr
 
 - **Type**: AWS managed policy
 - **Creation time**: May 27, 2020, 19:29 UTC
-- **Edited time:** November 12, 2024, 19:29 UTC
+- **Edited time:** July 16, 2026, 17:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSThinkboxDeadlineResourceTrackerAdminPolicy`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -255,8 +255,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3:GetObject"
       ],
       "Resource" : [
-        "arn:aws:s3:::*/deadline_aws_resource_tracker-*.zip",
-        "arn:aws:s3:::*/DeadlineAWSResourceTrackerTemplate-*.yaml"
+        "arn:aws:s3:::*/deadline_aws_resource_tracker*.zip",
+        "arn:aws:s3:::*/DeadlineAWSResourceTrackerTemplate*.yaml"
       ]
     },
     {

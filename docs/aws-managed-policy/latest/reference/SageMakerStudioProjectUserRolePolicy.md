@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectUserRolePolicy` to your users, groups, and
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:59 UTC
-- **Edited time:** June 29, 2026, 20:27 UTC
+- **Edited time:** July 14, 2026, 19:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePolicy`
 
 ## Policy version
 
-**Policy version:** v71 (default)
+**Policy version:** v72 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -1382,7 +1382,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "emr-serverless.amazonaws.com",
             "elasticmapreduce.amazonaws.com",
             "scheduler.amazonaws.com",
-            "access-grants.s3.amazonaws.com"
+            "access-grants.s3.amazonaws.com",
+            "pods.eks.amazonaws.com"
           ]
         }
       }
@@ -1543,10 +1544,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "ComputeCredentials",
       "Effect" : "Allow",
       "Action" : [
-        "emr-containers:DescribeManagedEndpoint",
+        "emr-containers:*ManagedEndpoint*",
+        "emr-containers:TagResource",
         "emr-containers:DescribeSecurityConfiguration",
         "emr-containers:DescribeVirtualCluster",
-        "emr-containers:GetManagedEndpointSessionCredentials",
         "redshift-serverless:GetCredentials",
         "redshift:GetClusterCredentialsWithIAM"
       ],

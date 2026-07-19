@@ -12,13 +12,13 @@ You can attach `SageMakerStudioUserIAMDefaultExecutionPolicy` to your users, gro
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 17:19 UTC
-- **Edited time:** June 29, 2026, 16:12 UTC
+- **Edited time:** July 14, 2026, 18:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioUserIAMDefaultExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v27 (default)
+**Policy version:** v28 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -301,7 +301,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "ProjectUserTag*",
             "sagemaker*",
             "sm-jumpstart*",
-            "endpoint-has-jumpstart-model"
+            "endpoint-has-jumpstart-model",
+            "aws-jumpstart*",
+            "Source",
+            "CanvasModelName",
+            "Canvas",
+            "SageMaker",
+            "ProjectS3Path",
+            "Owner"
           ]
         },
         "ForAllValues:StringNotLike" : {
@@ -365,6 +372,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "athena:TerminateSession",
         "emr-serverless:*Session*",
         "emr-serverless:*Dashboard*",
+        "emr-containers:*ManagedEndpoint*",
         "elasticmapreduce:*Session*",
         "glue:CancelStatement",
         "glue:CreateSession",
@@ -379,6 +387,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "arn:aws:athena:*:*:workgroup/*/session/*",
         "arn:aws:emr-serverless:*:*:/applications/*/sessions/*",
+        "arn:aws:emr-containers:*:*:/virtualclusters/*/endpoints/*",
         "arn:aws:elasticmapreduce:*:*:cluster/*/session/*",
         "arn:aws:glue:*:*:session/*"
       ],
@@ -396,6 +405,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "athena:TagResource",
         "athena:UntagResource",
         "emr-serverless:*Resource",
+        "emr-containers:*Resource",
         "elasticmapreduce:AddTags",
         "elasticmapreduce:RemoveTags",
         "glue:TagResource",
@@ -404,6 +414,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "arn:aws:athena:*:*:workgroup/*/session/*",
         "arn:aws:emr-serverless:*:*:/applications/*/sessions/*",
+        "arn:aws:emr-containers:*:*:/virtualclusters/*/endpoints/*",
         "arn:aws:elasticmapreduce:*:*:cluster/*/session/*",
         "arn:aws:glue:*:*:session/*"
       ],
@@ -517,7 +528,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "elasticmapreduce.amazonaws.com",
             "redshift.amazonaws.com",
             "airflow-serverless.amazonaws.com",
-            "events.amazonaws.com"
+            "events.amazonaws.com",
+            "pods.eks.amazonaws.com"
           ]
         }
       }
@@ -989,6 +1001,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "emr-serverless:Access*Endpoints",
         "emr-serverless:Terminate*",
         "emr-serverless:*Resource",
+        "emr-containers:*ManagedEndpoint*",
+        "emr-containers:*SecurityConfiguration*",
+        "emr-containers:*VirtualCluster*",
+        "emr-containers:*Resource",
         "elasticmapreduce:*PersistentAppUI*",
         "elasticmapreduce:Start*",
         "elasticmapreduce:Get*",
