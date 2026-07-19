@@ -53,7 +53,7 @@ page.
 
 If you already have AWS Cloud9 environments, the button is shown as follows.
 
-![Create environment button in the AWS Cloud9 console](images/console_create_env_new_UX.png)
+![Create environment button in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/console_create_env_new_UX.png)
 
 1. On the **Create environment** page, for **Name**,
    enter a name for your environment.
