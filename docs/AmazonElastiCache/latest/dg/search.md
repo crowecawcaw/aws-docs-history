@@ -8,6 +8,10 @@ For a detailed description of the supported commands, examples and configuration
 
 You can learn more about the Search feature and related concepts at [Valkey Search documentation](https://valkey.io/topics/search/ "https://valkey.io/topics/search/").
 
+###### Note
+
+To build search workflows with AI agents, visit the [Agent tools for ElastiCache](AgentTools.md "AgentTools.md") page to install the ElastiCache Skill and Valkey MCP server. They provide the knowledge as well as tools to manage indexes, generate vector embeddings, and a unified search tool for setting up search workflows.
+
 ###### Topics
 
 - [Search features and limits](search-features-limits.md "search-features-limits.md")

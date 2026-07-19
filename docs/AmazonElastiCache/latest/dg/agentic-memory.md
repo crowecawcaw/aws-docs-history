@@ -10,6 +10,10 @@ This topic explains how to use ElastiCache for Valkey as the storage layer for a
 the concepts, architecture, implementation, and best practices for building memory-enabled AI
 agents.
 
+###### Note
+
+To build agent memory on ElastiCache with AI agents, visit the [Agent tools for ElastiCache](AgentTools.md "AgentTools.md") page to install the ElastiCache Skill and Valkey MCP server. They provide knowledge as well as tools to create agent memory workflows.
+
 ###### Topics
 
 - [Overview of agentic memory](agentic-memory-overview.md "agentic-memory-overview.md")

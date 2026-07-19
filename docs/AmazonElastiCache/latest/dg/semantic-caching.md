@@ -11,6 +11,10 @@ embeddings.
 This topic explains how to implement a semantic cache using vector search on Amazon ElastiCache for Valkey,
 including the concepts, architecture, implementation, benchmarks, and best practices.
 
+###### Note
+
+To build semantic caching with AI agents, visit the [Agent tools for ElastiCache](AgentTools.md "AgentTools.md") page to install the ElastiCache Skill and Valkey MCP server. They provide the knowledge as well as automatic embedding generation and similarity search for setting up semantic caching workflows.
+
 ###### Topics
 
 - [Overview of semantic caching](semantic-caching-overview.md "semantic-caching-overview.md")

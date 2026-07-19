@@ -13,6 +13,8 @@ create a node-based cluster.
 
 Amazon ElastiCache works with the Valkey, Memcached, and Redis OSS engines. If you're unsure which engine you want to use, see [Comparing node-based Valkey, Memcached, and Redis OSS clusters](SelectEngine.md "SelectEngine.md") in this guide.
 
+To get started with ElastiCache using AI agents, visit the [Agent tools for ElastiCache](AgentTools.md "AgentTools.md") page to install the ElastiCache Skill and Valkey MCP server, which give AI agents the specialized knowledge and tools needed to work with ElastiCache accurately.
+
 ## Serverless caching
 
 ElastiCache offers serverless caching, which simplifies adding and operating a cache
