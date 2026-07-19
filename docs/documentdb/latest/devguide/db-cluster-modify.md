@@ -18,7 +18,7 @@ cluster using the console.
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Menu button.](images/docdb-menu-icon.png))
+(![Menu button.](/images/documentdb/latest/devguide/images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. Specify the cluster that you want to modify by choosing
 the button to the left of the cluster's name. 4. Choose **Actions**, and then choose
 **Modify**. 5. In the **Modify Cluster: <cluster-name>**

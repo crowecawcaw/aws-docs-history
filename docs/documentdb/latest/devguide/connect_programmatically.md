@@ -21,6 +21,7 @@ applying the appropriate code example.
 - [Determining the value of your tls parameter](#connect_programmatically-determine_tls_value "#connect_programmatically-determine_tls_value")
 - [Connecting with TLS enabled](#connect_programmatically-tls_enabled "#connect_programmatically-tls_enabled")
 - [Connecting with TLS disabled](#connect_programmatically-tls_disabled "#connect_programmatically-tls_disabled")
+- [Network compression in Amazon DocumentDB](#connect_programmatically-network_compression "#connect_programmatically-network_compression")
 
 ## Determining the value of your `tls` parameter
 
@@ -1134,3 +1135,89 @@ end
 #Close the connection
 client.close
 ```
+
+## Network compression in Amazon DocumentDB
+
+With wire-protocol compression, you can reduce the data that your application sends
+over the network. Amazon DocumentDB 8.0.1 and later support compression. You get improved
+throughput for workloads that transfer large documents or large result sets. After you
+enable compression, the driver and server exchange compressed messages.
+
+When you enable network compression, you trade CPU resources for reduced network
+bandwidth. We recommend that you enable compression when your workload is network-bound
+and transfers large payloads. For small requests and responses, you might not see a net
+benefit, because the compression overhead can exceed the savings.
+
+### Supported compressors
+
+Amazon DocumentDB supports the `snappy` compressor. Amazon DocumentDB doesn't support other
+compressors that MongoDB drivers offer, such as `zlib` and
+`zstd`.
+
+If a driver requests a list of compressors, Amazon DocumentDB negotiates only the supported
+ones. For example, if a driver offers `snappy` and `zstd`,
+Amazon DocumentDB selects `snappy` and ignores `zstd`. If a driver offers
+only unsupported compressors, Amazon DocumentDB doesn't compress the connection. In this case,
+the driver and the server exchange messages without compression.
+
+### Enable compression
+
+To enable compression, add the `compressors` option to your connection
+string and set it to `snappy`. In the following connection string,
+replace `username`,
+`password`, and
+`docdb-cluster-endpoint` with your own
+values:
+
+```
+mongodb://`username`:`password`@`docdb-cluster-endpoint`:27017/?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false&`compressors=snappy`
+```
+
+When you use a MongoDB driver, set the same option through the driver's connection
+options. Most drivers require an additional client-side dependency to perform snappy
+compression:
+
+- The Node.js driver requires the `snappy` package.
+- The Python driver (`PyMongo`) requires the
+  `python-snappy` package. On Linux, `python-snappy`
+  also requires the system snappy library (for example,
+  `snappy-devel` through `dnf` or `yum`).
+
+For the exact option name and any required packages, see your driver's
+documentation.
+
+###### Note
+
+If the client-side compression dependency is missing, the driver connects
+successfully. However, it exchanges messages without compression and doesn't
+return an error. To confirm that compression is active, verify the negotiated
+compressor as described in [Verify compression](#connect_programmatically-network_compression.verifying "#connect_programmatically-network_compression.verifying").
+
+The following Python code example connects to your cluster with snappy compression
+enabled and uses a `try` and `except` block to handle
+connection errors:
+
+```
+import pymongo
+
+try:
+    client = pymongo.MongoClient(
+        'mongodb://`username`:`password`@`docdb-cluster-endpoint`:27017/'
+        '?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false'
+        '&compressors=snappy',
+        tlsCAFile='global-bundle.pem')
+
+    db = client['sample-database']
+    col = db['sample-collection']
+    col.insert_one({'item': 'DocumentDB'})
+    print(col.find_one())
+except Exception as error:
+    print(f'Connection failed: {error}')
+```
+
+### Verify compression
+
+To confirm that a driver and Amazon DocumentDB negotiated compression, inspect the
+`compression` field that the `hello` MongoDB wire protocol
+command returns. When the driver and Amazon DocumentDB negotiate compression, this field lists
+the agreed compressors.

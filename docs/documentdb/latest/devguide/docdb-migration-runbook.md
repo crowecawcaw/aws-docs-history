@@ -207,7 +207,7 @@ This section outlines the detailed step-by-step process for migrating indexes fr
 **Clone the [index tool](https://github.com/awslabs/amazon-documentdb-tools/blob/master/index-tool/README.md "https://github.com/awslabs/amazon-documentdb-tools/blob/master/index-tool/README.md")**
 
 ```
-git clone https://github.com/aws-samples/amazon-documentdb-tools.git
+git clone https://github.com/awslabs/amazon-documentdb-tools.git
 cd amazon-documentdb-tools/index-tool
 ```
 

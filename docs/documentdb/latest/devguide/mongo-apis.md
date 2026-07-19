@@ -42,31 +42,32 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 
 ### Administrative commands
 
-| Command                     | 3.6     | 4.0     | 5.0     | 8.0     | Elastic cluster |
-| --------------------------- | ------- | ------- | ------- | ------- | --------------- |
-| Capped Collections          | No      | No      | No      | No      | No              |
-| cloneCollectionAsCapped     | No      | No      | No      | No      | No              |
-| collMod                     | Partial | Partial | Partial | Partial | Partial         |
-| collMod: expireAfterSeconds | Yes     | Yes     | Yes     | Yes     | Yes             |
-| convertToCapped             | No      | No      | No      | No      | No              |
-| copydb                      | No      | No      | No      | No      | No              |
-| create                      | Yes     | Yes     | Yes     | Yes     | Yes             |
-| createView                  | No      | No      | No      | Yes     | No              |
-| createIndexes               | Yes     | Yes     | Yes     | Yes     | Yes             |
-| currentOp                   | Yes     | Yes     | Yes     | Yes     | Yes             |
-| drop                        | Yes     | Yes     | Yes     | Yes     | Yes             |
-| dropDatabase                | Yes     | Yes     | Yes     | Yes     | Yes             |
-| dropIndexes                 | Yes     | Yes     | Yes     | Yes     | Yes             |
-| filemd5                     | No      | No      | No      | No      | No              |
-| getAuditConfig              | No      | Yes     | Yes     | Yes     | No              |
-| killCursors                 | Yes     | Yes     | Yes     | Yes     | Yes             |
-| killOp                      | Yes     | Yes     | Yes     | Yes     | Yes             |
-| listCollections\*           | Yes     | Yes     | Yes     | Yes     | Yes             |
-| listDatabases               | Yes     | Yes     | Yes     | Yes     | Yes             |
-| listIndexes                 | Yes     | Yes     | Yes     | Yes     | Yes             |
-| reIndex                     | No      | No      | Yes     | Yes     | No              |
-| renameCollection            | Yes     | Yes     | Yes     | Yes     | No              |
-| setAuditConfig              | No      | Yes     | Yes     | Yes     | No              |
+| Command                     | 3.6     | 4.0     | 5.0     | 8.0          | Elastic cluster |
+| --------------------------- | ------- | ------- | ------- | ------------ | --------------- |
+| Capped Collections          | No      | No      | No      | No           | No              |
+| cloneCollectionAsCapped     | No      | No      | No      | No           | No              |
+| collMod                     | Partial | Partial | Partial | Partial      | Partial         |
+| collMod: expireAfterSeconds | Yes     | Yes     | Yes     | Yes          | Yes             |
+| collMod: hidden             | No      | No      | No      | Yes (8.0.1+) | No              |
+| convertToCapped             | No      | No      | No      | No           | No              |
+| copydb                      | No      | No      | No      | No           | No              |
+| create                      | Yes     | Yes     | Yes     | Yes          | Yes             |
+| createView                  | No      | No      | No      | Yes          | No              |
+| createIndexes               | Yes     | Yes     | Yes     | Yes          | Yes             |
+| currentOp                   | Yes     | Yes     | Yes     | Yes          | Yes             |
+| drop                        | Yes     | Yes     | Yes     | Yes          | Yes             |
+| dropDatabase                | Yes     | Yes     | Yes     | Yes          | Yes             |
+| dropIndexes                 | Yes     | Yes     | Yes     | Yes          | Yes             |
+| filemd5                     | No      | No      | No      | No           | No              |
+| getAuditConfig              | No      | Yes     | Yes     | Yes          | No              |
+| killCursors                 | Yes     | Yes     | Yes     | Yes          | Yes             |
+| killOp                      | Yes     | Yes     | Yes     | Yes          | Yes             |
+| listCollections\*           | Yes     | Yes     | Yes     | Yes          | Yes             |
+| listDatabases               | Yes     | Yes     | Yes     | Yes          | Yes             |
+| listIndexes                 | Yes     | Yes     | Yes     | Yes          | Yes             |
+| reIndex                     | No      | No      | Yes     | Yes          | No              |
+| renameCollection            | Yes     | Yes     | Yes     | Yes          | No              |
+| setAuditConfig              | No      | Yes     | Yes     | Yes          | No              |
 
 \* The `type` key in the filter option is not supported.
 
@@ -366,39 +367,39 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 
 ## Cursor methods
 
-| Command                  | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------------------------ | --- | --- | --- | --- | --------------- |
-| cursor.batchSize()       | Yes | Yes | Yes | Yes | Yes             |
-| cursor.close()           | Yes | Yes | Yes | Yes | Yes             |
-| cursor.collation()       | No  | No  | No  | Yes | No              |
-| cursor.comment()         | Yes | Yes | Yes | Yes | Yes             |
-| cursor.count()           | Yes | Yes | Yes | Yes | Yes             |
-| cursor.explain()         | Yes | Yes | Yes | Yes | No              |
-| cursor.forEach()         | Yes | Yes | Yes | Yes | Yes             |
-| cursor.hasNext()         | Yes | Yes | Yes | Yes | Yes             |
-| cursor.hint()            | Yes | Yes | Yes | Yes | Yes\*           |
-| cursor.isClosed()        | Yes | Yes | Yes | Yes | Yes             |
-| cursor.isExhausted()     | Yes | Yes | Yes | Yes | No              |
-| cursor.itcount()         | Yes | Yes | Yes | Yes | No              |
-| cursor.limit()           | Yes | Yes | Yes | Yes | No              |
-| cursor.map()             | Yes | Yes | Yes | Yes | No              |
-| cursor.max()             | No  | No  | No  | No  | No              |
-| cursor.maxScan()         | Yes | Yes | Yes | Yes | No              |
-| cursor.maxTimeMS()       | Yes | Yes | Yes | Yes | No              |
-| cursor.min()             | No  | No  | No  | No  | No              |
-| cursor.next()            | Yes | Yes | Yes | Yes | Yes             |
-| cursor.noCursorTimeout() | No  | No  | No  | No  | No              |
-| cursor.objsLeftInBatch() | Yes | Yes | Yes | Yes | No              |
-| cursor.pretty()          | Yes | Yes | Yes | Yes | No              |
-| cursor.readConcern()     | Yes | Yes | Yes | Yes | No              |
-| cursor.readPref()        | Yes | Yes | Yes | Yes | No              |
-| cursor.returnKey()       | No  | No  | No  | No  | No              |
-| cursor.showRecordId()    | No  | No  | No  | No  | No              |
-| cursor.size()            | Yes | Yes | Yes | Yes | No              |
-| cursor.skip()            | Yes | Yes | Yes | Yes | No              |
-| cursor.sort()            | Yes | Yes | Yes | Yes | No              |
-| cursor.tailable()        | No  | No  | No  | No  | No              |
-| cursor.toArray()         | Yes | Yes | Yes | Yes | No              |
+| Command                  | 3.6 | 4.0 | 5.0 | 8.0          | Elastic cluster |
+| ------------------------ | --- | --- | --- | ------------ | --------------- |
+| cursor.batchSize()       | Yes | Yes | Yes | Yes          | Yes             |
+| cursor.close()           | Yes | Yes | Yes | Yes          | Yes             |
+| cursor.collation()       | No  | No  | No  | Yes          | No              |
+| cursor.comment()         | Yes | Yes | Yes | Yes          | Yes             |
+| cursor.count()           | Yes | Yes | Yes | Yes          | Yes             |
+| cursor.explain()         | Yes | Yes | Yes | Yes          | No              |
+| cursor.forEach()         | Yes | Yes | Yes | Yes          | Yes             |
+| cursor.hasNext()         | Yes | Yes | Yes | Yes          | Yes             |
+| cursor.hint()            | Yes | Yes | Yes | Yes          | Yes\*           |
+| cursor.isClosed()        | Yes | Yes | Yes | Yes          | Yes             |
+| cursor.isExhausted()     | Yes | Yes | Yes | Yes          | No              |
+| cursor.itcount()         | Yes | Yes | Yes | Yes          | No              |
+| cursor.limit()           | Yes | Yes | Yes | Yes          | No              |
+| cursor.map()             | Yes | Yes | Yes | Yes          | No              |
+| cursor.max()             | No  | No  | No  | Yes (8.0.1+) | No              |
+| cursor.maxScan()         | Yes | Yes | Yes | Yes          | No              |
+| cursor.maxTimeMS()       | Yes | Yes | Yes | Yes          | No              |
+| cursor.min()             | No  | No  | No  | Yes (8.0.1+) | No              |
+| cursor.next()            | Yes | Yes | Yes | Yes          | Yes             |
+| cursor.noCursorTimeout() | No  | No  | No  | No           | No              |
+| cursor.objsLeftInBatch() | Yes | Yes | Yes | Yes          | No              |
+| cursor.pretty()          | Yes | Yes | Yes | Yes          | No              |
+| cursor.readConcern()     | Yes | Yes | Yes | Yes          | No              |
+| cursor.readPref()        | Yes | Yes | Yes | Yes          | No              |
+| cursor.returnKey()       | No  | No  | No  | No           | No              |
+| cursor.showRecordId()    | No  | No  | No  | No           | No              |
+| cursor.size()            | Yes | Yes | Yes | Yes          | No              |
+| cursor.skip()            | Yes | Yes | Yes | Yes          | No              |
+| cursor.sort()            | Yes | Yes | Yes | Yes          | No              |
+| cursor.tailable()        | No  | No  | No  | No           | No              |
+| cursor.toArray()         | Yes | Yes | Yes | Yes          | No              |
 
 \* Index `hint` is supported with index expressions. For example, `db.foo.find().hint({x:1})`.
 
@@ -425,54 +426,67 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 - [Text search operator](#mongo-apis-aggregation-pipeline-text-search "#mongo-apis-aggregation-pipeline-text-search")
 - [Type conversion operators](#mongo-apis-aggregation-pipeline-type "#mongo-apis-aggregation-pipeline-type")
 - [Variable operators](#mongo-apis-aggregation-pipeline-variable "#mongo-apis-aggregation-pipeline-variable")
+- [Trigonometry operators](#mongo-apis-aggregation-pipeline-trigonometry "#mongo-apis-aggregation-pipeline-trigonometry")
+- [Bitwise operators (aggregation)](#mongo-apis-aggregation-pipeline-bitwise "#mongo-apis-aggregation-pipeline-bitwise")
+- [Timestamp operators](#mongo-apis-aggregation-pipeline-timestamp "#mongo-apis-aggregation-pipeline-timestamp")
 - [Miscellaneous operators](#mongo-apis-aggregation-pipeline-misc "#mongo-apis-aggregation-pipeline-misc")
 
 ### Accumulator expressions
 
-| Expression                                                     | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| -------------------------------------------------------------- | --- | --- | --- | --- | --------------- |
-| $accumulator                                                   | -   | -   | No  | No  | No              |
-| [$addToSet](addToSet-aggregation.md "addToSet-aggregation.md") | Yes | Yes | Yes | Yes | Yes             |
-| [$avg](avg.md "avg.md")                                        | Yes | Yes | Yes | Yes | Yes             |
-| [$count](count.md "count.md")                                  | -   | -   | No  | No  | No              |
-| $covariancePop                                                 | No  | No  | No  | No  | No              |
-| $covarianceSamp                                                | No  | No  | No  | No  | No              |
-| $denseRank                                                     | No  | No  | No  | No  | No              |
-| $derivative                                                    | No  | No  | No  | No  | No              |
-| $documentNumber                                                | No  | No  | No  | No  | No              |
-| $expMovingAvg                                                  | No  | No  | No  | No  | No              |
-| [$first](first.md "first.md")                                  | Yes | Yes | Yes | Yes | Yes             |
-| $integral                                                      | No  | No  | No  | No  | No              |
-| [$last](last.md "last.md")                                     | Yes | Yes | Yes | Yes | Yes             |
-| [$max](max.md "max.md")                                        | Yes | Yes | Yes | Yes | Yes             |
-| [$min](min.md "min.md")                                        | Yes | Yes | Yes | Yes | Yes             |
-| [$push](push-aggregation.md "push-aggregation.md")             | Yes | Yes | Yes | Yes | Yes             |
-| $rank                                                          | No  | No  | No  | No  | No              |
-| $shift                                                         | No  | No  | No  | No  | No              |
-| $stdDevPop                                                     | No  | No  | No  | No  | No              |
-| $stdDevSamp                                                    | No  | No  | No  | No  | No              |
-| [$sum](sum.md "sum.md")                                        | Yes | Yes | Yes | Yes | Yes             |
+| Expression                                                     | 3.6 | 4.0 | 5.0 | 8.0          | Elastic cluster |
+| -------------------------------------------------------------- | --- | --- | --- | ------------ | --------------- |
+| $accumulator                                                   | -   | -   | No  | No           | No              |
+| [$addToSet](addToSet-aggregation.md "addToSet-aggregation.md") | Yes | Yes | Yes | Yes          | Yes             |
+| [$avg](avg.md "avg.md")                                        | Yes | Yes | Yes | Yes          | Yes             |
+| [$bottom](bottom.md "bottom.md")                               | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$bottomN](bottomN.md "bottomN.md")                            | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$count](count-accumulator.md "count-accumulator.md")          | -   | -   | No  | Yes (8.0.1+) | No              |
+| $covariancePop                                                 | No  | No  | No  | No           | No              |
+| $covarianceSamp                                                | No  | No  | No  | No           | No              |
+| $denseRank                                                     | No  | No  | No  | No           | No              |
+| $derivative                                                    | No  | No  | No  | No           | No              |
+| $documentNumber                                                | No  | No  | No  | No           | No              |
+| $expMovingAvg                                                  | No  | No  | No  | No           | No              |
+| [$first](first.md "first.md")                                  | Yes | Yes | Yes | Yes          | Yes             |
+| [$firstN](firstN.md "firstN.md")                               | -   | -   | -   | Yes (8.0.1+) | No              |
+| $integral                                                      | No  | No  | No  | No           | No              |
+| [$last](last.md "last.md")                                     | Yes | Yes | Yes | Yes          | Yes             |
+| [$lastN](lastN.md "lastN.md")                                  | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$max](max.md "max.md")                                        | Yes | Yes | Yes | Yes          | Yes             |
+| [$maxN](maxN.md "maxN.md")                                     | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$median](median.md "median.md")                               | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$min](min.md "min.md")                                        | Yes | Yes | Yes | Yes          | Yes             |
+| [$minN](minN.md "minN.md")                                     | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$percentile](percentile.md "percentile.md")                   | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$push](push-aggregation.md "push-aggregation.md")             | Yes | Yes | Yes | Yes          | Yes             |
+| $rank                                                          | No  | No  | No  | No           | No              |
+| $shift                                                         | No  | No  | No  | No           | No              |
+| [$stdDevPop](stdDevPop.md "stdDevPop.md")                      | No  | No  | No  | Yes (8.0.1+) | No              |
+| [$stdDevSamp](stdDevSamp.md "stdDevSamp.md")                   | No  | No  | No  | Yes (8.0.1+) | No              |
+| [$sum](sum.md "sum.md")                                        | Yes | Yes | Yes | Yes          | Yes             |
+| [$top](top-accumulator.md "top-accumulator.md")                | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$topN](topN.md "topN.md")                                     | -   | -   | -   | Yes (8.0.1+) | No              |
 
 ### Arithmetic operators
 
-| Command                                | 3.6 | 4.0 | 5.0          | 8.0 | Elastic cluster |
-| -------------------------------------- | --- | --- | ------------ | --- | --------------- |
-| [$abs](abs.md "abs.md")                | Yes | Yes | Yes          | Yes | Yes             |
-| [$add](add.md "add.md")                | Yes | Yes | Yes          | Yes | Yes             |
-| [$ceil](ceil.md "ceil.md")             | No  | Yes | Yes          | Yes | Yes             |
-| [$divide](divide.md "divide.md")       | Yes | Yes | Yes          | Yes | Yes             |
-| [$exp](exp.md "exp.md")                | No  | Yes | Yes          | Yes | Yes             |
-| [$floor](floor.md "floor.md")          | No  | Yes | Yes          | Yes | Yes             |
-| [$ln](ln.md "ln.md")                   | No  | Yes | Yes          | Yes | Yes             |
-| [$log](log.md "log.md")                | No  | Yes | Yes          | Yes | Yes             |
-| [$log10](log10.md "log10.md")          | No  | Yes | Yes          | Yes | Yes             |
-| [$mod](mod.md "mod.md")                | Yes | Yes | Yes          | Yes | Yes             |
-| [$multiply](multiply.md "multiply.md") | Yes | Yes | Yes          | Yes | Yes             |
-| [$pow](pow.md "pow.md")                | No  | No  | Yes (5.0.1+) | Yes | No              |
-| $round                                 | -   | -   | No           | No  | No              |
-| [$sqrt](sqrt.md "sqrt.md")             | No  | Yes | Yes          | Yes | Yes             |
-| [$subtract](subtract.md "subtract.md") | Yes | Yes | Yes          | Yes | Yes             |
-| $trunc                                 | No  | No  | No           | No  | No              |
+| Command                                | 3.6 | 4.0 | 5.0          | 8.0          | Elastic cluster |
+| -------------------------------------- | --- | --- | ------------ | ------------ | --------------- |
+| [$abs](abs.md "abs.md")                | Yes | Yes | Yes          | Yes          | Yes             |
+| [$add](add.md "add.md")                | Yes | Yes | Yes          | Yes          | Yes             |
+| [$ceil](ceil.md "ceil.md")             | No  | Yes | Yes          | Yes          | Yes             |
+| [$divide](divide.md "divide.md")       | Yes | Yes | Yes          | Yes          | Yes             |
+| [$exp](exp.md "exp.md")                | No  | Yes | Yes          | Yes          | Yes             |
+| [$floor](floor.md "floor.md")          | No  | Yes | Yes          | Yes          | Yes             |
+| [$ln](ln.md "ln.md")                   | No  | Yes | Yes          | Yes          | Yes             |
+| [$log](log.md "log.md")                | No  | Yes | Yes          | Yes          | Yes             |
+| [$log10](log10.md "log10.md")          | No  | Yes | Yes          | Yes          | Yes             |
+| [$mod](mod.md "mod.md")                | Yes | Yes | Yes          | Yes          | Yes             |
+| [$multiply](multiply.md "multiply.md") | Yes | Yes | Yes          | Yes          | Yes             |
+| [$pow](pow.md "pow.md")                | No  | No  | Yes (5.0.1+) | Yes          | No              |
+| [$round](round.md "round.md")          | -   | -   | No           | Yes (8.0.1+) | No              |
+| [$sqrt](sqrt.md "sqrt.md")             | No  | Yes | Yes          | Yes          | Yes             |
+| [$subtract](subtract.md "subtract.md") | Yes | Yes | Yes          | Yes          | Yes             |
+| [$trunc](trunc.md "trunc.md")          | No  | No  | No           | Yes (8.0.1+) | No              |
 
 ### Array operators
 
@@ -532,10 +546,10 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 
 ### Data size operator
 
-| Command     | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ----------- | --- | --- | --- | --- | --------------- |
-| $binarySize | -   | -   | No  | No  | No              |
-| $bsonSize   | -   | -   | No  | No  | No              |
+| Command                                      | 3.6 | 4.0 | 5.0 | 8.0          | Elastic cluster |
+| -------------------------------------------- | --- | --- | --- | ------------ | --------------- |
+| [$binarySize](binarySize.md "binarySize.md") | -   | -   | No  | Yes (8.0.1+) | No              |
+| [$bsonSize](bsonSize.md "bsonSize.md")       | -   | -   | No  | Yes (8.0.1+) | No              |
 
 ### Date operators
 
@@ -596,42 +610,43 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 
 ### Stage operators
 
-| Command                                            | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| -------------------------------------------------- | --- | --- | --- | --- | --------------- |
-| [$addFields](addFields.md "addFields.md")          | Yes | Yes | Yes | Yes | Yes             |
-| [$bucket](bucket.md "bucket.md")                   | No  | No  | No  | Yes | No              |
-| $bucketAuto                                        | No  | No  | No  | No  |
-| [$changeStream](changeStream.md "changeStream.md") | Yes | Yes | Yes | Yes | No              |
-| [$collStats](collStats.md "collStats.md")          | No  | Yes | Yes | Yes | No              |
-| [$count](count.md "count.md")                      | Yes | Yes | Yes | Yes | Yes             |
-| [$currentOp](currentOp.md "currentOp.md")          | Yes | Yes | Yes | Yes | Yes             |
-| $facet                                             | No  | No  | No  | No  | No              |
-| [$geoNear](geoNear.md "geoNear.md")                | Yes | Yes | Yes | Yes | Yes             |
-| $graphLookup                                       | No  | No  | No  | No  | No              |
-| [$group](group.md "group.md")                      | Yes | Yes | Yes | Yes | Yes             |
-| [$indexStats](indexStats.md "indexStats.md")       | Yes | Yes | Yes | Yes | Yes             |
-| [$limit](limit.md "limit.md")                      | Yes | Yes | Yes | Yes | Yes             |
-| $listLocalSessions                                 | No  | No  | No  | No  | No              |
-| $listSessions                                      | No  | No  | No  | No  | No              |
-| [$lookup](lookup.md "lookup.md")                   | Yes | Yes | Yes | Yes | Yes             |
-| [$match](match.md "match.md")                      | Yes | Yes | Yes | Yes | Yes             |
-| [$merge](merge.md "merge.md")                      | -   | -   | No  | Yes | No              |
-| [$out](out.md "out.md")                            | Yes | Yes | Yes | Yes | No              |
-| $planCacheStats                                    | -   | -   | No  | No  | No              |
-| [$project](project.md "project.md")                | Yes | Yes | Yes | Yes | Yes             |
-| [$redact](redact.md "redact.md")                   | Yes | Yes | Yes | Yes | Yes             |
-| [$replaceRoot](replaceRoot.md "replaceRoot.md")    | Yes | Yes | Yes | Yes | Yes             |
-| [$sample](sample.md "sample.md")                   | Yes | Yes | Yes | Yes | Yes             |
-| [$set](set-stage.md "set-stage.md")                | -   | -   | No  | Yes | No              |
-| $setWindowFields                                   | -   | -   | No  | No  | No              |
-| [$skip](skip.md "skip.md")                         | Yes | Yes | Yes | Yes | Yes             |
-| [$sort](sort.md "sort.md")                         | Yes | Yes | Yes | Yes | Yes             |
-| $sortByCount                                       | No  | No  | No  | No  | No              |
-| $unionWith                                         | -   | -   | No  | No  | No              |
-| [$unset](unset-stage.md "unset-stage.md")          | -   | -   | No  | Yes | No              |
-| [$unwind](unwind.md "unwind.md")                   | Yes | Yes | Yes | Yes | Yes             |
-| [$replaceWith](replaceWith.md "replaceWith.md")    | No  | No  | No  | Yes | No              |
-| [$vectorSearch](vectorSearch.md "vectorSearch.md") | No  | No  | No  | Yes | No              |
+| Command                                                           | 3.6 | 4.0 | 5.0 | 8.0          | Elastic cluster |
+| ----------------------------------------------------------------- | --- | --- | --- | ------------ | --------------- |
+| [$addFields](addFields.md "addFields.md")                         | Yes | Yes | Yes | Yes          | Yes             |
+| [$bucket](bucket.md "bucket.md")                                  | No  | No  | No  | Yes          | No              |
+| $bucketAuto                                                       | No  | No  | No  | No           |
+| [$changeStream](changeStream.md "changeStream.md")                | Yes | Yes | Yes | Yes          | No              |
+| [$collStats](collStats.md "collStats.md")                         | No  | Yes | Yes | Yes          | No              |
+| [$count](count.md "count.md")                                     | Yes | Yes | Yes | Yes          | Yes             |
+| [$currentOp](currentOp.md "currentOp.md")                         | Yes | Yes | Yes | Yes          | Yes             |
+| $facet                                                            | No  | No  | No  | No           | No              |
+| [$geoNear](geoNear.md "geoNear.md")                               | Yes | Yes | Yes | Yes          | Yes             |
+| $graphLookup                                                      | No  | No  | No  | No           | No              |
+| [$group](group.md "group.md")                                     | Yes | Yes | Yes | Yes          | Yes             |
+| [$indexStats](indexStats.md "indexStats.md")                      | Yes | Yes | Yes | Yes          | Yes             |
+| [$limit](limit.md "limit.md")                                     | Yes | Yes | Yes | Yes          | Yes             |
+| $listLocalSessions                                                | No  | No  | No  | No           | No              |
+| $listSessions                                                     | No  | No  | No  | No           | No              |
+| [$lookup](lookup.md "lookup.md")                                  | Yes | Yes | Yes | Yes          | Yes             |
+| [$match](match.md "match.md")                                     | Yes | Yes | Yes | Yes          | Yes             |
+| [$merge](merge.md "merge.md")                                     | -   | -   | No  | Yes          | No              |
+| [$out](out.md "out.md")                                           | Yes | Yes | Yes | Yes          | No              |
+| $planCacheStats                                                   | -   | -   | No  | No           | No              |
+| [$project](project.md "project.md")                               | Yes | Yes | Yes | Yes          | Yes             |
+| [$redact](redact.md "redact.md")                                  | Yes | Yes | Yes | Yes          | Yes             |
+| [$replaceRoot](replaceRoot.md "replaceRoot.md")                   | Yes | Yes | Yes | Yes          | Yes             |
+| [$sample](sample.md "sample.md")                                  | Yes | Yes | Yes | Yes          | Yes             |
+| [$set](set-stage.md "set-stage.md")                               | -   | -   | No  | Yes          | No              |
+| $setWindowFields                                                  | -   | -   | No  | No           | No              |
+| [$skip](skip.md "skip.md")                                        | Yes | Yes | Yes | Yes          | Yes             |
+| [$sort](sort.md "sort.md")                                        | Yes | Yes | Yes | Yes          | Yes             |
+| [$sortByCount](sortByCount.md "sortByCount.md")                   | No  | No  | No  | Yes (8.0.1+) | No              |
+| $unionWith                                                        | -   | -   | No  | No           | No              |
+| [$unset](unset-stage.md "unset-stage.md")                         | -   | -   | No  | Yes          | No              |
+| [$unwind](unwind.md "unwind.md")                                  | Yes | Yes | Yes | Yes          | Yes             |
+| [$replaceWith](replaceWith.md "replaceWith.md")                   | No  | No  | No  | Yes          | No              |
+| [$vectorSearch](vectorSearch.md "vectorSearch.md")                | No  | No  | No  | Yes          | No              |
+| [$listSearchIndexes](listSearchIndexes.md "listSearchIndexes.md") | -   | -   | -   | Yes (8.0.1+) | No              |
 
 ### String operators
 
@@ -678,18 +693,19 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 
 ### Type conversion operators
 
-| Command                                      | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| -------------------------------------------- | --- | --- | --- | --- | --------------- |
-| [$convert](convert.md "convert.md")          | No  | Yes | Yes | Yes | Yes             |
-| $isNumber                                    | -   | -   | No  | No  | No              |
-| [$toBool](toBool.md "toBool.md")             | No  | Yes | Yes | Yes | Yes             |
-| [$toDate](toDate.md "toDate.md")             | No  | Yes | Yes | Yes | Yes             |
-| [$toDecimal](toDecimal.md "toDecimal.md")    | No  | Yes | Yes | Yes | Yes             |
-| [$toDouble](toDouble.md "toDouble.md")       | No  | Yes | Yes | Yes | Yes             |
-| [$toInt](toInt.md "toInt.md")                | No  | Yes | Yes | Yes | Yes             |
-| [$toLong](toLong.md "toLong.md")             | No  | Yes | Yes | Yes | Yes             |
-| [$toObjectId](toObjectId.md "toObjectId.md") | No  | Yes | Yes | Yes | Yes             |
-| [$toString](toString.md "toString.md")       | No  | Yes | Yes | Yes | Yes             |
+| Command                                      | 3.6 | 4.0 | 5.0 | 8.0          | Elastic cluster |
+| -------------------------------------------- | --- | --- | --- | ------------ | --------------- |
+| [$convert](convert.md "convert.md")          | No  | Yes | Yes | Yes          | Yes             |
+| [$isNumber](isNumber.md "isNumber.md")       | -   | -   | No  | Yes (8.0.1+) | No              |
+| [$toBool](toBool.md "toBool.md")             | No  | Yes | Yes | Yes          | Yes             |
+| [$toDate](toDate.md "toDate.md")             | No  | Yes | Yes | Yes          | Yes             |
+| [$toDecimal](toDecimal.md "toDecimal.md")    | No  | Yes | Yes | Yes          | Yes             |
+| [$toDouble](toDouble.md "toDouble.md")       | No  | Yes | Yes | Yes          | Yes             |
+| [$toInt](toInt.md "toInt.md")                | No  | Yes | Yes | Yes          | Yes             |
+| [$toLong](toLong.md "toLong.md")             | No  | Yes | Yes | Yes          | Yes             |
+| [$toObjectId](toObjectId.md "toObjectId.md") | No  | Yes | Yes | Yes          | Yes             |
+| [$toString](toString.md "toString.md")       | No  | Yes | Yes | Yes          | Yes             |
+| [$toUUID](toUUID.md "toUUID.md")             | -   | -   | -   | Yes (8.0.1+) | No              |
 
 ### Variable operators
 
@@ -698,13 +714,50 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 | [$let](let.md "let.md") | Yes | Yes | Yes | Yes | Yes             |
 | [$map](map.md "map.md") | Yes | Yes | Yes | Yes | Yes             |
 
+### Trigonometry operators
+
+| Command                                                        | 3.6 | 4.0 | 5.0 | 8.0          | Elastic cluster |
+| -------------------------------------------------------------- | --- | --- | --- | ------------ | --------------- |
+| [$acos](acos.md "acos.md")                                     | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$acosh](acosh.md "acosh.md")                                  | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$asin](asin.md "asin.md")                                     | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$asinh](asinh.md "asinh.md")                                  | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$atan](atan.md "atan.md")                                     | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$atan2](atan2.md "atan2.md")                                  | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$atanh](atanh.md "atanh.md")                                  | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$cos](cos.md "cos.md")                                        | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$cosh](cosh.md "cosh.md")                                     | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$degreesToRadians](degreesToRadians.md "degreesToRadians.md") | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$radiansToDegrees](radiansToDegrees.md "radiansToDegrees.md") | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$sin](sin.md "sin.md")                                        | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$sinh](sinh.md "sinh.md")                                     | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$tan](tan.md "tan.md")                                        | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$tanh](tanh.md "tanh.md")                                     | -   | -   | -   | Yes (8.0.1+) | No              |
+
+### Bitwise operators (aggregation)
+
+| Command                          | 3.6 | 4.0 | 5.0 | 8.0          | Elastic cluster |
+| -------------------------------- | --- | --- | --- | ------------ | --------------- |
+| [$bitAnd](bitAnd.md "bitAnd.md") | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$bitNot](bitNot.md "bitNot.md") | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$bitOr](bitOr.md "bitOr.md")    | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$bitXor](bitXor.md "bitXor.md") | -   | -   | -   | Yes (8.0.1+) | No              |
+
+### Timestamp operators
+
+| Command                                         | 3.6 | 4.0 | 5.0 | 8.0          | Elastic cluster |
+| ----------------------------------------------- | --- | --- | --- | ------------ | --------------- |
+| [$tsIncrement](tsIncrement.md "tsIncrement.md") | -   | -   | -   | Yes (8.0.1+) | No              |
+| [$tsSecond](tsSecond.md "tsSecond.md")          | -   | -   | -   | Yes (8.0.1+) | No              |
+
 ### Miscellaneous operators
 
-| Command                    | 3.6 | 4.0 | 5.0          | 8.0 | Elastic cluster |
-| -------------------------- | --- | --- | ------------ | --- | --------------- |
-| $getField                  | -   | -   | No           | No  | No              |
-| [$rand](rand.md "rand.md") | -   | -   | Yes (5.0.1+) | Yes | No              |
-| $sampleRate                | -   | -   | No           | No  | No              |
+| Command                                      | 3.6 | 4.0 | 5.0          | 8.0          | Elastic cluster |
+| -------------------------------------------- | --- | --- | ------------ | ------------ | --------------- |
+| $getField                                    | -   | -   | No           | No           | No              |
+| [$rand](rand.md "rand.md")                   | -   | -   | Yes (5.0.1+) | Yes          | No              |
+| [$sampleRate](sampleRate.md "sampleRate.md") | -   | -   | No           | Yes (8.0.1+) | No              |
+| [$sigmoid](sigmoid.md "sigmoid.md")          | -   | -   | -            | Yes (8.0.1+) | No              |
 
 ## Data types
 
@@ -755,17 +808,17 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 
 ### Index properties
 
-| Command          | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ---------------- | --- | --- | --- | --- | --------------- |
-| Background       | Yes | Yes | Yes | Yes | Yes             |
-| Case Insensitive | No  | No  | No  | Yes | No              |
-| Hidden           | No  | No  | No  | No  | No              |
-| Partial          | No  | No  | Yes | Yes | No              |
-| Sparse           | Yes | Yes | Yes | Yes | Yes             |
-| Text             | No  | No  | Yes | Yes | No              |
-| TTL              | Yes | Yes | Yes | Yes | Yes             |
-| Unique           | Yes | Yes | Yes | Yes | Yes             |
-| Vector           | No  | No  | Yes | Yes | No              |
+| Command          | 3.6 | 4.0 | 5.0 | 8.0          | Elastic cluster |
+| ---------------- | --- | --- | --- | ------------ | --------------- |
+| Background       | Yes | Yes | Yes | Yes          | Yes             |
+| Case Insensitive | No  | No  | No  | Yes          | No              |
+| Hidden           | No  | No  | No  | Yes (8.0.1+) | No              |
+| Partial          | No  | No  | Yes | Yes          | No              |
+| Sparse           | Yes | Yes | Yes | Yes          | Yes             |
+| Text             | No  | No  | Yes | Yes          | No              |
+| TTL              | Yes | Yes | Yes | Yes          | Yes             |
+| Unique           | Yes | Yes | Yes | Yes          | Yes             |
+| Vector           | No  | No  | Yes | Yes          | No              |
 
 For detailed information about specific MongoDB operators, see the following topics:
 

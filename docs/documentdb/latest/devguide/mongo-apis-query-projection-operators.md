@@ -30,6 +30,7 @@ This section provides detailed information about query and projection operators 
 - [$not](not.md "not.md")
 - [$or](or.md "or.md")
 - [$regex](regex.md "regex.md")
+- [$sampleRate](sampleRate.md "sampleRate.md")
 - [$slice](slice-projection.md "slice-projection.md")
 - [$size](size-query.md "size-query.md")
 - [$text](text.md "text.md")
