@@ -234,13 +234,13 @@ Supported OSs include:
 
 - CentOS 6–8, Stream 9, Stream 10
 - Oracle 6–8
-- RHEL 6–9.7, 10, 10.1
-- Rocky 8–9.7, 10, 10.1
+- RHEL 6–9.8, 10, 10.1
+- Rocky Linux 8–9.8, 10, 10.1
 - SLES 12 and 15
 - Debian 9–11
 - Ubuntu 16, 18, 20, and 22
 - Amazon Linux 2
-- AlmaLinux 9.6, 9.7, 10, 10.1
+- AlmaLinux 9.6, 9.7, 9.8, 10, 10.1
 
 ###### Note
 

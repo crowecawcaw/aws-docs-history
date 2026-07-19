@@ -2,6 +2,11 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Release notes
 
+## July 2026
+
+Added support for RHEL 9.8, Rocky Linux 9.8, and
+AlmaLinux 9.8.
+
 ## June 2026
 
 - AWS Application Migration Service has been rebranded to AWS Transform MGN.
