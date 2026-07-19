@@ -12,7 +12,7 @@ bookmark app you might have created for the AWS access portal in this Region.
 
 Console
 
-**To add a Region**
+**To remove a Region**
 
 1. Open the [IAM Identity Center console](https://console.aws.amazon.com/singlesignon/ "https://console.aws.amazon.com/singlesignon/").
 2. In the navigation pane, choose **Settings**.
@@ -60,7 +60,7 @@ aws sso-admin describe-region \
     --region-name eu-west-1
 ```
 
-When the Region is removed, proceed to Step 2.
+When the Region is removed, proceed to Step 3.
 
 ## Step 3: Delete the replica key
 

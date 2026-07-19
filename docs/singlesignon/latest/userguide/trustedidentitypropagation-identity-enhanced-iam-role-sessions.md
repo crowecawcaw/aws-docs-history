@@ -28,7 +28,7 @@ more information, see [Identity-enhanced IAM role session logging](#trustedident
 AWS STS can create two different types of identity-enhanced IAM role
 sessions, depending on the context assertion provided to the
 `AssumeRole` request. Applications that have obtained Id
-tokens from IAM Identity Center can add `sts:identiy_context` (recommended)
+tokens from IAM Identity Center can add `sts:identity_context` (recommended)
 or `sts:audit_context` (Supported for backward compatibility)
 to IAM role sessions. An identity-enhanced IAM role session can have
 only one of these context assertions, not both.
