@@ -184,22 +184,22 @@ pipeline.
 The following IAM access policy demonstrates how to grant this permission to the
 ingestion role:
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "osis:Ingest"
- ],
- "Resource": "arn:aws:osis:`us-east-1`:`111122223333`:pipeline/`pipeline-name`/*"
- }
- ]
-}`
-
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "osis:Ingest"
+      ],
+      "Resource": [
+        "arn:aws:osis:`us-east-1`:`111122223333`:pipeline/`my-pipeline`",
+        "arn:aws:osis:`us-east-1`:`111122223333`:pipeline/`my-pipeline`/*"
+      ]
+    }
+  ]
+}
 ```
 
 ### Ingestion role for pull-based sources

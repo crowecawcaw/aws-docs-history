@@ -360,7 +360,7 @@ topic in [Permissions to create an application that uses IAM Identity Center aut
         	 "Action": "sts:SetContext",
         	 "Condition": {
         	 "ForAllValues:ArnEquals": {
-        	 "sts:RequestContextProviders": "arn:aws:iam::`123456789012`:oidc-provider/portal.sso.`us-east-1`.amazonaws.com/apl/`application-id`"
+        	 "sts:RequestContextProviders": "arn:aws:iam::aws:contextProvider/IdentityCenter"
         	 }
         	 }
         	 }

@@ -71,7 +71,8 @@ When you set up a domain with Multi-AZ with Standby, consider the following limi
 - Multi-AZ with Standby only works with the `m5`, `c5`,
   `r5`, `r6g`, `c6g`,
   `m6g`, `r6gd`, `r7g`, `c7g`,
-  `m7g`, `r7gd`, and `i3` instance types. For more
+  `m7g`, `r7gd`, `i3`, `or1`,
+  `or2`, `om2`, and `oi2` instance types. For more
   information on supported instances, see [Supported
   instance types](supported-instance-types.md "supported-instance-types.md").
 - You can only use Provisioned IOPs SSD, General Purpose SSD (GP3), or instance-backed

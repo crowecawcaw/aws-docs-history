@@ -18,6 +18,9 @@ If your OpenSearch Service domain uses VPC access, you might not receive this er
 might time out. To learn more about correcting this issue and the various configuration
 options available to you, see [Controlling access to Dashboards](dashboards.md#dashboards-access "dashboards.md#dashboards-access"), [About access policies on VPC domains](vpc.md#vpc-security "vpc.md#vpc-security"), and [Identity and Access Management in Amazon OpenSearch Service](ac.md "ac.md").
 
+For a broader list of issues that can make OpenSearch Dashboards unavailable, along with
+steps to resolve them, see [Troubleshooting OpenSearch Dashboards](dashboards-troubleshooting.md "dashboards-troubleshooting.md").
+
 ## Can't access VPC domain
 
 See [About access policies on VPC domains](vpc.md#vpc-security "vpc.md#vpc-security") and [Testing VPC domains](vpc.md#vpc-test "vpc.md#vpc-test").

@@ -20,6 +20,9 @@ domains running OpenSearch, the URL is
 
 Queries using this default Dashboards installation have a 300-second timeout.
 
+If OpenSearch Dashboards is unavailable, fails to load, or behaves unexpectedly, see [Troubleshooting OpenSearch Dashboards](dashboards-troubleshooting.md "dashboards-troubleshooting.md") for known issues and the steps you can take to
+resolve them yourself.
+
 ###### Note
 
 This documentation discusses OpenSearch Dashboards in the context of Amazon OpenSearch Service, including

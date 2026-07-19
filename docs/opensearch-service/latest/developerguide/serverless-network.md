@@ -36,12 +36,43 @@ connectivity.
 Network policies let you manage many collections at scale by automatically assigning
 network access settings to collections that match the rules defined in the policy.
 
-In a network policy, you specify a series of _rules_. These rule define
+In a network policy, you specify a series of _rules_. These rules define
 access permissions to collection endpoints and OpenSearch Dashboards endpoints. Each rule
 consists of an access type (public or private) and a resource type (collection and/or
 OpenSearch Dashboards endpoint). For each resource type (`collection` and
 `dashboard`), you specify a series of rules that define which collection(s)
 the policy will apply to.
+
+### Network policy syntax
+
+```
+{
+   "Description": "string",
+   "Rules": [
+      {
+         "ResourceType": "string",
+         "Resource": ["string"]
+      }
+   ],
+   "AllowFromPublic": boolean,
+   "SourceVPCEs": ["string"],
+   "SourceServices": ["string"]
+}
+```
+
+Each network policy rule contains the following fields.
+
+| Field                  | Required    | Type             | Valid values                                             | Description                                                                                                                                                     |
+| ---------------------- | ----------- | ---------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Description`          | No          | String           | Free text                                                | Human-readable description of the rule.                                                                                                                         |
+| `Rules`                | Yes         | Array            | —                                                        | Array of rule objects defining which resources the policy applies to.                                                                                           |
+| `Rules[].ResourceType` | Yes         | String           | `collection`, `dashboard`                                | `collection` applies to the OpenSearch API endpoint. `dashboard` applies to the OpenSearch Dashboards endpoint.                                                 |
+| `Rules[].Resource`     | Yes         | Array of strings | `collection/<`name                                       | pattern`>`                                                                                                                                                      | Collection names or wildcard patterns (for example, `collection/logs*`, `collection/*`). |
+| `AllowFromPublic`      | Yes         | Boolean          | `true`, `false`                                          | If `true`, matched collections are publicly accessible and `SourceVPCEs`/`SourceServices` are ignored.                                                          |
+| `SourceVPCEs`          | Conditional | Array of strings | VPC endpoint IDs (for example, `vpce-050f79086ee71ac05`) | OpenSearch Serverless-managed VPC endpoints allowed to access the collections. Required when `AllowFromPublic` is `false` and `SourceServices` is not provided. |
+| `SourceServices`       | No          | Array of strings | `bedrock.amazonaws.com`                                  | AWS services granted private access. Only applies to `collection` resource type, not `dashboard`.                                                               |
+
+### Network policy examples
 
 In this sample policy, the first rule specifies VPC endpoint access to both the collection
 endpoint and the Dashboards endpoint for all collections beginning with the term

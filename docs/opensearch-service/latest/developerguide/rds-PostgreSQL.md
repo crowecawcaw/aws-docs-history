@@ -1,7 +1,7 @@
 # RDS for PostgreSQL
 
 Complete the following steps to configure an OpenSearch Ingestion pipeline with Amazon RDS for
-RDS for PostgreSQL.
+PostgreSQL.
 
 ###### Topics
 
@@ -11,7 +11,7 @@ RDS for PostgreSQL.
 - [Data consistency](#rds-mysql-pipeline-consistency "#rds-mysql-pipeline-consistency")
 - [Mapping data types](#rds-PostgreSQL-pipeline-mapping "#rds-PostgreSQL-pipeline-mapping")
 - [Limitations](#rds-PostgreSQL-pipeline-limitations "#rds-PostgreSQL-pipeline-limitations")
-- [Recommended CloudWatch Alarms](#aurora-mysql-pipeline-metrics "#aurora-mysql-pipeline-metrics")
+- [Recommended CloudWatch Alarms](#rds-postgres-pipeline-metrics "#rds-postgres-pipeline-metrics")
 
 ## RDS for PostgreSQL prerequisites
 
@@ -454,16 +454,16 @@ exports and stream events, and the number of documents written to the destinatio
 You can setup CloudWatch alarms to perform an action when one of these metrics exceed a
 specified value for a specified amount of time.
 
-| Metric                                           | Description                                                                                                                                       |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pipeline-name`.rds.credentialsChanged           | This metric indicates how often AWS secrets are<br>rotated.                                                                                       |
-| `pipeline-name`.rds.executorRefreshErrors        | This metric indicates failures to refresh AWS secrets.                                                                                            |
-| `pipeline-name`.rds.exportRecordsTotal           | This metric indicates the number of records exported from Amazon<br>Aurora.                                                                       |
-| `pipeline-name`.rds.exportRecordsProcessed       | This metric indicates the number of records processed by<br>OpenSearch Ingestion pipeline.                                                        |
-| `pipeline-name`.rds.exportRecordProcessingErrors | This metric indicates number of processing errors in an<br>OpenSearch Ingestion pipeline while reading the data from an<br>Amazon Aurora cluster. |
-| `pipeline-name`.rds.exportRecordsSuccessTotal    | This metric indicates the total number of export records<br>processed successfully.                                                               |
-| `pipeline-name`.rds.exportRecordsFailedTotal     | This metric indicates the total number of export records that<br>failed to process.                                                               |
-| `pipeline-name`.rds.bytesReceived                | This metrics indicates the total number of bytes received by an<br>OpenSearch Ingestion pipeline.                                                 |
-| `pipeline-name`.rds.bytesProcessed               | This metrics indicates the total number of bytes processed by an<br>OpenSearch Ingestion pipeline.                                                |
-| `pipeline-name`.rds.streamRecordsSuccessTotal    | This metric indicates the number of records successfully<br>processed from the stream.                                                            |
-| `pipeline-name`.rds.streamRecordsFailedTotal     | This metrics indicates the total number of records failed to<br>process from the stream.                                                          |
+| Metric                                           | Description                                                                                                                                                    |
+| ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pipeline-name`.rds.credentialsChanged           | This metric indicates how often AWS secrets are<br>rotated.                                                                                                    |
+| `pipeline-name`.rds.executorRefreshErrors        | This metric indicates failures to refresh AWS secrets.                                                                                                         |
+| `pipeline-name`.rds.exportRecordsTotal           | This metric indicates the number of records exported from Amazon RDS for PostgreSQL.                                                                           |
+| `pipeline-name`.rds.exportRecordsProcessed       | This metric indicates the number of records processed by<br>OpenSearch Ingestion pipeline.                                                                     |
+| `pipeline-name`.rds.exportRecordProcessingErrors | This metric indicates number of processing errors in an<br>OpenSearch Ingestion pipeline while reading the data from an<br>Amazon RDS for PostgreSQL instance. |
+| `pipeline-name`.rds.exportRecordsSuccessTotal    | This metric indicates the total number of export records<br>processed successfully.                                                                            |
+| `pipeline-name`.rds.exportRecordsFailedTotal     | This metric indicates the total number of export records that<br>failed to process.                                                                            |
+| `pipeline-name`.rds.bytesReceived                | This metrics indicates the total number of bytes received by an<br>OpenSearch Ingestion pipeline.                                                              |
+| `pipeline-name`.rds.bytesProcessed               | This metrics indicates the total number of bytes processed by an<br>OpenSearch Ingestion pipeline.                                                             |
+| `pipeline-name`.rds.streamRecordsSuccessTotal    | This metric indicates the number of records successfully<br>processed from the stream.                                                                         |
+| `pipeline-name`.rds.streamRecordsFailedTotal     | This metrics indicates the total number of records failed to<br>process from the stream.                                                                       |

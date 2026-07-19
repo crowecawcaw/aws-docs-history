@@ -10,7 +10,7 @@ use with no additional charge.
 - [Identity-based policies for OpenSearch Serverless](#security-iam-serverless-id-based-policies "#security-iam-serverless-id-based-policies")
 - [Policy actions for OpenSearch Serverless](#security-iam-serverless-id-based-policies-actions "#security-iam-serverless-id-based-policies-actions")
 - [Policy resources for OpenSearch Serverless](#security-iam-serverless-id-based-policies-resources "#security-iam-serverless-id-based-policies-resources")
-- [Policy condition keys for Amazon OpenSearch Serverless](#security_iam_serverless-conditionkeys "#security_iam_serverless-conditionkeys")
+- [Policy condition keys for OpenSearch Service](#security_iam_serverless-conditionkeys "#security_iam_serverless-conditionkeys")
 - [ABAC with OpenSearch Serverless](#security_iam_serverless-with-iam-tags "#security_iam_serverless-with-iam-tags")
 - [Using temporary credentials with OpenSearch Serverless](#security_iam_serverless-tempcreds "#security_iam_serverless-tempcreds")
 - [Service-linked roles for OpenSearch Serverless](#security_iam_serverless-slr "#security_iam_serverless-slr")
@@ -95,7 +95,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-## Policy condition keys for Amazon OpenSearch Serverless
+## Policy condition keys for OpenSearch Service
 
 **Supports service-specific policy condition keys:**
 
@@ -238,7 +238,7 @@ To learn how to create an IAM identity-based policy by using these example JSON 
 documents, see [Create IAM policies (console)](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") in the
 _IAM User Guide_.
 
-For details about actions and resource types defined by Amazon OpenSearch Serverless, including the format of the ARNs for each of the resource types, see [Actions, resources, and condition keys for Amazon OpenSearch Serverless](../../../service-authorization/latest/reference/list_amazonopensearchserverless.md "../../../service-authorization/latest/reference/list_amazonopensearchserverless.md") in the _Service Authorization Reference_.
+For details about actions and resource types defined by OpenSearch Service, including the format of the ARNs for each of the resource types, see [Actions, resources, and condition keys for Amazon OpenSearch Serverless](../../../service-authorization/latest/reference/list_amazonopensearchserverless.md "../../../service-authorization/latest/reference/list_amazonopensearchserverless.md") in the _Service Authorization Reference_.
 
 ###### Topics
 

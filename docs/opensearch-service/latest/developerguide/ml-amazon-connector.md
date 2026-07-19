@@ -261,3 +261,34 @@ r = requests.post(url, auth=awsauth, json=payload, headers=headers)
 print(r.status_code)
 print(r.text)
 ```
+
+### Register the model for semantic search
+
+If you plan to use the connected model for semantic search, you must include
+the `model_config` parameter when registering the model. Without this
+parameter, semantic field index creation will fail with the error "Model config
+is null for the remote model [`model_id`]".
+
+Include a `model_config` object in your register model
+request:
+
+```
+POST _plugins/_ml/models/_register
+{
+  "name": "Bedrock embedding model",
+  "function_name": "remote",
+  "connector_id": "`connector_id`",
+  "model_config": {
+    "model_type": "TEXT_EMBEDDING",
+    "embedding_dimension": 1536,
+    "framework_type": "SENTENCE_TRANSFORMERS",
+    "additional_config": {
+      "space_type": "l2"
+    }
+  }
+}
+```
+
+Replace `embedding_dimension` with the dimension of your model's
+output (for example, 1536 for Amazon Titan Embeddings). For information about
+supported space types, see [k-NN search in Amazon OpenSearch Service](knn.md "knn.md").
