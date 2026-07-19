@@ -32,7 +32,7 @@ All AMIs must adhere to the following seller policies:
 
 All AMIs must comply with the following policies:
 
-- AMIs must pass all security checks and have no known vulnerabilities or malware.
+- AMIs must pass all security checks and must not contain critical or high-severity unpatched vulnerabilities or malware identified during scanning.
 - AMIs must use currently supported operating systems and software. Operating systems and software that reached their end of life are not allowed.
 - AMIs must not be older than two years from their creation date. AMIs that exceed this age are not allowed.
 - Password-based authentication for instance services is prohibited. This applies
@@ -123,9 +123,14 @@ S-AMI, AMI with CloudFormation template, and container products. With automated 
 archival, any product version that has been restricted by a seller for longer than two years
 is automatically archived. Archived versions are no longer available to launch from AWS Marketplace for
 new customers, however existing users can continue to use the archived version through launch
-templates and Amazon EC2 Auto Scaling groups by specifying the AMI ID. Any archived version that has not been
-used to launch a new instances in the past 13 months is deleted. Once an archived version is
-deleted, it is no longer available to launch for new or existing users.
+templates and Amazon EC2 Auto Scaling groups by specifying the AMI ID.
+
+###### Archived versions are permanently deleted after 13 months of inactivity
+
+Any archived version that has not been used to launch a new instance in the past 13
+months is permanently deleted. Once deleted, the version is no longer available to launch
+for new or existing users. This action cannot be undone. To prevent deletion, make sure
+that active users continue to launch instances from the archived version.
 
 ## FPGA Product Requirements
 

@@ -16,6 +16,7 @@ For information about refunds, see [Refunds and cancellations in AWS Marketplace
 - [Changing pricing models](changing-pricing-models.md "changing-pricing-models.md")
 - [Changing prices](#changing-prices "#changing-prices")
 - [Private offers](private-offers.md "private-offers.md")
+- [Update pricing visibility](update-pricing-visibility.md "update-pricing-visibility.md")
 - [Refunds and cancellations in AWS Marketplace](refunds.md "refunds.md")
 
 ## Changing prices

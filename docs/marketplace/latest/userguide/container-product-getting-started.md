@@ -220,6 +220,7 @@ to configure and manage it:
 - [Updating container product availability by country in AWS Marketplace](container-update-offer-avail-country.md "container-update-offer-avail-country.md")
 - [Updating your end-user license agreement (EULA) for container products on AWS Marketplace](container-update-eula.md "container-update-eula.md")
 - [Testing and releasing your container product on AWS Marketplace](test-release-product.md "test-release-product.md")
+- To list your container product without displaying public pricing, see [Update pricing visibility](update-pricing-visibility.md "update-pricing-visibility.md").
 
 ## Container product scans for security issues
 

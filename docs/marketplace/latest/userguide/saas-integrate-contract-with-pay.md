@@ -2,7 +2,7 @@
 
 ###### Integration requirements changing June 1, 2026 for new SaaS products
 
-AWS Marketplace is introducing support for Concurrent Agreements, enabling multiple purchases of the same product on a single AWS account during the same agreement period. Starting June 1, 2026, all new SaaS products will be required to support updated integration requirements. [Review the new integration for Concurrent Agreements](https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements "https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements").
+AWS Marketplace is introducing support for Concurrent Agreements, enabling multiple purchases of the same product on a single AWS account during the same agreement period. Starting June 1, 2026, all new SaaS products will be required to support updated integration requirements. For new integrations, the `CustomerIdentifier` field is not populated in the `ResolveCustomer` API response, and `BatchMeterUsage` does not support `CustomerIdentifier`. New integrations must use `CustomerAWSAccountId` and `LicenseArn` instead. [Review the new integration for Concurrent Agreements](https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements "https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements").
 
 Integrating your product with AWS Marketplace is one step in [Creating a SaaS product in AWS Marketplace](saas-create-product.md "saas-create-product.md"). To integrate your software as a service (SaaS)
 contract product with AWS Marketplace, you must write code and demonstrate that it can respond

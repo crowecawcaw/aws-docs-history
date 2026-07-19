@@ -20,6 +20,8 @@ Before you get started, you must complete the following prerequisites:
 
 After you complete the required prerequisites, you can create and configure your SaaS product.
 
+To list your SaaS product without displaying public pricing, see [Update pricing visibility](update-pricing-visibility.md "update-pricing-visibility.md").
+
 ###### Topics
 
 - [SaaS product lifecycle in AWS Marketplace](saas-product-lifecycle.md "saas-product-lifecycle.md")

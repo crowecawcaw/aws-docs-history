@@ -166,6 +166,8 @@ The types of changes you can request for AMI-based products include:
 Some change requests require you to use product load forms to create the request.
 For more information, see [Product Load Forms](#ami-product-load-forms "#ami-product-load-forms").
 
+To list your AMI product without displaying public pricing, see [Update pricing visibility](update-pricing-visibility.md "update-pricing-visibility.md").
+
 ### Update change request
 
 Change requests that start with an update will load the current details. You then make

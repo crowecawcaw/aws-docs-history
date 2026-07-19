@@ -24,9 +24,9 @@ redirect is a POST request that includes the token.
 
 For more information about `ResolveCustomer`, see [ResolveCustomer](../../../marketplacemetering/latest/APIReference/API_ResolveCustomer.md "../../../marketplacemetering/latest/APIReference/API_ResolveCustomer.md") in the _AWS Marketplace Metering Service API Reference_.
 
-###### Note
+###### Important
 
-For new implementation or when updating your integration, use the CustomerAWSAccountId instead of CustomerIdentifier.
+For new SaaS product integrations, the `CustomerIdentifier` field is not populated in the `ResolveCustomer` API response. Use `CustomerAWSAccountId` and `LicenseArn` instead for customer identification.
 
 ```
 # Import AWS Python SDK and urllib.parse
@@ -84,11 +84,11 @@ marketplaceClient = boto3.client('marketplace-entitlement', region_name='us-east
 entitlement = marketplaceClient.get_entitlements({
     'ProductCode': 'productCode',
     'Filter' : {
-        # Option 1: Using CustomerIdentifier (for new or updated integrations, use the customer AWS account ID)
+        # Option 1: Using CustomerIdentifier (existing integrations only, not supported for new integrations)
         'CUSTOMER_IDENTIFIER': [
             'customerID',
         ]
-        # Option 2: Using CustomerAWSAccountId (preferred)
+        # Option 2: Using CustomerAWSAccountId (required for new integrations)
         # 'CUSTOMER_AWS_ACCOUNT_ID': [
         #     'awsAccountId',
         # ]
@@ -141,6 +141,10 @@ consumption pricing models, but not for SaaS contract products without consumpti
 Python example sends a metering record to AWS Marketplace to charge your customers for
 pay-as-you-go fees.
 
+###### Important
+
+`BatchMeterUsage` does not support `CustomerIdentifier` for new SaaS product integrations. New integrations must use `CustomerAWSAccountId` and `LicenseArn`. Existing integrations continue to work unchanged.
+
 ```
 # NOTE: Your application will need to aggregate usage for the
 #       customer for the hour and set the quantity as seen below.
@@ -157,7 +161,7 @@ pay-as-you-go fees.
 import boto3
 from datetime import datetime
 
-# Option 1: Using CustomerIdentifier (for new or updated integrations, use the customer AWS account ID)
+# Option 1: Using CustomerIdentifier (existing integrations only, not supported for new integrations)
 usageRecord = [
     {
         'Timestamp': datetime(2015, 1, 1),
@@ -167,7 +171,7 @@ usageRecord = [
     }
 ]
 
-# Option 2: Using CustomerAWSAccountId (preferred)
+# Option 2: Using CustomerAWSAccountId (required for new integrations)
 # usageRecord = [
 #     {
 #         'Timestamp': datetime(2015, 1, 1),

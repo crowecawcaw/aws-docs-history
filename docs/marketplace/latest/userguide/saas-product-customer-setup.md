@@ -50,8 +50,11 @@ implementing, and metering a new customer's access to your software:
    internal source as part of your customer records. The product code is a unique string for
    your SaaS product that AWS provides to you. Each AWS product has one unique product
    code, which is assigned to you during registration.
-7. The customer is instructed to either create an account in your product or sign in to an
-   existing account.
+
+###### Note
+
+For new SaaS product integrations, the `CustomerIdentifier` field is not populated in the `ResolveCustomer` API response. New integrations must use `CustomerAWSAccountId` and `LicenseArn` for customer identification. 7. The customer is instructed to either create an account in your product or sign in to an
+existing account.
 
 ###### Note
 

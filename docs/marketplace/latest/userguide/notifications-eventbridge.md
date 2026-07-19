@@ -34,6 +34,8 @@ console.
 | Customer subscribes to an AWS Marketplace product                                         | `Purchase Agreement Created`                                     | [Events for agreements](#events-for-agreements "#events-for-agreements")                            |
 | Customer's agreement is amended                                                           | `Purchase Agreement Amended`                                     | [Events for agreements](#events-for-agreements "#events-for-agreements")                            |
 | Customer cancels their agreement                                                          | `Purchase Agreement Ended`                                       | [Events for agreements](#events-for-agreements "#events-for-agreements")                            |
+| An advisory is issued that might affect a customer's agreement                            | `Purchase Agreement Advisory Issued`                             | [Events for agreements](#events-for-agreements "#events-for-agreements")                            |
+| An advisory affecting a customer's agreement is resolved                                  | `Purchase Agreement Advisory Resolved`                           | [Events for agreements](#events-for-agreements "#events-for-agreements")                            |
 | A customer's license for a product is provisioned or updated                              | `License Updated`                                                | [Events for licenses](#events-for-licenses "#events-for-licenses")                                  |
 | A customer's license for a product is being revoked                                       | `License Deprovisioned`                                          | [Events for licenses](#events-for-licenses "#events-for-licenses")                                  |
 | Seller submits a cancellation request                                                     | `Agreement Cancellation Request Pending Approval<br>• Proposer`  | [Events for cancellations](#events-for-cancellations "#events-for-cancellations")                   |
@@ -643,6 +645,84 @@ The following is an example event body for **Purchase Agreement Ended - Manufact
     },
     "offer": {
       "id": "offer-1234567890123"
+    }
+  }
+}
+```
+
+The following is an example event body for **Purchase Agreement Advisory Issued - Manufacturer**.
+
+```
+{
+  "version": "0",
+  "id": "a1b2c3d4-1111-2222-3333-444455556666",
+  "detail-type": "Purchase Agreement Advisory Issued - Manufacturer",
+  "source": "aws.agreement-marketplace",
+  "account": "987654321098",
+  "time": "2026-07-02T14:30:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-4mwg1nevbokzw95eca5797ixs"
+  ],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-4mwg1nevbokzw95eca5797ixs"
+    },
+    "product": {
+      "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE"
+    },
+    "acceptor": {
+      "accountId": "845735284135"
+    },
+    "proposer": {
+      "accountId": "987654321098"
+    },
+    "offer": {
+      "id": "offer-1234567890123"
+    },
+    "advisory": {
+      "issuedAt": "2026-07-02T14:28:00Z"
+    }
+  }
+}
+```
+
+The following is an example event body for **Purchase Agreement Advisory Resolved - Manufacturer**.
+
+```
+{
+  "version": "0",
+  "id": "k9s5f3d4-0921-2382-3333-970453552166",
+  "detail-type": "Purchase Agreement Advisory Resolved - Manufacturer",
+  "source": "aws.agreement-marketplace",
+  "account": "987654321098",
+  "time": "2026-07-02T14:30:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-4mwg1nevbokzw95eca5797ixs"
+  ],
+  "detail": {
+    "requestId": "7s4p9f1b-b809-4f5e-9fgl-a9ae74b05cji",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-4mwg1nevbokzw95eca5797ixs"
+    },
+    "product": {
+      "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE"
+    },
+    "acceptor": {
+      "accountId": "845735284135"
+    },
+    "proposer": {
+      "accountId": "987654321098"
+    },
+    "offer": {
+      "id": "offer-1234567890123"
+    },
+    "advisory": {
+      "resolvedAt": "2026-08-02T11:13:05Z"
     }
   }
 }

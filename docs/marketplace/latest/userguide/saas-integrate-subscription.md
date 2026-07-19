@@ -2,7 +2,7 @@
 
 ###### Integration requirements changing June 1, 2026 for new SaaS products
 
-AWS Marketplace is introducing support for Concurrent Agreements, enabling multiple purchases of the same product on a single AWS account during the same agreement period. Starting June 1, 2026, all new SaaS products will be required to support updated integration requirements. [Review the new integration for Concurrent Agreements](https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements "https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements").
+AWS Marketplace is introducing support for Concurrent Agreements, enabling multiple purchases of the same product on a single AWS account during the same agreement period. Starting June 1, 2026, all new SaaS products will be required to support updated integration requirements. For new integrations, the `CustomerIdentifier` field is not populated in the `ResolveCustomer` API response, and `BatchMeterUsage` does not support `CustomerIdentifier`. New integrations must use `CustomerAWSAccountId` and `LicenseArn` instead. [Review the new integration for Concurrent Agreements](https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements "https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements").
 
 Integrating your product with AWS Marketplace is one step in [Creating a SaaS product in AWS Marketplace](saas-create-product.md "saas-create-product.md"). To integrate your software as a service (SaaS)
 subscription product with AWS Marketplace, you must write code and demonstrate that it can respond
@@ -35,12 +35,14 @@ token. Respond to this request in the following ways:
 1. Exchange the token for a `CustomerIdentifier`,
    `CustomerAWSAccountId`, `LicenseArn`, and `ProductCode` by calling
    the `ResolveCustomer` API operation in the AWS Marketplace Metering Service.
-2. Persist the `CustomerIdentifier`,
-   `CustomerAWSAccountId`, `LicenseArn`, and `ProductCode` in your system
-   for future calls. You must store whether the customer has a valid subscription,
-   along with whatever information you need about the customer.
-3. As a response to the request, you must show your user's first use experience
-   (as applicable for your service).
+
+###### Note
+
+For new SaaS product integrations, the `CustomerIdentifier` field is not populated. Use `CustomerAWSAccountId` and `LicenseArn` for customer identification. 2. Persist the `CustomerIdentifier`,
+`CustomerAWSAccountId`, `LicenseArn`, and `ProductCode` in your system
+for future calls. You must store whether the customer has a valid subscription,
+along with whatever information you need about the customer. 3. As a response to the request, you must show your user's first use experience
+(as applicable for your service).
 
 ## Scenario: Meter usage
 
