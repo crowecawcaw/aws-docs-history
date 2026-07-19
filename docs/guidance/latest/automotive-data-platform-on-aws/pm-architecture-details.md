@@ -16,17 +16,20 @@ Amazon API Gateway provides real-time access to prediction data and alert histor
 
 ## Data Source Configuration
 
+The reference implementation in `guidance-for-predictive-maintenance/` accesses fleet telemetry via two approaches — choose the one that fits your existing Redshift architecture:
+
 **Redshift Datashare Approach**:
 
-- Results uploaded to S3 raw data bucket
-- Requires manual permission setup
+- Enables cross-account access to the source Redshift cluster without data movement
+- Results queried directly via Lambda using the Redshift Data API
+- Requires a one-time datashare setup in the source account (see below for the pattern)
 
 **Alternative S3 Unload Approach**:
 
 - Redshift UNLOAD command writes directly to S3
-- Bypasses Lambda query function
+- Bypasses the Lambda query function entirely
 - May require ETL adjustments for format differences
-- Suitable for high-volume data transfers
+- Suitable for high-volume data transfers or when cross-account datashare is not feasible
 
 **Data Schema**:
 
@@ -76,7 +79,7 @@ ORDER BY aaid, event_timestamp
 
 **Output**:
 
-- Destination: S3 bucket `mmt-predictive-maintenance-raw-{account-id}`
+- Destination: S3 bucket `predictive-maintenance-raw-{account-id}`
 - Format: CSV with headers
 - Partitioning: By date and hour (year/month/day/hour)
 - Compression: Gzip
@@ -124,7 +127,7 @@ ORDER BY aaid, event_timestamp
 
 **Output**:
 
-- Destination: S3 bucket `mmt-predictive-maintenance-etl-{account-id}`
+- Destination: S3 bucket `predictive-maintenance-etl-{account-id}`
 - Format: CSV with headers
 - Partitioning: By date and hour
 - Compression: Snappy
@@ -186,7 +189,7 @@ The ML approach uses unsupervised anomaly detection with Amazon SageMaker’s Ra
 
 **Output**:
 
-- Destination: S3 bucket `mmt-predictive-maintenance-ml-features-{account-id}`
+- Destination: S3 bucket `predictive-maintenance-ml-features-{account-id}`
 - Format: CSV with 25+ engineered features
 - Partitioning: By date
 - Ready for SageMaker training and inference
@@ -239,7 +242,7 @@ The ML approach uses unsupervised anomaly detection with Amazon SageMaker’s Ra
 
   1.  **Update SSM Parameter**
 
-- Parameter: `/mmt/predictive-maintenance/latest-model`
+- Parameter: `/predictive-maintenance/latest-model`
 - Value: Model name
 - Type: String
 - Used by inference pipeline to get latest model
@@ -283,7 +286,7 @@ The ML approach uses unsupervised anomaly detection with Amazon SageMaker’s Ra
 **Transform Configuration**:
 
 - Input: S3 path to yesterday’s features
-- Output: S3 bucket `mmt-predictive-maintenance-raw-predictions-{account-id}`
+- Output: S3 bucket `predictive-maintenance-raw-predictions-{account-id}`
 - Content type: text/csv
 - Split type: Line
 - Compression: None
@@ -337,7 +340,7 @@ def process_predictions(raw_predictions):
 
 **Output**:
 
-- Destination: S3 bucket `mmt-predictive-maintenance-processed-predictions-{account-id}`
+- Destination: S3 bucket `predictive-maintenance-processed-predictions-{account-id}`
 - Format: CSV with headers
 - Columns: AAID, tire\_position, anomaly\_score, is\_anomaly, time\_to\_80\_psi, severity, leak\_rate
 - Triggers: S3 event notification to alerts Lambda
@@ -434,7 +437,7 @@ Both ML and filtering approaches generate alerts that integrate with maintenance
 
 **S3 Event Notification**:
 
-- Bucket: `mmt-predictive-maintenance-processed-predictions-{account-id}`
+- Bucket: `predictive-maintenance-processed-predictions-{account-id}`
 - Event: s3:ObjectCreated:\*
 - Target: Lambda function `generate-alerts`
 
@@ -519,25 +522,7 @@ Both ML and filtering approaches generate alerts that integrate with maintenance
 
 **Infrastructure as Code**: AWS CDK (Python)
 
-**CDK Stacks**:
-
-1. **Data Stack** - S3 buckets, Glue databases
-2. **ETL Stack** - Glue jobs, Lambda functions, CloudWatch Events
-3. **ML Stack** - SageMaker training, batch transform, Step Functions
-4. **Filtering Stack** - Lambda functions, Step Functions
-5. **Alerts Stack** - SNS topics, API Gateway, DynamoDB
-6. **Monitoring Stack** - CloudWatch dashboards, alarms
-
-**Deployment Steps**:
-
-1. Clone repository
-2. Install dependencies: `npm install`
-3. Bootstrap CDK: `cdk bootstrap`
-4. Deploy stacks: `cdk deploy --all`
-5. Manual step: Configure Redshift datashare permissions
-6. Verify: Check CloudWatch Logs for successful ETL runs
-
-**Deployment Time**: 30-45 minutes
+The reference implementation deploys six CDK stacks — a Data stack (S3 buckets, Glue databases), an ETL stack (Glue jobs, Lambda functions, CloudWatch Events), an ML stack (SageMaker training, batch transform, Step Functions), a Filtering stack (Lambda functions, Step Functions), an Alerts stack (SNS topics, API Gateway, DynamoDB), and a Monitoring stack (CloudWatch dashboards and alarms). This structure is illustrative of how you might organize a CDK application for this pattern; your implementation may combine or split concerns differently.
 
 **Cost Estimate**:
 
@@ -549,9 +534,39 @@ Both ML and filtering approaches generate alerts that integrate with maintenance
 - DynamoDB: $5/month
 - Total: ~$220-450/month depending on fleet size
 
-**Cleanup**:
+## Data Source: Redshift Datashare Pattern
 
-- `cdk destroy --all` removes all stacks
-- S3 buckets must be emptied manually before deletion
-- DynamoDB table deleted (backup recommended)
-- CloudWatch Logs retained for 30 days
+The reference implementation uses Redshift Datashare for cross-account access to existing fleet telemetry. This section describes the pattern and the key architectural tradeoff.
+
+**Why Redshift Datashare vs. S3 Unload**:
+
+Redshift Datashare allows the predictive maintenance account to query the source telemetry cluster directly, without the source account setting up and scheduling UNLOAD jobs. The tradeoff is that Datashare requires a one-time manual permission grant in the source cluster, whereas S3 unload requires no cross-account Redshift configuration but does require scheduling and managing the UNLOAD jobs on the source side.
+
+For most fleet architectures where the telemetry Redshift cluster is already managed by a separate team, Datashare provides a lower-friction integration path once the initial grant is in place. S3 unload is the better fit when the source team cannot grant Datashare access or when data volumes are very high.
+
+**Datashare setup pattern** (source account):
+
+The source account creates a datashare for the tire telemetry tables, adds the relevant schema and tables to the share, and grants usage to the consumer account. The consumer account then creates a local database from the datashare reference. Replace `<source-account-id>` and `<consumer-account-id>` with your actual account IDs:
+
+```
+-- In the source Redshift cluster
+CREATE DATASHARE tire_telemetry_share;
+ALTER DATASHARE tire_telemetry_share ADD SCHEMA public;
+ALTER DATASHARE tire_telemetry_share ADD TABLE public.tire_telemetry;
+ALTER DATASHARE tire_telemetry_share ADD TABLE public.vehicle_metadata;
+-- Grant usage to the consumer account
+GRANT USAGE ON DATASHARE tire_telemetry_share TO ACCOUNT '<consumer-account-id>';
+```
+
+```
+-- In the consumer account (where the solution is deployed)
+CREATE DATABASE tire_telemetry_db FROM DATASHARE tire_telemetry_share
+OF ACCOUNT '<source-account-id>' NAMESPACE '<source-namespace>';
+-- Grant permissions to the Lambda execution role
+GRANT USAGE ON DATABASE tire_telemetry_db TO IAM_ROLE 'arn:aws:iam::<consumer-account-id>:role/predictive-maintenance-lambda-execution-role';
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO IAM_ROLE 'arn:aws:iam::<consumer-account-id>:role/predictive-maintenance-lambda-execution-role';
+```
+
+**S3 Unload alternative**:
+
+If using S3 unload instead of Datashare, configure Redshift to UNLOAD data to the S3 raw bucket hourly, remove the `redshift-query-lambda` from the deployment, and update the `root-etl-pipeline` Glue job to read from S3 directly.

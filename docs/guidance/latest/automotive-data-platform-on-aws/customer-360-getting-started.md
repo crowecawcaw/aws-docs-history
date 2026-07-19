@@ -1,6 +1,6 @@
 # Getting started
 
-Access the deployed Customer 360 solution through Quick Suite dashboards and Bedrock agent.
+Access the Customer 360 solution through Quick Suite dashboards and Bedrock agent.
 
 ## Accessing Quick Suite
 

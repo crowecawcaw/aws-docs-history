@@ -71,7 +71,7 @@ The training dataset can be regenerated with `scripts/generate_training_data.py`
 
 ## Connected Mobility integration
 
-When used with the Connected Mobility Guidance, the prediction pipeline integrates as follows:
+When used with CMS, the prediction pipeline integrates as follows:
 
 1. The CMS simulator or real FWE agent sends tire telemetry through IoT Core → MSK → Flink
 2. The Flink MaintenanceProcessor evaluates rule-based thresholds from the event catalog (fires at 28 PSI)

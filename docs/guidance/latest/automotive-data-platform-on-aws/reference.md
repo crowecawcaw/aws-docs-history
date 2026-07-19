@@ -3,9 +3,9 @@
 ## GitHub Repositories
 
 - **Main Repository**: https://github.com/aws-solutions-library-samples/guidance-for-automotive-data-platform-on-aws
-- **Customer 360 Analytics**: https://github.com/aws-solutions-library-samples/guidance-for-automotive-data-platform-on-aws/tree/main/guidance-for-agentic-customer-360
-- **Predictive Maintenance**: https://github.com/aws-solutions-library-samples/guidance-for-automotive-data-platform-on-aws/tree/main/guidance-for-predictive-maintenance
 - **Platform Foundation**: https://github.com/aws-solutions-library-samples/guidance-for-automotive-data-platform-on-aws/tree/main/platform-foundation
+- **Documentation**: https://github.com/aws-solutions-library-samples/guidance-for-automotive-data-platform-on-aws/tree/main/docs
+- **Migration Guide**: https://github.com/aws-solutions-library-samples/guidance-for-automotive-data-platform-on-aws/blob/main/MIGRATION-FROM-V0.1.0.md
 
 ## AWS Service Documentation
 
@@ -20,9 +20,13 @@
 ### AI and Machine Learning
 
 - **Amazon Bedrock**: https://docs.aws.amazon.com/bedrock/
+- **Amazon Bedrock Knowledge Base**: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html
 - **Amazon SageMaker**: https://docs.aws.amazon.com/sagemaker/
 - **Amazon SageMaker Unified Studio**: https://docs.aws.amazon.com/sagemaker/latest/dg/unified-studio.html
-- **Amazon Q in Quick Suite**: https://docs.aws.amazon.com/quicksight/
+
+### Search and Vector Storage
+
+- **Amazon OpenSearch Serverless**: https://docs.aws.amazon.com/opensearch-service/
 
 ### Data Processing
 
@@ -33,13 +37,12 @@
 
 ### Databases
 
-- **Amazon Aurora PostgreSQL**: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/
 - **Amazon DynamoDB**: https://docs.aws.amazon.com/dynamodb/
-- **Amazon Redshift**: https://docs.aws.amazon.com/redshift/
 
 ### Security and Governance
 
 - **AWS IAM**: https://docs.aws.amazon.com/iam/
+- **IAM Identity Center**: https://docs.aws.amazon.com/singlesignon/
 - **AWS CloudTrail**: https://docs.aws.amazon.com/cloudtrail/
 - **Amazon Macie**: https://docs.aws.amazon.com/macie/
 - **AWS Security Hub**: https://docs.aws.amazon.com/securityhub/
@@ -106,4 +109,3 @@
 - **Amazon Athena Pricing**: https://aws.amazon.com/athena/pricing/
 - **Amazon Bedrock Pricing**: https://aws.amazon.com/bedrock/pricing/
 - **Amazon SageMaker Pricing**: https://aws.amazon.com/sagemaker/pricing/
-- **Amazon Q in Quick Suite Pricing**: https://aws.amazon.com/quicksight/pricing/

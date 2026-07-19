@@ -85,26 +85,30 @@ Supplier defect in thermal management affecting 12,000 vehicles
 - Satisfaction: 4.2/5.0
 ```
 
-### Creating the knowledge base
+### Knowledge base ingestion
+
+To populate the knowledge base, documents are uploaded to S3 and an ingestion job is started:
 
 ```
-# Deploy Aurora cluster
-cdk deploy cx360-dev-aurora-pgvector
-
-# Upload documents
+# Upload playbook documents
 aws s3 sync source/knowledge-base/ \
-  s3://cx360-knowledge-base-${ACCOUNT_ID}/docs/
+  s3://cx360-knowledge-base-<ACCOUNT-ID>/docs/
 
-# Create Knowledge Base
-aws bedrock-agent create-knowledge-base \
-  --name customer-360-kb \
-  --role-arn <KB_ROLE_ARN>
-
-# Start ingestion
+# Start ingestion job
 aws bedrock-agent start-ingestion-job \
   --knowledge-base-id <KB_ID> \
   --data-source-id <DS_ID>
 ```
+
+### Chunking strategy
+
+**Document chunking configuration**:
+\* 500 tokens per chunk
+\* 50 token overlap
+\* Keep related info together
+\* Use markdown structure
+
+These parameters balance retrieval precision with context completeness. A 500-token chunk is large enough to include the full context of a remediation step (symptom, root cause, recommended action, success metrics) without splitting related content across chunks. The 50-token overlap ensures that sentences near chunk boundaries appear in adjacent chunks, preventing retrieval gaps when a query matches content that spans a boundary.
 
 ## Building action groups
 

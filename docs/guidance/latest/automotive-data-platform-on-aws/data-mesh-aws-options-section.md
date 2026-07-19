@@ -80,12 +80,12 @@ The architecture diagram contains following components:
 
 ## This Implementation
 
-This Automotive Data Platform uses **Amazon DataZone with SageMaker Unified Studio** for the following reasons:
+This Automotive Data Platform uses **Amazon DataZone V2** as the primary catalog and governance surface for the following reasons:
 
-- **Rapid Deployment**: Get started quickly with minimal configuration
-- **Integrated Experience**: Unified Studio combines data engineering, ML, and analytics
+- **Rapid Deployment**: One foundation deploy (`make deploy STAGE=`) provisions the complete DataZone V2 domain and all 9 governed data products
+- **Integrated Governance**: DataZone V2 combines data catalog, producer/consumer project management, subscription workflows, and Lake Formation tag-based access control in a single managed service
 - **Managed Service**: Focus on data products, not infrastructure management
-- **AWS Native**: Seamless integration with other AWS services
-- **Enterprise Ready**: Built-in governance, security, and compliance features
+- **AWS Native**: Seamless integration with S3 Iceberg lake, Glue, Athena, Lake Formation, Macie, CloudTrail, and IAM Identity Center
+- **Enterprise Ready**: Built-in governance, security, and compliance features; downstream consumers can subscribe via DataZone for BI or analytics workloads; predictive-maintenance reference consumers use SageMaker Studio notebooks
 
 For organizations requiring more customization, the architecture can be adapted to use data.all or Lake Formation with minimal changes to the domain structure and data product definitions.

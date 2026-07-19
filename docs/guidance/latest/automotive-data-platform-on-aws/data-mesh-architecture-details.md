@@ -1,23 +1,24 @@
 # Architecture details
 
-## SageMaker Unified Studio
+## DataZone V2 Domain
 
 **Domain**: `automotive-data-platform`
 
+See [Platform foundation](platform-foundation.md "platform-foundation.md") for the full deploy topology and stack naming conventions.
+
 **Configuration**:
 
-- SSO: AWS IAM Identity Center
+- SSO: AWS IAM Identity Center (IDC)
 - VPC: Dedicated VPC with private subnets
 - Encryption: KMS customer-managed keys
 - Networking: VPC endpoints for AWS services
 
 **Projects**:
 
-- Customer Analytics: Customer 360 data product
-- Vehicle Intelligence: Predictive Maintenance data product
-- Compliance: Governance and audit data product
+- 9 producer projects — one per data product (`vehicle_telemetry_aggregated`, `customer_360`, `service_records`, and 6 others; see [Data products](data-products.md "data-products.md"))
+- 1 smoke-test consumer project for subscription validation
 
-**Environments**:
+**Environments per project**:
 
 - Development: Sandbox for experimentation
 - Staging: Pre-production testing
@@ -25,54 +26,53 @@
 
 ## Data Product Registration
 
-### Customer 360 Data Product
+The foundation deploy automatically registers all 9 governed data products in the DataZone V2 domain. See [Data products](data-products.md "data-products.md") for complete schemas, partition schemes, and subscription patterns for each product.
 
-**Registration**:
+### Example: `customer_360` Data Product
 
-- Name: `customer-360-analytics`
-- Owner: Customer Experience team
-- Description: Unified customer profiles with health scores and sentiment
+**Registration** (auto-provisioned by `datazone-projects` stack):
+
+- Technical name: `customer_360`
+- Owner: Customer domain producer project
+- Description: Unified customer profiles with snapshot-date partitioning
 - SLA: 99.9% availability, data freshness < 24 hours
-- Schema: Glue Data Catalog tables
-- Access: Request via DataZone portal
+- Format: Apache Iceberg on S3
+- Access: Subscription request via DataZone V2 portal
 
 **Metadata**:
 
 - Business glossary: Customer, Health Score, NPS, Churn Risk
 - Technical documentation: Schema definitions, query examples
 - Quality metrics: Completeness, accuracy, timeliness
-- Usage examples: Sample queries, dashboard templates
+- Usage examples: Sample queries, downstream notebook templates
 
-### Predictive Maintenance Data Product
+### Example: `vehicle_telemetry_aggregated` Data Product
 
-**Registration**:
+**Registration** (auto-provisioned by `datazone-projects` stack):
 
-- Name: `predictive-maintenance`
-- Owner: Vehicle Operations team
-- Description: ML predictions for tire failures and component issues
-- SLA: 99.5% availability, prediction latency < 1 second
-- Schema: API specification, DynamoDB tables
-- Access: API key via DataZone portal
+- Technical name: `vehicle_telemetry_aggregated`
+- Owner: Automotive domain producer project
+- Description: Hourly-aggregated vehicle telemetry, partitioned by `event_date` with 16-bucket VIN bucketing
+- Format: Apache Iceberg on S3
+- Access: Subscription request via DataZone V2 portal
 
 **Metadata**:
 
-- Business glossary: Tire Failure, Anomaly Score, Risk Level
-- Technical documentation: API reference, model documentation
-- Quality metrics: Prediction accuracy, false positive rate
-- Usage examples: API calls, integration patterns
+- Business glossary: VIN, Sensor Reading, Diagnostic Code, Vehicle Health
+- Quality metrics: Completeness, accuracy, timeliness
 
 ## Cross-Domain Data Sharing
 
-**Scenario**: Customer Analytics team wants to enrich customer profiles with predictive maintenance data
+**Scenario**: A consumer subscribes to both the `customer_360` and `service_records` data products to enrich customer profiles with service history
 
 **Process**:
 
-1. Customer Analytics team discovers Predictive Maintenance data product in DataZone
-2. Request access via DataZone portal
-3. Vehicle Operations team approves request (automated for anonymized data)
-4. Lake Formation grants read permissions
-5. Customer Analytics team queries both data products via Athena
-6. DataZone tracks lineage showing data flow between domains
+1. Consumer discovers the `customer_360` and `service_records` data products in the DataZone V2 portal
+2. Consumer submits subscription requests via the DataZone V2 portal
+3. Producer domain owners approve requests (governance stack provisions Lake Formation grants automatically)
+4. Lake Formation grants column-level read permissions per the data product’s access policy
+5. Consumer queries both data products via Athena using the Glue Data Catalog
+6. DataZone V2 tracks lineage showing data flow between producer and consumer projects
 
 **Query Example**:
 
@@ -81,13 +81,12 @@ SELECT
   c.customer_id,
   c.health_score,
   c.nps,
-  p.risk_level,
-  p.days_to_failure
-FROM customer_360.customers c
-JOIN predictive_maintenance.predictions p
-  ON c.vin = p.vin
+  s.service_month,
+  s.repair_category
+FROM customer_360.customer_360 c
+JOIN service_records.service_records s
+  ON c.customer_id = s.customer_id
 WHERE c.health_score < 50
-  AND p.risk_level = 'high'
 ```
 
 ## Governance Policies
@@ -115,12 +114,13 @@ WHERE c.health_score < 50
 
 ## Deployment Architecture
 
-**Infrastructure**:
+**Infrastructure** (see [Platform foundation](platform-foundation.md "platform-foundation.md") for complete topology):
 
-- CloudFormation stack: `automotive-platform-foundation`
-- Resources: SageMaker Unified Studio domain, DataZone, Lake Formation
-- Deployment time: 1-2 hours
+- Five per-stage CDK stacks: `network`, `lake`, `datazone`, `datazone-projects`, `governance`
+- One account-singular bootstrap stack: `adp-shared-bootstrap`
+- Resources: DataZone V2 domain, S3 Iceberg lake, Lake Formation tags, Macie session, CloudTrail trail, IAM Identity Center groups
+- Deployment time: 45–90 minutes via `make deploy STAGE=<stage>`
 
 **Integration**:
 
-- Customer 360 registers as data product
+- All 9 data products registered automatically by the `datazone-projects` stack

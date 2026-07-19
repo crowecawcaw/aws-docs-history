@@ -65,7 +65,7 @@ A vehicle telemetry data product might include:
 
 Provide teams with tools to independently create and consume data products:
 
-- **Amazon SageMaker Unified Studio**: Single interface for data engineering, ML, and analytics
+- **Amazon DataZone V2**: Single portal for data catalog, domain governance, producer/consumer project management, and subscription workflows
 - **AWS Glue**: Serverless ETL for data transformation
 - **Amazon Athena**: SQL queries without managing infrastructure
 - **Amazon DataZone**: Catalog-based discovery with approval workflows
@@ -79,7 +79,7 @@ The platform enables teams to:
 - **Request Access**: Submit access requests through approval workflows
 - **Create Pipelines**: Build ETL jobs using visual or code-based tools
 - **Train Models**: Develop ML models using SageMaker notebooks
-- **Build Dashboards**: Create QuickSight visualizations without IT support
+- **Build Dashboards**: Downstream consumers can subscribe via DataZone V2 for BI or analytics workloads
 - **Deploy Products**: Publish new data products to the catalog
 
 ### Reducing Central IT Burden

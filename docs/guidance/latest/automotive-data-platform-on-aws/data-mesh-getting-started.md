@@ -1,79 +1,59 @@
 # Getting started
 
-## Platform Foundation Deployment (Optional)
+## Foundation Deployment
 
-Deploy SageMaker Unified Studio for centralized data governance.
+Deploy the complete Automotive Data Platform foundation — DataZone V2 domain and all 9 governed data products — with a single command. See [Platform foundation](platform-foundation.md "platform-foundation.md") for the full deploy runbook, stage-gate model, and stack naming conventions.
 
 ## Prerequisites
 
-- Customer 360 and/or Predictive Maintenance already deployed
-- AWS IAM Identity Center configured
-- VPC with private subnets
+- AWS account with CDK bootstrapped in `us-east-1`
+- AWS IAM Identity Center (IDC) configured in the account
+- Python 3.12+ and Node.js 22.x LTS for CDK
+- Docker (for Lambda bundling)
 
-## Deploy SageMaker Unified Studio
+## Deploy the Foundation
 
 ```
-# Navigate to platform foundation directory
-cd automotive-data-platform-on-aws/platform-foundation
+# Bootstrap account-level resources (once per account)
+make bootstrap
 
-# Install dependencies
-npm install
-
-# Deploy
-cdk deploy PlatformFoundationStack
+# Deploy all five per-stage stacks in dependency order
+make deploy STAGE=staging
 ```
 
-**Deployment time**: 60 minutes
+**Deployment time**: 45–90 minutes
 
 **What gets deployed**:
 
-- SageMaker Unified Studio domain
-- Amazon DataZone domain
-- Lake Formation resource shares
-- IAM roles for cross-domain access
+- `adp-staging-foundation-network`: VPC with private subnets and VPC endpoints
+- `adp-staging-foundation-lake`: S3 Iceberg lake + KMS + 10 Glue databases
+- `adp-staging-foundation-datazone`: DataZone V2 domain + IAM roles
+- `adp-staging-foundation-datazone-projects`: 9 producer projects + 1 smoke-test consumer project (all 9 data products registered)
+- `adp-staging-foundation-governance`: Lake Formation tags + CloudTrail trail + 3 IDC groups
 
-## Register Data Products
+## Subscribe to Data Products
 
-**Register Customer 360**:
+After deployment, consumers discover and subscribe to data products through the DataZone V2 portal:
 
-1. Open DataZone console
-2. Create project: "Customer Analytics"
-3. Publish data product:
+1. Open the DataZone V2 data portal URL (output by the `datazone` stack)
+2. Log in with IAM Identity Center credentials
+3. Browse the catalog — all 9 data products are discoverable
+4. Submit subscription requests; producer domain owners approve via the DataZone V2 workflow
+5. Lake Formation grants column-level read permissions automatically upon approval
 
-   - Name: `customer-360-analytics`
-   - Source: Glue Data Catalog `cx_analytics`
-   - Tables: All 11 tables
-   - Access: Request-based approval
-
-**Register Predictive Maintenance**:
-
-1. Create project: "Vehicle Intelligence"
-2. Publish data product:
-
-   - Name: `predictive-maintenance`
-   - Source: Glue Data Catalog `mmt_predictive_maintenance`
-   - Tables: All prediction tables
-   - Access: Automated approval for anonymized data
-
-## Configure Cross-Domain Access
+## Query Subscribed Data
 
 ```
-# Grant Customer Analytics project access to Predictive Maintenance data
-aws datazone create-subscription-grant \
-  --domain-identifier dzd-... \
-  --granted-entity '{"listing":{"identifier":"lst-...","revision":"1"}}' \
-  --subscription-target-identifier st-... \
-  --region us-east-1
-```
-
-## Test Cross-Domain Query
-
-```
--- Query combining Customer 360 and Predictive Maintenance data
+-- Query combining customer_360 and service_records data products
+-- (after subscription approval)
 SELECT
   c.customer_id,
   c.health_score,
   c.nps,
-  p.risk_level,
-  p.days_to_failure,
+  s.service_month,
+  s.repair_category
+FROM customer_360.customer_360 c
+JOIN service_records.service_records s
+  ON c.customer_id = s.customer_id
+WHERE c.health_score < 50
 ```

@@ -1,85 +1,40 @@
-# Deployment guide
+# Deployment architecture
 
-Deploy the Customer 360 solution in 5 phases using the provided CDK stacks.
+A reference implementation of this pattern is structured as a five-stage CDK deployment, each stage building on the previous to progressively compose the full Customer 360 capability.
 
-## Prerequisites
+## Stage structure
 
-**AWS account requirements**:
-\* Admin access or equivalent permissions
-\* Quick Suite Enterprise subscription
-\* Bedrock model access (Claude 3.5 Sonnet)
-\* Service quotas for S3, Glue, Athena, Aurora
+**Stage 1: Data Lake Foundation**
 
-**Local environment**:
-\* AWS CLI configured
-\* Node.js 18+ installed
-\* Python 3.9+ installed
-\* CDK CLI: `npm install -g aws-cdk`
+The first stage establishes the core data infrastructure: an S3 data lake with bronze/silver/gold prefix structure, a Glue Data Catalog database, an Athena workgroup with result-set location, and Lake Formation permissions scoped to the analytics and AI service principals. This stage has no dependencies on the upper layers and is the prerequisite for all subsequent stages.
 
-## Deployment phases
+**Stage 2: ETL and Catalog**
 
-**Phase 1: Data Lake Foundation** (10 minutes)
+The second stage wires the catalog layer: Glue crawlers that discover schema from the raw S3 prefix, IAM roles scoped to the crawlers and ETL jobs, and a Quick Suite data source that points at the Athena workgroup created in Stage 1. The Quick Suite data source is provisioned here (not in Stage 4) because the dataset creation in Stage 4 depends on it already existing.
 
-```
-cd guidance-for-agentic-customer-360
-make phase1
-```
+**Stage 3: Data Generation**
 
-Creates S3 bucket, Glue database, Athena workgroup, Lake Formation permissions.
+The third stage populates the lake with the 11 analytical datasets — approximately 500K customer records, 1.4M interaction records, 900K service records, and the 8 Athena views that aggregate them into the metrics surfaces used by dashboards and agents. In a production deployment this stage is replaced by the live data-ingestion pipeline from the ADP foundation’s governed data products.
 
-**Phase 2: ETL & Prerequisites** (5 minutes)
+**Stage 4: Quick Suite Dashboards**
 
-```
-make phase2
-```
+The fourth stage creates the 8 Quick Suite datasets (one per Athena view), assembles the Customer 360 dashboard from those datasets, and provisions a demo reader user. The datasets use SPICE import mode for performance; refresh schedules are configured to match upstream crawler cadence.
 
-Creates Glue crawler, IAM roles, Quick Suite data source.
+**Stage 5: Bedrock AI Agent**
 
-**Phase 3: Data Generation** (20 minutes)
+The fifth stage deploys the AI layer: Aurora PostgreSQL Serverless v2 with the pgvector extension, the Bedrock Knowledge Base backed by that Aurora cluster, the Bedrock Agent with its three action groups, and the Lambda functions that implement the action group handlers. This stage takes the longest to provision (~30 minutes) due to Aurora cluster initialization and Knowledge Base indexing.
+
+## Verification approach
+
+After each stage, the reference implementation includes verification queries to confirm the expected resources exist and are in the correct state. For the data layer, this means confirming the S3 prefix structure is populated and Athena can execute a count query against the core tables. For the Quick Suite layer, this means confirming datasets and dashboards are listed under the account. For the Bedrock layer, this means confirming knowledge bases and agents are registered.
 
 ```
-make phase3
-```
-
-Generates 500K customers, 1.4M interactions, 8 Athena views.
-
-**Phase 4: Quick Suite Dashboards** (15 minutes)
-
-```
-make phase4
-```
-
-Creates 8 datasets, dashboard, demo user.
-
-**Phase 5: Bedrock AI Agent** (30 minutes)
-
-```
-make phase5
-```
-
-Deploys Aurora cluster, Knowledge Base, Bedrock Agent, Lambda functions.
-
-## Verification
-
-**Check data**:
-
-```
+# Example: confirm S3 data lake prefix is populated
 aws s3 ls s3://automotive-cx-data-lake-<ACCOUNT-ID>/raw/
-aws athena start-query-execution \
-  --query-string "SELECT COUNT(*) FROM customers" \
-  --query-execution-context Database=cx_analytics
-```
 
-**Check Quick Suite**:
-
-```
+# Example: confirm Quick Suite datasets exist
 aws quicksight list-data-sets --aws-account-id <ACCOUNT-ID>
-aws quicksight list-dashboards --aws-account-id <ACCOUNT-ID>
-```
 
-**Check Bedrock**:
-
-```
-aws bedrock-agent list-knowledge-bases
+# Example: confirm Bedrock agent is registered
 aws bedrock-agent list-agents
 ```

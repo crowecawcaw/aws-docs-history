@@ -1,453 +1,183 @@
 # Uninstall the guidance
 
-This chapter describes how to completely remove the Automotive Data Platform from your AWS account.
+This chapter describes how to completely remove the Automotive Data Platform foundation from your AWS account.
 
 ###### Warning
 
 Uninstalling the solution will permanently delete all data, configurations, and resources. This action cannot be undone. Ensure you have backups of any data you wish to retain.
 
-## Customer 360 Cleanup
+## Overview
 
-### Automated Cleanup
+The foundation uses a **per-stage** teardown model. Each stage (`staging`, `prod`) is torn down independently. The account-level bootstrap stack (`adp-shared-bootstrap`) is **not** torn down by per-stage teardown — it is shared across stages and retained.
 
-```
-# Navigate to project directory
-cd automotive-data-platform-on-aws/guidance-for-agentic-customer-360
+The Makefile target `make teardown STAGE=<stage> YES=1` is the only sanctioned entry point. Running the target without `YES=1` performs a safe **dry-run** that prints what would be deleted without destroying anything.
 
-# Run cleanup command
-make cleanup
+###### Important
 
-# Confirm deletion when prompted
-```
+The `adp-shared-bootstrap` stack (which enables the Macie session) is intentionally excluded from per-stage teardown. It is retained across stage lifecycles. If you must disable it, note that Macie has a **30-day cool-down period** before it can be re-enabled after being disabled.
 
-**What gets deleted**:
+## Pre-teardown: Vehicle Knowledge Base
 
-- Bedrock Agent and Knowledge Base
-- Aurora PostgreSQL cluster (with final snapshot)
-- Quick Suite dashboards, datasets, and users
-- Athena views
-- Glue crawler and tables
-- S3 buckets (after emptying)
-- CloudFormation stacks
-- IAM roles and policies
-- Lake Formation permissions
-
-**Cleanup time**: 15-20 minutes
-
-### Manual Cleanup Steps
-
-If automated cleanup fails, follow these manual steps:
-
-#### Step 1: Delete Bedrock Resources
+If the optional Vehicle Knowledge Base stack (`adp-<stage>-foundation-vehicle-knowledge-base`) is deployed, you must stop any in-flight Bedrock ingestion jobs **before** running teardown. Deleting the Knowledge Base while an ingestion job is running will cause deletion conflicts.
 
 ```
-# Delete agent alias
-aws bedrock-agent delete-agent-alias \
-  --agent-id AGENT_ID \
-  --agent-alias-id ALIAS_ID
+# List all ingestion jobs for the Knowledge Base.
+# Replace <kb-id> with your Knowledge Base ID (from the stack's KnowledgeBaseId output).
+DS_ID=$(aws bedrock-agent list-data-sources \
+  --knowledge-base-id <kb-id> \
+  --region us-east-1 \
+  --query 'dataSourceSummaries[?name==`vehicle-knowledge-base-sources`].dataSourceId' \
+  --output text)
 
-# Delete agent
-aws bedrock-agent delete-agent \
-  --agent-id AGENT_ID
+aws bedrock-agent list-ingestion-jobs \
+  --knowledge-base-id <kb-id> \
+  --region us-east-1
 
-# Delete Knowledge Base
-aws bedrock-agent delete-knowledge-base \
-  --knowledge-base-id KB_ID
-
-# Delete data source
-aws bedrock-agent delete-data-source \
-  --knowledge-base-id KB_ID \
-  --data-source-id DS_ID
+# Stop any job with status IN_PROGRESS (replace <JOB_ID> with the actual ingestion job ID).
+aws bedrock-agent stop-ingestion-job \
+  --knowledge-base-id <kb-id> \
+  --data-source-id $DS_ID \
+  --ingestion-job-id <JOB_ID> \
+  --region us-east-1 || true
 ```
 
-#### Step 2: Delete Aurora Cluster
+For the full Vehicle Knowledge Base teardown procedure, see `docs/DEPLOYMENT.md` § Vehicle Knowledge Base (Bedrock KB + AOSS) deploy — Tear-down.
+
+## Teardown command
+
+All teardown commands run from the `platform-foundation/` directory.
 
 ```
-# Create final snapshot (optional but recommended)
-aws rds create-db-cluster-snapshot \
-  --db-cluster-snapshot-identifier cx360-final-snapshot \
-  --db-cluster-identifier cx360-kb-cluster
+cd platform-foundation
 
-# Delete cluster (skip final snapshot if already created)
-aws rds delete-db-cluster \
-  --db-cluster-identifier cx360-kb-cluster \
-  --skip-final-snapshot
+# Dry-run — prints what WOULD be deleted (default, safe).
+make teardown STAGE=staging
+
+# Actually destroy the staging stage.
+make teardown STAGE=staging YES=1
+
+# Same for prod:
+make teardown STAGE=prod YES=1
 ```
 
-#### Step 3: Delete Quick Suite Resources
+## Six-step teardown sequence
+
+The `make teardown STAGE=<stage> YES=1` command executes the following six steps in order. Each step is automated by the teardown script (`scripts/teardown.sh`).
+
+### Step 1: Stop the CloudTrail trail
+
+The stage CloudTrail trail is stopped gracefully before S3 buckets are emptied, to prevent log delivery attempts into a bucket that is about to be deleted.
+
+### Step 2: Empty S3 buckets
+
+All three S3 buckets for the stage are emptied — current objects, every object version, and every delete marker. Versioned buckets cannot be deleted by CloudFormation without first being emptied.
+
+Buckets emptied:
+
+- `adp-<stage>-foundation-lake-<account>-us-east-1` — the data lake bucket
+- Lake-logs bucket
+- Trail-logs bucket
+
+### Step 3: DataZone domain force-delete
+
+The DataZone domain is deleted via `aws datazone delete-domain --skip-deletion-check`. This cascades through the 10 retained `CfnProject` resources that would otherwise block the CloudFormation stack deletion.
+
+### Step 4: CDK destroy with explicit stack list
+
+CloudFormation stacks are destroyed using `cdk destroy --force -c stage=<stage>` with an **explicit stack list**. The script never uses `--all`, which would walk into `adp-shared-bootstrap`.
+
+Stacks destroyed (in order):
+
+- `adp-<stage>-foundation-governance`
+- `adp-<stage>-foundation-datazone-projects`
+- `adp-<stage>-foundation-datazone`
+- `adp-<stage>-foundation-lake`
+- `adp-<stage>-foundation-network`
+- `adp-<stage>-foundation-vehicle-knowledge-base` (if deployed)
+- `adp-<stage>-foundation-cms-ingest` (if deployed)
+
+The `adp-shared-bootstrap` stack is **never** included in this list.
+
+### Step 5: IDC group cleanup
+
+An idempotent IAM Identity Center (IDC) group cleanup removes the three stage-prefixed groups (`adp-<stage>-{data-owners,data-consumers,platform-admins}`). This is a fallback step — some CDK and CloudFormation versions do not honor `RemovalPolicy.DESTROY` on `CfnGroup` resources.
+
+### Step 6: Verify
+
+The teardown script verifies that:
+
+- No `adp-<stage>-foundation-*` stacks remain in `CREATE_COMPLETE` or `UPDATE_COMPLETE` state.
+- The `adp-shared-bootstrap` stack is still `CREATE_COMPLETE` or `UPDATE_COMPLETE` — the Macie session is preserved.
+
+## Bootstrap stack retention
+
+The `adp-shared-bootstrap` stack is explicitly **excluded** from per-stage teardown. This stack manages the Macie session, which has a 30-day cool-down period before it can be re-enabled after being disabled. Because of this constraint, the bootstrap sets `RemovalPolicy.RETAIN` on the Macie session resource.
+
+###### Important
+
+Per-stage teardown does **not** touch the `adp-shared-bootstrap` stack. The Macie session remains `ENABLED` after a stage is torn down. If you need to remove the bootstrap stack entirely (for example, to decommission the account-level deployment), be aware of the 30-day cool-down before Macie can be re-enabled.
+
+## Verify teardown
+
+After `make teardown STAGE=<stage> YES=1` completes, run the following verification commands to confirm the stage is fully removed and the bootstrap is intact.
 
 ```
-# Delete dashboard
-aws quicksight delete-dashboard \
-  --aws-account-id $(aws sts get-caller-identity --query Account --output text) \
-  --dashboard-id customer-360-dashboard
+STAGE=staging   # or prod
 
-# Delete analysis
-aws quicksight delete-analysis \
-  --aws-account-id $(aws sts get-caller-identity --query Account --output text) \
-  --analysis-id customer-360-analysis
-
-# Delete datasets (repeat for all 8 datasets)
-aws quicksight delete-data-set \
-  --aws-account-id $(aws sts get-caller-identity --query Account --output text) \
-  --data-set-id DATASET_ID
-
-# Delete users
-aws quicksight delete-user \
-  --aws-account-id $(aws sts get-caller-identity --query Account --output text) \
-  --namespace default \
-  --user-name demo-viewer
-
-# Delete data source
-aws quicksight delete-data-source \
-  --aws-account-id $(aws sts get-caller-identity --query Account --output text) \
-  --data-source-id cx-analytics-athena
-```
-
-#### Step 4: Delete Athena Resources
-
-```
-# Delete views (repeat for all 8 views)
-aws athena start-query-execution \
-  --query-string "DROP VIEW IF EXISTS cx_analytics.customer_health_scores" \
-  --query-execution-context Database=cx_analytics \
-  --result-configuration OutputLocation=s3://automotive-cx-data-lake-$(aws sts get-caller-identity --query Account --output text)/athena-results/
-
-# Delete workgroup
-aws athena delete-work-group \
-  --work-group cx-analytics-workgroup \
-  --recursive-delete-option
-```
-
-#### Step 5: Delete Glue Resources
-
-```
-# Delete crawler
-aws glue delete-crawler --name cx-analytics-crawler
-
-# Delete tables (repeat for all 11 tables)
-aws glue delete-table \
-  --database-name cx_analytics \
-  --name customers
-
-# Delete database
-aws glue delete-database --name cx_analytics
-```
-
-#### Step 6: Empty and Delete S3 Buckets
-
-```
-# Empty bucket
-aws s3 rm s3://automotive-cx-data-lake-$(aws sts get-caller-identity --query Account --output text) --recursive
-
-# Delete bucket
-aws s3 rb s3://automotive-cx-data-lake-$(aws sts get-caller-identity --query Account --output text)
-```
-
-#### Step 7: Delete CloudFormation Stacks
-
-```
-# Delete stacks in reverse order
-aws cloudformation delete-stack --stack-name cx360-dev-bedrock
-aws cloudformation delete-stack --stack-name cx360-dev-etl
-aws cloudformation delete-stack --stack-name cx360-dev-data-lake
-
-# Wait for deletion to complete
-aws cloudformation wait stack-delete-complete --stack-name cx360-dev-bedrock
-aws cloudformation wait stack-delete-complete --stack-name cx360-dev-etl
-aws cloudformation wait stack-delete-complete --stack-name cx360-dev-data-lake
-```
-
-#### Step 8: Delete Lake Formation Permissions
-
-```
-# Revoke all permissions
-aws lakeformation batch-revoke-permissions \
-  --entries file://revoke-permissions.json
-
-# Remove data lake administrators
-aws lakeformation put-data-lake-settings \
-  --data-lake-settings '{"DataLakeAdmins":[]}'
-```
-
-## Predictive Maintenance Cleanup
-
-### Automated Cleanup
-
-```
-# Navigate to project directory
-cd automotive-data-platform-on-aws/guidance-for-predictive-maintenance/deployment
-
-# Destroy all CDK stacks
-cdk destroy --all
-
-# Confirm deletion when prompted
-```
-
-**What gets deleted**:
-
-- SageMaker endpoints and models
-- Step Functions state machines
-- Lambda functions
-- Glue jobs and database
-- DynamoDB tables
-- SNS topics and subscriptions
-- API Gateway
-- S3 buckets (after emptying)
-- CloudFormation stacks
-- IAM roles and policies
-
-**Cleanup time**: 10-15 minutes
-
-### Manual Cleanup Steps
-
-#### Step 1: Delete SageMaker Resources
-
-```
-# Delete endpoint
-aws sagemaker delete-endpoint \
-  --endpoint-name tire-prediction-endpoint
-
-# Delete endpoint configuration
-aws sagemaker delete-endpoint-config \
-  --endpoint-config-name tire-prediction-config
-
-# Delete model
-aws sagemaker delete-model \
-  --model-name tire-prediction-model
-
-# Delete training jobs (optional, auto-deleted after 120 days)
-aws sagemaker stop-training-job \
-  --training-job-name tire-prediction-rcf-20260128
-```
-
-#### Step 2: Delete Step Functions
-
-```
-# Delete state machines
-aws stepfunctions delete-state-machine \
-  --state-machine-arn arn:aws:states:REGION:ACCOUNT:stateMachine:ml-etl-pipeline
-
-aws stepfunctions delete-state-machine \
-  --state-machine-arn arn:aws:states:REGION:ACCOUNT:stateMachine:ml-training-pipeline
-
-aws stepfunctions delete-state-machine \
-  --state-machine-arn arn:aws:states:REGION:ACCOUNT:stateMachine:ml-inference-pipeline
-
-aws stepfunctions delete-state-machine \
-  --state-machine-arn arn:aws:states:REGION:ACCOUNT:stateMachine:filtering-pipeline
-```
-
-#### Step 3: Delete Lambda Functions
-
-```
-# List and delete all Lambda functions
-aws lambda list-functions \
-  --query 'Functions[?contains(FunctionName, `mmt-predictive-maintenance`)].FunctionName' \
-  --output text | xargs -n1 aws lambda delete-function --function-name
-```
-
-#### Step 4: Delete Glue Resources
-
-```
-# Delete Glue jobs
-aws glue delete-job --job-name root-etl-pipeline
-aws glue delete-job --job-name ml-feature-engineering
-
-# Delete database
-aws glue delete-database --name mmt_predictive_maintenance
-```
-
-#### Step 5: Delete DynamoDB Tables
-
-```
-# Delete table
-aws dynamodb delete-table --table-name tire-alerts
-```
-
-#### Step 6: Delete SNS Topics
-
-```
-# Delete topic
-aws sns delete-topic \
-  --topic-arn arn:aws:sns:REGION:ACCOUNT:tire-alert-notifications
-```
-
-#### Step 7: Delete API Gateway
-
-```
-# Delete API
-aws apigateway delete-rest-api --rest-api-id API_ID
-```
-
-#### Step 8: Empty and Delete S3 Buckets
-
-```
-# Empty all buckets
-aws s3 rm s3://mmt-predictive-maintenance-raw-$(aws sts get-caller-identity --query Account --output text) --recursive
-aws s3 rm s3://mmt-predictive-maintenance-etl-$(aws sts get-caller-identity --query Account --output text) --recursive
-aws s3 rm s3://mmt-predictive-maintenance-ml-features-$(aws sts get-caller-identity --query Account --output text) --recursive
-aws s3 rm s3://mmt-predictive-maintenance-predictions-$(aws sts get-caller-identity --query Account --output text) --recursive
-
-# Delete buckets
-aws s3 rb s3://mmt-predictive-maintenance-raw-$(aws sts get-caller-identity --query Account --output text)
-aws s3 rb s3://mmt-predictive-maintenance-etl-$(aws sts get-caller-identity --query Account --output text)
-aws s3 rb s3://mmt-predictive-maintenance-ml-features-$(aws sts get-caller-identity --query Account --output text)
-aws s3 rb s3://mmt-predictive-maintenance-predictions-$(aws sts get-caller-identity --query Account --output text)
-```
-
-#### Step 9: Delete CloudFormation Stacks
-
-```
-# Delete all stacks
-aws cloudformation delete-stack --stack-name mmt-predictive-maintenance-MonitoringStack
-aws cloudformation delete-stack --stack-name mmt-predictive-maintenance-AlertsStack
-aws cloudformation delete-stack --stack-name mmt-predictive-maintenance-FilteringStack
-aws cloudformation delete-stack --stack-name mmt-predictive-maintenance-MlStack
-aws cloudformation delete-stack --stack-name mmt-predictive-maintenance-EtlStack
-aws cloudformation delete-stack --stack-name mmt-predictive-maintenance-DataStack
-```
-
-## Platform Foundation Cleanup
-
-### Delete SageMaker Unified Studio
-
-```
-# Delete domain
-aws sagemaker delete-domain \
-  --domain-id d-... \
-  --retention-policy HomeEfsFileSystem=Delete
-```
-
-### Delete DataZone Resources
-
-```
-# Delete projects
-aws datazone delete-project \
-  --domain-identifier dzd-... \
-  --identifier prj-...
-
-# Delete domain
-aws datazone delete-domain \
-  --identifier dzd-...
-```
-
-### Delete Lake Formation Resource Shares
-
-```
-# List resource shares
-aws ram get-resource-shares \
-  --resource-owner SELF \
-  --query 'resourceShares[].resourceShareArn'
-
-# Delete resource shares
-aws ram delete-resource-share \
-  --resource-share-arn arn:aws:ram:...
-```
-
-## Data Retention Considerations
-
-Before uninstalling, consider backing up:
-
-### Customer 360 Data
-
-```
-# Export customer data
-aws s3 sync s3://automotive-cx-data-lake-<ACCOUNT-ID>/processed/ ./backup/customer-360/
-
-# Export Athena query history
-aws athena list-query-executions \
-  --work-group cx-analytics-workgroup \
-  --max-results 1000 > athena-query-history.json
-
-# Export Quick Suite dashboard definition
-aws quicksight describe-dashboard \
-  --aws-account-id <ACCOUNT-ID> \
-  --dashboard-id customer-360-dashboard > dashboard-backup.json
-```
-
-### Predictive Maintenance Data
-
-```
-# Export predictions
-aws s3 sync s3://mmt-predictive-maintenance-predictions-<ACCOUNT-ID>/ ./backup/predictions/
-
-# Export DynamoDB alerts
-aws dynamodb scan \
-  --table-name tire-alerts \
-  --output json > alerts-backup.json
-
-# Export trained models
-aws s3 sync s3://sagemaker-REGION-<ACCOUNT-ID>/tire-prediction/ ./backup/models/
-```
-
-### Aurora Snapshots
-
-```
-# Create final snapshot before deletion
-aws rds create-db-cluster-snapshot \
-  --db-cluster-snapshot-identifier cx360-final-snapshot-$(date +%Y%m%d) \
-  --db-cluster-identifier cx360-kb-cluster
-
-# Snapshots are retained even after cluster deletion
-# Delete snapshot manually when no longer needed:
-aws rds delete-db-cluster-snapshot \
-  --db-cluster-snapshot-identifier cx360-final-snapshot-20260128
-```
-
-## Verify Complete Removal
-
-```
-# Check for remaining CloudFormation stacks
+# All stage stacks should be absent or DELETE_COMPLETE.
 aws cloudformation list-stacks \
-  --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE \
-  --query 'StackSummaries[?contains(StackName, `cx360`) || contains(StackName, `mmt-predictive-maintenance`)].StackName'
+    --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE \
+    --region us-east-1 \
+    --query "StackSummaries[?starts_with(StackName, \`adp-${STAGE}-foundation-\`)].StackName" \
+    --output text
+# MUST be empty
 
-# Check for remaining S3 buckets
-aws s3 ls | grep -E 'automotive-cx-data-lake|mmt-predictive-maintenance'
+# Lake bucket must be gone.
+aws s3 ls s3://adp-${STAGE}-foundation-lake-<account>-us-east-1/ 2>&1 | head -1
+# MUST report NoSuchBucket
 
-# Check for remaining Lambda functions
-aws lambda list-functions \
-  --query 'Functions[?contains(FunctionName, `bedrock-agent`) || contains(FunctionName, `mmt`)].FunctionName'
+# Stage IDC groups must be gone.
+aws identitystore list-groups --identity-store-id <idc-store-id> --region us-east-1 \
+    --query "Groups[?starts_with(DisplayName, \`adp-${STAGE}-\`)].DisplayName" --output text
+# MUST be empty
 
-# Check for remaining SageMaker endpoints
-aws sagemaker list-endpoints \
-  --name-contains tire-prediction
-
-# Check for remaining Glue databases
-aws glue get-databases \
-  --query 'DatabaseList[?contains(Name, `cx_analytics`) || contains(Name, `mmt_predictive_maintenance`)].Name'
+# Bootstrap stack must be untouched.
+aws cloudformation describe-stacks --stack-name adp-shared-bootstrap --region us-east-1 \
+    --query 'Stacks[0].StackStatus' --output text
+# MUST return CREATE_COMPLETE or UPDATE_COMPLETE — Macie session preserved.
 ```
 
-## Cost After Uninstall
+Replace `<account>` with your 12-digit AWS account ID (obtain it via `aws sts get-caller-identity --query Account --output text`) and `<idc-store-id>` with your IAM Identity Center IdentityStore ID.
 
-After uninstalling, you may still incur costs for:
+## Re-deployment after teardown
 
-- S3 snapshots (Aurora, RDS)
-- CloudWatch Logs retention
-- CloudTrail logs in S3
-- Athena query results in S3
-
-To eliminate all costs:
+To re-deploy after teardown, follow the standard deployment procedure from the Deploy the Solution chapters. The bootstrap step can be skipped if `adp-shared-bootstrap` is still present.
 
 ```
-# Delete Aurora snapshots
-aws rds delete-db-cluster-snapshot \
-  --db-cluster-snapshot-identifier cx360-final-snapshot
+cd platform-foundation
 
-# Delete CloudWatch log groups
-aws logs delete-log-group --log-group-name /aws/lambda/bedrock-agent-athena-query
-aws logs delete-log-group --log-group-name /aws-glue/jobs/output
+# Bootstrap is a no-op if adp-shared-bootstrap already exists.
+make bootstrap
 
-# Empty CloudTrail S3 bucket (if dedicated to this solution)
-aws s3 rm s3://cloudtrail-bucket-<ACCOUNT-ID> --recursive
+# Re-deploy the stage.
+make deploy STAGE=staging
+
+# Re-seed data products (once available).
+make seed STAGE=staging
+
+# Validate the deployment.
+make smoke-test STAGE=staging
 ```
 
-## Re-deployment
+New CloudFormation stack IDs, DataZone project IDs, and IDC group IDs are issued on re-deployment. The lake KMS CMK is retained (bound to the deterministic alias `alias/adp-<stage>-foundation-lake`) and reused on the next deploy.
 
-To re-deploy the solution after uninstalling:
+## Cost after uninstall
 
-1. Follow the deployment instructions in the Deploy the Solution chapters
-2. All resources will be created fresh
-3. No data from previous deployment will be retained
-4. New resource IDs will be generated
+After teardown, you may still incur charges for:
+
+- The `adp-shared-bootstrap` Macie session (retained by design — ~$0/month at idle if no classification jobs are running)
+- CloudWatch Logs retention for any log groups not explicitly deleted
+- CloudTrail logs that landed in S3 before the trail was stopped
+- The lake KMS CMK (retained per `RemovalPolicy.RETAIN`)
+
+To eliminate ongoing costs, verify the lake bucket is gone, delete any remaining CloudWatch log groups for the stage, and remove residual S3 objects in the trail-logs bucket if it was not fully emptied.

@@ -1,299 +1,162 @@
 # Update the guidance
 
-This chapter describes how to update the Automotive Data Platform components.
+This chapter describes how to update the Automotive Data Platform foundation and migrate from previous releases.
+
+## Migrating from v0.1.0
+
+v0.2 is a deliberate scope re-frame, not an incremental upgrade. The five independently-deployable guidances (`guidance-for-agentic-customer-360`, `guidance-for-predictive-maintenance`, `guidance-for-telemetry-normalization`, `guidance-for-data-governance`, `guidance-for-vehicle-knowledge-base`) have been demoted in favour of a single unified foundation deploy under `platform-foundation/` that publishes 9 DataZone-cataloged data products sharing dimension keys (VIN, customer\_id, dealer\_id, supplier\_id, part\_number, station\_id). Operational layers that v0.1.0 shipped — QuickSight dashboards, custom Bedrock-Agent CDK, Aurora pgvector, SageMaker tire-anomaly API, and Flink-based real-time normalization — are intentionally not in v0.2; downstream consumers (CVX, notebooks, BI tools) own those concerns. There is **no in-place upgrade path**: tear down all v0.1.0 stacks (`cdk destroy --all` per guidance subdir), empty and delete v0.1.0 S3 buckets, then follow `docs/DEPLOYMENT.md` to deploy the v0.2 foundation from scratch.
+
+For the complete disposition table of every v0.1.0 subdir, the full list of what was added and what was dropped, and the step-by-step teardown-and-redeploy sequence, see [docs/MIGRATION-FROM-V0.1.0.md](../../../docs/MIGRATION-FROM-V0.1.0.md.md "../../../docs/MIGRATION-FROM-V0.1.0.md.md").
 
 ## Update Strategy
 
-The platform uses infrastructure as code (CDK) for updates, enabling safe, repeatable deployments with automatic rollback on failure.
+The foundation follows a pull-review-deploy-verify cycle for all updates. The `Makefile` is the only sanctioned entry point — do not invoke `cdk deploy` directly, as this bypasses the `STAGE` validation guard.
 
-**Update types**:
-
-- Infrastructure updates: CDK stack changes
-- Data model updates: Schema changes, new tables
-- Dashboard updates: New visuals, dataset changes
-- ML model updates: Retrain with new data, deploy new versions
-- Code updates: Lambda functions, Glue jobs
-
-## Customer 360 Updates
-
-### Update Infrastructure
+### Standard foundation update flow
 
 ```
-# Pull latest code
-cd automotive-data-platform-on-aws/guidance-for-agentic-customer-360
-git pull origin main
+# 1. Pull the latest code
+cd automotive-data-platform-on-aws
+git pull
 
-# Update CDK dependencies
-cd deployment/cdk
-npm update
+# 2. Review what changed
+#    - Migration notes for breaking changes:
+cat docs/MIGRATION-FROM-V0.1.0.md
 
-# Deploy updated stacks
-cdk deploy --all
+#    - Revision history and per-release notes:
+cat docs/revisions.adoc
+
+#    - Changelog for version-by-version diff:
+cat CHANGELOG.md
+
+# 3. Deploy the updated foundation (staging first)
+cd platform-foundation
+make deploy STAGE=staging
+
+# 4. Verify the deploy with the smoke-test contract
+#    (deploy is not complete until smoke-test exits 0)
+make smoke-test STAGE=staging
+echo "Exit code: $?"   # Must be 0
+
+# 5. Promote to prod after staging smoke-test passes
+make deploy STAGE=prod
+make smoke-test STAGE=prod
+echo "Exit code: $?"   # Must be 0
 ```
 
-### Update Data Model
+The `make smoke-test STAGE=<stage>` target satisfies the deploy-validation contract defined in `~/.kiro/steering/deploy-validation.md`: it exits non-zero on any check failure, so a failed smoke test is treated as a failed deploy. Do not run downstream operator tasks (seed refresh, new subscriptions, queries) until the smoke test exits 0.
 
-**Add new table**:
+For the full deploy prereq checklist, expected CloudFormation outcomes, and post-deploy CloudWatch scan, see `docs/DEPLOYMENT.md`.
+
+## Schema Evolution
+
+The foundation uses Apache Iceberg as the table format for all v0.2 data products. Iceberg supports non-destructive schema evolution without requiring a full re-seed.
+
+### Supported Iceberg schema changes
+
+The following schema changes are backwards-compatible and do not break existing Athena or DataZone consumers:
+
+- **Add a nullable column** — consumers that do not reference the new column continue to read existing data unchanged.
+- **Rename a column** — Iceberg tracks column identity by ID, not name. Existing Parquet files are re-read correctly after a rename; consumers must update column references in their queries.
+- **Widen a numeric type** — e.g., `int` to `long`. Existing data is automatically widened on read.
+- **Reorder columns** — column order in Parquet files is decoupled from logical schema order.
+
+The following changes are **breaking** and require coordination:
+
+- **Drop a required column** — breaks any consumer that selects or filters on that column.
+- **Narrow a type** — e.g., `long` to `int` — may truncate existing values.
+- **Change partition spec** — existing partition directories are not retroactively reorganised; new writes go to new partition paths, but old data is still readable via the Iceberg metadata layer.
+
+For identifier conventions, VSS signal vocabulary subset, and explicit non-dependencies between ADP and CMS, see [docs/data-contracts.md](../../../docs/data-contracts.md.md "../../../docs/data-contracts.md.md").
+
+### Applying a schema change
 
 ```
-# Add table definition to CDK stack
-# Edit: deployment/cdk/lib/glue-catalog-stack.ts
-
-# Deploy changes
-cdk deploy GlueCatalogStack
-
-# Run crawler to discover new data
-aws glue start-crawler --name cx-analytics-crawler
-```
-
-**Add new Athena view**:
-
-```
-# Create view SQL file
-# Edit: deployment/athena-queries/create_new_view.sql
-
-# Execute view creation
+# 1. Update the Glue catalog table definition (Iceberg ALTER TABLE via Athena)
 aws athena start-query-execution \
-  --query-string "$(cat deployment/athena-queries/create_new_view.sql)" \
-  --query-execution-context Database=cx_analytics \
-  --result-configuration OutputLocation=s3://automotive-cx-data-lake-$(aws sts get-caller-identity --query Account --output text)/athena-results/
+  --query-string "ALTER TABLE adp_staging_vehicle_telemetry_aggregated.vehicle_telemetry_aggregated ADD COLUMNS (new_column STRING COMMENT 'added in v0.2.1')" \
+  --query-execution-context Database=adp_staging_vehicle_telemetry_aggregated \
+  --result-configuration OutputLocation=s3://adp-staging-foundation-lake-${ACCOUNT}-us-east-1/athena-results/ \
+  --region us-east-1
+
+# 2. Update the generator schema definition and data-contracts.md
+#    (schema change is not complete until both the catalog and the
+#     source of truth in data-contracts.md reflect the change)
+# Edit: platform-foundation/source/data-products/<product>/schema.json
+# Edit: docs/data-contracts.md
+
+# 3. Re-publish the DataZone asset so downstream subscribers see the updated schema
+aws datazone create-asset-revision \
+  --domain-identifier $DOMAIN_ID \
+  --identifier $ASSET_ID \
+  --name "<product-name>" \
+  --region us-east-1
 ```
 
-### Update Quick Suite Dashboards
+## New Data Product Onboarding
+
+To onboard a new data product into the foundation, follow the pattern established by the 9 existing products under `platform-foundation/source/data-products/`.
+
+### Onboarding checklist
+
+1. **Define the schema** in `platform-foundation/source/data-products/<product>/schema.json` following the conventions in `docs/data-contracts.md` — identifier formats, VSS signal subset (if applicable), partition conventions, and calibrated edge-case injection rates (1–3% across six taxonomy codes).
+2. **Write the generator** at `platform-foundation/source/data-products/<product>/generator.py` using the same deterministic-seed pattern as existing products (seed-42 default → byte-identical regeneration).
+3. **Add a per-product README** at `platform-foundation/source/data-products/<product>/README.md` with schema, partitions, sample queries, lineage, and data-quality summary.
+4. **Register a Glue database and Iceberg table** in `platform-foundation/stacks/lake_stack.py` following the existing `adp_{stage}_<product>` naming convention.
+5. **Create a DataZone project** in `platform-foundation/stacks/datazone_projects_stack.py` following the existing 9-project pattern (one project per product).
+6. **Update `docs/data-contracts.md`** to document the new product’s identifier formats, partition spec, and any cross-product FK relationships.
+7. **Add referential-integrity tests** in `platform-foundation/tests/test_referential_integrity.py` asserting FK closure for any dimension keys the new product references (VIN, customer\_id, dealer\_id, supplier\_id, part\_number, station\_id, or charging\_station\_id).
+8. **Re-run the full seed and smoke-test**:
 
 ```
-# Update dataset definitions
-cd deployment/scripts
-python3 update_quicksight_datasets.py
-
-# Export updated dashboard
-aws quicksight describe-dashboard \
-  --aws-account-id $(aws sts get-caller-identity --query Account --output text) \
-  --dashboard-id customer-360-dashboard \
-  --region us-east-1 > ../quicksight/dashboard-definition-new.json
-
-# Import updated dashboard
-python3 import_dashboard.py
+make seed STAGE=staging
+make smoke-test STAGE=staging
 ```
 
-### Update Bedrock Agent
+### Dimension key requirements
 
-**Update agent instructions**:
-
-```
-# Update agent
-aws bedrock-agent update-agent \
-  --agent-id AGENT_ID \
-  --agent-name customer-360-agent \
-  --instruction "Updated instructions..." \
-  --foundation-model anthropic.claude-3-5-sonnet-20241022-v2:0
-
-# Prepare new version
-aws bedrock-agent prepare-agent --agent-id AGENT_ID
-
-# Update alias to point to new version
-aws bedrock-agent update-agent-alias \
-  --agent-id AGENT_ID \
-  --agent-alias-id ALIAS_ID \
-  --agent-alias-name production \
-  --routing-configuration agentVersion=DRAFT
-```
-
-**Update action groups**:
-
-```
-# Update Lambda function code
-cd deployment/lambda/bedrock-agent-athena-query
-zip -r function.zip .
-aws lambda update-function-code \
-  --function-name bedrock-agent-athena-query \
-  --zip-file fileb://function.zip
-
-# Update agent action group
-aws bedrock-agent update-agent-action-group \
-  --agent-id AGENT_ID \
-  --agent-version DRAFT \
-  --action-group-id ACTION_GROUP_ID \
-  --action-group-name query-athena
-```
-
-## Predictive Maintenance Updates
-
-### Update Infrastructure
-
-```
-# Pull latest code
-cd automotive-data-platform-on-aws/guidance-for-predictive-maintenance
-git pull origin main
-
-# Update dependencies
-cd deployment
-npm update
-pip3 install -r requirements.txt --upgrade
-
-# Deploy updated stacks
-cdk deploy --all
-```
-
-### Retrain ML Model
-
-```
-# Trigger training pipeline manually
-aws stepfunctions start-execution \
-  --state-machine-arn arn:aws:states:REGION:ACCOUNT:stateMachine:ml-training-pipeline \
-  --input '{"training_date":"2026-01-28"}'
-
-# Monitor training progress
-aws sagemaker describe-training-job \
-  --training-job-name tire-prediction-rcf-20260128
-
-# New model automatically deployed via Step Functions
-```
-
-### Update Inference Configuration
-
-```
-# Update endpoint instance type
-aws sagemaker update-endpoint \
-  --endpoint-name tire-prediction-endpoint \
-  --endpoint-config-name tire-prediction-config-v2
-
-# Update auto-scaling policy
-aws application-autoscaling put-scaling-policy \
-  --service-namespace sagemaker \
-  --resource-id endpoint/tire-prediction-endpoint/variant/AllTraffic \
-  --scalable-dimension sagemaker:variant:DesiredInstanceCount \
-  --policy-name tire-prediction-scaling \
-  --policy-type TargetTrackingScaling \
-  --target-tracking-scaling-policy-configuration \
-    '{"TargetValue":1000.0,"PredefinedMetricSpecification":{"PredefinedMetricType":"SageMakerVariantInvocationsPerInstance"}}'
-```
-
-### Update Alert Configuration
-
-```
-# Update SNS topic subscriptions
-aws sns subscribe \
-  --topic-arn arn:aws:sns:REGION:ACCOUNT:tire-alert-notifications \
-  --protocol email \
-  --notification-endpoint new-manager@example.com
-
-# Update alert Lambda function
-cd deployment/lambda/generate-alerts
-zip -r function.zip .
-aws lambda update-function-code \
-  --function-name generate-alerts \
-  --zip-file fileb://function.zip
-```
-
-## Platform Foundation Updates
-
-### Update SageMaker Unified Studio
-
-```
-# Update domain configuration
-aws sagemaker update-domain \
-  --domain-id d-... \
-  --default-user-settings file://user-settings.json
-
-# Update DataZone domain
-aws datazone update-domain \
-  --identifier dzd-... \
-  --description "Updated description"
-```
-
-### Update Data Product Definitions
-
-```
-# Update data product metadata
-aws datazone update-asset \
-  --domain-identifier dzd-... \
-  --identifier ast-... \
-  --name customer-360-analytics \
-  --description "Updated description with new features"
-```
-
-## Zero-Downtime Updates
-
-### Blue-Green Deployment for SageMaker
-
-```
-# Create new endpoint configuration
-aws sagemaker create-endpoint-config \
-  --endpoint-config-name tire-prediction-config-v2 \
-  --production-variants \
-    VariantName=AllTraffic,ModelName=tire-prediction-model-new,InitialInstanceCount=2,InstanceType=ml.m5.large
-
-# Update endpoint (automatic blue-green deployment)
-aws sagemaker update-endpoint \
-  --endpoint-name tire-prediction-endpoint \
-  --endpoint-config-name tire-prediction-config-v2 \
-  --retain-all-variant-properties
-
-# Traffic shifts gradually to new version
-# Rollback automatically if errors detected
-```
-
-### Lambda Function Versioning
-
-```
-# Publish new version
-aws lambda publish-version \
-  --function-name bedrock-agent-athena-query
-
-# Update alias to new version
-aws lambda update-alias \
-  --function-name bedrock-agent-athena-query \
-  --name production \
-  --function-version 2 \
-  --routing-config AdditionalVersionWeights={"1"=0.1}
-
-# Gradually shift traffic: 90% v2, 10% v1
-# Monitor for errors, then shift 100% to v2
-```
+All new data products **must** join on the canonical dimension keys defined in `docs/data-contracts.md`. Do not introduce a new top-level identifier type without updating the dimensions catalog and the data-contracts spec. FK closure is enforced by `tests/test_referential_integrity.py` and must pass before a new product is promoted to staging.
 
 ## Rollback Procedures
 
-### Rollback CDK Stack
+### Rollback a CDK stack update
 
 ```
-# Rollback to previous stack version
+# Cancel an in-progress update
 aws cloudformation cancel-update-stack \
-  --stack-name cx360-dev-data-lake
+  --stack-name adp-staging-foundation-lake
 
-# Or deploy previous version from Git
-git checkout previous-commit
-cdk deploy
+# Or redeploy from a prior Git commit
+git checkout <prior-commit>
+cd platform-foundation
+make deploy STAGE=staging
+make smoke-test STAGE=staging
 ```
 
-### Rollback SageMaker Endpoint
+### Rollback a seed run
+
+The seed is fully reversible per `docs/DEPLOYMENT.md`:
 
 ```
-# Update endpoint to previous configuration
-aws sagemaker update-endpoint \
-  --endpoint-name tire-prediction-endpoint \
-  --endpoint-config-name tire-prediction-config-v1
-```
+ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
+BUCKET="adp-staging-foundation-lake-${ACCOUNT}-us-east-1"
 
-### Rollback Bedrock Agent
+# Remove curated data, dimensions, and quality reports from S3
+aws s3 rm --recursive s3://${BUCKET}/curated/
+aws s3 rm --recursive s3://${BUCKET}/dimensions/
+aws s3 rm --recursive s3://${BUCKET}/quality-reports/
 
-```
-# Update alias to previous version
-aws bedrock-agent update-agent-alias \
-  --agent-id AGENT_ID \
-  --agent-alias-id ALIAS_ID \
-  --routing-configuration agentVersion=1
+# Re-seed from a deterministic seed (byte-identical regeneration)
+cd platform-foundation
+make seed STAGE=staging
+make smoke-test STAGE=staging
 ```
 
 ## Update Best Practices
 
-- Test updates in development environment first
-- Use CDK diff to preview changes before deployment
-- Enable CloudFormation stack termination protection for production
-- Tag resources with version numbers for tracking
-- Maintain rollback plans for critical updates
-- Monitor CloudWatch metrics after updates
-- Use canary deployments for high-risk changes
-- Document all configuration changes
-- Schedule updates during low-traffic periods
-- Communicate updates to stakeholders
+- Always deploy staging before prod — let `make smoke-test STAGE=staging` pass before promoting.
+- Run `git pull` and review `docs/MIGRATION-FROM-V0.1.0.md`, `docs/revisions.adoc`, and `CHANGELOG.md` before any deploy to catch breaking changes.
+- Use `cdk diff` (`make diff STAGE=staging`) to preview CloudFormation changes before applying.
+- A deploy is not complete until `make smoke-test STAGE=<stage>` exits 0.
+- Schema changes require updating both the Glue catalog and `docs/data-contracts.md` in the same commit.
+- New data products require FK closure tests before promotion to staging.

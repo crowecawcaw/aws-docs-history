@@ -12,7 +12,7 @@ The architecture consists of:
 2. **Catalog Layer**: DataZone domain for data asset management
 3. **Compute Layer**: Distributed processing across Glue, SageMaker, Athena, and EMR
 4. **Governance Layer**: Centralized policies with federated enforcement
-5. **Collaboration Layer**: SageMaker Unified Studio for team workspaces
+5. **Collaboration Layer**: DataZone V2 producer/consumer projects for team workspaces and subscription workflows
 
 ## Multi-Source Data Integration
 

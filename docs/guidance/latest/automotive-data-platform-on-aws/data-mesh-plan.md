@@ -2,25 +2,29 @@
 
 ## Platform Foundation Cost Breakdown
 
-**Additional monthly costs** for SageMaker Unified Studio:
+**Additional monthly costs** for the DataZone V2 domain and governance layer:
 
-| Service                  | Usage                 | Monthly Cost  | Notes                       |
-| ------------------------ | --------------------- | ------------- | --------------------------- |
-| SageMaker Unified Studio | 1 domain, 10 users    | $100-200      | Varies by usage             |
-| Amazon DataZone          | 1 domain, 10 projects | $50           | Data catalog and governance |
-| AWS Lake Formation       | Cross-region shares   | $0            | No additional charge        |
-| Additional S3            | Metadata storage      | $5            | DataZone metadata           |
-| **Total**                |                       | **~$155-255** | Add to solution costs       |
+| Service            | Usage                         | Monthly Cost | Notes                                                |
+| ------------------ | ----------------------------- | ------------ | ---------------------------------------------------- |
+| Amazon DataZone V2 | 1 domain, 10 projects         | $50–100      | Data catalog, governance, and subscription workflows |
+| AWS Lake Formation | Tag-based access control      | $0           | No additional charge                                 |
+| Amazon Macie       | S3 classification (bootstrap) | $5–20        | Scales with data volume                              |
+| Additional S3      | Metadata storage              | $5           | DataZone metadata                                    |
+| **Total**          |                               | **~$60–125** | Add to solution data-storage costs                   |
 
 ## Cost Scaling Factors
 
-**Customer 360**:
+**Vehicle telemetry and EV operations** (`vehicle_telemetry_aggregated`, `charging_sessions`, `energy_usage`, `ota_campaigns`):
+
+- Data volume: Costs scale with connected-vehicle fleet size
+- Query frequency: More Athena queries = higher costs
+
+**Customer data** (`customer_360`, `customer_interactions`):
 
 - Data volume: Costs scale linearly with customer count
 - Query frequency: More Athena queries = higher costs
-- Quick Suite users: Each author/reader adds to monthly cost
-- Bedrock usage: Token consumption varies by query complexity
+- Downstream consumers can subscribe via DataZone V2 for BI or analytics workloads
 
 **Predictive Maintenance**:
 
-- Fleet size: Larger fleets require more Glue and SageMaker capacity
+- Fleet size: Larger fleets require more Glue and SageMaker Studio notebook capacity

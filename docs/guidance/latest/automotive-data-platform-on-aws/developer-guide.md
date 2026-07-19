@@ -1,378 +1,391 @@
 # Developer guide
 
-This chapter provides guidance for developers who want to customize and extend the Automotive Data Platform.
+This chapter explains how to work in this repository as a developer or contributor.
+It covers the canonical directory layout (v0.2+), local environment setup, the
+Makefile-driven workflow, how to add or extend a data product, and the one-time
+cost-allocation tag activation procedure.
 
-## Repository Structure
+## Repository layout
+
+The v0.2 re-framing collapses the former collection of five independently-deployable
+guidances into one foundation deploy under `platform-foundation/`.
 
 ```
 automotive-data-platform-on-aws/
-├── guidance-for-agentic-customer-360/
-│   ├── deployment/
-│   │   ├── cdk/                    # CDK infrastructure code
-│   │   ├── scripts/                # Python deployment scripts
-│   │   ├── lambda/                 # Lambda function code
-│   │   └── athena-queries/         # SQL view definitions
+├── platform-foundation/          # ← canonical foundation deploy (v0.2+)
+│   ├── app.py                    # CDK app (5 stage stacks + bootstrap)
+│   ├── stacks/                   # network, lake, datazone, datazone-projects,
+│   │                             #   governance, vehicle_knowledge_base
 │   ├── source/
-│   │   ├── data-generation/        # Synthetic data generators
-│   │   └── quick-suite/            # Dashboard definitions
-│   ├── Makefile                    # Deployment automation
-│   └── README.md
-├── guidance-for-predictive-maintenance/
-│   ├── deployment/
-│   │   ├── lib/                    # CDK stack definitions
-│   │   ├── lambda/                 # Lambda functions
-│   │   └── glue/                   # Glue job scripts
-│   ├── source/
-│   │   └── ml/                     # ML training code
-│   └── README.md
-├── platform-foundation/
-│   └── cdk/                        # SageMaker Unified Studio CDK
-└── datasource/
-    └── cx-analytics/               # Shared data generators
+│   │   ├── data-products/        # 9 product generators + per-product schemas
+│   │   ├── dimensions/           # 7 dimension-catalog generators
+│   │   ├── athena-queries/       # cross-product join examples
+│   │   ├── reference-consumers/  # predictive-maintenance SageMaker notebook
+│   │   ├── quality-dashboard/    # CloudWatch data-quality dashboard
+│   │   └── optional/cms_ingest/  # opt-in CMS DDB → ADP Iceberg ingest
+│   ├── scripts/                  # deploy, smoke-test, verify, teardown, profile
+│   └── tests/                    # 150+ schema, FK, edge-case, distribution tests
+│
+├── docs/
+│   ├── DEPLOYMENT.md             # per-stage runbook (authoritative for deploy)
+│   ├── data-contracts.md         # VSS subset, identifier formats, partitions
+│   ├── cvx-integration-contract.md  # contract for CVX consumers
+│   ├── cms-ingest-optional-module.md # opt-in CMS ingest doc
+│   └── tech.md                   # SDK/framework verification notes (see below)
+│
+├── guidance-for-*/               # demoted — source-of-logic only (see Migration)
+└── datasource/                   # demoted — superseded by platform-foundation/
 ```
 
-## Customizing Customer 360
+### v0.1 paths are demoted
 
-### Adding New Data Sources
+The legacy subdirectories still exist for historical reference but are **not**
+independently deployable in v0.2.
 
-**Step 1: Create Glue table definition**
+| v0.1 location                                 | v0.2 disposition                                                                                                                        |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Agentic Customer 360 subdir                   | Demoted — generation logic ported into `platform-foundation/source/data-products/{customer_360,customer_interactions,service_records}/` |
+| Vehicle Knowledge Base subdir                 | Deleted — generators ported into `platform-foundation/source/data-products/vehicle_knowledge_base/`                                     |
+| Telemetry Normalization subdir                | Demoted — patterns inform the `vehicle_telemetry_aggregated` generator                                                                  |
+| Data Governance subdir                        | Demoted — replaced by foundation’s Lake Formation + Macie + CloudTrail layer                                                            |
+| Predictive Maintenance subdir                 | Demoted — replaced by `platform-foundation/source/reference-consumers/`                                                                 |
+| `datasource/cx-analytics/`, `datasource/crm/` | Demoted — superseded by `platform-foundation/source/data-products/`                                                                     |
 
-Edit `deployment/cdk/lib/glue-catalog-stack.ts`:
+Each demoted subdir’s `README.md` carries a `DEPRECATED — see platform-foundation/`
+notice at the top.
 
-```
-new glue.CfnTable(this, 'NewDataTable', {
-  databaseName: 'cx_analytics',
-  catalogId: this.account,
-  tableInput: {
-    name: 'new_data_source',
-    storageDescriptor: {
-      location: `s3://${dataBucket.bucketName}/processed/new_data_source/`,
-      inputFormat: 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat',
-      outputFormat: 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat',
-      serdeInfo: {
-        serializationLibrary: 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe',
-      },
-      columns: [
-        { name: 'id', type: 'string' },
-        { name: 'value', type: 'double' },
-        { name: 'timestamp', type: 'timestamp' },
-      ],
-    },
-  },
-});
-```
+### Per-product documentation
 
-**Step 2: Create ETL job to ingest data**
-
-Create `deployment/glue/ingest-new-data.py`:
+Each of the 9 data products has its own README that is the authoritative reference
+for schema, partitions, sample queries, edge-case injection rules, and lineage:
 
 ```
-import sys
-from awsglue.transforms import *
-from awsglue.utils import getResolvedOptions
-from pyspark.context import SparkContext
-from awsglue.context import GlueContext
-from awsglue.job import Job
-
-args = getResolvedOptions(sys.argv, ['JOB_NAME', 'SOURCE_PATH', 'TARGET_PATH'])
-sc = SparkContext()
-glueContext = GlueContext(sc)
-spark = glueContext.spark_session
-job = Job(glueContext)
-job.init(args['JOB_NAME'], args)
-
-# Read source data
-df = spark.read.format('csv').option('header', 'true').load(args['SOURCE_PATH'])
-
-# Transform data
-df_transformed = df.select('id', 'value', 'timestamp')
-
-# Write to S3 in Parquet format
-df_transformed.write.mode('overwrite').parquet(args['TARGET_PATH'])
-
-job.commit()
+platform-foundation/source/data-products/<product>/README.md
 ```
 
-**Step 3: Create Athena view**
-
-Create `deployment/athena-queries/create_new_data_view.sql`:
+For example:
 
 ```
-CREATE OR REPLACE VIEW cx_analytics.new_data_summary AS
-SELECT
-  DATE_TRUNC('day', timestamp) AS date,
-  COUNT(*) AS record_count,
-  AVG(value) AS avg_value,
-  MAX(value) AS max_value
-FROM cx_analytics.new_data_source
-GROUP BY DATE_TRUNC('day', timestamp)
-ORDER BY date DESC;
+platform-foundation/source/data-products/vehicle_identity/README.md
+platform-foundation/source/data-products/charging_sessions/README.md
+platform-foundation/source/data-products/vehicle_knowledge_base/README.md
 ```
 
-### Creating Custom Dashboards
-
-**Step 1: Create Quick Suite dataset**
+Cross-product join examples live in:
 
 ```
-import boto3
-
-quicksight = boto3.client('quicksight')
-
-response = quicksight.create_data_set(
-    AwsAccountId='123456789012',
-    DataSetId='new-data-summary',
-    Name='New Data Summary',
-    PhysicalTableMap={
-        'athena-table': {
-            'RelationalTable': {
-                'DataSourceArn': 'arn:aws:quicksight:us-east-1:123456789012:datasource/cx-analytics-athena',
-                'Schema': 'cx_analytics',
-                'Name': 'new_data_summary',
-                'InputColumns': [
-                    {'Name': 'date', 'Type': 'DATETIME'},
-                    {'Name': 'record_count', 'Type': 'INTEGER'},
-                    {'Name': 'avg_value', 'Type': 'DECIMAL'},
-                ]
-            }
-        }
-    },
-    ImportMode='DIRECT_QUERY'
-)
+platform-foundation/source/athena-queries/
 ```
 
-**Step 2: Add visual to dashboard**
+### SDK verification notes
 
-Use Quick Suite console to add visuals, or export/import dashboard JSON with new visual definitions.
+`docs/tech.md` contains verified import paths, constructor signatures, and usage
+patterns for the key dependencies used in this repo — DataZone V2, Glue Iceberg,
+Athena Engine V3, Lake Formation, Bedrock KB, PyIceberg, Kinesis Firehose, and the
+VSS spec. Consult `docs/tech.md`
+**before** writing code that calls any of these
+APIs to avoid writing against unverified or stale SDK surfaces.
 
-### Extending Bedrock Agent
+## Development prerequisites
 
-**Add new action group**:
+For the full, verifiable prerequisites table with exact version-check commands see
+`docs/DEPLOYMENT.md` § Prereqs. Summary:
 
-Create `deployment/lambda/bedrock-agent-new-action/index.py`:
+| Tool + minimum version        | Notes                                       |
+| ----------------------------- | ------------------------------------------- |
+| Python 3.12+ (3.14 supported) | Used for CDK app, generators, tests         |
+| Node 22.x LTS                 | Required by AWS CDK CLI (jsii bridge)       |
+| AWS CDK CLI 2.255+            | Install via `npm install -g aws-cdk`        |
+| AWS CLI v2 2.15+              | Must be v2; v1 is not supported             |
+| Docker 24+                    | Required for CDK bootstrap asset publishing |
+| jq (any)                      | Used by helper scripts for JSON parsing     |
 
-```
-import json
-import boto3
+All tools must be on `PATH` and pass the verify commands listed in
+`docs/DEPLOYMENT.md` § Prereqs before proceeding.
 
-def lambda_handler(event, context):
-    action = event['actionGroup']
-    function = event['function']
-    parameters = event.get('parameters', [])
+## Setting up a local environment
 
-    if function == 'analyze_new_metric':
-        # Implement custom logic
-        result = analyze_metric(parameters)
+### Create the virtual environment
 
-        return {
-            'response': {
-                'actionGroup': action,
-                'function': function,
-                'functionResponse': {
-                    'responseBody': {
-                        'TEXT': {
-                            'body': json.dumps(result)
-                        }
-                    }
-                }
-            }
-        }
-```
-
-**Register action group with agent**:
+All Python work — CDK synthesis, generators, tests — runs inside the project
+venv. Run from `platform-foundation/`:
 
 ```
-aws bedrock-agent create-agent-action-group \
-  --agent-id AGENT_ID \
-  --agent-version DRAFT \
-  --action-group-name analyze-new-metric \
-  --action-group-executor lambda=arn:aws:lambda:REGION:ACCOUNT:function:bedrock-agent-new-action \
-  --function-schema file://action-schema.json
+make venv
 ```
 
-## Customizing Predictive Maintenance
-
-### Training Custom ML Models
-
-**Step 1: Create custom training script**
-
-Create `source/ml/custom_model.py`:
+This is equivalent to:
 
 ```
-import pandas as pd
-import sagemaker
-from sagemaker.sklearn import SKLearn
-
-# Load training data
-df = pd.read_csv('s3://bucket/features/train.csv')
-
-# Define custom model
-estimator = SKLearn(
-    entry_point='train.py',
-    role='arn:aws:iam::ACCOUNT:role/SageMakerRole',
-    instance_type='ml.m5.xlarge',
-    framework_version='1.0-1',
-    hyperparameters={
-        'n_estimators': 100,
-        'max_depth': 10
-    }
-)
-
-# Train model
-estimator.fit({'train': 's3://bucket/features/'})
+cd platform-foundation
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -q --upgrade pip
+pip install -r requirements.txt
 ```
 
-**Step 2: Update Step Function to use custom model**
-
-Edit training pipeline Step Function definition to reference custom training script.
-
-### Adding New Telemetry Signals
-
-**Step 1: Update Redshift query**
-
-Edit `deployment/lambda/redshift-query-lambda/index.py`:
+Verify the venv is functional:
 
 ```
-query = """
-SELECT
-  aaid,
-  tire_pressure,
-  tire_temperature,
-  new_signal_1,  -- Add new signal
-  new_signal_2,  -- Add new signal
-  event_timestamp
-FROM tire_telemetry
-WHERE event_timestamp >= CURRENT_TIMESTAMP - INTERVAL '1 hour'
-"""
+.venv/bin/python -c "import aws_cdk, constructs, cdk_nag; print('OK')"
 ```
 
-**Step 2: Update feature engineering**
+### Install project dependencies
 
-Edit `deployment/glue/ml-feature-engineering.py` to include new signals in feature calculations.
-
-**Step 3: Retrain model with new features**
-
-Trigger training pipeline to retrain model with expanded feature set.
-
-### Custom Alert Logic
-
-Edit `deployment/lambda/generate-alerts/index.py`:
+If `make venv` did not install everything, or after pulling changes:
 
 ```
-def classify_severity(anomaly_score, time_to_80_psi, new_factor):
-    # Custom severity logic
-    if new_factor > threshold:
-        return 'critical'
-    elif time_to_80_psi < 3:
-        return 'high'
-    elif time_to_80_psi < 7:
-        return 'medium'
-    else:
-        return 'low'
+make install
 ```
 
-## Data Mesh Best Practices
+This installs the pinned versions from `requirements.txt` into `.venv`.
 
-### Domain Ownership
+## Development workflow
 
-- Assign clear ownership for each data product
-- Document data product SLAs and quality metrics
-- Implement automated data quality checks
-- Provide self-service access through DataZone
+###### Important
 
-### Data Product Design
+**The `Makefile` is the only sanctioned entry point.**
+Direct `cdk deploy` without `-c stage=…​` triggers `app.py’s fail-closed guard and
+may produce stacks with unprefixed names that collide with existing deploys.
+All commands in this section run from `platform-foundation/`.
 
-- Treat data as a product with consumers in mind
-- Provide comprehensive documentation
-- Version data schemas with backward compatibility
-- Implement monitoring and alerting
+The standard contributor workflow proceeds through six steps.
 
-### Cross-Domain Data Sharing
-
-- Use Lake Formation for fine-grained access control
-- Implement data contracts between domains
-- Track data lineage with DataZone
-- Audit all cross-domain access
-
-## Security Best Practices
-
-- Use least privilege IAM policies
-- Enable encryption at rest and in transit
-- Rotate credentials regularly with Secrets Manager
-- Implement network isolation with VPC
-- Enable CloudTrail logging for all API calls
-- Use Bedrock Guardrails to filter PII
-- Implement row-level security with Lake Formation
-- Audit permissions quarterly
-
-## Performance Optimization
-
-### Athena Query Optimization
-
-- Use partition pruning: `WHERE year='2026' AND month='01'`
-- Select only needed columns: `SELECT id, name` not `SELECT *`
-- Use columnar formats: Parquet with Snappy compression
-- Enable result caching for repeated queries
-- Use CTAS for complex transformations
-
-### Glue Job Optimization
-
-- Use appropriate worker types (G.1X, G.2X)
-- Enable job bookmarks for incremental processing
-- Partition output data by date
-- Use pushdown predicates to filter early
-- Monitor DPU usage and adjust allocation
-
-### SageMaker Optimization
-
-- Use Spot instances for training (70% savings)
-- Enable auto-scaling for inference endpoints
-- Use batch transform for bulk predictions
-- Monitor endpoint utilization
-- Use multi-model endpoints for multiple models
-
-## CI/CD Integration
-
-### GitHub Actions Example
+### Step 1 — Create the virtual environment
 
 ```
-name: Deploy Customer 360
-on:
-  push:
-    branches: [main]
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-      - name: Install dependencies
-        run: |
-          cd guidance-for-agentic-customer-360/deployment/cdk
-          npm install
-      - name: Deploy
-        run: |
-          cd guidance-for-agentic-customer-360
-          make deploy
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: us-east-1
+make venv
 ```
 
-### Testing
+### Step 2 — Install dependencies
 
-- Unit tests for Lambda functions
-- Integration tests for ETL pipelines
-- End-to-end tests for complete workflows
-- Load tests for API endpoints
-- Data quality tests for outputs
+```
+make install
+```
 
-## Additional Resources
+### Step 3 — Bootstrap (one-time per account)
 
-- AWS CDK Documentation: https://docs.aws.amazon.com/cdk/
-- AWS Glue Documentation: https://docs.aws.amazon.com/glue/
-- Amazon Bedrock Documentation: https://docs.aws.amazon.com/bedrock/
-- Amazon SageMaker Documentation: https://docs.aws.amazon.com/sagemaker/
-- AWS Lake Formation Documentation: https://docs.aws.amazon.com/lake-formation/
+```
+make bootstrap
+```
+
+Deploys `adp-shared-bootstrap` (the Macie session stack).
+Safe to re-run; CloudFormation no-ops when the stack is already `CREATE_COMPLETE`.
+
+### Step 4 — Deploy a stage
+
+```
+make deploy STAGE=staging
+```
+
+`STAGE` is required and fail-closed. Supported values: `staging`, `prod`
+(lower-case, case-sensitive). `make deploy` with no `STAGE` exits non-zero.
+
+### Step 5 — Seed data
+
+```
+make seed STAGE=staging
+```
+
+Runs the master seed pipeline: dimensions first, then all 9 product generators in
+order, then referential-integrity tests. Requires `make deploy STAGE=staging` to
+have completed successfully.
+
+### Step 6 — Smoke test
+
+```
+make smoke-test STAGE=staging
+```
+
+Validates the DataZone subscription end-to-end. Exits non-zero on any failure.
+A deploy is not considered complete until the smoke test passes.
+
+### Full command reference
+
+The complete list of sanctioned Makefile targets:
+
+| Command                                            | Purpose                                                              |
+| -------------------------------------------------- | -------------------------------------------------------------------- |
+| `make venv`                                        | Create `.venv` and install dependencies                              |
+| `make install`                                     | Install / refresh dependencies into existing `.venv`                 |
+| `make bootstrap`                                   | Deploy account-level `adp-shared-bootstrap` stack (once per account) |
+| `make deploy STAGE=staging                         | prod`                                                                | Deploy the 5 per-stage foundation stacks                 |
+| `make seed STAGE=staging                           | prod`                                                                | Master seed: dimensions + 9 generators + integrity tests |
+| `make seed-dimensions STAGE=staging                | prod`                                                                | Generate dimension catalog only                          |
+| `make smoke-test STAGE=staging                     | prod`                                                                | Post-deploy DataZone subscription smoke test             |
+| `make verify-standalone STAGE=staging              | prod`                                                                | Synth-time check — no CMS ARNs leak into templates       |
+| `make synth STAGE=staging                          | prod`                                                                | CDK synthesis only (no deploy)                           |
+| `make teardown STAGE=staging                       | prod [YES=1]`                                                        | Tear down per-stage stacks (default dry-run)             |
+| `make deploy-cms-ingest STAGE=…​ CMS_TABLE_ARN=…​` | Deploy with optional CMS→ADP ingest enabled                          |
+
+For deploy-runbook details (expected outcomes, post-deploy checks, tear-down) see
+`docs/DEPLOYMENT.md`.
+
+## Adding a new data product
+
+Each data product in `platform-foundation/source/data-products/` follows a
+consistent structure. To add a new product:
+
+### 1. Create the product directory
+
+```
+mkdir -p platform-foundation/source/data-products/<product_name>
+```
+
+### 2. Write the generator
+
+Create `platform-foundation/source/data-products/<product_name>/generator.py`.
+Follow the conventions used by existing generators:
+
+- Accept a `--stage` argument and a `--seed` argument (default `42`) for
+  deterministic output.
+- Read shared dimension catalogs from `platform-foundation/dimensions/` via the
+  shared dimension-loader helper.
+- Write output as Parquet files to `platform-foundation/curated/<product_name>/`
+  partitioned per the conventions in `docs/data-contracts.md`.
+- Preserve referential integrity with shared dimension keys (VIN, `customer_id`,
+  `dealer_id`, etc.) — use `UUIDv5` generation for deterministic IDs.
+
+### 3. Write the per-product README
+
+Create `platform-foundation/source/data-products/<product_name>/README.md`.
+This file is the authoritative reference for:
+
+- Schema (column names, types, nullable flags)
+- Partition strategy
+- Edge-case injection rules
+- Sample Athena queries
+- Lineage (which dimension catalogs are consumed)
+
+### 4. Register the Glue database and table
+
+Add a new `CfnDatabase` and `CfnTable` (or Iceberg table) to the appropriate stack
+in `platform-foundation/stacks/`. Follow the naming convention
+`adp_{stage}_<product_name>`.
+
+### 5. Add Lake Formation grants
+
+Grant the DataZone producer project and any consumer roles the appropriate Lake
+Formation permissions on the new database. See existing grant patterns in
+`platform-foundation/stacks/governance_stack.py`.
+
+### 6. Add the product to the seed pipeline
+
+Register the new generator in the `make seed` pipeline so it runs after the
+dimension catalogs are generated. Update the `Makefile’s `seed` target to include:
+
+```
+python source/data-products/<product_name>/generator.py --stage $(STAGE)
+```
+
+### 7. Write tests
+
+Add schema, referential-integrity, and distribution tests in
+`platform-foundation/tests/` following the pattern of existing test files. The
+test suite is run as part of `make seed` and must remain at 0 failures.
+
+### 8. Publish to DataZone
+
+Create a DataZone data asset in the producer project for the new product and
+configure the auto-grant policy so downstream consumers can subscribe. See
+existing DataZone project setup in
+`platform-foundation/stacks/datazone_projects_stack.py`.
+
+## Extending a generator
+
+To extend an existing generator (e.g., add a column, change a distribution,
+increase row count):
+
+1. Edit the generator at
+   `platform-foundation/source/data-products/<product_name>/generator.py`.
+2. Update the schema in the Glue table definition (or Iceberg schema evolution).
+3. Update `platform-foundation/source/data-products/<product_name>/README.md` to
+   reflect the schema change.
+4. Update the contract test in `platform-foundation/tests/` to assert the new
+   column’s presence and type.
+5. Run `make seed STAGE=staging` and verify `make smoke-test STAGE=staging` still
+   passes before committing.
+6. Consult `docs/tech.md` for verified Iceberg / PyIceberg / Glue API patterns
+   before writing schema-evolution code.
+
+## Cost-allocation tag activation (one-time)
+
+The foundation tags every per-stage stack resource with `adp:stage = <stage>`.
+Per-stage cost reporting in AWS Cost Explorer and Budgets requires a **one-time
+activation** of this tag:
+
+```
+aws ce update-cost-allocation-tags-status \
+    --region us-east-1 \
+    --cost-allocation-tags-status TagKey=adp:stage,Status=Active
+```
+
+###### Note
+
+This is an account-level, one-time operation. After activation, allow up to 24 hours
+for the tag to populate Cost Explorer. Until activated, Cost Explorer reports
+aggregate ADP spend without a per-stage breakdown.
+
+If the AWS CLI is unavailable, activate the tag in the **Billing console →
+Cost Allocation Tags → User-defined tags → activate `adp:stage`**.
+
+The `adp-shared-bootstrap` stack intentionally does **not** carry the `adp:stage`
+tag — the bootstrap is account-singular, not stage-bound.
+
+## Running tests
+
+The test suite lives in `platform-foundation/tests/`.
+
+```
+cd platform-foundation
+source .venv/bin/activate
+pytest tests/ -v
+```
+
+Tests that require curated data (generated by `make seed`) are decorated with
+`@pytest.mark.needs_curated` and skip automatically when the data is absent.
+The offline suite (schema, referential-integrity contracts, distribution contracts)
+runs without any deployed infrastructure.
+
+Expected baseline: 150+ passing, some skipped when curated data is absent, 0 failures.
+
+## Security practices for contributors
+
+- IAM policies must follow least-privilege. When adding a new resource, scope its
+  IAM grants to the specific resource ARN, not a wildcard `*` unless a named
+  exception is suppressed in `NagSuppressions` with a documented rationale.
+- Every new S3 bucket must use the project’s KMS CMK (`alias/adp-{stage}-foundation-lake`)
+  and carry `RemovalPolicy.RETAIN` if it holds globally-namespaced names.
+- Verify all SDK calls against `docs/tech.md` before implementation. Do not rely
+  on memory or model knowledge for IAM ARN formats, constructor signatures, or
+  Iceberg API surface — consult `docs/tech.md` or the official AWS documentation.
+- Run `make verify-standalone STAGE=staging` before opening a pull request. This
+  synth-time check confirms no CMS ARNs have leaked into the foundation templates.
+
+## CI gates
+
+The CI pipeline enforces the following gates on every pull request:
+
+| Gate                     | Command                                  | Pass condition         |
+| ------------------------ | ---------------------------------------- | ---------------------- |
+| Standalone-deploy verify | `make verify-standalone STAGE=staging`   | exits 0                |
+| CMS-standalone verify    | `./scripts/verify-cms-standalone.sh dev` | exits 0                |
+| Pytest suite             | `pytest tests/ -v`                       | 0 failures             |
+| CDK synth (staging)      | `make synth STAGE=staging`               | exits 0, cdk-nag clean |
+| CDK synth (prod)         | `make synth STAGE=prod`                  | exits 0, cdk-nag clean |
+
+The smoke test runs against the live staging environment after each merge to `main`
+that touches `platform-foundation/`.
+
+## Additional resources
+
+| Resource                                                       | What it covers                                                                           |
+| -------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `docs/DEPLOYMENT.md`                                           | Per-stage deploy runbook, prereqs, smoke tests, tear-down, troubleshooting               |
+| `docs/data-contracts.md`                                       | VSS signal subset, identifier formats, partition conventions                             |
+| `docs/cvx-integration-contract.md`                             | CVX subscription flow, sample Athena queries, Bedrock KB seeding                         |
+| `docs/cms-ingest-optional-module.md`                           | Opt-in CMS → ADP ingest module                                                           |
+| `docs/tech.md`                                                 | SDK/framework verification notes — DataZone V2, Glue Iceberg, Bedrock KB, Lake Formation |
+| `platform-foundation/README.md`                                | Foundation-level overview                                                                |
+| `platform-foundation/source/data-products/<product>/README.md` | Per-product schema, partitions, sample queries, lineage                                  |
+| `platform-foundation/source/athena-queries/`                   | Cross-product join examples                                                              |

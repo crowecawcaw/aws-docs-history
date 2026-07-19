@@ -1,73 +1,44 @@
 # Getting started
 
-This section provides step-by-step guidance to deploy the Automotive Data Governance solution.
+This section describes the reference implementation shape for the Automotive Data Governance pattern. A concrete implementation would begin with the foundation governance stack (see [Platform foundation](platform-foundation.md "platform-foundation.md")) and extend it with the multi-region components described here as the compliance requirements demand.
 
-## Prerequisites
+## Implementation prerequisites
 
-Before deploying the governance framework, ensure you have:
+A reference implementation of this pattern would be built on:
 
-- AWS Organizations configured with multiple accounts (governance, producer, consumer)
-- IAM permissions to create Lake Formation resources, Glue jobs, and CloudTrail trails
+- AWS Organizations with a multi-account structure (governance, producer, consumer accounts)
+- IAM permissions covering Lake Formation resources, Glue jobs, and CloudTrail trails
 - EU region access (eu-west-1 or eu-central-1) for PII data processing
-- Understanding of your data classification requirements and retention policies
+- A clear data classification policy defining which fields are PII and which can be anonymized for global access
 
-## Deployment steps
+## Reference implementation shape
 
-### Step 1: Set up central governance
+A reference implementation of this pattern would typically be structured in five phases:
 
-1. Create a dedicated governance AWS account
-2. Enable AWS Lake Formation in the governance account
-3. Configure AWS Organizations to manage multi-account access
-4. Set up CloudTrail organization trail with S3 Object Lock
-5. Deploy Amazon Macie for PII discovery
+### Phase 1: Central governance foundation
 
-### Step 2: Configure EU producer region
+A dedicated governance account would host the central Lake Formation instance, with AWS Organizations providing the multi-account structure. An organization-wide CloudTrail trail with S3 Object Lock would provide the immutable audit foundation, and Amazon Macie would handle automated PII discovery across the data estate.
 
-1. Deploy AWS IoT Core for vehicle data ingestion
-2. Create Amazon Kinesis Data Streams for real-time telemetry
-3. Set up AWS Glue Data Quality rules for automotive data validation
-4. Deploy AWS Glue ETL Streaming jobs for PII classification and anonymization
-5. Create separate S3 buckets for PII (EU only) and anonymized data
-6. Configure Lake Formation policies to prevent PII cross-region replication
+### Phase 2: EU producer region
 
-### Step 3: Set up global consumer regions
+The EU producer region would ingest connected vehicle data through AWS IoT Core into Amazon Kinesis Data Streams, with AWS Glue Data Quality validating automotive-specific rules (VIN formats, sensor ranges) before Glue ETL Streaming jobs classify and anonymize the stream in real time. The result is two governed data stores — PII data locked to the EU region via Lake Formation deny policies, and anonymized data eligible for cross-region replication.
 
-1. Create Lake Formation resource links pointing to EU anonymized data tables
-2. Configure IAM roles for R&D teams with read-only access to anonymized data
-3. Deploy Amazon Athena workgroups for analytics queries
-4. Set up Amazon SageMaker notebooks for data science workflows
-5. Create Amazon QuickSight dashboards for business intelligence
+### Phase 3: Global consumer access
 
-### Step 4: Implement vehicle owner portal
+Consumer regions would access anonymized EU data through Lake Formation resource links, which enforce producer-region permissions at query time. R&D teams would reach the anonymized data through Amazon Athena, Amazon SageMaker, and Amazon QuickSight — the same tools they use for other analytics workloads — without any path to the PII store in the EU region.
 
-1. Deploy Amazon Cognito User Pool for vehicle owner authentication
-2. Create API Gateway endpoints for data access and export
-3. Implement Lambda authorizers for VIN ownership validation
-4. Build React SPA for user portal (hosted on S3 + CloudFront)
-5. Configure consent management database (DynamoDB)
+### Phase 4: Vehicle owner data rights portal
 
-### Step 5: Enable audit and compliance
+A data rights portal would combine Amazon Cognito authentication, API Gateway endpoints, and Lambda authorizers performing VIN ownership validation to give vehicle owners access to their own data in machine-readable formats (JSON, CSV), supporting GDPR Article 20 portability and EU Data Act Article 4 access requirements. Consent preferences would be tracked in DynamoDB, with custom validation logic enforcing consent status before any data access or third-party sharing.
 
-1. Verify CloudTrail logging is capturing all data access
-2. Configure CloudWatch dashboards for governance metrics
-3. Set up SNS notifications for policy violations
-4. Deploy AWS Config rules for compliance validation
-5. Create QuickSight compliance reports
+### Phase 5: Audit and compliance validation
 
-## Validation
-
-After deployment, validate the governance framework:
-
-1. **PII Protection**: Verify PII data remains in EU region and cannot be accessed from global regions
-2. **Cross-Region Access**: Confirm R&D teams can query anonymized data through resource links
-3. **Vehicle Owner Access**: Test data export through user portal with VIN ownership validation
-4. **Audit Logging**: Verify all data access is logged in CloudTrail with user identity
-5. **Compliance Reports**: Generate sample reports showing data processing activities
+With all components deployed, the governance validation pattern would confirm: PII data is inaccessible from global consumer regions; R&D teams can query anonymized data through resource links; vehicle owners can retrieve and export their data via the portal; all data access is captured in CloudTrail with user identity; and compliance reports can be generated from the centralized audit store.
 
 ## Next steps
 
-- Configure additional data quality rules for your specific vehicle data
-- Customize anonymization logic based on your compliance requirements
-- Set up automated remediation workflows for policy violations
-- Train data stewards on Lake Formation permission management
-- Schedule regular compliance audits and disaster recovery testing
+- Start with the foundation governance stack (see [Platform foundation](platform-foundation.md "platform-foundation.md")) as the deployable single-region core
+- Extend with EU producer region components as data sovereignty requirements are defined
+- Configure data quality rules and anonymization logic for your specific vehicle data schema
+- Customize consent management workflows to match your regional compliance obligations
+- Establish regular compliance audit cadences and disaster recovery test schedules

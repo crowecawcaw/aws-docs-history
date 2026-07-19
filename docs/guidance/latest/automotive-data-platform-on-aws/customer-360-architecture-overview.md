@@ -13,6 +13,8 @@ The solution combines Quick Suite analytics with Bedrock AI agents in a three-ti
 - AWS Glue Crawlers for schema discovery
 - Amazon Athena for SQL queries
 
+The data layer is grounded in the ADP foundation’s governed data products — `customer_360`, `customer_interactions`, and `service_records` — which provide a curated, access-controlled view of the raw telemetry and CRM data ingested by the platform (see [Data products](data-products.md "data-products.md")).
+
 **Analytics Layer**:
 
 - Quick Suite Datasets (8 pre-built datasets)
