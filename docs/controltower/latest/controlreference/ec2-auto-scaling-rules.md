@@ -117,50 +117,110 @@ AutoScalingGroup:
 
 ```
 
-#####################################
+# ###################################
 ##       Rule Specification        ##
 #####################################
+#
+# Rule Identifier:
+#   autoscaling_multiple_az_check
+#
+# Description:
+#   This control checks whether your Amazon EC2 Auto Scaling group spans multiple Availability Zones.
+#
+# Reports on:
+#    AWS::AutoScaling::AutoScalingGroup
+#
+# Evaluates:
+#   CloudFormation, CloudFormation hook
+#
+# Rule Parameters:
+#   None
+#
+# Scenarios:
+# Scenario: 1
+#   Given: The input document is an CloudFormation or CloudFormation hook document
+#     And: The input document does not contain any Auto Scaling groups
+#    Then: SKIP
+# Scenario: 2
+#   Given: The input document is an CloudFormation or CloudFormation hook document
+#     And: The input document contains an Auto Scaling group resource
+#     And: 'AvailabilityZones' is not present on the Auto Scaling group resource
+#    Then: FAIL
+# Scenario: 3
+#   Given: The input document is an CloudFormation or CloudFormation hook document
+#     And: The input document contains an Auto Scaling group resource
+#     And: 'AvailabilityZones' is present on the Auto Scaling group resource
+#     And: The number of 'AvailabilityZones' present is less than 2 (< 2) or the number of
+#          unique 'AvailabilityZones' provided is less than 2 (< 2)
+#    Then: FAIL
+# Scenario: 4
+#   Given: The input document is an CloudFormation or CloudFormation hook document
+#     And: The input document contains an Auto Scaling group resource
+#     And: 'AvailabilityZones' is present on the Auto Scaling group resource
+#     And: The number of 'AvailabilityZones' present is greater than or equal to 2 (>= 2)
+#     And: At least two unique 'AvailabilityZones' have been provided
+#    Then: PASS
 
-Rule Identifier:
-  autoscaling_multiple_az_check
+#
+# Constants
+#
+let AUTOSCALING_GROUP_TYPE = "AWS::AutoScaling::AutoScalingGroup"
+let INPUT_DOCUMENT = this
 
-Description:
-  Checks if Auto Scaling groups span multiple Availability Zones.
+#
+# Assignments
+#
+let autoscaling_groups = Resources.*[ Type == %AUTOSCALING_GROUP_TYPE ]
 
-Reports on:
-   AWS::AutoScaling::AutoScalingGroup
+#
+# Primary Rules
+#
+rule autoscaling_multiple_az_check when is_cfn_template(%INPUT_DOCUMENT)
+                                        %autoscaling_groups not empty {
+    check(%autoscaling_groups.Properties)
+        <<
+        [CT.AUTOSCALING.PR.1]: Require an Amazon Elastic Compute Cloud Auto Scaling group to have multiple Availability Zones
+        [FIX]: Configure Auto Scaling groups with multiple Availability Zones.
+        >>
+}
 
-Evaluates:
-  CloudFormation, CloudFormation hook
+rule autoscaling_multiple_az_check when is_cfn_hook(%INPUT_DOCUMENT, %AUTOSCALING_GROUP_TYPE) {
+    check(this.%AUTOSCALING_GROUP_TYPE.resourceProperties)
+        <<
+        [CT.AUTOSCALING.PR.1]: Require an Amazon Elastic Compute Cloud Auto Scaling group to have multiple Availability Zones
+        [FIX]: Configure Auto Scaling groups with multiple Availability Zones.
+        >>
+}
 
-Rule Parameters:
-  None
+#
+# Parameterized Rules
+#
+rule check(autoscaling_group) {
+    %autoscaling_group {
+       # Scenario 2
+       AvailabilityZones exists
+       # Scenario 3 and 4
+       AvailabilityZones is_list
+       AvailabilityZones not empty
+       AvailabilityZones[0] exists
+       AvailabilityZones[1] exists
+       AvailabilityZones[0] not in AvailabilityZones[1]
+    }
+}
 
-Scenarios:
-  Scenario: 1
-    Given: The input document is an CloudFormation or CloudFormation hook document
-      And: The input document does not contain any Auto Scaling groups
-     Then: SKIP
-  Scenario: 2
-    Given: The input document is an CloudFormation or CloudFormation hoo document
-      And: The input document contains an Auto Scaling group resource
-      And: 'AvailabilityZones' is not present on the Auto Scaling group resource
-     Then: FAIL
-  Scenario: 3
-    Given: The input document is an CloudFormation or CloudFormation hook document
-      And: The input document contains an Auto Scaling group resource
-      And: 'AvailabilityZones' is present on the Auto Scaling group resource
-      And: The number of 'AvailabilityZones' present is less than 2 (< 2) or the number of
-           unique 'AvailabilityZones' provided is less than 2 (< 2)
-     Then: FAIL
-  Scenario: 4
-    Given: The input document is an CloudFormation or CloudFormation Hook Document
-      And: The input document contains an Auto Scaling group resource
-      And: 'AvailabilityZones' is present on the Auto Scaling group resource
-      And: The number of 'AvailabilityZones' present is greater than or equal to 2 (>= 2)
-      And: At least two unique 'AvailabilityZones' have been provided
-     Then: PASS
+#
+# Utility Rules
+#
+rule is_cfn_template(doc) {
+    %doc {
+        AWSTemplateFormatVersion exists or
+        Resources exists
+    }
+}
 
+rule is_cfn_hook(doc, RESOURCE_TYPE) {
+    %doc.%RESOURCE_TYPE.resourceProperties exists
+}
 
 ```
 
@@ -719,58 +779,132 @@ Resources:
 
 ```
 
-#####################################
+# ###################################
 ##       Rule Specification        ##
 #####################################
+#
+# Rule Identifier:
+#   autoscaling_group_elb_healthcheck_required_check
+#
+# Description:
+#   This control checks whether your Amazon EC2 Auto Scaling groups that are associated with a load balancer are using
+#   Elastic Load Balancing health checks.
+#
+# Reports on:
+#   AWS::AutoScaling::AutoScalingGroup
+#
+# Evaluates:
+#   CloudFormation, CloudFormation hook
+#
+# Rule Parameters:
+#   None
+#
+# Scenarios:
+#   Scenario: 1
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document does not contain any Auto Scaling groups
+#      Then: SKIP
+#   Scenario: 2
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an Auto Scaling group resource
+#       And: 'LoadBalancerNames' or 'TargetGroupARNs' are not present on the Auto Scaling group resource or empty lists
+#      Then: SKIP
+#   Scenario: 3
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an Auto Scaling group resource
+#       And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Auto Scaling group with at least
+#            one configuration
+#       And: 'HealthCheckType' is not present
+#      Then: FAIL
+#   Scenario: 4
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an Auto Scaling group resource
+#       And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Auto Scaling group with at least
+#            one configuration
+#       And: 'HealthCheckType' is present and set to a value other than 'ELB' (e.g. 'EC2')
+#      Then: FAIL
+#   Scenario: 5
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an Auto Scaling group resource
+#       And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Auto Scaling group resource with at least
+#            one configuration
+#       And: 'HealthCheckType' is present and set to 'ELB'
+#      Then: PASS
 
-Rule Identifier:
-  autoscaling_group_elb_healthcheck_required_check
+#
+# Constants
+#
+let AUTOSCALING_GROUP_TYPE = "AWS::AutoScaling::AutoScalingGroup"
+let INPUT_DOCUMENT = this
 
-Description:
-  This control checks whether your Auto Scaling groups that are associated with a load balancer are using
-  Elastic Load Balancing health checks.
+#
+# Assignments
+#
+let autoscaling_groups = Resources.*[ Type == %AUTOSCALING_GROUP_TYPE ]
 
-Reports on:
-  AWS::AutoScaling::AutoScalingGroup
+#
+# Primary Rules
+#
+rule autoscaling_group_elb_healthcheck_required_check when is_cfn_template(%INPUT_DOCUMENT)
+                                                           %autoscaling_groups not empty {
+    check(%autoscaling_groups.Properties)
+        <<
+        [CT.AUTOSCALING.PR.4]: Require an Amazon Elastic Compute Cloud Auto Scaling group associated with an Elastic Load Balancing to have ELB health checks activated
+        [FIX]: Configure Amazon Elastic Compute Cloud Auto Scaling groups associated with an Elastic Load Balancing load balancer to use Elastic Load Balancing health checks.
+        >>
+}
 
-Evaluates:
-  AWS CloudFormation, AWS CloudFormation hook
+rule autoscaling_group_elb_healthcheck_required_check when is_cfn_hook(%INPUT_DOCUMENT, %AUTOSCALING_GROUP_TYPE) {
+    check(this.%AUTOSCALING_GROUP_TYPE.resourceProperties)
+        <<
+        [CT.AUTOSCALING.PR.4]: Require an Amazon Elastic Compute Cloud Auto Scaling group associated with an Elastic Load Balancing to have ELB health checks activated
+        [FIX]: Configure Amazon Elastic Compute Cloud Auto Scaling groups associated with an Elastic Load Balancing load balancer to use Elastic Load Balancing health checks.
+        >>
+}
 
-Rule Parameters:
-  None
+#
+# Parameterized Rules
+#
+rule check(autoscaling_group) {
+    %autoscaling_group [
+        filter_list_exists_and_not_empty(LoadBalancerNames) or
+        filter_list_exists_and_not_empty(TargetGroupARNs)
+    ] {
+       check_healthcheck_type_on_asg(this)
+    }
+}
 
-Scenarios:
-  Scenario: 1
-    Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document does not contain any Auto Scaling group
-     Then: SKIP
-  Scenario: 2
-    Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document contains an Auto Scaling group resource
-      And: 'LoadBalancerNames' or 'TargetGroupARNs' are not present on the Auto Scaling group resource or empty lists
-     Then: SKIP
-  Scenario: 3
-    Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document contains an Auto Scaling group resource
-      And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Auto Scaling group with at least
-           one configuration
-      And: 'HealthCheckType' is not present
-     Then: FAIL
-  Scenario: 4
-    Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document contains an Auto Scaling group resource
-      And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Auto Scaling group with at least
-           one configuration
-      And: 'HealthCheckType' is present and set to a value other than 'ELB' (e.g. 'EC2')
-     Then: FAIL
-  Scenario: 5
-    Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document contains an Auto Scaling group resource
-      And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Auto Scaling group with at least
-           one configuration
-      And: 'HealthCheckType' is present and set to 'ELB'
-     Then: PASS
+rule filter_list_exists_and_not_empty(property) {
+    %property {
+        # Scenario 2
+        this exists
+        this is_list
+        this not empty
+    }
+}
 
+rule check_healthcheck_type_on_asg(asg) {
+    %asg {
+        # Scenario 3
+        HealthCheckType exists
+        # Scenario 4 and 5
+        HealthCheckType == "ELB"
+    }
+}
+
+#
+# Utility Rules
+#
+rule is_cfn_template(doc) {
+    %doc {
+        AWSTemplateFormatVersion exists or
+        Resources exists
+    }
+}
+
+rule is_cfn_hook(doc, RESOURCE_TYPE) {
+    %doc.%RESOURCE_TYPE.resourceProperties exists
+}
 
 ```
 
@@ -3070,7 +3204,7 @@ AutoScalingGroup:
 #
 # Description:
 #   This control checks whether an Auto Scaling group, when using a mixed instance policy, overrides only those launch templates with AWS Nitro
-instance types that support encryption in transit between instances.
+#   instance types that support encryption in transit between instances.
 #
 # Reports on:
 #   AWS::AutoScaling::AutoScalingGroup
