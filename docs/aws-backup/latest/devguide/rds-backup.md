@@ -143,3 +143,52 @@ For more information on
 
 AWS recommends maintaining backups in every Region where your global database
 is deployed.
+
+## Common questions for Amazon RDS and Aurora continuous backups
+
+### How are Amazon RDS and Aurora continuous backups linked to automated backups?
+
+AWS Backup point-in-time recovery (continuous backups) centralizes the management
+of automated backups in Amazon RDS and Aurora. When you enable continuous backup in
+AWS Backup, AWS Backup takes over control of automated backups from Amazon RDS or Aurora. You can
+no longer change the backup start time (preferred backup window) or retention using
+the Amazon RDS or Aurora console or APIs. You can still manage the maintenance window
+from the Amazon RDS or Aurora console or API. AWS Backup intelligently schedules automated
+backups to avoid overlapping with other scheduled backups (snapshots) and the
+maintenance window where possible.
+
+### How do continuous backups appear in the AWS Backup console?
+
+In the AWS Backup console, navigate to the vault specified in your backup plan and
+look for _Continuous_ in the **Backup type**
+column. The backup shows as _Available_ after the first
+continuous backup completes, indicating that PITR is available for that
+resource.
+
+### How can control of automated backups be returned to Amazon RDS or Aurora?
+
+To return control of automated backups to Amazon RDS or Aurora, first delete the
+backup plan or rule with continuous backups enabled for Amazon RDS or Aurora, or modify
+the rule to remove continuous backup. Then choose one of the following
+options:
+
+- **Preserve backup data:** Run the
+  `DisassociateRecoveryPoint` API. This disassociates the continuous
+  backup and releases control to Amazon RDS, preserving the backup data in Amazon RDS that
+  you can use to perform a restore.
+- **Remove backup data:** Run the
+  `DeleteRecoveryPoint` API. This deletes the continuous recovery
+  point, removes backup data, and gives back control to Amazon RDS.
+
+###### Important
+
+When you run `DisassociateRecoveryPoint` or
+`DeleteRecoveryPoint`, AWS Backup calls the
+`ModifyDBInstance` API for Amazon RDS instances or the
+`ModifyDBCluster` API for Aurora clusters, and applies the change
+immediately. If there are any pending configuration changes on Amazon RDS or Aurora,
+those changes are also applied immediately. There may be a brief downtime during
+this operation.
+
+For more information, see [How
+can I stop an Amazon RDS continuous backup in AWS Backup?](https://repost.aws/knowledge-center/backup-stop-rds-continuous-backup "https://repost.aws/knowledge-center/backup-stop-rds-continuous-backup")

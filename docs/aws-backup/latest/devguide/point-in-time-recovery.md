@@ -324,6 +324,19 @@ recovery by calling Aurora APIs. Because of this architecture:
   `LatestRestorableTime` value to determine the most recent point to which you
   can restore.
 
+**Retention periods and backup windows:** When you enable
+or change continuous backup settings for an Aurora cluster, AWS Backup calls
+[`ModifyDBCluster`](../../../AmazonRDS/latest/APIReference/API_ModifyDBCluster.md "../../../AmazonRDS/latest/APIReference/API_ModifyDBCluster.md") to apply those changes. This can modify the
+cluster's `PreferredBackupWindow`. If you have other configuration updates
+pending the next maintenance window, enabling continuous backups may also apply those
+pending changes immediately.
+
+###### Note
+
+To use AWS Backup to configure continuous backups for your Aurora cluster, verify that
+the API permission `rds:ModifyDBCluster` exists in the IAM role defined by
+your backup plan configuration.
+
 ### SAP HANA on Amazon EC2 instances
 
 You can make [continuous backups](point-in-time-recovery.md "point-in-time-recovery.md")
