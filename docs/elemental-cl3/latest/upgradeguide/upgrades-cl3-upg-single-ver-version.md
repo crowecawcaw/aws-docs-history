@@ -20,7 +20,7 @@ follows:
   _GPU-accelerated_.
 - CPU icon only: the software is _CPU-only_.
 
-![Dashboard showing status indicator, CPU usage, GPUs usage, and memory usage meters.](/images/elemental-cl3/latest/upgradeguide/images/upg-type-shared-png.png)
+![Dashboard showing status indicator, CPU usage, GPUs usage, and memory usage meters.](images/upg-type-shared-png.png)
 
 ## Save the latest database backup
 
