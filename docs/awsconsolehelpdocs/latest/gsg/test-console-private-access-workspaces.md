@@ -322,4 +322,4 @@ that you are connected using AWS Management Console Private Access. 3. Choose th
 in use. The following screenshot shows the location of the lock-private icon and the VPC
 information.
 
-![The Amazon S3 console showing the lock-private icon location and AWS Management Console Private Access information.](/images/awsconsolehelpdocs/latest/gsg/images/console-private-access-verify-1.png)
+![The Amazon S3 console showing the lock-private icon location and AWS Management Console Private Access information.](images/console-private-access-verify-1.png)
