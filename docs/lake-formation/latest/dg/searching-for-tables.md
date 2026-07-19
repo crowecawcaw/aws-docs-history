@@ -9,7 +9,7 @@ on.
 1. Sign in to the AWS Management Console and open the Lake Formation console at
    [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
 2. In the navigation pane, choose **Tables**.
-3. Position the cursor in the search field at the top of the page. The field has the
+3. Position the cursor in the search field. The field has the
    placeholder text _Find table by properties_.
 
 The **Properties** menu appears, showing the various table properties

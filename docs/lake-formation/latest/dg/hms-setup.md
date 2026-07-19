@@ -34,7 +34,7 @@ the Lambda function to retrieve the metadata of the Hive tables.
         for the VPC where the Hive metastore exists.
 
    8. Select **I acknowledge that this app creates custom IAM roles and resource policies**. For more information, choose the **Info** link.
-   9. At the bottom right of the **Application settings** section, choose **Deploy**. When the deployment is complete, the Lambda function appears in the **Resources** section in the Lambda console.
+   9. In the **Application settings** section, choose **Deploy**. When the deployment is complete, the Lambda function appears in the **Resources** section in the Lambda console.
       The application is deployed to Lambda. Its name is prepended with
       **serverlessrepo-** to indicate that the application was deployed from
       the AWS Serverless Application Repository. Selecting the application takes you to the **Resources** page

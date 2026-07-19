@@ -305,7 +305,7 @@ JSON
 
 ```
 
-6. Choose the **Next** button at the bottom until you see the
+6. Choose **Next** until you see the
    **Review policy** page. Enter a name for the policy, for
    example, `DatalakeUserBasic`. Choose **Create
    policy**, then close the **Policies** tab or browser window.

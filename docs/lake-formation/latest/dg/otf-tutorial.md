@@ -150,11 +150,11 @@ Next, register the Amazon S3 path as the location of your data lake.
 
 1. Open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") as the data lake administrator user.
 2. In the navigation pane, under **Register and ingest**, choose **Data location**.
-3. On the upper right of the console, choose **Register location**.
+3. Choose **Register location**.
 4. On the **Register location** page, enter the following:
 
    - **Amazon S3 path** – Choose **Browse** and select `lf-otf-datalake-123456789012`.
-     Click on the right arrow (>) next to the Amazon S3 root location to navigate to the `s3/buckets/lf-otf-datalake-123456789012/transactionaldata/native-iceberg` location.
+     Choose the expand arrow next to the Amazon S3 root location to navigate to the `s3/buckets/lf-otf-datalake-123456789012/transactionaldata/native-iceberg` location.
    - **IAM role** – Choose `LF-OTF-RegisterRole` as the IAM role.
    - Choose **Register location**.
 
@@ -230,11 +230,11 @@ Next, register an Amazon S3 path as the root location of your data lake.
 1. Sign in to the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") as the data lake administrator
    user.
 2. In the navigation pane, under **Register and ingest**, choose **Data location**.
-3. On the upper right of the console, choose **Register location**.
+3. Choose **Register location**.
 4. On the **Register location** page, enter the following:
 
    - **Amazon S3 path** – Choose **Browse** and select `lf-otf-datalake-123456789012`.
-     Click on the right arrow (>) next to the Amazon S3 root location to navigate to the `s3/buckets/lf-otf-datalake-123456789012/transactionaldata/native-hudi` location.
+     Choose the expand arrow next to the Amazon S3 root location to navigate to the `s3/buckets/lf-otf-datalake-123456789012/transactionaldata/native-hudi` location.
    - **IAM role** – Choose `LF-OTF-RegisterRole` as the IAM role.
    - Choose **Register location**.
 
@@ -299,11 +299,11 @@ Next, register the Amazon S3 path as the root location of your data lake.
 
 1. Open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") the data lake administrator user.
 2. In the navigation pane, under **Register and ingest**, choose **Data location**.
-3. On the upper right of the console, choose **Register location**.
+3. Choose **Register location**.
 4. On the **Register location** page, enter the following:
 
    - **Amazon S3 path** – Choose **Browse** and select `lf-otf-datalake-123456789012`.
-     Click on the right arrow (>) next to the Amazon S3 root location to navigate to the `s3/buckets/lf-otf-datalake-123456789012/transactionaldata/native-delta` location.
+     Choose the expand arrow next to the Amazon S3 root location to navigate to the `s3/buckets/lf-otf-datalake-123456789012/transactionaldata/native-delta` location.
    - **IAM role** – Choose `LF-OTF-RegisterRole` as the IAM role.
    - Choose **Register location**.
 

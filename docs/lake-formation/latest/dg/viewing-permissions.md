@@ -37,7 +37,7 @@ as labels under the search box. The tiles indicate that a filter has been applie
 permissions only for that database. You can adjust the filter by closing a tile or choosing
 **Clear filter**.
 
-![The Data permissions page displays a search box at the top, with two tiles underneath. The tiles are labeled Database:logs and Catalog ID:111122223333. Next to the tiles is a Clear filter button. Below is the list of databases and their permissions. This example has only one row in the list. It's for the logs database, and the permissions Alter, Create table, and Drop are granted to IAM user Administrator with the grant option. The list includes an Owner account ID column, and the one row has 11112222333 in that column.](images/permissions-page-database.png)
+![The Data permissions page displays a search box, with two tiles underneath. The tiles are labeled Database:logs and Catalog ID:111122223333. Next to the tiles is a Clear filter button. Below is the list of databases and their permissions. This example has only one row in the list. It's for the logs database, and the permissions Alter, Create table, and Drop are granted to IAM user Administrator with the grant option. The list includes an Owner account ID column, and the one row has 11112222333 in that column.](images/permissions-page-database.png)
 
 ###### To view permissions on a database (console, starting from the Data permissions page)
 
@@ -45,7 +45,7 @@ permissions only for that database. You can adjust the filter by closing a tile 
    [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
 
 Sign in as a data lake administrator, the database creator, or as a user who has any
-Lake Formation permission on the database with the grant option. 2. In the navigation pane, choose **Data permissions**. 3. Position the cursor in the search box at the top of the page, and on the
+Lake Formation permission on the database with the grant option. 2. In the navigation pane, choose **Data permissions**. 3. Position the cursor in the search box, and on the
 **Properties** menu that appears, choose
 **Database**. 4. On the **Databases** menu that appears, choose a database.
 
@@ -79,7 +79,7 @@ ID (AWS account ID) of the table owner appear as labels under the search box. Th
 indicate that a filter has been applied to list permissions only for that table. You can
 adjust the filter by closing a label or choosing **Clear filter**.
 
-![The Data permissions page displays a search field at the top, with three tiles underneath. The tiles are labeled Database:logs, Table:alexa-logs, and Catalog ID:111122223333, going from left to right. Next to the tiles is a Clear filter button. Below is the list of tables and their permissions. This example has only one row in the list. It's for the alexa-logs table, and the Super permissions is granted to IAM user Administrator with the grant option. The list includes an Owner account ID column, and the one row has 11112222333 in that column.](images/permissions-page-table.png)
+![The Data permissions page displays a search field, with three tiles underneath. The tiles are labeled Database:logs, Table:alexa-logs, and Catalog ID:111122223333, going from left to right. Next to the tiles is a Clear filter button. Below is the list of tables and their permissions. This example has only one row in the list. It's for the alexa-logs table, and the Super permissions is granted to IAM user Administrator with the grant option. The list includes an Owner account ID column, and the one row has 11112222333 in that column.](images/permissions-page-table.png)
 
 ###### To view permissions on a table (console, starting from the Data permissions page)
 
@@ -87,7 +87,7 @@ adjust the filter by closing a label or choosing **Clear filter**.
    [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
 
 Sign in as a data lake administrator, the table creator, or as a user who has any Lake Formation
-permission on the table with the grant option. 2. In the navigation pane, choose **Data permissions**. 3. Position the cursor in the search box at the top of the page, and on the
+permission on the table with the grant option. 2. In the navigation pane, choose **Data permissions**. 3. Position the cursor in the search box, and on the
 **Properties** menu that appears, choose
 **Database**. 4. On the **Databases** menu that appears, choose a database.
 

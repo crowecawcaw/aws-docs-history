@@ -20,7 +20,7 @@ You must be a Lake Formation data lake administrator or have `CREATE_CATALOG` pe
 ## Create Federated Catalog
 
 1. Sign in to the the console and open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
-2. Choose the preferred AWS region in the top-right page section.
+2. Choose the preferred AWS Region in the Region selector.
 3. In the left navigation pane, choose Catalogs.
 4. Choose **Create Catalog** to open the **Create Catalog Workflow**.
 5. In **Choose data source** step, select Databricks from the available options.
