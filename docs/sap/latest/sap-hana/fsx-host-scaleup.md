@@ -143,7 +143,7 @@ chmod -R 777 /hana/data2/HDB/mnt00001
 - Add additional file systems to `/etc/fstab`.
 
 ```
-<data2>:/data2 /hana/data/HDB/mnt00001 nfs <mount options>
+<data2>:/data2 /hana/data2/HDB/mnt00001 nfs <mount options>
 ```
 
 - Set the permissions to 777. This is required to enable SAP HANA to add a new data volume in the subsequent step. SAP HANA sets more restrictive permissions automatically during data volume creation.
@@ -172,7 +172,7 @@ You must restart your database after updating the `global.ini` file.
 Run the following SQL statement against the tenant database to add an additional data volume partition to your tenant database.
 
 ```
-ALTER SYSTEM ALTER DATAVOLUME ADD PARTITION PATH '/hana/data/HDB/mnt00002/';
+ALTER SYSTEM ALTER DATAVOLUME ADD PARTITION PATH '/hana/data2/HDB/';
 ```
 
 Adding a data volume partition is quick. The new data volume partitions are empty after creation. Data is distributed equally across data volumes over time.
