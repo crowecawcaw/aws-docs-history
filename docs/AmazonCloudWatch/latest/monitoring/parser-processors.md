@@ -1,14 +1,16 @@
 # Parser processors
 
 Parser processors convert raw or semi-structured log data into structured formats.
-Each pipeline can have at most one parser processor, which must be the first processor
-in the pipeline.
+Each pipeline can have at most one primary parser processor, which must be the first
+processor in the pipeline. The XML parser is an exception: it operates on fields
+produced by a primary parser and you can add at most 5 instances to a single
+pipeline.
 
 ###### Conditional processing not supported
 
-Parser processors (except Grok) do not support conditional processing with
+Parser processors (except Grok and XML) do not support conditional processing with
 the `when` parameter. This includes OCSF, CSV, JSON, KeyValue, VPC, Route53, RDS, WAF,
-Postgres, and CloudFront parsers. For more information, see
+Postgres, and Amazon CloudFront parsers. For more information, see
 [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
 ## OCSF processor
@@ -288,3 +290,94 @@ To use the processor without specifying additional parameters, use the following
 processor:
   - key_value: {}
 ```
+
+## XML parser
+
+Use the XML parser to convert a specified field that contains an XML string
+to JSON format. Use the XML parser when your log events contain embedded XML
+fields that you want to query as structured data. The XML parser operates on a
+named field that already contains an XML string. Place this parser after a
+primary parser in the pipeline. You can add at most 5 `parse_xml`
+parsers to a single pipeline.
+
+###### Configuration
+
+Configure the XML parser with the following parameters:
+
+```
+processor:
+  - parse_json:
+      source: "@message"
+  - parse_xml:
+      source: "body"
+      destination: "parsed_xml"
+```
+
+###### Parameters
+
+`source` (Required)
+
+Specifies the field that contains the XML string to parse. Use dot
+notation to access nested fields. For example,
+`event.body`. Maximum 128 characters.
+
+`destination` (Optional)
+
+Specifies the field where the parsed XML structure is stored. If
+you omit this parameter, the parsed fields are added to the root
+level. Maximum 128 characters.
+
+`when` (Optional)
+
+A conditional expression that determines whether this parser runs.
+Maximum length is 256 characters. For more information, see
+[Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+###### Example – XML parser output
+
+Given the following JSON log event with an embedded XML field:
+
+```
+{
+  "body": "<Person id=\"123\" active=\"true\"><name>John</name><age>30</age></Person>"
+}
+```
+
+With the following configuration:
+
+```
+processor:
+  - parse_json:
+      source: "@message"
+  - parse_xml:
+      source: "body"
+      destination: "parsed_xml"
+```
+
+The XML parser produces the following output:
+
+```
+{
+  "body": "<Person id=\"123\" active=\"true\"><name>John</name><age>30</age></Person>",
+  "parsed_xml": {
+    "id": "123",
+    "active": "true",
+    "name": "John",
+    "age": "30"
+  }
+}
+```
+
+###### Behavior notes
+
+Nesting depth
+
+The XML parser supports a maximum nesting depth of 25 levels.
+Elements nested beyond this limit produce an error.
+
+Error handling
+
+Malformed XML does not fail the pipeline. The parser preserves the
+original `@message` and sets
+`@pipeline.processing.status = "error"` on the
+event.

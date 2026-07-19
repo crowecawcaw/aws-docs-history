@@ -400,3 +400,154 @@ following example policy statement grants this permission:
   "Resource": "arn:aws:logs:<region>:<account-id>:lookup-table:<table-name>"
 }
 ```
+
+## geoip processor
+
+The geoip processor enriches log events with geographic location data based on
+IP addresses. The processor uses MaxMind databases to resolve IP addresses to
+geographic information such as city, country, continent, coordinates, and autonomous
+system number (ASN) details. Use this processor for network traffic analysis, user
+location enrichment, and security investigation scenarios.
+
+###### Configuration
+
+Configure the geoip processor with the following parameters:
+
+```
+processor:
+  - geoip:
+      entries:
+        - source: "client_ip"
+          target: "client_geo"
+          include_fields:
+            - "city_name"
+            - "country_name"
+            - "country_iso_code"
+            - "continent_name"
+            - "latitude"
+            - "longitude"
+          when: '.client_ip != "127.0.0.1"'
+```
+
+###### Parameters
+
+`entries` (required)
+
+Array of entry objects that define which IP fields to enrich with
+geographic data. Minimum 1, maximum 10 entries.
+
+`entries[].source` (required)
+
+The field name in the log event that contains the IP address to look
+up. Must reference a valid IPv4 or IPv6 address. Maximum 128
+characters.
+
+`entries[].target` (required)
+
+The field name where the processor writes geographic enrichment
+data in the log event. Maximum 128 characters.
+
+`entries[].include_fields` (required)
+
+Array of geographic fields to include in the enrichment result.
+Minimum 1, maximum 12 fields. The following fields are available:
+
+- `continent_code` – Two-letter continent
+  code (for example, "NA").
+- `continent_name` – Name of the
+  continent (for example, "North America").
+- `country_name` – Name of the country
+  (for example, "United States").
+- `country_iso_code` – ISO 3166-1
+  alpha-2 country code (for example, "US").
+- `city_name` – Name of the city
+  (for example, "Seattle").
+- `postal_code` – Postal code associated
+  with the IP address location.
+- `time_zone` – IANA time zone name
+  (for example, "America/Los\_Angeles").
+- `latitude` – Latitude coordinate of the
+  IP address location.
+- `longitude` – Longitude coordinate of
+  the IP address location.
+- `network` – CIDR notation of the network
+  associated with the IP address.
+- `asn` – Autonomous system number
+  associated with the IP address.
+- `asn_organization` – Organization name
+  associated with the autonomous system number.
+
+`entries[].when` (optional)
+
+Conditional expression that determines whether this entry executes.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+`when` (optional)
+
+Top-level conditional expression that determines whether this processor
+executes. Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+###### Example
+
+The following example shows a sample log event with IP address fields:
+
+```
+{
+  "timestamp": "2026-05-04T12:00:00Z",
+  "src_ip": "203.0.113.50",
+  "dst_ip": "198.51.100.25",
+  "action": "ALLOW",
+  "bytes": 4096
+}
+```
+
+The following processor configuration maps both source and destination IP fields
+to geographic enrichment targets:
+
+```
+processor:
+  - geoip:
+      entries:
+        - source: "src_ip"
+          target: "src_geo"
+          include_fields:
+            - "city_name"
+            - "country_name"
+            - "country_iso_code"
+            - "latitude"
+            - "longitude"
+            - "asn"
+            - "asn_organization"
+        - source: "dst_ip"
+          target: "dst_geo"
+          include_fields:
+            - "country_name"
+            - "country_iso_code"
+```
+
+The processor produces the following enriched log event:
+
+```
+{
+  "timestamp": "2026-05-04T12:00:00Z",
+  "src_ip": "203.0.113.50",
+  "dst_ip": "198.51.100.25",
+  "action": "ALLOW",
+  "bytes": 4096,
+  "src_geo": {
+    "city_name": "Seattle",
+    "country_name": "United States",
+    "country_iso_code": "US",
+    "latitude": 47.6062,
+    "longitude": -122.3321,
+    "asn": 16509,
+    "asn_organization": "Amazon.com, Inc."
+  },
+  "dst_geo": {
+    "country_name": "Germany",
+    "country_iso_code": "DE"
+  }
+}
+```

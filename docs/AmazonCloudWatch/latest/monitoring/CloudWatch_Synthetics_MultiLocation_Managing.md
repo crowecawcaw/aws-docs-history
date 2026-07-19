@@ -92,11 +92,11 @@ canary. You can view the replication status on the canary detail page in the
 
 Replicas can have the following replication status values:
 
-- **InProgress** — The replica is being created
+- **InProgress**—The replica is being created
   or updated. Changes from the primary are being propagated to the replica.
-- **InSync** — The replica is fully
+- **InSync**—The replica is fully
   synchronized with the primary canary configuration.
-- **Inconsistent** — The replica is out of
+- **Inconsistent**—The replica is out of
   sync with the primary canary. This can occur if a propagation failed. You can retry by
   updating the canary again.
 

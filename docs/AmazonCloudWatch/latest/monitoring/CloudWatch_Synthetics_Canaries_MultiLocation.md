@@ -10,24 +10,24 @@ view of your application's performance and availability worldwide.
 
 Use multilocation canaries for the following benefits:
 
-- **Ensure consistent user experience** — Run
+- **Ensure consistent user experience**—Run
   canaries from different parts of the world to verify that your users everywhere receive
   a consistent, high-quality experience.
-- **Establish location-specific baselines** —
+- **Establish location-specific baselines**—
   Each Region might have different performance characteristics due to factors such as
   network latency and data center proximity. Running canaries from multiple locations
   creates performance baselines for each location, helping you distinguish normal
   variations from anomalies.
-- **Identify regional performance issues** —
+- **Identify regional performance issues**—
   Performance and availability can vary significantly across locations due to network
   latency, ISP throttling, or regional outages. Testing from diverse global locations
   helps pinpoint Region-specific bottlenecks that might not be apparent from a single
   location.
-- **Validate third-party services and CDNs** —
+- **Validate third-party services and CDNs**—
   Verify that your third-party dependencies such as payment processors, content delivery
   networks, and advertisement services are working across all Regions. Use the data to
   hold vendors accountable for their SLAs.
-- **Reduce false positives** — Configure alarms
+- **Reduce false positives**—Configure alarms
   that activate only when issues are detected from multiple locations. This approach
   avoids unnecessary notifications caused by isolated transient network glitches, so that
   your teams can focus on critical problems.

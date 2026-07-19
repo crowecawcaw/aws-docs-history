@@ -70,57 +70,57 @@ example, `EU-CW:GMD-Metrics` is shortened to
 The following table includes the names of each CloudWatch feature, lists the names of
 each sub-feature, and lists the strings for `UsageType`.
 
-| CloudWatch feature                 | _CloudWatch sub-feature_                                      | `UsageType`                                     |
-| ---------------------------------- | ------------------------------------------------------------- | ----------------------------------------------- |
-| **CloudWatch metrics**             | _Custom metrics_                                              | `MetricMonitorUsage`                            |
-|                                    | _Detailed monitoring_                                         | `MetricMonitorUsage`                            |
-|                                    | _Embedded metrics_                                            | `MetricMonitorUsage`                            |
-|                                    | _OpenTelemetry metrics (observations)_                        | `OTEL:Values`                                   |
-|                                    | _OpenTelemetry metrics (ingestion)_                           | `OTEL:Bytes`                                    |
-|                                    |                                                               | `OTEL:Bytes:EKS-CI`                             |
-|                                    |                                                               | `OTEL:Bytes:AWS`                                |
-|                                    | _PromQL queries_                                              | `PromQL:SamplesScanned`                         |
-|                                    | _PromQL alarms_                                               | `PromQLAlarmMonitorUsage`                       |
-|                                    | _Metrics centralization_                                      | `CentralizedBytes`                              |
-|                                    | _Metrics centralization (free tier)_                          | `CentralizedBytesFree`                          |
-| **CloudWatch API requests**        | _API requests_                                                | `Requests`                                      |
-|                                    | _Bulk (Get)_                                                  | `GMD-Metrics`                                   |
-|                                    | _Contributor Insights_                                        | `GIRR-Metrics`                                  |
-|                                    | _Bitmap image snapshot_                                       | `GMWI-Metrics`                                  |
-| **CloudWatch metric streams**      | _Metric streams_                                              | `MetricStreamUsage`                             |
-| **CloudWatch dashboards**          | _Dashboard with 50 or fewer metrics_                          | `DashboardsUsageHour-Basic`                     |
-|                                    | _Dashboard with more than 50 metrics_                         | `DashboardsUsageHour`                           |
-| **CloudWatch alarms**              | _Standard (metric alarm)_                                     | `AlarmMonitorUsage`                             |
-|                                    | _High resolution (metric alarm)_                              | `HighResAlarmMonitorUsage`                      |
-|                                    | _Metrics Insights query alarm_                                | `MetricInsightAlarmUsage`                       |
-|                                    | _Composite (aggregated alarm)_                                | `CompositeAlarmMonitorUsage`                    |
-| **Container Insights**             | Enhanced observability for Amazon EKS                         | `ObservationUsage`                              |
-|                                    | Enhanced observability for Amazon ECS                         | `MetricsUsage`                                  |
-| **CloudWatch Application Signals** | _Application Signals with Transaction Search_                 | `Application-Signals-Bytes, XRay-Spans-Indexed` |
-| _Application Signals with X-Ray_   | `Application-Signals`                                         |
-| **CloudWatch custom logs**         | _Collect (data ingestion for Standard log<br>class)_          | `DataProcessing-Bytes`                          |
-|                                    | _Collect (data ingestion for Infrequent Access log<br>class)_ | `DataProcessingIA-Bytes`                        |
-|                                    | _Analyze (query)_                                             | `DataScanned-Bytes`                             |
-|                                    | _Analyze (Live Tail)_                                         | `Logs-LiveTail`                                 |
-|                                    | _Store (archive)_                                             | `TimedStorage-ByteHrs`                          |
-|                                    | _Detect and mask (data protection)_                           | `DataProtection-Bytes`                          |
-| **CloudWatch vended logs**         | _Delivery (Amazon CloudWatch Logs Standard log<br>class)_     | `VendedLog-Bytes`                               |
-|                                    | _Delivery (CloudWatch Logs Infrequent Access log<br>class)_   | `VendedLogIA-Bytes`                             |
-|                                    | _Delivery (Amazon S3)_                                        | `S3-Egress-Bytes`                               |
-|                                    | _Delivery (Amazon S3) in Parquet format_                      | `S3-Egress-InputBytes`                          |
-|                                    | _Delivery (Amazon Data Firehose)_                             | `FH-Egress-Bytes`                               |
-| **Contributor Insights**           | _CloudWatch Logs (Rules)_                                     | `ContributorInsightRules`                       |
-|                                    | _CloudWatch Logs (Events)_                                    | `ContributorInsightEvents`                      |
-|                                    | _Amazon DynamoDB (Rules)_                                     | `ContributorRulesManaged`                       |
-|                                    | _DynamoDB Events)_                                            | `ContributorEventsManaged`                      |
-| **Database Insights**              | _Serverless_                                                  | `DatabaseInsights-ACU-Hours`                    |
-|                                    | _Provisioned_                                                 | `DatabaseInsights-vCPU-Hours`                   |
-|                                    | _Limitless_                                                   | `DatabaseInsights-ACU-Hours`                    |
-| **Canaries (Synthetics)**          | _Run_                                                         | `Canary-runs`                                   |
-| **RUM**                            | _Events_                                                      | `RUM-event`                                     |
-| **Network monitoring**             | _Network Synthetic Monitor_                                   | `CWNMHybrid-Paid`                               |
-|                                    | _Internet Monitor (monitored<br>resources)_                   | `InternetMonitor-MonitoredResource`             |
-|                                    | _Internet Monitor (monitored city<br>networks)_               | `InternetMonitor-CityNetwork`                   |
+CloudWatch features, sub-features, and UsageType strings| CloudWatch feature | _CloudWatch sub-feature_ | `UsageType` |
+| --- | --- | --- |
+| **CloudWatch metrics** | _Custom metrics_ | `MetricMonitorUsage` |
+| | _Detailed monitoring_ | `MetricMonitorUsage` |
+| | _Embedded metrics_ | `MetricMonitorUsage` |
+| | _OpenTelemetry metrics (observations)_ | `OTEL:Values` |
+| | _OpenTelemetry metrics (ingestion)_ | `OTEL:Bytes` |
+| | | `OTEL:Bytes:EKS-CI` |
+| | | `OTEL:Bytes:AWS` |
+| | _PromQL queries_ | `PromQL:SamplesScanned` |
+| | _PromQL alarms_ | `PromQLAlarmMonitorUsage` |
+| | _Metrics centralization_ | `CentralizedBytes` |
+| | _Metrics centralization (free tier)_ | `CentralizedBytesFree` |
+| **CloudWatch API requests** | _API requests_ | `Requests` |
+| | _Bulk (Get)_ | `GMD-Metrics` |
+| | _Contributor Insights_ | `GIRR-Metrics` |
+| | _Bitmap image snapshot_ | `GMWI-Metrics` |
+| **CloudWatch metric streams** | _Metric streams_ | `MetricStreamUsage` |
+| **CloudWatch dashboards** | _Dashboard with 50 or fewer metrics_ | `DashboardsUsageHour-Basic` |
+| | _Dashboard with more than 50 metrics_ | `DashboardsUsageHour` |
+| **CloudWatch alarms** | _Standard (metric alarm)_ | `AlarmMonitorUsage` |
+| | _High resolution (metric alarm)_ | `HighResAlarmMonitorUsage` |
+| | _Metrics Insights query alarm_ | `MetricInsightAlarmUsage` |
+| | _Composite (aggregated alarm)_ | `CompositeAlarmMonitorUsage` |
+| **Container Insights** | Enhanced observability for Amazon EKS | `ObservationUsage` |
+| | Enhanced observability for Amazon ECS | `MetricsUsage` |
+| **CloudWatch Application Signals** | _Application Signals with Transaction Search_ | `Application-Signals-Bytes, XRay-Spans-Indexed` |
+| _Application Signals with X-Ray_ | `Application-Signals` |
+| **CloudWatch custom logs** | _Collect (data ingestion for Standard log<br>class)_ | `DataProcessing-Bytes` |
+| | _Collect (data ingestion for Infrequent Access log<br>class)_ | `DataProcessingIA-Bytes` |
+| | _Analyze (query)_ | `DataScanned-Bytes` |
+| | _Analyze (Live Tail)_ | `Logs-LiveTail` |
+| | _Store (archive)_ | `TimedStorage-ByteHrs` |
+| | _Detect and mask (data protection)_ | `DataProtection-Bytes` |
+| **CloudWatch vended logs** | _Delivery (Amazon CloudWatch Logs Standard log<br>class)_ | `VendedLog-Bytes` |
+| | _Delivery (CloudWatch Logs Infrequent Access log<br>class)_ | `VendedLogIA-Bytes` |
+| | _Delivery (Amazon S3)_ | `S3-Egress-Bytes` |
+| | _Delivery (Amazon S3) in Parquet format_ | `S3-Egress-InputBytes` |
+| | _Delivery (Amazon Data Firehose)_ | `FH-Egress-Bytes` |
+| **Contributor Insights** | _CloudWatch Logs (Rules)_ | `ContributorInsightRules` |
+| | _CloudWatch Logs (Events)_ | `ContributorInsightEvents` |
+| | _Amazon DynamoDB (Rules)_ | `ContributorRulesManaged` |
+| | _DynamoDB Events)_ | `ContributorEventsManaged` |
+| **Database Insights** | _Serverless_ | `DatabaseInsights-ACU-Hours` |
+| | _Provisioned_ | `DatabaseInsights-vCPU-Hours` |
+| | _Limitless_ | `DatabaseInsights-ACU-Hours` |
+| **Canaries (Synthetics)** | _Run_ | `Canary-runs` |
+| **RUM** | _Events_ | `RUM-event` |
+| **Network monitoring** | _Network Synthetic Monitor_ | `CWNMHybrid-Paid` |
+| | _Internet Monitor (monitored<br>resources)_ | `InternetMonitor-MonitoredResource` |
+| | _Internet Monitor (monitored city<br>networks)_ | `InternetMonitor-CityNetwork` |
 
 ## Analyze CloudWatch cost and usage data with AWS Cost and Usage Reports and Athena
 
@@ -314,12 +314,12 @@ while you're querying cost and usage data with Athena, match the strings for
 `Operation` with the results that are shown for
 `line_item_operation`.
 
-| _CloudWatch sub-feature_ | `UsageType`          | `Operation`                        | Purpose                  |
-| ------------------------ | -------------------- | ---------------------------------- | ------------------------ |
-| _Custom metrics_         | `MetricMonitorUsage` | `MetricStorage`                    | Custom metrics           |
-| _Detailed monitoring_    | `MetricMonitorUsage` | `MetricStorage:AWS/`{Service}``    | Detailed monitoring      |
-| _Embedded metrics_       | `MetricMonitorUsage` | `MetricStorage:AWS/Logs-EMF`       | Logs embedded metrics    |
-| _Log filters_            | `MetricMonitorUsage` | `MetricStorage:AWS/CloudWatchLogs` | Log group metric filters |
+CloudWatch metrics sub-features with UsageType and Operation strings| _CloudWatch sub-feature_ | `UsageType` | `Operation` | Purpose |
+| --- | --- | --- | --- |
+| _Custom metrics_ | `MetricMonitorUsage` | `MetricStorage` | Custom metrics |
+| _Detailed monitoring_ | `MetricMonitorUsage` | `MetricStorage:AWS/`{Service}`` | Detailed monitoring |
+| _Embedded metrics_ | `MetricMonitorUsage` | `MetricStorage:AWS/Logs-EMF` | Logs embedded metrics |
+| _Log filters_ | `MetricMonitorUsage` | `MetricStorage:AWS/CloudWatchLogs` | Log group metric filters |
 
 ### Detailed monitoring
 
@@ -394,11 +394,11 @@ The following table lists the names of relevant sub-features for the CloudWatch 
 metric format. The table includes the strings for `UsageType` and
 `Operation`, which can help you analyze and identify costs.
 
-| _CloudWatch subfeature_ | `UsageType`            | `Operation`                  | Purpose                                                                   |
-| ----------------------- | ---------------------- | ---------------------------- | ------------------------------------------------------------------------- |
-| _Custom metrics_        | `MetricMonitorUsage`   | `MetricStorage:AWS/Logs-EMF` | Logs embedded metrics                                                     |
-| _Logs ingestion_        | `DataProcessing-Bytes` | `PutLogEvents`               | Uploads a batch of log events to the specified log group or log<br>stream |
-| _Logs archival_         | `TimedStorage-ByteHrs` | `HourlyStorageMetering`      | Stores logs per hour and logs per byte in CloudWatch Logs                 |
+CloudWatch embedded metric format sub-features with UsageType and Operation strings| _CloudWatch subfeature_ | `UsageType` | `Operation` | Purpose |
+| --- | --- | --- | --- |
+| _Custom metrics_ | `MetricMonitorUsage` | `MetricStorage:AWS/Logs-EMF` | Logs embedded metrics |
+| _Logs ingestion_ | `DataProcessing-Bytes` | `PutLogEvents` | Uploads a batch of log events to the specified log group or log<br>stream |
+| _Logs archival_ | `TimedStorage-ByteHrs` | `HourlyStorageMetering` | Stores logs per hour and logs per byte in CloudWatch Logs |
 
 To analyze costs, use AWS Cost and Usage Reports with Athena so that you can identify which metrics
 are generating costs and determine how the costs are generated.
@@ -423,17 +423,17 @@ The following table lists the types of API requests and includes the strings for
 `UsageType` and `Operation`, which can help you analyze
 and identify API-related costs.
 
-| _API request type_      | `UsageType`    | `Operation`            | Purpose                                                                     |
-| ----------------------- | -------------- | ---------------------- | --------------------------------------------------------------------------- |
-| _API requests_          | `Requests`     | `GetMetricStatistics`  | Retrieves statistics for the specified<br>metrics                           |
-|                         | `Requests`     | `ListMetrics`          | Lists the specified metrics                                                 |
-|                         | `Requests`     | `PutMetricData`        | Publishes metric data points to CloudWatch                                  |
-|                         | `Requests`     | `GetDashboard`         | Displays details for the specified<br>dashboards                            |
-|                         | `Requests`     | `ListDashboards`       | Lists the dashboards in your account                                        |
-|                         | `Requests`     | `PutDashboard`         | Creates or updates a dashboard                                              |
-|                         | `Requests`     | `DeleteDashboards`     | Deletes all specified dashboards                                            |
-| _Bulk (Get)_            | `GMD-Metrics`  | `GetMetricData`        | Retrieves CloudWatch metric values                                          |
-| _Contributor Insights_  | `GIRR-Metrics` | `GetInsightRuleReport` | Returns time-series data that's collected by a Contributor<br>Insights rule |
+CloudWatch API request types with UsageType and Operation strings| _API request type_ | `UsageType` | `Operation` | Purpose |
+| --- | --- | --- | --- |
+| _API requests_ | `Requests` | `GetMetricStatistics` | Retrieves statistics for the specified<br>metrics |
+| | `Requests` | `ListMetrics` | Lists the specified metrics |
+| | `Requests` | `PutMetricData` | Publishes metric data points to CloudWatch |
+| | `Requests` | `GetDashboard` | Displays details for the specified<br>dashboards |
+| | `Requests` | `ListDashboards` | Lists the dashboards in your account |
+| | `Requests` | `PutDashboard` | Creates or updates a dashboard |
+| | `Requests` | `DeleteDashboards` | Deletes all specified dashboards |
+| _Bulk (Get)_ | `GMD-Metrics` | `GetMetricData` | Retrieves CloudWatch metric values |
+| _Contributor Insights_ | `GIRR-Metrics` | `GetInsightRuleReport` | Returns time-series data that's collected by a Contributor<br>Insights rule |
 | _Bitmap image snapshot_ | `GMWI-Metrics` | `GetMetricWidgetImage` | Retrieves a snapshot of one or more CloudWatch metrics as a bitmap<br>image |
 
 To analyze costs, use Cost Explorer, and group your results by _**API
@@ -648,12 +648,12 @@ The following table lists the names of relevant sub-features for CloudWatch alar
 table includes the strings for `UsageType`, which can help you analyze
 and identify alarm-related costs.
 
-| _CloudWatch sub-feature_       | `UsageType`                  |
-| ------------------------------ | ---------------------------- |
-| _Standard metric alarm_        | `AlarmMonitorUsage`          |
-| _High-resolution metric alarm_ | `HighResAlarmMonitorUsage`   |
-| _Metrics Insights query alarm_ | `MetricInsightAlarmUsage`    |
-| _Composite alarm_              | `CompositeAlarmMonitorUsage` |
+CloudWatch alarm sub-features with UsageType strings| _CloudWatch sub-feature_ | `UsageType` |
+| --- | --- |
+| _Standard metric alarm_ | `AlarmMonitorUsage` |
+| _High-resolution metric alarm_ | `HighResAlarmMonitorUsage` |
+| _Metrics Insights query alarm_ | `MetricInsightAlarmUsage` |
+| _Composite alarm_ | `CompositeAlarmMonitorUsage` |
 
 #### Reducing alarm costs
 
@@ -731,10 +731,10 @@ for more information.
 Here are the following UsageType and Operation associated with this Container Inisghts
 with enhanced observability:
 
-| _CloudWatch sub-feature_                                           | `UsageType`        | `Operation`               |
-| ------------------------------------------------------------------ | ------------------ | ------------------------- |
+Container Insights with enhanced observability UsageType and Operation strings| _CloudWatch sub-feature_ | `UsageType` | `Operation` |
+| --- | --- | --- |
 | _Container Insights with enhanced observability for<br>Amazon EKS_ | `ObservationUsage` | `ObservationCount:CI-EKS` |
-| _Container Insights with enhanced observability for<br>Amazon ECS_ | `MetricsUsage`     | `MetricStorage:CI-ECS`    |
+| _Container Insights with enhanced observability for<br>Amazon ECS_ | `MetricsUsage` | `MetricStorage:CI-ECS` |
 
 ## Optimizing and reducing costs of CloudWatch Database Insights
 
@@ -757,13 +757,13 @@ pricing](https://aws.amazon.com/cloudwatch/pricing/?nc1=h_ls "https://aws.amazon
 
 Here are the UsageTypes and Operations associated with Database Insights:
 
-| _UsageType_                   | `Operation`                     | `Instance Configuration Type` | `Database Engine Type` |
-| ----------------------------- | ------------------------------- | ----------------------------- | ---------------------- |
-| _DatabaseInsights-vCPU-Hours_ | `Aurora-MySQL:Provisioned`      | `Provisioned`                 | `Aurora-MySQL`         |
-| _DatabaseInsights-ACU-Hours_  | `Aurora-MySQL:Serverless`       | `Serverless`                  | `Aurora-MySQL`         |
-| _DatabaseInsights-vCPU-Hours_ | `Aurora-PostgreSQL:Provisioned` | `Provisioned`                 | `Aurora-PostgreSQL`    |
-| _DatabaseInsights-ACU-Hours_  | `Aurora-PostgreSQL:Serverless`  | `Serverless`                  | `Aurora-PostgreSQL`    |
-| _DatabaseInsights-ACU-Hours_  | `Aurora-PostgreSQL:Limitless`   | `Limitless`                   | `Aurora-PostgreSQL`    |
+Database Insights UsageType and Operation strings| _UsageType_ | `Operation` | `Instance Configuration Type` | `Database Engine Type` |
+| --- | --- | --- | --- |
+| _DatabaseInsights-vCPU-Hours_ | `Aurora-MySQL:Provisioned` | `Provisioned` | `Aurora-MySQL` |
+| _DatabaseInsights-ACU-Hours_ | `Aurora-MySQL:Serverless` | `Serverless` | `Aurora-MySQL` |
+| _DatabaseInsights-vCPU-Hours_ | `Aurora-PostgreSQL:Provisioned` | `Provisioned` | `Aurora-PostgreSQL` |
+| _DatabaseInsights-ACU-Hours_ | `Aurora-PostgreSQL:Serverless` | `Serverless` | `Aurora-PostgreSQL` |
+| _DatabaseInsights-ACU-Hours_ | `Aurora-PostgreSQL:Limitless` | `Limitless` | `Aurora-PostgreSQL` |
 
 ## Optimizing and reducing costs of CloudWatch Logs
 
@@ -787,19 +787,19 @@ The following table lists the names of the CloudWatch Logs features and names of
 sub-features. The table includes the strings for `UsageType` and
 `Operation`, which can help you analyze and identify log-related costs.
 
-| CloudWatch Logs feature | _CloudWatch Logs sub-feature_                                 | `UsageType`              | `Operation`             | Purpose                                                                                                |
-| ----------------------- | ------------------------------------------------------------- | ------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------ |
-| **Custom logs**         | _Collect (data ingestion for Standard log<br>class)_          | `DataProcessing-Bytes`   | `PutLogEvents`          | Uploads a batch of logs to a specific log stream in a Standard class<br>log group.                     |
-|                         | _Collect (data ingestion for Infrequent Access log<br>class)_ | `DataProcessingIA-Bytes` | `PutLogEvents`          | Uploads a batch of logs to a specific log stream in an Infrequent<br>Access class log group.           |
-|                         | _Detect and mask (data protection_)                           | `DataProtection-Bytes`   | `PutLogEvents`          | Detects and masks protected data in log events.                                                        |
-|                         | _Store (archive_)                                             | `TimedStorage-ByteHrs`   | `HourlyStorageMetering` | Stores logs per hour and logs per byte in CloudWatch Logs.                                             |
-|                         | _Analyze (Logs Insights queries)_                             | `DataScanned-Bytes`      | `StartQuery`            | Logs data scanned by CloudWatch Logs Insights queries                                                  |
-|                         | _Analyze (Logs Live Tail)_                                    | `Logs-LiveTail`          | `StartLiveTail`         | Logs analyzed during a CloudWatch Logs Live Tail session                                               |
-| **Vended logs**         | _Delivery (CloudWatch Logs Standard log class)_               | `VendedLog-Bytes`        | `PutLogEvents`          | Uploads a batch of logs to a specific log stream in a log group in<br>the Standard log class.          |
-|                         | _Delivery (CloudWatch Logs Infrequent Access log<br>class)_   | `VendedLogIA-Bytes`      | `PutLogEvents`          | Uploads a batch of logs to a specific log stream in a log group in<br>the Infrequent Access log class. |
-|                         | _Delivery (Amazon S3)_                                        | `S3-Egress-Bytes`        | `LogDelivery`           | Uploads a batch of vended logs to a specific S3<br>bucket                                              |
-|                         | _Delivery (Amazon S3) in Parquet format_                      | `S3-Egress-InputBytes`   | `ParquetConversion`     | Perform Parquet conversion on logs delivered to<br>Amazon S3                                           |
-|                         | _Delivery (Firehose)_                                         | `FH-Egress-Bytes`        | `LogDelivery`           | Uploads a batch of vended logs to Amazon Data Firehose                                                 |
+CloudWatch Logs features and sub-features with UsageType and Operation strings| CloudWatch Logs feature | _CloudWatch Logs sub-feature_ | `UsageType` | `Operation` | Purpose |
+| --- | --- | --- | --- | --- |
+| **Custom logs** | _Collect (data ingestion for Standard log<br>class)_ | `DataProcessing-Bytes` | `PutLogEvents` | Uploads a batch of logs to a specific log stream in a Standard class<br>log group. |
+| | _Collect (data ingestion for Infrequent Access log<br>class)_ | `DataProcessingIA-Bytes` | `PutLogEvents` | Uploads a batch of logs to a specific log stream in an Infrequent<br>Access class log group. |
+| | _Detect and mask (data protection_) | `DataProtection-Bytes` | `PutLogEvents` | Detects and masks protected data in log events. |
+| | _Store (archive_) | `TimedStorage-ByteHrs` | `HourlyStorageMetering` | Stores logs per hour and logs per byte in CloudWatch Logs. |
+| | _Analyze (Logs Insights queries)_ | `DataScanned-Bytes` | `StartQuery` | Logs data scanned by CloudWatch Logs Insights queries |
+| | _Analyze (Logs Live Tail)_ | `Logs-LiveTail` | `StartLiveTail` | Logs analyzed during a CloudWatch Logs Live Tail session |
+| **Vended logs** | _Delivery (CloudWatch Logs Standard log class)_ | `VendedLog-Bytes` | `PutLogEvents` | Uploads a batch of logs to a specific log stream in a log group in<br>the Standard log class. |
+| | _Delivery (CloudWatch Logs Infrequent Access log<br>class)_ | `VendedLogIA-Bytes` | `PutLogEvents` | Uploads a batch of logs to a specific log stream in a log group in<br>the Infrequent Access log class. |
+| | _Delivery (Amazon S3)_ | `S3-Egress-Bytes` | `LogDelivery` | Uploads a batch of vended logs to a specific S3<br>bucket |
+| | _Delivery (Amazon S3) in Parquet format_ | `S3-Egress-InputBytes` | `ParquetConversion` | Perform Parquet conversion on logs delivered to<br>Amazon S3 |
+| | _Delivery (Firehose)_ | `FH-Egress-Bytes` | `LogDelivery` | Uploads a batch of vended logs to Amazon Data Firehose |
 
 To analyze costs, use AWS Cost Explorer Service or AWS Cost and Usage Reports with Athena. With
 either method, you can identify which logs are generating costs and determine how the

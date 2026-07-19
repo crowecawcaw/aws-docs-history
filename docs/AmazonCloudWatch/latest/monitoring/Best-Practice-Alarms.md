@@ -14,7 +14,7 @@ For some recommended alarms, the alarm threshold value is also pre-filled. You c
 the console to download infrastructure-as-code alarm definitions for recommended alarms, and
 then use this code to create the alarm in AWS CloudFormation, the AWS CLI, or Terraform.
 
-You can also see the list of recommended alarms in [Recommended alarms](Best_Practice_Recommended_Alarms_AWS_Services.md "Best_Practice_Recommended_Alarms_AWS_Services.md").
+You can also see the list of recommended alarms in [Recommended alarms (Classic)](Best_Practice_Recommended_Alarms_AWS_Services.md "Best_Practice_Recommended_Alarms_AWS_Services.md").
 
 You are charged for the alarms that you create, at the same rate as any other alarms that
 you create in CloudWatch. Using the recommendations incurs no extra charges. For more information,

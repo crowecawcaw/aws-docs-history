@@ -84,7 +84,7 @@ clause splits your data into separate time series (for example, by instance ID),
 `ORDER BY` clause ensures consistent and prioritized processing of these time
 series during alarm evaluation.
 
-For more information on how to create a multi time series alarm, see [Create an alarm based on a Multi Time Series Metrics Insights query](multi-time-series-alarm.md "multi-time-series-alarm.md").
+For more information on how to create a multi time series alarm, see [Create an alarm based on Metrics Insights](multi-time-series-alarm.md "multi-time-series-alarm.md").
 
 ## Log group-metric filters
 

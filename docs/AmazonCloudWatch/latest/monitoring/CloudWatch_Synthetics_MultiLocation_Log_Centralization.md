@@ -24,7 +24,7 @@ CloudWatch Logs with the following recommended settings.
 | Destination log group | `${source.logGroup}`                                               |
 
 This rule centralizes all canary logs from the selected source Regions to the
-destination Region — including logs from non-multilocation canaries running in
+destination Region—including logs from non-multilocation canaries running in
 those Regions. For multilocation canaries specifically, using
 `${source.logGroup}` as the destination log group places replica logs in the
 same log group as the primary canary logs, because primary and replica canaries share the

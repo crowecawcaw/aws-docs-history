@@ -1,4 +1,4 @@
-# Recommended alarms
+# Recommended alarms (Classic)
 
 The following sections list the metrics that we recommend that you set best practice
 alarms for. For each metric, the dimensions, alarm intent, recommended threshold, threshold
@@ -1452,7 +1452,7 @@ while for others, it might lead to failure of the container.
 
 **Alarm description:** This alarm helps you detect a low running task
 count of the Amazon ECS service. If the running task count is too low, it can can indicate that the application
-can’t handle the service load and it might lead to performance issues. If there is no running task, the Amazon ECS
+can't handle the service load and it might lead to performance issues. If there is no running task, the Amazon ECS
 service might be unavailable or there might be deployment issues.
 
 **Intent:** This alarm is used to detect whether the number of running
@@ -1474,267 +1474,6 @@ unavailable.
 **Evaluation periods:** 5
 
 **Comparison Operator:** LESS\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
-
-**TaskCpuUtilization**
-
-**Dimensions:** ClusterName
-
-**Alarm description:** This alarm helps you detect high CPU utilization of tasks in your Amazon ECS cluster.
-If task CPU utilization is consistently high, you might need to optimize your tasks or increase their CPU reservation.
-
-**Intent:** This alarm is used to detect high CPU utilization for tasks in the Amazon ECS cluster.
-Consistent high CPU utilization can indicate that the tasks are under stress and might need more CPU resources or optimization to maintain performance.
-
-**Statistic:** Average
-
-**Recommended threshold:** 80.0
-
-**Threshold justification:** Set the threshold to about 80% of the task's CPU reservation.
-You can adjust this value based on your acceptable CPU utilization for the tasks. For some workloads, consistently high CPU utilization
-might be normal, while for others, it might indicate performance issues or the need for more resources.
-
-**Period:** 60
-
-**Datapoints to alarm:** 5
-
-**Evaluation periods:** 5
-
-**Comparison Operator:** GREATER\_THAN\_THRESHOLD
-
-**TaskCpuUtilization**
-
-**Dimensions:** ClusterName, ServiceName
-
-**Alarm description:** This alarm helps you detect high CPU utilization of tasks belonging to the Amazon ECS service.
-If task CPU utilization is consistently high, you might need to optimize your tasks or increase their CPU reservation.
-
-**Intent:** This alarm is used to detect high CPU utilization for tasks belonging to the Amazon ECS service.
-Consistent high CPU utilization can indicate that the tasks are under stress and might need more CPU resources or optimization to maintain performance.
-
-**Statistic:** Average
-
-**Recommended threshold:** 80.0
-
-**Threshold justification:** Set the threshold to about 80% of the task's CPU reservation. You can
-adjust this value based on your acceptable CPU utilization for the tasks. For some workloads, consistently high CPU utilization might be normal,
-while for others, it might indicate performance issues or the need for more resources.
-
-**Period:** 60
-
-**Datapoints to alarm:** 5
-
-**Evaluation periods:** 5
-
-**Comparison Operator:** GREATER\_THAN\_THRESHOLD
-
-**ContainerCpuUtilization**
-
-**Dimensions:** ClusterName
-
-**Alarm description:** This alarm monitors the percentage of CPU units used by containers in your Amazon ECS cluster
-relative to their reserved CPU. It helps detect when containers are approaching their CPU limits based on the ContainerCpuUtilized/ContainerCpuReserved ratio.
-
-**Intent:** This alarm detects when containers in the Amazon ECS cluster are using a high percentage of their
-reserved CPU capacity, calculated as `ContainerCpuUtilized/ContainerCpuReserved`. Sustained high values indicate containers are operating
-near their CPU limits and might need capacity adjustments.
-
-**Statistic:** Average
-
-**Recommended threshold:** 80.0
-
-**Threshold justification:** Set the threshold to about 80% of the container's CPU utilization ratio.
-This provides an early warning when containers are approaching their CPU capacity limits while allowing for normal fluctuations in CPU usage.
-The threshold can be adjusted based on your workload characteristics and performance requirements.
-
-**Period:** 60
-
-**Datapoints to alarm:** 5
-
-**Evaluation periods:** 5
-
-**Comparison Operator:** GREATER\_THAN\_THRESHOLD
-
-**ContainerCpuUtilization**
-
-**Dimensions:** ClusterName, ServiceName
-
-**Alarm description:** This alarm monitors the percentage of CPU units used by
-containers belonging to the Amazon ECS service relative to their reserved CPU. It helps detect when containers are
-approaching their CPU limits based on the ContainerCpuUtilized/ContainerCpuReserved ratio.
-
-**Intent:** This alarm detects when containers belonging to the Amazon ECS service
-are using a high percentage of their reserved CPU capacity, calculated as ContainerCpuUtilized/ContainerCpuReserved.
-Sustained high values indicate containers are operating near their CPU limits and might need capacity adjustments.
-
-**Statistic:** Average
-
-**Recommended threshold:** 80.0
-
-**Threshold justification:** Set the threshold to about 80% of the container's
-CPU utilization ratio. This provides an early warning when containers are approaching their CPU capacity limits
-while allowing for normal fluctuations in CPU usage. The threshold can be adjusted based on your workload characteristics and performance requirements.
-
-**Period:** 60
-
-**Datapoints to alarm:** 5
-
-**Evaluation periods:** 5
-
-**Comparison Operator:** GREATER\_THAN\_THRESHOLD
-
-**TaskEphemeralStorageUtilization**
-
-**Dimensions:** ClusterName
-
-**Alarm description:** This alarm helps you detect high ephemeral storage utilization of
-tasks in your Amazon ECS cluster. If storage utilization is consistently high, you might need to optimize your storage usage or increase the storage reservation.
-
-**Intent:** This alarm is used to detect high ephemeral storage utilization for tasks in the Amazon ECS
-cluster. Consistent high storage utilization can indicate that the task is running out of disk space and might need more storage
-resources or optimization to maintain proper operation.
-
-**Statistic:** Average
-
-**Recommended threshold:** 80.0
-
-**Threshold justification:** Set the threshold to about 80% of the task's ephemeral storage reservation.
-You can adjust this value based on your acceptable storage utilization for the tasks. For some workloads, consistently high storage
-utilization might be normal, while for others, it might indicate potential disk space issues or the need for more storage.
-
-**Period:** 60
-
-**Datapoints to alarm:** 5
-
-**Evaluation periods:** 5
-
-**Comparison Operator:** GREATER\_THAN\_THRESHOLD
-
-**TaskEphemeralStorageUtilization**
-
-**Dimensions:** ClusterName, ServiceName
-
-**Alarm description:** This alarm helps you detect high ephemeral storage utilization of tasks belonging to
-the Amazon ECS service. If storage utilization is consistently high, you might need to optimize your storage usage or increase the storage reservation.
-
-**Intent:** This alarm is used to detect high ephemeral storage utilization for tasks belonging to the Amazon ECS
-service. Consistent high storage utilization can indicate that the task is running out of disk space and might need more storage resources
-or optimization to maintain proper operation.
-
-**Statistic:** Average
-
-**Recommended threshold:** 80.0
-
-**Threshold justification:** Set the threshold to about 80% of the task's ephemeral storage reservation.
-You can adjust this value based on your acceptable storage utilization for the tasks. For some workloads, consistently high storage
-utilization might be normal, while for others, it might indicate potential disk space issues or the need for more storage.
-
-**Period:** 60
-
-**Datapoints to alarm:** 5
-
-**Evaluation periods:** 5
-
-**Comparison Operator:** GREATER\_THAN\_THRESHOLD
-
-**TaskMemoryUtilization**
-
-**Dimensions:** ClusterName
-
-**Alarm description:** This alarm helps you detect high memory utilization of tasks in your Amazon ECS cluster. If memory utilization is consistently high, you might need to optimize your tasks or increase the memory reservation.
-
-**Intent:** This alarm is used to detect high memory utilization for tasks in the Amazon ECS cluster. Consistent high memory utilization can indicate that the task is under memory pressure and might need more memory resources or optimization to maintain stability.
-
-**Statistic:** Average
-
-**Recommended threshold:** 80.0
-
-**Threshold justification:** Set the threshold to about 80% of the task's memory reservation. You can adjust this value based on your acceptable memory utilization for the tasks. For some workloads, consistently high memory utilization might be normal, while for others, it might indicate memory pressure or the need for more resources.
-
-**Period:** 60
-
-**Datapoints to alarm:** 5
-
-**Evaluation periods:** 5
-
-**Comparison Operator:** GREATER\_THAN\_THRESHOLD
-
-**TaskMemoryUtilization**
-
-**Dimensions:** ClusterName, ServiceName
-
-**Alarm description:** This alarm helps you detect high memory utilization of tasks belonging to the Amazon ECS service.
-If memory utilization is consistently high, you might need to optimize your tasks or increase the memory reservation.
-
-**Intent:** This alarm is used to detect high memory utilization for tasks belonging to the Amazon ECS service.
-Consistent high memory utilization can indicate that the task is under memory pressure and might need more memory resources or optimization to maintain stability.
-
-**Statistic:** Average
-
-**Recommended threshold:** 80.0
-
-**Threshold justification:** Set the threshold to about 80% of the task's memory reservation.
-You can adjust this value based on your acceptable memory utilization for the tasks. For some workloads, consistently high
-memory utilization might be normal, while for others, it might indicate memory pressure or the need for more resources.
-
-**Period:** 60
-
-**Datapoints to alarm:** 5
-
-**Evaluation periods:** 5
-
-**Comparison Operator:** GREATER\_THAN\_THRESHOLD
-
-**ContainerMemoryUtilization**
-
-**Dimensions:** ClusterName
-
-**Alarm description:** This alarm helps you detect high memory utilization of containers in your Amazon ECS cluster.
-If memory utilization is consistently high, you might need to optimize your containers or increase the memory reservation.
-
-**Intent:** This alarm is used to detect high memory utilization for containers in the Amazon ECS cluster.
-Consistent high memory utilization can indicate that the container is under memory pressure and might need more memory resources or optimization to maintain stability.
-
-**Statistic:** Average
-
-**Recommended threshold:** 80.0
-
-**Threshold justification:** Set the threshold to about 80% of the container's memory reservation.
-You can adjust this value based on your acceptable memory utilization for the containers. For some workloads, consistently high
-memory utilization might be normal, while for others, it might indicate memory pressure or the need for more resources.
-
-**Period:** 60
-
-**Datapoints to alarm:** 5
-
-**Evaluation periods:** 5
-
-**Comparison Operator:** GREATER\_THAN\_THRESHOLD
-
-**ContainerMemoryUtilization**
-
-**Dimensions:** ClusterName, ServiceName
-
-**Alarm description:** This alarm helps you detect high memory utilization of containers belonging to the Amazon ECS service.
-If memory utilization is consistently high, you might need to optimize your containers or increase the memory reservation.
-
-**Intent:** This alarm is used to detect high memory utilization for containers belonging to the Amazon ECS service.
-Consistent high memory utilization can indicate that the container is under memory pressure and might need more memory resources or optimization to maintain stability.
-
-**Statistic:** Average
-
-**Recommended threshold:** 80.0
-
-**Threshold justification:** Set the threshold to about 80% of the container's memory reservation. You
-can adjust this value based on your acceptable memory utilization for the containers. For some workloads, consistently high memory
-utilization might be normal, while for others, it might indicate memory pressure or the need for more resources.
-
-**Period:** 60
-
-**Datapoints to alarm:** 5
-
-**Evaluation periods:** 5
-
-**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **instance\_filesystem\_utilization**
 
@@ -1771,6 +1510,32 @@ The following are the recommended alarms for Amazon ECS with Container Insights 
 
 **TaskCpuUtilization**
 
+**Dimensions:** ClusterName
+
+**Alarm description:** This alarm helps you detect high CPU utilization of tasks in your Amazon ECS cluster.
+If task CPU utilization is consistently high, you might need to optimize your tasks or increase their CPU reservation.
+
+**Intent:** This alarm is used to detect high CPU utilization for tasks in the Amazon ECS cluster.
+Consistent high CPU utilization can indicate that the tasks are under stress and might need more CPU resources or optimization to maintain performance.
+
+**Statistic:** Average
+
+**Recommended threshold:** 80.0
+
+**Threshold justification:** Set the threshold to about 80% of the task's CPU reservation.
+You can adjust this value based on your acceptable CPU utilization for the tasks. For some workloads, consistently high CPU utilization
+might be normal, while for others, it might indicate performance issues or the need for more resources.
+
+**Period:** 60
+
+**Datapoints to alarm:** 5
+
+**Evaluation periods:** 5
+
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
+
+**TaskCpuUtilization**
+
 **Dimensions:** ClusterName, ServiceName
 
 **Alarm description:** This alarm helps you
@@ -1789,6 +1554,28 @@ some tasks, consistently high CPU utilization may be normal and not indicate a
 problem, while for others, it may be cause of concern. Analyze historical CPU
 utilization data to identify the usage, find what CPU utilization is acceptable
 for your tasks, and set the threshold accordingly.
+
+**Period:** 60
+
+**Datapoints to alarm:** 5
+
+**Evaluation periods:** 5
+
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
+
+**TaskMemoryUtilization**
+
+**Dimensions:** ClusterName
+
+**Alarm description:** This alarm helps you detect high memory utilization of tasks in your Amazon ECS cluster. If memory utilization is consistently high, you might need to optimize your tasks or increase the memory reservation.
+
+**Intent:** This alarm is used to detect high memory utilization for tasks in the Amazon ECS cluster. Consistent high memory utilization can indicate that the task is under memory pressure and might need more memory resources or optimization to maintain stability.
+
+**Statistic:** Average
+
+**Recommended threshold:** 80.0
+
+**Threshold justification:** Set the threshold to about 80% of the task's memory reservation. You can adjust this value based on your acceptable memory utilization for the tasks. For some workloads, consistently high memory utilization might be normal, while for others, it might indicate memory pressure or the need for more resources.
 
 **Period:** 60
 
@@ -1829,6 +1616,33 @@ accordingly.
 
 **Comparison Operator:** LESS\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
+**ContainerCpuUtilization**
+
+**Dimensions:** ClusterName
+
+**Alarm description:** This alarm monitors the percentage of CPU units used by containers in your Amazon ECS cluster
+relative to their reserved CPU. It helps detect when containers are approaching their CPU limits based on the ContainerCpuUtilized/ContainerCpuReserved ratio.
+
+**Intent:** This alarm detects when containers in the Amazon ECS cluster are using a high percentage of their
+reserved CPU capacity, calculated as `ContainerCpuUtilized/ContainerCpuReserved`. Sustained high values indicate containers are operating
+near their CPU limits and might need capacity adjustments.
+
+**Statistic:** Average
+
+**Recommended threshold:** 80.0
+
+**Threshold justification:** Set the threshold to about 80% of the container's CPU utilization ratio.
+This provides an early warning when containers are approaching their CPU capacity limits while allowing for normal fluctuations in CPU usage.
+The threshold can be adjusted based on your workload characteristics and performance requirements.
+
+**Period:** 60
+
+**Datapoints to alarm:** 5
+
+**Evaluation periods:** 5
+
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
+
 **ContainerCPUUtilization**
 
 **Dimensions:** ContainerName, ClusterName,
@@ -1850,6 +1664,32 @@ some containers, consistently high CPU utilization may be normal and not
 indicate a problem, while for others, it may be cause of concern. Analyze
 historical CPU utilization data to identify the usage, find what CPU utilization
 is acceptable for your containers, and set the threshold accordingly.
+
+**Period:** 60
+
+**Datapoints to alarm:** 5
+
+**Evaluation periods:** 5
+
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
+
+**ContainerMemoryUtilization**
+
+**Dimensions:** ClusterName
+
+**Alarm description:** This alarm helps you detect high memory utilization of containers in your Amazon ECS cluster.
+If memory utilization is consistently high, you might need to optimize your containers or increase the memory reservation.
+
+**Intent:** This alarm is used to detect high memory utilization for containers in the Amazon ECS cluster.
+Consistent high memory utilization can indicate that the container is under memory pressure and might need more memory resources or optimization to maintain stability.
+
+**Statistic:** Average
+
+**Recommended threshold:** 80.0
+
+**Threshold justification:** Set the threshold to about 80% of the container's memory reservation.
+You can adjust this value based on your acceptable memory utilization for the containers. For some workloads, consistently high
+memory utilization might be normal, while for others, it might indicate memory pressure or the need for more resources.
 
 **Period:** 60
 
@@ -1905,6 +1745,33 @@ Amazon EBS file system usage for a task.
 
 **Threshold justification:** Set the threshold to
 about 80% of the Amazon EBS file system size.
+
+**Period:** 60
+
+**Datapoints to alarm:** 5
+
+**Evaluation periods:** 5
+
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
+
+**TaskEphemeralStorageUtilization**
+
+**Dimensions:** ClusterName
+
+**Alarm description:** This alarm helps you detect high ephemeral storage utilization of
+tasks in your Amazon ECS cluster. If storage utilization is consistently high, you might need to optimize your storage usage or increase the storage reservation.
+
+**Intent:** This alarm is used to detect high ephemeral storage utilization for tasks in the Amazon ECS
+cluster. Consistent high storage utilization can indicate that the task is running out of disk space and might need more storage
+resources or optimization to maintain proper operation.
+
+**Statistic:** Average
+
+**Recommended threshold:** 80.0
+
+**Threshold justification:** Set the threshold to about 80% of the task's ephemeral storage reservation.
+You can adjust this value based on your acceptable storage utilization for the tasks. For some workloads, consistently high storage
+utilization might be normal, while for others, it might indicate potential disk space issues or the need for more storage.
 
 **Period:** 60
 

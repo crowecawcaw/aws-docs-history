@@ -89,63 +89,6 @@ aws eks update-addon \
   --resolve-conflicts OVERWRITE
 ```
 
-### Exclude namespaces from log collection
-
-To exclude specific namespaces from log collection, use the
-`excludeNamespaces` configuration option.
-
-###### To exclude namespaces from log collection
-
-- Run the following command. Replace `cluster-name` with the
-  name of your Amazon EKS cluster. Replace the namespace values with the namespaces that you
-  want to exclude.
-
-```
-aws eks update-addon \
-  --cluster-name `cluster-name` \
-  --addon-name amazon-cloudwatch-observability \
-  --configuration-values '{"containerLogs":{"enabled":true,"excludeNamespaces":["`kube-system`","`load-testing`","`monitoring`"]}}' \
-  --resolve-conflicts OVERWRITE
-```
-
-### Include only specific namespaces
-
-To collect logs from only specific namespaces, use the `includeNamespaces`
-configuration option.
-
-###### To include only specific namespaces
-
-- Run the following command. Replace `cluster-name` with the
-  name of your Amazon EKS cluster. Replace the namespace values with the namespaces that you
-  want to include.
-
-```
-aws eks update-addon \
-  --cluster-name `cluster-name` \
-  --addon-name amazon-cloudwatch-observability \
-  --configuration-values '{"containerLogs":{"enabled":true,"includeNamespaces":["`production`","`staging`"]}}' \
-  --resolve-conflicts OVERWRITE
-```
-
-### Configure multi-line log parsing
-
-To combine multi-line log entries (such as stack traces) into a single log record,
-configure multi-line parsing with a first-line pattern.
-
-###### To configure multi-line log parsing
-
-- Run the following command. Replace `cluster-name` with the
-  name of your Amazon EKS cluster. Replace the `firstLinePattern`
-  value with a regex pattern that matches the first line of each log entry.
-
-```
-aws eks update-addon \
-  --cluster-name `cluster-name` \
-  --addon-name amazon-cloudwatch-observability \
-  --configuration-values '{"containerLogs":{"enabled":true,"multilineConfig":{"firstLinePattern":"`^\\d{4}-\\d{2}-\\d{2}|^\\[\\d{4}`","parseFormat":"auto"}}}' \
-  --resolve-conflicts OVERWRITE
-```
-
 ### Set log retention
 
 By default, CloudWatch Logs retains log data indefinitely. To control storage costs, you can set
@@ -235,9 +178,5 @@ than expected.
 **Cause:** High-volume namespaces (such as load testing or
 monitoring namespaces) generate large volumes of logs.
 
-**Solution:** Complete the following steps to reduce
-costs.
-
-1. Exclude high-volume namespaces from log collection. For instructions, see [Exclude namespaces from log collection](#container-insights-eks-otel-logs-exclude-ns "#container-insights-eks-otel-logs-exclude-ns").
-2. Set a retention policy on the log group to automatically delete older logs. For
-   instructions, see [Set log retention](#container-insights-eks-otel-logs-retention "#container-insights-eks-otel-logs-retention").
+**Solution:** Set a retention policy on the log group to
+automatically delete older logs. For instructions, see [Set log retention](#container-insights-eks-otel-logs-retention "#container-insights-eks-otel-logs-retention").

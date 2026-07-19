@@ -349,7 +349,7 @@ the cause:
 - If your VPC does not have internet access, you must use VPC endpoints to give the
   canary access to CloudWatch and Amazon S3. You must enable the **DNS resolution**
   and **DNS hostname** options in the VPC for these endpoint addresses
-  to resolve correctly. For more information, see [Using DNS with Your VPC](../../../vpc/latest/userguide/vpc-dns.md "../../../vpc/latest/userguide/vpc-dns.md") and [Using
+  to resolve correctly. For more information, see [Using DNS with your VPC](../../../vpc/latest/userguide/vpc-dns.md "../../../vpc/latest/userguide/vpc-dns.md") and [Using
   CloudWatch and CloudWatch Synthetics with interface VPC endpoints](cloudwatch-and-interface-VPC.md "cloudwatch-and-interface-VPC.md")
   .
 - Canaries must run in private subnets within a VPC. To check this, open the **Subnets** page in the VPC console. Check the subnets that you selected when

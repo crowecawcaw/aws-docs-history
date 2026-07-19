@@ -24,3 +24,4 @@ VPC EC2 instances, or self-managed (non-EKS) Kubernetes instances.
 - [Linux versions supported for Network Flow Monitor agents](CloudWatch-NetworkFlowMonitor-agents-versions.md "CloudWatch-NetworkFlowMonitor-agents-versions.md")
 - [Install and manage agents for EC2 instances](CloudWatch-NetworkFlowMonitor-agents-ec2.md "CloudWatch-NetworkFlowMonitor-agents-ec2.md")
 - [Install agents for self-managed Kubernetes instances](CloudWatch-NetworkFlowMonitor-agents-kubernetes-non-eks.md "CloudWatch-NetworkFlowMonitor-agents-kubernetes-non-eks.md")
+- [Using AI agents to install and troubleshoot Network Flow Monitor agents](CloudWatch-NetworkFlowMonitor-agents-install-ai.md "CloudWatch-NetworkFlowMonitor-agents-install-ai.md")

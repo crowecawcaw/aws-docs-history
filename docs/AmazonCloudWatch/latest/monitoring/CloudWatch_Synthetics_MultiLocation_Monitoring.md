@@ -38,12 +38,12 @@ run.
 Multilocation canaries publish the following metrics to CloudWatch in the primary
 Region:
 
-- **SuccessPercent** — Published with a
+- **SuccessPercent**—Published with a
   `Location` dimension for each Region where the canary runs. An aggregate
   `SuccessPercent` metric without the `Location` dimension
   represents the combined success rate across all locations. To monitor overall canary
   health across all locations, create a CloudWatch alarm on this aggregate metric.
-- **Duration** — Published with a
+- **Duration**—Published with a
   `Location` dimension for each Region where the canary runs.
 
 All canary metrics are also published in the respective replica Region. If the

@@ -1,4 +1,4 @@
-# Create an alarm based on a Multi Time Series Metrics Insights query
+# Create an alarm based on Metrics Insights
 
 You can create an alarm that monitors multiple time series across a fleet of resources.
 Unlike single-instance alarms that trigger actions on individual instances, fleet monitoring

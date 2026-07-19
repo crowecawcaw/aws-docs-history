@@ -67,7 +67,7 @@ runtime versions](CloudWatch_Synthetics_Canaries_Library.md "CloudWatch_Syntheti
 Under **Browser configuration**, you can enable the browser to test
 the canary. You must select at least one browser. 10. If you are using environment variables in your script, choose **Environment
 variables** and then specify a value for each environment variable defined in
-your script. For more information, see [Environment variables](CloudWatch_Synthetics_Canaries_WritingCanary_Nodejs_Pup.md#CloudWatch_Synthetics_Environment_Variables "CloudWatch_Synthetics_Canaries_WritingCanary_Nodejs_Pup.md#CloudWatch_Synthetics_Environment_Variables"). 11. Under **Schedule**, choose whether to run this canary just once, run
+your script. For more information, see [Environment variables](CloudWatch_Synthetics_Canaries_CommonFeatures.md#CloudWatch_Synthetics_Environment_Variables "CloudWatch_Synthetics_Canaries_CommonFeatures.md#CloudWatch_Synthetics_Environment_Variables"). 11. Under **Schedule**, choose whether to run this canary just once, run
 it continuously using a rate expression, or schedule it using a cron expression.
 
     * When you use the CloudWatch console

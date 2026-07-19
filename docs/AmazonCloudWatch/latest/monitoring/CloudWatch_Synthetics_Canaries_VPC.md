@@ -1,7 +1,7 @@
 # Running a canary on a VPC
 
 You can run canaries on endpoints on a VPC and public internal endpoints. To run a canary
-on a VPC, you must have both the **DNS Resolution** and **DNS hostnames** options enabled on the VPC. For more information, see [Using DNS with Your VPC](../../../vpc/latest/userguide/vpc-dns.md "../../../vpc/latest/userguide/vpc-dns.md").
+on a VPC, you must have both the **DNS Resolution** and **DNS hostnames** options enabled on the VPC. For more information, see [Using DNS with your VPC](../../../vpc/latest/userguide/vpc-dns.md "../../../vpc/latest/userguide/vpc-dns.md").
 
 When you run a canary on a VPC endpoint, you must provide a way for it to send its
 metrics to CloudWatch and its artifacts to Amazon S3. If the VPC is already enabled for internet
