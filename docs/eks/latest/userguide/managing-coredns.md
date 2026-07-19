@@ -77,6 +77,8 @@ topologySpreadConstraints:
         k8s-app: kube-dns
 ```
 
+- **Custom Corefile configurations and add-on updates** — The Amazon EKS add-on fully manages the CoreDNS ConfigMap (`data.Corefile`). If you modify the `Corefile` directly (for example, to add conditional forwarders for on-premises DNS resolution), the add-on overwrites your changes during the next update. To preserve custom `Corefile` configurations across add-on updates, use the `corefile` key in the add-on’s `configurationValues` parameter. For more information, see [Determine fields you can customize for Amazon EKS add-ons](kubernetes-field-management.md "kubernetes-field-management.md").
+
 ### CoreDNS `v1.11` upgrade considerations
 
 - In EKS add-on versions `v1.11.1-eksbuild.4` and later, the container image is based on a [minimal base image](https://gallery.ecr.aws/eks-distro-build-tooling/eks-distro-minimal-base "https://gallery.ecr.aws/eks-distro-build-tooling/eks-distro-minimal-base") maintained by Amazon EKS Distro, which contains minimal packages and doesn’t have shells. For more information, see [Amazon EKS Distro](https://distro.eks.amazonaws.com/ "https://distro.eks.amazonaws.com/"). The usage and troubleshooting of the CoreDNS image remains the same.

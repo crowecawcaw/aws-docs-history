@@ -56,7 +56,7 @@ With AWS Controllers for Kubernetes, you can create and manage AWS resources dir
 
 Available in [EKS Capabilities](ack.md "ack.md").
 
-- [Project URL](https://aws-controllers-k8s.github.io/community/ "https://aws-controllers-k8s.github.io/community/")
+- [Project URL](https://aws-controllers-k8s.github.io/docs/ "https://aws-controllers-k8s.github.io/docs/")
 - AWS open source blog: [AWS service operator for Kubernetes now available](https://aws.amazon.com/blogs/opensource/aws-service-operator-kubernetes-available "https://aws.amazon.com/blogs/opensource/aws-service-operator-kubernetes-available")
 
 ### kro (Kube Resource Orchestrator)

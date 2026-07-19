@@ -127,7 +127,6 @@ aws eks update-capability \
   --region `us-east-1` \
   --cluster-name `cluster` \
   --capability-name `capname` \
-  --endpoint "https://eks.`ap-northeast-2`.amazonaws.com" \
   --role-arn `"arn:aws:iam::111122223333:role/EKSCapabilityRole"` \
   --configuration '{
     "argoCd": {

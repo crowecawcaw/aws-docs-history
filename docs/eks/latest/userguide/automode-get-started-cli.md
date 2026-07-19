@@ -55,7 +55,7 @@ Sample output:
 EKS Auto Mode requires a Cluster IAM Role to perform actions in your AWS account, such as provisioning new EC2 instances. You must create this role to grant EKS the necessary permissions. AWS recommends attaching the following AWS managed policies to the Cluster IAM Role:
 
 - [AmazonEKSComputePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSComputePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSComputePolicy")
-- [AmazonEKSBlockStoragePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSBlockStoragePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSBlockStoragePolicy")
+- [AmazonEKSBlockStoragePolicyV2](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSBlockStoragePolicyV2 "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSBlockStoragePolicyV2")
 - [AmazonEKSLoadBalancingPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSLoadBalancingPolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSLoadBalancingPolicy")
 - [AmazonEKSNetworkingPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSNetworkingPolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSNetworkingPolicy")
 - [AmazonEKSClusterPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-amazoneksclusterpolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-amazoneksclusterpolicy")
@@ -137,12 +137,12 @@ aws iam attach-role-policy \
     --policy-arn arn:aws:iam::aws:policy/AmazonEKSComputePolicy
 ```
 
-**AmazonEKSBlockStoragePolicy**:
+**AmazonEKSBlockStoragePolicyV2**:
 
 ```
 aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicy
+    --policy-arn arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicyV2
 ```
 
 **AmazonEKSLoadBalancingPolicy**:

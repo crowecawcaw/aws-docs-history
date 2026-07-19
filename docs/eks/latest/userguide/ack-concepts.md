@@ -62,7 +62,7 @@ aws s3 ls | grep `my-unique-bucket-name-12345`
 
 The bucket should no longer appear in the list, demonstrating that ACK manages the full lifecycle of AWS resources.
 
-For more information on getting started with ACK, see [Getting Started with ACK](https://aws-controllers-k8s.github.io/community/docs/user-docs/getting-started/ "https://aws-controllers-k8s.github.io/community/docs/user-docs/getting-started/").
+For more information about getting started with ACK, see [Getting Started with ACK](https://aws-controllers-k8s.github.io/docs/getting-started "https://aws-controllers-k8s.github.io/docs/getting-started") on the ACK website.
 
 ## Resource lifecycle and reconciliation
 
@@ -87,7 +87,7 @@ When working through the getting started example above, ACK performs these steps
 3. Updates Kubernetes status with bucket ARN and state
 4. Continues monitoring for drift
 
-To learn more about how ACK works, see [ACK Reconciliation](https://aws-controllers-k8s.github.io/community/docs/user-docs/reconciliation/ "https://aws-controllers-k8s.github.io/community/docs/user-docs/reconciliation/").
+For more information about how ACK works, see [ACK Reconciliation](https://aws-controllers-k8s.github.io/docs/concepts#reconciliation-loop "https://aws-controllers-k8s.github.io/docs/concepts#reconciliation-loop") on the ACK website.
 
 ## Status conditions
 
@@ -133,7 +133,7 @@ status:
     region: us-west-2
 ```
 
-To learn more about ACK status and conditions, see [ACK Conditions](https://aws-controllers-k8s.github.io/community/docs/user-docs/conditions/ "https://aws-controllers-k8s.github.io/community/docs/user-docs/conditions/").
+For more information about ACK status and conditions, see [ACK Conditions](https://aws-controllers-k8s.github.io/docs/concepts#conditions "https://aws-controllers-k8s.github.io/docs/concepts#conditions") on the ACK website.
 
 ## Deletion policies
 
@@ -175,7 +175,7 @@ Deleting this resource removes it from Kubernetes but leaves the S3 bucket in AW
 
 The `retain` policy is useful for production databases that should outlive the Kubernetes resource, shared resources used by multiple applications, resources with important data that shouldn’t be accidentally deleted, or temporary ACK management where you adopt a resource, configure it, then release it back to manual management.
 
-To learn more about ACK deletion policy, see [ACK Deletion Policy](https://aws-controllers-k8s.github.io/community/docs/user-docs/deletion-policy/ "https://aws-controllers-k8s.github.io/community/docs/user-docs/deletion-policy/").
+For more information about ACK deletion policy, see [ACK Deletion Policy](https://aws-controllers-k8s.github.io/docs/guides/deletion-policy "https://aws-controllers-k8s.github.io/docs/guides/deletion-policy") on the ACK website.
 
 ## Resource adoption
 
@@ -214,7 +214,7 @@ When adopting resources, the AWS resource must already exist and ACK needs read 
 The `adopt-or-create` policy adopts the resource if it exists, or creates it if it doesn’t.
 This is useful when you want a declarative workflow that works whether the resource exists or not.
 
-To learn more about ACK resource adoption, see [ACK Resource Adoption](https://aws-controllers-k8s.github.io/community/docs/user-docs/adopted-resource/ "https://aws-controllers-k8s.github.io/community/docs/user-docs/adopted-resource/").
+For more information about ACK resource adoption, see [ACK Resource Adoption](https://aws-controllers-k8s.github.io/docs/guides/adoption "https://aws-controllers-k8s.github.io/docs/guides/adoption") on the ACK website.
 
 ## Cross-account and cross-region resources
 

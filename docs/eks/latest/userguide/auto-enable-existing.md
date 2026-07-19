@@ -28,7 +28,7 @@ The Cluster IAM role of an EKS Cluster cannot be changed after the cluster is cr
 4. Use the **Search** box to find and select the following policies:
 
    - `AmazonEKSComputePolicy`
-   - `AmazonEKSBlockStoragePolicy`
+   - `AmazonEKSBlockStoragePolicyV2`
    - `AmazonEKSLoadBalancingPolicy`
    - `AmazonEKSNetworkingPolicy`
    - `AmazonEKSClusterPolicy`
@@ -73,7 +73,7 @@ The Cluster IAM role of an EKS Cluster cannot be changed after the cluster is cr
 - The Cluster IAM Role of the existing EKS Cluster must include sufficient permissions for EKS Auto Mode, such as the following policies:
 
   - `AmazonEKSComputePolicy`
-  - `AmazonEKSBlockStoragePolicy`
+  - `AmazonEKSBlockStoragePolicyV2`
   - `AmazonEKSLoadBalancingPolicy`
   - `AmazonEKSNetworkingPolicy`
   - `AmazonEKSClusterPolicy`

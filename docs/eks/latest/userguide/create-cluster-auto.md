@@ -187,12 +187,12 @@ aws iam attach-role-policy \
     --policy-arn arn:aws:iam::aws:policy/AmazonEKSComputePolicy
 ```
 
-**AmazonEKSBlockStoragePolicy**:
+**AmazonEKSBlockStoragePolicyV2**:
 
 ```
 aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicy
+    --policy-arn arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicyV2
 ```
 
 **AmazonEKSLoadBalancingPolicy**:
