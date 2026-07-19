@@ -75,12 +75,18 @@ volume from a Linux instance](../../../AWSEC2/latest/UserGuide/ebs-detaching-vol
 Guide_.
 
 For information about detaching disks from a KVM, VMware, or Hyper-V VM, see
-the documentation for your hypervisor. 6. Create a new AWS Storage Gateway hypervisor VM instance, but don't activate it as a
+the documentation for your hypervisor. 6. Create a new S3 File Gateway hypervisor VM instance, but don't activate it as a
 gateway. In a later step, this new VM will assume the identity of the old
 gateway.
 
 For more information about creating a new Storage Gateway hypervisor VM, see
 [Choosing a Host Platform and Downloading the VM](create-gateway-file.md#hosting-options-file "create-gateway-file.md#hosting-options-file").
+
+###### Important
+
+Use an S3 File Gateway image for the new VM. An image for a different gateway type
+(for example, Volume Gateway or Tape Gateway) will cause the migrated gateway
+to fail to start.
 
 ###### Note
 
