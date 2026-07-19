@@ -69,6 +69,6 @@ Click **Load More** to view additional correspondences that do not fit on the in
 
 Don't forget to rate the communication!
 
-![Correspondence interface showing email exchange with star rating options for feedback.](images/guiSRcorrespond.png)
+![Correspondence interface showing email exchange with star rating options for feedback.](/images/managedservices/latest/onboardingguide/images/guiSRcorrespond.png)
 For billing-related queries, use the **Other** Category in the
 AMS console; the `ChangeTypeId ct-1e1xtak34nx76` in the AMS CM API, or the `IssueType=AMS` in the AWS Support API.
