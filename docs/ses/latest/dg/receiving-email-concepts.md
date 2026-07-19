@@ -36,6 +36,24 @@ _example.com_, you can specify that mail for
 *user@example.com* should bounce, and that all other mail for
 _example.com_ and its subdomains should be delivered.
 
+###### Note
+
+Recipient conditions are evaluated against the _SMTP envelope
+recipients_ (the addresses specified in the `RCPT TO`
+command during the SMTP transaction), not against the `To:` or
+`Cc:` headers in the email content. The `To:` and
+`Cc:` headers are set by the sender and may not reflect the actual
+envelope recipients. For example, with a blind carbon copy (BCC), a message can be
+delivered to one of your recipients even though that address does not appear in the
+`To:` or `Cc:` header. As a result, Amazon SES can correctly
+match a receipt rule's recipient condition against an envelope recipient that is not
+visible in the email's headers.
+
+When you process received mail downstream (for example, in a Lambda function),
+reference the `recipients` field provided in the Amazon SES event notification
+to determine who the message was actually delivered to, rather than parsing the
+`To:` or `Cc:` header from the raw email.
+
 Otherwise, if you do not add any recipient conditions, the actions will be applied to
 everything - all email addresses, domains, and sub-domains that belong to your verified
 domains. The following actions are available to be applied to your receipt rules:
@@ -124,7 +142,10 @@ When Amazon SES receives an email for your domain, the following events occur:
 
    - If there's a recipient condition and it matches any of the incoming
      email's recipients, Amazon SES accepts the email. Otherwise, if there aren't
-     any matches, Amazon SES blocks the email.
+     any matches, Amazon SES blocks the email. The recipients used for matching are
+     the SMTP envelope recipients (`RCPT TO`), not the
+     `To:` or `Cc:` headers in the email
+     content.
    - If the receipt rule does not contain a recipient condition, Amazon SES
      accepts the mail - all of the rule's actions will apply to all the
      verified identities you own.
