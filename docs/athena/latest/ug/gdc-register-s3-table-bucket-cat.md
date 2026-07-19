@@ -21,7 +21,6 @@ more information, see [Table buckets](../../../AmazonS3/latest/userguide/s3-tabl
 
 - DDL queries on S3 Tables registered as Athena data sources are not
   supported.
-- Query result reuse is not supported.
 - In workgroups with SSE-KMS, CSE-KMS encryption enabled, you can't run write
   operations like `INSERT`, `UPDATE`,
   `DELETE`, or `MERGE` on S3 Tables.

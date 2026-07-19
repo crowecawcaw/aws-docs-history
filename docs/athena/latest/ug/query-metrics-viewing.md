@@ -67,7 +67,7 @@ You can view query metrics in the Athena console or in the CloudWatch console.
 2. If the console navigation pane is not visible, choose the expansion menu
    on the left.
 
-![Choose the expansion menu.](images/nav-pane-expansion.png) 3. In the navigation pane, choose **Workgroups**. 4. Choose the workgroup that you want from the list, and then choose the
+![Choose the expansion menu.](/images/athena/latest/ug/images/nav-pane-expansion.png) 3. In the navigation pane, choose **Workgroups**. 4. Choose the workgroup that you want from the list, and then choose the
 **Metrics** tab.
 
 The metrics dashboard displays.

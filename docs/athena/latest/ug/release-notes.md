@@ -23,6 +23,15 @@ Amazon Athena releases ODBC driver version 2.2.0.1. For more information about t
 version of the driver, see [Amazon Athena ODBC 2.x release notes](odbc-v2-driver-release-notes.md "odbc-v2-driver-release-notes.md"). To download the ODBC 2.x driver,
 see [ODBC 2.x driver download](odbc-v2-driver.md#odbc-v2-driver-download "odbc-v2-driver.md#odbc-v2-driver-download").
 
+### July 1, 2026
+
+Published on July 1, 2026
+
+Amazon Athena fixed an issue where querying a table through a managed connector
+returned zero results when the table was shared from an Amazon SageMaker Unified Studio
+producer project to a consumer project within the same AWS account. Managed connectors
+now resolve shared table and schema references through the correct underlying data source.
+
 ### June 03, 2026
 
 Amazon Athena releases JDBC driver version 3.8.0. For more information about this
