@@ -99,7 +99,7 @@ your job name prefix into the _Find objects by
 prefix_ input field. Choose the training job
 name.
 
-![An example to the rule output S3 bucket URI.](/images/sagemaker/latest/dg/images/debugger/debugger-report-download-s3console-1.png) 4. In the training job's S3 bucket, there must be three subfolders
+![An example to the rule output S3 bucket URI.](images/debugger/debugger-report-download-s3console-1.png) 4. In the training job's S3 bucket, there must be three subfolders
 for training data collected by Debugger:
 **debug-output/**,
 **profiler-output/**, and

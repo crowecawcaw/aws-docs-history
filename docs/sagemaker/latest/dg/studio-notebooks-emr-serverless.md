@@ -12,7 +12,7 @@ Specifically, the updated version of the [`sagemaker-studio-analytics-extension`
 distribution](https://github.com/aws/sagemaker-distribution/tree/main/build_artifacts/v1 "https://github.com/aws/sagemaker-distribution/tree/main/build_artifacts/v1") image version `1.10` leverages the integration between
 Apache Livy and EMR Serverless, allowing the connection to an Apache Livy endpoint through
 JupyterLab notebooks. This section assumes prior knowledge of [EMR Serverless interactive
-applications](../../../EMR-Serverless-UserGuide/interactive-workloads.md "../../../EMR-Serverless-UserGuide/interactive-workloads.md").
+applications](../../../emr/latest/EMR-Serverless-UserGuide/interactive-workloads.md "../../../emr/latest/EMR-Serverless-UserGuide/interactive-workloads.md").
 
 ###### Important
 

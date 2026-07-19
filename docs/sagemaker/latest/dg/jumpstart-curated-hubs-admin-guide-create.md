@@ -1,7 +1,7 @@
 # Create a private model hub
 
 Use the following steps to create a private hub to manage access control for
-pretrained JumpStart foundation models for your organization. You must intstall
+pretrained JumpStart foundation models for your organization. You must install
 the SageMaker Python SDK and configure the necessary IAM permissions before creating a
 model hub.
 

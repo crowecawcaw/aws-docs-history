@@ -17,9 +17,17 @@ Allows full administrative access to Amazon SageMaker Partner AI Apps.
 
 This AWS managed policy includes the following permissions.
 
-- `sagemaker` – Gives Amazon SageMaker Partner AI App users permission to access
-  applications, list available applications, launch application web UIs, and
-  connect using the application SDK.
+- `sagemaker` – Gives Amazon SageMaker Partner AI App users permission to:
+
+  - Create, update, and delete applications
+  - Access and list available applications
+  - Launch application web UIs
+  - Connect using the application SDK
+
+- `aws-marketplace` – Gives SageMaker AI permission to:
+
+  - Create a usage-based Marketplace subscription for the Marketplace product listing associated with the partner-app type
+  - Retrieve and search agreement details for verifying a valid agreement exists to use Partner App
 
 JSON
 
@@ -60,6 +68,7 @@ began tracking these changes. For automatic alerts about changes to this page, s
 to the RSS feed on the SageMaker AI [Document history
 page.](doc-history.md "doc-history.md")
 
-| Policy                                               | Version | Change         | Date             |
-| ---------------------------------------------------- | ------- | -------------- | ---------------- |
-| AmazonSageMakerPartnerAppsFullAccess<br>• New policy | 1       | Initial policy | January 17, 2025 |
+| Policy                                                                                                                                                                                             | Version | Change                                                                                                                                                                                     | Date             |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- |
+| [AmazonSageMakerPartnerAppsFullAccess](#security-iam-awsmanpol-AmazonSageMakerPartnerAppsFullAccess "#security-iam-awsmanpol-AmazonSageMakerPartnerAppsFullAccess") – Update to an existing policy | 2       | Added SageMaker AI Partner AI App create, update, and delete<br>permissions.<br>Added AWS Marketplace permissions to create, accept, and<br>search agreements to enable Partner App usage. | July 31, 2026    |
+| AmazonSageMakerPartnerAppsFullAccess<br>• New policy                                                                                                                                               | 1       | Initial policy                                                                                                                                                                             | January 17, 2025 |
