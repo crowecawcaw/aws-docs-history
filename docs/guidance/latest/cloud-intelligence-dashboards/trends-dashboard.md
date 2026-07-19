@@ -8,7 +8,7 @@ understand and analyze their AWS cloud usage.
 
 ## Demo Dashboards
 
-![Trends Dashboard](images/Trends.png)
+![Trends Dashboard](/images/guidance/latest/cloud-intelligence-dashboards/images/Trends.png)
 
 ## Prerequisites
 

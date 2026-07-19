@@ -2,21 +2,46 @@
 
 ## Introduction
 
-AWS customers use various methods to allocate costs of AWS resources,
-ranging from a single level of business units to complex,
-multi-dimensional organizational
-[taxonomy](https://en.wikipedia.org/wiki/Taxonomy "https://en.wikipedia.org/wiki/Taxonomy").
+Most organizations need to answer a simple question: _which team, business
+unit, or cost center is responsible for this AWS spend?_ Attributing costs to
+the parts of your business is called **cost allocation**, and the set of labels
+you use to group that spend — such as team, environment, or business unit — is
+your organizational
+[taxonomy](https://en.wikipedia.org/wiki/Taxonomy "https://en.wikipedia.org/wiki/Taxonomy"). Taxonomies
+range from a single level of business units to complex, multi-dimensional
+structures.
 
-This document presents the architectural framework for resource
-ownership attribution and cost allocation in AWS environment, including
-automated integration with Cloud Intelligence Dashboards.
+This guide shows you how to add your organization’s taxonomy to Cloud
+Intelligence Dashboards (CID) so you can filter and group costs by the
+dimensions that matter to your business. By the end, you will be able to break
+down costs by account, organizational unit (OU), tag, or cost category — and,
+optionally, restrict what each user can see.
 
 The following video introduces the concept of taxonomy in the context of AWS resource management. It will guide you through the main concepts using the example of Unicorn Rental Corporation.
 
-## Architectural Foundations
+### Before you begin
 
-Resource allocation in AWS typically follows two primary architectural
-patterns:
+The tools and versions you need depend on which taxonomy sources you use.
+Confirm the relevant rows below before you start:
+
+| If you want to use…​                                                                                              | You need…​                                                                                                                                        |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Any taxonomy method                                                                                               | `cid-cmd` version 4.4.14 or later (`pip3 install -U cid-cmd`)                                                                                     |
+| Account Tags as Cost Allocation Tags (from CUR 2.0), IAM Principal Tags, IAM<br>Principal ARN, or User Attributes | [Data export stack](data-exports.md "data-exports.md")<br>`v0.11.0` or later (includes the *_Tags_<br>• and<br>`line_item_iam_principal` columns) |
+| OU names, OU tags, or hierarchical tag inheritance                                                                | [CID Data Collection](data-collection.md "data-collection.md") deployed                                                                           |
+
+## Choosing an allocation approach
+
+Cost allocation in AWS typically follows two primary patterns. Use the quick
+guide below to find the one that fits your needs, then read the details that
+follow.
+
+| If you need to…​                                                                                         | Use…​                                                                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Allocate costs by whole account (team owns the account), and adapt easily to<br>frequent reorganizations | *_Account-Level Allocation_<br>• — start with<br>[OU or Account Tags](#add-org-taxonomy-account-level-cost-allocation "#add-org-taxonomy-account-level-cost-allocation")                     |
+| Split costs *within<br>• a shared account across teams, applications, or<br>environments                 | *_Resource-Level Allocation_<br>• — use<br>[Cost Allocation Tags or Cost<br>Categories](#add-org-taxonomy-resource-level-cost-allocation "#add-org-taxonomy-resource-level-cost-allocation") |
+
+Here is what each pattern covers in more detail:
 
 1. [Account-Level Allocation](#add-org-taxonomy-account-level-cost-allocation "#add-org-taxonomy-account-level-cost-allocation") - Uses
    information at the AWS account level, such as:
@@ -45,26 +70,28 @@ Additionally, you can configure Row-Level Security (RLS) to restrict
 access based on one of these taxonomy fields, ensuring that users see
 only the data relevant to their scope of responsibility.
 
-### Components for building Organizational Taxonomy
+### Choose your taxonomy sources
 
 It is essential to establish reporting that accurately reflects the
 current structure of your organization while also accounting for
-potential future changes. Once the organizational taxonomies are clear,
-the next step is to map them to the appropriate technical data.
+potential future changes. Once your taxonomy is clear, the
+next step is to map it to the appropriate technical data source. The table
+below lists the available sources, where each one comes from, and what it
+requires.
 
 ![taxonomy](images/images/taxonomy-pipe.svg)
 
-| Name                     | Level                           | Source                                | Prerequisite                      | Comment                                                                                                                                                                                                                                                                |
-| ------------------------ | ------------------------------- | ------------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Account Tag              | Account Level                   | AWS Organizations or CUR2             | CID Data Collection or CUR2       | A simple way to achieve account level taxonomy and cost allocation from CUR2 or AWS Organizations                                                                                                                                                                      |
-| OU Name                  | Account Level                   | AWS Organizations                     | CID Data Collection               |                                                                                                                                                                                                                                                                        |
-| OU Tag                   | Account Level                   | AWS Organizations                     | CID Data Collection               | [RECOMMENDED] More flexible than Account Tag. CID Data Collection<br>allows collecting Hierarchical Tags when the lower level Tags can<br>override higher level. This can create a flexible system that do not<br>require setting tags on the individual Account level |
-| Account Name             | Account Level                   | AWS Organizations or CUR2             | CID Data<br>Collection or CUR2    | Some organizations can have an established naming<br>convention for AWS Accounts. A part of this name can be used for a<br>business unit taxonomy.                                                                                                                     |
-| AWS Cost Allocation Tags | Resource Level                  | CUR                                   | AWS Data Exports                  |                                                                                                                                                                                                                                                                        |
-| IAM Principal Tags       | Resource Level                  | CUR2 `tags` column                    | AWS Data Exports with Tags column | Tags attached to IAM principals (roles/users) making API calls. Useful for attributing costs to specific teams or applications based on who performed the action.                                                                                                      |
-| User Attributes          | Resource Level                  | CUR2 `tags` column                    | AWS Data Exports with Tags column | Workforce user attributes (cost center, division, department) from IAM Identity Center. Supported for Amazon Q Business, Amazon Q Developer, and Amazon Quick.                                                                                                         |
-| IAM Principal (ARN)      | Resource Level                  | CUR2 `line_item_iam_principal` column | AWS Data Exports                  | The full IAM principal ARN that made the API call. Currently supported for Amazon Bedrock.                                                                                                                                                                             |
-| AWS Cost Categories      | Resource Level or Account Level | CUR                                   | AWS Data<br>Exports               |                                                                                                                                                                                                                                                                        |
+| Name                     | Level                           | Source                                | Prerequisite                      | Comment                                                                                                                                                                                                                                                                    |
+| ------------------------ | ------------------------------- | ------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Account Tag              | Account Level                   | AWS Organizations or CUR2             | CID Data Collection or CUR2       | A simple way to achieve account level taxonomy and cost allocation from CUR2 or AWS Organizations                                                                                                                                                                          |
+| OU Name                  | Account Level                   | AWS Organizations                     | CID Data Collection               |                                                                                                                                                                                                                                                                            |
+| OU Tag                   | Account Level                   | AWS Organizations                     | CID Data Collection               | [RECOMMENDED] More flexible than Account Tag. CID Data Collection<br>allows collecting Hierarchical Tags where lower-level Tags can<br>override higher-level ones. This can create a flexible system that does not<br>require setting tags on the individual account level |
+| Account Name             | Account Level                   | AWS Organizations or CUR2             | CID Data<br>Collection or CUR2    | Some organizations can have an established naming<br>convention for AWS Accounts. A part of this name can be used for a<br>business unit taxonomy.                                                                                                                         |
+| AWS Cost Allocation Tags | Resource Level                  | CUR                                   | AWS Data Exports                  |                                                                                                                                                                                                                                                                            |
+| IAM Principal Tags       | Resource Level                  | CUR2 `tags` column                    | AWS Data Exports with Tags column | Tags attached to IAM principals (roles/users) making API calls. Useful for attributing costs to specific teams or applications based on who performed the action.                                                                                                          |
+| User Attributes          | Resource Level                  | CUR2 `tags` column                    | AWS Data Exports with Tags column | Workforce user attributes (cost center, division, department) from IAM Identity Center. Supported for Amazon Q Business, Amazon Q Developer, and Amazon Quick.                                                                                                             |
+| IAM Principal (ARN)      | Resource Level                  | CUR2 `line_item_iam_principal` column | AWS Data Exports                  | The full IAM principal ARN that made the API call. Currently supported for Amazon Bedrock.                                                                                                                                                                                 |
+| AWS Cost Categories      | Resource Level or Account Level | CUR                                   | AWS Data<br>Exports               |                                                                                                                                                                                                                                                                            |
 
 Additional recommendations:
 
@@ -89,7 +116,7 @@ Additional recommendations:
 
 ### Using Account Tags as Cost Allocation Tags in CUR2
 
-Since December 2025, AWS added support of Account Tags in AWS Organizations to be enabled as Cost Allocation Tags.
+AWS supports enabling Account Tags from AWS Organizations as Cost Allocation Tags (available since December 2025).
 
 The main benefit of Account Tags as Cost Allocation Tags is simplicity: all required information comes directly from CUR2, eliminating the need for additional data sources or collection mechanisms.
 
@@ -97,7 +124,7 @@ The main benefit of Account Tags as Cost Allocation Tags is simplicity: all requ
 
 1. In AWS Organizations, add tags to your AWS accounts (e.g., `Owner`, `BusinessUnit`, `CostCenter`)
 2. In the AWS Billing Console, activate these account tags as Cost Allocation Tags
-3. Upgrade your [data export stack](data-exports.md "data-exports.md") on payer account(s) to `v0.9.0` or later if you are running an older version
+3. Upgrade your [data export stack](data-exports.md "data-exports.md") on payer account(s) to `v0.11.0` or later if you are running an older version
 4. Wait 24 hours for the tags to appear in your Cost and Usage Report
 5. Run `cid-cmd update --force --recursive` to discover and configure the tags
 6. Select the account-level tags you want to use as taxonomy dimensions when prompted
@@ -219,7 +246,7 @@ You can also create a similar view manually if you want to tailor it to your spe
 
 ### Static Account Map from CSV
 
-As an alternative to the dynamic account map based on AWS Organizations data, you can create a static account map from a CSV file. This approach is useful when you have custom mapping maintained in a CMDB or spreadsheet and you want to bring it to account map.
+As an alternative to the dynamic account map based on AWS Organizations data, you can create a static account map from a CSV file. This approach is useful when you have a custom mapping maintained in a CMDB or spreadsheet and you want to bring it into the account map.
 
 **Using `cid-cmd map` with CSV file:**
 
@@ -322,7 +349,7 @@ Please note that introducing tags with many unique values can significantly expa
 
 Each tag added to the dashboard increases the cardinality of data and increases the size of aggregated SPICE datasets in Amazon Quick. This architectural decision directly impacts SPICE caching size and performance. We recommend selecting only the minimum necessary tags to satisfy business requirements.
 
-If your Quick Sight datasets take too much time refreshing after configuring the tags, please remove all tags (`cid-cmd update --force --recursive -y`) and try re-adding them one by one.
+If your Amazon Quick datasets take too long to refresh after configuring the tags, remove all tags (`cid-cmd update --force --recursive -y`) and try re-adding them one by one.
 
 ## Adding Taxonomy to the Dashboards
 
@@ -348,7 +375,7 @@ pip3 install -U cid-cmd
 cid-cmd update --force --recursive
 ```
 
-After update Amazon Quick datasets will be refreshed automatically. During the refresh process you may see `Dataset changed too much` error which should disappear once datasets are fully refreshed.
+After the update, Amazon Quick datasets are refreshed automatically. During the refresh process you may see a `Dataset changed too much` error, which should disappear once the datasets are fully refreshed.
 
 See more in [update](update-dashboards.md "update-dashboards.md") documentation.
 
@@ -392,7 +419,7 @@ Run [update](#add-account-level-resource-level-taxonomy-dimension "#add-account-
 2. Run `cid-cmd update --force --recursive`.
 3. When prompted to select Cost Allocation Tags, choose the `iam_principal_tag_*` or `user_attribute_tag_*` entries.
 
-### After Update and Adding Tags the refresh of SPICE datasets times out or shows a error about resources limitation
+### After updating and adding tags, the refresh of SPICE datasets times out or shows an error about a resource limitation
 
 Try to [re-update](#add-account-level-resource-level-taxonomy-dimension "#add-account-level-resource-level-taxonomy-dimension") using tags with less cardinality (less unique values).
 

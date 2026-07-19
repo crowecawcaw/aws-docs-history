@@ -18,7 +18,7 @@ The Cloud Intelligence Dashboards offer various advantages, including, but not l
 - **Multi-Organization and Multi-Cloud Support**: The solution supports multi-AWS organizations (multi-payer) environments and offers multi-cloud capabilities for comprehensive visibility across different cloud environments.
 - **Cost Efficient**: Since the dashboards are serverless, users only need to pay for what they use. See [FAQs](faq.md "faq.md")
 
-Cloud Intelligence Dashboards is an [AWS Well-Architected Lab](https://wellarchitectedlabs.com/cloud-intelligence-dashboards/ "https://wellarchitectedlabs.com/cloud-intelligence-dashboards/") referenced on [AWS Solutions Library](https://aws.amazon.com/solutions/guidance/advanced-cloud-observability-with-cloud-intelligence-dashboards-on-aws/ "https://aws.amazon.com/solutions/guidance/advanced-cloud-observability-with-cloud-intelligence-dashboards-on-aws/"). This documentation will walk you through deployment and usage of dashboards as well as the data collection mechanisms.
+This documentation will walk you through deployment and usage of dashboards as well as the data collection mechanisms.
 
 ## Cloud Intelligence Dashboards at re:invent 2023
 
@@ -65,6 +65,7 @@ At any moment, please contact your AWS or Partner Account Team to discuss how yo
 - [Accelerate your AWS Graviton adoption with the AWS Graviton Savings Dashboard](https://aws.amazon.com/blogs/compute/accelerate-your-aws-graviton-adoption-with-the-aws-graviton-savings-dashboard/ "https://aws.amazon.com/blogs/compute/accelerate-your-aws-graviton-adoption-with-the-aws-graviton-savings-dashboard/")
 - [How to monitor, optimize, and secure Amazon Cognito machine-to-machine authorization](https://aws.amazon.com/blogs/security/how-to-monitor-optimize-and-secure-amazon-cognito-machine-to-machine-authorization/ "https://aws.amazon.com/blogs/security/how-to-monitor-optimize-and-secure-amazon-cognito-machine-to-machine-authorization/")
 - [Reduce your Amazon ElastiCache costs by up to 60% with Valkey and CUDOS](https://aws.amazon.com/blogs/database/reduce-your-amazon-elasticache-costs-by-up-to-60-with-valkey-and-cudos/ "https://aws.amazon.com/blogs/database/reduce-your-amazon-elasticache-costs-by-up-to-60-with-valkey-and-cudos/")
+- [Which AI tool for which FinOps Use Case?](https://aws.amazon.com/blogs/aws-cloud-financial-management/which-ai-tool-for-which-finops-use-case/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/which-ai-tool-for-which-finops-use-case/")
 
 ## Costs
 

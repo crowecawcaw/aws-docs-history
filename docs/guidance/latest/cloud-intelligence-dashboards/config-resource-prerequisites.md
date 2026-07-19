@@ -6,23 +6,25 @@ The AWS Config Resource Compliance Dashboard (CRCD) solution can be deployed in 
 
 You can deploy the dashboard in a standalone account with [AWS Config enabled](../../../config/latest/developerguide/getting-started.md "../../../config/latest/developerguide/getting-started.md"). This option may be useful for proof of concept or testing purposes. In this case, all dashboard resources are deployed within the same AWS account.
 
-If you use AWS Organizations, AWS Config must be enabled with an [AWS Config delivery channel](../../../config/latest/developerguide/manage-delivery-channel.md "../../../config/latest/developerguide/manage-delivery-channel.md") sending files to a centralized Amazon S3 bucket (which we will call the Log Archive bucket) in a dedicated account (which we will call the Log Archive account). In this case, there are two possible ways to deploy the CRCD dashboard.
+If you use AWS Organizations, AWS Config must be enabled with an [AWS Config delivery channel](../../../config/latest/developerguide/manage-delivery-channel.md "../../../config/latest/developerguide/manage-delivery-channel.md") sending files to a centralized Amazon S3 bucket (which we will call the AWS Config Logs bucket) in a dedicated account (which we will call the AWS Config account). In this case, there are two possible ways to deploy the CRCD dashboard.
 
-1. **Deploy in the Log Archive account** You can deploy the dashboard resources in the same Log Archive account where your AWS Config configuration files are delivered. The architecture in this case looks like this:
+1. **Deploy in the AWS Config account** You can deploy the dashboard resources in the same account where your AWS Config configuration files are delivered. The architecture in this case looks like this:
 
-![CRCD Dashboard: deployment on AWS Organization](images/images/dashboards/crcd-architecture-log-archive-account.png)
+![AWS Config Dashboard: deployment on AWS Organization](images/images/dashboards/crcd-architecture-log-archive-account.png)
 
-1. **Deploy in a separate Dashboard account** Alternatively, you can create a separate Dashboard account to deploy the dashboard resources. In this case, objects from the Log Archive bucket in the Log Archive account are replicated to another bucket in the Dashboard account.
+1. **Deploy in a separate Dashboard account** Alternatively, you can create a separate Dashboard account to deploy the dashboard resources. In this case, objects from the AWS Config Logs bucket in the AWS Config account are replicated to another bucket in the Dashboard account.
 
-![CRCD Dashboard: deployment on AWS Organization](images/images/dashboards/crcd-architecture-dashboard-account.png)
+![AWS Config Dashboard: deployment on AWS Organization](images/images/dashboards/crcd-architecture-dashboard-account.png)
 
-An Amazon Athena table is used to extract data from the AWS Config configuration files delivered to Amazon S3. Whenever a new object is added to the bucket, the Lambda Partitioner function is triggered. This function checks if the object is an AWS Config configuration update. If it is, the function adds a new partition to the corresponding Athena table with the new data; otherwise, the function ignores it. The solution provides Athena views, which are SQL queries that extract data from Amazon S3 using the schema defined in the Athena table. Finally, you can visualize the data in a Quick Sight dashboard that uses these views through Amazon Quick Sight datasets.
+An Amazon Athena table is used to extract data from the AWS Config configuration files delivered to Amazon S3. Whenever a new object is added to the bucket, the Lambda Partitioner function is triggered. This function checks if the object is an AWS Config configuration snapshot or configuration history file. If it is, the function adds a new partition to the corresponding Athena table with the new data. If the object is neither a configuration snapshot nor configuration history file, the function ignores it.
 
-### Log Archive bucket encrypted with an AWS Key Management Service (KMS) key
+The solution provides Athena views, which are SQL queries that extract data from Amazon S3 using the schema defined in the Athena table. Finally, you can visualize the data in a Quick Sight dashboard that uses these views through Amazon Quick Sight datasets.
 
-The deployment process supports Log Archive buckets encrypted using a customer-managed KMS key (SSE-KMS).
+### AWS Config Logs bucket encrypted with an AWS Key Management Service (KMS) key
 
-In case of Log Archive account deployment:
+The deployment process supports AWS Config Logs buckets encrypted using a customer-managed KMS key (SSE-KMS).
+
+In case of AWS Config account deployment:
 
 - Amazon Quick Sight will be granted permissions to use the KMS key for decrypt operations. This is done with an IAM policy. If you prefer, you can manually grant this permission directly on the key policy. See below for instructions.
 
@@ -34,20 +36,20 @@ In case of Dashboard account deployment:
 
 ###### Note
 
-If your Log Archive bucket is SSE-KMS encrypted, and you do not provide the ARN of the corresponding KMS key in the CloudFormation parameters, the dashboard resources will not have the necessary permissions to function correctly.
+If your AWS Config Logs bucket is SSE-KMS encrypted, and you do not provide the ARN of the corresponding KMS key in the CloudFormation parameters, the dashboard resources will not have the necessary permissions to function correctly.
 
 ## Prerequisites
 
-1. AWS Config enabled in the accounts and AWS Regions you want to track, with an AWS Config delivery channel sending files to a centralized Amazon S3 bucket (which we will call the Log Archive bucket) in a dedicated account (which we will call the Log Archive account).
+1. AWS Config enabled in the accounts and AWS Regions you want to track, with an AWS Config delivery channel sending files to a centralized Amazon S3 bucket (the AWS Config Logs bucket) in a dedicated account (the AWS Config account).
 
    - We recommend that your AWS Config delivery channel delivers AWS Config configuration snapshot files every 24 hours for all accounts and Regions where AWS Config is active (see below for more information).
 
 2. An AWS account where you’ll deploy the dashboard.
 3. An IAM Role or IAM User with permissions to deploy the infrastructure using CloudFormation.
-4. Sign up for [Amazon Quick Sight](../../../quicksight/latest/user/signing-up.md "../../../quicksight/latest/user/signing-up.md") and create a user:
+4. Sign up for [Amazon QuickSight](../../../quick/latest/userguide/signing-up.md "../../../quick/latest/userguide/signing-up.md") and create a user:
 
    1. Select **Enterprise** edition.
-   2. For the **Get Paginated Reports add-on**, choose the option you prefer (this is not required for deploying the CRCD dashboard).
+   2. For the **Get Paginated Reports add-on**, choose the option you prefer (this is not required for deploying the dashboard).
    3. **Use IAM federated identities and Quick Sight-managed users**.
    4. Select the Region where to deploy the dashboard. We recommend using the same Region of your Amazon S3 bucket.
    5. Add a username and an e-mail where you’ll receive notifications about failed Quick Sight datasets updates.
@@ -58,7 +60,8 @@ If your Log Archive bucket is SSE-KMS encrypted, and you do not provide the ARN 
 
 ### Account Names
 
-If you deployed other CUDOS dashboards, the dashboard will display account names.
+If you deployed other CUDOS dashboards, the dashboard will display account names. If you deploy the AWS Organization Data Collection Module of [CID Data Collection](data-collection.md "data-collection.md"), the dashboard supports your organizational taxonomy (account names, OUs and OU tags).
+The latter is the recommended way to extend the dashboard with account names and organization metadata, make sure the setup of CID Data Collection is complete prior to deploy the dashboard, and that you install the dashboard and the CID Data collection module in the same account and Region.
 
 ## Before you start
 
@@ -133,7 +136,7 @@ Here’s how you can use the AWS CLI to modify the existing settings and schedul
 }
 ```
 
-1. Verify the S3 bucket in `s3BucketName` is the name of your Log Archive bucket.
+1. Verify the S3 bucket in `s3BucketName` is the name of your AWS Config Logs bucket.
 2. Edit the file to add the `configSnapshotDeliveryProperties` section:
 
 ```
@@ -164,7 +167,7 @@ Ensure this is done consistently in every account and Region.
 
 ###### Note
 
-Data transfer costs will incur when Amazon Athena queries an Amazon S3 bucket across Regions.
+You will incur data transfer costs when Amazon Athena queries an Amazon S3 bucket across Regions.
 
 To avoid cross-region data transfer, Amazon Quick Sight and the Amazon S3 bucket containing AWS Config files must be deployed in the same Region.
 
@@ -172,32 +175,33 @@ To avoid cross-region data transfer, Amazon Quick Sight and the Amazon S3 bucket
 - If you have deployed both resources in different Regions, we strongly recommend making changes so that both are in the same Region.
 - Once you have decided on the Region, deploy AWS resources supporting the dashboard (via CloudFormation) in the same Region.
 
+The dashboards support organizational taxonomy and will allow you to add filters based on the Organizational Unit or on tags that you apply on the AWS Organizations Console from the payer account. In order to leverage this data, you must install the AWS Organization Data Collection Module of [CID Data Collection](data-collection.md "data-collection.md"). The data collection account and Region must be the same account and Region where you deploy the dashboard resources.
+
 ### Tag Compliance: naming convention on the AWS Config rule
 
-This part of the dashboard visualizes the evaluation results of AWS Config Managed Rule [required-tags](../../../config/latest/developerguide/required-tags.md "../../../config/latest/developerguide/required-tags.md"). You can deploy this rule to find resources in your accounts that were not launched with your desired tag configurations by specifying which resource types should have tags and the expected value for each tag. The rule can be deployed multiple times in AWS Config. To display data on the dashboard, the rules must have a name that starts with `required-tags`, `required-tag`, `requiredtags` or `requiredtag` (this is case insensitive).
+This part of the dashboard visualizes the evaluation results of AWS Config Managed Rule [required-tags](../../../config/latest/developerguide/required-tags.md "../../../config/latest/developerguide/required-tags.md"), or one of the several [rules](../../../config/latest/developerguide/managed-rules-by-aws-config.md "../../../config/latest/developerguide/managed-rules-by-aws-config.md") ending with `-tagged`. You can deploy these rules to find resources in your accounts that were not launched with your desired tag configurations. The rules can be deployed multiple times in AWS Config. To display data on the dashboard, make sure your tag rules' name contains either `required-tags`, `required-tag`, `requiredtags`, `requiredtag` or `tagged` (this is case insensitive).
 
 ### Deployment architecture
 
-The most important decision is whether to deploy the dashboard on a dedicated Dashboard account or directly into the Log Archive account. These are the implications of each architecture.
+The most important decision is whether to deploy the dashboard on a dedicated Dashboard account or directly into the AWS Config account. These are the implications of each architecture.
 
-#### Log Archive account architecture
+#### AWS Config account architecture
 
-| Pros                                                                    | Cons                                                                                                                                                                                                                                        |
-| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Keep your logs secure in the Log Archive account.                       | Your security team must deploy and maintain the AWS Config Dashboard resources, including user access to Quick Sight. Alternatively, you have to share access to the Log Archive account with other teams that will manage these resources. |
-| Avoid cost for data transfer and storing data on the Dashboard account. | The CRCD Dashboard adds complexity in user management if you already have Quick Sight dashboards deployed in the Log Archive account.                                                                                                       |
-|                                                                         | If you already have S3 object notification configured on your Config bucket, a part of the deployment process must be done manually.                                                                                                        |
+| Pros                                                                    | Cons                                                                                                                                                                                                                            |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Keep your logs secure in the AWS Config account.                        | Your security team must deploy and maintain the AWS Config Dashboard resources, including user access to Quick Sight. Alternatively, you have to share access to the account with other teams that will manage these resources. |
+| Avoid cost for data transfer and storing data on the Dashboard account. | If you already have S3 object notification configured on your AWS Config Logs bucket, a part of the deployment process must be done manually.                                                                                   |
 
 #### Dashboard account architecture
 
-| Pros                                                                                                                             | Cons                                                                                                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Allow your DevOps or Platform teams independence in installing and maintaining the dashboard, as well as regulating user access. | Your security data will be copied to another AWS account.                                                                                                                                           |
-| A limited number of resources must be deployed on Log Archive account.                                                           | Control Tower default installations may collect AWS Config and AWS CloudTrail on the same bucket. This means that all your security logs will be replicated to another account.                     |
-|                                                                                                                                  | You will incur costs for the replication and storing a copy of your data on another Amazon S3 bucket. Cloud Trail logs will increase those costs needlessly, as they are not used by the dashboard. |
-|                                                                                                                                  | If you already have S3 replication configured on your Log Archive bucket, a part of the deployment process must be done manually.                                                                   |
+| Pros                                                                                                                             | Cons                                                                                                                                                                                               |
+| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Allow your DevOps or Platform teams independence in installing and maintaining the dashboard, as well as regulating user access. | Your security data will be copied to another AWS account.                                                                                                                                          |
+| A limited number of resources must be deployed on AWS Config account.                                                            | Until v3.3 (included), AWS Control Tower collects AWS Config and AWS CloudTrail on the same bucket. This means that all your security logs will be replicated to another account.                  |
+|                                                                                                                                  | You will incur costs for the replication and storing a copy of your data on another Amazon S3 bucket. CloudTrail logs will increase those costs needlessly, as they are not used by the dashboard. |
+|                                                                                                                                  | If you already have S3 replication configured on your AWS Config Logs bucket, a part of the deployment process must be done manually.                                                              |
 
 ### Deployment instructions
 
-- Follow [these instructions](config-resource-log-archive.md "config-resource-log-archive.md") to deploy the dashboard in the **Log Archive** account, or in a standalone AWS account.
+- Follow [these instructions](config-resource-log-archive.md "config-resource-log-archive.md") to deploy the dashboard in the **AWS Config** account, or in a standalone AWS account.
 - Follow [these instructions](config-resource-dashboard-account.md "config-resource-dashboard-account.md") to deploy the dashboard in the **Dashboard** account.
