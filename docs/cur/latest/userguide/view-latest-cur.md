@@ -32,7 +32,7 @@ files.
    format).
 9. Open the **`example-report-name`-Manifest.json**
    file.
-10. At the top of the manifest file, note the **assemblyId**. The
+10. In the manifest file, note the **assemblyId**. The
     **assemblyId** value corresponds to the name of the folder with the
     latest report files.
 11. Return to the Amazon S3 console page where you’re viewing the folder named with the latest

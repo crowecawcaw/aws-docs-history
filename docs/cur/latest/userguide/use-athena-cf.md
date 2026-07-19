@@ -54,7 +54,7 @@ do the following:
 13. For **Stack name**, enter a name for your template and choose
     **Next**.
 14. Choose **Next**.
-15. At the bottom of the page, select **I acknowledge that AWS CloudFormation might create
+15. Select **I acknowledge that AWS CloudFormation might create
     IAM resources.**
 
 This template creates the following resources:
@@ -93,6 +93,6 @@ This template creates the following resources:
 13. On the **Specify stack details** page, modify any details, and then
     choose **Next**.
 14. Choose **Next**.
-15. At the bottom of the page, select **I acknowledge that AWS CloudFormation might create
+15. Select **I acknowledge that AWS CloudFormation might create
     IAM resources.**
 16. Choose **Update stack**.

@@ -27,7 +27,7 @@ The legacy AWS Cost and Usage Report page supports reports only for billing grou
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, under **Legacy Pages**, choose
    **Cost and Usage Reports**.
-3. On the top right of the **Report table**, choose **Settings**.
+3. In the **Report table**, choose **Settings**.
 4. Turn on the **Pro forma** data view.
 5. Choose **Enable**.
 6. Choose **Create report**.

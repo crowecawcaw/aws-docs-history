@@ -8,7 +8,7 @@ tags.
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, choose **Data Exports**.
 3. From your list of exports, choose the name of the export that you want to edit.
-4. In the **Tags** section at the bottom of the page, choose
+4. In the **Tags** section, choose
    **Manage tags**.
 5. On the **Manage tags** page, do the following:
 

@@ -220,7 +220,7 @@ Export refresh status folder:
 7. Choose **Next**.
 8. For **Stack name**, enter a name for your template and choose
    **Next**.
-9. At the bottom of the page, select **I acknowledge that AWS CloudFormation
+9. Select **I acknowledge that AWS CloudFormation
    might create IAM resources.**
 10. Choose **Next**, then choose **Submit**.
 
@@ -244,7 +244,7 @@ Export refresh status folder:
 10. Choose **Next**.
 11. On the **Specify stack details** page, modify any details, then
     choose **Next**.
-12. At the bottom of the page, select **I acknowledge that AWS CloudFormation
+12. Select **I acknowledge that AWS CloudFormation
     might create IAM resources.**
 13. Choose **Next**, then choose **Submit**.
 

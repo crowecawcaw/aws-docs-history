@@ -96,8 +96,7 @@ different table configurations to add data to your export.
      export** in Cost Optimization Hub.
 
 7. For **Column selection**, select the columns you want to include in
-your export. If unsure, select all columns by selecting the first check box at the top of
-the table. Selecting more columns may increase the file size of your export. 8. Under **Data table delivery options**, for **Data export
+your export. If unsure, select all columns by selecting the first check box in the table header. Selecting more columns might increase the file size of your export. 8. Under **Data table delivery options**, for **Data export
 refresh cadence**: .
 
     * For billing and cost management data exports, the only option available is
