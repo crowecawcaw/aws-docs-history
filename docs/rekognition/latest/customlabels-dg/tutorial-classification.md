@@ -306,7 +306,7 @@ model is running. If you have finished using the model, you should stop it.
 ![Stop button to halt the currently running model and disable inference units.](images/get-started-stop-model.jpg) 2. In the **Stop model** dialog box, enter
 **stop** to confirm that you want to stop the model.
 
-![Input field with "stop" entered, and Stop button to confirm stopping a model.](images/get-started-stop-model-dialog.jpg) 3. Choose **Stop** to stop your model. The model has stopped
+![Input field with "stop" entered, and Stop button to confirm stopping a model.](/images/rekognition/latest/customlabels-dg/images/get-started-stop-model-dialog.jpg) 3. Choose **Stop** to stop your model. The model has stopped
 when the status in the **Start or stop model** section is
 **Stopped**.
 

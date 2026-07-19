@@ -39,7 +39,7 @@ In this step, you use the console to access the training results in the console.
    6 labels with test results and performance metrics. Details on using the trained
    model are also provided.
 
-![Model evaluation summary showing F1 score, average precision, and overall recall.](images/get-started-training-results.jpg) 9. After viewing the test results, choose the project name to return to the model page.
+![Model evaluation summary showing F1 score, average precision, and overall recall.](/images/rekognition/latest/customlabels-dg/images/get-started-training-results.jpg) 9. After viewing the test results, choose the project name to return to the model page.
 The test results page shows images with predicted labels and confidence scores for a
 machine learning model trained on backyard and front yard image categories.
 Two example images are displayed.
