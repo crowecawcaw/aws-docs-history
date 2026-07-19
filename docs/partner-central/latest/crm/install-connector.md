@@ -17,7 +17,7 @@ The following steps explain how to install the CRM connector in a Salesforce org
 
 To complete these steps, you must have the following:
 
-- An Enterprise, Professional, or Unlimited edition of Salesforce.
+- An Enterprise or Unlimited edition of Salesforce.
 - Administrative access to your Salesforce organization.
 
 ###### To install a new version
