@@ -26,7 +26,7 @@ Infrastructure Composer can be used from the Infrastructure Composer console, th
 
 Place cards on the Infrastructure Composer canvas to visualize and build your application architecture.
 
-![The Infrastructure Composer canvas with an unconnected API Gateway API, Lambda function, and DynamoDB table.](images/aac_ref_05.gif)
+![The Infrastructure Composer canvas with an unconnected API Gateway API, Lambda function, and DynamoDB table.](/images/infrastructure-composer/latest/dg/images/aac_ref_05.gif)
 
 **Connect cards together**
 
