@@ -33,7 +33,7 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **Load Balancers**.
 3. Select the name of the load balancer to open its details page.
-4. On the **Listeners** tab, choose **Add listener**.
+4. On the **Listeners and rules** tab, choose **Add listener**.
 5. For **Protocol**, choose **TCP**,
    **UDP**, **TCP\_UDP**, **TLS**, **QUIC**,
    or **TCP\_QUIC**. Keep the default port or type a different port.

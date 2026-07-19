@@ -83,7 +83,7 @@ Console
    threshold** count, the load balancer takes the target
    out of service. If health checks consecutively exceed the
    **Healthy threshold** count, the load balancer
-   puts the target back in service. For more information, see .
+   puts the target back in service. For more information, see [Health checks for Network Load Balancer target groups](target-group-health-checks.md "target-group-health-checks.md").
 6. (Optional) To add a tag, expand **Tags**, choose
    **Add tag**, and enter a tag key and a tag value.
 7. Choose **Next**.

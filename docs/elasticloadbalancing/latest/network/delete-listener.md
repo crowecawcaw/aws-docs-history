@@ -17,7 +17,7 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **Load Balancers**.
 3. Select the check box for load balancer.
-4. On the **Listeners** tab, select the check box for the listener,
+4. On the **Listeners and rules** tab, select the check box for the listener,
    and then choose **Actions**, **Delete listener**.
 5. When prompted for confirmation, enter `confirm` and choose
    **Delete**.

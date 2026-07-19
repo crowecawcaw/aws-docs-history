@@ -4,6 +4,9 @@ You can update the listener protocol, listener port or the target group which re
 traffic from the forwarding action. The default action, also known as the default rule,
 forwards requests to the selected target group.
 
+To add, modify, or delete custom routing rules for the listener, see
+[Listener rules for your Network Load Balancer](create-rule.md "create-rule.md").
+
 If you change the protocol from TCP, UDP, or QUIC to TLS, you must specify a security policy
 and server certificate. If you change the protocol from TLS to TCP, UDP, or QUIC, the security
 policy and server certificate are removed.
@@ -28,7 +31,7 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **Load Balancers**.
 3. Choose the name of the load balancer to open its detail page.
-4. On the **Listeners** tab, choose the text in the
+4. On the **Listeners and rules** tab, choose the text in the
    **Protocol:Port** column to open the detail page for the
    listener.
 5. Choose **Actions**, **Edit listener**.

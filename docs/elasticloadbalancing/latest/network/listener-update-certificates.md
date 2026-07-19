@@ -25,7 +25,7 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. On the navigation pane, choose **Load Balancers**.
 3. Select the load balancer.
-4. On the **Listeners** tab, choose the text in the **Protocol:Port**
+4. On the **Listeners and rules** tab, choose the text in the **Protocol:Port**
    column to open the detail page for the listener.
 5. On the **Certificates** tab, choose **Change default**.
 6. Within the **ACM and IAM certificates** table, select a new default certificate.
@@ -85,7 +85,7 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **Load Balancers**.
 3. Choose the name of the load balancer to open its detail page.
-4. On the **Listeners** tab, choose the text in the
+4. On the **Listeners and rules** tab, choose the text in the
    **Protocol:Port** column to open the detail page for the
    listener.
 5. Choose the **Certificates** tab.
@@ -165,7 +165,7 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **Load Balancers**.
 3. Choose the name of the load balancer to open its detail page.
-4. On the **Listeners** tab, choose the text in the
+4. On the **Listeners and rules** tab, choose the text in the
    **Protocol:Port** column to open the detail page for the
    listener.
 5. On the **Certificates** tab, select the check boxes for
@@ -205,7 +205,7 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **Load Balancers**.
 3. Choose the name of the load balancer to open its detail page.
-4. On the **Listeners** tab, choose the text in the
+4. On the **Listeners and rules** tab, choose the text in the
    **Protocol:Port** column to open the detail page for the
    listener.
 5. Choose **Actions**, **Edit listener**.
@@ -261,7 +261,7 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **Load Balancers**.
 3. Choose the name of the load balancer to open its detail page.
-4. On the **Listeners** tab, choose the text in the
+4. On the **Listeners and rules** tab, choose the text in the
    **Protocol:Port** column to open the detail page for the
    listener.
 5. Choose **Actions**, **Edit listener**.

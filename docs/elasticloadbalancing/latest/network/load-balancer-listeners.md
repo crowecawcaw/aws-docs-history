@@ -11,12 +11,14 @@ routes requests to the targets that you register, such as EC2 instances.
 - [Listener configuration](#listener-configuration "#listener-configuration")
 - [Default actions](#default-actions "#default-actions")
 - [Listener attributes](#listener-attributes "#listener-attributes")
+- [Listener rules](#listener-rules "#listener-rules")
 - [Secure listeners](#secure-listeners "#secure-listeners")
 - [ALPN policies](#alpn-policies "#alpn-policies")
 - [Create a listener](create-listener.md "create-listener.md")
 - [Server certificates](tls-listener-certificates.md "tls-listener-certificates.md")
 - [Security policies](describe-ssl-policies.md "describe-ssl-policies.md")
 - [Update a listener](listener-update-rules.md "listener-update-rules.md")
+- [Listener rules](create-rule.md "create-rule.md")
 - [Update idle timeout](update-idle-timeout.md "update-idle-timeout.md")
 - [Update a TLS listener](listener-update-certificates.md "listener-update-certificates.md")
 - [Delete a listener](delete-listener.md "delete-listener.md")
@@ -118,6 +120,226 @@ The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds.
 The default is 350 seconds.
 
 For more information, see [Update idle timeout](update-idle-timeout.md "update-idle-timeout.md").
+
+## Listener rules
+
+The listener rules for your Network Load Balancer determine how it routes requests to targets.
+Each listener has a default action that forwards requests to a specified target group.
+You can add custom rules that evaluate conditions and route traffic to different
+target groups based on the source IP address type of incoming traffic. This enables
+you to route IPv4 and IPv6 traffic to separate target groups using a single
+dual-stack load balancer, eliminating the need for IPv4/IPv6 protocol translation
+and preserving end-to-end source IP connectivity.
+
+###### Rule basics
+
+- Each rule consists of the following components: a priority, actions,
+  and condition.
+- When you create a listener, you define the action for the default rule.
+  The default rule can't have conditions. If none of the conditions for any
+  other rules are met, the action for the default rule is performed.
+- Rules are evaluated in priority order, from the lowest value to the
+  highest value. The default rule is evaluated last. You can't change the
+  priority of the default rule.
+- Each rule must include exactly one `forward` action, which
+  routes requests to one or more target groups.
+- Listener rules are only available on dual-stack Network Load Balancers.
+
+###### Contents
+
+- [Rule conditions](#rule-conditions "#rule-conditions")
+- [Rule actions](#rule-actions "#rule-actions")
+- [Rule priority](#rule-priority "#rule-priority")
+- [Rule evaluation](#rule-evaluation "#rule-evaluation")
+- [Considerations](#listener-rules-considerations "#listener-rules-considerations")
+
+### Rule conditions
+
+Each rule condition has a type and configuration information. When the conditions
+for a rule are met, the rule's action is performed.
+
+The following is the supported condition type for Network Load Balancer listener rules:
+
+`source-ip`
+
+Route based on the IP address type of the source traffic. You specify
+an `IpAddressType` value of `ipv4` or
+`ipv6`. When the source IP version of an incoming request
+matches the condition, the rule action is performed.
+
+The following is an example of a source-ip condition:
+
+```
+{
+  "Field": "source-ip",
+  "SourceIpConfig": {
+    "IpAddressType": "ipv4"
+  }
+}
+```
+
+###### Note
+
+The `source-ip` condition for Network Load Balancers uses
+`IpAddressType` to match traffic by IP version (IPv4 or IPv6).
+This differs from the Application Load Balancer `source-ip` condition, which uses
+CIDR ranges to match specific source IP addresses.
+
+### Rule actions
+
+Each rule action has a type and configuration information. The following is the
+supported action type for Network Load Balancer listener rules:
+
+`forward`
+
+Forward requests to one or more specified target groups. If you
+specify multiple target groups for a `forward` action, you
+must specify a weight for each target group. Each target group weight
+is a value from 0 to 999. Requests that match a listener rule with
+weighted target groups are distributed to these target groups based
+on their weights. For example, if you specify two target groups, each
+with a weight of 10, each target group receives half the requests. If
+you specify two target groups, one with a weight of 10 and the other
+with a weight of 20, the target group with a weight of 20 receives
+twice as many requests as the other target group.
+
+The following is an example of a forward action that routes to a single target
+group:
+
+```
+{
+  "Type": "forward",
+  "TargetGroupArn": "arn:aws:elasticloadbalancing:`region`:`account-id`:targetgroup/`my-ipv4-tg`/`target-group-id`"
+}
+```
+
+The following is an example of a forward action that routes to two weighted target
+groups:
+
+```
+{
+  "Type": "forward",
+  "ForwardConfig": {
+    "TargetGroups": [
+      {
+        "TargetGroupArn": "arn:aws:elasticloadbalancing:`region`:`account-id`:targetgroup/`my-tg-1`/`target-group-id`",
+        "Weight": 70
+      },
+      {
+        "TargetGroupArn": "arn:aws:elasticloadbalancing:`region`:`account-id`:targetgroup/`my-tg-2`/`target-group-id`",
+        "Weight": 30
+      }
+    ]
+  }
+}
+```
+
+### Rule priority
+
+Each rule has a priority. Rules are evaluated in priority order, from the lowest
+value to the highest value. The default rule is evaluated last. You can change the
+priority of a non-default rule at any time using the
+[set-rule-priorities](../../../cli/latest/reference/elbv2/set-rule-priorities.md "../../../cli/latest/reference/elbv2/set-rule-priorities.md")
+command.
+
+Each rule must have a unique priority value. You cannot create multiple rules
+with the same priority. If multiple rules match the incoming traffic, the rule
+with the highest priority (lowest numeric value) takes precedence.
+
+### Rule evaluation
+
+When traffic arrives at the Network Load Balancer listener, rules are evaluated in the following
+order:
+
+1. Non-default rules are evaluated in priority order (lowest value
+   first).
+2. When the conditions for a rule are met, the rule's action is
+   performed.
+3. If no rule conditions are met, the default action is performed.
+
+If listener rules cover all traffic scenarios (both IPv4 and IPv6), the default
+action may never be used. However, a default action is always required.
+
+### Considerations
+
+Prerequisites
+
+Listener rules require a dual-stack Network Load Balancer. The VPC and subnets
+must have IPv6 CIDR blocks associated, and the subnet route tables
+must route IPv6 traffic.
+
+Rule evaluation and the default action
+
+Rules evaluate in priority order, where a lower priority number is
+evaluated first. Traffic that matches no rule falls through to the
+default action. Set the default action to the IP address family you
+want as the fallback.
+
+Protocols and target groups
+
+Listener rules apply to TCP, UDP, TCP\_UDP, and TLS listeners.
+A UDP listener on a dual-stack Network Load Balancer requires an IPv6 target group,
+so make sure the IPv6 target group exists before you split UDP
+traffic.
+
+Health checks
+
+Each target group health-checks its targets over its own IP
+address family. Confirm that target security groups allow health
+check traffic from the load balancer over both IPv4 and IPv6.
+
+Performance and availability
+
+A consolidated dual-stack Network Load Balancer carries the combined traffic
+of both IPv4 and IPv6 address families, potentially doubling the
+load compared to two individual Network Load Balancers. While one Network Load Balancer provides
+simplification, two separate Network Load Balancers provide natural fault isolation
+per address family. Evaluate your scale and availability requirements
+before consolidating.
+
+Compatibility with existing Network Load Balancer features
+
+Listener rules work alongside the existing Network Load Balancer feature set:
+connection draining (deregistration delay), target group stickiness
+(sticky sessions), cross-zone load balancing, client IP preservation
+(`preserve_client_ip`), and TLS termination on TLS
+listeners. Each target group maintains its own configuration.
+
+Source IP preservation
+
+When client and target IP versions match (enabled by listener
+rules), traffic flows directly without protocol translation,
+maintaining end-to-end source IP preservation. This requires
+`preserve_client_ip` to be enabled on the target
+group.
+
+Weighted target groups
+
+Listener rules support `ForwardConfig` with multiple
+weighted target groups, which is useful for canary rollouts or
+gradual migrations. Each target group takes a weight from 0 to 999,
+and a group with weight 0 receives no new connections.
+
+Relationship to Application Load Balancer listener rules
+
+Both Network Load Balancers and Application Load Balancers use a `source-ip` condition,
+but they match on different attributes. Application Load Balancer matches the source
+address against one or more CIDR blocks
+(`SourceIpConfig.Values`), while Network Load Balancer matches on the
+IP address type of the source connection
+(`SourceIpConfig.IpAddressType`). In short, Application Load Balancer routes
+by specific address range, and Network Load Balancer routes by IP version.
+
+Pricing and availability
+
+Listener rules are available in all AWS commercial Regions and
+the AWS GovCloud (US) Regions. There is no additional charge for
+the feature. You pay standard Network Load Balancer pricing for load balancer hours
+and LCUs. Consolidating separate IPv4 and IPv6 Network Load Balancers onto a single
+dual-stack Network Load Balancer removes the hours and LCU charges of the second
+load balancer.
+
+For more information, see [Listener rules for your Network Load Balancer](create-rule.md "create-rule.md").
 
 ## Secure listeners
 

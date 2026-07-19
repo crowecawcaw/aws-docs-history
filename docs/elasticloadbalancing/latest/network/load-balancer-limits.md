@@ -15,6 +15,7 @@ If the quota is not yet available in Service Quotas, submit a request for a [ser
 ###### Quotas
 
 - [Load balancer](#load-balancer-quotas "#load-balancer-quotas")
+- [Listener rules](#listener-rules-quotas "#listener-rules-quotas")
 - [Target groups](#target-group-quotas "#target-group-quotas")
 - [Load Balancer Capacity Units](#lcu-quotas "#lcu-quotas")
 
@@ -42,6 +43,15 @@ cross-zone load balancing is enabled.
 
 ³ If cross-zone load balancing is enabled, the maximum is 500 targets per load
 balancer, regardless of the number of Availability Zones.
+
+## Listener rules
+
+The following quotas are for listener rules.
+
+| Name                                   | Default | Adjustable |
+| -------------------------------------- | ------- | ---------- |
+| Rules per Network Load Balancer        | 100     | No         |
+| Target groups per listener rule action | 5       | No         |
 
 ## Target groups
 
