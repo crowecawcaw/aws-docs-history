@@ -19,8 +19,3 @@ JSON
 }`
 
 ```
-
-###### Note
-
-In addition to this IAM policy, the role used to create or update a plan with a manual approval execution block requires
-`iam:PassRole` permission for the manual approval role.

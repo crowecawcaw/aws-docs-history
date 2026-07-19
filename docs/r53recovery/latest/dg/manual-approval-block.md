@@ -9,9 +9,6 @@ To ensure that manual approval is required during plan execution, you input a ma
 approval step at a specific location in the workflow, and then configure the IAM role
 to specify who can approve the step.
 
-The IAM role used to create or update a plan with a manual approval execution block must have
-`iam:PassRole` permission for the manual approval role.
-
 ## Configuration
 
 To configure a manual approval execution block, enter the following values.
