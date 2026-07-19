@@ -7,7 +7,7 @@ handle capacity planning, or isolate container workloads for security.
 If you have the following requirements, we recommend you use Fargate instances:
 
 - Your jobs must start quickly, specifically less than 30 seconds.
-- The requirements of your jobs are 16 vCPUs or less, no GPUs, and 120 GiB of memory or
+- The requirements of your jobs are 32 vCPUs or less, no GPUs, and 244 GiB of memory or
   less.
   For more information, see [When to use Fargate](when-to-use-fargate.md "when-to-use-fargate.md").
 

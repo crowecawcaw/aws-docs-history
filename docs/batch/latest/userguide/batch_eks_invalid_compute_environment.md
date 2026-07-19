@@ -38,12 +38,13 @@ create or update a compute environment.
 
 AWS Batch on Amazon EKS currently supports the following Kubernetes versions:
 
+- `1.36`
+- `1.35`
 - `1.34`
 - `1.33`
 - `1.32`
 - `1.31`
 - `1.30`
-- `1.29`
 
 ## Instance profile doesn't exist
 

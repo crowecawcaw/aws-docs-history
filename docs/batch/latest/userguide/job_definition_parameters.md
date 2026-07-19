@@ -839,6 +839,7 @@ value.
 | 4 vCPU    | 8192-30720 MiB in 1024 MiB increments   |
 | 8 vCPU    | 16384-61440 MiB in 4096 MiB increments  |
 | 16 vCPU   | 32768-122880 MiB in 8192 MiB increments |
+| 32 vCPU   | 61440, 122880, and 249856 MiB           |
 
 type="VCPU"
 
@@ -850,7 +851,7 @@ several places. It must be specified for each node at least once.
 
 For jobs that run on Fargate resources, `value` must match one of the supported values and
 the `MEMORY` values must be one of the values that's supported for that VCPU value. The supported
-values are 0.25, 0.5, 1, 2, 4, 8, and 16.
+values are 0.25, 0.5, 1, 2, 4, 8, 16, and 32.
 
 The default for the Fargate On-Demand vCPU resource count quota is 6 vCPUs. For more information
 about Fargate quotas, see [AWS Fargate quotas](../../../general/latest/gr/ecs-service.md#service-quotas-fargate "../../../general/latest/gr/ecs-service.md#service-quotas-fargate") in the

@@ -18,8 +18,8 @@ the compute resource AMI that you choose must support ARM instances. Amazon ECS 
 Amazon ECS optimized Amazon Linux 2 AMI. For more information, see [Amazon ECS optimized Amazon Linux 2 AMI](../../../AmazonECS/latest/developerguide/ecs-optimized_AMI.md#ecs-optimized-ami-linux-variants.html "../../../AmazonECS/latest/developerguide/ecs-optimized_AMI.md#ecs-optimized-ami-linux-variants.html")
 in the _Amazon Elastic Container Service Developer Guide_.
 
-The Amazon ECS optimized Amazon Linux 2 AMI is the default AMI for compute resources in managed
-compute environments. The Amazon ECS optimized Amazon Linux 2 AMI is preconfigured and tested on AWS Batch by
+The Amazon ECS optimized AL2023 AMI is the default AMI for compute resources in managed
+compute environments. The Amazon ECS optimized AL2023 AMI is preconfigured and tested on AWS Batch by
 AWS engineers. It's a minimal AMI that you can get started with and to get your compute
 resources that are running on AWS quickly. For more information, see [Amazon ECS Optimized AMI](../../../AmazonECS/latest/developerguide/ecs-optimized_AMI.md "../../../AmazonECS/latest/developerguide/ecs-optimized_AMI.md") in the
 _Amazon Elastic Container Service Developer Guide_.

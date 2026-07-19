@@ -11,8 +11,8 @@ several factors, including container image size and number of jobs.
 
 However, we recommend that you use Amazon EC2 if your jobs require any of the following:
 
-- More than 16 vCPUs
-- More than 120 gibibytes (GiB) of memory
+- More than 32 vCPUs
+- More than 244 gibibytes (GiB) of memory
 - A GPU
 - A custom Amazon Machine Image (AMI)
 - Any of the [linuxParameters](job_definition_parameters.md#ContainerProperties-linuxParameters "job_definition_parameters.md#ContainerProperties-linuxParameters")

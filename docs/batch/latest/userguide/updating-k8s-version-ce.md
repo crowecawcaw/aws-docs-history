@@ -14,5 +14,5 @@ operation.
 `$` `aws batch update-compute-environment \
  --compute-environment `<compute-environment-name>` \
  --compute-resources \
- 'ec2Configuration=[{imageType=EKS_AL2023,imageKubernetesVersion=`1.35`}]'`
+ 'ec2Configuration=[{imageType=EKS_AL2023,imageKubernetesVersion=`1.36`}]'`
 ```
