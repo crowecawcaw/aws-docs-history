@@ -12,6 +12,7 @@ the destination you select.
 - [Configure destination settings for OpenSearch Serverless](#create-destination-opensearch-serverless "#create-destination-opensearch-serverless")
 - [Configure destination settings for HTTP Endpoint](#create-destination-http "#create-destination-http")
 - [Configure destination settings for Datadog](#create-destination-datadog "#create-destination-datadog")
+- [Configure destination settings for Grafana](#create-destination-grafana "#create-destination-grafana")
 - [Configure destination settings for Honeycomb](#create-destination-honeycomb "#create-destination-honeycomb")
 - [Configure destination settings for Coralogix](#create-destination-coralogix "#create-destination-coralogix")
 - [Configure destination settings for Dynatrace](#create-destination-dynatrace "#create-destination-dynatrace")
@@ -818,6 +819,94 @@ destinations.
 Amazon Data Firehose buffers incoming data before delivering it
 to the specified destination. The recommended buffer size for the
 destination varies from service provider to service provider.
+
+## Configure destination settings for Grafana
+
+This section describes options for using **Grafana** for your
+destination.
+
+For more information, see Firehose connection documentation on the [Grafana website](https://grafana.com/docs/grafana-cloud/monitor-infrastructure/monitor-cloud-provider/aws/logs/firehose-logs/ "https://grafana.com/docs/grafana-cloud/monitor-infrastructure/monitor-cloud-provider/aws/logs/firehose-logs/").
+
+- Choose options to use Grafana as the destination for your Firehose stream.
+
+**Ingestion type**
+
+Choose to deliver **Metrics** or **Logs** (default) in Grafana for further analysis and processing.
+
+**HTTP endpoint URL**
+
+Specify the URL for the HTTP endpoint in the following
+format.
+
+```
+https://aws-metric-streams-{MIMIR_CELL_ID}.grafana.net/aws-metrics/api/v1/push
+```
+
+**Authentication**
+
+You can either choose to enter the API key directly or retrieve
+the secret from AWS Secrets Manager to access Grafana.
+
+    + **API key**
+
+
+
+    Contact Grafana to obtain the API key that you need to
+     enable data delivery to this endpoint from Firehose.
+    + **Secret**
+
+
+    Select a secret from AWS Secrets Manager that contains the API token
+     for Grafana. If you do not see your secret in the
+     drop-down list, create one in AWS Secrets Manager. For more
+     information, see [Authenticate with AWS Secrets Manager in Amazon Data Firehose](using-secrets-manager.md "using-secrets-manager.md").
+
+**Content encoding**
+
+Choose whether you want to enable content encoding to compress
+body of the request. Amazon Data Firehose uses content encoding to compress the
+body of a request before sending it to the destination. When
+enabled, the content is compressed in the **GZIP**
+format.
+
+**Retry duration**
+
+Specify how long Firehose retries sending data to the selected HTTP
+endpoint.
+
+After sending data, Firehose first waits for an acknowledgment from
+the HTTP endpoint. If an error occurs or the acknowledgment doesn’t
+arrive within the acknowledgment timeout period, Firehose starts the
+retry duration counter. It keeps retrying until the retry duration
+expires. After that, Firehose considers it a data delivery failure and
+backs up the data to your Amazon S3 bucket.
+
+Every time that Firehose sends data to the HTTP endpoint, either
+during the initial attempt or after retrying, it restarts the
+acknowledgement timeout counter and waits for an acknowledgement
+from the HTTP endpoint.
+
+Even if the retry duration expires, Firehose still waits for the
+acknowledgment until it receives it or the acknowledgement timeout
+period is reached. If the acknowledgment times out, Firehose determines
+whether there's time left in the retry counter. If there is time
+left, it retries again and repeats the logic until it receives an
+acknowledgment or determines that the retry time has expired.
+
+If you don't want Firehose to retry sending data, set this value to 0.
+
+**Parameters - optional**
+
+Amazon Data Firehose includes these key-value pairs in each HTTP
+call. These parameters can help you identify and organize your
+destinations.
+
+**Buffering hints**
+
+Amazon Data Firehose buffers incoming data before delivering it to the
+specified destination. The buffer hints include the buffer size and
+interval for your streams. The recommended buffer size for the
+destination varies according to the service provider.
 
 ## Configure destination settings for Honeycomb
 
