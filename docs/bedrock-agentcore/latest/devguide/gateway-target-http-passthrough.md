@@ -76,7 +76,7 @@ The schema requirement depends on the protocol type:
 
 ## Creating an HTTP passthrough target
 
-The following examples create a passthrough target that routes to an A2A agent, an external MCP server, and an IAM-authenticated internal service.
+The following examples create a passthrough target that routes to different types of endpoints: an A2A agent, an external MCP server, an IAM-authenticated internal service, and an external API authenticated with an API key.
 
 ###### Example
 
@@ -121,6 +121,21 @@ agentcore add gateway-target \
   --schema s3://amzn-s3-demo-bucket/internal-service-schema.yaml \
   --signing-service execute-api \
   --signing-region us-west-2 \
+  --gateway MyGateway
+agentcore deploy
+```
+
+Route to an external API using an API key credential:
+
+```
+agentcore add gateway-target \
+  --name external-api \
+  --type passthrough \
+  --passthrough-endpoint https://api.example.com \
+  --passthrough-protocol CUSTOM \
+  --outbound-auth api-key \
+  --credential-name my-api-key \
+  --credential-parameter-name x-api-key \
   --gateway MyGateway
 agentcore deploy
 ```
@@ -208,6 +223,34 @@ aws bedrock-agentcore-control create-gateway-target --cli-input-json '{
 }'
 ```
 
+Route to an external API using an API key credential:
+
+```
+aws bedrock-agentcore-control create-gateway-target --cli-input-json '{
+    "gatewayIdentifier": "GATEWAY_ID",
+    "name": "external-api",
+    "targetConfiguration": {
+        "http": {
+            "passthrough": {
+                "endpoint": "https://api.example.com",
+                "protocolType": "CUSTOM"
+            }
+        }
+    },
+    "credentialProviderConfigurations": [
+        {
+            "credentialProviderType": "API_KEY",
+            "credentialProvider": {
+                "apiKeyCredentialProvider": {
+                    "providerArn": "arn:aws:bedrock-agentcore:us-west-2:111122223333:token-vault/default/apikeycredentialprovider/my-api-key",
+                    "credentialParameterName": "x-api-key"
+                }
+            }
+        }
+    ]
+}'
+```
+
 ## Invoking an HTTP passthrough target
 
 To invoke an HTTP passthrough target through the gateway, send a request to the target using path-based routing. The URL format is:
@@ -255,3 +298,4 @@ HTTP passthrough targets support the following outbound authorization types:
 - **OAuth** (`OAUTH`) – The gateway retrieves OAuth tokens from credential providers configured in the target through the Amazon Bedrock AgentCore identity service.
 - **Caller IAM credentials** (`CALLER_IAM_CREDENTIALS`) – The gateway uses the IAM identity and permissions of the caller to sign requests to the target using SigV4. Only available for gateways with `AWS_IAM` or `AUTHENTICATE_ONLY` authorizer type.
 - **Token passthrough** (`JWT_PASSTHROUGH`) – The gateway validates the inbound token and passes it through to the target without modification.
+- **API key** (`API_KEY`) – The gateway retrieves an API key from a credential provider configured in the token vault and injects it into outbound requests as a specified request header.

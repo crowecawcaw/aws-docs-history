@@ -91,7 +91,7 @@ Interactive
 
 ![Gateway wizard: select NONE authorizer](images/tui/gateway-add-auth-none.png) 4. Configure advanced options or accept the defaults:
 
-![Gateway wizard: advanced configuration](images/tui/gateway-add-advanced.png) 5. Review the configuration and press **Enter** to confirm:
+![Gateway wizard: advanced configuration](/images/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png) 5. Review the configuration and press **Enter** to confirm:
 
 ![Gateway wizard: review configuration](images/tui/gateway-add-confirm.png)
 

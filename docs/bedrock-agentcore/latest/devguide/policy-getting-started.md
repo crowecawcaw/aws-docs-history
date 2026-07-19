@@ -82,7 +82,7 @@ Interactive
 1. Run `agentcore` to open the TUI, then select **add** and choose **Gateway** :
 2. Enter the gateway name:
 
-![Gateway wizard: enter name](images/tui/gateway-add-name.png) 3. Select the authorizer type. For this tutorial, choose **NONE** :
+![Gateway wizard: enter name](/images/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png) 3. Select the authorizer type. For this tutorial, choose **NONE** :
 
 ![Gateway wizard: select NONE authorizer](images/tui/gateway-add-auth-none.png) 4. Configure advanced options or accept the defaults:
 
@@ -120,7 +120,7 @@ Interactive
 
 
 
-![Gateway target wizard: select Lambda function](images/tui/gateway-target-type-lambda.png)
+![Gateway target wizard: select Lambda function](/images/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-lambda.png)
 4. Enter the Lambda ARN and tool schema file path, then confirm.
 
 

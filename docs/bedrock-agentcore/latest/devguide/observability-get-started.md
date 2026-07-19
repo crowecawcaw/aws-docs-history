@@ -187,6 +187,8 @@ export OTEL_PYTHON_CONFIGURATOR=aws_configurator # Sets AWS configurator for ADO
 export OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf # Configures export protocol
 export  OTEL_EXPORTER_OTLP_LOGS_HEADERS=x-aws-log-group=<YOUR-LOG-GROUP>,x-aws-log-stream=<YOUR-LOG-STREAM>,x-aws-metric-namespace=<YOUR-NAMESPACE>
 # Directs logs to CloudWatch groups
+export OTEL_EXPORTER_OTLP_TRACES_HEADERS=x-aws-log-group=<YOUR-LOG-GROUP>,x-aws-log-stream=<YOUR-TRACES-LOG-STREAM>
+# (Optional) Directs spans to your log group instead of the aws/spans log group. Requires ADOT version 0.18.0 or later.
 export OTEL_RESOURCE_ATTRIBUTES=service.name=<YOUR-AGENT-NAME> # Identifies your agent in observability data
 export OTEL_AWS_APPLICATION_SIGNALS_ENABLED=false # AWS Lambda Layer for OpenTelemetry only: disables Application Signals
 export OTEL_LOGS_EXPORTER=otlp # AWS Lambda Layer for OpenTelemetry only: exports logs over OTLP
@@ -194,6 +196,10 @@ export OTEL_METRICS_EXPORTER=awsemf # AWS Lambda Layer for OpenTelemetry only: e
 ```
 
 Replace `<YOUR-AGENT-NAME>` with a unique name to identify this agent in the GenAI Observability dashboard and logs.
+
+###### Note
+
+If you set `OTEL_EXPORTER_OTLP_TRACES_HEADERS` to deliver spans to your own log group, you must also add an Amazon CloudWatch Logs resource policy. The policy must allow X-Ray (`xray.amazonaws.com`) to call `logs:PutLogEvents` on that log group. Use the same policy shown in [Enable transaction search using an API](#enable-transaction-search-api "#enable-transaction-search-api"), with your log group’s ARN in `Resource`. Without this policy, X-Ray can’t deliver spans to your log group.
 
 ### Create an agent locally
 
@@ -292,7 +298,7 @@ After implementing observability, you can view the collected data in CloudWatch:
 
 1. Open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/")
 2. Select **Transaction Search** from the left navigation
-3. Location: `/aws/spans/default`
+3. Location: the `spans` log stream in the agent’s log group (`/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>`), or the `default` log stream in the `aws/spans` log group for agents that use the shared span destination
 4. Filter by service name or other criteria
 5. Select a trace to view the detailed execution graph
 

@@ -110,6 +110,11 @@ The following condition keys are especially useful when working with Amazon Bedr
 
 To view examples of AgentCore identity-based policies, see [Identity-based policy examples for Amazon Bedrock AgentCore](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
+For detailed information about condition keys for specific AgentCore capabilities, see the following topics:
+
+- [Use IAM condition keys with Amazon Bedrock AgentCore Gateway](security-gateway-condition-keys.md "security-gateway-condition-keys.md") – Condition keys for the `CreateGateway`, `UpdateGateway`, `CreateGatewayTarget`, and `UpdateGatewayTarget` API operations.
+- [Use IAM condition keys with AgentCore VPC settings](security-vpc-condition.md "security-vpc-condition.md") – VPC-related condition keys for AgentCore runtime, built-in tools, and gateway targets.
+
 ## ACLs in AgentCore
 
 **Supports ACLs:** No

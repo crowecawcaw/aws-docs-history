@@ -211,10 +211,11 @@ When a Payment Manager is created, the following permissions are attached to the
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "WorkloadIdentityCreation",
+            "Sid": "WorkloadIdentityManagement",
             "Effect": "Allow",
             "Action": [
-                "bedrock-agentcore:CreateWorkloadIdentity"
+                "bedrock-agentcore:CreateWorkloadIdentity",
+                "bedrock-agentcore:DeleteWorkloadIdentity"
             ],
             "Resource": [
                 "arn:aws:bedrock-agentcore:<region>:<account>:workload-identity-directory/default",

@@ -198,6 +198,10 @@ The Amazon Bedrock AgentCore direct deploy execution role is an IAM role that Am
     ]
   }, {
     "Effect": "Allow",
+    "Action": ["logs:PutResourcePolicy"],
+    "Resource": ["*"]
+  }, {
+    "Effect": "Allow",
     "Action": ["logs:DescribeLogGroups"],
     "Resource": ["arn:aws:logs:us-east-1:123456789012:log-group:*"]
   }, {
@@ -272,6 +276,11 @@ The AgentCore Runtime execution role is an IAM role that AgentCore Runtime assum
             "Resource": [
                 "arn:aws:logs:us-east-1:123456789012:log-group:/aws/bedrock-agentcore/runtimes/*"
             ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": ["logs:PutResourcePolicy"],
+            "Resource": ["*"]
         },
         {
             "Effect": "Allow",

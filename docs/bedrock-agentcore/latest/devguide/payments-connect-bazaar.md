@@ -92,6 +92,56 @@ with mcp_client:
     print(response)
 ```
 
-Once the Bazaar target is configured, your agents can discover and call paid x402 endpoints through the Gateway. When an endpoint returns HTTP 402, AgentCore payments handles the payment flow automatically if you have configured a payments plugin or PaymentManager in your agent. To learn more about payments plugin or PaymentManager, see [Process a payment](payments-process-payment.md "payments-process-payment.md").
+LangGraph
+Use the Coinbase x402 Bazaar Gateway Target with your LangGraph agent:
+
+```
+import asyncio
+from langchain.agents import create_agent
+from langchain_openai import ChatOpenAI
+from langchain_mcp_adapters.client import MultiServerMCPClient
+from bedrock_agentcore.payments.integrations.langgraph import (
+    AgentCorePaymentsConfig,
+    AgentCorePaymentsMiddleware,
+)
+
+GATEWAY_URL = "https://<your-gateway-id>.gateway.bedrock-agentcore.<region>.amazonaws.com/mcp"
+ACCESS_TOKEN = "<your-inbound-auth-token>"
+
+async def main():
+    client = MultiServerMCPClient({
+        "bazaar": {
+            "transport": "streamable_http",
+            "url": GATEWAY_URL,
+            "headers": {"Authorization": f"Bearer {ACCESS_TOKEN}"},
+        }
+    })
+    mcp_tools = await client.get_tools()
+
+    config = AgentCorePaymentsConfig(
+        payment_manager_arn="arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/pm-abc123",
+        user_id="test-user-123",
+        payment_instrument_id="payment-instrument-XJU4RSQP9VO0ler",
+        region="us-west-2",
+        auto_session=True,
+    )
+
+    payments = AgentCorePaymentsMiddleware(config)
+
+    agent = create_agent(
+        model=ChatOpenAI(model="gpt-4o-mini"),
+        tools=mcp_tools,
+        middleware=[payments],
+    )
+
+    result = await agent.ainvoke(
+        {"messages": [{"role": "user", "content": "Search for available x402 paid APIs related to weather data"}]}
+    )
+    print(result["messages"][-1].content)
+
+asyncio.run(main())
+```
+
+Once the Bazaar target is configured, your agents can discover and call paid x402 endpoints through the Gateway. When an endpoint returns HTTP 402, AgentCore payments handles the payment flow automatically if you have configured a payments plugin (Strands) or middleware (LangGraph) in your agent. To learn more, see [Framework integrations](payments-framework-integrations.md "payments-framework-integrations.md").
 
 To set up the Payment Manager and Connector required for processing payments, see [Create a Payment Manager and Connector](payments-create-manager.md "payments-create-manager.md").

@@ -8,6 +8,33 @@ You can automate the steps on this page with the AgentCore Payments skill in the
 
 ###### Example
 
+AgentCore SDK
+
+```
+from bedrock_agentcore.payments import PaymentManager
+
+manager = PaymentManager(
+    payment_manager_arn=mgr["paymentManagerArn"],
+    region_name="us-west-2"
+)
+
+# Create payment instrument (Ethereum)
+instrument = manager.create_payment_instrument(
+    user_id="test-user-123",
+    payment_connector_id=PAYMENT_CONNECTOR_ID,
+    payment_instrument_type="EMBEDDED_CRYPTO_WALLET",
+    payment_instrument_details={"embeddedCryptoWallet": {"network": "ETHEREUM",
+    "linkedAccounts": [{
+                "email": {
+                    "emailAddress": "myemail@example.com"
+                }
+            }]
+   }},
+)
+```
+
+For Solana compatible chain, use enum `SOLANA` for network input.
+
 AWS CLI
 
 ```
@@ -59,33 +86,6 @@ instrument = dp_client.create_payment_instrument(
 
 For Solana compatible chain, use enum `SOLANA` for network input.
 
-AgentCore SDK
-
-```
-from bedrock_agentcore.payments import PaymentManager
-
-manager = PaymentManager(
-    payment_manager_arn=mgr["paymentManagerArn"],
-    region_name="us-west-2"
-)
-
-# Create payment instrument (Ethereum)
-instrument = manager.create_payment_instrument(
-    user_id="test-user-123",
-    payment_connector_id=PAYMENT_CONNECTOR_ID,
-    payment_instrument_type="EMBEDDED_CRYPTO_WALLET",
-    payment_instrument_details={"embeddedCryptoWallet": {"network": "ETHEREUM",
-    "linkedAccounts": [{
-                "email": {
-                    "emailAddress": "myemail@example.com"
-                }
-            }]
-   }},
-)
-```
-
-For Solana compatible chain, use enum `SOLANA` for network input.
-
 ###### Note
 
 Once the payment instrument is created, the end user must fund the instrument and grant signing permissions before the agent can process payments. To learn more about funding your wallet, see [How AgentCore payments works](payments-how-it-works.md#payments-how-it-works-funding-wallet "payments-how-it-works.md#payments-how-it-works-funding-wallet").
@@ -93,6 +93,16 @@ Once the payment instrument is created, the end user must fund the instrument an
 ## Get a payment instrument
 
 ###### Example
+
+AgentCore SDK
+
+```
+instrument = manager.get_payment_instrument(
+    user_id="test-user-123",
+    payment_instrument_id="payment-instrument-abc123"
+)
+print(f"Status: {instrument['status']}")
+```
 
 AWS CLI
 
@@ -114,19 +124,19 @@ response = dp_client.get_payment_instrument(
 print(f"Status: {response['status']}, Network: {response['paymentInstrumentDetails']['embeddedCryptoWallet']['network']}")
 ```
 
-AgentCore SDK
-
-```
-instrument = manager.get_payment_instrument(
-    user_id="test-user-123",
-    payment_instrument_id="payment-instrument-abc123"
-)
-print(f"Status: {instrument['status']}")
-```
-
 ## List payment instruments
 
 ###### Example
+
+AgentCore SDK
+
+```
+instruments = manager.list_payment_instruments(
+    user_id="test-user-123"
+)
+for inst in instruments['paymentInstruments']:
+    print(f"{inst['paymentInstrumentId']} - {inst['status']}")
+```
 
 AWS CLI
 
@@ -148,19 +158,19 @@ for inst in response['paymentInstruments']:
     print(f"{inst['paymentInstrumentId']} - {inst['status']}")
 ```
 
-AgentCore SDK
-
-```
-instruments = manager.list_payment_instruments(
-    user_id="test-user-123"
-)
-for inst in instruments['paymentInstruments']:
-    print(f"{inst['paymentInstrumentId']} - {inst['status']}")
-```
-
 ## Check instrument balance
 
 ###### Example
+
+AgentCore SDK
+
+```
+balance = manager.get_payment_instrument_balance(
+    user_id="test-user-123",
+    payment_instrument_id="payment-instrument-abc123"
+)
+print(f"Balance: {balance['amount']} {balance['currency']}")
+```
 
 AWS CLI
 
@@ -181,19 +191,18 @@ response = dp_client.get_payment_instrument_balance(
 print(f"Balance: {response['amount']} {response['currency']}")
 ```
 
-AgentCore SDK
-
-```
-balance = manager.get_payment_instrument_balance(
-    user_id="test-user-123",
-    payment_instrument_id="payment-instrument-abc123"
-)
-print(f"Balance: {balance['amount']} {balance['currency']}")
-```
-
 ## Delete a payment instrument
 
 ###### Example
+
+AgentCore SDK
+
+```
+manager.delete_payment_instrument(
+    user_id="test-user-123",
+    payment_instrument_id="payment-instrument-abc123"
+)
+```
 
 AWS CLI
 
@@ -210,14 +219,5 @@ AWS SDK
 dp_client.delete_payment_instrument(
     paymentManagerArn=PAYMENT_MANAGER_ARN,
     paymentInstrumentId="payment-instrument-abc123"
-)
-```
-
-AgentCore SDK
-
-```
-manager.delete_payment_instrument(
-    user_id="test-user-123",
-    payment_instrument_id="payment-instrument-abc123"
 )
 ```

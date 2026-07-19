@@ -55,7 +55,7 @@ To define guardrails in policy, you can either write policy as code or describe 
 ```
 suppressOutput (principal, action == AgentCore::Action::"<TARGET_NAME>_<METHOD>:<URI>", resource == AgentCore::Gateway::"<GATEWAY_ARN>")
 when guardrails {
-    BedrockGuardrails::ContentFilter(["HATE"],context.output.message)["HATE"]
+    BedrockGuardrails::ContentFilter(["HATE"],[context.output.message])["HATE"]
     .confidenceScore
     .greaterThan(decimal("0.2"))
 };
@@ -83,7 +83,7 @@ To create guardrails for use in authorization requests, use the `permit` and `fo
 
 ```
 forbid (principal, action == AgentCore::Action::"<TargetName>___POST:/invocations", resource) when guardrails {
-  BedrockGuardrails::PromptAttack(["PROMPT_INJECTION"], [context.input.prompt]).confidenceScore.greaterThan(decimal("0.6"))
+  BedrockGuardrails::PromptAttack(["PROMPT_INJECTION"], [context.input.prompt])["PROMPT_INJECTION"].confidenceScore.greaterThan(decimal("0.6"))
 };
 ```
 

@@ -50,7 +50,7 @@ AgentCore agent log groups have the following format:
 
 Traces provide visibility into request execution paths through your agent:
 
-- Location: `/aws/spans/default`
+- Location: the `spans` log stream in the agent’s log group (`/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>`), or the `default` log stream in the `aws/spans` log group for agents that use the shared span destination. For more information, see [Span destination for agents hosted in Amazon Bedrock AgentCore runtime](observability-configure.md#observability-configure-unified-traces "observability-configure.md#observability-configure-unified-traces").
 - Access via: CloudWatch Transaction Search console
 - Requirements: CloudWatch Transaction Search must be enabled
 

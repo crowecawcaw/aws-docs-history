@@ -30,17 +30,26 @@ AgentCore payments connects to external payment providers for cryptocurrency wal
 If you plan to use Coinbase CDP as your payment provider for developer-managed wallets, obtain the following credentials from the [Coinbase Developer Platform](https://docs.cdp.coinbase.com/api-reference/v2/authentication "https://docs.cdp.coinbase.com/api-reference/v2/authentication"). The [Coinbase AgentCore template on GitHub](https://github.com/coinbase/cdp-agentcore-template "https://github.com/coinbase/cdp-agentcore-template") provides a reference frontend for onramping funds and granting agent permissions.
 
 1. Create or log in to a Coinbase Developer Platform account and project.
-2. Generate an API key and Wallet secret (or reuse an existing one) and note the following values:
+2. Generate an API key and Wallet secret (or reuse an existing one):
 
-| Credential       | Description                                                                                                  |
-| ---------------- | ------------------------------------------------------------------------------------------------------------ |
-| `API Key ID`     | The public identifier for your CDP project                                                                   |
-| `API Key Secret` | The private secret used to sign API requests to the CDP control plane                                        |
-| `Wallet Secret`  | A specialized secret for cryptographic wallet operations such as deriving addresses and signing transactions |
+   1. Generate an **API Key** and note the following values:
 
-3. Under **Project** > **Wallet** > **Embedded Wallets** > **Policies**, enable **Delegated signing**.
+   | Credential       | Description                                                           |
+   | ---------------- | --------------------------------------------------------------------- |
+   | `API Key ID`     | The public identifier for your CDP project                            |
+   | `API Key Secret` | The private secret used to sign API requests to the CDP control plane |
 
-![Coinbase dashboard for API keys](images/payments/coinbase-keys.jpg)
+   ![Coinbase CDP API key generation](images/payments/coinbase-api-key.png) 2. Under Project > Wallets > Non-custodial Wallet > Security, generate a **Wallet secret** and note the following value:
+
+   | Credential      | Description                                                                                                  |
+   | --------------- | ------------------------------------------------------------------------------------------------------------ |
+   | `Wallet Secret` | A specialized secret for cryptographic wallet operations such as deriving addresses and signing transactions |
+
+   ![Coinbase CDP Wallet secret generation](images/payments/coinbase-wallet-secret.png)
+
+3. Under **Project** > **Wallets** > **Non-custodial Wallet** > **Security**, enable **Delegated signing**.
+
+![Coinbase dashboard for Delegation](images/payments/coinbase-delegation.png)
 
 ### Privy credentials
 

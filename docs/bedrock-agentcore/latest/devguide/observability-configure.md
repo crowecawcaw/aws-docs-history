@@ -102,6 +102,29 @@ To use the AWS CLI, run the following command.
 aws xray update-indexing-rule --name "Default" --rule '{"Probabilistic": {"DesiredSamplingPercentage": number}}'
 ```
 
+### Span destination for agents hosted in Amazon Bedrock AgentCore runtime
+
+###### Tip
+
+You can now consolidate all of an agent’s telemetry—spans, structured logs, and standard output—in a single log group for each agent.
+
+With AgentCore runtime, a capability of Amazon Bedrock AgentCore, you can configure an agent to deliver its spans to the same Amazon CloudWatch log group as the agent’s logs. With this configuration, spans go to the `spans` log stream in `/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>`, instead of the shared `aws/spans` log group. You can keep spans, structured logs, and standard output together in one per-agent log group, scope access control and encryption to an individual agent, and export telemetry from a single location.
+
+In supported AWS Regions, newly created agents use the agent’s log group as the default span destination. Agents created before a Region supports the unified span destination keep the shared `aws/spans` log group as their default.
+
+You can override the default for an individual agent with the `UNIFIED_TRACES_DESTINATION_ENABLED` environment variable on your agent runtime:
+
+- To opt in an existing agent that uses the shared `aws/spans` log group, set `UNIFIED_TRACES_DESTINATION_ENABLED=true`. AgentCore then delivers the agent’s spans to its own log group.
+- To opt out an agent that uses its own log group by default, set `UNIFIED_TRACES_DESTINATION_ENABLED=false`. AgentCore then delivers the agent’s spans to the shared `aws/spans` log group.
+
+For AgentCore to deliver spans to the agent’s log group, the following must be true:
+
+- Enable CloudWatch Transaction Search in your account and send trace segments to Amazon CloudWatch Logs. Without Transaction Search, AgentCore can’t deliver spans to the agent’s log group. For more information, see [Enabling CloudWatch Transaction Search](#observability-configure-builtin-cw "#observability-configure-builtin-cw").
+- Grant the `logs:PutResourcePolicy` action on the agent’s log group to the agent’s execution role. AgentCore uses this permission to allow AWS X-Ray to deliver spans to the log group. For more information, see [Execution role for running an agent in AgentCore runtime](runtime-permissions.md#runtime-permissions-execution "runtime-permissions.md#runtime-permissions-execution").
+- The agent uses ADOT version 0.18.0 or later (`aws-opentelemetry-distro>=0.18.0`). Earlier versions ignore the span destination configuration and deliver spans to the shared `aws/spans` log group.
+
+Changing the span destination doesn’t move existing span data. Spans that AgentCore already delivered remain in their original log group.
+
 ## Enabling observability in agent code for AgentCore-hosted agents
 
 In addition to the service-generated metrics, with AgentCore you can also gather span and trace data as well as custom metrics emitted from your agent code.
@@ -189,6 +212,7 @@ OTEL_PYTHON_DISTRO=aws_distro
 OTEL_PYTHON_CONFIGURATOR=aws_configurator # required for ADOT Python only
 OTEL_RESOURCE_ATTRIBUTES=service.name=<agent-name>,aws.log.group.names=/aws/bedrock-agentcore/runtimes/<agent-id>,cloud.resource_id=<AgentEndpointArn:AgentEndpointName> # endpoint is optional
 OTEL_EXPORTER_OTLP_LOGS_HEADERS=x-aws-log-group=/aws/bedrock-agentcore/runtimes/<agent-id>,x-aws-log-stream=runtime-logs,x-aws-metric-namespace=bedrock-agentcore
+OTEL_EXPORTER_OTLP_TRACES_HEADERS=x-aws-log-group=/aws/bedrock-agentcore/runtimes/<agent-id>,x-aws-log-stream=spans # (Optional) Directs spans to your log group instead of the aws/spans log group. Requires ADOT version 0.18.0 or later.
 OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
 OTEL_TRACES_EXPORTER=otlp
 OTEL_AWS_APPLICATION_SIGNALS_ENABLED=false # AWS Lambda Layer for OpenTelemetry only: disables Application Signals
@@ -200,7 +224,11 @@ Replace `<agent-name>` with your agent’s name and `<agent-id>` with a unique i
 
 ###### Note
 
-(Optional) For Agent Frameworks other than Strands, LangChain, CrewAI: You may need to add an additional SDK and code to send Generative AI semantic conventions telemetry and spans. CloudWatch AgentCore Observability supports use of the following instrumentation libraries in your agent framework: \* [OpenInference](https://github.com/Arize-ai/openinference "https://github.com/Arize-ai/openinference") \* [Openllmetry](https://github.com/traceloop/openllmetry "https://github.com/traceloop/openllmetry") \* [OpenLit](https://github.com/openlit/openlit "https://github.com/openlit/openlit") \* [Traceloop](https://www.traceloop.com/docs/introduction "https://www.traceloop.com/docs/introduction")
+If you set `OTEL_EXPORTER_OTLP_TRACES_HEADERS` to deliver spans to your own log group, you must also add an Amazon CloudWatch Logs resource policy. The policy must allow X-Ray (`xray.amazonaws.com`) to call `logs:PutLogEvents` on that log group. Use the same policy shown in [Enabling CloudWatch Transaction Search](#observability-configure-builtin-cw "#observability-configure-builtin-cw"), with your log group’s ARN in `Resource`. Without this policy, X-Ray can’t deliver spans to your log group.
+
+###### Note
+
+(Optional) For Agent Frameworks other than Strands, LangChain, and CrewAI: You might need to add an additional SDK and code to send Generative AI semantic conventions telemetry and spans. AgentCore Observability, a capability of Amazon Bedrock AgentCore, supports use of the following instrumentation libraries in your agent framework: \* [OpenInference](https://github.com/Arize-ai/openinference "https://github.com/Arize-ai/openinference") \* [Openllmetry](https://github.com/traceloop/openllmetry "https://github.com/traceloop/openllmetry") \* [OpenLit](https://github.com/openlit/openlit "https://github.com/openlit/openlit") \* [Traceloop](https://www.traceloop.com/docs/introduction "https://www.traceloop.com/docs/introduction")
 
 ### Session ID support
 
@@ -321,7 +349,7 @@ Runtime
 3. In the **Runtime agents** pane, select the agent for which you want to enable tracing.
 4. In the **Tracing** pane, choose **Edit** , toggle the widget to **Enable** , and then choose **Save**.
 
-Tracing will be enabled for the selected agent and spans will be available in the `aws/spans` log group.
+AgentCore enables tracing for the selected agent. Spans appear in the agent’s log group (`/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>`), or in the `aws/spans` log group for agents that use the shared span destination. For more information, see [Span destination for agents hosted in Amazon Bedrock AgentCore runtime](#observability-configure-unified-traces "#observability-configure-unified-traces").
 
 **To configure WorkloadIdentity tracing for runtime resources (console)** 5. Open the [Agents runtime](https://console.aws.amazon.com/bedrock-agentcore/agents "https://console.aws.amazon.com/bedrock-agentcore/agents") page in the AgentCore console. 6. In the **Runtime agents** pane, choose the **Identity** tab, and then select the agent for which you want to enable WorkloadIdentity tracing. 7. In the **Tracing** pane, choose **Edit** , toggle the widget to **Enable** , and then choose **Save**.
 

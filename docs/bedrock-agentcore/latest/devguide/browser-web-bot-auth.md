@@ -117,6 +117,7 @@ Amazon Bedrock AgentCore currently supports Web Bot Auth with the following bot 
 - **HUMAN Security**
 - **Akamai Technologies**
 - **DataDome**
+- **F5**
 
 Additional bot control vendors will be supported as partnerships are established. The authentication works transparently - once enabled, your agents can browse websites protected by these services with reduced friction.
 

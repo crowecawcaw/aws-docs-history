@@ -33,6 +33,7 @@ Start by making sure you have an IAM role with the managed policy [AmazonBedrock
 "Version": "2012-10-17",
     "Statement": [
         {
+            "Sid": "BedrockInvokeModel",
             "Effect": "Allow",
             "Action": [
                 "bedrock:InvokeModel",
@@ -47,6 +48,23 @@ Start by making sure you have an IAM role with the managed policy [AmazonBedrock
                     "aws:ResourceAccount": "123456789012"
                 }
             }
+        },
+        {
+            "Sid": "BedrockMantleInference",
+            "Effect": "Allow",
+            "Action": "bedrock-mantle:CreateInference",
+            "Resource": "arn:aws:bedrock-mantle:*:*:project/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceAccount": "123456789012"
+                }
+            }
+        },
+        {
+            "Sid": "BedrockMantleCallWithBearerToken",
+            "Effect": "Allow",
+            "Action": "bedrock-mantle:CallWithBearerToken",
+            "Resource": "*"
         }
     ]
 }

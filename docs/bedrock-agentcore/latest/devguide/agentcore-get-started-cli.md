@@ -123,7 +123,7 @@ First deploy takes a few minutes while CDK bootstraps your account. Subsequent d
 Preview what will change without deploying:
 
 ```
-agentcore deploy --plan
+agentcore deploy --dry-run
 ```
 
 Check status:

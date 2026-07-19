@@ -8,4 +8,4 @@ You can use Amazon Virtual Private Cloud (Amazon VPC) and AWS PrivateLink to cre
 - [Configure Amazon Bedrock AgentCore Gateway VPC Egress for Gateway Targets](gateway-vpc-egress.md "gateway-vpc-egress.md")
 - [Connect to private resources in your VPC using VPC Lattice](vpc-egress-private-endpoints.md "vpc-egress-private-endpoints.md")
 - [Configure Amazon Bedrock AgentCore Runtime and tools for VPC](agentcore-vpc.md "agentcore-vpc.md")
-- [Use IAM condition keys with AgentCore Runtime and built-in tools VPC settings](security-vpc-condition.md "security-vpc-condition.md")
+- [Use IAM condition keys with AgentCore VPC settings](security-vpc-condition.md "security-vpc-condition.md")

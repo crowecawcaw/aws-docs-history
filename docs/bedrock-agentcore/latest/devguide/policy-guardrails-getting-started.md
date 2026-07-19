@@ -130,7 +130,7 @@ Expected blocked result (`forbid` + `ACTIVE`):
 
 | Category               | Filters                                                                                                                                                                                                    | Description             |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| `contentFilter`        | `VIOLENCE`, `HATE`, `SEXUAL`, `MISCONDUCT`, `INSULT`                                                                                                                                                       | Content safety filters  |
+| `contentFilter`        | `VIOLENCE`, `HATE`, `SEXUAL`, `MISCONDUCT`, `INSULTS`                                                                                                                                                      | Content safety filters  |
 | `promptAttack`         | `JAILBREAK`, `PROMPT_INJECTION`, `PROMPT_LEAKAGE`                                                                                                                                                          | Prompt security filters |
 | `sensitiveInformation` | `ADDRESS`, `EMAIL`, `PHONE`, `CREDIT_DEBIT_CARD_NUMBER`, and [more](../../../bedrock/latest/userguide/guardrails-sensitive-filters.md "../../../bedrock/latest/userguide/guardrails-sensitive-filters.md") | PII detection           |
 

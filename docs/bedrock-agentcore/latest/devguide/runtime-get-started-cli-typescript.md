@@ -177,10 +177,10 @@ Interactive
 agentcore deploy
 ```
 
-To preview the deployment without making changes, use the `--plan` flag:
+To preview the deployment without making changes, use the `--dry-run` flag:
 
 ```
-agentcore deploy --plan
+agentcore deploy --dry-run
 ```
 
 The `agentcore deploy` command:

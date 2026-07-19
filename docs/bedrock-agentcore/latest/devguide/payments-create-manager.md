@@ -158,6 +158,151 @@ agentcore deploy
 
 Running `agentcore deploy` provisions IAM roles, stores credentials in AgentCore Identity, and creates the Payment Manager and Connector.
 
+AgentCore SDK
+The AgentCore SDK provides a convenience method `create_payment_manager_with_connector` that creates the Payment Manager, credential provider, and connector in a single call.
+
+**Coinbase CDP with IAM authorization:**
+
+```
+from bedrock_agentcore.payments import PaymentClient
+
+payment_client = PaymentClient(region_name="us-east-1")
+
+response = payment_client.create_payment_manager_with_connector(
+    payment_manager_name="MyPaymentManager",
+    payment_manager_description="Payment manager for my agent.",
+    authorizer_type="AWS_IAM",
+    role_arn="arn:aws:iam::123456789012:role/MyPaymentRole",
+    payment_connector_config={
+        "name": "CoinbaseConnector",
+        "description": "Coinbase CDP connector",
+        "payment_credential_provider_config": {
+            "name": "MyCoinbaseProvider",
+            "credential_provider_vendor": "CoinbaseCDP",
+            "credentials": {
+                "api_key_id": "your-api-key-id",
+                "api_key_secret": "your-api-key-secret",
+                "wallet_secret": "your-wallet-secret",
+            },
+        },
+    },
+    wait_for_ready=True,
+    max_wait=300,
+    poll_interval=5,
+)
+
+payment_manager = response.get("paymentManager", {})
+payment_connector = response.get("paymentConnector", {})
+credential_provider = response.get("credentialProvider", {})
+
+payment_manager_arn = payment_manager.get("paymentManagerArn")
+payment_connector_id = payment_connector.get("paymentConnectorId")
+
+print(f"Payment Manager ARN: {payment_manager_arn}")
+print(f"Connector ID: {payment_connector_id}")
+```
+
+**Coinbase CDP with JWT authorization:**
+
+```
+from bedrock_agentcore.payments.client import PaymentClient
+
+payment_client = PaymentClient(region_name="us-east-1")
+
+response = payment_client.create_payment_manager_with_connector(
+    payment_manager_name="CoinbasePaymentManagerJWT",
+    payment_manager_description="Coinbase Payment Manager (JWT auth)",
+    authorizer_type="CUSTOM_JWT",
+    role_arn="arn:aws:iam::123456789012:role/BedrockAgentCoreFullAccess",
+    payment_connector_config={
+        "name": "coinbase-connector-jwt",
+        "description": "Coinbase Connector (JWT)",
+        "payment_credential_provider_config": {
+            "name": "my-coinbase-provider-jwt",
+            "credential_provider_vendor": "CoinbaseCDP",
+            "credentials": {
+                "api_key_id": "your-api-key-id",
+                "api_key_secret": "your-api-key-secret",
+                "wallet_secret": "your-wallet-secret",
+            },
+        },
+    },
+    wait_for_ready=True,
+)
+
+manager_arn = response["paymentManager"]["paymentManagerArn"]
+connector_id = response["paymentConnector"]["paymentConnectorId"]
+provider_arn = response["credentialProvider"]["credentialProviderArn"]
+```
+
+**Stripe (Privy) with IAM authorization:**
+
+```
+from bedrock_agentcore.payments.client import PaymentClient
+
+payment_client = PaymentClient(region_name="us-east-1")
+
+response = payment_client.create_payment_manager_with_connector(
+    payment_manager_name="StripePaymentManager",
+    payment_manager_description="Stripe + Privy Payment Manager (IAM auth)",
+    authorizer_type="AWS_IAM",
+    role_arn="arn:aws:iam::123456789012:role/BedrockAgentCoreFullAccess",
+    payment_connector_config={
+        "name": "stripe-privy-connector",
+        "description": "Stripe + Privy Connector",
+        "payment_credential_provider_config": {
+            "name": "my-stripe-privy-provider",
+            "credential_provider_vendor": "StripePrivy",
+            "credentials": {
+                "app_id": "your-privy-app-id",
+                "app_secret": "your-privy-app-secret",
+                "authorization_private_key": "your-authorization-private-key",
+                "authorization_id": "your-authorization-id",
+            },
+        },
+    },
+    wait_for_ready=True,
+)
+
+manager_arn = response["paymentManager"]["paymentManagerArn"]
+connector_id = response["paymentConnector"]["paymentConnectorId"]
+provider_arn = response["credentialProvider"]["credentialProviderArn"]
+```
+
+**Stripe (Privy) with JWT authorization:**
+
+```
+from bedrock_agentcore.payments.client import PaymentClient
+
+payment_client = PaymentClient(region_name="us-east-1")
+
+response = payment_client.create_payment_manager_with_connector(
+    payment_manager_name="StripePaymentManagerJWT",
+    payment_manager_description="Stripe + Privy Payment Manager (JWT auth)",
+    authorizer_type="CUSTOM_JWT",
+    role_arn="arn:aws:iam::123456789012:role/BedrockAgentCoreFullAccess",
+    payment_connector_config={
+        "name": "stripe-privy-connector-jwt",
+        "description": "Stripe + Privy Connector (JWT)",
+        "payment_credential_provider_config": {
+            "name": "my-stripe-privy-provider-jwt",
+            "credential_provider_vendor": "StripePrivy",
+            "credentials": {
+                "app_id": "your-privy-app-id",
+                "app_secret": "your-privy-app-secret",
+                "authorization_private_key": "your-authorization-private-key",
+                "authorization_id": "your-authorization-id",
+            },
+        },
+    },
+    wait_for_ready=True,
+)
+
+manager_arn = response["paymentManager"]["paymentManagerArn"]
+connector_id = response["paymentConnector"]["paymentConnectorId"]
+provider_arn = response["credentialProvider"]["credentialProviderArn"]
+```
+
 AWS CLI
 Create a Payment Manager with IAM authorization:
 
@@ -358,151 +503,6 @@ payment_connector = client.create_payment_connector(
 )
 ```
 
-AgentCore SDK
-The AgentCore SDK provides a convenience method `create_payment_manager_with_connector` that creates the Payment Manager, credential provider, and connector in a single call.
-
-**Coinbase CDP with IAM authorization:**
-
-```
-from bedrock_agentcore.payments import PaymentClient
-
-payment_client = PaymentClient(region_name="us-east-1")
-
-response = payment_client.create_payment_manager_with_connector(
-    payment_manager_name="MyPaymentManager",
-    payment_manager_description="Payment manager for my agent.",
-    authorizer_type="AWS_IAM",
-    role_arn="arn:aws:iam::123456789012:role/MyPaymentRole",
-    payment_connector_config={
-        "name": "CoinbaseConnector",
-        "description": "Coinbase CDP connector",
-        "payment_credential_provider_config": {
-            "name": "MyCoinbaseProvider",
-            "credential_provider_vendor": "CoinbaseCDP",
-            "credentials": {
-                "api_key_id": "your-api-key-id",
-                "api_key_secret": "your-api-key-secret",
-                "wallet_secret": "your-wallet-secret",
-            },
-        },
-    },
-    wait_for_ready=True,
-    max_wait=300,
-    poll_interval=5,
-)
-
-payment_manager = response.get("paymentManager", {})
-payment_connector = response.get("paymentConnector", {})
-credential_provider = response.get("credentialProvider", {})
-
-payment_manager_arn = payment_manager.get("paymentManagerArn")
-payment_connector_id = payment_connector.get("paymentConnectorId")
-
-print(f"Payment Manager ARN: {payment_manager_arn}")
-print(f"Connector ID: {payment_connector_id}")
-```
-
-**Coinbase CDP with JWT authorization:**
-
-```
-from bedrock_agentcore.payments.client import PaymentClient
-
-payment_client = PaymentClient(region_name="us-east-1")
-
-response = payment_client.create_payment_manager_with_connector(
-    payment_manager_name="CoinbasePaymentManagerJWT",
-    payment_manager_description="Coinbase Payment Manager (JWT auth)",
-    authorizer_type="CUSTOM_JWT",
-    role_arn="arn:aws:iam::123456789012:role/BedrockAgentCoreFullAccess",
-    payment_connector_config={
-        "name": "coinbase-connector-jwt",
-        "description": "Coinbase Connector (JWT)",
-        "payment_credential_provider_config": {
-            "name": "my-coinbase-provider-jwt",
-            "credential_provider_vendor": "CoinbaseCDP",
-            "credentials": {
-                "api_key_id": "your-api-key-id",
-                "api_key_secret": "your-api-key-secret",
-                "wallet_secret": "your-wallet-secret",
-            },
-        },
-    },
-    wait_for_ready=True,
-)
-
-manager_arn = response["paymentManager"]["paymentManagerArn"]
-connector_id = response["paymentConnector"]["paymentConnectorId"]
-provider_arn = response["credentialProvider"]["credentialProviderArn"]
-```
-
-**Stripe (Privy) with IAM authorization:**
-
-```
-from bedrock_agentcore.payments.client import PaymentClient
-
-payment_client = PaymentClient(region_name="us-east-1")
-
-response = payment_client.create_payment_manager_with_connector(
-    payment_manager_name="StripePaymentManager",
-    payment_manager_description="Stripe + Privy Payment Manager (IAM auth)",
-    authorizer_type="AWS_IAM",
-    role_arn="arn:aws:iam::123456789012:role/BedrockAgentCoreFullAccess",
-    payment_connector_config={
-        "name": "stripe-privy-connector",
-        "description": "Stripe + Privy Connector",
-        "payment_credential_provider_config": {
-            "name": "my-stripe-privy-provider",
-            "credential_provider_vendor": "StripePrivy",
-            "credentials": {
-                "app_id": "your-privy-app-id",
-                "app_secret": "your-privy-app-secret",
-                "authorization_private_key": "your-authorization-private-key",
-                "authorization_id": "your-authorization-id",
-            },
-        },
-    },
-    wait_for_ready=True,
-)
-
-manager_arn = response["paymentManager"]["paymentManagerArn"]
-connector_id = response["paymentConnector"]["paymentConnectorId"]
-provider_arn = response["credentialProvider"]["credentialProviderArn"]
-```
-
-**Stripe (Privy) with JWT authorization:**
-
-```
-from bedrock_agentcore.payments.client import PaymentClient
-
-payment_client = PaymentClient(region_name="us-east-1")
-
-response = payment_client.create_payment_manager_with_connector(
-    payment_manager_name="StripePaymentManagerJWT",
-    payment_manager_description="Stripe + Privy Payment Manager (JWT auth)",
-    authorizer_type="CUSTOM_JWT",
-    role_arn="arn:aws:iam::123456789012:role/BedrockAgentCoreFullAccess",
-    payment_connector_config={
-        "name": "stripe-privy-connector-jwt",
-        "description": "Stripe + Privy Connector (JWT)",
-        "payment_credential_provider_config": {
-            "name": "my-stripe-privy-provider-jwt",
-            "credential_provider_vendor": "StripePrivy",
-            "credentials": {
-                "app_id": "your-privy-app-id",
-                "app_secret": "your-privy-app-secret",
-                "authorization_private_key": "your-authorization-private-key",
-                "authorization_id": "your-authorization-id",
-            },
-        },
-    },
-    wait_for_ready=True,
-)
-
-manager_arn = response["paymentManager"]["paymentManagerArn"]
-connector_id = response["paymentConnector"]["paymentConnectorId"]
-provider_arn = response["credentialProvider"]["credentialProviderArn"]
-```
-
 ## Lifecycle states
 
 After creation, the Payment Manager transitions through the following states:
@@ -525,6 +525,18 @@ AgentCore CLI
 agentcore status
 ```
 
+AgentCore SDK
+
+```
+from bedrock_agentcore.payments.client import PaymentClient
+
+payment_client = PaymentClient(region_name="us-east-1")
+response = payment_client.get_payment_manager(
+    payment_manager_id="<paymentManagerId>"
+)
+print(f"Status: {response['status']}")
+```
+
 AWS CLI
 
 ```
@@ -542,18 +554,6 @@ response = client.get_payment_manager(
 print(f"Status: {response['status']}")
 ```
 
-AgentCore SDK
-
-```
-from bedrock_agentcore.payments.client import PaymentClient
-
-payment_client = PaymentClient(region_name="us-east-1")
-response = payment_client.get_payment_manager(
-    payment_manager_id="<paymentManagerId>"
-)
-print(f"Status: {response['status']}")
-```
-
 ## List Payment Managers
 
 ###### Example
@@ -562,6 +562,17 @@ AgentCore CLI
 
 ```
 agentcore status
+```
+
+AgentCore SDK
+
+```
+from bedrock_agentcore.payments.client import PaymentClient
+
+payment_client = PaymentClient(region_name="us-east-1")
+response = payment_client.list_payment_managers()
+for pm in response['paymentManagers']:
+    print(f"{pm['name']} - {pm['status']}")
 ```
 
 AWS CLI
@@ -575,17 +586,6 @@ AWS SDK
 
 ```
 response = client.list_payment_managers()
-for pm in response['paymentManagers']:
-    print(f"{pm['name']} - {pm['status']}")
-```
-
-AgentCore SDK
-
-```
-from bedrock_agentcore.payments.client import PaymentClient
-
-payment_client = PaymentClient(region_name="us-east-1")
-response = payment_client.list_payment_managers()
 for pm in response['paymentManagers']:
     print(f"{pm['name']} - {pm['status']}")
 ```
@@ -604,6 +604,17 @@ agentcore deploy
 
 The `remove` commands update local configuration. The follow-up `deploy` tears down the payment infrastructure in your account.
 
+AgentCore SDK
+
+```
+from bedrock_agentcore.payments.client import PaymentClient
+
+payment_client = PaymentClient(region_name="us-east-1")
+payment_client.delete_payment_manager(
+    payment_manager_id="<paymentManagerId>"
+)
+```
+
 AWS CLI
 
 ```
@@ -617,17 +628,6 @@ AWS SDK
 ```
 client.delete_payment_manager(
     paymentManagerId="<paymentManagerId>"
-)
-```
-
-AgentCore SDK
-
-```
-from bedrock_agentcore.payments.client import PaymentClient
-
-payment_client = PaymentClient(region_name="us-east-1")
-payment_client.delete_payment_manager(
-    payment_manager_id="<paymentManagerId>"
 )
 ```
 

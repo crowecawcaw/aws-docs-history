@@ -8,6 +8,7 @@ AWS Identity and Access Management (IAM) is an AWS service that helps an adminis
 - [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
 - [How Amazon Bedrock AgentCore works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
+- [Use IAM condition keys with Amazon Bedrock AgentCore Gateway](security-gateway-condition-keys.md "security-gateway-condition-keys.md")
 - [Identity-based policy examples for Amazon Bedrock AgentCore](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
 - [AWS managed policies for Amazon Bedrock AgentCore](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [Using service-linked roles for Amazon Bedrock AgentCore](service-linked-roles.md "service-linked-roles.md")

@@ -115,7 +115,7 @@ Coinbase CDP
 
 1. Log in to the [Coinbase Developer Platform](https://docs.cdp.coinbase.com/api-reference/v2/authentication "https://docs.cdp.coinbase.com/api-reference/v2/authentication") and create or select a project.
 2. Generate an API key and note the **API Key ID**, **API Key Secret**, and **Wallet Secret**.
-3. Under **Project** > **Wallet** > **Embedded Wallets** > **Policies**, enable **Delegated signing**.
+3. Under **Project** > **Wallets** > **Non-custodial Wallet** > **Security**, enable **Delegated signing**.
 
 You will use these three values in the next step:
 

@@ -8,6 +8,24 @@ You can automate the steps on this page with the AgentCore Payments skill in the
 
 ###### Example
 
+AgentCore SDK
+
+```
+from bedrock_agentcore.payments import PaymentManager
+
+manager = PaymentManager(
+    payment_manager_arn=mgr["paymentManagerArn"],
+    region_name="us-west-2"
+)
+
+# Create payment session with payment limits
+session = manager.create_payment_session(
+    user_id="test-user-123",
+    limits={"maxSpendAmount": {"value": "100.00", "currency": "USD"}},
+    expiry_time_in_minutes=60
+)
+```
+
 AWS CLI
 
 ```
@@ -39,24 +57,6 @@ session = dp_client.create_payment_session(
 )
 ```
 
-AgentCore SDK
-
-```
-from bedrock_agentcore.payments import PaymentManager
-
-manager = PaymentManager(
-    payment_manager_arn=mgr["paymentManagerArn"],
-    region_name="us-west-2"
-)
-
-# Create payment session with payment limits
-session = manager.create_payment_session(
-    user_id="test-user-123",
-    limits={"maxSpendAmount": {"value": "100.00", "currency": "USD"}},
-    expiry_time_in_minutes=60
-)
-```
-
 ###### Tip
 
 If you use the AgentCore CLI (v0.19.0+), pass `--auto-session` to `agentcore invoke` to create or reuse a session with the default spend limit configured on your payment manager. This removes the need to create sessions manually for most workflows.
@@ -64,6 +64,16 @@ If you use the AgentCore CLI (v0.19.0+), pass `--auto-session` to `agentcore inv
 ## Get a payment session
 
 ###### Example
+
+AgentCore SDK
+
+```
+session = manager.get_payment_session(
+    user_id="test-user-123",
+    payment_session_id="payment-session-abc123"
+)
+print(f"Status: {session['status']}, Remaining: {session['remainingAmount']}")
+```
 
 AWS CLI
 
@@ -83,14 +93,4 @@ response = dp_client.get_payment_session(
 )
 print(f"Status: {response['status']}")
 print(f"Spent: {response['spentAmount']} / {response['limits']['maxSpendAmount']['value']}")
-```
-
-AgentCore SDK
-
-```
-session = manager.get_payment_session(
-    user_id="test-user-123",
-    payment_session_id="payment-session-abc123"
-)
-print(f"Status: {session['status']}, Remaining: {session['remainingAmount']}")
 ```

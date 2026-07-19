@@ -1,12 +1,16 @@
-# Use IAM condition keys with AgentCore Runtime and built-in tools VPC settings
+# Use IAM condition keys with AgentCore VPC settings
 
-Use AgentCore-specific condition keys for VPC settings to provide additional permission controls for your AgentCore Runtime and built-in tools. For example, require that all runtimes in your organization are connected to a VPC. Specify the subnets and security groups that AgentCore Runtime users can and cannot use.
+Use Amazon Bedrock AgentCore-specific condition keys for VPC settings to more precisely control permissions for your AgentCore resources. For example, require that all runtimes in your organization are connected to a VPC, or enforce that gateway targets deploy into approved subnets. Specify the subnets and security groups that users can and cannot use.
 
 AgentCore supports the following condition keys in IAM policies:
 
 - **bedrock-agentcore:subnets** – Allow or deny one or more subnets.
 - **bedrock-agentcore:securityGroups** – Allow or deny one or more security groups.
-  The AgentCore Control Plane API operations `CreateAgentRuntime` , `UpdateAgentRuntime` , `CreateCodeInterpreter` , and `CreateBrowser` support these condition keys. For more information about using condition keys in IAM policies, see [IAM JSON Policy Elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the IAM User Guide.
+  The following AgentCore Control Plane API operations support these condition keys:
+
+- **AgentCore runtime and built-in tools** – `CreateAgentRuntime`, `UpdateAgentRuntime`, `CreateCodeInterpreter`, and `CreateBrowser`
+- **AgentCore Gateway** – `CreateGatewayTarget` and `UpdateGatewayTarget` (when configuring a managed VPC resource for a target)
+  For more information about using condition keys in IAM policies, see [IAM JSON Policy Elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the IAM User Guide. For more information about Gateway condition keys, see [Use IAM condition keys with Amazon Bedrock AgentCore Gateway](security-gateway-condition-keys.md "security-gateway-condition-keys.md").
 
 ## Example policies with condition keys for VPC settings
 

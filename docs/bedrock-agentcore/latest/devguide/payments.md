@@ -38,7 +38,7 @@ Amazon Bedrock AgentCore payments provides the following capabilities to simplif
 
 ## Accessing AgentCore payments
 
-You can interact with AWS AgentCore payments by directly invoking the payments service’s public APIs via the AWS CLI, AWS SDKs and AgentCore SDK. You can also integrate with supported agent SDK frameworks like Strands Agents.
+You can interact with AWS AgentCore payments by directly invoking the payments service’s public APIs via the AWS CLI, AWS SDKs and AgentCore SDK. You can also integrate with supported agent SDK frameworks like Strands Agents and LangGraph.
 
 ## Related services
 
