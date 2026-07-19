@@ -7,7 +7,8 @@ remote device. By keeping all computations in a single, cohesive environment, em
 reduce memory requirements and decrease the number of circuit executions needed to achieve a target result.
 This can lead to substantial performance improvements, often by a factor of ten or more, as compared to
 traditional setups that rely on remote simulation.
-For more information about how embedded simulators enhance performance and enable streamlined hybrid jobs, refer to the [Run a hybrid job with Amazon Braket Hybrid Jobs](braket-jobs-works.md "braket-jobs-works.md") documentation page.
+For more information about how embedded simulators enhance performance and enable streamlined hybrid jobs,
+see [Run a hybrid job with Amazon Braket Hybrid Jobs](braket-jobs.md#braket-jobs-works "braket-jobs.md#braket-jobs-works").
 
 ## PennyLane's lightning simulators
 
