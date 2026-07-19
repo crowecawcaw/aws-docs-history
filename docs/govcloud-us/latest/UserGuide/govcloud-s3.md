@@ -27,6 +27,7 @@ The following differences apply to Amazon Simple Storage Service:
 - Amazon S3 Tables replication is not available.
 - Amazon S3 Metadata is not available.
 - Access points for directory buckets are not available.
+- AWS Generated Tags are not available in Amazon S3 Event Notifiations.
 - You cannot use S3 access points to access file data stored on Amazon FSx file systems.
 
 ## Documentation

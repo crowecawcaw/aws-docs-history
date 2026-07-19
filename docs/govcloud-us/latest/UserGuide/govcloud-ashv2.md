@@ -41,6 +41,10 @@ In the AWS GovCloud (US) Region the unused access analyzer runs in the us-gov-we
 
 The Network Scanning feature is not available in the AWS GovCloud (US) Region. For more information about Network Scanning in Security Hub see [Network Scanning in Security Hub](../../../securityhub/latest/userguide/securityhub-v2-network-scanning.md "../../../securityhub/latest/userguide/securityhub-v2-network-scanning.md") in the _AWS Security Hub User Guide_.
 
+**Account Coverage**
+
+The Account coverage page and widget do not include coverage details for how many accounts have Security Hub enabled in the AWS GovCloud (US) Region. For more information about account coverage in Security Hub see [Account coverage in Security Hub](../../../securityhub/latest/userguide/security-hub-account-coverage.md "../../../securityhub/latest/userguide/security-hub-account-coverage.md") in the _AWS Security Hub User Guide_.
+
 **AWS Security Hub CSPM and Amazon Inspector**
 
 Security Hub uses findings from AWS Security Hub CSPM (Cloud Security Posture Management) and Amazon Inspector. For information about the availability of these features in AWS GovCloud (US) Region, see the following:
