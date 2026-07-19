@@ -102,7 +102,7 @@ no one is logged in to the console.
 Amazon Linux 2023 uses the `update-alternatives` system to manage which binary provides `/usr/bin/X`.
 
 ```
-`$` update-alternatives --install /usr/bin/X xdcv /usr/bin/Xdcv-console 11
+`$` update-alternatives --install /usr/bin/X X /usr/bin/Xdcv-console 11
 `$` sudo update-alternatives --set X /usr/bin/Xdcv-console
 `$` sudo systemctl restart gdm
 ```
