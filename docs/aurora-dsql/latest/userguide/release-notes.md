@@ -15,7 +15,7 @@ TABLE operations** — Aurora DSQL now supports additional `ALTER TABLE`
 operations: `SET DEFAULT`, `DROP DEFAULT`, `DROP NOT
  NULL`, `DROP EXPRESSION`, `ADD GENERATED AS IDENTITY`, and
 `DROP CONSTRAINT`. These metadata DDL operations enable more flexible schema
-evolution without requiring table recreation. For more information, see [ALTER TABLE](sql-command-alter-table.md "sql-command-alter-table.md").
+evolution without requiring table recreation. For more information, see [ALTER TABLE](alter-table-syntax-support.md "alter-table-syntax-support.md").
 
 July 8, 2026
 

@@ -105,6 +105,7 @@ endpoint for each AWS Region.
 | Europe (Ireland)          | eu-west-1      | dsql.eu-west-1.api.aws                                      | HTTPS          |
 | Europe (London)           | eu-west-2      | dsql.eu-west-2.api.aws                                      | HTTPS          |
 | Europe (Paris)            | eu-west-3      | dsql.eu-west-3.api.aws                                      | HTTPS          |
+| Europe (Spain)            | eu-south-2     | dsql.eu-south-2.api.aws                                     | HTTPS          |
 | Europe (Stockholm)        | eu-north-1     | dsql.eu-north-1.api.aws                                     | HTTPS          |
 | South America (São Paulo) | sa-east-1      | dsql.sa-east-1.api.aws                                      | HTTPS          |
 
@@ -114,11 +115,13 @@ You can create Aurora DSQL multi-Region clusters within specific AWS Region sets
 set groups geographically related Regions that can work together in a multi-Region
 cluster.
 
-#### US Regions
+#### North American Regions
 
 - US East (N. Virginia)
 - US East (Ohio)
 - US West (Oregon)
+- Canada (Central)
+- Canada West (Calgary)
 
 #### Asia Pacific Regions
 
@@ -135,7 +138,7 @@ cluster.
 
 #### Important Limitations
 
-Multi-Region clusters must be created within a single Region set. For example, you can't create a cluster that includes both US East (N. Virginia) and Europe (Ireland) Regions.
+You must create multi-Region clusters within a single Region set. For example, if you include US East (N. Virginia) in a cluster, you can only add other Regions from the North American set.
 
 ###### Important
 
