@@ -33,7 +33,7 @@ Let us look at the steps in a traditional request/response cycle for comparison:
 
 This diagram represents a microservice that retrieves data from a database, for example, retrieving shopping cart items for a customer order.
 
-![Diagram of flow for a microservice with authentication. A client box with Web & Mobile labels, connects by an arrow to an API Gateway (HTTP) block. API Gateway block connects by an arrow with red diamond with text "Event" inside to a Lambda (compute) box. Lambda box is connected by a double ended arrow with an API label to a DynamoDB (Data) icon. Lambda box is also connected by an arrow with a different colored "event" diamond back to API Gateway. API Gateway connects through a lighter arrow back to the Client.](images/arch-serverless-essentials.png)
+![Diagram of flow for a microservice with authentication. A client box with Web & Mobile labels, connects by an arrow to an API Gateway (HTTP) block. API Gateway block connects by an arrow with red diamond with text "Event" inside to a Lambda (compute) box. Lambda box is connected by a double ended arrow with an API label to a DynamoDB (Data) icon. Lambda box is also connected by an arrow with a different colored "event" diamond back to API Gateway. API Gateway connects through a lighter arrow back to the Client.](/images/serverless/latest/devguide/images/arch-serverless-essentials.png)
 
 First, a web or mobile client makes an HTTP request to `GET /cart/`A1234B56`` for a list items in a cart.
 
