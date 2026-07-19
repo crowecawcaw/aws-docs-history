@@ -37,6 +37,10 @@ strategy by default.
 
 `execution.checkpointing.interval-during-backlog:`
 
+`execution.checkpointing.unaligned.during-recovery.enabled:`
+
+`execution.checkpointing.unaligned.recover-output-on-downstream.enabled:`
+
 ## RocksDB native metrics
 
 RocksDB Native Metrics are not shipped to CloudWatch. Once enabled, these metrics can be accessed either from the Flink dashboard or the

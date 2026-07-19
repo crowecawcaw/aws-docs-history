@@ -54,6 +54,12 @@ tuning, and restart strategies, see [Modifiable Flink configuration properties](
 
 `pipeline.watermark-alignment.allow-unaligned-source-splits`
 
+## Network
+
+`taskmanager.network.adaptive-partitioner.enabled`
+
+`taskmanager.network.adaptive-partitioner.max-traverse-size`
+
 ## Python API
 
 `python.execution-mode`

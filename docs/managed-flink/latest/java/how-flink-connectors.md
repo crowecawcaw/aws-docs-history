@@ -24,29 +24,38 @@ information, see [The Generic Asynchronous Base Sink](https://flink.apache.org/2
 
 To access the repository for Apache Flink AWS connectors, see [flink-connector-aws](https://github.com/apache/flink-connector-aws "https://github.com/apache/flink-connector-aws").
 
-## Connectors for Flink 2.2
+## Connectors for Flink 2.0+
 
-When upgrading to Flink 2.2, you need to update your connector dependencies to
+When upgrading to Flink 2.x, you need to update your connector dependencies to
 versions that are compatible with the Flink 2.x runtime. Flink connectors are released
 independently from the Flink runtime, and not all connectors have a Flink
 2.x-compatible release yet. The following table summarizes the availability of commonly
 used connectors in Amazon Managed Service for Apache Flink as of this writing:
 
-Connectors for Flink 2.2| Connector | Flink 2.0+ Version | Notes |
+Connectors for Flink 2.0+| Connector | Flink 2.2 Version | Flink 2.3 Version |
 | --- | --- | --- |
-| Apache Kafka | flink-connector-kafka 4.0.0-2.0 | Recommended for Flink 2.2 |
-| Kinesis Data Streams (source) | flink-connector-aws-kinesis-streams 6.0.0-2.0 | Recommended for Flink 2.2 |
-| Kinesis Data Streams (sink) | flink-connector-aws-kinesis-streams 6.0.0-2.0 | Recommended for Flink 2.2 |
-| FileSystem (S3, HDFS) | Bundled with Flink | Built into the Flink distribution — always available |
-| JDBC | Not yet released for 2.x | No Flink 2.x-compatible release available |
-| OpenSearch | Not yet released for 2.x | No Flink 2.x-compatible release available |
-| Elasticsearch | Not yet released for 2.x | Consider migrating to the OpenSearch connector |
-| Amazon Managed Service for Prometheus | Not yet released for 2.x | No Flink 2.x-compatible release at time of writing |
+| Apache Kafka | flink-connector-kafka 4.0.0-2.0 | flink-connector-kafka 4.0.0-2.0 |
+| Kinesis Data Streams (source) | flink-connector-aws-kinesis-streams 6.0.1-2.0 | flink-connector-aws-kinesis-streams 6.0.1-2.0 |
+| Kinesis Data Streams (sink) | flink-connector-aws-kinesis-streams 6.0.1-2.0 | flink-connector-aws-kinesis-streams 6.0.1-2.0 |
+| FileSystem (S3, HDFS) | Bundled with Flink | Bundled with Flink |
+| JDBC | flink-connector-jdbc-core 4.0.0-2.0 | flink-connector-jdbc-core 4.0.0-2.0 |
+| OpenSearch | Not yet released for 2.x | Not yet released for 2.x |
+| Elasticsearch | flink-connector-elasticsearch7 4.0.0-2.0 | flink-connector-elasticsearch7 4.0.0-2.0 |
+| Amazon Managed Service for Prometheus | Not yet released for 2.x | Not yet released for 2.x |
 
-If your application depends on a connector that does not yet have a Flink 2.2
+If your application depends on a connector that does not yet have a Flink 2.x
 release, you have two options: wait for the connector to release a compatible version,
 or evaluate whether you can replace it with an alternative (for example, using the JDBC
 catalog or a custom sink).
+
+###### Note
+
+Starting with version 4.0.0-2.0, the JDBC connector is modularized. The
+monolithic `flink-connector-jdbc` artifact is replaced by a core
+artifact (`flink-connector-jdbc-core`) and database-specific artifacts
+such as `flink-connector-jdbc-postgres` and
+`flink-connector-jdbc-mysql`. Update your Maven or Gradle dependencies
+accordingly when upgrading to Flink 2.x.
 
 **Known issues**
 

@@ -40,10 +40,10 @@ applications](how-creating-apps-beam.md "how-creating-apps-beam.md").
 When using Managed Service for Apache Flink Runtime version 1.1.0 and later, you specify the version of
 Apache Flink that your application uses when you compile your application. You
 provide the version of Apache Flink with the `-Dflink.version` parameter.
-For example, if you are using Apache Flink 2.2.0, provide the following:
+For example, if you are using Apache Flink 2.3.0, provide the following:
 
 ```
-mvn package -Dflink.version=2.2.0
+mvn package -Dflink.version=2.3.0
 ```
 
 For building applications with earlier versions of Apache Flink, see [Earlier versions](earlier.md "earlier.md").
