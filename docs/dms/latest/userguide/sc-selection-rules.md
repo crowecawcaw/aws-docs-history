@@ -204,6 +204,7 @@ SQL Server
 | `table-type-name`            | A table type.                                                                                                                                  |
 | `user-defined-type-name`     | A user-defined type.                                                                                                                           |
 | `xml-schema-collection-name` | An XML schema collection.                                                                                                                      |
+| `statement-name`             | A statement.                                                                                                                                   |
 | `category-name`              | An object class. Use to target an entire category of objects; see [Category names by engine](#dms-sc-category-names "#dms-sc-category-names"). |
 
 Oracle
@@ -327,6 +328,7 @@ The following category names apply to Microsoft SQL Server sources.
 | `Table types`                | Table-typed parameter declarations.      |
 | `User-Defined Types`         | Alias and CLR user-defined types.        |
 | `XML Schema Collections`     | XML schema collections.                  |
+| `Statements`                 | SQL statements.                          |
 
 Oracle
 The following category names apply to Oracle sources.

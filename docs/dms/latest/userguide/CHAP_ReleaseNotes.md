@@ -20,22 +20,31 @@ The following table shows the following dates for active DMS versions:
 
 - The version's release date
 - The date after which you can't create new instances with the version
-- The date when DMS automatically updates instances of that version (the EOL date)
+- The date when DMS automatically updates instances of that version (the end-of-life (EOL) date)
 
-| Version   | Release date | No new instance date | EOL date      |
-| --------- | ------------ | -------------------- | ------------- |
-| **3.6.1** | May 15, 2025 | Apr 30, 2027         | June 30, 2027 |
-| **3.6.0** | Dec 27, 2024 | Apr 27, 2026         | July 27, 2026 |
-| **3.5.4** | Nov 15, 2024 | Sep 15, 2026         | Nov 15, 2026  |
-| **3.5.3** | May 17, 2024 | Feb 28, 2026         | June 30, 2026 |
-| **3.5.2** | Oct 29, 2023 | Mar 30, 2025         | Apr 29, 2025  |
-| **3.5.1** | Jun 30, 2023 | Nov 30, 2024         | Mar 15, 2025  |
-| **3.4.7** | May 31, 2022 | Sep 30, 2024         | Oct 31, 2024  |
-| **3.4.6** | Nov 30, 2021 | Sep 30, 2024         | Oct 31, 2024  |
+| Version   | Release date      | No new instance date | EOL date         |
+| --------- | ----------------- | -------------------- | ---------------- |
+| **3.6.1** | May 15, 2025      | TBD                  | TBD              |
+| **3.6.0** | December 27, 2024 | April 27, 2026       | July 27, 2026    |
+| **3.5.4** | November 15, 2024 | January 31, 2027     | March 31, 2027   |
+| **3.5.3** | May 17, 2024      | February 28, 2026    | June 30, 2026    |
+| **3.5.2** | October 29, 2023  | March 30, 2025       | April 29, 2025   |
+| **3.5.1** | June 30, 2023     | November 30, 2024    | March 15, 2025   |
+| **3.4.7** | May 31, 2022      | September 30, 2024   | October 31, 2024 |
+| **3.4.6** | November 30, 2021 | September 30, 2024   | October 31, 2024 |
 
-###### Note
+###### AWS DMS 3.6.1 default engine and support timeline
 
-The AWS DMS Version 3.6.0 is currently available in Asia Pacific (Sydney):
+We will make AWS DMS version 3.6.1 the default engine version. We have not yet
+scheduled the no-new-instance date and end-of-life (EOL) date for version 3.6.1, so
+they appear as TBD in the preceding table. We update the table after we schedule these
+dates. To provide a migration window to version 3.6.1, we extended the support timeline
+for version 3.5.4. The no-new-instance date is now January 31, 2027, and the EOL date is
+March 31, 2027.
+
+###### AWS DMS 3.6.0 regional availability
+
+AWS DMS version 3.6.0 is currently available in Asia Pacific (Sydney):
 ap-southeast-2 region.
 
 ## AWS Database Migration Service 3.6.1 release notes

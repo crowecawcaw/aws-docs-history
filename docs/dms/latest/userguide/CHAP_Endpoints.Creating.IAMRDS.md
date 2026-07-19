@@ -171,11 +171,6 @@ or later.
 
 ## Limitations
 
-AWS DMS has following limitations when using IAM authentication with Amazon RDS
-endpoint:
-
-- Currently Amazon RDS PostgreSQL and Amazon Aurora PostgreSQL instances do
-  not support CDC connections with IAM authentication. For more
-  information, see [Limitations for IAM database authentication](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md#UsingWithRDS.IAMDBAuth.Limitations "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md#UsingWithRDS.IAMDBAuth.Limitations") in the
-  _Amazon Relational Database Service User
-  Guide_.
+For more information about IAM database authentication limitations for
+Amazon RDS databases, see [Limitations for IAM database authentication](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md#UsingWithRDS.IAMDBAuth.Limitations "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md#UsingWithRDS.IAMDBAuth.Limitations") in the _Amazon Relational Database Service User
+Guide_.

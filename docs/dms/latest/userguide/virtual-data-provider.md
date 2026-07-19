@@ -10,7 +10,7 @@ in schema conversion. **Virtual Mode** supports two use cases:
 
 You can evaluate compatibility, convert and review schema code, and test different target options before provisioning target infrastructure.
 **Virtual Mode** is available for all supported target databases.
-To get the list of supported target databases, see [Targets for AWS DMS Schema Conversion](CHAP_Introduction.Targets.SchemaConversion.md "CHAP_Introduction.Targets.SchemaConversion.md").
+For more information about supported target databases, see [Creating and setting target data providers in DMS Schema Conversion](data-providers-target.md "data-providers-target.md").
 
 ## Create a data provider in Virtual Mode
 
@@ -59,7 +59,7 @@ You can export database objects using SQL Server Management Studio (SSMS) or SQL
 DDL scripts requirements
 
 - Each database object is stored as a separate `.sql` file with Unicode encoding.
-- Organize exported script files into one subdirectory per database. Include a file with a `CREATE DATABASE` statement in each subdirectory.
+- Include a separate `.sql` file with a `CREATE DATABASE` statement for each database.
 - Each object file starts with a `USE [`database_name`]` statement that identifies which source database the object belongs to.
 - Each file contains one `CREATE` statement for the database object.
 - Database objects referenced in the script use schema-qualified names (for example, `dbo.TableName`). If no schema is specified, `dbo` is used.
@@ -79,11 +79,14 @@ primary `CREATE` statement. DMS Schema Conversion processes the following:
 
 S3 folder structure
 
-DMS Schema Conversion reads the `.sql` files in your S3 folder structure to load the database objects.
+DMS Schema Conversion scans all folders under the S3 path that you specify.
+It searches for `.sql` files to load database objects.
+The S3 path can point to a bucket or any prefix in the bucket.
+The `USE [`database_name`]` statement in each file identifies
+the source database for that object.
 
-- The S3 path you provide points to a folder containing your database directories.
-- Each subdirectory under this path represents a separate database.
-- Each subdirectory requires at least one `.sql` file with a valid DDL script.
+Store the scripts for each database in a separate folder to avoid file name
+and object name collisions.
 
 S3 bucket configuration
 
