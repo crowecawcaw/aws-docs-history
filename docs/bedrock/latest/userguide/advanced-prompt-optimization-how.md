@@ -41,6 +41,22 @@ Both the dataset and the metric/lambda code shape the optimization quality. The 
 uses your dataset to test prompt candidates, and reads your metric code (source text and
 docstrings) to understand what "good" means and to diagnose where prompts fail.
 
+By default, the optimizer rewrites any part of your entire prompt template. To limit optimization
+to specific sections of your template, use `<advpo:optimize>` or
+`<advpo:exclude>` tags. For example, the following template optimizes only the
+response instructions while preserving the rest:
+
+```
+You are a customer service agent. Always be polite and professional.
+
+<advpo:optimize>When responding to a complaint, summarize the issue and propose one resolution.</advpo:optimize>
+
+Never disclose internal pricing or employee information.
+```
+
+For more information, see
+[Selective optimization](advanced-prompt-optimization-selective.md "advanced-prompt-optimization-selective.md").
+
 ## What you receive
 
 At the end of the optimization job, you receive:

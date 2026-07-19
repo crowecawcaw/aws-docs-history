@@ -1217,6 +1217,23 @@ Mistral Large 2407| Region | In-Region | Geo | Global |
 
 ## OpenAI
 
+[GPT-5.6 Sol](model-card-openai-gpt-56-sol.md "model-card-openai-gpt-56-sol.md")| Region | In-Region | Geo | Global |
+| --- | --- | --- | --- |
+| `us-east-1` (N. Virginia) | | | |
+| `us-east-2` (Ohio) | | | |
+
+[GPT-5.6 Terra](model-card-openai-gpt-56-terra.md "model-card-openai-gpt-56-terra.md")| Region | In-Region | Geo | Global |
+| --- | --- | --- | --- |
+| `us-east-1` (N. Virginia) | | | |
+| `us-east-2` (Ohio) | | | |
+| `us-west-2` (Oregon) | | | |
+
+[GPT-5.6 Luna](model-card-openai-gpt-56-luna.md "model-card-openai-gpt-56-luna.md")| Region | In-Region | Geo | Global |
+| --- | --- | --- | --- |
+| `us-east-1` (N. Virginia) | | | |
+| `us-east-2` (Ohio) | | | |
+| `us-west-2` (Oregon) | | | |
+
 [GPT-5.5](model-card-openai-gpt-55.md "model-card-openai-gpt-55.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
 | `us-east-1` (N. Virginia) | | | |

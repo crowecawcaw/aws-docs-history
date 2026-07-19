@@ -146,6 +146,9 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 
 | Model name                                                                                                              | `bedrock-runtime` | `bedrock-mantle` |
 | ----------------------------------------------------------------------------------------------------------------------- | ----------------- | ---------------- |
+| **[GPT-5.6 Sol](model-card-openai-gpt-56-sol.md "model-card-openai-gpt-56-sol.md")**                                    |                   |                  |
+| **[GPT-5.6 Terra](model-card-openai-gpt-56-terra.md "model-card-openai-gpt-56-terra.md")**                              |                   |                  |
+| **[GPT-5.6 Luna](model-card-openai-gpt-56-luna.md "model-card-openai-gpt-56-luna.md")**                                 |                   |                  |
 | **[GPT-5.5](model-card-openai-gpt-55.md "model-card-openai-gpt-55.md")**                                                |                   |                  |
 | **[GPT-5.4](model-card-openai-gpt-54.md "model-card-openai-gpt-54.md")**                                                |                   |                  |
 | **[GPT OSS Safeguard 120B](model-card-openai-gpt-oss-safeguard-120b.md "model-card-openai-gpt-oss-safeguard-120b.md")** |                   |                  |

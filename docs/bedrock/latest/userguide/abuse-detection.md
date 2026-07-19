@@ -12,7 +12,7 @@ or outputs.
 However, for specific abuse detection purposes related to the following models, we may be
 required to store inputs and outputs:
 
-- For OpenAI GPT-5.4 and GPT-5.5, classifier-flagged traffic will be retained for up to 30
+- For OpenAI GPT-5.4, GPT-5.5, GPT-5.6 Sol, GPT-5.6 Terra, and GPT-5.6 Luna, classifier-flagged traffic will be retained for up to 30
   days for automated offline abuse detection.
 - For Anthropic Claude Fable 5, inputs and outputs will be retained for up to 30 days. In order to use Claude Fable 5, as required by Anthropic, you must opt in to sharing retained traffic with Anthropic for abuse detection and potential human review.
   Retained inputs and outputs are stored and processed by AWS and are not shared with third-party model providers, unless you opt in to sharing with the model provider. If cross-region inference is enabled for these models, retained inputs and outputs are stored in destination regions (i.e., the region where your inference request is processed). For these models, eligible customers may request full ZDR through their AWS account team.

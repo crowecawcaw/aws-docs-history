@@ -438,7 +438,7 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/bedrock-runtime#code-examples").
 
-Invoke the Anthropic Claude 2 foundation model to generate text.
+Use the Invoke Model API to send a text message.
 
 ```
     public function invokeClaude($prompt)
@@ -449,7 +449,7 @@ Invoke the Anthropic Claude 2 foundation model to generate text.
 
         $completion = "";
         try {
-            $modelId = 'anthropic.claude-3-haiku-20240307-v1:0';
+            $modelId = 'global.anthropic.claude-haiku-4-5-20251001-v1:0';
         // Claude requires you to enclose the prompt as follows:
             $body = [
                 'anthropic_version' => 'bedrock-2023-05-31',

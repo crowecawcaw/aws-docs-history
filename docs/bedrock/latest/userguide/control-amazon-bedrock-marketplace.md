@@ -101,3 +101,6 @@ JSON
 This policy only allows access to the specified model and denies access to all other models.
 If basing your policy off of `AmazonBedrockFullAccess`, this should replace the
 `MarketplaceModelEndpointMutatingAPIs` and `BedrockEndpointTaggingOperations` statements.
+
+For information about using tag-based access control with Marketplace model endpoint
+operations, see [Tag-based access control for Amazon Bedrock AWS Marketplace model endpoints](marketplace-tag-based-access-control.md "marketplace-tag-based-access-control.md").

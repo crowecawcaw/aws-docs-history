@@ -1,6 +1,6 @@
-# Invoke Stability.ai Stable Diffusion XL on Amazon Bedrock to generate an image
+# Invoke Stability.ai Stable Diffusion on Amazon Bedrock to generate an image
 
-The following code examples show how to invoke Stability.ai Stable Diffusion XL on Amazon Bedrock to generate an image.
+The following code examples show how to invoke Stability.ai Stable Diffusion on Amazon Bedrock to generate an image.
 
 Java
 
@@ -38,11 +38,11 @@ public class InvokeModel {
         // Replace the DefaultCredentialsProvider with your preferred credentials provider.
         var client = BedrockRuntimeClient.builder()
                 .credentialsProvider(DefaultCredentialsProvider.create())
-                .region(Region.US_EAST_1)
+                .region(Region.US_WEST_2)
                 .build();
 
         // Set the model ID, e.g., Stable Image Core.
-        var modelId = "stability.stable-image-core-v1:0";
+        var modelId = "stability.stable-image-core-v1:1";
 
         // The InvokeModel API uses the model's native payload.
         // Learn more about the available inference parameters and response fields at:
@@ -50,7 +50,9 @@ public class InvokeModel {
         var nativeRequestTemplate = """
                 {
                     "prompt": "{{prompt}}",
-                    "seed": {{seed}}
+                    "aspect_ratio": "1:1",
+                    "seed": {{seed}},
+                    "output_format": "png"
                 }""";
 
         // Define the prompt for the image generation.
@@ -117,26 +119,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
 Create an image with Stable Diffusion.
 
 ```
-    public function invokeStableDiffusion(string $prompt, int $seed, string $style_preset)
+    public function invokeStableDiffusion(string $prompt, int $seed = 0, string $aspect_ratio = '1:1')
     {
         // The different model providers have individual request and response formats.
-        // For the format, ranges, and available style_presets of Stable Diffusion models refer to:
+        // For the format, ranges, and available parameters of Stable Diffusion models refer to:
         // https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-stability-diffusion.html
 
         $base64_image_data = "";
         try {
-            $modelId = 'stability.stable-diffusion-xl-v1';
+            $modelId = 'stability.stable-image-core-v1:1';
             $body = [
-                'text_prompts' => [
-                    ['text' => $prompt]
-                ],
+                'prompt' => $prompt,
+                'aspect_ratio' => $aspect_ratio,
                 'seed' => $seed,
-                'cfg_scale' => 10,
-                'steps' => 30
+                'output_format' => 'png',
             ];
-            if ($style_preset) {
-                $body['style_preset'] = $style_preset;
-            }
 
             $result = $this->bedrockRuntimeClient->invokeModel([
                 'contentType' => 'application/json',
@@ -144,7 +141,7 @@ Create an image with Stable Diffusion.
                 'modelId' => $modelId,
             ]);
             $response_body = json_decode($result['body']);
-            $base64_image_data = $response_body->artifacts[0]->base64;
+            $base64_image_data = $response_body->images[0];
         } catch (Exception $e) {
             echo "Error: ({$e->getCode()}) - {$e->getMessage()}\n";
         }
@@ -172,7 +169,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
 Create an image with Stable Diffusion.
 
 ```
-# Use the native inference API to create an image with Stability.ai Stable Diffusion
+# Use the native inference API to create an image with Stability AI Stable Image Core
 
 import base64
 import boto3
@@ -181,10 +178,10 @@ import os
 import random
 
 # Create a Bedrock Runtime client in the AWS Region of your choice.
-client = boto3.client("bedrock-runtime", region_name="us-east-1")
+client = boto3.client("bedrock-runtime", region_name="us-west-2")
 
-# Set the model ID, e.g., Stable Diffusion XL 1.
-model_id = "stability.stable-diffusion-xl-v1"
+# Set the model ID, e.g., Stable Image Core.
+model_id = "stability.stable-image-core-v1:1"
 
 # Define the image generation prompt for the model.
 prompt = "A stylized picture of a cute old steampunk robot."
@@ -194,11 +191,10 @@ seed = random.randint(0, 4294967295)
 
 # Format the request payload using the model's native structure.
 native_request = {
-    "text_prompts": [{"text": prompt}],
-    "style_preset": "photographic",
+    "prompt": prompt,
+    "aspect_ratio": "1:1",
     "seed": seed,
-    "cfg_scale": 10,
-    "steps": 30,
+    "output_format": "png",
 }
 
 # Convert the native request to JSON.
@@ -211,7 +207,7 @@ response = client.invoke_model(modelId=model_id, body=request)
 model_response = json.loads(response["body"].read())
 
 # Extract the image data.
-base64_image_data = model_response["artifacts"][0]["base64"]
+base64_image_data = model_response["images"][0]
 
 # Save the generated image to a local folder.
 i, output_dir = 1, "output"
@@ -249,31 +245,24 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
 Create an image with Stable Diffusion.
 
 ```
-    "Stable Diffusion Input Parameters should be in a format like this:
+    "Stable Image Core Input Parameters should be in a format like this:
 *   {
-*     "text_prompts": [
-*       {"text":"Draw a dolphin with a mustache"},
-*       {"text":"Make it photorealistic"}
-*     ],
-*     "cfg_scale":10,
-*     "seed":0,
-*     "steps":50
+*     "prompt": "Draw a dolphin with a mustache, photorealistic",
+*     "aspect_ratio": "1:1",
+*     "seed": 0,
+*     "output_format": "png"
 *   }
-    TYPES: BEGIN OF prompt_ts,
-             text TYPE /aws1/rt_shape_string,
-           END OF prompt_ts.
-
     DATA: BEGIN OF ls_input,
-            text_prompts TYPE STANDARD TABLE OF prompt_ts,
-            cfg_scale    TYPE /aws1/rt_shape_integer,
-            seed         TYPE /aws1/rt_shape_integer,
-            steps        TYPE /aws1/rt_shape_integer,
+            prompt        TYPE /aws1/rt_shape_string,
+            aspect_ratio  TYPE /aws1/rt_shape_string,
+            seed          TYPE /aws1/rt_shape_integer,
+            output_format TYPE /aws1/rt_shape_string,
           END OF ls_input.
 
-    APPEND VALUE prompt_ts( text = iv_prompt ) TO ls_input-text_prompts.
-    ls_input-cfg_scale = 10.
+    ls_input-prompt = iv_prompt.
+    ls_input-aspect_ratio = '1:1'.
     ls_input-seed = 0. "or better, choose a random integer.
-    ls_input-steps = 50.
+    ls_input-output_format = 'png'.
 
     DATA(lv_json) = /ui2/cl_json=>serialize(
       data = ls_input
@@ -282,38 +271,26 @@ Create an image with Stable Diffusion.
     TRY.
         DATA(lo_response) = lo_bdr->invokemodel(
           iv_body = /aws1/cl_rt_util=>string_to_xstring( lv_json )
-          iv_modelid = 'stability.stable-diffusion-xl-v1'
+          iv_modelid = 'stability.stable-image-core-v1:1'
           iv_accept = 'application/json'
           iv_contenttype = 'application/json' ).
 
-        "Stable Diffusion Result Format:
+        "Stable Image Core Result Format:
 *       {
-*         "result": "success",
-*         "artifacts": [
-*           {
-*             "seed": 0,
-*             "base64": "iVBORw0KGgoAAAANSUhEUgAAAgAAA....
-*             "finishReason": "SUCCESS"
-*           }
-*         ]
+*         "seeds": ["0"],
+*         "finish_reasons": [null],
+*         "images": ["iVBORw0KGgoAAAANSUhEUgAAAgAAA...."]
 *       }
-        TYPES: BEGIN OF artifact_ts,
-                 seed         TYPE /aws1/rt_shape_integer,
-                 base64       TYPE /aws1/rt_shape_string,
-                 finishreason TYPE /aws1/rt_shape_string,
-               END OF artifact_ts.
-
         DATA: BEGIN OF ls_response,
-                result    TYPE /aws1/rt_shape_string,
-                artifacts TYPE STANDARD TABLE OF artifact_ts,
+                images TYPE STANDARD TABLE OF /aws1/rt_shape_string,
               END OF ls_response.
 
         /ui2/cl_json=>deserialize(
           EXPORTING jsonx = lo_response->get_body( )
                     pretty_name = /ui2/cl_json=>pretty_mode-camel_case
           CHANGING  data  = ls_response ).
-        IF ls_response-artifacts IS NOT INITIAL.
-          DATA(lv_image) = cl_http_utility=>if_http_utility~decode_x_base64( ls_response-artifacts[ 1 ]-base64 ).
+        IF ls_response-images IS NOT INITIAL.
+          DATA(lv_image) = cl_http_utility=>if_http_utility~decode_x_base64( ls_response-images[ 1 ] ).
         ENDIF.
       CATCH /aws1/cx_bdraccessdeniedex INTO DATA(lo_ex).
         WRITE / lo_ex->get_text( ).

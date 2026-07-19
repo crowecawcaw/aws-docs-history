@@ -14,6 +14,57 @@ SharePoint sites.
 - Microsoft Entra ID App-Only and OAuth 2.0 authentication
 - Document-level access control (ACLs), with Microsoft Entra ID App-Only authentication
 
+## Use cases and required permissions
+
+The Microsoft permissions the connector needs depend on your use case. You don't have to grant broad, tenant-wide access unless your use case calls for it — the connector supports least-privilege configurations that limit access to only the sites you choose. Two choices determine which permissions you assign:
+
+- **Which sites to crawl** — Grant access to only the sites you explicitly choose (`Sites.Selected`, the least-privilege option) or to all SharePoint sites in your tenant (**all sites**).
+- **Whether to enable document-level access control (ACLs)** — Decide whether the data source filters query results by each user's SharePoint permissions. ACL crawling requires additional Microsoft Graph and SharePoint permissions.
+
+These choices combine into four common use cases. The permissions below apply to the recommended Microsoft Entra ID App-Only authentication method; grant only the permissions listed for your use case. The connector authenticates to two Microsoft resources: **Microsoft Graph** (to enumerate sites and, for ACLs, to resolve users and groups) and the **SharePoint** REST API (to read site content and, for ACLs, item-level permissions). For the full setup procedure, see [Set up Microsoft Entra ID App-Only authentication for SharePoint](kb-managed-sharepoint-entra-setup.md "kb-managed-sharepoint-entra-setup.md").
+
+Select the tab for your use case to see the exact Microsoft Graph and SharePoint permissions to assign.
+
+Sites.Selected, no ACLs
+**Use this when** you want to crawl only specific sites you choose, without filtering query results by each user's SharePoint permissions. This is the least-privilege configuration.
+
+Sites.Selected, content only| API | Permission | Purpose |
+| --- | --- | --- |
+| Microsoft Graph | `Sites.Selected` | Access only the sites you explicitly grant (Microsoft Graph). |
+| SharePoint | `Sites.Selected` | Access only the sites you explicitly grant (SharePoint REST). Grant the `read` role per site. |
+
+Sites.Selected, with ACLs
+**Use this when** you want to crawl only specific sites you choose and filter query results by each user's SharePoint permissions.
+
+Sites.Selected, with ACLs| API | Permission | Purpose |
+| --- | --- | --- |
+| Microsoft Graph | `Sites.Selected` | Access only the sites you explicitly grant (Microsoft Graph). |
+| Microsoft Graph | `User.Read.All` | Resolve users for document-level ACLs. |
+| Microsoft Graph | `GroupMember.Read.All` | Resolve group membership for document-level ACLs. |
+| SharePoint | `Sites.Selected` | Access only the sites you explicitly grant. Grant the `fullcontrol` role per site (required to read item-level permissions for ACLs). |
+
+All sites, no ACLs
+**Use this when** you want to crawl all SharePoint sites in your tenant, without filtering query results by each user's SharePoint permissions.
+
+All sites, content only| API | Permission | Purpose |
+| --- | --- | --- |
+| Microsoft Graph | `Sites.Read.All` | Enumerate and read all SharePoint sites. |
+| SharePoint | `Sites.Read.All` | Read site content through the SharePoint REST API. |
+
+All sites, with ACLs
+**Use this when** you want to crawl all SharePoint sites in your tenant and filter query results by each user's SharePoint permissions.
+
+All sites, with ACLs| API | Permission | Purpose |
+| --- | --- | --- |
+| Microsoft Graph | `Sites.Read.All` | Enumerate and read all SharePoint sites. |
+| Microsoft Graph | `User.Read.All` | Resolve users for document-level ACLs. |
+| Microsoft Graph | `GroupMember.Read.All` | Resolve group membership for document-level ACLs. |
+| SharePoint | `Sites.FullControl.All` | Read item-level permissions for ACL crawling and verify access at query time. `Sites.Read.All` is not sufficient for this check. |
+
+###### Note
+
+`Sites.FullControl.All` grants broad access to every site in the tenant. If your organization requires least privilege, use `Sites.Selected` and grant per-site access. For the per-site grant steps, see [Set up Microsoft Entra ID App-Only authentication for SharePoint](kb-managed-sharepoint-entra-setup.md "kb-managed-sharepoint-entra-setup.md").
+
 ## Authentication methods
 
 A SharePoint data source supports two authentication methods. Choose one before you begin, because it determines the credentials you create and whether you can use document-level access control. We recommend Microsoft Entra ID App-Only authentication for new data sources.

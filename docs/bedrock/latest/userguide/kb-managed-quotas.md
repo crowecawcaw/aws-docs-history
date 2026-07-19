@@ -11,7 +11,7 @@ Amazon Bedrock knowledge bases. To view service quotas for Amazon Bedrock, do on
 
 Managed knowledge base quotas| Quota | Default value |
 | --- | --- |
-| Maximum managed knowledge bases per account, per Region | 1,000 |
+| Maximum managed knowledge bases per account, per Region | 10,000 |
 | Maximum data sources per knowledge base | 200 |
 | Maximum concurrent ingestion jobs per knowledge base | 50 |
 | Maximum raw data storage per knowledge base | 10 TB |

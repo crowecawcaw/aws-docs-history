@@ -8,7 +8,7 @@ Your data retention configuration is yours to manage. If your account or project
 
 ###### Important
 
-There is no data retention change to models released before Claude Fable 5. AWS is committed to making sure that you are in full control over when and with whom your data is retained and shared.
+There is no data retention change to Claude models released before Claude Fable 5. AWS is committed to making sure that you are in full control over when and with whom your data is retained and shared. For a full list of models requiring data retention, see [here](abuse-detection.md "abuse-detection.md").
 
 ## Data retention modes
 

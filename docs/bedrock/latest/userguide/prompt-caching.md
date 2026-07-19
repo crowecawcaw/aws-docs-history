@@ -86,16 +86,19 @@ To see which models support prompt caching, please refer to
 [Models at a glance](model-cards.md "model-cards.md") and then choose the model you are interested in.
 The following table shows prompt caching for models that are not present in models-at-a-glance.
 
-| Model name           | Model ID                                  | Release Type        | Minimum number of tokens per cache checkpoint | Maximum number of cache checkpoints per request | Supported TTL     | Fields that accept prompt cache checkpoints |
-| -------------------- | ----------------------------------------- | ------------------- | --------------------------------------------- | ----------------------------------------------- | ----------------- | ------------------------------------------- |
-| Claude Opus 4.5      | anthropic.claude-opus-4-5-20251101-v1:0   | Generally Available | 4,096                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`           |
-| Claude Opus 4.6      | anthropic.claude-opus-4-6-v1              | Generally Available | 4,096                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
-| Claude Sonnet 4.5    | anthropic.claude-sonnet-4-5-20250929-v1:0 | Generally Available | 4,096                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`           |
-| Claude Sonnet 4.6    | anthropic.claude-sonnet-4-6               | Generally Available | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
-| Claude Haiku 4.5     | anthropic.claude-haiku-4-5-20251001-v1:0  | Generally Available | 4,096                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`           |
-| Claude Opus 4        | anthropic.claude-opus-4-20250514-v1:0     | Generally Available | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
-| Claude 3.7 Sonnet    | anthropic.claude-3-7-sonnet-20250219-v1:0 | Generally Available | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
-| Claude 3.5 Sonnet v2 | anthropic.claude-3-5-sonnet-20241022-v2:0 | Preview             | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
+| Model name           | Model ID                                  | Release Type        | Minimum number of tokens per cache checkpoint | Maximum number of cache checkpoints per request | Supported TTL     | Fields that accept prompt cache checkpoints                                                       |
+| -------------------- | ----------------------------------------- | ------------------- | --------------------------------------------- | ----------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------- |
+| Claude Opus 4.5      | anthropic.claude-opus-4-5-20251101-v1:0   | Generally Available | 4,096                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`                                                                 |
+| Claude Opus 4.6      | anthropic.claude-opus-4-6-v1              | Generally Available | 4,096                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`                                                                 |
+| Claude Sonnet 4.5    | anthropic.claude-sonnet-4-5-20250929-v1:0 | Generally Available | 4,096                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`                                                                 |
+| Claude Sonnet 4.6    | anthropic.claude-sonnet-4-6               | Generally Available | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`                                                                 |
+| Claude Haiku 4.5     | anthropic.claude-haiku-4-5-20251001-v1:0  | Generally Available | 4,096                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`                                                                 |
+| Claude Opus 4        | anthropic.claude-opus-4-20250514-v1:0     | Generally Available | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`                                                                 |
+| Claude 3.7 Sonnet    | anthropic.claude-3-7-sonnet-20250219-v1:0 | Generally Available | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`                                                                 |
+| Claude 3.5 Sonnet v2 | anthropic.claude-3-5-sonnet-20241022-v2:0 | Preview             | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`                                                                 |
+| GPT-5.6 Sol          | openai.gpt-5.6-sol                        | Generally Available | 1,024                                         | 4                                               | 30 minutes        | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) |
+| GPT-5.6 Terra        | openai.gpt-5.6-terra                      | Generally Available | 1,024                                         | 4                                               | 30 minutes        | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) |
+| GPT-5.6 Luna         | openai.gpt-5.6-luna                       | Generally Available | 1,024                                         | 4                                               | 30 minutes        | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) |
 
 To use the 1-hour TTL option with supported models (Claude Opus 4.5, Claude Haiku 4.5, and Claude Sonnet 4.5),
 specify the `ttl` field in your cache checkpoint. In the Converse API, add `"ttl": "1h"`
@@ -106,7 +109,7 @@ where you want to maintain the cache across extended periods.
 
 Amazon Nova offers automatic prompt caching for all text prompts, including `User` and `System` messages. This mechanism can provide latency benefits when prompts begin with repetitive parts, even without explicit configuration. However, to unlock cost savings and ensure more consistent performance benefits, we recommend opting in to **Explicit Prompt Caching**.
 
-## Simplified Cache Management for Claude Models
+## Cache Management for Models from Anthropic
 
 For Claude models, Amazon Bedrock offers a simplified approach to cache management that reduces the complexity of manually placing cache checkpoints. Instead of requiring you to
 specify exact cache checkpoint locations, you can use automatic cache management with a single breakpoint at the end of your static content.
@@ -124,7 +127,7 @@ cache checkpoints if you are caching sections that change at different frequenci
 The automatic prefix checking only looks back approximately 20 content blocks from your cache checkpoint. If your static content extends beyond this range, consider
 using multiple cache checkpoints or restructuring your prompt to place the most frequently reused content within this range.
 
-## How to effectively use prompt caching
+### Best practices for using cache management in Anthropic Models
 
 If you have prompts that are used at a regular cadence (i.e., system prompts that are used more frequently than every 5 minutes), continue to use the 5-minute cache,
 since this will continue to be refreshed at no additional charge.
@@ -138,6 +141,112 @@ The 1-hour cache is best used in the following scenarios:
 
 You can use both 1-hour and 5-minute cache controls in the same request, but with an important constraint: Cache entries with longer TTL must appear before
 shorter TTLs (i.e., a 1-hour cache entry must appear before any 5-minute cache entries).
+
+## Cache Management for Models from OpenAI
+
+OpenAI models on Amazon Bedrock support prompt caching through the Responses API on the
+`bedrock-mantle` endpoint. The caching behavior differs depending on the
+model generation.
+
+### GPT-5.6 models
+
+GPT-5.6 Sol (`openai.gpt-5.6-sol`), Terra
+(`openai.gpt-5.6-terra`), and Luna (`openai.gpt-5.6-luna`)
+introduce explicit prompt cache breakpoints, giving you precise control over which
+portions of your prompt are cached. This is especially valuable for agentic workflows
+where system instructions, tool definitions, and reference files repeat across many
+calls while only the latest input changes.
+
+Key characteristics:
+
+- **Explicit cache breakpoints** — Mark
+  the exact end of a reusable prompt prefix by adding
+  `"prompt_cache_breakpoint": {"mode": "explicit"}` to a supported
+  content block.
+- **Cache modes** — Set
+  `prompt_cache_options.mode` to control breakpoint behavior:
+
+  - `implicit` (default) — Places an automatic
+    breakpoint on the latest message and also uses any explicit breakpoints
+    you provide.
+  - `explicit` — Disables the automatic breakpoint.
+    Only explicit breakpoints are used for cache reads and writes. If no
+    explicit breakpoints exist, the request does not use prompt caching or
+    incur cache-write charges.
+
+- **Minimum prefix length** — 1,024
+  tokens per breakpoint.
+- **30-minute minimum TTL** — Cached
+  prefixes remain available for reuse for at least 30 minutes, long enough to
+  cover the burst of calls a single agent run generates. The TTL is set via
+  `prompt_cache_options.ttl` and defaults to
+  `30m`.
+- **Cache write billing** — Tokens
+  written to cache are billed at 1.25× the uncached input token rate. Cache
+  reads are billed at a 90% discount compared to uncached input
+  tokens.
+- **Cached tokens do not count toward rate
+  limits** — Cached input tokens read through prompt caching do not
+  count against the input-tokens-per-minute quota.
+
+#### Understanding the response
+
+The usage object in the response includes two cache-specific fields:
+
+- `cached_tokens` — Number of input tokens read from
+  cache (billed at the cache-read discount rate).
+- `cache_write_tokens` — Number of input tokens
+  written to cache (billed at 1.25× the uncached input token
+  rate).
+
+When `cached_tokens` is greater than zero and
+`cache_write_tokens` is zero, your request fully matched an existing
+cache entry — no new writes occurred, and you received the maximum cost
+savings.
+
+#### Best practices for using cache management in GPT 5.6 models
+
+- **Place breakpoints after stable
+  content** — System instructions, tool definitions, and reference
+  documents that don't change between calls should appear before the
+  breakpoint. Content after the breakpoint can change freely without
+  invalidating the cached prefix.
+- **Use `explicit` mode for
+  agentic loops** — When you want full control over what gets
+  cached and want to avoid automatic breakpoints consuming write
+  slots.
+- **Monitor
+  `cache_write_tokens`** — Compare cache-write volume
+  against subsequent cache reads to understand net cost impact and adjust
+  breakpoint placement accordingly.
+
+### GPT-5.5 and earlier models
+
+For OpenAI models prior to GPT-5.6 (such as `openai.gpt-5.5` and
+`openai.gpt-5.4`), prompt caching is automatic. You do not need to add
+any special parameters — the system automatically caches eligible prompt prefixes
+of 1,024 tokens or longer. Cache writes have no additional fee on these models.
+
+Key characteristics:
+
+- **Automatic caching** — No code changes
+  required. The system caches prefixes automatically based on exact prefix
+  matching.
+- **Minimum prefix length** — 1,024
+  tokens.
+- **No cache write fee** — Only cache
+  reads are billed at a discounted rate.
+- **Cached tokens do not count toward rate
+  limits** — Cached input tokens read through prompt caching do not
+  count against the input-tokens-per-minute quota.
+
+#### Best practices for using cache management in GPT-5.5 and earlier models
+
+- Place static content (system prompts, tool definitions, reference
+  documents) at the beginning of your prompt.
+- Put variable content (user-specific input) at the end.
+- Maintain a steady stream of requests with identical prefixes to
+  minimize cache evictions.
 
 ## Getting started
 
@@ -379,6 +488,108 @@ format and content of the request and response bodies for different models, see
 
 For more information about sending an InvokeModel request, see
 [Submit a single prompt with InvokeModel](inference-invoke.md "inference-invoke.md").
+
+For OpenAI models on the `bedrock-mantle` endpoint, you use the
+Responses API with prompt caching parameters specific to the model generation.
+For GPT-5.6 models, you control caching with explicit breakpoints. For GPT-5.5
+and earlier, caching is automatic.
+
+**GPT-5.6 example with explicit cache breakpoints**
+
+The following example shows a Responses API request to
+`openai.gpt-5.6-sol` using explicit cache breakpoints. The system
+instruction is cached and reused across subsequent requests.
+
+```
+{
+    "model": "openai.gpt-5.6-sol",
+    "prompt_cache_key": "my-app:system-prompt-v1",
+    "prompt_cache_options": {
+        "mode": "explicit"
+    },
+    "input": [
+        {
+            "type": "message",
+            "role": "developer",
+            "content": [
+                {
+                    "type": "input_text",
+                    "text": "You are a technical support agent. Use the company knowledge base to answer questions. Follow these guidelines: 1. Always cite the relevant documentation section. 2. If unsure, escalate to a human agent. 3. Be concise but thorough...",
+                    "prompt_cache_breakpoint": {
+                        "mode": "explicit"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "message",
+            "role": "user",
+            "content": [
+                {
+                    "type": "input_text",
+                    "text": "How do I configure SSO for my organization?"
+                }
+            ]
+        }
+    ]
+}
+```
+
+**GPT-5.5 example with automatic caching**
+
+For GPT-5.5 and earlier models, prompt caching is automatic. No breakpoints
+or cache keys are needed — just ensure your prompt prefix exceeds 1,024 tokens.
+
+```
+{
+    "model": "openai.gpt-5.5",
+    "input": [
+        {
+            "type": "message",
+            "role": "developer",
+            "content": [
+                {
+                    "type": "input_text",
+                    "text": "You are a technical support agent. Use the company knowledge base to answer questions..."
+                }
+            ]
+        },
+        {
+            "type": "message",
+            "role": "user",
+            "content": [
+                {
+                    "type": "input_text",
+                    "text": "How do I configure SSO for my organization?"
+                }
+            ]
+        }
+    ]
+}
+```
+
+**Response**
+
+The response includes cache usage metrics in the `usage` object:
+
+```
+{
+    "id": "resp_abc123",
+    "output": [...],
+    "usage": {
+        "input_tokens": 2048,
+        "output_tokens": 256,
+        "total_tokens": 2304,
+        "input_tokens_details": {
+            "cached_tokens": 1920,
+            "cache_write_tokens": 0
+        }
+    }
+}
+```
+
+In this response, 1,920 tokens were served from cache and no new tokens were
+written, indicating a full cache hit with maximum cost savings.
 
 In a chat playground in the Amazon Bedrock console, you can turn on the prompt caching
 option, and Amazon Bedrock automatically creates cache checkpoints for you.

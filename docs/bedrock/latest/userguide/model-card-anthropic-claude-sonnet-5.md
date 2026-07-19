@@ -64,10 +64,10 @@ For pricing, please refer to the [Amazon Bedrock Pricing](https://aws.amazon.com
 
 Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
 
-| **Endpoint**      | **Model ID**                | **In-Region endpoint URL**                                      | **Geo inference ID**                                         | **Global inference ID**            |
-| ----------------- | --------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- |
-| `bedrock-runtime` | `anthropic.claude-sonnet-5` | `https://bedrock-runtime.{region}.amazonaws.com`                | `us.anthropic.claude-sonnet-5``eu.anthropic.claude-sonnet-5` | `global.anthropic.claude-sonnet-5` |
-| `bedrock-mantle`  | `anthropic.claude-sonnet-5` | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | N/A                                                          | N/A                                |
+| **Endpoint**      | **Model ID**                | **In-Region endpoint URL**                                      | **Geo inference ID**                                                                       | **Global inference ID**            |
+| ----------------- | --------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------- |
+| `bedrock-runtime` | `anthropic.claude-sonnet-5` | `https://bedrock-runtime.{region}.amazonaws.com`                | `us.anthropic.claude-sonnet-5``eu.anthropic.claude-sonnet-5``au.anthropic.claude-sonnet-5` | `global.anthropic.claude-sonnet-5` |
+| `bedrock-mantle`  | `anthropic.claude-sonnet-5` | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | N/A                                                                                        | N/A                                |
 
 _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages"._
 
@@ -101,7 +101,7 @@ For more details, see the [Regional availability by models](models-region-compat
 | `ca-west-1` (Calgary)          | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
 | `eu-central-1` (Frankfurt)     | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
 | `eu-central-2` (Zurich)        | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
-| `eu-north-1` (Stockholm)       | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `eu-north-1` (Stockholm)       | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
 | `eu-south-1` (Milan)           | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
 | `eu-south-2` (Spain)           | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
 | `eu-west-1` (Ireland)          | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
@@ -116,7 +116,7 @@ For more details, see the [Regional availability by models](models-region-compat
 | `ap-southeast-1` (Singapore)   | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 | `ap-southeast-2` (Sydney)      | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 | `ap-southeast-3` (Jakarta)     | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
-| `ap-southeast-4` (Melbourne)   | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `ap-southeast-4` (Melbourne)   | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
 | `ap-southeast-5` (Malaysia)    | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 | `ap-southeast-6` (New Zealand) | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 | `ap-southeast-7` (Thailand)    | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
@@ -156,6 +156,15 @@ Geo Inference ID: `eu.anthropic.claude-sonnet-5`
 | eu-west-1 (Ireland)      | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris)                        |
 | eu-west-2 (London)       | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-2 (London), eu-west-3 (Paris)    |
 | eu-west-3 (Paris)        | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris)                        |
+
+**Geo: AU**
+
+Geo Inference ID: `au.anthropic.claude-sonnet-5`
+
+| **Source Region**          | **Destination Regions**                             |
+| -------------------------- | --------------------------------------------------- |
+| ap-southeast-2 (Sydney)    | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) |
+| ap-southeast-4 (Melbourne) | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) |
 
 **Global inference details**
 

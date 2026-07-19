@@ -34,6 +34,7 @@ AWS Management Console, see [Discover a model](bedrock-marketplace-discover-a-mo
 
 - [Set up Amazon Bedrock Marketplace](setup-amazon-bedrock-marketplace.md "setup-amazon-bedrock-marketplace.md")
 - [Controlling Access to Amazon Bedrock Marketplace Models](control-amazon-bedrock-marketplace.md "control-amazon-bedrock-marketplace.md")
+- [Tag-based access control for Amazon Bedrock AWS Marketplace model endpoints](marketplace-tag-based-access-control.md "marketplace-tag-based-access-control.md")
 - [End-to-end workflow](bedrock-marketplace-end-to-end-workflow.md "bedrock-marketplace-end-to-end-workflow.md")
 - [Discover a model](bedrock-marketplace-discover-a-model.md "bedrock-marketplace-discover-a-model.md")
 - [Subscribe to a model](bedrock-marketplace-subscribe-to-a-model.md "bedrock-marketplace-subscribe-to-a-model.md")

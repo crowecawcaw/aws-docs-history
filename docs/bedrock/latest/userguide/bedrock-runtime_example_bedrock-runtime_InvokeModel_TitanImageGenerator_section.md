@@ -208,63 +208,6 @@ public class InvokeModel {
   [InvokeModel](../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/InvokeModel.md")
   in _AWS SDK for Java 2.x API Reference_.
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/bedrock-runtime#code-examples").
-
-Create an image with the Amazon Titan Image Generator.
-
-```
-    public function invokeTitanImage(string $prompt, int $seed)
-    {
-        // The different model providers have individual request and response formats.
-        // For the format, ranges, and default values for Titan Image models refer to:
-        // https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-image.html
-
-        $base64_image_data = "";
-        try {
-            $modelId = 'amazon.titan-image-generator-v2:0';
-            $request = json_encode([
-                'taskType' => 'TEXT_IMAGE',
-                'textToImageParams' => [
-                    'text' => $prompt
-                ],
-                'imageGenerationConfig' => [
-                    'numberOfImages' => 1,
-                    'quality' => 'standard',
-                    'cfgScale' => 8.0,
-                    'height' => 512,
-                    'width' => 512,
-                    'seed' => $seed
-                ]
-            ]);
-            $result = $this->bedrockRuntimeClient->invokeModel([
-                'contentType' => 'application/json',
-                'body' => $request,
-                'modelId' => $modelId,
-            ]);
-            $response_body = json_decode($result['body']);
-            $base64_image_data = $response_body->images[0];
-        } catch (Exception $e) {
-            echo "Error: ({$e->getCode()}) - {$e->getMessage()}\n";
-        }
-
-        return $base64_image_data;
-    }
-
-
-```
-
-- For API details, see
-  [InvokeModel](../../../goto/SdkForPHPV3/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/SdkForPHPV3/bedrock-runtime-2023-09-30/InvokeModel.md")
-  in _AWS SDK for PHP API Reference_.
-
 Python
 
 **SDK for Python (Boto3)**

@@ -58,7 +58,7 @@ Console
 
    To use cross-Region inference with your agent, specify an inference profile ID in the `foundationModel` field when using the API. For more information, see [Increase throughput with cross-Region inference](cross-region-inference.md "cross-region-inference.md").
 
-   ![Foundation models available for agents, with optimization status for the agent framework.](images/agents/agents-optimized-model-selection.png) 4. In **Instructions for the Agent**, enter details to tell the agent what it should do and how it should interact with users. The instructions replace the $instructions$ placeholder in the [orchestration prompt template](prompt-placeholders.md#placeholders-orchestration "prompt-placeholders.md#placeholders-orchestration"). Following is an example of instructions:
+   ![Foundation models available for agents, with optimization status for the agent framework.](/images/bedrock/latest/userguide/images/agents/agents-optimized-model-selection.png) 4. In **Instructions for the Agent**, enter details to tell the agent what it should do and how it should interact with users. The instructions replace the $instructions$ placeholder in the [orchestration prompt template](prompt-placeholders.md#placeholders-orchestration "prompt-placeholders.md#placeholders-orchestration"). Following is an example of instructions:
 
    ```
    `You are an office assistant in an insurance agency. You are friendly and polite. You help with managing insurance claims and coordinating pending paperwork.`
