@@ -30,6 +30,7 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Ireland)          | eu-west-1      | dsql.eu-west-1.api.aws                                      | HTTPS          |
 | Europe (London)           | eu-west-2      | dsql.eu-west-2.api.aws                                      | HTTPS          |
 | Europe (Paris)            | eu-west-3      | dsql.eu-west-3.api.aws                                      | HTTPS          |
+| Europe (Spain)            | eu-south-2     | dsql.eu-south-2.api.aws                                     | HTTPS          |
 | Europe (Stockholm)        | eu-north-1     | dsql.eu-north-1.api.aws                                     | HTTPS          |
 | South America (São Paulo) | sa-east-1      | dsql.sa-east-1.api.aws                                      | HTTPS          |
 

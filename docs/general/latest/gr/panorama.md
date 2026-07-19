@@ -11,15 +11,6 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
 
-| Region Name              | Region         | Endpoint                              | Protocol |
-| ------------------------ | -------------- | ------------------------------------- | -------- |
-| US East (N. Virginia)    | us-east-1      | panorama.us-east-1.amazonaws.com      | HTTPS    |
-| US West (Oregon)         | us-west-2      | panorama.us-west-2.amazonaws.com      | HTTPS    |
-| Asia Pacific (Singapore) | ap-southeast-1 | panorama.ap-southeast-1.amazonaws.com | HTTPS    |
-| Asia Pacific (Sydney)    | ap-southeast-2 | panorama.ap-southeast-2.amazonaws.com | HTTPS    |
-| Canada (Central)         | ca-central-1   | panorama.ca-central-1.amazonaws.com   | HTTPS    |
-| Europe (Ireland)         | eu-west-1      | panorama.eu-west-1.amazonaws.com      | HTTPS    |
-
 ## Service quotas
 
 | Name                                           | Default                            | Adjustable | Description                                                                                                                             |
