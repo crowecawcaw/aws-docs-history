@@ -2,7 +2,7 @@
 
 Welcome to the AWS Sustainability user guide.
 
-The AWS Sustainability service provides a suite of features to help you understand your environmental impact from using AWS services. The vast majority of accounts with AWS usage can see their environmental impact. If data isn't available for your account, your account may be too new to show data (data is published the month after the usage occurs) or your impact may be immaterial (under 0.5 grams of carbon dioxide equivalent).
+The AWS Sustainability service provides a suite of features to help you understand your environmental impact from using AWS services. The vast majority of accounts with AWS usage can see their environmental impact. If data isn't available for your account, your account may be too new to show data (data is published the month after the usage occurs) or your impact may be immaterial (under 0.5 grams of carbon dioxide equivalent or .5 milliliters of water withdrawn).
 
 ###### Topics
 
@@ -17,6 +17,7 @@ The AWS Sustainability service provides a suite of features to help you understa
 The AWS Sustainability service includes the following features:
 
 - **Carbon emissions** — Visualize your carbon emissions over time. Deep dive into your emissions by scope, AWS Region, service, and more.
+- **Water allocation** — Visualize your water allocation over time. Deep dive into your water withdrawals by AWS Region, service, and more.
 - **Reports** — Access your sustainability data in bulk. Create .csv reports to quickly see your data, integrate with the AWS Sustainability API, or create an ongoing data export (in [Data Exports](../../../cur/latest/userguide.md "../../../cur/latest/userguide.md")).
 - **Release notes** — Learn about new features, methodology updates, bug fixes, and more.
 

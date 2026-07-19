@@ -16,3 +16,5 @@ Your AWS account has the following quotas related to AWS Sustainability.
 | ---------------------------------------------------------- | ---------------------- | ---------------- |
 | Rate of GetEstimatedCarbonEmissions request                | 10 requests per second | No               |
 | Rate of GetEstimatedCarbonEmissionsDimensionValues request | 10 requests per second | No               |
+| Rate of GetEstimatedWaterAllocation request                | 10 requests per second | No               |
+| Rate of GetEstimatedWaterAllocationDimensionValues request | 10 requests per second | No               |

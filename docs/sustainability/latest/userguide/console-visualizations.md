@@ -1,25 +1,32 @@
 # Use the console visualizations
 
-The **carbon emissions** page provides estimates of the carbon emissions associated with your AWS products and services. The estimates include the full range of AWS services, and are provided in metric tons of carbon dioxide-equivalent (MTCO2e).
+The AWS Sustainability console offers visualizations to help you understand your environmental impact from using AWS services.
+This page explains the console pages in detail. To access your data in bulk, visit [Get your data in bulk](bulk-data.md "bulk-data.md").
 
 ###### Note
 
 Learn about new features, methodology updates, bug fixes, and more in the Release notes page in the AWS Sustainability console, accessible in the left navigation bar.
+
+## Carbon
+
+The **carbon emissions** page provides estimates of the carbon emissions associated with your AWS products and services.
+The estimates include the full range of AWS services, and are provided in metric tons of carbon dioxide-equivalent (MTCO2e).
 
 ###### Topics
 
 - [Your carbon emissions summary](#carbon-emissions-summary "#carbon-emissions-summary")
 - [Emissions by scope](#emissions-by-scope "#emissions-by-scope")
 - [Carbon emissions graphs](#carbon-emissions-graphs "#carbon-emissions-graphs")
-- [Modify your charts](modify-charts.md "modify-charts.md")
 
-## Your carbon emissions summary
+### Your carbon emissions summary
 
-This section shows your estimated AWS emissions and estimated emissions savings, calculated using both the market-based (MBM) and location-based methods (LBM). MBM reflects supplier-specific emissions intensity after accounting for Energy Attribute Certificates (EACs), such as AWS' carbon-free energy purchases. LBM reflects the average emissions intensity of the grid where energy consumption occurs.
+This section shows your estimated AWS emissions and estimated emissions savings, calculated using both the market-based (MBM) and location-based methods (LBM).
+MBM reflects supplier-specific emissions intensity after accounting for Energy Attribute Certificates (EACs), such as AWS' carbon-free energy purchases.
+LBM reflects the average emissions intensity of the grid where energy consumption occurs.
 
 Emissions savings are the difference between the carbon footprint emissions calculated using LBM and MBM. For more information about LBM and MBM, see [Input data](methodology-input-data.md "methodology-input-data.md").
 
-## Emissions by scope
+### Emissions by scope
 
 This section shows your breakdown of emissions by Greenhouse Gas Protocol's three scopes, using both the MBM and LBM methods.
 
@@ -29,8 +36,30 @@ This section shows your breakdown of emissions by Greenhouse Gas Protocol's thre
 
 For the calculation methodology for each scope see [Calculation methodology](methodology.md "methodology.md").
 
-## Carbon emissions graphs
+### Carbon emissions graphs
 
-These two charts present your carbon emissions estimates over time. It uses a stacked bar chart by default, and you can also see your data in an area chart or table formats by selecting the corresponding buttons in the top right corner of the chart. Similarly, the chart shows your emissions grouped by service by default, but you can see emissions grouped by AWS Region or usage account using the **Parameters** panel on the right side of the console.
+These two charts present your carbon emissions estimates over time.
+It uses a stacked bar chart by default, and you can also see your data in an area chart or table formats by selecting the corresponding buttons in the top right corner of the chart.
+Similarly, the chart shows your emissions grouped by service by default, but you can see emissions grouped by AWS Region or usage account using the **Parameters** panel on the right side of the console.
 
-To access your data in bulk, visit [Get your data in bulk](bulk-data.md "bulk-data.md").
+## Water
+
+The water allocation page provides estimates of the water withdrawals associated with your AWS products and services. The estimates include the full range of AWS services, and are provided in cubic meters (m³).
+
+###### Topics
+
+- [Your water withdrawals summary](#water-allocation-summary "#water-allocation-summary")
+- [Water withdrawals graph](#water-allocation-graphs "#water-allocation-graphs")
+
+### Your water withdrawals summary
+
+This section shows your estimated water withdrawals from using AWS.
+Water withdrawal refers to the total volume of water drawn from a source — such as municipal supply, recycled water, or other non-potable sources — to support data center cooling for the AWS services you use.
+
+See [Input Data](methodology-water-input-data.md "methodology-water-input-data.md") to understand the methodology behind your numbers.
+
+### Water withdrawals graph
+
+This chart presents your water withdrawals estimates over time.
+It uses a stacked bar chart by default, and you can also see your data in an area chart or table formats by selecting the corresponding buttons in the top right corner of the chart.
+Similarly, the chart shows your withdrawals grouped by service by default, but you can see withdrawals grouped by AWS Region or usage account using the **Parameters** panel on the right side of the console.

@@ -1,9 +1,10 @@
 # CSV reports
 
-You can download csv reports in the **Reports** page. There are two preset reports ready to download.
+You can download csv reports in the **Reports** page. There are three preset reports ready to download.
 
 - **Monthly carbon emissions**: This report offers monthly carbon data, both MBM and LBM, with details by AWS Region, service, emissions scope, and carbon-free energy savings.
 - **Annual carbon emissions**: This report offers yearly carbon data, both MBM and LBM, with details by AWS Region, service, emissions scope, and carbon-free energy savings.
+- **Annual water allocation**: This report offers yearly water withdrawals data with details by AWS Region and service.
 
 ###### To download a preset report
 

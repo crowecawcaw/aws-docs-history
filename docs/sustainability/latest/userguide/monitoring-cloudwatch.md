@@ -12,4 +12,4 @@ AWS Sustainability Metrics| Dimension | Value |
 | Metric name | CallCount |
 | Service | AWS Sustainability |
 | Type | API |
-| Resource | GetEstimatedCarbonEmissionsDimensionValues, GetEstimatedCarbonEmissions |
+| Resource | GetEstimatedCarbonEmissionsDimensionValues, GetEstimatedCarbonEmissions, GetEstimatedWaterAllocationDimensionValues, GetEstimatedWaterAllocation |

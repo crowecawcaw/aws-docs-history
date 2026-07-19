@@ -24,6 +24,18 @@ sustainability journey.
   verification letter that validates the accuracy and reliability of AWS's carbon footprint
   calculation approach.
 
+## Water
+
+- [AWS water withdrawals methodology](https://sustainability.aboutamazon.com/aws-customer-water-withdrawal-methodology.pdf "https://sustainability.aboutamazon.com/aws-customer-water-withdrawal-methodology.pdf"):
+  Discover how AWS calculates and reports the water withdrawals associated with your cloud usage, including the specific assumptions and data sources used.
+- [AWS water withdrawals methodology assurance letter](https://sustainability.aboutamazon.com/aws-customer-water-withdrawal-methodology-assurance.pdf "https://sustainability.aboutamazon.com/aws-customer-water-withdrawal-methodology-assurance.pdf"):
+  View the independent third-party verification letter that validates the accuracy and reliability of AWS's water withdrawals calculation approach.
+- [Amazon’s spotlight on water](https://sustainability.aboutamazon.com/stories/spotlight-on-water "https://sustainability.aboutamazon.com/stories/spotlight-on-water"):
+  From reducing water use to increasing reuse and replenishing water in our communities, Amazon is using our scale and innovation-focused approach to support our aim of being responsible water stewards everywhere we operate.
+- [CDP technical note on water accounting](https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/001/561/original/CDP-technical-note-water-accounting-definitions.pdf "https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/001/561/original/CDP-technical-note-water-accounting-definitions.pdf"):
+  This note supplements CDP’s reporting guidance for water-specific questions.
+  It sets out the definitions that must be applied when reporting water accounting information to CDP.
+
 ## Sustainability on AWS
 
 - [Sustainable cloud computing on AWS](https://aws.amazon.com/sustainability/?icmpid=docs_sustainability_resources_sustainable-cloud-computing "https://aws.amazon.com/sustainability/?icmpid=docs_sustainability_resources_sustainable-cloud-computing"): Explore how AWS's cloud infrastructure helps organizations reduce their environmental impact while maintaining performance and innovation.
