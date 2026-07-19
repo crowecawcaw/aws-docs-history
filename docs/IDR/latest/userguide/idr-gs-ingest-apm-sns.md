@@ -161,7 +161,7 @@ AWS Incident Detection and Response**
 
    - Provide the ARN of this Custom event bus to
      AWS Incident Detection and Response in the "EventBridge Event Bus ARN" field
-     of the "Third-Party APM Alarms" section of the [Alarm ingestion questionnaire - Overview](idr-gs-questionnaire.md#idr-gs-alarm-questionnaire "idr-gs-questionnaire.md#idr-gs-alarm-questionnaire").
+     of the "Third-Party APM Alarms" section of the [Workload details - Alarm ingestion questions](idr-gs-questionnaire.md#idr-gs-alarm-questionnaire "idr-gs-questionnaire.md#idr-gs-alarm-questionnaire").
 
 3. During the onboarding process, AWS Incident Detection and Response will create a
    Managed EventBridge rule on this custom event bus to ingest

@@ -1,29 +1,25 @@
-# Workload onboarding and alarm ingestion questionnaires in Incident Detection and Response (exception path)
+# Workload onboarding questionnaire in Incident Detection and Response (exception path)
 
 ###### Note
 
-If you can't use the [IDR CLI](idr-gs-idrcli.md "idr-gs-idrcli.md") to onboard your workload, use the following questionnaires for workload and alarm onboarding.
+If you can't use the [IDR CLI](idr-gs-idrcli.md "idr-gs-idrcli.md") to onboard your workload, use the following questionnaire for workload onboarding.
 
-This topic provides the questionnaires you need to complete when onboarding a workload
-to AWS Incident Detection and Response and when configuring alarms to ingest into the
-service. The workload onboarding questionnaire covers general information about your
-workload, its architecture details, and contacts for incident response. In the alarm
-ingestion questionnaire, you specify the critical alarms that trigger
+This topic provides the questionnaire you need to complete when onboarding a workload
+and configuring alarms to ingest to AWS Incident Detection and Response. The workload
+onboarding questionnaire covers general information about your workload, its
+architecture details, alarms, and contacts for incident response. In the alarm
+ingestion section of the questionnaire, you specify the critical alarms that trigger
 incident creation in Incident Detection and Response for your workload, as well as
 runbook information on who to contact and what actions to take.
-Properly completing these questionnaires is a key step in setting up monitoring and
+Properly completing this questionnaire is a key step in setting up monitoring and
 incident response processes for your AWS workloads.
 
 Download the Workload onboarding questionnaire:
 
 - [English version](https://d3oc37omrta8ht.cloudfront.net/AWS-Incident-Detection-and-Response-Workload-Onboarding-Questionnaire.xlsx "https://d3oc37omrta8ht.cloudfront.net/AWS-Incident-Detection-and-Response-Workload-Onboarding-Questionnaire.xlsx")
 - [Japanese version](https://d3oc37omrta8ht.cloudfront.net/JP_AWS-Incident-Detection-and-Response-Workload-Onboarding-Questionnaire.xlsx "https://d3oc37omrta8ht.cloudfront.net/JP_AWS-Incident-Detection-and-Response-Workload-Onboarding-Questionnaire.xlsx")
-  Download the Alarm ingestion questionnaire:
 
-- [English version](https://d3oc37omrta8ht.cloudfront.net/AWS-Incident-Detection-and-Response-Alarm-Ingestion-Questionnaire.xlsx "https://d3oc37omrta8ht.cloudfront.net/AWS-Incident-Detection-and-Response-Alarm-Ingestion-Questionnaire.xlsx")
-- [Japanese version](https://d3oc37omrta8ht.cloudfront.net/JP_AWS-Incident-Detection-and-Response-Alarm-Ingestion-Questionnaire.xlsx "https://d3oc37omrta8ht.cloudfront.net/JP_AWS-Incident-Detection-and-Response-Alarm-Ingestion-Questionnaire.xlsx")
-
-## Workload onboarding questionnaire - General questions
+## Workload details - General questions
 
 General questions| Question | Example Response |
 | --- | --- |
@@ -31,18 +27,18 @@ General questions| Question | Example Response |
 | Name of this workload (include any abbreviations) | Amazon Retail Operations (ARO) |
 | Primary end user and the function of this workload. | This workload is an e-commerce application that allows end users to purchase various items. This workload is the primary revenue generator for our business. |
 
-## Workload onboarding questionnaire - Architecture questions
+## Workload details - Architecture questions
 
 Architecture questions| Question | Example Response |
 | --- | --- |
 | A list of AWS resource tags used to define resources that are part of this workload. AWS uses these tags to identify this workload's resources to expedite support during incidents.<br>NoteTags are case sensitive. If you provide multiple tags, all resources used by this workload must have the same tags. | appName: Optimax<br>environment: Production |
 | A list of AWS service(s) utilized by this workload, the AWS account(s) and AWS Region(s) that they are in. | AWS services: Route 53, ALB, ECS, ...<br>Accounts: 123456789101, 123456789102, ...<br>Regions: US-EAST-1, US-WEST-2, ... |
 
-## Alarm ingestion questionnaire - Overview
+## Workload details - Alarm ingestion questions
 
-In the alarm ingestion questionnaire, you specify the critical alarms for your workload that you want to engage AWS Incident Detection and Response, as well as the contacts you want an Incident Management Engineer to engage when these alarms trigger.
+For alarm ingestion questions, you specify the critical alarms for your workload that you want to engage AWS Incident Detection and Response, as well as the contacts you want an Incident Management Engineer to engage when these alarms trigger.
 
-The Alarm Ingestion Questionnaire is divided into the following sections:
+The alarm ingestion section is divided into the following sections:
 
 - **Contact section:** First, specify the primary contact(s) to be included on the Support Case created with AWS Incident Detection and Response when an alarm triggers, as well as your preferred conferencing application for incident bridges. If no bridge preference is provided, AWS Incident Detection and Response will create an incident bridge during incidents. Next, specify escalation contacts and time intervals to engage them when primary contacts are unreachable. Finally, list any contacts who should receive regular incident status updates through the support case for the duration of an incident.
 - **Alarm matrix:** List the set of alarms that will engage AWS Incident Detection and Response when triggered. See the "Critical Alarm Criteria" defined by AWS Incident Detection and Response when selecting alarms for onboarding. For more information, see [Alarm definition](idr-gs-alarm-definition.md "idr-gs-alarm-definition.md").
@@ -53,7 +49,7 @@ The Alarm Ingestion Questionnaire is divided into the following sections:
     - **EventBridge EventBus ARN:** This is the ARN of the custom EventBus ARN that you created in [Ingest Alarms from APMs with direct EventBridge integration](idr-gs-ingest_alarms_from_apm_to_eventbridge.md "idr-gs-ingest_alarms_from_apm_to_eventbridge.md") or [Ingest alarms from APMs without direct integration with EventBridge](idr-gs-ingest-apm-webhooks.md "idr-gs-ingest-apm-webhooks.md").
     - **Alarm Identifiers:** Share the account number, region, and name of the APM alarm.
 
-## Alarm ingestion questionnaire - Runbook questions
+## Workload Engagement and Escalation Contacts - Runbook questions
 
 Runbook questions| Question | Example Response |
 | --- | --- |

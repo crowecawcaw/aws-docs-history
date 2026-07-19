@@ -19,8 +19,8 @@ AWS Incident Detection and Response](https://github.com/awslabs/CLI-for-AWS-Inci
 
 ## Language support for the IDR CLI
 
-AWS Incident Detection and Response is available in English, Japanese, Mandarin, and Korean. If you need support in Japanese, Mandarin, or Korean, contact AWS through the AWS Support case created by the IDR CLI, or contact your Technical Account Manager (TAM).
+AWS Incident Detection and Response is available in English, Japanese, Mandarin, and Korean.
 
 ## Alternative options for onboarding workloads
 
-If you can't use the IDR CLI for onboarding, consult your Technical Account Manager (TAM) for alternative options. For more information, see [Workload onboarding and alarm ingestion questionnaires in Incident Detection and Response (exception path)](idr-gs-questionnaire.md "idr-gs-questionnaire.md")
+If you can't use the IDR CLI for onboarding, consult your Technical Account Manager (TAM) for alternative options. For more information, see [Workload onboarding questionnaire in Incident Detection and Response (exception path)](idr-gs-questionnaire.md "idr-gs-questionnaire.md").

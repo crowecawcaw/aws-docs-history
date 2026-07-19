@@ -6,6 +6,6 @@ Based on this review, two types of feedback are provided:
 
 - Mandatory configuration requirements - these changes must be implemented for alarm acceptance.
 - Optional improvement recommendations - these changes enhance alarm effectiveness but are not mandatory for alarm acceptance.
-  After receiving this feedback, you can decide to proceed with only onboarding accepted alarms and those needing optional improvements, while working on configuration changes for alarms with mandatory configuration requirements in parallel.
+  Following alarm review completion, alarms suitable for onboarding to AWS Incident Detection and Response are onboarded for your workload's go-live.
 
-Alternatively, you can implement all changes before going live. This approach extends the onboarding timeline, based on the number of alarms requiring adjustments.
+For alarms requiring modifications, address the feedback provided and submit a [change request](idr-workloads-change-request.md "idr-workloads-change-request.md") to initiate onboarding of those remaining alarms. Attach any relevant documents related to the requested updates.

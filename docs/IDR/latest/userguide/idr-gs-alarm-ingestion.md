@@ -19,4 +19,4 @@ The following steps need to be completed for alarm ingestion:
 
 ## Alternative options for ingesting alarms
 
-If you can't use the IDR CLI for alarm ingestion, consult your Technical Account Manager (TAM) for alternative options. For more information, see [Workload onboarding and alarm ingestion questionnaires in Incident Detection and Response (exception path)](idr-gs-questionnaire.md "idr-gs-questionnaire.md")
+If you can't use the IDR CLI for onboarding, consult your Technical Account Manager (TAM) for alternative options. For more information, see [Workload onboarding questionnaire in Incident Detection and Response (exception path)](idr-gs-questionnaire.md "idr-gs-questionnaire.md").
