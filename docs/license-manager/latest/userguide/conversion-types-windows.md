@@ -36,6 +36,7 @@ License Manager supports the following SQL Server versions:
 - SQL Server 2017
 - SQL Server 2019
 - SQL Server 2022
+- SQL Server 2025
 
 ## Usage operation values
 
