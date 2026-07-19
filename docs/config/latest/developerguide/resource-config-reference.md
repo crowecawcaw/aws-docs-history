@@ -66,6 +66,7 @@ that relies on tag data.
 | AWS Service                      | Resource Type Value           | Relationship        | Related Resource | Notes |
 | -------------------------------- | ----------------------------- | ------------------- | ---------------- | ----- |
 | API Gateway                      | `AWS::ApiGateway::DomainName` | NA                  | NA               |       |
+| `AWS::ApiGateway::DomainNameV2`  | NA                            | NA                  |                  |
 | `AWS::ApiGateway::Stage`         | is contained in               | ApiGateway Rest Api |                  |
 | is associated with               | WAFRegional WebACL            |                     |
 | `AWS::ApiGateway::Method`        | NA                            | NA Stage            |                  |
@@ -74,6 +75,7 @@ that relies on tag data.
 | API Gateway V2                   | `AWS::ApiGatewayV2::Stage`    | is contained in     | ApiGatewayV2 Api |       |
 | `AWS::ApiGatewayV2::Api`         | contains                      | ApiGatewayV2 Stage  |                  |
 | `AWS::ApiGatewayV2::Integration` | NA                            | NA                  |                  |
+| `AWS::ApiGatewayV2::VpcLink`     | NA                            | NA                  |                  |
 
 To learn more about how AWS Config integrates with Amazon API Gateway, see [Monitoring API Gateway API Configuration with
 AWS Config](../../../apigateway/latest/developerguide/apigateway-config.md "../../../apigateway/latest/developerguide/apigateway-config.md").
@@ -230,6 +232,7 @@ AWS Config](../../../apigateway/latest/developerguide/apigateway-config.md "../.
 | `AWS::EC2::TransitGateway`                       | NA                                   | NA                                  |                  |
 | `AWS::EC2::TransitGatewayAttachment`             | NA                                   | NA                                  |                  |
 | `AWS::EC2::TransitGatewayRouteTable`             | NA                                   | NA                                  |                  |
+| `AWS::EC2::VPCEncryptionControl`                 | NA                                   | NA                                  |                  |
 | `AWS::EC2::VPCEndpoint`                          | is contained in                      | Virtual private cloud (VPC)         |                  |
 | is attached to                                   | Network interface                    |                                     |
 | is contained in                                  | Subnet                               |                                     |
@@ -470,6 +473,7 @@ New (supported):
 | Amazon OpenSearch Serverless                     | `AWS::OpenSearchServerless::VpcEndpoint` | NA                 | NA               |       |
 | `AWS::OpenSearchServerless::Collection`          | NA                                       | NA                 |                  |
 | `AWS::OpenSearchServerless::SecurityConfig`      | NA                                       | NA                 |                  |
+| `AWS::OpenSearchServerless::SecurityPolicy`      | NA                                       | NA                 |                  |
 
 ###### Amazon OpenSearch Service rename
 
@@ -477,6 +481,12 @@ On September 8, 2021, Amazon Elasticsearch Service was renamed to Amazon OpenSea
 For more information, see [Amazon OpenSearch Service - Summary of changes](../../../opensearch-service/latest/developerguide/rename.md "../../../opensearch-service/latest/developerguide/rename.md").
 
 You might continue to see your data for `AWS::OpenSearch::Domain` under the existing `AWS::Elasticsearch::Domain` resource type for several weeks, even if you upgrade one or more domains to OpenSearch.
+
+## Amazon OpenSearch Ingestion
+
+| AWS Service                 | Resource Type Value   | Relationship | Related Resource | Notes |
+| --------------------------- | --------------------- | ------------ | ---------------- | ----- |
+| Amazon OpenSearch Ingestion | `AWS::OSIS::Pipeline` | NA           | NA               |       |
 
 ## Amazon Personalize
 
@@ -777,6 +787,13 @@ AWS Config also records the following attributes for the Amazon S3 bucket resour
 
 For more information about the attributes, see [Bucket Configuration
 Options](../../../AmazonS3/latest/userguide/UsingBucket.md#bucket-config-options-intro "../../../AmazonS3/latest/userguide/UsingBucket.md#bucket-config-options-intro") in the _Amazon Simple Storage Service User Guide_.
+
+## Amazon S3 Vectors
+
+| AWS Service                          | Resource Type Value            | Relationship | Related Resource | Notes |
+| ------------------------------------ | ------------------------------ | ------------ | ---------------- | ----- |
+| Amazon S3 Vectors                    | `AWS::S3Vectors::VectorBucket` | NA           | NA               |       |
+| `AWS::S3Vectors::VectorBucketPolicy` | NA                             | NA           |                  |
 
 ## Amazon Verified Permissions
 
@@ -1271,14 +1288,15 @@ and inline policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-in
 
 ## AWS Network Firewall
 
-| AWS Service                                        | Resource Type Value              | Relationship              | Related Resource | Notes |
-| -------------------------------------------------- | -------------------------------- | ------------------------- | ---------------- | ----- |
-| AWS Network Firewall                               | `AWS::NetworkFirewall::Firewall` | is attached to            | EC2 Subnet       |       |
-| is associated with                                 | NetworkFirewall FirewallPolicy   |                           |
-| `AWS::NetworkFirewall::FirewallPolicy`             | is associated with               | NetworkFirewall RuleGroup |                  |
-| `AWS::NetworkFirewall::RuleGroup`                  | NA                               | NA                        |                  |
-| `AWS::NetworkFirewall::TLSInspectionConfiguration` | NA                               | NA                        |                  |
-| `AWS::NetworkFirewall::VpcEndpointAssociation`     | NA                               | NA                        |                  |
+| AWS Service                                        | Resource Type Value                          | Relationship              | Related Resource | Notes |
+| -------------------------------------------------- | -------------------------------------------- | ------------------------- | ---------------- | ----- |
+| AWS Network Firewall                               | `AWS::NetworkFirewall::ContainerAssociation` | NA                        | NA               |       |
+| `AWS::NetworkFirewall::Firewall`                   | is attached to                               | EC2 Subnet                |                  |
+| is associated with                                 | NetworkFirewall FirewallPolicy               |                           |
+| `AWS::NetworkFirewall::FirewallPolicy`             | is associated with                           | NetworkFirewall RuleGroup |                  |
+| `AWS::NetworkFirewall::RuleGroup`                  | NA                                           | NA                        |                  |
+| `AWS::NetworkFirewall::TLSInspectionConfiguration` | NA                                           | NA                        |                  |
+| `AWS::NetworkFirewall::VpcEndpointAssociation`     | NA                                           | NA                        |                  |
 
 ## AWS Network Manager
 
