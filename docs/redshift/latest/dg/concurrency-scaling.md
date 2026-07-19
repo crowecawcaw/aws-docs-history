@@ -137,9 +137,9 @@ Queries are routed to the concurrency scaling cluster only when the main cluster
 meets the following requirements:
 
 - EC2-VPC platform.
-- Node type must be dc2.8xlarge, dc2.large, rg.xlarge, rg.4xlarge, ra3.large, ra3.xlplus, ra3.4xlarge, or ra3.16xlarge. Concurrency scaling for write
+- Node type must be dc2.8xlarge, dc2.large, rg.large, rg.xlarge, rg.4xlarge, rg.12xlarge, ra3.large, ra3.xlplus, ra3.4xlarge, or ra3.16xlarge. Concurrency scaling for write
   operations is supported on only Amazon Redshift RG and RA3 nodes.
-- Maximum of 32 compute nodes for clusters with rg.xlarge, rg.4xlarge, ra3.xlplus, ra3.4xlarge, or ra3.16xlarge node types.
+- Maximum of 32 compute nodes for clusters with rg.large, rg.xlarge, rg.4xlarge, rg.12xlarge, ra3.xlplus, ra3.4xlarge, or ra3.16xlarge node types.
   In addition, the number of nodes of the main cluster can't be larger than 32 nodes when the cluster was originally created.
   For example, even if a cluster currently has 20 nodes, but was originally created with 40, it does not meet the requirements for concurrency scaling.
   Conversely, if a DC2 cluster currently has 40 nodes, but was originally created with 20, it does meet the requirements for concurrency scaling.

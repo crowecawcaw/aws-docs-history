@@ -424,7 +424,7 @@ Specify an integer value between 32 MB and 128 MB. The AS keyword is optional.
 The default unit is MB.
 
 If ROWGROUPSIZE isn't specified, the default
-size is 32 MB. To use this parameter, the storage format must be Parquet and the node type must be ra3.4xlarge, ra3.16xlarge, rg.4xlarge,
+size is 32 MB. To use this parameter, the storage format must be Parquet and the node type must be ra3.4xlarge, ra3.16xlarge, rg.4xlarge, rg.12xlarge,
 or dc2.8xlarge.
 
 REGION [AS] '_aws-region_'

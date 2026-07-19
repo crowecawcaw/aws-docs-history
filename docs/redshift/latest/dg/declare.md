@@ -73,20 +73,22 @@ the size of all cursor result sets, based on the cluster's node type.
 The following table shows the maximum total result set size for each cluster node
 type. Maximum result set sizes are in megabytes.
 
-| Node type                  | Maximum result set per cluster (MB) |
-| -------------------------- | ----------------------------------- |
-| DC2 Large multiple nodes   | 192,000                             |
-| DC2 Large single node      | 8,000                               |
-| DC2 8XL multiple nodes     | 3,200,000                           |
-| RG XLARGE multiple nodes   | 240,000                             |
-| RG 4XL multiple nodes      | 1,600,000                           |
-| RA3 16XL multiple nodes    | 14,400,000                          |
-| RA3 4XL multiple nodes     | 3,200,000                           |
-| RA3 XLPLUS multiple nodes  | 1,000,000                           |
-| RA3 XLPLUS single node     | 64,000                              |
-| RA3 LARGE multiple nodes   | 240,000                             |
-| RA3 LARGE single node      | 8,000                               |
-| Amazon Redshift Serverless | 150,000                             |
+| Node type                   | Maximum result set per cluster (MB) |
+| --------------------------- | ----------------------------------- |
+| rg.12xlarge multiple nodes  | 7,200,000                           |
+| rg.4xlarge multiple nodes   | 1,600,000                           |
+| rg.xlarge multiple nodes    | 240,000                             |
+| rg.large multiple nodes     | 100,000                             |
+| ra3.16xlarge multiple nodes | 14,400,000                          |
+| ra3.4xlarge multiple nodes  | 3,200,000                           |
+| ra3.xlplus multiple nodes   | 1,000,000                           |
+| ra3.xlplus single node      | 64,000                              |
+| ra3.large multiple nodes    | 240,000                             |
+| ra3.large single node       | 8,000                               |
+| Amazon Redshift Serverless  | 150,000                             |
+| dc2.8xlarge multiple nodes  | 3,200,000                           |
+| dc2.large multiple nodes    | 192,000                             |
+| dc2.large single node       | 8,000                               |
 
 To view the active cursor configuration for a cluster, query the [STV\_CURSOR\_CONFIGURATION](r_STV_CURSOR_CONFIGURATION.md "r_STV_CURSOR_CONFIGURATION.md")
 system table as a superuser. To view the state of active cursors, query the [STV\_ACTIVE\_CURSORS](r_STV_ACTIVE_CURSORS.md "r_STV_ACTIVE_CURSORS.md") system table.
@@ -109,7 +111,13 @@ alternatives:
   connection and you are encountering client-side out-of-memory errors, you can
   enable your client to retrieve result sets in smaller batches by setting the JDBC
   fetch size parameter. For more information, see [Setting the JDBC fetch size parameter](set-the-JDBC-fetch-size-parameter.md "set-the-JDBC-fetch-size-parameter.md").
-- RG nodes have smaller cursor sizes. If your workloads require a larger cursor size, consider upgrading to a larger RG node type.
+
+RG nodes have smaller maximum cursor result set sizes compared to RA3 nodes of similar compute capacity. If your cursor workloads approach or exceed the limit for your RG node type, consider the following options:
+
+- **Optimize result set sizes.** Apply more selective query filters, reduce the number of columns retrieved, or implement application-level pagination to process results in smaller batches.
+- **Migrate to a larger RG node type.** A larger node type provides a higher cursor capacity. If your node count allows and workload performance is not impacted, you can reduce the number of nodes proportionally to maintain a comparable total cluster cost.
+
+To determine the current size of your cursor's result set, query the SYS\_QUERY\_HISTORY view for the `returned_bytes` value associated with the first FETCH statement executed against the cursor. For more information, see [SYS\_QUERY\_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md").
 
 ## DECLARE CURSOR examples
 

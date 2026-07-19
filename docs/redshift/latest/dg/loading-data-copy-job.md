@@ -420,3 +420,44 @@ The following Regions are available for auto-copy.
 | US West (Oregon)           | Available     |
 | AWS GovCloud (US-East)     | Available     |
 | AWS GovCloud (US-West)     | Available     |
+
+## Considerations when restoring an S3 event integration target
+
+When you restore an Amazon Redshift Serverless namespace from a snapshot or recovery point to the same
+serverless namespace, S3 event integrations and their associated COPY JOBs are maintained
+automatically. The following considerations apply:
+
+- Restoring a snapshot to a different namespace does not maintain S3 event integrations.
+- After the restore, Amazon Redshift automatically identifies files that were uploaded to the
+  source Amazon S3 bucket after the snapshot was taken. Any files present in Amazon S3 that were
+  not yet loaded are automatically ingested. During this process, new file ingestion from
+  S3 event notifications continues to work in parallel.
+
+###### Note
+
+After restore, only files present in the Amazon S3 bucket are eligible to be ingested.
+Files that were uploaded after the snapshot was taken and subsequently deleted before
+the restore completes are not ingested.
+
+- If an S3 event integration was created after the snapshot was taken, the integration
+  enters the `NEEDS_ATTENTION` state after the restore. To resolve this, you
+  can restore from a more recent snapshot that includes the integration, or delete the
+  integration.
+- If an S3 event integration was deleted after the snapshot was taken, the integration
+  is not restored. The corresponding COPY JOB status changes to `PENDING`. You
+  can create a new integration to the same Amazon S3 bucket and recreate the COPY JOB. Files
+  added to S3 between the snapshot time and the time the COPY JOBs were recreated cannot
+  be recovered or re-ingested. To identify these files, check the snapshot time in the
+  console and the integration deletion time in CloudTrail and the files that arrived in the S3
+  bucket between these times are the files which were missed.
+- If COPY JOBs were changed after the snapshot was taken, the restored namespace uses
+  the COPY JOBs from the snapshot. Amazon Redshift reconciles any differences and updates the
+  integration to reflect the restored COPY JOB configuration.
+- To opt out of maintaining S3 event integrations during a restore, uncheck the
+  **Maintain Integrations** box on the restore page in the AWS Management Console, or
+  if you are using the AWS CLI, set the `--no-maintain-integration` parameter
+  when calling the [restore-from-snapshot](../../../redshift-serverless/latest/APIReference/API_RestoreFromSnapshot.md "../../../redshift-serverless/latest/APIReference/API_RestoreFromSnapshot.md") or [restore-from-recovery-point](../../../redshift-serverless/latest/APIReference/API_RestoreFromRecoveryPoint.md "../../../redshift-serverless/latest/APIReference/API_RestoreFromRecoveryPoint.md") API operation. When you opt out, integrations
+  enter the `FAILED` state after the restore.
+- This feature applies to Amazon Redshift Serverless only when restored to the same serverless
+  namespace. Snapshot restores on provisioned clusters do not maintain S3 event
+  integrations.

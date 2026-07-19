@@ -119,8 +119,11 @@ Amazon Redshift doesn't support cascading refresh for materialized views based o
 other than:
 
 - Local tables
+- Shared tables
 - Local MVs
 - Streaming MVs
+
+Cascading refresh does not extend to shared materialized views.
 
 Amazon Redshift doesn't support incremental refresh for materialized views that are defined with
 a query using the following SQL elements:

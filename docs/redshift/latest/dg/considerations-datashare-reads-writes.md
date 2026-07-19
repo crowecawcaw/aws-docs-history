@@ -28,7 +28,7 @@ Amazon Redshift:
   datashares.
 - Amazon Redshift doesn't support sharing metadata system views and system
   tables.
-- _Compute type_ – You must use Serverless workgroups or provisioned clusters with rg.xlarge, rg.4xlarge, ra3.large, ra3.xlplus, ra3.4xlarge, or ra3.16xlarge node types to use this feature.
+- _Compute type_ – You must use Serverless workgroups or provisioned clusters with RG or RA3 node types to use this feature.
 - _Isolation level_ – Your database’s isolation level
   must be snapshot isolation in order to allow other Serverless workgroups and
   provisioned clusters to write to it.
