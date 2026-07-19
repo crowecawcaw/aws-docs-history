@@ -1,8 +1,38 @@
-# Cancelling a fund request
+# Canceling a fund request
 
-The Cancel function can be used when a Partner needs to cancel a Fund Request that will no longer be executed. Once the Fund Request has been canceled, the status will change from "Active" to "Cancel" but the stage will not change. The Fund Request will also continue to be visible in the funding dashboard. By canceling, the Partner will no longer be able to edit, submit, resubmit, or view the Fund Request. The Cancel function can be performed at any time prior to entering the Completed Stage, at which point, the Fund Request can no longer be canceled.
+## Canceling from the AWS Partner Central in AWS Console
 
-To cancel a Fund Request:
+Use the Cancel function when you need to cancel a Fund Request that will no longer be executed. After the Fund Request is canceled, the status changes from "Active" to "Canceled", but the stage does not change. The Fund Request continues to be visible in the funding dashboard. You can cancel a Fund Request at any point before it reaches the Completed Stage, including after it reaches the cash claim stage. After you cancel, any unclaimed funding amount automatically returns to your wallet.
 
-1. Select the Fund Request ID from the funding dashboard
-2. Choose **Cancel fund request** from the Fund Request summary screen.
+###### Important
+
+By canceling, you can no longer edit or resubmit the Fund Request.
+
+You can cancel a Fund Request in either of the following ways:
+
+1. Choose the Fund Request ID from the funding dashboard, and then choose **Cancel fund request**.
+2. Open the Fund Request detail page and choose **Cancel fund request**.
+
+## Cancellation rules for API users
+
+If you are using the `CancelBenefitApplication` API operation, the following rules apply:
+
+### Funding Benefit Applications (Fund Requests)
+
+- Fund requests can be canceled before approval (`PENDING_SUBMISSION`, `IN_REVIEW`, `ACTION_REQUIRED`).
+- Fund requests can be canceled after approval (`APPROVED`, Cash fulfillment type only).
+- Post-approval cancellation triggers the following actions:
+
+  - The system cancels associated claims that have not yet reached Invoice stage.
+  - The system releases Purchase Order (PO) allocations.
+  - The system releases SCA wallet funds back to your available balance.
+
+### Claim Benefit Applications (Cash Claims)
+
+- Claims can be canceled before approval (`PENDING_SUBMISSION`, `IN_REVIEW`, `ACTION_REQUIRED`).
+- Claims cannot be canceled after approval.
+- After a claim is approved, it moves to Invoice stage and enters the payment process.
+
+###### Important
+
+To withdraw from an approved fund request, cancel the funding benefit application (the fund request itself). This action automatically cancels eligible claims. Claims already at Invoice stage or beyond are not affected and continue through the payment process.

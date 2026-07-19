@@ -6,7 +6,7 @@ On the Partner Funding Dashboard landing page, users with the appropriate permis
 
 ## Funding Activities
 
-This section shows all the Fund Requests (all statuses and stages) that the Partner user has access to. For standard APUs, they can see the requests they are the owner of, including drafted. ALs can see all requests for the Partner account regardless of owner.
+This section shows all the Fund Requests (all statuses and stages) that the Partner user has access to. For Standard Partner users, they can see the requests they are the owner of, including drafted. Alliance leads can see all requests for the Partner account regardless of owner.
 
 There are multiple ways to find a fund request:
 
@@ -22,7 +22,7 @@ There are multiple ways to find a fund request:
 
 There are 4 possible actions to take in this dashboard:
 
-- **Export** — Exports the displayed list of Funding Activities to an Excel Spreadsheet
+- **Export** — Allows a Partner to export the displayed list of Funding Activities to an Excel Spreadsheet
 - **Create Fund Request** — Allows a Partner to submit a Fund Request with a dropdown by program
-- **Cancel Fund Request** — Allows a Partner to Delete a Fund Request from their dashboard
-- **View Details** — Allows a partner to view specific details of a selected fund request
+- **Cancel Fund Request** — Allows a Partner to cancel a selected Fund Request
+- **View Details** — Allows a partner to view specific details of a selected Fund Request
