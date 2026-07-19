@@ -34,17 +34,14 @@ Management account
 
 - `AWSServiceRoleForNetworkManager`
 - `AWSServiceRoleForCloudFormationStackSetsOrgAdmin`
-- `AWSServiceRoleForCloudWatchCrossAccount`
 
 Member accounts
 
 - `AWSServiceRoleForNetworkManager`
 - `AWSServiceRoleForCloudFormationStackSetsOrgMember`
 
-When you register a member account as a delegated administrator, the following
-additional role is automatically created in the delegated administrator account:
-
-- `AWSServiceRoleForCloudWatchCrossAccount`
+For more information about multi-account networking, see [Multi-account in AWS
+Global Networks for Transit Gateways](../../../network-manager/latest/tgwnm/nm-multi-account.md "../../../network-manager/latest/tgwnm/nm-multi-account.md").
 
 ## Service principals used by the service-linked roles
 
@@ -55,7 +52,6 @@ The service-linked roles can only be assumed by the service principals authorize
   has access.
 - For the `AWSServiceRoleForCloudFormationStackSetsOrgMember` service-linked role, `member.org.stacksets.cloudformation.amazonaws.com` is the only service principal that has access.
 - For the `AWSServiceRoleForCloudFormationStackSetsOrgAdmin` service-linked role, `stacksets.cloudformation.amazonaws.com` is the only service principal that has access.
-- For the `AWSServiceRoleForCloudWatchCrossAccount` service-linked role, `cloudwatch-crossaccount.amazonaws.com` is the only service principal that has access.
 
 Deleting these roles will impair multi-account functionality for Network Manager.
 
