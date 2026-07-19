@@ -351,9 +351,6 @@ perform this work must have the following IAM permissions policy, in addition to
                 "sso:ListDirectoryAssociations",
                 "sso:ListPermissionSets",
                 "sso:GetPermissionSet",
-                "sso:ProvisionApplicationInstanceForAWSAccount",
-                "sso:ProvisionApplicationProfileForAWSAccountInstance",
-                "sso:ProvisionSAMLProvider",
                 "sso:ListProfileAssociations",
                 "sso-directory:ListMembersInGroup",
                 "sso-directory:AddMemberToGroup",
@@ -376,5 +373,3 @@ perform this work must have the following IAM permissions policy, in addition to
 }
 
 ```
-
-The permissions `sso:ProvisionApplicationInstanceForAWSAccount`, `sso:ProvisionApplicationProfileForAWSAccountInstance`, and `sso:ProvisionSAMLProvider` are required by AWS Control Tower Account Factory to interact with AWS IAM Identity Center.

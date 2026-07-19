@@ -5,10 +5,10 @@ using Account Factory for Terraform (AFT).
 
 ###### Topics
 
-- [General issues](#w2aac44c33c45b7 "#w2aac44c33c45b7")
-- [Issues related to account provisioning/registration](#w2aac44c33c45b9 "#w2aac44c33c45b9")
-- [Issues related to customizations invocation](#w2aac44c33c45c11 "#w2aac44c33c45c11")
-- [Issues related to the account customizations workflow](#w2aac44c33c45c13 "#w2aac44c33c45c13")
+- [General issues](#w2aac44c33c47b7 "#w2aac44c33c47b7")
+- [Issues related to account provisioning/registration](#w2aac44c33c47b9 "#w2aac44c33c47b9")
+- [Issues related to customizations invocation](#w2aac44c33c47c11 "#w2aac44c33c47c11")
+- [Issues related to the account customizations workflow](#w2aac44c33c47c13 "#w2aac44c33c47c13")
 
 ## General issues
 

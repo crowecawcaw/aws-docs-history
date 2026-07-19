@@ -222,6 +222,29 @@ the customization
 for all AFT-provisioned accounts
 is re-invoked.
 
+You can include a `bypass_steps` parameter in the Step Functions input to skip
+specific provisioning phases during re-invocation.
+
+| `bypass_steps` value         | Behavior                                                                                                  |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `["provisioning_bootstrap"]` | Skips account provisioning and bootstrap phases; runs only account<br>and global customization pipelines. |
+| `[]` (empty)                 | Runs the full flow including provisioning (default).                                                      |
+
+The following example shows a Step Functions input that re-invokes customizations for a
+specific account while bypassing provisioning and bootstrap steps.
+
+```
+{
+  "include": [
+    {
+      "type": "accounts",
+      "target_value": ["123456789012"]
+    }
+  ],
+  "bypass_steps": ["provisioning_bootstrap"]
+}
+```
+
 ###### Note
 
 If your version

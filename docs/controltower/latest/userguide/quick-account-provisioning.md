@@ -80,9 +80,9 @@ in your existing AWS account account, follow these steps to enroll the account:
   account.
 - AWS Security Token Service (AWS STS) is disabled in your AWS account in your home Region,
   or in any Region supported by AWS Control Tower.
-- You may be signed in to an account that needs to be added to the
-  Account Factory Portfolio in AWS Service Catalog. The account must be added before you'll
-  have access to Account Factory so you can create or enroll an account in
+- You may be signed in as an IAM user or role that needs to be added to the
+  Account Factory Portfolio in AWS Service Catalog. The user or role must be added before
+  you'll have access to Account Factory so you can create or enroll an account in
   AWS Control Tower. If the appropriate user or role is not added to the Account Factory
   portfolio, you’ll receive an error when you attempt to add an account. For
   instructions on how to grant access to AWS Service Catalog portfolios, see [Granting access to users](../../../servicecatalog/latest/adminguide/catalogs_portfolios_users.md "../../../servicecatalog/latest/adminguide/catalogs_portfolios_users.md").
