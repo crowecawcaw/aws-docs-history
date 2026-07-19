@@ -17,9 +17,8 @@ _AWS Key Management Service Developer Guide_.
 
 1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
 2. In the navigation pane, choose **WorkSpaces**.
-3. Select the WorkSpaces to reboot and choose **Actions**,
-   **Reboot WorkSpaces**.
-4. When prompted for confirmation, choose **Reboot WorkSpaces**.
+3. Select the WorkSpaces to reboot and choose **Reboot**.
+4. When prompted for confirmation, choose **Reboot**.
 
 ###### To reboot a WorkSpace using the AWS CLI
 

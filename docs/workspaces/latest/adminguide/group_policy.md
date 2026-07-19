@@ -1462,6 +1462,84 @@ This feature is supported in the Amazon WorkSpaces Windows client version 5.29.2
      **Reboot WorkSpaces**.
    - In an administrative command prompt, enter `gpupdate
   /force`.
+     By default, URL redirection is not enabled for Windows WorkSpaces. When
+     enabled, links opened inside a WorkSpace session open in the web browser on the
+     user's local device instead of in the remote session. You control which URLs are
+     redirected by specifying URL patterns, so only approved links open locally while
+     all others remain in the remote session.
+
+When URL redirection is enabled, the Amazon DCV URL Redirection browser
+extension is automatically installed on Google Chrome and Microsoft Edge inside
+the WorkSpace at the start of the next session.
+
+#### Version requirements
+
+- Windows WorkSpaces: DCV host agent version 2.3.0.2365 or later
+- Client versions:
+
+  - Windows client: 5.33.0.5939 or later
+  - macOS client: 5.33.0.6168 or later
+  - Web client
+
+###### To configure URL redirection for Windows WorkSpaces
+
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open the **Enable host to client URL redirection**
+   setting.
+3. In the **Enable host to client URL redirection**
+   dialog box, choose **Enabled**.
+4. In the **Configure host to client URL patterns**
+   field, enter the URL patterns for the links you want to redirect to the
+   local browser, one pattern per line. This field is required when the
+   setting is enabled. For example:
+
+```
+https://www.youtube.com/*
+https://docs.aws.amazon.com/*
+https://*.example.com/*
+```
+
+5. (Optional) In the **Configure exception list** field,
+   enter URL patterns for links that you don't want to redirect, one pattern
+   per line. The exception list is evaluated before the URL patterns list.
+   If a URL matches an exception pattern, it opens in the remote session
+   regardless of the URL patterns list.
+6. Choose **OK**.
+7. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after the WorkSpace session is
+   restarted. To apply the Group Policy changes, do one of the
+   following:
+
+   - Reboot the WorkSpace. In the Amazon WorkSpaces console, select
+     the WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**.
+   - In an administrative command prompt, enter `gpupdate
+  /force`.
+
+#### URL pattern syntax
+
+Each URL pattern must include the protocol (https:// or http://). For
+security, use https:// patterns only unless you have a specific reason to
+redirect http:// links.
+
+Patterns support two wildcards:
+
+| Wildcard | Matches                 | Example pattern             | Example URLs matched                                                     |
+| -------- | ----------------------- | --------------------------- | ------------------------------------------------------------------------ |
+| `*`      | Zero or more characters | `https://www.youtube.com/*` | https://www.youtube.com/watch?v=abc, https://www.youtube.com/channel/xyz |
+| `?`      | Exactly one character   | `https://example.com/page?` | https://example.com/page1, https://example.com/pageA                     |
+
+To redirect all HTTPS URLs, use `https://*`. Patterns are
+case-insensitive for both the domain and the path.
+
+###### Note
+
+To disable URL redirection, open the **Enable host to client
+URL redirection** setting and choose **Disabled**
+or **Not Configured**.
 
 ## Install the Group Policy administrative template for PCoIP
 
