@@ -3,7 +3,7 @@
 This section covers stream sessions, the actual instance of a stream where an end user or player can interact with your application or play
 your game. You'll learn about how to test your own stream session and understand the stream session lifecycle.
 
-For launching stream sessions to end users, you must integrate Amazon GameLift Streams into your own service. For more information, refer to [Amazon GameLift Streams backend service and web client](sdk.md "sdk.md").
+For launching stream sessions to end users, you must integrate Amazon GameLift Streams into your own service. For more information, see [Amazon GameLift Streams backend service and web client](sdk.md "sdk.md").
 
 ## About stream sessions
 
@@ -13,7 +13,9 @@ session runs on one of the compute resources that a stream group has allocated. 
 specify a stream group and an application to stream using their ARN or ID values.
 
 When you successfully start a stream session, you receive a unique identifier for that stream session. Then, you use that ID to connect
-the stream session to an end user. For more information, refer to [StartStreamSession](../apireference/API_StartStreamSession.md "../apireference/API_StartStreamSession.md") in the _Amazon GameLift Streams API Reference_.
+the stream session to an end user. For more information, see [StartStreamSession](../apireference/API_StartStreamSession.md "../apireference/API_StartStreamSession.md") in the _Amazon GameLift Streams API Reference_.
+
+Optionally, you can provide an IAM role ARN when starting a stream session. If provided, Amazon GameLift Streams assumes the role and your application automatically receives AWS credentials. You do not need to change your application code. For more information, see [Provide AWS credentials to your streaming application](session-credentials.md "session-credentials.md").
 
 ## Testing a stream in the console
 

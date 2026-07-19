@@ -13,6 +13,7 @@ service. You can also use these samples to test how Amazon GameLift Streams stre
 - [Setting up a web server and client with Amazon GameLift Streams](setting-up-web-sdk.md "setting-up-web-sdk.md")
 - [Customize stream appearance](sdk-stream-appearance.md "sdk-stream-appearance.md")
 - [Locale preference](sdk-locale-support.md "sdk-locale-support.md")
+- [AWS credentials for your application](sdk-session-credentials.md "sdk-session-credentials.md")
 - [Mouse movement handling](sdk-mouse-movement.md "sdk-mouse-movement.md")
 - [Data channel communication between an application and web client](data-channels.md "data-channels.md")
 - [Amazon GameLift Streams Web SDK release notes](web-sdk-release-notes.md "web-sdk-release-notes.md")

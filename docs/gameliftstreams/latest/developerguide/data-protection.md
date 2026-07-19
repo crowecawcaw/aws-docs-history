@@ -43,7 +43,7 @@ Amazon GameLift Streams handles service-specific data as follows:
   service-managed Amazon S3 buckets and on NVME storage drives attached to Amazon EC2 instances. All data is stored with service-managed encryption at
   rest. There is no direct customer access to this copy of the data. To delete an application, use the Amazon GameLift Streams console or the service
   API.
-- **Customer-supplied metadata** – Customers may provide metadata to Amazon GameLift Streams APIs including
+- **Customer-supplied metadata** – Customers can provide metadata to Amazon GameLift Streams APIs including
   descriptions, connection information, and opaque identifiers such as customer IDs. This metadata is always associated with specific
   customer resources.
 - **Customer-generated data** – If an application writes new data as part of its normal operation,
@@ -54,6 +54,13 @@ Amazon GameLift Streams handles service-specific data as follows:
 - **Metrics and event data** – Amazon GameLift Streams metric and event data, which can be accessed through the
   Amazon GameLift Streams console or by calls to the service API. Data is available on applications, stream groups, and stream sessions. Authorized users
   can also access this data through Amazon CloudWatch and CloudWatch Events.
+- **Session credentials** – When you provide an
+  IAM role ARN on `StartStreamSession`, Amazon GameLift Streams assumes the role and provides short-lived
+  temporary credentials to the application. Amazon GameLift Streams stores credentials only in memory on the streaming
+  instance for the duration of the session. Amazon GameLift Streams never writes credentials to disk, never includes them in service
+  logs, and never returns them in API responses. When the session ends, Amazon GameLift Streams clears credentials from
+  memory. Amazon GameLift Streams stores only the role ARN (a resource identifier, not a credential) in service
+  databases, subject to the existing session record retention policies.
 
 ###### Important
 
@@ -76,12 +83,16 @@ Calls to the Amazon GameLift Streams APIs are made over a secure (SSL) connectio
 is handled automatically). Calling entities use security credentials, which are authenticated by applying the IAM access policies that are
 defined for Amazon GameLift Streams resources.
 
-In the context of multi-location stream groups, in order to stream an application from any location in the stream group that has
+In the context of multi-location stream groups, to stream an application from any location in the stream group that has
 been allocated streaming capacity, Amazon GameLift Streams securely replicates applications to those locations.
 
-Similarly, Amazon GameLift Streams will save log data and session files, when requested, to customer-named Amazon S3 buckets at the end of a session. If
-the bucket is not in the same location as the session, Amazon GameLift Streams will transfer the files securely to the AWS Region where the bucket is
+Similarly, Amazon GameLift Streams saves log data and session files, when requested, to customer-named Amazon S3 buckets at the end of a session. If
+the bucket is not in the same location as the session, Amazon GameLift Streams transfers the files securely to the AWS Region where the bucket is
 located.
+
+When session credentials are configured, Amazon GameLift Streams fetches credentials from AWS STS over
+TLS-encrypted connections. Your application receives credentials securely within the
+session's isolated environment.
 
 ## Protection of end-user streams
 
@@ -106,24 +117,24 @@ On Windows stream classes (Microsoft Windows Server runtimes), Amazon GameLift S
 on a software agent to reset critical system state between sessions. Some folders are preserved across multiple sessions to allow for
 performance optimizations, such as on-host disk caching. The software agent automatically removes any files that were generated in the user's
 profile directory during the prior stream session. However, the agent does not remove any files that existed prior to the application running
-and were modified while the application was running. Nor does it remove any Windows registry keys that the application had added. Customers
-should be aware that it is their responsibility to avoid damaging the integrity of the overall operating system. Applications are executed as
-the Administrator user, which may permit modification to critical system-level files, including changes that persist across multiple
-sessions. It is the responsibility of the customer to secure their applications and guard against creating unsafe or unstable operating
+and were modified while the application was running. Nor does it remove any Windows registry keys that the application had added. You
+must avoid damaging the integrity of the overall operating system. Applications are executed as
+the Administrator user, which can permit modification to critical system-level files, including changes that persist across multiple
+sessions. It is your responsibility to secure your applications and guard against creating unsafe or unstable operating
 system modifications.
 
-Customers are responsible for cleaning up those modified files and added registry keys from previous sessions when the application
+You are responsible for cleaning up those modified files and added registry keys from previous sessions when the application
 launches. This is an important step to protect confidential or sensitive information that the application writes to the user's profile
-directory. To do this, customers can write their own custom script that performs the following actions:
+directory. To do this, you can write a custom script that performs the following actions:
 
 - Restore any files outside of the `%USERPROFILE%` directory that were modified by the application.
 - Clean up any sensitive or user-specific registry keys that the application added.
 
 ## Encryption key management
 
-The service uses AWS-managed encryption keys. Each region uses a separate KMS key. Customer-managed keys (CMKs) are not supported.
+The service uses AWS managed keys for encryption. Each Region uses a separate KMS key. Customer managed keys are not supported.
 
-Application files provided to Amazon GameLift Streams cannot be republished or exported from the service. The customer can use the service console or
+Application files provided to Amazon GameLift Streams cannot be republished or exported from the service. You can use the service console or
 APIs to delete applications. Drives which previously held these application files can be completely purged by deleting the associated stream
 groups.
 
@@ -131,9 +142,9 @@ groups.
 
 Amazon GameLift Streams uses public-facing networks to host stream sessions. Each stream group consists of one or more service-managed VPC
 networks which are isolated from other stream groups and from other customers. Inbound network connections are denied except for
-authenticated, service-brokered WebRTC stream connections. Customer applications may connect out from these VPCs to other public addresses
+authenticated, service-brokered WebRTC stream connections. Your applications can connect out from these VPCs to other public addresses
 without restriction.
 
-Additionally, there is no way for a customer to make a stream or their application data publicly-accessible using service API calls or
-settings alone. All service interactions are gated by AWS-authenticated API calls. If the customer wishes to make a stream accessible to the
-public they must create their own client web application which makes the authenticated calls to start and display a stream.
+Additionally, you cannot make a stream or your application data publicly accessible using service API calls or
+settings alone. All service interactions require AWS-authenticated API calls. To make a stream accessible to the
+public, you must create your own client web application that makes the authenticated calls to start and display a stream.

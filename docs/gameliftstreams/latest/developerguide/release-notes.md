@@ -2,6 +2,16 @@
 
 The following release notes are in reverse chronological order, with the latest updates listed first. Amazon GameLift Streams was first released in 2025.
 
+With IAM role support for stream sessions, your application can now access AWS
+resources in your account, such as Amazon S3 buckets and DynamoDB tables. When you pass a
+role ARN on `StartStreamSession`, Amazon GameLift Streams assumes the role on your behalf
+and makes credentials available to your application automatically. You do not need
+to change your application code.
+
+###### Learn more:
+
+- [Provide AWS credentials to your streaming application](session-credentials.md "session-credentials.md"), _Amazon GameLift Streams Developer Guide_
+
 Amazon GameLift Streams now offers Stream Session Admin Shell, a secure terminal connection to
 the live runtime environment of a stream session. Inspect logs, query running
 processes, check GPU utilization, and examine application state in real time.

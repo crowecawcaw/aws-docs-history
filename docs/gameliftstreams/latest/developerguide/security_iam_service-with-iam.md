@@ -14,7 +14,7 @@ IAM features you can use with Amazon GameLift Streams| IAM feature | Amazon Game
 | [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags") | Partial. ABAC is only supported for applications and<br>stream groups. |
 | [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds") | Yes |
 | [Principal permissions](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions") | Yes |
-| [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service") | No |
+| [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service") | Yes |
 | [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked") | No |
 
 To get a high-level view of how Amazon GameLift Streams and other AWS services work with most IAM
@@ -123,6 +123,36 @@ _IAM User Guide_.
 
 To view examples of Amazon GameLift Streams identity-based policies, see [Identity-based policy examples for Amazon GameLift Streams](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
+Amazon GameLift Streams supports the following service-specific condition keys:
+
+- `gameliftstreams:RoleArn` – The ARN of the IAM role specified
+  in the `RoleArn` parameter of a `StartStreamSession` request.
+  Use this condition key to restrict which IAM roles a principal can pass when starting
+  stream sessions.
+- `gameliftstreams:ApplicationArn` – The ARN of the application
+  specified in the `ApplicationIdentifier` parameter of a
+  `StartStreamSession` request.
+
+You can use these condition keys in IAM policies to set fine-grained permissions. For
+example, the following policy allows a principal to start stream sessions only when using a
+specific IAM role:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Effect": "Allow",
+    "Action": "gameliftstreams:StartStreamSession",
+    "Resource": "arn:aws:gameliftstreams:*:`123456789012`:streamgroup/*",
+    "Condition": {
+      "StringEquals": {
+        "gameliftstreams:RoleArn": "arn:aws:iam::`123456789012`:role/GameLiftStreams-`MyApprovedRole`"
+      }
+    }
+  }]
+}
+```
+
 ## ACLs in Amazon GameLift Streams
 
 **Supports ACLs:**
@@ -178,7 +208,7 @@ cross-region functionality, such as multi-location stream groups.
 
 **Supports service roles:**
 
-No
+Yes
 
 A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that a service assumes to perform
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
@@ -188,6 +218,23 @@ more information, see [Create a role to delegate permissions to an AWS service](
 
 Changing the permissions for a service role might break Amazon GameLift Streams functionality.
 Edit service roles only when Amazon GameLift Streams provides guidance to do so.
+
+You can pass an IAM role when starting a stream session to provide credentials to your
+application. When you start a stream session with a `RoleArn`, Amazon GameLift Streams assumes
+the role using the `gameliftstreams.amazonaws.com` service principal and provides
+short-lived, automatically refreshing AWS credentials to your application.
+
+To use this feature:
+
+1. Create an IAM role with a trust policy that allows
+   `gameliftstreams.amazonaws.com` to assume it.
+2. Grant `iam:PassRole` permission to the IAM principal that calls
+   `StartStreamSession`.
+
+The role must be in the same AWS account as the stream group. Amazon GameLift Streams does not support cross-account roles or
+service-linked roles.
+
+For setup instructions, see [Provide AWS credentials to your streaming application](session-credentials.md "session-credentials.md").
 
 ## Service-linked roles for Amazon GameLift Streams
 

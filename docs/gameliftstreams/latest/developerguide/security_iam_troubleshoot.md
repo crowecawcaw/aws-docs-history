@@ -6,6 +6,7 @@ encounter when working with Amazon GameLift Streams and IAM.
 ###### Topics
 
 - [I am not authorized to perform an action in Amazon GameLift Streams](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
 - [I want to allow people outside of my AWS account to access my Amazon GameLift Streams resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
 ## I am not authorized to perform an action in Amazon GameLift Streams
@@ -27,6 +28,19 @@ In this case, the policy for the `mateojackson` user must be updated to allow ac
 `gameliftstreams:`GetWidget`` action.
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
+
+## I am not authorized to perform iam:PassRole
+
+If you receive an error that you're not authorized to perform the `iam:PassRole`
+action, you must update your IAM policy to allow you to pass a role to Amazon GameLift Streams.
+
+You need the `iam:PassRole` permission to call
+`StartStreamSession` with the `RoleArn` parameter.
+
+For resolution steps and an example IAM policy, see the "Access denied on iam:PassRole"
+section in [Troubleshooting session credentials](session-credentials-troubleshooting.md "session-credentials-troubleshooting.md"). For more information about
+`iam:PassRole`, see [Granting a user permissions to pass
+a role to an AWS service](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") in the _IAM User Guide_.
 
 ## I want to allow people outside of my AWS account to access my Amazon GameLift Streams resources
 
