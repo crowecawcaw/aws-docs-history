@@ -34,7 +34,7 @@ Execute a transformation definition on a code repository.
 | `-n`      | `--transformation-name`    | `<name>`    | Name of the transformation definition in the registry                                                                                                                                                          |
 | `-x`      | `--non-interactive`        | -           | Runs the transformation with no user assistance                                                                                                                                                                |
 | `-t`      | `--trust-all-tools`        | -           | Trusts all tools (no tool prompts)                                                                                                                                                                             |
-| `-d`      | `--do-not-learn`           | -           | Opt out of allowing knowledge item extraction from this execution                                                                                                                                              |
+| `-d`      | `--do-not-learn`           | -           | Opt out of allowing lesson extraction from this execution                                                                                                                                                      |
 | `-g`      | `--configuration`          | `<config>`  | Path to config file (JSON or YAML) or key=value pairs                                                                                                                                                          |
 | `--tv`    | `--transformation-version` | `<version>` | Version of the transformation definition to use                                                                                                                                                                |
 | `--limit` | `--limit`                  | `<limit>`   | Set [Agent Minutes](https://aws.amazon.com/transform/pricing/ "https://aws.amazon.com/transform/pricing/") budget limit. Transformation exits when limit is reached and can be resumed with an increased limit |
@@ -92,55 +92,14 @@ explicitly using the transformation name and version number.
 atx custom def save-draft -n <transformation-name> --description "Description" --sd <directory>
 ```
 
-## Knowledge Item Commands
+## Lesson Commands
 
-**atx custom def list-ki**
+**atx custom def learnings**
 
-List knowledge items for a transformation definition.
-
-```
-atx custom def list-ki -n <transformation-name>
-atx custom def list-ki -n <transformation-name> --json
-```
-
-**atx custom def get-ki**
-
-Retrieve a knowledge item from a transformation definition.
+Open an interactive session to view and manage the lessons a transformation definition has learned from previous runs. Browse lessons by category, view lesson detail, and archive, restore, or delete lessons.
 
 ```
-atx custom def get-ki -n <transformation-name> --id <id>
-```
-
-**atx custom def delete-ki**
-
-Delete a knowledge item from a transformation definition.
-
-```
-atx custom def delete-ki -n <transformation-name> --id <id>
-```
-
-**atx custom def update-ki-status**
-
-Update knowledge item status (ENABLED or DISABLED).
-
-```
-atx custom def update-ki-status -n <transformation-name> --id <id> --status ENABLED
-```
-
-**atx custom def update-ki-config**
-
-Update knowledge item configuration for auto-approval.
-
-```
-atx custom def update-ki-config -n <transformation-name> --auto-enabled TRUE
-```
-
-**atx custom def export-ki-markdown**
-
-Export all knowledge items for a transformation definition to markdown.
-
-```
-atx custom def export-ki-markdown -n <transformation-name>
+atx custom def learnings -n `<transformation-name>`
 ```
 
 ## Tag Commands

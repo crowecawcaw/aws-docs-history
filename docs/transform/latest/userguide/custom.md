@@ -46,7 +46,7 @@ AWS Transform custom is usually used in large-scale projects where multiple code
 
 **Scaled Execution** - Set up automated bulk execution using the CLI, with developers reviewing and validating results. Monitor progress using the web application and track transformations across multiple repositories.
 
-**Monitor and Review** - Continual learning automatically improves the transformation quality. Review and approve knowledge items that have been extracted from executions to ensure they meet quality standards.
+**Monitor and Review** - Continual learning automatically improves the transformation quality. Review the lessons that have been extracted from previous runs to ensure they meet quality standards, and archive any that are not useful.
 
 ## Understanding Key Concepts
 
@@ -58,13 +58,14 @@ A **transformation definition** contains the instructions and knowledge needed t
 
 - `SKILL.md` (required) - Instructions in Markdown with YAML frontmatter (`name` and `description` fields) that contains the core transformation logic and execution instructions
 - `references/` folder (optional) - Documentation loaded as needed during transformation execution
+- `scripts/` folder (optional) - Scripts that the transformation downloads and runs during execution
 
 AWS Transform CLI automatically downloads transformation definitions to the
 current directory when needed for execution, inspection, or modification.
 
 ###### Important
 
-When publishing a transformation, the directory must only contain `SKILL.md` and optionally the `references/` folder. No other files or subdirectories are allowed.
+When publishing a transformation, the directory must contain only `SKILL.md` and optionally the `references/` folder, the `scripts/` folder, or both. No other files or subdirectories are allowed.
 
 ###### Note
 
@@ -100,7 +101,7 @@ The typical workflow is:
 
 You can also publish a transformation directly without saving it as a draft.
 
-### References vs. Knowledge Items
+### References vs. Lessons
 
 AWS Transform custom uses two types of knowledge to improve transformation quality:
 
@@ -111,7 +112,7 @@ specifications, migration guides, and code samples. References are loaded as nee
 during transformation execution. You add references when creating
 or updating a transformation definition in interactive mode.
 
-**Knowledge items** are automatically extracted learnings from transformation executions. These are created asynchronously by the continual learning system based on execution trajectories, developer feedback, and code fixes encountered during transformations. Knowledge items start in a "not approved" state and must be explicitly approved by transformation owners before they can be used in future executions. Unlike references which you provide upfront, knowledge items accumulate over time as the transformation is executed across different codebases.
+**Lessons** are automatically extracted from previous runs of a transformation. The continual learning system generates them from execution trajectories, developer feedback, and code fixes it encounters during transformations. It groups related lessons into categories so you can review them together. Unlike references, which you provide upfront, lessons accumulate over time as you run the transformation across different codebases, and the system applies them automatically to improve future runs. You review and manage lessons interactively with `atx custom def learnings`.
 
 ### Build and Validation Commands
 
@@ -130,11 +131,24 @@ For examples and detailed guidance, see Build and Validation Commands in the Wor
 - Explicit feedback - Comments and code fixes provided in interactive mode
 - Implicit observations - Issues the agent encounters while transforming and debugging code
 
-This information is processed to create **knowledge items** that are added to the transformation definition to improve future transformations. The learning process occurs automatically after transformations are completed, requiring no additional user input.
+The continual learning system processes this information to create **lessons** that it adds to the transformation definition to improve future transformations. The system runs the learning process automatically after transformations complete, requiring no additional input from you.
 
 ###### Important
 
-Knowledge items are transformation-specific and are not shared across different transformations or different customer accounts.
+Lessons are transformation-specific and are not shared across different transformations or different customer accounts.
+
+#### Managing Lessons
+
+The system generates lessons automatically, but you stay in control of which ones it applies to future runs. The `atx custom def learnings` command opens an interactive terminal session for reviewing and curating the lessons a transformation has accumulated.
+
+In this session, you can:
+
+- Browse lessons grouped into categories, and see how many active lessons each category contains.
+- Open a lesson to read its full detail, including the lesson body, its impact, and how many previous runs consulted it.
+- Archive a lesson to prevent the system from applying it to future runs, and restore it later if needed.
+- Permanently delete an archived lesson that is no longer useful.
+
+For step-by-step instructions, see [Continual Learning](custom-workflows.md#custom-continual-learning "custom-workflows.md#custom-continual-learning").
 
 ### Client-Side Skills
 
@@ -174,6 +188,10 @@ Here are a few of the commands you can use with custom transformations. The comp
 - `atx custom def exec`
 
   - **Executes a transformation**
+
+- `atx custom def learnings`
+
+  - **Opens an interactive session to view and manage the lessons a transformation has learned from previous runs**
 
 - `atx mcp`
 

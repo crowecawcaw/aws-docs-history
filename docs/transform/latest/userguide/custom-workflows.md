@@ -44,10 +44,10 @@ atx -x "apply transformation definition <transformation_definition_name> to <cod
 
 Create or modify transformation definitions.
 
-To convert a legacy transformation definition file (transformation\_definition.md) to the new skill format (SKILL.md + references/), run the following command:
+To convert a legacy transformation definition to the new skill format (SKILL.md + references/), run the following command:
 
 ```
-atx -x "convert <legacy_transformation_definition_file_path> transformation definition to skill" -t
+atx -x "convert <legacy_transformation_definition_name> transformation definition to skill and save as draft" -t
 ```
 
 To create a new transformation definition, run the following command:
@@ -65,7 +65,7 @@ When executing transformations with `atx custom def exec`, the following flags a
 - `-c` or `--build-command` - Specifies the build or validation command to run
 - `-x` or `--non-interactive` - Enables non-interactive mode (no user prompts)
 - `-t` or `--trust-all-tools` - Automatically trusts all tools without prompting
-- `-d` or `--do-not-learn` - Prevents knowledge item extraction from this execution
+- `-d` or `--do-not-learn` - Prevents lesson extraction from this execution
 - `--tv` or `--transformation-version` - Specifies a specific version of the transformation
 - `-g` or `--configuration` - Provides a configuration file or inline configuration
 
@@ -122,7 +122,7 @@ If no build or validation is needed, omit from your input.
 
 ### Controlling Learning Behavior
 
-By default, AWS Transform custom extracts knowledge items from every transformation execution. You can prevent learning for specific executions.
+By default, AWS Transform custom extracts lessons from every transformation execution. You can prevent learning for specific executions.
 
 **To prevent learning from an execution:**
 
@@ -130,7 +130,7 @@ By default, AWS Transform custom extracts knowledge items from every transformat
 atx custom def exec -n my-transformation -p ./my-project -d
 ```
 
-The `-d` or `--do-not-learn` flag opts out of allowing knowledge item extraction from the current execution.
+The `-d` or `--do-not-learn` flag opts out of allowing lesson extraction from the current execution.
 
 ### Resuming Conversations
 
@@ -186,90 +186,38 @@ atx --conversation-id <conversation_id> -t --limit <increased_limit>
 
 ## Continual Learning
 
-This section describes how to manage knowledge items created by continual learning.
+This section describes how to review and manage the lessons created by continual learning.
 
-### Understanding Knowledge Items
+### Understanding Lessons
 
-Knowledge items are automatically extracted learnings from transformation executions. These are created asynchronously by the continual learning system based on:
+The continual learning system automatically extracts lessons from previous runs of a transformation. The system creates them asynchronously based on:
 
 - Developer feedback provided in interactive mode
 - Code issues encountered during transformations
 
-Knowledge items start in a "not approved" state and must be explicitly approved by transformation owners before they can be used in future executions. Unlike references which you provide upfront, knowledge items accumulate over time as the transformation is executed across different codebases.
+Lessons accumulate over time as you run the transformation across different codebases. The system applies them automatically to improve future runs. Each lesson belongs to a category containing all lessons of a similar domain so that you can review related lessons together. For lessons you would not like used, you can archive or delete the lesson entirely.
 
-### Listing Knowledge Items
+### Viewing and Managing Lessons
 
-View all knowledge items for a transformation definition.
+Use the `learnings` command to open an interactive session for browsing and managing the lessons of a transformation definition.
 
-**To list knowledge items:**
-
-```
-atx custom def list-ki -n my-transformation
-```
-
-This displays all knowledge items that have been extracted from executions of the specified transformation definition.
-
-### Viewing Knowledge Item Details
-
-View detailed information about a specific knowledge item.
-
-**To view knowledge item details:**
+**To open the lessons viewer:**
 
 ```
-atx custom def get-ki -n my-transformation --id <knowledge-item-id>
+atx custom def learnings -n my-transformation
 ```
 
-### Enabling and Disabling Knowledge Items
+The viewer opens on a list of lesson categories, each showing how many active lessons it contains. Select a category to see its lessons, then select a lesson to view its full detail, including the lesson body, its impact, and how many previous runs consulted it.
 
-Control which knowledge items are applied to future transformations.
+### Archiving and Restoring Lessons
 
-**To enable a knowledge item:**
+The system applies lessons automatically. If you do not want the system to apply a lesson, you can archive it. The system retains archived lessons but does not apply them to future runs. All archived lessons are grouped together so you can review them and restore any to active use.
 
-```
-atx custom def update-ki-status -n my-transformation --id <knowledge-item-id> --status ENABLED
-```
+### Deleting Lessons
 
-**To disable a knowledge item:**
+Permanently remove a lesson that is not useful. Deletion cannot be undone, and the system might relearn a deleted lesson from future runs.
 
-```
-atx custom def update-ki-status -n my-transformation --id <knowledge-item-id> --status DISABLED
-```
-
-### Configuring Auto-Approval
-
-You can configure whether knowledge items are automatically enabled or require manual approval.
-
-**To enable auto-approval for all knowledge items:**
-
-```
-atx custom def update-ki-config -n my-transformation --auto-enabled TRUE
-```
-
-**To disable auto-approval:**
-
-```
-atx custom def update-ki-config -n my-transformation --auto-enabled FALSE
-```
-
-### Deleting Knowledge Items
-
-Permanently remove knowledge items that are not useful.
-
-**To delete a knowledge item:**
-
-```
-atx custom def delete-ki -n my-transformation --id <knowledge-item-id>
-```
-
-### Exporting Knowledge Items
-
-Export all knowledge items for a transformation to markdown format for review or documentation.
-
-**To export knowledge items:**
-
-```
-atx custom def export-ki-markdown -n my-transformation
-```
+A lesson must be archived before it can be deleted.
 
 ## Advanced Configuration
 
