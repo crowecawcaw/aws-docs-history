@@ -28,16 +28,6 @@ of workloads that run on Lightsail. Lightsail additional block storage disks off
 consistent performance and the low latency needed for applications or software that frequently
 access stored data.
 
-###### Note
-
-For customers with applications that require sustained IOPS performance or high amounts
-of throughput per disk, or for customers running large databases like MongoDB, Cassandra,
-etc., we recommend using Amazon EC2 with GP2 or Provisioned IOPS SSD storage instead of
-Lightsail.
-
-You can learn more about [Amazon EBS volumes](../../../AWSEC2/latest/WindowsGuide/EBSVolumes.md "../../../AWSEC2/latest/WindowsGuide/EBSVolumes.md") in the
-_Amazon EC2 User Guide_.
-
 ## Disk Quotas
 
 - 20,000 GB per Region.

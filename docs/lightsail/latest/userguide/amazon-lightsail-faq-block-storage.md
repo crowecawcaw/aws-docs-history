@@ -12,10 +12,7 @@ stored data.
 
 Lightsail block storage disks use solid-state drives (SSD). This type of block storage
 balances a low price and good performance and is intended to support the vast majority of
-workloads that run on Lightsail. For customers with applications that require sustained
-IOPS performance, high amounts of throughput per disk, or that are running large databases
-like MongoDB, Cassandra, etc., we recommend using Amazon EC2 with GP2 or Provisioned IOPS SSD
-storage instead of Lightsail.
+workloads that run on Lightsail.
 
 ## How are attached disks different than the storage included in my Lightsail plan?
 

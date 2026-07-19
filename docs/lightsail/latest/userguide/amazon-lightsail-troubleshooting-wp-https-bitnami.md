@@ -9,7 +9,7 @@ These errors appear immediately in a banner at the top of the Lightsail console
 after you choose **Create certificate** in the final step of the
 workflow.
 
-![WordPress setup failure message in the Lightsail console.](images/wp-setup-error-message.png)
+![WordPress setup failure message in the Lightsail console.](/images/lightsail/latest/userguide/images/wp-setup-error-message.png)
 
 To begin troubleshooting, match the error that appeared in the message with one of the
 following errors.
