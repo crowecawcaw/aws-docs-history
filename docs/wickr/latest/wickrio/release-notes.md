@@ -107,17 +107,18 @@ images include the CloudWatch metrics bug fix described below.
 ### Upgrade to Node 20
 
 The bot-cloud and bot-dataretention-govcloud docker images have been upgraded from Node 16
-to Node 20. Prior to installing version 6.48 (and above), complete the steps in [Version 6.48 announcement](version-6-48-announcement.md "version-6-48-announcement.md") to update your integrations and avoid disruption.
+to Node 20. Before you install version 6.48 or later, update your integrations to avoid
+disruption.
 
 ### Deprecate old integrations
 
-Some of the older and non-supported integrations have been removed from the docker images.
-For more information, see [Version 6.48 announcement](version-6-48-announcement.md "version-6-48-announcement.md").
+Version 6.48 removes the older, unsupported integrations from the Docker
+images.
 
-### WickrIO Addon to use ZeroMq
+### WickrIO Addon to use ZeroMQ
 
-The WickrIO Addon is changed to use ZeroMq for all interactions between integrations and
-WickrIO client. This change will make the bot APIs asynchronous. For more information, see [Version 6.48 announcement](version-6-48-announcement.md "version-6-48-announcement.md").
+Version 6.48 updates the WickrIO Addon to use ZeroMQ for all interactions between
+integrations and WickrIO client. This change makes the bot APIs asynchronous.
 
 ### Bug Fix: Data Retention Bot failing to publish CloudWatch metrics
 
