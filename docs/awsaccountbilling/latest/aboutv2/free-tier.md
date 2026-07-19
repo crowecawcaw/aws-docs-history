@@ -1,9 +1,5 @@
 # Explore AWS services with AWS Free Tier
 
-###### Note
-
-_**This section only applies to new AWS customers who created AWS accounts after July 15, 2025. If you created your account before July 15, 2025, see [Trying services using AWS Free Tier (before July 15, 2025)](billing-free-tier.md "billing-free-tier.md").**_
-
 You can use AWS Free Tier to explore AWS services without cost commitments. When you sign
 up for your AWS account, you can choose between **Free account plan** or
 **Paid account plan**. If you are new to AWS, you receive USD $100 in
@@ -23,7 +19,7 @@ of eligible services on the free account plan, see [AWS Free Tier FAQs](https://
 The **Paid account plan** is ideal for building production applications
 that scale beyond the initial credit amount. When you usage exceeds your credit balance or
 when you use a service where credits don't apply, you pay standard pay-as-you-go pricing.
-For more information about each plan, see [Choosing an AWS Free Tier plan](free-tier-plans.md "free-tier-plans.md").
+For more information about each plan, see [Choosing a plan](free-tier-plans.md "free-tier-plans.md").
 
 ###### Note
 
@@ -34,6 +30,39 @@ Cost Explorer, or AWS Cost and Usage Report) unless AWS Cost and Usage Report, a
 The **Credits** page doesn't support billing view functionality. You
 can only view credits redeemed in your own AWS organization. To view credits from bill
 source organizations, you need an IAM role in those organizations.
+
+## AWS Free Tier offers
+
+All AWS customers have access to select short-term trials and Always Free
+tier offers. Your AWS Free Tier offerings depend on your plan type. **Paid
+plan** accounts might have `Short-term trial` and
+`Always Free` offerings active. **Free account plan**
+only have `Always Free` offerings active.
+
+**Always free**
+
+You receive an ongoing monthly allowance for some AWS services.
+
+**Short-term trials**
+
+You can try selected services through limited free trials. Your trial
+begins when you activate the service.
+
+If you go beyond these monthly allowances, your AWS Free Tier credits are automatically
+applied to cover the eligible costs. If you are on the paid plan, you're charged at
+the standard AWS billing rates for eligible usage beyond your credits or when your
+credits expire.
+
+###### To find services with an AWS Free Tier offer
+
+1. Navigate to the [AWS Free Tier
+   page](http://aws.amazon.com/free/ "http://aws.amazon.com/free/").
+2. Under **Explore our offers**, choose a filter to search
+   for the offer type and product category.
+
+For example, you can choose **Always Free** and choose
+**Compute** to learn about the number of free requests
+available for AWS Lambda (Lambda).
 
 ## Getting started with AWS Free Tier
 

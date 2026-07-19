@@ -1,4 +1,4 @@
-# Choosing an AWS Free Tier plan
+# Choosing a plan
 
 When you sign up for your AWS account, you can choose between **Free
 plan** or **Paid account plan**. If you are new to AWS,

@@ -1,11 +1,7 @@
 # Avoiding unexpected charges after Free Tier
 
-###### Note
-
-_**This section only applies to new AWS customers who created AWS accounts before July 15, 2025. If you created your account after July 15, 2025, see [Explore AWS services with AWS Free Tier](free-tier.md "free-tier.md").**_
-
-Your eligibility for the 12 month free service offering AWS Free Tier expires 12 months
-after you first activate your AWS account. You can’t extend your Free Tier eligibility
+Your eligibility for the AWS Free Tier expires 6 months or when your credits are
+fully used - whichever occurs first. You can't extend your Free Tier eligibility
 after this time.
 
 ###### Note
@@ -14,15 +10,10 @@ You can continue to use Always Free offers, even after your AWS Free Tier eligib
 expires. To learn more about available Always Free offers, see [AWS Free Tier](http://aws.amazon.com/free/ "http://aws.amazon.com/free/").
 
 As the expiration date of your AWS Free Tier eligibility approaches, shut down or delete any resources that you don't need. After your eligibility
-expires, you’re charged at the standard AWS billing rates for usage.
+expires, you're charged at the standard AWS billing rates for usage.
 
-For short-term trials, there are no expiration notification for these services. You
-will receive free tier alerts during the trial period only. To avoid unexpected costs in
-a short-term trial, you must turn off these resources before the end of the trial
-period.
-
-Even if you aren’t regularly signing in to your account, you might have active
-resources running. Use the following procedure to identify your account’s active
+Even if you aren't regularly signing in to your account, you might have active
+resources running. Use the following procedure to identify your account's active
 resources.
 
 ###### Note

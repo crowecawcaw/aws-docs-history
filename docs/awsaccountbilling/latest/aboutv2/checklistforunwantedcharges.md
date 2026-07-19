@@ -36,7 +36,7 @@ appropriate steps for every AWS Region you've allocated AWS resources.
 
 ## Usage exceeds AWS Free Tier
 
-Check if your services have expired your free tier usage. If you chose **Paid plan** for your AWS Free Tier, you are charged using pay-as-you go pricing after six months ends or when your credits are fully used. Your account is not closed, allowing for seamless, continuous usage of your AWS resources. For more information, see [Trying services using AWS Free Tier (before July 15, 2025)](billing-free-tier.md "billing-free-tier.md").
+Check if your services have expired your free tier usage. If you chose **Paid plan** for your AWS Free Tier, you are charged using pay-as-you go pricing after six months ends or when your credits are fully used. Your account is not closed, allowing for seamless, continuous usage of your AWS resources. For more information, see [Explore AWS services with AWS Free Tier](free-tier.md "free-tier.md").
 
 After you've identified the resources that are generating charges, you can continue to
 use the resources and manage your billing, terminate unused resources, or close your

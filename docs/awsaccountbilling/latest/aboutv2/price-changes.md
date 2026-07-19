@@ -8,7 +8,7 @@ AWS Price List provides a catalog of the products and prices for AWS services th
 purchase on AWS.
 
 This catalog includes perpetual free offers from AWS Free Tier. This includes usage-based free tier offers that refresh periodically, available permanently. This catalog doesn't include time-limited Free Tier offers that expire based on how long the account's been active. For more information about
-Free Tier offers, see [Trying services using AWS Free Tier (before July 15, 2025)](billing-free-tier.md "billing-free-tier.md"). Also, this catalog doesn't include Amazon Elastic Compute Cloud (Amazon EC2) Spot
+Free Tier offers, see [Explore AWS services with AWS Free Tier](free-tier.md "free-tier.md"). Also, this catalog doesn't include Amazon Elastic Compute Cloud (Amazon EC2) Spot
 Instances. For more information about Amazon EC2 Spot Instances, see [Amazon EC2 Spot Instances](https://aws.amazon.com/ec2/spot/ "https://aws.amazon.com/ec2/spot/").
 
 For more information, see the following topics:

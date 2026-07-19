@@ -99,7 +99,7 @@ _AWS Account Management_ Reference Guide.
 
 Understand the features available to you in the Billing and Cost Management console.
 
-- **AWS Free Tier**: [Trying services using AWS Free Tier (before July 15, 2025)](billing-free-tier.md "billing-free-tier.md")
+- **AWS Free Tier**: [Explore AWS services with AWS Free Tier](free-tier.md "free-tier.md")
 - **Payments**: [Managing Your Payments](manage-payments.md "manage-payments.md")
 - **Viewing your bills**: [Understanding your bill](getting-viewing-bill.md "getting-viewing-bill.md")
 - **AWS Cost Categories**: [Organizing costs using AWS Cost Categories](manage-cost-categories.md "manage-cost-categories.md")
