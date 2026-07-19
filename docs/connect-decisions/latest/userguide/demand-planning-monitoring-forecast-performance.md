@@ -10,13 +10,14 @@ for the user specified prediction lead time in the plan configuration:
 
 ###### Note
 
-Forecast references the forecast that was generated at your specified prediction lead
-time before the actual demand period occurred. Based on your plan configuration, the
-system measures accuracy by comparing the forecast created a specific number of time
-buckets in advance to the actual demand—for example, if your time bucket is weeks
-and your prediction lead time is 3 weeks, the "Forecast" value in accuracy formulas
-(MAPE, WAPE, RMSE, Bias, and MAE) references the forecast that was created 3 weeks
-prior to each demand period.
+Forecast references the forecast that was generated at your specified prediction
+lead time before the actual demand period occurred. Based on your plan
+configuration, the system measures accuracy by comparing the forecast created a
+specific number of time buckets in advance to the actual demand—for example,
+if your time bucket is weeks and your prediction lead time is 3 weeks, the
+“Forecast” value in accuracy formulas (MAPE, WAPE, RMSE, Bias, and
+MAE) references the forecast that was created 3 weeks prior to each demand
+period.
 
 - **WAPE (Weighted Absolute Percentage Error)**: Σ
   |Actual - Forecast| / Σ |Actual| × 100%
@@ -28,10 +29,11 @@ prior to each demand period.
 
   - Emphasizes larger forecast errors.
 
-- **Bias (Forecast Bias)**: Σ (Forecast - Actual)
-  / Σ |Actual| × 100%
+- **Bias (Forecast Bias)**: Σ (Forecast - Actual) /
+  Σ |Actual| × 100%
 
-  - Indicates whether forecasts systematically over-predict or under-predict.
+  - Indicates whether forecasts systematically over-predict or
+    under-predict.
 
 - **MAE (Mean Absolute Error)**: (1/n) × Σ
   |Actual - Forecast|

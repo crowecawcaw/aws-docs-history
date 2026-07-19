@@ -7,8 +7,8 @@ planning cycle.
 
 ## Prerequisites
 
-Before creating your first demand plan in , ensure that you have the following
-prerequisites in place:
+Before creating your first demand plan in Amazon Connect Decisions, ensure that you have
+the following prerequisites in place:
 
 - Your Amazon Connect Decisions instance must be set up and configured.
 - Your user account must be assigned a Manager role.

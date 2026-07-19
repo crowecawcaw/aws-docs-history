@@ -1,4 +1,4 @@
-# Data Entities
+# Data Entities for Demand Planning
 
 The following table lists the data entities and columns used by Demand Planning.
 
@@ -15,19 +15,19 @@ The following table lists the data entities and columns used by Demand Planning.
 
 outbound\_order\_line columns| Column | Is the column required? | How is this column used in Forecasting? |
 | --- | --- | --- |
-| id | Required | id, cust\_order\_id, and product\_id are used to uniquely identify a record in the data entity and this combination should always be unique. Make sure the column values do not have invalid characters such as asterisk and double-quotes. |
-| cust\_order\_id | Required | |
-| product\_id | Required | |
+| id | Required | _id_, _cust\_order\_id_, and *product\_id<br>• are used to uniquely identify a record in the data entity and this combination should always be unique. Make sure the column values do not have invalid characters such as asterisk and double-quotes. |
+| cust\_order\_id | Required |
+| product\_id | Required |
 | order\_date | Required | Required for forecast creation. Identifies the period for time-series forecasting. |
-| final\_quantity\_requested | Required | Required for forecast creation. Identifies the quantity used for time-series forecasting. This column must not contain null values and must be numerical. Make sure there are no commas in the values. For example, 500000.00 is an accepted value in Demand Planning. |
-| ship\_from\_site\_id | Conditionally required | This column is conditionally required for forecast creation if the column is selected for forecast dimension (Site Hierarchy). This column must have a value and is used for filtering and analysis of data. |
-| ship\_to\_site\_id | Conditionally required | |
-| channel\_id | Conditionally required | This column is conditionally required for forecast creation if the column is selected for forecast dimension (Channel Hierarchy). This column must have a value and is used for filtering and analysis of data. |
-| customer\_tpartner\_id | Conditionally required | This column is conditionally required for forecast creation if the column is selected for forecast dimension (Customer Hierarchy). This column must have a value and is used for filtering and analysis of data. |
-| ship\_to\_site\_address\_city | Conditionally required | This column is conditionally required for forecast creation if the column is selected for forecast dimension (Site Hierarchy). This column must have a value and is used for filtering and analysis of data. |
-| ship\_to\_site\_address\_state | Conditionally required | |
-| ship\_to\_site\_address\_country | Conditionally required | |
-| status | Recommended for forecast quality | This column is recommended for forecast quality. Orders with canceled status are not considered as forecast input. |
+| final\_quantity\_requested | Required | Required for forecast creation. Identifies the quantity used for time-series forecasting. This column must not contain null values and must be _numerical_. Make sure there are no commas in the values. For example, 500000.00 is an accepted value in Demand Planning. |
+| ship\_from\_site\_id | Conditionally required | This column is conditionally required for forecast creation *if<br>• the column is selected for forecast dimension (Site Hierarchy). This column must have a value and is used for filtering and analysis of data. |
+| ship\_to\_site\_id | Conditionally required |
+| channel\_id | Conditionally required | This column is conditionally required for forecast creation *if<br>• the column is selected for forecast dimension (Channel Hierarchy). This column must have a value and is used for filtering and analysis of data. |
+| customer\_tpartner\_id | Conditionally required | This column is conditionally required for forecast creation *if<br>• the column is selected for forecast dimension (Customer Hierarchy). This column must have a value and is used for filtering and analysis of data. |
+| ship\_to\_site\_address\_city | Conditionally required | This column is conditionally required for forecast creation *if<br>• the column is selected for forecast dimension (Site Hierarchy). This column must have a value and is used for filtering and analysis of data. |
+| ship\_to\_site\_address\_state | Conditionally required |
+| ship\_to\_site\_address\_country | Conditionally required |
+| status | Recommended for forecast quality | This column is recommended for forecast quality. Orders with *canceled<br>• status are not considered as forecast input. |
 
 ## product (required)
 
@@ -39,27 +39,27 @@ product columns| Column | Is the column required? | How is this column used in F
 | --- | --- | --- |
 | id | Required | Required for data ingestion into Supply Chain Data Lake (SCDL). Make sure the column values do not have duplicate IDs and special characters such as asterix and double-quotes. |
 | description | Required | Required for data ingestion into Supply Chain Data Lake (SCDL). This column can contain special characters such as asterix, hyphen, quotes, and double-quotes. |
-| parent\_product\_id | Conditionally required | This column is conditionally required for forecast creation if the column is selected for forecast dimensions (Product Hierarchy). Make sure the column has values and is used for filtering and analysis of data and model training. |
-| product\_group\_id | Conditionally required | |
-| product\_type | Conditionally required | |
-| brand\_name | Conditionally required | |
-| color | Conditionally required | |
-| display\_desc | Conditionally required | |
+| parent\_product\_id | Conditionally required | This column is conditionally required for forecast creation *if<br>• the column is selected for forecast dimensions (Product Hierarchy). Make sure the column has values and is used for filtering and analysis of data and model training. |
+| product\_group\_id | Conditionally required |
+| product\_type | Conditionally required |
+| brand\_name | Conditionally required |
+| color | Conditionally required |
+| display\_desc | Conditionally required |
 | product\_available\_day | Recommended for forecast quality | Recommended. The value in this column improves forecast quality by allowing the forecasting model to consider the timing of new product introductions. |
 | discontinue\_day | Recommended for forecast quality | Recommended. The value in this column improves forecast quality by allowing the forecasting model to consider the timing for product retirements. |
-| base\_uom | Recommended for forecast quality | Unit of measure for product. Default is Eaches. |
-| is\_deleted | Recommended for forecast quality | Recommended. Enter Y if the product ID should be excluded from forecasting. |
+| base\_uom | Recommended for forecast quality | Unit of measure for product. Default is Eaches. Currently demand planning only supports Eaches. |
+| is\_deleted | Recommended for forecast quality | Recommended. Enter *Y<br>• if the product ID should be excluded from forecasting. |
 | pkg\_height | Recommended for forecast quality | Recommended. The physical characteristics of the product that the forecasting models can understand. |
-| pkg\_length | Recommended for forecast quality | |
-| pkg\_width | Recommended for forecast quality | |
-| shipping\_dimension | Recommended for forecast quality | |
-| casepack\_size | Recommended for forecast quality | |
+| pkg\_length | Recommended for forecast quality |
+| pkg\_width | Recommended for forecast quality |
+| shipping\_dimension | Recommended for forecast quality |
+| casepack\_size | Recommended for forecast quality |
 
-## product\_alternate (recommended for forecast quality)
+## product\_alternate (Recommended for forecast quality)
 
 **How is this data entity used?**
 
-Demand Planning uses the data of product’s predecessor(s) or alternate(s) to create forecast for new products. When data is ingested into the _product\_alternate_ data entity, Product lineage support for forecast is enabled. You can skip ingesting data into the _product\_alternate_ data entity and the forecast can still be generated.
+Demand Planning uses the data of product's predecessor(s) or alternate(s) to create forecast for new products. When data is ingested into the _product\_alternate_ data entity, Product lineage support for forecast is enabled. You can skip ingesting data into the _product\_alternate_ data entity and the forecast can still be generated.
 
 product\_alternate columns| Column | Is the column required? | How is this column used in Forecasting? |
 | --- | --- | --- |
@@ -135,7 +135,7 @@ id,order_date,time_series_name,time_series_value,product_id,site_id,channel_id,c
 1004,2025-02-14,holiday_indicator,1,PROD_001,SITE_NYC,CHANNEL_ONLINE,CUST_12345
 ```
 
-This future data tells the model that a 20% discount is planned for February 1st and a 30% Valentine’s Day promotion is scheduled for February 14th.
+This future data tells the model that a 20% discount is planned for February 1st and a 30% Valentine's Day promotion is scheduled for February 14th.
 
 ## Practical Applications
 

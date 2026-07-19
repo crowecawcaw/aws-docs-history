@@ -15,7 +15,7 @@ The homepage provides quick access to insights through status summary cards disp
 
 When you navigate from a homepage card, the Insights page opens with relevant filters already applied.
 
-![Insights page displaying a filtered table of inventory issues with status, severity, and assignment columns.](images/filtering-and-sorting-insights-homepage.png)
+![Insights page displaying a filtered table of inventory issues with status, severity, and assignment columns.](images/filtering-and-sorting-insights-page-layout.png)
 
 ## Understanding the Insights Page Layout
 
@@ -92,7 +92,8 @@ When filtering by product or site hierarchies, the system searches across all fi
 1. Use the search bar to enter a product or site name
 2. The system displays matching results grouped by hierarchy level (Level 1 through Level 5)
 3. Select the hierarchy value you want to filter by
-4. A filter chip appears showing the complete hierarchy path
+4. Click on "Apply"
+5. A filter chip appears showing the complete hierarchy path
 
 The system uses prefix-based matching with multi-word support. For example, typing "temp" matches "Temperature Sensors" because it matches the prefix of "Temperature."
 
@@ -112,7 +113,8 @@ You can filter by specific columns to find insights based on exact field values.
    - **Date fields** (Created on, Impact date): Provides date picker with range selection
 
 3. Select or enter your filter value
-4. A filter chip appears showing the property name and value (for example, "Status: Not started")
+4. Click on "Apply"
+5. A filter chip appears showing the property name and value (for example, "Status: Not started")
 
 ### Date Range Filtering
 
@@ -135,7 +137,8 @@ If you have configured custom business segments, you can use them to filter insi
 1. Use the search functionality to find segment types
 2. Choose the segment type you want to use (for example, "Customer Tier")
 3. Select the segment value (for example, "Tier 1")
-4. A filter chip appears showing "Segment Type: Segment Value"
+4. Click on "Apply"
+5. A filter chip appears showing "Segment Type: Segment Value"
 
 ### Setting Up Segmentation
 
@@ -143,8 +146,8 @@ Segmentation allows you to group products, sites, customers, and channels based 
 
 **Segmentation table logic:**
 
-- **Within a single row (AND logic)**: When you fill in multiple fields in one row, all of those fields must match for a record to belong to that segment
-- **Across multiple rows (OR logic)**: When you create multiple rows with the same segment\_type and segment\_value, a record qualifies if it matches any of those rows
+- **Within a single row (AND logic)**: When you fill in multiple fields in one row, ALL of those fields must match for a record to belong to that segment
+- **Across multiple rows (OR logic)**: When you create multiple rows with the same segment\_type and segment\_value, a record qualifies if it matches ANY of those rows
 - **NULL values (wildcards)**: Leaving a field blank means "match any value"
 
 The segmentation table supports up to five hierarchy levels for both products and sites, along with additional fields like city, state, country, trading partner, company, and channel.
@@ -182,8 +185,9 @@ Saved filter sets allow you to store frequently used filter combinations and app
 
 1. Select the **Saved filter sets** dropdown
 2. Choose the filter set you want to apply
-3. The system applies all filters in that set at once
-4. Filter chips appear for each filter in the set
+3. Click on "Apply"
+4. The system applies all filters in that set at once
+5. Filter chips appear for each filter in the set
 
 ## Using the Access Control Filter Toggle
 
