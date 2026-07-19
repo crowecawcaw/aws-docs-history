@@ -1,9 +1,15 @@
 # Multi-Session Recommendations
 
-When deciding the maximum number of user sessions on an instance in a multi-session
-environment, you should consider several factors to ensure optimal performance and
-streaming experience. The following are recommendations for you to determine the optimum
-number of user sessions on an instance:
+When operating a multi-session environment, consider the following two key areas to
+ensure optimal performance and streaming experience:
+
+- Determining the maximum number of user sessions per instance
+- Managing your multi-session image effectively
+
+## Session Density
+
+When deciding the maximum number of user sessions on an instance, consider the
+following factors to determine the optimum session count:
 
 - _Evaluate resource requirements_: Understand the resource
   requirements of the applications being used within the sessions. Consider
@@ -37,15 +43,16 @@ number of user sessions on an instance:
   determining the maximum number of user sessions to avoid resource contention
   during peak periods.
 
-WorkSpaces Applications enables you to configure a maximum of 50 user sessions per instance,
-regardless of the instance type or size that you choose. However, this is just
-an upper limit, and not a recommended limit. The following is an example table
-to help you determine the maximum number of user sessions on an instance in a
-multi-session fleet. The recommended maximum number of users listed in the table
-is based on general guidelines and assumptions. Testing with the real-life
-workload is crucial, since actual performance can vary, depending on the
-workload's individual characteristics, the application's resource requirements,
-and user behavior.
+With WorkSpaces Applications, you can configure a maximum of 50 user sessions per instance,
+regardless of the instance type or size that you choose. However, this is only
+an upper limit, and not a recommended limit.
+
+The following is an example table to help you determine the maximum number of
+user sessions on an instance in a multi-session fleet. The recommended maximum
+number of users listed in the table is based on general guidelines and
+assumptions. Testing with the real-life workload is crucial, since actual
+performance can vary, depending on the workload's individual characteristics,
+the application's resource requirements, and user behavior.
 
 Recommendations based on workload types| End User Category | Workload Type | Example Users | Use Cases | Recommended Configuration(s) |
 | --- | --- | --- | --- | --- |
@@ -56,3 +63,15 @@ Recommendations based on workload types| End User Category | Workload Type | Exa
 | End users with high performance workloads | Heavy | Knowledge workers, Software developers, Data scientists | Screen sharing, Data analytics, Audio conferencing | 1 user per 2 vCPUs on Stream.memory.xlarge+ or<br>Stream.compute.xlarge+ |
 | End users with workloads that require graphics and heavy<br>compute/memory resources | Heavy to Accelerated | Graphics/Architecture designers, CAD/CAM users | Audio conferencing, Graphics-intensive applications, such as remote<br>graphics workstations | 1 user per 2 vCPUs Graphics.g4dn.\* |
 | End users with workloads that require graphics and heavy<br>compute/memory resources | Accelerated | Video editors, Gamers and game developers, Data miners, GIS data<br>engineers, AI scientists | Audio conferencing, Video transcoding and 3D rendering,<br>Photo-realistic design, Graphics workstations, ML model training, ML<br>inference | 1 user per 2 vCPUs Graphics.G5.\* |
+
+## Image Management
+
+- _Image considerations_:
+  Remote Desktop Session Host and
+  Remote Desktop Licensing must not be
+  installed on multi-session fleet images. WorkSpaces Applications configures those components
+  automatically during instance provisioning.
+- _Image updates_: If you update your multi-session fleet
+  image through Image Builder or Managed Image Update, test it on a
+  pre-production fleet before updating your production fleets or sharing the
+  image with other AWS accounts.
