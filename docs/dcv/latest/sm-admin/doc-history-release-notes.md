@@ -15,6 +15,7 @@ frequently to address the feedback that you send us.
 
 ###### Topics
 
+- [2025.0-561— June 25, 2026](#sm-2025.0-561 "#sm-2025.0-561")
 - [2025.0-544— February 2, 2026](#sm-2025.0-544-feb "#sm-2025.0-544-feb")
 - [2025.0-544— December 23, 2025](#sm-2025.0-544 "#sm-2025.0-544")
 - [2025.0-539— November 12, 2025](#sm-2025.0-539-nov "#sm-2025.0-539-nov")
@@ -39,6 +40,12 @@ frequently to address the feedback that you send us.
 - [2021.0-10242— April 12, 2021](#sm-2021.0-10242 "#sm-2021.0-10242")
 - [2020.2-9662— December 04, 2020](#sm-2020.2-9662 "#sm-2020.2-9662")
 - [2020.2-9508— November 11, 2020](#sm-2020.2-9508 "#sm-2020.2-9508")
+
+### 2025.0-561— June 25, 2026
+
+| Build numbers | Changes and bug fixes                                                                                                                          |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| • Broker: 561 | • Upgraded Apache Ignite to version 2.18.0.<br>• Fixed broker package dependency for Ubuntu 24.04 to install the correct Java runtime version. |
 
 ### 2025.0-544— February 2, 2026
 
@@ -190,6 +197,7 @@ The following table describes the documentation for this release of Amazon DCV S
 
 | Change                                        | Description                                                                                                                                                                   | Date               |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| Amazon DCV Version 2025.0-561                 | Amazon DCV Session Manager has been updated for Amazon DCV 2025.0-561. For more information, see<br>[2025.0-561— June 25, 2026](#sm-2025.0-561 "#sm-2025.0-561").             | June 25, 2026      |
 | Amazon DCV Version 2025.0-544                 | Amazon DCV Session Manager has been updated for Amazon DCV 2025.0-544. For more information, see<br>[2025.0-544— February 2, 2026](#sm-2025.0-544-feb "#sm-2025.0-544-feb").  | February 2, 2026   |
 | Amazon DCV Version 2025.0-544                 | Amazon DCV Session Manager has been updated for Amazon DCV 2025.0-544. For more information, see<br>[2025.0-544— December 23, 2025](#sm-2025.0-544 "#sm-2025.0-544").         | December 23, 2025  |
 | Amazon DCV Version 2025.0-539                 | Amazon DCV Session Manager has been updated for Amazon DCV 2025.0-539. For more information, see<br>[2025.0-539— November 12, 2025](#sm-2025.0-539-nov "#sm-2025.0-539-nov"). | November 12, 2025  |
