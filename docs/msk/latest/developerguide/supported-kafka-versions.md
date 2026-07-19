@@ -4,39 +4,56 @@ Amazon Managed Streaming for Apache Kafka (Amazon MSK) supports the following Ap
 
 The following table lists the Apache Kafka versions that Amazon MSK supports.
 
-| Apache Kafka version                                                                                                                             | MSK release date | End of support date |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- | ------------------- |
-| [1.1.1](https://archive.apache.org/dist/kafka/1.1.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/1.1.1/RELEASE_NOTES.html")         | --               | 2024-06-05          |
-| [2.1.0](https://archive.apache.org/dist/kafka/2.1.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.1.0/RELEASE_NOTES.html")         | --               | 2024-06-05          |
-| [2.2.1](https://archive.apache.org/dist/kafka/2.2.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.2.1/RELEASE_NOTES.html")         | 2019-07-31       | 2024-06-08          |
-| [2.3.1](https://archive.apache.org/dist/kafka/2.3.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.3.1/RELEASE_NOTES.html")         | 2019-12-19       | 2024-06-08          |
-| [2.4.1](https://archive.apache.org/dist/kafka/2.4.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.4.1/RELEASE_NOTES.html")         | 2020-04-02       | 2024-06-08          |
-| [2.4.1.1](https://archive.apache.org/dist/kafka/2.4.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.4.1/RELEASE_NOTES.html")       | 2020-09-09       | 2024-06-08          |
-| [2.5.1](https://archive.apache.org/dist/kafka/2.5.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.5.1/RELEASE_NOTES.html")         | 2020-09-30       | 2024-06-08          |
-| [2.6.0](https://archive.apache.org/dist/kafka/2.6.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.6.0/RELEASE_NOTES.html")         | 2020-10-21       | 2024-09-11          |
-| [2.6.1](https://archive.apache.org/dist/kafka/2.6.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.6.1/RELEASE_NOTES.html")         | 2021-01-19       | 2024-09-11          |
-| [2.6.2](https://archive.apache.org/dist/kafka/2.6.2/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.6.2/RELEASE_NOTES.html")         | 2021-04-29       | 2024-09-11          |
-| [2.6.3](https://archive.apache.org/dist/kafka/2.6.3/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.6.3/RELEASE_NOTES.html")         | 2021-12-21       | 2024-09-11          |
-| [2.7.0](https://archive.apache.org/dist/kafka/2.7.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.7.0/RELEASE_NOTES.html")         | 2020-12-29       | 2024-09-11          |
-| [2.7.1](https://archive.apache.org/dist/kafka/2.7.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.7.1/RELEASE_NOTES.html")         | 2021-05-25       | 2024-09-11          |
-| [2.7.2](https://archive.apache.org/dist/kafka/2.7.2/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.7.2/RELEASE_NOTES.html")         | 2021-12-21       | 2024-09-11          |
-| [2.8.0](https://archive.apache.org/dist/kafka/2.8.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.8.0/RELEASE_NOTES.html")         | 2021-05-19       | 2024-09-11          |
-| [2.8.1](https://archive.apache.org/dist/kafka/2.8.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.8.1/RELEASE_NOTES.html")         | 2022-10-28       | 2024-09-11          |
-| [2.8.2-tiered](https://archive.apache.org/dist/kafka/2.8.2/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.8.2/RELEASE_NOTES.html")  | 2022-10-28       | 2025-01-14          |
-| [3.1.1](https://archive.apache.org/dist/kafka/3.1.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.1.1/RELEASE_NOTES.html")         | 2022-06-22       | 2024-09-11          |
-| [3.2.0](https://archive.apache.org/dist/kafka/3.2.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.2.0/RELEASE_NOTES.html")         | 2022-06-22       | 2024-09-11          |
-| [3.3.1](https://archive.apache.org/dist/kafka/3.3.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.3.1/RELEASE_NOTES.html")         | 2022-10-26       | 2024-09-11          |
-| [3.3.2](https://archive.apache.org/dist/kafka/3.3.2/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.3.2/RELEASE_NOTES.html")         | 2023-03-02       | 2024-09-11          |
-| [3.4.0](https://archive.apache.org/dist/kafka/3.4.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.4.0/RELEASE_NOTES.html")         | 2023-05-04       | 2025-08-04          |
-| [3.5.1](https://archive.apache.org/dist/kafka/3.5.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.5.1/RELEASE_NOTES.html")         | 2023-09-26       | 2025-10-23          |
-| [3.6.0](https://archive.apache.org/dist/kafka/3.6.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.6.0/RELEASE_NOTES.html")         | 2023-11-16       | 2026-06-01          |
-| [3.7.x](https://archive.apache.org/dist/kafka/3.7.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.7.0/RELEASE_NOTES.html")         | 2024-05-29       | 2026-09-01          |
-| [3.8.x](https://downloads.apache.org/kafka/3.8.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/3.8.0/RELEASE_NOTES.html")               | 2025-02-20       | --                  |
-| [3.9.x](https://downloads.apache.org/kafka/3.9.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/3.9.0/RELEASE_NOTES.html") (Recommended) | 2025-04-21       | --                  |
-| [4.0.x](https://downloads.apache.org/kafka/4.0.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/4.0.0/RELEASE_NOTES.html")               | 2025-05-16       | --                  |
-| [4.1.x](https://downloads.apache.org/kafka/4.1.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/4.1.0/RELEASE_NOTES.html")               | 2025-10-15       | --                  |
+| Apache Kafka version                                                                                                                                   | MSK release date | End of support date |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- | ------------------- |
+| [1.1.1](https://archive.apache.org/dist/kafka/1.1.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/1.1.1/RELEASE_NOTES.html")               | --               | 2024-06-05          |
+| [2.1.0](https://archive.apache.org/dist/kafka/2.1.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.1.0/RELEASE_NOTES.html")               | --               | 2024-06-05          |
+| [2.2.1](https://archive.apache.org/dist/kafka/2.2.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.2.1/RELEASE_NOTES.html")               | 2019-07-31       | 2024-06-08          |
+| [2.3.1](https://archive.apache.org/dist/kafka/2.3.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.3.1/RELEASE_NOTES.html")               | 2019-12-19       | 2024-06-08          |
+| [2.4.1](https://archive.apache.org/dist/kafka/2.4.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.4.1/RELEASE_NOTES.html")               | 2020-04-02       | 2024-06-08          |
+| [2.4.1.1](https://archive.apache.org/dist/kafka/2.4.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.4.1/RELEASE_NOTES.html")             | 2020-09-09       | 2024-06-08          |
+| [2.5.1](https://archive.apache.org/dist/kafka/2.5.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.5.1/RELEASE_NOTES.html")               | 2020-09-30       | 2024-06-08          |
+| [2.6.0](https://archive.apache.org/dist/kafka/2.6.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.6.0/RELEASE_NOTES.html")               | 2020-10-21       | 2024-09-11          |
+| [2.6.1](https://archive.apache.org/dist/kafka/2.6.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.6.1/RELEASE_NOTES.html")               | 2021-01-19       | 2024-09-11          |
+| [2.6.2](https://archive.apache.org/dist/kafka/2.6.2/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.6.2/RELEASE_NOTES.html")               | 2021-04-29       | 2024-09-11          |
+| [2.6.3](https://archive.apache.org/dist/kafka/2.6.3/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.6.3/RELEASE_NOTES.html")               | 2021-12-21       | 2024-09-11          |
+| [2.7.0](https://archive.apache.org/dist/kafka/2.7.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.7.0/RELEASE_NOTES.html")               | 2020-12-29       | 2024-09-11          |
+| [2.7.1](https://archive.apache.org/dist/kafka/2.7.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.7.1/RELEASE_NOTES.html")               | 2021-05-25       | 2024-09-11          |
+| [2.7.2](https://archive.apache.org/dist/kafka/2.7.2/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.7.2/RELEASE_NOTES.html")               | 2021-12-21       | 2024-09-11          |
+| [2.8.0](https://archive.apache.org/dist/kafka/2.8.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.8.0/RELEASE_NOTES.html")               | 2021-05-19       | 2024-09-11          |
+| [2.8.1](https://archive.apache.org/dist/kafka/2.8.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.8.1/RELEASE_NOTES.html")               | 2022-10-28       | 2024-09-11          |
+| [2.8.2-tiered](https://archive.apache.org/dist/kafka/2.8.2/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/2.8.2/RELEASE_NOTES.html")        | 2022-10-28       | 2025-01-14          |
+| [3.1.1](https://archive.apache.org/dist/kafka/3.1.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.1.1/RELEASE_NOTES.html")               | 2022-06-22       | 2024-09-11          |
+| [3.2.0](https://archive.apache.org/dist/kafka/3.2.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.2.0/RELEASE_NOTES.html")               | 2022-06-22       | 2024-09-11          |
+| [3.3.1](https://archive.apache.org/dist/kafka/3.3.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.3.1/RELEASE_NOTES.html")               | 2022-10-26       | 2024-09-11          |
+| [3.3.2](https://archive.apache.org/dist/kafka/3.3.2/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.3.2/RELEASE_NOTES.html")               | 2023-03-02       | 2024-09-11          |
+| [3.4.0](https://archive.apache.org/dist/kafka/3.4.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.4.0/RELEASE_NOTES.html")               | 2023-05-04       | 2025-08-04          |
+| [3.5.1](https://archive.apache.org/dist/kafka/3.5.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.5.1/RELEASE_NOTES.html")               | 2023-09-26       | 2025-10-23          |
+| [3.6.0](https://archive.apache.org/dist/kafka/3.6.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.6.0/RELEASE_NOTES.html")               | 2023-11-16       | 2026-06-01          |
+| [3.7.x](https://archive.apache.org/dist/kafka/3.7.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.7.0/RELEASE_NOTES.html")               | 2024-05-29       | 2026-09-01          |
+| [3.8.x](https://archive.apache.org/dist/kafka/3.8.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.8.0/RELEASE_NOTES.html")               | 2025-02-20       | --                  |
+| [3.9.x](https://archive.apache.org/dist/kafka/3.9.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.9.0/RELEASE_NOTES.html") (Recommended) | 2025-04-21       | --                  |
+| [4.0.x](https://archive.apache.org/dist/kafka/4.0.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/4.0.0/RELEASE_NOTES.html")               | 2025-05-16       | --                  |
+| [4.1.x](https://archive.apache.org/dist/kafka/4.1.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/4.1.0/RELEASE_NOTES.html")               | 2025-10-15       | --                  |
+| [4.2.x](https://archive.apache.org/dist/kafka/4.2.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/4.2.0/RELEASE_NOTES.html")               | 2026-07-15       | --                  |
 
 For more information about Amazon MSK version support policy, see [Amazon MSK version support policy](version-support.md#version-support-policy "version-support.md#version-support-policy").
+
+## Amazon MSK version 4.2.x
+
+Amazon Managed Streaming for Apache Kafka (Amazon MSK) now supports Apache Kafka version 4.2. This release includes Eligible Leader Replicas (ELR) enhancements that strengthen availability with improved leader election correctness. It also introduces a new consumer rebalance protocol that helps ensure smoother and faster group rebalances, and a new Streams Rebalance Protocol that extends broker coordination capabilities to Kafka Streams for optimized task assignments.
+
+For more details and a complete list of improvements and bug fixes, see the [Apache Kafka release notes for version 4.2](https://archive.apache.org/dist/kafka/4.2.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/4.2.0/RELEASE_NOTES.html").
+
+To start using Apache Kafka 4.2 on Amazon MSK, choose version 4.2.x when creating a new cluster with Express brokers through the AWS Management Console, AWS CLI, or AWS SDKs. You can also upgrade existing MSK Express clusters with an in-place rolling update. Amazon MSK orchestrates broker restarts to maintain availability and protect your data during the upgrade. Kafka version 4.2 support is available on MSK Express brokers across all AWS Regions where Amazon MSK is offered.
+
+###### Note
+
+Apache Kafka version 4.2 is currently available on MSK Express brokers only.
+
+###### Note
+
+KIP-932: Queues for Kafka is not yet supported on MSK Express brokers.
 
 ## Amazon MSK version 4.1.x
 
@@ -44,7 +61,7 @@ Amazon Managed Streaming for Apache Kafka (Amazon MSK) now supports Apache Kafka
 
 A key highlight of Kafka 4.1 is the introduction of Queues as a preview feature. You can use multiple consumers to process messages from the same topic partitions, improving parallelism and throughput for workloads that need point-to-point message delivery. The new Streams Rebalance Protocol builds upon Kafka 4.0's consumer rebalance protocol, extending broker coordination capabilities to Kafka Streams for optimized task assignments and rebalancing. Additionally, ELR is now enabled by default to strengthen availability.
 
-For more details and a complete list of improvements and bug fixes, see the [Apache Kafka release notes for version 4.1](https://downloads.apache.org/kafka/4.1.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/4.1.0/RELEASE_NOTES.html").
+For more details and a complete list of improvements and bug fixes, see the [Apache Kafka release notes for version 4.1](https://archive.apache.org/dist/kafka/4.1.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/4.1.0/RELEASE_NOTES.html").
 
 To start using Apache Kafka 4.1 on Amazon MSK, choose version 4.1.x when creating a new cluster through the AWS Management Console, AWS CLI, or AWS SDKs. You can also upgrade existing MSK provisioned clusters with an in-place rolling update. Amazon MSK orchestrates broker restarts to maintain availability and protect your data during the upgrade. Kafka version 4.1 support is available across all AWS Regions where Amazon MSK is offered.
 
@@ -52,7 +69,7 @@ To start using Apache Kafka 4.1 on Amazon MSK, choose version 4.1.x when creatin
 
 Amazon Managed Streaming for Apache Kafka (Amazon MSK) now supports Apache Kafka version 4.0. This version brings the latest advancements in cluster management and performance to MSK Provisioned. Kafka 4.0 introduces a new consumer rebalance protocol, now generally available, that helps ensure smoother and faster group rebalances. In addition, Kafka 4.0 requires brokers and tools to use Java 17, providing improved security and performance, includes various bug fixes and improvements, and deprecates metadata management via Apache ZooKeeper.
 
-For more details and a complete list of improvements and bug fixes, see the [Apache Kafka release notes for version 4.0](https://downloads.apache.org/kafka/4.0.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/4.0.0/RELEASE_NOTES.html").
+For more details and a complete list of improvements and bug fixes, see the [Apache Kafka release notes for version 4.0](https://archive.apache.org/dist/kafka/4.0.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/4.0.0/RELEASE_NOTES.html").
 
 ## Amazon MSK version 3.9.x (Recommended)
 
@@ -60,13 +77,13 @@ Amazon Managed Streaming for Apache Kafka (Amazon MSK) now supports Apache Kafka
 
 Version 3.9 is the last version to support both ZooKeeper and KRaft metadata management systems. Amazon MSK will provide extended support for version 3.9 for a minimum of two years from its release date.
 
-For more details and a complete list of improvements and bug fixes, see the [Apache Kafka release notes for version 3.9.x](https://downloads.apache.org/kafka/3.9.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/3.9.0/RELEASE_NOTES.html").
+For more details and a complete list of improvements and bug fixes, see the [Apache Kafka release notes for version 3.9.x](https://archive.apache.org/dist/kafka/3.9.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.9.0/RELEASE_NOTES.html").
 
 ## Amazon MSK version 3.8.x
 
 Amazon Managed Streaming for Apache Kafka (Amazon MSK) now supports Apache Kafka version 3.8. You can now create new clusters using version 3.8 with either KRAFT or ZooKeeper mode for metadata management or upgrade your existing ZooKeeper based clusters to use version 3.8. Apache Kafka version 3.8 includes several bug fixes and new features that improve performance. Key new features include support for compression level configuration. This allows you to further optimize your performance when using compression types such as lz4, zstd and gzip, by allowing you to change the default compression level.
 
-For more details and a complete list of improvements and bug fixes, see the [Apache Kafka release notes for version 3.8.x](https://downloads.apache.org/kafka/3.8.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/3.8.0/RELEASE_NOTES.html").
+For more details and a complete list of improvements and bug fixes, see the [Apache Kafka release notes for version 3.8.x](https://archive.apache.org/dist/kafka/3.8.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.8.0/RELEASE_NOTES.html").
 
 ## Apache Kafka version 3.7.x (with production-ready tiered storage)
 
