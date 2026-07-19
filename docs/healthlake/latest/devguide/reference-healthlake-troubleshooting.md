@@ -10,6 +10,7 @@ right sidebar of this page to report it.
 - [Data store actions](#troubleshooting-data-store "#troubleshooting-data-store")
 - [Import actions](#troubleshooting-import "#troubleshooting-import")
 - [FHIR APIs](#troubleshooting-fhir-apis "#troubleshooting-fhir-apis")
+- [Data transformation actions](#data-transformation-troubleshooting "#data-transformation-troubleshooting")
 - [NLP integrations](#troubleshooting-nlp-integrations "#troubleshooting-nlp-integrations")
 - [SQL integrations](#troubleshooting-sql-integrations "#troubleshooting-sql-integrations")
 
@@ -153,6 +154,68 @@ returning the `413 Request Entity Too Large` error._
 AWS HealthLake has a synchronous Create and Update API limit of 5MB to avoid increased
 latencies and timeouts. You can ingest large documents, up to 164MB, using the
 `Binary` resource type using the Bulk Import API.
+
+## Data transformation actions
+
+**Issue:**
+_When I call a Data Transformation Agent profile or job API, I receive an
+AccessDeniedException._
+
+Your IAM user or role is missing the required Data Transformation Agent permissions. Add the
+`healthlake:*DataTransformation*` actions: for example,
+`healthlake:CreateDataTransformationProfile`,
+`healthlake:StartDataTransformationJob`, and
+`healthlake:UpdateProfileWithAgent`: to your identity-based
+policy. For the full list of actions, see [Setting up](data-transformation-setting-up.md "data-transformation-setting-up.md").
+
+**Issue:**
+_I receive a ResourceNotFoundException when describing or starting a
+transformation job._
+
+This usually means the profile ID or job ID does not exist in the Region you are
+calling. Verify the ID with the `ListDataTransformationProfiles` or
+`ListDataTransformationJobs` API, and confirm you are operating in the Region
+where the resource was created.
+
+**Issue:**
+_My transformation job fails to start with a ValidationException._
+
+The data access role you supplied cannot read your source files or write output. Confirm
+that the role's trust policy allows `healthlake.amazonaws.com` to assume it,
+and that its permissions policy grants `s3:GetObject`,
+`s3:PutObject`, and `s3:ListBucket` on your Amazon S3 locations:
+plus `kms:Decrypt` and `kms:GenerateDataKey` if you encrypt output
+with a customer managed AWS KMS key. For the trust and permissions policies, see Operations
+and security.
+
+**Issue:**
+_My transformation job completed, but the drift report shows low
+coverage._
+
+Low coverage means the profile does not yet map some source sections or elements, so
+that data was not carried into the FHIR output. Open the job's
+`jobLevelDriftResult.json` in the Amazon S3 output location to see the ranked list
+of unmapped source sections and elements, then use the Data Transformation AI agent to add the missing
+resource mappings and republish the profile. For more information, see [Drift detection](data-transformation-features.md#data-transformation-drift-detection "data-transformation-features.md#data-transformation-drift-detection").
+
+**Issue:**
+_The Data Transformation AI agent appears to stop responding partway through a
+conversation._
+
+The conversation reached a completion state; it is not closed. Send a follow-up message
+using the same `ConversationId` to continue the session. Note that an AI agent
+session expires after 8 hours and allows a maximum of 15 user messages: see
+Endpoints and quotas. If the session has expired or reached the message limit, start a new
+session.
+
+**Issue:**
+_A synchronous (real-time) conversion request returns a 413 Request Entity Too
+Large error._
+
+Your input exceeds the sync conversion size limit. Synchronous conversion accepts C-CDA
+inputs up to 1 MB and combined CSV inputs up to 500 KB per request. For larger datasets,
+run a bulk (asynchronous) transformation job over Amazon S3 instead. For the sync conversion
+limits, see [AWS HealthLake endpoints and quotas](reference-healthlake-endpoints-quotas.md "reference-healthlake-endpoints-quotas.md").
 
 ## NLP integrations
 

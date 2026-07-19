@@ -26,6 +26,25 @@ endpoints for AWS HealthLake.
 | Europe (Ireland)      | eu-west-1      | healthlake.eu-west-1.amazonaws.com                                            | HTTPS          |
 | Europe (London)       | eu-west-2      | healthlake.eu-west-2.amazonaws.com                                            | HTTPS          |
 
+The following table lists the service endpoints for HealthLake Data Transformation Agent.
+
+Data Transformation Agent endpoints| Region name | Region | Endpoint | Protocol |
+| --- | --- | --- | --- |
+| US West (Oregon) | us-west-2 | datatransformation.healthlake.us-west-2.amazonaws.com, datatransformation.healthlake.us-west-2.api.aws | HTTPS |
+| US East (N. Virginia) | us-east-1 | datatransformation.healthlake.us-east-1.amazonaws.com, datatransformation.healthlake.us-east-1.api.aws | HTTPS |
+| US East (Ohio) | us-east-2 | datatransformation.healthlake.us-east-2.amazonaws.com, datatransformation.healthlake.us-east-2.api.aws | HTTPS |
+| Asia Pacific (Mumbai) | ap-south-1 | datatransformation.healthlake.ap-south-1.amazonaws.com, datatransformation.healthlake.ap-south-1.api.aws | HTTPS |
+| Asia Pacific (Sydney) | ap-southeast-2 | datatransformation.healthlake.ap-southeast-2.amazonaws.com, datatransformation.healthlake.ap-southeast-2.api.aws | HTTPS |
+| Canada (Central) | ca-central-1 | datatransformation.healthlake.ca-central-1.amazonaws.com, datatransformation.healthlake.ca-central-1.api.aws | HTTPS |
+| Europe (Ireland) | eu-west-1 | datatransformation.healthlake.eu-west-1.amazonaws.com, datatransformation.healthlake.eu-west-1.api.aws | HTTPS |
+| Europe (London) | eu-west-2 | datatransformation.healthlake.eu-west-2.amazonaws.com, datatransformation.healthlake.eu-west-2.api.aws | HTTPS |
+
+**Private link**
+
+Service name - `com.amazonaws.<region>.healthlake-datatransformation`
+
+Customers can create VPC endpoints using standard VPC endpoint creation SOPs.
+
 ## Service quotas
 
 Service quotas are defined as the maximum value for resources, actions, and items in your
@@ -101,3 +120,31 @@ The following table lists the default quotas for AWS HealthLake.
 | Total Queued Bulk Export jobs per datastore                   | Each supported Region: 25              | [Yes](https://console.aws.amazon.com/servicequotas/home/services/healthlake/quotas/L-DDD1A3D1 "https://console.aws.amazon.com/servicequotas/home/services/healthlake/quotas/L-DDD1A3D1") | The maximum number of queued bulk export jobs per datastore at any given time.                                                                                                  |
 | Total Queued Bulk Import jobs per datastore                   | Each supported Region: 25              | [Yes](https://console.aws.amazon.com/servicequotas/home/services/healthlake/quotas/L-5E2BA274 "https://console.aws.amazon.com/servicequotas/home/services/healthlake/quotas/L-5E2BA274") | The maximum number of queued bulk import jobs per datastore at any given time.                                                                                                  |
 | Total import job size                                         | Each supported Region: 5,000 Gigabytes | [Yes](https://console.aws.amazon.com/servicequotas/home/services/healthlake/quotas/L-DEBEEE9B "https://console.aws.amazon.com/servicequotas/home/services/healthlake/quotas/L-DEBEEE9B") | The maximum size (in GB) of all files included in the import job.                                                                                                               |
+
+The following table lists the default quotas for HealthLake Data Transformation Agent.
+
+Data Transformation Agent quotas| Name | Default | Adjustable | Description |
+| --- | --- | --- | --- |
+| Concurrent transformation jobs per account | Each supported Region: 1 | Yes | The maximum number of transformation jobs that can run concurrently per account. |
+| Total input size per transformation job | Each supported Region: 1 GB | Yes | The maximum combined size of all source files in a single bulk transformation job. |
+| Columns per CSV file in transformation jobs | Each supported Region: 100 | No | The maximum number of columns in a CSV source file for transformation jobs. |
+| CSV files per transformation job | Each supported Region: 20 | No | The maximum number of CSV source files in a single bulk transformation job. |
+| Size per CSV file in a transformation job | Each supported Region: 50 MB | Yes | The maximum size of an individual CSV source file in a bulk transformation job. |
+| C-CDA files per transformation job | Each supported Region: 1,000 | Yes | The maximum number of C-CDA source files in a single bulk transformation job. |
+| Maximum C-CDA file size for sync conversion | Each supported Region: 1 MB | Yes | The maximum size of a C-CDA input in a synchronous conversion request. |
+| Maximum combined CSV file size for sync conversion | Each supported Region: 500 KB | Yes | The maximum combined size of all CSV files in a single synchronous conversion request. |
+| Maximum CSV files per sync conversion | Each supported Region: 20 | No | The maximum number of CSV files in a single synchronous (real-time) conversion request. |
+| Number of transformation profiles per account | Each supported Region: 20 | No | The maximum number of transformation profiles per account. |
+| Number of published versions per profile | Each supported Region: 99 | No | The maximum number of versions that a profile can have. |
+| Rate of CreateDataTransformationProfile requests per account | Each supported Region: 1 | Yes | The maximum number of CreateDataTransformationProfile requests that you can make per second per account. |
+| Rate of UpdateDataTransformationProfile requests per account | Each supported Region: 1 | Yes | The maximum number of UpdateDataTransformationProfile requests that you can make per second per account. |
+| Rate of PublishDataTransformationProfile requests per account | Each supported Region: 1 | Yes | The maximum number of PublishDataTransformationProfile requests that you can make per second per account. |
+| Rate of ListDataTransformationProfiles requests per account | Each supported Region: 1 | Yes | The maximum number of ListDataTransformationProfiles requests that you can make per second per account. |
+| Rate of ListDataTransformationProfileVersions requests per account | Each supported Region: 1 | Yes | The maximum number of ListDataTransformationProfileVersions requests that you can make per second per account. |
+| Rate of GetDataTransformationProfile requests per account | Each supported Region: 1 | Yes | The maximum number of GetDataTransformationProfile requests that you can make per second per account. |
+| Rate of DeleteDataTransformationProfile requests per account | Each supported Region: 1 | Yes | The maximum number of DeleteDataTransformationProfile requests that you can make per second per account. |
+| Rate of StartDataTransformationJob requests per account | Each supported Region: 1 | Yes | The maximum number of StartDataTransformationJob requests that you can make per second per account. |
+| Rate of DescribeDataTransformationJob requests per account | Each supported Region: 1 | Yes | The maximum number of DescribeDataTransformationJob requests that you can make per second per account. |
+| Rate of ListDataTransformationJobs requests per account | Each supported Region: 1 | Yes | The maximum number of ListDataTransformationJobs requests that you can make per second per account. |
+| Rate of sync (real-time) conversion requests (TransformData) per account | Each supported Region: 1 | Yes | The maximum number of TransformData requests that you can make per second per account. |
+| Rate of ValidateSource per account | Each supported Region: 1 | Yes | The maximum number of ValidateSource requests that you can make per second per account. |

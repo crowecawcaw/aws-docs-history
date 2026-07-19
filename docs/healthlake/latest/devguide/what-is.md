@@ -10,13 +10,17 @@ cases include:
 - **Healthcare interoperability** – Support customer
   conformance with 21st Century Cures Act for patient access through a fully managed FHIR
   data store.
+- **Healthcare data transformation** – Convert legacy
+  C-CDA and CSV data into FHIR R4 with the [data
+  transformation AI agent](data-transformation.md "data-transformation.md") without building or
+  maintaining conversion pipelines.
 - **Natural language processing (NLP)** – Utilize
   integrated NLP models to extract meaningful medical information from unstructured health
   data.
 - **Multimodal analysis** – Combine HealthLake data with
   AWS HealthImaging data and AWS HealthOmics data to deliver insights for precision medicine.
 
-![Architecture diagram showing AWS HealthLake processes and integrations with other AWS services.](images/ahl-overview-architecture-diagram.png)
+![Architecture diagram showing AWS HealthLake processes and integrations with other AWS services.](images/healthlake_overview_diagram.png)
 
 ###### Topics
 
@@ -41,13 +45,21 @@ judgment.**
 
 AWS HealthLake provides the following features.
 
+**Convert legacy healthcare data to FHIR R4 with the Data Transformation Agent (Preview)**
+
+With HealthLake's [Data Transformation Agent](data-transformation.md "data-transformation.md"), you can convert legacy healthcare data into the FHIR R4
+standard without any FHIR expertise. You start from a working profile: for C-CDA, the
+AWS Starter Profile provides common section-to-resource mappings out of the box; for
+relational data, the agent generates a base profile tailored to your schema from sample
+CSVs. Use a profile as-is, or refine it as needed with the AI agent.
+
 **Import FHIR R4 health data**
 
 With the HealthLake native import action, you can easily migrate your FHIR data from an
 Amazon S3 bucket to an HealthLake data store, including clinical notes, lab reports, insurance
 claims, and more. HealthLake supports the FHIR R4 specification for health care data
-exchange. If needed, you can work with an [AWS HealthLake Partner](https://aws.amazon.com/healthlake/partners/ "https://aws.amazon.com/healthlake/partners/") to convert your health data to
-FHIR R4 format.
+exchange. If your data isn't already in FHIR R4, use the Data Transformation Agent to convert C-CDA and
+CSV data yourself, or work with an [AWS HealthLake Partner](https://aws.amazon.com/healthlake/partners/ "https://aws.amazon.com/healthlake/partners/").
 
 **Store health data in a secure, compliant, and auditable manner**
 
@@ -56,7 +68,8 @@ creates a complete view of each patient’s medical history in chronological ord
 facilitates information exchange using the FHIR R4 specification. And it's always
 running to keep your index up to date, offering you the ability to search the
 information anytime using standard FHIR R4 interactions with durable primary storage
-and index scaling.
+and index scaling. HealthLake also automatically [detects and links duplicate records](resource-matching.md "resource-matching.md")
+(Preview), so each patient or entity is represented once across sources.
 
 **Leverage transactional FHIR server**
 
