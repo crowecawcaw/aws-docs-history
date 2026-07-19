@@ -1,5 +1,10 @@
 # AWS Elastic Disaster Recovery Service Release Notes
 
+## July 2026
+
+- With AWS Elastic Disaster Recovery, you can now choose a **Recovery mode** in your launch configurations. Choose **Fast** to skip the conversion process and reduce recovery time. This mode launches instances directly from replicated snapshots. Choose **Optimal** (default) to run the full conversion process before launch. To use Fast recovery mode, you must have version 6.42.20 or later of the agent. For more information, see [Editing the default AWS DRS launch settings](editing-launch-settings.md "editing-launch-settings.md").
+- AWS Elastic Disaster Recovery now preserves and passes through `VolumeInitializationRate` values set on EC2 launch template block device mappings during drill and recovery launches. This accelerates Amazon EBS volume initialization without requiring AWS Elastic Disaster Recovery configuration changes. For more information, see [Key considerations for EC2 launch templates](ec2-key-considerations.md "ec2-key-considerations.md").
+
 ## June 2026
 
 - Added support for Debian 12 and Debian 13 as source server operating systems. Debian 13 requires AWS Elastic Disaster Recovery Agent version 6.42.21 or later. See [Supported Linux operating systems](Supported-Operating-Systems-Linux.md "Supported-Operating-Systems-Linux.md").

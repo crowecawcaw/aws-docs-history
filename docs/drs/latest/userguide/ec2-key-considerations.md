@@ -31,15 +31,25 @@ template for use with AWS Elastic Disaster Recovery.
    includes a volume that does not exist on the source server, the system
    disregards it. If you delete the EC2 launch template, the service creates
    a new one with default values.
-9. **KMS key** – Encryption for recovery
-   volumes is controlled through the EBS Encryption section of the
-   replication settings within the AWS Elastic Disaster Recovery console. The launch template's
-   KMS key field is not used by AWS Elastic Disaster Recovery during volume creation. To encrypt
-   recovery volumes with a specific KMS key, configure it in the replication
-   settings.
-10. **Automatic cleanup** – AWS Elastic Disaster Recovery deletes
+9. **Volume initialization rate** –
+   AWS Elastic Disaster Recovery preserves `VolumeInitializationRate` values that
+   you set on launch template Amazon EBS block device mappings. AWS Elastic Disaster Recovery
+   passes the rate to volume creation during drill and recovery launches
+   to accelerate volume initialization. If volume creation fails because
+   of the rate, AWS Elastic Disaster Recovery retries without it to prevent the rate from
+   blocking recovery. Possible failure reasons include quota limits exceeded or an
+   unsupported Availability Zone. This feature is available only in AWS
+   Regions and environments that support Amazon EBS volume initialization
+   rate. For more information, see [Initialize Amazon EBS volumes](../../../AWSEC2/latest/UserGuide/ebs-initialize.md "../../../AWSEC2/latest/UserGuide/ebs-initialize.md").
+10. **KMS key** – Encryption for recovery
+    volumes is controlled through the EBS Encryption section of the
+    replication settings within the AWS Elastic Disaster Recovery console. The launch template's
+    KMS key field is not used by AWS Elastic Disaster Recovery during volume creation. To encrypt
+    recovery volumes with a specific KMS key, configure it in the replication
+    settings.
+11. **Automatic cleanup** – AWS Elastic Disaster Recovery deletes
     the EC2 launch template for source servers that have been disconnected from
     AWS Elastic Disaster Recovery or for which recovery has been finalized.
-11. **Tags** – Launch template tags always take
+12. **Tags** – Launch template tags always take
     precedence over tags set in the AWS Elastic Disaster Recovery console or tags manually added to
     the server.

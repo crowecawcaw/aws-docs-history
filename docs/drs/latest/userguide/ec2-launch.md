@@ -125,6 +125,24 @@ template via the Amazon EC2 console:
 Every time you modify an EC2 launch template on the Amazon EC2 console, a new version is created. AWS DRS uses the version that is marked as the default. If you prefer to use the EC2 launch template you just modified, make sure
 to mark it as the default. Changes made through the AWS DRS console are automatically set as the default version.
 
+**Amazon EBS volume initialization rate –** You can set
+a `VolumeInitializationRate` on Amazon EBS block device
+mappings in the EC2 launch template to accelerate volume initialization during
+drill and recovery launches. Set this value directly on the launch template
+through the Amazon EC2 console or the AWS Command Line Interface (AWS CLI).
+AWS Elastic Disaster Recovery preserves the rate across its own launch template updates and passes
+it to volume creation at recovery time. If volume creation fails because of the
+specified rate, AWS Elastic Disaster Recovery retries without the rate to prevent the rate from
+blocking recovery.
+
+###### Note
+
+This feature is available only in AWS Regions and environments that
+support Amazon EBS volume initialization rate. You are charged per GB based on
+the full snapshot size and the initialization rate you specified. For more
+information, see [Initialize Amazon EBS volumes](../../../AWSEC2/latest/UserGuide/ebs-initialize.md "../../../AWSEC2/latest/UserGuide/ebs-initialize.md") and [Amazon EBS
+pricing](https://aws.amazon.com/ebs/pricing/ "https://aws.amazon.com/ebs/pricing/").
+
 **EC2 launch template tags –** In addition to the basic
 and advanced settings, you can also add up to 50 tags. These will be transferred to
 your drill and recovery instances. Note that these tags may interfere with other

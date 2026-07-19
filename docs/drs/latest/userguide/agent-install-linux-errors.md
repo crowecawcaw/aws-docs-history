@@ -19,6 +19,9 @@ message, its cause, and the resolution.
 - [Error: Multipath disk detection failure](#error-multipath "#error-multipath")
 - [Error: PowerPath multipath detected](#error-powerpath "#error-powerpath")
 - [Error: Driver compiled for a different kernel](#error-driver-compiled "#error-driver-compiled")
+- [Error: Agent driver build configuration failed](#error-driver-build-config-failed "#error-driver-build-config-failed")
+- [Error: Agent driver compilation failed](#error-driver-compile-failed "#error-driver-compile-failed")
+- [Error: SUSE kernel headers package not found](#error-suse-kernel-headers "#error-suse-kernel-headers")
 - [Error: Oracle ASM Filter Driver conflict](#error-oracle-asmfd "#error-oracle-asmfd")
 
 ## Error: Root privileges required
@@ -375,6 +378,116 @@ failback.
 **Resolution:** Reboot the server to load the current
 kernel, then reinstall the agent. On a recovery instance, reboot and reinstall the agent
 as a recovery instance.
+
+## Error: Agent driver build configuration failed
+
+**Error message:**
+**`Could not configure the AWS Replication Agent kernel driver build.`**
+
+**Cause:** The agent builds a kernel driver at install
+time. The kernel headers are present, but the `configure` step failed before
+compilation. This usually means the kernel development package
+(`kernel-devel` or `linux-headers`) for the running kernel is
+incomplete. It can also mean the kernel build tree at
+`/lib/modules/$(uname -r)/build` is missing or invalid.
+
+**Resolution:** Complete the following steps.
+
+1. Confirm the kernel build tree exists and resolves to a valid directory:
+
+```
+`$` ls -l /lib/modules/$(uname -r)/build
+```
+
+2. Reinstall the complete kernel development package that matches the running
+   kernel version:
+
+   - **RHEL/CentOS:**
+
+   ```
+   `$` sudo yum install kernel-devel-$(uname -r)
+   ```
+   - **Debian/Ubuntu:**
+
+   ```
+   `$` sudo apt-get install --reinstall linux-headers-$(uname -r)
+   ```
+   - **SUSE/SLES:**
+
+   ```
+   `$` sudo zypper install kernel-default-devel=$(uname -r | sed "s/-default//") kernel-source
+   ```
+
+3. Run the AWS Replication Agent installer again.
+4. If the error persists, collect the installation log
+   (`aws_replication_agent_installer.log`), which contains the
+   `configure` output, and contact AWS Support.
+
+## Error: Agent driver compilation failed
+
+**Error message:**
+**`Failed to compile the AWS Replication Agent kernel driver.`**
+
+**Cause:** The kernel headers are present, but the driver
+module failed to compile. This error usually occurs when the compiler or toolset is
+incompatible with the compiler that built the running kernel. For example, a mismatched
+`gcc` version can cause this error. Insufficient free disk space is another
+common cause.
+
+**Resolution:** Complete the following steps.
+
+1. Confirm that `gcc` and `make` are installed, and compare the
+   `gcc` version with the compiler that built the running kernel:
+
+```
+`$` gcc --version
+`$` cat /proc/version
+```
+
+2. If the versions differ, install a compatible compiler toolchain, then run the
+   installer again.
+3. Confirm that there is sufficient free disk space:
+
+```
+`$` df -h /
+```
+
+4. If the error persists, collect the installation log
+   (`aws_replication_agent_installer.log`), which contains the
+   `make` output, and contact AWS Support.
+
+## Error: SUSE kernel headers package not found
+
+**Error message:**
+**`Could not find a matching kernel headers package for your SUSE kernel version.`**
+
+**Cause:** On SUSE Linux Enterprise Server, the installer
+searches for the `kernel-source` package that matches the running kernel. It then
+installs the matching `kernel-default-devel` headers. The `zypper`
+search returned no matching package, which usually means the configured repositories do
+not include the required package.
+
+**Resolution:** Complete the following steps.
+
+1. Check the running kernel version:
+
+```
+`$` uname -r
+```
+
+2. Refresh the repositories and install the matching kernel development packages:
+
+```
+`$` sudo zypper refresh
+`$` sudo zypper install kernel-default-devel=$(uname -r | sed "s/-default//") kernel-source
+```
+
+3. If your repositories do not include the required packages, register the server with
+   the SUSE Customer Center (SCC) to enable the required module. Then run the installer
+   again. Alternatively, contact your SUSE support representative to obtain the correct
+   packages before running the installer.
+4. If the error persists, collect the installation log
+   (`aws_replication_agent_installer.log`) and contact AWS Support.
 
 ## Error: Oracle ASM Filter Driver conflict
 

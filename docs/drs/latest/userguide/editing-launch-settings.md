@@ -66,3 +66,23 @@ contains this policy and can be used as an instance profile.
   automatically launched as BYOL. If you launch a Windows Server or
   Windows Home as BYOL, you must select Dedicated host for the Tenancy
   setting in the advanced settings of the EC2 launch template.
+- **Recovery mode –** Choose the
+  recovery mode for launching recovery instances:
+
+  - **Optimal** (default)
+    – Runs the full conversion process before launch.
+    The process includes driver injection, boot configuration,
+    and filesystem modifications. Use this mode when you
+    are uncertain about source server compatibility, or for
+    cross-platform scenarios.
+  - **Fast** – Skips the
+    conversion process and launches instances directly from
+    replicated snapshots, which reduces recovery time. Use this
+    mode for AWS-to-AWS disaster recovery scenarios where
+    source servers already have AWS-compatible drivers and
+    configurations.
+
+###### Note
+
+Fast recovery mode requires DRS agent version 6.42.20
+or later.
