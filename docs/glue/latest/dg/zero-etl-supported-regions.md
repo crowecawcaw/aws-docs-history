@@ -36,5 +36,5 @@ The following Regions are available with AWS Glue Zero-ETL:
 | US East (Ohio)            | Available         |
 | US West (N. California)   | Not available     |
 | US West (Oregon)          | Available         |
-| AWS GovCloud (US-East)    | Not available     |
-| AWS GovCloud (US-West)    | Not available     |
+| AWS GovCloud (US-East)    | Available         |
+| AWS GovCloud (US-West)    | Available         |

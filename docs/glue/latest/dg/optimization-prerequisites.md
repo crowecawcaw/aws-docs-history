@@ -2,7 +2,7 @@
 
 The table optimizer assumes the permissions of the AWS Identity and Access Management (IAM) role that you
 specify when you enable optimization options (compaction, snapshot retention, and orphan file
-delettion) for a table. You can either create s single role for all optimizers or create
+deletion) for a table. You can either create a single role for all optimizers or create
 separate roles for each optimizer.
 
 ###### Note
