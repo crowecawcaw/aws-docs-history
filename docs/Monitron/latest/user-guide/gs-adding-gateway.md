@@ -45,7 +45,7 @@ Guide_ for possible solutions. 8. When you see the new gateway in the list, choo
 It can take a few moments for Amazon Monitron to connect to the new
 gateway.
 
-![Smartphone connecting to AWS service via Bluetooth, represented by icons and symbols.](/images/Monitron/latest/user-guide/images/gs-gateway-bluetooth.png) 9. After it connects to the gateway, Amazon Monitron scans for Wi-Fi networks.
+![Smartphone connecting to AWS service via Bluetooth, represented by icons and symbols.](images/gs-gateway-bluetooth.png) 9. After it connects to the gateway, Amazon Monitron scans for Wi-Fi networks.
 Choose the Wi-Fi network that you want to use.
 
 ###### Note
