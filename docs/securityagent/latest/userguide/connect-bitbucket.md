@@ -1,6 +1,8 @@
 # Connect AWS Security Agent to Bitbucket repositories
 
-Connect your AWS Security Agent to Bitbucket Cloud repositories to enable code review, threat modeling, penetration testing, and automated remediation capabilities. Bitbucket integration serves multiple purposes:
+Connect your AWS Security Agent to Bitbucket Cloud repositories to enable code review, threat modeling, penetration testing, and automated remediation capabilities. Before you begin, review [How integrations work with Agent Spaces](about-integrations.md "about-integrations.md") to understand how a registration is reused across Agent Spaces and shared across capabilities.
+
+Bitbucket integration serves multiple purposes:
 
 - **Code review** - Automatically analyze pull requests against your organizational security requirements
 - **Threat modeling** - Provide application understanding by analyzing source code, data flows, and architecture
@@ -28,8 +30,7 @@ Before you begin, ensure you have:
 
 - A Bitbucket Cloud workspace with admin access
 - An Atlassian account with site administrator privileges
-- Permissions to configure integrations for your Agent Space in the AWS Management Console
-- The installation ID from the AWS Security Agent Forge app (see [Find your Atlassian installation ID](find-atlassian-installation-id.md "find-atlassian-installation-id.md"))
+- Permissions to configure integrations in the AWS Security Agent Management Console
 
 ###### Important
 
@@ -39,27 +40,23 @@ One Atlassian site can only be associated with one AWS account per region. If yo
 
 Atlassian Forge app pricing applies to this integration. For more information, see [Forge platform pricing](https://developer.atlassian.com/platform/forge/forge-platform-pricing/ "https://developer.atlassian.com/platform/forge/forge-platform-pricing/") in the Atlassian documentation.
 
-For more information about finding your installation ID, see [Find your Atlassian installation ID](find-atlassian-installation-id.md "find-atlassian-installation-id.md").
-
 ## Register a Bitbucket connection
 
 1. In the AWS Security Agent Management Console, navigate to **Integrations**.
 2. Choose **Add integration**.
-3. Select **Bitbucket**.
-4. Choose **Next**.
-5. Choose **Install and authorize**.
+3. Select **Bitbucket**, then choose **Next**.
+4. Install the AWS Security Agent Forge app in your Bitbucket workspace, following the on-screen instructions. After installation, copy the installation ID. See [Find your Atlassian installation ID](find-atlassian-installation-id.md "find-atlassian-installation-id.md").
+5. In the **Installation ID** field, paste the installation ID you copied from Bitbucket.
+6. In the **Bitbucket workspace** field, enter your Bitbucket workspace slug, for example `acme-corp`.
+7. Choose **Authorize**.
 
-You’ll be redirected to Atlassian to install the Forge app and authorize access. 6. On the Atlassian consent screen, review the permissions and authorize the AWS Security Agent app. The following permissions are requested:
+You are redirected to Atlassian to authorize AWS Security Agent to access your Bitbucket workspace. After authorization completes, you return to the console. 8. In the **Register details** section, enter a **Registration name** for this connection. Valid characters are letters, numbers, periods, underscores, and hyphens. 9. Choose **Connect**.
 
-    * Read and write pull requests
-    * Read and write repository content
+###### Note
 
-7. You’ll be redirected back to the AWS Management Console to complete the registration. 8. In the **Registration details** section, configure the following fields:
+###### Provisioning delay after connecting
 
-    1. **Installation ID** - Paste the installation ID you copied from the Forge app in Bitbucket (see [Find your Atlassian installation ID](find-atlassian-installation-id.md "find-atlassian-installation-id.md")).
-    2. **Registration name** - Enter a descriptive name for this Bitbucket connection, such as "Acme-Engineering-Bitbucket".
-
-9. Choose **Connect**.
+After you choose **Connect**, provisioning on the Atlassian side can take a few minutes. During this time, the integration reports a pending status. If you try to select repositories or enable code review before provisioning completes, you might see a message that the installation is not yet available. Wait a few minutes and try again.
 
 ## Troubleshoot Bitbucket integration
 
@@ -85,10 +82,21 @@ If the registration process is interrupted (browser closed, session timeout), th
 - One Atlassian site can only be connected to one AWS account per region.
 - Identify which AWS account has the existing integration and use that account, or remove the existing integration first.
 
+### Installation is not available
+
+#### Symptoms
+
+- When you select repositories or enable code review, you see a message that the Bitbucket installation is in status `PENDING_INSTALLATION`, not `AVAILABLE`.
+
+#### Resolution
+
+- The installation is still provisioning on the Atlassian side. Provisioning normally completes within a few minutes. Wait a few minutes, then try again.
+- If the status does not become available after several minutes, remove the integration and register it again. Before re-registering, uninstall the Forge app from your Bitbucket workspace. For instructions, see [Remove a Bitbucket integration](remove-bitbucket.md "remove-bitbucket.md"). If you re-register without uninstalling the previous Forge app, the installation can get stuck in a pending state.
+
 ## Next steps
 
 After connecting Bitbucket to AWS Security Agent:
 
 - Navigate to the Agent Space where you want to use these repositories
 - Choose **Enable code review** or **Setup penetration testing** to connect specific repositories to your Agent Space
-- Enable automated remediation to allow AWS Security Agent to submit pull requests with vulnerability fixes
+- Enable **Code remediation** to allow AWS Security Agent to submit pull requests with vulnerability fixes

@@ -17,11 +17,17 @@ Before removing a Bitbucket integration:
 4. Choose **Remove**.
 5. Review the confirmation dialog and choose **Confirm removal**.
 
-## Step 2: Uninstall the Forge app (optional)
+## Step 2: Uninstall the Forge app
 
-After removing the integration from AWS Security Agent, you can optionally uninstall the Forge app from your Atlassian site:
+After removing the integration from AWS Security Agent, uninstall the Forge app from your Atlassian site:
 
 1. In Bitbucket, navigate to **Workspace settings**.
 2. Select **Forge Apps**.
 3. Locate **Connect with AWS Security Agent**.
 4. Choose **Uninstall**.
+
+###### Important
+
+###### Forge app is not uninstalled automatically
+
+Removing the integration in the AWS Security Agent console does not uninstall the Forge app from your Atlassian site. If you plan to register the same Bitbucket workspace again, you must uninstall the Forge app first. Otherwise, the new installation can get stuck in a pending state.

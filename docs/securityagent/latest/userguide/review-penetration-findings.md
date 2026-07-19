@@ -69,7 +69,9 @@ Each finding in the list displays key information to help you quickly assess its
 
 ###### Note
 
-Findings with Low agent confidence and False Positives are hidden by default. You can view them by disabling the toggle **Hide False Positives**.
+###### Default confidence filter
+
+By default, you see only findings with **High** agent confidence. To also show findings with **Medium** or **Low** agent confidence and false positives, turn off the **Hiding unverified findings** toggle.
 
 Review the information displayed on each finding card:
 

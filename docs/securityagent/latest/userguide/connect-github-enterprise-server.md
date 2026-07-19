@@ -2,7 +2,11 @@
 
 Connect your AWS Security Agent to a GitHub Enterprise Server (GHES) instance to enable code review, threat modeling, penetration testing, and automated remediation capabilities for repositories hosted on your own infrastructure.
 
-GitHub Enterprise Server integration provides the same capabilities as cloud-hosted GitHub (see [Connect AWS Security Agent to GitHub repositories](connect-github.md "connect-github.md")) with additional configuration for network connectivity to your self-hosted instance.
+GitHub Enterprise Server integration provides the same capabilities as cloud-hosted GitHub (see [Connect AWS Security Agent to GitHub repositories](connect-github.md "connect-github.md")) with additional configuration for network connectivity to your self-hosted instance. Before you begin, review [How integrations work with Agent Spaces](about-integrations.md "about-integrations.md") to understand how a registration is reused across Agent Spaces and shared across capabilities.
+
+###### Note
+
+GitHub Enterprise Server is registered through the **GitHub** integration, not a separate integration type. In the registration flow you choose **GitHub Enterprise Server** as the instance type. The cloud-hosted GitHub.com flow is described in [Connect AWS Security Agent to GitHub repositories](connect-github.md "connect-github.md").
 
 ## How GitHub Enterprise Server integration works
 
@@ -21,7 +25,7 @@ Before you begin, ensure you have:
 
 - Site administrator or organization administrator access on your GHES instance
 - Your GHES instance must serve HTTPS traffic with a minimum TLS version of 1.2
-- Permissions to configure integrations for your Agent Space in the AWS Management Console
+- Permissions to configure integrations in the AWS Security Agent Management Console
 
 ###### Note
 
@@ -37,19 +41,21 @@ Complete all steps in this process without closing your browser or navigating aw
 
 1. In the AWS Security Agent Management Console, navigate to **Integrations**.
 2. Choose **Add integration**.
-3. Select **GitHub Enterprise Server**.
-4. Choose **Next**.
-5. Enter the **Instance URL** of your GitHub Enterprise Server (for example, `https://github.yourcompany.com`).
-6. If your instance is not publicly accessible, select an existing **Private connection** or create a new one.
-7. Choose **Install and authorize**.
+3. Select **GitHub**, then choose **Next**.
+4. Under **Instance type**, select **GitHub Enterprise Server**.
+5. In the **GitHub Enterprise Server URL** field, enter the HTTPS URL of your instance, for example `https://github.example.com`.
+6. If your instance is not publicly accessible, select **Connect to endpoint using a private connection**, then choose an existing private connection or create a new one. See [Connect to privately hosted source control](connect-private-connection.md "connect-private-connection.md").
+7. In the **Register details** section, configure the following fields:
 
-You’ll be redirected to your GitHub Enterprise Server instance to complete the OAuth authorization. 8. On your GHES instance, authorize the AWS Security Agent application and select which repositories to grant access to. 9. You’ll be redirected back to the AWS Management Console to complete the registration. 10. In the **Registration details** section, configure the following fields:
+   1. **Registration name** - Enter a descriptive name for this connection. Valid characters are letters, numbers, periods, underscores, and hyphens.
+   2. **GitHub account type** - Select **Organization** or **User**.
+   3. **Organization name** (appears only if you selected Organization) - Enter the exact name of your GitHub Enterprise Server organization. Names are case sensitive.
 
-    1. **Registration name** - Enter a descriptive name for this connection.
-    2. **Account type** - Select **Organization** or **User**.
-    3. **Organization name** (if applicable) - Enter the name of your GHES organization.
+8. Choose **Connect**.
 
-11. Choose **Connect**.
+###### Note
+
+AWS Security Agent redirects you away from the console to complete authorization with your GitHub Enterprise Server instance. After authorization completes, you return to the console and the new connection appears on the **Integrations** page.
 
 ## Private connectivity
 
@@ -99,4 +105,4 @@ After connecting GitHub Enterprise Server to AWS Security Agent:
 
 - Navigate to the Agent Space where you want to use these repositories
 - Choose **Enable code review** or **Setup penetration testing** to connect specific repositories
-- Enable automated remediation to allow AWS Security Agent to submit pull requests with vulnerability fixes
+- Enable **Code remediation** to allow AWS Security Agent to submit pull requests with vulnerability fixes

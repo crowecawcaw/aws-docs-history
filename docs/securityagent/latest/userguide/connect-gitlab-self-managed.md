@@ -2,7 +2,11 @@
 
 Connect your AWS Security Agent to a GitLab Self-Managed instance to enable code review, threat modeling, penetration testing, and automated remediation capabilities for repositories hosted on your own infrastructure.
 
-GitLab Self-Managed integration works the same as GitLab Cloud (see [Connect AWS Security Agent to GitLab repositories](connect-gitlab.md "connect-gitlab.md")) with additional configuration for network connectivity to your private instance.
+GitLab Self-Managed integration works the same as GitLab Cloud (see [Connect AWS Security Agent to GitLab repositories](connect-gitlab.md "connect-gitlab.md")) with additional configuration for network connectivity to your private instance. Before you begin, review [How integrations work with Agent Spaces](about-integrations.md "about-integrations.md") to understand how a registration is reused across Agent Spaces and shared across capabilities.
+
+###### Note
+
+GitLab Self-Managed is registered through the **GitLab** integration, not a separate integration type. In the registration flow you select **Use GitLab self-hosted endpoint** and provide your instance URL. The cloud-hosted GitLab flow is described in [Connect AWS Security Agent to GitLab repositories](connect-gitlab.md "connect-gitlab.md").
 
 ## Prerequisites
 
@@ -13,11 +17,10 @@ Before you begin, ensure you have:
   - Publicly accessible over the internet, OR
   - Accessible via a private connection (see [Connect to privately hosted source control](connect-private-connection.md "connect-private-connection.md"))
 
-- A GitLab Personal Access Token with the following scopes:
+- A GitLab access token with the scopes required for your connection type:
 
-  - `api` - Full read/write API access
-  - `read_repository` - Access repository content
-  - `write_repository` - Push remediation merge requests
+  - **Personal** - A personal access token with all read permissions and the `api` permission.
+  - **Group** - A group access token with the `read_api` and `read_repository` scopes.
 
 - Maintainer or Owner access to the projects you want to connect
 - Your GitLab instance must serve HTTPS traffic with a minimum TLS version of 1.2
@@ -30,17 +33,16 @@ If your GitLab Self-Managed instance uses TLS certificates issued by a private c
 
 1. In the AWS Security Agent Management Console, navigate to **Integrations**.
 2. Choose **Add integration**.
-3. Select **GitLab Self-Managed**.
-4. Choose **Next**.
-5. On the registration page, configure the following fields:
+3. Select **GitLab**, then choose **Next**.
+4. Under **Choose an account type**, select **Personal** or **Group**. If you select **Group**, enter your **Group ID**.
+5. Select **Use GitLab self-hosted endpoint**.
+6. In the **GitLab self-hosted endpoint URL** field, enter the URL of your instance, for example `https://gitlab.example.com`.
+7. If your instance is not publicly accessible, select **Connect to endpoint using a private connection**, then choose an existing private connection or create a new one. See [Connect to privately hosted source control](connect-private-connection.md "connect-private-connection.md").
+8. In the **Access token** field, paste your GitLab access token.
+9. In the **Registration name** field, enter a descriptive name for this connection. Valid characters are letters, numbers, periods, underscores, and hyphens.
+10. Choose **Connect**.
 
-   1. **Connection type** - Select **Personal** or **Group**.
-   2. **Instance URL** - Enter the URL of your GitLab Self-Managed instance (for example, `https://gitlab.yourcompany.com`). Custom domains are supported.
-   3. **Access token** - Paste your GitLab Personal Access Token.
-   4. **Private connection** (optional) - If your instance is not publicly accessible, select an existing private connection or create a new one. See [Connect to privately hosted source control](connect-private-connection.md "connect-private-connection.md").
-   5. **Registration name** - Enter a descriptive name for this connection.
-
-6. Choose **Connect**.
+You return to the **Integrations** page, where the new connection appears with its registration name.
 
 ## Private connectivity
 
@@ -86,4 +88,4 @@ After connecting GitLab Self-Managed to AWS Security Agent:
 
 - Navigate to the Agent Space where you want to use these repositories
 - Choose **Enable code review** or **Setup penetration testing** to connect specific projects
-- Enable automated remediation for merge request-based fixes
+- Enable **Code remediation** for merge request-based fixes

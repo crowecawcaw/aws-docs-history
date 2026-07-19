@@ -6,22 +6,27 @@ Unlike pull request-based code review which is triggered automatically by third-
 
 ## How differential scans work
 
-A differential scan follows the same analysis pipeline as a full code review but scopes the analysis to only the lines represented in your diff file:
+A differential scan analyzes your code changes in the full context of your repository. When you create a code review resource with your source code uploaded to S3, the differential scan uses the complete repository as context while focusing findings specifically on the changed lines in your diff. This enables the scan to identify security issues that arise from how your changes interact with existing code — such as broken authentication flows, insecure data handling across modules, or changes that expose existing vulnerabilities.
 
-1. You upload a unified diff file (the output of `git diff`) to an S3 bucket connected to your Agent Space.
-2. You call the `StartCodeReviewJob` API with a `diffSource` parameter pointing to the S3 location of your diff.
-3. AWS Security Agent analyzes only the changed code in the diff for security vulnerabilities and compliance with your organization’s security requirements.
-4. Findings are scoped to the changed lines, with severity ratings, code locations, and remediation guidance.
+The scan process:
+. You upload a unified diff file (the output of `git diff`) to an S3 bucket connected to your Agent Space.
+. You call the `StartCodeReviewJob` API with a `diffSource` parameter pointing to the S3 location of your diff.
+. AWS Security Agent analyzes only the changed code in the diff for security vulnerabilities and compliance with your organization’s security requirements.
+. Findings are scoped to the changed lines, with severity ratings, code locations, and remediation guidance.
 
 ## Prerequisites
 
 Before you begin, ensure you have:
 
 - An Agent Space with code review enabled (see [Enable code review](enable-code-review-scan.md "enable-code-review-scan.md"))
-- A code review resource already created for the target repository
+- A code review resource already created for the target repository, with the full source code uploaded to the S3 bucket connected to your Agent Space. The full repository provides context that enables deeper analysis of how your changes interact with existing code. See [Create a code review](perform-code-review-scan.md "perform-code-review-scan.md") for instructions on creating a code review and uploading source code.
 - An S3 bucket connected to your Agent Space
 - IAM permissions to upload to the S3 bucket and call `securityagent:StartCodeReviewJob`
 - A unified diff file generated from your code changes (for example, the output of `git diff main..feature-branch`)
+
+###### Tip
+
+For the most accurate results, ensure your code review resource has the latest version of your full source code uploaded to S3. The diff scan uses this full repository as context to understand your application architecture, data flows, and existing security controls when analyzing the changed lines.
 
 ## Step 1: Generate a diff file
 

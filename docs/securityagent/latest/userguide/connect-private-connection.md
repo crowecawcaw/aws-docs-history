@@ -57,29 +57,41 @@ When you select a private connection for a provider that uses OAuth authenticati
 ## Create a private connection
 
 1. In the AWS Security Agent Management Console, navigate to **Integrations**.
-2. Choose **Private connections**.
+2. Choose the **Private connections** tab.
 3. Choose **Create private connection**.
-4. Configure the following fields:
+4. Under **Connection details**, enter a **Name**. Names can contain lowercase letters, numbers, and hyphens, and must start and end with a letter or number.
+5. In the **Connection details** section, choose how AWS Security Agent connects to your target service:
 
-   1. **Name** - Enter a descriptive name (for example, `gitlab-internal-connection`).
-   2. **VPC** - Select the VPC where the resource gateway ENIs will be deployed.
-   3. **Subnets** - Select one or more subnets (up to 20). We recommend at least two Availability Zones.
-   4. **IP address type** - Select the IP type of your target service (IPv4, IPv6, or Dualstack).
-   5. **(Optional) Security groups** - Select existing security groups (up to 5). If omitted, a default security group is created.
-   6. **(Optional) Port ranges** - Specify the TCP ports your target service listens on (for example, `443`).
-   7. **Host address** - Enter the IP address or DNS name of your target service.
-   8. **(Optional) Certificate public key** - If your target uses TLS certificates from a private certificate authority, enter the PEM-encoded public key. This allows AWS Security Agent to trust the TLS connection.
+   - To have AWS Security Agent create and manage the connection, leave **Use existing resource configuration** cleared, then complete the **Resource location**, **Access control**, and **Service target details** sections.
+   - To route through a VPC Lattice resource configuration that you already created, select **Use existing resource configuration**, then complete the **Existing resource configuration** section. The service-managed sections do not apply.
 
-5. Choose **Create connection**.
+6. (Service-managed) Under **Resource location**:
+
+   1. Select the **VPC where your resource is located**.
+   2. Select one or more **Subnets**. We recommend selecting subnets in at least two Availability Zones.
+   3. (Optional) Select an **IP address type** (IPv4, IPv6, or Dual stack).
+
+7. (Service-managed) Under **Access control**:
+
+   1. Select the **Security groups associated with your connected resources**.
+   2. (Optional) Under **Advanced configuration**, enter **Port ranges** — up to 11 comma-separated TCP ports or ranges, for example `443, 8080-8090`.
+
+8. (Service-managed) Under **Service target details**:
+
+   1. In the **Host address** field, enter the DNS host name or IP address of your target service.
+   2. For **DNS resolution**, select **Public** for a publicly resolvable host address, or **In VPC (private DNS)** for an address resolvable only inside the VPC.
+   3. (Optional) In the **Certificate public key** field, enter the PEM-encoded public key if your target uses a self-signed certificate or a private certificate authority. This lets AWS Security Agent trust the TLS connection.
+
+9. (Self-managed) Under **Existing resource configuration**, for **Resource configuration**, select a VPC Lattice resource configuration from the list, or enter a resource configuration ID (beginning with `rcfg-`) or its ARN. The list shows resource configurations in the current Region.
+10. Choose **Create connection**.
 
 The connection status changes to **Create in progress**. This can take up to 10 minutes. When complete, the status changes to **Available**.
 
 ## Use a private connection with an integration
 
-When registering a GitLab Self-Managed or GitHub Enterprise Server integration, select your private connection in the registration flow:
+When you register a GitLab Self-Managed or GitHub Enterprise Server integration, select **Connect to endpoint using a private connection**, then choose your connection from the **Private connection** list. AWS Security Agent routes traffic to the provider through that connection. Only connections with an **Available** status appear in the list.
 
-1. During integration registration, in the **Private connection** field, select your available private connection.
-2. AWS Security Agent will route all traffic to the provider through this private connection.
+You can also choose **Create a private connection** during registration. AWS Security Agent preserves your registration draft while you create the connection, then returns you to the registration flow.
 
 ## Security
 
@@ -102,14 +114,10 @@ After the private connection reaches the **Available** status, verify connectivi
 
 ## Delete a private connection
 
-You can delete unused private connections from the AWS Management Console.
-
 1. In the AWS Security Agent console, navigate to **Integrations**.
-2. Choose **Private connections**.
+2. Choose the **Private connections** tab.
 3. Select the private connection you want to delete.
 4. Choose **Delete**.
-
-The private connection status changes to **Removing connection** while AWS Security Agent removes the managed resource gateway and ENIs from your VPC.
 
 ###### Important
 

@@ -74,6 +74,12 @@ Use the search field to filter tasks by name. The logs provide insight into what
 
 Select the **Findings** tab to view all security findings from the run.
 
+###### Note
+
+###### Default confidence filter
+
+By default, you see only findings with **High** agent confidence. To also show findings with **Medium** or **Low** agent confidence and false positives, turn off the **Hiding unverified findings** toggle.
+
 1. Select the **Findings** tab.
 2. The findings display in a split view with the findings list on the left and the selected finding’s details on the right.
 3. Review the information displayed on each finding card:

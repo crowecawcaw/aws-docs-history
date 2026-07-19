@@ -1,6 +1,6 @@
 # Connect AWS Security Agent to Confluence
 
-Connect your AWS Security Agent to Confluence Cloud to provide documentation context for security assessments. Unlike code providers, Confluence serves as a documentation source that provides threat models, architecture documents, API specifications, and other materials that enhance the quality of security reviews.
+Connect your AWS Security Agent to Confluence Cloud to provide documentation context for security assessments. Unlike code providers, Confluence serves as a documentation source that provides threat models, architecture documents, API specifications, and other materials that enhance the quality of security reviews. Before you begin, review [How integrations work with Agent Spaces](about-integrations.md "about-integrations.md") to understand how a registration is reused across Agent Spaces.
 
 Confluence integration serves multiple purposes:
 
@@ -19,16 +19,13 @@ Confluence is a **documentation provider** rather than a source code provider. A
 
 AWS Security Agent reads page content to understand your application architecture, security requirements, and design decisions. This context improves the quality and relevance of security findings during design reviews, code reviews, and penetration tests.
 
-AWS Security Agent can also write content back to Confluence, creating or updating pages with security assessment results.
-
 ## Prerequisites
 
 Before you begin, ensure you have:
 
 - A Confluence Cloud site with admin access
 - An Atlassian account with site administrator privileges
-- Permissions to configure integrations for your Agent Space in the AWS Management Console
-- The installation ID from the AWS Security Agent Forge app (see [Find your Atlassian installation ID](find-atlassian-installation-id.md "find-atlassian-installation-id.md"))
+- Permissions to configure integrations in the AWS Security Agent Management Console
 
 ###### Important
 
@@ -38,35 +35,21 @@ One Atlassian site can only be associated with one AWS account per region. If yo
 
 Atlassian Forge app pricing applies to this integration. For more information, see [Forge platform pricing](https://developer.atlassian.com/platform/forge/forge-platform-pricing/ "https://developer.atlassian.com/platform/forge/forge-platform-pricing/") in the Atlassian documentation.
 
-For more information about finding your installation ID, see [Find your Atlassian installation ID](find-atlassian-installation-id.md "find-atlassian-installation-id.md").
-
 ## Register a Confluence connection
 
 1. In the AWS Security Agent Management Console, navigate to **Integrations**.
 2. Choose **Add integration**.
-3. Select **Confluence**.
-4. Choose **Next**.
-5. Choose **Install and authorize**.
+3. Select **Confluence**, then choose **Next**.
+4. Install the AWS Security Agent Forge app in your Atlassian site, following the on-screen instructions. After installation, copy the installation ID. See [Find your Atlassian installation ID](find-atlassian-installation-id.md "find-atlassian-installation-id.md").
+5. In the **Confluence site URL** field, enter your site URL, for example `https://acme.atlassian.net`.
+6. In the **Installation ID** field, paste the installation ID you copied from Confluence.
+7. Choose **Authorize**.
 
-You’ll be redirected to Atlassian to install the Forge app and authorize access. The following OAuth scopes are requested:
+You are redirected to Atlassian to authorize AWS Security Agent to access your Confluence site. After authorization completes, you return to the console. 8. In the **Register details** section, enter a **Registration name** for this connection. Valid characters are letters, numbers, periods, underscores, and hyphens. 9. Choose **Connect**.
 
-    * `read:page:confluence` - View page content
-    * `write:page:confluence` - Create and update pages
-    * `read:space:confluence` - View space details
-    * `read:confluence-content.summary` - Read content summaries
+## Select pages for an Agent Space
 
-6. On the Atlassian consent screen, review the permissions and authorize the AWS Security Agent app. 7. You’ll be redirected back to the AWS Management Console to complete the registration. 8. In the **Registration details** section, configure the following fields:
-
-    1. **Installation ID** - Paste the installation ID you copied from the Forge app in Confluence (see [Find your Atlassian installation ID](find-atlassian-installation-id.md "find-atlassian-installation-id.md")).
-    2. **Registration name** - Enter a descriptive name for this Confluence connection, such as "Engineering-Docs-Confluence".
-
-9. Choose **Connect**.
-
-## Selecting content
-
-After registering the Confluence integration, you connect specific spaces and pages to your Agent Space.
-
-When connecting Confluence content to an Agent Space, you select individual pages that are relevant to your security assessment. A dedicated permission wizard allows you to configure which capabilities each page supports.
+After you register the Confluence integration, connect specific pages to an Agent Space. Selecting a page grants AWS Security Agent read (fetch) access to that page’s content. There are no per-page capability options — the agent reads every connected page. In the review step of the connect wizard, you can remove any pages you do not want the agent to access.
 
 ## Troubleshoot Confluence integration
 
