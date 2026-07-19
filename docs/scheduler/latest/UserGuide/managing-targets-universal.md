@@ -71,7 +71,7 @@ This includes the optional JSON [payload](../../../lambda/latest/dg/API_Invoke.m
 To determine the parameters you can set for different APIs, see the API reference for that service. Similar to Lambda `Invoke`, some APIs accept URI parameters, as well as a request body payload.
 In such cases, you specify the URI path parameters as well as the JSON payload in your schedule `Input`.
 
-The following examples show how you to use the universal target to invoke common API operations with Lambda, Amazon SQS, and Step Functions.
+The following examples show you how to use the universal target to invoke common API operations with Lambda, Amazon SQS, and Step Functions.
 
 ###### Example Lambda
 

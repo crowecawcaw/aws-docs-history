@@ -76,8 +76,8 @@ when you need a customized recurrence schedule that is not supported by one of E
 For example, you can create a cron-based schedule that runs at 8:00 a.m. PST on the first Monday of every month.
 You configure a cron-based schedule using a _cron expression_.
 
-A cron expression consists of five required fields separated by white space: minutes, hours, day-of-month, month,
-day-of-week, and one optional field, year, as shown in the following.
+A cron expression consists of six required fields separated by white space: minutes, hours, day-of-month, month,
+day-of-week, and year, as shown in the following.
 
 ### Syntax
 
