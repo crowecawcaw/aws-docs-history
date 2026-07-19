@@ -55,6 +55,22 @@ in following regions.
 The DefenseEvasion:IAMUser/BedrockLoggingDisabled finding type is not supported
 in Asia Pacific (Hong Kong) (`ap-east-1`) Region.
 
+**AI Protection finding types**
+
+The [Impact:IAMUser/AnomalousModelInvocation](findings-ai-protection.md#ai-protection-anomalousmodelinvocation "findings-ai-protection.md#ai-protection-anomalousmodelinvocation") and [Impact:IAMUser/CostHarvesting](findings-ai-protection.md#ai-protection-costharvesting "findings-ai-protection.md#ai-protection-costharvesting") finding types require Amazon Bedrock
+or Amazon SageMaker AI. In AWS Regions where Amazon Bedrock isn't available, GuardDuty generates
+these finding types from Amazon SageMaker AI model invocations only. For the Regions
+where Amazon Bedrock is available, see [Amazon Bedrock supported
+AWS Regions](../../../bedrock/latest/userguide/models-regions.md "../../../bedrock/latest/userguide/models-regions.md") in the _Amazon Bedrock User Guide_.
+
+The [Impact:IAMUser/PromptInjection.Direct](findings-ai-protection.md#ai-protection-promptinjection-direct "findings-ai-protection.md#ai-protection-promptinjection-direct") finding type
+depends on Amazon Bedrock Guardrails, which isn't available in all AWS Regions. This
+finding type is supported only in the Regions where Amazon Bedrock Guardrails is
+available. For the
+current list, see [Supported
+Regions for Amazon Bedrock Guardrails](../../../bedrock/latest/userguide/guardrails-supported.md "../../../bedrock/latest/userguide/guardrails-supported.md") in the _Amazon Bedrock User
+Guide_.
+
 **General API support**
 
 The following APIs in the Amazon GuardDuty API Reference may have regional differences

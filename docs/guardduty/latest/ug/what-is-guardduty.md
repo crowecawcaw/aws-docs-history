@@ -76,7 +76,8 @@ works and what threat scenarios it covers, see [GuardDuty Extended Threat Detect
   plans help you monitor logs and events from other AWS services.
   These sources include EKS audit logs, RDS login activity, Amazon S3 data
   events in CloudTrail, EBS volumes, Runtime Monitoring across Amazon EKS,
-  Amazon EC2, and Amazon ECS-Fargate, and Lambda network activity logs. GuardDuty
+  Amazon EC2, and Amazon ECS-Fargate, Lambda network activity logs, and AWS CloudTrail data
+  events from Amazon Bedrock, Amazon Bedrock AgentCore, and Amazon SageMaker AI for AI Protection. GuardDuty
   consolidates these log and event sources under the term - [Features](guardduty-features-activation-model.md "guardduty-features-activation-model.md"). You can enable one or more dedicated
   protection plans in a supported AWS Region at any time. GuardDuty will
   start monitoring, processing, and analyzing the activities based on
@@ -84,8 +85,17 @@ works and what threat scenarios it covers, see [GuardDuty Extended Threat Detect
   protection plan and how it works, see the corresponding protection
   plan document.
 
+When you enable GuardDuty for the first time, GuardDuty automatically
+enables all protection plans except Runtime Monitoring for your account, and
+includes them in the 30-day free trial. You can disable any
+protection plan at any time. If you are an existing GuardDuty customer, a
+protection plan that launches after you enabled GuardDuty is not enabled
+automatically, and you can choose to enable it. For information about
+which protection plans are enabled by default, see [Using GuardDuty 30-day free trial](guardduty-pricing.md#using-guardduty-30-day-free-trial "guardduty-pricing.md#using-guardduty-30-day-free-trial").
+
 | Protection plan                                                                                  | Description                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [AI Protection](ai-protection.md "ai-protection.md")                                             | Detects threats to your AI workloads that use<br>Amazon Bedrock, Amazon Bedrock AgentCore, and Amazon SageMaker AI, such as<br>anomalous model invocations and cost harvesting<br>attacks.                                         |
 | [S3 Protection](s3-protection.md "s3-protection.md")                                             | Identifies potential security risks such as<br>data exfiltration and destruction attempts in your<br>Amazon S3 buckets.                                                                                                            |
 | [EKS Protection](kubernetes-protection.md "kubernetes-protection.md")                            | EKS Audit Log Monitoring analyzes Kubernetes audit logs from<br>your Amazon EKS clusters for potentially suspicious and<br>malicious activities.                                                                                   |
 | [Runtime Monitoring](runtime-monitoring.md "runtime-monitoring.md")                              | Monitors and analyzes operating system-level<br>events on your Amazon EKS, Amazon EC2, and Amazon ECS (including<br>AWS Fargate), to detect potential runtime<br>threats.                                                          |

@@ -39,6 +39,7 @@ findings, see [Remediating potentially compromised AWS credentials](compromised-
 - [UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS](#unauthorizedaccess-iam-instancecredentialexfiltrationoutsideaws "#unauthorizedaccess-iam-instancecredentialexfiltrationoutsideaws")
 - [UnauthorizedAccess:IAMUser/MaliciousIPCaller](#unauthorizedaccess-iam-maliciousipcaller "#unauthorizedaccess-iam-maliciousipcaller")
 - [UnauthorizedAccess:IAMUser/MaliciousIPCaller.Custom](#unauthorizedaccess-iam-maliciousipcallercustom "#unauthorizedaccess-iam-maliciousipcallercustom")
+- [UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.InsideAWS](#unauthorizedaccess-iam-resourcecredentialexfiltrationinsideaws "#unauthorizedaccess-iam-resourcecredentialexfiltrationinsideaws")
 - [UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.OutsideAWS](#unauthorizedaccess-iam-resourcecredentialexfiltrationoutsideaws "#unauthorizedaccess-iam-resourcecredentialexfiltrationoutsideaws")
 - [UnauthorizedAccess:IAMUser/TorIPCaller](#unauthorizedaccess-iam-toripcaller "#unauthorizedaccess-iam-toripcaller")
 
@@ -739,24 +740,109 @@ unauthorized access to AWS resources within your environment.
 
 If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
+## UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.InsideAWS
+
+### Credentials that were created exclusively for an AWS Amazon ECS task are being used from another account within AWS
+
+**Default severity: High\***
+
+###### Note
+
+This finding's default severity is High. However, if the API was invoked
+by an account affiliated with your AWS environment, the severity is
+Medium.
+
+- **Data source:** CloudTrail management events or CloudTrail data events for S3
+
+This finding informs you when your AWS Amazon ECS task credentials are used to
+invoke APIs from an IP address or an Amazon VPC endpoint, that is owned by a different
+AWS account than the one that the associated resource is running in.
+VPC endpoint detection is only available for services
+that support network activity events for VPC endpoints. For information about
+services that support network activity events for VPC endpoints, see
+[Logging
+network activity events](../../../awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.md") in the _AWS CloudTrail User Guide_.
+
+AWS does not recommend redistributing temporary credentials outside of the
+entity that created them (for example, AWS applications, Amazon EC2, or Amazon Elastic Container Service).
+However, authorized users can export credentials from their resources to
+make legitimate API calls. If the `remoteAccountDetails.affiliated`
+field is `True` it means that the API was invoked from an account associated with the
+same administrator account. To rule out a potential attack and verify the legitimacy
+of the activity, contact the AWS account owner or IAM principal to whom these credentials are
+assigned.
+
+###### Note
+
+If GuardDuty observes continued activity from a remote account, its machine
+learning (ML) model will identify this as an expected behavior. Therefore,
+GuardDuty will stop generating this finding for activity from that remote
+account. GuardDuty will continue to generate findings for new behavior from
+other remote accounts and will re-evaluate learned remote accounts as the
+behavior changes over time.
+
+###### Note
+
+For Amazon ECS tasks, credentials are associated with the task role and detection applies regardless of VPC configuration.
+
+**Remediation recommendations:**
+
+This finding gets generated when AWS API requests are made inside AWS
+through an resource outside of your AWS account, by using your AWS Amazon ECS
+task role. It may be customary, such as for Transit Gateway architecture in a
+[hub and spoke](../../../whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/transit-vpc-solution.md "../../../whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/transit-vpc-solution.md") configuration, to route
+traffic through a single hub egress VPC with AWS service endpoints. If this is expected behavior,
+we recommend that you use [Suppression rules](findings_suppression-rule.md "findings_suppression-rule.md") with filter criteria finding type, which should be
+UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.InsideAWS.
+
+In response to this finding you can use the following workflow to determine a
+course of action:
+
+1. Identify the remote account involved from the
+   `service.action.awsApiCallAction.remoteAccountDetails.accountId`
+   field.
+2. Determine if that account is affiliated with your GuardDuty
+   environment from the
+   `service.action.awsApiCallAction.remoteAccountDetails.affiliated`
+   field.
+3. If the account **is** affiliated, contact the remote account owner and
+   the owner of the resource credentials to investigate.
+
+If the account **is not** affiliated, then
+the first step is to evaluate if that account is
+associated with your organization but is not a part of your GuardDuty
+multiple-account environment set up, or if GuardDuty has not yet been enabled in this
+account. Next, contact the owner of the resource
+credentials to determine if there is a use case for a remote account to use these
+credentials. 4. If the owner of the credentials does not recognize the remote account
+the credentials may have been compromised by a threat actor operating
+within AWS. You should take the steps recommended in [Remediating a potentially compromised ECS cluster](compromised-ecs.md "compromised-ecs.md"), to
+secure your environment.
+
+Additionally, you can [submit
+an abuse report](https://support.aws.amazon.com/#/contacts/report-abuse "https://support.aws.amazon.com/#/contacts/report-abuse") to the AWS Trust and Safety team to begin
+an investigation into the remote account. When submitting your report to
+AWS Trust and Safety, include the full JSON details of the
+finding.
+
 ## UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.OutsideAWS
 
-### Credentials that were created exclusively for an AWS Lambda resource are being used from an IP address outside of AWS.
+### Credentials that were created exclusively for an AWS resource, (a Lambda function or Amazon ECS task), are being used from an IP address outside of AWS.
 
 **Default severity: High**
 
 - **Data source:** CloudTrail management events or CloudTrail data events for S3
 
 This finding informs you that a host outside of AWS attempted to run AWS API operations
-using temporary AWS credentials that were created on a AWS Lambda resource in your AWS environment.
-The listed Lambda resource might be compromised, and the temporary credentials from this Lambda
-might have been exfiltrated to a remote host outside of AWS.
+using temporary AWS credentials that were created on an AWS resource (a Lambda function or Amazon ECS task) in your AWS environment.
+The listed resource might be compromised, and the temporary credentials from this
+resource might have been exfiltrated to a remote host outside of AWS.
 
 AWS does not recommend redistributing temporary credentials outside of the entity that
-created them (for example AWS applications like Amazon Elastic Compute Cloud (Amazon EC2), or AWS Lambda).
-However, authorized users can export credentials from their Lambda resources to make legitimate API calls.
-To rule out a potential attack and verify the legitimacy of the activity, validate if the use of instance
-credentials from the remote IP in the finding is expected.
+created them (for example, AWS applications like Amazon Elastic Compute Cloud (Amazon EC2), Amazon Elastic Container Service, or AWS Lambda).
+However, authorized users can export credentials from their resources to make legitimate API calls.
+To rule out a potential attack and verify the legitimacy of the activity, validate if the use of
+resource credentials from the remote IP in the finding is expected.
 
 ###### Note
 
@@ -779,7 +865,8 @@ to create a rule with a two-filter criteria. The first criteria is **finding typ
 **API caller IPv4 Address** with the IP address or CIDR range for your on-premises internet gateway.
 
 If this activity is unexpected, your credentials may have been compromised. For information about
-steps to remediate this finding type, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
+steps to remediate this finding type, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md"),
+or [Remediating a potentially compromised ECS cluster](compromised-ecs.md "compromised-ecs.md").
 
 ## UnauthorizedAccess:IAMUser/TorIPCaller
 
