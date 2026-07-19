@@ -130,7 +130,7 @@ following:
 
 
 
-    ![The Optimized directories console section.](images/optimized-directories.png)
+    ![The Optimized directories console section.](/images/transfer/latest/userguide/images/optimized-directories.png)
     7. Choose **Next**.
     8. (Optional) You can configure AWS Transfer Family servers to display customized
      messages such as organizational policies or terms and conditions to your
@@ -159,7 +159,7 @@ following:
     	 For additional details,
     	 see the `PassiveIp` documentation in the [ProtocolDetails](../APIReference/API_ProtocolDetails.md "../APIReference/API_ProtocolDetails.md") topic.
 
-    ![The Additional configuration screen showing the SetStat, TLS session resumption, and Passive IP parameters.](/images/transfer/latest/userguide/images/create-server-configure-additional-items-all.png)
+    ![The Additional configuration screen showing the SetStat, TLS session resumption, and Passive IP parameters.](images/create-server-configure-additional-items-all.png)
 
 8. In **Review and create**, review your choices.
 
