@@ -11,3 +11,6 @@ The following AWS services integrate with or complement the next generation of R
 - **AWS Organizations** – Enables multi-account
   resilience governance through the next generation of Resilience Hub from a single delegated administrator
   account.
+- **Amazon EventBridge** – Use Amazon EventBridge to receive notification
+  events from the next generation of Resilience Hub for assessment completion, finding resolution, and dependency
+  discovery. You can use these events to build event-driven automation workflows.

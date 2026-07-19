@@ -17,7 +17,8 @@ Before you begin this tutorial, ensure the following:
 
 - You have an AWS account with deployed resources (AWS CloudFormation stack, tagged resources, or
   Amazon EKS cluster).
-- You have created the invoker role (`AWSResilienceHubAssessmentRole`).
-  For more information, see
-  [Setting up Next generation Resilience Hub](next-gen-setting-up.md "next-gen-setting-up.md").
+- You have an IAM service role for the next generation of Resilience Hub. You can let the console create one
+  automatically when you create your service, or create one manually beforehand. For more
+  information, see
+  [Required IAM permissions and roles](next-gen-iam-permissions.md "next-gen-iam-permissions.md").
 - You have IAM permissions to call the next generation of Resilience Hub APIs.

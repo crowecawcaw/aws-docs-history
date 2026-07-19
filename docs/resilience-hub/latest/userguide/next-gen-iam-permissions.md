@@ -13,7 +13,22 @@ To run an assessment, the next generation of Resilience Hub must assume an IAM r
 with read-only permissions. This role discovers and reads the configuration of your AWS
 resources.
 
-You can create an IAM role in the AWS IAM console. Choose **Custom trust
+There are two ways to create or configure this role:
+
+- **Create a new service role (recommended)**
+  – When you create or edit a service in the Next generation Resilience Hub console, you can choose
+  **Create new role** under **Permission
+  model**. The console automatically creates an IAM role with the correct trust
+  policy and attaches the
+  `AWSResilienceHubV2AssessmentExecutionPolicy` managed policy.
+- **Use an existing service role** – If you already
+  have a role configured, or if you prefer to create roles outside of the console, choose
+  **Use an existing service role**. Then choose the role from the list and
+  make sure that the role has the required trust policy and permissions described below.
+
+###### Creating the role manually
+
+To create the role manually, open the IAM console. Choose **Custom trust
 policy** and use a trust policy like this:
 
 ```
@@ -34,10 +49,8 @@ policy** and use a trust policy like this:
 
 ```
 
-For permissions, choose the `AWSResilienceHubV2AssessmentExecutionPolicy`
-managed policy and the `ReadOnlyAccess` managed policy. The
-`ReadOnlyAccess` policy is required for the best performance of the failure
-mode assessment.
+For permissions, attach the `AWSResilienceHubV2AssessmentExecutionPolicy`
+managed policy.
 
 **IAM Service-Linked Role**
 

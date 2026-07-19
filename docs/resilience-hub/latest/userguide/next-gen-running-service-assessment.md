@@ -6,7 +6,11 @@ complexity.
 
 **Prerequisites**
 
-- The service's invoker role must be configured and accessible.
+- The service's invoker role must be configured and accessible. For more information, see
+  [Required IAM permissions and roles](next-gen-iam-permissions.md "next-gen-iam-permissions.md").
+- The service must have a valid discovered topology with a data flow relationship between
+  at least two resources. For more information, see
+  [Minimum topology requirements](next-gen-minimum-topology-requirements.md "next-gen-minimum-topology-requirements.md").
 - At least one resilience policy should be applied. Assessments without policies still run
   but produce fewer targeted findings.
   **To start a failure mode assessment (console)**

@@ -16,11 +16,14 @@
      resilience policy to associate with this service. The policy defines your availability SLO
      and RTO/RPO targets.
    - **Permission model** – Specify the IAM role that
-     the next generation of Resilience Hub uses for resource discovery:
+     the next generation of Resilience Hub uses for resource discovery. Choose one of the following options:
 
-     - **Invoker role name** – The name of the IAM
-       role in your account (for example,
-       `AWSResilienceHubAssessmentRole`).
+     - **Create a new service role** (recommended)
+       – The console automatically creates an IAM role with the correct trust policy
+       and attaches the required managed policy.
+     - **Use an existing service role** – Choose an
+       existing IAM role from the list. Make sure that the role has the required trust policy
+       and permissions. For more information, see [Required IAM permissions and roles](next-gen-iam-permissions.md "next-gen-iam-permissions.md").
      - **Cross-account roles** – (Optional) If your
        resources are in other accounts, add the cross-account role ARNs.
 

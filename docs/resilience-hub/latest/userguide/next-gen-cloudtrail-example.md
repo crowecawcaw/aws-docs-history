@@ -16,7 +16,7 @@ The following is an example CloudTrail event for a
     "serviceArn": "arn:aws:resiliencehub:us-east-1:123456789012:service/checkout:abc123"
   },
   "responseElements": {
-    "assessmentId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "assessmentId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
     "status": "PENDING"
   }
 }

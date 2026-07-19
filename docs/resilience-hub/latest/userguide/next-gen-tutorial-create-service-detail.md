@@ -10,8 +10,14 @@ sources).
    service**.
 2. Enter a name (for example, `api-service`).
 3. Select your system.
-4. Under **Permission model**, enter your invoker role name:
-   `AWSResilienceHubAssessmentRole`.
+4. Under **Permission model**, do one of the
+   following:
+
+   - To let the console create the required role automatically, choose
+     **Create new role**.
+   - If you already have a role, choose **Use an existing service
+     role** and choose it from the list.
+
 5. Under **Input sources**, add your AWS CloudFormation stack ARN,
    resource tags, or Terraform state file location.
 6. Choose **Create**.
