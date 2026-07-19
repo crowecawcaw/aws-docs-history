@@ -10,14 +10,13 @@ A scheduler version update involves three operations:
 2. **Update the cluster** (`UpdateCluster`) — Moves the controller to the target Slurm major version.
 3. **Update compute node groups** (`UpdateComputeNodeGroup`) — Point each compute node group at a new AMI so that new nodes use the target version. For more information, see [Updating an AWS PCS compute node group](working-with_cng_update.md "working-with_cng_update.md").
 
-There are two paths you can follow. Choose based on whether you can tolerate job interruption and whether you want to use a dual-version AMI (containing both the current and target Slurm versions).
+There are two paths you can follow. Choose an option based on whether you can tolerate job interruption.
 
 Regardless of which option you choose, before the process starts, all the nodes in the cluster must run the same version "A" and at the end of the process all nodes must run the same version "B". Option 2 works regardless of your cluster configuration.
 
-|                                           | Option 1: Rolling update                                                                                                                        | Option 2: Full-fleet recycle            |
+|                                           | Option 1: Rolling update                                                                                                                        | Option 2: Full-fleet maintenance stop   |
 | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
 | **Running jobs**                          | Does not require job termination                                                                                                                | All running jobs terminated             |
-| **AMI requirement**                       | Must include *_both_<br>• current and target Slurm versions                                                                                     | Needs only the target Slurm version     |
 | **Minimum cluster controller version**    | 24.05                                                                                                                                           | No restriction                          |
 | **Compute fleet after controller update** | Mixed versions temporarily; drain steps required. We recommend minimizing the amount of time during which mixed versions are used in a cluster. | All nodes start fresh on target version |
 
@@ -27,7 +26,7 @@ Before starting, ensure all compute nodes are on the latest patch of Slurm versi
 
 ## Limitations
 
-The following configurations require additional steps or are incompatible with Option 1 (rolling update). Without the noted workarounds, you must use Option 2 (full-fleet recycle) instead:
+The following configurations require additional steps or are incompatible with Option 1 (rolling update). Without the noted workarounds, you must use Option 2 (full-fleet maintenance stop) instead:
 
 - **Spank plugins** – If your cluster uses Spank plugins (plugstack configuration), Option 1 isn't supported. A rolling update might cause a plugstack configuration version mismatch and plugin failures.
 - **CLI filter plugins updating to 25.11** – If your cluster uses CLI filter plugins and is updating to version 25.11, Option 1 (rolling update) requires that you set `CliFilterParameters` explicitly in the cluster's Slurm settings during the update. Without `CliFilterParameters`, nodes running the previous version can't resolve the CLI filter script path after the controller updates, which causes `sbatch` failures. For more information, see [Use Slurm CLI Filter Plugins to customize job submission in AWS PCS](slurm-cli-filter-plugins.md "slurm-cli-filter-plugins.md").
@@ -54,7 +53,7 @@ You cannot skip beyond three major versions in a single update. If your target v
 
 During the update, the Slurm controller is briefly unavailable. This has the following effects:
 
-- **Running jobs** — For Option 1 (rolling update), jobs that are already running on compute nodes continue to execute. The compute nodes do not require the controller to be available for active job execution. For Option 2 (full-fleet recycle), all running jobs are terminated when the fleet is scaled down.
+- **Running jobs** — For Option 1 (rolling update), jobs that are already running on compute nodes continue to execute. The compute nodes do not require the controller to be available for active job execution. For Option 2 (full-fleet maintenance stop), all running jobs are terminated when the fleet is scaled down.
 - **New job submissions** — You cannot submit new jobs or run scheduler commands while the controller is unavailable.
 - **Scaling** — Automatic scaling is paused during the update. No new instances are launched and no instances are terminated for scale-down until the update completes.
 - **Accounting data** — If accounting is enabled, accounting data is preserved across the update. Job records stored in the accounting database persist after the version change.

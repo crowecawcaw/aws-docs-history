@@ -2,6 +2,10 @@
 
 Use these steps to update the scheduler version on your cluster. There are two options depending on whether you can tolerate job interruption. For more information about choosing between options, see [Updating the scheduler version of a cluster in AWS PCS](working-with_clusters_version_update.md "working-with_clusters_version_update.md").
 
+###### Note
+
+We recommend that you test the new AMI and the update procedure on a non-production cluster before you apply changes to your production environment.
+
 ## Option 1: Rolling update
 
 The controller is updated while the fleet keeps running. Existing nodes continue using the previous Slurm version until they are drained and replaced. New nodes launched after the update use the target version. Running jobs are not interrupted.
@@ -9,7 +13,6 @@ The controller is updated while the fleet keeps running. Existing nodes continue
 **When to use:**
 
 - The cluster controller is on Slurm version 24.05 or later.
-- You can provide AMIs that include both the current and target Slurm versions.
 
 ### Step 0 — Check starting state
 
@@ -34,29 +37,17 @@ grep "PCS Agent version" /var/log/amazon/pcs/bootstrap.log | tail -1
 
 Rolling updates require AWS PCS agent version 1.4.0 or later on all compute node AMIs. For more information, see [AWS PCS agent versions](pcs-agent-versions.md "pcs-agent-versions.md").
 
-### Step 1 — Prepare and roll out the dual-version AMIs
+### Step 1 — Prepare the target AMIs
 
-Build or identify AMIs that include **both Slurm version A and version B, and the latest AWS PCS agent**.
+Build or identify AMIs that include **Slurm version B and the latest AWS PCS agent**.
 
 - You can use the latest **PCS-ready DLAMIs**. Such AMIs ship with the latest three supported Slurm versions. For more information, see [Using PCS-ready DLAMI with AWS PCS](working-with_ami_pcs-ready-dlami.md "working-with_ami_pcs-ready-dlami.md").
 - You can build a **custom AMI**, following the installation steps for Slurm packages and AWS PCS agent. For more information, see [Custom Amazon Machine Images (AMIs) for AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
-- You **cannot** use a **AWS PCS sample AMI**. Such AMIs are not designed for production and currently include only a single Slurm version.
+- We do not recommend the **AWS PCS sample AMI** for production use. These AMIs are for testing only.
 
 ###### Note
 
-If your AMI includes more than two Slurm versions, AWS PCS automatically selects the version that matches the controller. Having additional versions installed does not cause issues.
-
-Once the AMIs are ready:
-
-1. Call `UpdateComputeNodeGroup` on each compute node group to set the new dual-version AMI. Nodes will be set into DRAIN by AWS PCS and will migrate to the new AMI.
-2. Wait for drained nodes to complete their jobs, terminate, and be replaced by nodes using the new dual-version AMI. Check all EC2 instances in the cluster are using the new AMI with:
-
-```
-aws ec2 describe-instances \
-    --filters "Name=tag:aws:pcs:cluster-id,Values=`cluster-id`" \
-    --query "Reservations[].Instances[].[InstanceId,ImageId,State.Name]" \
-    --output table
-```
+The same AMI can include multiple Slurm versions. AWS PCS automatically selects the version that matches the controller. Having additional versions installed does not cause issues.
 
 ### Step 2 — Update the cluster controller
 
@@ -87,42 +78,53 @@ During this operation the controller is briefly unavailable:
 - New job submissions and scheduler commands are unavailable until the update completes.
 - Automatic scaling is paused until the cluster returns to `ACTIVE`.
 
-After the update, the compute fleet is in a **mixed state**: nodes running before the update continue using Slurm version A's `slurmd`; new nodes use Slurm version B. This is expected.
-
 ###### Note
 
 Do not add Slurm settings specific to version B while the fleet still contains nodes on version A. Configuration is distributed to all nodes; the old `slurmd` may not recognize new parameters.
 
 If the cluster does not return to `ACTIVE` or `UPDATE_FAILED` within 30 minutes, contact AWS Support for assistance.
 
-### Step 3 — Drain nodes still running Slurm version A
+### Step 3 — Update compute node groups
 
-Identify and drain nodes still on the previous version. From a node of the cluster, run:
+For each compute node group, set the new AMI with the target Slurm version:
 
 ```
-scontrol show nodes | grep "Version="
-scontrol update NodeName=`node` State=DRAIN Reason="Slurm version update"
+aws pcs update-compute-node-group \
+  --cluster-identifier `cluster-id` \
+  --compute-node-group-identifier `cng-id` \
+  --ami-id `new-ami-id`
 ```
 
-Once drained nodes finish their current jobs they terminate and are replaced by nodes on Slurm version B.
+AWS PCS sets nodes running the previous version to `DRAIN` state. After the drained nodes finish their current jobs, AWS PCS terminates the nodes and replaces them with new nodes running Slurm version B.
 
 ### Step 4 — Verify consistent fleet on Slurm version B
 
-Confirm all nodes report version B. From a node of the cluster, run:
+Monitor the fleet transition. From a cluster node, check the version summary across all nodes:
 
 ```
-scontrol show nodes | grep "Version="
+scontrol show nodes | grep "Version=" | awk -F'=' '{print $NF}' | sort | uniq -c
 ```
 
-All nodes should now report Slurm version B. The update is complete.
+Check nodes in `DRAIN` state and their version:
 
-## Option 2: Full-fleet recycle
+```
+scontrol show nodes | awk '/NodeName=/{name=$1; ver=""} /Version=/{ver=$NF} /State=.*DRAIN/{print name, ver}'
+```
 
-The entire fleet is terminated before the controller is updated, then scaled back up from a new AMI with the target Slurm version. This procedure is simpler, but requires all nodes and running jobs to be terminated.
+Check the version for all active nodes:
+
+```
+scontrol show nodes | awk '/NodeName=/{name=$1; ver=""} /Version=/{ver=$NF} /State=/{if (ver) print name, ver}'
+```
+
+The update is complete when the version summary shows only the target version and no nodes remain in `DRAIN` or `DRAINING` state. Nodes in the `POWERED_DOWN` state do not report a version until AWS PCS launches them.
+
+## Option 2: Full-fleet maintenance stop
+
+You terminate the entire fleet before updating the controller, then scale it back up from a new AMI with the target Slurm version. This procedure is simpler, but it terminates all nodes and running jobs.
 
 **When to use:**
 
-- You cannot provide AMIs with both Slurm versions installed.
 - The cluster controller is on version 23.11 (Option 1 is unavailable for 23.11 clusters).
 
 ###### Note
@@ -158,7 +160,7 @@ Build or identify AMIs that include **Slurm version B and the latest AWS PCS age
 
 - You can use the latest **PCS-ready DLAMIs**. Such AMIs ship with the latest three supported Slurm versions. For more information, see [Using PCS-ready DLAMI with AWS PCS](working-with_ami_pcs-ready-dlami.md "working-with_ami_pcs-ready-dlami.md").
 - You can build a **custom AMI**, following the installation steps for Slurm packages and AWS PCS agent. For more information, see [Custom Amazon Machine Images (AMIs) for AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
-- Using the **AWS PCS sample AMI is not recommended**. Such AMIs are not designed for production.
+- We do not recommend the **AWS PCS sample AMI** for production use. These AMIs are for testing only.
 
 ### Step 2 — Scale down the entire fleet
 
@@ -237,7 +239,7 @@ The cluster scales back up. All new nodes run Slurm version B with the latest AW
 
 If the target version is outside the compatibility window of your current version, you must move the controller through one or more intermediate versions, updating it one hop at a time. Each hop must target a supported version within the compatibility window of the current controller version.
 
-Because [Option 2: Full-fleet recycle](#version_update-procedure-option2 "#version_update-procedure-option2") scales the fleet to zero before updating the controller, no compute nodes are running while the controller moves between versions. As a result, your AMIs can use the **final** target version directly — only the controller update (Step 3) is repeated for each hop.
+Because [Option 2: Full-fleet maintenance stop](#version_update-procedure-option2 "#version_update-procedure-option2") scales the fleet to zero before updating the controller, no compute nodes are running while the controller moves between versions. As a result, your AMIs can use the **final** target version directly — only the controller update (Step 3) is repeated for each hop.
 
 The following example updates a cluster from **23.11 to 25.11** using the Option 2 procedure. 23.11 is outside the compatibility window of 25.11, so the controller is updated in two hops (23.11 to 25.05, then 25.05 to 25.11). Follow the Option 2 steps, with Step 3 split into one update per hop:
 

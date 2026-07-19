@@ -115,17 +115,17 @@ following table. If the checksums match, then it's safe to run the installation 
 
 If the checksums don't match, don't run the installation script. Contact [Support](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
 
-For example, the following command generates the SHA256 checksum for the Slurm 25.11.2-1
+For example, the following command generates the SHA256 checksum for the Slurm 25.11.6-2
 tarball.
 
 ```
-`$` sha256sum aws-pcs-slurm-25.11-installer-25.11.2-1.tar.gz
+`$` sha256sum aws-pcs-slurm-25.11-installer-25.11.6-2.tar.gz
 ```
 
 Example output:
 
 ```
-aa063bc01b2ccd84a82402e8b8dbcd8c7401ebd2e0a670c867d77167944d621a aws-pcs-slurm-25.11-installer-25.11.2-1.tar.gz
+553e74598fcc65b532b57bfa9a89820cd00ac8f233aa464c7d194d35540f3ec5 aws-pcs-slurm-25.11-installer-25.11.6-2.tar.gz
 ```
 
 The following tables list the checksums for recent versions of the installers. Replace
@@ -147,19 +147,26 @@ AWS PCS agent| Installer | Download URL | SHA256 checksum |
 
 Slurm installer| Installer | Download URL | SHA256 checksum |
 | --- | --- | --- |
+| Slurm 25.11.6-2 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.6-2.tar.gz<br>`` | `<br>553e74598fcc65b532b57bfa9a89820cd00ac8f233aa464c7d194d35540f3ec5<br>` |
+| Slurm 25.11.6-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.6-1.tar.gz<br>`` | `<br>8eddffd39aa31fef7d4e73106627212ec9ec14ac66d3f37acd8a95406ab3a8af<br>` |
 | Slurm 25.11.2-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.2-1.tar.gz<br>`` | `<br>aa063bc01b2ccd84a82402e8b8dbcd8c7401ebd2e0a670c867d77167944d621a<br>` |
+| Slurm 25.05.8-2 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.8-2.tar.gz<br>`` | `<br>844e75d082cfab7866f4e8d9daaef0225f8af5df6fa8d118619baca395079a33<br>` |
+| Slurm 25.05.8-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.8-1.tar.gz<br>`` | `<br>dc8b3de2588e99985d5148e62d6aa947fe39005f721892223133c5f67f243f73<br>` |
 | Slurm 25.05.7-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.7-1.tar.gz<br>`` | `<br>5019436389649ce0cacf04cd1d1adf1a4e46b9291967af7bf5f0a8ac4a49e4f0<br>` |
 | Slurm 25.05.5-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.5-1.tar.gz<br>`` | `<br>e7bc84db4e71b8c7174e2f581a31233f839affb5306c76a8adba23204dcc703b<br>` |
 | Slurm 25.05.4-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.4-1.tar.gz<br>`` | `<br>3b0f93bce441d4f4f6935175f2c1e81cd961cb923adb416fa6689f5592047a7d<br>` |
 | Slurm 25.05.3-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.05-installer-25.05.3-1.tar.gz<br>`` | `<br>851bb5815b6700ceb30cc4a3fda204ca8ce362c14528c339908983255a936cf0<br>` |
+| Slurm 24.11.7-2 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.7-2.tar.gz<br>`` | `<br>af0ad1b68051b655f03247300ec993ba9035516f653fb04c6026f248685c420d<br>` |
 | Slurm 24.11.7-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.7-1.tar.gz<br>`` | `<br>73d75be82c6f88f6e248fd0cc779a5630c62d91ebabdd9cf0f61b1943b6d7d09<br>` |
 | Slurm 24.11.6-2 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.6-2.tar.gz<br>`` | `<br>f17cd78e0bc6b9c818b794d9d2685cceabdc73f4fbb12f7566ae5b86a5abc32b<br>` |
 | Slurm 24.11.6-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.6-1.tar.gz<br>`` | `<br>225de9fc18206f5f65f412effe1fd457614ac97ee9822b3ff804a452b0fae522<br>` |
 | Slurm 24.11.5-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.11-installer-24.11.5-1.tar.gz<br>`` | `<br>593efe4d66bef2f3e46d5a382fb5a32f7a3ca2510bcf1b3c85739f4f951810d5<br>` |
-| Slurm 24.05.8-2 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.8-2.tar.gz<br>`` | `<br>c494b0b55c319a4c2f3faf668c759d46c32c4c7aa94ae97d94128328fe95364b<br>` |
-| Slurm 24.05.8-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.8-1.tar.gz<br>`` | `<br>210a43b376af082bbad640b2032655885790c5dab0e6489cc327c7310a375849<br>` |
-| Slurm 24.05.7-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.7-1.tar.gz<br>`` | `<br>0b5ed7c81195de2628c78f37c79e63fc4ae99132ca6b019b53a0d68792ee82c5<br>` |
-| Slurm 24.05.5-2 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.5-2.tar.gz<br>`` | `<br>7cc8d8294f2fbff95fe0602cf9e21e02003b5d96c0730e0a18c6aa04c7a4967b<br>` |
+| Slurm 24.05.8-3 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.8-3.tar.gz<br>`` | `<br>34e6a5989e9c5cc429bf7cfa7c48fe52b74cfea58fcee50a27ac0d1a81c4d99f<br>` |
+| Slurm 24.05.8-2 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.8-2.tar.gz<br>`` | `<br>c494b0b55c319a4c2f3faf668c759d46c32c4c7aa94ae97d94128328fe95364b<br>` |
+| Slurm 24.05.8-1 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.8-1.tar.gz<br>`` | `<br>210a43b376af082bbad640b2032655885790c5dab0e6489cc327c7310a375849<br>` |
+| Slurm 24.05.7-1 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.7-1.tar.gz<br>`` | `<br>0b5ed7c81195de2628c78f37c79e63fc4ae99132ca6b019b53a0d68792ee82c5<br>` |
+| Slurm 24.05.5-2 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-24.05-installer-24.05.5-2.tar.gz<br>`` | `<br>7cc8d8294f2fbff95fe0602cf9e21e02003b5d96c0730e0a18c6aa04c7a4967b<br>` |
+| Slurm 23.11.10-5 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-5.tar.gz<br>`` | `<br>37ba34be8ac0aa28bbf542c26d38a51b200b91185229912e35a6d3c0cbd09165<br>` |
 | Slurm 23.11.10-4 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-4.tar.gz<br>`` | `<br>bb2d8c919c69dba38d14358f49c7f0427564c5dd4af85a1c9eca2c57ceeae29a<br>` |
 | Slurm 23.11.10-3 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-3.tar.gz<br>`` | `<br>488a10ee0fbd57ec0e0ff7ea708a9e3038fafdc025c6bb391c75c2e2a7852a00<br>` |
 | Slurm 23.11.10-2 (deprecated) | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-23.11-installer-23.11.10-2.tar.gz<br>`` | `<br>0bbe85423305c05987931168caf98da08a34c25f9eec0690e8e74de0b7bc8752<br>` |

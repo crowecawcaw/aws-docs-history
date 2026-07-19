@@ -94,6 +94,39 @@ aws ec2 describe-images --region `region-code` --owners amazon \
 
 Use the AMI ID when you create or update a compute node group.
 
+## Receive notifications for new releases
+
+You can receive notifications whenever a new PCS-ready DLAMI is released. Notifications
+are published with [Amazon SNS](https://aws.amazon.com/sns/ "https://aws.amazon.com/sns/") using the
+following topic:
+
+```
+arn:aws:sns:us-west-2:265886551188:pcs-ready-dlami-release-notifications
+```
+
+Messages are posted to this topic when a new PCS-ready DLAMI is published.
+
+###### To subscribe to PCS-ready DLAMI release notifications
+
+1. Open the [Amazon SNS console](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
+2. In the navigation bar, change the AWS Region to **US West (Oregon)**,
+   if necessary. You must select the Region where the SNS notification that you are subscribing
+   to was created.
+3. In the navigation pane, choose **Subscriptions**, then choose
+   **Create subscription**.
+4. In the **Create subscription** dialog box, do the following:
+
+   1. For **Topic ARN**, enter the following:
+      `arn:aws:sns:us-west-2:265886551188:pcs-ready-dlami-release-notifications`
+   2. For **Protocol**, choose **Email**.
+   3. For **Endpoint**, enter the email address where you want to
+      receive notifications.
+   4. Choose **Create subscription**.
+
+5. You will receive a confirmation email with the subject line _AWS Notification -
+   Subscription Confirmation_. Open the email and choose **Confirm
+   subscription** to complete your subscription.
+
 ## Use with Infrastructure as Code
 
 The SSM parameter path provides a stable reference that always resolves to the latest
