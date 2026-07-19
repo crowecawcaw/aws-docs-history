@@ -26,6 +26,15 @@ or to avoid a limit increase.
 Duplex connections are also useful for partial migration
 from on-premises to Amazon MQ managed brokers.
 
+The following example shows a duplex `networkConnector` entry:
+
+```
+<networkConnectors>
+  <networkConnector name="connector1" duplex="true"
+      uri="static:(ssl://`broker-id`.mq.`region`.amazonaws.com:61617)"/>
+</networkConnectors>
+```
+
 ## How Does a Network of Brokers Handle Credentials?
 
 For broker A to connect to broker B in a network, broker A must use valid credentials,

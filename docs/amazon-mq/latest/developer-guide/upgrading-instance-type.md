@@ -50,14 +50,14 @@ To upgrade your instance type, you can use the AWS Management Console, the AWS C
 
 ###### To upgrade the instance type of a broker by using the AWS CLI
 
-1. Use the [modify-broker](../../../cli/latest/reference/mq/update-broker.md "../../../cli/latest/reference/mq/update-broker.md") CLI command
+1. Use the [update-broker](../../../cli/latest/reference/mq/update-broker.md "../../../cli/latest/reference/mq/update-broker.md") CLI command
    and specify the following parameters, as shown in the example.
 
    - `--broker-id` – The unique ID that Amazon MQ generates for the broker.
-   - `--host-instance-type` – The engine version number for the broker engine to upgrade to.
+   - `--host-instance-type` – The broker instance type to upgrade to (for example, `mq.m5.large`).
 
 ```
-aws mq modify-broker --broker-id `broker-id` --host-instance-type `instance-type`
+aws mq update-broker --broker-id `broker-id` --host-instance-type `instance-type`
 ```
 
 2. (Optional) Use the [reboot-broker](../../../cli/latest/reference/mq/reboot-broker.md "../../../cli/latest/reference/mq/reboot-broker.md") CLI command to

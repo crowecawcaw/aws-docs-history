@@ -21,16 +21,20 @@ The `mq.t3.micro` instance type does not support cluster deployment.
 We recommending using `mq.m7g.x` instance types with cluster deployment.
 The following table shows the available `mq.m7g.x` instance types for cluster deployment.
 
-| Instance Type   | vCPU | Memory (GiB) | Network Baseline / Burst bandwidth (Gbps) | Recommended use | Storage | Disk volume size per node(GB) |
-| --------------- | ---- | ------------ | ----------------------------------------- | --------------- | ------- | ----------------------------- |
-| mq.m7g.medium   | 1    | 4            | 0.52 / 12.5                               | Evaluation      | EBS     | 5                             |
-| mq.m7g.large    | 2    | 8            | 0.937 / 12.5                              | Production      | EBS     | 15                            |
-| mq.m7g.xlarge   | 4    | 16           | 1.876 / 12.5                              | Production      | EBS     | 25                            |
-| mq.m7g.2xlarge  | 8    | 32           | 3.75 / 15.0                               | Production      | EBS     | 45                            |
-| mq.m7g.4xlarge  | 16   | 64           | 7.5 / 15.0                                | Production      | EBS     | 90                            |
-| mq.m7g.8xlarge  | 32   | 128          | 15 Gigabit                                | Production      | EBS     | 175                           |
-| mq.m7g.12xlarge | 48   | 192          | 22.5 Gigabit                              | Production      | EBS     | 260                           |
-| mq.m7g.16xlarge | 64   | 256          | 30 Gigabit                                | Production      | EBS     | 345                           |
+| Instance Type   | vCPU | Memory (GiB) | Network Baseline / Burst bandwidth (Gbps) | Recommended use | Storage | Disk volume size per node(GB) | Max configurable storage (GB) |
+| --------------- | ---- | ------------ | ----------------------------------------- | --------------- | ------- | ----------------------------- | ----------------------------- |
+| mq.m7g.medium   | 1    | 4            | 0.52 / 12.5                               | Evaluation      | EBS     | 5                             | 25                            |
+| mq.m7g.large    | 2    | 8            | 0.937 / 12.5                              | Production      | EBS     | 15                            | 75                            |
+| mq.m7g.xlarge   | 4    | 16           | 1.876 / 12.5                              | Production      | EBS     | 25                            | 125                           |
+| mq.m7g.2xlarge  | 8    | 32           | 3.75 / 15.0                               | Production      | EBS     | 45                            | 180                           |
+| mq.m7g.4xlarge  | 16   | 64           | 7.5 / 15.0                                | Production      | EBS     | 90                            | 250                           |
+| mq.m7g.8xlarge  | 32   | 128          | 15 Gigabit                                | Production      | EBS     | 175                           | 400                           |
+| mq.m7g.12xlarge | 48   | 192          | 22.5 Gigabit                              | Production      | EBS     | 260                           | 500                           |
+| mq.m7g.16xlarge | 64   | 256          | 30 Gigabit                                | Production      | EBS     | 345                           | 500                           |
+
+###### Note
+
+Configurable storage size is available for RabbitMQ version 4.x brokers with `CLUSTER_MULTI_AZ` deployment mode only. The storage size must be a multiple of 5 GB. If not specified, the broker uses the default storage size shown in the "Disk volume size per node" column. You can configure storage size when creating or updating a broker. For more information, see the [CreateBroker](../api-reference/rest-api-brokers.md "../api-reference/rest-api-brokers.md") and [UpdateBroker](../api-reference/rest-api-broker.md "../api-reference/rest-api-broker.md") API operations.
 
 ## Instance types for m7g single instance deployment
 

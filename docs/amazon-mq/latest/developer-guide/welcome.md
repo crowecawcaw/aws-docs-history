@@ -38,7 +38,7 @@ Metrics are automatically collected and pushed to CloudWatch every minute.
 Amazon MQ provides [encryption](data-protection.md "data-protection.md") of your messages at rest and in transit.
 Connections to the broker use SSL, and access can be restricted to
 a private endpoint within your Amazon VPC.
-Additonality, you can use [AWS Identity and Access Management](security-iam.md "security-iam.md") (IAM) to control the actions your
+Additionally, you can use [AWS Identity and Access Management](security-iam.md "security-iam.md") (IAM) to control the actions your
 IAM users and groups can take on specific Amazon MQ brokers.
 
 **Quorum queues for RabbitMQ on Amazon MQ**

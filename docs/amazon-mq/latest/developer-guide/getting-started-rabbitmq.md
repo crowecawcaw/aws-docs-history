@@ -34,7 +34,7 @@ to maximize broker performance and optimize message throughput efficiency.
    Do not add personally identifiable information (PII) or other confidential or sensitive information in broker names.
    Broker names are accessible to other AWS services, including CloudWatch Logs. Broker names are not intended to be used for
    private or sensitive data. 2. Choose the **Broker instance type** (for example, **mq.m7g.large**). For more information, see
-   [Broker instance types](broker-instance-types.md "broker-instance-types.md").
+   [Amazon MQ for RabbitMQ broker instance types](rmq-broker-instance-types.md "rmq-broker-instance-types.md").
 
 5. On the **Configure settings** page, in the **RabbitMQ access** section,
    provide a **Username** and **Password**. The following restrictions apply to broker sign-in credentials:

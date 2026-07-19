@@ -10,7 +10,6 @@ following:
 - [Amazon MQ network of brokers](network-of-brokers.md "network-of-brokers.md")
 - [Configure Your Network of Brokers Correctly](best-practices-activemq.md#network-of-brokers-configure-correctly "best-practices-activemq.md#network-of-brokers-configure-correctly")
 - `networkConnector`
-- `networkConnectionStartAsync`
 - [Networks of
   Brokers](https://activemq.apache.org/networks-of-brokers.html "https://activemq.apache.org/networks-of-brokers.html") in the ActiveMQ documentation
   You can use the Amazon MQ console to create an Amazon MQ network of brokers. Because you can

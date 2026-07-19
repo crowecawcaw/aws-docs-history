@@ -14,3 +14,4 @@ Currently, Amazon MQ does not support [streams](https://www.rabbitmq.com/streams
 - [Best practices for performance optimization and efficiency in Amazon MQ for RabbitMQ](best-practices-performance.md "best-practices-performance.md")
 - [Best practices for network resilience and monitoring in Amazon MQ for RabbitMQ](best-practices-network-resilience.md "best-practices-network-resilience.md")
 - [Best practices for resource naming in Amazon MQ for RabbitMQ](best-practices-resource-naming.md "best-practices-resource-naming.md")
+- [Configurable storage best practices for Amazon MQ for RabbitMQ](best-practices-configurable-storage.md "best-practices-configurable-storage.md")

@@ -41,3 +41,28 @@ To prevent the disk limit alarm from reoccurring, you can upgrade your host [ins
 For information on how to update your broker's instance type see `UpdateBrokerInput`
 in the Amazon MQ REST API Reference. We also recommend keeping your publishers and
 consumers on different connections.
+
+## Mitigating disk limit alarm by increasing configurable storage
+
+You can also mitigate a disk limit alarm by increasing the broker's configurable EBS
+storage size. This option is available when your current EBS volume is below the maximum
+allowable storage for your instance type. Before proceeding, review
+[Configurable storage best practices for Amazon MQ for RabbitMQ](best-practices-configurable-storage.md "best-practices-configurable-storage.md") to understand the supported
+storage ranges.
+
+To increase configurable storage, apply an update and reboot the broker. Because the broker
+is in a critical action required state due to the disk usage alarm, _RabbitMQ does not restart_. Amazon MQ
+applies the storage increase, and the broker exits the critical action required state once the disk usage alarm
+clears.
+
+###### Note
+
+While the broker is in a critical action required state due to the disk usage alarm, only a configurable storage increase
+is permitted. You cannot change the broker's instance type until the broker has exited
+the alarm state.
+
+After updating, monitor the `RabbitMQDiskFree` and
+`RabbitMQDiskFreeLimit` Amazon CloudWatch metrics to confirm the broker exits the alarm
+state. To prevent disk alarm events from reoccurring, monitor disk usage over time and
+follow the guidance in [Amazon MQ for RabbitMQ best practices](best-practices-rabbitmq.md "best-practices-rabbitmq.md"). If additional disk or
+other resource capacity is needed, consider upgrading the broker's instance type as well.
