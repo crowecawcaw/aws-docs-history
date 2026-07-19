@@ -35,6 +35,7 @@ extension.
 
 | Version     | Launch date | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2.0.20159   | 07/13/2026  | Added support for AWS AppConfig experimentation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | 2.0.18836   | 06/22/2026  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | 2.0.17054.0 | 05/14/2026  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | 2.0.14126.0 | 03/25/2026  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -81,6 +82,108 @@ When you add the extension as a layer to your Lambda, you must specify an ARN. C
 an ARN from the following table that corresponds with the AWS Region where you created
 the Lambda. These ARNs are for Lambda functions developed for the x86-64 platform.
 
+Version 2.0.20159| Region | ARN |
+| --- | --- |
+| US East (N. Virginia) | `arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension:329` |
+| US East (Ohio) | `arn:aws:lambda:us-east-2:728743619870:layer:AWS-AppConfig-Extension:280` |
+| US West (N. California) | `arn:aws:lambda:us-west-1:958113053741:layer:AWS-AppConfig-Extension:404` |
+| US West (Oregon) | `arn:aws:lambda:us-west-2:359756378197:layer:AWS-AppConfig-Extension:378` |
+| Canada (Central) | `arn:aws:lambda:ca-central-1:039592058896:layer:AWS-AppConfig-Extension:265` |
+| Canada West (Calgary) | `arn:aws:lambda:ca-west-1:436199621743:layer:AWS-AppConfig-Extension:175` |
+| Europe (Frankfurt) | `arn:aws:lambda:eu-central-1:066940009817:layer:AWS-AppConfig-Extension:298` |
+| Europe (Zurich) | `arn:aws:lambda:eu-central-2:758369105281:layer:AWS-AppConfig-Extension:223` |
+| Europe (Ireland) | `arn:aws:lambda:eu-west-1:434848589818:layer:AWS-AppConfig-Extension:306` |
+| Europe (London) | `arn:aws:lambda:eu-west-2:282860088358:layer:AWS-AppConfig-Extension:249` |
+| Europe (Paris) | `arn:aws:lambda:eu-west-3:493207061005:layer:AWS-AppConfig-Extension:276` |
+| Europe (Stockholm) | `arn:aws:lambda:eu-north-1:646970417810:layer:AWS-AppConfig-Extension:370` |
+| Europe (Milan) | `arn:aws:lambda:eu-south-1:203683718741:layer:AWS-AppConfig-Extension:252` |
+| Europe (Spain) | `arn:aws:lambda:eu-south-2:586093569114:layer:AWS-AppConfig-Extension:217` |
+| China (Beijing) | `arn:aws-cn:lambda:cn-north-1:615057806174:layer:AWS-AppConfig-Extension:246` |
+| China (Ningxia) | `arn:aws-cn:lambda:cn-northwest-1:615084187847:layer:AWS-AppConfig-Extension:244` |
+| Asia Pacific (Hong Kong) | `arn:aws:lambda:ap-east-1:630222743974:layer:AWS-AppConfig-Extension:259` |
+| Asia Pacific (Taipei) | `arn:aws:lambda:ap-east-2:730335625313:layer:AWS-AppConfig-Extension:150` |
+| Asia Pacific (Tokyo) | `arn:aws:lambda:ap-northeast-1:980059726660:layer:AWS-AppConfig-Extension:275` |
+| Asia Pacific (Seoul) | `arn:aws:lambda:ap-northeast-2:826293736237:layer:AWS-AppConfig-Extension:279` |
+| Asia Pacific (Osaka) | `arn:aws:lambda:ap-northeast-3:706869817123:layer:AWS-AppConfig-Extension:277` |
+| Asia Pacific (Singapore) | `arn:aws:lambda:ap-southeast-1:421114256042:layer:AWS-AppConfig-Extension:261` |
+| Asia Pacific (Sydney) | `arn:aws:lambda:ap-southeast-2:080788657173:layer:AWS-AppConfig-Extension:316` |
+| Asia Pacific (Jakarta) | `arn:aws:lambda:ap-southeast-3:418787028745:layer:AWS-AppConfig-Extension:259` |
+| Asia Pacific (Melbourne) | `arn:aws:lambda:ap-southeast-4:307021474294:layer:AWS-AppConfig-Extension:195` |
+| Asia Pacific (Malaysia) | `arn:aws:lambda:ap-southeast-5:631746059939:layer:AWS-AppConfig-Extension:164` |
+| Asia Pacific (New Zealand) | `arn:aws:lambda:ap-southeast-6:381491832265:layer:AWS-AppConfig-Extension:100` |
+| Asia Pacific (Thailand) | `arn:aws:lambda:ap-southeast-7:851725616657:layer:AWS-AppConfig-Extension:137` |
+| Asia Pacific (Mumbai) | `arn:aws:lambda:ap-south-1:554480029851:layer:AWS-AppConfig-Extension:293` |
+| Asia Pacific (Hyderabad) | `arn:aws:lambda:ap-south-2:489524808438:layer:AWS-AppConfig-Extension:220` |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:000010852771:layer:AWS-AppConfig-Extension:335` |
+| Mexico (Central) | `arn:aws:lambda:mx-central-1:891376990304:layer:AWS-AppConfig-Extension:145` |
+| Africa (Cape Town) | `arn:aws:lambda:af-south-1:574348263942:layer:AWS-AppConfig-Extension:263` |
+| Israel (Tel Aviv) | `arn:aws:lambda:il-central-1:895787185223:layer:AWS-AppConfig-Extension:191` |
+| AWS GovCloud (US-East) | `arn:aws-us-gov:lambda:us-gov-east-1:946561847325:layer:AWS-AppConfig-Extension:222` |
+| AWS GovCloud (US-West) | `arn:aws-us-gov:lambda:us-gov-west-1:946746059096:layer:AWS-AppConfig-Extension:223` |
+| AWS European Sovereign Cloud (Germany) | `arn:aws-eusc:lambda:eusc-de-east-1:426221636601:layer:AWS-AppConfig-Extension:73` |
+
+## ARM64 platform
+
+When you add the extension as a layer to your Lambda, you must specify an ARN. Choose an ARN from the following table that corresponds with the AWS Region where you created the Lambda. These ARNs are for Lambda functions developed for the ARM64 platform.
+
+Version 2.0.20159| Region | ARN |
+| --- | --- |
+| US East (N. Virginia) | `arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension-Arm64:262` |
+| US East (Ohio) | `arn:aws:lambda:us-east-2:728743619870:layer:AWS-AppConfig-Extension-Arm64:232` |
+| US West (N. California) | `arn:aws:lambda:us-west-1:958113053741:layer:AWS-AppConfig-Extension-Arm64:281` |
+| US West (Oregon) | `arn:aws:lambda:us-west-2:359756378197:layer:AWS-AppConfig-Extension-Arm64:280` |
+| Canada (Central) | `arn:aws:lambda:ca-central-1:039592058896:layer:AWS-AppConfig-Extension-Arm64:185` |
+| Canada West (Calgary) | `arn:aws:lambda:ca-west-1:436199621743:layer:AWS-AppConfig-Extension-Arm64:165` |
+| Europe (Frankfurt) | `arn:aws:lambda:eu-central-1:066940009817:layer:AWS-AppConfig-Extension-Arm64:241` |
+| Europe (Zurich) | `arn:aws:lambda:eu-central-2:758369105281:layer:AWS-AppConfig-Extension-Arm64:181` |
+| Europe (Ireland) | `arn:aws:lambda:eu-west-1:434848589818:layer:AWS-AppConfig-Extension-Arm64:244` |
+| Europe (London) | `arn:aws:lambda:eu-west-2:282860088358:layer:AWS-AppConfig-Extension-Arm64:201` |
+| Europe (Paris) | `arn:aws:lambda:eu-west-3:493207061005:layer:AWS-AppConfig-Extension-Arm64:195` |
+| Europe (Stockholm) | `arn:aws:lambda:eu-north-1:646970417810:layer:AWS-AppConfig-Extension-Arm64:229` |
+| Europe (Milan) | `arn:aws:lambda:eu-south-1:203683718741:layer:AWS-AppConfig-Extension-Arm64:180` |
+| Europe (Spain) | `arn:aws:lambda:eu-south-2:586093569114:layer:AWS-AppConfig-Extension-Arm64:178` |
+| China (Beijing) | `arn:aws-cn:lambda:cn-north-1:615057806174:layer:AWS-AppConfig-Extension-Arm64:168` |
+| China (Ningxia) | `arn:aws-cn:lambda:cn-northwest-1:615084187847:layer:AWS-AppConfig-Extension-Arm64:166` |
+| Asia Pacific (Hong Kong) | `arn:aws:lambda:ap-east-1:630222743974:layer:AWS-AppConfig-Extension-Arm64:187` |
+| Asia Pacific (Taipei) | `arn:aws:lambda:ap-east-2:730335625313:layer:AWS-AppConfig-Extension-Arm64:124` |
+| Asia Pacific (Tokyo) | `arn:aws:lambda:ap-northeast-1:980059726660:layer:AWS-AppConfig-Extension-Arm64:228` |
+| Asia Pacific (Seoul) | `arn:aws:lambda:ap-northeast-2:826293736237:layer:AWS-AppConfig-Extension-Arm64:187` |
+| Asia Pacific (Osaka) | `arn:aws:lambda:ap-northeast-3:706869817123:layer:AWS-AppConfig-Extension-Arm64:192` |
+| Asia Pacific (Singapore) | `arn:aws:lambda:ap-southeast-1:421114256042:layer:AWS-AppConfig-Extension-Arm64:213` |
+| Asia Pacific (Sydney) | `arn:aws:lambda:ap-southeast-2:080788657173:layer:AWS-AppConfig-Extension-Arm64:259` |
+| Asia Pacific (Jakarta) | `arn:aws:lambda:ap-southeast-3:418787028745:layer:AWS-AppConfig-Extension-Arm64:196` |
+| Asia Pacific (Melbourne) | `arn:aws:lambda:ap-southeast-4:307021474294:layer:AWS-AppConfig-Extension-Arm64:180` |
+| Asia Pacific (Malaysia) | `arn:aws:lambda:ap-southeast-5:631746059939:layer:AWS-AppConfig-Extension-Arm64:139` |
+| Asia Pacific (New Zealand) | `arn:aws:lambda:ap-southeast-6:381491832265:layer:AWS-AppConfig-Extension-Arm64:90` |
+| Asia Pacific (Thailand) | `arn:aws:lambda:ap-southeast-7:851725616657:layer:AWS-AppConfig-Extension-Arm64:136` |
+| Asia Pacific (Mumbai) | `arn:aws:lambda:ap-south-1:554480029851:layer:AWS-AppConfig-Extension-Arm64:235` |
+| Asia Pacific (Hyderabad) | `arn:aws:lambda:ap-south-2:489524808438:layer:AWS-AppConfig-Extension-Arm64:178` |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:000010852771:layer:AWS-AppConfig-Extension-Arm64:223` |
+| Mexico (Central) | `arn:aws:lambda:mx-central-1:891376990304:layer:AWS-AppConfig-Extension-Arm64:144` |
+| Africa (Cape Town) | `arn:aws:lambda:af-south-1:574348263942:layer:AWS-AppConfig-Extension-Arm64:191` |
+| Israel (Tel Aviv) | `arn:aws:lambda:il-central-1:895787185223:layer:AWS-AppConfig-Extension-Arm64:174` |
+| AWS GovCloud (US-East) | `arn:aws-us-gov:lambda:us-gov-east-1:946561847325:layer:AWS-AppConfig-Extension-Arm64:168` |
+| AWS GovCloud (US-West) | `arn:aws-us-gov:lambda:us-gov-west-1:946746059096:layer:AWS-AppConfig-Extension-Arm64:169` |
+| AWS European Sovereign Cloud (Germany) | `arn:aws-eusc:lambda:eusc-de-east-1:426221636601:layer:AWS-AppConfig-Extension-Arm64:48` |
+
+## Older extension versions
+
+This section lists the ARNs and AWS Regions for older versions of the AWS AppConfig Lambda
+extension. This list doesn't contain information for all previous versions of the AWS AppConfig
+Agent Lambda extension, but it will be updated when new versions are released.
+
+###### Topics
+
+- [Older extension versions (x86-64 platform)](#appconfig-integration-lambda-extensions-enabling-older-versions-x86-64 "#appconfig-integration-lambda-extensions-enabling-older-versions-x86-64")
+- [Older extension versions (ARM64 platform)](#appconfig-integration-lambda-extensions-enabling-older-versions-ARM64 "#appconfig-integration-lambda-extensions-enabling-older-versions-ARM64")
+
+### Older extension versions (x86-64 platform)
+
+The following tables list ARNs and the AWS Regions for older versions of the
+AWS AppConfig Agent Lambda extension developed for the x86-64 platform.
+
+Date replaced by newer extension: 07/13/2026
+
 Version 2.0.18836| Region | ARN |
 | --- | --- |
 | US East (N. Virginia) | `arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension:328` |
@@ -122,68 +225,6 @@ Version 2.0.18836| Region | ARN |
 | AWS GovCloud (US-East) | `arn:aws-us-gov:lambda:us-gov-east-1:946561847325:layer:AWS-AppConfig-Extension:221` |
 | AWS GovCloud (US-West) | `arn:aws-us-gov:lambda:us-gov-west-1:946746059096:layer:AWS-AppConfig-Extension:222` |
 | AWS European Sovereign Cloud (Germany) | `arn:aws-eusc:lambda:eusc-de-east-1:426221636601:layer:AWS-AppConfig-Extension:74` |
-
-## ARM64 platform
-
-When you add the extension as a layer to your Lambda, you must specify an ARN. Choose an ARN from the following table that corresponds with the AWS Region where you created the Lambda. These ARNs are for Lambda functions developed for the ARM64 platform.
-
-Version 2.0.18836| Region | ARN |
-| --- | --- |
-| US East (N. Virginia) | `arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension-Arm64:261` |
-| US East (Ohio) | `arn:aws:lambda:us-east-2:728743619870:layer:AWS-AppConfig-Extension-Arm64:231` |
-| US West (N. California) | `arn:aws:lambda:us-west-1:958113053741:layer:AWS-AppConfig-Extension-Arm64:280` |
-| US West (Oregon) | `arn:aws:lambda:us-west-2:359756378197:layer:AWS-AppConfig-Extension-Arm64:277` |
-| Canada (Central) | `arn:aws:lambda:ca-central-1:039592058896:layer:AWS-AppConfig-Extension-Arm64:184` |
-| Canada West (Calgary) | `arn:aws:lambda:ca-west-1:436199621743:layer:AWS-AppConfig-Extension-Arm64:164` |
-| Europe (Frankfurt) | `arn:aws:lambda:eu-central-1:066940009817:layer:AWS-AppConfig-Extension-Arm64:240` |
-| Europe (Zurich) | `arn:aws:lambda:eu-central-2:758369105281:layer:AWS-AppConfig-Extension-Arm64:180` |
-| Europe (Ireland) | `arn:aws:lambda:eu-west-1:434848589818:layer:AWS-AppConfig-Extension-Arm64:243` |
-| Europe (London) | `arn:aws:lambda:eu-west-2:282860088358:layer:AWS-AppConfig-Extension-Arm64:200` |
-| Europe (Paris) | `arn:aws:lambda:eu-west-3:493207061005:layer:AWS-AppConfig-Extension-Arm64:194` |
-| Europe (Stockholm) | `arn:aws:lambda:eu-north-1:646970417810:layer:AWS-AppConfig-Extension-Arm64:228` |
-| Europe (Milan) | `arn:aws:lambda:eu-south-1:203683718741:layer:AWS-AppConfig-Extension-Arm64:179` |
-| Europe (Spain) | `arn:aws:lambda:eu-south-2:586093569114:layer:AWS-AppConfig-Extension-Arm64:177` |
-| Asia Pacific (Hong Kong) | `arn:aws:lambda:ap-east-1:630222743974:layer:AWS-AppConfig-Extension-Arm64:186` |
-| Asia Pacific (Taipei) | `arn:aws:lambda:ap-east-2:730335625313:layer:AWS-AppConfig-Extension-Arm64:123` |
-| Asia Pacific (Tokyo) | `arn:aws:lambda:ap-northeast-1:980059726660:layer:AWS-AppConfig-Extension-Arm64:227` |
-| Asia Pacific (Seoul) | `arn:aws:lambda:ap-northeast-2:826293736237:layer:AWS-AppConfig-Extension-Arm64:186` |
-| Asia Pacific (Osaka) | `arn:aws:lambda:ap-northeast-3:706869817123:layer:AWS-AppConfig-Extension-Arm64:191` |
-| Asia Pacific (Singapore) | `arn:aws:lambda:ap-southeast-1:421114256042:layer:AWS-AppConfig-Extension-Arm64:212` |
-| Asia Pacific (Sydney) | `arn:aws:lambda:ap-southeast-2:080788657173:layer:AWS-AppConfig-Extension-Arm64:258` |
-| Asia Pacific (Jakarta) | `arn:aws:lambda:ap-southeast-3:418787028745:layer:AWS-AppConfig-Extension-Arm64:195` |
-| Asia Pacific (Melbourne) | `arn:aws:lambda:ap-southeast-4:307021474294:layer:AWS-AppConfig-Extension-Arm64:179` |
-| Asia Pacific (Malaysia) | `arn:aws:lambda:ap-southeast-5:631746059939:layer:AWS-AppConfig-Extension-Arm64:138` |
-| Asia Pacific (New Zealand) | `arn:aws:lambda:ap-southeast-6:381491832265:layer:AWS-AppConfig-Extension-Arm64:89` |
-| Asia Pacific (Thailand) | `arn:aws:lambda:ap-southeast-7:851725616657:layer:AWS-AppConfig-Extension-Arm64:135` |
-| Asia Pacific (Mumbai) | `arn:aws:lambda:ap-south-1:554480029851:layer:AWS-AppConfig-Extension-Arm64:234` |
-| Asia Pacific (Hyderabad) | `arn:aws:lambda:ap-south-2:489524808438:layer:AWS-AppConfig-Extension-Arm64:177` |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:000010852771:layer:AWS-AppConfig-Extension-Arm64:222` |
-| Mexico (Central) | `arn:aws:lambda:mx-central-1:891376990304:layer:AWS-AppConfig-Extension-Arm64:143` |
-| Africa (Cape Town) | `arn:aws:lambda:af-south-1:574348263942:layer:AWS-AppConfig-Extension-Arm64:190` |
-| Middle East (UAE) | `arn:aws:lambda:me-central-1:662846165436:layer:AWS-AppConfig-Extension-Arm64:168` |
-| Middle East (Bahrain) | `arn:aws:lambda:me-south-1:559955524753:layer:AWS-AppConfig-Extension-Arm64:182` |
-| Israel (Tel Aviv) | `arn:aws:lambda:il-central-1:895787185223:layer:AWS-AppConfig-Extension-Arm64:173` |
-| China (Beijing) | `arn:aws-cn:lambda:cn-north-1:615057806174:layer:AWS-AppConfig-Extension-Arm64:167` |
-| China (Ningxia) | `arn:aws-cn:lambda:cn-northwest-1:615084187847:layer:AWS-AppConfig-Extension-Arm64:165` |
-| AWS GovCloud (US-East) | `arn:aws-us-gov:lambda:us-gov-east-1:946561847325:layer:AWS-AppConfig-Extension-Arm64:167` |
-| AWS GovCloud (US-West) | `arn:aws-us-gov:lambda:us-gov-west-1:946746059096:layer:AWS-AppConfig-Extension-Arm64:168` |
-| AWS European Sovereign Cloud (Germany) | `arn:aws-eusc:lambda:eusc-de-east-1:426221636601:layer:AWS-AppConfig-Extension-Arm64:49` |
-
-## Older extension versions
-
-This section lists the ARNs and AWS Regions for older versions of the AWS AppConfig Lambda
-extension. This list doesn't contain information for all previous versions of the AWS AppConfig
-Agent Lambda extension, but it will be updated when new versions are released.
-
-###### Topics
-
-- [Older extension versions (x86-64 platform)](#appconfig-integration-lambda-extensions-enabling-older-versions-x86-64 "#appconfig-integration-lambda-extensions-enabling-older-versions-x86-64")
-- [Older extension versions (ARM64 platform)](#appconfig-integration-lambda-extensions-enabling-older-versions-ARM64 "#appconfig-integration-lambda-extensions-enabling-older-versions-ARM64")
-
-### Older extension versions (x86-64 platform)
-
-The following tables list ARNs and the AWS Regions for older versions of the
-AWS AppConfig Agent Lambda extension developed for the x86-64 platform.
 
 Date replaced by newer extension: 06/22/2026
 
@@ -785,6 +826,50 @@ Version 2.0.30| Region | ARN |
 
 The following tables list ARNs and the AWS Regions for older versions of the
 AWS AppConfig Agent Lambda extension developed for the ARM64 platform.
+
+Date replaced by newer extension: 07/13/2026
+
+Version 2.0.18836| Region | ARN |
+| --- | --- |
+| US East (N. Virginia) | `arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension-Arm64:261` |
+| US East (Ohio) | `arn:aws:lambda:us-east-2:728743619870:layer:AWS-AppConfig-Extension-Arm64:231` |
+| US West (N. California) | `arn:aws:lambda:us-west-1:958113053741:layer:AWS-AppConfig-Extension-Arm64:280` |
+| US West (Oregon) | `arn:aws:lambda:us-west-2:359756378197:layer:AWS-AppConfig-Extension-Arm64:277` |
+| Canada (Central) | `arn:aws:lambda:ca-central-1:039592058896:layer:AWS-AppConfig-Extension-Arm64:184` |
+| Canada West (Calgary) | `arn:aws:lambda:ca-west-1:436199621743:layer:AWS-AppConfig-Extension-Arm64:164` |
+| Europe (Frankfurt) | `arn:aws:lambda:eu-central-1:066940009817:layer:AWS-AppConfig-Extension-Arm64:240` |
+| Europe (Zurich) | `arn:aws:lambda:eu-central-2:758369105281:layer:AWS-AppConfig-Extension-Arm64:180` |
+| Europe (Ireland) | `arn:aws:lambda:eu-west-1:434848589818:layer:AWS-AppConfig-Extension-Arm64:243` |
+| Europe (London) | `arn:aws:lambda:eu-west-2:282860088358:layer:AWS-AppConfig-Extension-Arm64:200` |
+| Europe (Paris) | `arn:aws:lambda:eu-west-3:493207061005:layer:AWS-AppConfig-Extension-Arm64:194` |
+| Europe (Stockholm) | `arn:aws:lambda:eu-north-1:646970417810:layer:AWS-AppConfig-Extension-Arm64:228` |
+| Europe (Milan) | `arn:aws:lambda:eu-south-1:203683718741:layer:AWS-AppConfig-Extension-Arm64:179` |
+| Europe (Spain) | `arn:aws:lambda:eu-south-2:586093569114:layer:AWS-AppConfig-Extension-Arm64:177` |
+| Asia Pacific (Hong Kong) | `arn:aws:lambda:ap-east-1:630222743974:layer:AWS-AppConfig-Extension-Arm64:186` |
+| Asia Pacific (Taipei) | `arn:aws:lambda:ap-east-2:730335625313:layer:AWS-AppConfig-Extension-Arm64:123` |
+| Asia Pacific (Tokyo) | `arn:aws:lambda:ap-northeast-1:980059726660:layer:AWS-AppConfig-Extension-Arm64:227` |
+| Asia Pacific (Seoul) | `arn:aws:lambda:ap-northeast-2:826293736237:layer:AWS-AppConfig-Extension-Arm64:186` |
+| Asia Pacific (Osaka) | `arn:aws:lambda:ap-northeast-3:706869817123:layer:AWS-AppConfig-Extension-Arm64:191` |
+| Asia Pacific (Singapore) | `arn:aws:lambda:ap-southeast-1:421114256042:layer:AWS-AppConfig-Extension-Arm64:212` |
+| Asia Pacific (Sydney) | `arn:aws:lambda:ap-southeast-2:080788657173:layer:AWS-AppConfig-Extension-Arm64:258` |
+| Asia Pacific (Jakarta) | `arn:aws:lambda:ap-southeast-3:418787028745:layer:AWS-AppConfig-Extension-Arm64:195` |
+| Asia Pacific (Melbourne) | `arn:aws:lambda:ap-southeast-4:307021474294:layer:AWS-AppConfig-Extension-Arm64:179` |
+| Asia Pacific (Malaysia) | `arn:aws:lambda:ap-southeast-5:631746059939:layer:AWS-AppConfig-Extension-Arm64:138` |
+| Asia Pacific (New Zealand) | `arn:aws:lambda:ap-southeast-6:381491832265:layer:AWS-AppConfig-Extension-Arm64:89` |
+| Asia Pacific (Thailand) | `arn:aws:lambda:ap-southeast-7:851725616657:layer:AWS-AppConfig-Extension-Arm64:135` |
+| Asia Pacific (Mumbai) | `arn:aws:lambda:ap-south-1:554480029851:layer:AWS-AppConfig-Extension-Arm64:234` |
+| Asia Pacific (Hyderabad) | `arn:aws:lambda:ap-south-2:489524808438:layer:AWS-AppConfig-Extension-Arm64:177` |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:000010852771:layer:AWS-AppConfig-Extension-Arm64:222` |
+| Mexico (Central) | `arn:aws:lambda:mx-central-1:891376990304:layer:AWS-AppConfig-Extension-Arm64:143` |
+| Africa (Cape Town) | `arn:aws:lambda:af-south-1:574348263942:layer:AWS-AppConfig-Extension-Arm64:190` |
+| Middle East (UAE) | `arn:aws:lambda:me-central-1:662846165436:layer:AWS-AppConfig-Extension-Arm64:168` |
+| Middle East (Bahrain) | `arn:aws:lambda:me-south-1:559955524753:layer:AWS-AppConfig-Extension-Arm64:182` |
+| Israel (Tel Aviv) | `arn:aws:lambda:il-central-1:895787185223:layer:AWS-AppConfig-Extension-Arm64:173` |
+| China (Beijing) | `arn:aws-cn:lambda:cn-north-1:615057806174:layer:AWS-AppConfig-Extension-Arm64:167` |
+| China (Ningxia) | `arn:aws-cn:lambda:cn-northwest-1:615084187847:layer:AWS-AppConfig-Extension-Arm64:165` |
+| AWS GovCloud (US-East) | `arn:aws-us-gov:lambda:us-gov-east-1:946561847325:layer:AWS-AppConfig-Extension-Arm64:167` |
+| AWS GovCloud (US-West) | `arn:aws-us-gov:lambda:us-gov-west-1:946746059096:layer:AWS-AppConfig-Extension-Arm64:168` |
+| AWS European Sovereign Cloud (Germany) | `arn:aws-eusc:lambda:eusc-de-east-1:426221636601:layer:AWS-AppConfig-Extension-Arm64:49` |
 
 Date replaced by newer extension: 06/22/2026
 
