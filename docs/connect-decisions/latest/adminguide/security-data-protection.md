@@ -32,12 +32,3 @@ following ways:
   This includes when you work with Amazon Connect Decisions or other AWS services using the AWS
   Management Console, API, AWS Command Line Interface (AWS CLI), or AWS SDKs. Any data that you enter tags or
   free-form text fields used for names may be used for billing or diagnostic logs.
-
-## Data handled by Amazon Connect Decisions
-
-To limit the data that can be accessed by authorized users of a specific
-Amazon Connect Decisions instance, data held within Amazon Connect Decisions is segregated by your
-AWS account ID and your Amazon Connect Decisions instance ID.
-
-Amazon Connect Decisions handles a variety of supply chain data such as, user information,
-information extracted from the data connector, and inventory details.
