@@ -68,7 +68,10 @@ During an import operation, CloudFormation performs the following validations.
   values.
 - The required properties are specified in the template. Required properties for each
   resource type are described in the [AWS resource and property types reference](../TemplateReference/aws-template-resource-type-ref.md "../TemplateReference/aws-template-resource-type-ref.md").
-- The resource to import doesn't belong to another stack in the same Region.
+- The resource to import doesn't belong to another stack in the same Region. This check applies
+  per Region, but some resource types aren't Region-specific, such as IAM roles, Route 53
+  hosted zones, or CloudFront distributions. For these types, make sure that the resource isn't
+  already managed by a stack in another Region before importing it.
 
 CloudFormation doesn't check that the template configuration matches the actual configuration of
 resource properties.
