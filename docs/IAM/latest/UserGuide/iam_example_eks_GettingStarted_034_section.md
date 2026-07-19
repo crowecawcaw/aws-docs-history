@@ -477,7 +477,7 @@ echo "Script completed at $(date)"
   - [GetRole](../../../goto/aws-cli/iam-2010-05-08/GetRole.md "../../../goto/aws-cli/iam-2010-05-08/GetRole.md")
   - [ListNodegroups](../../../goto/aws-cli/eks-2017-11-01/ListNodegroups.md "../../../goto/aws-cli/eks-2017-11-01/ListNodegroups.md")
   - [UpdateKubeconfig](../../../goto/aws-cli/eks-2017-11-01/UpdateKubeconfig.md "../../../goto/aws-cli/eks-2017-11-01/UpdateKubeconfig.md")
-  - [Wait](../../../goto/aws-cli/cloudformation-2010-05-15/Wait.md "../../../goto/aws-cli/cloudformation-2010-05-15/Wait.md")
+  - [Wait](../../../goto/aws-cli/eks-2017-11-01/Wait.md "../../../goto/aws-cli/eks-2017-11-01/Wait.md")
 
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
