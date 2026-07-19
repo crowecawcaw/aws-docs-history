@@ -233,6 +233,14 @@ In the following supported table matrix:
   the table data, regardless of whether the table is registered with Lake
   Formation.
 
+###### Note
+
+Starting with Amazon EMR 7.12, DML and DDL operations that modify table data use
+Lake Formation credentials. In Amazon EMR 7.11 and older versions, these operations (except
+DELETE, UPDATE, and MERGE) use the job runtime role credentials to modify the table
+data instead. Amazon EMR 7.11 and older versions do not support DELETE, UPDATE, and
+MERGE operations.
+
 Hive
 
 | Operation                               | AWS Lake Formation permissions      | Support status                                                                                                                                                                                                    |

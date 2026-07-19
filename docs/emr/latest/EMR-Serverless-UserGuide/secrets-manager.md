@@ -179,7 +179,7 @@ JSON
  ],
  "Condition": {
  "StringEquals": {
- "aws:SourceArn": "arn:aws:emr-serverless:*:123456789012:/applications/*"
+ "aws:SourceArn": "arn:aws:emr-serverless:*:123456789012:/applications/`applicationId`"
  }
  }
  }

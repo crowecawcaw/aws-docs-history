@@ -52,6 +52,16 @@ estimate the costs associated with your EMR Serverless with Lake Formation job, 
 - Amazon EMR 7.11 supports creating managed tables using CTAS.
 - Amazon EMR 7.12 supports creating managed and external tables using
   CTAS.
+- Starting with Amazon EMR 7.12, DML and DDL operations that modify table data
+  use Lake Formation credentials. In Amazon EMR 7.11 and older versions, these operations
+  (except DELETE, UPDATE, and MERGE) use the job runtime role credentials to
+  modify the table data instead. Amazon EMR 7.11 and older versions do not support
+  DELETE, UPDATE, and MERGE operations.
+- DDL and DML operations that modify table data using AWS Lake Formation-vended
+  credentials support only S3A. When you use EMRFS, the job runtime role
+  credentials apply instead.
+- EMR Serverless with Lake Formation does not support reading from or writing to tables
+  that point to a non-S3 location.
 
 ## Permissions
 

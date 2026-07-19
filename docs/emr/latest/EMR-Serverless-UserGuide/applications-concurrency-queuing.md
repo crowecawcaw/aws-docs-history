@@ -62,7 +62,7 @@ Take the following into consideration when you implement concurrency and queuing
 
 - Job concurrency and queuing is supported on Amazon EMR release 7.0.0 and higher.
 - Job concurrency and queuing is enabled by default on Amazon EMR release 7.3.0 and higher.
-- You cannot update concurrency for an application in the **STARTED** state.
+- You can update `maxConcurrentRuns` for an application in the **STARTED** state.
 - The valid range for `maxConcurrentRuns` is 1 to 1000, and for `queueTimeoutMinutes` it is 15 to 720.
 - A maximum of 2000 jobs can be in the **QUEUED** state for an account.
 - Concurrency and queuing applies to batch and streaming jobs. It cannot be used for interactive jobs. For more information,

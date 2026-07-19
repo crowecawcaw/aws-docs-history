@@ -9,9 +9,12 @@ so configure the appropriate capacity for your workload requirements.
 
 Shuffle-optimized disks provide the following benefits.
 
-- **High IOPS performance** – shuffle-optimized disks provide
-  higher IOPS than standard disks, leading to more efficient and rapid data shuffling during Spark
-  and Hive jobs and other shuffle-intensive workloads.
+- **High IOPS & throughput** – Shuffle-optimized disks
+  outperform standard disks in both IOPS and throughput, benefiting any I/O-heavy operation: data
+  shuffling, disk spills, sort stages, and temporary data materialization across Spark and Hive jobs.
+- **Scaled disk performance** – For large workers (8 vCPUs+),
+  shuffle-optimized disks deliver proportionally higher IOPS and throughput at every 500 GB increment
+  when possible, keeping disk performance matched to your compute capacity.
 - **Larger disk size** – Shuffle-optimized disks support disk sizes from 20GB to 2TB per worker, so choose the
   appropriate capacity based on your workloads.
 
