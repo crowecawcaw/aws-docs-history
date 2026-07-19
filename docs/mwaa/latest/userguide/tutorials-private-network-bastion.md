@@ -24,7 +24,7 @@ This tutorial applies to the **Private network** access mode. If you chose **Bot
 
 This tutorial assumes you've chosen the **Private network** access mode for your Apache Airflow webserver.
 
-![This image displays the architecture for an Amazon MWAA environment with Private network access.](images/mwaa-private-web-server.png)
+![This image displays the architecture for an Amazon MWAA environment with Private network access.](/images/mwaa/latest/userguide/images/mwaa-private-web-server.png)
 
 The private network access mode limits access to the Apache Airflow UI to users _within your Amazon VPC_ who have been granted access to the
 [IAM policy for your environment](access-policies.md "access-policies.md").

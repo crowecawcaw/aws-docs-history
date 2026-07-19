@@ -218,7 +218,8 @@ JSON
  "logs:GetLogEvents",
  "logs:GetLogRecord",
  "logs:GetLogGroupFields",
- "logs:GetQueryResults"
+ "logs:GetQueryResults",
+ "logs:DescribeLogStreams"
  ],
  "Resource": [
  "arn:aws:logs:`us-east-1`:`111122223333`:log-group:airflow-`your-environment-name`:*"
@@ -371,7 +372,8 @@ JSON
  "logs:GetLogEvents",
  "logs:GetLogRecord",
  "logs:GetLogGroupFields",
- "logs:GetQueryResults"
+ "logs:GetQueryResults",
+ "logs:DescribeLogStreams"
  ],
  "Resource": [
  "arn:aws:logs:`us-east-1`:`111122223333`:log-group:airflow-{your-environment-name}-*"

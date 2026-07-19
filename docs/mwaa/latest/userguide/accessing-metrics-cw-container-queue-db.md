@@ -75,12 +75,16 @@ Amazon ECS, Amazon SQS, or Amazon RDS, choose the respective documentation link.
 
 ### Cluster metrics
 
-The following metrics apply to each scheduler, base worker, additional worker, and web server. For more information and descriptions of each cluster metric, refer to [Available metrics and dimensions](../../../AmazonECS/latest/developerguide/cloudwatch-metrics.md#available_cloudwatch_metrics "../../../AmazonECS/latest/developerguide/cloudwatch-metrics.md#available_cloudwatch_metrics") in the _Amazon ECS Developer Guide_.
+The following metrics apply to each scheduler, base worker, additional worker, and web server. For more information about these metrics, see [Amazon ECS monitoring](../../../AmazonECS/latest/developerguide/cloudwatch-metrics.md#available_cloudwatch_metrics "../../../AmazonECS/latest/developerguide/cloudwatch-metrics.md#available_cloudwatch_metrics") and [Amazon ECS Container Insights](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md").
 
-| Namespace  | Metric              | Unit    |
-| ---------- | ------------------- | ------- |
-| `AWS/MWAA` | `CPUUtilization`    | Percent |
-| `AWS/MWAA` | `MemoryUtilization` | Percent |
+| Namespace  | Metric                     | Unit         |
+| ---------- | -------------------------- | ------------ |
+| `AWS/MWAA` | `CPUUtilization`           | Percent      |
+| `AWS/MWAA` | `MemoryUtilization`        | Percent      |
+| `AWS/MWAA` | `EphemeralStorageUtilized` | Megabytes    |
+| `AWS/MWAA` | `EphemeralStorageReserved` | Megabytes    |
+| `AWS/MWAA` | `NetworkTxBytes`           | Bytes/Second |
+| `AWS/MWAA` | `NetworkRxBytes`           | Bytes/Second |
 
 #### Evaluating the number of additional worker and webserver containers
 
