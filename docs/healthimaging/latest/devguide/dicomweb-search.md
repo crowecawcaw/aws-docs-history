@@ -13,9 +13,6 @@ HealthImaging DICOMweb APIs reference only primary [image sets](getting-started-
 or the optional image set parameter of DICOMweb actions to retrieve non-primary image sets. HealthImaging's DICOMweb APIs can be used to
 return image set information with DICOMweb-conformant responses.
 
-HealthImaging DICOMweb QIDO-RS actions can return a maximum of 10,000 records. In the case that more than 10,000 resources exist,
-they will not be retrievable via the QIDO-RS actions, but may be retrieved via DICOMweb WADO-RS actions or [cloud native actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md").
-
 The APIs listed in this section are built in conformance to the DICOMweb (QIDO-RS) standard
 for web-based medical imaging. They are not offered through AWS CLI and AWS SDKs.
 
@@ -29,6 +26,9 @@ HealthImaging representations of DICOMweb QIDO-RS APIs| Name | Description |
 | `SearchDICOMStudies` | Search for DICOM studies in HealthImaging by specifying search query elements using a GET<br>request. Study search results are returned in JSON format, ordered by last update, date<br>descending (latest to oldest). See [Search for studies](dicomweb-search-studies.md "dicomweb-search-studies.md"). |
 | `SearchDICOMSeries` | Search for DICOM series in HealthImaging by specifying search query elements using a GET<br>request. Series search results are returned in JSON format, ordered by `Series Number<br>(0020, 0011)` in ascending order (oldest to latest). See [Search for series](dicomweb-search-series.md "dicomweb-search-series.md"). |
 | `SearchDICOMInstances` | Search for DICOM instances in HealthImaging by specifying search query elements using a GET<br>request. Instance search results are returned in JSON format, ordered by `Instance<br>Number (0020, 0013)` in ascending order (oldest to latest). See [Search for instances](dicomweb-search-instances.md "dicomweb-search-instances.md"). |
+| `SearchDICOMStudyInstances` | Searches for all DICOM instances within a study in HealthImaging by specifying search query<br>elements using a GET request. The API returns instance search results in JSON format, ordered<br>by last update date, descending (latest to oldest). See [Search for a study's instances](dicomweb-search-study-instances.md "dicomweb-search-study-instances.md"). |
+| `SearchDICOMAllSeries` | Searches for all DICOM series across a data store in HealthImaging by specifying search query<br>elements using a GET request. The API returns series search results in JSON format, ordered<br>by `Series Number (0020,0011)` in ascending order (oldest to latest). See<br>[Search for all series](dicomweb-search-all-series.md "dicomweb-search-all-series.md"). |
+| `SearchDICOMAllInstances` | Searches for all DICOM instances across a data store in HealthImaging by specifying search<br>query elements using a GET request. The API returns instance search results in JSON format,<br>ordered by `Instance Number (0020,0013)` in ascending order (oldest to<br>latest). See [Search for all instances](dicomweb-search-all-instances.md "dicomweb-search-all-instances.md"). |
 
 ## Supported DICOMweb query types for HealthImaging
 
@@ -41,8 +41,18 @@ levels. When using QIDO-RS hierarchical search for HealthImaging:
 - Searching a list of Instances requires a known `StudyInstanceUID` and
   `SeriesInstanceUID`
 
-The following table describes supported QIDO-RS hierarchical query types for searching data
-in HealthImaging.
+With HealthImaging, you can run QIDO-RS relational queries without specifying all parent UIDs in
+the resource hierarchy:
+
+- Searching for a study's instances does not require a
+  `SeriesInstanceUID`.
+- Searching for all series in a data store does not require a
+  `StudyInstanceUID`.
+- Searching for all instances in a data store does not require a
+  `StudyInstanceUID` or `SeriesInstanceUID`.
+
+The following table describes supported QIDO-RS query types for searching data in
+HealthImaging.
 
 HealthImaging supported QIDO-RS query types| Query type | Example |
 | --- | --- |
@@ -50,10 +60,11 @@ HealthImaging supported QIDO-RS query types| Query type | Example |
 | Keyword queries | Search all series using the `SeriesInstanceUID` keyword.<br>`.../studies/1.3.6.1.4.1.14519.5.2.1.6279.6001.101370605276577556143013894866/series?SeriesInstanceUID=1.3.6.1.4.1.14519.5.2.1.6279.6001.101370605276577556143013894868` |
 | Tag queries | Search for tags using query parameters passed in group/element form.<br>{group}{element} like 0020000D |
 | Range queries | `...?Modality=CT&StudyDate=AABBYYYY-BBCCYYYY` |
-| Result paging with `limit` and `offset` | `.../studies?limit=1&offset=0&00080020=20000101`<br>You can use the limit and offset parameters to paginate search responses. The<br>default value of limit is 1000, and see [AWS HealthImaging endpoints and quotas](endpoints-quotas.md "endpoints-quotas.md") for the maximum value.<br>Max limit = 1000, Max offset = 9000 |
+| Result paging with `limit` and `offset` | `.../studies?limit=1&offset=0&00080020=20000101`<br>You can use the limit and offset parameters to paginate search responses. The<br>default value of limit is 1000, and see [AWS HealthImaging endpoints and quotas](endpoints-quotas.md "endpoints-quotas.md") for the maximum value.<br>Max limit = 1000, Max offset = 1,000,000 |
 | Wildcard queries | Wildcard queries provide more flexibility on search using "\*" and "?". "\*" matches any sequence of characters (including a zero length value) and "?" matches any single character.<br>Search for all studies in a datastore where StudyDescription contains "Nuclear":<br>`.../studies?StudyDescription=*Nuclear*`<br>Search for all studies where StudyDescription ends with "Nuclear":<br>`.../studies?StudyDescription=*Nuclear`<br>Search for all studies where StudyDescription starts with "Nuclear":<br>`.../studies?StudyDescription=Nuclear*`<br>Search for all studies where PatientID has exactly any 3 characters after 200965981:<br>`.../studies?PatientID=200965981???` |
 | FuzzyMatching queries | Enable fuzzy matching on name DICOM attributes (PatientName (0010,0010), ReferringPhysicianName(0008,0090)) by adding the fuzzymatching optional query parameter:<br>`.../studies?fuzzymatching=true&PatientName="Thomas^Albert"`<br>This query performs case-insensitive prefix word matching on any part of the PatientName value. It returns results with PatientName values like "thomas", "Albert", "Thomas Albert", "Thomas^Albert", but not "hom" or "ber". |
 | IncludeField queries | Use the `includefield` query parameter to request additional DICOM<br>attributes beyond the default response set.<br>Return specific attributes by tag:<br>`.../studies?PatientID=11235813&includefield=00101081&includefield=PatientWeight`<br>Return all available attributes:<br>`.../studies?PatientID=11235813&includefield=all`<br>Return sequence (SQ) sub-attributes using dotted notation:<br>`.../studies?PatientID=11235813&includefield=00080096.00080100`<br>Return private data elements:<br>`.../instances?includefield=00191001&00190010=Philips` |
+| Relational queries | Search for all series across a data store where the modality is CT:<br>`.../series?Modality=CT`<br>Search for all instances in a study where the study date is a specific value:<br>`.../studies/`StudyInstanceUID`/instances?StudyDate=20240101` |
 
 ## Using IncludeField in QIDO-RS queries
 
@@ -343,3 +354,6 @@ except the pixel data attribute.
 - [Searching for DICOM studies in HealthImaging](dicomweb-search-studies.md "dicomweb-search-studies.md")
 - [Searching for DICOM series in HealthImaging](dicomweb-search-series.md "dicomweb-search-series.md")
 - [Searching for DICOM instances in HealthImaging](dicomweb-search-instances.md "dicomweb-search-instances.md")
+- [Searching for a study's DICOM instances in HealthImaging](dicomweb-search-study-instances.md "dicomweb-search-study-instances.md")
+- [Searching for all DICOM series in HealthImaging](dicomweb-search-all-series.md "dicomweb-search-all-series.md")
+- [Searching for all DICOM instances in HealthImaging](dicomweb-search-all-instances.md "dicomweb-search-all-instances.md")
