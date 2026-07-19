@@ -32,7 +32,7 @@ create a dashboard.
 ![The "Projects" page with "Wind Farm 3" highlighted.](images/projects-portal-admin-choose-project-console.png) 3. In the **Dashboards** section, choose **Create
 dashboard**.
 
-![The dashboards list on the project details page with "Create dashboard" highlighted.](images/project-create-dashboard-console.png) 4. In the dashboard editor, change the dashboard name from the default, `New
+![The dashboards list on the project details page with "Create dashboard" highlighted.](/images/iot-sitewise/latest/appguide/images/project-create-dashboard-console.png) 4. In the dashboard editor, change the dashboard name from the default, `New
  dashboard`, to something that describes the content.
 
 ![The dashboard editor with "New Dashboard" highlighted.](images/dashboard-name-dashboard-console.png) 5. Add one or more visualizations. For more information, see [Add visualizations in AWS IoT SiteWise Monitor](add-visualizations.md "add-visualizations.md"). 6. After you finish editing the dashboard, choose **Save dashboard** to
