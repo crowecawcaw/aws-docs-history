@@ -19,11 +19,12 @@ with the Linux kernel versions of your client instances.
 | Operating system | OS version | Minimum kernel version | Maximum kernel version | Lustre client version | Lustre file system version |
 | ---------------- | ---------- | ---------------------- | ---------------------- | --------------------- | -------------------------- |
 |                  |            |                        |                        |                       | **2.10**                   | **2.12** | **2.15** |
-| Ubuntu           | 24         | 6.14.0-1012            | 6.14.0\*               | 2.15                  | no                         | yes      | yes      |
-|                  |            | 6.8.0-1024             | 6.8.0\*                | 2.15                  | no                         | yes      | yes      |
+| Ubuntu           | 24         | 6.17.0-1007            | 6.17.0\*               | 2.15                  | no                         | yes      | yes      |
+|                  |            | 6.14.0-1012            | 6.14.0-1018            | 2.15                  | no                         | yes      | yes      |
+|                  |            | 6.8.0-1024             | 6.8.0-1033             | 2.15                  | no                         | yes      | yes      |
 |                  | 22         | 6.8.0-1017             | 6.8.0\*                | 2.15                  | no                         | yes      | yes      |
-|                  |            | 6.5.0-1023             | 6.5.0\*                | 2.15                  | no                         | yes      | yes      |
-|                  |            | 6.2.0-1017             | 6.2.0\*                | 2.15                  | no                         | yes      | yes      |
+|                  |            | 6.5.0-1023             | 6.5.0-1024             | 2.15                  | no                         | yes      | yes      |
+|                  |            | 6.2.0-1017             | 6.2.0-1018             | 2.15                  | no                         | yes      | yes      |
 |                  |            | 5.15.0-1015-aws        | 5.15.0-1051-aws        | 2.12                  | yes                        | yes      | yes      |
 |                  | 20         | 5.15.0-1015-aws        | 5.15.0\*               | 2.12                  | yes                        | yes      | yes      |
 |                  |            | 5.4.0-1011-aws         | 5.13.0-1031-aws        | 2.10                  | yes                        | yes      | no       |
