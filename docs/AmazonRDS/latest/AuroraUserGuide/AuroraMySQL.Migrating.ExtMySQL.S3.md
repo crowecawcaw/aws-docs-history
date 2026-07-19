@@ -360,7 +360,7 @@ console.
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the top right corner of the Amazon RDS console, choose the AWS Region in which to create your DB cluster.
+2. In the Amazon RDS console, choose the AWS Region in which to create your DB cluster.
    Choose the same AWS Region as the Amazon S3 bucket that contains your database backup.
 3. In the navigation pane, choose **Databases**, and then choose **Restore from
    S3**.

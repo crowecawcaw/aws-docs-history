@@ -44,8 +44,8 @@ The **Restore backup** page displays.
 restore to a specific point in time. 7. Choose other settings as needed for restoring the DB cluster, then choose **Restore
 backup**.
 
-The **Jobs** page displays, showing the **Restore jobs** pane. A message
-at the top of the page provides information about the restore job.
+The **Jobs** page displays, showing the **Restore jobs** pane. A banner
+provides information about the restore job.
 After the DB cluster is restored, you must add the primary (writer) DB instance to it. To create the primary
 instance for your DB cluster, call the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") AWS CLI command. Include the name of the DB cluster as the
 `--db-cluster-identifier` parameter value.

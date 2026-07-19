@@ -209,7 +209,7 @@ enabled. For information about creating a DB cluster with **Easy create** enable
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the AWS Management Console, choose the AWS Region in which you
+2. In the AWS Management Console, choose the AWS Region in which you
    want to create the DB cluster.
 
 Aurora is not available in all AWS Regions. For a list of AWS Regions where Aurora is available, see [Region availability](Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability "Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability"). 3. In the navigation pane, choose **Databases**. 4. Choose **Create database**. 5. For **Choose a database creation method**, choose **Standard create**. 6. For **Engine type**, choose one of the following:

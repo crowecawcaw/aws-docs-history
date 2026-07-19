@@ -6,7 +6,7 @@ Create an Amazon EC2 instance in the public subnet of your VPC.
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the upper-right corner of the AWS Management Console, choose the AWS Region where you want to create the
+2. In the AWS Management Console, choose the AWS Region where you want to create the
    EC2 instance.
 3. Choose **EC2 Dashboard**, and then choose **Launch instance**, as
    shown following.

@@ -34,7 +34,7 @@ column.
 
 ###### Note
 
-You might have to modify the page preferences, by selecting the gear icon at the upper right of the
+You might have to modify the page preferences, by selecting the gear icon on the
 **Public snapshots** list, to see this column.
 
 ## Viewing your own public snapshots

@@ -11,8 +11,8 @@ conditions.
 
 ###### Tip
 
-When you view these examples in HTML, you can use the **Copy** widget in the
-upper-right corner of each code listing to copy the SQL code to try yourself. Using the
+When you view these examples in HTML, you can use the **Copy** widget on
+each code listing to copy the SQL code to try yourself. Using the
 **Copy** widget avoids copying the extra characters around the
 `mysql>` prompt and `->` continuation lines.
 

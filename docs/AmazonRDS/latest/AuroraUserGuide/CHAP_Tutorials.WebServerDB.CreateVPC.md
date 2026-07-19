@@ -43,9 +43,9 @@ Use the following procedure to create a VPC with both public and private subnets
 
 1. Open the Amazon VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. In the top-right corner of the AWS Management Console, choose the Region
+2. In the AWS Management Console, choose the Region
    to create your VPC in. This example uses the US West (Oregon) Region.
-3. In the upper-left corner, choose **VPC dashboard**. To begin
+3. Choose **VPC dashboard**. To begin
    creating a VPC, choose **Create VPC**.
 4. For **Resources to create** under **VPC settings**, choose
    **VPC and more**.
@@ -206,8 +206,7 @@ For this tutorial, choose **us-west-2a** and **us-west-2b** for the **Availabili
 For **Subnets**, choose the private subnets you identified in the previous step. 7. Choose **Create**.
 
 Your new DB subnet group appears in the DB subnet groups list on the RDS
-console. You can choose the DB subnet group to see details in the details pane
-at the bottom of the window. These details include all of the subnets associated
+console. You can choose the DB subnet group to see details in the details pane. These details include all of the subnets associated
 with the group.
 
 ###### Note

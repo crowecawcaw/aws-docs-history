@@ -64,10 +64,10 @@ optimize the database and application to reduce those events.
    for that DB instance.
 4. In the **Database load** chart, choose **Slice by
    wait**.
-5. At the bottom of the page, choose **Top SQL**.
+5. Choose the **Top SQL** tab.
 
-The chart lists the SQL queries that are responsible for the load. Those at the top of the
-list are most responsible. To resolve a bottleneck, focus on these statements.
+The chart lists the SQL queries that are responsible for the load. Those listed first are most
+responsible. To resolve a bottleneck, focus on these statements.
 
 For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
 

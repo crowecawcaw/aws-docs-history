@@ -48,7 +48,7 @@ servers. For more details on the T instance classes, see [DB instance class type
 ![DB instance configuration panel with options for instance class, availability, and performance settings.](images/tut-restore-cluster3.png) 9. For **Database authentication**, use the default setting. 10. For **Encryption**, use the default settings.
 
 If the source DB cluster for the snapshot was encrypted, the restored DB cluster is also encrypted. You can't
-make it unencrypted. 11. Expand **Additional configuration** at the bottom of the page.
+make it unencrypted. 11. Expand **Additional configuration**.
 
 ![Additional configuration options for database restore including network settings, encryption, and maintenance preferences.](images/tut-restore-cluster4.png) 12. Make the following choices:
 

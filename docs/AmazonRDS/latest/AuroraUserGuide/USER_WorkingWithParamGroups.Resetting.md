@@ -33,8 +33,7 @@ In a default DB parameter group, parameters are always set to their default valu
 4. For **Parameter group actions**, choose
    **Edit**.
 5. Choose the parameters that you want to reset to their default values.
-   You can scroll through the parameters using the arrow keys at the top
-   right of the dialog box.
+   You can scroll through the parameters using the pagination controls.
 
 You can't reset values in a default parameter group. 6. Choose **Reset** and then confirm by choosing
 **Reset parameters**.

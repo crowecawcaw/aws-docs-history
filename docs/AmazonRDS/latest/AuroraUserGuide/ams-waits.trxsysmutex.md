@@ -81,7 +81,7 @@ database and application to reduce those events.
 5. Under the **Database load** chart, choose **Top
    SQL**.
 
-The chart lists the SQL queries that are responsible for the load. Those at the top of the list are most
+The chart lists the SQL queries that are responsible for the load. Those listed first are most
 responsible. To resolve a bottleneck, focus on these statements.
 
 For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze

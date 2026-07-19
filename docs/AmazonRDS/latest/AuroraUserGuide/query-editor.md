@@ -102,7 +102,7 @@ that you can run is subject to the Data API limitations. For more information, s
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the AWS Management Console, choose the AWS Region in which you
+2. In the AWS Management Console, choose the AWS Region in which you
    created the Aurora DB clusters that you want to query.
 3. In the navigation pane, choose **Databases**.
 4. Choose the Aurora DB cluster that you want to run SQL queries on.

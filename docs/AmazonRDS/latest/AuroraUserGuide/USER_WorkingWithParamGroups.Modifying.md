@@ -28,8 +28,7 @@ instance.
 4. For **Parameter group actions**, choose
    **Edit**.
 5. Change the values of the parameters that you want to modify. You can
-   scroll through the parameters using the arrow keys at the top right of
-   the dialog box.
+   scroll through the parameters using the pagination controls.
 
 You can't change values in a default parameter group. 6. Choose **Save changes**.
 To modify a DB parameter group, use the AWS CLI [`modify-db-parameter-group`](../../../cli/latest/reference/rds/modify-db-parameter-group.md "../../../cli/latest/reference/rds/modify-db-parameter-group.md") command with the

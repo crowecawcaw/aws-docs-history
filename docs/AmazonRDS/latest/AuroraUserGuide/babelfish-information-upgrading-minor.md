@@ -7,8 +7,8 @@ minor version after its release. For example, the version label for the first
 release of Aurora PostgreSQL 13.4 was Aurora PostgreSQL 13.4.0. Several patches for that
 minor version have been released to date, including Aurora PostgreSQL 13.4.1, 13.4.2,
 and 13.4.4. You can find the patches available for each Aurora PostgreSQL version in the
-**Patch releases** list at the top of the Aurora PostgreSQL release
-notes for that version. For an example, see [PostgreSQL 14.3](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md#AuroraPostgreSQL.Updates.20180305.143X "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md#AuroraPostgreSQL.Updates.20180305.143X") in the _Release Notes for Aurora PostgreSQL_.
+**Patch releases** list on the Aurora PostgreSQL release
+notes page for that version. For an example, see [PostgreSQL 14.3](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md#AuroraPostgreSQL.Updates.20180305.143X "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md#AuroraPostgreSQL.Updates.20180305.143X") in the _Release Notes for Aurora PostgreSQL_.
 
 If your Aurora PostgreSQL DB cluster is configured with the **Auto minor
 version upgrade** option, your Babelfish for Aurora PostgreSQL DB cluster is upgraded

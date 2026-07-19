@@ -59,7 +59,7 @@ The following example shows the **Add widget** window with the metrics.
 specific metric.
 
 The selected metrics appear on your dashboard. 8. (Optional) If you want to modify or delete your dashboard, choose the
-settings icon on the upper right of the widget, and then select one of the following actions in the menu.
+settings icon on the widget, and then select one of the following actions in the menu.
 
     * **Edit** – Modify the metrics list in the window. Choose
      **Update widget** after you select the metrics for

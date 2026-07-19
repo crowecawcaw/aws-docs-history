@@ -15,7 +15,7 @@ with the DB cluster parameter group.
 4. For **Parameter group actions**, choose
    **Edit**.
 5. Change the values of the parameters you want to modify. You can scroll through the
-   parameters using the arrow keys at the top right of the dialog box.
+   parameters using the pagination controls.
 
 You can't change values in a default parameter group. 6. Choose **Save changes**. 7. Reboot the primary (writer) DB instance in the cluster to apply
 the changes to it. 8. Then reboot the reader DB instances to apply the changes to them.

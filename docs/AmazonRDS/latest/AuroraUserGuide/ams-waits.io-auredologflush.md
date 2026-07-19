@@ -79,9 +79,9 @@ MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database
 2. In the navigation pane, choose **Performance Insights**.
 3. Choose your DB instance.
 4. In **Database load**, choose **Slice by wait**.
-5. At the bottom of the page, choose **Top SQL**.
+5. Choose the **Top SQL** tab.
 
-The queries at the top of the list are causing the highest load on the database.
+The queries listed first are causing the highest load on the database.
 
 ### Group your write operations
 

@@ -19,8 +19,7 @@ For the region, DB engine, and instance class support information for this featu
 
 The fields to set the time period and add one or more tags to the performance analysis report are displayed.
 
-![Performance Insights dashboard showing fields to create analysis report.](images/PI_CreateAnalysisReport.png) 5. Choose the time period. If you set a time period in the **Relative range** or **Absolute range**
-in the upper right, you can only enter or select the analysis report date and time within this time period.
+![Performance Insights dashboard showing fields to create analysis report.](images/PI_CreateAnalysisReport.png) 5. Choose the time period. If you set a time period in the **Relative range** or **Absolute range**, you can only enter or select the analysis report date and time within this time period.
 If you select the analysis period outside of this time period, an error message displays.
 
 To set the time period, you can do any of the following:

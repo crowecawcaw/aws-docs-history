@@ -60,7 +60,7 @@ to reduce those events.
 4. In the **Database load** chart, choose **Slice by wait**.
 5. Underneath the **Database load** chart, choose **Top SQL**.
 
-The chart lists the SQL queries that are responsible for the load. Those at the top of the list are most
+The chart lists the SQL queries that are responsible for the load. Those listed first are most
 responsible. To resolve a bottleneck, focus on these statements.
 
 For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze

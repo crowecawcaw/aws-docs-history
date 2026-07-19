@@ -20,7 +20,7 @@ procedures work for creating read replicas from either encrypted or unencrypted 
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the top-right corner of the AWS Management Console, select the AWS Region that hosts your source DB cluster.
+2. In the AWS Management Console, select the AWS Region that hosts your source DB cluster.
 3. In the navigation pane, choose **Databases**.
 4. Choose the DB cluster for which you want to create a cross-Region read replica.
 5. For **Actions**, choose **Create cross-Region read replica**.

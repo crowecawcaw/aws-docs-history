@@ -57,7 +57,7 @@ the _Amazon CloudWatch User Guide._
 4. On the **Visual editor** tab, choose **Choose
    a service**, and then choose **CloudWatch
    Logs**.
-5. For **Actions**, choose **Expand all** (on the right), and then choose the
+5. For **Actions**, choose **Expand all**, and then choose the
    Amazon CloudWatch Logs permissions needed for the IAM policy.
 
 Ensure that the following permissions are selected:

@@ -48,7 +48,7 @@ you can use the information to purchase an offering as shown in the following pr
    choose **Reserved instances**.
 3. ###### Important
 
-Before proceeding, verify that you are in the correct AWS Region. Reserved DB instances are Region-specific and cannot be transferred between Regions. Check the Region selector in the upper-right corner of the console to ensure you are purchasing the reserved instance in the intended Region. 4. Choose **Purchase reserved DB instance**. 5. For **Product description**, choose the DB engine and licensing type. 6. For **DB instance class**, choose the DB instance class. 7. For **Multi-AZ deployment**, choose whether you want a
+Before proceeding, verify that you are in the correct AWS Region. Reserved DB instances are Region-specific and cannot be transferred between Regions. Check the Region selector in the console to ensure you are purchasing the reserved instance in the intended Region. 4. Choose **Purchase reserved DB instance**. 5. For **Product description**, choose the DB engine and licensing type. 6. For **DB instance class**, choose the DB instance class. 7. For **Multi-AZ deployment**, choose whether you want a
 Single-AZ or Multi-AZ DB instance deployment.
 
 ###### Note
@@ -78,7 +78,7 @@ following procedure.
 
 The reserved DB instances for your account appear. To see detailed information about a particular reserved DB
 instance, choose that instance in the list. You can then see detailed information about that instance in the
-detail pane at the bottom of the console.
+detail pane.
 You can use the AWS CLI to work with reserved DB instances as shown in the following examples.
 
 ###### Example of getting available reserved DB instance offerings

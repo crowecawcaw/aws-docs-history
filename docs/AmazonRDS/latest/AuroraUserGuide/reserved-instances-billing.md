@@ -5,8 +5,8 @@ You can view the billing for your reserved DB instances in the Billing Dashboard
 ###### To view reserved DB instance billing
 
 1. Sign in to the AWS Management Console.
-2. From the **account menu** at the upper right, choose **Billing Dashboard**.
-3. Choose **Bill Details** at the upper right of the dashboard.
+2. From the **account menu**, choose **Billing Dashboard**.
+3. Choose **Bill Details**.
 4. Under **AWS Service Charges**, expand **Relational Database Service**.
 5. Expand the AWS Region where your reserved DB instances are, for example **US West
    (Oregon)**.

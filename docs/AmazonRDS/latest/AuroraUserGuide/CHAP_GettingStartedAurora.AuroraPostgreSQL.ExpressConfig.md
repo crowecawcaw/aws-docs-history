@@ -59,9 +59,9 @@ To create with express configuration using the console:
 ###### To create with express configuration using the console
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the AWS Management Console, choose the AWS Region in which you want to create the DB cluster.
+2. In the AWS Management Console, choose the AWS Region in which you want to create the DB cluster.
 3. In the navigation pane, choose Databases.
-4. On the Welcome to Aurora and RDS page, locate the Create with express configuration in seconds section on the left side, and choose Create.
+4. On the Welcome to Aurora and RDS page, locate the Create with express configuration in seconds section, and choose Create.
 
 ![The Welcome to Aurora and RDS page showing the Create with express configuration section.](images/aurora-express-config-image1.png) 5. Review pre-configured settings in the Create with express configuration dialog.
 
