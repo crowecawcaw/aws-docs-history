@@ -187,13 +187,14 @@ To use the AWS managed key assigned to your account, remove
 the `-KeyId` parameter from the
 command.
 
-Here is an example that uses an obfuscated name (3l3vat3131) for a
-password parameter and an AWS managed key.
+The following example creates a `SecureString` parameter
+named `/myapp/dev/vendor/merchant-id` with a merchant
+ID as the encrypted value and an AWS managed key.
 
 ```
 Write-SSMParameter `
-    -Name "/Finance/Payroll/3l3vat3131" `
-    -Value "P@sSwW)rd" `
+    -Name "/myapp/dev/vendor/merchant-id" `
+    -Value "merchant-739482" `
     -Type "SecureString"`
     -Tags $tag
 ```

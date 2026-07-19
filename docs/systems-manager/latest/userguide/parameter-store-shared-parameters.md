@@ -42,7 +42,7 @@ your account:
 - To share a parameter, you must own it in your AWS account. You can't
   share a parameter that has been shared with you.
 - To share a parameter, it must be in the advanced parameter tier. For
-  information about parameter tiers, see [Managing tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md"). For
+  information about parameter tiers, see [Choosing parameter tiers in Parameter Store](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md"). For
   information about changing an existing standard parameter to an advanced
   parameter, see [Changing a standard parameter to an advanced parameter](parameter-store-advanced-parameters-enabling.md "parameter-store-advanced-parameters-enabling.md").
 - To share a `SecureString` parameter, it must be encrypted

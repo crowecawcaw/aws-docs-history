@@ -1,8 +1,8 @@
-# Understanding parameter types
+# Parameter Store reference
 
 A _parameter_ is any piece of data stored in Parameter Store, such as a block
-of text, a list of names, an AMI ID, a license key, and so on. You can
-centrally and securely reference this data in your scripts, commands, and SSM
+of text, a list of names, an AMI ID, a merchant ID, or another configuration
+value. You can centrally reference this data in your scripts, commands, and SSM
 documents.
 
 When you reference a parameter, you specify the parameter name using the following
@@ -47,30 +47,16 @@ values, as shown in the following examples.
 
 ## Parameter type: SecureString
 
-The value of a `SecureString` parameter is any sensitive data that
-needs to be stored and referenced in a secure manner. If you have data that you
-don't want users to alter or reference in plaintext, such as lightweight secrets or license
-keys, create those parameters using the `SecureString` data
-type.
+Use `SecureString` for configuration values that require encryption, such as service endpoints and account identifiers. For secrets such as database credentials, API keys, or tokens, we recommend AWS Secrets Manager, which provides purpose built security controls including automatic rotation and cross-region replication.
 
-We recommend using `SecureString` parameters for the following
-scenarios:
+Only the parameter value is encrypted. The parameter name, description, and other
+metadata aren't encrypted.
 
-- You want to use data/parameters across AWS services without exposing the
-  values as plaintext in commands, functions, agent logs, or CloudTrail logs.
-- You want to control who has access to sensitive data.
-- You want to be able to audit when sensitive data is accessed
-  (CloudTrail).
-- You want to encrypt your sensitive data, and you want to bring your own
-  encryption keys to manage access.
-
-You can use the `SecureString` parameter type for textual data that you
-want to encrypt, such as lightweight secrets that don't require rotation, confidential configuration
-data, or any other types of data that you want to protect. `SecureString`
-data is encrypted and decrypted using an AWS KMS key. You can use either a default KMS
-key provided by AWS or create and use your own AWS KMS key. (Use your own
-AWS KMS key if you want to restrict user access to `SecureString`
-parameters. For more information, see [IAM permissions for using AWS default keys and customer managed keys](sysman-paramstore-access.md#ps-kms-permissions "sysman-paramstore-access.md#ps-kms-permissions").)
+Parameter Store encrypts and decrypts `SecureString` parameter values
+using an AWS KMS key. You can use the default AWS managed key for
+Parameter Store or a customer managed key. Use a customer managed key when you need to restrict
+which principals can decrypt particular parameters. For more information, see
+[Encrypting and decrypting parameters using AWS KMS keys](parameter-store-setting-up.md#ps-kms-permissions "parameter-store-setting-up.md#ps-kms-permissions").
 
 ###### Important
 
@@ -84,33 +70,39 @@ Note the following important information.
   encrypted. Parameter names, descriptions, and other properties aren't
   encrypted.
 
-You can also use `SecureString` parameters with other AWS services.
-In the following example, the Lambda function retrieves a `SecureString`
-parameter by using the [GetParameters](../APIReference/API_GetParameters.md "../APIReference/API_GetParameters.md") API.
+You can use `SecureString` parameters with other
+AWS services. The following Lambda function retrieves an encrypted merchant ID
+from the `/myapp/dev/vendor/merchant-id` parameter. The function
+uses the value without writing it to the function logs or returning it in the
+response.
 
 ```
 import json
 import boto3
-ssm = boto3.client('ssm', 'us-east-2')
-def get_parameters():
-    response = ssm.get_parameters(
-        Names=['LambdaSecureString'],WithDecryption=True
-    )
-    for parameter in response['Parameters']:
-        return parameter['Value']
+
+ssm = boto3.client("ssm", region_name="us-east-1")
 
 def lambda_handler(event, context):
-    value = get_parameters()
-    print("value1 = " + value)
-    return value  # Echo back the first key value
+    response = ssm.get_parameter(
+        Name="/myapp/dev/vendor/merchant-id",
+        WithDecryption=True
+    )
 
+    merchant_id = response["Parameter"]["Value"]
+
+    # Use merchant_id when communicating with the vendor system.
+    # Don't write the value to logs or include it in the response.
+
+    return {
+        "statusCode": 200,
+        "body": json.dumps("Vendor configuration retrieved.")
+    }
 ```
 
 ###### AWS KMS encryption and pricing
 
-If you choose the `SecureString` parameter type when
-you create your parameter, Systems Manager uses AWS KMS to encrypt the parameter
-value.
+When you create a `SecureString` parameter, Systems Manager uses
+AWS KMS to encrypt the parameter value.
 
 ###### Important
 
@@ -118,21 +110,128 @@ Parameter Store only supports [symmetric encryption KMS keys](../../../kms/lates
 determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](../../../kms/latest/developerguide/find-symm-asymm.md "../../../kms/latest/developerguide/find-symm-asymm.md") in the
 _AWS Key Management Service Developer Guide_
 
-There is no charge from Parameter Store to create a `SecureString` parameter, but charges for use of AWS KMS encryption do
-apply. For information, see [AWS Key Management Service
-pricing](https://aws.amazon.com/kms/pricing "https://aws.amazon.com/kms/pricing").
+There is no charge from Parameter Store to create a
+`SecureString` parameter, but charges for using AWS KMS can apply.
+For more information, see
+[AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing "https://aws.amazon.com/kms/pricing").
 
-For more information about AWS managed keys and customer managed keys, see [AWS Key Management Service
+For more information about AWS managed keys and customer managed keys, see
+[AWS Key Management Service
 Concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") in the _AWS Key Management Service Developer Guide_. For more
-information about Parameter Store and AWS KMS encryption, see [How
-AWS Systems Manager Parameter Store Uses AWS KMS](../../../kms/latest/developerguide/services-parameter-store.md "../../../kms/latest/developerguide/services-parameter-store.md").
+information about how Parameter Store uses AWS KMS, see
+[How
+AWS Systems Manager Parameter Store uses AWS KMS](../../../kms/latest/developerguide/services-parameter-store.md "../../../kms/latest/developerguide/services-parameter-store.md").
 
 ###### Note
 
-To view an AWS managed key, use the AWS KMS `DescribeKey`
-operation. This AWS Command Line Interface (AWS CLI) example uses `DescribeKey` to view
-an AWS managed key.
+To view the default AWS managed key for Parameter Store, run the
+following command.
 
 ```
-aws kms describe-key --key-id alias/aws/ssm
+aws kms describe-key \
+    --region us-east-1 \
+    --key-id alias/aws/ssm
 ```
+
+## Parameter name constraints
+
+Use the information in this topic to help you specify valid values for
+parameter names when you create a parameter.
+
+This information supplements the details in the topic [PutParameter](../APIReference/API_PutParameter.md "../APIReference/API_PutParameter.md") in the
+_AWS Systems Manager API Reference_, which also provides information about
+the values **AllowedPattern**, **Description**, **KeyId**,
+**Overwrite**, **Type**, and **Value**.
+
+The requirements and constraints for parameter names include the
+following:
+
+- **Case sensitivity**: Parameter names are
+  case sensitive.
+- **Spaces**: Parameter names can't include
+  spaces.
+- **Valid characters**: Parameter names can
+  consist of the following symbols and letters only:
+  `a-zA-Z0-9_.-`
+
+In addition, the slash character ( / ) is used to delineate
+hierarchies in parameter names. For example:
+`/Dev/Production/East/Project-ABC/MyParameter`
+
+- **Valid AMI format**: When you choose
+  `aws:ec2:image` as the data type for a
+  `String` parameter, the ID you enter must validate for
+  the AMI ID format `ami-12345abcdeEXAMPLE`.
+- **Fully qualified**: When you create or
+  reference a parameter in a hierarchy, include a leading forward slash
+  character (/) . When you reference a parameter that is part of a
+  hierarchy, specify the entire hierarchy path including the initial slash
+  (/).
+
+  - Fully qualified parameter names:
+    `MyParameter1`,
+    `/MyParameter2`,
+    `/Dev/Production/East/Project-ABC/MyParameter`
+  - Not fully qualified parameter name:
+    `MyParameter3/L1`
+
+- **Length**: The maximum length for a
+  parameter name that you specify is 1011 characters. This count of 1011
+  characters includes the characters in the ARN that precede the name you
+  specify, such as the 45 characters in
+  `arn:aws:ssm:us-east-2:111122223333:parameter/`.
+- **Prefixes**: A parameter name can't be
+  prefixed with "`aws`" or "`ssm`"
+  (case-insensitive). For example, attempts to create parameters with the
+  following names fail with an exception:
+
+  - `awsTestParameter`
+  - `SSM-testparameter`
+  - `/aws/testparam1`
+
+###### Note
+
+When you specify a parameter in an SSM document, command, or
+script, include `ssm` as part of the syntax. For example,
+{{ssm:`parameter-name`}} and {{
+ ssm:`parameter-name` }}, such as
+`{{ssm:MyParameter}}`, and `{{ ssm:MyParameter
+ }}.`
+
+- **Uniqueness**: A parameter name must be
+  unique within an AWS Region. For example, Systems Manager treats the following
+  as separate parameters, if they exist in the same Region:
+
+  - `/Test/TestParam1`
+  - `/TestParam1`
+    The following examples are also unique:
+
+  - `/Test/TestParam1/Logpath1`
+  - `/Test/TestParam1`
+    The following examples, however, if in the same Region, aren't
+    unique:
+
+  - `/TestParam1`
+  - `TestParam1`
+
+- **Hierarchy depth**: If you specify a
+  parameter hierarchy, the hierarchy can have a maximum depth of fifteen
+  levels. You can define a parameter at any level of the hierarchy. Both
+  of the following examples are structurally valid:
+
+  - `/Level-1/L2/L3/L4/L5/L6/L7/L8/L9/L10/L11/L12/L13/L14/parameter-name`
+  - `parameter-name`
+    Attempting to create the following parameter would fail with a
+    `HierarchyLevelLimitExceededException` exception:
+
+  - `/Level-1/L2/L3/L4/L5/L6/L7/L8/L9/L10/L11/L12/L13/L14/L15/L16/parameter-name`
+
+###### Important
+
+If a user has access to a path, then the user can access all levels of
+that path. For example, if a user has permission to access path
+`/a`, then the user can also access
+`/a/b`. Even if a user has explicitly been denied
+access in AWS Identity and Access Management (IAM) for parameter `/a/b`, they
+can still call the [GetParametersByPath](../APIReference/API_GetParametersByPath.md "../APIReference/API_GetParametersByPath.md") API operation recursively for
+`/a` and view `/a/b`.

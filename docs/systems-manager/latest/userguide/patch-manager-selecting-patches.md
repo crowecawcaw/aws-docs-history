@@ -499,17 +499,27 @@ scenario occurs:
   yet approved for installation per the
   `ApproveUntilDate` parameter's specified date.
 
-This means that the managed node is compliant in terms of Systems Manager
-operations, even though a critical patch from the previous month might
-not be installed. This same scenario can occur when using the
-`ApproveAfterDays` parameter. Because of the Microsoft
-superseded patch behavior, it is possible to set a number (generally
-greater than 30 days) so that patches for Windows Server are never installed
-if the latest available patch from Microsoft is released before the
-number of days in `ApproveAfterDays` has elapsed. Note that
-this system behavior doesn't apply if you have modified your Windows
-Group Policy Object (GPO) settings to make the superseded patch
-available on your managed nodes.
+###### Superseded patches can create a compliance gap
+
+Your managed node might report as compliant for Systems Manager operations
+even though a critical patch from the previous month is not
+installed. This scenario can also occur with the
+`ApproveAfterDays` parameter.
+
+Because of Microsoft's superseded patch behavior, you can set
+`ApproveAfterDays` to a value (generally greater than 30) so that patches for Windows Server are never installed if Microsoft
+releases the latest patch before that number of days has elapsed. In
+this situation, your managed node might report as compliant even
+though critical security patches are not installed.
+
+For example, set `ApproveAfterDays` to 45. If Microsoft
+releases a superseding patch on day 30, the system removes the
+original patch. The new patch is not approved until day 45, leaving a
+15-day window where neither patch is installed.
+
+This behavior doesn't apply if you have modified your Windows Group
+Policy Object (GPO) settings to make the superseded patch available
+on your managed nodes.
 
 ###### Note
 

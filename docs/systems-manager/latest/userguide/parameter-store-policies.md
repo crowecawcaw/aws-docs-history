@@ -3,7 +3,7 @@
 Parameter policies help you manage a growing set of parameters by allowing you to
 assign specific criteria to a parameter such as an expiration date or _time
 to live_. Parameter policies are especially helpful in forcing you to
-update or delete passwords and configuration data stored in Parameter Store, a tool in
+update or delete configuration data stored in Parameter Store, a tool in
 AWS Systems Manager. Parameter Store offers the following types of policies: `Expiration`,
 `ExpirationNotification`, and
 `NoChangeNotification`.
@@ -18,7 +18,7 @@ to the criteria you specified.
 ###### Note
 
 Parameter policies are available for parameters that use the advanced
-parameters tier. For more information, see [Managing tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
+parameters tier. For more information, see [Choosing parameter tiers in Parameter Store](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
 
 A parameter policy is a JSON array, as shown in the following table. You can
 assign a policy when you create a new advanced parameter, or you can apply a policy
@@ -29,7 +29,7 @@ policies.
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | **Expiration**             | This policy deletes the parameter. You can specify a specific<br>date and time by using either the `ISO_INSTANT`<br>format or the `ISO_OFFSET_DATE_TIME` format. To<br>change when you want the parameter to be deleted, update the<br>policy. Updating a *parameter<br>• doesn't affect<br>the expiration date or time of the policy attached to it. When<br>the expiration date and time is reached, Parameter Store deletes the<br>parameter.<br>NoteThis example uses the `ISO_INSTANT` format. You<br>can also specify a date and time by using the<br>`ISO_OFFSET_DATE_TIME` format. Here is an<br>example: `2019-11-01T22:13:48.87+10:30:00`<br>. | `<br>{<br>"Type": "Expiration",<br>"Version": "1.0",<br>"Attributes": {<br>"Timestamp": "2018-12-02T21:34:33.000Z"<br>}<br>}<br>`       |
 | **ExpirationNotification** | This policy initiates an event in Amazon EventBridge (EventBridge) that<br>notifies you about the expiration. By using this policy, you can<br>receive notifications before the expiration time is reached, in<br>units of days or hours.                                                                                                                                                                                                                                                                                                                                                                                                                | `<br>{<br>"Type": "ExpirationNotification",<br>"Version": "1.0",<br>"Attributes": {<br>"Before": "15",<br>"Unit": "Days"<br>}<br>}<br>` |
-| **NoChangeNotification**   | This policy initiates an event in EventBridge if a parameter has<br>*not<br>• been modified for a specified<br>period of time. This policy type is useful when, for example, a<br>password needs to be changed within a period of time.<br>This policy determines when to send a notification by reading<br>the `LastModifiedTime` attribute of the parameter. If<br>you change or edit a parameter, the system resets the<br>notification time period based on the new value of<br>`LastModifiedTime`.                                                                                                                                                  | `<br>{<br>"Type": "NoChangeNotification",<br>"Version": "1.0",<br>"Attributes": {<br>"After": "20",<br>"Unit": "Days"<br>}<br>}<br>`    |
+| **NoChangeNotification**   | This policy initiates an event in EventBridge if a parameter has<br>*not<br>• been modified for a specified<br>period of time. This policy type is useful when, for example, an<br>approved AMI ID needs to be reviewed or updated within a period of<br>time.<br>This policy determines when to send a notification by reading<br>the `LastModifiedTime` attribute of the parameter. If<br>you change or edit a parameter, the system resets the<br>notification time period based on the new value of<br>`LastModifiedTime`.                                                                                                                           | `<br>{<br>"Type": "NoChangeNotification",<br>"Version": "1.0",<br>"Attributes": {<br>"After": "20",<br>"Unit": "Days"<br>}<br>}<br>`    |
 
 You can assign multiple policies to a parameter. For example, you can assign
 `Expiration` and `ExpirationNotification` policies so that
@@ -38,13 +38,13 @@ parameter. You can assign a maximum of ten (10) policies to a parameter.
 
 The following example shows the request syntax for a [PutParameter](../APIReference/API_PutParameter.md "../APIReference/API_PutParameter.md") API request that
 assigns four policies to a new `SecureString` parameter named
-`ProdDB3`.
+`/myapp/prod/vendor/merchant-id`.
 
 ```
 {
-    "Name": "ProdDB3",
+    "Name": "/myapp/prod/vendor/merchant-id",
     "Description": "Parameter with policies",
-    "Value": "P@ssW*rd21",
+    "Value": "merchant-739482",
     "Type": "SecureString",
     "Overwrite": "True",
     "Policies": [
@@ -86,7 +86,7 @@ assigns four policies to a new `SecureString` parameter named
 ## Adding policies to an existing parameter
 
 This section includes information about how to add policies to an existing
-parameter by using the AWS Systems Manager console, the AWS Command Line Interface (AWS CLI), and AWS Tools for Windows PowerShell .
+parameter by using the AWS Systems Manager console, the AWS Command Line Interface (AWS CLI), and AWS Tools for Windows PowerShell.
 For information about how to create a new parameter that includes policies, see
 [Creating Parameter Store parameters in Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
 
@@ -165,14 +165,15 @@ aws ssm put-parameter
 
 ```
 
-Here is an example that includes an expiration policy that deletes
+The following example includes an expiration policy that deletes
 the parameter after 15 days. The example also includes a
 notification policy that generates an EventBridge event five (5) days
 before the parameter is deleted. Last, it includes a
 `NoChangeNotification` policy if no changes are made
-to this parameter after 60 days. The example uses an obfuscated name
-(`3l3vat3131`) for a password and an AWS Key Management Service
-AWS KMS key. For more information about AWS KMS keys, see
+to this parameter after 60 days. The example uses a parameter named
+`/myapp/prod/vendor/merchant-id` with a merchant
+ID as the encrypted value and an AWS Key Management Service AWS KMS key. For more
+information about AWS KMS keys, see
 [AWS Key Management Service Concepts](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk") in the
 _AWS Key Management Service Developer Guide_.
 
@@ -180,8 +181,8 @@ Linux & macOS
 
 ```
 aws ssm put-parameter \
-    --name "/Finance/Payroll/3l3vat3131" \
-    --value "P@sSwW)rd" \
+    --name "/myapp/prod/vendor/merchant-id" \
+    --value "merchant-739482" \
     --type "SecureString" \
     --overwrite \
     --policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2020-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]"
@@ -191,8 +192,8 @@ Windows
 
 ```
 aws ssm put-parameter ^
-    --name "/Finance/Payroll/3l3vat3131" ^
-    --value "P@sSwW)rd" ^
+    --name "/myapp/prod/vendor/merchant-id" ^
+    --value "merchant-739482" ^
     --type "SecureString" ^
     --overwrite ^
     --policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2020-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]"
@@ -293,19 +294,19 @@ Write-SSMParameter `
     -Overwrite
 ```
 
-Here is an example that includes an expiration policy that deletes
+The following example includes an expiration policy that deletes
 the parameter at midnight (GMT) on May 13, 2020. The example also
 includes a notification policy that generates an EventBridge event five (5)
 days before the parameter is deleted. Last, it includes a
 `NoChangeNotification` policy if no changes are made
-to this parameter after 60 days. The example uses an obfuscated name
-(`3l3vat3131`) for a password and an
-AWS managed key.
+to this parameter after 60 days. The example uses a parameter named
+`/myapp/prod/vendor/merchant-id` with a merchant
+ID as the encrypted value and an AWS managed key.
 
 ```
 Write-SSMParameter `
-    -Name "/Finance/Payroll/3l3vat3131" `
-    -Value "P@sSwW)rd" `
+    -Name "/myapp/prod/vendor/merchant-id" `
+    -Value "merchant-739482" `
     -Type "SecureString" `
     -Policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" `
     -Overwrite

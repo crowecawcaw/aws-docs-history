@@ -179,11 +179,10 @@ using the following commands:
 ###### Example 2: Decrypt a `SecureString` parameter value
 
 The next example command uses a `SecureString` parameter named
-**SecurePassword**. The command used in the
+**SecureMerchantId**. The command used in the
 `parameters` field retrieves and decrypts the value of the
-`SecureString` parameter, and then resets the local
-administrator password without having to pass the password in clear
-text.
+`SecureString` parameter without including the plaintext value
+directly in the command.
 
 Linux
 
@@ -192,7 +191,7 @@ aws ssm send-command \
         --document-name "AWS-RunShellScript" \
         --document-version "1" \
         --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" \
-        --parameters '{"commands":["secure=$(aws ssm get-parameters --names SecurePassword --with-decryption --query Parameters[0].Value --output text --region us-east-2)","echo $secure | passwd myuser --stdin"]}' \
+        --parameters '{"commands":["merchant_id=$(aws ssm get-parameters --names SecureMerchantId --with-decryption --query Parameters[0].Value --output text --region us-east-2)","test -n "$merchant_id" && echo Retrieved SecureString parameter value"]}' \
         --timeout-seconds 600 \
         --max-concurrency "50" \
         --max-errors "0" \
@@ -206,7 +205,7 @@ aws ssm send-command ^
         --document-name "AWS-RunPowerShellScript" ^
         --document-version "1" ^
         --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" ^
-        --parameters "commands=['$secure = (Get-SSMParameterValue -Names SecurePassword -WithDecryption $True).Parameters[0].Value','net user administrator $secure']" ^
+        --parameters "commands=['$merchantId = (Get-SSMParameterValue -Names SecureMerchantId -WithDecryption $True).Parameters[0].Value','if ($merchantId) { Write-Host ''Retrieved SecureString parameter value'' }']" ^
         --timeout-seconds 600 ^
         --max-concurrency "50" ^
         --max-errors "0" ^
@@ -268,31 +267,31 @@ passing it to Run Command, as shown in the following examples.
 Linux & macOS
 
 ```
-value=$(aws ssm get-parameters --names `parameter-name` --with-decryption)
+merchant_id=$(aws ssm get-parameters --names `parameter-name` --with-decryption --query Parameters[0].Value --output text)
 ```
 
 ```
 aws ssm send-command \
-    --name AWS-JoinDomain \
-    --parameters password=`$value` \
-    --instance-id `instance-id`
+    --document-name AWS-RunShellScript \
+    --parameters commands="test \"$merchant_id\" != \"\" && case \"$merchant_id\" in merchant-*) echo Merchant ID value retrieved ;; *) echo Unexpected merchant ID value; exit 1 ;; esac" \
+    --instance-ids `instance-id`
 ```
 
 Windows
 
 ```
 aws ssm send-command ^
-    --name AWS-JoinDomain ^
-    --parameters password=`$value` ^
-    --instance-id `instance-id`
+    --document-name AWS-RunPowerShellScript ^
+    --parameters commands="$merchantId = (Get-SSMParameterValue -Names `parameter-name` -WithDecryption $True).Parameters[0].Value; if ($merchantId -like 'merchant-*') { Write-Host 'Merchant ID value retrieved' } else { Write-Host 'Unexpected merchant ID value'; exit 1 }" ^
+    --instance-ids `instance-id`
 ```
 
 Powershell
 
 ```
-$`secure` = (Get-SSMParameterValue -Names `parameter-name` -WithDecryption $True).Parameters[0].Value | ConvertTo-SecureString -AsPlainText -Force
+$`merchantId` = (Get-SSMParameterValue -Names `parameter-name` -WithDecryption $True).Parameters[0].Value
 ```
 
 ```
-$cred = New-Object System.Management.Automation.PSCredential -argumentlist `user-name`,$`secure`
+if ($`merchantId` -like "merchant-*") { Write-Host "Merchant ID value retrieved" } else { Write-Host "Unexpected merchant ID value"; exit 1 }
 ```

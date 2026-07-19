@@ -16,7 +16,7 @@ user with access to S3 bucket can view the plaintext values of those secrets. Fo
 reason, we recommend creating and using `SecureString` parameters to encrypt
 sensitive data you use in your Systems Manager operations.
 
-For more information, see [Restricting access to Parameter Store parameters using IAM policies](sysman-paramstore-access.md "sysman-paramstore-access.md").
+For more information, see [Managing access to Parameter Store parameters using IAM policies](parameter-store-setting-up.md#sysman-paramstore-access "parameter-store-setting-up.md#sysman-paramstore-access").
 
 ###### Execution history retention
 

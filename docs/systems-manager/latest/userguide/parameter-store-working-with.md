@@ -2,13 +2,16 @@
 
 Parameter Store lets you create, organize, and manage configuration data and secrets that your applications use at runtime.
 
-This section descrcribes how to work with parameters throughout their lifecycle–creating and organizing them, applying policies, managing versions and labels, and controlling access. You can perform these tasks using the AWS Management Console, the AWS Command Line Interface, or AWS Tools for Windows PowerShell.
+In this section, you learn how to work with parameters throughout their lifecycle–creating and organizing them,
+applying policies, managing versions and labels, and controlling access. You can perform these tasks using the AWS Management Console, the AWS Command Line Interface, or AWS Tools for Windows PowerShell.
 
-Parameter Store centralizes configuration data such as database connection strings, API keys, and environment variables, so you can update values without modifying application code. Parameters are stored as key-value pairs, can be organized hierarchically, and support versioning and optional encryption with AWS Key Management Service.
+Parameter Store centralizes configuration data such as environment variables, service endpoint URLs, resource identifiers, approved AMI IDs,
+and application tuning parameters, so you can update values without modifying application code. Parameters are stored as key-value pairs,
+can be organized hierarchically, and support versioning and optional encryption with AWS Key Management Service.
 
 ###### Topics
 
-- [Understanding parameter types](what-is-a-parameter.md "what-is-a-parameter.md")
+- [Creating Parameter Store parameters in Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md")
 - [Searching for Parameter Store parameters in Systems Manager](parameter-search.md "parameter-search.md")
 - [Assigning parameter policies in Parameter Store](parameter-store-policies.md "parameter-store-policies.md")
 - [Working with parameter hierarchies in Parameter Store](sysman-paramstore-hierarchies.md "sysman-paramstore-hierarchies.md")

@@ -6,19 +6,18 @@ version and increments the version number by one. A label can help you remember 
 purpose of a parameter version when there are multiple versions.
 
 For example, let's say you have a parameter called
-`/MyApp/DB/ConnectionString`. The value of the parameter is a
-connection string to a MySQL server in a local database in a test environment. After
-you finish updating the application, you want the parameter to use a connection
-string for a production database. You change the value of
-`/MyApp/DB/ConnectionString`. Systems Manager automatically creates version two
-with the new connection string. To help you remember the purpose of each version,
+`/MyApp/Images/ApprovedAMI`. The value of the parameter is an
+approved AMI ID for a test environment. After you finish testing the image, you want
+the parameter to use the approved AMI ID for a production environment. You change the
+value of `/MyApp/Images/ApprovedAMI`. Systems Manager automatically creates version
+two with the new AMI ID. To help you remember the purpose of each version,
 you attach a label to each parameter. For version one, you attach the label
 _Test_ and for version two you attach the label
 _Production_.
 
 You can move labels from one version of a parameter to another version. For
-example, if you create version 3 of the `/MyApp/DB/ConnectionString`
-parameter with a connection string for a new production database, then you can move
+example, if you create version 3 of the `/MyApp/Images/ApprovedAMI`
+parameter with a new approved AMI ID, then you can move
 the _Production_ label from version 2 of the parameter to version
 3 of the parameter.
 
@@ -206,10 +205,10 @@ parameter by version number.
 aws ssm get-parameters --names "`parameter-name`:`version-number`"
 ```
 
-Here is an example.
+The following example shows the command.
 
 ```
-aws ssm get-parameters --names "/Production/SQLConnectionString:3"
+aws ssm get-parameters --names "/Production/ApprovedAMI:3"
 ```
 
 5. Run one of the following commands to attach a label to a version
@@ -230,14 +229,14 @@ parameter**
 aws ssm label-parameter-version --name `parameter-name` --parameter-version `version-number` --labels `label-name`
 ```
 
-Here are some examples.
+The following examples show the commands.
 
 ```
-aws ssm label-parameter-version --name /config/endpoint --labels production east-region finance
+aws ssm label-parameter-version --name /config/approved-ami --labels production east-region finance
 ```
 
 ```
-aws ssm label-parameter-version --name /config/endpoint --parameter-version 3 --labels MySQL-test
+aws ssm label-parameter-version --name /config/approved-ami --parameter-version 3 --labels image-test
 ```
 
 ###### Note

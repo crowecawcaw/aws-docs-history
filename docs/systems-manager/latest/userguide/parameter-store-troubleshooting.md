@@ -1,7 +1,77 @@
 # Troubleshooting Parameter Store
 
-Use the following information to help you troubleshoot problems with Parameter Store, a tool
-in AWS Systems Manager.
+Use the following information to help you troubleshoot problems with Parameter Store, a tool in AWS Systems Manager.
+
+## Troubleshooting throughput issues
+
+Use the following information to troubleshoot throughput issues in Parameter Store. For information about throughput quotas and why throttling occurs,
+see [Optimizing throughput in Parameter Store](parameter-store-throughput.md#parameter-store-throughput-optimizing "parameter-store-throughput.md#parameter-store-throughput-optimizing").
+
+### Application receives `ThrottlingException` or `RateExceeded` errors
+
+**Problem**: Your application logs or CloudWatch Logs show an
+error such as the following when calling `GetParameter`, `GetParameters`,
+or `GetParametersByPath`:
+
+```
+An error occurred (ThrottlingException) when calling the GetParameters operation (reached max retries: 4): Rate exceeded
+```
+
+- **Solution**: This error means your combined call rate
+  for these API actions exceeded your account throughput quota for the current
+  AWS Region. Take one or more of the following actions:
+
+  - Reduce how often your application calls Parameter Store. Cache parameter values in
+    your application instead of retrieving them on every invocation or request.
+
+  For more information, see [Parameters and Secrets Lambda Extension](ps-integration-lambda-extensions.md "ps-integration-lambda-extensions.md") and [Using the AWS Parameter and Secrets Lambda extension to cache parameters and secrets](https://aws.amazon.com/blogs/compute/using-the-aws-parameter-and-secrets-lambda-extension-to-cache-parameters-and-secrets/ "https://aws.amazon.com/blogs/compute/using-the-aws-parameter-and-secrets-lambda-extension-to-cache-parameters-and-secrets/").
+  - Use `GetParameters` to retrieve multiple known parameter names in
+    a single call, rather than issuing separate `GetParameter` calls or
+    a `GetParametersByPath` call.
+  - Stagger reads when many instances, containers, or functions start at the same
+    time, such as during a deployment or a scaling event.
+  - If your application uses efficient request patterns and continues to
+    generate throttling errors, enable higher throughput for your account and
+    AWS Region. You can enable and disable higher throughput at any time. The cost is determined by usage.
+    For more information, see [AWS Systems Manager Pricing for Parameter Store](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store "https://aws.amazon.com/systems-manager/pricing/#Parameter_Store").
+
+### Throttling occurs only on `DescribeParameters` calls
+
+**Problem**: Your application receives a
+`ThrottlingException` error on `DescribeParameters` calls, even though
+your `GetParameter`, `GetParameters`, and `GetParametersByPath`
+calls don't exceed the quota.
+
+- **Solution**: `DescribeParameters` has a
+  separate throughput limit from the other parameter retrieval actions: 3
+  TPS by default, or 10 TPS with higher throughput enabled. Making fewer
+  `GetParameter`, `GetParameters`, or
+  `GetParametersByPath` calls doesn't affect this limit.
+
+A common cause is calling `DescribeParameters` with a filter on an account
+that has a large number of parameters. The API paginates over all parameters in the
+account before applying the filter. Accounts with many parameters can exceed the
+`DescribeParameters` quota even when the filtered result set is
+small.
+
+Where possible, use `GetParametersByPath` against a specific
+hierarchy instead of `DescribeParameters` with a filter. You can also reduce the
+frequency of `DescribeParameters` calls in scripts and automation that run
+on a schedule.
+
+### No throttling error, but latency increases during deployments
+
+**Problem**: You don't see a `ThrottlingException`
+error in your logs, but your application experiences elevated latency or intermittent failures during
+deployments, restarts, or scaling events.
+
+- **Solution**: If your application or SDK retries
+  throttled requests automatically, a retry can succeed without ever surfacing a
+  throttling error. If your latency increases, check the retry count in the
+  logs or metrics of your SDK. A nonzero retry count on Parameter Store calls during these events indicates
+  you're approaching your throughput quota, even without a failure. Apply the
+  same optimization techniques described in [Optimizing throughput in Parameter Store](parameter-store-throughput.md#parameter-store-throughput-optimizing "parameter-store-throughput.md#parameter-store-throughput-optimizing") to reduce retries before
+  they become failures.
 
 ## Troubleshooting `aws:ec2:image` parameter creation
 
@@ -19,7 +89,7 @@ an `aws:ec2:image` parameter but receive an error message such as
   such as permissions for `ec2:RunInstances`,
   `ec2:DescribeImages`, and `ssm:GetParameter`,
   among others. Contact a user with administrator permissions in your
-  organzation to request the necessary permissions.
+  organization to request the necessary permissions.
 
 ### EventBridge reports the failure message "Unable to Describe Resource"
 

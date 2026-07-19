@@ -1,135 +1,136 @@
 # AWS Systems Manager Parameter Store
 
-Parameter Store enables you to securely store, organize, and retrieve simple configuration data at scale. It is designed to simplify configuration management across environments, allowing teams to standardize how applications access critical data without hardcoding values or relying on fragmented storage solutions.
+Parameter Store is a centralized configuration data store for named values called parameters. A _parameter_ is any piece of data
+stored in Parameter Store, such as a block of text, a list of names, an AMI ID, a license key, and so on. With Parameter Store, you can securely store, organize, and retrieve
+configuration data at scale.
 
-Beyond simple storage, Parameter Store provides versioning, access control through AWS Identity and Access Management (IAM), and seamless integration with other AWS services such as Amazon EC2, Lambda, and CloudFormation. This enables dynamic configuration updates without requiring code changes or redeployments, improving operational agility and reducing risk. With features like hierarchical naming, parameter policies, and change tracking, Parameter Store helps teams maintain consistency, enforce governance, and build more secure and maintainable systems.
+Parameter Store simplifies configuration management across environments. You can standardize how applications access critical data at runtime without hardcoding values
+or relying on fragmented storage solutions. In this way, you maintain consistency, enforce governance, and build more secure and maintainable systems.
 
-Parameter Store supports `String`,
-`StringList`, and `SecureString` parameter types. `String` and `StringList` parameter values are stored as plain text. `SecureString` parameters encrypt values using AWS Key Management Service, making them a practical choice for lightweight encrypted configuration values that don't require rotation or other advanced secret lifecycle capabilities. For more information about parameter types, see [Understanding parameter types](what-is-a-parameter.md "what-is-a-parameter.md")
+Parameter Store supports the following parameter types:
+
+- `String`
+
+Use this type for plain text values, such as environment names, endpoint URLs, or resource identifiers.
+
+- `StringList`
+
+Use this type for a comma-separated list of plain-text values. For example, you could store the value
+`subnet-123abc,subnet-456def,subnet-789ghi`.
+
+- `SecureString`
+
+Use `SecureString` for configuration values that require encryption, such as service endpoints and account identifiers. For secrets such as database credentials, API keys, or tokens, we recommend AWS Secrets Manager, which provides purpose built security controls including automatic rotation and cross-region replication.
+
+Parameter Store encrypts the values using AWS Key Management Service.
+For more information about parameter types, see [Parameter Store reference](what-is-a-parameter.md "what-is-a-parameter.md").
+
+## Where should I store my application data?
+
+Use the following table to choose a service for your application data.
 
 ###### Note
 
-If you manage credentials that require automatic rotation, cross-account access, or fine-grained audit logging, we recommend using [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md"). Secrets Manager is purpose-built for managing secrets such as database credentials, API keys, and supported third-party software-vended secrets. For more information, see [What is AWS Secrets Manager?](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") in the _AWS Secrets Manager User Guide_.
+If you manage credentials such as usernames, passwords, or any other secrets, we recommend using [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md"). Secrets Manager is purpose-built for managing secrets such as database credentials, API keys, and supported third-party software-vended secrets. For more information, see [What is AWS Secrets Manager?](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") in the _AWS Secrets Manager User Guide_.
 
-Here are some examples of the types of configuration data you can store and manage in Parameter Store:
-
-- **Database connection strings (non-rotating)** – jdbc:mysql://host:3306/appdb
-- **Application environment variables** – ENV=production, LOG\_LEVEL=debug
-- **Service endpoint URLs** – internal microservice endpoints or third-party base URLs
-- **Resource identifiers** – S3 bucket names, DynamoDB table names, ARNs
-- **Application tuning parameters** – cache TTLs, batch sizes, polling intervals
-
-###### Note
-
-We _don't_ recommend using Parameter Store for the following types of configuration data:
-
-- Feature flags
-- Operational levers like timeouts
-- Allow lists and block lists
-- Circuit breakers
-- Dynamic configurations
-  For these types of configuration data, use AWS AppConfig. For more information, see [What is AWS AppConfig?](../../../appconfig/latest/userguide/what-is-appconfig.md "../../../appconfig/latest/userguide/what-is-appconfig.md").
+| Feature             | Parameter Store                                                                                                   | AWS AppConfig                                                                                          | AWS Secrets Manager                                                                                                                      |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Use cases           | • Static configuration<br>• Key-value storage without deployment or validation                                    | • Frequently changed application configuration<br>• Zero-downtime deployments<br>• Runtime experiments | • Credentials or any other secrets<br>• Encrypted data requiring automatic rotation, cross-account access, or fine-grained audit logging |
+| Typical data        | • Approved AMI IDs<br>• Environment variables<br>• Endpoint URLs<br>• Resource identifiers<br>• Tuning parameters | • Feature flags<br>• Operational toggles<br>• Tunable parameters<br>• Allow and deny lists             | • Database credentials<br>• API keys<br>• OAuth tokens<br>• Private keys and certificates                                                |
+| Encryption          | Optional with `SecureString` and AWS KMS                                                                          | AWS managed encryption at rest; optional additional customer managed key                               | AWS KMS encryption at rest with an AWS managed or customer managed key                                                                   |
+| Credential rotation | None                                                                                                              | Not applicable                                                                                         | Automatic, with native database integrations                                                                                             |
+| Cost                | Standard tier free; advanced tier and higher throughput billed                                                    | Billed per configuration request                                                                       | Billed per secret per month and per API call                                                                                             |
+| Deployment          | Versioning without pre-deployment validation or automatic rollback                                                | Gradual rollout, pre-deployment validation, and automatic rollback on CloudWatch Logs alarms           | Versioning with staging labels                                                                                                           |
 
 ## Parameter Store features
 
-Parameter Store includes the following features for managing parameters:
+Parameter Store supports the following features:
 
-- **Share parameters with other accounts**
+- **Centralized configuration updates**
+
+Update your configuration without code changes or redeployments, improving operational agility and
+reducing risk. For example, you can update /myapp/prod/inventory-service-endpoint to point to a new endpoint after migrating the inventory service.
+
+- **High-performance throughput option**
+
+Parameter Store provides a default throughput suitable for lower-scale workloads. For large or latency-sensitive applications
+that need higher request rates, you can enable high-throughput mode for an additional cost.
+
+If your application retrieves parameters frequently or at scale, evaluate throughput settings early to avoid throttling. For information about enabling
+high throughput, see [Managing Parameter Store throughput](parameter-store-throughput.md "parameter-store-throughput.md").
+
+- **Hierarchical parameter management**
+
+Use [parameter hierarchies](sysman-paramstore-hierarchies.md "sysman-paramstore-hierarchies.md")
+to group related parameters, making it easier to discover, manage, and filter them across environments and applications.
+For example, you can create the naming convention /env/computer-type/app/data, and then create application-specific parameters such as
+/dev/webserver/linux/approved-ami and /dev/webserver/windows/approved-ami. You can retrieve the path /dev/webserver to find all web server parameters
+for development environments, or /dev/webserver/linux to find only Linux image parameters.
+
+- **Versioning**
+
+Parameter Store retains the 100 most recent [versions](sysman-paramstore-versions.md "sysman-paramstore-versions.md") of each parameter.
+When you investigate operational issues, you can review and reconstruct previous values.
+
+- **Integration with IAM**
+
+Use IAM policies to determine whether an application can read, write, list, or delete parameters.
+For example, you could write an application role that can read parameters prefixed with
+/myapp/prod/\* but not /myapp/dev/\*. You could also grant a role permission to decrypt an encrypted parameter.
+
+- **Accessibility from other AWS services**
+
+You can reference parameter values from other AWS services. Here are some examples:
+
+    + Lambda functions can retrieve parameters and secrets using the
+     [Parameters and Secrets Lambda Extension](ps-integration-lambda-extensions.md "ps-integration-lambda-extensions.md").
+    + Amazon Elastic Container Service and AWS Fargate allow you to [inject environmental variables](../../../AmazonECS/latest/developerguide/secrets-envvar-ssm-paramstore.md "../../../AmazonECS/latest/developerguide/secrets-envvar-ssm-paramstore.md") whose values are managed
+     centrally in Parameter Store.
+    + AWS CloudFormation templates can reference [parameter values](../../../AWSCloudFormation/latest/UserGuide/dynamic-references-ssm.md "../../../AWSCloudFormation/latest/UserGuide/dynamic-references-ssm.md").
+    + AWS AppConfig enables you to create [configuration profiles that
+     reference parameters](../../../appconfig/latest/userguide/appconfig-creating-free-form-configuration-and-profile-create-console.md "../../../appconfig/latest/userguide/appconfig-creating-free-form-configuration-and-profile-create-console.md"), allowing you to safely deploy configuration changes using features such as
+     gradual rollouts, alarm-based rollbacks, and built-in data validation.
+    + AWS CodeBuild enables you to [define environmental variables](../../../codebuild/latest/userguide/build-spec-ref.md#build-spec.env.parameter-store "../../../codebuild/latest/userguide/build-spec-ref.md#build-spec.env.parameter-store") whose values are dynamically retrieved
+     from Parameter Store at build time.
+
+- **Shared account access**
 
 Centralize configuration data in a single AWS account and share parameters with other accounts that need access. For more information, see [Working with shared parameters in Parameter Store](parameter-store-shared-parameters.md "parameter-store-shared-parameters.md").
 
-- **OS Patching**
+- **OS patching**
 
-Amazon EC2 lets you specify the operating system for new instances by [referencing a parameter instead of hardcoding an AMI (AMI) ID](../../../AWSEC2/latest/UserGuide/using-systems-manager-parameter-to-find-AMI.html.md "../../../AWSEC2/latest/UserGuide/using-systems-manager-parameter-to-find-AMI.html.md"). This approach ensures your instances automatically use the latest patched and updated images. AWS and operating system vendors provide [public parameters](parameter-store-finding-public-parameters.md "parameter-store-finding-public-parameters.md") that track current AMI versions, so you don't have to manage updates manually. You can also define your own parameters to reference a centrally managed golden AMI, making it easier to enforce consistent, approved configurations across your organization.
-
-- **Accessible from other AWS services**
-
-Other AWS services allow you to easily reference parameter values. Here are some examples:
-
-    + Lambda functions can retrieve parameters and secrets using the [Parameters and Secrets Lambda Extension](ps-integration-lambda-extensions.md "ps-integration-lambda-extensions.md").
-    + Amazon Elastic Container Service and AWS Fargate allow you to [inject environmental variables](../../../AmazonECS/latest/developerguide/secrets-envvar-ssm-paramstore.md "../../../AmazonECS/latest/developerguide/secrets-envvar-ssm-paramstore.md") whose values are managed centrally in parameter store.
-    + AWS CloudFormation templates can reference [parameter values](../../../AWSCloudFormation/latest/UserGuide/dynamic-references-ssm.md "../../../AWSCloudFormation/latest/UserGuide/dynamic-references-ssm.md").
-    + AWS AppConfig enables you to create [configuration profiles that reference parameters](../../../appconfig/latest/userguide/appconfig-creating-free-form-configuration-and-profile-create-console.md "../../../appconfig/latest/userguide/appconfig-creating-free-form-configuration-and-profile-create-console.md"), allowing you to safely deploy configuration changes using features such as gradual rollouts, alarm-based rollbacks, and built-in data validation.
-    + AWS CodeBuild allows you to [define environmental variables](../../../codebuild/latest/userguide/build-spec-ref.md#build-spec.env.parameter-store "../../../codebuild/latest/userguide/build-spec-ref.md#build-spec.env.parameter-store") whose values are dynamically retrieved from Parameter Store at build time.
-
-- **Parameter History**
-
-Parameter Store retains the 100 most recent [versions](sysman-paramstore-versions.md "sysman-paramstore-versions.md") of each parameter, so you can quickly review and reconstruct previous values when investigating operational issues.
+Amazon EC2 lets you specify the operating system for new instances by [referencing a parameter instead of
+hardcoding an AMI (AMI) ID](../../../AWSEC2/latest/UserGuide/using-systems-manager-parameter-to-find-AMI.html.md "../../../AWSEC2/latest/UserGuide/using-systems-manager-parameter-to-find-AMI.html.md"). This approach ensures your instances automatically use the latest patched and updated images.
+AWS and operating system vendors provide [public parameters](parameter-store-finding-public-parameters.md "parameter-store-finding-public-parameters.md") that track current AMI versions,
+so you don't have to manage updates manually. You can also define your own parameters to reference a centrally managed golden AMI,
+making it easier to enforce consistent, approved configurations across your organization.
 
 - **Events and notifications**
 
-Automate workflows in Parameter Store by subscribing to parameter [change events](sysman-paramstore-cwe.md "sysman-paramstore-cwe.md"). You can also use [change events](parameter-store-policies.md "parameter-store-policies.md") to enforce expiration and receive notifications when a parameter hasn’t been rotated within a specified timeframe.
+Automate workflows in Parameter Store by subscribing to parameter [change events](sysman-paramstore-cwe.md "sysman-paramstore-cwe.md"). You can also use
+[change events](parameter-store-policies.md "parameter-store-policies.md") to enforce expiration
+and receive notifications when a parameter hasn't been rotated within a specified timeframe.
 
-- **Organize parameters hierarchically**
+## Parameter tiers in Parameter Store
 
-Use [parameter hierarchies](sysman-paramstore-hierarchies.md "sysman-paramstore-hierarchies.md") to group related parameters, making it easier to discover, manage, and filter them across environments and applications.
+Parameter Store offers different parameter tiers that control storage limits: the maximum number and size of your parameters in an AWS account and Region.
+Configure each parameter individually to use either the standard tier or advanced tier.
 
-## Parameter tiers
-
-Parameter Store offers multiple parameter tiers that affect cost, scale, and performance. You individually configure parameters to use either the standard-parameter tier (the default tier) or the advanced-parameter tier.
-
-Use:
-
-- Standard parameters for most configuration data and low-scale workloads
-- Advanced parameters when you need higher limits, larger values, or parameter policies
-
-###### Important
-
-You can upgrade a parameter from standard to advanced, but you cannot downgrade it.
+You can mix standard and advanced parameters. For example, you can have up to 100,000 advanced parameters and 10,000 standard parameters
+in the same AWS account and Region. The following table describes the different features supported for each parameter type.
 
 The following table describes the differences between parameter tiers.
 
-| Feature                                                | Standard             | Advanced                                                                                                                                                                                                                            |
-| ------------------------------------------------------ | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Maximum parameters<br>(per AWS account and AWS Region) | 10,000               | 100,000                                                                                                                                                                                                                             |
-| Maximum value size                                     | 4 KB                 | 8 KB                                                                                                                                                                                                                                |
-| Parameter policies                                     | Not supported        | Supported<br>For more information, see [Assigning parameter policies in Parameter Store](parameter-store-policies.md "parameter-store-policies.md").                                                                                |
-| Share parameters across AWS accounts                   | Not supported        | Supported<br>For more information, see [Working with shared parameters in Parameter Store](parameter-store-shared-parameters.md "parameter-store-shared-parameters.md").                                                            |
-| Cost                                                   | No additional charge | Charges apply<br>For more information, see [AWS Systems Manager<br>Pricing for Parameter Store](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store "https://aws.amazon.com/systems-manager/pricing/#Parameter_Store"). |
+| Feature or use case                                    | Standard                                                                       | Advanced                                                                                                                                                                                                                            |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Use case                                               | Best for most configuration data and low-scale workloads. This is the default. | Best when you need higher limits, larger values, or parameter policies.                                                                                                                                                             |
+| Maximum parameters<br>(per AWS account and AWS Region) | 10,000                                                                         | 100,000                                                                                                                                                                                                                             |
+| Maximum value size                                     | 4 KB                                                                           | 8 KB                                                                                                                                                                                                                                |
+| Parameter policies                                     | Not supported                                                                  | Supported<br>For more information, see [Assigning parameter policies in Parameter Store](parameter-store-policies.md "parameter-store-policies.md").                                                                                |
+| Shareability across AWS accounts                       | Not supported                                                                  | Supported<br>For more information, see [Working with shared parameters in Parameter Store](parameter-store-shared-parameters.md "parameter-store-shared-parameters.md").                                                            |
+| Upgrade and downgrade capability                       | Upgradeable                                                                    | Not downgradeable                                                                                                                                                                                                                   |
+| Cost                                                   | No additional charge                                                           | Charges apply<br>For more information, see [AWS Systems Manager<br>Pricing for Parameter Store](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store "https://aws.amazon.com/systems-manager/pricing/#Parameter_Store"). |
 
-For more information about parameter tiers and their features, see [Managing tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
+Use standard parameters for most configuration data. Use advanced parameters only when you need capabilities that standard parameters don't support.
 
-For a complete list of Parameter Store quotas and limits, see [AWS Systems Manager endpoints and quotas](../../../general/latest/gr/ssm.md#parameter-store "../../../general/latest/gr/ssm.md#parameter-store") in the _AWS General Reference_.
-
-## Performance and throughput
-
-Parameter Store provides a default throughput suitable for lower scale workloads. For applications that require higher request rates, you can enable higher throughput.
-
-- Default throughput is sufficient for typical configuration retrieval patterns.
-- High-throughput mode supports significantly higher request rates for large-scale or latency-sensitive applications.
-- Additional charges apply when higher throughput is enabled.
-
-If your application retrieves parameters frequently or at scale, evaluate throughput settings early to avoid throttling. For information about enabling high-throughput, see [Changing Parameter Store throughput](parameter-store-throughput.md "parameter-store-throughput.md").
-
-## How to retrieve parameters
-
-You can retrieve parameters from Parameter Store using the AWS Management Console, AWS CLI, or AWS SDKs to call the following API actions:
-
-- [GetParameter](../APIReference/API_GetParameter.md "../APIReference/API_GetParameter.md")
-- [GetParameters](../APIReference/API_GetParameters.md "../APIReference/API_GetParameters.md")
-- [API\_GetParametersByPath](../APIReference/API_GetParametersByPath.md "../APIReference/API_GetParametersByPath.md")
-
-**AWS CLI**: The following table includes sample AWS CLI commands for Parameter Store.
-
-| Command                | Usage                                                   | Best For                                                                                                                                                                           |
-| ---------------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| get-parameter          | aws ssm get-parameter --name "`name`"                   | Fetching one specific parameter value.                                                                                                                                             |
-| get-parameter          | aws ssm get-parameter --name "`name`" --with-decryption | Fetching `SecureString` parameter types. Note – you must include the `--with-decryption` flag to see the plaintext value; otherwise, you will only receive the encrypted metadata. |
-| get-parameters         | aws ssm get-parameters --names "`name1`" "`name2`"      | Fetching up to 10 specific, unrelated parameters at once.                                                                                                                          |
-| get-parameters-by-path | aws ssm get-parameters-by-path --path "`/my/app/path/`" | Bulk retrieval of an entire environment's configuration.                                                                                                                           |
-| get-parameter-history  | aws ssm get-parameter-history --name "`name`"           | Checking how a value has changed over time.                                                                                                                                        |
-
-**SDKs (e.g., Boto3 for Python)**: Use methods like `get_parameter()` or `get_parameters_by_path()` within your application code to fetch values at runtime.
-
-**CDK and CloudFormation**:
-
-- **AWS CDK**: Use `valueForStringParameter` or `valueFromLookup` to read values during synthesis or deployment.
-- **CloudFormation**: Use dynamic references like `{{resolve:ssm:parameter-name:version}}` to inject values directly into templates.
-
-###### Note
-
-For most dynamic parameter references, you specify the parameter name by using the following convention:
-
-{{`ssm:`parameter-name``}}
-
-To get started with Parameter Store, see [Setting up Parameter Store](parameter-store-setting-up.md "parameter-store-setting-up.md").
+For a detailed comparison of standard and advanced parameters, see [Choosing parameter tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").

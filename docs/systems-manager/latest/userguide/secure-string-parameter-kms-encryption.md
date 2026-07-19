@@ -32,7 +32,7 @@ encryption with the [AWS Encryption SDK](../../../encryption-sdk/latest/develope
 convert a standard `SecureString` parameter to an advanced parameter, but
 you cannot convert an advanced parameter to a standard one. For more information
 about the difference between standard and advanced `SecureString`
-parameters, see [Managing tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
+parameters, see [Choosing parameter tiers in Parameter Store](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
 
 ###### Topics
 

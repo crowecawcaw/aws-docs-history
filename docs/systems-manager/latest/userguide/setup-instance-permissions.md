@@ -428,7 +428,7 @@ _[Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs.md ".
 To create IAM policies with permissions for additional Systems Manager tools,
 see the following resources:
 
-- [Restricting access to Parameter Store parameters using IAM policies](sysman-paramstore-access.md "sysman-paramstore-access.md")
+- [Managing access to Parameter Store parameters using IAM policies](parameter-store-setting-up.md#sysman-paramstore-access "parameter-store-setting-up.md#sysman-paramstore-access")
 - [Setting up Automation](automation-setup.md "automation-setup.md")
 - [Step 2: Verify or add instance permissions for Session Manager](session-manager-getting-started-instance-profile.md "session-manager-getting-started-instance-profile.md")
 

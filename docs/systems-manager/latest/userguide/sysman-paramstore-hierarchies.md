@@ -22,7 +22,7 @@ following:
 
 `/Environment/Type of computer/Application/Data`
 
-`/Dev/DBServer/MySQL/db-string13`
+`/Dev/WebServer/Linux/approved-ami`
 
 You can create a hierarchy with a maximum of 15 levels. We suggest that you
 create hierarchies that reflect an existing hierarchical structure in your
@@ -31,16 +31,16 @@ environment, as shown in the following examples:
 - Your [Continuous integration](https://aws.amazon.com/devops/continuous-integration/ "https://aws.amazon.com/devops/continuous-integration/") and [Continuous
   delivery](https://aws.amazon.com/devops/continuous-delivery/ "https://aws.amazon.com/devops/continuous-delivery/") environment (CI/CD workflows)
 
-`/Dev/DBServer/MySQL/db-string`
+`/Dev/WebServer/Linux/approved-ami`
 
-`/Staging/DBServer/MySQL/db-string`
+`/Staging/WebServer/Linux/approved-ami`
 
-`/Prod/DBServer/MySQL/db-string`
+`/Prod/WebServer/Linux/approved-ami`
 
 - Your applications that use containers
 
 ```
-/MyApp/.NET/Libraries/`my-password`
+/MyApp/.NET/Images/`approved-ami`
 ```
 
 - Your business organization
@@ -57,15 +57,15 @@ identify the correct parameter for a configuration task. This helps you to avoid
 creating multiple parameters with the same configuration data.
 
 You can create a hierarchy that allows you to share parameters across
-different environments, as shown in the following examples that use passwords in
-development and staging environment.
+different environments, as shown in the following examples that use approved AMI IDs in
+development and staging environments.
 
-`/DevTest/MyApp/database/`my-password``
+`/DevTest/MyApp/images/`approved-ami``
 
-You could then create a unique password for your production environment, as
+You could then create a unique approved AMI ID for your production environment, as
 shown in the following example:
 
-`/prod/MyApp/database/`my-password``
+`/prod/MyApp/images/`approved-ami``
 
 You aren't required to specify a parameter hierarchy. You can create
 parameters at level one. These are called _root_ parameters.
@@ -190,16 +190,15 @@ An error occurred (ParameterPatternMismatchException) when calling the PutParame
 
 4. Run the following command to create a `SecureString`
    parameter that uses an AWS managed key. The allowed pattern in this
-   example means the user can specify any character, and the value must be
-   between 8 and 20 characters.
+   example validates that the parameter value is an AMI ID.
 
 Linux & macOS
 
 ```
 aws ssm put-parameter \
-    --name "/MyService/Test/`my-password`" \
-    --value "p#sW*rd33" \
-    --allowed-pattern ".{8,20}" \
+    --name "/MyService/Test/`approved-ami`" \
+    --value "ami-0abcdef1234567890" \
+    --allowed-pattern "ami-[a-f0-9]{17}" \
     --type SecureString
 ```
 
@@ -207,9 +206,9 @@ Windows
 
 ```
 aws ssm put-parameter ^
-    --name "/MyService/Test/`my-password`" ^
-    --value "p#sW*rd33" ^
-    --allowed-pattern ".{8,20}" ^
+    --name "/MyService/Test/`approved-ami`" ^
+    --value "ami-0abcdef1234567890" ^
+    --allowed-pattern "ami-[a-f0-9]{17}" ^
     --type SecureString
 ```
 

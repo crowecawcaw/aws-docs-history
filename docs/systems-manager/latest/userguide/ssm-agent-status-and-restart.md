@@ -4,6 +4,12 @@ This topic lists the commands to check whether AWS Systems Manager Agent (SSM Ag
 on each supported operating system. It also provides the commands to start the agent if
 it isn't running.
 
+###### Note
+
+These commands require that SSM Agent is already installed on the managed node. You
+must have administrator privileges on Windows, or root/sudo access on Linux and
+macOS, to run these commands.
+
 | Operating system                                                            | Command to check SSM Agent status                                         | Command to start SSM Agent                                                                                               |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | Amazon Linux 2and Amazon Linux 2023                                         | `sudo systemctl status amazon-ssm-agent`                                  | `sudo systemctl enable amazon-ssm-agent`<br>`sudo systemctl start amazon-ssm-agent`                                      |

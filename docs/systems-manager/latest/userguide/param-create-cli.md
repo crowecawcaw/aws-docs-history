@@ -367,7 +367,7 @@ customer managed key**
 ```
 aws ssm put-parameter \
     --name "`parameter-name`" \
-    --value "`a-parameter-value, for example P@ssW%rd#1`" \
+    --value "`a-parameter-value, for example merchant-739482`" \
     --type "SecureString"
     --tags "Key=`tag-key`,Value=`tag-value`"
 ```
@@ -379,7 +379,7 @@ custom AWS KMS key**
 ```
 aws ssm put-parameter \
     --name "`parameter-name`" \
-    --value "`a-parameter-value, for example P@ssW%rd#1`" \
+    --value "`a-parameter-value, for example merchant-739482`" \
     --type "SecureString" \
     --key-id "`your-account-ID/the-custom-AWS KMS-key`" \
     --tags "Key=`tag-key`,Value=`tag-value`"
@@ -404,7 +404,7 @@ customer managed key**
 ```
 aws ssm put-parameter ^
     --name "`parameter-name`" ^
-    --value "`a-parameter-value, for example P@ssW%rd#1`" ^
+    --value "`a-parameter-value, for example merchant-739482`" ^
     --type "SecureString" ^
     --tags "Key=`tag-key`,Value=`tag-value`"
 ```
@@ -416,7 +416,7 @@ custom AWS KMS key**
 ```
 aws ssm put-parameter ^
     --name "`parameter-name`" ^
-    --value "`a-parameter-value, for example P@ssW%rd#1`" ^
+    --value "`a-parameter-value, for example merchant-739482`" ^
     --type "SecureString" ^
     --key-id " ^
     --tags "Key=`tag-key`,Value=`tag-value`"`account-ID/the-custom-AWS KMS-key`"
@@ -471,16 +471,16 @@ Use a command in the following format to create a
 `SecureString` parameter using the key you just
 created.
 
-The following example uses an obfuscated name
-(`3l3vat3131`) for a password parameter and an
-AWS KMS key.
+The following example uses a parameter named
+`/myapp/prod/vendor/merchant-id` with a merchant ID
+as the encrypted value and an AWS KMS key.
 
 Linux & macOS
 
 ```
 aws ssm put-parameter \
-    --name /Finance/Payroll/3l3vat3131 \
-    --value "P@sSwW)rd" \
+    --name /myapp/prod/vendor/merchant-id \
+    --value "merchant-739482" \
     --type SecureString \
     --key-id arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e
 ```
@@ -489,8 +489,8 @@ Windows
 
 ```
 aws ssm put-parameter ^
-    --name /Finance/Payroll/3l3vat3131 ^
-    --value "P@sSwW)rd" ^
+    --name /myapp/prod/vendor/merchant-id ^
+    --value "merchant-739482" ^
     --type SecureString ^
     --key-id arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e
 ```
@@ -642,9 +642,8 @@ aws ssm get-parameter-history ^
 ###### Note
 
 You can manually create a parameter with an encrypted value. In this
-case, because the value is already encrypted, you don’t have to choose
-the `SecureString` parameter type. If you do
-choose `SecureString`, your parameter is doubly
+case, because the value is already encrypted, you don’t need to choose
+the `SecureString` parameter type. If you choose `SecureString`, your parameter is doubly
 encrypted.
 
 By default, all `SecureString` values are displayed as
@@ -656,7 +655,7 @@ _AWS Key Management Service Developer Guide_.
 ###### Important
 
 If you change the KMS key alias for the KMS key used to encrypt a
-parameter, then you must also update the key alias the parameter uses to
+parameter, you must also update the key alias that the parameter uses to
 reference AWS KMS. This only applies to the KMS key alias; the key ID
 that an alias attaches to stays the same unless you delete the whole
 key.
@@ -674,6 +673,24 @@ You can include the content in a JSON file and use the
 
 For information, see [Installing or updating the
 latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"). 2. Run the following command to create a multi-line parameter.
+
+Linux & macOS
+
+```
+aws ssm put-parameter \
+    ‐‐name "MultiLineParameter3" \
+    ‐type String \
+    ‐value "{ \"Value\": \"LineOne\nLineTwo\nLine3\nLine4\"}"
+```
+
+Windows
+
+```
+aws ssm put-parameter ^
+    ‐name "MultiLineParameter3" ^
+    ‐type String ^
+    ‐value "{ \"Value\": \"LineOne\nLineTwo\nLine3\nLine4\"}"
+```
 
 Linux & macOS
 

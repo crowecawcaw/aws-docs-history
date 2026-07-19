@@ -1,7 +1,6 @@
 # Configuring permissions to specify a Parameter Store default tier
 
-Verify that you have permission in AWS Identity and Access Management (IAM) to change the default
-parameter tier in Parameter Store by doing one of the following:
+Verify that you have permission in AWS Identity and Access Management (IAM) to change the default parameter tier in Parameter Store by doing one of the following:
 
 - Make sure that you attach the `AdministratorAccess`
   policy to your IAM entity (such as user, group, or role).
@@ -11,8 +10,7 @@ parameter tier in Parameter Store by doing one of the following:
   - [GetServiceSetting](../APIReference/API_GetServiceSetting.md "../APIReference/API_GetServiceSetting.md")
   - [UpdateServiceSetting](../APIReference/API_UpdateServiceSetting.md "../APIReference/API_UpdateServiceSetting.md")
   - [ResetServiceSetting](../APIReference/API_ResetServiceSetting.md "../APIReference/API_ResetServiceSetting.md")
-    Grant the following permissions to the IAM entity to allow a user to
-    view and change the default tier setting for parameters in a specific
+    Grant the following permissions to the IAM entity to allow a user to view and change the default tier setting for parameters in a specific
     AWS Region in an AWS account.
 
 JSON

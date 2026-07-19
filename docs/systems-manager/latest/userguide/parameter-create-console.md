@@ -24,7 +24,7 @@ parameter types from the console.
 For more information about parameter hierarchies, see [Working with parameter hierarchies in Parameter Store](sysman-paramstore-hierarchies.md "sysman-paramstore-hierarchies.md"). 5. In the **Description** box, type a description that
 identifies this parameter as a test parameter. 6. For **Parameter tier** choose either
 **Standard** or **Advanced**. For
-more information about advanced parameters, see [Managing tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md"). 7. For **Type**, choose **String**,
+more information about advanced parameters, see [Choosing parameter tiers in Parameter Store](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md"). 7. For **Type**, choose **String**,
 **StringList**, or
 **SecureString**.
 

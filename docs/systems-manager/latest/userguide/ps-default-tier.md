@@ -1,62 +1,35 @@
-# Specifying a default parameter tier
+# Specifying a default parameter tier for your AWS account and AWS Region
 
-When creating or updating a parameter using the
-`PutParameter` operation, you can specify the parameter
-tier. Here is an AWS CLI example.
+If you create or update a parameter but don't specify a parameter tier in the command, the default tier setting determines the tier.
+By default, Parameter Store sets the default setting to the standard parameter tier.
 
-Linux & macOS
+## Default parameter tier options
 
-```
-aws ssm put-parameter \
-    --name "default-ami" \
-    --type "String" \
-    --value "t2.micro" \
-    --tier "Standard"
-```
+Standard parameters are available at no cost, but they have size and feature restrictions,
+as described in [Standard and advanced parameter tiers](parameter-store-advanced-parameters.md#parameter-store-advanced-parameters-table "parameter-store-advanced-parameters.md#parameter-store-advanced-parameters-table"). If your use case requires features or limits that standard parameters don't support,
+consider setting the advanced tier as the default. The advanced tier offers higher limits and extra features, at a cost.
+For more information, see [AWS Systems Manager Pricing for Parameter Store](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store "https://aws.amazon.com/systems-manager/pricing/#Parameter_Store").
 
-Windows
+You can change Parameter Store default tier settings at any time using the [UpdateServiceSetting](../APIReference/API_UpdateServiceSetting.md "../APIReference/API_UpdateServiceSetting.md") API. Set the parameter tier default
+value to `Standard`, `Advanced`, or `Intelligent-Tiering`.
 
-```
-aws ssm put-parameter ^
-    --name "default-ami" ^
-    --type "String" ^
-    --value "t2.micro" ^
-    --tier "Standard"
-```
+To maximize efficiency and reduce costs, consider setting `Intelligent-Tiering` as the default value.
+This setting determines whether to use the standard or advanced tier based on the request content. For example, if you create a parameter
+that meets the criteria for a standard parameter, intelligent tiering creates the parameter in the standard tier. If you
+create a parameter where one or more criteria don't meet the standard-tier requirements, intelligent tiering creates the parameter in the advanced tier.
 
-When you specify a tier in a create or update request, Parameter Store uses that tier. If no tier is specified, the default tier setting determines which tier is used.
+Intelligent tiering offers the following benefits:
 
-By default, Parameter Store uses the standard parameter tier. If you enable the advanced parameter tier, you can set one of the following as the default:
+**Cost control**
 
-- **Advanced**: All parameters are created as advanced.
-- **Intelligent-Tiering**: Parameter Store evaluates each request and selects the appropriate tier.
+Intelligent tiering helps control your parameter-related costs by always creating standard parameters
+unless the request requires the advanced tier.
 
-With Intelligent-Tiering, Parameter Store creates a parameter in the standard tier unless the request includes options that require the advanced tier. If advanced features are requested, the parameter is created as advanced.
+**Automatic upgrade to the advanced tier**
 
-## About the default parameter tier
-
-Be default, when you create a new parameter, Parameter Store assigns it to the Standard tier. Standard parameters are available at no cost, but there are size and feature restrictions, as described in [Standard and advanced parameters](parameter-store-advanced-parameters.md#parameter-store-advanced-parameters-table "parameter-store-advanced-parameters.md#parameter-store-advanced-parameters-table"). If your use cases don't support standard parameters, you can set the Advanced tier as the default. The Advanced tier offers higher limits and extra features, at a cost. For more information, see [AWS Systems Manager Pricing for
-Parameter Store](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store "https://aws.amazon.com/systems-manager/pricing/#Parameter_Store").
-
-To maximize efficiency and reduce costs, you can set Intelligent-Tiering as the default. This feature determines whether to use the
-Standard or Advanced tier based on the content
-of the request. For example, if you run a command to create a parameter
-that meets all of the criteria for a standard parameter, Intelligent-Tiering creates the parameter in the Standard tier. If you run a command
-to create a parameter where one or more criteria don't meet the Standard-tier requirements, Intelligent-Tiering creates the parameter in the Advanced tier.
-
-Intelligent-Tiering offers the following benefits:
-
-**Cost control** – Intelligent-Tiering helps
-control your parameter-related costs by always creating standard parameters
-unless an advanced parameter is absolutely necessary.
-
-**Automatic upgrade to the advanced-parameter
-tier** – When you make a change to your code that requires
-upgrading a standard parameter to an advanced parameter, Intelligent-Tiering
+When you make a change to your code that requires upgrading a standard parameter to an advanced parameter, intelligent tiering
 handles the conversion for you. You don't need to change your code to handle the
-upgrade.
-
-Here are some examples of automatic upgrades:
+upgrade. Sample use cases include the following:
 
 - Your AWS CloudFormation templates provision numerous parameters when they're
   run. When this process causes you to reach the 10,000 parameter quota in
@@ -72,10 +45,3 @@ Here are some examples of automatic upgrades:
   parameter policy, which requires the advanced-parameter tier. Instead of
   including the `--tier Advanced` option in calls to update parameters, Intelligent-Tiering automatically
   upgrades parameters to the advanced tier.
-
-Intelligent-Tiering upgrades parameters from standard to advanced
-whenever advanced-parameter criteria are introduced.
-
-###### Note
-
-You can change Parameter Store default tier settings at any time.

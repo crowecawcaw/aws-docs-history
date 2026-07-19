@@ -68,7 +68,7 @@ don't want users to work with `SecureString` parameters, the
 user's IAM policies must explicitly deny access to the default
 key.
 
-For more information, see [Restricting access to Parameter Store parameters using IAM policies](sysman-paramstore-access.md "sysman-paramstore-access.md") and [How
+For more information, see [Managing access to Parameter Store parameters using IAM policies](parameter-store-setting-up.md#sysman-paramstore-access "parameter-store-setting-up.md#sysman-paramstore-access") and [How
 AWS Systems Manager Parameter Store Uses AWS KMS](../../../kms/latest/developerguide/services-parameter-store.md "../../../kms/latest/developerguide/services-parameter-store.md") in the
 _AWS Key Management Service Developer Guide_.
 
