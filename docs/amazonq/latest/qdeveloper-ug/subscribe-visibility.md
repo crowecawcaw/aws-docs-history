@@ -56,7 +56,7 @@ Before you begin, make sure that:
 
    Choose **Subscriptions**.
 
-   At the bottom of the page, in the **Subscription view
+   In the **Subscription view
    settings** section, choose **Edit**.
 
    Choose **On**.

@@ -57,7 +57,7 @@ again. 4. Choose **Confirm upgrade**.
 
 The **Subscriptions** page of the
 Amazon Q Developer console appears with an **Upgrade to Q Developer Pro
-successful** message at the top. You should see your user
+successful** message. You should see your user
 name listed in the **Builder ID users**
 section.
 
@@ -100,7 +100,7 @@ again. 6. Choose **Confirm upgrade**.
 
 The **Subscriptions** page of the
 Amazon Q Developer console appears with a **Upgrade to Q Developer Pro
-successful** message at the top. You should see your user
+successful** message. You should see your user
 name listed in the **Builder ID users**
 section.
 

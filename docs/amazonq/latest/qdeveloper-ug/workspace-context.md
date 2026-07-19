@@ -46,7 +46,7 @@ Complete the following steps to enable indexing:
    your IDE.
 
 If you aren't prompted, you can go to settings by choosing
-**Amazon Q** at the bottom of your IDE. Then, choose
+**Amazon Q** in the IDE status bar. Then, choose
 **Open Settings** from the Amazon Q task bar that opens. 3. Select the box next to **Workspace
 Index**.
 

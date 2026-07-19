@@ -107,7 +107,7 @@ Visual Studio Code
 Visual Studio
 
 1. Open up a file from the project you want to scan in Visual Studio.
-2. Choose the Amazon Q icon at the bottom of your file to open the
+2. Choose the Amazon Q icon in the status bar to open the
    Amazon Q task bar.
 3. From the task bar, choose
    **Run Security Scan**. Amazon Q begins scanning your
@@ -170,7 +170,7 @@ procedure to pause or resume auto-reviews.
 
 To pause auto-reviews, complete the following steps.
 
-1. Choose **Amazon Q** from the bottom of the IDE window.
+1. Choose **Amazon Q** in the status bar of the IDE window.
 
 The Amazon Q task bar opens. 2. Choose **Pause Auto-Reviews**. To resume auto-reviews,
 choose **Resume Auto-Reviews**.

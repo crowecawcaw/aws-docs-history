@@ -89,7 +89,7 @@ The configuration panel will be replaced with the tool permissions panel. 11. Fo
 
 After you add an MCP server in the IDE, Amazon Q will attempt to connect to it.
 
-If there are connection issues, then an alert will be displayed at the top of the panel. You should not expect the tools from that MCP server to function properly until the alert is resolved.
+If there are connection issues, then an alert appears in the panel. You should not expect the tools from that MCP server to function properly until the alert is resolved.
 
 Choose **Fix Configuration** to return to the MCP configuration screen so that you can make the appropriate changes.
 

@@ -110,8 +110,7 @@ be able to change this setting for you.
 
 AWS Cloud9
 
-1. From inside your AWS Cloud9 IDE, choose the AWS Cloud9 logo at the top of the
-   window, then choose **Preferences**.
+1. From inside your AWS Cloud9 IDE, choose the Cloud9 logo in the menu bar, then choose **Preferences**.
 2. On the **Preferences** tab choose **AWS
    Toolkit**.
 3. Next to **AWS: client-side telemetry**, toggle the

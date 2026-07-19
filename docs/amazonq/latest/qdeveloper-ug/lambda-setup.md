@@ -48,8 +48,7 @@ To activate Amazon Q in the Lambda console code editor, complete these steps.
 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console,
    and choose the function that you want to edit.
 2. As you type in the code editor, automatic code suggestions from Amazon Q are enabled by
-   default. To pause suggestions, choose **Amazon Q** in the bottom left
-   corner of the **Code source** panel. The command palette opens at the top
-   of the Code source panel. From there, choose **Pause auto-suggestions**.
+   default. To pause suggestions, choose **Amazon Q** in the status bar
+   of the **Code source** panel. The command palette opens. From there, choose **Pause auto-suggestions**.
 
 For shortcut keys, see [Using shortcut keys](actions-and-shortcuts.md "actions-and-shortcuts.md").

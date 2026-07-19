@@ -218,7 +218,7 @@ Eclipse
    Log, do one of the following:
 
    - Sign in to Amazon Q in Eclipse, choose the down-arrow next to the Q
-     icon at the top-right, and then choose **Help**,
+     gear icon, and then choose **Help**,
      **View Logs**.
    - From the Eclipse menu, choose **Window**,
      **Show View**, **Error

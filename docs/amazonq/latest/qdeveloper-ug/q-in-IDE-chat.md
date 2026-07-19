@@ -62,7 +62,7 @@ The following commands help you manage your chats with Amazon Q.
 
 With agentic coding, Amazon Q acts as your coding partner, chatting with you as you develop.
 Agentic coding is on by default in the IDE. You can toggle agentic coding on or off with the
-`</>` icon at the bottom of the chat panel.
+`</>` icon in the chat panel.
 
 When you ask Amazon Q to improve your code, it updates your files directly. You can view the
 changes in a diff and have the option to undo them.

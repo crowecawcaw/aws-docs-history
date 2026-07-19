@@ -18,7 +18,7 @@ Use the following instructions to view, search for, delete, and export your conv
 2. Open an Amazon Q chat tab.
 3. Open the chat history by doing one of the following:
 
-   - On the top-right of the chat panel, choose the **View chat
+   - In the chat panel header, choose the **View chat
      history** button.
    - Press `ctrl+F` (Windows and Linux) or `⌘ F` (Mac).
 
@@ -39,7 +39,7 @@ Use the following instructions to view, search for, delete, and export your conv
    - Open an Amazon Q chat tab, and then open the chat history by doing one of the
      following:
 
-     - On the top-right of the chat panel, choose the **View chat
+     - In the chat panel header, choose the **View chat
        history** button.
      - Press `ctrl+F` (Windows and Linux) or `⌘ F`
        (Mac).
@@ -51,13 +51,13 @@ Use the following instructions to view, search for, delete, and export your conv
 1. In your IDE, sign in to Amazon Q.
 2. Do one of the following:
 
-   - With a chat session already started, on the top-right of the chat panel, choose the
+   - With a chat session already started, in the chat panel header, choose the
      **Export** button to export the conversation displayed in the
      tab.
    - Open an Amazon Q chat tab, and then open the chat history by doing one of the
      following:
 
-     - On the top-right of the chat panel, choose the **View chat
+     - In the chat panel header, choose the **View chat
        history** button.
      - Press `ctrl+F` (Windows and Linux) or `⌘ F`
        (Mac).

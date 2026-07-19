@@ -35,4 +35,4 @@ currently signed into.
   usage, see [Viewing the activity of specific users in Amazon Q Developer](q-admin-user-telemetry.md "q-admin-user-telemetry.md").
 - For information about specific metrics, see [Descriptions of Amazon Q Developer dashboard usage metrics](dashboard-metrics-descriptions.md "dashboard-metrics-descriptions.md") or choose the help link (
   ![The help link.](images/help-icon.png)
-  ) at the top-right of the dashboard page.
+  ) on the dashboard page.

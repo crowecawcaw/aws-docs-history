@@ -25,9 +25,9 @@ procedure.
 1. Make sure you are using the latest version of both VS Code and the
    Amazon Q extension.
 2. In VS Code, choose **Amazon Q** from the
-   component tray at the bottom of the IDE window.
+   IDE component tray.
 
-The Amazon Q task bar opens at the top of the IDE window. 3. Choose **Open Code Reference Log**.
+The Amazon Q task bar opens. 3. Choose **Open Code Reference Log**.
 
 The code reference log tab opens. Any references to code recommendations are listed.
 
@@ -42,9 +42,9 @@ procedure.
 1. Make sure you are using the latest version of both your JetBrains IDE and
    the Amazon Q plugin.
 2. In JetBrains, choose **Amazon Q** from the
-   status bar at the bottom of the IDE window.
+   IDE status bar.
 
-The Amazon Q task bar opens above the status bar. 3. Choose **Open Code Reference Log**.
+The Amazon Q task bar opens. 3. Choose **Open Code Reference Log**.
 
 The code reference log tab opens. Any references to code recommendations are listed.
 
@@ -59,9 +59,9 @@ procedure.
 1. Make sure you are using the latest version of both the Eclipse IDE and the
    Amazon Q plugin.
 2. In your Eclipse IDE, choose the **Amazon Q** icon
-   in the top right corner of the IDE.
-3. With the Amazon Q chat tab open, choose the ellipsis icon in the top
-   right corner of the tab. The Amazon Q task bar opens.
+   in the IDE toolbar.
+3. With the Amazon Q chat tab open, choose the ellipsis icon in the
+   chat panel header. The Amazon Q task bar opens.
 
 The following image shows the Amazon Q task bar in an Eclipse IDE.
 
@@ -95,13 +95,13 @@ default.
 To turn them off, or to turn them back on later, use the following
 procedure.
 
-1. On the AWS Cloud 9 console, in the upper left corner, choose the AWS Cloud 9
+1. On the AWS Cloud 9 console, choose the AWS Cloud 9
    logo.
 2. From the dropdown menu, choose
    **Preferences**.
 
-On the right side of the console, the
-**Preferences** tab will open. 3. On the **Preferences** tab, under
+The
+**Preferences** tab opens. 3. On the **Preferences** tab, under
 **Project Settings**, under
 **Extensions**, select **AWS
 Toolkit**. 4. Select or deselect **Amazon Q: Include Suggestions With
@@ -116,7 +116,7 @@ SageMaker AI Studio
 To display the Amazon Q reference log in SageMaker AI Studio, use the following
 procedure.
 
-1. At the bottom of the SageMaker AI Studio window, open the Amazon Q
+1. In the SageMaker AI Studio window, open the Amazon Q
    panel.
 2. Choose **Open Code Reference Log**.
 
@@ -124,7 +124,7 @@ JupyterLab
 To display the Amazon Q reference log in JupyterLab, use the following
 procedure.
 
-1. At the bottom of the JupyterLab window, open the Amazon Q
+1. In the JupyterLab window, open the Amazon Q
    panel.
 2. Choose **Open Code Reference Log**.
 
@@ -132,7 +132,7 @@ AWS Glue Studio Notebook
 To display the Amazon Q reference log in AWS Glue Studio Notebook, use the following
 procedure.
 
-1. At the bottom of the AWS Glue Studio Notebook window, open the Amazon Q
+1. In the AWS Glue Studio Notebook window, open the Amazon Q
    panel.
 2. Choose **Open Code Reference Log**.
 
@@ -151,9 +151,9 @@ procedure.
 1. Make sure you are using the latest version of both VS Code and the
    Amazon Q extension.
 2. In VS Code, choose **Amazon Q** from the
-   component tray at the bottom of the IDE window.
+   IDE component tray.
 
-The Amazon Q task bar opens at the top of the IDE window. 3. Choose **Open Settings**. The settings tab opens with the options
+The Amazon Q task bar opens. 3. Choose **Open Settings**. The settings tab opens with the options
 related to Amazon Q displayed. 4. Select or deselect the box next to **Show Code With References**.
 
 JetBrains
@@ -166,9 +166,9 @@ procedure.
 1. Make sure you are using the latest version of both your JetBrains IDE and
    the Amazon Q plugin.
 2. In JetBrains, choose **Amazon Q** from the
-   status bar at the bottom of the IDE window.
+   IDE status bar.
 
-The Amazon Q task bar opens above the status bar. 3. Choose **Open Settings**. The settings window opens with the options
+The Amazon Q task bar opens. 3. Choose **Open Settings**. The settings window opens with the options
 related to Amazon Q displayed. 4. Select or deselect the box next to **Show Code With References**.
 
 Eclipse
@@ -208,13 +208,13 @@ default.
 To turn them off, or to turn them back on later, use the following
 procedure.
 
-1. On the AWS Cloud 9 console, in the upper left corner, choose the AWS Cloud 9
+1. On the AWS Cloud 9 console, choose the AWS Cloud 9
    logo.
 2. From the dropdown menu, choose
    **Preferences**.
 
-On the right side of the console, the
-**Preferences** tab will open. 3. On the **Preferences** tab, under
+The
+**Preferences** tab opens. 3. On the **Preferences** tab, under
 **Project Settings**, under
 **Extensions**, select **AWS
 Toolkit**. 4. Select or deselect **Amazon Q: Include Suggestions With
@@ -257,7 +257,7 @@ procedure.
 
 AWS Glue Studio Notebook
 
-1. From the bottom of the AWS Glue Studio Notebook window choose **Amazon Q**.
+1. In the AWS Glue Studio Notebook window, choose **Amazon Q**.
 2. From the pop-up menu, toggle the switch next to **Code with references**.
 
 ###### Note

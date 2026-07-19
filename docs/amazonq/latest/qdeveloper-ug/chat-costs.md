@@ -32,7 +32,7 @@ To take advantage of the full range of Amazon Q Developer's cost management capa
 To get started:
 
 1. Sign in to the AWS Management Console at [https://console.aws.amazon.com](https://console.aws.amazon.com "https://console.aws.amazon.com").
-2. Choose the Amazon Q icon on the right side of the console navigation bar.
+2. Choose the Amazon Q icon in the console navigation bar.
 3. Ask a question about your costs, such as:
 
    - "What were my costs last month?"

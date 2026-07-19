@@ -11,7 +11,7 @@ or `@folder`.
 
 Pinned items can come from two sources: you can manually pin items you frequently reference, or Amazon Q may
 automatically add context, (such as your current active file,) to improve response quality. Pinned context items
-appear at the top of the text input box of your chat panel, and you have control to remove any context you don't
+appear in the pinned context area of your chat panel, and you have control to remove any context you don't
 want included.
 
 To help maintain clear context boundaries, pinned items only apply to your current chat tab. When you open
@@ -27,7 +27,7 @@ a new tab, you'll start fresh with only the default pinned context, such as the 
    to pin it.
 
 Alternatively, you can click the "@ Pin Context" button to view the available options and select
-a context to pin. 3. The pinned context will appear in the pinned context area at the top of your chat panel.
+a context to pin. 3. The pinned context will appear in the pinned context area in your chat panel.
 
 ### Methods to pin context items
 
@@ -51,10 +51,9 @@ There are three ways to pin context items:
      in your input, hover over the context item in your input.
    - Click on the item to pin it.
 
-After pinning, the context item will appear in the pinned context area at the top of your chat's text
-input box.
+After pinning, the context item will appear in the pinned context area.
 
 ###### To remove pinned context items
 
-- To remove a pinned context item, click the X on the left side of the pill. This works for both
+- To remove a pinned context item, choose the remove (X) icon on the context pill. This works for both
   user-pinned and system-added context items.

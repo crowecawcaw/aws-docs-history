@@ -48,4 +48,4 @@ If you accidentally delete the profile:
 1. Sign in to the AWS Management Console.
 2. Switch to the Amazon Q Developer console.
 
-To use the Amazon Q Developer console, you must have the permissions defined in [Allow administrators to use the Amazon Q Developer console](id-based-policy-examples-admins.md#q-admin-setup-admin-users "id-based-policy-examples-admins.md#q-admin-setup-admin-users"). 3. Choose **Settings**. 4. Near the top of the page, choose **Delete profile**.
+To use the Amazon Q Developer console, you must have the permissions defined in [Allow administrators to use the Amazon Q Developer console](id-based-policy-examples-admins.md#q-admin-setup-admin-users "id-based-policy-examples-admins.md#q-admin-setup-admin-users"). 3. Choose **Settings**. 4. Choose **Delete profile**.

@@ -94,7 +94,7 @@ Using Console-to-Code consists of three steps.
 To start recording with Console-to-Code, use the following procedure.
 
 1. Go to the console of one of the integrated services (Amazon VPC, Amazon RDS, or Amazon EC2).
-2. On the right edge of the browser window, choose the Console-to-Code icon:
+2. Choose the Console-to-Code icon:
    ![The console-to-code icon.](images/c2c-icon.png)
 3. In the Console-to-Code side panel, choose **Start recording**.
 
@@ -126,7 +126,7 @@ procedure.
 1. In the Console-to-Code panel, review your recorded actions.
 
 You can filter the recorded actions using the dropdown, search box, or filter
-widget at the top of the Console-to-Code panel. 2. Do one of the following:
+widget in the Console-to-Code panel. 2. Do one of the following:
 
     * To copy an individual CLI command, choose the copy button to the left of
      the command.
@@ -146,12 +146,12 @@ _AWS Command Line Interface User Guide._
 #### Step 3b: Generate code
 
 1. In the Console-to-Code panel, review your recorded actions. You can filter the recorded
-   actions using the dropdown, search box, or filter widget at the top of the Console-to-Code
+   actions using the dropdown, search box, or filter widget in the Console-to-Code
    panel.
 2. Select the actions that you want to convert into code. Only the actions with
    checked boxes will be used in the following steps.
-3. Indicate the type of code that you want to generate. From the reverse dropdown
-   menu at the lower right of the Console-to-Code panel, select the language and (if
+3. Indicate the type of code that you want to generate. From the language
+   menu in the Console-to-Code panel, select the language and (if
    applicable) format of the code to be generated.
 4. Choose **Generate chosen language**.
 

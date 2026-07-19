@@ -26,8 +26,7 @@ documentation_.
 
 1. Navigate to the [Amazon Q Developer
    console](https://us-east-1.console.aws.amazon.com/amazonq/developer/home "https://us-east-1.console.aws.amazon.com/amazonq/developer/home").
-2. Choose **Enable Q Developer**
-   at the top of the page, and follow the prompts to enable Kiro and Amazon Q Developer.
+2. Choose **Enable Q Developer**, and follow the prompts to enable Kiro and Amazon Q Developer.
 
 If you previously enabled Kiro and Amazon Q Developer, skip to step 3. 3. In the navigation pane, choose **Amazon Q Developer in GitHub**. 4. Choose **Register installation**, and then choose
 **Authorize** to be directed to GitHub.

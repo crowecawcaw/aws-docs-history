@@ -3,7 +3,7 @@
 Amazon Q artifacts enable Amazon Q to deliver responses enriched with table and chart visualizations. When you ask natural language questions
 about your resources, Amazon Q may display an artifact that helps you quickly understand your resources at a glance.
 
-The Q experience is now more usable and useful. Access Q easily from the navigation bar next to search. The Q chat panel opens on the left
+The Q experience is now more usable and useful. Access Q easily from the navigation bar next to search. The Q chat panel opens
 and can expand to full screen. A new prompt library helps you discover useful example prompts.
 
 To get started, ensure you have the required permissions, and then review the example prompts to get the most out of Amazon Q artifacts.
@@ -61,4 +61,4 @@ The following categories and associated prompts are examples of the types of tas
 - **Get billing recommendations and forecasts** – Show me a line chart of my forecasted costs for the next 6 months, Graph RDS costs by instance type by month for the last 6 months.
 - **Security and compliance** – Check traffic and internet accessibility to EC2 resources, verify internet connectivity for EC2 instances across regions.
 
-For a list of suggested use cases, choose the Amazon Q prompt library icon in the top-right of the Q chat panel and filter by table or visualization response type.
+For a list of suggested use cases, choose the Amazon Q prompt library icon in the Q chat panel and filter by table or visualization response type.

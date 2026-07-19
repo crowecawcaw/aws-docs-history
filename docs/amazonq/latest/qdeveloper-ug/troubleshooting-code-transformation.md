@@ -563,7 +563,7 @@ before and after the log entry.
 To find logs emitted by Amazon Q in VS Code, complete the following
 steps:
 
-1. Choose **View** in the top navigation bar, and then choose
+1. In the IDE menu bar, choose **View**, and then choose
    **Command Palette**.
 2. Search `Amazon Q: View Logs` in the command palette that
    appears.

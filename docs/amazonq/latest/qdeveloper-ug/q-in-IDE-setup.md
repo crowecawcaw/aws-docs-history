@@ -50,8 +50,8 @@ Builder ID, you will have the opportunity to do so during the sign-in process.
 
 1. Install the [Amazon Q
    plugin](https://marketplace.eclipse.org/content/amazon-q "https://marketplace.eclipse.org/content/amazon-q") in Eclipse.
-2. Choose the Amazon Q icon in the top right corner of the IDE.
-3. An Amazon Q tab opens at the bottom of the IDE. Under **Choose a sign-in
+2. Choose the Amazon Q icon in the IDE toolbar.
+3. An Amazon Q tab opens in the IDE. Under **Choose a sign-in
    option**, choose **Personal account**, and then choose
    **Continue**. You are redirected to your browser.
 4. Follow the instructions in your browser to authenticate with Builder ID. When you've
@@ -69,8 +69,8 @@ to authenticate:
 
 1. Install the [Amazon Q
    plugin](https://marketplace.eclipse.org/content/amazon-q "https://marketplace.eclipse.org/content/amazon-q") in Eclipse.
-2. Choose the Amazon Q icon in the top right corner of the IDE.
-3. An Amazon Q tab opens at the bottom of the IDE. Under **Choose a sign-in
+2. Choose the Amazon Q icon in the IDE toolbar.
+3. An Amazon Q tab opens in the IDE. Under **Choose a sign-in
    option**, choose **Company account**, and then
    choose **Continue**.
 4. Enter the **Start URL** that your administrator got from [the Amazon Q subscription console](manage-account-details.md "manage-account-details.md").
@@ -94,8 +94,7 @@ Builder ID, you will have the opportunity to do so during the sign-in process.
 2. Choose the Amazon Q icon in your IDE.
 
 The icon will be on the side of the interface by default. 3. Follow the instructions in your browser to authenticate with Builder ID. 4. To begin using Amazon Q, choose the Amazon Q icon to chat with Amazon Q, or choose
-**Amazon Q** from the navigation bar at the bottom of your
-IDE.
+**Amazon Q** from the IDE navigation bar.
 
 IAM Identity Center
 Before you begin this procedure, your administrator should have:
@@ -120,10 +119,9 @@ If there is only one profile available, that profile will automatically be chose
 and you can begin using Amazon Q.
 
 To change your Amazon Q Developer profile, choose **Amazon Q** from the
-bottom of the IDE, and then choose **Change profile**. From the
+IDE navigation bar, and then choose **Change profile**. From the
 window that appears, choose the profile you'd like to use. 9. To begin using Amazon Q, choose the Amazon Q icon to chat with Amazon Q, or choose
-**Amazon Q** from the navigation bar at the bottom of your
-IDE.
+**Amazon Q** from the IDE navigation bar.
 
 ## Authenticating in Visual Studio Code
 
@@ -138,8 +136,7 @@ Builder ID, you will have the opportunity to do so during the sign-in process.
 2. Choose the Amazon Q icon in your IDE.
 
 The icon will be on the side of the interface by default. 3. Follow the instructions in your browser to authenticate with Builder ID. 4. To begin using Amazon Q, choose the Amazon Q icon to chat with Amazon Q, or choose
-**Amazon Q** from the navigation bar at the bottom of your
-IDE.
+**Amazon Q** from the IDE navigation bar.
 
 IAM Identity Center
 Before you begin this procedure, your administrator should have:
@@ -164,10 +161,9 @@ If there is only one profile available, that profile will automatically be chose
 and you can begin using Amazon Q.
 
 To change your Amazon Q Developer profile, choose **Amazon Q** from the
-bottom of the IDE, and then choose **Change profile**. From the
+IDE navigation bar, and then choose **Change profile**. From the
 command palette, choose the profile you'd like to use. 9. To begin using Amazon Q, choose the Amazon Q icon to chat with Amazon Q, or choose
-**Amazon Q** from the navigation bar at the bottom of your
-IDE.
+**Amazon Q** from the IDE navigation bar.
 
 ## Authenticating in Visual Studio
 
@@ -244,11 +240,11 @@ If there is only one profile available, that profile will automatically be chose
 and you can begin using Amazon Q.
 
 To change your Amazon Q Developer profile, choose **Amazon Q** from the
-bottom of the IDE, and then choose **Change Q Developer Profile**.
+IDE navigation bar, and then choose **Change Q Developer Profile**.
 From the window that appears, choose the profile you'd like to use.
 
-You can also change your profile by choosing the overflow menu at the top right
-corner of the chat window, and then choosing **Change Q Developer
+You can also change your profile by choosing the overflow menu in the
+chat panel header, and then choosing **Change Q Developer
 Profile**.
 
 For more information about authenticating in the Toolkit for Visual Studio, see [Getting Started](../../../toolkit-for-visual-studio/latest/user-guide/getting-set-up.md "../../../toolkit-for-visual-studio/latest/user-guide/getting-set-up.md") in

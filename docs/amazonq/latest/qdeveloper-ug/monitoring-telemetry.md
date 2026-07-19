@@ -614,7 +614,7 @@ http://json-schema.org/draft-07/schema#",
 [Show moreShow less](# "#")Observe that a SendTelemetryEvent may contain one of a number of telemetry events. Each of
 these describes a specific interaction between the development environment.
 
-A more detailed description of each event appears below.
+A more detailed description of each event appears in the following sections.
 
 ## UserTriggerDecisionEvent
 

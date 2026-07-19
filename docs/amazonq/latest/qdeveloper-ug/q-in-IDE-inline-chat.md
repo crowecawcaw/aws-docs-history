@@ -27,7 +27,7 @@ An inline chat session unfolds as follows.
    - In Eclipse, press `⌘+Shift+I` (Mac) or `Ctrl+Shift+I` (Windows)
    - Alternatively, you can right-click the selection and choose **Amazon Q** and then
      **Inline chat**
-     This launches a small input screen at the top of the main coding window where you can enter a
+     This launches an input field in the editor where you can enter a
      prompt, such as `Fix this code`.
 
 ![The inline chat input screen.](images/inline-chat-input-screen.png) 2. Amazon Q generates code and presents it in a diff.

@@ -30,9 +30,9 @@ Choose your IDE to see steps for pausing and resuming inline code suggestions in
 Visual Studio Code
 
 1. In VS Code, choose **Amazon Q** from the
-   component tray at the bottom of the IDE window.
+   IDE component tray.
 
-The Amazon Q task bar opens at the top of the IDE window. 2. Choose **Pause Auto-Suggestions** or **Resume
+The Amazon Q task bar opens. 2. Choose **Pause Auto-Suggestions** or **Resume
 Auto-Suggestions**.
 
 The following image shows the Amazon Q task bar in VS Code.
@@ -42,9 +42,9 @@ The following image shows the Amazon Q task bar in VS Code.
 JetBrains
 
 1. In your JetBrains IDE, choose **Amazon Q** from the
-   status bar at the bottom of the IDE window.
+   IDE status bar.
 
-The Amazon Q task bar opens above the status bar. 2. Choose **Pause Auto-Suggestions** or **Resume
+The Amazon Q task bar opens. 2. Choose **Pause Auto-Suggestions** or **Resume
 Auto-Suggestions**.
 
 The following image shows the Amazon Q task bar in a JetBrains IDE.
@@ -54,9 +54,9 @@ The following image shows the Amazon Q task bar in a JetBrains IDE.
 Eclipse
 
 1. In your Eclipse IDE, choose the **Amazon Q** icon
-   in the top right corner of the IDE.
-2. With the Amazon Q chat tab open, choose the ellipsis icon in the top
-   right corner of the tab. The Amazon Q task bar opens.
+   in the IDE toolbar.
+2. With the Amazon Q chat tab open, choose the ellipsis icon in the
+   chat panel header. The Amazon Q task bar opens.
 
 The following image shows the Amazon Q task bar in an Eclipse IDE.
 
@@ -87,19 +87,19 @@ To deactivate or re-activate Amazon Q code suggestions in Lambda:
 
 Amazon SageMaker AI Studio
 
-1. In the SageMaker AI Studio console, choose Amazon Q from the bottom of the window.
+1. In the SageMaker AI Studio console, choose Amazon Q from the IDE status bar.
 
 The Amazon Q panel will open. 2. Choose **Pause Auto-Suggestions** or **Resume Auto-Suggestions**.
 
 JupyterLab
 
-1. In the JupyterLab console, choose Amazon Q from the bottom of the window.
+1. In the JupyterLab console, choose Amazon Q from the IDE status bar.
 
 The Amazon Q panel will open. 2. Choose **Pause Auto-Suggestions** or **Resume Auto-Suggestions**.
 
 AWS Glue Studio Notebook
 
-1. In the AWS Glue Studio Notebook console, choose Amazon Q from the bottom of the window.
+1. In the AWS Glue Studio Notebook console, choose Amazon Q from the IDE status bar.
 
 The Amazon Q panel will open. 2. Choose **Pause Auto-Suggestions** or **Resume Auto-Suggestions**.
 

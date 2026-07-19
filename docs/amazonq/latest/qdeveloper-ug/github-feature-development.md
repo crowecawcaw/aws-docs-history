@@ -50,7 +50,7 @@ For more information, see [Creating a label](https://docs.github.com/en/issues/u
      - Choose the **Assign to Amazon Q** dropdown menu provided as a
        browser extension, and then choose the **Amazon Q development
        agent** label.
-     - In the right side menu, choose **Labels**, and then choose
+     - In the sidebar menu, choose **Labels**, and then choose
        the **Amazon Q development agent** label.
 
    - To use the `/q dev` slash command in a comment:

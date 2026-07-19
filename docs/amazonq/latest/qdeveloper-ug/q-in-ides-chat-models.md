@@ -15,7 +15,7 @@ The following table describes the models that are available for Amazon Q chat in
 To select the model Amazon Q uses when you chat in your IDE:
 
 1. Open the Amazon Q chat panel in your IDE.
-2. At the bottom of the text box, choose the model menu dropdown. Select the
+2. In the chat input area, choose the model menu dropdown. Select the
    model you want to use from the available options.
 
 The model you select persists until you change it.

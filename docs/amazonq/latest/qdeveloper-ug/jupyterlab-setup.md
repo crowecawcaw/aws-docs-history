@@ -47,7 +47,7 @@ In the following procedure, you will set up Builder ID, which you will use to au
 enable Amazon Q.
 
 1. Refresh the browser tab on which you are using JupyterLab.
-2. From the Amazon Q panel at the bottom of the window, choose **Get
+2. From the Amazon Q panel, choose **Get
    Started**.
 3. From the pop-up window, choose **Copy Code and Proceed**.
 4. On the **Get started** page, sign in or sign up for a Builder ID using your

@@ -70,4 +70,4 @@ the needed permissions, see [Allow Amazon Q access to customer managed keys](id-
 If you see an error related to KMS grants while using Amazon Q Developer, you likely need to
 update your permissions to allow Amazon Q to create grants. To automatically configure the
 needed permissions, go to the Amazon Q Developer console and choose **Update
-permissions** in the banner at the top of the page.
+permissions** in the permissions banner.

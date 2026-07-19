@@ -26,7 +26,7 @@ Log files may contain sensitive information from your conversations and interact
 ### Accessing logs through the IDE interface
 
 1. Open the Amazon Q chat panel in your IDE (VS Code or JetBrains)
-2. Click the **Show Logs** button in the top right corner of the chat panel
+2. Click the **Show Logs** button in the chat panel header
 3. Acknowledge the sensitivity warning that appears
 4. The log file location will open in your system's file manager for review
 

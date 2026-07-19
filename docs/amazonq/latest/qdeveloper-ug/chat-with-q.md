@@ -4,7 +4,7 @@
 
 Amazon Q can now provide answers to questions with table and chart visualizations. A prompt library makes it
 easier to find example prompts. The Q experience is now more usable and useful. The Q icon has been relocated to the
-navigation bar. The Q chat panel now opens on the left side.
+navigation bar. The Q chat panel now opens as a side panel.
 
 Chat with Amazon Q in the AWS Management Console, AWS Console Mobile Application, AWS website, AWS Documentation website, and
 chat applications to learn about AWS services.
@@ -39,9 +39,9 @@ For an IAM policy that grants permissions needed for chatting with Amazon Q, see
 
 ## Start a conversation
 
-To open up the Amazon Q chat panel in the AWS Management Console, choose the Amazon Q icon in the top left in the Unified
-Navigation bar. To open up the panel on the AWS website or any AWS service’s documentation page,
-choose the Amazon Q icon in the bottom right corner.
+To open up the Amazon Q chat panel in the AWS Management Console, choose the Amazon Q icon in the
+navigation bar. To open up the panel on the AWS website or any AWS service’s documentation page,
+choose the Amazon Q icon.
 
 To ask Amazon Q a question, enter your question into the text bar in the Amazon Q
 panel. Amazon Q generates a response to your question with a sources section that
@@ -53,8 +53,8 @@ choosing the copy icon.
 
 ###### To start a new conversation in the console:
 
-1. You can start a new conversation by choosing the plus icon in the top right corner of the chat panel.
-2. To name or rename a conversation, choose the text at the top of the chat panel and enter your conversation name.
+1. You can start a new conversation by choosing the plus icon (+) in the chat panel header.
+2. To name or rename a conversation, choose the conversation name field in the chat panel and enter your conversation name.
 
 ## Manage conversations in the console
 
@@ -75,13 +75,13 @@ deleted, even if a conversation is still active.
 
 ###### To switch conversations:
 
-1. Choose the clock icon on the top right of the chat panel. The **Conversations** pop-up opens.
+1. Choose the clock icon in the chat panel header. The **Conversations** pop-up opens.
 2. Choose the name of the conversation you want to resume. All previous messages from that conversation appear
    in the chat panel where you can continue chatting with Amazon Q.
 
 ###### To delete conversations:
 
-1. Choose the clock icon on the top right of the chat panel. The **Conversations** pop-up opens.
+1. Choose the clock icon in the chat panel header. The **Conversations** pop-up opens.
 2. Choose the delete icon next to the name of the conversation you want to
    delete.
 
@@ -95,16 +95,16 @@ context when you navigate to a new page, browser, or tab.
 
 Note: You can switch between the Amazon Q chat panel and service consoles at any time:
 
-1. To expand the Q chat panel in full-screen mode, choose the maximize icon in the top-right corner. To toggle full-screen mode, choose the resize icon.
-2. To close the Q chat panel, choose < in the top-right corner. To close the panel with visualizations, choose X in the top-right corner.
+1. To expand the Q chat panel in full-screen mode, choose the maximize icon in the chat panel header. To toggle full-screen mode, choose the resize icon.
+2. To close the Q chat panel, choose < in the chat panel header. To close the panel with visualizations, choose X in the chat panel header.
 3. To adjust the chat panel size, use the divider.
 4. To reopen the chat panel, choose the Q icon in the Unified Navigation bar.
 5. Your work is automatically saved when switching between views.
 
 ## Chat settings
 
-To view your chat settings in Amazon Q, choose the gear icon in the top
-right of the chat panel.
+To view your chat settings in Amazon Q, choose the gear icon in the
+chat panel header.
 
 - **Region** — Amazon Q defaults to the
   AWS Region set in the AWS Management Console when you open the chat panel. To
@@ -135,4 +135,4 @@ on AWS:
 - Show me a bar chart of potential savings by optimization recommendation
 
 To help you get started, Q recommends prompts when you start a new conversation. You can also view the list of supported prompts in the prompt library.
-To view prompts in the prompt library, choose the book icon in the top right of the chat panel.
+To view prompts in the prompt library, choose the book icon in the chat panel header.
