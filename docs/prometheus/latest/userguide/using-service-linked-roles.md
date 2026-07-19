@@ -37,9 +37,10 @@ The role permissions policy named AmazonPrometheusScraperServiceRolePolicy
 allows Amazon Managed Service for Prometheus to
 complete the following actions on the specified resources:
 
-- Ready and modify network configuration to connect to the network that
+- Read and modify network configuration to connect to the network that
   contains your Amazon EKS cluster.
 - Read metrics from Amazon EKS clusters and write metrics to your Amazon Managed Service for Prometheus workspaces.
+- Write metrics to Amazon CloudWatch Metrics datasets in the same account.
 
 You must configure permissions to allow your users, groups, or roles to create
 a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
