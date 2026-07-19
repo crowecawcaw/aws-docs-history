@@ -77,7 +77,6 @@ The following client versions have been validated with AWS PrivateLink:
 
 **File Downloads**
 
-- **S3 Connectivity**: Required for file operations (except
-  Frankfurt region)
+- **S3 Connectivity**: Required for file operations
 - **Solution**: Create S3 VPC gateway endpoint
 - **Reference**: [AWS PrivateLink for Amazon S3](../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md "../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md")

@@ -76,10 +76,10 @@ Following is a breakdown of Wickr collaboration offerings:
 
 ## Regional availability
 
-Wickr is available in US East (N. Virginia), Asia Pacific (Malaysia),
-Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo),
-Canada (Central), Europe (Frankfurt), Europe (London), Europe (Stockholm), and
-Europe (Zurich) AWS Regions.
+Wickr is available in US East (N. Virginia), Asia Pacific (Singapore),
+Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central),
+Europe (Frankfurt), Europe (London), Europe (Stockholm), and Europe (Zurich)
+AWS Regions.
 Wickr is also available in
 AWS GovCloud (US-West) Region. Each Region contains multiple Availability Zones, which are
 physically separate but connected by private, low-latency, high-bandwidth, and redundant
