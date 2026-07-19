@@ -30,7 +30,15 @@ AWS Resource Explorer.
 
 ###### Note
 
-As of May 15, 2026, Resource Explorer no longer supports the following resource types:
+As of May 20, 2026, Resource Explorer no longer supports the following resource types:
+
+- **Amazon Inspector**—
+  `inspector:target/template`
+- **AWS Panorama**—
+  `panorama:device`
+- **AWS Panorama**—
+  `panorama:package`
+  As of May 15, 2026, Resource Explorer no longer supports the following resource types:
 
 - **AWS IoT Events**—
   `iotevents:alarmModel`
@@ -206,7 +214,6 @@ As of May 15, 2026, Resource Explorer no longer supports the following resource 
 - [Amazon IVS](#services-ivschat "#services-ivschat")
 - [AWS Identity and Access Management](#services-iam "#services-iam")
 - [Amazon Inspector](#services-inspector "#services-inspector")
-- [Amazon Inspector](#services-inspector "#services-inspector")
 - [Amazon Interactive Video Service](#services-ivs "#services-ivs")
 - [AWS IoT](#services-iot "#services-iot")
 - [AWS IoT Core Device Advisor](#services-iotdeviceadvisor "#services-iotdeviceadvisor")
@@ -237,7 +244,6 @@ As of May 15, 2026, Resource Explorer no longer supports the following resource 
 - [AWS Network Manager](#services-networkmanager "#services-networkmanager")
 - [Amazon OpenSearch Service](#services-es "#services-es")
 - [AWS Outposts](#services-outposts "#services-outposts")
-- [AWS Panorama](#services-panorama "#services-panorama")
 - [Amazon Personalize](#services-personalize "#services-personalize")
 - [AWS Private Certificate Authority](#services-acm-pca "#services-acm-pca")
 - [AWS Proton](#services-proton "#services-proton")
@@ -978,12 +984,6 @@ As of May 15, 2026, Resource Explorer no longer supports the following resource 
 
 ### Amazon Inspector
 
-- `inspector:target/template`
-- `inspector2:filter`
-
-### Amazon Inspector
-
-- `inspector:target/template`
 - `inspector2:filter`
 
 ### Amazon Interactive Video Service
@@ -1192,11 +1192,6 @@ As of May 15, 2026, Resource Explorer no longer supports the following resource 
 ### AWS Outposts
 
 - `outposts:site`
-
-### AWS Panorama
-
-- `panorama:device`
-- `panorama:package`
 
 ### Amazon Personalize
 

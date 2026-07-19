@@ -27,7 +27,7 @@ Resource Explorer creates the necessary infrastructure (indexes and views) when 
 Region, provided you have the required permissions. Manual setup allows administrators to
 pre-configure Resource Explorer infrastructure before users begin searching.
 
-You should understand the following concepts to successfully use AWS Resource Explorer .
+You should understand the following concepts to successfully use AWS Resource Explorer.
 
 ###### Concepts
 
@@ -79,7 +79,7 @@ can configure the following features:
   information about those resources.
 - Enable cross-Region search by updating the index type in one AWS Region to
   make it the [aggregator index](#term-index "#term-index") for its
-  AWS account.. The aggregator index in this Region receives replicated copies
+  AWS account. The aggregator index in this Region receives replicated copies
   of the resource information from all other Regions in the account where
   user-owned indexes exist.
 - Create [views](#term-view "#term-view") that define the subset of
