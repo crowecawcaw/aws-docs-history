@@ -806,18 +806,20 @@ Some common tools include:
 ## Backup the cluster before upgrading
 
 New versions of Kubernetes introduce significant changes to your Amazon
-EKS cluster. After you upgrade a cluster, you can’t downgrade it.
+EKS cluster. You can roll back an upgrade within 7 days, but we recommend
+that you back up your cluster before upgrading.
 
-[Velero](https://velero.io/ "https://velero.io/") is an community supported open-source tool
-that can be used to take backups of existing clusters and apply the
-backups to a new cluster.
+You can back up your cluster with
+[AWS Backup](../userguide/integration-backup.md "../userguide/integration-backup.md"),
+a fully managed service. You can also use [Velero](https://velero.io/ "https://velero.io/"), a
+community supported open-source tool.
 
 Note that you can only create new clusters for Kubernetes versions
 currently supported by EKS. If the version your cluster is currently
 running is still supported and an upgrade fails, you can create a new
 cluster with the original version and restore the data plane. Note that
-AWS resources, including IAM, are not included in the backup by Velero.
-These resources would need to be recreated.
+AWS resources, including IAM, are not included in the backup. You need
+to recreate these resources.
 
 ## Restart Fargate deployments after upgrading the control plane
 

@@ -38,7 +38,7 @@ and NodePools works the same as with open source Karpenter.
 
 ### Can I run managed node groups alongside Auto Mode-managed nodes?
 
-Yes, you may run static nodes via a managed node groups alongside your autoscaling nodes provided with Auto Mode
+Yes, you can run managed node groups alongside Auto Mode-managed nodes in the same cluster. This approach is common when you migrate from managed node groups to EKS Auto Mode. For more information, see [Enable EKS Auto Mode on existing EKS clusters](../userguide/migrate-auto.md "../userguide/migrate-auto.md").
 
 ### Can I migrate a cluster from standard EKS to EKS Auto Mode?
 

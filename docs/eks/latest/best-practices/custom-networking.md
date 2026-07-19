@@ -20,7 +20,7 @@ While custom networking will accept valid VPC range for secondary CIDR range, we
 
 As shown in the diagram below, the primary Elastic Network Interface ([ENI](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md")) of the worker node still uses the primary VPC CIDR range (in this case 10.0.0.0/16) but the secondary ENIs use the secondary VPC CIDR Range (in this case 100.64.0.0/16). Now, in order to have the Pods use the 100.64.0.0/16 CIDR range, you must configure the CNI plugin to use custom networking. You can follow through the steps as documented [here](../userguide/cni-custom-network-tutorial.md "../userguide/cni-custom-network-tutorial.md").
 
-![illustration of pods on secondary subnet](images/networking/cn-image.png)
+![Architecture diagram showing an EKS worker node with its primary ENI attached to the primary VPC CIDR range 10.0.0.0/16 and secondary ENIs attached to the secondary VPC CIDR range 100.64.0.0/16](images/networking/cn-image.png)
 
 If you want the CNI to use custom networking, set the `AWS_VPC_K8S_CNI_CUSTOM_NETWORK_CFG` environment variable to `true`.
 
@@ -69,7 +69,7 @@ Amazon VPC now offers [private NAT gateway](../../../vpc/latest/userguide/vpc-na
 
 The network architecture used in this blog post implementation follows the recommendations under [Enable communication between overlapping networks](../../../vpc/latest/userguide/nat-gateway-scenarios.md#private-nat-overlapping-networks "../../../vpc/latest/userguide/nat-gateway-scenarios.md#private-nat-overlapping-networks") in Amazon VPC documentation. As demonstrated in this blog post, you may expand the usage of private NAT Gateway in conjunction with RFC6598 addresses to manage customers' private IP exhaustion issues. The EKS clusters, worker nodes are deployed in the non-routable 100.64.0.0/16 VPC secondary CIDR range, whereas the private NAT gateway, NAT gateway are deployed to the routable RFC1918 CIDR ranges. The blog explains how a transit gateway is used to connect VPCs in order to facilitate communication across VPCs with overlapping non-routable CIDR ranges. For use cases in which EKS resources in a VPC’s non-routable address range need to communicate with other VPCs that do not have overlapping address ranges, customers have the option of using VPC Peering to interconnect such VPCs. This method could provide potential cost savings as all data transit within an Availability Zone via a VPC peering connection is now free.
 
-![illustration of network traffic using private NAT gateway](images/networking/cn-image-3.png)
+![Architecture diagram showing EKS clusters deployed in non-routable 100.64.0.0/16 secondary CIDR range](images/networking/cn-image-3.png)
 
 #### Unique network for nodes and Pods
 
@@ -77,7 +77,7 @@ If you need to isolate your nodes and Pods to a specific network for security re
 
 Custom networking is not used in the setup represented in the diagram below. Rather, Kubernetes worker nodes are deployed on subnets from your VPC’s secondary VPC CIDR range, such as 100.64.0.0/10. You can keep the EKS cluster running (the control plane will remain on the original subnet/s), but the nodes and Pods will be moved to a secondary subnet/s. This is yet another, albeit unconventional, technique to mitigate the danger of IP exhaustion in a VPC. We propose draining the old nodes before redeploying the pods to the new worker nodes.
 
-![illustration of worker nodes on secondary subnet](images/networking/cn-image-2.png)
+![Architecture diagram showing Kubernetes worker nodes deployed on subnets from a secondary VPC CIDR range such as 100.64.0.0/10 without custom networking](images/networking/cn-image-2.png)
 
 ### Automate Configuration with Availability Zone Labels
 
