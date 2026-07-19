@@ -76,7 +76,7 @@ Upon experiment completion or if an error occurs, the ephemeral container and th
   to interact with the EKS cluster to configure or monitor the target application.
   For more information, see
   [https://kubernetes.io/docs/tasks/tools/](https://kubernetes.io/docs/tasks/tools/ "https://kubernetes.io/docs/tasks/tools/").
-- The minimum supported version of EKS is 1.23.
+- The minimum supported version of EKS is 1.30.
 
 ## Create an experiment role
 
