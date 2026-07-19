@@ -17,7 +17,6 @@ The following table shows current support levels for Houdini versions:
 
 | Major Version | Submitter Support     | Conda Support | Render Engines               | Usage-Based Licensing           |
 | ------------- | --------------------- | ------------- | ---------------------------- | ------------------------------- |
-| 19.0          | Windows, macOS, Linux | Linux         | Mantra, Karma CPU, Karma XPU | Usage-based licensing available |
 | 19.5          | Windows, macOS, Linux | Linux         | Mantra, Karma CPU, Karma XPU | Usage-based licensing available |
 | 20.0          | Windows, macOS, Linux | Linux         | Mantra, Karma CPU, Karma XPU | Usage-based licensing available |
 | 20.5          | Windows, macOS, Linux | Linux         | Mantra, Karma CPU, Karma XPU | Usage-based licensing available |
@@ -29,7 +28,6 @@ The following table lists all conda packages applicable to Houdini available to 
 
 | OS    | Package        | Version | Notes                               |
 | ----- | -------------- | ------- | ----------------------------------- |
-| Linux | houdini        | 19.0    | Includes Mantra and Karma renderers |
 | Linux | houdini        | 19.5    | Includes Mantra and Karma renderers |
 | Linux | houdini        | 20.0    | Includes Mantra and Karma renderers |
 | Linux | houdini        | 20.5    | Includes Mantra and Karma renderers |

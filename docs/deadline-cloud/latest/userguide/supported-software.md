@@ -7,6 +7,13 @@ licensing and more. The applications listed below receive official support from 
 beyond the officially supported configurations, see [Provide applications for your jobs](../developerguide/provide-applications.md "../developerguide/provide-applications.md") and
 [Create a conda package for an application or plugin](../developerguide/conda-package.md "../developerguide/conda-package.md") in the _Deadline Cloud Developer Guide_.
 
+Beyond digital content creation, Deadline Cloud supports general-purpose compute-intensive
+workloads including scientific simulations, financial modeling, machine learning model
+training and evaluation, autonomous driving simulation, and data processing. You can run any
+workload that benefits from distributed parallel processing by creating custom job bundles.
+For examples that span these domains, see [Code examples](../developerguide/code-examples.md "../developerguide/code-examples.md") in
+the _Deadline Cloud Developer Guide_.
+
 The following DCC applications are supported by Deadline Cloud:
 
 ###### Topics

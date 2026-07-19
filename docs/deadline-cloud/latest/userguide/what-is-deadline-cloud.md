@@ -1,13 +1,14 @@
 # What is AWS Deadline Cloud?
 
-Deadline Cloud is an AWS service you can use to create and manage rendering projects and jobs on
-Amazon Elastic Compute Cloud (Amazon EC2) instances directly from digital content creation pipelines and
-workstations.
+Deadline Cloud is an AWS service you can use to create and manage compute-intensive workloads on
+Amazon Elastic Compute Cloud (Amazon EC2) instances. Deadline Cloud orchestrates workloads ranging from 3D rendering and visual
+effects to scientific simulations, financial modeling, machine learning model training, and data
+processing—any task that benefits from distributing work across a fleet of workers.
 
 Deadline Cloud provides console interfaces, local applications, command line tools, and an API. With
 Deadline Cloud, you can create, manage, and monitor farms, fleets, jobs, user groups, and storage. You can
 also specify hardware capabilities, create environments for specific workloads, and integrate the
-content creation tools that your production requires into your Deadline Cloud pipeline.
+applications and tools that your workflow requires into your Deadline Cloud pipeline.
 
 Deadline Cloud provides a unified interface to manage all of your rendering projects in one place. You
 can manage users, assign projects to them, and grant permissions for job roles.
@@ -24,7 +25,7 @@ can manage users, assign projects to them, and grant permissions for job roles.
 
 ## Features of Deadline Cloud
 
-Here are some of the key ways Deadline Cloud can help you run and manage visual compute
+Here are some of the key ways Deadline Cloud can help you run and manage compute-intensive
 workloads:
 
 - Quickly create your farms, queues, and fleets. Monitor their status, and gain insights

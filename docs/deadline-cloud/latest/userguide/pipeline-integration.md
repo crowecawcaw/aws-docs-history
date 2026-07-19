@@ -2,6 +2,12 @@
 
 You can integrate your existing rendering pipelines with AWS Deadline Cloud to streamline your workflow management and job submission processes.
 
+While the example below uses a visual effects pipeline, the same integration pattern applies
+to any compute-intensive workflow—scientific simulations, financial modeling, machine
+learning training, or data processing. In each case, you configure how data reaches worker hosts,
+which applications run on those hosts, how operators submit jobs, and how you monitor progress and
+control costs.
+
 ## What is pipeline integration?
 
 A pipeline integration of Deadline Cloud refers to how a Deadline Cloud farm provides batch processing for your interactive and automated workflows. This example uses a visual effects pipeline that you can adapt to the applications and processes your operators use in their workflows.
