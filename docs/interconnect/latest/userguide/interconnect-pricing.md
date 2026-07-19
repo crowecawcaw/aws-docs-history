@@ -23,7 +23,7 @@ When you create an Interconnect, you configure the following options which are u
 
 A Direct Connect gateway is a logical object. It is used as a global routing instance that distributes your routes between Regional endpoints and edge network devices. It operates outside of the data traffic path. It is globally distributed to all the edge network devices where your Interconnects and Direct Connect Virtual interfaces are provisioned. To learn more, review the AWS Direct Connect documentation.
 
-For example, a 1 Gbps Interconnect associated only to a TGW in the local Region will be less expensive than a 1 Gbps Interconnect provisioned in Tokyo and configured to reach a Cloud WAN Core Network Edge in the AWS us-east-1 (N. Virginia) Region.
+For example, a 1 Gbps Interconnect associated only to a local-Region TGW costs less than one provisioned in Tokyo and configured to reach a Cloud WAN Core Network Edge in AWS us-east-1 (N. Virginia).
 
 To review the price for a specific path, use the AWS Interconnect Pricing tool. Select the AWS Region where your workload resides and the Region where your Interconnect was provisioned to see that specific path’s Tier.
 
@@ -64,7 +64,7 @@ In this configuration, both CNEs can reach your Interconnect using the shortest 
 
 ### Local connectivity to Virtual gateways or Transit Gateways
 
-Virtual gateways and Transit Gateways are regional networking services which reside in a single, specific AWS Region. When using Interconnect with regional networking services, a DXGW that has an Interconnect attachment will support associations to a VGW or TGW only in the AWS Region that is local for that Interconnect which you selected at its creation. If you attempt to attach an Interconnect to an existing DXGW that is already associated to a TGW in the local Region and also to a TGW in a remote Region, then the new attachment will fail.
+Virtual gateways and Transit Gateways are regional networking services which reside in a single, specific AWS Region. When using Interconnect with regional networking services, a DXGW with an Interconnect attachment supports associations to a VGW or TGW only in the Interconnect’s local Region (selected at creation). If you attempt to attach an Interconnect to an existing DXGW that is already associated to a TGW in the local Region and also to a TGW in a remote Region, then the new attachment will fail.
 
 For example:
 
