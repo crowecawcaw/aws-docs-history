@@ -14,6 +14,8 @@ The dashboard is the landing page after sign-in. It displays configurable widget
 
 The fleet management page lists all fleets with their vehicle counts and status. Operators can create new fleets, edit fleet details, associate vehicles (via a selection modal), disassociate vehicles, and delete fleets. Clicking a fleet opens the fleet detail page showing the fleet’s vehicles, active campaigns, and performance summary.
 
+Two Cognito user roles govern fleet access. A **platform-admin** user has cross-fleet authority and can perform bulk enrollment and unenrollment operations across all fleets — for example, enrolling a batch of OEM cloud-connected vehicles in a single API call. A **fleet-operator** user is scoped to the fleets listed in their `custom:fleetIds` Cognito claim and can manage vehicles and run bulk operations only within those fleets. Bulk enrollment supports up to four OEM vehicle enrollments per hour per fleet; operations that exceed this quota return a 429 response and can be retried.
+
 ![Fleet Detail](images/fm-fleet-detail.png)
 
 ## Vehicle management
@@ -131,4 +133,14 @@ KPIs show total claims, recovered amount year-to-date, open claims, and pending 
 
 ## Driver Assignment
 
-Each vehicle has a default assigned driver shown on the vehicle detail page. Drivers are assigned round-robin from the active driver pool during fleet setup. Fleet managers can reassign drivers from the vehicle detail page. When a trip is detected, it is attributed to the vehicle’s current driver for safety event tracking and driver scoring.
+Each vehicle has a default assigned driver shown on the vehicle detail page. Drivers are assigned round-robin from the active driver pool during fleet setup. Fleet managers can reassign drivers from the vehicle detail page. When a trip is detected, it is attributed to the vehicle’s current driver for safety event tracking and driver scoring. Drivers can also claim a vehicle themselves from the Fleet Manager web interface or the companion iOS application, overriding the current assignment so that trips are attributed to the correct driver without fleet manager intervention.
+
+## In-vehicle assistant
+
+The Fleet Manager console includes a conversational assistant panel that lets users ask questions about their fleet, vehicles, and diagnostic trouble codes in natural language. The assistant is accessible from the navigation bar and opens as a side panel within the Fleet Manager interface.
+
+When a user sends a message, the Fleet Manager web application routes the request to the `/assistant/chat` endpoint of the VSA API, which forwards it to the AgentCore text runtime (`vsa_supervisor_text_staging`). The runtime invokes a Bedrock supervisor agent that coordinates a set of specialist agents to fulfill the request. The supervisor grounds responses in the Automotive Data Platform (ADP) knowledge base, which contains vehicle diagnostic guides, DTC explanations, and maintenance procedures. Responses are streamed back to the chat panel.
+
+The assistant adapts its behavior based on the authenticated user’s Cognito claims. A user with the default `fleet_driver` role receives driving-focused guidance — trip summaries, safety event explanations, and DTC context for their own vehicle. A user with `custom:role=service-advisor` in their Cognito profile receives a service-advisor persona, which provides broader cross-vehicle diagnostic context suited for workshop and service center use cases.
+
+The assistant capability requires the optional `cms-{stage}-bedrock-agents` stack. Deploy it with `make deploy-bedrock-agents` after the core platform is running. If the stack is not deployed, the assistant panel is present in the UI but the `/assistant/chat` endpoint is not available. See [Architecture details](architecture-details.md "architecture-details.md") for the BedrockAgentsStack configuration and the inference-profile IAM pattern required for cross-region model invocation.

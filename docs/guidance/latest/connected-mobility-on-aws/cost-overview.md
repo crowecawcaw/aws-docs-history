@@ -50,7 +50,7 @@ Costs scale primarily with:
 - Map tile requests and geocoding operations (Location Service)
 - Data transfer and CloudFront usage
   For 100 vehicles: ~$250/month
-For 1,000 vehicles: ~$410/month
+For 1,000 vehicles: ~$400/month
   For 10,000 vehicles: ~$1,200/month
 
 We recommend creating a [Budget](../../../cost-management/latest/userguide/budgets-managing-costs.md "../../../cost-management/latest/userguide/budgets-managing-costs.md") through [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/") to help manage costs.

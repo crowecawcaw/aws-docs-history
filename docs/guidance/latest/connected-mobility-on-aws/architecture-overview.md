@@ -1,12 +1,16 @@
 # Architecture overview
 
-This section provides a high-level description of the guidance architecture, including the six integrated stacks that comprise the guidance. The architecture uses [AWS Cloud Development Kit (AWS CDK)](https://aws.amazon.com/cdk/ "https://aws.amazon.com/cdk/") for infrastructure deployment with a phase-based approach that ensures proper dependency management and efficient deployment.
+This section provides a high-level description of the guidance architecture, including the 14 integrated stacks that comprise the guidance. The architecture uses [AWS Cloud Development Kit (AWS CDK)](https://aws.amazon.com/cdk/ "https://aws.amazon.com/cdk/") for infrastructure deployment with a phase-based approach that ensures proper dependency management and efficient deployment.
 
-The solution provides a modern, scalable telemetry architecture designed to handle high-volume, real-time data streams from connected vehicle fleets. Each installation follows the same core architecture with six foundational stacks that can be customized to meet specific requirements.
+The solution provides a modern, scalable telemetry architecture designed to handle high-volume, real-time data streams from connected vehicle fleets. Each installation follows the same core architecture with 14 integrated stacks — deployed across four sequential phase groups — that can be customized to meet specific requirements.
 
 ## Solution architecture
 
 Deploying this solution with the default parameters creates the following architecture in your AWS account.
+
+###### Note
+
+The architecture diagrams in this guide are currently being updated to reflect the current stack topology. The narrative text on this page describes the current deployed architecture; the diagrams may not yet show all components described in the narrative.
 
 ![The solution deploys six integrated stacks as described in the following sections.](images/architecture-overview.png)
 
@@ -14,7 +18,7 @@ Deploying this solution with the default parameters creates the following archit
 
 CloudFormation resources are created from [AWS Cloud Development Kit (AWS CDK)](https://aws.amazon.com/cdk/ "https://aws.amazon.com/cdk/") constructs.
 
-The solution architecture consists of six integrated stacks deployed in phases:
+The solution architecture consists of 14 integrated stacks deployed across four phase groups:
 
 1. **InfrastructureStack** – Provides the foundational networking and caching infrastructure including Amazon VPC with public and private subnets, NAT Gateway for secure internet access, and Amazon ElastiCache for Redis to maintain real-time vehicle state for sub-second lookups.
 2. **StorageStack** – Deploys Amazon DynamoDB tables for vehicles, trips, alerts, drivers, commands, geofences, and signal catalog with on-demand billing and point-in-time recovery enabled. Also provisions Amazon S3 buckets for telemetry data archival and web application assets.
@@ -26,29 +30,23 @@ The solution architecture consists of six integrated stacks deployed in phases:
 8. **CommandsStack** – Enables bidirectional communication with vehicles through remote commands sent via IoT Core MQTT. Includes command catalog derived from the signal catalog, command status tracking with latency measurement, and geofence management APIs.
 9. **SimulationStack** – Deploys cloud-based simulation infrastructure including an EC2-backed ECS cluster with separate task definitions for the FWE agent and Python simulator, plus a Lambda orchestrator. Supports both MQTT Direct (Fargate) and FleetWise Edge (EC2 with HOST network mode and per-vehicle vcan isolation) simulation modes.
 10. **FleetWiseStack** – Deploys AWS IoT FleetWise resources including signal catalogs, decoder manifests, and campaign management infrastructure for FleetWise Edge Agent integration.
+11. **ConnectorStack** – Deploys an Amazon ECS Fargate worker for cloud-to-cloud OEM telemetry ingestion. The gRPC-streaming connector receives telemetry from an OEM vehicle data cloud and lands it on the `cms-telemetry-oem` Kafka topic, where the OEMTelemetryProcessor applies transform manifest normalization before routing through the standard pipeline.
+12. **WsFanoutStack** – Deploys a Kafka-to-WebSocket bridge that fans out per-fleet telemetry topics (`cms-fleet-{fleetId}-telemetry`) to connected Fleet Manager UI clients in real time. The WebSocket API `$connect` route uses a Cognito JWT Lambda REQUEST authorizer, requiring a valid bearer token on upgrade.
+13. **BedrockAgentsStack** (optional, not included in `deploy-all`) – Deploys a Bedrock multi-agent system consisting of a supervisor agent and specialist sub-agents, together with an Amazon Bedrock AgentCore runtime for both bidirectional voice and HTTP text invocation modes. The stack is provisioned separately with `make deploy-bedrock-agents` to let operators control Bedrock inference costs independently.
+14. **TcoStack** – Deploys cost analytics infrastructure for fleet total cost of ownership tracking.
 
 ### Deployment flow
 
-The solution uses a phase-based deployment approach to manage dependencies between stacks:
+The solution uses four sequential phase groups to manage stack dependencies. Run each group as a single `make` target or use `make deploy-all` for a fully automated end-to-end deploy.
 
-**Phase 1: Foundation (Storage + IoT + UI)** – Deploys DynamoDB tables, IoT Core infrastructure, Fleet Manager UI (Lambda, Cognito, CloudFront, API Gateway, Location Service). Duration: 5-8 minutes.
+**phase-foundation** – Deploys the data-processing seed stack (signal catalog, decoder manifest), StorageStack, IoTStack, UIStack, MSKStack, and TelemetryIntegrationStack. Duration: 15–20 minutes (MSK cluster creation dominates).
 
-**Phase 2: Data Seeding (optional)** – Seeds historical demo data (30 days of trips). Duration: 2-3 minutes.
+**phase-streaming** – Deploys FlinkStack (builds the universal Flink JAR and deploys all 10 Flink applications) and the FleetWise integration stacks. Duration: 10–15 minutes.
 
-**Phase 3: Networking + Streaming (VPC + MSK + Redis)** – Creates VPC, NAT Gateway, ElastiCache for Redis, and MSK Kafka cluster. Duration: 8-12 minutes.
+**phase-seeds** – Seeds the signal catalog, decoder manifest, event catalog, and default fleet enrollment into DynamoDB. Duration: 3–5 minutes.
 
-**Phase 3b: Telemetry Integration** – Connects IoT Core to MSK via IoT Rules and VPC Destinations. Duration: 10-15 minutes.
+**phase-services** – Deploys SimulationStack, CommandsStack, WsFanoutStack, ConnectorStack, and TcoStack. Also runs `make regenerate-runtime-config` and seeds demo personas. Duration: 5–10 minutes.
 
-**Phase 4: FleetWise Integration** – Deploys FleetWise IoT Rules, VPC endpoints, and CampaignSyncProcessor configuration. Duration: 3-5 minutes.
+**deploy-bedrock-agents** (optional) – Deploys BedrockAgentsStack as a separate, opt-in step. Operators who do not require the in-UI conversational assistant can skip this target to avoid Bedrock inference costs.
 
-**Phase 5: Stream Processing (Flink)** – Builds the Flink JAR and deploys all 10 Flink applications. Duration: 5-7 minutes.
-
-**Phase 6: Data Seeding** – Seeds the decoder manifest, default campaign, signal catalog, and event catalog into DynamoDB. Duration: 2-3 minutes.
-
-**Phase 7: Pipeline Configuration** – Configures MSK bootstrap servers and IAM authentication for Flink applications. Duration: 3-5 minutes.
-
-**Phase 8: Cloud Simulation** – Deploys the ECS simulation infrastructure (Fargate for MQTT Direct, EC2-backed with ASG and capacity provider for FleetWise Edge, task definitions, Lambda orchestrator). Duration: 3-5 minutes.
-
-**Phase 9: Remote Commands** – Deploys the Commands Lambda, Command Response Handler, and IoT Rules for bidirectional vehicle communication. Duration: 2-3 minutes.
-
-Total deployment time: 45-65 minutes.
+Total deployment time: 45–65 minutes.

@@ -41,19 +41,22 @@ guidance-for-connected-mobility-on-aws/
 ├── deployment/
 │   ├── app.py                          # CDK application entry point
 │   ├── stacks/                         # CDK stack definitions
+│   │   ├── bedrock_agents_stack.py     # Bedrock supervisor + specialist agents (opt-in)
 │   │   ├── commands_stack.py           # Remote vehicle commands API
+│   │   ├── connector_stack.py          # OEM cloud-to-cloud connector (ECS Fargate)
 │   │   ├── data_processing_stack.py    # Signal catalog and transform manifests
-│   │   ├── fleetwise_stack.py          # FleetWise Edge integration
+│   │   ├── fwe_telemetry_stack.py      # FleetWise Edge integration
 │   │   ├── flink_stack.py              # Flink stream processing applications
 │   │   ├── infrastructure_stack.py     # VPC, subnets, networking
 │   │   ├── iot_stack.py                # Fleet management IoT components
 │   │   ├── msk_stack.py                # MSK cluster, VPC, and ElastiCache
-│   │   ├── oem_processor_stack.py      # OEM telemetry ingestion
 │   │   ├── predictive_agent_stack.py   # Predictive maintenance AI agent
 │   │   ├── simulation_stack.py         # ECS Fargate vehicle simulator
 │   │   ├── storage_stack.py            # DynamoDB tables
+│   │   ├── tco_stack.py                # TCO and cost analytics
 │   │   ├── telemetry_integration_stack.py  # MSK-IoT connectivity
-│   │   └── ui_stack.py                 # Frontend, API Gateway, Cognito
+│   │   ├── ui_stack.py                 # Frontend, API Gateway, Cognito
+│   │   └── ws_fanout_stack.py          # Kafka to WebSocket real-time fan-out
 │   ├── Makefile                        # Deployment automation
 │   └── requirements.txt
 ├── modules/
@@ -62,10 +65,12 @@ guidance-for-connected-mobility-on-aws/
 │   │   └── source/
 │   │       ├── frontend/               # React app (Cloudscape Design)
 │   │       └── handlers/               # API Lambda handlers
-│   ├── flink/                          # Java Flink processors
-│   └── oem_ingestion/                  # OEM data ingestion consumer
+│   ├── flink/                          # Java Flink processors (com.cms.telemetry)
+│   └── predictive_agent/               # Predictive maintenance agent
 ├── services/
 │   ├── commands/                       # Remote commands Lambda + protobuf
+│   ├── connectors/
+│   │   └── oem1/                       # OEM1 cloud connector (gRPC streaming)
 │   ├── data_processing/                # Data processing service
 │   └── simulation/                     # Vehicle simulation service
 ├── scripts/                            # Utility scripts
@@ -78,19 +83,23 @@ The solution is deployed as a set of modular CDK stacks defined in `deployment/a
 
 ### Stack overview
 
-| Stack                       | Purpose                                                                                                          | Condition                                     |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| `DataProcessingStack`       | Signal catalog and transform manifests                                                                           | Always deployed                               |
-| `StorageStack`              | DynamoDB tables for vehicles, trips, telemetry, safety events, maintenance alerts, drivers, and more             | Always deployed                               |
-| `MSKStack`                  | VPC, Amazon MSK (Kafka) cluster, and ElastiCache for Redis                                                       | Deployed unless `MSK_CLUSTER_ARN` is provided |
-| `IoTStack`                  | Fleet management IoT components                                                                                  | Always deployed                               |
-| `TelemetryIntegrationStack` | MSK-IoT connectivity (IoT rules, VPC destinations)                                                               | `DEPLOY_TELEMETRY_INTEGRATION=true`           |
-| `FlinkStack`                | Flink stream processing applications (trip detection, safety, maintenance, telemetry, FWE decode, campaign sync) | Always deployed                               |
-| `FleetWiseStack`            | FleetWise Edge IoT rules, VPC endpoints, CampaignSyncProcessor                                                   | `DEPLOY_FLEETWISE=true`                       |
-| `UIStack`                   | React frontend (Cloudscape Design), API Gateway, Cognito authentication, Amazon Location Service                 | Always deployed                               |
-| `CommandsStack`             | Remote vehicle commands API via IoT Core MQTT, geofence management                                               | Always deployed                               |
-| `PredictiveAgentStack`      | Predictive maintenance AI agent                                                                                  | `DEPLOY_PREDICTIVE_AGENT=true`                |
-| `SimulationStack`           | ECS Fargate vehicle simulation service                                                                           | `DEPLOY_SIMULATION=true`                      |
+| Stack                       | Purpose                                                                                                                                                                         | Condition                                                   |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| `DataProcessingStack`       | Signal catalog and transform manifests                                                                                                                                          | Always deployed                                             |
+| `StorageStack`              | DynamoDB tables for vehicles, trips, telemetry, safety events, maintenance alerts, drivers, and more                                                                            | Always deployed                                             |
+| `MSKStack`                  | VPC, Amazon MSK (Kafka) cluster, and ElastiCache for Redis                                                                                                                      | Deployed unless `MSK_CLUSTER_ARN` is provided               |
+| `IoTStack`                  | Fleet management IoT components                                                                                                                                                 | Always deployed                                             |
+| `TelemetryIntegrationStack` | MSK-IoT connectivity (IoT rules, VPC destinations)                                                                                                                              | `DEPLOY_TELEMETRY_INTEGRATION=true`                         |
+| `FlinkStack`                | Flink stream processing applications (trip detection, safety, maintenance, telemetry, FWE decode, OEM transform, campaign sync, geofence, event-driven, simulator preprocessor) | Always deployed                                             |
+| `FweTelemetryStack`         | FleetWise Edge IoT rules, VPC endpoints, CampaignSyncProcessor                                                                                                                  | `DEPLOY_FLEETWISE=true`                                     |
+| `UIStack`                   | React frontend (Cloudscape Design), API Gateway, Cognito authentication, Amazon Location Service                                                                                | Always deployed                                             |
+| `CommandsStack`             | Remote vehicle commands API via IoT Core MQTT, geofence management                                                                                                              | Always deployed                                             |
+| `ConnectorStack`            | OEM cloud-to-cloud connector — ECS Fargate gRPC streaming worker, landing on `cms-telemetry-oem`                                                                                | Always deployed                                             |
+| `WsFanoutStack`             | Kafka to WebSocket real-time telemetry fan-out for the Fleet Manager UI                                                                                                         | Always deployed                                             |
+| `TcoStack`                  | TCO and cost analytics                                                                                                                                                          | Always deployed                                             |
+| `PredictiveAgentStack`      | Predictive maintenance AI agent                                                                                                                                                 | `DEPLOY_PREDICTIVE_AGENT=true`                              |
+| `SimulationStack`           | ECS Fargate vehicle simulation service                                                                                                                                          | `DEPLOY_SIMULATION=true`                                    |
+| `BedrockAgentsStack`        | Bedrock supervisor and specialist agents with Amazon Bedrock AgentCore runtime (opt-in)                                                                                         | `make deploy-bedrock-agents` (not included in `deploy-all`) |
 
 ### Customizing stacks
 
@@ -700,6 +709,232 @@ GSIs and ISVs can extend this guidance by:
 - Building custom dashboards and reports
 - Implementing additional API endpoints
 - Adding machine learning models for predictive analytics
+
+## CVX assistant integration
+
+The Fleet Manager UI includes a conversational assistant panel backed by the Amazon Bedrock AgentCore text runtime. The assistant routes user messages to a Bedrock supervisor agent that grounds responses against the Automotive Data Platform Knowledge Base.
+
+### VSA API endpoint helper
+
+The `getVsaApiEndpoint()` helper in `modules/cms_ui/source/frontend/src/config/api.ts` reads the `vsaApiEndpoint` field from the runtime configuration JSON that CloudFront serves at `/runtimeConfig.json`. The value points to the deployed CVX API Gateway stage URL.
+
+```
+// modules/cms_ui/source/frontend/src/config/api.ts
+
+import { getRuntimeConfig } from './runtimeConfig';
+
+export function getVsaApiEndpoint(): string {
+  const config = getRuntimeConfig();
+  return (
+    config.vsaApiEndpoint ||
+    process.env.REACT_APP_VSA_API_ENDPOINT ||
+    ''
+  );
+}
+```
+
+The helper falls back to an environment variable for local development so the assistant can be tested without a deployed stack.
+
+### Chat message fetch pattern
+
+The `ChatAgent` component in `modules/cms_ui/source/frontend/src/components/commons/ChatAgent.tsx` sends each user message to the `/assistant/chat` route of the VSA API endpoint using a standard `fetch` call. The AgentCore text runtime (`vsa_supervisor_text_staging` or the production equivalent) handles the request and streams back a text response.
+
+```
+// modules/cms_ui/source/frontend/src/components/commons/ChatAgent.tsx
+// Simplified excerpt showing the fetch pattern
+
+import { getVsaApiEndpoint } from '../../config/api';
+
+async function sendMessage(userMessage: string): Promise<string> {
+  const vsaEndpoint = getVsaApiEndpoint();
+  const base = vsaEndpoint.endsWith('/')
+    ? vsaEndpoint.slice(0, -1)
+    : vsaEndpoint;
+
+  const res = await fetch(`${base}/assistant/chat`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: userMessage, sessionId }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Assistant request failed: ${res.status}`);
+  }
+  const data = await res.json();
+  return data.response ?? '';
+}
+```
+
+The Fetch Interceptor in `modules/cms_ui/source/frontend/src/auth/fetchInterceptor.ts` attaches the Cognito access token to requests matching `vsaApiEndpoint`, so no manual `Authorization` header is required in the component.
+
+### Persona inference from Cognito claims
+
+The backend AgentCore handler infers the user persona from the Cognito `custom:role` claim that the UI passes as a JWT. The two supported personas are `fleet_driver` (default) and `service_advisor` (when `custom:role=service-advisor`). The supervisor agent selects specialist tools and tone based on the persona.
+
+To add a third persona, update the persona-routing logic in the CVX supervisor agent and ensure the corresponding Cognito user attribute is populated during user provisioning.
+
+## Bedrock agent tool extension
+
+The `BedrockAgentsStack` in `deployment/stacks/bedrock_agents_stack.py` provisions four Bedrock agents — `cms-cost-agent`, `cms-maintenance-agent`, `cms-rebalancing-agent`, and `cms-recall-warranty-agent` — each with a `prod` alias. Agent configuration is loaded from JSON snapshots in `deployment/scripts/bedrock_agents_snapshot/`.
+
+### Adding a tool to an agent
+
+Add the tool implementation to the relevant module under `modules/predictive_agent/agent/` or `modules/campaign_manager/`, then update the corresponding agent snapshot in `deployment/scripts/bedrock_agents_snapshot/` to reference the new action group.
+
+```
+# Example: adding an action group to a Bedrock agent snapshot
+# File: deployment/scripts/bedrock_agents_snapshot/cms-maintenance-agent.json
+
+{
+  "agentName": "cms-maintenance-agent",
+  "foundationModel": "us.anthropic.claude-sonnet-4-6",
+  "actionGroups": [
+    {
+      "actionGroupName": "MaintenanceTools",
+      "actionGroupExecutor": {
+        "lambda": "arn:aws:lambda:<region>:<account-id>:function:cms-<stage>-maintenance-tools"
+      },
+      "apiSchema": { ... }
+    }
+  ]
+}
+```
+
+### Inference-profile IAM pattern
+
+Bedrock cross-region inference profiles require two IAM policy statements: one for the inference profile resource (which includes the account ID) and one for the underlying foundation model (which does not include an account ID). The `BedrockAgentsStack` encodes this pattern automatically based on the resolved inference profile ID.
+
+```
+# Pattern used in deployment/stacks/bedrock_agents_stack.py
+
+from aws_cdk import Stack
+import aws_cdk.aws_iam as iam
+
+account = Stack.of(self).account
+profile_id = "us.anthropic.claude-sonnet-4-6"
+
+# Strip geographic prefix to get the foundation model ID
+fm_id = profile_id.split(".", 1)[1]  # "anthropic.claude-sonnet-4-6"
+
+iam.PolicyStatement(
+    actions=["bedrock:InvokeModel", "bedrock:InvokeModelWithResponseStream"],
+    resources=[
+        # Inference profile ARN — includes account ID
+        f"arn:aws:bedrock:*:{account}:inference-profile/{profile_id}",
+        # Foundation model ARN — no account ID
+        f"arn:aws:bedrock:*::foundation-model/{fm_id}",
+    ],
+)
+```
+
+If you add a new agent that invokes a different inference profile, apply this same two-statement pattern to the agent service role.
+
+## OEM connector extension
+
+The `ConnectorStack` in `deployment/stacks/connector_stack.py` deploys the OEM1 cloud-to-cloud connector as an ECS Fargate task. The connector establishes a gRPC streaming connection to the OEM cloud API, receives vehicle telemetry, transforms it via a manifest loaded from Amazon S3, and publishes normalized records to the `cms-telemetry-oem` Kafka topic. The `OEMTelemetryProcessor` Flink application in `modules/flink/src/main/java/com/cms/telemetry/OEMTelemetryProcessor.java` then consumes from that topic and writes to DynamoDB and Redis.
+
+### Connector source layout
+
+The OEM1 connector implementation lives under `services/connectors/oem1/`:
+
+```
+services/connectors/oem1/
+├── connector.py          # Kafka consumer and gRPC client
+├── main.py               # Entry point
+├── token_supplier.py     # OEM OAuth token management
+├── kafka_producer.py     # Kafka producer to cms-telemetry-oem
+├── typed_data_decoder.py # Signal-type decoding utilities
+├── config.py             # Environment variable configuration
+├── Dockerfile            # Container image definition
+├── admin_bulk_enroll/    # Bulk vehicle enrollment Lambda
+├── admin_bulk_unenroll/  # Bulk unenroll Lambda
+├── admin_enroll_quota/   # Hourly enroll quota check Lambda
+└── _lib/                 # Shared library utilities
+```
+
+### Adding a connector for a second OEM
+
+To integrate a second OEM data source, create a new directory `services/connectors/oem2/` following the same layout as `services/connectors/oem1/`. The key integration points are:
+
+1. **Token management** — implement an `OAuthTokenSupplier` equivalent to `token_supplier.py` that handles your OEM API credentials, stored in AWS Secrets Manager.
+2. **Streaming consumer** — implement the transport layer (REST polling, gRPC streaming, or Kafka bridge) in `connector.py`.
+3. **Kafka producer** — publish normalized records to a dedicated topic (for example, `cms-telemetry-oem2`) to keep OEM data streams isolated.
+4. **Flink processor** — either extend `OEMTelemetryProcessor` to handle the new topic via the `PROCESSOR_TYPE` routing in `UniversalProcessor`, or add a new processor class in `modules/flink/src/main/java/com/cms/telemetry/`.
+5. **Transform manifest** — define the field mapping from OEM signal names to CMS canonical signal names in an S3-hosted JSON manifest and reference it from the Flink processor application properties.
+6. **Stack registration** — add a `ConnectorStack`-derived construct in `deployment/stacks/connector_stack.py` or a new stack file, then wire it into `deployment/app.py`.
+
+Enrollment quota limits and admin Lambda patterns from `services/connectors/oem1/admin_bulk_enroll/` apply equally to any OEM connector; reuse those handlers or adapt them for your OEM-specific enrollment API.
+
+## Fleet Manager Cognito role integration
+
+The Fleet Manager API enforces authorization at the Lambda handler level in `modules/cms_ui/source/handlers/main_api/index.py`. Every API request carries a Cognito JWT, and the handler extracts the user groups and custom claims to determine the caller scope.
+
+### Cognito groups and custom claims
+
+Three Cognito groups control access scope:
+
+| Group            | Scope                                                                                                                               | Key claim                                             |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| `platform-admin` | All fleets and vehicles across the deployment. May create and delete fleets, bulk-enroll vehicles, and access all admin operations. | No per-fleet claim required                           |
+| `fleet-operator` | Only the fleets listed in the `custom:fleetIds` attribute. May enroll, unenroll, and manage vehicles within those fleets.           | `custom:fleetIds` — comma-separated list of fleet IDs |
+| `fleet-viewer`   | Read-only access to the fleets listed in `custom:fleetIds`.                                                                         | `custom:fleetIds`                                     |
+
+The handler extracts these values from the decoded JWT claims:
+
+```
+# Simplified excerpt from modules/cms_ui/source/handlers/main_api/index.py
+
+_OPERATOR_GROUPS = {'platform-admin', 'fleet-operator', 'fleet-viewer'}
+
+def get_user_scope(claims: dict) -> tuple[set[str], list[str]]:
+    """Return (user_groups, fleet_ids) from JWT claims."""
+    user_groups = set(claims.get('cognito:groups', []))
+    fleet_ids = [
+        fid.strip()
+        for fid in claims.get('custom:fleetIds', '').split(',')
+        if fid.strip()
+    ]
+    return user_groups, fleet_ids
+
+def is_admin(user_groups: set[str]) -> bool:
+    return 'platform-admin' in user_groups
+```
+
+### Adding a new admin operation
+
+When adding an endpoint that must be gated on `platform-admin`:
+
+1. Add the route handler in `modules/cms_ui/source/handlers/main_api/index.py`.
+2. Call `get_user_scope()` at the top of the handler and return HTTP 403 if `is_admin()` returns `False`.
+3. For fleet-operator access (per-fleet scope), verify that each requested fleet ID appears in the caller `fleet_ids` list before allowing the operation.
+4. Update the Cognito IAM grants in `deployment/stacks/ui_stack.py` if the new endpoint requires Lambda access to additional DynamoDB tables or AWS services.
+5. Add unit tests in `modules/cms_ui/source/handlers/main_api/tests/` verifying that:
+
+   - a `platform-admin` token receives HTTP 200,
+   - a `fleet-operator` token with a matching fleet ID receives HTTP 200,
+   - a `fleet-operator` token with a non-matching fleet ID receives HTTP 403, and
+   - an unauthenticated request receives HTTP 401.
+
+### Assigning groups via CLI
+
+```
+# Add a user to the platform-admin group
+aws cognito-idp admin-add-user-to-group \
+  --user-pool-id <user-pool-id> \
+  --username <email> \
+  --group-name platform-admin
+
+# Set the fleet scope for a fleet-operator
+aws cognito-idp admin-update-user-attributes \
+  --user-pool-id <user-pool-id> \
+  --username <email> \
+  --user-attributes Name=custom:fleetIds,Value="fleet-001,fleet-002"
+
+# Verify current group membership
+aws cognito-idp admin-list-groups-for-user \
+  --user-pool-id <user-pool-id> \
+  --username <email>
+```
 
 ## Best practices
 

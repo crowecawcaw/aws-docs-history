@@ -11,11 +11,18 @@ Before deploying the guidance, ensure you have the following prerequisites:
 **Required software:**
 
 - [AWS CLI v2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") - Command line tool for AWS
-- [Node.js 18.x or later](https://nodejs.org/ "https://nodejs.org/") - JavaScript runtime
+- [Node.js 20.x or later](https://nodejs.org/ "https://nodejs.org/") - JavaScript runtime (Node.js 20 LTS is the recommended version for Vite 5 compatibility)
+- [Yarn 4 via Corepack](https://yarnpkg.com/ "https://yarnpkg.com/") - Package manager; enable with `corepack enable && corepack prepare yarn@4.6.0 --activate`
 - [Python 3.9 or later](https://www.python.org/downloads/ "https://www.python.org/downloads/") - Python runtime
 - [AWS CDK v2.100.0 or later](../../../cdk/v2/guide/getting_started.md "../../../cdk/v2/guide/getting_started.md") - Infrastructure as code framework
+- [Java 11 (OpenJDK or Amazon Corretto 11)](https://adoptium.net/ "https://adoptium.net/") - Required to build the Apache Flink JAR that packages all stream-processing applications
+- [Apache Maven 3.6 or later](https://maven.apache.org/download.cgi "https://maven.apache.org/download.cgi") - Required to compile and package the Flink applications (`mvn package` under `modules/flink/`)
 - [Make](https://www.gnu.org/software/make/ "https://www.gnu.org/software/make/") - Build automation tool
 - [Git](https://git-scm.com/ "https://git-scm.com/") - Version control system
+
+**Optional software:**
+
+- [Docker](https://docs.docker.com/get-docker/ "https://docs.docker.com/get-docker/") - Required only when `SIM_IMAGE_MODE=asset` is set to build simulation container images locally rather than pulling from the public Amazon ECR registry. By default the solution pulls pre-built images from the public registry and Docker is not needed.
 
 ### AWS account requirements
 
@@ -23,8 +30,9 @@ Before deploying the guidance, ensure you have the following prerequisites:
 
 - An AWS account with appropriate IAM permissions
 - AWS credentials configured (via `aws configure` or environment variables)
-- Sufficient service quotas for the resources being deployed
+- Sufficient service quotas for the resources being deployed (see [Quotas](#quotas "#quotas"))
 - CDK bootstrap completed in target account and region
+- The environment variable `CMS_DEMO_DEFAULT_PASSWORD` set to a strong password used to seed demo user accounts during the `phase-seeds` deployment phase
 
 **Required IAM permissions:**
 
@@ -87,6 +95,10 @@ Guidance for Connected Mobility on AWS is supported in the following AWS Regions
 
 Not all AWS services are available in all Regions. Verify that Amazon MSK, Amazon Kinesis Data Analytics, and Amazon Location Service are available in your target Region before deployment.
 
+###### Note
+
+The solution applies a cross-region namespace discipline — all globally-scoped AWS resources (S3 bucket names, IAM role names, and CloudFront aliases) include a region suffix so that the same stage name can be deployed to multiple AWS Regions without collision. This pattern has been validated across all 34 commercial AWS Regions. Asia Pacific (Tokyo) (`ap-northeast-1`) has been end-to-end validated as a reference secondary deployment Region alongside US West (Oregon).
+
 ## Cost
 
 You are responsible for the cost of the AWS services used while running this solution. Prices are subject to change. For full details, see the pricing webpage for each AWS service used in this solution.
@@ -106,6 +118,65 @@ The cost estimates below are based on the following telemetry profile per vehicl
 
 All estimates use US East (N. Virginia) pricing as of March 2026.
 
+The cost model separates two categories of expense:
+
+- **Telemetry processing costs** (Table A) — services that scale with vehicle count and message volume: Amazon MSK, Amazon Managed Service for Apache Flink, AWS IoT Core, telemetry S3 storage, VPC/NAT Gateway networking, and Amazon ElastiCache. These dominate total cost and scale predictably with fleet size.
+- **Other component costs** (Table B) — platform services and optional components: the Fleet Manager web application, API layer, Amazon Cognito authentication, Amazon Location Service, Amazon DynamoDB, AWS Lambda, Amazon CloudFront, Amazon ECS Fargate workers (OEM connector, simulation, WebSocket fan-out), and optionally Amazon Bedrock agent invocations and Amazon Bedrock AgentCore runtime. These include a fixed baseline plus variable usage costs.
+
+The $400 per month baseline figure used in the overview applies to 1,000 vehicles at moderate usage: Table A (~$364) + Table B fixed baseline (~$44) is approximately $408, which rounds to the approximately $400 per month figure cited in the overview. All figures are estimates. Bedrock agent invocations, ECS Fargate worker uptime, and AgentCore runtime are variable additions on top of this baseline and are flagged as estimates below.
+
+### Table A: Telemetry processing costs
+
+These costs scale with vehicle count and message volume. They represent the core data pipeline: ingestion, stream processing, and the infrastructure that supports it.
+
+| AWS Service                             | What it does                                                                                                                                                                                                         | 1,000 vehicles/month | Scales with                                                                                    |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------- |
+| Amazon MSK                              | Kafka message streaming backbone for all telemetry topics                                                                                                                                                            | $194.00              | Broker count and instance size; scales with fleet size and message throughput                  |
+| Amazon Managed Service for Apache Flink | 10 stream-processing applications (trip detection, safety events, maintenance alerts, FleetWise decode, OEM telemetry transform, campaign sync, geofence, event-driven, telemetry processor, simulator preprocessor) | $108.00              | KPU count per application; data-path processors may need additional KPUs at larger fleet sizes |
+| AWS IoT Core                            | MQTT message ingestion (Basic Ingest path) from vehicles and simulators                                                                                                                                              | $3.24                | Messages per month (metered in 5 KB increments)                                                |
+| Amazon S3                               | Telemetry archival (raw and preprocessed topic sink, long-term storage)                                                                                                                                              | $1.50                | Data volume written per month                                                                  |
+| Amazon VPC / NAT Gateway                | Private networking for MSK and ElastiCache; 2 Availability Zones                                                                                                                                                     | $45.00               | Mostly fixed; slight increase with data transfer volume                                        |
+| Amazon ElastiCache for Redis            | Last Known State cache and geospatial index for all active vehicles                                                                                                                                                  | $12.00               | Node type; upgrade when active-vehicle count exceeds node memory                               |
+| **Telemetry processing subtotal**       |                                                                                                                                                                                                                      | **~$364**            |                                                                                                |
+
+### Table B: Other component costs
+
+These costs cover the Fleet Manager application layer, optional ECS Fargate workers, and optional Bedrock agent components. The fixed baseline is approximately $44 per month at 1,000 vehicles. Variable additions depend on whether optional components are deployed and how heavily they are used.
+
+| AWS Service                            | What it does                                                                                                                    | 1,000 vehicles/month        | Notes                                                                                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon CloudFront                      | Fleet Manager UI global content distribution                                                                                    | $8.50                       | Fixed; scales slowly with user count                                                                                                      |
+| Amazon API Gateway                     | REST API for Fleet Manager and remote commands                                                                                  | $3.50                       | Per million API calls                                                                                                                     |
+| AWS Lambda                             | API handlers, response processing, admin operations, orchestration                                                              | $20.00                      | Per invocation; free-tier eligible for low usage                                                                                          |
+| Amazon Cognito                         | User authentication for Fleet Manager (platform-admin, fleet-operator, fleet-viewer groups)                                     | $0.00                       | Free tier covers up to 50,000 monthly active users                                                                                        |
+| Amazon DynamoDB                        | Vehicle, trip, alert, driver, campaign, command, and geofence storage (on-demand billing)                                       | $3.50                       | On-demand; scales with read/write request volume                                                                                          |
+| Amazon Location Service                | Fleet map tiles, geocoding, and route calculation                                                                               | $8.00                       | Per map tile request and geocode call                                                                                                     |
+| Amazon S3 (application)                | UI assets, signal catalogs, decoder manifests, transform manifests                                                              | Included in Table A S3 row  | Negligible incremental cost                                                                                                               |
+| **Other components fixed subtotal**    |                                                                                                                                 | **~$44**                    |                                                                                                                                           |
+| Amazon ECS Fargate — OEM connector     | Cloud-to-cloud OEM telemetry ingestion worker (gRPC streaming, lands on `cms-telemetry-oem` topic)                              | Variable (~$5–$15 estimate) | Scales with connector uptime; $0 when not running                                                                                         |
+| Amazon ECS Fargate — simulation        | Cloud vehicle simulation in MQTT Direct mode (on-demand; stops when simulation ends)                                            | Variable (~$2–$10 estimate) | On-demand only; $0 when idle                                                                                                              |
+| Amazon ECS — FleetWise simulation      | FleetWise Edge simulation on EC2 (t4g.small ARM64) with virtual CAN isolation                                                   | Variable (~$5–$20 estimate) | Per active simulation session                                                                                                             |
+| Amazon ECS Fargate — WebSocket fan-out | Kafka-to-WebSocket bridge for real-time telemetry in the Fleet Manager UI                                                       | Variable (~$3–$10 estimate) | Scales with connected UI sessions                                                                                                         |
+| Amazon Bedrock (agent invocations)     | Supervisor and specialist multi-agent calls for the in-UI conversational fleet assistant (opt-in: `make deploy-bedrock-agents`) | Variable (~$5–$50 estimate) | Highly variable; depends on assistant usage, token counts, and number of specialist agent hops. $0 if `deploy-bedrock-agents` is not run. |
+| Amazon Bedrock AgentCore Runtime       | AgentCore text and bidirectional runtime hosting for the fleet assistant                                                        | Variable (~$0–$20 estimate) | Per-invocation fee structure; verify current pricing at deploy time. $0 if not deployed.                                                  |
+| **Variable additions subtotal**        |                                                                                                                                 | **~$20–$105 estimate**      | Flagged as estimates; actual cost depends on deployment choices and usage patterns                                                        |
+
+###### Note
+
+Bedrock agent invocations and AgentCore Runtime costs are estimates only. Actual costs depend on the number of assistant sessions, the length of each conversation, and how many specialist agent hops occur per query. These components are opt-in and are not deployed by `make deploy-all`. To omit Bedrock costs entirely, skip the `make deploy-bedrock-agents` step.
+
+### Cost reconciliation to baseline
+
+The approximately $400 per month baseline used in this guide is the sum of Table A and the Table B fixed baseline at 1,000 vehicles (approximately $408 itemized, which rounds to the ~$400 figure used elsewhere in this guide):
+
+| Cost category                                                                                               | Monthly estimate            |
+| ----------------------------------------------------------------------------------------------------------- | --------------------------- |
+| Table A: Telemetry processing (MSK + Flink + IoT Core + S3 + VPC/NAT + ElastiCache)                         | ~$364                       |
+| Table B: Other components fixed (CloudFront + API Gateway + Lambda + Cognito + DynamoDB + Location Service) | ~$44                        |
+| **Baseline total (1,000 vehicles, no optional components)**                                                 | **~$408 (rounds to ~$400)** |
+| Table B: Variable additions (ECS Fargate workers + Bedrock agents + AgentCore, when deployed)               | ~$20–$105 estimate          |
+| **Total with optional components at moderate usage**                                                        | **~$428–$513 estimate**     |
+
 ### Cost by fleet size
 
 | Fleet Size       | MSK    | Flink  | Infrastructure | Application | Total/Month |
@@ -119,6 +190,10 @@ All estimates use US East (N. Virginia) pricing as of March 2026.
 | 50,000 vehicles  | $972   | $1,296 | $97            | $200        | **~$2,565** |
 | 100,000 vehicles | $1,944 | $2,160 | $130           | $350        | **~$4,584** |
 
+###### Note
+
+The totals above reflect Table A (telemetry processing) and the Table B fixed baseline only. Variable Table B additions (Bedrock agents, ECS Fargate workers) are not included in these totals. Add the Table B variable estimate to the applicable fleet-size row for a total-cost projection when optional components are deployed.
+
 **Cost per vehicle per month:**
 
 | Fleet Size | Total/Month | Per Vehicle |
@@ -129,7 +204,7 @@ All estimates use US East (N. Virginia) pricing as of March 2026.
 | 50,000     | $2,565      | $0.05       |
 | 100,000    | $4,584      | $0.05       |
 
-The per-vehicle cost drops dramatically as fleet size increases because the fixed infrastructure costs (MSK cluster, NAT Gateway, ElastiCache) are amortized across more vehicles. The breakpoint for cost efficiency is around **5,000–10,000 vehicles**, where per-vehicle cost drops below $0.15/month.
+The per-vehicle cost drops as fleet size increases because the fixed infrastructure costs (MSK cluster, NAT Gateway, ElastiCache) are amortized across more vehicles. The breakpoint for cost efficiency is around **5,000–10,000 vehicles**, where per-vehicle cost drops below $0.15/month.
 
 ### Detailed cost breakdown
 
@@ -152,7 +227,7 @@ MSK is the largest cost driver (40-50% of total). Cost scales with broker count 
 
 Flink is the second largest cost driver (25-35% of total). Cost scales with KPU count. Each KPU provides 1 vCPU and 4 GB memory at $0.15/hour ($108/month).
 
-The solution runs 7-10 Flink applications. In development, each application uses 1 KPU. In production, data-path processors (SimulatorPreprocessor, EventDrivenTelemetryProcessor, TripProcessor) may need 2-4 KPUs each.
+The solution runs 10 Flink applications. In development, each application uses 1 KPU. In production, data-path processors (SimulatorPreprocessor, EventDrivenTelemetryProcessor, TripProcessor) may need 2-4 KPUs each.
 
 | Fleet Size     | KPU Allocation                           | Monthly Cost       |
 | -------------- | ---------------------------------------- | ------------------ |
@@ -230,6 +305,7 @@ The cost curve has three distinct regions:
 - **CloudWatch log retention:** Set log retention to 30 days for development, 90 days for production (default is indefinite).
 - **Flink checkpointing:** Increase checkpoint interval from 60s to 120s for non-critical processors to reduce state backend I/O.
 - **IoT Core message batching:** The simulator compresses telemetry with gzip, reducing message size from ~8 KB to ~2 KB (75% reduction in IoT Core message costs).
+- **Bedrock cost control:** Deploy `make deploy-bedrock-agents` only in environments where the in-UI conversational fleet assistant is needed. Omitting this stack from development environments eliminates Bedrock invocation costs entirely.
 
 ## Security
 
@@ -259,10 +335,29 @@ The cost curve has three distinct regions:
 
 **Authorization:**
 
+Fleet Manager implements role-based access control through three Amazon Cognito user groups:
+
+- `platform-admin` — full cross-fleet access; required for bulk fleet lifecycle operations (enroll, unenroll, status sync) and OEM connector management
+- `fleet-operator` — per-fleet access scoped by the `custom:fleetIds` Cognito claim; can manage vehicles within their assigned fleets
+- `fleet-viewer` — read-only access to fleet and vehicle data
 - IAM policies follow least-privilege principles
 - IoT policies restrict device access to specific topics
 - API Gateway uses Cognito authorizers
 - Lambda functions have minimal required permissions
+
+**Security-relevant CDK context flags:**
+
+Three CDK context flags control optional access behaviors. All three default to `false` for a production-safe posture:
+
+- `cms.allow_self_signup` (default `false`) — controls whether end users can self-register in the Cognito user pool. Set to `true` only for demo environments.
+- `cms.allow_unauth_map_auth` (default `false`) — controls whether the Cognito identity pool issues unauthenticated credentials for map tile requests. Keep `false` in production to require authentication before loading the fleet map.
+- `cms.allow_unauth_websocket` (default `false`) — controls whether the WebSocket API `$connect` authorizer permits unauthenticated connections. Keep `false` in production to require a valid Cognito JWT on WebSocket upgrade.
+
+To enable any of these flags for a demo environment, pass the context override at deploy time rather than changing `cdk.json` defaults:
+
+```
+cdk deploy --context cms.allow_self_signup=true <stack-name>
+```
 
 ### Network security
 
@@ -273,10 +368,14 @@ The cost curve has three distinct regions:
 - Security groups restrict traffic between components
 - No direct internet access to data stores
 
+**WebSocket API security:**
+
+The Fleet Manager real-time telemetry feed uses an API Gateway WebSocket API. The `$connect` route is protected by a Cognito JWT Lambda REQUEST authorizer. Clients must include a valid JWT as the `token` query parameter on the WebSocket upgrade URL (`wss://<endpoint>?token=<jwt>`). Unauthenticated upgrade attempts return HTTP 401. Fleet-operator connections receive only the telemetry topics for their assigned fleets; platform-admin connections receive all-fleet fan-out.
+
 **API security:**
 
-- API Gateway endpoints require authentication
-- CloudFront uses signed URLs for sensitive content
+- API Gateway endpoints require Cognito authentication
+- CloudFront distributions can optionally use a trusted key group (signed cookies or signed URLs) to restrict access to authorized users — a standard AWS CloudFront access-control pattern
 - CORS policies restrict cross-origin requests
 
 ### Monitoring and logging
@@ -320,9 +419,9 @@ Before deploying the guidance, verify you have sufficient quotas for the followi
 - Brokers per cluster: Default 30 (need 3)
 - Configuration revisions: Default 50
 
-**Amazon Kinesis Data Analytics:**
+**Amazon Kinesis Data Analytics (Managed Service for Apache Flink):**
 
-- Applications per Region: Default 50 (need 3-5)
+- Applications per Region: Default 50 (need 10 — the solution deploys 10 Flink applications). Note: the prior default for some accounts was 8; if your account shows a default of 8, request an increase to 10 or more before deploying.
 - KPUs per application: Default 32 (need 1-4)
 
 **AWS IoT Core:**
@@ -354,6 +453,14 @@ Before deploying the guidance, verify you have sufficient quotas for the followi
 - Nodes per Region: Default 300 (need 1)
 - Clusters per Region: Default 300 (need 1)
 
+**Amazon ECS (when using simulation or OEM connector):**
+
+- Fargate task vCPU per Region: Default varies by Region. For large simulations running multiple concurrent vehicle sessions, verify the Fargate task concurrency limit in your target Region and request an increase if needed.
+
+**Amazon Bedrock (when `make deploy-bedrock-agents` is run):**
+
+- Invocations per minute for `us.anthropic.claude-sonnet-4-6`: Soft limit, Region-dependent. Check the Bedrock console Service Quotas page in your target Region before deploying the Bedrock agents stack at scale.
+
 ### Requesting quota increases
 
 If you need to increase service quotas:
@@ -378,7 +485,7 @@ Most quota increases are processed within 24-48 hours.
 - Flink: 1 KPU per application
 - DynamoDB: On-demand billing
 
-**Expected cost:** ~$250-300/month
+**Expected cost:** ~$250-300/month (telemetry processing + fixed platform baseline; excludes optional Bedrock/ECS variable components)
 
 **Telemetry capacity:**
 
@@ -395,7 +502,7 @@ Most quota increases are processed within 24-48 hours.
 - Flink: 2 KPUs per application
 - DynamoDB: On-demand billing
 
-**Expected cost:** ~$410-600/month
+**Expected cost:** ~$410-600/month (telemetry processing + fixed platform baseline; excludes optional Bedrock/ECS variable components)
 
 **Telemetry capacity:**
 
@@ -412,7 +519,7 @@ Most quota increases are processed within 24-48 hours.
 - Flink: 4 KPUs per application
 - DynamoDB: Provisioned capacity with auto-scaling
 
-**Expected cost:** ~$1,200-2,000/month
+**Expected cost:** ~$1,200-2,000/month (telemetry processing + fixed platform baseline; excludes optional Bedrock/ECS variable components)
 
 **Telemetry capacity:**
 

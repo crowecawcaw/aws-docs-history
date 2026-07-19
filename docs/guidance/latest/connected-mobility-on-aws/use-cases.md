@@ -23,3 +23,11 @@ OEMs and service providers use the guidance as a platform for connected vehicle 
 **Electric Vehicle Management**
 
 The solution monitors EV-specific metrics including battery state of charge, charging status, range estimation, and charging station locations. Fleet managers optimize charging schedules, track energy consumption, and manage charging infrastructure.
+
+**In-UI Conversational Fleet Operations**
+
+Fleet drivers and service advisors interact with a conversational assistant embedded in the Fleet Manager application. The assistant routes questions through the AgentCore text runtime to a Bedrock supervisor agent, which can retrieve grounded answers from an automotive knowledge base. Persona context — fleet driver or service advisor — is inferred automatically from Amazon Cognito user claims, so each user receives role-appropriate responses without manual configuration.
+
+**OEM Cloud-to-Cloud Telemetry Ingestion**
+
+OEMs that host vehicle telemetry in their own cloud systems integrate with the guidance through configurable transform manifests. The OEM cloud connector ingests data from third-party APIs and lands it on the same Amazon MSK topic used by other telemetry sources, so downstream Flink processors handle OEM data identically to MQTT Direct or FleetWise Edge telemetry without code changes.

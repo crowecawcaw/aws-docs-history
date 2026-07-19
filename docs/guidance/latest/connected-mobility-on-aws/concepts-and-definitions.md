@@ -39,3 +39,13 @@
 **Signal Catalog** – A standardized definition of all telemetry signals used throughout the guidance. The catalog maps between CAN bus signal names (DBC), JSON field names, and COVESA Vehicle Signal Specification (VSS) paths. The catalog includes 271 signals organized into 15 CAN messages.
 
 **Transform Manifest** – A configuration file that defines how to convert external data formats (OEM APIs, third-party telematics) into the signal catalog format. Manifests support field mapping, unit conversion, conditional mapping, and validation rules.
+
+**AgentCore Runtime** – An Amazon Bedrock managed runtime environment that hosts the connected vehicle supervisor agent. The AgentCore text runtime receives HTTP requests from the Fleet Manager application and returns text responses. The runtime invokes the Bedrock supervisor agent, which can call specialist agents and retrieve grounded answers from an automotive knowledge base. The runtime is deployed separately from the core CMS stacks and is an opt-in component.
+
+**Data Source** – A classification that describes how a vehicle’s telemetry originates. The guidance uses two data-source types: `vehicle-telemetry` for vehicles that publish directly via MQTT or FleetWise Edge Agent, and `cloud-telemetry` for vehicles whose data arrives through a cloud-to-cloud OEM connector. The data-source type drives routing decisions in the Fleet Manager application and enrollment workflows.
+
+**platform-admin** – An Amazon Cognito user-pool group that grants cross-fleet administrative access. Users in the `platform-admin` group can enroll or unenroll vehicles in any fleet, access bulk lifecycle operations, and manage all fleets within the deployment. Intended for platform administrators, not for individual fleet operators.
+
+**fleet-operator** – An Amazon Cognito user-pool group that grants per-fleet access scoped by the `custom:fleetIds` claim attached to the user’s token. Users in the `fleet-operator` group can manage vehicles, trips, alerts, and drivers within the fleets they are assigned to, but cannot access other fleets or perform cross-fleet bulk operations.
+
+**fleet-viewer** – An Amazon Cognito user-pool group that grants read-only access to fleet data. Users in the `fleet-viewer` group can view vehicle state, trips, alerts, and analytics but cannot modify fleet configuration or enrollment.
