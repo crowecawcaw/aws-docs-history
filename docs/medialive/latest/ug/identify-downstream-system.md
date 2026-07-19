@@ -60,5 +60,5 @@ groups:
 ###### Topics
 
 - [Choosing among the AWS media services](dss-choose-service.md "dss-choose-service.md")
-- [Choosing between the HLS output group and MediaPackage output group](hls-choosing-hls-vs-emp.md "hls-choosing-hls-vs-emp.md")
+- [Delivering to MediaPackage](delivering-to-mediapackage.md "delivering-to-mediapackage.md")
 - [Options for handling Microsoft Smooth output](downstream-system-for-mss.md "downstream-system-for-mss.md")

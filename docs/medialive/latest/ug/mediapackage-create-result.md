@@ -73,11 +73,11 @@ to pipeline 1.
     pipeline, MediaPackage continues to serve this
     output to viewers.
 
-- **MediaPackage v2 (CMAF)
+- **MediaPackage v2 (CMAF Ingest)
   destinations**
 
   - The `InputLossAction` field
-    does not apply. CMAF ingest handles
+    does not apply. CMAF Ingest handles
     resilience at the protocol level.
   - For standard channels, both pipelines
     deliver to MediaPackage simultaneously. If one

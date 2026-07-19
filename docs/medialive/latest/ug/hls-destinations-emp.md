@@ -1,7 +1,7 @@
 # Fields for the output destination – sending to MediaPackage
 
 When you
-[planned the output to MediaPackage](hls-choosing-hls-vs-emp.md "hls-choosing-hls-vs-emp.md"), you
+[planned the output to MediaPackage](delivering-to-mediapackage.md "delivering-to-mediapackage.md"), you
 might have decided to send the output by creating an HLS output group. (Or you
 might have decided to create a [MediaPackage output
 group](creating-mediapackage-output-group.md "creating-mediapackage-output-group.md").)

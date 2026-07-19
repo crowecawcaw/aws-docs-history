@@ -6,7 +6,7 @@ output of your MediaPackage output group.
 ###### Note
 
 You can send to AWS Elemental MediaPackage by creating a MediaPackage output group or by
-creating an HLS output group. See [Choosing between the HLS output group and MediaPackage output group](hls-choosing-hls-vs-emp.md "hls-choosing-hls-vs-emp.md") for a
+creating an HLS output group. See [Delivering to MediaPackage](delivering-to-mediapackage.md "delivering-to-mediapackage.md") for a
 description of the differences.
 
 ## MediaPackage v1 (HLS) coordination
@@ -18,7 +18,7 @@ description of the differences.
 2. Obtain the ID of the MediaPackage channel. For example, `curling-live`. The
    channel ID is case sensitive.
 
-## MediaPackage v2 (CMAF) coordination
+## MediaPackage v2 (CMAF Ingest) coordination
 
 ###### To arrange setup of the MediaPackage v2 destination
 

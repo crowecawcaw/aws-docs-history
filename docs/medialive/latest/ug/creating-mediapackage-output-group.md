@@ -11,7 +11,7 @@ output group to deliver to MediaPackage](hls-destinations-emp.md "hls-destinatio
 You can create MediaPackage output groups for two different MediaPackage versions:
 
 - **MediaPackage v1 (HLS)** - Uses HLS ingest protocol and requires a MediaPackage channel ID
-- **MediaPackage v2 (CMAF)** - Uses CMAF ingest protocol and requires MediaPackage channel group name and channel name
+- **MediaPackage v2 (CMAF Ingest)** - Uses CMAF Ingest and requires MediaPackage channel group name and channel name
 
 ### MediaPackage v1 (HLS) procedure
 
@@ -43,7 +43,7 @@ channel, see [Trick-play track via the Image Media Playlist specification](trick
 for the first output. The section contains fields for the [output streams](hls-streams-section.md "hls-streams-section.md") (the video, audio,
 and captions). 8. [Save the channel](creating-a-channel-step9.md "creating-a-channel-step9.md").
 
-### MediaPackage v2 (CMAF) procedure
+### MediaPackage v2 (CMAF Ingest) procedure
 
 1. On the **Create channel** page, in the **Output
    groups** section, choose **Add**. The content
@@ -74,5 +74,5 @@ and captions). 8. [Save the channel](creating-a-channel-step9.md "creating-a-cha
    outputs.
 7. Choose the first **Settings** link to view the sections
    for the first output. The section contains fields for the [output streams](hls-streams-section.md "hls-streams-section.md") (the video, audio,
-   and captions). CMAF ingest outputs only allow a single stream type per output.
+   and captions). CMAF Ingest outputs only allow a single stream type per output.
 8. [Save the channel](creating-a-channel-step9.md "creating-a-channel-step9.md").

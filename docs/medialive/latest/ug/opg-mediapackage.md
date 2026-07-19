@@ -1,8 +1,9 @@
 # Creating a MediaPackage output group
 
 When you create a MediaLive channel, you might want to include a MediaPackage output group.
-For information about the use cases for a MediaPackage output group, see [Containers, protocols, and downstream systems](outputs-supported-containers-downstream-systems.md "outputs-supported-containers-downstream-systems.md"). For information about
-choosing between an HLS and MediaPackage output group, see [Choosing between the HLS output group and MediaPackage output group](hls-choosing-hls-vs-emp.md "hls-choosing-hls-vs-emp.md").
+This output group supports both MediaPackage v2 (CMAF Ingest) and v1 (HLS ingest).
+For information about the use cases for a MediaPackage output group, see [Containers, protocols, and downstream systems](outputs-supported-containers-downstream-systems.md "outputs-supported-containers-downstream-systems.md"). For guidance on
+choosing the correct output group configuration, see [Delivering to MediaPackage](delivering-to-mediapackage.md "delivering-to-mediapackage.md").
 
 ###### Topics
 
