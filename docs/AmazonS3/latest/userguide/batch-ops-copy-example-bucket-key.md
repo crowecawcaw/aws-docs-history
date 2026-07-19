@@ -465,8 +465,7 @@ objects.
    size of the manifest, reading can take minutes or hours.
 2. After S3 finishes reading the job’s manifest, the job moves to the **Awaiting your confirmation** state. Choose the option button to
    the left of the Job ID, and choose **Run job**.
-3. Check the settings for the job, and choose **Run job** in the
-   bottom-right corner.
+3. Check the settings for the job, and choose **Run job**.
 
 After the job begins running, you can choose the refresh button to check progress
 through the console dashboard view or by selecting the specific job. 4. When the job is complete, you can view the **Successful** and

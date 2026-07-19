@@ -222,8 +222,6 @@ handles the Expiration action:
 Lifecycle storage class transitions have the following constraints:
 
 - By default, objects smaller than 128 KB won't transition to any storage class.
-- Objects must be stored for at least 30 days before transitioning to S3 Standard-IA or
-  S3 One Zone-IA.
 - For versioning enabled or versioning suspended buckets, objects with a `PENDING`
   or `FAILED` replication status can't be transitioned.
 

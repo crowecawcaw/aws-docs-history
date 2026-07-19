@@ -35,7 +35,7 @@ provided and you don't need to choose a bucket when creating the access point. F
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the navigation bar on the top of the page, choose the name of the currently
+2. In the navigation bar, choose the name of the currently
    displayed AWS Region. Next, choose the Region in which you want to create an
    access point. The access point must be created in the same Region as the associated
    bucket.

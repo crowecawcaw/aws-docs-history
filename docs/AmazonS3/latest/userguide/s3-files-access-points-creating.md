@@ -20,7 +20,7 @@ for an S3 file system.
 
 1. Sign in to the AWS Management Console and open the Amazon S3
    console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the navigation bar at the top of the page, verify you are in the
+2. In the navigation bar, verify you are in the
    AWS Region of the file system for which you want to create an access
    point.
 3. In the left navigation pane, choose **File

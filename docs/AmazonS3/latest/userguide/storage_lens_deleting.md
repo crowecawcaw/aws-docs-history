@@ -20,7 +20,7 @@ dashboard that you've created, consider the following:
 2. In the left navigation pane, choose **Storage Lens**,
    **Dashboards**.
 3. In the **Dashboards** list, choose the dashboard that you want to
-   delete, and then choose **Delete** at the top of the list.
+   delete, and then choose **Delete**.
 4. On the **Delete dashboards** page, confirm that you want to delete the
    dashboard by entering the name of dashboard in the text field. Then choose
    **Confirm**.

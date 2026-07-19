@@ -99,7 +99,7 @@ Create a bucket to store the original video that you plan to stream.
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the navigation bar on the top of the page, choose the name of the currently displayed AWS Region. Next, choose the Region in which you want to create a bucket.
+2. In the navigation bar, choose the name of the currently displayed AWS Region. Next, choose the Region in which you want to create a bucket.
 
 ###### Note
 
@@ -231,7 +231,7 @@ _Amazon CloudFront Developer Guide_. 10. For the other sections, keep the remain
 
 For more information about the different settings options, see [Values That You Specify When You Create or Update a
 Distribution](../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.md "../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.md") in the _Amazon CloudFront Developer
-Guide_. 11. At the bottom of the page, choose **Create
+Guide_. 11. Choose **Create
 distribution**. 12. On the **General** tab for your CloudFront distribution, under
 **Details**, the value of the **Last
 modified** column for your distribution changes from
@@ -389,8 +389,8 @@ Doing this adds a CNAME record provided by AWS Certificate Manager to your DNS
 configuration. 10. In the **Create record in Route 53**
 dialog box, choose **Create**.
 
-The **Validation** page should display a status
-notification of **Success** at the bottom. 11. Choose **Continue** to view the
+The **Validation** page should display a
+**Success** status notification. 11. Choose **Continue** to view the
 **Certificates** list page.
 
 The **Status** for your new certificate changes from
@@ -757,7 +757,7 @@ If it contains additional records, delete them first.
 
 If you created any NS records for subdomains in the
 hosted zone, delete those records too. 5. On the **DNSSEC signing** tab for your hosted zone,
-disable DNNSSEC signing if it was enabled. For more information, see [Disabling DNSSEC signing](../../../Route53/latest/DeveloperGuide/dns-configuring-dnssec-disable.md "../../../Route53/latest/DeveloperGuide/dns-configuring-dnssec-disable.md") in the _Amazon Route 53 Developer Guide_. 6. At the top of the details page of the hosted zone, choose **Delete
+disable DNNSSEC signing if it was enabled. For more information, see [Disabling DNSSEC signing](../../../Route53/latest/DeveloperGuide/dns-configuring-dnssec-disable.md "../../../Route53/latest/DeveloperGuide/dns-configuring-dnssec-disable.md") in the _Amazon Route 53 Developer Guide_. 6. On the details page of the hosted zone, choose **Delete
 zone**. 7. To confirm the deletion, enter `delete`, and then
 choose **Delete**.
 

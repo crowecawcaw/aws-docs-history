@@ -245,9 +245,9 @@ Frequent Access tier.
 4. In the **Objects** list, select the object that you are restoring.
    The object's details page appears.
 
-   - If the restoration isn't finished, at the top of the page, you see a section that
+   - If the restoration isn't finished, a section
      says **Restoration in progress**.
-   - If the restoration is finished, at the top of the page, you see a section that
+   - If the restoration is finished, a section
      says **Restoration complete**. If you're restoring from
      S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive, this section also
      displays the **Restoration expiry date**. Amazon S3 will remove the

@@ -34,3 +34,4 @@ We strongly recommend that you never put confidential or sensitive information, 
 - [Encryption](s3-files-encryption.md "s3-files-encryption.md")
 - [How S3 Files works with IAM](s3-files-security-iam.md "s3-files-security-iam.md")
 - [Control client access to an S3 Files file system](s3-files-access-point-policy-examples.md "s3-files-access-point-policy-examples.md")
+- [POSIX permissions in S3 Files](s3-files-posix-permissions.md "s3-files-posix-permissions.md")

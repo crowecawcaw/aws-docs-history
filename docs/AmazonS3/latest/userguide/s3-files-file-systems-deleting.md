@@ -19,7 +19,7 @@ This section explains how to use the Amazon S3 console to delete a file system f
 S3 Files.
 
 - Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-- In the navigation bar at the top of the page, verify you are in the
+- In the navigation bar, verify you are in the
   AWS Region of the file system that you want to
   delete.
 - In the left navigation pane, choose **General

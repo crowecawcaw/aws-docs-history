@@ -40,7 +40,7 @@ This section explains how to use the Amazon S3 console to create a file system f
 S3 Files.
 
 - Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-- In the navigation bar at the top of the page, verify you are in your
+- In the navigation bar, verify you are in your
   desired AWS Region.
 - In the left navigation pane, choose **File
   systems**.

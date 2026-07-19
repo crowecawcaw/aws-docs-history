@@ -8,8 +8,7 @@ encrypt your S3 Storage Lens metrics exports, follow these steps.
 
 1. Sign into the AWS Management Console by using the AWS account that owns the customer managed key.
 2. Open the AWS KMS console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
-3. To change the AWS Region, use the **Region selector** in the
-   upper-right corner of the page.
+3. To change the AWS Region, use the **Region selector**.
 4. In the left navigation pane, choose **Customer managed keys**.
 5. Under **Customer managed keys**, choose the key that you want to use
    to encrypt the metrics exports. AWS KMS keys are Region-specific and must be in the

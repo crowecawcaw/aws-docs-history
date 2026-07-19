@@ -858,7 +858,7 @@ AWS resources that you allocated so that you no longer accrue charges.
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the left navigation pane, choose **Users**, and then
    select the check box next to the user name that you want to delete.
-3. At the top of the page, choose **Delete**.
+3. Choose **Delete**.
 4. In the **Delete `user name`?**
    dialog box, enter the user name in the text input field to confirm the
    deletion of the user. Choose **Delete**.

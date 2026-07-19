@@ -32,7 +32,7 @@ strings for Batch Operations, use the following procedure.
       bucket.
    3. Choose the folder named after the inventory configuration.
    4. Select the check box next to the folder named **hive**.
-      At the top of the page, choose **Copy S3 URI** to copy the
+      Choose **Copy S3 URI** to copy the
       S3 URI for the folder.
 
 3. Open the Amazon Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").

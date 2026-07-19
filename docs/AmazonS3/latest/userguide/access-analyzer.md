@@ -121,7 +121,7 @@ To change the bucket access, see [Reviewing and changing bucket access](#changin
 
 IAM Access Analyzer for S3 provides findings for buckets that can be accessed outside your AWS account. Buckets that are listed under **Public access findings**
 can be accessed by anyone on the internet. If IAM Access Analyzer for S3 identifies public buckets, you
-also see a warning at the top of the page that shows you the number of public buckets in
+also see a warning banner that shows you the number of public buckets in
 your Region. Buckets listed under **Cross-account access findings** are shared
 conditionally with other AWS accounts, including accounts outside of your
 organization.

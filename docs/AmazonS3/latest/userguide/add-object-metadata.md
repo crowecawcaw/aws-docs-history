@@ -69,7 +69,7 @@ system-defined metadata and values that you can modify, see [System-defined obje
 5. On the **Actions** menu, choose **Copy** from
    the list of options that appears.
 6. To specify the destination path, choose **Browse S3**, navigate to the same destination as the source objects, and select the destination check box. Choose
-   **Choose destination** in the lower-right corner.
+   **Choose destination**.
 
 Alternatively, enter the destination path. 7. If you do _not_ have bucket versioning enabled,
 you will see a warning recommending you enable Bucket Versioning to help protect against unintentionally overwriting or deleting objects. If you want to keep all versions of objects in this bucket, select **Enable Bucket Versioning**. You can also view the default encryption and Object Lock properties in **Destination details**. 8. Under **Additional copy settings**, choose **Specify settings** to specify settings for **Metadata**. 9. Scroll to the **Metadata** section, and then

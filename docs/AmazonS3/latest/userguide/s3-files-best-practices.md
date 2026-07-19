@@ -106,3 +106,11 @@ systems.
   `ImportFailures` and `ExportFailures` to be notified
   when files fail to synchronize. Failed exports may indicate permission issues,
   encryption key problems, or path length limits. For more information, see [Troubleshooting S3 Files](s3-files-troubleshooting.md "s3-files-troubleshooting.md").
+
+## Migration
+
+To migrate data from on-premises storage to your S3 bucket for the first time, we
+recommend using AWS DataSync. DataSync automates and accelerates the transfer of large
+datasets and preserves file metadata and permissions during migration. For more
+information, see [What is AWS
+DataSync?](../../../datasync/latest/userguide/what-is-datasync.md "../../../datasync/latest/userguide/what-is-datasync.md").

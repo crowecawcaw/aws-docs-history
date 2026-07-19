@@ -3,7 +3,7 @@
 The notification message that Amazon S3 sends to publish an event is in the JSON format.
 When Amazon S3 sends an event to Amazon EventBridge, the following fields are present.
 
-- `version` – Currently 0 (zero) for all events.
+- `version` – Currently 0 (zero) for all events. This is an Amazon EventBridge envelope field and is not used for schema versioning. For event schema versioning, see the _event-version_ field in the _detail_ field.
 - `id` – A UUID generated for every event.
 - `detail-type` – The type of event that's being sent. See [Using EventBridge](EventBridge.md "EventBridge.md") for a list of event types.
 - `source` – Identifies the service that generated the event.
@@ -36,9 +36,14 @@ can be sent to Amazon EventBridge.
   ],
   "detail": {
     "version": "0",
-    "event-version": "1.0",
+    "event-version": "1.1",
     "bucket": {
-      "name": "amzn-s3-demo-bucket1"
+      "name": "amzn-s3-demo-bucket1",
+      "aws-generated-tags": {
+        "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-east-1:111122223333:stack/amzn-s3-demo-stack/51af3dc0-da77-11e4-872e-1234567db123",
+        "aws:cloudformation:logical-id": "S3DemoBucket",
+        "aws:cloudformation:stack-name": "amzn-s3-demo-stack"
+      }
     },
     "object": {
       "key": "example-key",
@@ -72,7 +77,7 @@ can be sent to Amazon EventBridge.
   ],
   "detail": {
     "version": "0",
-    "event-version": "1.0",
+    "event-version": "1.1",
     "bucket": {
       "name": "amzn-s3-demo-bucket1"
     },
@@ -108,7 +113,7 @@ can be sent to Amazon EventBridge.
   ],
   "detail": {
     "version": "0",
-    "event-version": "1.0",
+    "event-version": "1.1",
     "bucket": {
       "name": "amzn-s3-demo-bucket1"
     },
@@ -143,7 +148,7 @@ can be sent to Amazon EventBridge.
   ],
   "detail": {
     "version": "0",
-    "event-version": "1.0",
+    "event-version": "1.1",
     "bucket": {
       "name": "amzn-s3-demo-bucket1"
     },
@@ -178,7 +183,7 @@ can be sent to Amazon EventBridge.
   ],
   "detail": {
     "version": "0",
-    "event-version": "2.4",
+    "event-version": "1.1",
     "bucket": {
       "name": "amzn-s3-demo-bucket1"
     },
@@ -218,7 +223,7 @@ can be sent to Amazon EventBridge.
   ],
   "detail": {
     "version": "0",
-    "event-version": "2.4",
+    "event-version": "1.1",
     "bucket": {
       "name": "amzn-s3-demo-bucket1"
     },
@@ -248,7 +253,7 @@ following fields may be present in the detail field.
 - `version` – Currently 0 (zero) for all events.
 - `event-version` – The event schema version in the form
   ``major`.`minor`` (for example,
-  `1.0`).
+  `1.1`).
 
 The major version is incremented if Amazon S3 makes a change to the event structure
 that's not backward compatible. This includes removing a JSON field that's already present or
@@ -266,6 +271,7 @@ greater-than-or-equal-to comparison on the minor version.
 
 - `bucket` – Information about the Amazon S3 bucket involved in the
   event.
+- `aws-generated-tags` – Tags attached to the bucket by AWS services. Only present when AWS generated tags exist on the bucket. This field is not present for cross-Region replication events.
 - `object` – Information about the Amazon S3 object involved in the
   event.
 - `request-id` – Request ID in S3 response.

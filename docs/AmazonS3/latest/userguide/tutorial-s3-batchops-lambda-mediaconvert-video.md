@@ -1675,7 +1675,7 @@ To delete the IAM roles that you created in [Step 2](#batchops-s3-step2 "#batcho
 2. In the left navigation pane, choose **Roles**, and then
    select the check boxes next to the role names that you want to
    delete.
-3. At the top of the page, choose **Delete**.
+3. Choose **Delete**.
 4. In the confirmation dialog box, enter the required response in the text
    input field based on the prompt, and choose **Delete**.
 

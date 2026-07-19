@@ -92,20 +92,6 @@ objects, as follows:
   S3 Glacier Deep Archive. To do this, use the optional
   `x-amz-transition-default-minimum-object-size` header in a [PutBucketLifecycleConfiguration](../API/API_PutBucketLifecycleConfiguration.md "../API/API_PutBucketLifecycleConfiguration.md") request.
 
-###### Objects must be stored for at least 30 days before transitioning to S3 Standard-IA or S3 One Zone-IA
-
-Before you transition objects to S3 Standard-IA or S3 One Zone-IA, you must store
-them for at least 30 days in Amazon S3. For example, you cannot create a Lifecycle
-rule to transition objects to the S3 Standard-IA storage class one day after you
-create them. Amazon S3 doesn't support this transition within the first 30 days
-because newer objects are often accessed more frequently or deleted sooner than
-is suitable for S3 Standard-IA or S3 One Zone-IA storage.
-
-Similarly, if you are transitioning noncurrent objects (in versioned buckets), you
-can transition only objects that are at least 30 days noncurrent to S3 Standard-IA or
-S3 One Zone-IA storage. For a list of minimum storage duration for all storage class,
-see [Comparing the Amazon S3 storage classes](storage-class-intro.md#sc-compare "storage-class-intro.md#sc-compare").
-
 ###### You are charged for transitioning objects before their minimum storage duration
 
 Certain storage classes have a minimum object storage duration. If you

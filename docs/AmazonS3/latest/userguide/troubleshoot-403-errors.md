@@ -609,7 +609,7 @@ operation, try the following:
   a presigned URL, then the user policy is the same as the one for the
   IAM user or role that signed the request.
 - Verify that you're using the correct IAM user or role. You can verify
-  your IAM user or role by checking the upper-right corner of the AWS Management Console
+  your IAM user or role by checking the console navigation bar
   or by using the [aws sts
   get-caller-identity](../../../cli/latest/reference/sts/get-caller-identity.md "../../../cli/latest/reference/sts/get-caller-identity.md") command.
 - Check the IAM policies that are related to the IAM user or role. You

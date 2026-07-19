@@ -112,10 +112,9 @@ The restrictions and limitations when you copy an object to a directory bucket w
 The **Copy** page appears. 6. Under **Destination**, choose **Directory bucket**
 for your destination type. To specify the destination path, choose **Browse
 S3**, navigate to the destination, and then choose the option button to the
-left of the destination. Choose **Choose destination** in the
-lower-right corner.
+left of the destination. Choose **Choose destination**.
 
-Alternatively, enter the destination path. 7. Under **Additional copy settings**, choose whether you want to **Copy source settings**, **Don’t specify settings**, or **Specify settings**. **Copy source settings** is the default option. If you only want to copy the object without the source settings attributes, choose **Don’t specify settings**. Choose **Specify settings** to specify settings for server-side encryption, checksums, and metadata. 8. Choose **Copy** in the bottom-right corner. Amazon S3 copies your
+Alternatively, enter the destination path. 7. Under **Additional copy settings**, choose whether you want to **Copy source settings**, **Don’t specify settings**, or **Specify settings**. **Copy source settings** is the default option. If you only want to copy the object without the source settings attributes, choose **Don’t specify settings**. Choose **Specify settings** to specify settings for server-side encryption, checksums, and metadata. 8. Choose **Copy**. Amazon S3 copies your
 objects to the destination.
 
 ###### Note
@@ -144,10 +143,9 @@ The restrictions and limitations when you copy an object to a general purpose bu
 7. Under **Destination**, choose **General purpose
    bucket** for your destination type. To specify the destination path, choose
    **Browse S3**, navigate to the destination, and choose the option
-   button to the left of the destination. Choose **Choose destination** in
-   the lower-right corner.
+   button to the left of the destination. Choose **Choose destination**.
 
-Alternatively, enter the destination path. 8. Under **Additional copy settings**, choose whether you want to **Copy source settings**, **Don’t specify settings**, or **Specify settings**. **Copy source settings** is the default option. If you only want to copy the object without the source settings attributes, choose **Don’t specify settings**. Choose **Specify settings** to specify settings for storage class, ACLs, object tags, metadata, server-side encryption, and additional checksums. 9. Choose **Copy** in the bottom-right corner. Amazon S3 copies your
+Alternatively, enter the destination path. 8. Under **Additional copy settings**, choose whether you want to **Copy source settings**, **Don’t specify settings**, or **Specify settings**. **Copy source settings** is the default option. If you only want to copy the object without the source settings attributes, choose **Don’t specify settings**. Choose **Specify settings** to specify settings for storage class, ACLs, object tags, metadata, server-side encryption, and additional checksums. 9. Choose **Copy**. Amazon S3 copies your
 objects to the destination.
 
 SDK for Java 2.x

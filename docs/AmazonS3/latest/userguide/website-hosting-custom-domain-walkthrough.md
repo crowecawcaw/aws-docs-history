@@ -96,7 +96,7 @@ hosting. For detailed, step-by-step instructions on creating a bucket, see [Crea
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Create your root domain bucket:
 
-   1. In the navigation bar on the top of the page, choose the name of the currently displayed AWS Region. Next, choose the Region in which you want to create a bucket.
+   1. In the navigation bar, choose the name of the currently displayed AWS Region. Next, choose the Region in which you want to create a bucket.
 
    ###### Note
 

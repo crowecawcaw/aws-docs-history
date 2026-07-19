@@ -10,7 +10,7 @@ Before you can delete a directory bucket attached to an access point, you must d
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the navigation bar on the top of the page, choose the name of the currently displayed AWS Region. Next, choose the Region that you want to list access points for.
+2. In the navigation bar, choose the name of the currently displayed AWS Region. Next, choose the Region that you want to list access points for.
 3. In the navigation pane on the left side of the console, choose **Access points for directory buckets**.
 4. (Optional) Search for access points by name. Only access points in your selected AWS Region will appear here.
 5. Choose the name of the access point you want to delete.

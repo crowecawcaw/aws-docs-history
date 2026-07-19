@@ -40,7 +40,7 @@ control access to the resource.
 You can use the S3 Files console to manage tags on your resources.
 
 - Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-- In the navigation bar at the top of the page, verify you are in your
+- In the navigation bar, verify you are in your
   desired AWS Region.
 - In the left navigation pane, choose **File
   systems**.

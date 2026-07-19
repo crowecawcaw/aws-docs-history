@@ -45,7 +45,7 @@ To set the storage class when uploading a new object in the console:
    - Drag files and folders to the Upload window.
    - Choose **Add file** or **Add folder**, choose the files or folders to upload, and choose **Open**.
 
-9. At the bottom of the page, Choose **Upload**.
+9. Choose **Upload**.
 
 You can specify the storage class on an object when you create it using the `PutObject`, `POST Object` Object, and `CreateMultipartUpload` API operations, add the `x-amz-storage-class` request header. If you don't add this header, Amazon S3 uses the default S3 Standard (`STANDARD`) storage class.
 
@@ -98,7 +98,7 @@ To change the storage class of an object in the console:
    the list of options that appears.
 6. Select from the storage classes available for your object.
 7. Under **Additional copy settings**, choose whether you want to **Copy source settings**, **Don’t specify settings**, or **Specify settings**. **Copy source settings** is the default option. If you only want to copy the object without the source settings attributes, choose **Don’t specify settings**. Choose **Specify settings** to specify settings for storage class, ACLs, object tags, metadata, server-side encryption, and additional checksums.
-8. Choose **Save changes** in the bottom-right corner. Amazon S3 saves your
+8. Choose **Save changes**. Amazon S3 saves your
    changes.
 
 To change the storage class of an existing object, use the following methods.

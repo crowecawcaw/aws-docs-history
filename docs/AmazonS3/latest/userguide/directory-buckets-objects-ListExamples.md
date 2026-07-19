@@ -4,7 +4,7 @@ The following examples show how to list directory buckets by using the AWS Manag
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the navigation bar on the top of the page, choose the name of the currently
+2. In the navigation bar, choose the name of the currently
    displayed AWS Region. Next, choose the Region in which you want to view a list of your directory buckets.
 3. In the left navigation pane, choose **Directory buckets**. A list of directory buckets appears. To view the objects in the bucket,
    bucket properties, bucket permissions, metrics, access points associated with the bucket, or to manage the bucket, choose the bucket name.

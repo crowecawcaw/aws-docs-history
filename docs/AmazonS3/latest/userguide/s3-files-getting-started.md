@@ -29,7 +29,7 @@ Before getting started, make sure you have the following:
 ### Step 1: Create your S3 file system
 
 - Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-- In the navigation bar at the top of the page, verify you are in the
+- In the navigation bar, verify you are in the
   AWS Region where your EC2 instance and S3 bucket
   is.
 - In the left navigation pane, choose **General

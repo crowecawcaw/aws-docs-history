@@ -109,8 +109,7 @@ the key name that follows the last `/`. For example, within an
 
 6. To enable versioning, under **Destination**, choose **Enable
    Bucket Versioning**.
-7. To upload the listed files and folders without configuring additional upload options, at
-   the bottom of the page, choose **Upload**.
+7. To upload the listed files and folders without configuring additional upload options, choose **Upload**.
 
 Amazon S3 uploads your objects and folders. When the upload is finished, you see a success
 message on the **Upload: status** page.

@@ -29,8 +29,7 @@ REST API, and the AWS SDKs.
 3. On the **S3 Access Grants** page, choose the Region that contains
    the S3 Access Grants instance that you want to work with.
 4. Choose **View details** for the instance.
-5. On the instance details page, choose **Delete instance**
-   in the upper-right corner.
+5. On the instance details page, choose **Delete instance**.
 6. In the dialog box that appears, choose **Delete**. This
    action can't be undone.
    To install the AWS CLI, see [Installing the

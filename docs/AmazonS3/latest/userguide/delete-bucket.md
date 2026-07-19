@@ -74,7 +74,7 @@ bucket, see [Emptying a general purpose bucket](empty-bucket.md "empty-bucket.md
 2. In the left navigation pane, choose **General purpose buckets**.
 3. In the buckets list, select the option button next
    to the name of the bucket that you want to delete, and then choose
-   **Delete** at the top of the page.
+   **Delete**.
 4. On the **Delete bucket** page, confirm that you want to delete the
    bucket by entering the bucket name in the text field, and then choose **Delete
    bucket**.

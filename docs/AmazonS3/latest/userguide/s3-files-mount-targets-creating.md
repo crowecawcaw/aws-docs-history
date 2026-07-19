@@ -16,7 +16,7 @@ This section explains how to use the Amazon S3 console to create a mount target
 for S3 Files.
 
 1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the navigation bar at the top of the page, verify you are in the
+2. In the navigation bar, verify you are in the
    AWS Region of the file system for which you want to create a mount
    target.
 3. In the left navigation pane, choose **General

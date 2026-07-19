@@ -171,11 +171,11 @@ The restrictions and limitations when you copy an object with the console are as
 6. Select the destination type and destination account. To specify the destination
    path, choose **Browse S3**, navigate to the destination, and select
    the check box to the left of the destination. Choose **Choose
-   destination** in the lower-right corner.
+   destination**.
 
 Alternatively, enter the destination path. 7. If you do _not_ have bucket versioning enabled, you will see a warning recommending you enable Bucket Versioning to help protect against unintentionally overwriting or deleting objects. If you want to keep all versions of
 objects in this bucket, select **Enable Bucket Versioning**. You
-can also view the default encryption and S3 Object Lock properties in **Destination details**. 8. Under **Additional copy settings**, choose whether you want to **Copy source settings**, **Don’t specify settings**, or **Specify settings**. **Copy source settings** is the default option. If you only want to copy the object without the source settings attributes, choose **Don’t specify settings**. Choose **Specify settings** to specify settings for storage class, ACLs, object tags, annotations, metadata, server-side encryption, and additional checksums. 9. Choose **Copy** in the bottom-right corner. Amazon S3 copies your
+can also view the default encryption and S3 Object Lock properties in **Destination details**. 8. Under **Additional copy settings**, choose whether you want to **Copy source settings**, **Don’t specify settings**, or **Specify settings**. **Copy source settings** is the default option. If you only want to copy the object without the source settings attributes, choose **Don’t specify settings**. Choose **Specify settings** to specify settings for storage class, ACLs, object tags, annotations, metadata, server-side encryption, and additional checksums. 9. Choose **Copy**. Amazon S3 copies your
 objects to the destination.
 The examples in this section show how to copy objects up to 5 GB in a single operation. To
 copy objects larger than 5 GB, you must use a multipart upload. For more information, see
@@ -523,7 +523,7 @@ the default option. If you only want to copy the object without the
 source settings attributes, choose **Don't specify
 settings**. Choose **Specify settings** to
 specify settings for storage class, ACLs, object tags, metadata,
-server-side encryption, and additional checksums. 8. Choose **Move** in the bottom-right corner. Amazon S3
+server-side encryption, and additional checksums. 8. Choose **Move**. Amazon S3
 moves your objects to the destination.
 You can also use the AWS Command Line Interface (AWS CLI) to move an S3 object. For more
 information, see [mv](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html") in the _AWS CLI Command Reference_.

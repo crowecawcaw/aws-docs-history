@@ -244,7 +244,7 @@ optimization** category.
 Under **Top _number_
 buckets**, you can see the buckets with the most incomplete
 multipart upload storage bytes that are greater than 7 days old. 6. To view more detailed bucket-level metrics for incomplete multipart
-uploads, scroll to the top of the page, and then choose the
+uploads, choose the
 **Bucket** tab. 7. Scroll down to the **Buckets** section. For **Metrics categories**, select **Cost
 optimization**. Then clear **Summary**.
 
@@ -327,7 +327,7 @@ noncurrent versions:
      are available for queries for 15 months. For more information,
      see [Metrics selection](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection").
     3. To view more detailed bucket-level metrics for noncurrent object
-     versions, scroll to the top of the page, and then choose the
+     versions, choose the
      **Bucket** tab.
 
 

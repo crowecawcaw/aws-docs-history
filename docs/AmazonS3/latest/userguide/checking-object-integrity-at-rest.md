@@ -64,7 +64,7 @@ completion report to the S3 bucket. For more information, see [Compute checksums
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the navigation bar on the top of the page, choose the name of the
+2. In the navigation bar, choose the name of the
    currently displayed AWS Region. Next, choose the Region in which you
    want to create your job.
 

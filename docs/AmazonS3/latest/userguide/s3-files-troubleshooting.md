@@ -138,10 +138,10 @@ Support.
 ## Missing object in S3 bucket after file system write
 
 You wrote a file through the file system and expected it to appear as an object in your
-S3 bucket, but the object is not there. S3 Files batches changes for approximately 60
-seconds before copying them to S3. If the object still does not appear, the export may
-have failed. In such a case, you see the `FailedExports` CloudWatch metric
-increase.
+S3 bucket, but the object is not there. S3 Files waits for a period of write inactivity
+(60 seconds) before exporting changes back to your S3 bucket. If the object still does
+not appear after this period, the export might have failed. In such a case, you see the
+`FailedExports` CloudWatch metric increase.
 
 **Action to take**
 
@@ -167,10 +167,8 @@ The following table lists all possible `ExportError` values:
 | Error                       | Cause                                                                                                                                                                                                                             |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `S3AccessDenied`            | The IAM role that S3 Files assumes does not have sufficient<br>permissions to write to the S3 bucket. For more information, see [Prerequisites for S3 Files](s3-files-prereq-policies.md "s3-files-prereq-policies.md").          |
-| `S3BucketNotFound`          | The source S3 bucket no longer exists or has been renamed. Verify it<br>exists in the expected AWS Region and account.                                                                                                            |
 | `InternalError`             | There was an internal system error.                                                                                                                                                                                               |
 | `S3UserMetadataTooLarge`    | S3 user metadata size limit exceeded. See [Unsupported features, limits, and quotas](s3-files-quotas.md "s3-files-quotas.md") for information on these<br>limits.                                                                 |
-| `FileSizeExceedsS3Limit`    | File size exceeds S3 object size limit. See [Unsupported features, limits, and quotas](s3-files-quotas.md "s3-files-quotas.md") for information on these<br>limits.                                                               |
 | `EncryptionKeyInaccessible` | The encryption key used by the S3 bucket is inaccessible to S3<br>Files. Grant S3 Files access to your encryption key. For more<br>information, see [Encryption](s3-files-encryption.md "s3-files-encryption.md").                |
 | `RoleAssumptionFailed`      | Could not assume the role. Check your trust policies. For more<br>information, see [Prerequisites for S3 Files](s3-files-prereq-policies.md "s3-files-prereq-policies.md").                                                       |
 | `KeyTooLongToBreakCycle`    | S3 Files could not resolve a circular dependency (for example, due to<br>renaming two files to each other's names) because the file path exceeds<br>the S3 key length limit. Shorten the directory path to resolve this<br>error. |

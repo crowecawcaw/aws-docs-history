@@ -617,7 +617,7 @@ no longer accrue charges.
    **Users**, and then select the
    check box next to the user name that you want to
    delete.
-3. At the top of the page, choose
+3. Choose
    **Delete**.
 4. In the **Delete `user
  name`?** dialog box, enter

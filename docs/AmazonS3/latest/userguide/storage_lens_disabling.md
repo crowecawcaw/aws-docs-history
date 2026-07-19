@@ -11,6 +11,6 @@ Use the following steps to disable an Amazon S3 Storage Lens dashboard on the Am
 2. In the left navigation pane, choose **Storage Lens**,
    **Dashboards**.
 3. In the **Dashboards** list, choose the dashboard that you want to
-   disable, and then choose **Disable** at the top of the list.
+   disable, and then choose **Disable**.
 4. On the confirmation page, confirm that you want to disable the dashboard by entering the
    name of dashboard in the text field, and then choose **Confirm**.

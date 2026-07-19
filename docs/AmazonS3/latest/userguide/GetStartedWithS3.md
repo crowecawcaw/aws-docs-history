@@ -69,7 +69,7 @@ pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the navigation bar on the top of the page, choose the name of the currently displayed AWS Region. Next, choose the Region in which you want to create a bucket.
+2. In the navigation bar, choose the name of the currently displayed AWS Region. Next, choose the Region in which you want to create a bucket.
 
 ###### Note
 
@@ -375,7 +375,7 @@ For more information about using the Amazon S3 Express One Zone storage class wi
 5. Choose **Actions** and choose **Copy** from the list
    of options that appears.
 
-Alternatively, choose **Copy** from the options in the upper right. 6. Choose the destination folder:
+Alternatively, choose **Copy** from the options that appear. 6. Choose the destination folder:
 
     1. Choose **Browse S3**.
     2. Choose the option button to the left of the folder name.
@@ -387,7 +387,7 @@ Alternatively, choose **Copy** from the options in the upper right. 6. Choose th
 
 In **Destination**, you can alternately enter your destination path, for
 example,
-s3://`bucket-name`/`folder-name`/. 7. In the bottom right, choose **Copy**.
+s3://`bucket-name`/`folder-name`/. 7. Choose **Copy**.
 
 Amazon S3 copies your objects to the destination folder.
 
@@ -429,7 +429,7 @@ bucket, you can delete an object.
    to delete an object from.
 2. Select the object that you want to
    delete.
-3. Choose **Delete** from the options in the upper right.
+3. Choose **Delete** from the options that appear.
 4. On the **Delete objects** page, type `delete` to confirm deletion of your objects.
 5. Choose **Delete objects**.
 

@@ -74,7 +74,7 @@ in the _IAM User Guide_.
 
 Your dashboard opens in S3 Storage Lens. The **Snapshot for _date_** section shows the latest date that S3 Storage Lens has collected
 metrics for. Your dashboard always loads the latest date that has metrics
-available. 4. (Optional) To change the date for your S3 Storage Lens dashboard, in the top-right date
+available. 4. (Optional) To change the date for your S3 Storage Lens dashboard, in the date
 selector, choose a new date. 5. (Optional) To apply temporary filters to further limit the scope of your dashboard
 data, do the following:
 

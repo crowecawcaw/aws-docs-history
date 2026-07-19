@@ -14,13 +14,12 @@ Server-side encryption is the encryption of data at its destination by the appli
 service that receives it. In S3 file systems, data and metadata are encrypted by default before being written to
 storage and are automatically decrypted when read. These processes are handled
 transparently by S3 Files, so you don't need to modify your applications. All data at
-rest in the file system is encrypted using AWS Key Management Service (KMS) keys using
-one of the following methods:
+rest in the file system is encrypted using one of the following methods:
 
-- (Default) Server-side encryption with AWS owned KMS keys
+- (Default) Server-side encryption with Amazon S3-managed encryption keys
+  (SSE-S3)
+- Server-side encryption with AWS Key Management Service
   (SSE-KMS)
-- Server-side encryption with Customer managed KMS keys
-  (SSE-KMS-CMK)
 
 There are additional charges for using AWS KMS keys. For more information, see
 [AWS KMS key
@@ -28,16 +27,16 @@ concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/de
 Guide_ and [AWS KMS
 pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
 
-### Server-side encryption with AWS owned KMS keys (SSE-KMS)
+### Server-side encryption with Amazon S3-managed encryption keys (SSE-S3)
 
-This is the default key for encrypting data at rest in your S3 file system. AWS
-owned keys are a collection of KMS keys that an AWS service owns and manages. S3
-Files owns and manages encryption of your data and metadata at rest in your S3 file
-system when you use an AWS owned key. For more details on AWS owned keys, visit
-[AWS KMS
-keys](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md").
+This is the default method for encrypting data at rest in your S3 file system.
+Amazon S3-managed encryption keys are a collection of keys that Amazon S3 owns and
+manages. S3 Files owns and manages encryption of your data and metadata at rest in
+your S3 file system when you use an Amazon S3-managed encryption key. For more
+information about Amazon S3-managed encryption keys, see [Protecting data
+with Amazon S3 managed keys](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
 
-### Server-side encryption with customer managed AWS KMS keys (SSE-KMS-CMK)
+### Server-side encryption with AWS Key Management Service (SSE-KMS)
 
 While creating your file system, you can choose to configure an AWS Key
 Management Service (AWS KMS) key that you manage. When you use SSE-KMS encryption

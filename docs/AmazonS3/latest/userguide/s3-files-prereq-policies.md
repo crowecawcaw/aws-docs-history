@@ -94,13 +94,19 @@ purposes:
 
 ### IAM role for accessing your bucket from the file system
 
-When you create an S3 file system, you must specify an IAM role that S3 Files
-assumes to read from and write to your S3 bucket. This role allows S3 Files to
-synchronize changes between your file system and your S3 bucket. The role also grants
-permissions to manage Amazon EventBridge rules that S3 Files uses to detect changes
-in your S3 bucket and trigger synchronization. You must also make sure that the
-bucket policies of your source bucket don't deny access from your compute
-resource.
+When you create an S3 Files file system, you specify an IAM role that S3 Files
+assumes to read from and write to your S3 bucket. This role grants S3 Files
+permission to synchronize changes between your file system and your bucket, including
+Amazon EventBridge rules that trigger synchronization. You must also
+make sure that your S3 bucket policy does not deny access to your compute
+resources.
+
+S3 Files requires S3 Versioning on your bucket. It uses version-specific API
+operations such as `s3:GetObjectVersion` and
+`s3:GetObjectVersionTagging` in addition to `s3:GetObject`.
+The following policy uses wildcards (for example, `s3:GetObject*` rather than
+`s3:GetObject`) to cover both versioned and non-versioned
+actions.
 
 ###### Note
 
@@ -260,7 +266,7 @@ and interact with S3 file systems. You can attach an AWS managed policy
 such as `AmazonS3FilesClientFullAccess` managed policy if you
 want to grant the compute resource full read and write access to your S3 file
 system or the `AmazonS3FilesClientReadOnlyAccess` for read-only
-access. You can also attach the `AmazonElasticFileSystemUtils`
+access. You can also attach the `AmazonElasticFileSystemsUtils`
 managed policy if you want to enable Amazon CloudWatch monitoring. For more
 information and a complete list of available managed policies for S3 Files,
 see [AWS managed policies for Amazon S3 Files](s3-files-security-iam-awsmanpol.md "s3-files-security-iam-awsmanpol.md"). You can also provide these
