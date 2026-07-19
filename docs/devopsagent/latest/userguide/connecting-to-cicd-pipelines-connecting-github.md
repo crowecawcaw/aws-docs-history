@@ -2,7 +2,7 @@
 
 GitHub integration enables AWS DevOps Agent to access code repositories and receive deployment events during incident investigations. This integration follows a two-step process: account-level registration of GitHub, followed by connecting specific repositories to individual Agent Spaces.
 
-AWS DevOps Agent supports both GitHub.com (SaaS) and GitHub Enterprise Server (self-hosted) instances.
+AWS DevOps Agent supports GitHub.com (SaaS), GitHub Enterprise Cloud with data residency (`*.ghe.com`), and GitHub Enterprise Server (self-hosted) instances.
 
 ## Prerequisites
 
@@ -10,13 +10,19 @@ Before connecting GitHub, ensure you have:
 
 - Access to the AWS DevOps Agent admin console
 - A GitHub user account or organization with admin permissions
-- Authorization to install GitHub apps in your account or organization
+- Authorization to install GitHub Apps in your account or organization
 
 For GitHub Enterprise Server, you also need:
 
 - A GitHub Enterprise Server instance (version 3.x or later) accessible over HTTPS
 - The HTTPS URL of your GitHub Enterprise Server instance (for example, `https://github.example.com`)
 - (Optional) A private connection, if your GitHub Enterprise Server instance is not publicly accessible
+
+For GitHub Enterprise Cloud with data residency, you also need:
+
+- A GitHub Enterprise Cloud organization with data residency enabled, hosted on your dedicated `*.ghe.com` subdomain
+- Organization admin permissions, including permission to create and install GitHub Apps
+- The HTTPS URL of your data residency instance (for example, `https://octocorp.ghe.com`)
 
 ## Registering GitHub (account-level)
 
@@ -44,7 +50,7 @@ Select the **GitHub App permissions** for your GitHub App. The permission level 
 - **Read & Write** (default): The GitHub App requests both read and write permissions. This enables all features. DevOps Agent can post inline pull request comments, propose fixes, and trigger workflows.
 - **Read Only**: The GitHub App requests only read permissions. DevOps Agent can view code and pull requests but cannot post comments, propose fixes, or trigger workflows.
 
-If you are connecting to a GitHub Enterprise Server instance, check the **Use GitHub Enterprise Server** checkbox and enter the HTTPS URL of your instance (for example, `https://github.example.com`).
+If you are connecting to a GitHub Enterprise Server instance, choose **Use GitHub Enterprise** and enter the HTTPS URL of your instance (for example, `https://github.example.com`).
 
 If your GitHub Enterprise Server instance is not publicly accessible, you can optionally configure a private connection to allow AWS DevOps Agent to securely reach your instance. For more information, see [Connecting to privately hosted tools](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md "configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md").
 
@@ -52,9 +58,11 @@ If your GitHub Enterprise Server instance is not publicly accessible, you can op
 
 Do not include `/api/v3` or any trailing path in the URL — enter only the base URL.
 
+For GitHub Enterprise Cloud with data residency, choose **Use GitHub Enterprise** and enter the HTTPS URL of your data residency instance (for example, `https://octocorp.ghe.com`).
+
 ### Step 3: Set up the GitHub App
 
-Choose **Submit** to begin the app setup process. The next steps differ depending on whether you are connecting to GitHub.com or GitHub Enterprise Server.
+Choose **Submit** to begin the app setup process. The next steps differ depending on whether you connect to GitHub.com, GitHub Enterprise Server, or GitHub Enterprise Cloud with data residency.
 
 #### For GitHub.com
 
@@ -71,13 +79,13 @@ You must authorize and install the app on the same User or Organization you spec
 
 AWS DevOps Agent uses a separate GitHub App for each permission level (Read & Write and Read Only), and each app is authorized independently. GitHub remembers an authorization until you revoke it under Settings > Applications > Authorized GitHub Apps. If you previously authorized the app at this permission level, GitHub might skip the authorization screen. If you change the permission level, GitHub prompts you to authorize the corresponding app the first time.
 
-#### For GitHub Enterprise Server
+#### For GitHub Enterprise Server and GitHub Enterprise Cloud with data residency
 
-GitHub Enterprise Server uses a GitHub App Manifest flow, which automatically sets up a new GitHub App on your instance. This involves two redirects to your GitHub Enterprise Server instance.
+GitHub Enterprise Server and GitHub Enterprise Cloud with data residency both use the GitHub App Manifest flow, which automatically sets up a new GitHub App on your instance. During setup, your browser is redirected twice: once to your instance and once back to AWS DevOps Agent.
 
-1. Your browser will be redirected to your GitHub Enterprise Server instance's "Create GitHub App" page.
-2. You'll see the app name pre-filled. Feel free to change the name as needed. Choose **Create GitHub App**.
-3. You'll be redirected back to AWS DevOps Agent, which exchanges the manifest code for app credentials.
+1. AWS DevOps Agent redirects your browser to your GitHub Enterprise instance's **Create GitHub App** page.
+2. The app name is pre-filled. Change the name if needed, then choose **Create GitHub App**.
+3. After AWS DevOps Agent redirects your browser back, it exchanges the manifest code for app credentials.
 
 ### Step 4: Select repositories and complete installation
 
@@ -130,16 +138,16 @@ To configure automated reviews:
 
 Once configured, any new pull request in a repository with **Auto trigger change review** enabled will automatically trigger a release readiness code review. If **Automated verification testing** is also enabled, the review includes functional validation in a verification environment. For more information about code reviews, see [Release readiness code reviews](release-management-release-readiness-code-review.md "release-management-release-readiness-code-review.md").
 
-## Understanding the GitHub app
+## Understanding the GitHub App
 
-The AWS DevOps Agent GitHub app:
+The AWS DevOps Agent GitHub App:
 
 - Requests access to your repositories — you can review the specific permissions during GitHub App installation
 - Receives deployment events and other repository events
 - Allows AWS DevOps Agent to correlate code changes with operational incidents
 - Can be uninstalled at any time through your GitHub settings
 
-For GitHub Enterprise Server, the GitHub App is automatically created on your instance during registration. You can manage the app's repository access or uninstall it through **Settings > Applications > Installed GitHub Apps**. To delete the app definition entirely, go to **Settings > Developer settings > GitHub Apps**.
+For GitHub Enterprise Server and GitHub Enterprise Cloud with data residency, AWS DevOps Agent automatically creates the GitHub App on your instance during registration. You can manage the app's repository access or uninstall it through **Settings > Applications > Installed GitHub Apps**. To delete the app definition entirely, go to **Settings > Developer settings > GitHub Apps**.
 
 ## GitHub App permission updates
 
@@ -161,19 +169,27 @@ The following table describes each permission the AWS DevOps Agent GitHub App re
 
 If you selected **Read Only** during registration, the GitHub App requests read-level access only for each permission in the following table. With Read Only permissions, the GitHub App cannot perform write-level actions listed in the **Purpose** column.
 
-| Permission    | Access level   | Purpose                                                                                                                                               |
-| ------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Checks        | Read and write | Post release readiness code review results as check runs on pull requests, allowing review status to appear directly in the GitHub UI.                |
-| Workflows     | Read and write | Read workflow definitions and trigger GitHub Actions workflows for release testing in your CI/CD pipelines.                                           |
-| Actions       | Read and write | Monitor GitHub Actions workflow runs and access run logs during incident investigations and release testing.                                          |
-| Contents      | Read and write | Read repository source code for code review analysis and dependency mapping. Write access enables the agent to propose fixes for identified issues.   |
-| Pull requests | Read and write | Read pull request details to trigger automated code reviews. Write access enables posting inline review comments with findings and recommended fixes. |
+| Permission                  | Access level   | Purpose                                                                                                                                               |
+| --------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Checks                      | Read and write | Post release readiness code review results as check runs on pull requests, allowing review status to appear directly in the GitHub UI.                |
+| Workflows                   | Read and write | Read workflow definitions and trigger GitHub Actions workflows for release testing in your CI/CD pipelines.                                           |
+| Actions                     | Read and write | Monitor GitHub Actions workflow runs and access run logs during incident investigations and release testing.                                          |
+| Contents                    | Read and write | Read repository source code for code review analysis and dependency mapping. Write access enables the agent to propose fixes for identified issues.   |
+| Pull requests               | Read and write | Read pull request details to trigger automated code reviews. Write access enables posting inline review comments with findings and recommended fixes. |
+| Organization administration | Read           | Read the list of applications installed in the target organization to verify that the AWS DevOps Agent GitHub App is installed.                       |
 
 ## Managing GitHub connections
 
-- **Updating repository access** – To change which repositories the GitHub app can access, go to your GitHub account or organization settings (or your GitHub Enterprise Server instance settings), navigate to installed GitHub apps, and modify the AWS DevOps Agent app configuration.
+- **Updating repository access** – To change which repositories the GitHub App can access, go to your GitHub account or organization settings. For GitHub Enterprise Server or GitHub Enterprise Cloud with data residency, go to your instance settings. Then navigate to installed GitHub Apps and modify the AWS DevOps Agent app configuration.
 - **Viewing connected repositories** – In the AWS DevOps Agent console, select your Agent Space and go to the Capabilities tab to view connected repositories in the Pipeline section.
-- **Removing GitHub connection** – To disconnect GitHub from an Agent Space, select the connection in the Pipeline section and choose **Remove**. To uninstall the GitHub app completely, uninstall it from your GitHub account or organization settings. For GitHub Enterprise Server, because the GitHub App is created directly on your instance during registration, you can optionally clean up the app entirely by performing both of the following:
+- **Removing GitHub connection** – To disconnect GitHub from an Agent Space, choose the connection in the Pipeline section, then choose **Remove**. To remove the GitHub registration from your account, navigate to the **Capability Providers** page, locate your registration within the **GitHub** section, and choose **Deregister**.
 
-  - **Uninstall the app** – Go to **Settings > Applications > Installed GitHub Apps**, choose **Configure** on the app, then uninstall it.
-  - **Delete the app** – Go to **Settings > Developer settings > GitHub Apps**, select the app, go to the **Advanced** tab, and choose **Delete GitHub App**. **Warning:** Deleting the GitHub App is permanent and cannot be undone. If you delete it, you will need to re-register GitHub Enterprise Server from the beginning in the AWS DevOps Agent console to create a new app.
+To fully remove the GitHub integration, do the following:
+
+- To uninstall the GitHub App, go to your GitHub account or organization settings.
+- To reconnect, re-register GitHub in the AWS DevOps Agent console.
+
+For GitHub Enterprise Server and GitHub Enterprise Cloud with data residency, AWS DevOps Agent creates the GitHub App on your instance during registration. To clean up the app entirely, do both of the following:
+
+- **Uninstall the app** – Go to **Settings > Applications > Installed GitHub Apps**, choose **Configure** on the app, then uninstall it.
+- **Delete the app** – Go to **Settings > Developer settings > GitHub Apps**, choose the app, go to the **Advanced** tab, and choose **Delete GitHub App**. **Warning:** Deleting the GitHub App is permanent and cannot be undone. To create a new app, re-register GitHub in the AWS DevOps Agent console.

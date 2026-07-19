@@ -19,7 +19,3 @@ Custom agents let you define your own AI agents tailored to your infrastructure 
 ## Accessing DevOps Agent
 
 AWS DevOps Agent supports multiple access methods including the web app console, MCP integration for IDEs, Agent Client Protocol (ACP), webhooks for event-driven automation, and direct API access. For more information, see [Accessing DevOps Agent](working-with-devops-agent-accessing-devops-agent-index.md "working-with-devops-agent-accessing-devops-agent-index.md").
-
-## Custom Agents
-
-Custom agents let you define your own AI agents tailored to your infrastructure and workflows. You configure a system prompt, select which MCP tools the agent can use, and assign skills that provide domain knowledge. Custom agents run on demand or on a schedule to automate recurring operational work such as generating reports, auditing configurations, and analyzing trends. For more information, see [Custom Agents](working-with-devops-agent-custom-agents-index.md "working-with-devops-agent-custom-agents-index.md").

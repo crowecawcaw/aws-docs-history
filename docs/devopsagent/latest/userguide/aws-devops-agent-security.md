@@ -57,7 +57,7 @@ AWS DevOps Agent provides two authentication methods to log into the AWS DevOps 
 
 AWS DevOps Agent uses IAM roles to define access permissions:
 
-- **Primary account role** – Grants the agent access to resources in the AWS account where you create the Agent Space as well as access to secondary account roles.
+- **Primary account role** – Grants the agent access to resources in the AWS account where you create the Agent Space.
 - **Secondary account roles** – Grants the agent access to resources in additional AWS accounts connected to the Agent Space.
 - **Web app role** – Grants users access to AWS DevOps Agent investigation data and findings in the web app.
 

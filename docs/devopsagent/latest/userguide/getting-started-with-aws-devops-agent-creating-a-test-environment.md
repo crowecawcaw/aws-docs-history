@@ -523,7 +523,7 @@ This step is for ensuring that the above tests are now in an alarm state.
 
 1. Open your **AWS DevOps Agent AgentSpace**
 2. Choose **Admin access**. This will open the DevOps Agent Space web app in a new window
-3. Choose the **Start Investigation** button on the right side of the screen
+3. Choose the **Start Investigation** button
 4. Complete the following form:
 
    1. **Investigation details:** Describe the investigation you'd like to run. Include any details you can about the investigation goals, areas to explore, or relevant information.

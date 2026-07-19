@@ -102,7 +102,7 @@ Okta does not enable the Refresh Token grant type by default. You must explicitl
    - **Assign an existing role** — Use an existing IAM role that you've already created
    - **Create a new DevOps Agent role using a policy template** — Use the provided details to create your own role in the IAM Console
 
-6. Review the **Callback URL** warning alert displayed at the bottom of the form. Copy this URL — you will need to add it to your identity provider's allowed redirect URIs before users can sign in.
+6. Review the **Callback URL** warning alert displayed in the form. Copy this URL — you will need to add it to your identity provider's allowed redirect URIs before users can sign in.
 7. Choose **Connect**
 
 After choosing **Connect**, the console displays the **External Identity Provider Configuration** with the following details:

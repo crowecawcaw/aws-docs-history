@@ -148,5 +148,5 @@ To configure session duration:
 
 ## Disconnecting Identity Center
 
-1. In your Agent Space’s console, choose **Actions** in the top-right and select **Disconnect from IAM Identity Center**
+1. In your Agent Space’s console, choose **Actions** and choose **Disconnect from IAM Identity Center**.
 2. Confirm in confirmation dialog

@@ -238,7 +238,7 @@ To monitor additional accounts with AWS DevOps Agent, create an IAM cross-accoun
 
 #### Create the cross-account role in the external account
 
-Switch to the external account and create the trust policy. The `MONITORING_ACCOUNT_ID` is the main account that hosts the agent space that you set up in step 2. This configuration allows the AWS DevOps Agent service to assume a role in the secondary source accounts on behalf of the monitoring account.
+Switch to the external account and create the trust policy. With this trust policy, the AWS DevOps Agent service principal (`aidevops.amazonaws.com`) can assume the role in the secondary account directly. The `aws:SourceAccount` and `aws:SourceArn` conditions provide confused deputy prevention. This security control prevents an unauthorized service from using your role to access your resources. These conditions allow only your Agent Space in the primary account to assume the role. Replace `MONITORING_ACCOUNT_ID` with the ID of the primary account that hosts the Agent Space that you set up in step 2.
 
 Run the following command to create the trust policy:
 
@@ -255,8 +255,10 @@ cat > devops-cross-account-trust-policy.json << 'EOF'
       "Action": "sts:AssumeRole",
       "Condition": {
         "StringEquals": {
-          "aws:SourceAccount": "<MONITORING_ACCOUNT_ID>",
-          "sts:ExternalId": "arn:aws:aidevops:<REGION>:<MONITORING_ACCOUNT_ID>:agentspace/<AGENT_SPACE_ID>"
+          "aws:SourceAccount": "<MONITORING_ACCOUNT_ID>"
+        },
+        "ArnLike": {
+          "aws:SourceArn": "arn:aws:aidevops:<REGION>:<MONITORING_ACCOUNT_ID>:agentspace/<AGENT_SPACE_ID>"
         }
       }
     }

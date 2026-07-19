@@ -24,7 +24,7 @@ AWS DevOps Agent On Demand Tasks provides comprehensive capabilities to help you
 
 ## Accessing Chat
 
-Chat is available as a persistent panel on the left side of the DevOps Agent Space web app. The left sidebar includes a **+ New chat** button, a **Pages** section for navigating to Incidents, Improvements, and Topology, and a **Chats** section that displays your recent conversations. Choose **View all** to see your full conversation history.
+Chat is available as a persistent panel in the DevOps Agent Space web app. The left sidebar includes a **+ New chat** button, a **Pages** section for navigating to Incidents, Improvements, and Topology, and a **Chats** section that displays your recent conversations. Choose **View all** to see your full conversation history.
 
 You can also start a new chat by adding the `?newChat` query parameter to any DevOps Agent web app URL for your Agent Space. Use this parameter to link to a fresh conversation from external tools, runbooks, or bookmarks.
 
@@ -229,7 +229,7 @@ Chat is available in all DevOps Agent Space web apps. The setup process depends 
 
 ### New Agent Spaces
 
-Chat is **automatically enabled** when you create a new Agent Space. No additional configuration or IAM permissions setup is required. After you configure your DevOps Agent Space web app, Chat is immediately available as a persistent panel on the left side of any page.
+Chat is **automatically enabled** when you create a new Agent Space. No additional configuration or IAM permissions setup is required. After you configure your DevOps Agent Space web app, Chat is immediately available as a persistent panel in the web app.
 
 ### Existing Agent Spaces
 
@@ -237,7 +237,7 @@ If you created your Agent Space before Chat was released, you must enable the re
 
 **Option 1: Revoke and re-enable operator app access**
 
-Navigate to the AWS DevOps Agent Admin Console, locate the Action dropdown in the top right corner, and disable the current operator access configuration.
+Navigate to the AWS DevOps Agent Admin Console, locate the **Action** dropdown, and disable the current operator access configuration.
 
 ![Actions dropdown menu showing options including Disable Operator Access highlighted.](images/6f3b13aeccc7.png)
 
@@ -257,4 +257,4 @@ Add the following IAM permissions to your existing operator access role:
 
 Navigate to the AWS IAM console, locate your DevOps Agent operator role, and add these permissions to the role policy. Chat becomes available immediately after the permissions are added.
 
-After completing either option, refresh your DevOps Agent Space web app and the chat panel appears on the left side of any page.
+After completing either option, refresh your DevOps Agent Space web app, and the chat panel appears in the web app.

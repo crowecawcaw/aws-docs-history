@@ -71,11 +71,11 @@ In addition to the steps below, you can use the [AWS DevOps Agent CLI onboarding
 
 AWS DevOps Agent requires three policy components to access resources in a secondary account:
 
-- **Trust policy** – Allows AWS DevOps Agent in the primary account to assume the role in the secondary account. This establishes the trust relationship between accounts.
+- **Trust policy** – Enables the AWS DevOps Agent service principal (`aidevops.amazonaws.com`) to assume the role in the secondary account directly. The policy uses confused deputy prevention. This security control prevents an unauthorized service from using your role to access your resources. These conditions allow only your Agent Space in the primary account to initiate access.
 - **AIDevOpsAgentAccessPolicy (AWS managed policy)** – Provides the core read-only permissions AWS DevOps Agent needs to investigate resources in the secondary account. This policy is maintained by AWS and updated as new capabilities are added.
 - **Inline policy** – Provides additional permissions specific to your Agent Space configuration. This policy is generated based on your Agent Space settings and may include permissions for specific integrations or features.
 
-In the primary account, the AWS DevOps Agent IAM Role must be able to assume the role created in the secondary account.
+The AWS DevOps Agent service assumes the role in the secondary account directly through its service principal. The trust policy conditions ensure that only your Agent Space in the primary account can initiate this cross-account access.
 
 ## Managing secondary accounts
 

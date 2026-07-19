@@ -42,6 +42,17 @@ AWS DevOps Agent is available in the following AWS Regions.
 | Europe (Ireland)          | eu-west-1      | aidevops.eu-west-1.amazonaws.com      | HTTPS    |
 | Europe (London)           | eu-west-2      | aidevops.eu-west-2.amazonaws.com      | HTTPS    |
 
+## Feature availability by Region
+
+Not all AWS DevOps Agent features are available in every Region. The following table shows which features are available in each supported Region.
+
+| Feature                                                                     | Available Regions                      |
+| --------------------------------------------------------------------------- | -------------------------------------- |
+| Production operations (investigations, recommendations, prevention)         | All supported Regions                  |
+| On-demand DevOps tasks                                                      | All supported Regions                  |
+| Custom agents                                                               | All supported Regions                  |
+| Release management (release readiness review and release testing) — preview | US East (N. Virginia) `us-east-1` only |
+
 ## Considerations
 
 - **Release management preview availability** — Release management capabilities

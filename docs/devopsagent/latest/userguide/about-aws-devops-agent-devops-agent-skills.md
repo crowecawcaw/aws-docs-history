@@ -335,7 +335,7 @@ You can also sync from the skills list view by clicking the Sync button on the i
 
 ## Sample skills
 
-The [DevOps Skills repository](https://github.com/aws-samples/sample-devops-agent-tools "https://github.com/aws-samples/sample-devops-agent-tools") on the GitHub website contains community-contributed skills you can use as-is or as a starting point for writing your own. Available samples include skills for AWS Health event investigation, AWS Support case analysis, EKS operational reviews, and RDS operational reviews. To browse the available skills, see the [community skills gallery](https://aws-samples.github.io/sample-devops-agent-tools/ "https://aws-samples.github.io/sample-devops-agent-tools/") on the GitHub website.
+The [DevOps Agent Tools repository](https://github.com/aws-samples/sample-devops-agent-tools "https://github.com/aws-samples/sample-devops-agent-tools") on the GitHub website contains community-contributed skills you can use as-is or as a starting point for writing your own. Available samples include skills for AWS Health event investigation, AWS Support case analysis, EKS operational reviews, and RDS operational reviews. To browse the available skills, see the [community skills gallery](https://aws-samples.github.io/sample-devops-agent-tools/ "https://aws-samples.github.io/sample-devops-agent-tools/") on the GitHub website.
 
 To use a sample skill:
 

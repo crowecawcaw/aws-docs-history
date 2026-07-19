@@ -164,7 +164,6 @@ Prerequisites: GitHub repository connected to your Agent Space with automated re
 
 - Reviews appear as inline comments on pull request diffs, with an overall status comment
 - Configure as a required status check to block merges when blocking findings exist
-- The agent reviews all PRs by default; path and branch filtering is configurable in your Agent Space settings
 
 ## Using code reviews in GitLab
 
@@ -172,7 +171,6 @@ Prerequisites: GitLab project connected to your Agent Space with automated revie
 
 - Reviews appear as inline comments on merge request diffs, with an overall note
 - Configure as a merge request approval rule to require resolution of blocking findings
-- The agent reviews all MRs by default; path and branch filtering is configurable in your Agent Space settings
 
 ## Using code reviews in DevOps Agent chat
 
