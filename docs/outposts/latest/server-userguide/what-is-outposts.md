@@ -1,5 +1,13 @@
 # What is AWS Outposts?
 
+###### End of Sale Notice
+
+AWS has discontinued sales for both 1U Outposts server and the 2U Outposts server. We
+are focused on making Outposts rack capabilities available in smaller power envelopes and
+compute footprints, including new form factors designed for space-constrained environments. As
+part of that focus, we are no longer accepting new customers for the original Outposts server
+offering and are supporting impacted customers to migrate to Outposts racks.
+
 AWS Outposts is a fully managed service that extends AWS infrastructure, services, APIs, and
 tools to customer premises. By providing local access to AWS managed infrastructure, AWS Outposts
 enables customers to build and run applications on premises using the same programming
