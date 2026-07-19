@@ -703,7 +703,7 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | i8g.24xlarge    | ✓ Yes          | ✓ Yes                     | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | i8g.48xlarge    | ✓ Yes          | ✓ Yes                     | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | i8g.metal-24xl  | ✓ Yes          | ✓ Yes                     | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
-| i8g.metal-48xl  | ✓ Yes          | ✓ Yes                     | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| i8g.metal-48xl  | ✓ Yes          | ✓ Yes                     | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
 | **I8ge**        |
 | i8ge.large      | ✓ Yes          | ✓ Yes                     | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | i8ge.xlarge     | ✓ Yes          | ✓ Yes                     | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
