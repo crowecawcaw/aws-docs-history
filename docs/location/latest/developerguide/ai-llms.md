@@ -11,8 +11,17 @@ configuration also ensures that model knowledge cutoff does not impact the quali
 the results. The Amazon Location Service agent context package provides ready-to-use integrations
 for popular AI coding assistants, guiding AI agents through adding maps, places search,
 geocoding, routing, and other geospatial features, including authentication setup, SDK
-integration, and best practices. Choose the installation method that matches your
-development environment.
+integration, and best practices.
+
+###### Work with your coding agent
+
+To get started quickly, paste this link into your AI assistant's context window:
+
+```
+https://docs.aws.amazon.com/location/latest/developerguide/ai-llms.md
+```
+
+Choose the installation method that matches your development environment.
 
 ## For Kiro users
 
@@ -80,6 +89,11 @@ Run the following command to install the plugin:
 ```
 /plugin install amazon-location-service@claude-plugins-official
 ```
+
+###### Note
+
+If you install the plugin during an active session, run
+`/reload-plugins` to activate it without restarting.
 
 Cursor
 

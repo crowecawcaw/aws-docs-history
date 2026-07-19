@@ -27,7 +27,7 @@ For example, you might want a web application that shows your business location 
 available to anyone using the website, whether they are logged in or not. In this case,
 one alternative is to use API keys to make the API calls.
 
-See [Best practices for API keys](api-keys-best-practices.md "api-keys-best-practices.md") for additional information about when to
+See [API key optimization](auth-best-practices.md#auth-bp-apikeys "auth-best-practices.md#auth-bp-apikeys") for additional information about when to
 use API keys.
 
 For more information about working with keys using the Amazon Location Service API, see the following
@@ -72,7 +72,7 @@ Amazon Location console
      Actions**.
    - **Expiration time** –
      Optionally, add an expiration date and time for your API
-     key. For more information, see [Best practices for API keys](api-keys-best-practices.md "api-keys-best-practices.md").
+     key. For more information, see [API key optimization](auth-best-practices.md#auth-bp-apikeys "auth-best-practices.md#auth-bp-apikeys").
    - **Client restrictions** –
      Optionally, add one or more web domains or one or more
      Android or Apple apps where you can use the API key. For
