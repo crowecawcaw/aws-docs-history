@@ -27,9 +27,11 @@ Recommended practices:
 
 - **Monitor fleet age and replace fleets that are over 30 days
   old** – You can track a fleet's creation date in the Amazon GameLift Servers console
-  or use the CLI to retrieve fleet attributes. Amazon GameLift Servers displays warnings in the console
-  for fleets that are over 90 days old, and notifies account holders by email for fleets
-  that are older than one year.
+  or use the CLI to retrieve fleet attributes. Amazon GameLift Servers notifies account holders by email
+  starting 6 months before fleet expiration. Fleets are automatically expired one year after
+  their creation date. When a fleet is expired, it is scaled down to zero instances, cannot
+  host new game sessions, and cannot be scaled back up. You must create a new fleet to
+  continue hosting game sessions.
 
 ###### Note
 
