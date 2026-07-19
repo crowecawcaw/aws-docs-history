@@ -50,7 +50,7 @@ and resources is impacted by VPC BPA:
   internet-gateway) for connectivity.
 - **AWS Global Accelerator**: Inbound traffic to VPCs is blocked, whether or not the target is otherwise accessible from the internet.
 - **AWS Network Firewall**: All inbound and outbound
-  traffic is blocked even if the subnet containing firewall endpoints is
+  traffic is blocked unless the subnet containing firewall endpoints is
   excluded.
 - **AWS Wavelength carrier gateway**: All inbound and outbound traffic
   is blocked.
@@ -67,12 +67,13 @@ services and resources, is not blocked or impacted by VPC BPA:
 
 ###### Important
 
-- If you are routing incoming and outgoing traffic through an appliance (such as a 3rd-party
-  security or monitoring tool) running on an EC2 instance in a subnet,
-  when using VPC BPA, that subnet needs to be an exclusion for traffic to
-  flow in and out of it. Other subnets sending traffic to the appliance
-  subnet and not to the internet gateway do not need to be added as
-  exclusions.
+- If you route incoming and outgoing traffic through an appliance
+  (such as a third-party security or monitoring tool) that runs on an EC2
+  instance in a subnet using VPC Ingress Routing, you must exclude the
+  workload subnet from VPC Block Public Access. The workload subnet is
+  the subnet that contains the instances whose traffic is routed through
+  the appliance. The subnet containing the appliance does not need to be
+  excluded.
 - Traffic sent privately from resources in your VPC to other services
   running in your VPC, such as the Route 53 Resolver, is allowed
   even when VPC BPA is turned on because it does not pass through an
