@@ -33,6 +33,7 @@ as your file system's preferred subnet, as shown in the following graphic.
 - [Configure iSCSI on the FSx for ONTAP file system](#configure-iscsi-on-ontap-win "#configure-iscsi-on-ontap-win")
 - [Mount an iSCSI LUN on the Windows client](#configure-iscsi-on-fsx "#configure-iscsi-on-fsx")
 - [Validating your iSCSI configuration](#validate-iscsi-windows "#validate-iscsi-windows")
+- [Verify Host Utilities registry settings](#validate-iscsi-windows-host-utilities "#validate-iscsi-windows-host-utilities")
 
 ## Configure iSCSI on the Windows client
 
@@ -60,16 +61,30 @@ The system responds with the initiator port:
 iqn.1991-05.com.microsoft:ec2amaz-abc123d
 ```
 
-4. To enable your clients to automatically failover between your file servers, you need install
-   `Multipath-IO` (MPIO) on your Windows instance.
+4. Install `Multipath-IO` (MPIO) on your Windows instance
+   so that the client automatically fails over between your file servers.
    Use the following command:
 
 ```
 `PS C:\>` Install-WindowsFeature Multipath-IO
 ```
 
-5. Restart your Windows instance after the `Multipath-IO` installation has completed.
-   Keep your Windows instance open to perform steps for mounting the iSCSI LUN in a section that follows.
+5. Install NetApp Windows Host Utilities. The Host Utilities installer
+   sets the recommended Windows registry values, such as disk and MPIO timeouts.
+   These values help your Windows host handle ONTAP storage system behavior correctly during failover events.
+
+   1. Download the Host Utilities installer from the
+      [NetApp Support
+      downloads page](https://mysupport.netapp.com/site/products/all/details/hostutilities/downloads-tab "https://mysupport.netapp.com/site/products/all/details/hostutilities/downloads-tab"). You must have a NetApp Support account to download the installer.
+      To create an account, see [Signing up for a NetApp account](managing-resources-ontap-apps.md#signing-up-for-netapp "managing-resources-ontap-apps.md#signing-up-for-netapp"). Choose the version
+      compatible with your Windows Server version.
+   2. Run the installer and choose **Multipath I/O** when prompted
+      for the supported feature.
+
+6. Restart your Windows instance after you install `Multipath-IO` and the Host Utilities.
+   After the restart, you can confirm that the installer applied the recommended Host Utilities registry values. For more information, see
+   [Verify Host Utilities registry settings](#validate-iscsi-windows-host-utilities "#validate-iscsi-windows-host-utilities").
+   Keep your Windows instance open to perform the iSCSI LUN mount steps later in this guide.
 
 ## Configure iSCSI on the FSx for ONTAP file system
 
@@ -282,4 +297,18 @@ spread across 2 node(s).
 MPIO: Yes`
 
 
+```
+
+## Verify Host Utilities registry settings
+
+After you install NetApp Windows Host Utilities, you can verify that the installer applied the
+recommended registry values. For more information about the expected registry settings
+for your Host Utilities version, see
+[Windows Host
+Utilities configuration settings](https://docs.netapp.com/us-en/ontap-sanhost/hu-wuhu-configuration.html "https://docs.netapp.com/us-en/ontap-sanhost/hu-wuhu-configuration.html") in the NetApp documentation.
+
+For example, use the following PowerShell command to check the MPIO parameters:
+
+```
+`PS C:\>` `Get-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Services\mpio\Parameters"`
 ```

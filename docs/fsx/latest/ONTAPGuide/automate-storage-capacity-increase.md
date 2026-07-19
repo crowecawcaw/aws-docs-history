@@ -50,7 +50,11 @@ provided in the **Subscription Confirmation** email.
 
 This solution uses CloudFormation to automate deploying the components that are used to
 automatically increase the storage capacity of an FSx for ONTAP file system. To use
-this solution, download the [FSxOntapDynamicStorageScaling](https://solution-references.s3.amazonaws.com/fsx/DynamicScaling/FSxOntapDynamicStorageScaling.yaml "https://solution-references.s3.amazonaws.com/fsx/DynamicScaling/FSxOntapDynamicStorageScaling.yaml") CloudFormation template.
+this solution, download the [FSxOntapDynamicStorageScaling](samples/FSxOntapDynamicStorageScaling.zip.md "samples/FSxOntapDynamicStorageScaling.zip.md") CloudFormation template.
+
+The template adjusts the storage capacity increment based on the file system's recent
+usage growth rate rather than applying a fixed percentage on every alarm.
+Scheduler automatically retries storage scaling that the cooldown window blocks.
 
 The template uses the **Parameters** described as follows. Review
 the template parameters and their default values, and modify them for the needs of
@@ -74,24 +78,86 @@ No default value. Specifies the email address to use for the SNS
 subscription and receives the storage capacity threshold
 alerts.
 
+**LambdaS3Bucket**
+
+No default value. The name of the Amazon S3 bucket in your account that
+hosts the Lambda deployment package (`lambda_function.zip`) for the
+scaling function. You must upload the Lambda code to this bucket before you
+deploy the stack.
+
+**LambdaS3Key**
+
+Default is **fsx/DynamicScaling/lambda\_function.zip**.
+The Amazon S3 object key of the Lambda deployment package within
+`LambdaS3Bucket`.
+
 **PercentIncrease**
 
-Default is **20%**. Specifies the amount
-by which to increase the storage capacity, expressed as a percentage of the
-current storage capacity.
+Default is **20%** (allowed range
+**10%** to **100%**).
+Specifies the base percentage by which to increase the storage capacity,
+expressed as a percentage of the current storage capacity. When
+`EnableIntelligentScaling` is `true`, the template
+adjusts the increment up or down based on the file system's recent growth
+rate, and clamps the result to the value of
+`MaxIncrementPercent`.
 
-###### Note
+**EnableIntelligentScaling**
 
-Storage scaling is attempted once every time the CloudWatch alarm enters
-the `ALARM` state. If your SSD storage capacity
-utilization remains above the threshold after a storage
-scaling operation is attempted, the storage scaling
-operation isn't attempted again.
+Default is **true**. When `true`,
+the Lambda function computes the storage growth rate from CloudWatch metrics and
+scales the increment up for fast-growing file systems and down for
+slow-growing ones. When `false`, the template applies the flat
+`PercentIncrease` value on every alarm.
 
-**MaxFSxSizeinGiB**
+**MaxIncrementPercent**
 
-Default is **196608**. Specifies the maximum
-supported storage capacity for the SSD storage.
+Default is **100%** (allowed range
+**10%** to **500%**).
+Specifies the maximum percentage increment that intelligent scaling can
+apply. Adjusted increments are clamped between 10% and this value.
+
+**GrowthThresholds**
+
+No default value. Optional JSON array of growth-rate tiers in the form
+`[[threshold_percent_per_day, multiplier, "label"], ...]` that
+overrides the built-in defaults that intelligent scaling uses. Leave empty
+to use the built-in tiers.
+
+**MinHoursBetweenScaling**
+
+Default is **6** hours (allowed range
+**1** to **24**).
+Specifies the minimum time between two scaling operations on the same
+file system. Alarms that fire during the cooldown are deferred and
+retried automatically.
+
+**MaxRetryAttempts**
+
+Default is **12** (allowed range
+**1** to **50**).
+Specifies the maximum number of retries when scaling is blocked by the
+cooldown window.
+
+**RetryDelayMinutes**
+
+Default is **5** minutes (allowed range
+**1** to **60**).
+Specifies the delay between two consecutive retries.
+
+**RetryBufferMinutes**
+
+Default is **5** minutes (allowed range
+**0** to **60**).
+Specifies the buffer time added after the cooldown expires before the
+first retry runs.
+
+**ScheduleCleanupAgeDays**
+
+Default is **7** days (allowed range
+**1** to **30**).
+Specifies the age at which old Scheduler retry schedules
+are cleaned up.
 
 ## Automated deployment with CloudFormation
 
@@ -111,23 +177,30 @@ Before you start, you must have the ID of the Amazon FSx file system that's runn
 the Amazon Virtual Private Cloud (Amazon VPC) in your AWS account. For more information about
 creating Amazon FSx resources, see [Getting started with Amazon FSx for NetApp ONTAP](getting-started.md "getting-started.md").
 
+You must also host the Lambda deployment package in an Amazon S3 bucket in your
+account before you deploy the stack. Download the [lambda\_function.zip](samples/lambda_function.zip.md "samples/lambda_function.zip.md") deployment package and upload it to your bucket
+without unpacking it. You provide the bucket name and object key to the stack by
+using the `LambdaS3Bucket` and `LambdaS3Key` parameters.
+
 ###### To launch the automatic storage capacity increase solution stack
 
-1. Download the [FSxOntapDynamicStorageScaling](https://solution-references.s3.amazonaws.com/fsx/DynamicScaling/FSxOntapDynamicStorageScaling.yaml "https://solution-references.s3.amazonaws.com/fsx/DynamicScaling/FSxOntapDynamicStorageScaling.yaml") CloudFormation template.
+1. Download the [FSxOntapDynamicStorageScaling](samples/FSxOntapDynamicStorageScaling.zip.md "samples/FSxOntapDynamicStorageScaling.zip.md") CloudFormation template archive.
 
 ###### Note
 
 Amazon FSx is currently only available in specific AWS Regions. You must
 launch this solution in an AWS Region where Amazon FSx is available. For more
 information, see [Amazon FSx endpoints and quotas](../../../general/latest/gr/fsxn.md "../../../general/latest/gr/fsxn.md") in the
-_AWS General Reference_. 2. From the CloudFormation console, choose **Create stack > With new
-resources**. 3. Choose **Template is ready**. In the **Specify
+_AWS General Reference_. 2. Extract `FSxOntapDynamicStorageScaling.yaml` from the downloaded
+archive. You upload the extracted YAML template file to CloudFormation in the following
+steps. 3. From the CloudFormation console, choose **Create stack > With new
+resources**. 4. Choose **Template is ready**. In the **Specify
 template** section, choose **Upload a template
 file** and upload the template that you
-downloaded. 4. In **Specify stack details**, enter the values for your automatic storage
+downloaded. 5. In **Specify stack details**, enter the values for your automatic storage
 capacity increase solution.
 
-![The values entered for the Specify stack details page for the CloudFormation template](images/dynamic-storage-capacity-increase-cfn-stack.png) 5. Enter a **Stack name**. 6. For **Parameters**, review the parameters for the template and modify them to
+![The values entered for the Specify stack details page for the CloudFormation template](images/dynamic-storage-capacity-increase-cfn-stack.png) 6. Enter a **Stack name**. 7. For **Parameters**, review the parameters for the template and modify them to
 meet the needs of your file system. Then choose
 **Next**.
 
@@ -135,9 +208,9 @@ meet the needs of your file system. Then choose
 
 To receive email notifications when scaling is attempted by this CloudFormation template, confirm
 the SNS subscription email that you receive after deploying the
-template. 7. Enter the **Options** settings that you want for your
-custom solution, and then choose **Next**. 8. For **Review**, review and confirm the solution settings. You must select the
-check box acknowledging that the template creates IAM resources. 9. Choose **Create** to deploy the stack.
+template. 8. Enter the **Options** settings that you want for your
+custom solution, and then choose **Next**. 9. For **Review**, review and confirm the solution settings. You must select the
+check box acknowledging that the template creates IAM resources. 10. Choose **Create** to deploy the stack.
 
 You can view the status of the stack in the CloudFormation console in the
 **Status** column. You should see a status of

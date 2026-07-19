@@ -53,8 +53,14 @@ Before you begin using the procedures described in the following sections, be su
   For more information, see [Accessing data from within the AWS Cloud](supported-fsx-clients.md#access-environments "supported-fsx-clients.md#access-environments") and
   [What is VPC peering?](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md")
   in the _Amazon VPC Peering Guide_.
+- For cluster peering and SnapMirror to function correctly, every inter-cluster LIF on each
+  cluster must be able to communicate with every inter-cluster LIF on the other cluster.
+  If you are peering with an on-premises ONTAP cluster, ensure that all inter-cluster LIFs on all nodes
+  of the on-premises cluster have network connectivity (routing and firewall rules) to all inter-cluster
+  LIFs on the FSx for ONTAP file system, and vice versa. For more information, see
+  [Cluster peering prerequisites](https://docs.netapp.com/us-en/ontap/peering/prerequisites-cluster-peering-reference.html "https://docs.netapp.com/us-en/ontap/peering/prerequisites-cluster-peering-reference.html") in NetApp's ONTAP user documentation.
 - The VPC security group for the FSx for ONTAP file system has inbound and outbound rules allowing
-  ICMP as well as TCP on ports 443, 10000, 11104, and 11105 for your inter-cluster endpoints
+  ICMP as well as TCP on ports 443, 10000, 11104, and 11105 for all inter-cluster endpoints
   (LIFs).
 - Verify that the source and destination volumes are running compatible NetApp ONTAP versions before creating a
   SnapMirror data protection relationship. For more information, see
