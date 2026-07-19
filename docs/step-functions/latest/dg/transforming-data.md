@@ -65,13 +65,13 @@ Given input `{ "title" : "Doctor" }` and variable `customerName` assigned to `"M
 
 In the next diagram, you can see a graphical representation showing how converting JSONPath (left) to JSONata (right) will reduce the complexity of the steps in your state machines:
 
-![Diagram that compares the fields in JSONPath and JSONata states.](images/compare-jsonpath-jsonata.png)
+![Side-by-side comparison showing how JSONPath states require separate InputPath, Parameters, ResultSelector, ResultPath, and OutputPath fields, while JSONata states simplify this to Arguments, Output, and Assign fields.](images/compare-jsonpath-jsonata.png)
 
 You can (optionally) select and transform data from the state input into **Arguments** to send to your integrated action. With JSONata, you can then (optionally) select and transform the **results** from the action for assigning to variables and for state **Output**.
 
 Note: **Assign** and **Output** steps occur in **parallel**. If you choose to transform data during variable assignment, that transformed data will **not** be available in the Output step. You must reapply the JSONata transformation in the Output step.
 
-![Logical diagram of a state that uses JSONata query language.](/images/step-functions/latest/dg/images/vars-jsonata.png)
+![Data flow diagram showing a JSONata state: input data flows into Arguments for the integrated action, then the action's results flow in parallel to both the Assign step for variable assignment and the Output step for state output.](images/vars-jsonata.png)
 
 ## QueryLanguage field
 
@@ -307,7 +307,7 @@ Test state or state machine execution will return the following JSON output:
 
 ```
 
-![Screenshot showing input and output of a state under test.](images/jsonata-basic-io.png)
+![Step Functions console TestState view showing the JSON input with customer and order data on the left, and the transformed JSON output with lastName and orderValue fields on the right.](images/jsonata-basic-io.png)
 
 ### Example: Filtering with JSONata
 
@@ -387,7 +387,7 @@ You can filter your data with JSONata [Path operators](https://docs.jsonata.org/
 }
 ```
 
-![Example output for JSONata expressions under test.](images/test-state-jsonata.png)
+![Step Functions console TestState view showing JSONata filtering results, with the output containing only zero-calorie products filtered from the input product list.](images/test-state-jsonata.png)
 
 ### Example: Using previous state output in a Map state
 
