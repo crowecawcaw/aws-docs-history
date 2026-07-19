@@ -395,6 +395,12 @@ Attributes returned when using the Evaluate action in a Data Table block to quer
 | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------------- |
 | Data Table evaluated query result | The value of a specific attribute retrieved by a named query. Replace `<QueryName>` with the unique name assigned to your query, and `<AttributeName>` with the name of the attribute you selected to retrieve. | Data Table | $.DataTables.<QueryName>.<AttributeName> |
 
+###### JSON path format for Data Tables
+
+To access Data Tables query results in a **Check contact
+attributes** block, use the following JSON path format:
+`$.DataTables.<QueryName>.<AttributeName>`
+
 ### List Data Table Values attributes
 
 Attributes returned when using the List action in a Data Table block to retrieve complete records.

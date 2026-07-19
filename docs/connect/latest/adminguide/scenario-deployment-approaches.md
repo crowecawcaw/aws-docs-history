@@ -295,6 +295,19 @@ approach.
 
 ![Connect Customer and Omnissa environment.](images/omnissa-6.png)
 
+### Azure Virtual Desktop and Windows 365 VDI with Connect Customer audio optimization
+
+If your agents use Azure Virtual Desktop (AVD) or Windows 365 Cloud PC, you can
+optimize Connect Customer audio with Microsoft Multimedia Redirection (MMR). This approach
+does not require a platform-specific SDK in your CCP. The MMR browser extension
+transparently redirects the standard WebRTC
+media from the session host to the agent's local device, where it connects
+directly to Connect Customer. The agent's local device processes audio instead of the
+session host, which reduces network hops and improves audio quality. The
+following diagram illustrates this approach.
+
+![Connect Customer media workflow for Azure Virtual Desktop and Windows 365 VDI environments.](images/vdi-azure.png)
+
 ### VDI client without local browser access
 
 Sometimes the VDI client does not have access to a local browser. In this

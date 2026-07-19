@@ -59,7 +59,7 @@ are gated by the following security profile permissions:
 - **Flows** and **Flow modules – View**
   permissions: These permissions are required to see flow and module specific
   data on the automated interaction logs.
-- **Analytics and Optimization** - **Automated
+- **Recordings and Transcripts** - **Automated
   interaction voice (IVR) transcripts (unredacted)** permissions:
   These permissions are required to access logs of the IVR interaction such as
   keypad inputs in response to IVR prompts, transcripts of Lex interactions,

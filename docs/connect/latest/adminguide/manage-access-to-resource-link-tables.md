@@ -40,3 +40,12 @@ section, choose SAML users and groups and enter the ARN of the QuickSight user. 
 permission. 6. Choose **Grant**.
 
 ![AWS Lake Formation tables - grant.](images/manage-access-to-resource-link-tables-4.png)
+
+###### Grant access per table
+
+You must grant access for each table individually. You cannot grant access to all
+tables in a database at once.
+
+The database value shown in the **Grant on target** step might
+not match your expected database name. Use the value shown in the interface.
+Changing it to a different value causes the permission grant to fail.

@@ -89,6 +89,12 @@ optional.
 To enter multiple words in the **Phrase** column,
 separate each word with a hyphen (-); do not use spaces.
 
+###### IPA column is deprecated
+
+The `IPA` column is no longer used by Amazon
+Transcribe. Leave this column empty when creating a custom
+vocabulary table.
+
 ## Vocabulary states
 
 - **Ready (default)**: The vocabulary is being applied

@@ -1,4 +1,4 @@
-# Enable agent-initated flows during active chat sessions
+# Enable agent-initiated flows during active chat sessions
 
 Agent-initiated workflows are interactive workflows that agents can trigger during active
 chat sessions with customers. This feature enables agents to send forms for data

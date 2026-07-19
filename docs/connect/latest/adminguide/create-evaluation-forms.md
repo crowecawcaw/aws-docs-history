@@ -26,6 +26,8 @@ Each form can contain multiple sections and questions.
 - [Step 7: Preview the evaluation form](#step-preview "#step-preview")
 - [Step 8: Assign weights for final score](#step-weights "#step-weights")
 - [Step 9: Activate an evaluation form](#step-activateform "#step-activateform")
+  Before you begin, make sure you have the required security profile permissions. For
+  more information, see [Assign security profile permissions for performance evaluations and coaching](evaluation-and-coaching-permissions.md "evaluation-and-coaching-permissions.md").
 
 ## Step 1: Create an evaluation form with a title
 
@@ -560,6 +562,11 @@ Evaluators will no longer be able to choose the previous version of the form fro
 the dropdown list when starting new evaluations. For any evaluations that were
 completed using previous versions, you will still be able to view the version of the
 form on which the evaluation was based on.
+
+###### Important
+
+After you activate a new version, evaluators can no longer start new
+evaluations with the previous version.
 
 If you are still working on setting up the evaluation form and want to save your
 work at any point you can choose **Save**, **Save

@@ -777,7 +777,7 @@ reasons:
 - `OUTBOUND_ATTEMPT_FAILED`: There was an unknown error,
   invalid parameter, or insufficient permissions to call the
   API.
-- `OUTBUND_PREVIEW_DISCARDED`: No contact made; recipient
+- `OUTBOUND_PREVIEW_DISCARDED`: No contact made; recipient
   removed from list; no further attempts will be made.
 - `EXPIRED`: Not enough agents available, or not enough
   telecom capacity for such calls.
@@ -1857,7 +1857,9 @@ Type: String
 
 **Location**
 
-The location, in Amazon S3, for the recording/transcript.
+The location of the recording or transcript. This is an Amazon S3 path when
+StorageType is S3, or a ARN when StorageType is
+KINESIS\_VIDEO\_STREAM.
 
 Type: String
 

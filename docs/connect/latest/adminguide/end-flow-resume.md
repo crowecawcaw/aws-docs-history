@@ -16,7 +16,9 @@ inbound flow or disconnect flow, it functions identically to the
   end until the call is picked up by an agent.
 - You also might use this block when a **Loop
   prompts** block is interrupted. You can return the customer to the
-  **Loop prompts** block.
+  **Loop prompts** block. This block works only with the
+  **Loop prompts** block. It does not work with the
+  **Loop** block.
 - You can also use this block to end a Paused flow and return the contact
   without terminating the overall interaction. For example, it's useful in
   flows where you are [pausing

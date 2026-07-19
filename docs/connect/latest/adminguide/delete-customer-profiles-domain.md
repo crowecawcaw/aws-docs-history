@@ -1,5 +1,9 @@
 # Delete an Connect Customer Customer Profiles domain
 
+###### Select your instance first
+
+You must select your Connect Customer instance in the console before the Customer Profiles domain appears in the navigation pane.
+
 Deleting mappings will only delete objects and data associated with that specific
 mapping. If there are multiple objects associated with a profile, then deleting a
 specific mapping may not clear the profile data. If you want to delete specific data,

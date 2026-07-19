@@ -205,6 +205,7 @@ ingested.
 | Section title length                                                                                                    | 1-128 characters                                                                     |
 | Question title length                                                                                                   | 1-350 characters                                                                     |
 | Section instructions length                                                                                             | up to 1024 characters                                                                |
+| Question instructions length                                                                                            | 1-1024 characters                                                                    |
 | Number of answer options for single select questions                                                                    | 2-256 answer options                                                                 |
 | Answer option text length for single select questions                                                                   | 1-128 characters                                                                     |
 

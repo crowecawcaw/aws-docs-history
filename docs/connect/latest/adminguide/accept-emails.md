@@ -112,7 +112,7 @@ After reviewing an email contact, agents can compose and send a response directl
 To compose an email response:
 
 1. In the reply area of the CCP, enter your response message.
-2. The To and CC fields are automatically populated based on the incoming email. You can modify these if needed.
+2. The CCP automatically populates the To and CC fields based on the incoming email. You cannot modify the To field. You can modify the CC field.
 3. The Subject field is automatically populated with "Re: [original subject]". You can modify this if needed.
 4. Use the text editor to format your message, if formatting options are available.
 5. If needed, add attachments to your response by choosing the attachment option.

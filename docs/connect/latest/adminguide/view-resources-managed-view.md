@@ -611,6 +611,7 @@ The following image shows an example of a confirmation.
 {
     "Action": "Next",
     "ViewResultData": {
+        "actionName": "Next",
         "Label": "Go Home"
     }
 }

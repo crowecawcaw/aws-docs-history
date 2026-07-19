@@ -12,3 +12,4 @@ for calculated attributes.
 ![View, edit, create and delete permissions in the security profiles console.](images/security-profile-customer-profile-calc-attribs-2.png) 3. Choose **Save**. You can now navigate to the
 **User management** section and provide this security
 profile to the users of your choice.
+For more information about calculated attributes, see [Calculated Attributes](how-it-works.md#calculated-attributes "how-it-works.md#calculated-attributes").

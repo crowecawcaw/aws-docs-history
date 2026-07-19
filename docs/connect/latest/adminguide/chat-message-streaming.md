@@ -48,12 +48,12 @@ Currently, the message streaming APIs only support standard SNS for
 real-time streaming of messages. They don't support [Amazon SNS FIFO
 (first in, first out) topics](../../../sns/latest/dg/sns-fifo-topics.md "../../../sns/latest/dg/sns-fifo-topics.md"). 3. After you create the topic, its Amazon Resource Name (ARN) is displayed in the
 **Details** section. Copy the topic ARN to the clipboard.
-You'll use the topic ARN in the next step, and in [Step 3: Enable message streaming on the contact](#step3-chat-streaming "#step3-chat-streaming").
+Use the topic ARN in the next step and in [Step 3: Enable message streaming on the contact](#step3-chat-streaming "#step3-chat-streaming").
 
 The topic ARN looks similar to the following example:
 
 ```
-arn:aws:sns:`us-east-1`:`123456789012`:`MyTopic`
+arn:aws:sns:`us-east-1`:`111122223333`:`MyTopic`
 
 ```
 

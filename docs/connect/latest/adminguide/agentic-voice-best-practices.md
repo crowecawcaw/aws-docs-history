@@ -2,6 +2,10 @@
 
 Amazon Connect agentic voice combines advanced speech recognition (ASR) with expressive, natural-sounding voices to deliver a complete voice AI experience. Advanced ASR provides natural, low-latency turn taking in real-time conversations, while the voice engine delivers lifelike speech across 50+ locales. Together, these components power seamless, human-like interactions between callers and Amazon Connect AI agents. This guide covers configuration and best practices for both components, so you can get the most out of the full agentic voice experience.
 
+###### Note
+
+To use Amazon Connect agentic voice features, make sure Amazon Connect Customer is enabled for your instance. Amazon Connect agentic voice is the default voice provider for Amazon Connect Customer.
+
 This guide covers:
 
 - Session attribute syntax for ASR controls.
@@ -12,7 +16,7 @@ This guide covers:
 - Speech control tags for fine-grained voice control.
 - System prompts for Amazon Connect AI agents.
 - Contact center examples.
-- Polyglot voice configuration for multi-language support.
+- Multilingual voice configuration for multi-language support.
 
 ## Advanced speech recognition (ASR) best practices
 
@@ -265,6 +269,10 @@ Your phone number is <spell>(415)</spell><break time="200ms"/><spell>5551212</sp
 - Grouped with commas: A B C, 1 2 3.
 - Slowed and enunciated: A, B, C, 1, 2, 3
 
+###### Note
+
+The model treats ALL CAPS text the same as wrapping it in <spell> tags — it will be read out letter by letter. For example, "ACME BANK" would be spoken as "A-C-M-E B-A-N-K." To have the model speak it as a word, use standard capitalization: "Acme Bank."
+
 #### Emotion
 
 The model naturally infers emotional tone from content — no tags needed in most cases. Emotion tags are a beta capability and work most reliably when the emotion matches the transcript.
@@ -304,6 +312,117 @@ Speech control tag reference| Tag | What it does | Example |
 
 If the engine encounters a tag it cannot parse, it will attempt to speak the raw text including tag fragments. Always validate that your tags are well-formed.
 
+### Multilingual voice configuration
+
+Amazon Connect agentic voice includes multilingual voices that can speak multiple languages and switch between them seamlessly mid-conversation. A caller can start in English, switch to Spanish, and the agent follows — no flow changes or interruptions required. In the Set Voice block, these voices are labeled as polyglot voices. This guide uses the term multilingual voices to describe them. This section covers how to configure multilingual voices and what to watch out for.
+
+#### Multilingual voices
+
+Multilingual voices natively switch between supported languages within a single conversation. Use a multilingual voice when your contact center needs to handle callers who speak different languages or switch languages mid-call.
+
+Multilingual voices| Voice | Gender | Supported languages |
+| --- | --- | --- |
+| Katie | Feminine | English, German, Spanish, French, Hindi, Italian, Japanese, Norwegian, Portuguese, Russian |
+| Blake | Masculine | English, German, Spanish, French, Hindi, Italian, Japanese, Norwegian, Portuguese, Russian |
+| Brooke | Feminine | English, German, Spanish, French, Hindi, Italian, Japanese, Norwegian, Portuguese, Russian |
+| Ronald | Masculine | English, German, Spanish, French, Hindi, Italian, Japanese, Norwegian, Portuguese, Russian |
+| Gemma | Feminine | English, German, Spanish, French, Hindi, Italian, Japanese, Norwegian, Portuguese, Russian |
+
+#### Configuration
+
+##### Step 1: Build your Amazon Lex bot in the multilingual voice's locale
+
+If you use a multilingual voice, you need only a single Amazon Lex bot locale. Build your bot in the locale that matches the multilingual voice (for example, en-US or en-GB). You do not need to add every language the multilingual voice supports as a separate locale in Amazon Lex.
+
+**Do:**
+
+- Build your bot in en-US (or en-GB if using a UK English multilingual voice).
+- Use a single locale. The AI agent and multilingual voice handle multilingual conversations without additional Amazon Lex locales.
+
+**Don't:**
+
+- Add separate Amazon Lex bot locales for every language the multilingual voice supports. This is unnecessary — the AI agent handles language switching via the prompt.
+
+If you need to support a language that is not in the multilingual voice's supported language list (for example, Thai or Tagalog), create a separate bot for that locale and use a locale-specific voice. See [Using a non-multilingual agentic voice in a non-English locale](#agentic-voice-multilingual-non-english-locale "#agentic-voice-multilingual-non-english-locale").
+
+##### Step 2: Match the Lex bot locale to the Set Voice block
+
+The language attribute set in the Set Voice block must match the locale of your Lex bot. If they do not match, then the Get Customer Input block returns an error. Update the Set Voice block language to match your bot locale.
+
+For multilingual voices built on an English locale:
+
+1. In the Set Voice block, select the multilingual voice (for example, Brooke) and set the language to English (US).
+2. Ensure the Set language attribute checkbox is selected.
+3. Your Lex bot must have en-US as a built locale.
+
+##### First-turn greeting
+
+On the first turn, the AI agent has not received any caller input. Without input, the agent cannot detect the caller's language. The voice speaks the greeting text configured in the Get Customer Input block. If you want the bot to greet the caller in a specific language, make sure the greeting message in that block is written in that language.
+
+For example, if your primary caller base speaks Spanish, configure the Get Customer Input greeting in Spanish:
+
+```
+Hola, gracias por llamar. ¿Cómo puedo ayudarle hoy?
+```
+
+After the first turn, the AI agent takes over and detects and follows the caller's language for the rest of the conversation.
+
+##### Step 3: Add language-handling instructions to the AI agent system prompt
+
+Add a language-handling section to your AI agent's system prompt. This section drives the multilingual behavior. The AI agent detects the caller's language from the transcript and responds in that language.
+
+Template (customize for your use case):
+
+```
+You are connected to a multilingual voice that supports the following languages: English, German, Spanish, French, Hindi, Italian, Japanese, Norwegian, Portuguese, and Russian.
+
+Language handling rules:
+Detect the language of the caller's input from the transcription.
+If the caller speaks in one of the supported languages listed above, respond in that same language.
+If the caller speaks a language not in the supported list, respond in English and politely let them know you can assist in the supported languages.
+Always respond in one language at a time. Do not mix languages in a single response unless the caller mixes first.
+If the caller switches languages mid-conversation, follow their lead immediately.
+When responding in any non-English language, always use proper accent marks, diacritics, and locale-appropriate formatting (for example, é, ñ, ü, ç). This ensures the voice engine produces natural pronunciation.
+Keep English brand names, product names, codes, and identifiers in English. Do not translate them.
+```
+
+###### Tip
+
+Only list languages your multilingual voice actually supports in the prompt. Listing unsupported languages causes the agent to claim it can help, but the TTS produces unnatural output.
+
+##### Using a non-multilingual agentic voice in a non-English locale
+
+If you are using an agentic voice that is not a multilingual voice (for example, a Thai, Korean, or Portuguese voice), you must explicitly set the language attribute so the system routes to the correct ASR engine.
+
+**Option A: Set Voice block**
+
+1. Select your non-English voice (for example, a Thai voice for the th-TH locale).
+2. Set the language to the matching locale (for example, th-TH).
+3. Ensure Set language attribute is checked.
+4. Build your Lex bot with a matching locale (th-TH).
+
+**Option B: Set Contact Attributes block**
+
+If the Set Voice block does not expose the language setting for your configuration, you can set the language using the Set Contact Attributes block before the Get Customer Input block:
+
+- **Type** — System
+- **Attribute** — Language
+- **Value** — The locale code (for example, tl-PH for Tagalog, th-TH for Thai)
+
+#### Restricting to specific languages
+
+If your contact center only supports a subset of languages, simplify the prompt:
+
+```
+You support English and Spanish on this line only.
+Detect the language of the caller's input.
+If the caller speaks English or Spanish, respond in that language.
+If the caller speaks any other language, respond in English: I apologize, but I can only assist in English or Spanish. How can I help you today?
+If the caller switches between English and Spanish, follow their lead.
+Use proper accent marks when responding in Spanish (á, é, í, ó, ú, ñ, ü).
+Keep brand names and codes in English.
+```
+
 ### System prompt for Amazon Connect AI agents
 
 When Amazon Connect AI Agents generate text that will be spoken, add these speech formatting instructions to your agent's system prompt. Copy and paste the block below directly into your prompt configuration.
@@ -319,41 +438,39 @@ For guidance on optimizing your AI agent prompt for voice performance and latenc
 **Speech output formatting prompt**
 
 ```
-## Speech Output Formatting
+Speech Output Formatting
 Everything you output will be spoken aloud by text-to-speech.
 Follow these rules:
 
-1. GENERAL FORMATTING
-- Use full sentences with normal capitalization. Always end with . ? or !
-- Use conventional written forms for numbers, dates, acronyms, symbols.
-- Do NOT use markdown, bullet points, headers, bold, raw JSON, emoji,
-  or special characters.
-- Write plain prose only.
+GENERAL FORMATTING
+Use full sentences with normal capitalization. Always end with . ? or !
+Use conventional written forms for numbers, dates, acronyms, symbols.
+Do NOT use markdown, bullet points, headers, bold, raw JSON, emoji, or special characters.
+Write plain prose only.
 
-2. SPELLING OUT CODES AND IDS
-- For codes or IDs that must be read character-by-character, except for phone numbers, wrap in <spell> tags:
-  Example: Your confirmation code is <spell>TKT4829XB</spell>.
+SPELLING OUT CODES AND IDS
+For codes or IDs that must be read character-by-character, except for phone numbers, wrap in <spell> tags:
+Example: Your confirmation code is <spell>TKT4829XB</spell>. Was that the account ending in <spell>1234</spell>?
 
-3. THINGS TO AVOID
-- Do not output bullet points, numbered lists, or structured formatting.
-- Do not use asterisks, hashtags, or markdown syntax.
-- Do not include internal thoughts, reasoning, or meta-commentary.
-- Do not use parentheses, brackets, curly braces, or quotation marks.
+THINGS TO AVOID
+Do not output bullet points, numbered lists, or structured formatting.
+Do not use asterisks, hashtags, or markdown syntax.
+Do not include internal thoughts, reasoning, or meta-commentary.
+Do not use parentheses, brackets, curly braces, or quotation marks.
 
-4. NATURALNESS
-- Respond as if speaking directly to the caller.
-- Keep responses concise. Avoid long monologues.
-- Use natural transitions ("Let me check that for you.",
-  "Here is what I found.").
+NATURALNESS
+Respond as if speaking directly to the caller.
+Keep responses concise. Avoid long monologues.
+Use natural transitions like: Let me check that for you. Or: Here is what I found.
 ```
 
-**Polyglot add-on**
+**Multilingual add-on**
 
-If your bot uses a polyglot voice, add the following to your system prompt to enable multi-language responses:
+If your bot uses a multilingual voice, add the following to your system prompt to enable multi-language responses:
 
 ```
-## Language Handling
-You are connected to a polyglot voice that supports: English, German,
+Language Handling
+You are connected to a multilingual voice that supports: English, German,
 Spanish, French, Hindi, Italian, Japanese, Norwegian, Portuguese, and Russian.
 
 Detect the language of the caller input from the transcription. If the
@@ -430,93 +547,6 @@ Common text-to-speech mistakes| Mistake | Why it's bad | Fix |
 | Streaming incomplete tags | Tags get read aloud as text | Buffer complete tag values before sending. |
 | Mismatched emotion + content | Produces unnatural output | Align emotion with content, or omit. |
 | Over-engineering the prompt | Can reduce naturalness | Start simple — add tags only where needed. |
-| Non-polyglot voice for multi-language | Voice retains primary locale accent | Use a polyglot voice for native pronunciation. |
+| Non-multilingual voice for multi-language | Voice retains primary locale accent | Use a multilingual voice for native pronunciation. |
 | Wrapping text in markdown bold or italics | Engine speaks the asterisks aloud | Remove all markdown formatting. |
 | Sending malformed or unclosed tags | Engine speaks raw tag text | Validate tags are well-formed with matching brackets. |
-
-### Polyglot voice configuration
-
-#### What are polyglot voices?
-
-Polyglot voices are specially trained to speak multiple languages naturally. Unlike standard voices — which retain the accent of their primary locale — polyglot voices deliver native-sounding pronunciation across their supported languages.
-
-Amazon Connect agentic voice offers the following polyglot voices:
-
-Polyglot voices| Voice | Gender | Supported languages |
-| --- | --- | --- |
-| Katie (en-US) | Female | English, Spanish, German, French, Hindi, Italian, Japanese, Norwegian, Portuguese (BR), Russian |
-| Blake (en-US) | Male | English, Spanish, German, French, Hindi, Italian, Japanese, Norwegian, Portuguese (BR), Russian |
-| Brooke (en-US) | Female | English, Spanish, German, French, Hindi, Italian, Japanese, Norwegian, Portuguese (BR), Russian |
-| Ronald (en-US) | Male | English, Spanish, German, French, Hindi, Italian, Japanese, Norwegian, Portuguese (BR), Russian |
-| Gemma (en-GB) | Female | English (UK), Spanish, German, Hindi, Italian, Portuguese (BR) |
-
-#### Configuration
-
-Polyglot voices are configured at build time using the Set voice block:
-
-- **Engine** — Set to Agentic voice.
-- **Language** — Set to the primary language for the interaction.
-- **Voice** — Set to one of the voices listed in the above table.
-
-The voice delivers speech in the configured language. To serve multiple languages, create separate contact flows per language, each configured with the appropriate locale for that polyglot voice.
-
-#### Configuring your AI agent for polyglot responses
-
-When using a polyglot voice, your AI agent receives transcriptions from ASR in whatever language the caller speaks. To respond in the caller's language, add language-handling instructions to your system prompt (see the Polyglot add-on above).
-
-**How it works:**
-
-- Caller speaks in Spanish → ASR transcribes in Spanish → Agent sees Spanish text.
-- Agent recognizes Spanish is in the supported locale list.
-- Agent responds in Spanish → Polyglot voice delivers native-sounding Spanish speech.
-
-**Example exchange:**
-
-```
-Caller (transcribed): "Necesito verificar el estado de mi pedido."
-Agent: "Con gusto le ayudo. ¿Puede proporcionarme su número de pedido?"
-```
-
-#### English code-switching
-
-If the caller uses English terms (brand names, product codes) within a non-English language, keep your response in the caller's language. Embed English terms naturally — there's no need to translate brand names, codes, or identifiers.
-
-```
-Caller: "Quiero saber el estado de mi Amazon Prime membership."
-Agent: "Claro, voy a revisar su Amazon Prime membership. Un momento por favor."
-```
-
-#### Polyglot best practices
-
-**Do:**
-
-- Use a polyglot voice when your use case requires natural-sounding speech in multiple languages.
-- Write output text in the target language — the polyglot voice handles pronunciation natively.
-- Set the language in your flow configuration to match the expected caller language.
-- Use code-switching for short English phrases (brand names, codes) in any voice.
-- Add the polyglot language-handling block to your AI agent system prompt.
-
-**Don't:**
-
-- Configure a polyglot voice for a locale it does not support — use a locale-native voice instead.
-- Assume all voices sound equally natural across languages.
-- Mix multiple languages in a single agent response.
-- Translate brand names, product codes, or confirmation numbers — keep them in their original form.
-
-#### Examples
-
-**German conversation with English brand terms:**
-
-```
-Ihr Amazon Web Services Konto wurde erfolgreich aktualisiert. Kann ich Ihnen noch mit etwas anderem helfen?
-```
-
-English brand names are preserved as-is within the German response.
-
-**Non-polyglot voice speaking another language:**
-
-```
-Bonjour, comment puis-je vous aider aujourd'hui?
-```
-
-Any agentic voice can speak another language, but non-polyglot voices carry their primary locale accent. For native-sounding French, use a polyglot voice configured for fr\_FR.

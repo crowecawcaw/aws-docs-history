@@ -40,6 +40,9 @@ The following image shows the **Properties** page of the
 
 - The [Store customer input](store-customer-input.md "store-customer-input.md") block often comes before
   this block. It stores the customer's callback number.
+- For international phone numbers in E.164 format, the `+`
+  country code prefix is automatically prepended by Connect Customer. You do not need to
+  include it when passing the number as an attribute.
 
 ## Configured block
 

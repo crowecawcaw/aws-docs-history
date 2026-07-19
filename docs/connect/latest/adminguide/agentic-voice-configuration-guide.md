@@ -10,7 +10,7 @@ This guide walks you through:
 
 ###### Note
 
-Amazon Connect agentic voice is the default voice provider for Amazon Connect customers. Both ASR and voice share the same **Amazon Connect agentic voice** provider selection in their respective configuration panels.
+To use Amazon Connect agentic voice features, make sure Amazon Connect Customer is enabled for your instance. Amazon Connect agentic voice is the default voice provider for Amazon Connect Customer. Both ASR and voice share the same **Amazon Connect agentic voice** provider selection in their respective configuration panels.
 
 ## Advanced Speech Recognition (ASR) configuration
 

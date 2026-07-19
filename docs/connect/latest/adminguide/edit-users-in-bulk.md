@@ -10,7 +10,13 @@ While a batch of bulk edits is being processed, you can continue working on the
 edit or delete, in bulk or individually. This is useful for quickly updating
 settings, such as routing profiles for groups of agents.
 
-1. Log in to Connect Customer with an Admin account, or an account assigned to
+###### Bulk editing tags replaces existing tags
+
+When you bulk edit tags, adding a new tag to selected users replaces all existing
+tags on those users. To avoid losing existing tags, include all current tags in your
+bulk edit operation.
+
+1. Sign in to Connect Customer with an Admin account, or an account assigned to
    a security profile that has **Users - Edit** permission.
 2. In Connect Customer, on the left navigation menu, choose **Users**,
    **User management**.

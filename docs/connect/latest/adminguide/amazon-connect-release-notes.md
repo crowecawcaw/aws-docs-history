@@ -7,6 +7,16 @@ your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
 ## June 2026 Updates
 
+### Optimize Connect Customer audio for Azure Virtual Desktop and Windows 365
+
+You can deliver high-quality voice experiences in Azure Virtual Desktop (AVD) and Windows
+365 Virtual Desktop Infrastructure (VDI) environments. Using Microsoft Multimedia Redirection
+(MMR), Connect Customer redirects audio from the session host to the agent's local device and sends it
+directly to Connect Customer, improving audio quality by reducing network hops. Connect Customer now supports Azure
+Virtual Desktop as an audio optimization VDI platform, alongside Citrix, Omnissa, and Amazon WorkSpaces.
+For more information, see [Azure Virtual Desktop
+and Windows 365](using-ccp-vdi-azure-step-by-step.md "using-ccp-vdi-azure-step-by-step.md").
+
 ### Connect Customer now supports the Interrupt agent flow block
 
 Connect Customer now lets you route a contact to a specific agent even if that agent is at maximum concurrency or in a custom status, ensuring time-sensitive interactions reach the right person without waiting for availability. For example, an agent handling routine service calls can still receive a callback on their personal extension the moment it comes in, then decide whether to place their current caller on hold to take it.
@@ -476,7 +486,7 @@ For more information, see [Flow block in Connect Customer: Cases](cases-block.md
 
 Connect Customer now supports agent-initiated workflows, enabling agents to send interactive forms to collect sensitive data or share general policies and disclosures within customer chat conversations, increasing efficiency and improving customer experience. For example, when a customer needs to update their address, agents can now send a form that customers complete without leaving the chat interface.Agents can trigger these workflows at any point during a chat conversation, making interactions more dynamic and responsive to customer needs. By handling everything within the ongoing chat conversation, businesses can maintain security and compliance standards while helping customers get faster solutions.
 
-For more information, see [Enable agent-initated flows during active chat sessions](agent-initiated-flows.md "agent-initiated-flows.md").
+For more information, see [Enable agent-initiated flows during active chat sessions](agent-initiated-flows.md "agent-initiated-flows.md").
 
 ### Agentic self-service with more natural, expressive, and adaptive voice interactions
 
@@ -3154,7 +3164,7 @@ message_ or a _Get customer input_ flow block to _Hotel
 booking Lex bot_. The following GIF shows how to customize the name of a flow
 block.
 
-![A block with a custom name.](images/set-custom-flow-block-name-1.gif)
+![A block with a custom name.](/images/connect/latest/adminguide/images/set-custom-flow-block-name-1.gif)
 
 For more information, see [Customize the name of a flow block in Connect Customer](set-custom-flow-block-name.md "set-custom-flow-block-name.md").
 

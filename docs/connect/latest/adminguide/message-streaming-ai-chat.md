@@ -95,7 +95,7 @@ the Connect Customer instance.
       "Action": [
         "lex:RecognizeMessageAsync",
         "lex:RecognizeText",
-        "lex:StartConversation
+        "lex:StartConversation"
       ],
       "Resource": "arn:aws:lex:us-west-2:123456789012:bot-alias/MYBOT/MYBOTALIAS",
       "Condition": {

@@ -20,13 +20,13 @@ The screen recording files are saved in MP4 format.
 - **Which Connect Customer channels are
   supported?**
 
-You can generate screen recordings for voice, chat, and task
-contacts.
+You can generate screen recordings for voice and chat
+contacts. Screen recording is not supported for task contacts.
 
 - **Do you capture the entire screen?**
 
-Yes, the Connect Customer Client Service records all the open applications on the agent's monitor,
-up to three monitors.
+Screen recording captures only the Connect Customer agent workspace tabs, not the
+entire desktop.
 
 - **Does screen recording support concurrent user
   sessions on Windows using Virtual Desktop Infrastructure (VDI)

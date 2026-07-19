@@ -2098,6 +2098,44 @@ parameter set as follows:
 
 ![The five parts used to calculate average callback connecting time.](images/metrics-agent-callback-connection-time.png)
 
+## Average agent concurrency
+
+This metric measures the ratio of an agent's concurrent handle time to their total
+handle and idle time. It indicates how much of an agent's staffed time involves handling
+contacts concurrently across different channels.
+
+You can use Average agent concurrency alongside Average agent response time to assess
+whether concurrency levels allow agents to respond to chat contacts in a timely manner.
+A higher concurrency load or different channel mix might affect chat response times. A
+value close to 1 indicates agents are primarily handling contacts sequentially; a higher
+value indicates more time is spent handling contacts in parallel (for example, multiple
+chat conversations at once).
+
+**Metric type**: Double
+
+- Min value: 0.0
+- Max value: Equal to agent's contact slots
+
+**Metric category**: Agent activity-driven metric
+
+**How to access using the Connect Customer API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
+  `AVG_AGENT_CONCURRENCY`
+
+**How to access using the Connect Customer admin website**:
+
+- Dashboard: Avg. agent concurrency
+
+**Calculation logic**:
+
+- For each agent:
+
+  - Total concurrent handle time / Total (handle time + idle
+    time)
+
+- Aggregated across agents using AVG statistic.
+
 ## Average agent first response time
 
 This metric measures the average time (in seconds) taken by an agent to respond after

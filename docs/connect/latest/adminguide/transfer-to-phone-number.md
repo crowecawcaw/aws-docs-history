@@ -66,12 +66,12 @@ If you specify a comma in **Send DTMF** it pauses for
   to use a number that's different from the one the flow is actually using to
   make the call.
 
-###### Important
+###### Caller ID recommendations for calls outside the US
 
 If you are using Connect Customer outside of the United States, we recommend
 choosing **Caller ID number** and then selecting an
-Connect Customer number. Otherwise, local regulations may cause telephony providers
-to block or redirect non-Amazon Connect phone numbers. This will result
+Connect Customer number. Otherwise, local regulations might cause telephony providers
+to block or redirect non-Amazon Connect phone numbers, resulting
 in service-related events, such as rejected calls, poor audio quality,
 delay, latency, and displaying the incorrect caller ID.
 

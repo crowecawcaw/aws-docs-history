@@ -16,7 +16,7 @@ ever-changing business needs.
 
 You can create these configurations through the user interface using the new visual
 simulation designer or via programmatic APIs. This section explains the different UI
-components that enable the use of Connect's simulation
+components that enable the use of Connect Customer simulation
 capabilities.
 
 ###### Contents

@@ -1,14 +1,15 @@
 # Use the agent workspace to optimize audio for Citrix, Amazon WorkSpaces, and Omnissa cloud desktops
 
 You can use the Connect Customer agent workspace to simplify the delivery of high-quality voice
-experiences in Amazon WorkSpaces, Citrix, and Omnissa Virtual Desktop Infrastructure (VDI)
-environments.
+experiences in Amazon WorkSpaces, Citrix, Omnissa, Azure Virtual Desktop, and Windows 365
+Virtual Desktop Infrastructure (VDI) environments.
 
 Connect Customer supports [audio optimization for
-Amazon WorkSpaces](using-ccp-vdi-workspaces.md "using-ccp-vdi-workspaces.md"), [Citrix](using-ccp-vdi-citrix-step-by-step.md "using-ccp-vdi-citrix-step-by-step.md"), and [Omnissa](using-ccp-vdi-omnissa-step-by-step.md "using-ccp-vdi-omnissa-step-by-step.md") cloud desktops. This optimization redirects media from an
-agent's local desktop to Connect Customer. It streamlines the agent experience and improves
-audio quality by reducing network hops. Your agents can use these audio
-optimizations in the agent workspace.
+Amazon WorkSpaces](using-ccp-vdi-workspaces.md "using-ccp-vdi-workspaces.md"), [Citrix](using-ccp-vdi-citrix-step-by-step.md "using-ccp-vdi-citrix-step-by-step.md"), [Omnissa](using-ccp-vdi-omnissa-step-by-step.md "using-ccp-vdi-omnissa-step-by-step.md"), and [Azure
+Virtual Desktop and Windows 365](using-ccp-vdi-azure-step-by-step.md "using-ccp-vdi-azure-step-by-step.md") cloud desktops. This optimization
+redirects media from an agent's local desktop to Connect Customer. It streamlines the agent
+experience and improves audio quality by reducing network hops. Your agents can use
+these audio optimizations in the agent workspace.
 
 ## Important things to know
 
@@ -67,6 +68,12 @@ environment.
 
       - `https://`your-instance-url`/agent-app-v2?VDIPlatform=OMNISSA`
 
+   4. For Azure Virtual Desktop or Windows 365 cloud desktop,
+      the value for the query parameter is `AZURE`. The
+      following code shows an example of the complete URL:
+
+      - `https://`your-instance-url`/agent-app-v2?VDIPlatform=AZURE`
+
 3. Copy and paste the URL into the agent's browser.
 4. We recommend bookmarking this URL for all the agents. This makes
    it easy for agents access it in future by just choosing the
@@ -95,7 +102,9 @@ environment.
 
       `https://us-east-1.console.aws.amazon.com/connect/federate/instance-id?destination=%2Fagent-app-v2?VDIPlatform=AWS_WORKSPACE` 3. In Omnissa
 
-      `https://us-east-1.console.aws.amazon.com/connect/federate/instance-id?destination=%2Fagent-app-v2?VDIPlatform=OMNISSA`
+      `https://us-east-1.console.aws.amazon.com/connect/federate/instance-id?destination=%2Fagent-app-v2?VDIPlatform=OMNISSA` 4. In Azure Virtual Desktop or Windows 365
+
+      `https://us-east-1.console.aws.amazon.com/connect/federate/instance-id?destination=%2Fagent-app-v2?VDIPlatform=AZURE`
 
 2. Setting `VDIPlatform` in relay state URL automatically
    sets the audio optimization in the agent workspace for the specific VDI

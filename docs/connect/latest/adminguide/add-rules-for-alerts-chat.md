@@ -72,7 +72,7 @@ or phrases**. In the following image, the first group
 of words or phrases are what the agent might mention. The second
 group is what the customer might mention.
 
-![A words and phrases rule with multiple phrases for customer and agent.](/images/connect/latest/adminguide/images/contact-lens-add-category-rules-script3.png)
+![A words and phrases rule with multiple phrases for customer and agent.](images/contact-lens-add-category-rules-script3.png)
 
     1. In this first card, Contact Lens reads each line as
      an OR. For example: (Hello) OR (thank OR you OR for OR

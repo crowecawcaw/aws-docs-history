@@ -138,7 +138,7 @@ The following is an example JSON request to a Lambda function:
             "PreviousContactId": "4a573372-1f28-4e26-b97b-XXXXXXXXXXX",
             "Queue": {
                    "ARN": "arn:aws:connect:eu-west-2:111111111111:instance/cccccccc-bbbb-dddd-eeee-ffffffffffff/queue/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
-                 "Name": "PasswordReset"
+                 "Name": "PasswordReset",
                 "OutboundCallerId": {
                     "Address": "+12345678903",
                     "Type": "TELEPHONE_NUMBER"
@@ -457,6 +457,10 @@ exports.handler = async (event, context, callback) => {
         return 'www.GGG.com/support';
         }
 ```
+
+###### Node.js 18 and later
+
+If you are using Node.js 18 or later, use `export const handler` instead of `exports.handler`.
 
 This code is going to generate a random result for the
 customerBalance. 7. Choose **Deploy**. 8. After you choose **Deploy**, choose

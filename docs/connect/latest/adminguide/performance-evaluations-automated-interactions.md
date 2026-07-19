@@ -36,6 +36,14 @@ You can define custom criteria to evaluate self-service interactions. These
 criteria can measure self-service resolution, customer experience or bot/AI agent
 behaviors. To evaluate self-service interactions, set **Contact interaction type** as automated interaction under additional settings:
 
+###### How to set the contact interaction type
+
+When creating or editing an evaluation form, choose **Additional
+settings**, then under **Contact interaction type**,
+select **Automated interaction**. If you do not set this, the form
+defaults to agent interaction and cannot be used to evaluate automated (self-service)
+contacts.
+
 ![Additional settings tab showing Form language dropdown and Contact interaction type with Automated interaction selected.](images/self-service-eval-form-configuration.png)
 
 An example evaluation form is as follows:

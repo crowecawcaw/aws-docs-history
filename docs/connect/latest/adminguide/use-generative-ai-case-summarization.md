@@ -4,6 +4,13 @@ To help agents to handle cases more efficiently, they can use generative AI-powe
 
 To view the permissions needed to use the feature, see [Required Cases and Agent Applications permissions to generate AI-powered case summarization](assign-security-profile-cases.md#required-cases-agent-app-ai-summary-permissions "assign-security-profile-cases.md#required-cases-agent-app-ai-summary-permissions").
 
+###### Case summary field required
+
+For case summarization to work, a case summary field must exist on the case
+template. If no summary field is configured, the AI agent has nowhere to write the
+generated summary and the feature does not function. Add a summary field to the
+case template before enabling this feature.
+
 When an agent views a Case that is enabled with AI agents, they can use the **Generate** button to produce a summary of the Case and its Activity Feed.
 
 ![Screenshot showing Generate button for case summary.](images/case-summary-generate-button.png)

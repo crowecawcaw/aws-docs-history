@@ -1,6 +1,6 @@
 # Barge into live voice and chat conversations between contact center agents and customers
 
-###### Tip
+###### New to monitoring?
 
 **New user?** Check out the [Connect Customer Supervisor Experience
 Workshop](https://catalog.workshops.aws/amazon-connect-supervisor-experience "https://catalog.workshops.aws/amazon-connect-supervisor-experience"). This online course has a section on how to monitor contacts.
@@ -18,6 +18,11 @@ There is no limit to the number of conversations that you can barge in an instan
 The barge feature is included in Connect Customer voice service fees. For pricing, see
 the [Connect Customer Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/")
 page.
+
+###### Tip
+
+To monitor or barge live calls, you must be signed in to the Contact Control Panel (CCP) and set your
+status to something other than **Offline**.
 
 ## Set up barge for voice and chat
 

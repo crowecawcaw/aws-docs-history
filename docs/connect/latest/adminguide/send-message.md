@@ -150,7 +150,7 @@ Configure the following properties on the page to send an SMS message:
   claimed for your Connect Customer instance.
 
   - **Set manually**: Use the dropdown menu to
-    search for a phone number that has been claimed to your Connect Customer
+    search for an SMS-enabled phone number that has been claimed to your Connect Customer
     instance.
 
   You must have the [required permission](#sendmessage-block-perms "#sendmessage-block-perms") in your security profile to view

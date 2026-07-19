@@ -108,6 +108,13 @@ You can create a custom Lambda function that transforms messages in-flight. Cust
 processors can perform any transformation, such as language translation, profanity
 filtering, or AI-powered message enhancement.
 
+###### Add the Lambda function to your instance first
+
+Before using a custom processor Lambda, you must add it to your Connect Customer instance.
+In the Connect Customer console, choose **Flows**, choose
+**Lambda functions**, and select the use case
+**Custom processor lambda**.
+
 ### Step 1: Create your Lambda function
 
 ###### Note

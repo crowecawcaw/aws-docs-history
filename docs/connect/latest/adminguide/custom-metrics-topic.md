@@ -165,7 +165,7 @@ the definition editor.
 
 ###### Note
 
-A custom metric using a metric primitive of `Current Contact` category can only support at most 1 component.
+For more information about component limits and other constraints on custom metric creation, see [Guidelines for Metric Primitive creation and usage with out-of-the-box metrics](metric-primitive-definitions.md#metric-primitive-guidelines "metric-primitive-definitions.md#metric-primitive-guidelines").
 
 **Definition:**
 

@@ -56,7 +56,7 @@ Following is a description of each message attribute in the Amazon SNS payload:
 {
   "Type" : "Notification",
   "MessageId" : "ccccccccc-cccc-cccc-cccc-ccccccccccccc",
-  "TopicArn" : "arn:aws:sns:us-west-2:009969138378:connector-svc-test",
+  "TopicArn" : "arn:aws:sns:us-west-2:111122223333:connector-svc-test",
   "Message" :  "{\"AbsoluteTime\":\"2021-09-08T13:28:24.656Z\",\"Content\":\"help\",\"ContentType\":\"text/plain\",\"Id\":\"333333333-be0d-4a44-889d-d2a86fc06f0c\",\"Type\":\"MESSAGE\",\"ParticipantId\":\"bbbbbbbb-c562-4d95-b76c-dcbca8b4b5f7\",\"DisplayName\":\"Jane\",\"ParticipantRole\":\"CUSTOMER\",\"InitialContactId\":\"33333333-abc5-46db-9ad5-d772559ab556\",\"ContactId\":\"33333333-abc5-46db-9ad5-d772559ab556\"}",
   "Timestamp" : "2021-09-08T13:28:24.860Z",
   "SignatureVersion" : "1",

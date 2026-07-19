@@ -2,7 +2,7 @@
 
 The traditional contact center simulation approaches rely on technical
 step IDs and transitions that are inconsistent with natural human interaction patterns,
-creating a disconnect in validation processes. Connect's simulation capabilities
+creating a disconnect in validation processes. Connect Customer simulation capabilities
 use an event-driven trigger response model that mirrors natural cause-and-effect
 reasoning patterns used by QA engineers and business testers. This approach removes the
 need to know every interaction that are programmed to test and validate the

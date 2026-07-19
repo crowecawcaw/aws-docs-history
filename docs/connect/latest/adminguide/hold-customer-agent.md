@@ -18,6 +18,12 @@ custom CCP and communication widget. For more information, see [Integrate in-app
 - If this block is triggered during a chat conversation, the contact is
   routed down the **Error** branch.
 
+###### Hold flows do not play
+
+Configured hold flows (either default or custom set via the
+**Set hold flow** block) do not play when you use this
+block. The participant on hold experiences silence.
+
 ## Supported channels
 
 The following table lists how this block routes a contact who is using the

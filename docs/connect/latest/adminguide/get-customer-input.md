@@ -363,12 +363,12 @@ time when a lot of input is expected or you want to give
 customers more time to provide information.
 
 Default = 12000 milliseconds (12 seconds). The maximum
-allowed value is 15000 milliseconds.
+allowed value is 55000 milliseconds (55 seconds).
 
 ###### Important
 
 If you set **Max Speech
-Duration** to more than 15000
+Duration** to more than 55000
 milliseconds, the contact is routed down the
 **Error** branch.
 
@@ -409,12 +409,12 @@ time when a lot of input is expected or you want to give
 customers more time to provide information.
 
 Default = 12000 milliseconds (12 seconds). The maximum
-allowed value is 15000 milliseconds.
+allowed value is 55000 milliseconds (55 seconds).
 
 ###### Important
 
 If you set **Max Speech
-Duration** to more than 15000
+Duration** to more than 55000
 milliseconds, the contact is routed down the
 **Error** branch.
 
