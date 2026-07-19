@@ -9,7 +9,7 @@ Consider the following before interacting with the dashboard:
 
 - Customizations like saved filter sets or changes to the layout of widgets are saved automatically.
 - Data automatically refreshes every time you open the dashboard.
-- If you configure cross-Region aggregation, the dashboard includes findings from all of your linked regions (when viewing the dashboard in your home region).
+- If you configure cross-Region aggregation, the dashboard includes findings from all of your linked Regions (when viewing the dashboard in your home Region).
 
 Consider the following if your account is a delegated administrator account for an organization, member account in an organization, or standalone account.
 
@@ -214,7 +214,7 @@ Choosing **View all resources** directs you to the **Resource** dashboard.
 
 #### Security coverage widget
 
-![Example of security coverage widget.](images/security-coverage-widget.png)
+![Screenshot of the Security Hub Advanced security coverage widget showing account coverage percentages by security capability.](images/security-coverage-widget2.png)
 
 The widget displays a summary of your account coverage for the following security capabilities:
 
@@ -223,20 +223,20 @@ The widget displays a summary of your account coverage for the following securit
 - Sensitive data discovery by Amazon Macie
 - Posture management by AWS Security Hub CSPM
 
-Percentages in the **Account coverage** column represent the number of coverage checks that passed and failed for each security capability across AWS accounts and AWS Regions where Security Hub is enabled.
-You can review which coverage checks passed and failed for a security capability by choosing a percentage.
-**Covered** indicates the coverage check passed.
-**Not covered** indicates the coverage check failed.
-When reviewing percentages for the number of coverage checks that passed and failed, each percentage under **Covered** represents the percentage of coverage findings covered for a security capability.
-In some cases, percentages for coverage checks are rounded to the nearest whole number.
+In delegated administrator accounts, the widget also displays account coverage for Security Hub enablement.
 
-###### Suppressed coverage findings
+Each coverage item shows a percentage representing that capability's enablement across your accounts. Choosing a percentage displays details about coverage for that capability.
+Choosing the **Security Hub enablement** percentage displays a side panel. The panel shows how many accounts are enabled in each Region across your organization.
 
-If any of your coverage findings in Security Hub are suppressed, the widget displays a message informing you that coverage has been excluded:
+In the **Services coverage** section, percentages represent the proportion of coverage checks that passed for each security capability. These checks span the accounts and Regions where Security Hub is enabled.
+Choosing a coverage percentage displays a popover that breaks down each feature as **Covered** (check passed) or **Not covered** (check failed).
+Percentages are rounded down to the nearest whole number.
+Choosing any percentage in the popover opens the coverage findings page with details about the findings that make up that percentage.
+Choose **Configure** to open the individual service where you can manage the configuration for that capability, or to open the Security Hub configurations page where you can update your configurations for security services.
 
-_Coverage for security capabilities has been excluded through suppressed coverage findings._
+If any of your coverage findings in Security Hub are suppressed, the widget displays a message informing you that coverage has been excluded: _Coverage for security capabilities has been excluded through suppressed coverage findings_.
 
-For more information about coverage findings, see [Coverage findings in Security Hub](coverage-findings.md "coverage-findings.md").
+For more information about viewing and suppressing coverage findings, see [Coverage findings in Security Hub](coverage-findings.md "coverage-findings.md").
 
 ## Available filters
 

@@ -393,14 +393,13 @@ API private access
 **Resource type:**
 `AWS::EC2::VPC`
 
-**AWS Config rule:**
-[`service-vpc-endpoint-enabled`](../../../config/latest/developerguide/service-vpc-endpoint-enabled.md "../../../config/latest/developerguide/service-vpc-endpoint-enabled.md")
+**AWS Config rule:** [vpc-endpoint-enabled](../../../config/latest/developerguide/vpc-endpoint-enabled.md "../../../config/latest/developerguide/vpc-endpoint-enabled.md")
 
 **Schedule type:** Periodic
 
 **Parameters:**
 
-- `serviceName`: `ec2` (not customizable)
+- `serviceNames`: `ec2` (not customizable)
 
 This control checks whether a service endpoint for Amazon EC2 is created for each VPC. The
 control fails if a VPC does not have a VPC endpoint created for the Amazon EC2 service.
@@ -409,14 +408,6 @@ This control evaluates resources in single account. It cannot describe resources
 are outside of the account. Because AWS Config and Security Hub CSPM do not conduct cross-account checks,
 you will see `FAILED` findings for VPCs that are shared across accounts.
 Security Hub CSPM recommends that you suppress these `FAILED` findings.
-
-###### Note
-
-This control evaluates standard endpoint service names and does not currently
-recognize FIPS-variant endpoint service names (for example,
-`com.amazonaws.us-east-1.ec2-fips`). VPCs that use a FIPS endpoint
-for Amazon EC2 may produce a `FAILED` finding even though connectivity to the
-service through a VPC endpoint is configured.
 
 To improve the security posture of your VPC, you can configure Amazon EC2 to use an
 interface VPC endpoint. Interface endpoints are powered by AWS PrivateLink, a technology

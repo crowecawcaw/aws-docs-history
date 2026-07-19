@@ -238,7 +238,7 @@ See [Discontinued operating systems](../../../inspector/latest/user/supported.md
 
 We recommend updating to a supported version of the operating system.
 In the exposure finding, open the resource to access the affected resource.
-Before updating the operating system version on your instance, review available versions in [Supported Operating Systems](../../../inspector/latest/user/supported.md#supported-os "../../../inspector/latest/user/supported.md#supported-os") in the _Amazon Inspector User Guide_ for a list of currently supported OS versions.
+Before updating the operating system version on your instance, create a snapshot or AMI backup in case you need to roll back. Then, review available versions in [Supported Operating Systems](../../../inspector/latest/user/supported.md#supported-os "../../../inspector/latest/user/supported.md#supported-os") in the _Amazon Inspector User Guide_ for a list of currently supported OS versions.
 
 ### The EC2 instance has malicious software packages
 
@@ -263,7 +263,7 @@ Following security best practices, AWS recommends removing malicious files to pr
 ###### Remove malicious files
 
 To identify the specific Amazon Elastic Block Store (Amazon EBS) volume that has malicious files, review the **Resources** section of the trait's finding details.
-Once you have identified the volume with the malicious file, remove the identified malicious files.
+Once you have identified the volume with the malicious file, create a snapshot of the volume before making changes, then remove the identified malicious files.
 After removing the malicious files, consider performing a scan to ensure that all files that may have been installed by the malicious file have been removed.
 For more information, see [Starting On-demand malware scan in GuardDuty](../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md "../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md") in the .
 
