@@ -78,14 +78,9 @@ modified the boot order or added a private UEFI Secure Boot key to load private 
 modules, the changes are lost during root volume replacement.
 
 The replacement root volume gets the same volume type and delete on termination
-attribute as the original root volume, and it gets the size of the AMI root volume block
-device mapping.
-
-###### Note
-
-The size of the AMI root volume block device mapping must be equal to or greater
-than the size of the original root volume. If the size of the AMI root volume block
-device mapping is smaller than the size of the original root volume, the request fails.
+attribute as the original root volume. The size of the replacement root volume is the
+larger of the AMI root volume block device mapping size and the current root volume
+size.
 
 After the root volume replacement task completes, the following new and updated
 information is reflected when you describe the instance using the console, AWS CLI or AWS
@@ -107,9 +102,8 @@ SDKs:
   associated root volume snapshot. You cannot use this feature with AWS Marketplace AMIs.
 - You can only use an AMI without a product code only if the instance does not
   have a product code.
-- The size of the AMI root volume block device mapping must be equal to or greater
-  than the size of the original root volume. If the size of the AMI root volume block
-  device mapping is smaller than the size of the original root volume, the request fails.
+- The size of the replacement root volume is the larger of the AMI root volume
+  block device mapping size and the current root volume size.
 - The instance identity documents for the instance are automatically updated.
 - If the instance supports NitroTPM, the NitroTPM data for the instance is reset and
   new keys are generated.
