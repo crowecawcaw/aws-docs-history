@@ -39,7 +39,50 @@ the PostgreSQL documentation.
 
 ###### Minor versions
 
+- [PostgreSQL version 19 Beta 2 in the Amazon RDS Preview environment](#postgresql-versions-version19Beta2 "#postgresql-versions-version19Beta2")
 - [PostgreSQL version 19 Beta 1 in the Amazon RDS Preview environment](#postgresql-versions-version19Beta1 "#postgresql-versions-version19Beta1")
+
+### PostgreSQL version 19 Beta 2 in the Amazon RDS Preview environment
+
+PostgreSQL 19 Beta 2 contains many new features and enhancements that can be seen in the
+release documentation: [PostgreSQL 19 Beta 2 Released!](https://www.postgresql.org/about/news/postgresql-19-beta-2-released-3350/ "https://www.postgresql.org/about/news/postgresql-19-beta-2-released-3350/").
+
+The following parameters were updated:
+
+- `ssl_groups` default is set to `X25519MLKEM768:SecP256r1MLKEM768:SecP384r1MLKEM1024:X25519:prime256v1:secp384r1`
+
+The following modifiable I/O parameters were added:
+
+- `io_min_workers`
+- `io_max_workers`
+- `io_worker_idle_timeout`
+- `io_worker_launch_interval`
+
+This version also includes the following extension changes:
+
+- The `pgaudit` extension was updated to version 19.
+
+The following extensions that are supported in Amazon RDS PostgreSQL version 18 aren't supported for Amazon RDS PostgreSQL version 19 Beta 2 in preview:
+
+- `address_standardizer`
+- `address_standardizer_data_us`
+- `h3-pg`
+- `mysql_fdw`
+- `pg_bigm`
+- `pg_hint_plan`
+- `pg_similarity`
+- `pg_stat_monitor`
+- `pg_transport`
+- `pgactive`
+- `pgrouting`
+- `plprofiler`
+- `postgis`
+- `postgis_raster`
+- `postgis_tiger_geocoder`
+- `postgis_topology`
+- `tds_fdw`
+
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 19](postgresql-extensions.md#postgresql-extensions-19x "postgresql-extensions.md#postgresql-extensions-19x").
 
 ### PostgreSQL version 19 Beta 1 in the Amazon RDS Preview environment
 
