@@ -10,7 +10,8 @@ For issues related to rotation, see [Troubleshoot AWS Secrets Manager rotation](
 - ["Access denied" messages](#troubleshoot_general_access-denied-service "#troubleshoot_general_access-denied-service")
 - ["Access denied" for temporary security credentials](#troubleshoot_general_access-denied-temp-creds "#troubleshoot_general_access-denied-temp-creds")
 - [Changes I make aren't always immediately visible.](#troubleshoot_general_eventual-consistency "#troubleshoot_general_eventual-consistency")
-- [“Cannot generate a data key with an asymmetric KMS key” when creating a secret](#asymmetrical-key "#asymmetrical-key")
+- ["Connection reset by peer" errors](#troubleshoot_general_connection-reset "#troubleshoot_general_connection-reset")
+- ["Cannot generate a data key with an asymmetric KMS key" when creating a secret](#asymmetrical-key "#asymmetrical-key")
 - [An AWS CLI or AWS SDK operation can't find my secret from a partial ARN](#ARN_secretnamehyphen "#ARN_secretnamehyphen")
 - [This secret is managed by an AWS service, and you must use that service to update it.](#troubleshoot-service-linked-secrets "#troubleshoot-service-linked-secrets")
 - [Python module import fails when using Transform: AWS::SecretsManager-2024-09-16](#troubleshoot-python-import "#troubleshoot-python-import")
@@ -75,7 +76,40 @@ consistency, see:
 - [Amazon EC2
   Eventual Consistency](../../../AWSEC2/latest/APIReference/query-api-troubleshooting.md#eventual-consistency "../../../AWSEC2/latest/APIReference/query-api-troubleshooting.md#eventual-consistency") in the _Amazon EC2 API Reference_
 
-## “Cannot generate a data key with an asymmetric KMS key” when creating a secret
+## "Connection reset by peer" errors
+
+When you call Secrets Manager, you might occasionally receive a _connection reset by
+peer_ error. This happens when the server closes a TCP connection that your client is
+using or attempting to use. To manage capacity and maintain availability, AWS services,
+including Secrets Manager, can close connections at any time.
+
+This most often affects idle keep-alive connections that your application reuses, but it
+can also affect newly established connections. Occasional resets are a normal part
+of connection lifecycle management. They don't indicate a problem with your secret or your
+account.
+
+The AWS SDKs manage a connection pool and retry these errors on a new connection by
+default, so you don't usually need to take any action. If you encounter these errors, do the
+following:
+
+- Verify that you're using a current version of the AWS SDK or AWS CLI. Make sure you
+  haven't turned off the default retry behavior. For more information, see [Retry
+  behavior](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/latest/guide/feature-retry-behavior.md") in the _AWS SDKs and Tools Reference Guide_.
+- If you manage HTTP connections directly instead of using an AWS SDK, retry the
+  request on a new connection. Read operations such as `GetSecretValue` are
+  idempotent and safe to retry.
+- Cache secret values on the client instead of calling Secrets Manager on every use. Caching
+  reduces the number of connections your application opens and improves resilience to
+  transient network errors. For more information, see [Use caching to retrieve secrets](best-practices.md#best-practices-caching "best-practices.md#best-practices-caching").
+
+If these errors persist over a sustained period, the cause is likely something other than
+routine connection cycling.
+To identify the cause, check the [AWS Health Dashboard](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status") for
+Secrets Manager events in your AWS Region. Also verify your network path to the service endpoint,
+including any VPC endpoint, proxy, firewall, or DNS configuration. If the problem continues,
+contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
+
+## "Cannot generate a data key with an asymmetric KMS key" when creating a secret
 
 Secrets Manager uses a [symmetric encryption
 KMS key](../../../kms/latest/developerguide/concepts.md#symmetric-cmks "../../../kms/latest/developerguide/concepts.md#symmetric-cmks") associated with a secret to generate a data key for each secret value. You
