@@ -603,6 +603,20 @@ In addition, you can select the following [real-time access log fields](real-tim
    list of country codes, see [ISO 3166-1
    alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 "https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2").
 6. `**cache-behavior-path-pattern**` – The path pattern that identifies the cache behavior that matched the viewer request.
+7. `**viewer-request-log-data**` –
+   Contains the custom data that your viewer request CloudFront function sends by using
+   the `cf.logCustomData()` helper method. CloudFront URL-encodes the value
+   and truncates it to a maximum of 800 bytes. If no CloudFront function is
+   associated with the viewer request event, or if the function does not call
+   `cf.logCustomData()`, this field is `-`. For more
+   information, see [General helper methods](general-helper-methods.md "general-helper-methods.md").
+8. `**viewer-response-log-data**` –
+   Contains the custom data that your viewer response CloudFront function sends by using
+   the `cf.logCustomData()` helper method. CloudFront URL-encodes the value
+   and truncates it to a maximum of 800 bytes. If no CloudFront function is
+   associated with the viewer response event, or if the function does not call
+   `cf.logCustomData()`, this field is `-`. For more
+   information, see [General helper methods](general-helper-methods.md "general-helper-methods.md").
 
 ## Send logs to CloudWatch Logs
 

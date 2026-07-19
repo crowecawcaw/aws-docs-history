@@ -708,7 +708,23 @@ The ID of the distribution tenant. 70. **`connection-id`**
 A unique identifier for the TLS connection.
 
 You must enable mTLS for your distributions before you can get information
-for this field. For more information, see [Mutual TLS authentication with CloudFront (Viewer mTLS)](mtls-authentication.md "mtls-authentication.md").
+for this field. For more information, see [Mutual TLS authentication with CloudFront (Viewer mTLS)](mtls-authentication.md "mtls-authentication.md"). 71. **`viewer-request-log-data`**
+
+Custom data that your viewer request CloudFront function sends by using the
+`cf.logCustomData()` helper method. This field contains the
+string value that you passed to the method during the viewer request event.
+CloudFront URL-encodes the value and truncates it to a maximum of 800 bytes. If
+no CloudFront function is associated with the viewer request
+event, or if the function does not call `cf.logCustomData()`,
+this field is `-`. For more information, see [General helper methods](general-helper-methods.md "general-helper-methods.md"). 72. **`viewer-response-log-data`**
+
+Custom data that your viewer response CloudFront function sends by using the
+`cf.logCustomData()` helper method. This field contains the
+string value that you passed to the method during the viewer response event.
+CloudFront URL-encodes the value and truncates it to a maximum of 800 bytes. If
+no CloudFront function is associated with the viewer response
+event, or if the function does not call `cf.logCustomData()`,
+this field is `-`. For more information, see [General helper methods](general-helper-methods.md "general-helper-methods.md").
 
 ### Endpoint (Kinesis Data Streams)
 
