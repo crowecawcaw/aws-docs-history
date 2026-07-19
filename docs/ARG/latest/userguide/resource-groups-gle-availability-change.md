@@ -1,4 +1,4 @@
-# Group Lifecycle Events feature in AWS Resource Groups availability change
+# Group Lifecycle Events feature of AWS Resource Groups availability change
 
 ###### Note
 
