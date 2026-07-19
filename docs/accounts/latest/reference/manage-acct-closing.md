@@ -35,6 +35,12 @@ Before closing your AWS account, you should consider the following:
   AWS account at the time of its closure as the primary email of another
   AWS account. If you want to use the same email address for a different
   AWS account, we recommend updating it before closure. For more information, see [Update the root user email address](manage-acct-update-root-user-email.md "manage-acct-update-root-user-email.md").
+- You can't use the same account alias that you registered to your
+  AWS account at the time of its closure for another AWS account. To
+  reuse the alias for a different AWS account, delete the account
+  alias before you close the account. For more information, see [Using an alias for
+  your AWS account ID](../../../IAM/latest/UserGuide/console_account-alias.md "../../../IAM/latest/UserGuide/console_account-alias.md") in the
+  _IAM User Guide_.
 - If you've [enabled multi-factor authentication (MFA)](../../../IAM/latest/UserGuide/id_credentials_mfa_enable-overview.md "../../../IAM/latest/UserGuide/id_credentials_mfa_enable-overview.md") on your AWS account
   root user, or configured an [MFA device on an
   IAM user](../../../IAM/latest/UserGuide/console_sign-in-mfa.md "../../../IAM/latest/UserGuide/console_sign-in-mfa.md"), MFA isn't removed automatically when you close the
