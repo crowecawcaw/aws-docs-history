@@ -110,7 +110,10 @@ For Windows platforms, see the following table for the log group corresponding t
 
 You can enable instance log streaming to CloudWatch Logs using the Elastic Beanstalk console, the EB CLI, or configuration options.
 
-Before you enable it, set up IAM permissions to use with the CloudWatch Logs agent. You can attach the following custom policy to the [instance profile](concepts-roles-instance.md "concepts-roles-instance.md") that you assign to your environment.
+Before you enable it, set up IAM permissions to use with the CloudWatch Logs agent. If you're
+using the _AWSElasticBeanstalkWebTier_ or _AWSElasticBeanstalkWorkerTier_ managed policy
+(see [Prerequisite for instance log streaming to CloudWatch Logs](#AWSHowTo.cloudwatchlogs.prereqs "#AWSHowTo.cloudwatchlogs.prereqs")), you already have the
+necessary permissions. Otherwise, attach the following custom policy to the [instance profile](concepts-roles-instance.md "concepts-roles-instance.md") that you assign to your environment.
 
 JSON
 
@@ -149,6 +152,13 @@ JSON
    - Enable **Log streaming**.
    - Set **Retention** to the number of days to save the logs.
    - Select the **Lifecycle** setting that determines whether the logs are saved after the environment is terminated.
+
+   ###### Important
+
+   If you select **Delete logs upon termination**, the log groups
+   and all log data are permanently deleted when you terminate the environment. This
+   action cannot be undone. To preserve logs for debugging or compliance, select
+   **Keep logs after terminating environment**.
 
 6. To save the changes choose **Apply** at the bottom of the page.
 
@@ -228,10 +238,10 @@ limits using the following [`.ebextensions
  configuration`](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/instance-configuration/logs-ratelimitcloudwatchlogs-linux.config "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/instance-configuration/logs-ratelimitcloudwatchlogs-linux.config"). This configuration increases the rate limit interval to 600 seconds with higher burst limits, providing a balance
 between proper logging and system protection.
 
-###### Throttling issues
+###### Log stream creation fails due to API throttling
 
 If an Elastic Beanstalk operation that concurrently launches a large number of instances returns a message like `Error: fail to create log stream:
- ThrottlingException: Rate exceeded`, it's throttling from too many calls to the CloudWatch API.
+ ThrottlingException: Rate exceeded`, the operation is making too many concurrent calls to the CloudWatch API.
 
 To resolve the throttling issue take one of the following actions:
 
