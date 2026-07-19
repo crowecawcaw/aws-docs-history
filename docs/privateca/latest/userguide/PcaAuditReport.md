@@ -4,6 +4,21 @@ You can create an audit report to list all of the certificates
 that your private CA has issued or revoked. The report is saved in a new or existing
 S3 bucket that you specify on input.
 
+###### Audit reports vs. CloudTrail logging
+
+AWS Private CA provides two complementary auditing mechanisms:
+
+- **CloudTrail logging** — Records each API
+  call and signing operation as it occurs. Use CloudTrail for security monitoring,
+  real-time alerting, and investigating specific events. See
+  [Logging AWS Private Certificate Authority API calls using AWS CloudTrail](logging-using-cloudtrail-pca.md "logging-using-cloudtrail-pca.md").
+- **Audit reports** — Generates a
+  point-in-time snapshot of every certificate your CA has issued or revoked,
+  including validity dates and revocation status. Use audit reports for periodic
+  compliance reviews and certificate inventory.
+  Both mechanisms are independent. You can use either or both depending on your
+  audit requirements.
+
 ###### Note
 
 Audit report generation is not supported for certificate authorities that
@@ -140,6 +155,40 @@ comma-separated values. 6. Choose **Generate audit report**.
 To retrieve an audit report for inspection, use the Amazon S3 console, API, CLI, or
 SDK. For more information, see [Downloading an object](../../../AmazonS3/latest/userguide/download-objects.md "../../../AmazonS3/latest/userguide/download-objects.md") in the _Amazon Simple
 Storage Service User Guide_.
+
+## Retrieving full certificate details
+
+The audit report provides certificate metadata including the serial number,
+subject distinguished name (DN), validity dates, and revocation status. It does
+not include the full certificate content such as Subject Alternative Names (SANs),
+X.509 extensions, or the TBS (to-be-signed) certificate structure.
+
+To retrieve full certificate details, use the
+[GetCertificate](../APIReference/API_GetCertificate.md "../APIReference/API_GetCertificate.md")
+API with the certificate ARN from the audit report. You can then parse the
+returned PEM-encoded certificate to extract any field.
+
+###### Example: Retrieve and inspect a certificate from an audit report entry
+
+```
+aws acm-pca get-certificate \
+  --certificate-authority-arn arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566` \
+  --certificate-arn arn:aws:acm-pca:`region`:`account`:certificate-authority/`CA_ID`/certificate/`certificate_ID` \
+  --output text --query Certificate | openssl x509 -text -noout
+```
+
+This pattern is useful when your audit requires details beyond what the report
+provides — for example, verifying which SANs or DNS names were issued, or
+confirming the key algorithm used.
+
+###### Important
+
+- `GetCertificate` requires that the issuing CA
+  still exists. If the CA has been deleted, certificates cannot be
+  retrieved.
+- For CAs that issue a high volume of short-lived certificates,
+  consider capturing full certificate details at issuance time rather than
+  retrieving them retrospectively.
 
 ## Encrypting your audit reports
 

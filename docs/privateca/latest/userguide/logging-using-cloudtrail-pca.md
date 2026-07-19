@@ -50,6 +50,18 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
+###### Note
+
+You can configure your CloudTrail trail to deliver events to Amazon CloudWatch Logs in addition to Amazon S3.
+When configured, CloudWatch Logs receives the same AWS Private CA events that are delivered to your S3 bucket.
+AWS Private CA does not publish events directly to CloudWatch Logs. For more information, see
+[Sending events to CloudWatch Logs](../../../awscloudtrail/latest/userguide/send-cloudtrail-events-to-cloudwatch-logs.md "../../../awscloudtrail/latest/userguide/send-cloudtrail-events-to-cloudwatch-logs.md") in the _AWS CloudTrail User Guide_.
+
+For information about how CloudTrail delivers events — including delivery timing, durability,
+and integration with other AWS services — see
+[Getting and viewing your CloudTrail log files](../../../awscloudtrail/latest/userguide/get-and-view-cloudtrail-log-files.md "../../../awscloudtrail/latest/userguide/get-and-view-cloudtrail-log-files.md")
+and the [AWS CloudTrail Service Level Agreement](https://aws.amazon.com/cloudtrail/sla/ "https://aws.amazon.com/cloudtrail/sla/").
+
 ## AWS Private CA management events
 
 AWS Private CA integrates with CloudTrail to record API actions made by a user, a role, or an AWS service in AWS Private CA. You can use CloudTrail to monitor AWS Private CA API requests in real time and store logs in Amazon Simple Storage Service, Amazon CloudWatch Logs, and Amazon CloudWatch Events. AWS Private CA supports logging the following actions and operations as events in CloudTrail log files:
@@ -83,6 +95,41 @@ AWS Private CA integrates with CloudTrail to record API actions made by a user, 
 - `GenerateCRL` - Generated when AWS Private CA generates a certificate revocation list (CRL).
 - `SignCACSR` - Generated when AWS Private CA signs a certificate authority (CA) certificate signing request (CSR).
 - `SignCRL` - Generated when AWS Private CA signs a CRL.
+
+###### Note
+
+CloudTrail provides a real-time event stream of API calls and signing operations. For a
+complete point-in-time inventory of all certificates that your private CA has issued or
+revoked, including validity dates and revocation status, see
+[Use audit reports with your private CA](PcaAuditReport.md "PcaAuditReport.md").
+
+## Identifying the original requester
+
+When an intermediate service calls `IssueCertificate` on behalf of end-users
+or workloads, the CloudTrail event records the intermediate service's IAM identity in the
+`userIdentity` field — not the original requester.
+
+To trace certificate issuance back to the original requester, the intermediate service
+can propagate identity information using standard IAM mechanisms:
+
+- **Session tags** — The intermediate service passes
+  identifying information (such as the original requester's ID) as session tags when assuming
+  its IAM role via AWS STS. These tags appear in the CloudTrail event's `userIdentity`
+  block under `sessionContext`. For more information, see
+  [Passing session tags in AWS STS](../../../IAM/latest/UserGuide/id_session-tags.md "../../../IAM/latest/UserGuide/id_session-tags.md").
+- **Source identity** — The intermediate service sets a
+  source identity when assuming its role. Source identity is immutable across role chains
+  and appears in CloudTrail as `sourceIdentity`. For more information, see
+  [Monitoring and controlling actions taken with assumed roles](../../../IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.md "../../../IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.md").
+- **IAM Roles Anywhere** — If the calling workload
+  authenticates with an X.509 certificate via IAM Roles Anywhere, the certificate's Subject,
+  Issuer, and Subject Alternative Name (SAN) fields are automatically mapped to session
+  principal tags. For example, a SPIFFE ID in the SAN appears as
+  `aws:PrincipalTag/x509SAN/URI`. For more information, see
+  [The IAM Roles Anywhere trust model](../../../rolesanywhere/latest/userguide/trust-model.md "../../../rolesanywhere/latest/userguide/trust-model.md").
+
+These identity attributes are recorded in CloudTrail events for all AWS service calls,
+including AWS Private CA API operations.
 
 ## Example AWS Private CA events
 
