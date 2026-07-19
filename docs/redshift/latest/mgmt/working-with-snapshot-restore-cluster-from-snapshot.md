@@ -167,8 +167,8 @@ If you have reserved nodes, for example
 RA3
 reserved nodes, you can upgrade to RG reserved nodes. You can do this when you restore
 from a snapshot or perform an elastic resize. You can use the console to guide you through
-this process. For more information about upgrading to RG nodes, see [Upgrading to RG node
-types](working-with-clusters.md#rs-upgrading-to-rg "working-with-clusters.md#rs-upgrading-to-rg").
+this process. For more information about upgrading to RG nodes, see [Upgrading to RG or RA3 node
+types](managing-cluster-considerations.md#rs-upgrading-to-ra3 "managing-cluster-considerations.md#rs-upgrading-to-ra3").
 
 ###### To restore a cluster from a snapshot on the console
 
@@ -204,5 +204,5 @@ cluster detail page.
 
 If you have reserved nodes, you can upgrade to RG reserved nodes. You can do this when
 you restore from a snapshot or perform an elastic resize. You can use the console to guide
-you through this process. For more information about upgrading to RG nodes, see [Upgrading to RG node
-types](working-with-clusters.md#rs-upgrading-to-rg "working-with-clusters.md#rs-upgrading-to-rg").
+you through this process. For more information about upgrading to RG nodes, see [Upgrading to RG or RA3 node
+types](managing-cluster-considerations.md#rs-upgrading-to-ra3 "managing-cluster-considerations.md#rs-upgrading-to-ra3").

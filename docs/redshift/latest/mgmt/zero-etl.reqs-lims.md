@@ -193,3 +193,36 @@ _AWS Glue Developer Guide_.
 
 For sources of zero-ETL integrations with applications, also see [Zero-ETL integrations](../../../glue/latest/dg/zero-etl-using.md "../../../glue/latest/dg/zero-etl-using.md") in the
 _AWS Glue Developer Guide_.
+
+## Considerations when restoring a zero-ETL integration target
+
+When you restore an Amazon Redshift Serverless namespace from a snapshot or recovery point to the same
+serverless namespace, zero-ETL integrations associated with the namespace are maintained automatically.
+A full resync is initiated after the restore to ensure data in the target Amazon Redshift database is
+consistent with the source. The following considerations apply:
+
+- Restoring a snapshot to a different namespace does not maintain integrations.
+- After the restore, Amazon Redshift performs a full resync for all maintained zero-ETL integrations.
+  During the resync, data ingestion performance might be temporarily reduced.
+- If you use history mode on the target database, record versions from the time the
+  snapshot was taken until the full resync completes are not captured. After the resync,
+  history mode resumes normal operation. This behavior is the same as any other full
+  resync. For more information, see [History mode](zero-etl-history-mode.md "zero-etl-history-mode.md").
+- If a zero-ETL integration was created after the snapshot was taken, the integration enters the
+  `NEEDS_ATTENTION` state after the restore because the corresponding
+  database does not exist in the snapshot. To resolve this, you can restore from a more
+  recent snapshot that includes the integration, or delete the integration.
+- If a zero-ETL integration was deleted after the snapshot was taken, the integration is not
+  restored. The database from the snapshot remains and can be deleted.
+- If table-level filters were changed after the snapshot was taken, the restored target
+  uses the current filters from the integration, not the filters at the time of the
+  snapshot.
+- To opt out of maintaining integrations during a restore, uncheck the
+  **Maintain Integrations** box on the restore page in the AWS Management Console, or
+  if you are using the AWS CLI, set the `--no-maintain-integration` parameter when
+  calling the [restore-from-snapshot](../../../redshift-serverless/latest/APIReference/API_RestoreFromSnapshot.md "../../../redshift-serverless/latest/APIReference/API_RestoreFromSnapshot.md") or [restore-from-recovery-point](../../../redshift-serverless/latest/APIReference/API_RestoreFromRecoveryPoint.md "../../../redshift-serverless/latest/APIReference/API_RestoreFromRecoveryPoint.md") API operation. When you opt out, integrations
+  enter the `FAILED` state after the restore. You can delete the integrations
+  and recreate them.
+- This feature applies to Amazon Redshift Serverless only when restored to the same serverless
+  namespace. Snapshot restores on provisioned clusters do not maintain
+  zero-ETL integrations.

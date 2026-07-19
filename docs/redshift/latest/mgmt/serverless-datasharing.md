@@ -33,9 +33,7 @@ workgroup associated with it and create a database to query data.
 
 Consider the following when working with data sharing in Amazon Redshift Serverless:
 
-- Amazon Redshift only supports provisioned clusters of instance type rg.4xlarge, rg.xlarge, ra3.16xlarge,
-  ra3.4xlarge, and ra3.xlplus, and serverless endpoint as data sharing producers or
-  consumers.
+- Amazon Redshift supports data sharing as producers or consumers on provisioned RG and RA3 clusters, and serverless endpoint workgroups.
 - Amazon Redshift Serverless is encrypted by default.
 
 For a list of datasharing limitations, including database objects supported,

@@ -278,15 +278,15 @@ The RG node types are available only in the following AWS Regions:
 - Canada (Central) Region (ca-central-1)
 - Europe (Frankfurt) Region (eu-central-1)
 - Europe (Stockholm) Region (eu-north-1)
-- Europe (Milan) Region (eu-south-1)
+- Europe (Milan) Region (eu-south-1) (rg.xlarge and rg.4xlarge only)
 - Europe (Spain) Region (eu-south-2)
 - Europe (Ireland) Region (eu-west-1)
 - Europe (London) Region (eu-west-2)
 - Europe (Paris) Region (eu-west-3)
 - Mexico (Central) Region (mx-central-1)
 - South America (São Paulo) Region (sa-east-1)
-- (us-gov-east-1)
-- (us-gov-west-1)
+- AWS GovCloud (US-East) (us-gov-east-1) (rg.xlarge and rg.4xlarge only)
+- AWS GovCloud (US-West) (us-gov-west-1) (rg.xlarge and rg.4xlarge only)
 
 ### RA3 node type availability in AWS Regions
 
@@ -365,7 +365,7 @@ DC2 node type clusters to RG or RA3 with elastic resize. For more information, s
 
 ###### Note
 
-To migrate existing RA3 and DC2 clusters to RG, your source cluster version must be P201 or later.
+To migrate existing RA3 clusters to rg.xlarge or rg.4xlarge, your source cluster must run patch version P201 or later. To migrate to rg.large or rg.12xlarge, your source cluster must run P202 or later. DC2 clusters can migrate to RG regardless of patch version.
 
 The following table shows recommendations when upgrading to RG node types. (These
 recommendations also apply to reserved nodes.)
@@ -381,9 +381,14 @@ _Amazon Redshift Database Developer Guide_.
 
 | Existing node type | Existing number of nodes | Recommended new node type | Upgrade action                                                      |
 | ------------------ | ------------------------ | ------------------------- | ------------------------------------------------------------------- |
-| ra3.4xl            | 2-64                     | rg.4xlarge                | Start with 3 nodes of rg.4xlarge for every 4 nodes of ra3.4xlarge1. |
+| ra3.16xlarge       | 2–128                    | rg.12xlarge               | Start with 1 node of rg.12xlarge for every 1 node of ra3.16xlarge1. |
+| ra3.4xlarge        | 2-64                     | rg.4xlarge                | Start with 3 nodes of rg.4xlarge for every 4 nodes of ra3.4xlarge1. |
 | ra3.xlplus         | 2–32                     | rg.xlarge                 | Start with 1 node of rg.xlarge for every 1 node of ra3.xlplus1.     |
+| ra3.large          | 2–16                     | rg.large                  | Start with 1 node of rg.large for every 1 node of ra3.large1.       |
 | dc2.8xlarge        | 2–15                     | rg.4xlarge                | Start with 3 nodes of rg.4xlarge for every 2 nodes of dc2.8xlarge1. |
+| dc2.8xlarge        | 16–128                   | rg.12xlarge               | Start with 1 node of rg.12xlarge for every 2 nodes of dc2.8xlarge1. |
+| dc2.large          | 1–3                      | rg.large                  | Start with 1 node of rg.large for every 1 node of dc2.large1.       |
+| dc2.large          | 4                        | rg.large                  | Start with 3 nodes of rg.large1.                                    |
 | dc2.large          | 5–15                     | rg.xlarge                 | Start with 3 nodes of rg.xlarge for every 8 nodes of dc2.large1.    |
 | dc2.large          | 16–32                    | rg.4xlarge                | Start with 1 node of rg.4xlarge for every 10 nodes of dc2.large1.   |
 
@@ -469,7 +474,7 @@ documentation:
 
 **Patch Version**
 
-P201 is the minimum patch version required to migrate from RA3 or DC2 to RG. Before migrating, verify your cluster is on P201 or later and test your workloads by restoring a snapshot to an RG cluster before moving production traffic. For details, see [Amazon Redshift patch 201](cluster-versions.md#cluster-version-201 "cluster-versions.md#cluster-version-201").
+To migrate from RA3 to RG, your source cluster must meet the minimum required patch version: P201 for rg.xlarge and rg.4xlarge, and P202 for rg.large and rg.12xlarge. DC2 clusters can migrate to RG regardless of patch version. Before migrating, test your workloads by restoring a snapshot to an RG cluster before moving production traffic. For details, see [Amazon Redshift patch 201](cluster-versions.md#cluster-version-201 "cluster-versions.md#cluster-version-201") and [Amazon Redshift patch 202](cluster-versions.md#cluster-version-202 "cluster-versions.md#cluster-version-202").
 
 **Spectrum workloads**
 
@@ -478,3 +483,7 @@ Clusters with workloads that heavily use Spectrum may observe slower query perfo
 **Cursor-based workloads**
 
 RG nodes have different supported cursor size compared to RA3 and DC2. Refer to [Cursor Constraints](../dg/declare.md#declare-constraints "../dg/declare.md#declare-constraints") for cursor size limits. If your workload relies heavily on cursors and you encounter cursor size limitations, migrate to a larger RG node type — you can decrease the number of nodes proportionally to maintain a similar total cluster size and cost.
+
+**Concurrency Scaling eligibility**
+
+If your cluster uses Concurrency Scaling and has more than 32 nodes, and you want to migrate to rg.12xlarge, use elastic resize or snapshot restore to maintain Concurrency Scaling support. If your cluster has more than 32 nodes and you perform a classic resize to rg.12xlarge, the cluster loses Concurrency Scaling support. Freshly created rg.12xlarge clusters with more than 32 nodes do not support Concurrency Scaling. For more information, see [Concurrency scaling candidates](../dg/concurrency-scaling.md#concurrency-scaling-candidates "../dg/concurrency-scaling.md#concurrency-scaling-candidates").

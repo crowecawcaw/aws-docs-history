@@ -24,9 +24,7 @@ Before you create a cluster, read [Amazon Redshift provisioned clusters](working
 
 The following step describes an Amazon Redshift console that is running in an
 AWS Region that supports RG or RA3 node types. For a list of AWS Regions that
-support RG node types, see [Overview of RG node types](working-with-clusters.md#rs-rg-node-types "working-with-clusters.md#rs-rg-node-types") in the
-_Amazon Redshift Management Guide_. For a list of AWS Regions that
-support RA3 node types, see [Overview of RA3 node types](working-with-clusters.md#rs-ra3-node-types "working-with-clusters.md#rs-ra3-node-types") in the
+support RG or RA3 node types, see [RG node type availability in AWS Regions](managing-cluster-considerations.md#rg-regions "managing-cluster-considerations.md#rg-regions") and [RA3 node type availability in AWS Regions](managing-cluster-considerations.md#ra3-regions "managing-cluster-considerations.md#ra3-regions") in the
 _Amazon Redshift Management Guide_.
 
 If you don't know how large to size your cluster, choose **Help me

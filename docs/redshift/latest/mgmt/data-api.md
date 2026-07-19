@@ -65,8 +65,10 @@ Consider the following when calling the Data API:
 
   - dc2.large
   - dc2.8xlarge
+  - rg.large
   - rg.xlarge
   - rg.4xlarge
+  - rg.12xlarge
   - ra3.large
   - ra3.xlplus
   - ra3.4xlarge

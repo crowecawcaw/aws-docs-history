@@ -32,10 +32,8 @@ of resizing clusters using different approaches, see Resizing a cluster.
    If you have reserved nodes, you can upgrade to RG or RA3 reserved nodes. You can do this
    when you use the console to restore from a snapshot or to perform an elastic resize. You
    can use the console to guide you through this process. For more information about
-   upgrading to RG node types, see [Upgrading to RG
-   node types](working-with-clusters.md#rs-upgrading-to-rg "working-with-clusters.md#rs-upgrading-to-rg"). For more information about
-   upgrading to RA3 nodes, see [Upgrading to RA3
-   node types](working-with-clusters.md#rs-upgrading-to-ra3 "working-with-clusters.md#rs-upgrading-to-ra3").
+   upgrading to RG or RA3 node types, see [Upgrading to RG or RA3
+   node types](managing-cluster-considerations.md#rs-upgrading-to-ra3 "managing-cluster-considerations.md#rs-upgrading-to-ra3").
 
 When you perform a resize operation to upgrade from a DC2.large node type to an
 RA3.large node type, Amazon Redshift automatically converts interleaved sort keys to compound
@@ -127,10 +125,8 @@ manual intervention.
 If you have reserved nodes, for example DC2 reserved nodes, you can upgrade to RA3
 reserved nodes when you perform a resize. You can do this when you perform an
 elastic resize or use the console to restore from a snapshot. The console guides you
-through this process. For more information about upgrading to RG node types, see [Upgrading to RG
-node types](working-with-clusters.md#rs-upgrading-to-rg "working-with-clusters.md#rs-upgrading-to-rg"). For more information about
-upgrading to RA3 nodes, see [Upgrading to
-RA3 node types](working-with-clusters.md#rs-upgrading-to-ra3 "working-with-clusters.md#rs-upgrading-to-ra3").
+through this process. For more information about upgrading to RG or RA3 node types, see [Upgrading to RG or RA3
+node types](managing-cluster-considerations.md#rs-upgrading-to-ra3 "managing-cluster-considerations.md#rs-upgrading-to-ra3").
 
 Elastic resize doesn't sort tables or reclaims disk space, so it isn't a
 substitute for a vacuum operation.
@@ -212,8 +208,10 @@ that supports elastic resize.
 
 | Original node type | Growth limit                         | Reduction limit                                                   |
 | ------------------ | ------------------------------------ | ----------------------------------------------------------------- |
+| rg.12xlarge        | 4x                                   | To one quarter of the number                                      |
 | rg.4xlarge         | 4x                                   | To one quarter of the number                                      |
 | rg.xlarge          | 2x                                   | To one half of the number                                         |
+| rg.large           | 2x                                   | To one half of the number                                         |
 | ra3.16xlarge       | 4x (from 4 to 16 nodes, for example) | To one quarter of the number (from 16 to 4 nodes,<br>for example) |
 | ra3.4xlarge        | 4x                                   | To one quarter of the number                                      |
 | ra3.xlplus         | 2x (from 4 to 8 nodes, for example)  | To one quarter of the number                                      |
