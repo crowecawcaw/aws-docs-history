@@ -9,7 +9,9 @@ web ACLs, see [Managing and using a web access control list (web ACL)](../../../
 When you have an AWS WAF web ACL associated with a user pool, Amazon Cognito forwards selected
 non-confidential headers and contents of requests from your users to AWS WAF. AWS WAF inspects the
 contents of the request, compares it to the rules that you specified in your web ACL, and
-returns a response to Amazon Cognito.
+returns a response to Amazon Cognito. The request components that Amazon Cognito forwards to AWS WAF depend on the
+type of request. For managed login and the classic hosted UI, Amazon Cognito doesn't forward the
+request body. For more information, see [Things to know about AWS WAF web ACLs and Amazon Cognito](#user-pool-waf-things-to-know "#user-pool-waf-things-to-know").
 
 ## Things to know about AWS WAF web ACLs and Amazon Cognito
 
@@ -18,6 +20,9 @@ returns a response to Amazon Cognito.
   addresses. This data won't be available to AWS WAF. Instead, configure your web ACL rules
   to match on session data in the headers, path, and body like IP addresses, browser
   agents, and requested API operations.
+- Amazon Cognito supports body-based web ACL rules only for requests to the user pools API.
+  For managed login and the classic hosted UI, Amazon Cognito doesn't forward the request body and
+  inspects only the headers and other non-body components.
 - Web ACL rule conditions can only return custom block responses to users' **first** request to a user-interactive managed login page. When
   subsequent connections match a custom block response condition, they return your custom
   status code, header, and redirect responses, but a default block message.

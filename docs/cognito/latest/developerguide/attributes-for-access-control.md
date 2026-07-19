@@ -84,9 +84,22 @@ in your IAM policies. To prevent user modification, do one of the following:
 - Remove the attribute from your app client's [WriteAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md#CognitoUserPools-CreateUserPoolClient-request-WriteAttributes "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md#CognitoUserPools-CreateUserPoolClient-request-WriteAttributes").
 - Define the attribute as `Mutable: false` when you add it to
   your user pool schema.
-  If your application requires the attribute to remain user-writable for other
-  purposes, use a [pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md") to validate or override the claim
-  before it is included in the ID token.
+  Additionally, ensure that attribute values mapped to principal tags do not
+  contain characters that have special meaning in IAM policy evaluation, such as
+  `*` (asterisk) or `?` (question mark). In IAM policy
+  `Resource` elements and `StringLike` condition operators,
+  these characters function as wildcards. If you set an attribute value to
+  `*` and map it to a principal tag, the
+  `${aws:PrincipalTag/`tagkey`}` evaluation
+  might match more resources than intended. This can grant access to resources
+  belonging to other tenants or projects. Validate attribute values in your
+  application logic. Alternatively, use a [pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md") to reject or sanitize values
+  that contain these characters before your application passes them as principal
+  tags.
+
+If your application requires the attribute to remain user-writable for other
+purposes, use a [pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md") to validate or override the claim
+before it is included in the ID token.
 
 ###### To configure attributes for access control in the console
 

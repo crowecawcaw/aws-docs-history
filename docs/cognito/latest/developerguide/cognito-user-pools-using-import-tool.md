@@ -8,11 +8,21 @@ import job. You can use a CSV import to quickly create test users. You can also 
 populate the file with read API requests to your external identity store, followed by parsing
 their details and attributes into write operations to the file.
 
-The import process sets values for all user attributes except **password**.
-Password import is not supported, because security best practices require that passwords are not
-available as plain text, and we don't support importing hashes. This means that your users must
-change their passwords the first time they sign in. Your users are in a
-`RESET_REQUIRED` state when imported using this method.
+By default, the import process sets values for all user attributes except
+**password**. This means that your users must change their passwords the
+first time they sign in. Your users are in a `RESET_REQUIRED` state when imported
+using this method.
+
+Alternatively, you can import users with their existing password hashes. When you specify a
+password hashing algorithm during import job creation and include password hashes in your CSV
+file, Amazon Cognito imports the users with their existing passwords. These users are created with a
+`CONFIRMED` status and can sign in immediately without resetting their passwords.
+For more information, see [Importing users with password hashes](#cognito-user-pools-import-password-hash "#cognito-user-pools-import-password-hash").
+
+###### Limitation for earlier user pools
+
+You can't import password hashes into user pools that you created before the release of
+this feature.
 
 The lowest-effort way to import users from a CSV is to activate [passwordless
 sign-in](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless") in your user pool. With email address and phone number attributes and the right
@@ -35,11 +45,13 @@ pool. Creation date is not one of the imported attributes.
 
 1. Create an Amazon CloudWatch Logs role in the AWS Identity and Access Management (IAM) console.
 2. Create the user import .csv file.
-3. Create and run the user import job.
+3. Create and run the user import job. Optionally, specify a password hashing algorithm
+   to import users with their existing password hashes.
 4. Upload the user import .csv file.
 5. Start and run the user import job.
 6. Use CloudWatch to check the event log.
-7. Require the imported users to reset their passwords.
+7. If you didn't import password hashes, require the imported users to reset their
+   passwords.
 
 ###### More resources
 
@@ -53,6 +65,7 @@ pool. Creation date is not one of the imported attributes.
 - [Creating and running the Amazon Cognito user pool import job](#cognito-user-pools-creating-import-job "#cognito-user-pools-creating-import-job")
 - [Viewing the user pool import results in the CloudWatch console](#cognito-user-pools-using-import-tool-cloudwatch "#cognito-user-pools-using-import-tool-cloudwatch")
 - [Requiring imported users to reset their passwords](#cognito-user-pools-using-import-tool-password-reset "#cognito-user-pools-using-import-tool-password-reset")
+- [Importing users with password hashes](#cognito-user-pools-import-password-hash "#cognito-user-pools-import-password-hash")
 
 ## Creating the CloudWatch Logs IAM role
 
@@ -683,3 +696,281 @@ option, provide the code from their email or text message, and set a password.
    information, see [Signing up and confirming user accounts](signing-up-users-in-your-app.md "signing-up-users-in-your-app.md"). 3. Your app displays a message to your user to check the location where the code was
    sent, and prompts your user to enter the code and a new password. 4. The user enters the code and new password in the app. 5. The app submits the code and new password in a `ConfirmForgotPassword`
    API request. 6. Your app redirects your user to sign-in.
+
+## Importing users with password hashes
+
+When you migrate users from an existing authentication system to Amazon Cognito, you can import
+their password hashes along with their user attributes. Your users can then sign in
+immediately with their existing passwords, without a password reset. After users sign in
+for the first time, Amazon Cognito transparently migrates their credentials to the native Amazon Cognito
+authentication system.
+
+###### Important
+
+Password hash import is not available for all user pools at this time. Password hash
+import requires the modern Amazon Cognito infrastructure with enhanced capabilities and
+scalability. Some user pools are still on a previous infrastructure and AWS will
+upgrade them to the new infrastructure, which unlocks this feature. In the Amazon Cognito
+console, eligible user pools display the password hashing algorithm option when creating
+import jobs, and ineligible pools do not display this option. For more information, see
+[Amazon Cognito unlocks advanced capabilities with next-generation
+infrastructure](https://aws.amazon.com/blogs/security/amazon-cognito-unlocks-advanced-capabilities-with-next-generation-infrastructure/ "https://aws.amazon.com/blogs/security/amazon-cognito-unlocks-advanced-capabilities-with-next-generation-infrastructure/") in the AWS Security Blog.
+
+### How password hash import works
+
+With password hash import, you can migrate users while preserving their ability to
+sign in with their existing passwords. The import process works as follows:
+
+1. You create an import job and specify the password hashing algorithm that your
+   source system used to create the password hashes.
+2. You include the `password_hash` column in your CSV file with each
+   user's password hash value.
+3. Amazon Cognito imports users with their password hashes and creates them with a
+   `CONFIRMED` status. Users can sign in immediately.
+4. When a user signs in for the first time, Amazon Cognito verifies their password against
+   the imported hash. After successful verification, Amazon Cognito migrates the user's
+   credentials to the native authentication system.
+5. All subsequent sign-ins use the native Amazon Cognito authentication system.
+
+###### Important
+
+All password hashes in a single import job must use the same algorithm. You
+specify the algorithm at the job level when you create the import job.
+
+###### Note
+
+Until a user completes their first sign-in and Amazon Cognito migrates their credentials,
+you can't use Secure Remote Password (SRP) authentication for that user. Use
+`USER_PASSWORD_AUTH` or `ADMIN_USER_PASSWORD_AUTH` flows for
+users with imported password hashes who haven't yet signed in.
+
+### Supported password hashing algorithms
+
+Amazon Cognito supports the following password hashing algorithms for import:
+
+`BCRYPT`
+
+The bcrypt adaptive hash function. Amazon Cognito extracts all required parameters
+(salt, cost factor) from the hash string.
+
+**Format:**
+`$2<a/b/x/y>$[cost]$[22-char salt][31-char hash]`
+
+**Example:**
+`$2b$10$CtA.Rcu/szzn9U00wpUjOuN3vrgJRZycv4aOzcP3GzqzO8UDPEFq6`
+
+**Maximum cost factor:** 10
+
+`SCRYPT`
+
+The scrypt password-based key derivation function. Amazon Cognito extracts all required
+parameters from the hash string.
+
+**Format:**
+`N$r$p$hexSalt$hexHash`
+
+**Example:**
+`65536$8$1$304dbaef7c5e828dc19c98f0600d18fe$4f69c498c12cd102d057356facf8d77e8d42407090491ea32c5b038f5a18c099`
+
+**Maximum parameters:** N (CPU/memory cost) =
+65536, r (block size) = 8, p (parallelism) = 1
+
+`ARGON2ID`
+
+The Argon2id password hashing algorithm. Amazon Cognito extracts all required
+parameters from the hash string.
+
+**Format:**
+`$argon2id$v=N$m=M,t=T,p=P$salt$hash`
+
+**Example:**
+`$argon2id$v=19$m=19456,t=2,p=1$ko/G5o1ms+ML08P95sQ8DA$AkVbvWSOqz7Hs3qthhWKxicOWnGLN+MBmpwc3emi5VA`
+
+**Maximum parameters:** m (memory in KiB) =
+19456, t (iterations) = 2, p (parallelism) = 1
+
+`PBKDF2_SHA256`
+
+Password-Based Key Derivation Function 2 with SHA-256. Amazon Cognito extracts all
+required parameters from the hash string.
+
+**Format:**
+`$pbkdf2-sha256$iterations$salt$hash`
+
+**Example:**
+`$pbkdf2-sha256$600000$1XZlmwLQ2hhM3JYuCPiArQ$Pfheg9Zi/v5lXU4yyLA0WFUYEd/rlaVbzrM9oMD6IrA`
+
+**Maximum iterations:** 600000
+
+###### Note
+
+All supported algorithms are self-describing, which means Amazon Cognito can extract all
+required parameters (such as salt, cost factor, and iterations) directly from the
+hash string. You only need to specify the algorithm name when you create the import
+job.
+
+If your password hash has parameter values that exceed the maximum bounds listed
+above, the import fails for that user. Review your source system's password hashing
+configuration before importing to ensure compatibility.
+
+### Adding password hashes to your CSV file
+
+When you download the CSV template for user import, the template includes a
+`password_hash` column. Populate this column with the password hash values
+for users you want to import with their existing passwords.
+
+###### CSV formatting rules for password hash import
+
+- The `password_hash` column is required when your import job specifies
+  a password hashing algorithm. If you leave the value empty for a specific user,
+  Amazon Cognito imports that user without a password and sets the user to the
+  `RESET_REQUIRED` state.
+- If your import job specifies a password hashing algorithm but your CSV file
+  doesn't include a `password_hash` column, the job fails.
+- If a password hash value is malformed or doesn't match the expected format for
+  the specified algorithm, the import fails for that user. Amazon Cognito doesn't create the
+  user and records the failure in your Amazon CloudWatch Logs logs.
+- Password hash values are case-sensitive. Make sure they match the exact format
+  that the algorithm expects.
+
+###### Example Sample CSV with password hashes
+
+The following example shows a CSV file that imports users with bcrypt password
+hashes:
+
+```
+cognito:username,email,email_verified,phone_number,phone_number_verified,password_hash
+alejandro_rosalez,alejandro_rosalez@example.com,TRUE,+12345550100,TRUE,$2b$10$CtA.Rcu/szzn9U00wpUjOuN3vrgJRZycv4aOzcP3GzqzO8UDPEFq6
+mary_major,mary_major@example.com,TRUE,+12345550199,TRUE,$2b$10$CtA.Rcu/szzn9U00wpUjOuN3vrgJRZycv4aOzcP3GzqzO8UDPEFq6
+```
+
+### Creating an import job with password hashes (AWS CLI)
+
+To import users with password hashes, you must specify the password hashing algorithm
+when you create the import job. All users in the import job must use the same
+algorithm.
+
+Use the following AWS Command Line Interface command to create an import job with password hashes.
+The `--password-hashing-algorithm` parameter specifies the algorithm used to
+create the password hashes in your CSV file.
+
+```
+aws cognito-idp create-user-import-job \
+    --job-name "`JOB_NAME`" \
+    --user-pool-id "`USER_POOL_ID`" \
+    --cloud-watch-logs-role-arn "`ROLE_ARN`" \
+    --password-hashing-algorithm `BCRYPT`
+```
+
+Replace `BCRYPT` with one of the supported algorithms:
+`BCRYPT`, `SCRYPT`, `ARGON2ID`, or
+`PBKDF2_SHA256`.
+
+###### Example Sample response
+
+```
+{
+    "UserImportJob": {
+        "Status": "Created",
+        "SkippedUsers": 0,
+        "UserPoolId": "`USER_POOL_ID`",
+        "ImportedUsers": 0,
+        "JobName": "`JOB_NAME`",
+        "JobId": "`JOB_ID`",
+        "PreSignedUrl": "`PRE_SIGNED_URL`",
+        "CloudWatchLogsRoleArn": "`ROLE_ARN`",
+        "PasswordHashingAlgorithm": "BCRYPT",
+        "FailedUsers": 0,
+        "CreationDate": 1470957431.965
+    }
+}
+```
+
+The response includes the `PasswordHashingAlgorithm` field confirming the
+algorithm you specified. Upload your CSV file to the presigned URL and start the job as
+described in [Uploading the CSV file](#cognito-user-pools-using-import-tool-cli-uploading-csv-file "#cognito-user-pools-using-import-tool-cli-uploading-csv-file").
+
+### User experience after password hash import
+
+Users imported with password hashes have the following experience:
+
+- **Immediate sign-in:** Users can sign in with their
+  existing passwords immediately after import. Users don't receive a prompt to reset
+  their passwords.
+- **User status:** Amazon Cognito creates these users with a
+  `CONFIRMED` status instead of `RESET_REQUIRED`.
+- **Transparent migration:** When users sign in for
+  the first time, Amazon Cognito verifies their password against the imported hash. After
+  successful verification, Amazon Cognito migrates their credentials to the native
+  authentication system. All subsequent sign-ins use the native system.
+- **Initial sign-in latency:** The first sign-in for
+  users with imported password hashes might take slightly longer than subsequent
+  sign-ins. Amazon Cognito must verify the password against the imported hash and migrate the
+  credentials to the native authentication system.
+- **Password reset:** If a user resets their password
+  before their first sign-in, their imported password hash is replaced with a new
+  password using the native Amazon Cognito authentication system.
+
+### Troubleshooting password hash import errors
+
+If a password hash import fails for a user, Amazon Cognito records the failure in your
+Amazon CloudWatch Logs logs. Common error scenarios include:
+
+Malformed hash
+
+The password hash doesn't match the expected format for the specified
+algorithm. Verify that the hash format is correct and matches one of the formats
+listed in [Supported password hashing algorithms](#cognito-user-pools-import-password-hash-algorithms "#cognito-user-pools-import-password-hash-algorithms").
+
+Parameter out of bounds
+
+The password hash contains parameter values (such as cost factor or
+iterations) that exceed the maximum allowed values. For users with incompatible
+hashes, choose one of the following options:
+
+- Import those users without a password hash by leaving the
+  `password_hash` field empty. Amazon Cognito sets them to the
+  `RESET_REQUIRED` state and they must reset their passwords on
+  first sign-in.
+- Use a [user
+  migration Lambda trigger](user-pool-lambda-migrate-user.md "user-pool-lambda-migrate-user.md") to migrate those users at sign-in time
+  instead of through CSV import.
+- Before decommissioning your source system, re-hash passwords with
+  compatible parameters when users sign in to your existing system.
+
+Algorithm mismatch
+
+The password hash was created with a different algorithm than the one
+specified in the import job. All hashes in a single import job must use the same
+algorithm. If you have users with different algorithms, create separate import
+jobs for each algorithm.
+
+Missing password\_hash column
+
+You specified a password hashing algorithm when creating the job, but your CSV
+file doesn't include the `password_hash` column. Add the column to your
+CSV file or create a new job without specifying an algorithm.
+
+When a password hash import fails for a user, Amazon Cognito doesn't create the user. Other
+users in the import job continue to be processed. Review your Amazon CloudWatch Logs logs to identify
+which users failed and the reason for each failure.
+
+### Security considerations for password hash import
+
+Amazon Cognito applies additional security measures to imported password hashes:
+
+- **Double hashing:** Amazon Cognito re-hashes all imported
+  password hashes with an additional layer of cryptographic protection before storage,
+  regardless of the original algorithm's strength.
+- **Automatic migration:** After successful first
+  authentication, Amazon Cognito migrates the user's credentials to the native Secure Remote
+  Password (SRP) protocol used by Amazon Cognito. This ensures all users eventually use the
+  native high-security authentication mechanism.
+- **Data cleanup:** After the import job completes,
+  Amazon Cognito removes the uploaded CSV file containing password hashes from temporary
+  storage.
+
+###### Important
+
+Treat your CSV file containing password hashes as sensitive data. Protect it in
+transit and delete it securely after the import completes.

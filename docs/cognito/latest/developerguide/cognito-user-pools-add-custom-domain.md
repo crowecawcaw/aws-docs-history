@@ -33,6 +33,7 @@ zone](../../../Route53/latest/DeveloperGuide/CreatingHostedZone.md "../../../Rou
 - [Step 2: Add an alias target and subdomain](#cognito-user-pools-add-custom-domain-console-step-2 "#cognito-user-pools-add-custom-domain-console-step-2")
 - [Step 3: Verify your sign-in page](#cognito-user-pools-add-custom-domain-console-step-3 "#cognito-user-pools-add-custom-domain-console-step-3")
 - [Changing the SSL certificate for your custom domain](#cognito-user-pools-add-custom-domain-changing-certificate "#cognito-user-pools-add-custom-domain-changing-certificate")
+- [Setting the minimum TLS version for your custom domain](#cognito-user-pools-add-custom-domain-tls "#cognito-user-pools-add-custom-domain-tls")
 
 ## Adding a custom domain to a user pool
 
@@ -109,8 +110,9 @@ Identity-Based Policies (IAM Policies) for CloudFront](../../../AmazonCloudFront
 Amazon Cognito initially uses your IAM permissions to configure the CloudFront
 distribution, but the distribution is managed by AWS. You can't change the
 configuration of the CloudFront distribution that Amazon Cognito associated with your user
-pool. For example, you can't update the supported TLS versions in the security
-policy.
+pool. You can select the minimum TLS version for the distribution security
+policy when you create or update your custom domain with the Amazon Cognito API. For more
+information, see [Setting the minimum TLS version for your custom domain](#cognito-user-pools-add-custom-domain-tls "#cognito-user-pools-add-custom-domain-tls").
 
 ## Step 1: Enter your custom domain name
 
@@ -173,10 +175,14 @@ domain.
    "UserPoolId": "us-east-1_EXAMPLE",
    "ManagedLoginVersion": 2,
    "CustomDomainConfig": {
-    "CertificateArn": "arn:aws:acm:us-east-1:111122223333:certificate/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    "CertificateArn": "arn:aws:acm:us-east-1:111122223333:certificate/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "SecurityPolicy": "TLS_V1_3_2025"
    }
 }
 ```
+
+The optional `SecurityPolicy` field sets the minimum TLS version
+for your custom domain. For more information, see [Setting the minimum TLS version for your custom domain](#cognito-user-pools-add-custom-domain-tls "#cognito-user-pools-add-custom-domain-tls").
 
 ## Step 2: Add an alias target and subdomain
 
@@ -340,3 +346,60 @@ API
 ###### To renew a certificate (Amazon Cognito API)
 
 - Use the [UpdateUserPoolDomain](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.md") action.
+
+## Setting the minimum TLS version for your custom domain
+
+When you create or update a custom domain with the Amazon Cognito console or API, you can
+select the minimum TLS version for the Amazon CloudFront distribution. The distribution uses this
+version when it communicates with clients. In the API, set the minimum TLS version in
+the `SecurityPolicy` field of the `CustomDomainConfig` object in
+a [CreateUserPoolDomain](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolDomain.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolDomain.md") or [UpdateUserPoolDomain](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.md") request. The security policy defines the minimum TLS
+version and cipher suites that CloudFront supports when communicating with clients. For
+specific guidance, see [Supported protocols and ciphers between viewers and CloudFront](../../../AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.md "../../../AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.md") in the _Amazon CloudFront Developer Guide_. You can select one of the
+following values.
+
+**`TLS_V1_3_2025` (strictest)**
+
+A post-quantum-ready policy requiring TLS 1.3. It provides the strongest
+security posture and is ideal for workloads where all clients and browsers
+are updated to the latest versions. For more information, see [Supported protocols and ciphers for TLSv1.3\_2025](../../../AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.md "../../../AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.md").
+
+**`TLS_V1_2_2021` (recommended)**
+
+A post-quantum-ready policy that prefers TLS 1.3 but allows fallback to
+TLS 1.2 to accommodate older clients. It is the recommended minimum for
+typical commercial-grade consumer applications. For more information, see
+[Supported protocols and ciphers for TLSv1.2\_2021](../../../AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.md "../../../AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.md").
+
+**`TLS_V1` (strongly discouraged)**
+
+Permits fallback to TLS 1.0. It offers the broadest compatibility,
+including support for legacy clients that are more than a decade old. This
+compatibility comes at the expense of allowing TLS versions and
+cryptographic algorithms that are no longer considered safe for commercial
+use. For more information, see [Supported protocols and ciphers for TLSv1](../../../AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.md "../../../AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.md").
+
+###### Note
+
+Custom domains that use managed login (branding version 2) require a minimum TLS
+version of `TLS_V1_2_2021` or higher. A request that sets
+`TLS_V1` for a managed login domain returns an
+`InvalidInputException` error.
+
+You can select the minimum TLS version from the Amazon Cognito console, or with the Amazon Cognito API,
+the AWS Command Line Interface (AWS CLI), and the AWS SDKs.
+
+The following [UpdateUserPoolDomain](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.md") request body updates the minimum TLS version of an
+existing custom domain.
+
+```
+{
+   "Domain": "auth.example.com",
+   "UserPoolId": "us-east-1_EXAMPLE",
+   "ManagedLoginVersion": 2,
+   "CustomDomainConfig": {
+    "CertificateArn": "arn:aws:acm:us-east-1:111122223333:certificate/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "SecurityPolicy": "TLS_V1_3_2025"
+   }
+}
+```
