@@ -47,7 +47,7 @@ The non-CDB conversion operation has the following requirements:
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the Amazon RDS console, choose the AWS Region
+2. In the Amazon RDS console, choose the AWS Region
    where your DB instance resides.
 3. In the navigation pane, choose **Databases**, and then
    choose the non-CDB instance that you want to convert to a CDB instance.

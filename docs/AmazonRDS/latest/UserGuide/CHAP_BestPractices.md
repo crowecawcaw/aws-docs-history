@@ -163,7 +163,7 @@ view the insights identified and the recommendations to resolve the issues. For 
 3. Choose **Monitoring**.
 
 The dashboard provides the performance metrics. The metrics default to
-show the information for the last three hours. 4. Use the numbered buttons in the upper-right to page through the additional metrics, or adjust
+show the information for the last three hours. 4. Use the pagination buttons to page through the additional metrics, or adjust
 the settings to see more metrics. 5. Choose a performance metric to adjust the time range in order to see data for other than the
 current day. You can change the **Statistic**,
 **Time Range**, and **Period** values to adjust the information displayed. For

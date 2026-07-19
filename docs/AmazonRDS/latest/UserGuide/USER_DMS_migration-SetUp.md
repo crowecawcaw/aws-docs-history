@@ -31,7 +31,7 @@ After creating your target database, use the following steps to set up the data 
 
 4. Under the **View target RDS database** section:
 
-   1. Confirm the settings of your target database at the top of the section.
+   1. Confirm the settings of your target database in the section.
    2. For **Secret**, choose **Create and use a new secret** if you
       don't have an existing secret that holds your target database credentials.
 

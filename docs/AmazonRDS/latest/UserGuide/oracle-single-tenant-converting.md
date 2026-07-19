@@ -33,7 +33,7 @@ The conversion from single-tenant to multi-tenant has the following limitations:
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the Amazon RDS console, choose the
+2. In the Amazon RDS console, choose the
    AWS Region where your DB instance resides.
 3. In the navigation pane, choose **Databases**, and
    then choose the CDB instance that you want to convert to the

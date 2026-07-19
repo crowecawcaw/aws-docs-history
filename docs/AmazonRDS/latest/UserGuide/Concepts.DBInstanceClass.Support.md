@@ -98,7 +98,7 @@ Intel Xeon 6 processors**
 
 | Instance class    | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle                             | PostgreSQL |
 | ----------------- | --- | ------- | -------------------- | ----- | ---------------------------------- | ---------- |
-| db.m8i.96xlarge   | No  | No      | Yes                  | No    | No                                 | No         |
+| db.m8i.96xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
 | db.m8i.48xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
 | db.m8i.32xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
 | db.m8i.24xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
@@ -410,7 +410,7 @@ Intel Xeon 6 processors**
 
 | Instance class    | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle                             | PostgreSQL |
 | ----------------- | --- | ------- | -------------------- | ----- | ---------------------------------- | ---------- |
-| db.r8i.96xlarge   | No  | No      | Yes                  | No    | No                                 | No         |
+| db.r8i.96xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
 | db.r8i.48xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
 | db.r8i.32xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
 | db.r8i.24xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |

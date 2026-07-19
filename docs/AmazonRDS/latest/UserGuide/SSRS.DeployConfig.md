@@ -23,7 +23,7 @@ https://myssrsinstance.cg034itsfake.us-east-1.rds.amazonaws.com:8443/ReportServe
 
 ## Configuring the report data source
 
-After you deploy a report to SSRS, you should configure the report data source. When configuring the report data source, ensure the following:
+After you deploy a report to SSRS or PBIRS, you must configure the report data source. When you configure the report data source, ensure the following:
 
 - For RDS for SQL Server DB instances joined to AWS Directory Service for Microsoft Active Directory, use the fully qualified domain name (FQDN) as the data source name of the connection string.
   An example is `myssrsinstance.corp-ad.example.com`,

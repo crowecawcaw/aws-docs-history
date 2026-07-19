@@ -94,7 +94,7 @@ $cache->connect('my-cache-instance.cg034hpkmmjt.region.rds.amazonaws.com',11212)
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the top right corner of the AWS Management Console, select the region that contains the DB
+2. In the AWS Management Console, select the region that contains the DB
    instance.
 3. In the navigation pane, choose **Databases**.
 4. Choose the MySQL DB instance name to display its details.

@@ -108,7 +108,7 @@ It also shows which wait states are affecting the selected query.
 ### View SQL information
 
 In the **Top SQL** table, you can open a statement to view its information. The
-information appears in the bottom pane.
+information appears in the detail pane.
 
 ![Top SQL table with literal query selected.](images/perf-insights-sql-ids-open.png)
 

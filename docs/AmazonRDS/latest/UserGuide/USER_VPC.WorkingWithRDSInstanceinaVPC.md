@@ -676,8 +676,7 @@ group**, **Availability Zones**, and
 
 Your new DB subnet group appears in the DB subnet groups list on the
 RDS console. You can choose the DB subnet group to see details,
-including all of the subnets associated with the group, in the details
-pane at the bottom of the window.
+including all of the subnets associated with the group, in the detail pane.
 
 ### Step 3: Create a VPC security group
 

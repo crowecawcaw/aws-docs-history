@@ -57,4 +57,4 @@ The following are the components on the recommendation details page:
     ![Recommendation details page for proactive recommendation showing the Analysis and recommendations section in the console.](images/ProactiveRecommendation-AnalysisAndRec.png)
 
 You can review the cause of the issue and then perform the suggested recommended actions to fix the issue, or
-choose **Dismiss** in the upper right to dismiss the recommendation.
+choose **Dismiss** to dismiss the recommendation.

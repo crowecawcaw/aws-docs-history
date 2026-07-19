@@ -1,21 +1,22 @@
-# Using SSRS Email to send reports
+# Using reporting services email to send reports
 
-SSRS includes the SSRS Email extension, which you can use to send reports to
+SSRS and PBIRS include an email extension that you can use to send reports to
 users.
 
-To configure SSRS Email, use the `SSRS` option settings. For more
-information, see [Adding the SSRS option to your option group](SSRS.Enabling.md#SSRS.Add "SSRS.Enabling.md#SSRS.Add").
+To configure email for SSRS, use the `SSRS` option settings. To configure
+email for PBIRS, use the `PBIRS` option settings. For more information, see
+[Adding the SSRS or PBIRS option to your option group](SSRS.Enabling.md#SSRS.Add "SSRS.Enabling.md#SSRS.Add").
 
-After configuring SSRS Email, you can subscribe to reports on the report server. For more information, see [Email
+After configuring email, you can subscribe to reports on the report server. For more information, see [Email
 delivery in Reporting Services](https://docs.microsoft.com/en-us/sql/reporting-services/subscriptions/e-mail-delivery-in-reporting-services "https://docs.microsoft.com/en-us/sql/reporting-services/subscriptions/e-mail-delivery-in-reporting-services") in the Microsoft documentation.
 
-Integration with AWS Secrets Manager is required for SSRS Email to function on RDS. To integrate with Secrets Manager, you create a secret.
+Integration with AWS Secrets Manager is required for reporting services email to function on RDS. To integrate with Secrets Manager, you create a secret.
 
 ###### Note
 
-If you change the secret later, you also have to update the `SSRS` option in the option group.
+If you change the secret later, you must also update the `SSRS` or `PBIRS` option in the option group.
 
-###### To create a secret for SSRS Email
+###### To create a secret for reporting services email
 
 1. Follow the steps in [Create a
    secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in the _AWS Secrets Manager User Guide_.

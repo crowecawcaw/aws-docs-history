@@ -66,7 +66,6 @@ Using stored procedures to back up and restore TDE certificates has the followin
   `TRANSPARENT_DATA_ENCRYPTION` (`TDE`) options must
   be added to the option group that you associated with your DB
   instance.
-- TDE certificate backup and restore aren't supported on Multi-AZ DB instances.
 - Canceling TDE certificate backup and restore tasks isn't supported.
 - You can't use a user TDE certificate for TDE encryption of any other
   database on your RDS for SQL Server DB instance. You can use it to restore only other

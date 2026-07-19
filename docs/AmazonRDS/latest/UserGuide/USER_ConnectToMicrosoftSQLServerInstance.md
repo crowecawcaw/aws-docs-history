@@ -25,7 +25,7 @@ You need both the endpoint and the port number to connect to the DB instance.
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the Amazon RDS console, choose the AWS Region of your DB instance.
+2. In the Amazon RDS console, choose the AWS Region of your DB instance.
 3. Find the Domain Name System (DNS) name (endpoint) and port number for your DB instance:
 
    1. Open the RDS console and choose **Databases** to display a list of your DB instances.

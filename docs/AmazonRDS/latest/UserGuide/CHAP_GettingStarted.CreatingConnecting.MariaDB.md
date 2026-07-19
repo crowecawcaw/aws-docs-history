@@ -60,7 +60,7 @@ Create an Amazon EC2 instance that you will use to connect to your database.
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the upper-right corner of the AWS Management Console, choose the AWS Region in which you
+2. In the AWS Management Console, choose the AWS Region in which you
    want to create the EC2 instance.
 3. Choose **EC2 Dashboard**, and then choose **Launch
    instance**, as shown in the following image.
@@ -159,7 +159,7 @@ the MariaDB database engine with a db.t4g.micro DB instance class.
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the Amazon RDS console, choose the AWS Region in which you want to
+2. In the Amazon RDS console, choose the AWS Region in which you want to
    create the DB instance.
 3. In the navigation pane, choose **Databases**.
 4. Choose **Create database** and select **Easy create**.
@@ -305,7 +305,7 @@ this example, you connect to a MariaDB DB instance using the mysql command-line 
 
    1. Sign in to the AWS Management Console and open the Amazon RDS console at
       [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-   2. In the upper-right corner of the Amazon RDS console, choose the AWS Region for the DB instance.
+   2. In the Amazon RDS console, choose the AWS Region for the DB instance.
    3. In the navigation pane, choose **Databases**.
    4. Choose the MariaDB DB instance name to display its details.
    5. On the **Connectivity & security** tab, copy the endpoint.

@@ -15,7 +15,7 @@ To download this driver, see
 1. Open SQL Workbench/J. The **Select Connection Profile**
    dialog box appears, as shown following.
 
-![The Connection Profile dialog.](images/workbench_profile.png) 2. In the first box at the top of the dialog box, enter a name for the profile. 3. For **Driver**, choose `SQL JDBC 4.0`. 4. For **URL**, enter `jdbc:sqlserver://`,
+![The Connection Profile dialog.](images/workbench_profile.png) 2. In the first box in the dialog box, enter a name for the profile. 3. For **Driver**, choose `SQL JDBC 4.0`. 4. For **URL**, enter `jdbc:sqlserver://`,
 then enter the endpoint of your DB instance. For example, the URL value might be
 the following.
 

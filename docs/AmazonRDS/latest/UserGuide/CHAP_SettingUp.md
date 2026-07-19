@@ -148,7 +148,7 @@ For information about common scenarios for accessing a DB instance, see
 
 ###### Note
 
-Make sure you are in the VPC console, not the RDS console. 2. In the upper-right corner of the AWS Management Console, choose the AWS Region where you want to create
+Make sure you are in the VPC console, not the RDS console. 2. In the AWS Management Console, choose the AWS Region where you want to create
 your VPC security group and DB instance. In the list of Amazon VPC resources for that
 AWS Region, you should see at least one VPC and several subnets. If you
 don't, you don't have a default VPC in that AWS Region. 3. In the navigation pane, choose **Security Groups**. 4. Choose **Create security group**.

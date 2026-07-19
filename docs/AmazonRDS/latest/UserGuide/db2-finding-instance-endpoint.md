@@ -10,7 +10,7 @@ You can find the endpoint for a DB instance by using the AWS Management Console 
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the console, choose the AWS Region of your
+2. In the console, choose the AWS Region of your
    DB instance.
 3. Find the DNS name and port number for your RDS for Db2 DB Instance.
 

@@ -25,7 +25,7 @@ more information, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGro
 ###### Note
 
 Performance Insights can only collect statistics for queries in `pg_stat_activity` that aren't truncated. By
-default, PostgreSQL databases truncate queries longer than 1,024 bytes. To increase the query size, change the
+default, PostgreSQL databases truncate queries longer than 4,096 bytes. To increase the query size, change the
 `track_activity_query_size` parameter in the DB parameter group associated with your DB instance. When you change
 this parameter, a DB instance reboot is required.
 

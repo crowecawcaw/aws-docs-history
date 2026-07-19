@@ -310,7 +310,7 @@ You can import data from Amazon S3 to a new MySQL DB instance using the AWS Mana
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the Amazon RDS console, choose the AWS Region where
+2. In the Amazon RDS console, choose the AWS Region where
    you want to create your DB instance. Choose the same AWS Region as the
    Amazon S3 bucket that contains your database backup.
 3. In the navigation pane, choose **Databases**.

@@ -55,7 +55,7 @@ policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/
    - **AWS service**
    - **RDS**
    - **RDS – Add Role to Database**
-     Then choose **Next:Permissions** at the bottom.
+     Then choose **Next:Permissions**.
 
 3. For **Attach permissions policies**, enter the name of the IAM policy that you previously
    created. Then choose the policy from the list.

@@ -18,7 +18,7 @@ In a default DB cluster parameter group, parameters are always set to their defa
 4. For **Parameter group actions**, choose
    **Edit**.
 5. Choose the parameters that you want to reset to their default values.
-   You can scroll through the parameters using the arrow keys at the top right of the dialog box.
+   You can scroll through the parameters using the pagination controls.
 
 You can't reset values in a default parameter group. 6. Choose **Reset** and then confirm by choosing **Reset parameters**. 7. Reboot the DB cluster.
 To reset parameters in a DB cluster parameter group to their default values,

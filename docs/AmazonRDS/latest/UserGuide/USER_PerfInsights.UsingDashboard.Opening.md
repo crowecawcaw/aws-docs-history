@@ -20,7 +20,7 @@ the load increases, the bar fills with blue. When the load passes the number of
 virtual CPUs (vCPUs) on the DB instance class, the bar turns red, indicating a
 potential bottleneck.
 
-![Filter metrics.](images/perf_insights_0a.png) 4. (Optional) Choose the date or time range in the upper right and specify a different
+![Filter metrics.](images/perf_insights_0a.png) 4. (Optional) Choose the date or time range and specify a different
 relative or absolute time interval. You can now specify a time period, and generate a database performance analysis report. The
 report provides the identified insights and recommendations. For more information,
 see [Creating a performance analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.AnalyzePerformanceTimePeriod.md "USER_PerfInsights.UsingDashboard.AnalyzePerformanceTimePeriod.md").

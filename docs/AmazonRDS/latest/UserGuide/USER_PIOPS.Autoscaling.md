@@ -19,8 +19,8 @@ modification for an autoscaling-enabled DB instance when these factors apply:
 
 - Free available space is less than or equal to 10 percent of the allocated storage.
 - The low-storage condition lasts at least five minutes.
-- At least six hours have passed since the last storage modification, or storage optimization has completed on the instance,
-  whichever is longer.
+- Storage optimization has completed on the instance for the previous storage modification,
+  and fewer than four storage modifications have occurred in the past 24 hours.
   The additional storage is in increments of whichever of the following is greater:
 
 - 10 GiB
@@ -72,8 +72,8 @@ The following limitations apply to storage autoscaling:
 - When autoscaling, RDS predicts the storage size for subsequent autoscaling operations. If a subsequent operation
   is predicted to exceed the maximum storage threshold, then RDS autoscales to the maximum storage threshold.
 - Autoscaling can't completely prevent storage-full situations for large data loads. This is because further
-  storage modifications can't be made for either six (6) hours or until storage optimization has completed on the
-  instance, whichever is longer.
+  storage modifications can't be made until storage optimization completes on the instance, and are limited to a maximum
+  of four modifications within any 24-hour period.
 
 If you perform a large data load, and autoscaling doesn't provide
 enough space, the database might remain in the storage-full state for
@@ -111,7 +111,7 @@ requirements.
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the Amazon RDS console, choose the AWS Region where you want
+2. In the Amazon RDS console, choose the AWS Region where you want
    to create the DB instance.
 3. In the navigation pane, choose **Databases**.
 4. Choose **Create database**. On the **Select engine**

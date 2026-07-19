@@ -60,7 +60,7 @@ Create an Amazon EC2 instance that you will use to connect to your database.
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the upper-right corner of the AWS Management Console, choose the AWS Region in which you
+2. In the AWS Management Console, choose the AWS Region in which you
    want to create the EC2 instance.
 3. Choose **EC2 Dashboard**, and then choose **Launch
    instance**, as shown in the following image.
@@ -159,7 +159,7 @@ Oracle database engine with a db.m5.large DB instance class.
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the Amazon RDS console, choose the AWS Region in which
+2. In the Amazon RDS console, choose the AWS Region in which
    you want to create the DB instance.
 3. In the navigation pane, choose **Databases**.
 4. Choose **Create database** and make sure that **Easy
@@ -309,7 +309,7 @@ you connect to an Oracle DB instance using the Oracle command-line client.
 
    1. Sign in to the AWS Management Console and open the Amazon RDS console at
       [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-   2. In the upper-right corner of the Amazon RDS console, choose the AWS Region
+   2. In the Amazon RDS console, choose the AWS Region
       for the DB instance.
    3. In the navigation pane, choose **Databases**.
    4. Choose the Oracle DB instance name to display its details.

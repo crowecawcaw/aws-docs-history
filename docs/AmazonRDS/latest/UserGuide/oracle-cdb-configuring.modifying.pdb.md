@@ -18,7 +18,7 @@ your CDB. Note the following requirements and limitations:
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the Amazon RDS console, choose the
+2. In the Amazon RDS console, choose the
    AWS Region in which you want to create the tenant database.
 3. In the navigation pane, choose **Databases**.
 4. Choose the tenant database whose database name or master user password you

@@ -15,8 +15,8 @@ modification.
 
 ###### Note
 
-You can't make further storage modifications for either six (6) hours or until storage optimization has completed on the
-instance, whichever is longer.
+After storage optimization completes on the instance, you can make additional storage modifications. You can perform a maximum
+of four storage modifications within any 24-hour period.
 
 For information on the ranges of allocated storage, Provisioned IOPS, and storage throughput available for each database
 engine, see [gp3 storage (recommended)](CHAP_Storage.md#gp3-storage "CHAP_Storage.md#gp3-storage").

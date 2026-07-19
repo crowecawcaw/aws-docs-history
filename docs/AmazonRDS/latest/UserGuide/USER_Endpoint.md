@@ -16,7 +16,7 @@ If you are using Kerberos authentication, see [Connecting to Oracle with Kerbero
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the console, choose the AWS Region of your DB instance.
+2. In the console, choose the AWS Region of your DB instance.
 3. Find the DNS name and port number for your DB instance.
 
    1. Choose **Databases** to display a list of your DB instances.

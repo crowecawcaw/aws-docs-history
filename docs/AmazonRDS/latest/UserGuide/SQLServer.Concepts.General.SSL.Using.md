@@ -44,7 +44,7 @@ value, you must reboot your DB instance for the change to take effect.
 
    1. Sign in to the AWS Management Console and open the Amazon RDS console at
       [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-   2. In the top right corner of the Amazon RDS console, choose the AWS Region of your DB instance.
+   2. In the Amazon RDS console, choose the AWS Region of your DB instance.
    3. In the navigation pane, choose **Databases**, and then choose the name
       of your DB instance to show its details.
    4. Choose the **Configuration** tab. Find the

@@ -59,7 +59,7 @@ Create an Amazon EC2 instance that you will use to connect to your database.
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the upper-right corner of the AWS Management Console, choose the AWS Region you used for the database
+2. In the AWS Management Console, choose the AWS Region you used for the database
    previously.
 3. Choose **EC2 Dashboard**, and then choose **Launch
    instance**, as shown in the following image.
@@ -143,7 +143,7 @@ running the SQL Server database engine with a db.t2.micro DB instance class.
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the Amazon RDS console, choose the AWS Region in
+2. In the Amazon RDS console, choose the AWS Region in
    which you want to create the DB instance.
 3. In the navigation pane, choose **Databases**.
 4. Choose **Create database** and make sure that **Easy
@@ -301,7 +301,7 @@ Server Management Studio (SSMS).
 
    1. Sign in to the AWS Management Console and open the Amazon RDS console at
       [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-   2. In the upper-right corner of the Amazon RDS console, choose the AWS Region for the DB instance.
+   2. In the Amazon RDS console, choose the AWS Region for the DB instance.
    3. In the navigation pane, choose **Databases**.
    4. Choose the SQL Server DB instance name to display its details.
    5. On the **Connectivity** tab, copy the endpoint.

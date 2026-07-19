@@ -129,7 +129,7 @@ AWS Management Console or the AWS CLI.
 ###### To confirm an Amazon S3 gateway endpoint
 
 1. Sign in to the AWS Management Console and open the Amazon VPC Console at [https://console.aws.amazon.com/vpc](https://console.aws.amazon.com/vpc "https://console.aws.amazon.com/vpc").
-2. In the upper-right corner of the console, choose the AWS Region
+2. In the console, choose the AWS Region
    of your VPC.
 3. Select the VPC that you created.
 4. On the **Resource map** tab, under

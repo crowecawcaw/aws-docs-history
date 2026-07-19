@@ -60,6 +60,10 @@ For more information, see [Managing Blockchain Tables](https://docs.oracle.com/e
 
 For more information, see [Using Continuous Query Notification (CQN)](https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/cqn.html#GUID-373BAF72-3E63-42FE-8BEA-8A2AEFBF1C35 "https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/cqn.html#GUID-373BAF72-3E63-42FE-8BEA-8A2AEFBF1C35") in the Oracle documentation.
 
+- Data Masking and Subsetting
+
+For more information, see [Data masking in Amazon RDS for Oracle](https://aws.amazon.com/blogs/database/data-masking-in-amazon-rds-for-oracle/ "https://aws.amazon.com/blogs/database/data-masking-in-amazon-rds-for-oracle/") on the AWS Database Blog.
+
 - Data Redaction
 - Database In-Memory (Enterprise Edition only; requires the Oracle Database In-Memory option license)
 - Distributed Queries and Transactions

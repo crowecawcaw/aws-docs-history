@@ -22,7 +22,7 @@ resources.
 
    ![Main Recommendations page in the console which contains all the recommendations.](images/Recommendations_List.png)
 
-   You can choose a recommendation to view a section at the bottom of the page which contains the affected resources and details of how the recommendation will be applied.
+   You can choose a recommendation to view the affected resources and details of how the recommendation will be applied.
    - In the **Databases** page, choose **Recommendations** for a resource.
 
    ![Recommendation option selected on Databases page in the console.](images/Recommendations_DBpage.png)

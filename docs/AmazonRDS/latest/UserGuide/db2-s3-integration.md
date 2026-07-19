@@ -347,9 +347,7 @@ You can add an IAM role to your DB instance by using the AWS Management Console 
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Databases**.
 3. Choose your RDS for Db2 DB instance name.
-4. On the **Connectivity & security** tab, scroll
-   down to the **Manage IAM roles** section at the
-   bottom of the page.
+4. On the **Connectivity & security** tab, in the **Manage IAM roles** section, do the following.
 5. For **Add IAM roles to this instance**, choose the
    role that you created in [Step 2: Create an IAM role and attach your IAM policy](#db2-creating-iam-role "#db2-creating-iam-role").
 6. For **Feature**, choose

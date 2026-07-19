@@ -33,7 +33,7 @@ Because SQL Server Agent is running on a managed host in a DB instance, some act
 - Email notifications through SQL Server Agent aren't available from a DB instance.
 - SQL Server Agent alerts and operators aren't supported.
 - Using SQL Server Agent to create backups isn't supported. Use Amazon RDS to back up your DB instance.
-- Currently, RDS for SQL Server does not support the use SQL Server Agent tokens.
+- Currently, RDS for SQL Server does not support the use of SQL Server Agent tokens.
 
 ## Turning on SQL Server Agent job replication
 

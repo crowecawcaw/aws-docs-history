@@ -11,8 +11,8 @@ the storage IOPS for a DB instance, the status of the DB instance is **storage-o
 
 ###### Note
 
-Storage optimization can take several hours. You can't make further storage modifications for either six (6) hours or
-until storage optimization has completed on the instance, whichever is longer.
+Storage optimization can take several hours. After storage optimization completes on the instance, you can make additional
+storage modifications. You can perform a maximum of four storage modifications within any 24-hour period.
 
 For information on the ranges of allocated storage and Provisioned IOPS available for each database engine, see [Provisioned IOPS SSD storage](CHAP_Storage.md#USER_PIOPS "CHAP_Storage.md#USER_PIOPS").
 

@@ -3,7 +3,7 @@
 You can access the RDS Proxy monitoring dashboard under the Monitoring tab of your proxy.
 
 ![RDS Proxy monitoring dashboard.](images/Proxy-monitoring-dashboard.png)
-The dashboard provides a pre-configured set of metrics arranged into widgets, designed to help you perform common observability and troubleshooting tasks. If a metric is not visible in this dashboard, you can view all metrics in CloudWatch using a link provided in the top right section of the dashboard.
+The dashboard provides a pre-configured set of metrics arranged into widgets, designed to help you perform common observability and troubleshooting tasks. If a metric is not visible in this dashboard, you can view all metrics in CloudWatch using a link on the dashboard.
 
 You can't add or remove metrics from the default dashboard. If you want to create custom monitoring views for your proxies, you can do so directly in CloudWatch. For more information, see [Using CloudWatch dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
 

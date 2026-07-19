@@ -32,7 +32,7 @@ To create a DB subnet group for the AWS Cloud, specify at least two subnets.
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the Amazon RDS console, choose the AWS Region where you want to create the DB
+2. In the Amazon RDS console, choose the AWS Region where you want to create the DB
    subnet group.
 3. Choose **Subnet groups**, and then choose **Create DB Subnet
    Group**.
@@ -50,7 +50,7 @@ Create the DB instance, and choose the Outpost for your DB instance.
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the Amazon RDS console, choose the AWS Region where the Outpost on which you
+2. In the Amazon RDS console, choose the AWS Region where the Outpost on which you
    want to create the DB instance is attached.
 3. In the navigation pane, choose **Databases**.
 4. Choose **Create database**.

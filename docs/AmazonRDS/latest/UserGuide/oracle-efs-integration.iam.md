@@ -172,8 +172,8 @@ _Amazon Elastic File System User Guide_.
 3. If your database instance is unavailable, choose **Actions** and then **Start**. When the
    instance status shows **Started**, go to the next step.
 4. Choose the Oracle DB instance name to display its details.
-5. On the **Connectivity & security** tab, scroll down to the **Manage IAM roles**
-   section at the bottom of the page.
+5. On the **Connectivity & security** tab, in the **Manage IAM roles**
+   section, do the following.
 6. Choose the role to add in the **Add IAM roles to this instance** section.
 7. For **Feature**, choose **EFS\_INTEGRATION**.
 8. Choose **Add role**.

@@ -449,8 +449,8 @@ requirements:
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. Choose **Databases** from the navigation pane.
 3. Choose the RDS for Oracle DB instance name to display its details.
-4. On the **Connectivity & security** tab, scroll down to the **Manage IAM roles**
-   section at the bottom of the page.
+4. On the **Connectivity & security** tab, in the **Manage IAM roles**
+   section, do the following.
 5. For **Add IAM roles to this instance**, choose the role
    that you created in [Step 3: Create an IAM role for your DB instance and attach your policy](#oracle-s3-integration.preparing.role "#oracle-s3-integration.preparing.role").
 6. For **Feature**, choose **S3\_INTEGRATION**.

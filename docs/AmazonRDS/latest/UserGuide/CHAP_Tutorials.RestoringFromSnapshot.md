@@ -52,7 +52,7 @@ For this tutorial, choose **Burstable classes (includes t classes)**, and then c
 **db.t3.small**. 10. For **Encryption**, use the default settings.
 
 If the source DB instance for the snapshot was encrypted, the restored DB instance is also encrypted. You can't
-make it unencrypted. 11. Expand **Additional configuration** at the bottom of the page.
+make it unencrypted. 11. Expand **Additional configuration**.
 
 ![Additional configuration.](images/tut-restore-instance3.png) 12. Do the following under **Database options**:
 

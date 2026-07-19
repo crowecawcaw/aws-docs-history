@@ -6,7 +6,7 @@ When you restore a DB instance to a point in time, you can choose the default vi
 private cloud (VPC) security group. Or you can apply a custom VPC security group to your DB instance.
 
 Restored DB instances are automatically associated with the default DB parameter and option groups. However,
-you can apply a custom parameter group and option group by specifying them during a restore.
+you can apply a custom parameter group and option group by specifying them during a restore using the AWS CLI or RDS API. If you restore using the console, you can modify the parameter group and option group after the restore completes.
 
 If tags are provided in the request then the provided tags are applied to the restored DB instance. If tags are not
 provided in the request and if the source DB instance is in-region active and has tags, RDS adds the latest tags from the source DB instance to the restored DB instance.

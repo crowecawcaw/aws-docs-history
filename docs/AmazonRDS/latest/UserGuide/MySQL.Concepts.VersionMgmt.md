@@ -79,6 +79,25 @@ dates. We recommend that you upgrade to the latest available minor version as of
 \* Amazon RDS Extended Support eligible minor engine version. For more information, see
 [Using Amazon RDS Extended Support](extended-support.md "extended-support.md").
 
+The following table shows the minor versions of MySQL 8.0 that are available under
+Amazon RDS Extended Support.
+
+###### Note
+
+Minor versions can reach end of Extended Support before major versions do. RDS will generate and release additional
+8.0.xx-RDS.xxyyzz minor versions between these dates. We recommend that you upgrade to
+the latest available minor version as often as possible for all major versions.
+
+| MySQL engine version  | Community release date | RDS release date | RDS end of Extended Support date |
+| --------------------- | ---------------------- | ---------------- | -------------------------------- |
+| 8.0.46-RDS.20260624\* | Not applicable         | 15 July 2026     | 31 July 2027                     |
+
+\* MySQL Community retired major version 8.0 and won't be releasing new minor
+versions. This is a minor version that Amazon RDS released with critical security patches and
+bug fixes for MySQL 8.0 databases that are covered under RDS Extended Support. For more
+information about these minor versions, see [Amazon RDS Extended Support versions for RDS for MySQL](#mysql-extended-support-releases "#mysql-extended-support-releases"). For more information about RDS Extended Support,
+see [Amazon RDS Extended Support with Amazon RDS](extended-support.md "extended-support.md").
+
 The following table shows the minor versions of MySQL 5.7 that are available under
 Amazon RDS Extended Support.
 
@@ -92,6 +111,7 @@ the latest available minor version as often as possible for all major versions.
 
 | MySQL engine version  | Community release date | RDS release date  | RDS end of Extended Support date |
 | --------------------- | ---------------------- | ----------------- | -------------------------------- |
+| 5.7.44-RDS.20260624\* | Not applicable         | 15 July 2026      | 31 July 2027                     |
 | 5.7.44-RDS.20260521\* | Not applicable         | 4 June 2026       | 30 June 2027                     |
 | 5.7.44-RDS.20260212\* | Not applicable         | 26 February 2026  | 28 February 2027                 |
 | 5.7.44-RDS.20251212\* | Not applicable         | 12 December 2025  | 30 December 2026                 |
@@ -367,10 +387,10 @@ information, see [Viewing support dates for engine versions in Amazon RDS Extend
 | MySQL major version | Community release date | RDS release date | Community end of life date | RDS end of standard support date | RDS start of Extended Support year 1 pricing date | RDS start of Extended Support year 3 pricing date | RDS end of Extended Support date |
 | ------------------- | ---------------------- | ---------------- | -------------------------- | -------------------------------- | ------------------------------------------------- | ------------------------------------------------- | -------------------------------- |
 | MySQL 8.4           | 30 April 2024          | 21 November 2024 | 30 April 2029              | 31 July 2029                     | 1 August, 2029                                    | 1 August 2031                                     | 31 July 2032                     |
-| MySQL 8.0           | 19 April 2018          | 23 October 2018  | 30 April 2026              | 31 July 2026                     | 1 August 2026                                     | 1 August 2028                                     | 31 July 2029                     |
+| MySQL 8.0\*         | 19 April 2018          | 23 October 2018  | 30 April 2026              | 31 July 2026                     | 1 August 2026                                     | 1 August 2028                                     | 31 July 2029                     |
 | MySQL 5.7\*         | 21 October 2015        | 22 February 2016 | 31 October 2023            | 29 February 2024                 | 1 March 2024                                      | 1 March 2026                                      | 30 June 2029                     |
 
-\* MySQL 5.7 is now only available under RDS Extended Support. For more information, see [Amazon RDS Extended Support with Amazon RDS](extended-support.md "extended-support.md").
+\* MySQL 5.7 and 8.0 are now only available under RDS Extended Support. For more information, see [Amazon RDS Extended Support with Amazon RDS](extended-support.md "extended-support.md").
 
 ## Amazon RDS Extended Support versions for RDS for MySQL
 
@@ -378,6 +398,8 @@ The following content lists all releases of RDS Extended Support for RDS for MyS
 
 ###### Releases
 
+- [RDS Extended Support for RDS for MySQL version 8.0.46-RDS.20260624](#mysql-extended-support-releases-version-8.0.46-RDS.20260624 "#mysql-extended-support-releases-version-8.0.46-RDS.20260624")
+- [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260624](#mysql-extended-support-releases-version-5.7.44-RDS.20260624 "#mysql-extended-support-releases-version-5.7.44-RDS.20260624")
 - [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260521](#mysql-extended-support-releases-version-5.7.44-RDS.20260521 "#mysql-extended-support-releases-version-5.7.44-RDS.20260521")
 - [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260212](#mysql-extended-support-releases-version-5.7.44-RDS.20260212 "#mysql-extended-support-releases-version-5.7.44-RDS.20260212")
 - [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20251212](#mysql-extended-support-releases-version-5.7.44-RDS.20251212 "#mysql-extended-support-releases-version-5.7.44-RDS.20251212")
@@ -388,6 +410,22 @@ The following content lists all releases of RDS Extended Support for RDS for MyS
 - [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240808](#mysql-extended-support-releases-version-5.7.44-20240808 "#mysql-extended-support-releases-version-5.7.44-20240808")
 - [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240529](#mysql-extended-support-releases-version-5.7.44-20240529 "#mysql-extended-support-releases-version-5.7.44-20240529")
 - [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240408](#mysql-extended-support-releases-version-5.7.44-20240408 "#mysql-extended-support-releases-version-5.7.44-20240408")
+
+### RDS Extended Support for RDS for MySQL version 8.0.46-RDS.20260624
+
+RDS Extended Support for RDS for MySQL version 8.0.46-RDS.20260624 is available.
+
+**CVEs fixed:**
+
+- [CVE-2026-46863](https://nvd.nist.gov/vuln/detail/CVE-2026-46863 "https://nvd.nist.gov/vuln/detail/CVE-2026-46863")
+
+### RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260624
+
+RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260624 is available.
+
+**CVEs fixed:**
+
+- [CVE-2026-46863](https://nvd.nist.gov/vuln/detail/CVE-2026-46863 "https://nvd.nist.gov/vuln/detail/CVE-2026-46863")
 
 ### RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260521
 

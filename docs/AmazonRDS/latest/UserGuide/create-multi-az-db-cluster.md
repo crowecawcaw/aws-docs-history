@@ -149,7 +149,7 @@ the **Availability and durability** section.
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the AWS Management Console, choose the AWS Region in which you
+2. In the AWS Management Console, choose the AWS Region in which you
    want to create the DB cluster.
 
 For information about the AWS Regions that support Multi-AZ DB clusters, see

@@ -19,10 +19,10 @@ Scaling storage usually doesn't cause any outage or performance degradation of t
 DB instance. After you modify the storage size for a DB instance, the status of the DB instance is
 **storage-optimization**.
 
-Storage optimization can take several hours. You can't make further storage
-modifications for either six (6) hours or until storage optimization has completed
-on the instance, whichever is longer. You can view the storage optimization progress
-in the AWS Management Console or by using the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md")
+Storage optimization can take several hours. After storage optimization completes on
+the instance, you can make additional storage modifications. You can perform a maximum
+of four storage modifications within any 24-hour period. You can view the storage
+optimization progress in the AWS Management Console or by using the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md")
 AWS CLI command.
 
 ###### To increase storage for a DB instance
