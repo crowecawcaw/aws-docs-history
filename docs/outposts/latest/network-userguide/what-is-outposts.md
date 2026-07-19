@@ -1,5 +1,13 @@
 # What is AWS Outposts?
 
+###### Important
+
+AWS has discontinued sales for both 1U Outposts server and the 2U Outposts server. We
+are focused on making Outposts rack capabilities available in smaller power envelopes and
+compute footprints, including new form factors designed for space-constrained environments. As
+part of that focus, we are no longer accepting new customers for the original Outposts server
+offering and are supporting impacted customers to migrate to Outposts racks.
+
 AWS Outposts is a family of fully managed solutions delivering AWS infrastructure, AWS
 services, APIs, and tools to customer premises. Outposts is available in a variety of form
 factors, from 1U and 2U Outposts servers to 42U Outposts racks. With Outposts, you can run the
