@@ -747,12 +747,32 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 17.4.7, June 26, 2026](#aurorapostgresql-versions-version174x-1747 "#aurorapostgresql-versions-version174x-1747")
 - [Aurora PostgreSQL 17.4.6, May 07, 2026](#aurorapostgresql-versions-version174x-1746 "#aurorapostgresql-versions-version174x-1746")
 - [Aurora PostgreSQL 17.4.5, February 02, 2026](#aurorapostgresql-versions-version1745x-1745 "#aurorapostgresql-versions-version1745x-1745")
 - [Aurora PostgreSQL 17.4.4, October 9, 2025](#aurorapostgresql-versions-version1744x-1744 "#aurorapostgresql-versions-version1744x-1744")
 - [Aurora PostgreSQL 17.4.3, June 03, 2025](#aurorapostgresql-versions-version1743x-1743 "#aurorapostgresql-versions-version1743x-1743")
 - [Aurora PostgreSQL 17.4.2, May 01, 2025](#aurorapostgresql-versions-version1742x-1742 "#aurorapostgresql-versions-version1742x-1742")
 - [Aurora PostgreSQL 17.4, May 01, 2025](#aurorapostgresql-versions-version174x-174 "#aurorapostgresql-versions-version174x-174")
+
+#### Aurora PostgreSQL 17.4.7, June 26, 2026
+
+**High priority enhancements**
+
+- Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
+  - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
+  - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
+  - [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475/ "https://www.postgresql.org/support/security/CVE-2026-6475/")
+  - [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476/ "https://www.postgresql.org/support/security/CVE-2026-6476/")
+  - [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477/ "https://www.postgresql.org/support/security/CVE-2026-6477/")
+  - [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478/ "https://www.postgresql.org/support/security/CVE-2026-6478/")
+  - [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479/ "https://www.postgresql.org/support/security/CVE-2026-6479/")
+  - [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575/ "https://www.postgresql.org/support/security/CVE-2026-6575/")
+  - [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637/ "https://www.postgresql.org/support/security/CVE-2026-6637/")
+  - [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638/ "https://www.postgresql.org/support/security/CVE-2026-6638/")
 
 #### Aurora PostgreSQL 17.4.6, May 07, 2026
 
@@ -1671,12 +1691,32 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 16.8.7, June 26, 2026](#aurorapostgresql-versions-version168x-1687 "#aurorapostgresql-versions-version168x-1687")
 - [Aurora PostgreSQL 16.8.6, May 07, 2026](#aurorapostgresql-versions-version168x-1686 "#aurorapostgresql-versions-version168x-1686")
 - [Aurora PostgreSQL 16.8.5, February 03, 2026](#aurorapostgresql-versions-version1685x-1685 "#aurorapostgresql-versions-version1685x-1685")
 - [Aurora PostgreSQL 16.8.4, October 9, 2025](#aurorapostgresql-versions-version1684x-1684 "#aurorapostgresql-versions-version1684x-1684")
 - [Aurora PostgreSQL 16.8.3, June 03, 2025](#aurorapostgresql-versions-version1683x-1683 "#aurorapostgresql-versions-version1683x-1683")
 - [Aurora PostgreSQL 16.8.2, May 01, 2025](#aurorapostgresql-versions-version1682x-1682 "#aurorapostgresql-versions-version1682x-1682")
 - [Aurora PostgreSQL 16.8, April 07, 2025](#aurorapostgresql-versions-version168x-168 "#aurorapostgresql-versions-version168x-168")
+
+#### Aurora PostgreSQL 16.8.7, June 26, 2026
+
+**High priority enhancements**
+
+- Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
+  - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
+  - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
+  - [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475/ "https://www.postgresql.org/support/security/CVE-2026-6475/")
+  - [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476/ "https://www.postgresql.org/support/security/CVE-2026-6476/")
+  - [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477/ "https://www.postgresql.org/support/security/CVE-2026-6477/")
+  - [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478/ "https://www.postgresql.org/support/security/CVE-2026-6478/")
+  - [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479/ "https://www.postgresql.org/support/security/CVE-2026-6479/")
+  - [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575/ "https://www.postgresql.org/support/security/CVE-2026-6575/")
+  - [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637/ "https://www.postgresql.org/support/security/CVE-2026-6637/")
+  - [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638/ "https://www.postgresql.org/support/security/CVE-2026-6638/")
 
 #### Aurora PostgreSQL 16.8.6, May 07, 2026
 
@@ -3443,12 +3483,32 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 15.12.7, June 26, 2026](#aurorapostgresql-versions-version1512x-15127 "#aurorapostgresql-versions-version1512x-15127")
 - [Aurora PostgreSQL 15.12.6, May 07, 2026](#aurorapostgresql-versions-version1512x-15126 "#aurorapostgresql-versions-version1512x-15126")
 - [Aurora PostgreSQL 15.12.5, February 19, 2026](#aurorapostgresql-versions-version15125x-15125 "#aurorapostgresql-versions-version15125x-15125")
 - [Aurora PostgreSQL 15.12.4, October 9, 2025](#aurorapostgresql-versions-version15124x-15124 "#aurorapostgresql-versions-version15124x-15124")
 - [Aurora PostgreSQL 15.12.3, June 03, 2025](#aurorapostgresql-versions-version15123x-15123 "#aurorapostgresql-versions-version15123x-15123")
 - [Aurora PostgreSQL 15.12.2, May 01, 2025](#aurorapostgresql-versions-version15122x-15122 "#aurorapostgresql-versions-version15122x-15122")
 - [Aurora PostgreSQL 15.12, April 07, 2025](#aurorapostgresql-versions-version1512x-1512 "#aurorapostgresql-versions-version1512x-1512")
+
+#### Aurora PostgreSQL 15.12.7, June 26, 2026
+
+**High priority enhancements**
+
+- Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
+  - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
+  - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
+  - [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475/ "https://www.postgresql.org/support/security/CVE-2026-6475/")
+  - [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476/ "https://www.postgresql.org/support/security/CVE-2026-6476/")
+  - [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477/ "https://www.postgresql.org/support/security/CVE-2026-6477/")
+  - [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478/ "https://www.postgresql.org/support/security/CVE-2026-6478/")
+  - [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479/ "https://www.postgresql.org/support/security/CVE-2026-6479/")
+  - [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575/ "https://www.postgresql.org/support/security/CVE-2026-6575/")
+  - [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637/ "https://www.postgresql.org/support/security/CVE-2026-6637/")
+  - [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638/ "https://www.postgresql.org/support/security/CVE-2026-6638/")
 
 #### Aurora PostgreSQL 15.12.6, May 07, 2026
 
@@ -5837,12 +5897,32 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 14.17.7, June 26, 2026](#aurorapostgresql-versions-version1417x-14177 "#aurorapostgresql-versions-version1417x-14177")
 - [Aurora PostgreSQL 14.17.6, May 07, 2026](#aurorapostgresql-versions-version1417x-14176 "#aurorapostgresql-versions-version1417x-14176")
 - [Aurora PostgreSQL 14.17.5, February 10, 2026](#aurorapostgresql-versions-version1417x-1417 "#aurorapostgresql-versions-version1417x-1417")
 - [Aurora PostgreSQL 14.17.4, October 9, 2025](#aurorapostgresql-versions-version14174x-14174 "#aurorapostgresql-versions-version14174x-14174")
 - [Aurora PostgreSQL 14.17.3, June 3, 2025](#aurorapostgresql-versions-version14173x-14173 "#aurorapostgresql-versions-version14173x-14173")
 - [Aurora PostgreSQL 14.17.2, May 01, 2025](#aurorapostgresql-versions-version14172x-14172 "#aurorapostgresql-versions-version14172x-14172")
 - [Aurora PostgreSQL 14.17, April 07, 2025](#aurorapostgresql-versions-version1417x-1417 "#aurorapostgresql-versions-version1417x-1417")
+
+#### Aurora PostgreSQL 14.17.7, June 26, 2026
+
+**High priority enhancements**
+
+- Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
+  - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
+  - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
+  - [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475/ "https://www.postgresql.org/support/security/CVE-2026-6475/")
+  - [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476/ "https://www.postgresql.org/support/security/CVE-2026-6476/")
+  - [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477/ "https://www.postgresql.org/support/security/CVE-2026-6477/")
+  - [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478/ "https://www.postgresql.org/support/security/CVE-2026-6478/")
+  - [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479/ "https://www.postgresql.org/support/security/CVE-2026-6479/")
+  - [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575/ "https://www.postgresql.org/support/security/CVE-2026-6575/")
+  - [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637/ "https://www.postgresql.org/support/security/CVE-2026-6637/")
+  - [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638/ "https://www.postgresql.org/support/security/CVE-2026-6638/")
 
 #### Aurora PostgreSQL 14.17.6, May 07, 2026
 
