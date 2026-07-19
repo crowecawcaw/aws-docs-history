@@ -26,6 +26,17 @@ The API provides two different groups of operations:
 You must have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan to use the AWS Support API. For more
 information, see [Support](https://aws.amazon.com/premiumsupport "https://aws.amazon.com/premiumsupport").
 
+###### Email authentication
+
+When corresponding with AWS Support through email, make sure that your email domain is configured with the following authentication standards:
+
+- **SPF** (Sender Policy Framework) – Authorizes which mail servers can send email on behalf of your domain.
+- **DKIM** (DomainKeys Identified Mail) – Adds a cryptographic signature to verify that your emails haven't been altered in transit.
+- **DMARC** (Domain-based Message Authentication, Reporting & Conformance) – Tells receiving servers how to handle emails that fail SPF or DKIM checks.
+  Emails that can't be verified might have reduced functionality, such as the inability to add new recipients to your case through CC.
+
+For guidance on configuring these controls, see [Email authentication methods](../../../ses/latest/dg/email-authentication-methods.md "../../../ses/latest/dg/email-authentication-methods.md") and [Complying with DMARC](../../../ses/latest/dg/send-email-authentication-dmarc.md "../../../ses/latest/dg/send-email-authentication-dmarc.md") in the _Amazon Simple Email Service Developer Guide_. If you are unsure whether your domain is configured correctly, contact your email administrator.
+
 For more information about the operations and data types provided by Support, see the
 [AWS Support API Reference](../APIReference.md "../APIReference.md").
 
