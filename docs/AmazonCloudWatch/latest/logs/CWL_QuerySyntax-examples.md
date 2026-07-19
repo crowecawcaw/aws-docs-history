@@ -356,7 +356,7 @@ your main page with status code "200" (success).**
 ```
 fields @timestamp, remoteIP, method, status
 | filter status="200" and referrer= http://34.250.27.141/ and method= "GET"
-| stats count_distinct(remoteIP) as UniqueVisits
+| stats countDistinct(remoteIP) as UniqueVisits
 | limit 10
 
 ```

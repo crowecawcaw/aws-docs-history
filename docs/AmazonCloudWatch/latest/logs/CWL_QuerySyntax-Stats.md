@@ -185,7 +185,7 @@ platform, filters those IP addresses, and then finally finds the average
 of session requests per client platform.
 
 ```
-STATS count_distinct(client_ip) AS session_ips,
+STATS countDistinct(client_ip) AS session_ips,
       count(*) AS requests BY session_id, client_platform
 | FILTER session_ips > 1
 | STATS count(*) AS multiple_ip_sessions,
@@ -287,13 +287,15 @@ as arguments for other functions.
 | --------------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `avg(fieldName:<br>NumericLogField)`                | number        | The average of the values in the specified<br>field.                                                                                                                                                                                                                          |
 | `count()`<br>`count(fieldName:<br>LogField)`        | number        | Counts the log events. `count()` (or<br>`count(*)`) counts all events returned<br>by the query, while `count(fieldName)`<br>counts all records that include the specified field<br>name.                                                                                      |
-| `count_distinct(fieldName:<br>LogField)`            | number        | Returns the number of unique values for the field.<br>If the field has very high cardinality (contains<br>many unique values), the value returned by<br>`count_distinct` is just an<br>approximation.                                                                         |
+| `countDistinct(fieldName:<br>LogField)`             | number        | Returns the number of unique values for the field.<br>If the field has very high cardinality (contains<br>many unique values), the value returned by<br>`countDistinct` is just an<br>approximation.                                                                          |
 | `max(fieldName:<br>LogField)`                       | LogFieldValue | The maximum of the values for this log field in<br>the queried logs.                                                                                                                                                                                                          |
 | `min(fieldName:<br>LogField)`                       | LogFieldValue | The minimum of the values for this log field in<br>the queried logs.                                                                                                                                                                                                          |
 | `pct(fieldName: LogFieldValue, percent:<br>number)` | LogFieldValue | A percentile indicates the relative standing of a<br>value in a dataset. For example,<br>`pct(@duration, 95)` returns the<br>`@duration` value at which 95 percent<br>of the values of `@duration` are lower<br>than this value, and 5 percent are higher than this<br>value. |
 | `stddev(fieldName:<br>NumericLogField)`             | number        | The standard deviation of the values in the<br>specified field.                                                                                                                                                                                                               |
 | `sum(fieldName:<br>NumericLogField)`                | number        | The sum of the values in the specified<br>field.                                                                                                                                                                                                                              |
 | `values(fieldName:<br>LogField)`                    | array         | Collects the distinct values of the specified<br>field for each group. Also known as<br>`COLLECT_VALUES`.                                                                                                                                                                     |
+| `variance(fieldName:<br>NumericLogField)`           | number        | Population variance of the values in the<br>specified field.<br>Example: `stats variance(responseTime) as rt_var by service`                                                                                                                                                  |
+| `topk(k: number, fieldName:<br>LogField)`           | array         | Returns the k most frequent values of the<br>specified field. Valid values for k range from 1 to<br>10000. This function cannot be combined with<br>`by` or other aggregation<br>functions.<br>Example: `stats topk(3, status)`                                               |
 
 **Stats non-aggregation functions**
 

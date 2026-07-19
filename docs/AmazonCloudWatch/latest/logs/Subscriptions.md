@@ -21,7 +21,7 @@ If a log group with a subscription uses log transformation, the filter pattern i
 compared to the transformed versions of the log events. For more information, see [Transform logs during ingestion](CloudWatch-Logs-Transformation.md "CloudWatch-Logs-Transformation.md").
 
 You can create subscriptions at the account level and at the log group level. Each account
-can have one account-level subscription filter per Region. Each log group can have up to two
+can have one account-level subscription filter per Region. Each log group can have up to five
 subscription filters associated with it.
 
 ###### Note

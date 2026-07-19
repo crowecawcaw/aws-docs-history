@@ -6,8 +6,8 @@ analyze metrics over time windows and compute rates of change.
 | Function                                                 | Result type | Description                                                                                                         |
 | -------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------- |
 | `rate(fieldName: NumericLogField, interval: Period)`     | number      | Computes the per-interval rate of change for a<br>numeric field.                                                    |
-| `count_over_time(fieldName: LogField)`                   | number      | Counts log events per time bin. Use with `by bin(interval)` to set the<br>window.                                   |
-| `sum_over_time(fieldName: NumericLogField)`              | number      | Sums field values per time bin. Use with `by bin(interval)` to set the<br>window.                                   |
+| `countOverTime(fieldName: LogField)`                     | number      | Counts log events per time bin. Use with `by bin(interval)` to set the<br>window.                                   |
+| `sumOverTime(fieldName: NumericLogField)`                | number      | Sums field values per time bin. Use with `by bin(interval)` to set the<br>window.                                   |
 | `histogram(fieldName: NumericLogField, buckets: number)` | map         | Bucketizes numeric field values into the specified<br>number of equal-width ranges and returns the<br>distribution. |
 
 ## offset
