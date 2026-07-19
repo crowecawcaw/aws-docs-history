@@ -159,7 +159,7 @@ for **Cluster identifier**, **Node type**, and
     ###### Note
 
     The following step assumes an AWS Region that supports RG node types. For a list of AWS Regions
-     that support RG or RA3 node types, see [Overview of RG node types](../mgmt/working-with-clusters.md#rs-rg-node-types "../mgmt/working-with-clusters.md#rs-rg-node-types") in the
+     that support RG or RA3 node types, see [RG node type availability in AWS Regions](../mgmt/managing-cluster-considerations.md#rg-regions "../mgmt/managing-cluster-considerations.md#rg-regions") and [RA3 node type availability in AWS Regions](../mgmt/managing-cluster-considerations.md#ra3-regions "../mgmt/managing-cluster-considerations.md#ra3-regions") in the
      *Amazon Redshift Management Guide*. To learn more about the node specifications for each
      node type and size, see [Node type
      details](../mgmt/working-with-clusters.md#rs-node-type-info "../mgmt/working-with-clusters.md#rs-node-type-info").
