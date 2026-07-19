@@ -108,4 +108,4 @@ If WSS is unavailable or fails (for example, no provisioner available or connect
 
 The following diagram shows the WiFi Simple Setup flow:
 
-![Diagram showing the Hub SDK architecture and components for the WiFi Simple Setup onboarding flow, including barcode scanning, temporary network discovery, and automatic WiFi credential provisioning.](/images/iot-mi/latest/devguide/images/wifi-simple-setup-flow.png)
+![Diagram showing the Hub SDK architecture and components for the WiFi Simple Setup onboarding flow, including barcode scanning, temporary network discovery, and automatic WiFi credential provisioning.](images/wifi-simple-setup-flow.png)
