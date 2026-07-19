@@ -115,6 +115,7 @@ SharePoint action integration – delegated permissions| Permission | Descriptio
 | --- | --- |
 | `Files.ReadWrite` | Allows the app to read, create, update, and delete the<br>signed-in user's files. |
 | `Sites.ReadWrite.All` | Allows the application to edit or delete documents and list<br>items in all site collections on behalf of the signed-in<br>user. |
+| `User.Read` | Allows the app to read the signed-in user's<br>profile. |
 | `offline_access` | Allows the app to refresh access tokens without requiring<br>the user to sign in again. This reduces how often users need<br>to re-authenticate. |
 
 **For service authentication (application

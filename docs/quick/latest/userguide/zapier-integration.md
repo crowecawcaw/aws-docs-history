@@ -31,6 +31,8 @@ integration.
 
 - An active Zapier account with the actions or Zaps that you want to
   expose configured.
+- The Amazon Quick integration requires Zapier MCP **Agentic Mode** to work correctly.
+  Managed Mode is not supported.
 - For **Custom OAuth app** or
   **Service-to-Service OAuth**: OAuth
   credentials from your Zapier MCP configuration.

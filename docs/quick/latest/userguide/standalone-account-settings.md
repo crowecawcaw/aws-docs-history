@@ -41,6 +41,7 @@ The My account page displays your profile information and account details.
 
 - [Profile & security](#standalone-account-settings-profile-security "#standalone-account-settings-profile-security")
 - [Account details](#standalone-account-settings-details "#standalone-account-settings-details")
+- [Account closure and reopening](#standalone-account-settings-closure "#standalone-account-settings-closure")
 
 ### Profile & security
 
@@ -75,15 +76,31 @@ The Account details section displays the following information:
 - **Copy Account ID** – Choose this
   button to copy your Account ID to the clipboard.
 - **Close account** – Choose this
-  button to permanently close your Amazon Quick account.
+  button to close your Amazon Quick account. For more information, see [Account closure and reopening](#standalone-account-settings-closure "#standalone-account-settings-closure").
 
-###### Warning
+### Account closure and reopening
 
-Closing your account is a permanent action. When you close your account,
-all data, assets, and resources associated with the account are permanently
-deleted. This includes chat history, agents, spaces, automations, and any
-uploaded files. This action cannot be undone. All users associated with the
-account will lose access immediately.
+You can close your Amazon Quick account at any time. After closure, you have 90
+days to reopen it before it is permanently closed and AWS deletes your
+content.
+
+###### To close your account
+
+- Go to **Manage account** → **Plan &
+  Billing** → **My account** →
+  **Close account**.
+
+To reopen your account, contact AWS Support within the 90-day post-closure
+period.
+
+Before closing, note the following:
+
+- All content and resources are permanently deleted after the 90-day
+  post-closure period, including chat history, agents, spaces, automations,
+  and uploaded files.
+- All users lose access immediately.
+- You remain responsible for outstanding charges and will receive a final
+  bill the following month.
 
 ## Support
 

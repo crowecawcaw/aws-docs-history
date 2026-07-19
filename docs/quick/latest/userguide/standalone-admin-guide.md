@@ -13,5 +13,6 @@ assets, billing, and account settings directly from the Amazon Quick web interfa
 - [Managing users in a Amazon Quick Free or Plus account](standalone-users.md "standalone-users.md")
 - [Managing assets in a Amazon Quick Free or Plus account](standalone-assets.md "standalone-assets.md")
 - [Plan and billing for Amazon Quick Free and Plus accounts](standalone-billing.md "standalone-billing.md")
+- [Understanding usage on the Amazon Quick Plus plan](standalone-usage.md "standalone-usage.md")
 - [Account settings for Amazon Quick Free and Plus accounts](standalone-account-settings.md "standalone-account-settings.md")
 - [User profile and preferences in Amazon Quick](standalone-profile.md "standalone-profile.md")

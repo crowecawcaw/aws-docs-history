@@ -44,10 +44,22 @@ If the authorization server does not support DCR, then you must manually provide
 Gather the following information from your MCP server configuration:
 
 - **Client ID** – The OAuth client ID.
+- **Public OAuth client** (Optional) – Select
+  this checkbox if your OAuth application uses public client
+  configuration (no client secret).
 - **Client Secret** – The OAuth client secret.
 - **Token URL** – The OAuth token endpoint.
 - **Authorization URL** – The OAuth authorization endpoint.
 - **Redirect URL** – The OAuth redirect URI.
+
+###### Note
+
+Select **Public OAuth client** if your MCP
+server's OAuth application does not use a client secret. This
+is common for public clients that rely solely on PKCE for
+security. When this option is selected, the
+**Client Secret** field is not
+required.
 
 **Service authentication (Service-to-Service)**
 
@@ -174,6 +186,7 @@ When you use MCP integrations in Amazon Quick, be aware of the following limitat
 - For MCP servers that you reach through a VPC connection, the OAuth endpoints used by the MCP server must be reachable over the public internet. This applies to both user authentication and service authentication. Private OAuth providers are not supported.
 - Custom HTTP headers are not supported in MCP operations. Only standard system headers are transmitted.
 - Tool lists remain static after initial registration. To pick up server-side tool changes, you must delete the integration and recreate it.
+- Amazon Quick supports a maximum of 100 tools per MCP server connection. If the MCP server exposes more than 100 tools, only the first 100 are registered.
 - Connector creation might fail if the Amazon Quick callback URI is not allow-listed by third-party providers.
 - Server connectivity issues result in immediate failure without retry attempts.
 - Step-up authorization is not supported. If an MCP server requires additional scopes after the initial authorization (HTTP 403 with `insufficient_scope`), then you must re-authorize the entire connection. Incremental permission upgrades are not available.

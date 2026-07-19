@@ -38,10 +38,8 @@ authentication, skip this section and proceed to [Setting up the connector in Am
 
 For Custom OAuth app authentication, register an application in
 the [Microsoft Entra admin
-center](https://entra.microsoft.com/ "https://entra.microsoft.com/") and configure Microsoft Graph permissions for
-OneNote (such as `Notes.Read`,
-`Notes.ReadWrite`, or
-`Notes.Read.All` as needed). Add the Amazon Quick
+center](https://entra.microsoft.com/ "https://entra.microsoft.com/") and configure Microsoft Graph delegated permissions for
+OneNote. Add the Amazon Quick
 callback URL
 `https://`{region}`.quicksight.aws.amazon.com/sn/oauthcallback`
 as a redirect URI. Replace `{region}` with
@@ -50,6 +48,24 @@ step-by-step instructions, see [Authentication and authorization basics](https:/
 Graph documentation. Record the Application (client) ID and a
 client secret value — you need them when you configure
 Amazon Quick.
+
+Add the following as Delegated permissions in your Entra app registration.
+For the full permissions reference, see [Microsoft Graph permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference "https://learn.microsoft.com/en-us/graph/permissions-reference") in the Microsoft
+documentation.
+
+OneNote action integration – delegated permissions| Permission | Description |
+| --- | --- |
+| `Notes.Create` | Allows the app to create OneNote notebooks on behalf of<br>the signed-in user. |
+| `Notes.Read` | Allows the app to read OneNote notebooks on behalf of the<br>signed-in user. |
+| `Notes.Read.All` | Allows the app to read all OneNote notebooks that the<br>signed-in user has access to. |
+| `Notes.ReadWrite` | Allows the app to read and write OneNote notebooks on<br>behalf of the signed-in user. |
+| `Notes.ReadWrite.All` | Allows the app to read and write all OneNote notebooks<br>that the signed-in user has access to. |
+| `Notes.ReadWrite.CreatedByApp` | Allows the app to read and write OneNote notebooks<br>created by the app on behalf of the signed-in<br>user. |
+| `offline_access` | Allows the app to refresh access tokens without requiring<br>the user to sign in again. This reduces how often users need<br>to re-authenticate. |
+| `Sites.Read.All` | Allows the app to read documents and list items in all<br>site collections on behalf of the signed-in user. |
+| `Team.ReadBasic.All` | Allows the app to read the names and descriptions of<br>teams on behalf of the signed-in user. |
+| `User.Read` | Allows the app to read the signed-in user's<br>profile. |
+| `User.ReadBasic.All` | Allows the app to read a basic set of profile properties<br>of all users on behalf of the signed-in user. |
 
 ## Setting up the connector in Amazon Quick
 

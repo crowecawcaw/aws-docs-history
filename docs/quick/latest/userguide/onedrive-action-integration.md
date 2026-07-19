@@ -107,8 +107,11 @@ documentation.
 OneDrive action integration – delegated permissions| Permission | Description |
 | --- | --- |
 | `Files.ReadWrite` | Allows the app to read, create, update, and delete the<br>signed-in user's files. |
-| `User.Read.All` | Allows the app to read the full set of profile properties<br>of all users in the organization on behalf of the signed-in<br>user. |
+| `Files.ReadWrite.All` | Allows the app to read, create, update, and delete all<br>files the signed-in user can access. |
 | `offline_access` | Allows the app to refresh access tokens without requiring<br>the user to sign in again. This reduces how often users need<br>to re-authenticate. |
+| `Sites.Read.All` | Allows the app to read documents and list items in all<br>site collections on behalf of the signed-in user. |
+| `User.Read` | Allows the app to read the signed-in user's<br>profile. |
+| `User.Read.All` | Allows the app to read the full set of profile properties<br>of all users in the organization on behalf of the signed-in<br>user. |
 
 ### Record your credentials
 

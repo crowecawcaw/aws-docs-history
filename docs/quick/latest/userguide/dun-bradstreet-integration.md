@@ -15,8 +15,6 @@ requirements.
 - **Service-to-Service OAuth** – Uses
   client credentials for server-to-server authentication without user
   interaction. Suitable for automated workflows.
-- **API Key** – Uses an API key for
-  authentication.
   For more information about the authentication methods that Amazon Quick
   supports, see [Authentication methods](quick-action-auth.md "quick-action-auth.md").
 
@@ -30,8 +28,6 @@ integration.
 - For **Custom OAuth app** or
   **Service-to-Service OAuth**: OAuth
   credentials from your Dun & Bradstreet developer portal.
-- For **API Key**: A Dun &
-  Bradstreet-issued API key with the required scopes.
 - For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
 ## Configuring Dun & Bradstreet
@@ -44,9 +40,7 @@ as a redirect URI. Replace `{region}` with
 your AWS Region (for example, `us-east-1`). For
 authentication details, see [Authentication](https://directplus.documentation.dnb.com/html/pages/Authentication.html "https://directplus.documentation.dnb.com/html/pages/Authentication.html") in the [D&B Direct+
 documentation](https://directplus.documentation.dnb.com/ "https://directplus.documentation.dnb.com/"). Record the Client ID and Client Secret —
-you need them when you configure Amazon Quick. For API Key
-authentication, generate an API key from your Dun & Bradstreet
-account.
+you need them when you configure Amazon Quick.
 
 ## Setting up the connector in Amazon Quick
 
@@ -99,17 +93,6 @@ account.
         Default:
         `https://plus.dnb.com/v2/mcp/token`
 
-   3. For **API Key**, configure the
-      following fields:
-
-      - **Base URL** – The Dun &
-        Bradstreet MCP base URL. Default:
-        `https://plus.dnb.com/v2/mcp`
-      - **API Key** – The Dun &
-        Bradstreet API key.
-      - **Email** (Optional) – The email
-        address associated with the API key.
-
 7. Choose **Next**.
 8. If you chose **Custom OAuth app**, a
    Dun & Bradstreet authorization window opens. Review the requested
@@ -142,6 +125,3 @@ To edit, share, or delete your connector, see [Managing existing integrations](i
 - **Invalid client credentials** –
   Verify that the Client ID and Client secret match the values in
   your Dun & Bradstreet OAuth app.
-- **API Key authentication fails** –
-  Verify that the API key has not been revoked and that it has the
-  required scopes for the data products you want to access.

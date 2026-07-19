@@ -1,174 +1,212 @@
 # Salesforce integration
 
-With Salesforce action connector in Amazon Quick, you can perform actions within Salesforce organizations, including managing records, querying data, and interacting with Salesforce APIs. For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
-
-## What you can do
-
-With Salesforce integration, you can perform actions within your Salesforce organizations through the action connector.
-
-**Action connector**
-
-Create, update, and query Salesforce objects such as leads, accounts, contacts, and opportunities.
+With the Salesforce action connector in Amazon Quick, you can perform actions
+within Salesforce organizations, including managing records, querying data, and
+interacting with Salesforce APIs. For Amazon Quick subscription requirements,
+see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
 ###### Note
 
-Salesforce integration doesn't support data access or knowledge base creation. It's designed specifically for task execution and API interactions with Salesforce objects.
+As of the Salesforce Spring '26 release (February 2026), new Connected
+App creation is disabled by default across all Salesforce organizations.
+This guide uses Salesforce's External Client Apps (ECAs), which are fully
+compatible with the Amazon Quick Salesforce connector.
 
-## Before you begin
+## Prerequisites
 
-Before you set up Salesforce integration, make sure you have the following:
+Before you set up the Salesforce integration, make sure you have the
+following:
 
-- Salesforce organization with appropriate permissions.
-- Salesforce connected app or API access credentials.
-- Amazon Quick Author or higher.
-- Administrative access to configure OAuth applications (if using user authentication).
+- A Salesforce organization with System Administrator access.
+- Amazon Quick Author role or higher.
+- Your Amazon Quick instance URL (for example,
+  `https://us-east-1.quicksight.aws.amazon.com`).
 
-## Step 1: Set up Salesforce connected app
+## Step 1: Create an External Client App in Salesforce
 
-###### Note
+Create an External Client App (ECA) in Salesforce to enable OAuth
+authentication with Amazon Quick.
 
-Create a connected app in Salesforce. Do not create an external client app. External client apps are not compatible with this integration.
+### Navigate to External Client App Manager
 
-Create a connected app in Salesforce to enable OAuth authentication with Amazon Quick.
+1. Sign in to your Salesforce organization and choose
+   **Setup** (gear icon in the top
+   right).
+2. In the navigation pane, expand **Platform
+   Tools** > **Apps** >
+   **External Client Apps** >
+   **External Client App Manager**.
+3. Choose **New External Client App**.
 
-1. Sign in to your Salesforce account and navigate to the Setup page using the Setup icon in the top right.
-2. In the Quick Find bar, enter `Apps`, then follow these steps:
+### Fill in basic information
 
-   - Select **External Client Apps**
-   - Select **Settings**
-   - Under Settings, create a new connected app
+Enter the following basic information for your External Client
+App:
 
-3. Choose **New Connected App**.
-4. Choose **Create a connected app**.
-5. In the Basic Information section, enter the following required information:
+External Client App basic information| Field | Value |
+| --- | --- |
+| **External Client App Name** | A descriptive name (for example, "Amazon Quick<br>Integration") |
+| **API Name** | Auto-generated from the app name |
+| **Contact Email** | Your admin email address |
+| **Distribution State** | Local (default) |
 
-   - **Connected App Name** - A descriptive name for your connected app.
-   - **API Name** - A unique API name for your application.
-   - **Contact Email** - Your contact email address.
+## Step 2: Configure OAuth settings
 
-6. In the OAuth Settings section, select the following checkboxes:
+### Enable OAuth
 
-   - **Enable OAuth Settings**
-   - **Require Proof Key for Code Exchange (PKCE) Extension for Supported Authorization Flows** _(recommended)_
+In the **API (Enable OAuth Settings)** section, select
+**Enable OAuth** to expand the OAuth configuration
+panel.
 
-     Enable this option to add an additional security layer to the Authorization Code flow.
+### Set callback URL
 
-   - **Require Secret for Web Server Flow**
-   - **Require Secret for Refresh Token Flow**
-   - **Enable Client Credentials Flow**
-   - **Enable Authorization Code and Credential Flow**
-   - **Enable Token Exchange Flow**
-   - **Require Secret for Token Exchange Flow**
+Enter the Amazon Quick OAuth callback URL in the **Callback
+URL** field:
 
-7. Add the following required OAuth scopes:
+``<your-quick-instance-url>`/sn/oauthcallback`
 
-   - `api` - Access Salesforce APIs
-   - `refresh_token` - Maintain access when user is offline
-   - `offline_access` - Perform requests at any time
-   - `full` - Full access to all data
-   - `web` - Web-based access
-   - `visualforce` - Access Visualforce pages
-   - `custom_permissions` - Access custom permissions
-   - `chatter_api` - Access Chatter API
-   - `wave_api` - Access Analytics API
-   - `eclair_api` - Access Einstein Analytics API
-   - `pardot_api` - Access Pardot API
-   - `id` - Access identity information
-   - `email` - Access email address
-   - `profile` - Access basic profile information
-   - `address` - Access address information
-   - `phone` - Access phone number
-   - `open_id` - Access OpenID Connect
+For example:
+`https://us-east-1.quicksight.aws.amazon.com/sn/oauthcallback`
 
-8. Enter the callback URL in the format: `<quicksuite-url>/sn/oauthcallback`
-9. Choose **Save**.
+### Add OAuth scopes
 
-## Step 2: Configure consumer details and execution user
+Move the following scopes from **Available OAuth
+Scopes** to **Selected OAuth Scopes**:
 
-Configure the consumer details and set up an execution user for the client credentials flow.
+- Access the identity URL service (id, profile, email, address,
+  phone)
+- Manage user data via APIs (api)
+- Manage user data via Web browsers (web)
+- Full access (full)
+- Access Visualforce applications (visualforce)
+- Perform requests at any time (refresh\_token,
+  offline\_access)
+- Access unique user identifiers (openid)
+- Access custom permissions (custom\_permissions)
+- Access Connect REST API resources (chatter\_api)
+- Access Analytics REST API resources (wave\_api)
+- Access Analytics REST API Charts Geodata resources
+  (eclair\_api)
+- Manage Pardot services (pardot\_api)
 
-1. From the Manage Connected Apps page, choose **Manage Consumer Details**. You might need to verify your identity.
-2. Copy the **Consumer Key (Client ID)** and **Consumer Secret (Client Secret)**.
-3. Choose **Apply**.
-4. Choose **Initial Access Token**, then choose **OK**.
-5. Configure the execution user:
+### Enable OAuth flows
 
-   1. From the connected app detail page, choose **Edit** under the Action column.
-   2. Under OAuth Policies > Refresh Token Policy, select **Immediately expire refresh token**.
-   3. Under Client Credentials Flow, for Run As, choose the user to assign the client credentials flow.
-   4. Choose **Save**.
+Select the following flow options:
 
-## Step 3: Set up Salesforce action connector
+- **Enable Client Credentials Flow**
+- **Enable Authorization Code and Credentials
+  Flow**
+- **Enable Token Exchange Flow**
 
-After preparing your Salesforce connected app credentials, create the Salesforce action connector in Amazon Quick.
+### Enable security settings
 
-Salesforce integration supports action execution only - data access and knowledge base
-creation are not available for Salesforce systems.
+Select the following security options:
 
-1. In the Amazon Quick console, choose **Connectors**.
-2. Choose the **Create for your team** tab.
+- **Require Proof Key for Code Exchange
+  (PKCE)**
+- **Require Secret for Web Server Flow**
+  (selected by default)
+- **Require Secret for Refresh Token Flow**
+  (selected by default)
+
+Choose **Create** to save the External Client
+App.
+
+## Step 3: Get consumer credentials
+
+1. After creation, you are on the ECA detail page.
+2. Navigate to the **Settings** tab or choose
+   **Manage Consumer Details**.
+3. You might need to verify your identity (email verification
+   code).
+4. Copy the **Consumer Key** (Client ID) and
+   **Consumer Secret** (Client Secret).
+
+###### Important
+
+Save these credentials securely. You need them when you configure
+the connector in Amazon Quick.
+
+## Step 4: Configure Salesforce connector in Amazon Quick
+
+### Navigate to Connectors
+
+1. Open Amazon Quick and choose
+   **Connectors**.
+2. Choose the **Create for your team**
+   tab.
 3. Find and choose **Salesforce**.
-4. Fill in the integration details:
+4. If prompted that a connector already exists, choose
+   **No, create new**.
 
-   - **Name** - Descriptive name for your Salesforce action connector.
-   - **Description** (Optional) - Purpose of the action connector.
+### Fill in connection details
 
-5. Choose your connection type:
+Enter the following connection details:
 
-   - **User authentication** - OAuth-based authentication for individual user access.
-   - **Service authentication** - Service-to-service authentication for application access.
+Salesforce connector connection details| Field | Value |
+| --- | --- |
+| **Name** | A descriptive name (for example, "Salesforce<br>ECA") |
+| **Network** | Public network |
+| **Auth Type** | Custom OAuth app |
+| **Base URL** | `https://`<your-domain>`.my.salesforce.com/services/data/v60.0` |
+| **Client ID** | Consumer Key from Step 3 |
+| **Client Secret** | Consumer Secret from Step 3 |
+| **Token URL** | `https://`<your-domain>`.my.salesforce.com/services/oauth2/token` |
+| **Authorization URL** | `https://`<your-domain>`.my.salesforce.com/services/oauth2/authorize` |
+| **Redirect URL** | Pre-filled (do not change) |
 
-6. Fill in the connection settings based on your selected authentication method (either user or service):
+Choose **Next** to proceed.
 
-   1. For **User authentication (OAuth)**, configure the following fields:
+## Step 5: Verify and publish
 
-      - **Base URL** - Salesforce instance URL (for example, https://your-domain.salesforce.com).
-      - **Client ID** - Salesforce connected app consumer key.
-      - **Client Secret** - Salesforce connected app consumer secret.
-      - **Token URL** - Salesforce OAuth token endpoint.
-      - **Auth URL** - Salesforce OAuth authorization endpoint.
-      - **Redirect URL** - OAuth redirect URI configured in your connected app.
+1. On the **Review** page, verify the available
+   Salesforce actions (up to 42 actions).
+2. Choose **Next** to proceed to user
+   sharing.
+3. Select users or groups who should have access to this
+   connector.
+4. Choose **Publish** to publish the
+   connector.
 
-7. Select **Create and continue**.
-8. Choose users to share the integration with.
-9. Click **Next**.
+After you publish the connector, you can use Salesforce actions in
+Amazon Quick chat, flows, and automations.
 
-## Step 4: Associate action connector to automation groups
+## Available actions
 
-To use Salesforce actions in automations, you must associate the action connector with your automation groups.
+After you set up the connector, the following Salesforce actions are
+available:
 
-1. Navigate to your automation group settings.
-2. Associate the Salesforce action connector with the automation group that will use these actions.
-3. Create a new automation for the automation group to access Salesforce actions in your workflows.
-
-## Available task actions
-
-After you create your Salesforce integration, you can review the available actions for interacting with Salesforce objects. Common Salesforce actions include:
-
-- Create, read, update, and delete (CRUD) operations on standard and custom objects.
-- Query Salesforce data using SOQL (Salesforce Object Query Language).
+- Create, read, update, and delete (CRUD) operations on standard
+  and custom objects.
+- Query Salesforce data using SOQL (Salesforce Object Query
+  Language).
 - Manage leads, accounts, contacts, and opportunities.
 - Execute Apex methods and custom logic.
 - Manage cases, tasks, and activities.
 - Access reports and dashboards.
 
-## Share integrations
+###### Note
 
-You can share Salesforce action connectors with other users in your organization. Follow these steps:
+Salesforce integration supports action execution only. Data access
+and knowledge base creation are not available for Salesforce
+systems.
 
-1. After you create the integration, choose **Share integration**.
-2. Select users or groups to share the integration with.
-3. Set appropriate permissions for shared access.
-4. Confirm sharing settings.
+## Troubleshooting
 
-Shared users can use the Salesforce integration to perform actions within the connected Salesforce organization, subject to the permissions configured in the original authentication setup.
+To edit, share, or delete your connector, see [Managing existing integrations](integration-workflows.md#managing-existing-integrations "integration-workflows.md#managing-existing-integrations").
 
-## Manage Salesforce action connectors
-
-After you create your Salesforce action connector, you can manage it using these options:
-
-- **Edit action connector** - Update authentication settings or Salesforce instance configuration.
-- **Share action connector** - Make the action connector available to other users in your organization.
-- **Monitor usage** - View action connector activity and API usage metrics.
-- **Review actions** - See the complete list of available Salesforce actions.
-- **Delete action connector** - Remove the action connector and revoke associated authentication.
+- **"URL no longer exists" error** –
+  Ensure you are using the correct Salesforce domain in the Token URL
+  and Authorization URL. Do not use legacy endpoints.
+- **OAuth validation fails** – Verify
+  that PKCE is enabled on the ECA and that the Callback URL exactly
+  matches your Amazon Quick instance URL with
+  `/sn/oauthcallback` appended.
+- **Missing scopes error** – Go back
+  to the ECA configuration in Salesforce and ensure all required OAuth
+  scopes are in the **Selected** list, not still in
+  **Available**.
+- **"Connected App" option greyed
+  out** – This is expected after Salesforce Spring '26.
+  Use an External Client App instead. ECAs are the supported
+  replacement.

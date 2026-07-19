@@ -114,20 +114,30 @@ Graph permissions reference](https://learn.microsoft.com/en-us/graph/permissions
 
 Teams action integration – delegated permissions| Permission | Description |
 | --- | --- |
+| `Calendars.ReadWrite` | Allows the app to read and write events in user calendars on<br>behalf of the signed-in user. |
+| `Channel.Create` | Allows the app to create channels in any team on behalf of<br>the signed-in user. |
+| `Channel.ReadBasic.All` | Allows the app to read channel names and descriptions on<br>behalf of the signed-in user. |
+| `ChannelMessage.Read.All` | Allows the app to read all channel messages on behalf of the<br>signed-in user. |
+| `ChannelMessage.ReadWrite` | Allows the app to read, send, update, and delete messages in<br>channels on behalf of the signed-in user. |
+| `ChannelMessage.Send` | Allows the app to send messages in channels on behalf of the<br>signed-in user. |
+| `ChannelSettings.ReadWrite.All` | Allows the app to read and write the settings of all channels<br>on behalf of the signed-in user. |
+| `Chat.Create` | Allows the app to create chats on behalf of the signed-in<br>user. |
 | `Chat.ReadWrite` | Allows the app to read and write the signed-in user's chat<br>messages. |
 | `ChatMessage.Send` | Allows the app to send chat messages on behalf of the<br>signed-in user. |
-| `Team.ReadBasic.All` | Allows the app to read the names and descriptions of teams on<br>behalf of the signed-in user. |
-| `Channel.ReadBasic.All` | Allows the app to read channel names and descriptions on<br>behalf of the signed-in user. |
-| `Channel.Create` | Allows the app to create channels in any team on behalf of<br>the signed-in user. |
-| `ChannelMessage.Read.All` | Allows the app to read all channel messages on behalf of the<br>signed-in user. |
-| `ChannelMessage.Send` | Allows the app to send messages in channels on behalf of the<br>signed-in user. |
-| `ChannelMember.ReadWrite.All` | Allows the app to add and remove members from channels on<br>behalf of the signed-in user. |
-| `TeamMember.ReadWrite.All` | Allows the app to add and remove members from all teams on<br>behalf of the signed-in user. |
-| `User.Read.All` | Allows the app to read the full set of profile properties of<br>all users on behalf of the signed-in user. |
+| `Files.Read` | Allows the app to read the signed-in user's<br>files. |
+| `offline_access` | Allows the app to refresh access tokens without requiring<br>the user to sign in again. This reduces how often users need<br>to re-authenticate. |
+| `OnlineMeetingRecording.Read.All` | Allows the app to read all recordings of online meetings on<br>behalf of the signed-in user. |
 | `OnlineMeetings.ReadWrite` | Allows the app to read and create online meetings on behalf<br>of the signed-in user. |
 | `OnlineMeetingTranscript.Read.All` | Allows the app to read all transcripts of online meetings on<br>behalf of the signed-in user. |
-| `Calendars.ReadWrite` | Allows the app to read and write events in user calendars on<br>behalf of the signed-in user. |
-| `offline_access` | Allows the app to refresh access tokens without requiring<br>the user to sign in again. This reduces how often users need<br>to re-authenticate. |
+| `People.Read` | Allows the app to read a list of people relevant to the<br>signed-in user. |
+| `Presence.ReadWrite` | Allows the app to read and write the presence information of<br>the signed-in user. |
+| `Sites.Read.All` | Allows the app to read documents and list items in all site<br>collections on behalf of the signed-in user. |
+| `Team.Create` | Allows the app to create teams on behalf of the signed-in<br>user. |
+| `Team.ReadBasic.All` | Allows the app to read the names and descriptions of teams on<br>behalf of the signed-in user. |
+| `TeamMember.ReadWrite.All` | Allows the app to add and remove members from all teams on<br>behalf of the signed-in user. |
+| `User.Read` | Allows the app to read the signed-in user's<br>profile. |
+| `User.Read.All` | Allows the app to read the full set of profile properties of<br>all users on behalf of the signed-in user. |
+| `User.ReadBasic.All` | Allows the app to read a basic set of profile properties of<br>all users on behalf of the signed-in user. |
 
 **For service authentication (application
 permissions):**

@@ -21,11 +21,10 @@ Starting May 2026, the following features are now supported in the new data prep
 
 The following data sources are currently available only in the legacy experience.
 
-| Data Source   | Details                                     |
-| ------------- | ------------------------------------------- |
-| Salesforce    | Automatically defaults to legacy experience |
-| Google Sheets | Automatically defaults to legacy experience |
-| S3 Analytics  | **S3 data sources are supported**           |
+| Data Source  | Details                                     |
+| ------------ | ------------------------------------------- |
+| Salesforce   | Automatically defaults to legacy experience |
+| S3 Analytics | **S3 data sources are supported**           |
 
 ## Other unsupported features
 
