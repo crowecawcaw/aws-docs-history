@@ -51,8 +51,7 @@ a job bundle, where they apply to that bundle. Submitter hooks can alter the bun
 different points in the submission flow. Use them to inject environment variables, validate a
 submission, or synchronize with production-tracking software at submission time.
 
-For more information, see [Submission hooks](https://github.com/aws-deadline/deadline-cloud/blob/mainline/docs/submission-hooks.md "https://github.com/aws-deadline/deadline-cloud/blob/mainline/docs/submission-hooks.md") in the `deadline-cloud` repository on the GitHub
-website.
+For more information, see [Submission hooks](submission-hooks.md "submission-hooks.md").
 
 ## Run custom logic on the worker
 

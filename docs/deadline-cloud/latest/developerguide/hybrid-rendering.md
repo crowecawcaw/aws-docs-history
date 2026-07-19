@@ -2,7 +2,7 @@
 
 You already run a render farm on-premises, and you want extra capacity during peak demand
 without buying and maintaining more hardware. With AWS Deadline Cloud (Deadline Cloud), you can add cloud workers to
-the same farm as your on-premises workers and send jobs to either location from a single queue.
+the same farm as your on-premises workers and send jobs to either location.
 Sending overflow work to the cloud in periods of high demand is often called _cloud bursting_.
 
 A hybrid farm combines two kinds of fleets in one farm:
@@ -15,30 +15,35 @@ A hybrid farm combines two kinds of fleets in one farm:
   (SMF), where Deadline Cloud manages the worker hosts, scaling, and patching for you. You can also run
   cloud capacity as a customer-managed fleet of Amazon EC2 instances when you need more control. For
   more information, see [Configure and use Deadline Cloud service-managed fleets](smf.md "smf.md").
-  To run one job stream across both locations, associate both fleets with the same queue.
-  Because the setup for service-managed fleets and customer-managed fleets differs, plan for each of
-  the following layers so that a shared queue works on every fleet. The rest of this topic describes
-  each layer and links to detailed instructions.
+  Deadline Cloud sends work to your fleets through queues, so decide how to organize your queues before
+  you extend your farm. Because service-managed fleets and customer-managed fleets install
+  applications differently, you can give each fleet type its own queue or share one queue across
+  both fleet types. For a comparison of the two approaches, see [Choose a queue strategy](#hybrid-environments "#hybrid-environments").
+
+Whichever queue strategy you choose, plan for each of the following layers so that your jobs
+run correctly on every fleet. The rest of this topic describes each layer and links to detailed
+instructions.
 
 The following table summarizes how each layer differs across the three kinds of workers you
 can combine in a hybrid farm. Your on-premises workers and your cloud Amazon EC2 instances are both
 customer-managed fleets, but they differ in how they reach your data and network, so the table
 lists them separately.
 
-| Layer            | On-premises (customer-managed fleet)                                                   | Cloud customer-managed fleet (Amazon EC2)                                                                      | Service-managed fleet                                                                                                           |
-| ---------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Worker hosts     | You provision and manage your own hardware, operating system, and patching.            | You provision and manage Amazon EC2 instances.                                                                 | Deadline Cloud manages the hosts, operating system, and patching.                                                               |
-| Applications     | Preinstall applications on your workers, or use a conda channel in Amazon S3.          | Preinstall applications, bake them into an Amazon Machine Image (AMI), or use a conda channel in<br>Amazon S3. | Use the Deadline Cloud-managed conda channel for supported partner applications, or use your own<br>conda channel in Amazon S3. |
-| Licensing        | Connect a license endpoint for UBL, or connect to your own license server for<br>BYOL. | Connect a license endpoint for UBL, or connect to your own license server for<br>BYOL.                         | UBL is configured automatically. For BYOL, forward the license ports to your server with<br>SSM.                                |
-| Asset access     | Use job attachments, or shared storage that your workers already mount.                | Use job attachments, or shared storage in your VPC.                                                            | Use job attachments, or connect to shared storage in your VPC with VPC resource<br>endpoints.                                   |
-| Scaling and cost | Fixed capacity that you own.                                                           | Use an Amazon EC2 Auto Scaling group to grow and shrink capacity with demand.                                  | Scales automatically between the minimum and maximum worker counts that you set.                                                |
+| Layer            | On-premises (customer-managed fleet)                                                   | Cloud customer-managed fleet (Amazon EC2)                                                                      | Service-managed fleet                                                                                                                                                                                                                                                                                                                      |
+| ---------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Worker hosts     | You provision and manage your own hardware, operating system, and patching.            | You provision and manage Amazon EC2 instances.                                                                 | Deadline Cloud manages the hosts, operating system, and patching.                                                                                                                                                                                                                                                                          |
+| Applications     | Preinstall applications on your workers, or use a conda channel in Amazon S3.          | Preinstall applications, bake them into an Amazon Machine Image (AMI), or use a conda channel in<br>Amazon S3. | Automatically installs popular DCCs from the Deadline Cloud-managed conda channel. To provide<br>custom applications, use host configuration scripts or your own conda channel in Amazon S3. For the<br>list of supported applications, see [Supported software](../userguide/supported-software.md "../userguide/supported-software.md"). |
+| Licensing        | Connect a license endpoint for UBL, or connect to your own license server for<br>BYOL. | Connect a license endpoint for UBL, or connect to your own license server for<br>BYOL.                         | UBL is configured automatically. For BYOL, forward the license ports to your server with<br>SSM.                                                                                                                                                                                                                                           |
+| Asset access     | Use job attachments, or shared storage that your workers already mount.                | Use job attachments, or shared storage in your VPC.                                                            | Use job attachments, or connect to shared storage in your VPC with VPC resource<br>endpoints.                                                                                                                                                                                                                                              |
+| Scaling and cost | Fixed capacity that you own.                                                           | Use an Amazon EC2 Auto Scaling group to grow and shrink capacity with demand.                                  | Scales automatically between the minimum and maximum worker counts that you set.                                                                                                                                                                                                                                                           |
 
 ## Distribute jobs across your fleets
 
 When you associate a queue with more than one fleet, Deadline Cloud distributes jobs across the
 fleets that are compatible with each job. The scheduler compares the host requirements of each
-step with the worker capabilities that each fleet declares, and it runs the step on a fleet that
-meets those requirements. For more information, see [Schedule jobs in Deadline Cloud](build-jobs-scheduling.md "build-jobs-scheduling.md").
+step with the [worker capabilities](build-jobs-scheduling.md#jobs-scheduling-compatibility "build-jobs-scheduling.md#jobs-scheduling-compatibility") that each
+fleet declares, and it runs the step on a fleet that meets those requirements. For more
+information, see [Schedule jobs in Deadline Cloud](build-jobs-scheduling.md "build-jobs-scheduling.md").
 
 To automatically balance capacity between fleets, you can use the capacity manager sample.
 It uses a Lambda function and EventBridge Scheduler to adjust fleet worker counts while holding a target
@@ -53,21 +58,32 @@ define distinct worker capabilities on each fleet, and then set matching host re
 the steps that must run in that location. To approximate fleet prioritization automatically, use
 the capacity manager sample described in the preceding paragraph.
 
-## Align worker environments
+## Choose a queue strategy
 
 Service-managed fleets and customer-managed fleets install and manage applications
-differently, so confirm that your queue configures software in a way that works on every
-fleet.
+differently, so decide how to organize your queues before you associate fleets with them. On a
+service-managed fleet, the default conda queue environment automatically installs the conda
+packages that jobs request. Customer-managed fleets don't have the conda commands installed by
+default, so the same queue environment causes errors on your customer-managed workers.
 
-When a service-managed fleet uses the default conda queue environment, Deadline Cloud automatically
-configures workers with supported partner applications from the Deadline Cloud-managed conda channel. The
-Deadline Cloud-managed conda channel is available only on service-managed fleets. A customer-managed fleet
-cannot use the channel.
+You can resolve the difference in one of the following two ways:
 
-To run the same queue on your customer-managed workers, provide the applications yourself.
-You can create your own conda channel in Amazon Simple Storage Service (Amazon S3) that both fleet types use, or install
-applications directly on your customer-managed workers and adjust the queue environment so that
-the applications appear on the job user's path. For more information, see [Create a conda channel using S3](configure-jobs-s3-channel.md "configure-jobs-s3-channel.md") and [Configure jobs using queue environments](configure-jobs.md "configure-jobs.md").
+- **Use a separate queue for each fleet type (recommended)**
+  – Associate your service-managed fleet with a queue that uses the default conda queue
+  environment, and associate your customer-managed fleet with a separate queue that doesn't use
+  it. Each fleet type gets the application setup it expects, and you avoid conda errors. You
+  submit each job to the queue for the location where you want the job to run.
+- **Share one queue across both fleet types** – Associate
+  both fleets with the same queue so that Deadline Cloud distributes each job to whichever location has
+  available capacity, without changing where you submit the job. A shared queue takes more setup
+  because you can't use the default conda queue environment. Instead, you provide applications in
+  a way that works on both fleet types. Choose a shared queue when you want peak workloads to
+  overflow to the cloud automatically.
+
+To run applications on a shared queue, create your own conda channel in Amazon Simple Storage Service (Amazon S3) that
+both fleet types use, or install applications directly on your customer-managed workers and
+adjust the queue environment so that the applications appear on the job user's path. For more
+information, see [Create a conda channel using S3](configure-jobs-s3-channel.md "configure-jobs-s3-channel.md") and [Configure jobs using queue environments](configure-jobs.md "configure-jobs.md").
 
 ## License applications on both fleets
 
@@ -124,12 +140,11 @@ NAT.
 ## Match applications to each fleet type
 
 Confirm that each digital content creation (DCC) application your jobs use can run on both
-fleet types. The Deadline Cloud-managed conda channel provides a set of supported partner applications on
-service-managed fleets. For applications that the channel does not provide, or for
-customer-managed workers that cannot use the channel, package the applications yourself as
-described in [Align worker environments](#hybrid-environments "#hybrid-environments"). For the
-list of supported partner applications, see [Default conda queue
-environment](../userguide/create-queue-environment.md "../userguide/create-queue-environment.md") in the _AWS Deadline Cloud User Guide_.
+fleet types. On service-managed fleets, the Deadline Cloud-managed conda channel provides popular DCCs
+automatically. For applications that the channel doesn't provide, or for customer-managed workers
+that can't use the channel, package the applications yourself as described in [Choose a queue strategy](#hybrid-environments "#hybrid-environments"). For the list of supported
+applications, see [Supported software](../userguide/supported-software.md "../userguide/supported-software.md") in the
+_AWS Deadline Cloud User Guide_.
 
 ## Control cloud costs
 

@@ -9,11 +9,13 @@ use cases, including the following:
 
 - Pipeline developers and technical directors can integrate Deadline Cloud APIs and features into
   their custom production pipelines.
-- Independent software vendors can integrate Deadline Cloud into their applications enabling digital
-  content creation artists and users to submit Deadline Cloud render jobs seamlessly from their
-  workstations.
-- Web and cloud-based service developers can integrate Deadline Cloud rendering into their platforms,
-  enabling customers to provide assets to view products virtually.
+- Independent software vendors can integrate Deadline Cloud into their applications, enabling users
+  to submit Deadline Cloud jobs from their workstations or web interfaces.
+- Data scientists and engineers can distribute compute-intensive workloads such as scientific
+  simulations, financial modeling, machine learning training, and data processing across scalable
+  fleets of workers.
+- Web and cloud-based service developers can integrate Deadline Cloud processing into their
+  platforms, enabling customers to submit and track jobs on demand.
   We provide tools that enable you to work directly with any step of your pipeline:
 
 - A command-line interface that you can use directly or from scripts.
