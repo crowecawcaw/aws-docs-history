@@ -100,6 +100,6 @@ Setting these environment variables in the preceding files only affects the Amaz
 agent, `ecs-init`, and the Docker daemon. They do not configure any other
 services (such as **yum**) to use the proxy.
 
-For information about how to confiure thhe proxy, see [How do I set up
+For information about how to configure the proxy, see [How do I set up
 an HTTP proxy for Docker and the Amazon ECS container agent in Amazon Linux 2 or
 AL2023](https://repost.aws/knowledge-center/ecs-http-proxy-docker-linux2 "https://repost.aws/knowledge-center/ecs-http-proxy-docker-linux2").

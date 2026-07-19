@@ -170,7 +170,7 @@ github.com/aws/aws-cdk-go/awscdk/v2/awsecspatterns
 ## Step 2: Use the AWS CDK to define a containerized web server on Fargate
 
 Use the container image [`amazon-ecs-sample`](https://gallery.ecr.aws/ecs-sample-image/amazon-ecs-sample "https://gallery.ecr.aws/ecs-sample-image/amazon-ecs-sample"). This image contains a PHP web
-app that runs on Ngingx.
+app that runs on nginx.
 
 In the AWS CDK project that you created, edit the file that contains the stack
 definition to resemble one of the following examples.

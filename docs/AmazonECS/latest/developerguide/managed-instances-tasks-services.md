@@ -16,7 +16,6 @@ tasks:
 - `disableNetworking`
 - `dnsSearchDomains`
 - `dnsServers`
-- `dockerLabels`
 - `dockerSecurityOptions`
 - `dockerVolumeConfiguration`
 - `ephemeralStorage`
