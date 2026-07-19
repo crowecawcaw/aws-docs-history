@@ -13,6 +13,15 @@ time.
 You are charged storage costs for Amazon S3, but not charged for the bandwidth used by
 Elastic Load Balancing to send log files to Amazon S3. For more information about storage costs, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
+###### Important
+
+While traditional "legacy" logs (described in this section) remain available,
+Application Load Balancer now offers enhanced logging options through CloudWatch Logs. CloudWatch Logs provide
+more flexible delivery options, including to Amazon CloudWatch Logs, Amazon Data Firehose, and Amazon Simple Storage Service.
+To configure these improved logging options, visit your load balancer's
+**Integrations** tab. For more information on CloudWatch Logs, see
+[CloudWatch Logs for your Application Load Balancer](load-balancer-cloudwatch-logs.md "load-balancer-cloudwatch-logs.md").
+
 ###### Contents
 
 - [Access log files](#access-log-file-format "#access-log-file-format")
@@ -169,6 +178,7 @@ a new field.
 | "transformed\_host" (31)          | The host header after it is modified by a host header rewrite transform.<br>If any of the following are true, this value is set to -.<br>• No transform was applied<br>• The transform failed<br>• The transform succeeded by there was no change to the host header<br>• There is no original host header (for example, HTTP/1.0 requests)                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | "transformed\_uri" (32)           | The URI after it is modified by a URL rewrite transform.<br>If any of the following are true, this value is set to -.<br>• No transform was applied<br>• The transform failed<br>• The transform succeeded by there was no change to the URI                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | "request\_transform\_status" (33) | The status of the rewrite transform. If no rewrite transform was applied,<br>this value is set to -. Otherwise, this value is one of the status values<br>described in [Transform status codes](#transform-status-codes "#transform-status-codes").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ip\_address (34)                  | The IP address of the load balancer node that handled<br>the request. For an internal load balancer, this is a<br>private IP address.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 ### Actions taken
 

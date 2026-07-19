@@ -14,6 +14,15 @@ time.
 You are charged storage costs for Amazon S3, but not charged for the bandwidth used by
 Elastic Load Balancing to send log files to Amazon S3. For more information about storage costs, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
+###### Important
+
+While traditional "legacy" logs (described in this section) remain available,
+Application Load Balancer now offers enhanced logging options through CloudWatch Logs. CloudWatch Logs provide
+more flexible delivery options, including to Amazon CloudWatch Logs, Amazon Data Firehose, and Amazon Simple Storage Service.
+To configure these improved logging options, visit your load balancer's
+**Integrations** tab. For more information on CloudWatch Logs, see
+[CloudWatch Logs for your Application Load Balancer](load-balancer-cloudwatch-logs.md "load-balancer-cloudwatch-logs.md").
+
 ###### Contents
 
 - [Connection log files](#connection-log-file-format "#connection-log-file-format")
@@ -136,6 +145,8 @@ the last documented field, and update log parsing after we release a new field.
 | tls\_verify\_status (11)                | [HTTPS listener] The status of the connection request. This<br>value is `Success` if the connection is<br>established successfully. On an unsuccessful connection the<br>value is `Failed:$error_code`.                                                                                                                                                   |
 | conn\_trace\_id (12)                    | The connection traceability ID is a *_unique opaque ID_<br>• used<br>to identify each connection. After a connection is established with a client, subsequent requests<br>from this client contain this ID in their respective access log entries. This ID acts as a<br>foreign key to create a link between the connection and access logs.              |
 | tls\_keyexchange (13)                   | [HTTPS listener] The key exchange used during handshakes for TLS or PQ-TLS .<br>This field is set to `-` for non SSL/TLS requests.                                                                                                                                                                                                                        |
+| elb (14)                                | The resource ID of the load balancer. If you are parsing<br>access log entries, note that resources IDs can contain<br>forward slashes (/).                                                                                                                                                                                                               |
+| ip\_address (15)                        | The IP address of the load balancer node that handled<br>the request. For an internal load balancer, this is a<br>private IP address.                                                                                                                                                                                                                     |
 
 ### Error reason codes
 

@@ -15,6 +15,15 @@ Amazon S3 bucket that you specify. You can disable health check logs at any time
 You are charged storage costs for Amazon S3, but not charged for the bandwidth used by Elastic Load Balancing
 to send log files to Amazon S3. For more information about storage costs, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
+###### Important
+
+While traditional "legacy" logs (described in this section) remain available,
+Application Load Balancer now offers enhanced logging options through CloudWatch Logs. CloudWatch Logs provide
+more flexible delivery options, including to Amazon CloudWatch Logs, Amazon Data Firehose, and Amazon Simple Storage Service.
+To configure these improved logging options, visit your load balancer's
+**Integrations** tab. For more information on CloudWatch Logs, see
+[CloudWatch Logs for your Application Load Balancer](load-balancer-cloudwatch-logs.md "load-balancer-cloudwatch-logs.md").
+
 ###### Contents
 
 - [Health check log files](#health-check-log-file-format "#health-check-log-file-format")
@@ -132,6 +141,8 @@ stop after the last documented field, and update log parsing after we release a 
 | status (6)            | The status of the health check. This value is `PASS` if the health check succeeds. On an unsuccessful health check the value is `FAIL`                                                                                                            |
 | status\_code (7)      | The response code received from the target for the health check request.                                                                                                                                                                          |
 | reason\_code (8)      | The reason for failure if the health check fails. See [Error reason codes](#health-check-error-reason-codes "#health-check-error-reason-codes")                                                                                                   |
+| elb (9)               | The resource ID of the load balancer. If you are parsing<br>access log entries, note that resources IDs can contain<br>forward slashes (/).                                                                                                       |
+| ip\_address (10)      | The IP address of the load balancer node that handled<br>the request. For an internal load balancer, this is a<br>private IP address.                                                                                                             |
 
 ### Error reason codes
 
