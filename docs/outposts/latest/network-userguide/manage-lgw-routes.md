@@ -20,8 +20,9 @@ route status changes from **active** to
 The following requirements and limitations apply:
 
 - The target network interface must belong to a subnet on your Outpost and must be
-  attached to an instance in that Outpost. A local gateway route can't target an Amazon EC2
-  instance on a different Outpost or in the parent AWS Region.
+  attached to an instance in that Outpost. A local gateway route can't target VPC
+  endpoints, gateways, or an Amazon EC2 instance on a different Outpost or in the parent
+  AWS Region.
 - The subnet must belong to a VPC that is associated to the local gateway route table.
 - You must not exceed more than 100 network interface routes in the same route
   table.
@@ -35,9 +36,6 @@ The following requirements and limitations apply:
   through the local gateway for that Outpost. Network interfaces that belong to the
   Outpost subnet but attached to an instance in the Region can't communicate through the
   local gateway for that Outpost.
-- Requester-managed interfaces, such as those created for VPC endpoints, can't be
-  reached from the on-premises network through the local gateway. They can be reached only
-  from instances that are in the Outpost subnet.
 
 The following NAT considerations apply:
 
