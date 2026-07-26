@@ -34,7 +34,7 @@ Network Scanning through a configuration policy or for individual accounts.
 **Organization accounts (recommended)** – Enable Network
 Scanning across your organization's accounts and Regions by creating or editing a configuration policy.
 For more information about editing a configuration policy, see [Editing a configuration policy](securityhub-v2-da-policy.md#securityhub-v2-configuration-edit "securityhub-v2-da-policy.md#securityhub-v2-configuration-edit").
-When Network Scanning is enabled through a configuration policy, member accounts cannot disable the feature.
+When Network Scanning is enabled through a configuration policy, member accounts cannot turn off the feature.
 
 **Individual accounts** – For accounts that are not managed
 by a configuration policy, you can enable Network Scanning using one of the following methods.

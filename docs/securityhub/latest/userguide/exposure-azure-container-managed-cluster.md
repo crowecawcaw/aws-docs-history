@@ -52,7 +52,7 @@ Following data protection best practices, we recommend that you enable KMS etcd 
 
 ###### Enable KMS etcd encryption
 
-Configure the cluster to use Key Management Service (KMS) etcd encryption with a key stored in Azure Key Vault. Grant the cluster identity encrypt and decrypt permissions on the key. Re-encrypt existing secrets after you enable the feature. Enable soft delete and purge protection on the key vault so the key can't be lost. For more information, see [KMS etcd encryption in AKS](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption "https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption") in the Microsoft Azure documentation.
+Configure the cluster to use Key Management Service (KMS) etcd encryption with a key stored in Azure Key Vault. Grant the cluster identity encrypt and decrypt permissions on the key. Re-encrypt existing secrets after you turn on the feature. Enable soft delete and purge protection on the key vault so the key can't be lost. For more information, see [KMS etcd encryption in AKS](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption "https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption") in the Microsoft Azure documentation.
 
 ###### Store secrets in Azure Key Vault
 
