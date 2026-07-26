@@ -24,6 +24,7 @@ Policy](dlami-support-policy-table.md "dlami-support-policy-table.md") page. The
 - [How can I find the latest patched image for a supported framework version?](#support-policy-faq-latest-patched-image "#support-policy-faq-latest-patched-image")
 - [How frequently are new images released?](#support-policy-faq-new-image-frequency "#support-policy-faq-new-image-frequency")
 - [Will my instance be patched in place while my workload is running?](#support-policy-faq-in-place-patch "#support-policy-faq-in-place-patch")
+- [Do operating system packages update automatically on my running instance, and can system services restart?](#support-policy-faq-unattended-upgrades "#support-policy-faq-unattended-upgrades")
 - [What happens when a new patched or updated framework version is available?](#support-policy-faq-new-image-available "#support-policy-faq-new-image-available")
 - [Are dependencies updated without changing the framework version?](#support-policy-faq-dependencies "#support-policy-faq-dependencies")
 - [When does active support for my framework version end?](#support-policy-faq-end-of-support "#support-policy-faq-end-of-support")
@@ -101,6 +102,51 @@ No. Patch updates for DLAMI are not “in-place” updates.
 
 You must turn on a new EC2 instance, migrate your workloads and scripts, and then turn off your previous instance.
 
+Note that Ubuntu-based DLAMIs install operating system security updates
+automatically through the Ubuntu unattended upgrades mechanism, which can restart
+system services on a running instance. For more information, see [Do operating system packages update automatically on my running instance, and can system services restart?](#support-policy-faq-unattended-upgrades "#support-policy-faq-unattended-upgrades")
+
+### Do operating system packages update automatically on my running instance, and can system services restart?
+
+Ubuntu-based DLAMIs keep the standard Ubuntu unattended upgrades mechanism
+enabled. The Ubuntu unattended upgrades mechanism periodically downloads and
+installs operating system security updates on your running instance. After packages
+are upgraded, the operating system might restart the system services (daemons) that
+depend on the upgraded packages, such as `dbus` or `ssh`. Only
+the affected system services are restarted. The instance is not rebooted, user
+processes are not restarted, and active SSH sessions are not disconnected.
+
+Automatic upgrades are scoped to general operating system packages:
+
+- The Linux kernel packages are held at the version the image was built
+  with, so automatic upgrades never install a new kernel or trigger a
+  kernel-related reboot.
+- The accelerator software stack, including the NVIDIA driver, CUDA, cuDNN,
+  NCCL, and EFA, is not managed through the operating system package manager
+  and is not changed by automatic upgrades.
+
+Workloads that run as regular user processes, such as a training script, a
+distributed launcher, or a Jupyter kernel, are not interrupted by these service
+restarts. However, if your workload is owned or supervised by a system service (for
+example, a cluster agent or a container runtime running as a daemon), a restart of
+that service can disrupt your workload. If your environment requires that no
+packages change or no services restart while a job is running, you can disable
+unattended upgrades on your instances:
+
+```
+sudo systemctl disable --now apt-daily.timer apt-daily-upgrade.timer
+sudo sed -i 's/Unattended-Upgrade "1"/Unattended-Upgrade "0"/' /etc/apt/apt.conf.d/20auto-upgrades
+```
+
+If you disable unattended upgrades, your instance no longer receives operating
+system security patches in place. In that case, we recommend that you regularly
+relaunch your workloads on the latest DLAMI to stay patched. For more information,
+see [How can I find the latest patched image for a supported framework version?](#support-policy-faq-latest-patched-image "#support-policy-faq-latest-patched-image")
+
+Amazon Linux 2023-based DLAMIs do not enable automatic package updates. Packages
+on those images change only when you update them yourself or launch a newer
+image.
+
 ### What happens when a new patched or updated framework version is available?
 
 To be notified of changes in DLAMI, please subscribe to the notifications for the relevant DLAMI, see [Receive Notifications on New Updates](release-notifications.md "release-notifications.md") .
@@ -117,7 +163,7 @@ DLAMI images are immutable. Once they are created they do not change.
 There are four main reasons why active support for a framework version ends:
 
 - [Framework version (patch) upgrades](#support-policy-faq-end-of-support-version-patch "#support-policy-faq-end-of-support-version-patch")
-- [AWS security patches](#support-policy-faq-end-of-support-security-patch "#support-policy-faq-end-of-support-security-patch")
+- [AWS security (CVE) patches](#support-policy-faq-end-of-support-security-patch "#support-policy-faq-end-of-support-security-patch")
 - [End of patch date (Aging out)](#support-policy-faq-end-of-support-aging-out "#support-policy-faq-end-of-support-aging-out")
 - [Dependency end-of-support](#support-policy-faq-end-of-support-dependency "#support-policy-faq-end-of-support-dependency")
 
@@ -128,25 +174,32 @@ we recommend checking the release notes page for your DLAMI often, and upgrading
 
 #### Framework version (patch) upgrades
 
-If you have a DLAMI workload based on TensorFlow 2.7.0 and TensorFlow
-releases version 2.7.1 on GitHub, then AWS releases a new DLAMI with
-TensorFlow 2.7.1. The previous images with 2.7.0 are no longer actively maintained
-once the new image with TensorFlow 2.7.1 is released. The DLAMI with
-TensorFlow 2.7.0 does not receive further patches. The DLAMI release
-notes page for TensorFlow 2.7 is then updated with the latest information. There
-is no individual release note page for each minor patch.
+We maintain a separate DLAMI variant for each _major.minor_ framework version (for example, PyTorch 2.12). Each
+variant is regularly re-released as a new, dated image that includes the latest
+available patch version (_major.minor.patch_)
+of the framework along with updated drivers, libraries, and packages. When a new
+dated image for a variant is released, the previous images for that variant are
+no longer actively maintained. Each variant has a single release notes page that
+lists its dated releases. There is no individual release note page for each
+patch version.
 
-New DLAMIs created due to patch upgrades are designated with a new [AMI ID](find-dlami-id.md "find-dlami-id.md").
+Each dated release is a new image with its own [AMI ID](find-dlami-id.md "find-dlami-id.md").
 
-#### AWS security patches
+#### AWS security (CVE) patches
 
-If you have a workload based on an image with TensorFlow 2.7.0 and AWS makes a
-security patch, then a new version of the DLAMI is released for
-TensorFlow 2.7.0. The previous version of the images with TensorFlow 2.7.0 is no
-longer actively maintained. For more information, see [Will my instance be patched in place while my workload is running?](#support-policy-faq-in-place-patch "#support-policy-faq-in-place-patch") For
-steps on finding the latest DLAMI, see [How can I find the latest patched image for a supported framework version?](#support-policy-faq-latest-patched-image "#support-policy-faq-latest-patched-image")
+Common vulnerabilities and exposures (CVEs) are patched by releasing a new
+dated DLAMI for the affected variant. We do not modify existing images. To make
+sure that you are using the image with the latest security patches, use the SSM
+parameter or the AWS CLI query on the release notes page for your variant to
+retrieve the latest DLAMI. For more information, see [How can I find the latest patched image for a supported framework version?](#support-policy-faq-latest-patched-image "#support-policy-faq-latest-patched-image")
 
-New DLAMIs created due to patch upgrades are designated with a new [AMI ID](find-dlami-id.md "find-dlami-id.md").
+Because we maintain a separate DLAMI variant for each _major.minor_ framework version, we do not backport framework
+security fixes across framework versions. If a CVE in a framework version can
+only be fixed in a higher _major.minor_
+version, the affected variant no longer receives security patches, and we
+recommend that you migrate to a DLAMI with a framework version that contains the
+fix. Such variants are called out on the [DLAMI release
+notes](appendix-ami-release-notes.md "appendix-ami-release-notes.md") page.
 
 #### End of patch date (Aging out)
 

@@ -6,6 +6,16 @@ options.
 For release notes for DLAMI frameworks that we no longer support, see the **Unsupported Framework Release Notes Archive** section of the [DLAMI Framework Support
 Policy](dlami-support-policy-table.md "dlami-support-policy-table.md") page.
 
+###### Security patches not available for PyTorch 2.8 and 2.9 DLAMIs
+
+PyTorch DLAMIs for versions earlier than 2.10 (that is, PyTorch 2.8 and 2.9)
+contain known common vulnerabilities and exposures (CVEs) that cannot be patched.
+Because we maintain a separate DLAMI currency release for each PyTorch version, we
+do not backport security fixes to these images.
+
+We recommend that you migrate to PyTorch 2.10 or later DLAMIs, which
+continue to receive security patches.
+
 ###### Release Notes
 
 - [Release Notes for Base DLAMIs](#appendix-ami-release-notes-base "#appendix-ami-release-notes-base")

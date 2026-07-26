@@ -3,6 +3,16 @@
 For more details see the [Support
 Policy](support-policy.md "support-policy.md").
 
+###### Security patches not available for PyTorch 2.8 and 2.9 DLAMIs
+
+PyTorch DLAMIs for versions earlier than 2.10 (that is, PyTorch 2.8 and 2.9)
+contain known common vulnerabilities and exposures (CVEs) that cannot be patched.
+Because we maintain a separate DLAMI currency release for each PyTorch version, we
+do not backport security fixes to these images.
+
+We recommend that you migrate to PyTorch 2.10 or later DLAMIs, which
+continue to receive security patches.
+
 ## Supported Framework Versions
 
 | Framework | Current version | CUDA version | GitHub GA  | End of patch |
