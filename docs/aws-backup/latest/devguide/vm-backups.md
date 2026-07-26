@@ -53,7 +53,7 @@ management server to discover VMs, discovers your VMs, encrypts data, and effici
 transfers data to AWS Backup. The following diagram illustrates how Backup gateway connects to
 your VMs:
 
-![A backup gateway is an OVF template the connects your VMware environment to AWS Backup.](/images/aws-backup/latest/devguide/images/Horizon.png)
+![A backup gateway is an OVF template the connects your VMware environment to AWS Backup.](images/Horizon.png)
 
 To download the Backup gateway software, follow the procedure for [Working with gateways](working-with-gateways.md "working-with-gateways.md").
 

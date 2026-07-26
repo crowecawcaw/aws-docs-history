@@ -291,6 +291,17 @@ recreated by Kubernetes or Amazon EKS:
 - The `eks-exempt` FlowSchema (EKS-managed, references the protected exempt PriorityLevelConfiguration)
 - The `kubernetes` Service in the `default` namespace (API server endpoint)
 - The `kube-dns` Service in the `kube-system` namespace (CoreDNS)
+  The following Kubernetes objects are always skipped during a restore. These objects include
+  node infrastructure and networking components. They reference cluster-specific state. Kubernetes controllers
+  automatically recreate these objects when nodes and services become active in the target cluster. If you
+  restore these objects from a backup, they might cause conflicts or errors. These conflicts occur because
+  the restored objects reference resources that don't exist on the target cluster.
+
+- Endpoints (`v1/endpoints`) - Network endpoints that define IP addresses for Services. The Endpoints controller automatically manages these based on Service selectors.
+- EndpointSlices (`discovery.k8s.io/v1/endpointslices`) - The EndpointSlice controller automatically manages these objects.
+- IPAddresses (`networking.k8s.io/v1/ipaddresses`) - Kubernetes networking manages these cluster-internal IP allocations.
+- CSINodes (`storage.k8s.io/v1/csinodes`) - The kubelet automatically creates these objects when CSI drivers register on a node.
+- VolumeAttachments (`storage.k8s.io/v1/volumeattachments`) - The attach/detach controller automatically creates these objects when pods require volumes.
   Objects that already exist on the target cluster are also skipped. EKS restores are
   non-destructive — existing objects are never overwritten or deleted.
 

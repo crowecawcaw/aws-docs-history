@@ -40,8 +40,8 @@ If your custom option group uses persistent options, the cross-Region copy job f
 unless the destination Region has the same option group as the source Region. In this
 case, AWS Backup still copies the default option group.
 
-You can't copy an option group to a different . You must manually create the
-same option group in the destination before performing the cross-Region copy.
+You can't copy an option group to a different AWS Region. You must manually create the
+same option group in the destination AWS Region before performing the cross-Region copy.
 
 If you attempt a cross-Region copy without a matching option group in the target
 Region, the copy job fails with an error message such as "The snapshot requires a target
