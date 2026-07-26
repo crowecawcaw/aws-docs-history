@@ -10,14 +10,17 @@ After you choose **Create case**, enter or verify the following information:
 
 1. Verify the **Subject** for this support case. The **Subject** is a brief synopsis of what your support interaction is about.
 2. Verify the **Description**. Your initial inquiry appears in the **Description** field. Modify this information as needed. Make your description as detailed as possible. Include relevant resource information, along with anything else that might help us understand your issue.
-3. (Optional) Choose **Attach files** to add any relevant files
-   to your case, such as error logs or screenshots. You can attach up to three
-   files. Each file can be up to 5 MB.
-4. For **Case type**, choose one of the following options:
+3. (Optional) Choose **Choose file** to add any relevant files
+   to your case, such as error logs or screenshots. You can attach up to 10
+   files. Each file can be up to 150 MB. For more information about managing attachments, see [Managing attachments](manage-attachments.md "manage-attachments.md").
 
-   - **Account and billing**
-   - **Technical**
-   - **Service quotas**. You can only request certain types of service quota increases from the Support Center Console. For more information, see
+###### Note
+
+To attach more than 3 files or files over 5 MB, make sure that you have the correct permissions. For more information, see [Required permissions for large attachments](large-attachments-permissions.md "large-attachments-permissions.md"). 4. For **Case type**, choose one of the following options:
+
+    * **Account and billing**
+    * **Technical**
+    * **Service quotas**. You can only request certain types of service quota increases from the Support Center Console. For more information, see
      [Request a service quota increase](create-service-quota-increase.md "create-service-quota-increase.md").
 
 ###### Note

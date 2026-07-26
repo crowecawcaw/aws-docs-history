@@ -4,6 +4,15 @@ You can use the AWS Support App to manage your AWS support cases in Slack. Invit
 team members to chat channels, respond to case updates, and chat directly with support
 agents. Use the AWS Support App to manage support cases quickly in Slack.
 
+###### Multi-session support is not available
+
+Multi-session support for the AWS Support App is not available. If you have multi-session enabled, you must turn it off. To disable multi-session support, complete the following steps:
+
+1. Sign in to the AWS Management Console.
+2. In the navigation bar, choose your account name (top right) to open the account menu.
+3. Choose **Turn off multi-session support**.
+
+![Account menu in the AWS Management Console showing the Turn off multi-session support option.](images/disable-multi-session-support.png)
 Use the AWS Support App to do the following:
 
 - Create, update, search for, and resolve support cases in Slack channels

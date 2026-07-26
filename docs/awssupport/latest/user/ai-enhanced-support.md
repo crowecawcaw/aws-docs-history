@@ -56,4 +56,5 @@ Before you open a support interaction or create a support case, check for events
 - [Create a support interaction](create-support-interaction.md "create-support-interaction.md")
 - [Create a support case from a support interaction](create-support-case-from-interaction.md "create-support-case-from-interaction.md")
 - [View support interactions](view-support-interactions.md "view-support-interactions.md")
+- [Managing attachments](manage-attachments.md "manage-attachments.md")
 - [Troubleshooting](troubleshooting-support-cases.md "troubleshooting-support-cases.md")
