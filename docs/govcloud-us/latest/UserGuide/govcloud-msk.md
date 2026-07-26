@@ -4,17 +4,19 @@ Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed servic
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+Amazon Managed Streaming for Apache Kafka (MSK) is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
-## How Managed Streaming for Apache Kafka differs
+## How Amazon Managed Streaming for Apache Kafka (MSK) differs
 
-The following differences apply to Managed Streaming for Apache Kafka:
+The following differences apply to Amazon Managed Streaming for Apache Kafka (MSK):
+
+- MSK Replicator is not available.
+- MSK Serverless is not available.
 
 - Firehose isn’t available as a destination for broker logs.
-- Amazon Managed Streaming for Apache Kafka (MSK) Serverless is not available.
 
 ## Documentation
 

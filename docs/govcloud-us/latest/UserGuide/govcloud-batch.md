@@ -4,10 +4,10 @@ AWS Batch enables you to run batch computing workloads on the AWS Cloud. Batch c
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+AWS Batch is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
 ## How AWS Batch differs
 

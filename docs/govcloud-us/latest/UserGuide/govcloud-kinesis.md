@@ -4,10 +4,10 @@ Amazon Kinesis makes it easy to collect, process, and analyze video and data str
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+Amazon Kinesis Data Streams is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
 ## How Amazon Kinesis Data Streams differs
 
