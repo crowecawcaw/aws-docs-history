@@ -150,9 +150,9 @@ depending on use cases.
   that is accessed a few times each year or less.
 
 The EFS Archive storage class is supported on EFS file systems
-with Elastic throughput. You cannot update your file system’s throughput to
-Bursting or Provisioned once the file system has data in the
-Archive storage class.
+with Elastic throughput. If your file system has a lifecycle policy that
+transitions data to Archive, you cannot change the throughput mode to
+Bursting or Provisioned.
 
 #### Comparing storage classes
 
