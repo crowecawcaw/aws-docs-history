@@ -1,4 +1,4 @@
-# View key highlights of customer conversations in the Contact Control Panel (CCP)
+# View key highlights of customer conversations in Connect Customer
 
 It can be time-consuming to review contact transcripts that are hundreds of lines
 long. To make this process faster and more efficient, Contact Lens

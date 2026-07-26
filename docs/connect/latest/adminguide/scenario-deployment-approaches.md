@@ -306,7 +306,7 @@ directly to Connect Customer. The agent's local device processes audio instead o
 session host, which reduces network hops and improves audio quality. The
 following diagram illustrates this approach.
 
-![Connect Customer media workflow for Azure Virtual Desktop and Windows 365 VDI environments.](images/vdi-azure.png)
+![Diagram showing the MMR browser extension on the Azure session host redirecting audio to the agent's local device, which connects directly to Connect Customer.](images/vdi-azure.png)
 
 ### VDI client without local browser access
 

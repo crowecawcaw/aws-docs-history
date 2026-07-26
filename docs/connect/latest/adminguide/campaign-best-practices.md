@@ -347,22 +347,22 @@ Use case 4: AMD is off and agents can leave a prerecorded voicemail
 
 ## Journey best practices
 
-As a best practice, create a well-defined scenario for each Amazon Pinpoint journey. Limit the scope
-of a scenario to a specific aspect of a larger customer experience that enables you to monitor,
-refine, and manage a customer's specific experience. You can then create a sequence of related
-journeys.
+As a best practice, give each Amazon Pinpoint journey a single, well-defined goal rather than covering
+a customer's entire experience in one journey. Keep the scope narrow, such as one goal, one
+audience, and one time window. A narrow scope lets you measure whether the journey works and
+adjust it. You can then chain related journeys together, using the results of one journey to
+decide who enters the next.
 
-For example, a journey can welcome new customers and provide recommended first steps during
-their first seven days as a customer. Based on each customer's actions during the first journey,
-you can route them to additional journeys tailored to their initial level of engagement. One
-journey might provide next steps for customers who were highly engaged in the first journey.
-Another subsequent journey might promote different products or services to customers who were
-less engaged in the first journey. By creating a sequence of scoped journeys, you can
-continually refine and manage the customer experience throughout the customer lifecycle.
+For example, a first journey can welcome new customers and suggest first steps during their
+first seven days. Based on how each customer responds, you route them into a follow-up journey
+that matches their level of engagement. If your customers engaged heavily, the follow-up journey
+provides advanced next steps. If they engaged less, it promotes other products or services.
+Because each journey stays focused on one goal, you can measure its results and improve it over
+time.
 
-After you define a scenario, choose journey settings that support your goals for the
-scenario. The settings define the timing, volume, and frequency with which any part of a journey
-can engage participants.
+After you define a goal for your journey, choose journey settings that support it. The
+settings define the timing, volume, and frequency with which any part of a journey can engage
+participants.
 
 ###### Note
 

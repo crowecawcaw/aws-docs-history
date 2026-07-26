@@ -24,10 +24,8 @@ Connect Customer includes a simulated web page that shows how your customers can
 you, and a Contact Control Panel (CCP) that shows the agent experience. Here's how to
 test chat:
 
-1. On the navigation menu, choose **Dashboard**, as shown in the
-   following image.
-
-![The dashboard icon on the Connect Customer navigation menu.](images/tutorial1-dashboard-menu.png) 2. Choose **Test chat**.
+1. On the navigation menu, choose **Channels**.
+2. Choose **Test chat**.
 
 If you don't see the option to test chat, choose [here](https://github.com/amazon-connect/amazon-connect-chat-ui-examples#enabling-chat-in-an-existing-amazon-connect-contact-center "https://github.com/amazon-connect/amazon-connect-chat-ui-examples#enabling-chat-in-an-existing-amazon-connect-contact-center"). 3. On the **Test Chat** page, choose **Test
 Settings**. 4. Under **System Settings**, choose the flow you want to test
@@ -134,7 +132,7 @@ Choose **Create**.
 the CCP shows what it looks like when a task arrives. Choose **Accept
 task**.
 
-![The CCP, an incoming task.](images/test-tasks-incoming.png) 4. Review the task. When you're done with the task, choose **End
+![The CCP, an incoming task.](/images/connect/latest/adminguide/images/test-tasks-incoming.png) 4. Review the task. When you're done with the task, choose **End
 task** when done.
 
 ![The CCP, a connected task, the End task button.](images/test-task-end-task.png)

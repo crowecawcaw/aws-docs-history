@@ -56,5 +56,5 @@ abilities your customer service representatives can take in the Connect Customer
 
 MCP support is available through the same interfaces as other Connect Customer AI agent features
 and integrates seamlessly with existing Connect Customer workflows and third-party systems. For
-more information, see the [Connect Customer Model Context Protocol API
+more information, see the [Connect Customer API
 Reference Guide](../APIReference/Welcome.md "../APIReference/Welcome.md").

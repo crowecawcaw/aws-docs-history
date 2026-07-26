@@ -74,7 +74,7 @@ extension](deploy-browser-extension.md "deploy-browser-extension.md").
 ### Port used for screen recording
 
 The Connect Customer Client Application communicates with the CCP through a local websocket on port 5431
-(on Windows) and 25431 (on Chrome OS).
+(on Windows) and 35431 (on Chrome OS).
 
 ### Sequence diagram
 
@@ -91,18 +91,27 @@ components involved in screen recording.
 
 ## Browser enterprise policy for local network access
 
-Starting with Google Chrome version 147 (released April 7, 2026) and
-Microsoft Edge version 147 (released April 10, 2026), Chromium-based browsers
-enforce Local Network Access (LNA) restrictions on WebSocket connections. This
-restriction blocks the local WebSocket connection between the Contact Control
-Panel and the Connect Customer Client Application, causing screen recordings to fail.
+Modern browsers enforce Local Network Access (LNA) restrictions on
+WebSocket connections. These restrictions block the local WebSocket
+connection between the Contact Control Panel and the Connect Customer Client Application, causing
+screen recordings to fail.
 
-To ensure screen recording works on Chrome 147 or later and Edge 147 or
-later, deploy the **LoopbackNetworkAllowedForUrls**
-enterprise policy to your agents' workstations. This policy pre-grants
-loopback network access permission for your Contact Control Panel domain, so
-agents are not blocked or prompted. Configure this policy with your Connect Customer
-Contact Control Panel URL. Example policy value:
+For screen recording to work, you must deploy the appropriate browser
+enterprise policy to your agents' workstations for each browser they use.
+The policy pre-grants the minimal network access for the Contact Control
+Panel, so agents are neither blocked nor prompted. Configure the policy
+to allow the Contact Control Panel to reach the Connect Customer Client Application over the local
+connection; the policy name, the value to configure, and the configuration
+examples differ by browser – see the following sections.
+
+### Google Chrome and Microsoft Edge
+
+Starting with Google Chrome version 147 and Microsoft Edge version
+147, Chromium-based browsers enforce LNA restrictions on WebSocket
+connections.
+
+Deploy the **LoopbackNetworkAllowedForUrls**
+enterprise policy. Example policy value:
 `[*.]my.connect.aws`
 
 - For Google Chrome, see [LoopbackNetworkAllowedForUrls](https://chromeenterprise.google/policies/#LoopbackNetworkAllowedForUrls "https://chromeenterprise.google/policies/#LoopbackNetworkAllowedForUrls") in the Chrome enterprise
@@ -120,6 +129,50 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\LoopbackNetworkAllowedForUrls" /v
 
 For more details on this browser change, see [New permission
 prompt for Local Network Access](https://developer.chrome.com/blog/local-network-access "https://developer.chrome.com/blog/local-network-access") in the Chrome developer
+documentation.
+
+### Mozilla Firefox
+
+Starting with Mozilla Firefox version 154, Firefox
+enforces LNA restrictions on WebSocket connections.
+
+Deploy the **LocalNetworkAccess**
+enterprise policy and add the loopback address `127.0.0.1`
+to the **SkipDomains** list. On Firefox,
+list the loopback address that the Connect Customer Client Application listens on, rather than your
+Contact Control Panel domain.
+
+###### Note
+
+This policy permits local network access to the loopback address
+from any site, not only from your Contact Control Panel. It is
+currently the most restrictive policy that allows screen recording
+to work on Firefox; a more narrowly scoped policy that limits the
+exemption to your Contact Control Panel is pending a future Firefox
+update.
+
+Example `policies.json` configuration:
+
+```
+{
+  "policies": {
+    "LocalNetworkAccess": {
+      "Enabled": true,
+      "SkipDomains": ["127.0.0.1"],
+      "Locked": true
+    }
+  }
+}
+```
+
+The following example command sets the equivalent policy through the
+Windows registry (GPO):
+
+```
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\LocalNetworkAccess\SkipDomains" /v 1 /t REG_SZ /d "127.0.0.1"
+```
+
+For details, see [LocalNetworkAccess](https://firefox-admin-docs.mozilla.org/reference/policies/localnetworkaccess/ "https://firefox-admin-docs.mozilla.org/reference/policies/localnetworkaccess/") in the Firefox enterprise policy
 documentation.
 
 ## Requirements for rule-based redaction
@@ -145,11 +198,12 @@ must meet the following additional requirements.
   2.1.0 or later. The extension must be installed and enabled on every browser
   that agents use during recorded contacts. See [Deploy the browser
   extension](deploy-browser-extension.md "deploy-browser-extension.md").
-- **Chrome 147 local network access policy**
-  – If agents use Chrome version 147 or later, configure the
-  **LocalNetworkAccessAllowedForUrls** enterprise policy to
-  allow local network access from the Connect Customer CCP origin to 127.0.0.1:5431. For
-  details, see [Browser enterprise policy for local network access](#browser-enterprise-policy "#browser-enterprise-policy").
+- **Local network access policy**
+  – If agents use Chrome version 147 or later, Edge version 147
+  or later, or Firefox version 154 or later, deploy the browser
+  enterprise policy to allow local network access from the Connect Customer CCP
+  origin to 127.0.0.1:5431. For details, see
+  [Browser enterprise policy for local network access](#browser-enterprise-policy "#browser-enterprise-policy").
 
 Display scaling from 100% through 200% is supported on single-monitor and
 multi-monitor workstations.

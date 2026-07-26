@@ -5,17 +5,33 @@ Inbox. Choose the **RSS** link (under the topic title **Release
 notes**), and then copy the URL (it ends with `doc-history.xml.rss`) into
 your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
-## June 2026 Updates
+## July 2026 Updates
 
 ### Optimize Connect Customer audio for Azure Virtual Desktop and Windows 365
 
 You can deliver high-quality voice experiences in Azure Virtual Desktop (AVD) and Windows
 365 Virtual Desktop Infrastructure (VDI) environments. Using Microsoft Multimedia Redirection
-(MMR), Connect Customer redirects audio from the session host to the agent's local device and sends it
-directly to Connect Customer, improving audio quality by reducing network hops. Connect Customer now supports Azure
+(MMR), Connect Customer redirects audio from the session host to the agent's local device,
+improving audio quality by reducing network hops. Connect Customer now supports Azure
 Virtual Desktop as an audio optimization VDI platform, alongside Citrix, Omnissa, and Amazon WorkSpaces.
 For more information, see [Azure Virtual Desktop
 and Windows 365](using-ccp-vdi-azure-step-by-step.md "using-ccp-vdi-azure-step-by-step.md").
+
+### Export cases to CSV
+
+You can export cases from the agent workspace to CSV files. Search for cases, select one or more, and choose **Export**. Use the exported CSV file with spreadsheet applications such as Microsoft Excel or Google Sheets.
+
+When you export cases, you can choose which columns to include, such as status, title, and custom fields. The columns you select determine which case data appears in the file.
+
+You can use the exported CSV file to do the following:
+
+- Generate reports from case data
+- Share case data with stakeholders outside the agent workspace
+- Analyze case data offline in a spreadsheet application
+
+To use this feature, you must have the **Cases - Export** permission in your security profile. For more information, see [Export cases to CSV](case-bulk-export.md "case-bulk-export.md").
+
+## June 2026 Updates
 
 ### Connect Customer now supports the Interrupt agent flow block
 
@@ -1695,7 +1711,7 @@ You can use Connect Customer Agent Workspace to redirect audio from Citrix and A
 Desktop Infrastructure (VDI) environments to an agent's local device. Audio redirection improves
 voice quality and reduces latency for voice calls handled on virtual desktops. It provides a
 better experience for both end customers and agents. For more information, see [Use the agent workspace to optimize
-audio for Citrix, Amazon WorkSpaces, and Omnissa cloud desktops](optimize-audio-cdd.md "optimize-audio-cdd.md").
+audio for Amazon WorkSpaces, Citrix, Omnissa, Azure Virtual Desktop, and Windows 365 cloud desktops](optimize-audio-cdd.md "optimize-audio-cdd.md").
 
 ### Screen recording available in AWS GovCloud (US-West)
 
@@ -3164,7 +3180,7 @@ message_ or a _Get customer input_ flow block to _Hotel
 booking Lex bot_. The following GIF shows how to customize the name of a flow
 block.
 
-![A block with a custom name.](/images/connect/latest/adminguide/images/set-custom-flow-block-name-1.gif)
+![A block with a custom name.](images/set-custom-flow-block-name-1.gif)
 
 For more information, see [Customize the name of a flow block in Connect Customer](set-custom-flow-block-name.md "set-custom-flow-block-name.md").
 
@@ -4198,7 +4214,7 @@ interactions. For more information, see [Agent training guide](agent-user-guide.
 
 Connect Customer Contact Lens provides the option for you to view key highlights. The highlights
 show only those lines where Contact Lens has identified an issue, outcome, or action
-item in the transcript. For more information, see [View key highlights of customer conversations in the Contact Control Panel (CCP)](key-highlights.md "key-highlights.md").
+item in the transcript. For more information, see [View key highlights of customer conversations in Connect Customer](key-highlights.md "key-highlights.md").
 
 #### Released Identity Resolution to consolidate similar profiles
 

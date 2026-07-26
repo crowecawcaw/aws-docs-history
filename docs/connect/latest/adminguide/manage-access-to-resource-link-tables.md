@@ -9,6 +9,11 @@ underlying resource link data. Therefore, it is a two-step grant process.
 To grant resource link access to a QuickSight user, complete the following
 steps:
 
+###### Note
+
+You must repeat this process for each table individually. You cannot grant
+permissions to all tables in a database at once.
+
 1. Log into the consumer account as the data lake administrator and go to the
    Lake Formation Console.
 2. On the left navigation pane, go to Tables and select the resource link of the

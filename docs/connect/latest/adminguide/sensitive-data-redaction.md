@@ -24,7 +24,7 @@ For a list of the languages supported by Contact Lens redaction, see [Languages 
 ## About redacted files
 
 Redacted voice files are stored in your Voice Amazon S3 bucket, for example:
-connect-`instanceARN`/Analysis.
+connect-`instanceARN`/Analysis/Voice.
 
 Redacted chat files are stored in your chat Amazon S3 bucket, for example:
 connect-`instanceARN`/Analysis/Chat

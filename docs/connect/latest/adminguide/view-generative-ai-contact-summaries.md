@@ -74,6 +74,8 @@ profile:
      (unredacted)**, **All** or
      **Access** (least privilege is
      **Access**, which we recommend)
+    * **Analysis and Optimization - Contact transcripts
+     (unredacted)** – **Access**
     * **Analysis and Optimization - View my contacts**  or **Contact Search**
     * **Analysis and Optimization -
      Contact Lens - conversational analytics**

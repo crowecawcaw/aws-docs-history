@@ -32,7 +32,7 @@ the corporate virtual infrastructure through a VDI connection.
 
 ## Cloud desktops
 
-If you use Citrix, Amazon WorkSpaces, or Omnissa cloud desktops, you can create a new or
+If you use Amazon WorkSpaces, Citrix, Omnissa, Azure Virtual Desktop, or Windows 365 cloud desktops, you can create a new or
 update an existing agent user interface, such as a custom CCP, to offload audio
 processing to your agent's local device and to automatically redirect audio to
 Connect Customer. This results in a more streamlined agent experience and improves audio

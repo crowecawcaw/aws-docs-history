@@ -40,6 +40,22 @@ not valid and will not be processed.
 
 ## Outbound campaigns channel configurations
 
+Outbound campaigns supports the following channels. Choose the channel that matches how you want
+to reach your customers, and then complete the configuration on the corresponding tab:
+
+- **Email**: Send an email message to your customers by using
+  an email template.
+- **Agent Assisted Voice**: Place an outbound call that routes
+  to an agent queue so that a live agent speaks with the customer. Use this channel when your
+  use case requires a live agent, such as sales or collections.
+- **Automated Voice**: Place an outbound call that a flow
+  handles from start to finish, with no agent. Use this channel for self-service messages, such
+  as appointment reminders or payment notifications.
+- **SMS**: Send a text message to your customers by using an
+  SMS template.
+- **WhatsApp**: Send a WhatsApp message to your customers by
+  using a WhatsApp message template.
+
 Email
 
 1. Select an [Outgoing email address](create-email-address1.md "create-email-address1.md") to send

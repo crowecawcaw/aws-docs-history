@@ -99,6 +99,7 @@ issues may occur:
 
 A disconnect event is when:
 
+    + A voice call ends when the customer hangs up, the agent hangs up, or the call drops because of a telecom or network issue.
     + A chat, or task is disconnected.
     + A task is disconnected as a result of a flow action.
     + A task expires. The task is automatically disconnected when it completes its expiry timer.
@@ -350,6 +351,7 @@ Valid values:
 
 A disconnect event is when:
 
+    + A voice call ends when the customer hangs up, the agent hangs up, or the call drops because of a telecom or network issue.
     + A chat, or task is disconnected.
     + A task is disconnected as a result of a flow action.
     + A task expires. The task is automatically disconnected when it completes its expiry timer.
@@ -1249,19 +1251,19 @@ event from Connect Customer to EventBridge.
           "connectedToAgentTimestamp":"2021-08-04T17:29:09.000Z",
           "hierarchyGroups": {
                          "level1": {
-                            "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901a",
+                            "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901a"
                         },
                         "level2": {
-                            "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901b",
+                            "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901b"
                         },
                         "level3": {
-                            "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901c",
+                            "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901c"
                         },
                         "level4": {
-                            "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901d",
+                            "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901d"
                         },
                         "level5": {
-                            "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901e",
+                            "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901e"
                         }
                  }
             }
@@ -1316,26 +1318,26 @@ included in events received by EventBridge when `initiationMethod` is
             "connectedToAgentTimestamp":"2021-08-04T17:29:09.000Z",
             "hierarchyGroups": {
                  "level1": {
-                    "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901a",
+                    "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901a"
                 },
                 "level2": {
-                    "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901b",
+                    "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901b"
                 },
                 "level3": {
-                    "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901c",
+                    "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901c"
                 },
                 "level4": {
-                    "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901d",
+                    "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901d"
                 },
                 "level5": {
-                    "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901e",
+                    "arn": "arn:aws:connect:`your-region`:012345678901:instance/12345678-1234-1234-1234-123456789012/agent-group/abcdefgh-1234-1234-1234-12345678901e"
                 }
             }
         },
 
         "CustomerVoiceActivity": {
            "greetingStartTimestamp":"2021-08-04T17:29:20.000Z",
-           "greetingEndTimestamp":"2021-08-04T17:29:22.000Z",
+           "greetingEndTimestamp":"2021-08-04T17:29:22.000Z"
         },
         "tags": {
             "aws:connect:instanceId":"12345678-1234-1234-1234-123456789012",

@@ -53,6 +53,17 @@ The following is the overview of the automation process:
    generative AI answers before submission or you can automatically fill and
    submit evaluations.
 
+###### Note
+
+AI-generated evaluations are not 100% accurate. Before acting on AI outputs
+(such as providing rewards, agent coaching, and so on), we recommend that you review a
+sample of evaluations. This helps confirm the performance trends that AI
+provides. You can override AI-filled evaluations and make any corrections before
+sharing them with the agent or using them for performance reviews. We also
+recommend keeping a manual evaluation process in place. This helps you catch any
+drift between AI-filled evaluations and manager-filled evaluations over
+time.
+
 ## Use Ask AI to get generative AI answer recommendations
 
 1. Log into Connect Customer with a user account that has [permissions to perform

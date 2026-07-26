@@ -51,12 +51,12 @@ region bots, or if the bot ARN is dynamically set. For these intents, try the fo
 options to find them.
 
 - Check whether the **AmazonConnectEnabled** tag is set to
-  true:
+  `True`:
 
   1.  Open the Amazon Lex console, choose **Bots**, select the bot,
       then choose **Tags**.
   2.  If the **AmazonConnectEnabled** tag is not present, add
-      **AmazonConnectEnabled = true**.
+      **AmazonConnectEnabled = True**.
   3.  Return to the Connect Customer admin website. Refresh the flow designer to see the selections in
       **Get customer input** block.
 

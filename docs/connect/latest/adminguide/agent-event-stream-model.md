@@ -299,6 +299,7 @@ Enhanced Monitoring](update-instance-settings.md#update-telephony-options "updat
 
 A disconnect event is when:
 
+    + A voice call ends when the customer hangs up, the agent hangs up, or the call drops because of a telecom or network issue.
     + A chat, or task is disconnected.
     + A task is disconnected as a result of a flow action.
     + A task expires. The task is automatically disconnected when it completes its expiry timer.

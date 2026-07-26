@@ -110,6 +110,23 @@ Each rule has a comparison type and a pattern value.
 A flow block supports up to 100 URL and window title rules. Each pattern is 1 to 128
 characters.
 
+###### Note
+
+URL rules match on the scheme, host, and path of the address. Query parameters
+(the part after `?`) and fragments (the part after `#`) are
+ignored during matching, so define rules using only the domain and path. This
+keeps redaction tied to the page itself, since those values can vary while the
+page stays the same.
+
+For example, both of the following addresses resolve to the same page:
+
+- Recommended:
+  `https://aws.amazon.com/events/reinvent/`
+- Avoid:
+  `https://aws.amazon.com/events/reinvent/?nc2=h_dsc_ex_s1&trk=dc9b9d60-cc82-4cd5-8a61-0b33d6a79fab&sc_channel=ps`
+  Use the shorter form, since any query parameters or fragments in a rule are
+  ignored when it is evaluated.
+
 ## Example configurations
 
 ### Example 1: Redact a payment page and a legacy desktop application

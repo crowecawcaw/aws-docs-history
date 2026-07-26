@@ -20,6 +20,7 @@ widgets in your dashboards. For more information, see. [Custom metrics](custom-m
 - [Add comparisons to the Trailing performance widgets](#add-comparisons "#add-comparisons")
 - [Configure groupings](#configure-groupings "#configure-groupings")
 - [Configure filters](#configure-filters "#configure-filters")
+- [Filter by queue type](#filter-by-queue-type "#filter-by-queue-type")
 - [Modify thresholds for summary widgets and tables](#dashboard-thresholds "#dashboard-thresholds")
 - [Add or remove
   widgets](#dashboard-add-widgets "#dashboard-add-widgets")
@@ -133,6 +134,78 @@ The following image shows filters for the **Trailing agent
 performance** metrics.
 
 ![An example of filters you can add for a widget.](images/dashboards-configurable-filters.png)
+
+## Filter by queue type
+
+You can filter dashboard widgets by agent queues to view performance data for
+specific agents or groups of agents organized by hierarchy. In Connect Customer, there
+are two types of queues:
+
+- **Standard queue** – Queues that route contacts to available agents. Examples include support
+  queues, sales queues, or general inquiry queues.
+- **Agent queue** – Personal queues that route contacts directly to individual agents.
+
+###### Note
+
+The **Agent queue** filter is different from the
+**Agent** filter available in the standard
+filter dropdown. The Agent filter shows metrics for contacts that specific agents handled,
+regardless of which queue routed the contact. The Agent queue filter shows metrics
+for contacts that agent queues (personal queues) routed, filtering by queue type
+rather than by who handled the contact.
+
+### Filter Agent queue metrics by individual agents
+
+The following image shows the agent search dropdown in Agent queue
+mode.
+
+![Screenshot of the agent queue filter panel in Agent queue mode, showing the agent search dropdown where you can search for and choose individual agents.](images/agent-queue-filter-agent-search.png)
+
+1. On a widget, choose the Queue filter chip (or add a Queue filter
+   if one doesn't exist).
+2. Choose **Agent queue** from the segmented control
+   at the top of the filter panel.
+3. From the dropdown, choose **Agent**.
+4. Search for and choose one or more agents.
+5. Choose **Apply**.
+
+The filter chip updates to show your selection, as shown in the following
+image.
+
+![Screenshot of an agent queue filter chip displaying a selected agent, showing the label Agent queue: Agent: John Doe.](images/agent-queue-filter-chip-agent.png)
+
+When no specific agents are selected, the chip indicates that metrics
+include all agent queues, as shown in the following image.
+
+![Screenshot of an agent queue filter chip displaying Agent queue (All), indicating that no specific agents are selected and metrics include all agent queues.](images/agent-queue-filter-chip-all.png)
+
+### Filter Agent queue metrics by agent hierarchy (real-time contact widgets only)
+
+The following image shows the Agent and Agent hierarchy options.
+
+![Screenshot of the agent queue filter panel showing the Agent and Agent hierarchy dropdown options for filtering by agent queue mode.](images/agent-queue-filter-hierarchy.png)
+
+1. On a widget, choose the Queue filter chip.
+2. Choose **Agent queue** from the segmented
+   control.
+3. From the dropdown, choose **Agent hierarchy**. (You can also choose **Agent** to filter by individual agents instead.)
+4. Choose values at each hierarchy level to drill down into your
+   organization structure (for example, by division, department, or
+   team).
+5. Choose **Apply**.
+
+The filter chip updates to show the deepest hierarchy level selected, as
+shown in the following image.
+
+![Screenshot of an agent queue filter chip displaying the agent hierarchy selection, showing the label Agent queue: Agent hierarchy: Canada (Level 1).](images/agent-queue-filter-chip-hierarchy.png)
+
+### Things to know
+
+- When a widget is filtered for agent queues, table rows don't support the one-click drilldown feature.
+- The filter count badge on the widget counts the entire agent queue
+  filter as a single filter, regardless of how many hierarchies are
+  selected.
+- Historical widgets don't support agent hierarchy filtering when filtered for agent queues because they already support agent hierarchy filtering in the standard filters.
 
 ## Modify thresholds for summary widgets and tables
 

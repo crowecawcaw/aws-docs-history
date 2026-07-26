@@ -5,12 +5,12 @@ capabilities.
 
 ###### Contents
 
-- [General specifications](#faq-sr-general "#faq-sr-general")
-- [Configuration](#faq-sr-configuration "#faq-sr-configuration")
-- [Performance](#faq-sr-performance "#faq-sr-performance")
+- [Screen recording FAQ](#faq-screen-recording-questions "#faq-screen-recording-questions")
 - [Rule-based redaction FAQ](#faq-sr-rule-based-redaction "#faq-sr-rule-based-redaction")
 
-## General specifications
+## Screen recording FAQ
+
+### General specifications
 
 - **What is the file format of screen
   recordings?**
@@ -138,7 +138,7 @@ CCP instances simultaneously either in the same or different browsers. You
 might see inconsistent behavior with screen recordings in these
 cases.
 
-## Configuration
+### Configuration
 
 - **Can I opt only for screen recording and not for call
   recording?**
@@ -186,8 +186,7 @@ By default, the screen recording uses the unredacted audio. If you enable
 [rule-based
 redaction](rule-based-redaction-screen-recording.md "rule-based-redaction-screen-recording.md") for the contact, the redacted screen recording is
 stitched with the redacted call recording when Contact Lens call recording redaction is
-also enabled for the contact, and has no audio otherwise. The unredacted
-screen recording continues to use the unredacted audio.
+also enabled for the contact, and has no audio otherwise.
 
 - **Is there a service limit for screen
   recording?**
@@ -214,7 +213,20 @@ Screen recording can record up to 3 screens/monitors.
 No, the same key should be used at bucket level and also as part of
 instance data storage configuration.
 
-## Performance
+- **Where are screen recordings
+  stored?**
+
+Screen recordings are delivered to your Amazon S3 bucket under the
+following prefix:
+
+```
+s3://`your-bucket`/connect/`your-instance-alias`/ScreenRecordings/`year`/`month`/`day`/`contact-id`_`UTC-timestamp`.mp4
+```
+
+By default, the path prefix is `ScreenRecordings`, but
+this prefix is configurable.
+
+### Performance
 
 - **What are the bandwidth requirements for screen
   recording?**
@@ -234,6 +246,8 @@ issues.
 
 ## Rule-based redaction FAQ
 
+### General specifications
+
 - **Do I need to replace my existing screen recording
   setup to use rule-based redaction?**
 
@@ -241,6 +255,12 @@ No. [Rule-based redaction
 for screen recordings](rule-based-redaction-screen-recording.md "rule-based-redaction-screen-recording.md") is an
 extension of Connect Customer agent screen recording. You enable it on a per-contact
 basis through a contact flow.
+
+- **Is there an additional charge for rule-based
+  redaction?**
+
+Rule-based redaction is included with Connect Customer agent screen recording at no
+additional charge. Standard recording and storage rates apply.
 
 - **Does rule-based redaction affect storage
   costs?**
@@ -250,11 +270,23 @@ bucket. You pay standard Amazon S3 storage rates for both files. If you do not n
 to retain the unredacted originals, you can use an Amazon S3 lifecycle policy to
 expire them on a shorter schedule than the redacted versions.
 
-- **Is there an additional charge for rule-based
-  redaction?**
+- **Does rule-based redaction apply to call
+  recordings?**
 
-Rule-based redaction is included with Connect Customer agent screen recording at no
-additional charge. Standard recording and storage rates apply.
+Rule-based redaction applies only to agent screen recordings. It does not
+redact audio. When rule-based redaction is enabled for a contact, Connect Customer
+stitches the redacted video with the redacted call recording if Contact Lens call
+recording redaction is also enabled for the contact, and with no audio
+otherwise. To redact audio from call recordings, see [Use
+sensitive data redaction with Contact Lens](sensitive-data-redaction.md "sensitive-data-redaction.md").
+
+- **Does rule-based redaction use artificial
+  intelligence or machine learning?**
+
+No. Rule-based redaction is purely pattern matching. It evaluates each
+browser page URL and application window title against the rules you
+configure, and does not use artificial intelligence, machine learning, or
+generative AI.
 
 - **Can I redact only part of a page, such as a single
   form field?**
@@ -280,21 +312,35 @@ cover those cases, add window title rules that match on the browser's window
 title, or use group policy to restrict agents to Chrome, Edge, or Firefox
 during recorded contacts.
 
-- **Does rule-based redaction apply to call
-  recordings?**
+- **How does redaction behave with multiple browser
+  windows or tabs, or when a matching page is left open in the
+  background?**
 
-Rule-based redaction applies only to agent screen recordings. It does not
-redact audio. When rule-based redaction is enabled for a contact, Connect Customer
-stitches the redacted video with the redacted call recording if Contact Lens call
-recording redaction is also enabled for the contact, and with no audio
-otherwise. To redact audio from call recordings, see [Use
-sensitive data redaction with Contact Lens](sensitive-data-redaction.md "sensitive-data-redaction.md").
+Redaction follows what is visible on screen, not which window the agent is
+actively using:
 
-- **Can I change the redaction rule during an active
-  contact?**
+    + Each browser window is evaluated independently. A matching window
+     is masked; non-matching windows remain visible.
+    + For multiple tabs in the same window, redaction follows the visible
+     tab. If the visible tab matches a rule, the whole window is masked. If
+     a matching page is open but is not the visible tab, that window is not
+     masked.
+    + A matching window stays masked whenever it is visible, even if the
+     agent is working in another window beside it. Only the visible portion
+     is masked — if the matching window is covered, minimized, or on an
+     inactive tab, there is nothing on screen to mask.
+    + On the first contact after an agent begins their session, if a
+     matching page was opened before the extension observed it, that window
+     may briefly not be masked at the start of the recording. Redaction
+     applies as soon as the agent selects any tab in the window, and
+     subsequent contacts are unaffected.
 
-No. The redaction configuration is fixed for the duration of a
-contact.
+- **Does rule-based redaction pause or stop the recording
+  when a matching window is detected?**
+
+No. The agent's screen is captured continuously throughout the contact.
+Matching windows are masked only in the final redacted recording that is
+produced after the contact ends; the capture itself is never paused.
 
 - **Can I preview a redacted recording before the contact
   ends?**
@@ -302,13 +348,81 @@ contact.
 No. Redaction is applied when the recording is assembled after the contact
 ends.
 
+- **Are agents notified when they visit a page that
+  matches a redaction rule?**
+
+No. Agents are not notified when a page or window matches a redaction rule.
+Connect Customer does not provide a built-in notification for rule matches.
+
+- **What browser information can the Connect Customer browser
+  extension access?**
+
+The extension only reads the URL of each browser page and the title of the
+visible tab. It cannot access other browser data such as cookies, page
+content, or browsing history. These URLs and window titles are the only
+information used to match your redaction rules.
+
+- **What APIs does rule-based redaction consume, and how
+  are they authenticated?**
+
+Rule-based redaction introduces no new public APIs, and the browser
+extension consumes none. The extension communicates locally with the Connect Customer Client Application
+on the agent's workstation using the browser's native messaging channel; the
+extension is signed and scoped to the Connect Customer native messaging host. Redaction
+reuses the existing screen recording upload path, so it inherits that path's
+authentication and authorization — no additional credentials or permissions
+are required.
+
+- **What happens if the Connect Customer browser extension fails or
+  is not running?**
+
+Because redaction is applied after the contact ends, the extension does no
+real-time video processing during the contact — it only reports page URLs and
+window titles — so it is unlikely to affect the responsiveness of the agent's
+desktop. The possible failure cases are:
+
+    + If the extension is not installed or not running, URLs are not
+     reported, so URL rules cannot match and browser pages that should be
+     redacted by URL may appear in the recording. Window title rules do not
+     depend on the extension and continue to work.
+    + The extension does not connect to Connect Customer directly; it communicates
+     with the Connect Customer Client Application on the agent's workstation. If the Connect Customer Client Application is not
+     running, screen recording does not function at all — not only
+     redaction.
+    + If the extension fails to report a matching URL during a contact,
+     that page is not masked in the final output, and the unredacted
+     recording still contains the full capture.
+
+For troubleshooting, see [Download log files for the screen
+recording app](troubleshoot-sr.md "troubleshoot-sr.md").
+
+### Configuration
+
+- **Does rule-based redaction require Conversational
+  Analytics (Contact Lens)?**
+
+No. The URL and window-title matching that drives rule-based redaction is
+independent of Contact Lens and works without it enabled. However, audio in the
+_redacted_ recording does depend on it: when rule-based
+redaction is enabled for a contact, the redacted screen recording is stitched
+with the redacted call recording only if Contact Lens call recording redaction is
+also enabled for that contact — otherwise the redacted recording has no
+audio. The unredacted screen recording always uses the unredacted
+audio.
+
+- **Can I change the redaction rule during an active
+  contact?**
+
+No. The redaction configuration is fixed for the duration of a
+contact.
+
 - **Where are redacted recordings stored?**
 
 Redacted recordings are stored in the same Amazon S3 bucket as unredacted
 recordings, under a separate prefix:
 
 ```
-s3://`your-bucket`/Analysis/ScreenRecordings/Redacted/`year`/`month`/`day`/`contact-id`_screen_recording_redacted_`UTC-timestamp`.mp4
+s3://`your-bucket`/connect/`your-instance-alias`/Analysis/ScreenRecordings/Redacted/`year`/`month`/`day`/`contact-id`_screen_recording_redacted_`UTC-timestamp`.mp4
 ```
 
 - **How can I audit whether a specific contact was
@@ -324,3 +438,23 @@ model](ctr-data-model.md "ctr-data-model.md").
 
 Yes. You can use the [SuspendContactRecording](../APIReference/API_SuspendContactRecording.md "../APIReference/API_SuspendContactRecording.md") and [ResumeContactRecording](../APIReference/API_ResumeContactRecording.md "../APIReference/API_ResumeContactRecording.md") APIs for screen recording in conjunction
 with rule-based redaction.
+
+### Performance
+
+- **Does enabling rule-based redaction delay when a
+  recording is available?**
+
+Your unredacted screen recording is unaffected — it is captured, delivered,
+and available on the same timeline as before. Redaction runs as a separate
+post-processing step, so the redacted recording becomes available once both
+the redacted screen recording and the redacted call recording have finished
+processing.
+
+- **How much CPU and memory does the browser extension
+  add?**
+
+The browser extension is lightweight — it only reports page URLs and window
+titles to the Connect Customer Client Application — and adds roughly 1% additional CPU and memory usage
+on top of the existing screen recording baseline. The most resource-intensive
+component remains the screen capture process in the Connect Customer Client Application. Follow the
+minimum system requirements in [System requirements](sr-system-req.md#sr-requirements "sr-system-req.md#sr-requirements").

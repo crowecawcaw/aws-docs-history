@@ -27,30 +27,30 @@ The following tables contain flow data.
 - `flow_resource_id` — Joins to flow configuration data
 - `next_queue_resource_id` — Joins to Contact Record (as `queue_id`), Agent Queue Statistic Record (as `queue_id`)
 
-| **Column**                             | **Type**  | **Description**                                                                                                                                                                                  |     |
-| -------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- |
-| instance\_id                           | string    | The identifier of the Connect Customer instance. You can [find the instance ID](find-instance-arn.md "find-instance-arn.md") in the Amazon Resource Name (ARN)<br>of the instance.               |     |
-| event\_id                              | string    | The ID of the contact as it interacts with the flow.                                                                                                                                             |     |
-| aws\_account\_id                       | string    | The ID of the AWS account that owns the contact.                                                                                                                                                 |     |
-| instance\_arn                          | string    | The ARN of the Connect Customer instance.                                                                                                                                                        |     |
-| contact\_id                            | string    | The ID of the contact in the contact record.                                                                                                                                                     |     |
-| flow\_resource\_id                     | string    | Flow Id                                                                                                                                                                                          |     |
-| module\_resource\_id                   | string    | Module Id                                                                                                                                                                                        |     |
-| resource\_version                      | string    | Version of the contact flow used.                                                                                                                                                                |     |
-| resource\_type                         | string    | Can be flow or module.                                                                                                                                                                           |     |
-| channel                                | string    | The method used to contact your contact center: VOICE, CHAT,<br>TASK, EMAIL.                                                                                                                     |     |
-| start\_timestamp                       | Timestamp | Date and time of the start event in unix epoch, UTC                                                                                                                                              |     |
-| end\_timestamp                         | Timestamp | Date and time of the end event    in unix epoch, UTC.                                                                                                                                            |     |
-| next\_flow\_resource\_id               | string    | Next contact flow resourceId.                                                                                                                                                                    |     |
-| next\_queue\_resource\_id              | string    | Next queue resourceId.                                                                                                                                                                           |     |
-| next\_resource\_type                   | string    | It can be flow or queue.                                                                                                                                                                         |     |
-| flow\_language\_version                | string    | Flow language version.                                                                                                                                                                           |     |
-| flow\_outcome                          | string    | This will contain the system defined and custom outcomes.                                                                                                                                        |     |
-| sub\_type                              | string    | This field can be used to show channel subtype. For example,<br>connect:Guide or connect:SMS or connect:Email.                                                                                   |     |
-| flow\_type                             | string    | Connect Customer includes a set of nine flow types. For more information,<br>see [Choose a flow type](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types").    |     |
-| initiation\_method                     | string    | Every contact in your Connect Customer contact center is initiated by one<br>of the following methods: Inbound, Outbound, Transfer, Callback,<br>API, Queue Transfer, Disconnect.                |     |
-| resource\_published\_timestamp         | Timestamp | "Creation" or "revision" date of the flow<br>itself.                                                                                                                                             |     |
-| data\_lake\_last\_processed\_timestamp | Timestamp | The Timestamp, which shows the last time the data lake processed<br>the record. This can include transformation and backfill. This field<br>cannot reliably be used to determine data freshness. |     |
+| **Column**                             | **Type**  | **Nullable** | **Description**                                                                                                                                                                                  |
+| -------------------------------------- | --------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| instance\_id                           | string    | No           | The identifier of the Connect Customer instance. You can [find the instance ID](find-instance-arn.md "find-instance-arn.md") in the Amazon Resource Name (ARN)<br>of the instance.               |
+| event\_id                              | string    | No           | The ID of the contact as it interacts with the flow.                                                                                                                                             |
+| aws\_account\_id                       | string    | No           | The ID of the AWS account that owns the contact.                                                                                                                                                 |
+| instance\_arn                          | string    | No           | The ARN of the Connect Customer instance.                                                                                                                                                        |
+| contact\_id                            | string    | No           | The ID of the contact in the contact record.                                                                                                                                                     |
+| flow\_resource\_id                     | string    | No           | Flow Id                                                                                                                                                                                          |
+| module\_resource\_id                   | string    | No           | Module Id                                                                                                                                                                                        |
+| resource\_version                      | string    | No           | Version of the contact flow used.                                                                                                                                                                |
+| resource\_type                         | string    | No           | Can be flow or module.                                                                                                                                                                           |
+| channel                                | string    | No           | The method used to contact your contact center: VOICE, CHAT,<br>TASK, EMAIL.                                                                                                                     |
+| start\_timestamp                       | Timestamp | No           | Date and time of the start event in unix epoch, UTC                                                                                                                                              |
+| end\_timestamp                         | Timestamp | No           | Date and time of the end event    in unix epoch, UTC.                                                                                                                                            |
+| next\_flow\_resource\_id               | string    | No           | Next contact flow resourceId.                                                                                                                                                                    |
+| next\_queue\_resource\_id              | string    | No           | Next queue resourceId.                                                                                                                                                                           |
+| next\_resource\_type                   | string    | No           | It can be flow or queue.                                                                                                                                                                         |
+| flow\_language\_version                | string    | No           | Flow language version.                                                                                                                                                                           |
+| flow\_outcome                          | string    | No           | This will contain the system defined and custom outcomes.                                                                                                                                        |
+| sub\_type                              | string    | No           | This field can be used to show channel subtype. For example,<br>connect:Guide or connect:SMS or connect:Email.                                                                                   |
+| flow\_type                             | string    | No           | Connect Customer includes a set of nine flow types. For more information,<br>see [Choose a flow type](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types").    |
+| initiation\_method                     | string    | No           | Every contact in your Connect Customer contact center is initiated by one<br>of the following methods: Inbound, Outbound, Transfer, Callback,<br>API, Queue Transfer, Disconnect.                |
+| resource\_published\_timestamp         | Timestamp | No           | "Creation" or "revision" date of the flow<br>itself.                                                                                                                                             |
+| data\_lake\_last\_processed\_timestamp | Timestamp | No           | The Timestamp, which shows the last time the data lake processed<br>the record. This can include transformation and backfill. This field<br>cannot reliably be used to determine data freshness. |
 
 ## Connect test case execution results
 
@@ -71,8 +71,8 @@ The following tables contain flow data.
 - `connect_test_case_associated_initial_contact_id` — Joins to Contact Record (as `contact_id`)
 - `connect_test_case_initiating_flow_id` — Joins to Contact Flow Events (as `flow_resource_id`)
 
-Connect Test Case Execution Results| Column | Type | Description |
-| --- | --- | --- |
+Connect Test Case Execution Results| Column | Type | Nullable | Description |
+| --- | --- | --- | --- |
 | instance\_id | string | Yes | The identifier of the Amazon Connect instance |
 | instance\_arn | string | Yes | The ARN of the Amazon Connect instance. |
 | aws\_account\_id | string | Yes | The ID of the AWS account that owns the contact. |
@@ -92,3 +92,4 @@ Connect Test Case Execution Results| Column | Type | Description |
 | connect\_test\_case\_associated\_contact\_ids | array(string) | Yes | List of contact IDs created as part of Test. |
 | connect\_test\_case\_initiating\_flow\_id | string | Yes | First resource ID Test Execution started with. |
 | record\_creation\_timestamp | timestamp | Yes | The time of record creation |
+| data\_lake\_last\_processed\_timestamp | Timestamp | Yes | The timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot reliably be used to determine data freshness. |

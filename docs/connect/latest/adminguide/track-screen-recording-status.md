@@ -2,6 +2,12 @@
 
 With Amazon EventBridge, you can view the status of [agent screen recordings](agent-screen-recording.md "agent-screen-recording.md") in near real-time. The event for each agent screen recording includes success/failure status, failure codes with descriptions, recording location, recording size, installed client version, and screen recording start and end times.
 
+###### Note
+
+Screen recording status tracking with Amazon EventBridge is available in every AWS Region
+that supports [Connect Customer agent screen
+recording](agent-screen-recording.md "agent-screen-recording.md"), except AWS GovCloud (US-West).
+
 You can integrate with other AWS services to get analytical or monitoring insights of agent screen recordings:
 
 - Query with [Amazon CloudWatch Log Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md")
@@ -42,7 +48,7 @@ This event is emitted when a contact is accepted by the agent, which may be befo
     "contactArn": "arn:aws:connect:us-west-2:your_aws_account_id:instance/your_instance_id/contact/your_contact_id",
     "agentArn": "arn:aws:connect:us-west-2:your_aws_account_id:instance/your_instance_id/agent/your_agent_id",
     "clientInfo": {
-      "appVersion": "2.0.3.0",
+      "appVersion": "3.0.2.0",
     }
   }
 }
@@ -73,7 +79,7 @@ This event is emitted when screen recording ends on the agent desktop. This does
     "contactArn": "arn:aws:connect:us-west-2:your_aws_account_id:instance/your_instance_id/contact/your_contact_id",
     "agentArn": "arn:aws:connect:us-west-2:your_aws_account_id:instance/your_instance_id/agent/your_agent_id",
     "clientInfo": {
-      "appVersion": "2.0.3.0",
+      "appVersion": "3.0.2.0",
     },
     "recordingInfo": {
       "startTime": "2026-01-01T00:00:00.000Z",
@@ -108,13 +114,13 @@ This event is emitted when the screen recording is successfully uploaded to your
     "contactArn": "arn:aws:connect:us-west-2:your_aws_account_id:instance/your_instance_id/contact/your_contact_id",
     "agentArn": "arn:aws:connect:us-west-2:your_aws_account_id:instance/your_instance_id/agent/your_agent_id",
     "clientInfo": {
-      "appVersion": "2.0.3.0",
+      "appVersion": "3.0.2.0",
     },
     "recordingInfo": {
       "startTime": "2026-01-01T00:00:00.000Z",
       "endTime": "2026-01-01T00:00:00.000Z",
       "publishTime": "2026-01-01T00:00:00.000Z",
-      "location": "s3://your-bucket-name/object-prefix/object-key",
+      "location": "s3://your-bucket-name/connect/your-instance-alias/object-prefix/object-key",
       "durationInMillis": 100000,
       "sizeInBytes": 1000000
     }
@@ -147,12 +153,12 @@ This event is emitted if screen recording fails. The failure information include
     "contactArn": "arn:aws:connect:us-west-2:your_aws_account_id:instance/your_instance_id/contact/cccccccc-cccc-cccc-cccc-ccccccccccccc",
     "agentArn": "arn:aws:connect:us-west-2:your_aws_account_id:instance/your_instance_id/agent/your_agent_id",
     "clientInfo": {
-      "appVersion": "2.0.3.0",
+      "appVersion": "3.0.2.0",
     },
     "failureInfo": {
       "code": "UNKNOWN",
-      "message": "UNKNOWN",
-      "source": "Unknown failure"
+      "message": "Unknown failure",
+      "source": "UNKNOWN"
     },
     "recordingInfo": {
       "startTime": "2026-01-01T00:00:00.000Z"
@@ -160,6 +166,21 @@ This event is emitted if screen recording fails. The failure information include
   }
 }
 ```
+
+The following table lists the possible values in the
+`failureInfo` object.
+
+| code                                  | message                                                                                                   | source    |
+| ------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------- |
+| `CLIENT_LOCAL_NETWORK_ACCESS_BLOCKED` | The browser's local network access policy blocked the connection to the Amazon Connect Client Application | `CLIENT`  |
+| `CLIENT_APP_NOT_RUNNING`              | The Amazon Connect Client Application is not running on the agent's desktop                               | `CLIENT`  |
+| `CLIENT_UNSUPPORTED_OS`               | The agent's operating system is not supported for screen recording                                        | `CLIENT`  |
+| `CLIENT_AUTH_ERROR`                   | The Amazon Connect Client Application failed to authenticate                                              | `CLIENT`  |
+| `CLIENT_CONNECTION_ERROR`             | Amazon Connect Client Application is not connected                                                        | `CLIENT`  |
+| `MULTIPLE_CCP_INTERACTION`            | Detected multiple browser interactions with CCP                                                           | `CLIENT`  |
+| `USER_ERROR`                          | Request encountered an user configuration error                                                           | `CLIENT`  |
+| `SERVICE_ISSUE`                       | Request encountered a service exception                                                                   | `SERVICE` |
+| `UNKNOWN`                             | Unknown failure                                                                                           | `UNKNOWN` |
 
 ## Create a rule to match Amazon EventBridge events
 

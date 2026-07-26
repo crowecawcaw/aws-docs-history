@@ -1,8 +1,14 @@
 # Visual Journey Builder
 
-On the Outbound Campaigns page, you will have two options to create an outbound campaigns:
-Visual Journey Builder for multi-channel and multi-steps using an intuitive drag-and-drop canvas,
-or Guided Campaign Builder to create a single-channel with step-by-step guidance.
+A journey is an automated, multi-step outbound campaign. It reaches your customers across
+more than one channel, such as SMS, email, and voice. Each step can branch based on how a
+customer responds, so you can guide different customers down different paths.
+
+Use the Visual Journey Builder to create a journey when your outreach needs more than a
+single message on one channel. For example, you can send a promotional SMS, and then email the
+customers who do not respond. To create a single-channel campaign instead, use the [Guided Campaign Builder](guided-campaign-builder.md "guided-campaign-builder.md").
+
+The following steps show you how to create a journey with the Visual Journey Builder.
 
 1. From the **Outbound Campaigns** page, choose **Create Journey**.
 2. Enter a journey **Name**.

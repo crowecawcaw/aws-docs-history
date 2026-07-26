@@ -25,5 +25,6 @@ engage with their customers through this intuitive interface.
 
 - [Enable Profile explorer](enabling-profile-explorer.md "enabling-profile-explorer.md")
 - [Get started](getting-started-profile-explorer.md "getting-started-profile-explorer.md")
+- [Manage layouts](manage-layouts.md "manage-layouts.md")
 - [Layout definition](layout-definition.md "layout-definition.md")
 - [Add Profile explorer to the agent workspace](add-profileexplorer-to-agentworkspace.md "add-profileexplorer-to-agentworkspace.md")

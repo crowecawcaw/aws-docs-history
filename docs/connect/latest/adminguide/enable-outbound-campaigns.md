@@ -28,6 +28,9 @@ You need a few things to use outbound campaigns:
 
 - Make sure your Connect Customer instance is [enabled for
   outbound calling](enable-outbound-calls.md "enable-outbound-calls.md").
+- Request a service quota increase for outbound campaign calls. By default, the service
+  quota for concurrent campaign calls is 0. To submit a request, see [Requesting a quota
+  increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
 - Create a dedicated outbound campaigns queue to handle any contacts that will be routed to
   agents as a result of the campaign.
 - Assign the queue to the agent's routing profile.

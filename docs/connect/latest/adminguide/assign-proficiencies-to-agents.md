@@ -1,7 +1,8 @@
 # Assign proficiencies to agents in your Connect Customer instance
 
 A proficiency consists of a predefined attribute name, its value, and a proficiency level.
-The level is a numeric value of 1, 2, 3, 4, or 5. After you have created predefined
+The level is a numeric value of 1, 2, 3, 4, or 5, where 1 indicates the lowest proficiency
+and 5 indicates the highest. After you have created predefined
 attribute, you can assign one or more proficiencies to an agent.
 
 For example, Agent1 and Agent2 may be proficient in multiple technologies at varying

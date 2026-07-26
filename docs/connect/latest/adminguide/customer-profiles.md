@@ -30,7 +30,7 @@ quick access to customer profile information all within the same browser window.
    profile](standard-profile-definition.md "standard-profile-definition.md"), as well as further profile information such as cell phone
    number and shipping address. This information will be sorted alphabetically to help
    an agent quickly locate the information they need.
-3. **Contact history**: Date, times, and duration when this customer
+3. **Contact history**: Date, channel, and duration of when this customer
    contacted your contact center in the past.
 4. **Product purchase history**: All the assets purchased by a
    customer can be populated here. The data is ingested from an external app such as

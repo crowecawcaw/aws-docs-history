@@ -1,12 +1,11 @@
-# Use the agent workspace to optimize audio for Citrix, Amazon WorkSpaces, and Omnissa cloud desktops
+# Use the agent workspace to optimize audio for Amazon WorkSpaces, Citrix, Omnissa, Azure Virtual Desktop, and Windows 365 cloud desktops
 
 You can use the Connect Customer agent workspace to simplify the delivery of high-quality voice
 experiences in Amazon WorkSpaces, Citrix, Omnissa, Azure Virtual Desktop, and Windows 365
 Virtual Desktop Infrastructure (VDI) environments.
 
 Connect Customer supports [audio optimization for
-Amazon WorkSpaces](using-ccp-vdi-workspaces.md "using-ccp-vdi-workspaces.md"), [Citrix](using-ccp-vdi-citrix-step-by-step.md "using-ccp-vdi-citrix-step-by-step.md"), [Omnissa](using-ccp-vdi-omnissa-step-by-step.md "using-ccp-vdi-omnissa-step-by-step.md"), and [Azure
-Virtual Desktop and Windows 365](using-ccp-vdi-azure-step-by-step.md "using-ccp-vdi-azure-step-by-step.md") cloud desktops. This optimization
+Amazon WorkSpaces](using-ccp-vdi-workspaces.md "using-ccp-vdi-workspaces.md"), [Citrix](using-ccp-vdi-citrix-step-by-step.md "using-ccp-vdi-citrix-step-by-step.md"), [Omnissa](using-ccp-vdi-omnissa-step-by-step.md "using-ccp-vdi-omnissa-step-by-step.md"), and [Azure Virtual Desktop and Windows 365](using-ccp-vdi-azure-step-by-step.md "using-ccp-vdi-azure-step-by-step.md") cloud desktops. This optimization
 redirects media from an agent's local desktop to Connect Customer. It streamlines the agent
 experience and improves audio quality by reducing network hops. Your agents can use
 these audio optimizations in the agent workspace.

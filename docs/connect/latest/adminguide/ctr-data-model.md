@@ -46,6 +46,12 @@ contains new data than previous copies. Then use the
   _Contact Trace Records (CTR)_. Now we use the term
   _contact record_ only. There is no difference between the
   two terms.
+- You can delete personally identifiable information (PII) from a terminated
+  contact and its contact record using the [DeleteContactData API reference](../APIReference/API_DeleteContactData.md "../APIReference/API_DeleteContactData.md"). When you redact a field,
+  the DeleteContactData API sets its value to `null` and updates the
+  `connect:RedactedFields` segment attribute with the categories
+  of PII that you redacted. This operation permanently deletes the specified
+  PII; you cannot undo it. For more information, see the [SegmentAttributes](#segmentattributes "#segmentattributes") field and [Segment attributes](connect-attrib-list.md#attribs-segment-attributes "connect-attrib-list.md#attribs-segment-attributes").
 
 ## Agent
 
@@ -628,6 +634,12 @@ The customer or external third party participant endpoint.
 Type: [Endpoint](#ctr-endpoint "#ctr-endpoint"),
 `EMAIL_ADDRESS`
 
+If you redacted this field using the [DeleteContactData API reference](../APIReference/API_DeleteContactData.md "../APIReference/API_DeleteContactData.md") (by specifying
+`CUSTOMER_ENDPOINT`), the DeleteContactData API sets this
+field to `null`. The `connect:RedactedFields` segment
+attribute lists the categories of PII that you redacted from the contact.
+For more information, see [SegmentAttributes](#segmentattributes "#segmentattributes").
+
 **CustomerVoiceActivity**
 
 This field is populated for calls using answering machine detection (AMD),
@@ -927,6 +939,7 @@ scenario, see [Queued callbacks in real-time metrics in Connect Customer](about-
 
 A disconnect event is when:
 
+    + A voice call ends when the customer hangs up, the agent hangs up, or the call drops because of a telecom or network issue.
     + A chat, or task is disconnected.
     + A task is disconnected as a result of a flow action.
     + A task expires. The task is automatically disconnected when it completes its expiry timer.
@@ -1140,6 +1153,14 @@ email contacts.
 This field can be used to show channel subtype. For example,
 `connect:Guide` or `connect:SMS`.
 
+When you redact PII from a contact using the [DeleteContactData API reference](../APIReference/API_DeleteContactData.md "../APIReference/API_DeleteContactData.md"), the
+`connect:RedactedFields` segment attribute appears in the
+contact record, listing the categories of PII that you redacted, for
+example `CUSTOMER_ENDPOINT,EMAIL_SUBJECT`. If you redact the
+`EMAIL_SUBJECT` category, the DeleteContactData API sets
+the value of the `connect:EmailSubject` segment attribute to
+`null`. For more information, see [Segment attributes](connect-attrib-list.md#attribs-segment-attributes "connect-attrib-list.md#attribs-segment-attributes").
+
 Type: SegmentAttributes
 
 Members: SegmentAttributeName,
@@ -1176,6 +1197,13 @@ The To and CC fields.
 Type: String
 
 Length: 1-256
+
+If you redacted this field using the [DeleteContactData API reference](../APIReference/API_DeleteContactData.md "../APIReference/API_DeleteContactData.md") (by specifying
+`ADDITIONAL_EMAIL_RECIPIENTS`), the DeleteContactData API
+sets this field to `null`. This category is supported only for
+contacts in the email channel. The `connect:RedactedFields`
+segment attribute lists the categories of PII that you redacted from the
+contact. For more information, see [SegmentAttributes](#segmentattributes "#segmentattributes").
 
 **ContactAssociationId**
 

@@ -49,8 +49,10 @@ a download **Chat Transcript** button.
 
 ![Shows button to download chat transcript.](images/chat-widget-download-transcript-pdf-1.png)
 
-Choosing download **Chat Transcript** will start a PDF download.
-The PDF of the chat transcript will show all messages, display names, time stamps
-and message events, such as participants leaving or joining.
+Choosing **Chat Transcript** opens your browser's print dialog.
+To save the transcript as a PDF, select **Save as PDF** as the
+destination in the print dialog. The PDF of the chat transcript will show all
+messages, display names, time stamps and message events, such as participants
+leaving or joining.
 
 ![Downloaded chat transcript example.](images/chat-widget-download-transcript-pdf-2.png)

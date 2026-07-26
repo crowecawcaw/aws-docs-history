@@ -66,7 +66,7 @@ This flow block is designed to be used in the following scenarios:
 | Voice        | Yes                                                                                                                                                 |
 | Chat         | Yes<br>If a chat contact is routed to this block, but the block is<br>configured for calls, the contact is routed down the<br>*_Error_<br>• branch. |
 | Task         | Yes<br>If a task contact is routed to this block, but the block is<br>configured for calls, the contact is routed down the<br>*_Error_<br>• branch. |
-| Email        | No<br>• takes the *_Success_<br>• branch but it<br>has no effect                                                                                    |
+| Email        | No. An email contact routed to this block takes the<br>*_Error_<br>• branch.                                                                        |
 
 If a callback contact without an agent or customer is routed to this block, the
 contact is routed down the **Error** branch.
@@ -76,17 +76,17 @@ contact is routed down the **Error** branch.
 You can use this block in the following [flow
 types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"):
 
-| Flow type              | Supported?                                                                                          |
-| ---------------------- | --------------------------------------------------------------------------------------------------- |
-| Inbound flow           | Yes                                                                                                 |
-| Customer queue flow    | Yes. You can play prompts from the Connect Customer library but not<br>prompts stored in Amazon S3. |
-| Customer hold flow     | No, use [Loop prompts](loop-prompts.md "loop-prompts.md") flow block<br>instead                     |
-| Customer whisper flow  | Yes. You can play prompts from the Connect Customer library but not<br>prompts stored in Amazon S3. |
-| Outbound whisper flow  | Yes. You can play prompts from the Connect Customer library but not<br>prompts stored in Amazon S3. |
-| Agent hold flow        | No, use [Loop prompts](loop-prompts.md "loop-prompts.md") flow block instead                        |
-| Agent whisper flow     | Yes. You can play prompts from the Connect Customer library but not<br>prompts stored in Amazon S3. |
-| Transfer to agent flow | Yes                                                                                                 |
-| Transfer to queue flow | Yes                                                                                                 |
+| Flow type              | Supported?                                                                      |
+| ---------------------- | ------------------------------------------------------------------------------- |
+| Inbound flow           | Yes                                                                             |
+| Customer queue flow    | Yes                                                                             |
+| Customer hold flow     | No, use [Loop prompts](loop-prompts.md "loop-prompts.md") flow block<br>instead |
+| Customer whisper flow  | Yes                                                                             |
+| Outbound whisper flow  | Yes                                                                             |
+| Agent hold flow        | No, use [Loop prompts](loop-prompts.md "loop-prompts.md") flow block instead    |
+| Agent whisper flow     | Yes                                                                             |
+| Transfer to agent flow | Yes                                                                             |
+| Transfer to queue flow | Yes                                                                             |
 
 ## How to configure this block
 

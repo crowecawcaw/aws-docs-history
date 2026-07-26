@@ -106,20 +106,18 @@ softphone: {
 }
 ```
 
-###### Important
-
-When `VDIPlatform` is set to `AZURE`, the CCP does
-not fall back to standard web browser audio if Azure audio optimization
-fails. This means calls fail, and the agent sees an error, if an agent
-accesses the CCP outside an Azure VDI environment, on an unsupported
-browser, or without the MMR extension active.
-
 ###### Note
 
+When `VDIPlatform` is set to `AZURE`, the CCP uses
+Azure audio optimization exclusively and does not fall back to standard web
+browser audio. Make sure that agents access the CCP from a properly configured
+Azure VDI environment with the MMR extension active and a supported
+browser.
+
 If you do not set the `VDIPlatform` parameter, Connect Customer
-automatically detects whether MMR call redirection is active in the session
-and enables Azure audio optimization when it is. We recommend setting the
-parameter explicitly.
+automatically detects and enables Azure audio optimization when available.
+We recommend setting the parameter explicitly to ensure the optimized audio
+path is used consistently.
 
 ## Verify the media flow between the local device and Connect Customer
 

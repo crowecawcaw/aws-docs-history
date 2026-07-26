@@ -65,9 +65,7 @@ level configuration or an advanced metric using metric builder.
 - **Description (optional)**: Provide
   details about the metric's purpose (maximum 500 characters)
 - **Target time**: Specify the service
-  level threshold. Although default service level metrics use a less-than
-  comparison against the threshold, custom service level metrics use a
-  less-than-or-equal-to comparison.
+  level threshold.
 
   - **Length**: Enter a value between
     1 second and 7 days

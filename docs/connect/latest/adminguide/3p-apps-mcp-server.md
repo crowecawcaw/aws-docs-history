@@ -28,6 +28,10 @@ Only one instance can be associated with a gateway, and that instance must be co
 
    The Discovery URL must follow this format: `[connect instance URL]/.well-known/openid-configuration`. For example: `https://my-instance.my.connect.aws/.well-known/openid-configuration`.
 
+   ###### Important
+
+   In the gateway's **Inbound Identity** configuration, you must add the gateway ID to the **Allowed audiences** field. Without this, Connect Customer cannot authenticate with the gateway and tool invocations will fail.
+
    ![Additional gateway configuration options.](images/3p-apps-mcp-bedrock.png) 3. **Instance association (optional)**
 
    Select the instance that is configured with the selected gateway's Discovery URL. Defaults to **None**. If you are not ready to select an instance or if no instance has been associated with the selected gateway's Discovery URL, you may still create the MCP server integration now and associate an instance later.

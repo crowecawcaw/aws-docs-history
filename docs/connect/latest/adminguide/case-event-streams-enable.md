@@ -87,7 +87,7 @@ later processing.
 aws sqs create-queue --queue-name case-events-queue --attributes "{\"Policy\": \"{ \\\"Version\\\": \\\"2012-10-17\\\", \\\"Statement\\\": [{ \\\"Sid\\\": \\\"case-event-subscription\\\", \\\"Effect\\\": \\\"Allow\\\", \\\"Principal\\\": { \\\"Service\\\": \\\"events.amazonaws.com\\\"}, \\\"Action\\\": \\\"SQS:SendMessage\\\", \\\"Resource\\\": \\\"*\\\"}]}\"}"
 
 # Create an rule on the EventBridge default bus that represents the case events
-aws events put-rule --name case-events-to-sqs-queue --event-pattern "{\"source\": [\"aws.cases\"]}" --state ENABLED
+aws events put-rule --name case-events-to-sqs-queue --event-pattern "{\"source\": [\"aws.cases\"], \"detail-type\": [\"Amazon Connect Cases Change\"]}" --state ENABLED
 
 # Ask event bridge to publish case events to the SQS queue.
 aws events put-targets --rule case-events-to-sqs-queue --target "[{

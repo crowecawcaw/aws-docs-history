@@ -179,7 +179,7 @@ on the event source.
      an EventBridge event](contact-lens-rules-eventbridge-event.md "contact-lens-rules-eventbridge-event.md"): Use **Metrics Rules
      Matched** for the detail type.
 
-![The add action dropdown menu, a list of actions.](images/contact-lens-add-action-no-wisdom.png)
+![The add action dropdown menu, a list of actions.](/images/connect/latest/adminguide/images/contact-lens-add-action-no-wisdom.png)
 
 ###### Note
 

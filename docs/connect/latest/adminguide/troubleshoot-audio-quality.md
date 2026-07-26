@@ -204,9 +204,9 @@ Check:
   rate is 48000. See [Humming sound in the agent's audio device: Verify the headset and browser sample rates](verify-sample-rate.md "verify-sample-rate.md").
 - **Browser or OS**—check for recent updates;
   does rolling back to the last working version resolve it? Confirm a [supported browser](connect-supported-browsers.md "connect-supported-browsers.md").
-- **Virtual desktop infrastructure (VDI)**—for Citrix, WorkSpaces, or
-  Omnissa, make sure that WebRTC redirection is configured through the
-  `VDIPlatform` parameter. See [Use the agent workspace to optimize audio for Citrix, Amazon WorkSpaces, and Omnissa cloud desktops](optimize-audio-cdd.md "optimize-audio-cdd.md").
+- **Virtual desktop infrastructure (VDI)**—for Amazon WorkSpaces, Citrix,
+  Omnissa, Azure Virtual Desktop, or Windows 365, make sure that WebRTC redirection is configured through the
+  `VDIPlatform` parameter. See [Use the agent workspace to optimize audio for Amazon WorkSpaces, Citrix, Omnissa, Azure Virtual Desktop, and Windows 365 cloud desktops](optimize-audio-cdd.md "optimize-audio-cdd.md").
 - **Exclusive device control**—check whether
   another application has taken exclusive control of the mic/speaker. See
   [One-way audio from customers](common-ccp-issues.md#ccp-oneway-issues "common-ccp-issues.md#ccp-oneway-issues").

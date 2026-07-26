@@ -36,7 +36,10 @@ see [Add tags to resources in Connect Customer](tagging.md "tagging.md"). 8. Cho
 means you're logged in with an Connect Customer account that doesn't have
 the required security profile permissions.
 
-To fix this issue, log in with an account that is assigned to the Connect Customer Admin security profile. Or, ask another Admin to help. 9. For information about adding agents, see [Configure agent settings in Connect Customer](configure-agents.md "configure-agents.md").
+To fix this issue, log in with an account that is assigned to the Connect Customer Admin security profile. Or, ask another Admin to help. 9. To configure agent-specific settings, such as phone type, auto-accept, and
+the After Contact Work (ACW) timeout, edit the user after you create it. You
+set auto-accept and the ACW timeout separately for each channel in the agent
+Contact Handling settings. For more information, see [Configure agent settings in Connect Customer](configure-agents.md "configure-agents.md").
 
 ## Add users in bulk from a .csv file
 
