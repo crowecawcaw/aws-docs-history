@@ -12,13 +12,13 @@ You can attach `AmazonSageMakerModelCustomizationCoreAccess` to your users, grou
 
 - **Type**: AWS managed policy
 - **Creation time**: May 26, 2026, 18:57 UTC
-- **Edited time:** June 30, 2026, 16:57 UTC
+- **Edited time:** July 21, 2026, 19:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonSageMakerModelCustomizationCoreAccess`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -501,7 +501,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "iam:PassRole"
       ],
-      "Resource" : "arn:aws:iam::*:role/SageMakerForLambda*",
+      "Resource" : [
+        "arn:aws:iam::*:role/SageMakerForLambda*",
+        "arn:aws:iam::*:role/service-role/SageMakerForLambda*"
+      ],
       "Condition" : {
         "ArnLike" : {
           "iam:AssociatedResourceArn" : "arn:aws:lambda:*:*:function:*"
@@ -518,7 +521,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "iam:PassRole"
       ],
-      "Resource" : "arn:aws:iam::*:role/SageMakerForBedrock*",
+      "Resource" : [
+        "arn:aws:iam::*:role/SageMakerForBedrock*",
+        "arn:aws:iam::*:role/service-role/SageMakerForBedrock*"
+      ],
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}",

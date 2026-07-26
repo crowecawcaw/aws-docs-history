@@ -12,13 +12,13 @@ You can attach `AmazonSageMakerHyperPodInferenceAccess` to your users, groups, a
 
 - **Type**: AWS managed policy
 - **Creation time**: January 27, 2026, 20:34 UTC
-- **Edited time:** February 12, 2026, 18:01 UTC
+- **Edited time:** July 20, 2026, 20:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonSageMakerHyperPodInferenceAccess`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -78,6 +78,52 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
+      "Sid" : "DataCaptureS3",
+      "Effect" : "Allow",
+      "Action" : "s3:PutObject",
+      "Resource" : [
+        "arn:aws:s3:::hyperpod-tls*/data-capture/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "S3ListBucketAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:ListBucket"
+      ],
+      "Resource" : [
+        "arn:aws:s3:::hyperpod-tls*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "DataCaptureKMS",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource" : "arn:aws:kms:*:*:key/*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "s3.*.amazonaws.com",
+          "kms:EncryptionContext:aws:s3:arn" : "arn:aws:s3:::hyperpod-tls*"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
       "Sid" : "ECRAuthorization",
       "Effect" : "Allow",
       "Action" : [
@@ -117,7 +163,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "ec2:CreateNetworkInterface",
-        "ec2:CreateNetworkInterfacePermission"
+        "ec2:CreateNetworkInterfacePermission",
+        "ec2:DeleteNetworkInterface"
       ],
       "Resource" : [
         "arn:aws:ec2:*:*:network-interface/*",
@@ -155,6 +202,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "eks:policyarn" : "arn:aws:eks::aws:cluster-access-policy/AmazonSagemakerHyperpodInferenceMonitoringPolicy"
+        }
+      }
+    },
+    {
+      "Sid" : "EKSAccessEntryListPolicies",
+      "Effect" : "Allow",
+      "Action" : [
+        "eks:ListAssociatedAccessPolicies"
+      ],
+      "Resource" : "arn:aws:eks:*:*:access-entry/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },

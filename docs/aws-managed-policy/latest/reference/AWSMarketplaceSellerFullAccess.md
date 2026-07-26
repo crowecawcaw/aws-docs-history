@@ -12,13 +12,13 @@ You can attach `AWSMarketplaceSellerFullAccess` to your users, groups, and roles
 
 - **Type**: AWS managed policy
 - **Creation time**: July 02, 2019, 20:40 UTC
-- **Edited time:** June 30, 2026, 17:12 UTC
+- **Edited time:** July 21, 2026, 16:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess`
 
 ## Policy version
 
-**Policy version:** v31 (default)
+**Policy version:** v32 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -117,7 +117,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "arn:aws:aws-marketplace:*:*:AWSMarketplace*/*",
         "arn:aws:aws-marketplace:*:*:catalog/AWSMarketplace*/*",
-        "arn:aws:aws-marketplace:*:*:verification-type/*/verification-evidence/*"
+        "arn:aws:aws-marketplace:*:*:verification-type/*/verification-evidence/*",
+        "arn:aws:aws-marketplace:*:*:tax-compliance-profile/*",
+        "arn:aws:aws-marketplace:*:*:tax-compliance-profile-change-task/*"
       ]
     },
     {
@@ -297,6 +299,31 @@ request to access an AWS resource, AWS checks the default version of the policy 
           ]
         }
       }
+    },
+    {
+      "Sid" : "TaxComplianceProfileChangeTaskManagement",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:StartTaxComplianceProfileChangeTask"
+      ],
+      "Resource" : "arn:aws:aws-marketplace:*:*:tax-compliance-profile-change-task/*"
+    },
+    {
+      "Sid" : "TaxComplianceProfileRead",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:GetTaxComplianceProfile"
+      ],
+      "Resource" : "arn:aws:aws-marketplace:*:*:tax-compliance-profile/*"
+    },
+    {
+      "Sid" : "TaxComplianceProfileList",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:ListTaxComplianceProfileChangeTasks",
+        "aws-marketplace:ListTaxComplianceProfiles"
+      ],
+      "Resource" : "*"
     }
   ]
 }

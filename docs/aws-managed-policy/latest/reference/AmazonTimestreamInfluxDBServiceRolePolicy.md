@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: March 14, 2024, 18:53 UTC
-- **Edited time:** March 14, 2024, 18:53 UTC
+- **Edited time:** July 20, 2026, 18:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonTimestreamInfluxDBServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -127,6 +127,38 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "RetrievePluginSecretStatement",
+      "Effect" : "Allow",
+      "Action" : [
+        "secretsmanager:GetSecretValue"
+      ],
+      "Resource" : [
+        "arn:aws:secretsmanager:*:*:secret:InfluxDB-RepoToken-*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "DecryptPluginSecretStatement",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt"
+      ],
+      "Resource" : "arn:*:kms:*:${aws:PrincipalAccount}:key/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "secretsmanager.*.amazonaws.com",
+          "kms:EncryptionContext:SecretARN" : "arn:*:secretsmanager:*:*:secret:InfluxDB-RepoToken-*"
         }
       }
     }

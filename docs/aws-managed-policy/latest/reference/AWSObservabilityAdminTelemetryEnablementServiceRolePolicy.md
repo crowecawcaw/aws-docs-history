@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: August 01, 2025, 18:04 UTC
-- **Edited time:** June 30, 2026, 18:57 UTC
+- **Edited time:** July 24, 2026, 19:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSObservabilityAdminTelemetryEnablementServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v13 (default)
+**Policy version:** v14 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -585,6 +585,34 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}",
           "aws:ResourceTag/CloudWatchTelemetryRuleManaged" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "TelemetryKMSOperationsForAccount",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Describe*",
+        "logs:AssociateKmsKey"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "TelemetryKMSOperationsForOrganization",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Describe*",
+        "logs:AssociateKmsKey"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:PrincipalOrgId" : "${aws:ResourceOrgId}"
         }
       }
     }

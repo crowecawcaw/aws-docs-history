@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: December 09, 2019, 23:52 UTC
-- **Edited time:** December 09, 2019, 23:52 UTC
+- **Edited time:** July 22, 2026, 20:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/CloudFormationStackSetsOrgMemberServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -31,15 +31,41 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:CreateStack",
+        "cloudformation:DescribeStackEvents",
+        "cloudformation:UpdateStack",
+        "cloudformation:DeleteStack",
+        "cloudformation:DescribeStacks"
+      ],
+      "Resource" : [
+        "arn:aws:cloudformation:*:*:stack/stacksets-exec-role-stack-*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
       "Action" : [
         "iam:CreateRole",
         "iam:DeleteRole",
-        "iam:GetRole"
+        "iam:GetRole",
+        "iam:GetRolePolicy",
+        "iam:DeleteRolePolicy",
+        "iam:PutRolePolicy"
       ],
       "Effect" : "Allow",
       "Resource" : [
         "arn:aws:iam::*:role/stacksets-exec-*"
-      ]
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     },
     {
       "Action" : [

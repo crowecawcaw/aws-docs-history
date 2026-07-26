@@ -12,13 +12,13 @@ You can attach `AmazonRDSPerformanceInsightsFullAccess` to your users, groups, a
 
 - **Type**: AWS managed policy
 - **Creation time**: August 15, 2023, 23:41 UTC
-- **Edited time:** February 12, 2026, 18:02 UTC
+- **Edited time:** July 23, 2026, 00:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonRDSPerformanceInsightsFullAccess`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -48,6 +48,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "pi:CreatePerformanceAnalysisReport",
         "pi:GetPerformanceAnalysisReport",
+        "pi:ListPerformanceAnalysisReportRecommendations",
         "pi:ListPerformanceAnalysisReports",
         "pi:DeletePerformanceAnalysisReport"
       ],

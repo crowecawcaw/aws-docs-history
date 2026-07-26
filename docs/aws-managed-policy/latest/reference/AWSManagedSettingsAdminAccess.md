@@ -1,0 +1,395 @@
+# AWSManagedSettingsAdminAccess
+
+**Description**: Grants full administrative access to AWS account settings management. This policy allows owners to view and modify account information, billing, payments, tax registration, identity management, organization policies, budgets, cost analysis, and workspace notifications. Intended for workspace owners who need complete administrative access over account configuration and member management. The policy does not grant access to compute, storage, networking, or other infrastructure services unrelated to account settings.
+
+`AWSManagedSettingsAdminAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+
+## Using this policy
+
+You can attach `AWSManagedSettingsAdminAccess` to your users, groups, and roles.
+
+## Policy details
+
+- **Type**: AWS managed policy
+- **Creation time**: July 22, 2026, 01:27 UTC
+- **Edited time:** July 23, 2026, 00:42 UTC
+- **ARN**:
+  `arn:aws:iam::aws:policy/AWSManagedSettingsAdminAccess`
+
+## Policy version
+
+**Policy version:** v2 (default)
+
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
+request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+
+## JSON policy document
+
+```
+{
+  "Version" : "2012-10-17",
+  "Statement" : [
+    {
+      "Sid" : "ActivateAdvancedUpdateAccountName",
+      "Effect" : "Allow",
+      "Action" : [
+        "account:PutAccountName"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:CalledViaLast" : "account.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AWSSettingsAccountAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "account:GetAccountInformation",
+        "account:GetContactInformation",
+        "account:CloseAccount",
+        "account:PutAccountName",
+        "account:PutContactInformation",
+        "account:StartPrimaryEmailUpdate",
+        "account:AcceptPrimaryEmailUpdate",
+        "account:GetPrimaryEmailUpdateStatus"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSSettingsBillingAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "billing:GetCredits",
+        "billing:GetSellerOfRecord",
+        "billing:RedeemCredits"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSSettingsCostExplorerAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "ce:GetCostAndUsage",
+        "ce:GetCostForecast"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSSettingsBudgetsAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "budgets:CreateBudgetAction",
+        "budgets:DeleteBudgetAction",
+        "budgets:DescribeBudgetActionsForAccount",
+        "budgets:DescribeBudgetActionsForBudget",
+        "budgets:ModifyBudget",
+        "budgets:ViewBudget",
+        "budgets:UpdateBudget",
+        "budgets:CreateBudget",
+        "budgets:DeleteBudget",
+        "budgets:DescribeBudgets",
+        "budgets:DescribeBudget",
+        "budgets:DescribeBudgetActionHistories"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSSettingsIAMPassRole",
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : "arn:aws:iam::*:role/managed/AWSManagedBudgetsSpendLimitManagementRole",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:PassedToService" : "budgets.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AWSSettingsCustomerVerificationAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "customer-verification:CreateCustomerVerificationDetails",
+        "customer-verification:CreateUploadUrls",
+        "customer-verification:GetCustomerVerificationDetails",
+        "customer-verification:GetCustomerVerificationEligibility",
+        "customer-verification:UpdateCustomerVerificationDetails"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSSettingsFreeTierAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "freetier:GetAccountPlanState",
+        "freetier:UpgradeAccountPlan"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSSettingsIdentityStoreAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "identitystore:CreateGroup",
+        "identitystore:CreateGroupMembership",
+        "identitystore:CreateUser",
+        "identitystore:DeleteGroup",
+        "identitystore:DeleteGroupMembership",
+        "identitystore:DeleteUser",
+        "identitystore:DescribeGroup",
+        "identitystore:DescribeUser",
+        "identitystore:GetGroupId",
+        "identitystore:GetUserId",
+        "identitystore:ListGroupMemberships",
+        "identitystore:UpdateIdentityStore",
+        "identitystore:ListGroupMembershipsForMember",
+        "identitystore:ListGroups",
+        "identitystore:ListUsers",
+        "identitystore:ReserveUser",
+        "identitystore:UpdateGroup",
+        "identitystore:UpdateUser",
+        "sso-directory:DescribeUsers",
+        "sso-directory:SearchGroups",
+        "sso-directory:SearchUsers",
+        "builderid:CreateInvitation",
+        "builderid:DeleteInvitation",
+        "builderid:DisassociateCollaborator",
+        "builderid:ListInvitations"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSSettingsInvoicingAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "invoicing:GetInvoicePDF"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSSettingsOrganizationsAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "organizations:CloseAccount",
+        "organizations:CreatePolicy",
+        "organizations:DescribeEffectivePolicy",
+        "organizations:DescribeOrganization",
+        "organizations:ListAccounts",
+        "organizations:ListPolicies",
+        "organizations:ListPoliciesForTarget",
+        "organizations:ListRoots",
+        "organizations:CreateBuilderIdOwnedAccount",
+        "organizations:DescribeCreateAccountStatus",
+        "organizations:DescribeAccount",
+        "organizations:InviteAccountToOrganization"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSSettingsOrganizationsAiOptOutPolicyManagement",
+      "Effect" : "Allow",
+      "Action" : [
+        "organizations:AttachPolicy",
+        "organizations:DetachPolicy",
+        "organizations:EnablePolicyType",
+        "organizations:DisablePolicyType"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "organizations:PolicyType" : "AISERVICES_OPT_OUT_POLICY"
+        }
+      }
+    },
+    {
+      "Sid" : "AWSSettingsPaymentsAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "payments:CreatePaymentInstrument",
+        "payments:GetPaymentInstrument",
+        "payments:GetPaymentStatus",
+        "payments:ListPaymentPreferences",
+        "payments:MakePayment",
+        "payments:UpdatePaymentInstrument",
+        "payments:UpdatePaymentPreferences",
+        "payments:TagResource",
+        "payments:UntagResource",
+        "payments:ListTagsForResource",
+        "payments:BatchGetPaymentProfiles",
+        "payments:AcceptTermsAndConditionsForProgramByAccountId",
+        "payments:CreatePaymentAttempt",
+        "payments:CreatePaymentProfile",
+        "payments:Get",
+        "payments:GetAcceptedTermsAndConditionsForProgramByAccountId",
+        "payments:GetEligibleCurrencies",
+        "payments:GetPaymentAttempt",
+        "payments:GetPaymentPreferences",
+        "payments:GetPreferredCurrency",
+        "payments:GetRecommendedTermsAndConditionsForProgram",
+        "payments:ListPaymentProfiles",
+        "payments:SearchFinancialRecords",
+        "payments:SetPreferredCurrency",
+        "payments:UpdatePaymentProfile",
+        "payments:GetAccountBalance"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSSettingsSESAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "ses:SendEmail"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSSettingsSSOAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "sso:DeleteApplicationAssignment",
+        "sso:DescribeInstance",
+        "sso:GetApplicationAssignmentConfiguration",
+        "sso:ListApplicationAssignments",
+        "sso:CreateApplicationAssignment",
+        "sso:DescribeApplication",
+        "sso:ListApplications",
+        "sso:UpdateInstance"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSSettingsTaxAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "tax:BatchPutTaxRegistration",
+        "tax:DeleteTaxRegistration",
+        "tax:GetTaxRegistration",
+        "tax:GetTaxRegistrationDocument",
+        "tax:ListTaxRegistrations",
+        "tax:PutTaxRegistration"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSSettingsSupportAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "support:CreateCase",
+        "support:DescribeServices",
+        "support:DescribeSeverityLevels",
+        "support:DescribeCases",
+        "support:AddCommunicationToCase",
+        "support:ResolveCase"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "ActivateAdvancedProvisioningAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "organizations:CreateBuilderIdOwnedAccount",
+        "organizations:DescribeCreateAccountStatus",
+        "organizations:ListAccounts",
+        "sso:ListInstances",
+        "identitystore:GetUserId",
+        "sso-directory:ListProvisioningTenants",
+        "account-access:ListApplications",
+        "account-access:CreateApplication",
+        "account-access:CreateEntitlement",
+        "signin:DeleteConsoleAuthorizationConfiguration"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:CalledViaLast" : "account.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "ActivateAdvancedDelegatedAdminAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "organizations:RegisterDelegatedAdministrator",
+        "organizations:ListDelegatedAdministrators"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:CalledViaLast" : "account.amazonaws.com",
+          "organizations:ServicePrincipal" : "sso.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "ActivateAdvancedManagedRoleAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:GetRole",
+        "iam:CreateRole",
+        "iam:AttachRolePolicy",
+        "iam:DeleteRole",
+        "iam:ListAttachedRolePolicies",
+        "iam:DetachRolePolicy",
+        "iam:ListRolePolicies",
+        "iam:DeleteRolePolicy"
+      ],
+      "Resource" : [
+        "arn:aws:iam::*:role/managed/*",
+        "arn:aws:iam::*:role/ManagedAccountAdmin",
+        "arn:aws:iam::*:role/AccountFullAccessRole"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:CalledViaLast" : "account.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "ActivateAdvancedMemberAccountAssume",
+      "Effect" : "Allow",
+      "Action" : "sts:AssumeRole",
+      "Resource" : "arn:aws:iam::*:role/managed/AWSManagedAdvancedFeaturesActivationRole",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:CalledViaLast" : "account.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "ActivateAdvancedBudgetsAccess",
+      "Effect" : "Allow",
+      "Action" : "budgets:ModifyBudget",
+      "Resource" : "arn:aws:budgets::*:budget/sla-*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:CalledViaLast" : "account.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "ActivateAdvancedSCPCleanupAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "organizations:DeletePolicy",
+        "organizations:DetachPolicy",
+        "organizations:ListPolicies",
+        "organizations:ListRoots"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:CalledViaLast" : "account.amazonaws.com"
+        }
+      }
+    }
+  ]
+}
+```
+
+## Learn more
+
+- [Create a permission set using AWS managed policies in IAM Identity Center](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md")
+- [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md")
+- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
+- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")

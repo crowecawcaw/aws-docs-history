@@ -12,13 +12,13 @@ You can attach `SecurityAudit` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:41 UTC
-- **Edited time:** July 09, 2026, 20:57 UTC
+- **Edited time:** July 21, 2026, 17:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SecurityAudit`
 
 ## Policy version
 
-**Policy version:** v90 (default)
+**Policy version:** v91 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -821,6 +821,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "securityhub:Describe*",
         "securityhub:Get*",
         "securityhub:List*",
+        "security-ir:BatchGetMemberAccountDetails",
+        "security-ir:GetCase",
+        "security-ir:GetCaseAttachmentDownloadUrl",
+        "security-ir:GetMembership",
+        "security-ir:ListCaseEdits",
+        "security-ir:ListCases",
+        "security-ir:ListComments",
+        "security-ir:ListInvestigations",
+        "security-ir:ListMemberships",
+        "security-ir:ListTagsForResource",
         "serverlessrepo:GetApplicationPolicy",
         "serverlessrepo:List*",
         "servicequotas:GetAssociationForServiceQuotaTemplate",

@@ -1,0 +1,277 @@
+# AWSTransformInfrastructureExecutorAccessBatch
+
+**Description**: Grants developers execution role the permissions needed to execute AWS Transform Continuous Modernization CLI/agent to run assessments/transformations using AWS Batch, including uploading source code, retrieving results, monitoring Batch job status, reading logs, and managing transformation schedules.
+
+`AWSTransformInfrastructureExecutorAccessBatch` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+
+## Using this policy
+
+You can attach `AWSTransformInfrastructureExecutorAccessBatch` to your users, groups, and roles.
+
+## Policy details
+
+- **Type**: AWS managed policy
+- **Creation time**: July 20, 2026, 20:12 UTC
+- **Edited time:** July 20, 2026, 20:12 UTC
+- **ARN**:
+  `arn:aws:iam::aws:policy/AWSTransformInfrastructureExecutorAccessBatch`
+
+## Policy version
+
+**Policy version:** v1 (default)
+
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
+request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+
+## JSON policy document
+
+```
+{
+  "Version" : "2012-10-17",
+  "Statement" : [
+    {
+      "Sid" : "LambdaInvokeATXFunctions",
+      "Effect" : "Allow",
+      "Action" : [
+        "lambda:InvokeFunction",
+        "lambda:GetFunctionConfiguration"
+      ],
+      "Resource" : "arn:aws:lambda:*:*:function:atx-*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "S3UploadSourceCode",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:AbortMultipartUpload"
+      ],
+      "Resource" : [
+        "arn:aws:s3:::atx-source-code-*",
+        "arn:aws:s3:::atx-source-code-*/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "S3DownloadResults",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource" : [
+        "arn:aws:s3:::atx-custom-output-*",
+        "arn:aws:s3:::atx-custom-output-*/*",
+        "arn:aws:s3:::atx-ct-output-*",
+        "arn:aws:s3:::atx-ct-output-*/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "KMSEncryptDecrypt",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource" : "arn:aws:kms:*:*:key/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        },
+        "ForAnyValue:StringEquals" : {
+          "kms:ResourceAliases" : "alias/atx-encryption-key"
+        }
+      }
+    },
+    {
+      "Sid" : "CloudWatchReadLogs",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:GetLogEvents",
+        "logs:FilterLogEvents",
+        "logs:DescribeLogStreams"
+      ],
+      "Resource" : [
+        "arn:aws:logs:*:*:log-group:/aws/batch/atx-transform*",
+        "arn:aws:logs:*:*:log-group:/aws/batch/job*",
+        "arn:aws:logs:*:*:log-group:AtxVpc*",
+        "arn:aws:logs:*:*:log-group:/aws/lambda/atx-*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "CloudWatchDashboard",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudwatch:GetDashboard",
+        "cloudwatch:ListDashboards"
+      ],
+      "Resource" : "arn:aws:cloudwatch::*:dashboard/ATX-Transform-CLI-Dashboard",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "BatchDescribe",
+      "Effect" : "Allow",
+      "Action" : [
+        "batch:DescribeComputeEnvironments",
+        "batch:DescribeJobQueues",
+        "batch:DescribeJobDefinitions",
+        "batch:DescribeJobs",
+        "batch:ListJobs"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "CheckInfrastructureStatus",
+      "Effect" : "Allow",
+      "Action" : "cloudformation:DescribeStacks",
+      "Resource" : "arn:aws:cloudformation:*:*:stack/AtxInfrastructureStack/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "SecretsManagerATXSecrets",
+      "Effect" : "Allow",
+      "Action" : [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+      ],
+      "Resource" : "arn:aws:secretsmanager:*:*:secret:atx/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "SchedulerManage",
+      "Effect" : "Allow",
+      "Action" : [
+        "scheduler:CreateSchedule",
+        "scheduler:DeleteSchedule",
+        "scheduler:GetSchedule",
+        "scheduler:UpdateSchedule",
+        "scheduler:GetScheduleGroup",
+        "scheduler:ListSchedules"
+      ],
+      "Resource" : [
+        "arn:aws:scheduler:*:*:schedule-group/atx-ct",
+        "arn:aws:scheduler:*:*:schedule/atx-ct/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "PassSchedulerRole",
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : "arn:aws:iam::*:role/AtxSchedulerInvocationRole",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:PassedToService" : "scheduler.amazonaws.com",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "EC2NetworkDiscovery",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeNatGateways"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "IAMReadRoles",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:GetRole",
+        "iam:ListAttachedRolePolicies",
+        "iam:GetRolePolicy"
+      ],
+      "Resource" : [
+        "arn:aws:iam::*:role/ATX*",
+        "arn:aws:iam::*:role/Atx*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "TagGetATXStacks",
+      "Effect" : "Allow",
+      "Action" : "tag:GetResources",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "CFNListStacksForDetect",
+      "Effect" : "Allow",
+      "Action" : "cloudformation:ListStacks",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    }
+  ]
+}
+```
+
+## Learn more
+
+- [Create a permission set using AWS managed policies in IAM Identity Center](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md")
+- [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md")
+- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
+- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")

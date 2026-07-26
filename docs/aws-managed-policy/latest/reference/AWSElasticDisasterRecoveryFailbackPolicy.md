@@ -12,13 +12,13 @@ You can attach `AWSElasticDisasterRecoveryFailbackPolicy` to your users, groups,
 
 - **Type**: Service role policy
 - **Creation time**: November 17, 2021, 10:41 UTC
-- **Edited time:** November 27, 2023, 12:56 UTC
+- **Edited time:** July 22, 2026, 18:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryFailbackPolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -69,7 +69,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "drs:NotifyAgentDisconnectedForDrs",
         "drs:NotifyConsistencyAttainedForDrs",
         "drs:GetFailbackLaunchRequestedForDrs",
-        "drs:IssueAgentCertificateForDrs"
+        "drs:IssueAgentCertificateForDrs",
+        "drs:GetAgentSnapshotCreditsForDrs",
+        "drs:SendVolumeStatsForDrs"
       ],
       "Resource" : "arn:aws:drs:*:*:recovery-instance/${aws:SourceIdentity}"
     }

@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: April 25, 2024, 07:40 UTC
-- **Edited time:** April 25, 2024, 07:40 UTC
+- **Edited time:** July 20, 2026, 20:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForAmazonQDeveloper`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -44,6 +44,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
           ]
         }
       }
+    },
+    {
+      "Sid" : "sid2",
+      "Effect" : "Allow",
+      "Action" : [
+        "identitystore:ListGroupMembershipsForMember"
+      ],
+      "Resource" : "*"
     }
   ]
 }

@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: April 07, 2021, 06:43 UTC
-- **Edited time:** February 12, 2026, 17:57 UTC
+- **Edited time:** July 19, 2026, 15:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSApplicationMigrationServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -316,7 +316,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:volume/*",
         "arn:aws:ec2:*:*:snapshot/*",
         "arn:aws:ec2:*:*:network-interface/*",
-        "arn:aws:ec2:*:*:instance/*"
+        "arn:aws:ec2:*:*:instance/*",
+        "arn:aws:ec2:*:*:image/*"
       ],
       "Condition" : {
         "StringEquals" : {
@@ -325,7 +326,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "CreateSecurityGroup",
             "CreateVolume",
             "CreateSnapshot",
-            "RunInstances"
+            "RunInstances",
+            "RegisterImage"
           ]
         }
       }

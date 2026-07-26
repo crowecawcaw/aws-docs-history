@@ -12,13 +12,13 @@ You can attach `AWSApplicationMigrationFullAccess` to your users, groups, and ro
 
 - **Type**: AWS managed policy
 - **Creation time**: April 07, 2021, 06:56 UTC
-- **Edited time:** May 31, 2026, 13:12 UTC
+- **Edited time:** July 23, 2026, 07:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSApplicationMigrationFullAccess`
 
 ## Policy version
 
-**Policy version:** v12 (default)
+**Policy version:** v13 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -292,7 +292,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ]
     },
     {
-      "Sid" : "AllowTagSVMWithMapMigrated",
+      "Sid" : "AllowTagSVMWithMapKeys",
       "Effect" : "Allow",
       "Action" : [
         "fsx:TagResource"
@@ -301,7 +301,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "ForAllValues:StringEquals" : {
           "aws:TagKeys" : [
-            "map-migrated"
+            "map-migrated",
+            "aws-apn-id"
           ]
         }
       }

@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: December 09, 2020, 00:38 UTC
-- **Edited time:** June 19, 2026, 16:27 UTC
+- **Edited time:** July 24, 2026, 17:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonEMRContainersServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -112,6 +112,23 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "ec2:CreateAction" : "CreateVpcEndpointServiceConfiguration"
+        }
+      }
+    },
+    {
+      "Sid" : "CloudWatchPolicyStatement",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudwatch:PutMetricData"
+      ],
+      "Resource" : [
+        "*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "cloudwatch:namespace" : [
+            "AWS/EMRContainers"
+          ]
         }
       }
     }

@@ -12,13 +12,13 @@ You can attach `AmazonRDSPerformanceInsightsReadOnly` to your users, groups, and
 
 - **Type**: AWS managed policy
 - **Creation time**: April 05, 2022, 00:02 UTC
-- **Edited time:** February 12, 2026, 18:02 UTC
+- **Edited time:** July 22, 2026, 23:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonRDSPerformanceInsightsReadOnly`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -97,6 +97,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "AmazonRDSPerformanceInsightsGetPerformanceAnalysisReport",
       "Effect" : "Allow",
       "Action" : "pi:GetPerformanceAnalysisReport",
+      "Resource" : "arn:aws:pi:*:*:perf-reports/rds/*/*"
+    },
+    {
+      "Sid" : "AmazonRDSPerformanceInsightsListPerformanceAnalysisReportRecommendations",
+      "Effect" : "Allow",
+      "Action" : "pi:ListPerformanceAnalysisReportRecommendations",
       "Resource" : "arn:aws:pi:*:*:perf-reports/rds/*/*"
     },
     {

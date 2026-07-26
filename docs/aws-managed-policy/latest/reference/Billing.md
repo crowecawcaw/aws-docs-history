@@ -12,13 +12,13 @@ You can attach `Billing` to your users, groups, and roles.
 
 - **Type**: Job function policy
 - **Creation time**: November 10, 2016, 17:33 UTC
-- **Edited time:** April 08, 2026, 17:12 UTC
+- **Edited time:** July 21, 2026, 19:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/job-function/Billing`
 
 ## Policy version
 
-**Policy version:** v28 (default)
+**Policy version:** v29 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -125,9 +125,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "invoicing:ListInvoiceCorrections",
         "invoicing:StartInvoiceCorrection",
         "invoicing:PutInvoiceEmailDeliveryPreferences",
+        "invoicing:SendProcurementPortalValidation",
         "invoicing:TagResource",
         "invoicing:UntagResource",
         "invoicing:UpdateInvoiceUnit",
+        "invoicing:VerifyProcurementPortalValidation",
         "mapcredits:ListQuarterSpend",
         "mapcredits:ListAssociatedPrograms",
         "mapcredits:ListQuarterCredits",
