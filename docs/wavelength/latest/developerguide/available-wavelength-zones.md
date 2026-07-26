@@ -9,7 +9,6 @@ latency or edge resiliency. Review the locations, carriers, and other details of
 - [US West (Oregon) Wavelength Zones](#wavelength-zones-us-west-2 "#wavelength-zones-us-west-2")
 - [Asia Pacific (Tokyo) Wavelength Zones](#wavelength-zones-ap-northeast-1 "#wavelength-zones-ap-northeast-1")
 - [Canada (Central) Wavelength zones](#wavelength-zones-ca-central-1 "#wavelength-zones-ca-central-1")
-- [Europe (Frankfurt) Wavelength Zones](#wavelength-zones-eu-central-1 "#wavelength-zones-eu-central-1")
 - [Europe (London) Wavelength Zones](#wavelength-zones-eu-west-2 "#wavelength-zones-eu-west-2")
 - [Morocco (Casablanca) Wavelength Zones](#wavelength-zones-eu-west-3 "#wavelength-zones-eu-west-3")
 - [Find your AWS Wavelength Zones](wavelength-zones-describe.md "wavelength-zones-describe.md")
@@ -58,20 +57,10 @@ latency or edge resiliency. Review the locations, carriers, and other details of
 | -------- | ------- | ---------------------------- | ------------------- |
 | Toronto  | Bell    | `ca-central-1-wl1-yto-wlz-1` | `cac1-wl1-yto-wlz1` |
 
-## Europe (Frankfurt) Wavelength Zones
-
-| Location | Carrier  | Wavelength Zone Name         | Wavelength Zone ID  |
-| -------- | -------- | ---------------------------- | ------------------- |
-| Berlin   | Vodafone | `eu-central-1-wl1-ber-wlz-1` | `euc1-wl1-ber-wlz1` |
-| Dortmund | Vodafone | `eu-central-1-wl1-dtm-wlz-1` | `euc1-wl1-dtm-wlz1` |
-| Munich   | Vodafone | `eu-central-1-wl1-muc-wlz-1` | `euc1-wl1-muc-wlz1` |
-
 ## Europe (London) Wavelength Zones
 
 | Location   | Carrier              | Wavelength Zone Name      | Wavelength Zone ID  |
 | ---------- | -------------------- | ------------------------- | ------------------- |
-| London     | Vodafone             | `eu-west-2-wl1-lon-wlz-1` | `euw2-wl1-lon-wlz1` |
-| Manchester | Vodafone             | `eu-west-2-wl1-man-wlz-1` | `euw2-wl1-man-wlz1` |
 | Manchester | British Telecom (BT) | `eu-west-2-wl2-man-wlz-1` | `euw2-wl2-man-wlz1` |
 
 ## Morocco (Casablanca) Wavelength Zones
