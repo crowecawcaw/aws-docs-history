@@ -46,14 +46,14 @@ To create a new category for real-time Call Analytics, you can use the
 category, then choose 'Real time call analytics' in the **Category type**
 dropdown menu.
 
-![Amazon Transcribe console screenshot: the 'category settings' panel.](images/analytics-categories-type.png) 4. You can choose a template to create your category or you can make one from scratch.
+![Amazon Transcribe console screenshot: the 'category settings' panel.](/images/transcribe/latest/dg/images/analytics-categories-type.png) 4. You can choose a template to create your category or you can make one from scratch.
 
 If using a template: select **Use a template (recommended)**, choose
 the template you want, then select **Create category**.
 
 ![Amazon Transcribe console screenshot: the 'category settings' panel showing optional templates.](images/analytics-categories-settings-stream.png) 5. If creating a custom category: select **Create from scratch**.
 
-![Amazon Transcribe console screenshot: the 'create category' page showing 'rules' pane.](images/analytics-categories-custom.png) 6. Add rules to your category using the dropdown menu. You can add up to 20 rules per
+![Amazon Transcribe console screenshot: the 'create category' page showing 'rules' pane.](/images/transcribe/latest/dg/images/analytics-categories-custom.png) 6. Add rules to your category using the dropdown menu. You can add up to 20 rules per
 category. With real-time Call Analytics transcriptions, you can only include rules that involve transcript
 content matches. Any matches are flagged in real time.
 
