@@ -19,6 +19,8 @@ statements with `batch-execute-statement`, each SQL statement has an
 `Id` value as shown in `describe-statement`. Authorization to
 run this command is based on the caller's IAM permissions.
 
+Optionally, to reduce the number of poll requests, use the `WaitTimeSeconds` parameter to allow extra time for the statement to complete before the API returns a statement result. For more information, see [Reduce API calls with long polling](data-api-calling-considerations-long-polling.md "data-api-calling-considerations-long-polling.md").
+
 The following statement returns the result of a SQL statement run by
 `execute-statement` that let the `ResultFormat` default to
 `JSON`. To retrieve the results, call the

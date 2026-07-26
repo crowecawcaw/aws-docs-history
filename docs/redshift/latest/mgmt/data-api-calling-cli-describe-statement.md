@@ -6,8 +6,12 @@ and migration options, see the
 # Describe metadata about a SQL statement
 
 To get descriptions of metadata for a SQL statement, use the `aws
- redshift-data describe-statement` AWS CLI command. Authorization to run this
-command is based on the caller's IAM permissions.
+ redshift-data describe-statement` AWS CLI command. You can also use this
+command to describe individual sub-statements within a batch by providing the
+sub-statement ID. Authorization to run
+this command is based on the caller's IAM permissions.
+
+Optionally, to reduce the number of poll requests, use the `WaitTimeSeconds` parameter to give extra time for an operation's status to be updated within this API call. For more information, see [Reduce API calls with long polling](data-api-calling-considerations-long-polling.md "data-api-calling-considerations-long-polling.md").
 
 The following AWS CLI command describes a SQL statement.
 
@@ -79,5 +83,48 @@ statements.
         }
     ],
     "UpdatedAt": 1623979778.183
+}
+```
+
+The following AWS CLI command describes a specific sub-statement within a batch
+by providing the sub-statement ID.
+
+```
+
+aws redshift-data describe-statement
+    --id b2906c76-fa6e-4cdf-8c5f-4de1ff9b7652:2
+
+```
+
+The following is an example of the response. The parent statement status
+is `STARTED` because the batch has not yet completed. The
+`SubStatements` array contains only the requested
+sub-statement.
+
+```
+{
+    "ClusterIdentifier": "mayo",
+    "CreatedAt": 1623979777.126,
+    "Duration": 0,
+    "HasResultSet": false,
+    "Id": "b2906c76-fa6e-4cdf-8c5f-4de1ff9b7652",
+    "RedshiftPid": 31459,
+    "RedshiftQueryId": 0,
+    "Status": "STARTED",
+    "SubStatements": [
+        {
+            "CreatedAt": 1623979777.274,
+            "Duration": 3195240,
+            "HasResultSet": true,
+            "Id": "b2906c76-fa6e-4cdf-8c5f-4de1ff9b7652:2",
+            "QueryString": "select 2;",
+            "RedshiftQueryId": -1,
+            "ResultRows": 1,
+            "ResultSize": 11,
+            "Status": "FINISHED",
+            "UpdatedAt": 1623979778.076
+        }
+    ],
+    "UpdatedAt": 1623979777.503
 }
 ```

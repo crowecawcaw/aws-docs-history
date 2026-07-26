@@ -9,20 +9,31 @@ To set up a Multi-AZ deployment, select the **Multi-AZ** option and
 specify the number of compute nodes to provision in each Availability Zone. Amazon Redshift
 automatically deploys equal compute resources across two Availability Zones and all
 compute resources are always available for both read and write processing during normal
-operation. This allows a Multi-AZ deployment to act as a single data warehouse with a
-single endpoint, removing the need for application changes when a disaster occurs.
-Although a Multi-AZ deployment processes an individual query using the compute resources
-residing in only one Availability Zone, it can automatically distribute processing of
-multiple simultaneous queries to both Availability Zones to boost overall throughput for
-high concurrency workloads.
+operation and can opportunistically help to increase performance by using the extra
+compute resources in the secondary cluster. This allows a Multi-AZ deployment to act as
+a single data warehouse with a single endpoint, removing the need for application
+changes when a disaster occurs. Although a Multi-AZ deployment processes an individual
+query using the compute resources residing in only one Availability Zone, it can
+automatically distribute processing of some simultaneous queries to both Availability
+Zones that can sometimes, but not always, boost overall throughput for high concurrency
+workloads. It's important to keep in mind the main function of Multi-AZ, which is
+to provide a high-availability solution for your cluster to ensure rapid recovery from
+unplanned downtime or an outage event.
 
-You can also convert an existing Single-AZ data warehouse into a Multi-AZ data
-warehouse or vice versa. Everything remains the same except that additional compute
-resources are provisioned in the second Availability Zone. When migrating to Multi-AZ
-from an existing Single-AZ cluster, you might be required to double the number of
-cluster nodes needed, to facilitate that single query performance is maintained. Most
-workloads observe an increase in overall query processing throughput with a Multi-AZ
-data warehouse as there is twice the amount of compute resources available.
+If your primary motivation is to obtain higher performance for your analytics
+workload, we recommend other solutions besides Multi-AZ, such as:
+
+- resizing to a larger node instance type ([Resizing
+  clusters](resizing-cluster.md "resizing-cluster.md"))
+- enabling concurrency scaling on your cluster ([Concurrency
+  scaling](../dg/concurrency-scaling.md "../dg/concurrency-scaling.md"))
+- using data sharing architecture to isolate workloads ([Data sharing
+  overview](../dg/datashare-overview.md "../dg/datashare-overview.md"))
+  You can also convert an existing Single-AZ data warehouse into a Multi-AZ data
+  warehouse or vice versa. Everything remains the same except that additional compute
+  resources are provisioned in the second Availability Zone. When migrating to Multi-AZ
+  from an existing Single-AZ cluster, you might be required to double the number of
+  cluster nodes needed, to facilitate that single query performance is maintained.
 
 In the event of a failure in an Availability Zone, Amazon Redshift continues operating by
 using the resources in the remaining Availability Zone automatically. However, user

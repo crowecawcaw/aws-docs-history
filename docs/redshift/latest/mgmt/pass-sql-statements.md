@@ -13,6 +13,8 @@ data warehouse
 To run a SQL statement, use the `aws redshift-data
  execute-statement` AWS CLI command.
 
+Optionally, use the `WaitTimeSeconds` parameter to allow extra time for the statement to complete before the API returns a response. When the statement completes, the response also includes `Status`, `RedshiftPid`, and `HasResultSet`. For more information, see [Reduce API calls with long polling](data-api-calling-considerations-long-polling.md "data-api-calling-considerations-long-polling.md").
+
 The following AWS CLI command runs a SQL statement against a cluster and returns
 an identifier to fetch the results. This example uses the AWS Secrets Manager
 authentication method.
@@ -122,6 +124,8 @@ The following is an example of the response.
 To run multiple SQL statements with one command, use the `aws
  redshift-data batch-execute-statement` AWS CLI command.
 
+Optionally, use the `WaitTimeSeconds` parameter to allow extra time for the entire batch to complete before the API returns a response. For more information, see [Reduce API calls with long polling](data-api-calling-considerations-long-polling.md "data-api-calling-considerations-long-polling.md").
+
 The following AWS CLI command runs three SQL statements against a cluster and
 returns an identifier to fetch the results. This example uses the temporary
 credentials authentication method.
@@ -145,6 +149,72 @@ The following is an example of the response.
     "Database": "dev",
     "DbUser": "myuser",
     "Id": "d9b6c0c9-0747-4bf4-b142-e8883122f766"
+}
+```
+
+The following AWS CLI command runs three SQL statements in separate
+transactions using `AUTO_COMMIT` execution mode. Each statement
+is committed independently — a failure of one statement does not stop the
+remaining statements from running or affect statements that already
+completed.
+
+```
+
+aws redshift-data batch-execute-statement
+    --db-user myuser
+    --cluster-identifier mycluster-test
+    --database dev
+    --sqls "insert into mytable values (1)" "invalid sql statement" "insert into mytable values (3)"
+    --execution-mode AUTO_COMMIT
+
+```
+
+The following is an example of the response.
+
+```
+{
+    "ClusterIdentifier": "mycluster-test",
+    "CreatedAt": 1623979777.126,
+    "Duration": 6591877,
+    "HasResultSet": false,
+    "Id": "b2906c76-fa6e-4cdf-8c5f-4de1ff9b7652",
+    "RedshiftPid": 31459,
+    "RedshiftQueryId": 0,
+    "Status": "FAILED",
+    "SubStatements": [
+        {
+            "CreatedAt": 1623979777.274,
+            "Duration": 3396637,
+            "HasResultSet": false,
+            "Id": "b2906c76-fa6e-4cdf-8c5f-4de1ff9b7652:1",
+            "QueryString": "insert into mytable values (1)",
+            "RedshiftQueryId": -1,
+            "Status": "FINISHED",
+            "UpdatedAt": 1623979777.903
+        },
+        {
+            "CreatedAt": 1623979777.274,
+            "Duration": 1195240,
+            "HasResultSet": false,
+            "Id": "b2906c76-fa6e-4cdf-8c5f-4de1ff9b7652:2",
+            "QueryString": "invalid sql statement",
+            "RedshiftQueryId": -1,
+            "Error": "ERROR: syntax error at or near \"invalid\"",
+            "Status": "FAILED",
+            "UpdatedAt": 1623979777.503
+        },
+        {
+            "CreatedAt": 1623979777.274,
+            "Duration": 1095981,
+            "HasResultSet": false,
+            "Id": "b2906c76-fa6e-4cdf-8c5f-4de1ff9b7652:3",
+            "QueryString": "insert into mytable values (3)",
+            "RedshiftQueryId": -1,
+            "Status": "FINISHED",
+            "UpdatedAt": 1623979777.903
+        }
+    ],
+    "UpdatedAt": 1623979778.183
 }
 ```
 

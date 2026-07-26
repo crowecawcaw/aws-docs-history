@@ -42,7 +42,7 @@ To access statements with `cancel-statement`,
 `describe-statement`, `get-statement-result`, and
 `get-statement-result-v2` submitted by identity-enhanced IAM role
 sessions, the IAM Identity Center user and IAM role must match the credentials used
-to run `execute-statment` or `batch-execute-statement`. For
+to run `execute-statement` or `batch-execute-statement`. For
 example, the following AWS CLI command gets the results of a SQL statement.
 
 ```

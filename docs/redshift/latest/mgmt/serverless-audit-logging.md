@@ -90,10 +90,10 @@ CloudWatch compute metrics are the following:
 
 CloudWatch data and storage metrics are the following:
 
-| Metric name       | Units            | Description                                                                                                           | Dimension sets        |
-| ----------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `TotalTableCount` | Number of tables | The number of user tables existing at a point in time. This total<br>doesn't include Amazon Redshift Spectrum tables. | {Database, Namespace} |
-| `DataStorage`     | Megabytes        | The number of megabytes used, in disk or storage space, for<br>Redshift data.                                         | {Namespace}           |
+| Metric name       | Units            | Description                                                                                                                                                                                                                                   | Dimension sets        |
+| ----------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `TotalTableCount` | Number of tables | The total number of tables at a particular point in time. This<br>total includes permanent tables, temporary tables, datashare tables,<br>external tables, and materialized views. Views and system tables are<br>not included in this count. | {Database, Namespace} |
+| `DataStorage`     | Megabytes        | The number of megabytes used, in disk or storage space, for<br>Redshift data.                                                                                                                                                                 | {Namespace}           |
 
 The `ServerlessUniqueSnapshotStorage` metric is namespace- and workgroup-agnostic.
 CloudWatch's `ServerlessUniqueSnapshotStorage` metric is as follows:

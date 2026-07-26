@@ -67,6 +67,8 @@ and avoid potential disruptions to your workloads, see
 
 Cluster versions in this patch:
 
+- 1.0.365190 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released July 21, 2026
 - 1.0.347559 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
   workgroup version – Released July 6, 2026
 
@@ -112,6 +114,8 @@ Cluster versions in this patch:
 
 Cluster versions in this patch:
 
+- 1.0.358853 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released July 21, 2026
 - 1.0.358853 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
   workgroup version – Released July 14, 2026
 - 1.0.343555 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless

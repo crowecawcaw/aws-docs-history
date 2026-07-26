@@ -60,7 +60,7 @@ Consider the following when calling the Data API:
   returns more than 500 MB of response data, the call is ended.
 - The maximum retention time for query results is 24 hours.
 - The maximum query statement size is 200 KB.
-- The Data API is available to query single-node and multiple-node clusters
+- The Data API is available to query all Serverless workgroups, and Provisioned single-node and multiple-node clusters
   of the following node types:
 
   - dc2.large
@@ -84,15 +84,29 @@ Consider the following when calling the Data API:
   operations. To act on the same SQL statement from another user, the user must be
   able to assume the IAM role of the user who ran the SQL statement. For more
   information about how to assume a role, see [Authorizing access to the Amazon Redshift Data API](data-api-access.md "data-api-access.md").
-- The SQL statements in the `Sqls` parameter of
-  `BatchExecuteStatement` API operation are run as a single
-  transaction. They run serially in the order of the array. Subsequent SQL
-  statements don't start until the previous statement in the array completes. If
-  any SQL statement fails, then because they are run as one transaction, all work
-  is rolled back.
+- The SQL statements in the `Sqls` parameter of the
+  `BatchExecuteStatement` API operation run serially in the
+  order of the array. Subsequent SQL statements don't start until the
+  previous statement completes. By default, all SQL statements are run as a
+  single transaction. If any SQL statement fails, all work is rolled back.
+  Use the `ExecutionMode` parameter to control transaction
+  behavior:
+
+  - `TRANSACTION` (default) — The service runs all SQL statements
+    as a single transaction and commits or rolls back all of them
+    together.
+  - `AUTO_COMMIT` — Each SQL statement is committed
+    individually. A failure of one statement does not affect the
+    others.
+    For an example, see [Run multiple SQL statements](pass-sql-statements.md#data-api-calling-cli-batch-execute-statement "pass-sql-statements.md#data-api-calling-cli-batch-execute-statement").
+
 - The maximum retention time for a client token used in
   `ExecuteStatement` or `BatchExecuteStatement` API
   operation is 8 hours.
+- The optional `WaitTimeSeconds` parameter has the
+  Data API wait up to 30 seconds when the operation submits a new query or is against an in-progress query.
+  This reduces the number of poll requests, resulting in fewer round trips and lower latency. For more
+  information, see [Reduce API calls with long polling](data-api-calling-considerations-long-polling.md "data-api-calling-considerations-long-polling.md").
 - If the Amazon Redshift provisioned clusters and Redshift Serverless workgroup is encrypted using a customer managed key
   Redshift creates a grant that allows the Redshift Data API to use the key for its operations. For
   for more information, see [Using AWS KMS with the Amazon Redshift Data API](data-api-kms.md "data-api-kms.md").
@@ -372,6 +386,9 @@ reuse:
 To retrieve the `SessionId` that is used by calls to
 `ExecuteStatement` and `BatchExecuteStatement` operations,
 call `DescribeStatement` and `ListStatements` operations.
+To list sessions and their status, use the
+`ListSessions` operation. For more information, see
+[List sessions](data-api-calling-cli-list-sessions.md "data-api-calling-cli-list-sessions.md").
 
 The following example demonstrates using the `SessionKeepAliveSeconds` and
 `SessionId` parameters to keep a session alive and reused. First, call
@@ -514,10 +531,10 @@ the response from `GetStatementResultV2` looks similar to this:
     "Records": [
         [
             {
-                "CSVRecords":"1,2,3\r\n4,5,6\r\n7,8,9\rn, .... 1MB" // First 1MB Chunk
+                "CSVRecords":"1,2,3\r\n4,5,6\r\n7,8,9\r\n, ... 1MB" // First 1MB Chunk
             },
             {
-                "CSVRecords":"1025,1026,1027\r\n1028,1029,1030\r\n....2MB" // Second 1MB chunk
+                "CSVRecords":"1025,1026,1027\r\n1028,1029,1030\r\n...2MB" // Second 1MB chunk
             }
             ...
         ]
