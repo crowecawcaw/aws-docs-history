@@ -22,6 +22,7 @@ that best fit your game's requirements and player base.
 
   - [Customize a game session queue](queues-design.md "queues-design.md")
   - [Prioritize game session placement](queues-design-priority.md "queues-design-priority.md")
+  - [Queue configuration examples](queues-examples.md "queues-examples.md")
   - [Build a queue for Spot Instances](spot-tasks.md "spot-tasks.md")
 
 - [Hosting resource customizations](fleets-design.md "fleets-design.md")
