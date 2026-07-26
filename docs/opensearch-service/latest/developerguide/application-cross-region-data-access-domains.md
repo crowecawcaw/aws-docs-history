@@ -268,7 +268,7 @@ the `sts:SetContext` statement:
       "Action": "sts:SetContext",
       "Condition": {
         "ForAllValues:ArnEquals": {
-          "sts:RequestContextProviders": "arn:aws:iam::`account-id`:oidc-provider/portal.sso.`idc-region`.amazonaws.com/apl/`application-id`"
+          "sts:RequestContextProviders": "arn:aws:iam::aws:contextProvider/IdentityCenter"
         }
       }
     }
@@ -679,7 +679,7 @@ the `sts:SetContext` statement:
       "Action": "sts:SetContext",
       "Condition": {
         "ForAllValues:ArnEquals": {
-          "sts:RequestContextProviders": "arn:aws:iam::`account-id`:oidc-provider/portal.sso.`idc-region`.amazonaws.com/apl/`application-id`"
+          "sts:RequestContextProviders": "arn:aws:iam::aws:contextProvider/IdentityCenter"
         }
       }
     }

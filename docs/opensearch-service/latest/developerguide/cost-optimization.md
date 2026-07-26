@@ -279,9 +279,12 @@ exceed it.
 
 Allowed values:
 
-- Account level: Any value up to 1,700 OCUs (not restricted to multiples of
+- Account level – Any value up to 1,700 OCUs (not restricted to multiples of
   16).
-- Collection groups: 1, 2, 4, 8, 16, and multiples of 16 up to 1,696 OCUs.
+- Collection groups (NextGen) – 0, 2, 4, 8, 16, and multiples of 16 up to
+  1,696 OCUs.
+- Collection groups (Classic) – 1, 2, 4, 8, 16, and multiples of 16 up to
+  1,696 OCUs.
 
 Monitor CloudWatch metrics (`OCUUtilization`) to right-size your maximum OCU
 setting over time.

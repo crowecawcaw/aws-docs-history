@@ -32,9 +32,16 @@ within that specific group.
 
 ## Valid capacity limit values
 
-When setting minimum and maximum OCU limits for a collection group, you can only
-use values from the following set: 1, 2, 4, 8, 16, and multiples of 16 (such as 32,
-48, 64, 80, 96) up to a maximum of 1,696 OCUs.
+The valid minimum and maximum OCU limit values depend on the collection group
+generation:
+
+- **NextGen** – 0, 2, 4, 8, 16, and
+  multiples of 16 (such as 32, 48, 64, 80, 96), up to a maximum of 1,696 OCUs.
+  A minimum of 0 enables scale to zero.
+- **Classic** – 1, 2, 4, 8, 16, and
+  multiples of 16 (such as 32, 48, 64, 80, 96), up to a maximum of 1,696 OCUs.
+  Classic collection groups do not support a minimum of 0 (scale to
+  zero).
 
 Both minimum and maximum OCU limits are optional when you create a collection
 group. If you don't specify a maximum OCU limit, OpenSearch Serverless uses a default value of 96

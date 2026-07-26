@@ -46,6 +46,15 @@ feature pages.
 
 For more information about the Investigation Agent, see [Investigation Agent in Amazon OpenSearch Service](application-investigation-agent.md "application-investigation-agent.md").
 
+## Starting search relevance tuning from chat
+
+When you want to improve search relevance for your application, you can launch the
+Search Relevance Agent directly from Agentic Chat. Enter the
+`/search-relevance` slash command in the chat input to start a search
+relevance tuning session.
+
+For more information about the Search Relevance Agent, see [Search Relevance Agent in Amazon OpenSearch Service](application-search-relevance-agent.md "application-search-relevance-agent.md").
+
 ## Supported tools
 
 Agentic Chat uses the following tools to analyze your data and answer questions. To

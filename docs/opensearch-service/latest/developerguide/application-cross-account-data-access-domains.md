@@ -313,7 +313,7 @@ IAM Identity Center user data plane access.
       "Action": "sts:SetContext",
       "Condition": {
         "ForAllValues:ArnEquals": {
-          "sts:RequestContextProviders": "arn:aws:iam::`source-account-id`:oidc-provider/portal.sso.`region`.amazonaws.com/apl/`application-id`"
+          "sts:RequestContextProviders": "arn:aws:iam::aws:contextProvider/IdentityCenter"
         }
       }
     }
@@ -798,7 +798,7 @@ IAM Identity Center user data plane access.
       "Action": "sts:SetContext",
       "Condition": {
         "ForAllValues:ArnEquals": {
-          "sts:RequestContextProviders": "arn:aws:iam::`source-account-id`:oidc-provider/portal.sso.`region`.amazonaws.com/apl/`application-id`"
+          "sts:RequestContextProviders": "arn:aws:iam::aws:contextProvider/IdentityCenter"
         }
       }
     }

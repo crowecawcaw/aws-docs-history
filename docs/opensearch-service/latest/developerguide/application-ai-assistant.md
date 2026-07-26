@@ -113,4 +113,5 @@ The agentic AI features are available in the following AWS Regions:
 
 - [Agentic Chat in Amazon OpenSearch Service](application-agentic-chat.md "application-agentic-chat.md")
 - [Investigation Agent in Amazon OpenSearch Service](application-investigation-agent.md "application-investigation-agent.md")
+- [Search Relevance Agent in Amazon OpenSearch Service](application-search-relevance-agent.md "application-search-relevance-agent.md")
 - [Agentic Memory in Amazon OpenSearch Service](application-agentic-memory.md "application-agentic-memory.md")

@@ -87,10 +87,15 @@ The following configurations do not support GPU-acceleration:
 GPU-acceleration is available in the following AWS Regions:
 
 - US East (N. Virginia)
+- US East (Ohio)
 - US West (Oregon)
 - Asia Pacific (Sydney)
 - Asia Pacific (Tokyo)
+- Asia Pacific (Mumbai)
 - Europe (Ireland)
+- Europe (Frankfurt)
+- Europe (Stockholm)
+- Europe (Spain)
 
 ## Best practices
 
