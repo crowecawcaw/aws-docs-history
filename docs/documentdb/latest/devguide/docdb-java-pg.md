@@ -30,8 +30,8 @@ Throughout the guide, practical code examples and best practices are provided, m
 
 Before you begin, make sure you have the following:
 
-- An AWS account with a configured DocumentDB cluster.
-  See this [getting started blog post](https://aws.amazon.com/blogs/database/part-1-getting-started-with-amazon-documentdb-using-amazon-ec2/ "https://aws.amazon.com/blogs/database/part-1-getting-started-with-amazon-documentdb-using-amazon-ec2/") for DocumentDB cluster setup.
+- An AWS account with a configured Amazon DocumentDB cluster.
+  For cluster setup, see [Getting started with Amazon DocumentDB using Amazon EC2](https://aws.amazon.com/blogs/database/part-1-getting-started-with-amazon-documentdb-using-amazon-ec2/ "https://aws.amazon.com/blogs/database/part-1-getting-started-with-amazon-documentdb-using-amazon-ec2/") on the AWS Database Blog.
 - Java Development Kit (JDK) installed (we will be using [Amazon Corretto 21](../../../corretto/latest/corretto-21-ug/downloads-list.md "../../../corretto/latest/corretto-21-ug/downloads-list.md") for this guide).
 - Maven for dependency management.
 

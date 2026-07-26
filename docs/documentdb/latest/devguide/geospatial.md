@@ -35,8 +35,8 @@ Amazon DocumentDB also uses 2dsphere indexes to index Geospatial data. Amazon Do
 points. Amazon DocumentDB supports proximity querying with 2dsphere indexing.
 
 Let’s consider a scenario where you are building an application for food delivery
-service. You want to store various restaurant’s latitudes and longitude pair in Amazon DocumentDB.
-To do so, first we recommend that you create an index on the Geospatial field that holds
+service. You want to store restaurant latitude and longitude pairs in Amazon DocumentDB.
+To do so, first create an index on the geospatial field that holds
 the latitude and longitude pair.
 
 ```

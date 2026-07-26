@@ -40,7 +40,7 @@ instances, and cluster parameter groups requires
 credentials that AWS can use to authenticate your
 requests. For more information, see [Identity and Access Management for Amazon DocumentDB](security-iam.md "security-iam.md").
 
-1. In the search bar of the AWS Management Console, type in IAM and select **IAM** in the drop down menu that appears.
+1. In the search bar of the AWS Management Console, enter `IAM` and select **IAM** in the drop down menu that appears.
 2. Once you're in the IAM console, select **Users** from the navigation pane.
 3. Select your username.
 4. Choose **Add permissions**.

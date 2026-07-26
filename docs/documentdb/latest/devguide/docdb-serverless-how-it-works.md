@@ -94,7 +94,7 @@ You can specify a higher number if it's less than or equal to the maximum suppor
 Setting the minimum capacity to a small number lets lightly loaded clusters consume minimal compute resources.
 At the same time, they stay ready to accept connections immediately and scale up when they become busy.
 
-We recommend setting the minimum to a value that allows each writer or reader to hold the working set of the application in the buffer pool.
+Set the minimum to a value that allows each writer or reader to hold the working set of the application in the buffer pool.
 That way, the contents of the buffer pool aren't discarded during idle periods.
 For all the considerations when choosing the scaling capacity range, see [Choosing the scaling capacity range for a DocumentDB serverless cluster](docdb-serverless-scaling-config.md#docdb-serverless-scaling-capacity-choosing "docdb-serverless-scaling-config.md#docdb-serverless-scaling-capacity-choosing").
 

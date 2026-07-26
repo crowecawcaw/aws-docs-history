@@ -1,4 +1,4 @@
-# Amazon DocumentDB Cluster settings
+# Amazon DocumentDB cluster settings
 
 When you create or modify a cluster, it is important to understand
 which parameters are immutable and which are modifiable after the cluster

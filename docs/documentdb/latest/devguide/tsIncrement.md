@@ -10,7 +10,7 @@ The `$tsIncrement` operator in Amazon DocumentDB returns the incrementing ordina
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$tsIncrement` operator to extract the ordinal increment from Timestamp values.
+The following example shows how to use the `$tsIncrement` operator to extract the ordinal increment from Timestamp values.
 
 **Create sample documents**
 

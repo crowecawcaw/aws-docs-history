@@ -2,11 +2,11 @@
 
 ## Building indexes
 
-When importing data into Amazon DocumentDB, you should create your indexes before importing large datasets. You can use the [Amazon DocumentDB Index Tool](https://github.com/awslabs/amazon-documentdb-tools/tree/master/index-tool "https://github.com/awslabs/amazon-documentdb-tools/tree/master/index-tool") to extract indexes from a running MongoDB instance or mongodump directory, and create those indexes in an Amazon DocumentDB cluster. For more guidance on migrations, see [Migrating to Amazon DocumentDB](docdb-migration.md "docdb-migration.md").
+When importing data into Amazon DocumentDB, you should create your indexes before importing large datasets. You can use the [Amazon DocumentDB Index Tool](https://github.com/awslabs/amazon-documentdb-tools/tree/master/index-tool "https://github.com/awslabs/amazon-documentdb-tools/tree/master/index-tool") to extract indexes from a running MongoDB instance or mongodump directory, and create those indexes in an Amazon DocumentDB cluster. For more guidance on migrations, see [Migrating and upgrading Amazon DocumentDB](docdb-migration.md "docdb-migration.md").
 
 ## Index selectivity
 
-We recommend that you limit the creation of indexes to fields where the number of duplicate values is less than 1% of the total number of documents in the collection. As an example, if your collection contains 100,000 documents, only create indexes on fields where the same value occurs 1,000 times or fewer.
+Limit index creation to fields where the number of duplicate values is less than 1% of the total number of documents in the collection. As an example, if your collection contains 100,000 documents, only create indexes on fields where the same value occurs 1,000 times or fewer.
 
 Choosing an index with a high number of unique values (that is, a high cardinality) ensures that filter operations return a small number of documents, thereby yielding good performance during index scans. An example of a high-cardinality index is a unique index, which guarantees that equality predicates return at most a single document. Examples of low-cardinality include an index over a Boolean field and an index over day of the week. Due to their poor performance, low cardinality indexes are unlikely to be chosen by the database's query optimizer. At the same time, low cardinality indexes continue to consume resources such as disk space and I/Os. As a rule of thumb, you should target indexes on fields where the typical value frequency is 1% of the total collection size or less.
 
@@ -22,8 +22,8 @@ For best performance, minimize the number of indexes in your collections, adding
 
 ## Identifying missing indexes
 
-Identifying missing indexes is a best practice that we recommend performing on a regular basis. For more information, see [How do I identify missing indexes?](user_diagnostics.md#user_diagnostics-identify_missing_indexes "user_diagnostics.md#user_diagnostics-identify_missing_indexes").
+As a best practice, identify missing indexes on a regular basis. For more information, see [How do I identify missing indexes?](user_diagnostics.md#user_diagnostics-identify_missing_indexes "user_diagnostics.md#user_diagnostics-identify_missing_indexes").
 
 ## Identifying unused indexes
 
-Identifying and removing unused indexes is a best practice that we recommend performing on a regular basis. For more information, see [How do I analyze index usage and identify unused indexes?](user_diagnostics.md#user-diag-index-usage "user_diagnostics.md#user-diag-index-usage").
+As a best practice, identify and remove unused indexes on a regular basis. For more information, see [How do I analyze index usage and identify unused indexes?](user_diagnostics.md#user-diag-index-usage "user_diagnostics.md#user-diag-index-usage").

@@ -9,4 +9,4 @@ Index properties define the behavior and characteristics of indexes in Amazon Do
 - [Index Property: sparse](index-property-sparse.md "index-property-sparse.md")
 - [Index Property: partialFilterExpression](index-property-partialfilterexpression.md "index-property-partialfilterexpression.md")
 - [Index Property: expireAfterSeconds](index-property-expireafterseconds.md "index-property-expireafterseconds.md")
-- [Index Property: hidden](index-property-hidden.md "index-property-hidden.md")
+- [Index property: hidden](index-property-hidden.md "index-property-hidden.md")

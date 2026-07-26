@@ -11,12 +11,12 @@ Vector search is available on Amazon DocumentDB 5.0 instance-based clusters.
 
 ###### Topics
 
-- [Inserting vectors](#w2aac23c11b9 "#w2aac23c11b9")
-- [Creating a vector index](#w2aac23c11c11 "#w2aac23c11c11")
-- [Getting an index definition](#w2aac23c11c13 "#w2aac23c11c13")
-- [Querying vectors](#w2aac23c11c15 "#w2aac23c11c15")
+- [Inserting vectors](#w2aac23c23c11b9 "#w2aac23c23c11b9")
+- [Creating a vector index](#w2aac23c23c11c11 "#w2aac23c23c11c11")
+- [Getting an index definition](#w2aac23c23c11c13 "#w2aac23c23c11c13")
+- [Querying vectors](#w2aac23c23c11c15 "#w2aac23c23c11c15")
 - [Features and limitations](#vector-limitations "#vector-limitations")
-- [Best practices](#w2aac23c11c19 "#w2aac23c11c19")
+- [Best practices](#w2aac23c23c11c19 "#w2aac23c23c11c19")
 
 ## Inserting vectors
 
@@ -44,11 +44,11 @@ An IVFFlat index segregates vectors into lists and subsequently searches a selec
 On the other hand, an HNSW index organizes the vector data into a multi-layered graph.
 Although HNSW has slower build times compared to IVFFlat, it delivers better query performance and recall.
 Unlike IVFFlat, HNSW has no training step involved, allowing the index to be generated without any initial data load.
-For the majority of use cases, we recommend using the HNSW index type for vector search.
+For most use cases, use the HNSW index type for vector search.
 
 If you do not create a vector index, Amazon DocumentDB performs an exact nearest neighbor search, ensuring perfect recall.
 However, in production scenarios, speed is crucial.
-We recommend using vector indexes, which may trade some recall for improved speed.
+Use vector indexes, which might trade some recall for improved speed.
 It's important to note that adding a vector index can lead to different query results.
 
 **Templates**
@@ -56,8 +56,8 @@ It's important to note that adding a vector index can lead to different query re
 You can use the following `createIndex` or `runCommand` templates to build a vector index on a vector field:
 
 Using createIndex
-In certain drivers, such as mongosh and Java, using the `vectorOptions` parameters in `createIndex` may result in an error.
-In such cases, we recommend using `runCommand`:
+In certain drivers, such as mongosh and Java, using the `vectorOptions` parameters in `createIndex` might result in an error.
+In such cases, use `runCommand`:
 
 ```
 db.collection.createIndex(
@@ -76,8 +76,8 @@ db.collection.createIndex(
 ```
 
 Using runCommand
-In certain drivers, such as mongosh and Java, using the `vectorOptions` parameters in `createIndex` may result in an error.
-In such cases, we recommend using `runCommand`:
+In certain drivers, such as mongosh and Java, using the `vectorOptions` parameters in `createIndex` might result in an error.
+In such cases, use `runCommand`:
 
 ```
 db.runCommand(
@@ -333,13 +333,13 @@ Learn best practices for working with vector search in Amazon DocumentDB.
 This section is continually updated as new best practices are identified.
 
 - Inverted File with Flat Compression (IVFFlat) index creation involves clustering and organizing the data points based on similarities.
-  Hence, in order for an index to be more effective, we recommend that you at least load some data before creating the index.
+  For an index to be more effective, load some data before creating the index.
 - For vector search queries, it is important to fine tune the parameters such as `probes` or `efSearch` for optimum results.
   The higher the value of the `probes` or `efSearch` parameter, the higher is the recall and lower is the speed.
   The recommended setting to start fine tuning the `probes` parameter is `sqrt(lists)`.
 
 **Resources**
 
-- [Vector search what's new blog post](https://aws.amazon.com/blogs/aws/vector-search-for-amazon-documentdb-with-mongodb-compatibility-is-now-generally-available "https://aws.amazon.com/blogs/aws/vector-search-for-amazon-documentdb-with-mongodb-compatibility-is-now-generally-available")
+- [Vector search for Amazon DocumentDB is now generally available](https://aws.amazon.com/blogs/aws/vector-search-for-amazon-documentdb-with-mongodb-compatibility-is-now-generally-available "https://aws.amazon.com/blogs/aws/vector-search-for-amazon-documentdb-with-mongodb-compatibility-is-now-generally-available") on the AWS Blog
 - [Semantic search code sample](https://github.com/aws-samples/amazon-documentdb-samples/tree/master/blogs/semanticsearch-docdb "https://github.com/aws-samples/amazon-documentdb-samples/tree/master/blogs/semanticsearch-docdb")
 - [Amazon DocumentDB vector search code samples](https://github.com/aws-samples/amazon-documentdb-samples/tree/master/samples/vector-search "https://github.com/aws-samples/amazon-documentdb-samples/tree/master/samples/vector-search")

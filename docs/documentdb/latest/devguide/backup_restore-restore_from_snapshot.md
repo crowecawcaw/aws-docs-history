@@ -18,7 +18,7 @@ When you are restoring a cluster from a cluster snapshot:
 
 ###### Note
 
-You cannot restore a 3.6 cluster to a 4.0 cluster but you can migrate from one cluster version to another. For more information, go to [Migrating to Amazon DocumentDB](docdb-migration.md "docdb-migration.md").
+You cannot restore a 3.6 cluster to a 4.0 cluster but you can migrate from one cluster version to another. For more information, go to [Migrating and upgrading Amazon DocumentDB](docdb-migration.md "docdb-migration.md").
 
 Using the AWS Management Console
 The following procedure shows how to restore an Amazon DocumentDB cluster

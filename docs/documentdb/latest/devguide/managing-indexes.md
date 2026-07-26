@@ -39,7 +39,7 @@ Parallel workers are not supported on 2xlarge instance classes and lower.
 - **Index compression** - Amazon DocumentDB doesn't support index compression.
   Data sizes for indexes might be larger than when you use other options.
 - **Indexing multiple collections** - Half the vCPUs on your database cluster's primary instance can be used for configured workers performing index creation on multiple collections.
-- **Index types** - See [this blog post](https://aws.amazon.com/blogs/database/how-to-index-on-amazon-documentdb-with-mongodb-compatibility/ "https://aws.amazon.com/blogs/database/how-to-index-on-amazon-documentdb-with-mongodb-compatibility/") for a complete explanation of supported index types on Amazon DocumentDB.
+- **Index types** - For a complete explanation of supported index types on Amazon DocumentDB, see [How to index on Amazon DocumentDB](https://aws.amazon.com/blogs/database/how-to-index-on-amazon-documentdb-with-mongodb-compatibility/ "https://aws.amazon.com/blogs/database/how-to-index-on-amazon-documentdb-with-mongodb-compatibility/") on the AWS Database Blog.
 
 ### Getting started
 

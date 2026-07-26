@@ -21,7 +21,7 @@ The local SSD space is divided into two sections:
 
 ## Recommended use cases for NVMe-backed instances
 
-We recommend you use NVMe-backed instances in the following scenarios:
+Use NVMe-backed instances in the following scenarios:
 
 - **Read-heavy workloads** — If your workload is read-intensive, and your dataset is larger than the buffer cache, indicated by low `BufferCacheHitRatio` and high `ReadIOPS` metrics, NVMe-backed instances can provide performance benefits.
 - **Update-heavy workloads** — If your workload is update-intensive, and garbage collection is unable to keep up due to read latency on network storage, NVMe-backed instances could help mitigate the issue.

@@ -32,7 +32,7 @@ The `$maxN` operator in Amazon DocumentDB returns the N largest values. When use
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates the use of the `$maxN` accumulator to retrieve the two highest scores for each subject.
+The following example shows how to use the `$maxN` accumulator to retrieve the two highest scores for each subject.
 
 **Create sample documents**
 

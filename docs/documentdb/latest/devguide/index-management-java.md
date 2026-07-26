@@ -9,7 +9,7 @@ It also discusses how to determine if a particular index is being used in the qu
 
 - [Creating indexes](#creating-indexes "#creating-indexes")
 - [Dropping indexes](#dropping-indes "#dropping-indes")
-- [Determining index selection and providing index hint](#w2aac45b9b7c17c13 "#w2aac45b9b7c17c13")
+- [Determining index selection and providing index hint](#w2aac23b9b7c17c13 "#w2aac23b9b7c17c13")
   Amazon DocumentDB supports many types of indexes. For a comprehensive overview of all the supported indexes, see [How to index on Amazon DocumentDB](https://aws.amazon.com/blogs/database/how-to-index-on-amazon-documentdb-with-mongodb-compatibility/ "https://aws.amazon.com/blogs/database/how-to-index-on-amazon-documentdb-with-mongodb-compatibility/") on the AWS Database Blog.
 
 ## Creating indexes with Java
@@ -130,7 +130,7 @@ collection.createIndex(textIndex.getKeys(), textIndex.getOptions());
 Amazon DocumentDB supports parallel index creation to decrease the time it takes to create indexes.
 Parallel indexing uses multiple concurrent workers.
 The default workers used for index creation is two.
-This [blog post](https://aws.amazon.com/blogs/database/unlock-the-power-of-parallel-indexing-in-amazon-documentdb/ "https://aws.amazon.com/blogs/database/unlock-the-power-of-parallel-indexing-in-amazon-documentdb/") provides an in-depth discussion on parallel indexing.
+For more information, see [Unlock the power of parallel indexing in Amazon DocumentDB](https://aws.amazon.com/blogs/database/unlock-the-power-of-parallel-indexing-in-amazon-documentdb/ "https://aws.amazon.com/blogs/database/unlock-the-power-of-parallel-indexing-in-amazon-documentdb/") on the AWS Database Blog.
 Currently, MongDB Java drivers do not support specifying the worker option when you are using `createIndex()` or `createIndexes()` and therefore the only way to specify workers is through the `runCommand`.
 The following code example demonstrates how to use `runCommand` to create an index that increase the worker to four:
 

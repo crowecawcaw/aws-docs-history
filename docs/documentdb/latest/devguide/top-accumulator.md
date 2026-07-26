@@ -11,7 +11,7 @@ Use the `$top` accumulator in the `$group` stage to return the highest-ranked do
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$top` accumulator to find the top sale (highest quantity) per item in a sales collection.
+The following example shows how to use the `$top` accumulator to find the top sale (highest quantity) per item in a sales collection.
 
 **Create sample documents**
 

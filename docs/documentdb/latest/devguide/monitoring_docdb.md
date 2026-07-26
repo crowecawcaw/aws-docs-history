@@ -1,10 +1,10 @@
-# Monitoring Amazon DocumentDB
+# Monitoring and logging in Amazon DocumentDB
 
 Monitoring your AWS services is an important part of keeping your systems
-healthy and functioning optimally. It's wise to collect monitoring data from all parts of your
+healthy and functioning optimally. Collect monitoring data from all parts of your
 AWS solution so that you can more easily debug and fix failures or
-degradations, should they occur. Before you begin monitoring your AWS
-solutions, we recommend that you consider and formulate answers for the following
+performance issues. Before you begin monitoring your AWS
+solutions, consider the following
 questions:
 
 - What are your monitoring goals?
@@ -16,7 +16,7 @@ questions:
   To understand your current performance patterns, identify performance anomalies, and
   formulate methods to address issues, you should establish baseline performance metrics for
   various times and under differing load conditions. As you monitor your AWS
-  solution, we recommend that you store your historical monitoring data for future reference and
+  solution, store your historical monitoring data for future reference and
   for establishing your baselines.
 
 In general, acceptable values for performance metrics depend on what your baseline looks
@@ -30,7 +30,7 @@ your baseline. The following is advice about specific types of metrics:
   storage consumption (`VolumeBytesUsed`) if space that is used is consistently
   at or above 85 percent of the total storage volume space. Determine whether you can
   delete data from the storage volume or archive data to a different system to free up
-  space. For more information, see [Amazon DocumentDB storage](how-it-works.md#how-it-works.storage "how-it-works.md#how-it-works.storage") and [Amazon DocumentDB Quotas and limits](limits.md "limits.md").
+  space. For more information, see [Amazon DocumentDB storage](how-it-works.md#how-it-works.storage "how-it-works.md#how-it-works.storage") and [Amazon DocumentDB quotas](limits.md "limits.md").
 - **Network traffic** — For network traffic, talk
   with your system administrator to understand what the expected throughput is for your
   domain network and internet connection. Investigate network traffic if throughput is

@@ -31,7 +31,6 @@ The following topics show you how to configure Amazon DocumentDB to meet your se
 - [Authentication using IAM identity](iam-identity-auth.md "iam-identity-auth.md")
 - [Managing Amazon DocumentDB users](security.managing-users.md "security.managing-users.md")
 - [Database access using Role-Based Access Control](role_based_access_control.md "role_based_access_control.md")
-- [Logging and monitoring in Amazon DocumentDB](logging-and-monitoring.md "logging-and-monitoring.md")
 - [Updating your Amazon DocumentDB TLS certificates](ca_cert_rotation.md "ca_cert_rotation.md")
 - [Compliance validation in Amazon DocumentDB](security.compliance-validation.md "security.compliance-validation.md")
 - [Resilience in Amazon DocumentDB](security.disaster-recovery-resiliency.md "security.disaster-recovery-resiliency.md")

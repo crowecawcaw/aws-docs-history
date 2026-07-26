@@ -10,7 +10,7 @@ The `$sortByCount` aggregation stage in Amazon DocumentDB groups incoming docume
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$sortByCount` stage to count and sort documents by a category field.
+The following example shows how to use the `$sortByCount` stage to count and sort documents by a category field.
 
 **Create sample documents**
 

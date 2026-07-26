@@ -294,7 +294,7 @@ The following additional differences between Amazon DocumentDB text index and Mo
 
 ## Best practices and guidelines
 
-- For optimal performance on text search queries involving sorting by text scores, we recommended that you create the text index before loading data.
+- For optimal performance on text search queries involving sorting by text scores, create the text index before loading data.
 - Text indexes require additional storage for an optimized internal copy of the indexed data.
   This has additional cost implications.
 

@@ -1,4 +1,4 @@
-# Amazon DocumentDB High availability and replication
+# Amazon DocumentDB high availability and replication
 
 You can achieve high availability and read scaling in Amazon DocumentDB (with MongoDB compatibility) by using replica instances. A single Amazon DocumentDB cluster supports a single primary instance and up to 15 replica instances. These instances can be distributed across Availability Zones within the cluster's Region. The primary instance accepts read and write traffic, and replica instances accept only read requests.
 
@@ -25,12 +25,12 @@ When Amazon DocumentDB performs a failover and recovers an instance, the recover
 
 You can specify Amazon DocumentDB replicas as failover targets. That is, if the primary instance fails, the specified Amazon DocumentDB replica or replica from a tier is promoted to the primary instance. There is a brief interruption during which read and write requests made to the primary instance fail with an exception. If your Amazon DocumentDB cluster doesn't include any Amazon DocumentDB replicas, when the primary instance fails, it is re-created. Promoting an Amazon DocumentDB replica is much faster than re-creating the primary instance.
 
-For high availability scenarios, we recommend that you create one or more Amazon DocumentDB replicas. These replicas should be of the same instance class as the primary instance and in different Availability Zones for your Amazon DocumentDB cluster.
+For high availability, create one or more Amazon DocumentDB replicas of the same instance class as the primary instance in different Availability Zones.
 
 For more information, see the following:
 
 - [Understanding Amazon DocumentDB cluster fault tolerance](db-cluster-fault-tolerance.md "db-cluster-fault-tolerance.md")
-- [Amazon DocumentDB Failover](failover.md "failover.md")
+- [Amazon DocumentDB failover](failover.md "failover.md")
 
   - [Controlling the failover target](failover.md#failover-target_control "failover.md#failover-target_control")
 
@@ -61,12 +61,12 @@ Replication lag is typically 50ms or less. The most common reasons for increased
 
 To minimize replication lag, try these troubleshooting techniques:
 
-- If you have a high write rate or high CPU utilization, we recommend that you scale up the instances in your cluster.
+- If you have a high write rate or high CPU utilization, scale up the instances in your cluster.
 - If there are long running queries on your read replicas, and very frequent updates to the documents being queried, consider altering your long running queries, or running them against the primary/write replica to avoid contention on the read replicas.
 - If there is a very large number of concurrent queries or high CPU utilization only on the read replicas, another option is to scale out the number of read replicas to spread out the workload.
-- Because replication lag is a result of high write throughput and long running queries, we recommend troubleshooting the replication lag by utilizing the DBClusterReplicaLagMaximum CW metric in combination with the slow query logger and `WriteThroughput`/`WriteIOPS` metrics.
+- Because replication lag results from high write throughput and long-running queries, troubleshoot replication lag using the `DBClusterReplicaLagMaximum` CloudWatch metric in combination with the slow query logger and `WriteThroughput`/`WriteIOPS` metrics.
 
-In general, we recommend that all your replicas are of the same instance type, so that a cluster failover will not cause a degradation in performance.
+Ensure all your replicas are of the same instance type so that a cluster failover doesn't cause a degradation in performance.
 
 If you are choosing between scaling up and scaling out (eg. six smaller instances vs three larger instances), we generally recommend trying to scale up first (larger instances) before scaling out, as you will get a larger buffer cache per DB instance.
 
@@ -74,4 +74,4 @@ Proactively, you should set a replication lag alarm and set its threshold to a v
 
 ###### Note
 
-In addition, we recommend that you set another alarm for replication lags that exceed 10 seconds. If you surpass this threshold for multiple data points, we recommend that you scale up your instances or reduce your write throughput on the primary instance.
+Set another alarm for replication lags that exceed 10 seconds. If you surpass this threshold for multiple data points, scale up your instances or reduce your write throughput on the primary instance.

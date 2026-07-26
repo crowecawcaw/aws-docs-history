@@ -32,7 +32,7 @@ The `$minN` operator in Amazon DocumentDB returns the N smallest values. When us
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates the use of the `$minN` accumulator to retrieve the two lowest scores for each subject.
+The following example shows how to use the `$minN` accumulator to retrieve the two lowest scores for each subject.
 
 **Create sample documents**
 

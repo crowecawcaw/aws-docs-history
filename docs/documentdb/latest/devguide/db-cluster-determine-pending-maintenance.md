@@ -1,6 +1,11 @@
 # Determining pending maintenance
 
-You can determine whether you have the latest Amazon DocumentDB engine version by determining whether you have pending cluster maintenance.
+Maintenance most often involves updates to the following resources in your cluster:
+
+- Operating system (OS) of instances in the cluster
+- Engine version of the cluster
+
+For more information about Amazon DocumentDB maintenance, see [Maintaining Amazon DocumentDB](db-instance-maintain.md "db-instance-maintain.md").
 
 Using the AWS Management Console
 You can use the AWS Management Console to determine whether a cluster has
@@ -18,15 +23,21 @@ determine whether a cluster has pending maintenance.
 
 ![Console screenshot showing Amazon DocumentDB cluster maintenance field.](images/docdb-cluster-pending-maintenance.png)
 
-**None** indicates that the cluster is
-running the latest engine version. **Available**
+**None**
+indicates that the cluster is
+running the latest engine patch version and its instances have the latest OS updates.
+**Available**
 indicates that the cluster has pending maintenance, which
-might mean that an engine upgrade is needed. 4. If your cluster has pending maintenance, continue with
-the steps at [Performing a patch update to a cluster's engine version](db-cluster-version-upgrade.md "db-cluster-version-upgrade.md").
+might mean that an engine upgrade or OS update is needed. 4. If your cluster has pending maintenance,
+you can view the pending maintenance actions by choosing the cluster name
+and selecting the **Maintenance & backups** tab.
+The **Pending Maintenance** section lists the pending maintenance actions.
+
+![The Amazon DocumentDB Maintenance and backups tab showing the system-update maintenance action for a cluster.](images/cluster-maint-3.png)
 
 Using the AWS CLI
 You can use the AWS CLI to determine whether a cluster has the
-latest engine version by using the `describe-pending-maintenance-actions`
+latest engine version and OS updates by using the `describe-pending-maintenance-actions`
 operation with the following parameters.
 
 ###### Parameters
@@ -44,8 +55,8 @@ For Linux, macOS, or Unix:
 
 ```
 aws docdb describe-pending-maintenance-actions \
-   --resource-identifier arn:aws:rds:us-east-1:123456789012:cluster:sample-cluster \
-   --region us-east-1
+   --resource-identifier arn:aws:rds:`aa-example-1`:`111122223333`:cluster:`sample-cluster` \
+   --region `aa-example-1`
 
 ```
 
@@ -53,8 +64,8 @@ For Windows:
 
 ```
 aws docdb describe-pending-maintenance-actions ^
-   --resource-identifier arn:aws:rds:us-east-1:123456789012:cluster:sample-cluster ^
-   --region us-east-1
+   --resource-identifier arn:aws:rds:`aa-example-1`:`111122223333`:cluster:`sample-cluster` ^
+   --region `aa-example-1`
 
 ```
 
@@ -64,11 +75,11 @@ Output from this operation looks something like the following.
 {
     "PendingMaintenanceActions": [
         {
-            "ResourceIdentifier": "arn:aws:rds:us-east-1:123456789012:cluster:sample-cluster",
+            "ResourceIdentifier": "arn:aws:rds:aa-example-1:111122223333:cluster:sample-cluster",
             "PendingMaintenanceActionDetails": [
                 {
                     "Description": "New feature",
-                    "Action": "db-upgrade",
+                    "Action": "system-update",
                     "ForcedApplyDate": "2019-02-25T21:46:00Z",
                     "AutoAppliedAfterDate": "2019-02-25T07:41:00Z",
                     "CurrentApplyDate": "2019-02-25T07:41:00Z"
@@ -80,5 +91,16 @@ Output from this operation looks something like the following.
 
 ```
 
-If your cluster has pending maintenance, continue with the
-steps at [Performing a patch update to a cluster's engine version](db-cluster-version-upgrade.md "db-cluster-version-upgrade.md").
+The following maintenance action types apply to Amazon DocumentDB clusters:
+
+- `system-update` —
+  Upgrade the engine patch for the Amazon DocumentDB cluster.
+
+If your cluster has a pending engine patch upgrade available, continue with the steps at
+[Performing a patch update to a cluster's engine version](db-cluster-version-upgrade.md "db-cluster-version-upgrade.md").
+
+- `os-upgrade` —
+  Update the operating systems of all the DB instances in the Amazon DocumentDB cluster, using rolling upgrades.
+
+For more information, see
+[Amazon DocumentDB operating system updates](db-instance-maintain.md#os-system-updates "db-instance-maintain.md#os-system-updates").

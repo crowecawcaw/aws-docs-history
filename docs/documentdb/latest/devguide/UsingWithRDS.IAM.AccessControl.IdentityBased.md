@@ -4,7 +4,7 @@
 
 For certain management features, Amazon DocumentDB uses operational technology that is shared with Amazon RDS. Amazon DocumentDB console, AWS CLI, and API calls are logged as calls made to the Amazon RDS API.
 
-We recommend that you first review the introductory topics that explain the basic concepts and options available for you to manage access to your Amazon DocumentDB resources. For more information, see [Managing access permissions to your Amazon DocumentDB resources](UsingWithRDS.IAM.AccessControl.Overview.md "UsingWithRDS.IAM.AccessControl.Overview.md").
+First review the introductory topics that explain the basic concepts and options for managing access to your Amazon DocumentDB resources. For more information, see [Managing access permissions to your Amazon DocumentDB resources](UsingWithRDS.IAM.AccessControl.Overview.md "UsingWithRDS.IAM.AccessControl.Overview.md").
 
 This topic provides examples of identity-based policies in which an account administrator can attach permissions policies to IAM identities (that is, users, groups, and roles).
 

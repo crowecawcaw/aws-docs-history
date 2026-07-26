@@ -10,7 +10,7 @@ The `$toUUID` operator in Amazon DocumentDB converts a string value to a UUID (B
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$toUUID` operator to convert string values to UUID format.
+The following example shows how to use the `$toUUID` operator to convert string values to UUID format.
 
 **Create sample documents**
 

@@ -345,7 +345,7 @@ Congratulations! You have successfully completed the Quick Start Guide to Amazon
 
 What’s next? Learn how to fully leverage this powerful database with some of its popular features:
 
-- [Managing Amazon DocumentDB resources](managing-documentdb.md "managing-documentdb.md")
+- [Managing Amazon DocumentDB clusters and instances](managing-documentdb.md "managing-documentdb.md")
 - [Scaling](operational_tasks.md "operational_tasks.md")
 - [Backing up and restoring](backup_restore.md "backup_restore.md")
 

@@ -14,7 +14,7 @@ monitor, and archive your Amazon DocumentDB profiling data. Common queries are
 provided in the section [Common queries](#profiling.common-queries "#profiling.common-queries").
 
 When enabled, the profiler uses additional resources in your cluster.
-We recommend that you start with a high threshold value (for example, 500
+Start with a high threshold value (for example, 500
 ms) and gradually lower the value to identify slow operations. Starting
 with a threshold value of 50 ms can cause performance issues on your
 cluster for high throughput applications. The profiler is enabled at the
@@ -52,7 +52,7 @@ Amazon DocumentDB profiler supports the following operations:
 
 The slow query profiler is only able to emit profiler logs if the entire result set of the query is able to fit in one batch, and if the result set is under 16MB (maximum BSON size). Result sets greater than 16MB are automatically split into multiple batches.
 
-Most drivers or shells may set a default batch size that is small. You can specify the batch size as part of your query. For the purpose of capturing slow query logs, we recommend a batch size that exceeds the size of your expected result set. If you are unsure of the result set size, or if it varies, you can also set the batch size to a large number (e.g., 100k).
+Most drivers or shells might set a small default batch size. You can specify the batch size as part of your query. To capture slow query logs, use a batch size that exceeds the size of your expected result set. If you are unsure of the result set size, or if it varies, set the batch size to a large number (for example, 100k).
 
 However, using a larger batch size means more results will have to be retrieved from the database before a response is sent to the client. For some queries, that may create longer delays before you get results. If you do not plan to consume the entire result set, it is possible that you will spend more I/Os to process the query and throw away the result.
 

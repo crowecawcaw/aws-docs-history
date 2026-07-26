@@ -54,7 +54,7 @@ Critical CloudWatch metrics to monitor are:
 - `DatabaseConnectionsLimit` - The maximum number of concurrent database connections (active and idle) allowed on an instance at any given time.
 - `LowMemNumOperationsThrottled` - The number of requests that are throttled due to low available memory in a 1-minute period.
 
-See [Quotas and limits](limits.md#limits.instance "limits.md#limits.instance") for limits per instance class.
+For quotas per instance class, see [Instance quotas](limits.md#limits.instance "limits.md#limits.instance").
 
 Common warning signs of connection pool issues at the application level include:
 

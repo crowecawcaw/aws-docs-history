@@ -8,9 +8,8 @@ text returned by the server. Codes that cover multiple conditions have a general
 
 ###### Important
 
-Error codes might change between major versions of Amazon DocumentDB. We recommend that you
-don't build application logic that depends on a specific numeric error code remaining
-stable across versions.
+Don't build application logic that depends on specific numeric error codes because
+Amazon DocumentDB might change error codes between major versions.
 
 | Error code | Description                                                                                                                                                                       |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

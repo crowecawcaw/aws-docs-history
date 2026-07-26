@@ -16,7 +16,7 @@ performance and scaling for your Amazon DocumentDB clusters and instances.
 
 Amazon DocumentDB storage automatically scales with the data in your cluster
 volume. As your data grows, your cluster volume storage grows in 10
-GiB increments, up to 128 TiB.
+GiB increments, up to 256 TiB for Engine Version 8.0 and beyond (128 TiB for earlier engine versions).
 
 ## Instance scaling
 
@@ -32,7 +32,7 @@ You can achieve read scaling for your Amazon DocumentDB cluster by creating up t
 
 For more information, see [Adding an Amazon DocumentDB instance to a cluster](db-instance-add.md "db-instance-add.md").
 
-To read scale with Amazon DocumentDB, we recommend that you connect to your cluster as a replica set and distribute reads to replica instances using the built-in read preference capabilities of your driver. For more information, see [Connecting to Amazon DocumentDB as a replica set](connect-to-replica-set.md "connect-to-replica-set.md").
+To read scale with Amazon DocumentDB, connect to your cluster as a replica set and distribute reads to replica instances using the built-in read preference capabilities of your driver. For more information, see [Connecting to Amazon DocumentDB as a replica set](connect-to-replica-set.md "connect-to-replica-set.md").
 
 ## Write scaling
 
@@ -52,11 +52,11 @@ Depending on your application, you can choose what approach below is best for yo
 
    1. Add one or more replicas of the larger instance type
       to your cluster (see [Adding an Amazon DocumentDB instance to a cluster](db-instance-add.md "db-instance-add.md")).
-      We recommend all replicas be of the same or larger
+      Ensure all replicas are of the same or larger
       instance type as the primary. This avoids an unintentional
       reduction in write performance from failing over to a
-      smaller instance type. For most customers, this means
-      temporarily doubling the number of instances in their
+      smaller instance type. In most cases, this means
+      temporarily doubling the number of instances in your
       cluster, then removing the smaller replicas after
       scaling is complete.
    2. Set the failover tier on all new replicas to priority
@@ -93,7 +93,7 @@ It is possible that changing the instance class of a replica will result in that
     This will incur ~30 seconds of downtime for your
      cluster. Plan accordingly.
     3. Continue executing steps 1 and 2 until all replicas instances have been scaled, one by one.
-    4. Initiate a manual failover. This will promote one of the replicas to be the primary instance. For more information, see [Amazon DocumentDB Failover](failover.md "failover.md").
+    4. Initiate a manual failover. This will promote one of the replicas to be the primary instance. For more information, see [Amazon DocumentDB failover](failover.md "failover.md").
 
 
     ###### Note

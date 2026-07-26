@@ -10,7 +10,7 @@ The `$bitNot` operator in Amazon DocumentDB performs a bitwise NOT operation on 
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$bitNot` operator to compute the bitwise complement of integer values.
+The following example shows how to use the `$bitNot` operator to compute the bitwise complement of integer values.
 
 **Create sample documents**
 

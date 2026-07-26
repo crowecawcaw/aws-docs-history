@@ -81,7 +81,7 @@ However, you can edit the description of the role using IAM. For more informatio
 
 #### Deleting a service-linked role for Amazon DocumentDB elastic clusters
 
-If you no longer need to use a feature or service that requires a service-linked role, we recommend that you delete that role.
+If you no longer need to use a feature or service that requires a service-linked role, delete that role.
 That way you don't have an unused entity that is not actively monitored or maintained.
 However, you must delete all of your clusters before you can delete the service-linked role.
 

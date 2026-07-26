@@ -14,7 +14,7 @@ event is created when the reboot is completed.
 
 Rebooting an instance doesn't result in a failover. To failover
 an Amazon DocumentDB cluster, use the AWS Management Console or the AWS CLI operation
-`failover-db-cluster`. For more information, see [Amazon DocumentDB Failover](failover.md "failover.md").
+`failover-db-cluster`. For more information, see [Amazon DocumentDB failover](failover.md "failover.md").
 
 You can't reboot your instance if it isn't in the
 _available_ state. Your database can be

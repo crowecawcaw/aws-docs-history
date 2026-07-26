@@ -10,7 +10,7 @@ The `$bitXor` operator in Amazon DocumentDB performs a bitwise XOR operation on 
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$bitXor` operator to perform bitwise XOR on two fields.
+The following example shows how to use the `$bitXor` operator to perform bitwise XOR on two fields.
 
 **Create sample documents**
 

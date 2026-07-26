@@ -9,7 +9,7 @@
   Maintenance most often involves updates to the database engine (elastic cluster maintenance) or the elastic cluster's underlying operating system (OS updates).
   Database engine updates are required patches and include security fixes, bug fixes, and enhancements to the database engine.
   While most operating system patches are optional, if you don't apply them for a while, the patch may be required and auto applied to maintain your security posture.
-  So, we recommend that you apply operating system updates to your Amazon DocumentDB elastic clusters as soon as they are available.
+  Apply operating system updates to your Amazon DocumentDB elastic clusters as soon as they are available.
 
 Database engine patches require that you take your Amazon DocumentDB elastic clusters offline for a short time.
 Once available, these patches are automatically scheduled to apply during an upcoming scheduled maintenance window of your Amazon DocumentDB elastic cluster.
@@ -277,4 +277,4 @@ Operating system updates don't change the cluster engine version of an Amazon Do
 Most operating system updates for Amazon DocumentDB elastic clusters are optional and don't have a set date to apply them.
 However, if you don't apply these updates for a while, they may eventually become required and automatically applied during your clusters maintenance window.
 This is to help maintain the security posture of your database.
-To avoid any unexpected downtime, we recommend that you apply operating system updates to your Amazon DocumentDB elastic cluster as soon as they become available and set your cluster maintenance window at a time of your convenience as per your business needs.
+To avoid unexpected downtime, apply operating system updates to your Amazon DocumentDB elastic cluster as soon as they become available, and set your cluster maintenance window at a time that suits your business needs.

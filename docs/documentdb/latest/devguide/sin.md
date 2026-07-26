@@ -2,7 +2,7 @@
 
 New from version 8.0.1.
 
-The `$sin` operator in Amazon DocumentDB returns the sine of a value that is measured in radians. Use `$sin` in the aggregation pipeline to perform trigonometric calculations on numeric fields.
+The `$sin` operator in Amazon DocumentDB returns the sine of a value that is measured in radians. Use it in the aggregation pipeline to perform trigonometric calculations on numeric fields.
 
 **Parameters**
 

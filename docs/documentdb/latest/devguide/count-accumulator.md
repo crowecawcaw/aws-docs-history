@@ -18,7 +18,7 @@ This is different from the `$count` pipeline stage, which is a standalone stage 
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$count` accumulator to count the number of products in each category.
+The following example shows how to use the `$count` accumulator to count the number of products in each category.
 
 **Create sample documents**
 

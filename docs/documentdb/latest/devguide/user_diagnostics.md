@@ -757,7 +757,7 @@ eventually consistent.
 ## How do I determine the open cursors on an instance?
 
 When connected to a Amazon DocumentDB instance, you can use the command
-`db.runCommand("listCursors")` to list the open cursors on that instance. There is a limit of up to 4,560 active cursors open at any given time on a given Amazon DocumentDB instance, depending on the instance type. It is generally advised to close cursors that are no longer in use because cursors utilize resources on an instance and have an upper limit. See [Amazon DocumentDB Quotas and limits](limits.md "limits.md") for specific limits.
+`db.runCommand("listCursors")` to list the open cursors on that instance. There is a quota of up to 4,560 active cursors open at any given time on a given Amazon DocumentDB instance, depending on the instance type. Close cursors that are no longer in use because cursors utilize resources on an instance. For more information, see [Amazon DocumentDB quotas](limits.md "limits.md").
 
 ```
 db.runCommand("listCursors")
@@ -806,7 +806,7 @@ The output for this command includes the following values:
   The statistics provided by this command are reset when starting/stopping the cluster or scaling up/down the instance.
 
 A breakdown of how much each index is used can be found in the output of the following command.
-It is a best practice to regularly identify and remove unused indexes in order to improve performance and reduce cost, as it eliminates unnecessary compute, storage, and I/Os used to maintain the indexes.
+It is a best practice to regularly identify and remove unused indexes to improve performance and reduce cost, as it eliminates unnecessary compute, storage, and I/Os used to maintain the indexes.
 
 ```
 db.collection.aggregate([{$indexStats:{}}]).pretty()
@@ -883,7 +883,7 @@ performance.
 You can identify opportunities for helpful indexes by looking for
 long running queries that have one or more stages that perform at
 least one `COLLSCAN` stage, meaning that the query stage
-has to read every document in the collection in order to provide a
+has to read every document in the collection to provide a
 response to the query.
 
 The following example shows a query on a collection of taxi rides
@@ -933,7 +933,7 @@ Indexes created in the foreground (meaning if the
 the index) take an exclusive write lock, which prevents applications
 from writing data to the collection until the index build completes.
 Be aware of this potential impact when creating indexes on
-production clusters. When creating indexes, we recommend setting
+production clusters. When creating indexes, set
 `{background:true}`.
 
 In general, you want to create indexes on fields that have high

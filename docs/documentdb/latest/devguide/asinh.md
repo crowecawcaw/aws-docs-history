@@ -2,12 +2,14 @@
 
 New from version 8.0.1.
 
-The `$asinh` operator in Amazon DocumentDB returns the inverse hyperbolic sine of a value. Use `$asinh` in the aggregation pipeline to perform hyperbolic trigonometric calculations on numeric fields.
+The `$asinh` operator in Amazon DocumentDB returns the inverse hyperbolic sine of a value. Use it in the aggregation pipeline to perform hyperbolic trigonometric calculations on numeric fields.
 
 **Parameters**
 
 - `expression`: An expression that resolves to a number.
-  The return type is `double` by default. If the input is a 128-bit decimal, the output is also a 128-bit decimal.
+  The result is in radians. To obtain degrees, apply `$radiansToDegrees` to the output.
+
+The return type is `double` by default. If the input is a 128-bit decimal, the output is also a 128-bit decimal.
 
 ## Example (MongoDB Shell)
 

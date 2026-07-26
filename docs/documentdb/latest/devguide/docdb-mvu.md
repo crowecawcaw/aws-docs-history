@@ -4,7 +4,7 @@ You can perform an in-place major version upgrade (MVU) of your Amazon DocumentD
 
 ###### Important
 
-Your cluster will be unavailable during the upgrade and will experience multiple reboots. Do not connect to, read from, or write to the cluster after starting the upgrade. Downtime varies depending on the number of collections, indexes, databases, and instances. We recommend performing the upgrade during your maintenance window or low-utilization hours.
+Your cluster is unavailable during the upgrade and reboots multiple times. Do not connect to, read from, or write to the cluster after starting the upgrade. Downtime varies depending on the number of collections, indexes, databases, and instances. Perform the upgrade during your maintenance window or low-utilization hours.
 
 Once upgraded, you cannot downgrade to a previous version. You can restore your pre-upgrade snapshot to a new cluster if needed.
 
@@ -47,7 +47,9 @@ In-place MVU is not supported for global clusters or elastic clusters. To upgrad
 
 ###### Important
 
-**Scale up burstable instances before upgrading.** If your cluster uses burstable instance types (for example, `db.t3.medium` or `db.t4g.medium`), we strongly recommend scaling up the primary instance to at least `db.r5.large` or `db.r6g.large` before initiating the upgrade. Burstable instances may not have sufficient CPU and memory to complete the upgrade process, which can result in upgrade failures and extended cluster unavailability. You can scale back down after the upgrade completes.
+**Scale up burstable instances before upgrading.** If your cluster uses burstable instance types (for example, `db.t3.medium` or `db.t4g.medium`), scale up the primary instance to at least `db.r5.large` or `db.r6g.large` before initiating the upgrade. Burstable instances may not have sufficient CPU and memory to complete the upgrade process, which can result in upgrade failures and extended cluster unavailability. You can scale back down after the upgrade completes.
+
+**Scale up the serverless writer instance before upgrading.** If your cluster has a serverless writer instance, the maximum DCU in the `ServerlessV2ScalingConfiguration` must be set to 3 or higher before initiating the upgrade. Clusters with a maximum DCU below 3 cannot be upgraded because they do not have sufficient CPU or memory to complete the upgrade.
 
 - **Instance type** — Amazon DocumentDB 4.0+ does not support db.r4 instances. Modify any `db.r4.*` instances to `db.r5.*` instances or newer before upgrading. See [Modifying an Amazon DocumentDB instance](db-instance-modify.md "db-instance-modify.md") and [Supported instance classes by Region](db-instance-classes.md#db-instance-classes-by-region "db-instance-classes.md#db-instance-classes-by-region").
 - **OS patches** — Apply any pending OS maintenance actions on all instances before upgrading. See [Amazon DocumentDB operating system updates](db-instance-maintain.md#os-system-updates "db-instance-maintain.md#os-system-updates").
@@ -63,8 +65,8 @@ Pending cluster-level engine patches may hide instance OS patches. Apply engine 
 | db.t4g.medium | 3K                      |
 | db.t3.medium  | 10K                     |
 
-- **Parameter group** — We recommend having a custom cluster parameter group for the target version ready before upgrading. If one is not specified, the default parameter group for the target version will be used (for example, `default.docdb5.0` or `default.docdb8.0`).
-- **Manual snapshot** — Create a manual snapshot before upgrading. The upgrade process creates an automatic snapshot named `preupgrade-<name>-<version>-<timestamp>`, but we strongly recommend having your own backup. See [Creating a manual cluster snapshot](backup_restore-create_manual_cluster_snapshot.md "backup_restore-create_manual_cluster_snapshot.md").
+- **Parameter group** — Have a custom cluster parameter group for the target version ready before upgrading. If one is not specified, the default parameter group for the target version will be used (for example, `default.docdb5.0` or `default.docdb8.0`).
+- **Manual snapshot** — Create a manual snapshot before upgrading. The upgrade process creates an automatic snapshot named `preupgrade-<name>-<version>-<timestamp>`, but always create your own backup. See [Creating a manual cluster snapshot](backup_restore-create_manual_cluster_snapshot.md "backup_restore-create_manual_cluster_snapshot.md").
 
 ###### Note
 
@@ -150,7 +152,7 @@ The command returns output similar to the following:
 
 Immediately after the in-place major version upgrade, your Amazon DocumentDB cluster repopulates index metadata that the database engine uses to optimize query execution plans. Query performance returns to expected levels once this process completes. It typically finishes in a few minutes but can take up to two hours depending on the number of indexes on your cluster.
 
-Do not reboot, failover, or scale up/down your writer instance during this time, as it may disrupt the index metadata recalculation. We recommend waiting until you observe expected query performance before making such changes.
+Do not reboot, failover, or scale up/down your writer instance during this time, as it may disrupt the index metadata recalculation. Wait until you observe expected query performance before making such changes.
 
 Track progress via the following cluster events:
 
@@ -183,7 +185,7 @@ For a full list of functional differences, see [Amazon DocumentDB compatibility 
 
 ## Post-upgrade considerations for clusters upgraded from 3.6 or 4.0
 
-- **Index rebuild.** An MVU retains original indexes. Amazon DocumentDB 5.0 has improved index maintenance and garbage collection, especially for low-cardinality indexes. After upgrading from 3.6 or 4.0, we recommend rebuilding your indexes to ensure optimal query performance (optional, involves additional I/O). See [Index maintenance using reIndex](managing-indexes.md#reIndex "managing-indexes.md#reIndex").
+- **Index rebuild.** An MVU retains original indexes. Amazon DocumentDB 5.0 has improved index maintenance and garbage collection, especially for low-cardinality indexes. After upgrading from 3.6 or 4.0, rebuild your indexes to ensure optimal query performance (optional, involves additional I/O). See [Index maintenance using reIndex](managing-indexes.md#reIndex "managing-indexes.md#reIndex").
 - **Subdocument numeric comparison (3.6 only).** Clusters upgraded from 3.6 inherit the 3.6 behavior where numeric types in subdocuments are not compared across types. For example, `{a: {b: NumberLong(1)}}` does not equal `{a: {b: 1}}` in 3.6, but they are equal in 4.0 and later. This behavior affects any clusters upgraded from 3.6.
 
 ## Performing the upgrade

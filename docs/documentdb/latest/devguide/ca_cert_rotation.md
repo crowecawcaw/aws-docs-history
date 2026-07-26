@@ -155,7 +155,7 @@ Amazon DocumentDB uses the same root CA for this automatic rotation, so you don'
 
 ###### Important
 
-When connecting to your Amazon DocumentDB cluster, we recommend that you trust the root CA bundle as opposed to directly trusting each server certificate.
+When connecting to your Amazon DocumentDB cluster, trust the root CA bundle instead of trusting each server certificate directly.
 This will prevent connection errors after the server certificate is rotated.
 See [Connecting with TLS enabled](connect_programmatically.md#connect_programmatically-tls_enabled "connect_programmatically.md#connect_programmatically-tls_enabled").
 
@@ -178,7 +178,7 @@ If you are using an older engine patch version, Amazon DocumentDB will rotate th
 ## Troubleshooting
 
 If you are having issues connecting to your cluster as part of the certificate rotation,
-we suggest the following:
+try the following:
 
 - **Verify that your clients are using the latest certificate
   bundle.** See [How can I be sure that I'm using the newest CA bundle?](#ca_cert_rotation-faq_question13 "#ca_cert_rotation-faq_question13").
@@ -248,7 +248,7 @@ aws docdb describe-db-instances \
 
 ### How do I modify individual instances in my Amazon DocumentDB cluster to update the server certificate?
 
-We recommend that you update server certificates for all instances in a given cluster
+Update server certificates for all instances in a given cluster
 at the same time. To modify the instances in your cluster, you can use either the
 console or the AWS CLI.
 
@@ -364,8 +364,7 @@ Error messages will vary depending on your driver. In general, you'll see certif
 
 ### If I applied the new server certificate, can I revert it back to the old server certificate?
 
-If you need to revert an instance to the old server certificate, we recommend that
-you do so for all instances in the cluster. You can revert the server certificate for
+If you need to revert an instance to the old server certificate, do so for all instances in the cluster. You can revert the server certificate for
 each instance in a cluster by using the AWS Management Console or the AWS CLI.
 
 1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").

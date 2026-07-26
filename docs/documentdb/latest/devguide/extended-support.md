@@ -21,7 +21,7 @@ If you do not complete upgrades by the end of the engine version standard suppor
 
 Amazon DocumentDB Extended Support is available for up to 3 years past the engine version standard support date.
 After this time, if you haven't upgraded your engine version to a supported version, then Amazon DocumentDB will upgrade your engine version.
-We recommend that you upgrade to a supported engine version as soon as possible.
+Upgrade to a supported engine version as soon as possible.
 
 Amazon DocumentDB version 3.6 end of standard support date and Extended Support dates:
 

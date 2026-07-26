@@ -10,7 +10,7 @@ The `$stdDevSamp` operator in Amazon DocumentDB calculates the sample standard d
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates the use of the `$stdDevSamp` operator to calculate the sample standard deviation of scores per subject.
+The following example shows how to use the `$stdDevSamp` operator to calculate the sample standard deviation of scores per subject.
 
 **Create sample documents**
 

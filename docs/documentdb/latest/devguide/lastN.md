@@ -11,7 +11,7 @@ The `$lastN` operator in Amazon DocumentDB returns the last N elements. When use
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates the use of the `$lastN` accumulator to retrieve the last two quantities for each item during the aggregation.
+The following example shows how to use the `$lastN` accumulator to retrieve the last two quantities for each item during the aggregation.
 
 ###### Note
 
@@ -81,7 +81,7 @@ db.inventory.aggregate([
 
 ## Code examples
 
-To view a code example for using the `$lastN` operator, choose the tab for the language that you want to use. The following examples show both accumulator usage (in `$group`) and expression usage (in `$project`):
+To view a code example for using the `$lastN` accumulator, choose the tab for the language that you want to use. The following examples show both accumulator usage (in `$group`) and expression usage (in `$project`):
 
 Node.js
 

@@ -210,8 +210,8 @@ Refer to the `MONGODB-AWS` authentication specification on why database instance
 When you don’t want to manage the username and password in your own database, you can use IAM authentication.
 IAM authentication is available only in Amazon DocumentDB instance-based cluster version 5.0.
 
-IAM authentication has a dependency on the STS service.
-We recommend you evaluate whether you can lower your connection rate when you are using IAM authentication for the connection and getting an STS throttling exception.
+IAM authentication has a dependency on AWS Security Token Service (AWS STS).
+If you get an AWS STS throttling exception when using IAM authentication, lower your connection rate.
 
 For IAM quotas, see [IAM and AWS STS quotas](../../../IAM/latest/UserGuide/reference_iam-quotas.md "../../../IAM/latest/UserGuide/reference_iam-quotas.md") in the _IAM User Guide_.
 

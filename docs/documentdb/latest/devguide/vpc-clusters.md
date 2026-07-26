@@ -69,8 +69,7 @@ To create a subnet group that supports dual-stack mode, make sure that each subn
 For more information, see [Amazon DocumentDB IP addressing](#vpc-docdb-ip-addressing "#vpc-docdb-ip-addressing") and [IPv6 support for your VPC](../../../vpc/latest/userguide/vpc-migrate-ipv6.md "../../../vpc/latest/userguide/vpc-migrate-ipv6.md") in the _Amazon Virtual Private Cloud User Guide_.
 
 When Amazon DocumentDB creates a cluster in a VPC, it assigns a network interface to the cluster by using an IP address from your subnet group.
-However, we strongly recommend that you use the Domain Name System (DNS) name to connect to your cluster.
-We recommend this because the underlying IP address changes during failover.
+Always use the Domain Name System (DNS) name to connect to your cluster because the underlying IP address changes during failover.
 
 ###### Note
 
@@ -211,7 +210,7 @@ Modifying the subnet group of a cluster can cause downtime.
 
 If you modify the subnet group of a cluster before you change the cluster to use dual-stack mode, make sure that the subnet group is valid for the cluster before and after the change.
 
-We recommend that you run the `ModifyDBCluster` call with only the `NetworkType` parameter set to `DUAL` to change the network to dual-stack mode.
+Run the `ModifyDBCluster` call with only the `NetworkType` parameter set to `DUAL` to change the network to dual-stack mode.
 Adding other parameters along with `NetworkType` in the same API call could result in downtime.
 To modify multiple parameters, ensure that the network type modification is successfully completed before sending another `ModifyDBCluster` request with other parameters.
 

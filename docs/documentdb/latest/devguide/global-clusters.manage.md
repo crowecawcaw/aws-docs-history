@@ -22,7 +22,7 @@ When you choose Continue, you confirm the changes.
 
 ## Modifying parameters an Amazon DocumentDB global cluster
 
-You can configure the cluster parameter groups independently for each cluster within the global cluster. Most parameters work the same as for other kinds of Amazon DocumentDB clusters. We recommend that you keep settings consistent among all the clusters in a global database. Doing this helps to avoid unexpected behavior changes if you promote a secondary cluster to be the primary.
+You can configure the cluster parameter groups independently for each cluster within the global cluster. Most parameters work the same as for other kinds of Amazon DocumentDB clusters. Keep settings consistent among all the clusters in a global database to avoid unexpected behavior changes if you promote a secondary cluster to be the primary.
 
 For example, use the same settings for time zones and character sets to avoid inconsistent behavior if a different cluster takes over as the primary cluster.
 

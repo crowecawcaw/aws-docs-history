@@ -11,7 +11,7 @@ The `$trunc` operator in Amazon DocumentDB truncates a number to a specified dec
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$trunc` operator to truncate numeric values to one decimal place.
+The following example shows how to use the `$trunc` operator to truncate numeric values to one decimal place.
 
 **Truncating with a positive place value**
 

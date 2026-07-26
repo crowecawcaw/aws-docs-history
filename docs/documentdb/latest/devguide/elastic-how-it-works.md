@@ -56,7 +56,7 @@ When you scale out your database by adding additional shards, Amazon DocumentDB 
 
 Amazon DocumentDB supports migrating MongoDB sharded data to elastic clusters.
 Offline, online, and hybrid migration methods are supported.
-For more information, see [Migrating to Amazon DocumentDB](docdb-migration.md "docdb-migration.md").
+For more information, see [Migrating and upgrading Amazon DocumentDB](docdb-migration.md "docdb-migration.md").
 
 ## Elastic cluster scaling
 

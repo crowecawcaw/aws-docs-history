@@ -1,4 +1,4 @@
-# Amazon DocumentDB Operational tasks overview
+# Amazon DocumentDB operational tasks overview
 
 This section covers operational tasks for your Amazon DocumentDB cluster, and
 how to accomplish these tasks using the AWS CLI.

@@ -10,7 +10,7 @@ The `$bitOr` operator in Amazon DocumentDB performs a bitwise OR operation on in
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$bitOr` operator to perform bitwise OR on two fields.
+The following example shows how to use the `$bitOr` operator to perform bitwise OR on two fields.
 
 **Create sample documents**
 

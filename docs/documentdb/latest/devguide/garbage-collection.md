@@ -268,7 +268,7 @@ No, garbage collection in Amazon DocumentDB cannot be manually triggered. The sy
 
 ### What alarms should I set as an operational best practice?
 
-We recommend setting up monitoring at both the cluster and collection levels to ensure optimal performance of your Amazon DocumentDB system.
+Set up monitoring at both the cluster and collection levels to ensure optimal performance of your Amazon DocumentDB system.
 
 For cluster-level monitoring, start by creating a Amazon CloudWatch alarm for the `AvailableMVCCIds` metric with a threshold of 1.3 billion.
 This gives you adequate time to take action before the metric reaches zero, at which point your cluster would enter read-only mode.
@@ -285,23 +285,23 @@ For collection-level monitoring, focus on these key metrics:
 - `storageSizeStats` and `unusedStorageSize` — Track storage utilization patterns and identify collections with significant unused space in either storage segment.
 
 Collections with frequent write operations need extra attention, as they generate more work for the garbage collector.
-We recommend checking these metrics more frequently for collections with heavy write activity to ensure garbage collection keeps up with your workload.
+Check these metrics more frequently for collections with heavy write activity to ensure garbage collection keeps up with your workload.
 
 Note that these monitoring recommendations serve as a starting point.
 As you become more familiar with your system's behavior, you may want to adjust these thresholds to better match your specific usage patterns and requirements.
 
 ### What should I do if my `AvailableMVCCIds` falls below 1.3 billion?
 
-If your `AvailableMVCCIds` metric drops below 1.3 billion, we recommend taking immediate action to prevent your cluster from entering read-only mode.
-We recommend first scaling up your instance size to provide the garbage collector with more computing resources.
-This is our primary recommendation as it allows your application to continue normal operations while giving the garbage collector the additional power it needs to catch up.
+If your `AvailableMVCCIds` metric drops below 1.3 billion, take immediate action to prevent your cluster from entering read-only mode.
+First, scale up your instance size to provide the garbage collector with more computing resources.
+This allows your application to continue normal operations while giving the garbage collector the additional power it needs to catch up.
 
-If scaling up alone doesn't improve the situation, we recommend considering a reduction in your write operations.
+If scaling up alone doesn't improve the situation, consider reducing your write operations.
 Use the `MVCCIdScale` metric to identify which specific collections contain older MVCC IDs that need attention.
-Additionally, monitor `documentFragmentStats` to identify collections with high dead fragment percentages that may be contributing to garbage collection inefficiency.
+Additionally, monitor `documentFragmentStats` to identify collections with high dead fragment percentages that might be contributing to garbage collection inefficiency.
 
-Once you've identified these collections, you may need to temporarily reduce write operations to them to allow garbage collection to catch up.
-During the recovery period, we recommend closely monitoring the `AvailableMVCCIds` metric to ensure your actions are having the desired effect.
+Once you've identified these collections, you might need to temporarily reduce write operations to them to allow garbage collection to catch up.
+During the recovery period, closely monitor the `AvailableMVCCIds` metric to ensure your actions are having the desired effect.
 Your cluster is considered healthy once the `AvailableMVCCIds` value returns to 1.5 billion or higher.
 
 Remember that these steps are preventive measures to help your system recover before it reaches a critical state.

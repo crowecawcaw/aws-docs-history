@@ -16,7 +16,7 @@ The `"approximate"` method uses the t-digest algorithm to calculate approximate,
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates the use of the `$percentile` operator to calculate the 25th and 75th percentile of scores per class.
+The following example shows how to use the `$percentile` operator to calculate the 25th and 75th percentile of scores per class.
 
 **Create sample documents**
 

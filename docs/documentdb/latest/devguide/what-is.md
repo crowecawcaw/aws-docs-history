@@ -23,9 +23,9 @@ The following are some high-level features of Amazon DocumentDB:
 
 - Amazon DocumentDB supports two types of clusters: instance-based clusters and elastic clusters.
   Elastic clusters support workloads with millions of reads/writes per second and petabytes of storage capacity.
-  For more information about elastic clusters, see [Using Amazon DocumentDB elastic clusters](docdb-using-elastic-clusters.md "docdb-using-elastic-clusters.md").
+  For more information about elastic clusters, see [Using Amazon DocumentDB Elastic Clusters](docdb-using-elastic-clusters.md "docdb-using-elastic-clusters.md").
   The content below refers to Amazon DocumentDB instance-based clusters .
-- Amazon DocumentDB automatically grows the size of your storage volume as your database storage needs grow. Your storage volume grows in increments of 10 GB, up to a maximum of 128 TiB. You don't need to provision any excess storage for your cluster to handle future growth.
+- Amazon DocumentDB automatically grows the size of your storage volume as your database storage needs grow. Your storage volume grows in increments of 10 GB, up to a maximum of 256 TiB for Engine Version 8.0 and beyond (128 TiB for earlier engine versions). You don't need to provision any excess storage for your cluster to handle future growth.
 - With Amazon DocumentDB, you can increase read throughput to support high-volume application requests by creating up to 15 replica instances. Amazon DocumentDB replicas share the same underlying storage, lowering costs and avoiding the need to perform writes at the replica nodes. This capability frees up more processing power to serve read requests and reduces the replica lag time—often down to single digit milliseconds. You can add replicas in minutes regardless of the storage volume size. Amazon DocumentDB also provides a reader endpoint, so the application can connect without having to track replicas as they are added and removed.
 - Amazon DocumentDB lets you scale the compute and memory resources for each of your instances up or down. Compute scaling operations typically complete in a few minutes.
 - Amazon DocumentDB runs in Amazon Virtual Private Cloud (Amazon VPC), so you can isolate your database in your own virtual network. You can also configure firewall settings to control network access to your cluster.
@@ -171,7 +171,7 @@ The following table lists the number of Availability Zones that you can use in a
 | AWS GovCloud (US-West)    | `us-gov-west-1`  | 3                            |
 | AWS GovCloud (US-East)    | `us-gov-east-1`  | 3                            |
 
-## Amazon DocumentDB Pricing
+## Amazon DocumentDB pricing
 
 Amazon DocumentDB clusters are billed based on the following components:
 
@@ -240,4 +240,4 @@ circumstances, see one of the following topics to get started:
 - Get started with Amazon DocumentDB by creating a cluster and instance using CloudFormation [Amazon DocumentDB quick start using CloudFormation](quick_start_cfn.md "quick_start_cfn.md").
 - Get started with Amazon DocumentDB by creating a cluster and instance using the instructions in our [Get started guide](get-started-guide.md "get-started-guide.md").
 - Get started with Amazon DocumentDB by creating an elastic cluster using the instructions in [Get started with Amazon DocumentDB elastic clusters](elastic-get-started.md "elastic-get-started.md").
-- Migrate your MongoDB implementation to Amazon DocumentDB using the guidance at [Migrating to Amazon DocumentDB](docdb-migration.md "docdb-migration.md")
+- Migrate your MongoDB implementation to Amazon DocumentDB using the guidance at [Migrating and upgrading Amazon DocumentDB](docdb-migration.md "docdb-migration.md")

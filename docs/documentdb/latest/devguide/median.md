@@ -15,7 +15,7 @@ The `"approximate"` method uses the t-digest algorithm to calculate an approxima
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates the use of the `$median` operator to calculate the median test score per class.
+The following example shows how to use the `$median` operator to calculate the median test score per class.
 
 **Create sample documents**
 

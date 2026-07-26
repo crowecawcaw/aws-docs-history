@@ -76,7 +76,7 @@ Instance Naming Constraints:
   want this instance to be created in. Use this
   parameter to locate your instances in different
   Availability Zones to increase fault tolerance. For
-  more information, see [Amazon DocumentDB High availability and replication](replication.md "replication.md").
+  more information, see [Amazon DocumentDB high availability and replication](replication.md "replication.md").
 - `--promotion-tier`
   — Optional. The failover priority tier for
   this instance. Must be between 0 and 15 with lower

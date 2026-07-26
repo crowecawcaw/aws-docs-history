@@ -105,11 +105,10 @@ with the improved capabilities is `"v" : 3`.
 
 ###### Note
 
-For production clusters, the dropping of the index may have an
-impact on your application performance. We recommend that you
-first test and proceed with caution when making changes to a
-production system. In addition, the time it will take to recreate
-the index will be a function of the overall data size of the
+For production clusters, dropping the index might have an
+impact on your application performance. Test first and proceed
+with caution when making changes to a production system. In addition, the time it takes to recreate
+the index depends on the overall data size of the
 collection.
 
 You can query for the version of your indexes using the following
@@ -143,11 +142,10 @@ If you are creating a new index, no action is needed to take advantage of the im
 
 ###### Note
 
-For production clusters, the dropping of the index may have an
-impact on your application performance. We recommend that you
-first test and proceed with caution when making changes to a
-production system. In addition, the time it will take to recreate
-the index will be a function of the overall data size of the
+For production clusters, dropping the index might have an
+impact on your application performance. Test first and proceed
+with caution when making changes to a production system. In addition, the time it takes to recreate
+the index depends on the overall data size of the
 collection.
 
 You can query for the version of your indexes using the following command.
@@ -299,8 +297,8 @@ re-create the user roles in addition to the restore operation.
 
 ###### Note
 
-We recommend MongoDB Database Tools up to and including version 100.6.1 for Amazon DocumentDB.
-You can access the MongoDB Database Tools downloads [here](https://www.mongodb.com/download-center/database-tools/releases/archive "https://www.mongodb.com/download-center/database-tools/releases/archive").
+Use MongoDB Database Tools up to and including version 100.6.1 for Amazon DocumentDB.
+To download, see [MongoDB Database Tools releases](https://www.mongodb.com/download-center/database-tools/releases/archive "https://www.mongodb.com/download-center/database-tools/releases/archive").
 
 ### Result ordering
 
@@ -407,7 +405,7 @@ By default, Amazon DocumentDB will utilize the hash algorithm when `allowDiskUse
 
 The `allowDiskUse` option is currently not supported for the `find` command.
 The option is only supported as part of aggregation.
-We recommend using the aggregation framework with `allowDiskUse:true` to handle large queries that might exceed memory limits.
+Use the aggregation framework with `allowDiskUse:true` to handle large queries that might exceed memory limits.
 
 For some use cases, it may be desirable to force the query optimizer to use a different algorithm.
 Below are the different indexing algorithms that the `$lookup` aggregation operator can use:

@@ -11,7 +11,7 @@ Use the `$bottom` accumulator in the `$group` stage to return the lowest-ranked 
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$bottom` accumulator to find the bottom sale (lowest quantity) per item in a sales collection.
+The following example shows how to use the `$bottom` accumulator to find the bottom sale (lowest quantity) per item in a sales collection.
 
 **Create sample documents**
 

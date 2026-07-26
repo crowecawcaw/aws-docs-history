@@ -21,8 +21,8 @@ You can delete the stack when you are finished with it to stop any
 charges.
 
 This CloudFormation stack is intended for tutorial purposes only. If you use
-this template for a production environment, we recommend that you use
-stricter IAM policies and security. For information about securing
+this template for a production environment, use stricter IAM policies
+and security. For information about securing
 resources, see [Amazon VPC Security](../../../vpc/latest/userguide/VPC_Security.md "../../../vpc/latest/userguide/VPC_Security.md") and [Amazon EC2 Network and Security](../../../AWSEC2/latest/UserGuide/EC2_Network_and_Security.md "../../../AWSEC2/latest/UserGuide/EC2_Network_and_Security.md").
 
 ###### Topics
@@ -323,8 +323,8 @@ After you are connected, see the following sections, which contain
 information about using Amazon DocumentDB.
 
 - [Step 3: Insert and query data](get-started-guide.md#get-start-insert-query "get-started-guide.md#get-start-insert-query")
-- [Managing Amazon DocumentDB resources](managing-documentdb.md "managing-documentdb.md")
-- [Monitoring Amazon DocumentDB](monitoring_docdb.md "monitoring_docdb.md")
+- [Managing Amazon DocumentDB clusters and instances](managing-documentdb.md "managing-documentdb.md")
+- [Monitoring and logging in Amazon DocumentDB](monitoring_docdb.md "monitoring_docdb.md")
 
 ## Termination protection and deletion protection
 

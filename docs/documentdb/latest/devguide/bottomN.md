@@ -12,7 +12,7 @@ Use the `$bottomN` accumulator in the `$group` stage to return the bottom N elem
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$bottomN` accumulator to find the bottom 2 sales (lowest quantity) per item in a sales collection.
+The following example shows how to use the `$bottomN` accumulator to find the bottom 2 sales (lowest quantity) per item in a sales collection.
 
 **Create sample documents**
 

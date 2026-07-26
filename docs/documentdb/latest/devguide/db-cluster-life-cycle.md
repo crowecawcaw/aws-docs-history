@@ -11,6 +11,7 @@ about how to complete these processes.
 - [Modifying a cluster](db-cluster-modify.md "db-cluster-modify.md")
 - [Determining pending maintenance](db-cluster-determine-pending-maintenance.md "db-cluster-determine-pending-maintenance.md")
 - [Patch updating a cluster's engine version](db-cluster-version-upgrade.md "db-cluster-version-upgrade.md")
+- [Updating a cluster's operating system](db-cluster-os-upgrade.md "db-cluster-os-upgrade.md")
 - [Stopping and
   starting a cluster](db-cluster-stop-start.md "db-cluster-stop-start.md")
 - [Deleting a cluster](db-cluster-delete.md "db-cluster-delete.md")

@@ -2,7 +2,7 @@
 
 New from version 8.0.1.
 
-The `$cosh` operator in Amazon DocumentDB returns the hyperbolic cosine of a value. Use `$cosh` in the aggregation pipeline to perform hyperbolic trigonometric calculations on numeric fields.
+The `$cosh` operator in Amazon DocumentDB returns the hyperbolic cosine of a value. Use it in the aggregation pipeline to perform hyperbolic trigonometric calculations on numeric fields.
 
 **Parameters**
 

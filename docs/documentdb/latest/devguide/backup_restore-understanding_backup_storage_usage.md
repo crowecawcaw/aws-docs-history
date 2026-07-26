@@ -51,4 +51,4 @@ amount of storage used by your Amazon DocumentDB backups, as follows:
   cluster.
   You can monitor your Amazon DocumentDB clusters and build reports using CloudWatch
   metrics through the [CloudWatch console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch").
-  For more information about how to use CloudWatch metrics, see [Monitoring Amazon DocumentDB](monitoring_docdb.md "monitoring_docdb.md").
+  For more information about how to use CloudWatch metrics, see [Monitoring and logging in Amazon DocumentDB](monitoring_docdb.md "monitoring_docdb.md").

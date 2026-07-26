@@ -41,7 +41,7 @@ If the Region's engine versions do not match, the failover will be blocked.
 Check for any pending upgrades and apply them to ensure all Region's engine versions match and the global cluster failover is unblocked.
 For more information, see [Unblocking a global cluster switchover or failover](#unblocking-gc-so-fo "#unblocking-gc-so-fo").
 
-To minimize data loss, we recommend that you do the following before using this feature:
+To minimize data loss, do the following before using this feature:
 
 - Take applications offline to prevent writes from being sent to the primary cluster of the Amazon DocumentDB global cluster.
 - Check lag times for all Amazon DocumentDB secondary clusters.
@@ -54,9 +54,9 @@ For more information about CloudWatch metrics for Amazon DocumentDB, see [Amazon
 During a managed failover, the chosen secondary cluster is promoted to its new role as primary.
 However, it doesn't inherit the various configuration options of the primary cluster.
 A mismatch in configuration can lead to performance issues, workload incompatibilities, and other anomalous behavior.
-To avoid such issues, we recommend that you resolve differences between your Amazon DocumentDB global clusters for the following:
+To avoid such issues, resolve differences between your Amazon DocumentDB global clusters for the following:
 
-- **Configure an Amazon DocumentDB cluster parameter group for the new primary, if necessary** — You can configure your Amazon DocumentDB cluster parameter groups independently for each cluster in your Amazon DocumentDB global clustere.
+- **Configure an Amazon DocumentDB cluster parameter group for the new primary, if necessary** — You can configure your Amazon DocumentDB cluster parameter groups independently for each cluster in your Amazon DocumentDB global cluster.
   Therefore, when you promote a secondary cluster to take over the primary role, the parameter group from the secondary might be configured differently than for the primary.
   If so, modify the promoted secondary cluster's parameter group to conform to your primary cluster's settings.
   To learn how, see [Modifying Amazon DocumentDB cluster parameter groups](cluster_parameter_groups-modify.md "cluster_parameter_groups-modify.md").
@@ -64,7 +64,7 @@ To avoid such issues, we recommend that you resolve differences between your Ama
   As with parameter groups, configuration for these features isn't inherited from the primary during the failover process.
   Some CloudWatch metrics, such as replication lag, are only available for secondary Regions.
   Thus, a failover changes how to view those metrics and set alarms on them, and could require changes to any predefined dashboards.
-  For more information about Amazon DocumentDB clusters and monitoring, see [Monitoring Amazon DocumentDB](monitoring_docdb.md "monitoring_docdb.md").
+  For more information about Amazon DocumentDB clusters and monitoring, see [Monitoring and logging in Amazon DocumentDB](monitoring_docdb.md "monitoring_docdb.md").
 
 Typically, the chosen secondary cluster assumes the primary role within a minute.
 As soon as the new primary Region's writer node is available, you can connect your applications to it and resume your workloads.
@@ -229,7 +229,7 @@ Promoting this node to a writer allows that secondary cluster to assume the role
 Because all secondary clusters were synchronized with the primary at the beginning of the process, the new primary continues operations for the Amazon DocumentDB global cluster without losing any data.
 Your database is unavailable for a short time while the primary and selected secondary clusters are assuming their new roles.
 
-To optimize application availability, we recommend that you do the following before using this feature:
+To optimize application availability, do the following before using this feature:
 
 - Perform this operation during nonpeak hours or at another time when writes to the primary cluster are minimal.
 - Take applications offline to prevent writes from being sent to the primary cluster of the Amazon DocumentDB global cluster.
@@ -243,7 +243,7 @@ For more information about CloudWatch metrics for Amazon DocumentDB, see [Amazon
 During a switchover, the chosen secondary DB cluster is promoted to its new role as primary.
 However, it doesn't inherit the various configuration options of the primary DB cluster.
 A mismatch in configuration can lead to performance issues, workload incompatibilities, and other anomalous behavior.
-To avoid such issues, we recommend that you resolve differences between your Amazon DocumentDB global clusters for the following:
+To avoid such issues, resolve differences between your Amazon DocumentDB global clusters for the following:
 
 - **Configure Amazon DocumentDB DB cluster parameter group for the new primary, if necessary** — You can configure your Amazon DocumentDB cluster parameter groups independently for each cluster in your Amazon DocumentDB global cluster.
   That means that when you promote a secondary DB cluster to take over the primary role, the parameter group from the secondary might be configured differently than for the primary.
@@ -253,7 +253,7 @@ To avoid such issues, we recommend that you resolve differences between your Ama
   As with parameter groups, configuration for these features isn't inherited from the primary during the switchover process.
   Some CloudWatch metrics, such as replication lag, are only available for primary Regions.
   Thus, a switchover changes how to view those metrics and set alarms on them, and could require changes to any predefined dashboards.
-  For more information, see [Monitoring Amazon DocumentDB](monitoring_docdb.md "monitoring_docdb.md").
+  For more information, see [Monitoring and logging in Amazon DocumentDB](monitoring_docdb.md "monitoring_docdb.md").
 
 ###### Note
 
@@ -314,8 +314,8 @@ aws docdb switchover-global-cluster ^
 ## Unblocking a global cluster switchover or failover
 
 Global cluster switchovers and failovers are blocked when not all regional clusters in the global cluster are on the same engine version.
-If the versions do not match, you may see this error in response when calling a switchover or failover: **`The target DB cluster specified is running an engine version with a different patch level than the source DB cluster`**.
-We recommended routinely applying the latest engine versions to ensure you are running the latest updates to keep your global clusters in a healthy state.
+If the versions don't match, you might see this error when calling a switchover or failover: **`The target DB cluster specified is running an engine version with a different patch level than the source DB cluster`**.
+Routinely apply the latest engine versions to keep your global clusters in a healthy state.
 
 To resolve this error, update all secondary Regions first, and then the primary Region to the same engine version by applying any pending maintenance action items.
 To view pending maintenance action items, and to apply any needed changes to correct the issue, perform the instructions in one of the following tabs:

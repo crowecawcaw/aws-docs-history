@@ -48,7 +48,7 @@ cluster, you must setup an SSH tunnel before following the steps below:
 
 ![The Connect interface on Tableau Desktop shows the More... submenu under the To a Server section. The Amazon DocumentDB option is highlighted in the Installed Connectors submenu.](images/jdbc/tableau-choose-docdb.png)
 
-###### Connecting to Amazon DocumentDB Using Tableau - External SSH Tunnel
+###### Connecting to Amazon DocumentDB using Tableau - external SSH tunnel
 
 1. Enter the required connection parameters **Hostname**,
    **Port**, **Database**,
@@ -67,7 +67,7 @@ the [Amazon DocumentDB JDBC Driver github documentation](https://github.com/aws/
 
 ![Advanced tab in Amazon DocumentDB connector interface showing additional connection options.](images/jdbc/tableau-advanced.png) 3. Choose **Sign in.**
 
-###### Connecting to Amazon DocumentDB Using Tableau - Internal SSH Tunnel
+###### Connecting to Amazon DocumentDB using Tableau - internal SSH tunnel
 
 ###### Note
 

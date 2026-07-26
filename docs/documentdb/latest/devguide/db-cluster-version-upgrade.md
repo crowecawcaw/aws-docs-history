@@ -60,12 +60,7 @@ You can apply patch updates to your cluster using the AWS CLI and the `apply-pen
 - `--resource-identifier`—Required.
   The ARN of the Amazon DocumentDB cluster that you are going to upgrade.
 - `--apply-action`—Required.
-  The following values are permitted. To upgrade your cluster
-  engine version, use `db-upgrade`.
-
-  - `db-upgrade`
-  - `system-update`
-
+  Use `system-update` to apply an engine patch update to the cluster.
 - `--opt-in-type`—Required.
   The following values are permitted.
 
@@ -78,15 +73,15 @@ You can apply patch updates to your cluster using the AWS CLI and the `apply-pen
 
 ###### Example
 
-The following example patch updates the engine version of
-`sample-cluster` to version 4.0.0.
+The following example applies the engine patch update to
+`sample-cluster`.
 
 For Linux, macOS, or Unix:
 
 ```
 aws docdb apply-pending-maintenance-action \
-   --resource-identifier arn:aws:rds:us-east-1:123456789012\:cluster:sample-cluster \
-   --apply-action db-upgrade \
+   --resource-identifier arn:aws:rds:`aa-example-1`:`111122223333`:cluster:`sample-cluster` \
+   --apply-action system-update \
    --opt-in-type immediate
 ```
 
@@ -94,8 +89,8 @@ For Windows:
 
 ```
 aws docdb apply-pending-maintenance-action ^
-   --resource-identifier arn:aws:rds:us-east-1:123456789012:cluster:sample-cluster ^
-   --apply-action db-upgrade ^
+   --resource-identifier arn:aws:rds:`aa-example-1`:`111122223333`:cluster:`sample-cluster` ^
+   --apply-action system-update ^
    --opt-in-type immediate
 ```
 
@@ -104,14 +99,14 @@ Output from this operation looks like the following.
 ```
 {
     "ResourcePendingMaintenanceActions": {
-        "ResourceIdentifier": "arn:aws:rds:us-east-1:444455556666:cluster:docdb-2019-01-09-23-55-38",
+        "ResourceIdentifier": "arn:aws:rds:aa-example-1:111122223333:cluster:sample-cluster",
         "PendingMaintenanceActionDetails": [
             {
                 "CurrentApplyDate": "2019-02-20T20:57:06.904Z",
                 "Description": "Bug fixes",
                 "ForcedApplyDate": "2019-02-25T21:46:00Z",
                 "OptInStatus": "immediate",
-                "Action": "db-upgrade",
+                "Action": "system-update",
                 "AutoAppliedAfterDate": "2019-02-25T07:41:00Z"
             }
         ]

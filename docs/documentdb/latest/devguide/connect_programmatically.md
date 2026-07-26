@@ -1144,7 +1144,7 @@ throughput for workloads that transfer large documents or large result sets. Aft
 enable compression, the driver and server exchange compressed messages.
 
 When you enable network compression, you trade CPU resources for reduced network
-bandwidth. We recommend that you enable compression when your workload is network-bound
+bandwidth. Enable compression when your workload is network-bound
 and transfers large payloads. For small requests and responses, you might not see a net
 benefit, because the compression overhead can exceed the savings.
 

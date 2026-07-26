@@ -1,4 +1,4 @@
-# Using Amazon DocumentDB elastic clusters
+# Using Amazon DocumentDB Elastic Clusters
 
 Amazon DocumentDB elastic clusters support workloads with millions of reads/writes per second and petabytes of storage capacity.
 Elastic clusters also simplify how developers interact with Amazon DocumentDB by eliminating the need to choose, manage or upgrade instances.
@@ -112,7 +112,7 @@ The following cluster management features and capabilities are not supported in 
 
 ###### Note
 
-For information about elastic cluster limits, see [Amazon DocumentDB Quotas and limits](limits.md "limits.md").
+For information about elastic cluster quotas, see [Amazon DocumentDB quotas](limits.md "limits.md").
 
 ### Query and write operations
 

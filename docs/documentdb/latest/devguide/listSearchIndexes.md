@@ -30,7 +30,7 @@ db.collection.aggregate([
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$listSearchIndexes` stage to list all search indexes on a collection.
+The following example shows how to use the `$listSearchIndexes` stage to list all search indexes on a collection.
 
 **Query example**
 

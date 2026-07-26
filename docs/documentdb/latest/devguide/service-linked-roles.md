@@ -97,8 +97,8 @@ the _IAM User Guide_.
 
 ## Deleting an Amazon DocumentDB service-linked role
 
-If you no longer need to use a feature or service that requires a service-linked role, we recommend that you delete that role. That way you don’t
-have an unused entity that is not actively monitored or maintained. However, you must delete all of your clusters before you can delete the
+If you no longer need to use a feature or service that requires a service-linked role, delete that role. That way you don’t
+have an unused entity that isn’t actively monitored or maintained. However, you must delete all of your clusters before you can delete the
 service-linked role.
 
 ### Cleaning up an Amazon DocumentDB service-linked role

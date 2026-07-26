@@ -1,6 +1,6 @@
-# Amazon DocumentDB Quotas and limits
+# Amazon DocumentDB quotas
 
-This topic describes the resource quotas, limits, and naming constraints for Amazon DocumentDB (with MongoDB compatibility).
+This topic describes the resource quotas and naming constraints for Amazon DocumentDB (with MongoDB compatibility).
 
 For certain management features, Amazon DocumentDB uses operational technology that is shared with Amazon Relational Database Service (Amazon RDS) and Amazon Neptune.
 
@@ -9,14 +9,14 @@ For certain management features, Amazon DocumentDB uses operational technology t
 - [Supported instance types](#limits-suported_instance_types "#limits-suported_instance_types")
 - [Supported Regions](#limits-region_availability "#limits-region_availability")
 - [Regional quotas](#limits-regional_quotas "#limits-regional_quotas")
-- [Aggregation limits](#limits-aggregation "#limits-aggregation")
-- [Cluster limits](#limits-cluster "#limits-cluster")
-- [Instance limits](#limits.instance "#limits.instance")
+- [Aggregation quotas](#limits-aggregation "#limits-aggregation")
+- [Cluster quotas](#limits-cluster "#limits-cluster")
+- [Instance quotas](#limits.instance "#limits.instance")
 - [Naming constraints](#limits-naming_constraints "#limits-naming_constraints")
 - [TTL constraints](#limits.ttl-constraints "#limits.ttl-constraints")
-- [Elastic cluster limits](#elastic.cluster.limits "#elastic.cluster.limits")
-- [Elastic cluster shard limits](#elastic.cluster.shard.limits "#elastic.cluster.shard.limits")
-- [Elastic cluster CPU, memory, connection, and cursor limits per shard](#elastic.cluster.memory.limits "#elastic.cluster.memory.limits")
+- [Elastic cluster quotas](#elastic.cluster.limits "#elastic.cluster.limits")
+- [Elastic cluster shard quotas](#elastic.cluster.shard.limits "#elastic.cluster.shard.limits")
+- [Elastic cluster CPU, memory, connection, and cursor quotas per shard](#elastic.cluster.memory.limits "#elastic.cluster.memory.limits")
 
 ## Supported instance types
 
@@ -100,15 +100,15 @@ Amazon DocumentDB is available in the following AWS Regions:
 
 For certain management features, Amazon DocumentDB uses operational technology
 that is shared with Amazon Relational Database Service (Amazon RDS). The following
-table contains regional limits that are shared among Amazon DocumentDB and Amazon RDS.
+table contains Regional quotas that are shared among Amazon DocumentDB and Amazon RDS.
 
 ###### Note
 
 The Amazon RDS shared technology described above only applies to Amazon DocumentDB instance-based clusters. Amazon DocumentDB elastic clusters do not share technology with Amazon RDS.
 
-The following limits apply to Amazon DocumentDB instance-based clusters and are per AWS account per Region.
+The following quotas apply to Amazon DocumentDB instance-based clusters and are per AWS account per Region.
 
-| Resource                         | AWS default limit |
+| Resource                         | AWS default quota |
 | -------------------------------- | ----------------- |
 | Clusters                         | 40                |
 | Cluster parameter groups         | 50                |
@@ -123,9 +123,9 @@ The following limits apply to Amazon DocumentDB instance-based clusters and are 
 | Tags per resource                | 50                |
 | VPC security groups per instance | 5                 |
 
-The following limits apply to Amazon DocumentDB elastic clusters and are per AWS account per Region.
+The following quotas apply to Amazon DocumentDB elastic clusters and are per AWS account per Region.
 
-| Resource                        | AWS default limit |
+| Resource                        | AWS default quota |
 | ------------------------------- | ----------------- |
 | Elastic clusters                | 20                |
 | Elastic clusters vCPU           | 1024              |
@@ -161,40 +161,40 @@ For more information on Service Quotas, see [What Is Service Quotas?](../../../s
    see the case number with Support. Choose the case number to
    open the ticket for your request.
 
-## Aggregation limits
+## Aggregation quotas
 
-The following table describes aggregation limits in Amazon DocumentDB.
+The following table describes aggregation quotas in Amazon DocumentDB.
 
-| Resource                           | Limit |
+| Resource                           | Quota |
 | ---------------------------------- | ----- |
 | Maximum number of supported stages | 500   |
 
-## Cluster limits
+## Cluster quotas
 
-The following table describes Amazon DocumentDB instance-based cluster limits.
+The following table describes Amazon DocumentDB instance-based cluster quotas.
 
-| Resource                                                                                                 | Limit       |
-| -------------------------------------------------------------------------------------------------------- | ----------- |
-| Cluster size (sum of all collections and indexes)                                                        | 128 TiB     |
-| Collection size (sum of all collections can't exceed<br>cluster limit) – does not include the index size | 32 TiB      |
-| Collections per cluster                                                                                  | 100,000     |
-| Databases per cluster                                                                                    | 100,000     |
-| Database size (sum of all databases can't exceed cluster<br>limit)                                       | 128 TiB     |
-| Document nesting depth                                                                                   | 200 levels  |
-| Document size                                                                                            | 16 MiB      |
-| Index key size                                                                                           | 2,048 bytes |
-| Indexes per collection                                                                                   | 64          |
-| Keys in a compound index                                                                                 | 32          |
-| Maximum number of writes in a single batch command                                                       | 100,000     |
-| Number of users per cluster                                                                              | 1000        |
+| Resource                                                                                                  | Quota                                                                           |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Cluster size (sum of all collections and indexes)                                                         | 256 TiB for Engine Version 8.0 and beyond (128 TiB for earlier engine versions) |
+| Collection size (sum of all collections cannot exceed<br>cluster quota) – does not include the index size | 32 TiB                                                                          |
+| Collections per cluster                                                                                   | 100,000                                                                         |
+| Databases per cluster                                                                                     | 100,000                                                                         |
+| Database size (sum of all databases cannot exceed cluster<br>quota)                                       | 256 TiB for Engine Version 8.0 and beyond (128 TiB for earlier engine versions) |
+| Document nesting depth                                                                                    | 200 levels                                                                      |
+| Document size                                                                                             | 16 MiB                                                                          |
+| Index key size                                                                                            | 2,048 bytes                                                                     |
+| Indexes per collection                                                                                    | 64                                                                              |
+| Keys in a compound index                                                                                  | 32                                                                              |
+| Maximum number of writes in a single batch command                                                        | 100,000                                                                         |
+| Number of users per cluster                                                                               | 1000                                                                            |
 
-## Instance limits
+## Instance quotas
 
-The following table describes Amazon DocumentDB limits per instance.
+The following table describes Amazon DocumentDB quotas per instance.
 
 Amazon DocumentDB 8.0
 
-| Instance type  | Instance memory (GiB) | Connections (all) | Cursor limit | Open transactions | Connections (active) |
+| Instance type  | Instance memory (GiB) | Connections (all) | Cursor quota | Open transactions | Connections (active) |
 | -------------- | --------------------- | ----------------- | ------------ | ----------------- | -------------------- |
 | T3.medium      | 4                     | 1000              | 30           | 50                | 102                  |
 | T4G.medium     | 4                     | 1000              | 30           | 50                | 102                  |
@@ -226,7 +226,7 @@ Amazon DocumentDB 8.0
 
 Amazon DocumentDB 5.0
 
-| Instance type  | Instance memory (GiB) | Connections (all) | Cursor limit | Open transactions | Connections (active) |
+| Instance type  | Instance memory (GiB) | Connections (all) | Cursor quota | Open transactions | Connections (active) |
 | -------------- | --------------------- | ----------------- | ------------ | ----------------- | -------------------- |
 | T3.medium      | 4                     | 1000              | 30           | 50                | 102                  |
 | T4G.medium     | 4                     | 1000              | 30           | 50                | 102                  |
@@ -258,7 +258,7 @@ Amazon DocumentDB 5.0
 
 Amazon DocumentDB 4.0
 
-| Instance type  | Instance memory (GiB) | Connections (all) | Cursor limit | Open transactions | Connections (active) |
+| Instance type  | Instance memory (GiB) | Connections (all) | Cursor quota | Open transactions | Connections (active) |
 | -------------- | --------------------- | ----------------- | ------------ | ----------------- | -------------------- |
 | T3.medium      | 4                     | 1000              | 30           | 50                | 102                  |
 | T4G.medium     | 4                     | 1000              | 30           | 50                | 102                  |
@@ -281,7 +281,7 @@ Amazon DocumentDB 4.0
 
 Amazon DocumentDB 3.6
 
-| Instance type | Instance memory (GiB) | Connections (all) | Cursor limit | Open transactions | Connections (active) |
+| Instance type | Instance memory (GiB) | Connections (all) | Cursor quota | Open transactions | Connections (active) |
 | ------------- | --------------------- | ----------------- | ------------ | ----------------- | -------------------- |
 | T3.medium     | 4                     | 500               | 30           | N/A               | 102                  |
 | R4.large      | 15.25                 | 1700              | 450          | N/A               | 1100                 |
@@ -300,7 +300,7 @@ Amazon DocumentDB 3.6
 
 You can monitor and alarm on the per instance limits using the following CloudWatch metrics. For more on Amazon DocumentDB CloudWatch metrics, see [Monitoring Amazon DocumentDB with CloudWatch](cloud_watch.md "cloud_watch.md").
 
-| Resource          | CloudWatch limit metric  | CloudWatch usage metric (1-min. max) | CloudWatch usage metric |
+| Resource          | CloudWatch quota metric  | CloudWatch usage metric (1-min. max) | CloudWatch usage metric |
 | ----------------- | ------------------------ | ------------------------------------ | ----------------------- |
 | Instance Memory   | -                        | -                                    | FreeableMemory          |
 | Connections (all) | DatabaseConnectionsLimit | DatabaseConnectionsMax               | DatabaseConnections     |
@@ -311,7 +311,7 @@ You can monitor and alarm on the per instance limits using the following CloudWa
 
 The following table describes naming constraints in Amazon DocumentDB.
 
-| Resource                                        | Default limit                                                                                                                                                                                                                                                                          |
+| Resource                                        | Default quota                                                                                                                                                                                                                                                                          |
 | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Cluster identifier                              | • Length is [1–63] letters, numbers, or hyphens.<br>• First character must be a letter.<br>• Cannot end with a hyphen or contain two consecutive hyphens.<br>• Must be unique for all clusters (across Amazon RDS, Amazon Neptune, and Amazon DocumentDB) per AWS account, per Region. |
 | Instance identifier                             | • Length is [1–63] letters, numbers, or hyphens<br>• First character must be a letter<br>• Cannot end with a hyphen or contain two consecutive hyphens<br>• Must be unique for all instances (across Amazon RDS, Amazon Neptune, and Amazon DocumentDB) per AWS account, per Region.   |
@@ -330,18 +330,18 @@ Deletes from a TTL index are not guaranteed within a specific timeframe
 and are best effort. Factors like instance resource utilization, document
 size, and overall throughput can affect the timing of a TTL delete.
 
-## Elastic cluster limits
+## Elastic cluster quotas
 
-The following table describes maximum limits in Amazon DocumentDB elastic clusters.
+The following table describes maximum quotas for Amazon DocumentDB elastic clusters.
 
-| Resource                                                               | Limit                                                                                                           |
+| Resource                                                               | Quota                                                                                                           |
 | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | Elastic clusters per Region                                            | 20                                                                                                              |
 | vCPU summed across all elastic clusters per Region                     | 1024                                                                                                            |
 | Manual cluster snapshots per Region                                    | 20                                                                                                              |
 | Shards per cluster                                                     | 32                                                                                                              |
 | Storage per cluster (when data is evenly distributed by shard-key)     | 4 PiB                                                                                                           |
-| Connections to cluster                                                 | The lower value of either 300,000 or the number of shards x the connection limit associated with vCPU per shard |
+| Connections to cluster                                                 | The lower value of either 300,000 or the number of shards x the connection quota associated with vCPU per shard |
 | UnSharded collection size                                              | 32 TiB                                                                                                          |
 | Sharded collection size (when data is evenly distributed by shard-key) | 1PB                                                                                                             |
 | Databases per cluster                                                  | 10,000                                                                                                          |
@@ -355,22 +355,22 @@ The following table describes maximum limits in Amazon DocumentDB elastic cluste
 | Index key size                                                         | 2048 bytes                                                                                                      |
 | Keys in a compound index                                               | 32                                                                                                              |
 
-## Elastic cluster shard limits
+## Elastic cluster shard quotas
 
-The following table describes maximum shard limits in Amazon DocumentDB elastic clusters.
+The following table describes maximum shard quotas for Amazon DocumentDB elastic clusters.
 
-| Resource                         | Limit   |
+| Resource                         | Quota   |
 | -------------------------------- | ------- |
 | vCPU per shard instance          | 64      |
 | Instances per shard              | 16      |
 | Storage per shard                | 128 TiB |
 | Storage per collection per shard | 32 TiB  |
 
-## Elastic cluster CPU, memory, connection, and cursor limits per shard
+## Elastic cluster CPU, memory, connection, and cursor quotas per shard
 
 The following table describes maximum CPU, memory, connection, and cursor limits in Amazon DocumentDB elastic cluster shards.
 
-| vCPUs per shard | Instance memory (GiB) | Connection limit | Cursor limit |
+| vCPUs per shard | Instance memory (GiB) | Connection quota | Cursor quota |
 | --------------- | --------------------- | ---------------- | ------------ |
 | 2               | 16                    | 1700             | 450          |
 | 4               | 32                    | 3500             | 450          |

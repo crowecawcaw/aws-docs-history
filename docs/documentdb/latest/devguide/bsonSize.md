@@ -10,7 +10,7 @@ The `$bsonSize` operator in Amazon DocumentDB returns the size in bytes of a doc
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$bsonSize` operator to return the BSON size of each document.
+The following example shows how to use the `$bsonSize` operator to return the BSON size of each document.
 
 **Create sample documents**
 

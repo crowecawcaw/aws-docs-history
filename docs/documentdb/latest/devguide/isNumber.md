@@ -12,7 +12,7 @@ Note that arrays are not considered numeric, even if all elements in the array a
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$isNumber` operator to check whether field values are numeric.
+The following example shows how to use the `$isNumber` operator to check whether field values are numeric.
 
 **Create sample documents**
 

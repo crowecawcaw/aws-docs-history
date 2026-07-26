@@ -10,7 +10,7 @@ The `$sigmoid` operator in Amazon DocumentDB applies the logistic sigmoid functi
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$sigmoid` operator to convert logit values into probabilities.
+The following example shows how to use the `$sigmoid` operator to convert logit values into probabilities.
 
 **Create sample documents**
 

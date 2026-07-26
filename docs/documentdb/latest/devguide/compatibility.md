@@ -9,6 +9,8 @@ This section describes everything you need to know about Amazon DocumentDB compa
 - [MongoDB 8.0 compatibility](#mongodb-80 "#mongodb-80")
 - [MongoDB 5.0 compatibility](#mongodb-50 "#mongodb-50")
 - [MongoDB 4.0 compatibility](#mongodb-40 "#mongodb-40")
+- [Functional differences with MongoDB](functional-differences.md "functional-differences.md")
+- [Supported MongoDB APIs, operations, and data types](mongo-apis.md "mongo-apis.md")
 
 ## MongoDB 8.0 compatibility
 
@@ -32,6 +34,7 @@ To see a full list of the new capabilities, see the [Release notes](release-note
 - Offers 6 new aggregation stages: $replaceWith, $vectorSearch, $merge, $set, $unset, $bucket, and 3 new aggregation operators $pow, $rand, $dateTrunc.
 - A new version of text index: Text index v2 in Amazon DocumentDB 8.0 introduces additional tokens, enhancing text search capabilities.
 - Through parallel vector index build, Amazon DocumentDB 8.0 reduces index build time by up to 30x.
+- Increased storage limit to 256 TiB.
 
 ### Get started with Amazon DocumentDB 8.0
 
@@ -108,7 +111,7 @@ You can upgrade to 5.0.1 from 5.0.0 using a minor version upgrade.
 For more information, see [Amazon DocumentDB minor version upgrade](docdb-minor-version-upgrade.md "docdb-minor-version-upgrade.md").
 
 - Enhanced aggregation capabilities with new operators (`$rand`, `$pow`, `$dateToParts`, `$dateFromParts`).
-- Active connections metric to monitor instances. For more information, see [Instance limits](limits.md#limits.instance "limits.md#limits.instance").
+- Active connections metric to monitor instances. For more information, see [Instance quotas](limits.md#limits.instance "limits.md#limits.instance").
 - Granular command-level performance metrics in CloudWatch for CRUD operations (`find`, `insert`, `findAndModify`, `update`, `delete`, `aggregate`, `count`, `distinct`, `getMore`, `abortTransaction`, `commitTransaction`), exposing `AvgDuration`, `P100Duration`, and `MaxConcurrent` dimensions for improved operational monitoring.
 - Amazon DocumentDB 5.0.1 only supports TLS 1.2 and higher for database connections.
 - Added `gcRuntimeStats`, `documentFragmentStats`, and breakup of collection level metrics into `storageSegmentBase` and `storageSegmentExtended` in `collstats` to surface more information into the overall health of the garbage collection process.

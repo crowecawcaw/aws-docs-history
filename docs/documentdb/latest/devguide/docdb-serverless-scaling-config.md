@@ -28,7 +28,7 @@ Consider the following factors when choosing the minimum capacity setting:
   The higher the current capacity, the faster it can scale up.
   If you need the instance to quickly scale up to a very high capacity, consider setting the minimum capacity to a value where the scaling rate meets your requirement.
 - If you typically modify the instance class of your instances in anticipation of especially high or low workload, you can use that experience to make a rough estimate of the equivalent DocumentDB serverless capacity range.
-  To determine the memory size of a provisioned Amazon DocumentDB instance type, see [Instance limits](limits.md#limits.instance "limits.md#limits.instance").
+  To determine the memory size of a provisioned Amazon DocumentDB instance type, see [Instance quotas](limits.md#limits.instance "limits.md#limits.instance").
 
 For example, suppose that you use the `db.r6g.xlarge` instance class when your cluster has a low workload.
 That instance class has 32 GiB of memory.
@@ -44,7 +44,7 @@ You might specify a somewhat lower value to let the instance scale down further 
 - If your DocumentDB serverless instances run most of the time at a particular capacity, consider specifying a minimum capacity setting that's lower than that baseline, but not too much lower.
   Serverless instances can most effectively estimate how much and how fast to scale up when the current capacity isn't drastically lower than the required capacity.
 - If your provisioned workload has memory requirements that are too high for small instance classes such as T3 or T4g, choose a minimum DCU setting that provides memory comparable to an R5 or R6g instance.
-- In particular, we recommend the following minimum `MinCapacity` for use with the specified features (these recommendations are subject to change):
+- Use the following minimum `MinCapacity` for the specified features (subject to change):
 
   - Performance Insights — 2 DCUs
   - Global clusters — 8 DCUs (applies only to the primary AWS Region)
@@ -57,7 +57,7 @@ You might specify a somewhat lower value to let the instance scale down further 
 If you have a cluster with DocumentDB serverless reader instances, the readers don't scale along with the writer instance when the promotion tier of the readers isn't 0 or 1.
 In that case, setting a low minimum capacity can result in excessive replication lag.
 That's because the readers might not have enough capacity to apply changes from the writer when the database is busy.
-We recommend that you set the minimum capacity to a value that represents a comparable amount of memory and CPU to the writer instance.
+Set the minimum capacity to a value that represents a comparable amount of memory and CPU to the writer instance.
 
 - The time it takes for a DocumentDB serverless instance to scale from its minimum capacity to its maximum capacity depends on the difference between its minimum and maximum DCU values.
   When the current capacity of the instance is large, DocumentDB serverless scales up in larger increments than when the instance starts from a small capacity.
@@ -86,11 +86,11 @@ Consider the following factors when choosing the maximum capacity setting:
   However, in that case the capacity never scales up or down.
   Thus, using identical values for minimum and maximum capacity isn't appropriate outside of testing situations.
 - The maximum capacity must be at least 1.0 DCUs and must be at most 256 DCUs.
-- We recommend monitoring the scaling and resource usage of your serverless instances.
-  If your serverless instance is frequently scaling to maximum capacity and hitting resource constraints (e.g. when `DCUUtilization` metric is at 100.0), we recommend selecting a higher `MaxCapacity` value.
+- Monitor the scaling and resource usage of your serverless instances.
+  If your serverless instance is frequently scaling to maximum capacity and hitting resource constraints (for example, when the `DCUUtilization` metric is at 100.0), select a higher `MaxCapacity` value.
   For more information, see [Monitoring Amazon DocumentDB serverless](docdb-serverless-monitoring.md "docdb-serverless-monitoring.md").
 - If you typically modify the instance class of your provisioned instances in anticipation of especially high or low workload, you can use that experience to estimate the equivalent DocumentDB serverless capacity range.
-  To determine the memory size of provisioned Amazon DocumentDB instances, see [Instance limits](limits.md#limits.instance "limits.md#limits.instance").
+  To determine the memory size of provisioned Amazon DocumentDB instances, see [Instance quotas](limits.md#limits.instance "limits.md#limits.instance").
 
 For example, suppose that you use the `db.r6g.4xlarge` instance class when your cluster has a high workload.
 That instance class has 128 GiB of memory.
@@ -113,12 +113,12 @@ You might specify a somewhat higher value to let the instance scale up farther i
   Such settings include those for Performance Insights and global clusters.
   Make sure that the maximum DCU value allows the serverless instances to scale up enough to handle the workload when those feature are being used.
   For information about troubleshooting problems caused by the combination of a low maximum DCU setting and Amazon DocumentDB features that impose memory overhead, see [Avoiding out-of-memory errors](#docdb-serverless-scaling-mem-errors "#docdb-serverless-scaling-mem-errors") (below).
-- In particular, we recommend the following minimum `MaxCapacity` for use with the specified features (these recommendations are subject to change):
+- Use the following minimum `MaxCapacity` for the specified features (subject to change):
 
   - Serverless instance creation on a cluster with a large data volume – 2 DCUs (this includes serverless instance creation as part of a cluster restore.)
 
 - Certain instance limits are determined by the instance’s current capacity, such as connections limit, cursor limit, and open transactions limit.
-  When choosing the `MaxCapacity` value for your workload, make sure to keep these instance limits in mind in order to avoid being bottlenecked by one of these limits.
+  When choosing the `MaxCapacity` value for your workload, make sure to keep these instance limits in mind to avoid being bottlenecked by one of these limits.
   For more information, see [Amazon DocumentDB serverless instance limits](docdb-serverless-instance-limits.md "docdb-serverless-instance-limits.md").
 
 For instructions on how to modify a cluster’s scaling configuration, see [Managing Amazon DocumentDB serverless](docdb-serverless-managing.md "docdb-serverless-managing.md").
@@ -171,5 +171,8 @@ This can happen for the following reasons:
   If your cluster’s minimum capacity is less than the minimum required for cluster management, your cluster won't scale down to the minimum capacity.
 - Background maintenance activity can periodically increase resource usage.
 
-If the database still doesn't scale down to the minimum capacity configured, then stop and restart the database to reclaim any memory fragments that might have built up over time.
-Stopping and starting a database results in downtime, so we recommend doing this sparingly.
+If the database still doesn't scale down to the minimum capacity configured, stop and restart the database to reclaim any memory fragments that might have built up over time.
+
+###### Note
+
+Stopping and starting a database results in downtime. Only do this when necessary.

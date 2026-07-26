@@ -12,7 +12,7 @@ Use the `$topN` accumulator in the `$group` stage to return the top N elements w
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$topN` accumulator to find the top 2 sales (highest quantity) per item in a sales collection.
+The following example shows how to use the `$topN` accumulator to find the top 2 sales (highest quantity) per item in a sales collection.
 
 **Create sample documents**
 

@@ -1,6 +1,6 @@
 # Connecting to Amazon DocumentDB as a replica set
 
-When you're developing against Amazon DocumentDB (with MongoDB compatibility), we recommend that you connect to your cluster
+When you're developing against Amazon DocumentDB, connect to your cluster
 as a replica set and distribute reads to replica instances using the built-in read preference
 capabilities of your driver. This section goes deeper into what that means and describes how
 you can connect to your Amazon DocumentDB cluster as a replica set using the SDK for Python as an
@@ -11,9 +11,9 @@ Amazon DocumentDB has three endpoints that you can use to connect to your cluste
 - Cluster endpoint
 - Reader endpoint
 - Instance endpoints
-  In most cases when you connect to Amazon DocumentDB, we recommend that you use the cluster endpoint. This is a CNAME that points to the primary instance in your cluster, as shown in the following diagram.
+  When connecting to Amazon DocumentDB, use the cluster endpoint. This is a CNAME that points to the primary instance in your cluster, as shown in the following diagram.
 
-When using an SSH tunnel, we recommend that you connect to your cluster using the cluster endpoint and do not attempt to connect in replica set mode (i.e., specifying `replicaSet=rs0` in your connection string) as it will result in an error.
+When using an SSH tunnel, connect to your cluster using the cluster endpoint. Do not connect in replica set mode (specifying `replicaSet=rs0` in your connection string) as it will result in an error.
 
 ###### Note
 
@@ -64,8 +64,8 @@ second.
 
 The key benefit of connecting as a replica set and distributing reads to replicas is that
 it increases the overall resources in your cluster that are available to do work for your
-application. We recommend connecting as a replica set as a best practice. Further, we
-recommend it most commonly in the following scenarios:
+application. As a best practice, connect as a replica set. This is most
+beneficial in the following scenarios:
 
 - You're using nearly 100 percent CPU on your primary.
 - The buffer cache hit ratio is near zero.
@@ -81,7 +81,7 @@ recommend it most commonly in the following scenarios:
 For more information, see the following topics:
 
 - [Best practices for Amazon DocumentDB](best_practices.md "best_practices.md")
-- [Amazon DocumentDB Quotas and limits](limits.md "limits.md")
+- [Amazon DocumentDB quotas](limits.md "limits.md")
 
 ## Using cluster connections
 
@@ -102,7 +102,7 @@ recommend increasing the instance size.
 
 ###### Note
 
-The number of connections for `large`, `xlarge`, and `2xlarge` instances increases with the instance size up to 4,500. The maximum number of connections per instance for `4xlarge` instances or greater is 4,500. For more information on limits by instance types, see [Instance limits](limits.md#limits.instance "limits.md#limits.instance").
+The number of connections for `large`, `xlarge`, and `2xlarge` instances increases with the instance size up to 4,500. The maximum number of connections per instance for `4xlarge` instances or greater is 4,500. For more information on limits by instance types, see [Instance quotas](limits.md#limits.instance "limits.md#limits.instance").
 
 Typically we don't recommend that you connect to your cluster using the read preference
 of `secondary`. This is because if there are no replica instances in your
@@ -140,6 +140,5 @@ col = db.review.with_options(read_preference=ReadPreference.SECONDARY_PREFERRED)
 
 ## Summary
 
-To better use the resources in your cluster, we recommend that you connect to your
-cluster using the replica set mode. If it's suitable for your application, you can read
+To better use the resources in your cluster, connect using replica set mode. If it's suitable for your application, you can read
 scale your application by distributing your reads to the replica instances.

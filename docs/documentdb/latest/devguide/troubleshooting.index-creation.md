@@ -19,13 +19,13 @@ When an index build consumes all of the local disk and fails,
 you will receive an error. When migrating data to Amazon DocumentDB, we
 encourage you to create indexes first and then insert the data.
 For more information on migration strategies and creating
-indexes, see [Migrating to Amazon DocumentDB](docdb-migration.md "docdb-migration.md")
+indexes, see [Migrating and upgrading Amazon DocumentDB](docdb-migration.md "docdb-migration.md")
 in the Amazon DocumentDB documentation and the blog: [Migrate from MongoDB to Amazon DocumentDB using the offline method](https://aws.amazon.com/blogs/database/migrate-from-mongodb-to-amazon-documentdb-using-the-offline-method/ "https://aws.amazon.com/blogs/database/migrate-from-mongodb-to-amazon-documentdb-using-the-offline-method/").
 
 When creating indexes on an existing cluster, if the index
-build is taking longer than expected or is failing, we recommend
-that you scale up the instance to create the index then, after
-the index is created, scale back down. Amazon DocumentDB enables you to
+build is taking longer than expected or is failing, scale up
+the instance to create the index, then scale back down after
+the index is created. Amazon DocumentDB enables you to
 quickly scale instance sizes in minutes using the AWS Management Console or
 the AWS CLI. For more information, see [Managing instance classes](db-instance-classes.md "db-instance-classes.md"). With per-second
 instance pricing, you only pay for the resource you use up to
@@ -39,7 +39,7 @@ This is true even if collections are empty.
 
 Foreground index builds do not exhibit the same blocking behavior.
 Instead, foreground index builds take an exclusive lock on the collection until the index build is completed.
-Thus, to create indexes on empty collection and to avoid blocking on any long running queries, we suggest using foreground index builds.
+To create indexes on an empty collection and avoid blocking long-running queries, use foreground index builds.
 
 ###### Note
 

@@ -2,8 +2,8 @@
 
 ###### Topics
 
-- [Migrating existing DocumentDB clusters to serverless](#w2aac43c19b5 "#w2aac43c19b5")
-- [Migrating from MongoDB to DocumentDB serverless](#w2aac43c19b7 "#w2aac43c19b7")
+- [Migrating existing DocumentDB clusters to serverless](#w2aac51c19b5 "#w2aac51c19b5")
+- [Migrating from MongoDB to DocumentDB serverless](#w2aac51c19b7 "#w2aac51c19b7")
 
 ## Migrating existing DocumentDB clusters to serverless
 
@@ -31,7 +31,7 @@ To modify the scaling configuration for a cluster, see [Viewing and modifying a 
 In some cases, you might already have one or more provisioned reader instances in the cluster.
 If so, you can choose to convert one of the readers to a DocumentDB serverless instance instead of creating a new instance.
 To do so, follow the procedure in [Changing an instance's class](db-instance-classes.md#db-instance-class-changing "db-instance-classes.md#db-instance-class-changing"). 5. (Optional) Perform a failover operation to make a DocumentDB serverless instance the cluster writer.
-See [Amazon DocumentDB Failover](failover.md "failover.md"). 6. (Optional) Convert any remaining provisioned Amazon DocumentDB instances to DocumentDB serverless instances (see [Changing an instance's class](db-instance-classes.md#db-instance-class-changing "db-instance-classes.md#db-instance-class-changing")) or remove them from the cluster (see [Deleting an Amazon DocumentDB instance](db-instance-delete.md "db-instance-delete.md")).
+See [Amazon DocumentDB failover](failover.md "failover.md"). 6. (Optional) Convert any remaining provisioned Amazon DocumentDB instances to DocumentDB serverless instances (see [Changing an instance's class](db-instance-classes.md#db-instance-class-changing "db-instance-classes.md#db-instance-class-changing")) or remove them from the cluster (see [Deleting an Amazon DocumentDB instance](db-instance-delete.md "db-instance-delete.md")).
 
 Using the AWS Management Console
 The following AWS Management Console configuration example shows the migration process using an Amazon DocumentDB provisioned cluster that is running Amazon DocumentDB 5.0.0, which does not require an engine version upgrade to start using DocumentDB serverless.
@@ -164,4 +164,4 @@ aws docdb delete-db-instance \
 ## Migrating from MongoDB to DocumentDB serverless
 
 You can migrate your MongoDB databases to DocumentDB serverless, just as with provisioned Amazon DocumentDB.
-For more information, see [Migrating to Amazon DocumentDB](docdb-migration.md "docdb-migration.md").
+For more information, see [Migrating and upgrading Amazon DocumentDB](docdb-migration.md "docdb-migration.md").

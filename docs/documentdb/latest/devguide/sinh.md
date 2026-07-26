@@ -2,7 +2,7 @@
 
 New from version 8.0.1.
 
-The `$sinh` operator in Amazon DocumentDB returns the hyperbolic sine of a value. Use `$sinh` in the aggregation pipeline to perform hyperbolic trigonometric calculations on numeric fields.
+The `$sinh` operator in Amazon DocumentDB returns the hyperbolic sine of a value. Use it in the aggregation pipeline to perform hyperbolic trigonometric calculations on numeric fields.
 
 **Parameters**
 

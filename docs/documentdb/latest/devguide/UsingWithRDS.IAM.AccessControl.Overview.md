@@ -9,13 +9,13 @@ An _account administrator_ (or administrator user) is a user with administrator 
 
 ###### Topics
 
-- [Amazon DocumentDB Resources and operations](#CreatingIAMPolicies-RDS "#CreatingIAMPolicies-RDS")
+- [Amazon DocumentDB resources and operations](#CreatingIAMPolicies-RDS "#CreatingIAMPolicies-RDS")
 - [Understanding resource ownership](#UsingWithRDS.IAM.AccessControl.ResourceOwner "#UsingWithRDS.IAM.AccessControl.ResourceOwner")
 - [Managing access to resources](#UsingWithRDS.IAM.AccessControl.ManagingAccess "#UsingWithRDS.IAM.AccessControl.ManagingAccess")
 - [Specifying policy elements: actions, effects, resources, and principals](#SpecifyingIAMPolicyActions-RDS "#SpecifyingIAMPolicyActions-RDS")
 - [Specifying conditions in a policy](#SpecifyingIAMPolicyConditions-RDS "#SpecifyingIAMPolicyConditions-RDS")
 
-## Amazon DocumentDB Resources and operations
+## Amazon DocumentDB resources and operations
 
 In Amazon DocumentDB, the primary resource is a _cluster_. Amazon DocumentDB supports other resources that can be used with the primary resource such as _instances_, _parameter groups_, and _event subscriptions_. These resources are referred to as _subresources_.
 
@@ -103,7 +103,7 @@ Other services, such as Amazon Simple Storage Service (Amazon S3), also support 
 
 ## Specifying policy elements: actions, effects, resources, and principals
 
-For each Amazon DocumentDB resource (see [Amazon DocumentDB Resources and operations](#CreatingIAMPolicies-RDS "#CreatingIAMPolicies-RDS")), the service defines a set of API operations. For more information, see [Actions](../../../redshift/latest/APIReference/API_Operations.md "../../../redshift/latest/APIReference/API_Operations.md"). To grant permissions for these API operations, Amazon DocumentDB defines a set of actions that you can specify in a policy. Performing an API operation can require permissions for more than one action.
+For each Amazon DocumentDB resource (see [Amazon DocumentDB resources and operations](#CreatingIAMPolicies-RDS "#CreatingIAMPolicies-RDS")), the service defines a set of API operations. For more information, see [Actions](../../../redshift/latest/APIReference/API_Operations.md "../../../redshift/latest/APIReference/API_Operations.md"). To grant permissions for these API operations, Amazon DocumentDB defines a set of actions that you can specify in a policy. Performing an API operation can require permissions for more than one action.
 
 The following are the basic policy elements:
 

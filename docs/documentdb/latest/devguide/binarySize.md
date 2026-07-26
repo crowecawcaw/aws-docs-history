@@ -12,7 +12,7 @@ Multi-byte UTF-8 characters (such as accented characters or CJK characters) will
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$binarySize` operator to return the byte size of string fields.
+The following example shows how to use the `$binarySize` operator to return the byte size of string fields.
 
 **Create sample documents**
 

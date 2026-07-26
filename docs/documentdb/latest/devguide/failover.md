@@ -1,4 +1,4 @@
-# Amazon DocumentDB Failover
+# Amazon DocumentDB failover
 
 In certain cases, such as certain types of planned maintenance, or in
 the unlikely event of a primary node or Availability Zone failure, Amazon DocumentDB (with MongoDB compatibility) detects the failure and replaces the primary node.
@@ -22,6 +22,8 @@ replica instance is promoted to primary when a failover occurs.
 Each replica instance is associated with a failover tier (0–15). When a failover occurs due to maintenance or an unlikely hardware failure, the primary instance fails over to a replica with the highest priority (the lowest numbered tier). If multiple replicas have the same priority tier, the primary fails over to that tier's replica that is the closest in size to the previous primary.
 
 By setting the failover tier for a group of select replicas to `0` (the highest priority), you can ensure that a failover will promote one of the replicas in that group. You can effectively prevent specific replicas from being promoted to primary in case of a failover by assigning a low-priority tier (high number) to these replicas. This is useful in cases where specific replicas are receiving heavy use by an application and failing over to one of them would negatively impact a critical application.
+
+We recommend that replicas that are potential failover targets use the same instance class as the primary instance. This avoids write-performance degradation if a failover promotes a replica during OS updates or other maintenance.
 
 You can set the failover tier of an instance when you create it or
 later by modifying it. Setting an instance failover tier by modifying the instance does not trigger a failover. For more information see the following topics:

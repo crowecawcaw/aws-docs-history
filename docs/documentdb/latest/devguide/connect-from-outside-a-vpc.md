@@ -32,8 +32,8 @@ For more information about SSH tunneling, see the following:
 If so, you can set up an SSH tunnel to the Amazon DocumentDB cluster
 `sample-cluster.node.us-east-1.docdb.amazonaws.com` by running
 the following command on your local computer. The `-L` flag is
-used for forwarding a local port. When using an SSH tunnel, we recommend
-that you connect to your cluster using the cluster endpoint and do not
+used for forwarding a local port. When using an SSH tunnel, connect
+to your cluster using the cluster endpoint and do not
 attempt to connect in replica set mode (i.e., specifying
 `replicaSet=rs0` in your connection string) as it will result
 in an error.

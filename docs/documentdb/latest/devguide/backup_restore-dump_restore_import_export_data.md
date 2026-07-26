@@ -32,8 +32,8 @@ primary instance.
 
 ###### Note
 
-We recommend MongoDB Database Tools up to and including version 100.6.1 for Amazon DocumentDB.
-You can access the MongoDB Database Tools downloads [here](https://www.mongodb.com/download-center/database-tools/releases/archive "https://www.mongodb.com/download-center/database-tools/releases/archive").
+Use MongoDB Database Tools up to and including version 100.6.1 for Amazon DocumentDB.
+To download, see [MongoDB Database Tools releases](https://www.mongodb.com/download-center/database-tools/releases/archive "https://www.mongodb.com/download-center/database-tools/releases/archive").
 
 ### Example usage
 

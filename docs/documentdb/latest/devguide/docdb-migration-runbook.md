@@ -21,8 +21,8 @@ The runbook is organized into the following topics:
 
 ###### Topics
 
-- [Core feature compatibility](#w2aac25b9c13c13 "#w2aac25b9c13c13")
-- [Amazon DocumentDB compatibility assessment tool](#w2aac25b9c13c15 "#w2aac25b9c13c15")
+- [Core feature compatibility](#w2aac15b9c13c13 "#w2aac15b9c13c13")
+- [Amazon DocumentDB compatibility assessment tool](#w2aac15b9c13c15 "#w2aac15b9c13c15")
 
 When migrating from MongoDB to Amazon DocumentDB, a thorough initial assessment and feature compatibility check is essential for a successful migration.
 This process begins with a comprehensive inventory of your MongoDB features, including aggregation pipeline operators, query patterns, indexes, and data models.
@@ -62,7 +62,7 @@ This helps create a clear migration roadmap, identifying necessary application c
 For a comprehensive overview of Amazon DocumentDB's capabilities, refer to the [Supported MongoDB APIs, operations, and data types in Amazon DocumentDB](mongo-apis.md "mongo-apis.md") and [Functional differences: Amazon DocumentDB and MongoDB](functional-differences.md "functional-differences.md") to maximize your database's potential.
 
 Amazon DocumentDB does not support all the indexes offered by MongoDB. We provide a free [index tool](https://github.com/awslabs/amazon-documentdb-tools/blob/master/index-tool/README.md "https://github.com/awslabs/amazon-documentdb-tools/blob/master/index-tool/README.md") to check the compatibility.
-We recommend running the index tool to assess incompatibility and plan workarounds accordingly.
+Run the index tool to assess incompatibility and plan workarounds accordingly.
 
 ### Amazon DocumentDB compatibility assessment tool
 
@@ -107,7 +107,7 @@ The [MongoDB to Amazon DocumentDB Compatibility Tool](https://github.com/awslabs
   - Requires access to complete application source code
   - Limited ability to analyze dynamically constructed queries
 
-For best results, we recommend using both assessment methods when possible to get a complete picture of compatibility challenges before migration.
+For best results, use both assessment methods when possible to get a complete picture of compatibility challenges before migration.
 
 ## Workload discovery
 
@@ -117,11 +117,11 @@ This section outlines the key steps involved in workload discovery to facilitate
 
 ###### Topics
 
-- [Assessing the existing MongoDB deployment](#w2aac25b9c15b7 "#w2aac25b9c15b7")
-- [Identifying data model differences](#w2aac25b9c15b9 "#w2aac25b9c15b9")
-- [Query and performance analysis](#w2aac25b9c15c11 "#w2aac25b9c15c11")
-- [Security and access control review](#w2aac25b9c15c13 "#w2aac25b9c15c13")
-- [Operational and monitoring considerations](#w2aac25b9c15c15 "#w2aac25b9c15c15")
+- [Assessing the existing MongoDB deployment](#w2aac15b9c15b7 "#w2aac15b9c15b7")
+- [Identifying data model differences](#w2aac15b9c15b9 "#w2aac15b9c15b9")
+- [Query and performance analysis](#w2aac15b9c15c11 "#w2aac15b9c15c11")
+- [Security and access control review](#w2aac15b9c15c13 "#w2aac15b9c15c13")
+- [Operational and monitoring considerations](#w2aac15b9c15c15 "#w2aac15b9c15c15")
 
 ### Assessing the existing MongoDB deployment
 
@@ -331,13 +331,13 @@ This method provides a secure and flexible approach to migrating users and roles
 
 ###### Topics
 
-- [Online migration](#w2aac25b9c21b5 "#w2aac25b9c21b5")
-- [Offline migration](#w2aac25b9c21b7 "#w2aac25b9c21b7")
-- [Prerequisites](#w2aac25b9c21c11 "#w2aac25b9c21c11")
-- [Prepare an Amazon DocumentDB cluster](#w2aac25b9c21c13 "#w2aac25b9c21c13")
-- [Perform the data dump (mongodump)](#w2aac25b9c21c15 "#w2aac25b9c21c15")
-- [Transfer dump files to restoration environment](#w2aac25b9c21c17 "#w2aac25b9c21c17")
-- [Restore data to Amazon DocumentDB (mongorestore)](#w2aac25b9c21c19 "#w2aac25b9c21c19")
+- [Online migration](#w2aac15b9c21b5 "#w2aac15b9c21b5")
+- [Offline migration](#w2aac15b9c21b7 "#w2aac15b9c21b7")
+- [Prerequisites](#w2aac15b9c21c11 "#w2aac15b9c21c11")
+- [Prepare an Amazon DocumentDB cluster](#w2aac15b9c21c13 "#w2aac15b9c21c13")
+- [Perform the data dump (mongodump)](#w2aac15b9c21c15 "#w2aac15b9c21c15")
+- [Transfer dump files to restoration environment](#w2aac15b9c21c17 "#w2aac15b9c21c17")
+- [Restore data to Amazon DocumentDB (mongorestore)](#w2aac15b9c21c19 "#w2aac15b9c21c19")
 
 ### Online migration
 
@@ -385,8 +385,8 @@ in the upper-left corner of the page. 3. On the Amazon DocumentDB management con
 
     	+ db.r6g.large: for smaller workloads
     	+ db.r6g.4xlarge: for larger workloads
-    As a best practice, we recommend choosing as big an instance as you are able to for best full-load throughput, and scale down after migration is complete.
-    * For **Number of instances**, choose 1 instance. Choosing one instance helps minimize costs. We recommend that you scale to three instances for high availability after the full-load migration is complete.
+    As a best practice, choose as large an instance as possible for best full-load throughput, and scale down after migration is complete.
+    * For **Number of instances**, choose 1 instance. Choosing one instance helps minimize costs. Scale to three instances for high availability after the full-load migration is complete.
 
 8. In the **Authentication** section, enter a username for the primary user, and then choose **Self managed**. Enter a password, then confirm it. 9. In the **Network settings** section, choose a VPC and subnet group, and then configure the VPC security group.
 Make sure your Amazon DocumentDB security group allows inbound connection from the DMS instance’s security group by updating inbound rules. 10. In the **Encryption-at-rest** section, enable encryption (recommended) and choose or enter a KMS key. 11. In the **Backup** section, set the backup retention period (1-35 days). 12. Review your configuration and choose **Create cluster**.
@@ -447,7 +447,7 @@ Configure your source Amazon DocumentDB security group to allow inbound traffic 
 
 #### Create DMS replication instance
 
-We recommend using [DMS Buddy](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/dms_buddy "https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/dms_buddy") to provision your DMS infrastructure as it creates optimal migration infrastructure with optimal DMS settings and instance sizes.
+Use [DMS Buddy](https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/dms_buddy "https://github.com/awslabs/amazon-documentdb-tools/tree/master/migration/dms_buddy") to provision your DMS infrastructure. It creates optimal migration infrastructure with optimal DMS settings and instance sizes.
 
 If you prefer to configure manually, follow these steps:
 
@@ -823,10 +823,10 @@ For setup instructions and advanced configuration options, refer to the [Amazon 
 
 ###### Topics
 
-- [Validation checklist](#w2aac25b9c25c15 "#w2aac25b9c25c15")
-- [Schema and index validation](#w2aac25b9c25c17 "#w2aac25b9c25c17")
-- [Data sampling and field-level validation](#w2aac25b9c25c19 "#w2aac25b9c25c19")
-- [Validation using DataDiffer tool](#w2aac25b9c25c21 "#w2aac25b9c25c21")
+- [Validation checklist](#w2aac15b9c25c15 "#w2aac15b9c25c15")
+- [Schema and index validation](#w2aac15b9c25c17 "#w2aac15b9c25c17")
+- [Data sampling and field-level validation](#w2aac15b9c25c19 "#w2aac15b9c25c19")
+- [Validation using DataDiffer tool](#w2aac15b9c25c21 "#w2aac15b9c25c21")
 
 This section provides a detailed validation process to ensure data consistency, integrity, and application compatibility after migrating from:
 

@@ -15,7 +15,7 @@ owns the source Amazon DocumentDB cluster.
 ###### Topics
 
 - [Overview of Amazon DocumentDB cloning](#db-cloning-overview "#db-cloning-overview")
-- [Limitations of Amazon DocumentDB cloning](#db-cloning-limitations "#db-cloning-limitations")
+- [Usage notes for Amazon DocumentDB cloning](#db-cloning-limitations "#db-cloning-limitations")
 - [How Amazon DocumentDB cloning works](#db-how-db-cloning-works "#db-how-db-cloning-works")
 - [Creating an Amazon DocumentDB clone](#db-creating-db-clone "#db-creating-db-clone")
 
@@ -48,7 +48,7 @@ the multiple DB instances used by the Amazon DocumentDB cluster.
 When you finish using the clone for your testing, development, or other purposes, you can
 delete it.
 
-## Limitations of Amazon DocumentDB cloning
+## Usage notes for Amazon DocumentDB cloning
 
 Amazon DocumentDB; cloning currently has the following limitations:
 

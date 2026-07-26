@@ -10,7 +10,7 @@ The `$stdDevPop` operator in Amazon DocumentDB calculates the population standar
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates the use of the `$stdDevPop` operator to calculate the population standard deviation of scores per subject.
+The following example shows how to use the `$stdDevPop` operator to calculate the population standard deviation of scores per subject.
 
 **Create sample documents**
 

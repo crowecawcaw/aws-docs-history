@@ -23,10 +23,11 @@ The following are basic operational guidelines that everyone should follow when 
 with Amazon DocumentDB. The Amazon DocumentDB Service Level Agreement requires that you follow these
 guidelines.
 
-- Deploy a cluster consisting of two or more Amazon DocumentDB instances in two AWS Availability Zones. For production workloads, we recommend deploying a
+- Deploy a cluster consisting of two or more Amazon DocumentDB instances in two AWS
+  Availability Zones. For production workloads, deploy a
   cluster consisting of three or more Amazon DocumentDB instances in three Availability
   Zones.
-- Use the service within the stated service limits. For more information, see [Amazon DocumentDB Quotas and limits](limits.md "limits.md").
+- Use the service within the stated service limits. For more information, see [Amazon DocumentDB quotas](limits.md "limits.md").
 - Monitor your memory, CPU, connections, and storage usage. To help you maintain
   system performance and availability, set up Amazon CloudWatch to notify you when usage
   patterns change or when you approach the capacity of your deployment.
@@ -35,7 +36,7 @@ guidelines.
   unforeseen increases in demand from your applications.
 - Set your backup retention period to align with your recovery point objective.
 - Test failover for your cluster to understand how long the process takes for your
-  use case. For more information, see [Amazon DocumentDB Failover](failover.md "failover.md").
+  use case. For more information, see [Amazon DocumentDB failover](failover.md "failover.md").
 - Connect to your Amazon DocumentDB cluster with the cluster endpoint (see [Amazon DocumentDB endpoints](how-it-works.md#how-it-works.endpoints "how-it-works.md#how-it-works.endpoints")) and in
   replica set mode (see [Connecting to Amazon DocumentDB as a replica set](connect-to-replica-set.md "connect-to-replica-set.md")) to minimize the impact of a failover on
   your application.
@@ -57,7 +58,7 @@ guidelines.
   5.0.0 (note: Amazon DocumentDB 8.0 is available but must be explicitly specified). When new major engine versions are released, the default engine version for
   `--engine-version` will be updated to reflect the last major engine version. As a
   result, for production workloads, and especially those that are dependent on
-  scripting, automation, or CloudFormation templates, we recommend that you explicitly specify
+  scripting, automation, or CloudFormation templates, explicitly specify
   the `--engine-version` to the intended major version.
 
 ## Instance sizing
@@ -101,8 +102,8 @@ usage, but have the `BufferCacheHitRatio` dip periodically as analytic queries
 that need to scan an entire collection are run on an instance. These periodic dips in
 `BufferCacheHitRatio` may manifest as higher latency for subsequent queries
 that need to repopulate the working set data from the storage volume back into the buffer
-cache. **We recommend that you test your workloads in a pre-production
-environment with a representative production workload first in order to understand the
+cache. **Test your workloads in a pre-production
+environment with a representative production workload first to understand the
 performance characteristics and `BufferCacheHitRatio` before deploying the
 workload to production.**
 
@@ -131,11 +132,11 @@ When importing data into Amazon DocumentDB, you should create your indexes befor
 large datasets. You can use the [Amazon DocumentDB Index Tool](https://github.com/awslabs/amazon-documentdb-tools "https://github.com/awslabs/amazon-documentdb-tools")
 to extract indexes from a running MongoDB instance or `mongodump`
 directory, and create those indexes in an Amazon DocumentDB cluster. For more guidance on
-migrations, see [Migrating to Amazon DocumentDB](docdb-migration.md "docdb-migration.md").
+migrations, see [Migrating and upgrading Amazon DocumentDB](docdb-migration.md "docdb-migration.md").
 
 ### Index selectivity
 
-We recommend that you limit the creation of indexes to fields where the number of
+Limit index creation to fields where the number of
 duplicate values is less than 1% of the total number of documents in the collection. As
 an example, if your collection contains 100,000 documents, only create indexes on fields
 where the same value occurs 1000 times or fewer.
@@ -177,40 +178,15 @@ fewer.
 
 ### Identifying missing indexes
 
-Identifying missing indexes is a best practice that we recommend performing on a
-regular basis. For more information, see [How do I identify missing indexes?](user_diagnostics.md#user_diagnostics-identify_missing_indexes "user_diagnostics.md#user_diagnostics-identify_missing_indexes").
+As a best practice, identify missing indexes on a regular basis. For more information, see [How do I identify missing indexes?](user_diagnostics.md#user_diagnostics-identify_missing_indexes "user_diagnostics.md#user_diagnostics-identify_missing_indexes").
 
 ### Identifying unused indexes
 
-Identifying and removing unused indexes is a best practice that we recommend
-performing on a regular basis. For more information, see [How do I analyze index usage and identify unused indexes?](user_diagnostics.md#user-diag-index-usage "user_diagnostics.md#user-diag-index-usage").
+As a best practice, identify and remove unused indexes on a regular basis. For more information, see [How do I analyze index usage and identify unused indexes?](user_diagnostics.md#user-diag-index-usage "user_diagnostics.md#user-diag-index-usage").
 
 ## Security best practices
 
-For security best practices, you must use AWS Identity and Access Management (IAM) accounts to control access
-to Amazon DocumentDB API operations, especially operations that create, modify, or delete Amazon DocumentDB
-resources. Such resources include clusters, security groups, and parameter groups. You must
-also use IAM to control actions that perform common administrative actions such as
-backing up restoring clusters. When creating IAM roles, employ the principle of least
-privilege.
-
-- Enforce least privilege with [role-based
-  access control](role_based_access_control.md "role_based_access_control.md").
-- Assign an individual IAM account to each person who manages Amazon DocumentDB resources. Do
-  not use the AWS account root user to manage Amazon DocumentDB resources. Create an IAM user
-  for everyone, including yourself.
-- Grant each IAM user the minimum set of permissions that are required to perform
-  their duties.
-- Use IAM groups to effectively manage permissions for multiple users. For more
-  information about IAM, see the [IAM User Guide](../../../IAM/latest/UserGuide/Welcome.md "../../../IAM/latest/UserGuide/Welcome.md"). For information about IAM best practices, see [IAM
-  best practices](../../../IAM/latest/UserGuide/IAMBestPractices.md "../../../IAM/latest/UserGuide/IAMBestPractices.md") in the _IAM User Guide_.
-- Regularly rotate your IAM credentials.
-- Configure Secrets Manager to automatically rotate the secrets
-  for Amazon DocumentDB. For more information, see [Rotating your secrets](../../../secretsmanager/latest/userguide/rotating-secrets.md "../../../secretsmanager/latest/userguide/rotating-secrets.md") and [Rotating secrets for Amazon DocumentDB](../../../secretsmanager/latest/userguide/rotating-secrets-documentdb.md "../../../secretsmanager/latest/userguide/rotating-secrets-documentdb.md") in the _AWS Secrets Manager User Guide_.
-- Grant each Amazon DocumentDB user the minimum set of permissions that are required to
-  perform their duties. For more information, see [Database access using Role-Based Access Control](role_based_access_control.md "role_based_access_control.md").
-- Use Transport Layer Security (TLS) to encrypt your data in transit and AWS KMS to
-  encrypt your data at rest.
+For security best practices for Amazon DocumentDB, see [Security best practices for Amazon DocumentDB](security_best_practices.md "security_best_practices.md").
 
 ## Cost optimization
 
@@ -348,7 +324,7 @@ bandwidth, I/O capacity) that is related to the issue you're experiencing.
 ### Evaluating Amazon DocumentDB instance usage with CloudWatch metrics
 
 You can use CloudWatch metrics to watch your instance throughput and discover if your instance class provides sufficient resources for your applications.
-For information about your instance class limits, see [Instance limits](limits.md#limits.instance "limits.md#limits.instance") and locate the specifications for your instance class to find your network performance.
+For information about your instance class quotas, see [Instance quotas](limits.md#limits.instance "limits.md#limits.instance") and locate the specifications for your instance class to find your network performance.
 
 If your instance usage is near the instance class limit, then performance may begin to slow.
 The CloudWatch metrics can confirm this situation so you can plan to manually scale-up to a larger instance class.
@@ -417,7 +393,7 @@ be significantly more cost effective than using a TTL index.
 For time-series workloads, you can consider creating rolling collections instead of a
 TTL index as rolling collections can be a better way to delete data and less I/O
 intensive. If you have large collections (especially collections over 1TB) or TTL deletion
-I/O costs are a concern, we recommend that you partition documents into collections based
+I/O costs are a concern, partition documents into collections based
 on time, and drop collections when the documents are no longer needed. You can create one
 collection per day or one per week, depending on your data ingest rate. While requirements
 will vary depending on your application, a good rule of thumb is to have more smaller
@@ -426,11 +402,11 @@ I/O costs, and can be faster and more cost effective than using a TTL index.
 
 ## Migrations
 
-As a best practice, we recommend that when migrating data to Amazon DocumentDB, you first create
-your indexes in Amazon DocumentDB before migrating the data. Creating the indexes first can reduce
+As a best practice for migrating data to Amazon DocumentDB, first create
+your indexes in Amazon DocumentDB and then migrate your data. Creating the indexes first can reduce
 the overall time and increase the speed of the migration. To do this, you can use the
 Amazon DocumentDB [Index Tool](https://github.com/awslabs/amazon-documentdb-tools "https://github.com/awslabs/amazon-documentdb-tools").
-For more information on migrations, see the [Migrating to Amazon DocumentDB](docdb-migration.md "docdb-migration.md").
+For more information on migrations, see the [Migrating and upgrading Amazon DocumentDB](docdb-migration.md "docdb-migration.md").
 
 We also recommend that before you migrate your production database, it is a best
 practice to fully test your application on Amazon DocumentDB, taking into consideration
@@ -438,7 +414,7 @@ functionality, performance, operations, and cost.
 
 ## Working with cluster parameter groups
 
-We recommend that you try out cluster parameter group changes on a test cluster before
+Try out cluster parameter group changes on a test cluster before
 applying the changes to your production clusters. For information about backing up your
 cluster, see [Backing up and restoring in Amazon DocumentDB](backup_restore.md "backup_restore.md").
 

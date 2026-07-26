@@ -35,8 +35,8 @@ The custom connector only supports Amazon DocumentDB username and password for a
 
 Depending on the configuration of your ODBC driver's Data Source Name (DSN), the SSH connection details screen may not be displayed if you have already provided the necessary information within the DSN settings. 3. Choose the data connectivity mode:
 
-    * **Import** - loads all data and stores the information on disk. The data must be refreshed and reloaded in order to show data updates.
-    * **Direct Query** - does not load data, but does live queries on the data. This means that data does not need to be refreshed and reloaded in order to show data updates.
+    * **Import** - loads all data and stores the information on disk. The data must be refreshed and reloaded to show data updates.
+    * **Direct Query** - does not load data, but does live queries on the data. This means that data does not need to be refreshed and reloaded to show data updates.
 
 ![Interface showing Data Connectivity mode options for DocumentDB.](images/data-connectivity-1.png)
 

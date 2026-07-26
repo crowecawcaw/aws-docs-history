@@ -6,7 +6,7 @@ cluster's backup retention period using the AWS Management Console or AWS Comman
 
 ###### Note
 
-You cannot conduct a point-in-time restore of a 3.6 cluster to a 4.0 cluster but you can migrate from one cluster version to another. For more information, go to [Migrating to Amazon DocumentDB](docdb-migration.md "docdb-migration.md").
+You cannot conduct a point-in-time restore of a 3.6 cluster to a 4.0 cluster but you can migrate from one cluster version to another. For more information, go to [Migrating and upgrading Amazon DocumentDB](docdb-migration.md "docdb-migration.md").
 
 Keep the following in mind when restoring a cluster to a point in
 time.

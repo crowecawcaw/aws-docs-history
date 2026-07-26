@@ -21,6 +21,7 @@ The instructions in this guide are specifically for creating and connecting to A
 - [Step 2: Connect to your cluster](#get-start-connectcluster "#get-start-connectcluster")
 - [Step 3: Insert and query data](#get-start-insert-query "#get-start-insert-query")
 - [Step 4: Explore](#get-start-congrats "#get-start-congrats")
+- [Quick start using CloudFormation](quick_start_cfn.md "quick_start_cfn.md")
 
 ## Prerequisites
 
@@ -51,7 +52,7 @@ Access to manage Amazon DocumentDB resources such as clusters, instances, and
 cluster parameter groups requires credentials that AWS can use to
 authenticate your requests. For more information, see [Identity and Access Management for Amazon DocumentDB](security-iam.md "security-iam.md").
 
-1. In the search bar of the AWS Management Console, type in IAM and select
+1. In the search bar of the AWS Management Console, enter `IAM` and select
    **IAM** in the drop down menu that
    appears.
 2. Once you're in the IAM console, select
@@ -84,7 +85,7 @@ In this step you will create an Amazon DocumentDB cluster.
 
 ###### Note
 
-The other option in this category is **Elastic cluster**. To learn more about Amazon DocumentDB elastic clusters, see [Using Amazon DocumentDB elastic clusters](docdb-using-elastic-clusters.md "docdb-using-elastic-clusters.md") 4. In the **Cluster configuration** section:
+The other option in this category is **Elastic cluster**. To learn more about Amazon DocumentDB elastic clusters, see [Using Amazon DocumentDB Elastic Clusters](docdb-using-elastic-clusters.md "docdb-using-elastic-clusters.md") 4. In the **Cluster configuration** section:
 
     1. For **Cluster identifier**, enter a unique name, such as `mydocdbcluster`.
      Note that the console will change all cluster names into lower-case regardless of how they are entered.

@@ -1,12 +1,12 @@
 # Monitoring Amazon DocumentDB serverless
 
-To learn more about monitoring in Amazon DocumentDB, see [Monitoring Amazon DocumentDB](monitoring_docdb.md "monitoring_docdb.md").
+To learn more about monitoring in Amazon DocumentDB, see [Monitoring and logging in Amazon DocumentDB](monitoring_docdb.md "monitoring_docdb.md").
 
 ###### Topics
 
-- [Out of Memory: incompatible-parameters status](#w2aac43c27b7 "#w2aac43c27b7")
-- [Amazon CloudWatch metrics for DocumentDB serverless](#w2aac43c27b9 "#w2aac43c27b9")
-- [Monitoring DocumentDB serverless performance with Performance Insights](#w2aac43c27c11 "#w2aac43c27c11")
+- [Out of Memory: incompatible-parameters status](#w2aac51c27b7 "#w2aac51c27b7")
+- [Amazon CloudWatch metrics for DocumentDB serverless](#w2aac51c27b9 "#w2aac51c27b9")
+- [Monitoring DocumentDB serverless performance with Performance Insights](#w2aac51c27c11 "#w2aac51c27c11")
 
 ## Out of Memory: incompatible-parameters status
 

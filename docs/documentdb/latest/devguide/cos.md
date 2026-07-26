@@ -2,7 +2,7 @@
 
 New from version 8.0.1.
 
-The `$cos` operator in Amazon DocumentDB returns the cosine of a value that is measured in radians. Use `$cos` in the aggregation pipeline to perform trigonometric calculations on numeric fields.
+The `$cos` operator in Amazon DocumentDB returns the cosine of a value that is measured in radians. Use it in the aggregation pipeline to perform trigonometric calculations on numeric fields.
 
 **Parameters**
 

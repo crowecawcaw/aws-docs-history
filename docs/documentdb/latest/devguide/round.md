@@ -11,7 +11,7 @@ The `$round` operator in Amazon DocumentDB rounds a number to a specified decima
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$round` operator to round numeric values to one decimal place.
+The following example shows how to use the `$round` operator to round numeric values to one decimal place.
 
 **Rounding with a positive place value**
 

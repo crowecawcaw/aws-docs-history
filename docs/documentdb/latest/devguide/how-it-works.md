@@ -47,7 +47,7 @@ When you use Amazon DocumentDB, you begin by creating a _cluster_. A cluster con
 An Amazon DocumentDB cluster consists of two components:
 
 - Cluster volume—Uses a cloud-native storage service to replicate data six ways across three Availability Zones, providing highly durable and available storage.
-  An Amazon DocumentDB cluster has exactly one cluster volume, which can store up to 128 TiB of data.
+  An Amazon DocumentDB cluster has exactly one cluster volume, which can store up to 256 TiB of data for Engine Version 8.0 and beyond (128 TiB for earlier engine versions).
 - Instances—Provide the processing power for the database, writing data to, and reading data from, the cluster storage volume. An Amazon DocumentDB cluster can have 0–16 instances.
   Instances serve one of two roles:
 
@@ -74,7 +74,7 @@ information, see the `ReplicationLag` metrics at [Amazon DocumentDB metrics](clo
 
 Amazon DocumentDB provides multiple connection options to serve a wide range of use cases. To connect to an instance in an Amazon DocumentDB cluster, you specify the instance's endpoint. An _endpoint_ is a host address and a port number, separated by a colon.
 
-We recommend that you connect to your cluster using the cluster endpoint and in replica set mode (see [Connecting to Amazon DocumentDB as a replica set](connect-to-replica-set.md "connect-to-replica-set.md")) unless you have a specific use case for connecting to the reader endpoint or an instance endpoint. To route requests to your replicas, choose a driver read preference setting that maximizes read scaling while meeting your application's read consistency requirements. The `secondaryPreferred` read preference enables replica reads and frees up the primary instance to do more work.
+Connect to your cluster using the cluster endpoint in replica set mode (see [Connecting to Amazon DocumentDB as a replica set](connect-to-replica-set.md "connect-to-replica-set.md")). Use this approach unless you must connect to the reader endpoint or an instance endpoint. To route requests to your replicas, choose a driver read preference setting that maximizes read scaling while meeting your application's read consistency requirements. The `secondaryPreferred` read preference enables replica reads and frees up the primary instance to do more work.
 
 The following endpoints are available from an Amazon DocumentDB cluster.
 
@@ -82,7 +82,7 @@ The following endpoints are available from an Amazon DocumentDB cluster.
 
 The _cluster endpoint_ connects to your cluster’s current primary instance. The cluster endpoint can be used for read and write operations. An Amazon DocumentDB cluster has exactly one cluster endpoint.
 
-The cluster endpoint provides failover support for read and write connections to the cluster. If your cluster’s current primary instance fails, and your cluster has at least one active read replica, the cluster endpoint automatically redirects connection requests to a new primary instance. When connecting to your Amazon DocumentDB cluster, we recommend that you connect to your cluster using the cluster endpoint and in replica set mode (see [Connecting to Amazon DocumentDB as a replica set](connect-to-replica-set.md "connect-to-replica-set.md")).
+The cluster endpoint provides failover support for read and write connections to the cluster. If your cluster’s current primary instance fails, and your cluster has at least one active read replica, the cluster endpoint automatically redirects connection requests to a new primary instance. When connecting to your Amazon DocumentDB cluster, use the cluster endpoint in replica set mode (see [Connecting to Amazon DocumentDB as a replica set](connect-to-replica-set.md "connect-to-replica-set.md")).
 
 The following is an example Amazon DocumentDB cluster endpoint:
 
@@ -149,7 +149,7 @@ mongodb://`username`:`password`@sample-instance.123456789012.us-east-1.docdb.ama
 
 ###### Note
 
-An instance’s role as primary or replica can change due to a failover event. Your applications should never assume that a particular instance endpoint is the primary instance. We do not recommend connecting to instance endpoints for production applications. Instead, we recommend that you connect to your cluster using the cluster endpoint and in replica set mode (see [Connecting to Amazon DocumentDB as a replica set](connect-to-replica-set.md "connect-to-replica-set.md")). For more advanced control of instance failover priority, see [Understanding Amazon DocumentDB cluster fault tolerance](db-cluster-fault-tolerance.md "db-cluster-fault-tolerance.md").
+An instance’s role as primary or replica can change due to a failover event. Your applications should never assume that a particular instance endpoint is the primary instance. Don’t connect to instance endpoints for production applications. Instead, use the cluster endpoint in replica set mode (see [Connecting to Amazon DocumentDB as a replica set](connect-to-replica-set.md "connect-to-replica-set.md")). For more advanced control of instance failover priority, see [Understanding Amazon DocumentDB cluster fault tolerance](db-cluster-fault-tolerance.md "db-cluster-fault-tolerance.md").
 
 For information about finding a cluster's endpoints, see [Finding an instance's endpoint](db-instance-endpoint-find.md "db-instance-endpoint-find.md").
 
@@ -187,7 +187,7 @@ cluster.
 ### How data storage is billed
 
 Amazon DocumentDB automatically increases the size of a cluster volume as the amount of data increases.
-An Amazon DocumentDB cluster volume can grow to a maximum size of 128 TiB; however, you are only charged for the space
+An Amazon DocumentDB cluster volume can grow to a maximum size of 256 TiB for Engine Version 8.0 and beyond (128 TiB for earlier engine versions). However, you are only charged for the space
 that you use in an Amazon DocumentDB cluster volume. Starting with Amazon DocumentDB 4.0, when data is removed, such as
 by dropping a collection or index, the overall allocated space decreases by a comparable amount. Thus, you can
 reduce storage charges by deleting collections, indexes, and databases that you no longer need.
@@ -244,7 +244,11 @@ recovery asynchronously on parallel threads so that your database is open and av
 
 ### Resource governance
 
-Amazon DocumentDB safeguards resources that are needed to run critical processes in the service, such as health checks. To do this, and when an instance is experiencing high memory pressure, Amazon DocumentDB will throttle requests. As a result, some operations may be queued to wait for the memory pressure to subside. If memory pressure continues, queued operations may timeout. You can monitor whether or not the service throttling operations due to low memory with the following CloudWatch metrics: `LowMemThrottleQueueDepth`, `LowMemThrottleMaxQueueDepth`, `LowMemNumOperationsThrottled`, `LowMemNumOperationsTimedOut`. For more information, see Monitoring Amazon DocumentDB with CloudWatch. If you see sustained memory pressure on your instance as a result of the LowMem CloudWatch metrics, we advise that you scale-up your instance to provide additional memory for your workload.
+Amazon DocumentDB safeguards resources for critical processes such as health checks. When an instance experiences high memory pressure, Amazon DocumentDB throttles requests. Some operations might be queued until the memory pressure subsides. If memory pressure continues, queued operations might time out.
+
+Monitor for low-memory throttling with the following CloudWatch metrics: `LowMemThrottleQueueDepth`, `LowMemThrottleMaxQueueDepth`, `LowMemNumOperationsThrottled`, `LowMemNumOperationsTimedOut`. For more information, see [Monitoring Amazon DocumentDB with CloudWatch](cloud_watch.md "cloud_watch.md").
+
+If you see sustained memory pressure, scale up your instance to provide additional memory for your workload.
 
 ## Read preference options
 
@@ -341,7 +345,7 @@ db.example.find().readPref('nearest')
 
 Amazon DocumentDB supports highly available cluster configurations by using replicas as failover targets for the primary instance. If the primary instance fails, an Amazon DocumentDB replica is promoted as the new primary, with a brief interruption during which read and write requests made to the primary instance fail with an exception.
 
-If your Amazon DocumentDB cluster doesn't include any replicas, the primary instance is re-created during a failure. However, promoting an Amazon DocumentDB replica is much faster than re-creating the primary instance. So we recommend that you create one or more Amazon DocumentDB replicas as failover targets.
+If your Amazon DocumentDB cluster doesn't include any replicas, the primary instance is re-created during a failure. Because promoting an Amazon DocumentDB replica is much faster than re-creating the primary instance, create one or more Amazon DocumentDB replicas as failover targets.
 
 Replicas that are intended for use as failover targets should be of the same instance class as the primary instance. They should be provisioned in different Availability Zones from the primary. You can control which replicas are preferred as failover targets. For best practices on configuring Amazon DocumentDB for high availability, see [Understanding Amazon DocumentDB cluster fault tolerance](db-cluster-fault-tolerance.md "db-cluster-fault-tolerance.md").
 

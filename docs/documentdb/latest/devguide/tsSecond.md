@@ -10,7 +10,7 @@ The `$tsSecond` operator in Amazon DocumentDB returns the seconds portion of a T
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$tsSecond` operator to extract the seconds portion from Timestamp values.
+The following example shows how to use the `$tsSecond` operator to extract the seconds portion from Timestamp values.
 
 **Create sample documents**
 

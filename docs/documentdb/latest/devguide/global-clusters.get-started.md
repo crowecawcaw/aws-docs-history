@@ -90,9 +90,9 @@ Also, `--engine-version` is an optional parameter that defaults to the
 latest major engine version. The current default engine version is `5.0.0`
 (note: Amazon DocumentDB 8.0 is available but must be explicitly specified as `8.0.0`).
 When new major engine versions are released, the default engine version for
-`--engine-version` will be updated to reflect the last major engine version.
-As a result, for production workloads, and especially those that are dependent on
-scripting, automation, or CloudFormation templates, we recommend that you explicitly specify the
+`--engine-version` is updated to reflect the last major engine version.
+As a result, for production workloads, and especially those that depend on
+scripting, automation, or CloudFormation templates, explicitly specify the
 `--engine-version` to the intended major version.
 
 If a `db-subnet-group-name` or `vpc-security-group-id` is not

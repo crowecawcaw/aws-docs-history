@@ -134,9 +134,9 @@ a different AWS managed key for Amazon DocumentDB for each AWS Region.
 
 If you specify a customer managed key, users in your account that call the
 Performance Insights API need the `kms:Decrypt` and
-`kms:GenerateDataKey` permissions on the KMS key. You can
-configure these permissions through IAM policies. However, we recommend that
-you manage these permissions through your KMS key policy. For more
+`kms:GenerateDataKey` permissions on the KMS key.
+Manage the permissions of the KMS key using the AWS KMS key policy instead
+of using IAM policies. For more
 information, see [Using key policies in
 AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md").
 

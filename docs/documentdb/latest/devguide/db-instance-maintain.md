@@ -16,6 +16,7 @@ Applying any engine patch takes the cluster offline briefly. The rest of this to
 
 ###### Topics
 
+- [Maintenance actions for Amazon DocumentDB](#maintenance-actions "#maintenance-actions")
 - [Engine version numbering](#engine-version-numbering "#engine-version-numbering")
 - [Managing your Amazon DocumentDB maintenance windows](#maintenance-window "#maintenance-window")
 - [Notifications for Amazon DocumentDB engine patches](#patch-notifications "#patch-notifications")
@@ -25,6 +26,27 @@ Applying any engine patch takes the cluster offline briefly. The rest of this to
 - [Amazon DocumentDB operating system updates](#os-system-updates "#os-system-updates")
 - [User-initiated updates](#user-initiated-updates "#user-initiated-updates")
 - [Global clusters patching](#global-clusters-patching "#global-clusters-patching")
+
+## Maintenance actions for Amazon DocumentDB
+
+The following maintenance actions apply to Amazon DocumentDB clusters:
+
+- `system-update` —
+  Upgrade the engine patch for the Amazon DocumentDB cluster.
+  For more information, see
+  [Amazon DocumentDB engine updates](#db-instance-updates-apply "#db-instance-updates-apply").
+- `os-upgrade` —
+  Update the operating systems of all the DB instances in the Amazon DocumentDB cluster, using rolling upgrades.
+  For more information, see
+  [Amazon DocumentDB operating system updates](#os-system-updates "#os-system-updates").
+
+The following maintenance actions apply to Amazon DocumentDB instances:
+
+- `system-update` —
+  Upgrade the operating system of the Amazon DocumentDB instance.
+  We recommend that you use the cluster-level `os-upgrade` maintenance action instead.
+  For more information, see
+  [Amazon DocumentDB operating system updates](#os-system-updates "#os-system-updates").
 
 ## Engine version numbering
 
@@ -246,7 +268,7 @@ Apply a pending update with `apply-pending-maintenance-action`.
 ###### Parameters
 
 - `--resource-identifier`—the Amazon DocumentDB Amazon Resource Name (ARN) of the resource the pending action targets.
-- `--apply-action`—the pending maintenance action to apply. Valid values: `system-update`, `db-upgrade`.
+- `--apply-action`—the pending maintenance action to apply. Use `system-update` to apply an engine patch.
 - `--opt-in-type`—the type of opt-in request, or whether to undo one. Valid values:
 
   - `immediate`—apply now. Cannot be undone once submitted.
@@ -311,25 +333,31 @@ Read more: [Amazon DocumentDB minor version upgrade](docdb-minor-version-upgrade
 
 ## Amazon DocumentDB operating system updates
 
-Instances occasionally need OS updates. Amazon DocumentDB updates the OS to improve performance and tighten security. OS updates leave the cluster engine version and instance class unchanged. Like engine patches, OS updates use the optional / required / forced lifecycle described at the top of this topic; unlike engine patches, an OS update can transition through these categories over time if you defer it. Apply OS updates as soon as they are available, and set your instance maintenance window to a time that fits your business.
+Instances occasionally need OS updates. Amazon DocumentDB updates the OS to improve performance and tighten security. OS updates leave the cluster engine version and instance class unchanged. Like engine patches, OS updates use the optional / required / forced lifecycle described at the top of this topic; unlike engine patches, an OS update can transition through these categories over time if you defer it. Apply OS updates as soon as they are available, and set your cluster and instance maintenance windows to times that fit your business needs.
 
-To get an event when a new optional update arrives, subscribe to `RDS-EVENT-0230` in the security patching event category. For more information, see [Subscribing to Amazon DocumentDB events](event-subscriptions.subscribe.md "event-subscriptions.subscribe.md"). After receiving a notification, you can self-apply the OS patch to each instance.
+Use the cluster-level `os-upgrade` maintenance action to apply OS updates across all instances in a cluster. Amazon DocumentDB updates instances in a rolling manner, a few at a time, and updates the primary instance last to minimize failovers. The update runs during the cluster maintenance window—not the individual instance maintenance window—that you configure.
 
-When patching a cluster, update reader instances first and the writer last. Avoid patching readers and the writer simultaneously—a failover during the patch can extend downtime. Maintenance on the primary instance triggers a failover, so run more than one instance per cluster to stay available. For details, see [Amazon DocumentDB Failover](failover.md "failover.md").
+After an instance receives an OS update, its buffer cache starts empty. Until the working set is repopulated from the storage volume, queries on that instance can experience higher latency and a lower `BufferCacheHitRatio`.
+
+When Amazon DocumentDB updates the primary instance, a failover promotes a replica to be the new primary. Use the cluster endpoint so your application handles this transparently. To maintain read availability while instances are being updated, set your read preference to `secondaryPreferred` or `primaryPreferred` so reads can fall back to an available instance. Keep potential failover targets (replicas with the highest-priority tier) at the same instance class as the primary. This avoids write-performance degradation after promotion. For details, see [Amazon DocumentDB failover](failover.md "failover.md").
+
+Both the cluster-level `os-upgrade` and instance-level `system-update` actions might appear simultaneously in `describe-pending-maintenance-actions` as available actions. However, you cannot schedule both at the same time. If instance-level `system-update` actions are actively scheduled on any instance, you must cancel or complete them before scheduling the cluster-level `os-upgrade` action, and vice versa.
 
 ###### Important
 
-Your Amazon DocumentDB instance goes offline for the OS upgrade. Multi-instance clusters minimize the impact. If you run a single-instance cluster, you can temporarily add a secondary for the upgrade and remove it afterwards. The secondary incurs the usual charges while it exists.
+Your Amazon DocumentDB instance goes offline for the OS update. Multi-instance clusters minimize the impact. If you run a single-instance cluster, you can temporarily add a secondary for the update and remove it afterwards. The secondary incurs the usual charges while it exists.
 
 ###### Note
 
-Staying current on optional and required updates may be required for compliance. Apply available updates routinely during your maintenance windows.
+The instance-level `system-update` action is still available for backward compatibility. If you must use it, update replicas first and the primary last—avoid patching them simultaneously, as a failover during the patch can extend downtime.
 
-OS updates are tied to specific engine versions and instance classes, so different instances become eligible at different times. When an instance is eligible, the update appears in the console; you can also see it via the AWS CLI `describe-pending-maintenance-actions` command or the `DescribePendingMaintenanceActions` API.
+To get an event when a new optional OS update arrives, subscribe to `RDS-EVENT-0230` in the security patching event category. For more information, see [Subscribing to Amazon DocumentDB events](event-subscriptions.subscribe.md "event-subscriptions.subscribe.md").
 
 ###### Note
 
-If your cluster isn't on the latest patch release of its Amazon DocumentDB engine, an OS update may not appear as available. Apply the latest engine patch first, then check again.
+Staying current on optional and required updates might be required for compliance. Apply `os-upgrade` actions routinely during your maintenance windows.
+
+OS updates are tied to specific instance classes, so different instances become eligible at different times. If your cluster isn't on the latest engine patch, the OS update might not appear—apply the latest engine patch first (see [Amazon DocumentDB engine updates](#db-instance-updates-apply "#db-instance-updates-apply")).
 
 Use the AWS Management Console or AWS CLI to check whether an update is available.
 
@@ -337,19 +365,14 @@ Using the AWS Management Console
 To check for an OS update from the console:
 
 1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
-2. In the navigation pane, choose **Clusters**. The list shows both clusters and the instances inside them, distinguished by the **Role** column.
-3. Select the row whose **Role** is **Instance** (not the cluster row). OS updates apply to instances, not clusters.
-4. Choose **Maintenance**.
-5. Look under **Pending Maintenance** for the OS update.
+2. In the navigation pane, choose **Clusters**, then select the cluster name.
+3. Choose the **Maintenance & backups** tab.
+4. Under **Pending Maintenance**, the `os-upgrade` action appears if an OS update is available.
 
-![Amazon DocumentDB console showing the Maintenance column for clusters.](images/maintenance-available-1.png)
-
-From the **Pending Maintenance** section, select the OS update and choose **Apply now** or **Apply at next maintenance window**. If the maintenance value is **next window**, you can defer the update with **Defer upgrade** as long as it has not started yet.
-
-You can also do this from the cluster list: in the navigation pane, choose **Clusters**, select the row whose **Role** is **Instance**, and choose **Apply now** or **Apply at next maintenance window** from the **Actions** menu.
+![The Amazon DocumentDB Maintenance and backups tab showing the os-upgrade maintenance action.](images/maintenance-available-1.png) 5. Select the `os-upgrade` action and choose **Apply now** or **Apply at next maintenance window**. If the value is **next window**, you can defer with **Defer upgrade** as long as the action has not started.
 
 Using the AWS CLI
-From the AWS CLI, run `describe-pending-maintenance-actions`:
+Check for a pending OS update:
 
 ```
 aws docdb describe-pending-maintenance-actions
@@ -357,18 +380,60 @@ aws docdb describe-pending-maintenance-actions
 
 ```
 {
-  "PendingMaintenanceActions": [
-    {
-      "ResourceIdentifier": "arn:aws:rds:us-east-1:123456789012:db:sample-cluster-instance-1",
-      "PendingMaintenanceActionDetails": [
+    "PendingMaintenanceActions": [
         {
-          "Action": "system-update",
-          "Description": "New Operating System update is available"
+            "ResourceIdentifier": "arn:aws:rds:aa-example-1:111122223333:cluster:sample-cluster",
+            "PendingMaintenanceActionDetails": [
+                {
+                    "Action": "os-upgrade",
+                    "Description": "New Operating System update is available"
+                }
+            ]
+        },
+        {
+            "ResourceIdentifier": "arn:aws:rds:aa-example-1:111122223333:db:sample-cluster-instance-1",
+            "PendingMaintenanceActionDetails": [
+                {
+                    "Action": "system-update",
+                    "Description": "New Operating System update is available"
+                }
+            ]
+        },
+        {
+            "ResourceIdentifier": "arn:aws:rds:aa-example-1:111122223333:db:sample-cluster-instance-2",
+            "PendingMaintenanceActionDetails": [
+                {
+                    "Action": "system-update",
+                    "Description": "New Operating System update is available"
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
+```
+
+OS updates appear at the cluster level as `os-upgrade` and at the instance level as `system-update`. Use the cluster-level `os-upgrade` action.
+
+###### Example
+
+The following example applies the OS update immediately.
+
+For Linux, macOS, or Unix:
+
+```
+aws docdb apply-pending-maintenance-action \
+    --resource-identifier arn:aws:rds:`aa-example-1`:`111122223333`:cluster:`sample-cluster` \
+    --apply-action os-upgrade \
+    --opt-in-type immediate
+```
+
+For Windows:
+
+```
+aws docdb apply-pending-maintenance-action ^
+    --resource-identifier arn:aws:rds:`aa-example-1`:`111122223333`:cluster:`sample-cluster` ^
+    --apply-action os-upgrade ^
+    --opt-in-type immediate
 ```
 
 ## User-initiated updates

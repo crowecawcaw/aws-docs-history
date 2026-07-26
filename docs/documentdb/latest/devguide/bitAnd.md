@@ -10,7 +10,7 @@ The `$bitAnd` operator in Amazon DocumentDB performs a bitwise AND operation on 
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$bitAnd` operator to perform bitwise AND on two fields.
+The following example shows how to use the `$bitAnd` operator to perform bitwise AND on two fields.
 
 **Create sample documents**
 

@@ -41,7 +41,7 @@ changes:
     * **Failover**
      — During failover, the instance with
      the highest promotion tier will be promoted
-     to primary. For more information, see [Amazon DocumentDB Failover](failover.md "failover.md").
+     to primary. For more information, see [Amazon DocumentDB failover](failover.md "failover.md").
     * **Maintenance**
      — The maintenance window in which
      pending modifications or patches are applied

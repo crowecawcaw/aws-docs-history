@@ -670,6 +670,6 @@ for event in stream:
   You can monitor the lag from the `DBInstanceReplicaLag` metric in Amazon CloudWatch.
 - Timestamps on secondary instances may not always be in sync with the primary instance.
   In this case, expect delays on the secondary instance timestamp so it can catch up.
-  As a best practice, we recommend using `startAtOperationTime` or `resumeToken` to start the watch on the secondary instance.
+  As a best practice, use `startAtOperationTime` or `resumeToken` to start the watch on the secondary instance.
 - You might experience lower throughput on secondary instances compared to the primary instance if your document size is large, you are doing `fullDocumentLookup`, and there is high concurrent write workload on the primary instance.
-  As a best practice, we recommend you monitor your buffer cache hit ratio on the secondary and make sure that buffer cache hit ratio is high.
+  As a best practice, monitor your buffer cache hit ratio on the secondary and make sure that buffer cache hit ratio is high.
