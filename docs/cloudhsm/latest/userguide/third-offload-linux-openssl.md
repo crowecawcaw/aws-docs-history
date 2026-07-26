@@ -91,6 +91,14 @@ Amazon Linux 2
     `$` `sudo yum install httpd mod_ssl`
     ```
 
+    The latest Apache version for Amazon Linux 2 links against a newer OpenSSL version than the one installed on your system. You must create a symbolic link from the AWS CloudHSM OpenSSL Dynamic Engine library to the path where the newer version of OpenSSL looks for it:
+
+
+
+    ```
+    `$` `sudo ln -sf /opt/cloudhsm/lib/libcloudhsm_openssl_engine.so /usr/lib64/engines-1.1/cloudhsm.so`
+    ```
+
 Amazon Linux 2023
 
     * NGINX
