@@ -77,7 +77,7 @@ summary** page.
 ###### To add funds to your Advance Pay using a bank account
 
 To add funds to Advance Pay with a bank account, you must meet eligibility requirements to add a US bank account as an
-ACH direct debit payment method. For more information, see [Manage ACH direct debit payment methods](manage-cc.md#manage-debit "manage-cc.md#manage-debit").
+ACH direct debit payment method. For more information, see [Managing ACH direct debit](manage-ach-debit.md "manage-ach-debit.md").
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

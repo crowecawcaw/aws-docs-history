@@ -153,4 +153,4 @@ currency, so it's important to ensure that your payment currency is accurate.
 3. In the **Payment currency** section, ensure that the
    **Default payment currency** is correct.
 
-For more information about payment methods, see [Managing credit card and ACH direct debit](manage-cc.md "manage-cc.md").
+For more information about payment methods, see [Managing credit cards](manage-cc.md "manage-cc.md").

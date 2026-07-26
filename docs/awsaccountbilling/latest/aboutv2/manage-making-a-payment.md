@@ -21,12 +21,12 @@ When you sign in as a bill transfer account:
 
 If you pay by ACH direct debit, AWS provides you with your invoice and
 initiates the charge to your payment method within 10 days of the start of the month. It can take 3–5 days for your payment to succeed.
-For more information, see [Manage ACH direct debit payment methods](manage-cc.md#manage-debit "manage-cc.md#manage-debit").
+For more information, see [Managing ACH direct debit](manage-ach-debit.md "manage-ach-debit.md").
 
 Before making a payment, ensure that the payment method that you want to be
 automatically charged in the future is set as your default payment method. If you're
 using a credit card, confirm that your credit card isn't expired. For more
-information, see [Designate a default payment method](manage-payment-method.md#manage-designate-default "manage-payment-method.md#manage-designate-default") and [Managing credit card and ACH direct debit](manage-cc.md "manage-cc.md").
+information, see [Designate a default payment method](manage-payment-method.md#manage-designate-default "manage-payment-method.md#manage-designate-default") and [Managing credit cards](manage-cc.md "manage-cc.md").
 
 ###### To make a payment
 
