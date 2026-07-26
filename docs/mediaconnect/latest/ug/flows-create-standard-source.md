@@ -457,16 +457,16 @@ Zixi push
      for the possibility of outside parties sending
      content to your flow.
     5. For **Stream ID**, specify the
-     stream ID set in the Zixi feeder.
+     stream ID that the Zixi sender uses.
 
 
     ###### Important
 
-    If you leave this field blank, the service
-     uses the source name as the stream ID. Because the
-     stream ID must match the value set in the Zixi
-     feeder, you need to specify the stream ID if it is
-     not exactly the same as the source name.
+    If you leave this field blank, MediaConnect
+     uses the source name as the stream ID. The
+     stream ID must match the value that the Zixi sender uses. If it
+     differs from the source name, specify the
+     stream ID explicitly.
     6. For **Maximum latency**, specify
      the size of the buffer (delay) that you want the
      service to maintain. A higher latency value means a

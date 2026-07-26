@@ -42,12 +42,10 @@ protocols:
 
 - **Zixi** is a highly available protocol suitable
   for most applications, especially use cases that involve longer distances. If
-  your encoder is not capable of using Zixi, you can use the Zixi feeder/receiver
-  software that was created specifically for use with MediaConnect. You can
-  access this software on the [Zixi
-  website](http://www.mediaconnect.zixi.com "http://www.mediaconnect.zixi.com"), where you will be asked to provide your information before
-  you can download the software. If you set up multiple flows for distribution, we
-  recommend that you use Zixi as the protocol to send content between flows.
+  your encoder doesn't support Zixi, you can use the Zixi Edge Compute (ZEC)
+  software. ZEC operates as both a sender and a receiver. To download this
+  software, see [Zixi Edge Compute
+  (ZEC)](https://portal.zixi.com/self-registration/zec "https://portal.zixi.com/self-registration/zec") on the Zixi website.
   MediaConnect supports two Zixi protocol options:
 
   - **Zixi pull** uses the Zixi protocol to

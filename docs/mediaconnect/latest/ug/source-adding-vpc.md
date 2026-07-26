@@ -255,16 +255,16 @@ Zixi push
      the name of the VPC interface that you want to use as
      the source.
     3. For **Stream ID**, specify the stream
-     ID set in the Zixi feeder.
+     ID that the Zixi sender uses.
 
 
     ###### Important
 
-    The stream ID must match the value set in the Zixi
-     feeder. If you leave this field blank, MediaConnect uses
-     the source name as the stream ID. If the stream ID
-     is not exactly the same as the source name, you must
-     manually enter the stream ID.
+    If you leave this field blank, MediaConnect uses
+     the source name as the stream ID. The stream ID
+     must match the value that the Zixi sender uses. If it
+     differs from the source name, specify the
+     stream ID explicitly.
     4. For **Maximum latency**, specify the
      size of the buffer (delay) that you want the service to
      maintain. A higher latency value means a longer delay in
