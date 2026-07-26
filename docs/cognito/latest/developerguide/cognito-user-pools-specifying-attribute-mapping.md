@@ -64,18 +64,19 @@ details.
 | OpenID Connect (OIDC) providers | `sub`                       |
 
 - When a user pool is [case
-  insensitive](user-pool-case-sensitivity.md "user-pool-case-sensitivity.md"), Amazon Cognito converts the username source attribute to
-  lowercase in federated users' automatically-generated usernames. The
-  following is an example username for a case-sensitive user pool:
+  insensitive](user-pool-case-sensitivity.md "user-pool-case-sensitivity.md"), Amazon Cognito converts the entire automatically generated
+  username of a federated user to lowercase, including the IdP name prefix.
+  The following is an example username for a case-sensitive user pool:
   `MySAML_TestUser@example.com`. The following is the same
   username for a case-_insensitive_ user
-  pool: `MySAML_testuser@example.com`.
+  pool: `mysaml_testuser@example.com`.
 
 In case-insensitive user pools, your Lambda triggers that process the
-username must account for this modification to any mixed-case claims for
-user name source attributes. To link your IdP to a user pool that has a
-different case-sensitivity setting than your current user pool, create a new
-user pool.
+username must account for changes to the entire username. These changes
+include any mixed-case values from the username source attributes that you
+mapped from your IdP. To link your IdP to a user pool with a different
+case-sensitivity setting than your current pool, create a new user
+pool.
 
 - Amazon Cognito must be able to update your mapped user pool attributes when users
   sign in to your application. When a user signs in through an IdP, Amazon Cognito

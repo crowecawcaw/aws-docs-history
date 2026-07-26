@@ -21,6 +21,7 @@ passkeys.
 
 ###### Topics
 
+- [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md")
 - [Implement authentication flows](#authentication-implement "#authentication-implement")
 - [Things to know about authentication with user pools](#authentication-flow-things-to-know "#authentication-flow-things-to-know")
 - [An example authentication session](#amazon-cognito-user-pools-authentication-flow "#amazon-cognito-user-pools-authentication-flow")
@@ -28,6 +29,7 @@ passkeys.
 - [Manage authentication methods in AWS SDKs](authentication-flows-selection-sdk.md "authentication-flows-selection-sdk.md")
 - [Authentication flows](amazon-cognito-user-pools-authentication-flow-methods.md "amazon-cognito-user-pools-authentication-flow-methods.md")
 - [Authorization models for API and SDK authentication](authentication-flows-public-server-side.md "authentication-flows-public-server-side.md")
+- [User pool sign-in with third party identity providers](cognito-user-pools-identity-federation.md "cognito-user-pools-identity-federation.md")
 
 ## Implement authentication flows
 

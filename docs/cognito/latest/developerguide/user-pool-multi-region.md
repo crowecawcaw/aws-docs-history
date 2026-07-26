@@ -6,12 +6,12 @@ authentication infrastructure. With MRR, registered users can continue to authen
 your applications even when you lose connectivity to resources in a Region, ensuring your
 applications remain available.
 
-When you configure MRR, Amazon Cognito creates separate user pools with a shared user pool ID. Each
-replica user pool hosts authentication services for a shared user directory. The primary user
-pool serves as the authoritative source for administrative configuration and user directory
-write operations like password resets and user sign-up. Secondary user pools have can't create
-users, inherit most settings from the primary user pool, and in a failover state can handle
-authentication operations like user sign-in and token generation.
+When you configure MRR, Amazon Cognito creates separate user pools with a shared user pool ID.
+Each replica user pool hosts authentication services for a shared user directory. The primary
+user pool serves as the authoritative source for administrative configuration and write operations
+such as password resets and user sign-up. Secondary user pools can't create users. They inherit
+most settings from the primary user pool and, in a failover state, can handle authentication
+operations such as user sign-in and token generation.
 
 ###### Important
 
@@ -32,7 +32,7 @@ infrastructure](https://aws.amazon.com/blogs/security/amazon-cognito-unlocks-adv
   managed key](../../../kms/latest/developerguide/multi-region-keys-overview.md "../../../kms/latest/developerguide/multi-region-keys-overview.md") from AWS KMS before enabling replication. The key must be available
   in all AWS Regions that have user pool replicas. For more information, see [Data encryption](data-protection.md#data-encryption "data-protection.md#data-encryption").
 - Your user pool must use a multi-Region OIDC issuer to ensure consistent token
-  validation across regions. For more information, see [Amazon Cognito user pools as an OIDC issuer](federation-endpoints.md#user-pool-oidc-issuer "federation-endpoints.md#user-pool-oidc-issuer").
+  validation across Regions. For more information, see [Amazon Cognito user pools as an OIDC issuer](federation-endpoints.md#user-pool-oidc-issuer "federation-endpoints.md#user-pool-oidc-issuer").
 - New secondary user pools start in the `INACTIVE` state. Review and
   configure regional settings before activating the user pool for production use.
 - Regional configurations can differ between replicas. You can configure the following
@@ -47,7 +47,7 @@ infrastructure](https://aws.amazon.com/blogs/security/amazon-cognito-unlocks-adv
   - Log export configuration
   - AWS WAF web ACLs
 
-- Data replication between regions may introduce brief delays. The primary user pool
+- Data replication between Regions might introduce brief delays. The primary user pool
   syncs settings and user-directory updates to the secondary, and this process is
   eventually consistent.
 
@@ -91,9 +91,9 @@ AWS Management Console
 8. Review the configuration summary and choose **Create
    replica**.
 9. After the replica is created, review the regional configuration settings in
-   the comparison table. Configure any region-specific settings such as email
+   the comparison table. Configure any Region-specific settings such as email
    configuration, SMS settings, or Lambda triggers as needed for your replica
-   region.
+   Region.
 10. To configure a Route 53 health check for your domain, navigate to the
     **Domain services** menu, edit or add a custom domain, and
     configure a **Route 53 health check ID**.
@@ -103,17 +103,17 @@ AWS Management Console
 
 API
 To create a replica user pool, use the [CreateUserPoolReplica](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolReplica.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolReplica.md") operation. The following example creates a replica in
-the `us-west-2` region for a primary user pool in
+the `us-west-2` Region for a primary user pool in
 `us-east-1`.
 
 ```
 {
-   "UserPoolId": "`us-east-1_EXAMPLE`",
-   "RegionName": "`us-west-2`",
-   "UserPoolTags": {
-      "Environment": "`Production`",
-      "Application": "`MyApp`"
-   }
+ "UserPoolId": "`us-east-1_EXAMPLE`",
+ "RegionName": "`us-west-2`",
+ "UserPoolTags": {
+    "Environment": "`Production`",
+    "Application": "`MyApp`"
+ }
 }
 ```
 
@@ -121,12 +121,12 @@ The response includes the replica information:
 
 ```
 {
-   "Replica": {
-      "RegionName": "`us-west-2`",
-      "UserPoolArn": "arn:aws:cognito-idp:`us-west-2`:`111122223333`:userpool/`us-east-1_EXAMPLE`",
-      "Status": "PENDING_CREATE",
-      "Role": "SECONDARY"
-   }
+ "Replica": {
+    "RegionName": "`us-west-2`",
+    "UserPoolArn": "arn:aws:cognito-idp:`us-west-2`:`111122223333`:userpool/`us-east-1_EXAMPLE`",
+    "Status": "PENDING_CREATE",
+    "Role": "SECONDARY"
+ }
 }
 ```
 
@@ -135,18 +135,18 @@ and apply it to your domain in an [UpdateUserPoolDomain](../../../cognito-user-i
 
 ```
 {
-   "CustomDomainConfig": {
-      "CertificateArn": "arn:aws:acm:us-east-1:`111122223333`:certificate/`a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`"
-   },
-   "Domain": "`auth.example.com`",
-   "ManagedLoginVersion": `2`,
-   "Routing": {
-      "Failover": {
-         "SecondaryRegion": "`us-west-2`",
-         "PrimaryRoute53HealthCheckId": "`a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`"
-      }
-   },
-   "UserPoolId": "ca-central-1_EXAMPLE"
+ "CustomDomainConfig": {
+    "CertificateArn": "arn:aws:acm:us-east-1:`111122223333`:certificate/`a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`"
+ },
+ "Domain": "`auth.example.com`",
+ "ManagedLoginVersion": `2`,
+ "Routing": {
+    "Failover": {
+       "SecondaryRegion": "`us-west-2`",
+       "PrimaryRoute53HealthCheckId": "`a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`"
+    }
+ },
+ "UserPoolId": "`us-east-1_EXAMPLE`"
 }
 ```
 
@@ -154,9 +154,9 @@ To activate the replica for production use, use the [UpdateUserPoolReplica](../.
 
 ```
 {
-   "UserPoolId": "`us-east-1_EXAMPLE`",
-   "RegionName": "`us-west-2`",
-   "Status": "ACTIVE"
+ "UserPoolId": "`us-east-1_EXAMPLE`",
+ "RegionName": "`us-west-2`",
+ "Status": "ACTIVE"
 }
 ```
 
@@ -164,21 +164,21 @@ The response confirms the updated replica status:
 
 ```
 {
-   "Replica": {
-      "RegionName": "`us-west-2`",
-      "UserPoolArn": "arn:aws:cognito-idp:`us-west-2`:`111122223333`:userpool/`us-east-1_EXAMPLE`",
-      "Status": "ACTIVE",
-      "Role": "SECONDARY"
-   }
+ "Replica": {
+    "RegionName": "`us-west-2`",
+    "UserPoolArn": "arn:aws:cognito-idp:`us-west-2`:`111122223333`:userpool/`us-east-1_EXAMPLE`",
+    "Status": "ACTIVE",
+    "Role": "SECONDARY"
+ }
 }
 ```
 
 ## Failover in multi-Region user pools
 
-Failover between two AWS Regions can happen for managed login, federated login, and
-direct API usage with your user pool. Managed login and federation require a custom domain
-configured with your primary user pool. You can't configure a different custom domain with
-replica user pools.
+With multi-Region user pools, you can fail over managed login, federated login, and
+direct API calls between two AWS Regions. Managed login and federation require a custom
+domain configured with your primary user pool. You can't configure a different custom domain
+with replica user pools.
 
 ### Failover for managed login, federation, and machine-to-machine authorization
 
@@ -188,15 +188,14 @@ domain](cognito-user-pools-assign-domain-prefix.md "cognito-user-pools-assign-do
 the secondary prefix domain directly. Custom domains can be served from either the primary
 or additional replica and Region.
 
-A custom domain is required because it is the endpoint that serves the OAuth 2.0
-resources, such as the [authorize](authorization-endpoint.md "authorization-endpoint.md") and [token](token-endpoint.md "token-endpoint.md") endpoints, and handles the IdP response from
-third-party federation, including OIDC, SAML, and social providers.
+Your user pool requires a custom domain because that domain serves the OAuth 2.0
+resources, including the [authorize](authorization-endpoint.md "authorization-endpoint.md") and [token](token-endpoint.md "token-endpoint.md") endpoints, and handles IdP responses from
+third-party federation providers, including OIDC, SAML, and social providers.
 
 To configure failover, set up a [health check](../../../Route53/latest/DeveloperGuide/dns-failover.md "../../../Route53/latest/DeveloperGuide/dns-failover.md") in Route 53.
-You are responsible for what determines the state of this health check. The health check
-is not directly associated with your DNS CNAME record for your custom domain. However, it
-is the indicator that determines whether traffic to your custom domain is routed to your
-primary or replica user pool.
+You determine what triggers a healthy or unhealthy state. The health check isn't directly
+tied to your DNS CNAME record, but it controls whether traffic routes to your primary or
+replica user pool.
 
 The DNS record for your custom domain can use Route 53 or any third-party DNS provider.
 Ensure you have a valid CNAME record in your DNS provider pointing to your target alias,
@@ -217,13 +216,15 @@ status.
 
 ###### To update the health check ID in the console
 
-1. Navigate to your user pool in the Amazon Cognito console.
-2. Choose **Domain** under **Branding** from the menu.
-3. Under the **Custom domain** section, choose the edit
+1. Sign in to the [Amazon Cognito
+   console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home").
+2. Choose **User pools**, and then choose your user pool.
+3. Choose **Domain** under **Branding** from the menu.
+4. Under the **Custom domain** section, choose the edit
    option and select **Edit multi-Region failover**.
-4. Toggle the **Enable multi-Region failover** option.
-5. Select your Route 53 health check ID from the available health checks.
-6. Choose **Save changes**.
+5. Toggle the **Enable multi-Region failover** option.
+6. Select your Route 53 health check ID from the available health checks.
+7. Choose **Save changes**.
 
 ### Failover for Amazon Cognito APIs and SDKs
 
@@ -239,6 +240,5 @@ which Region authentication with Amazon Cognito should begin against.
 If you have an application with a backend, the logic to determine which user pool to
 authenticate against can be determined here.
 
-If you are using both managed login endpoints and APIs, you can use the same Route 53
-health check to be the indicator for your application to decide which Region the API calls
-to Amazon Cognito should happen against.
+If you use both managed login endpoints and APIs, use the same Route 53
+health check to determine which Region your application directs Amazon Cognito API calls to.

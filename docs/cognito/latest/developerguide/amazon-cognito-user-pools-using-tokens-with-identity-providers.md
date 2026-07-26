@@ -63,3 +63,4 @@ information, see [Amazon Cognito Pricing](https://aws.amazon.com/cognito/pricing
 - [Ending user sessions with token revocation](token-revocation.md "token-revocation.md")
 - [Verifying JSON web tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md "amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md")
 - [Managing user pool token expiration and caching](amazon-cognito-user-pools-using-tokens-caching-tokens.md "amazon-cognito-user-pools-using-tokens-caching-tokens.md")
+- [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")

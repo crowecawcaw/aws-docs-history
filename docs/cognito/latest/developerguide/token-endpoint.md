@@ -10,6 +10,13 @@ handle requests to and response payloads from this endpoint. Tokens provide
 verifiable proof of authentication, profile information, and a mechanism for access
 to back-end systems.
 
+The token endpoint returns an `Access-Control-Allow-Origin: *` response
+header. You can call the token endpoint cross-origin from a browser-based
+application. For example, you can complete an authorization code grant with Proof Key
+for Code Exchange (PKCE) from a public client. Amazon Cognito does not support custom
+cross-origin resource sharing (CORS) origin policies on this endpoint. For more
+information, see the CORS policies section of [User pool managed login](cognito-user-pools-managed-login.md "cognito-user-pools-managed-login.md").
+
 Your user pool OAuth 2.0 authorization server issues JSON web tokens (JWTs) from
 the token endpoint to the following types of sessions:
 

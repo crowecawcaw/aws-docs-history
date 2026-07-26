@@ -16,17 +16,16 @@ AWS Lambda functions that modify or overhaul the default behavior of Amazon Cogn
 
 - [Features](#cognito-user-pools-features "#cognito-user-pools-features")
 - [User pool feature plans](cognito-sign-in-feature-plans.md "cognito-sign-in-feature-plans.md")
-- [Security best practices for Amazon Cognito user pools](user-pool-security-best-practices.md "user-pool-security-best-practices.md")
 - [Authentication with Amazon Cognito user pools](authentication.md "authentication.md")
-- [User pool sign-in with third party identity providers](cognito-user-pools-identity-federation.md "cognito-user-pools-identity-federation.md")
 - [User pool managed login](cognito-user-pools-managed-login.md "cognito-user-pools-managed-login.md")
 - [Customizing user pool workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md "cognito-user-pools-working-with-lambda-triggers.md")
 - [Managing users in your user pool](managing-users.md "managing-users.md")
 - [Understanding user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md "amazon-cognito-user-pools-using-tokens-with-identity-providers.md")
 - [Accessing resources after successful sign-in](accessing-resources.md "accessing-resources.md")
-- [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
-- [Configure user pool features](user-pools-configure-features.md "user-pools-configure-features.md")
+- [Messaging and analytics](user-pools-configure-features.md "user-pools-configure-features.md")
 - [Using Amazon Cognito user pools security features](managing-security.md "managing-security.md")
+- [Multi-Region replication for user pools](user-pool-multi-region.md "user-pool-multi-region.md")
+- [Updating user pool and app client configuration](cognito-user-pool-updating.md "cognito-user-pool-updating.md")
 - [User pool endpoints and managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md")
 
 ## Features

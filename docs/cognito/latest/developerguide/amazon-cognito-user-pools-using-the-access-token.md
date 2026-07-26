@@ -124,10 +124,15 @@ An array of the names of user pool groups that have your user as a member.
 
 **`iss`**
 
-The identity provider that issued the token. The claim has the following
-format.
+The issuer of the token. This claim identifies the user pool that generated the
+token. Your application should validate that this value matches your user pool's
+expected issuer URL. The claim has the following format.
 
 `https://cognito-idp.`us-east-1`.amazonaws.com/`us-east-1_EXAMPLE``
+
+Your user pool can use an original or updated issuer. Updated issuers host the
+same JWKS content in multiple Regions, resulting in improved resilience and
+efficiency. For more information, see [Amazon Cognito user pools as an OIDC issuer](federation-endpoints.md#user-pool-oidc-issuer "federation-endpoints.md#user-pool-oidc-issuer").
 
 **`client_id`**
 
