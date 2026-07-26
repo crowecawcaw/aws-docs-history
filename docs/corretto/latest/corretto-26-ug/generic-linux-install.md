@@ -65,7 +65,7 @@ sudo apt-get update && sudo apt-get install java-common
 ###### Example
 
 ```
-sudo dpkg --install java-26-amazon-corretto-jdk_26.0.1.8-1_amd64.deb
+sudo dpkg --install java-26-amazon-corretto-jdk_26.0.2.10-1_amd64.deb
 ```
 
 ### Verify Your Installation
@@ -78,12 +78,12 @@ In the terminal, run the following command to verify the installation.
 java -version
 ```
 
-Expected output for 26.0.1:
+Expected output for 26.0.2:
 
 ```
-openjdk version "26.0.1" 2026-04-21
-OpenJDK Runtime Environment Corretto-26.0.1.8.1 (build 26.0.1+8-FR)
-OpenJDK 64-Bit Server VM Corretto-26.0.1.8.1 (build 26.0.1+8-FR, mixed mode)
+openjdk version "26.0.2" 2026-07-21
+OpenJDK Runtime Environment Corretto-26.0.2.10.1 (build 26.0.2+10-FR)
+OpenJDK 64-Bit Server VM Corretto-26.0.2.10.1 (build 26.0.2+10-FR, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`, run the
@@ -164,7 +164,7 @@ sudo zypper install java-26-amazon-corretto-devel
 ###### Example
 
 ```
-sudo yum localinstall java-26-amazon-corretto-devel-26.0.1.8-1.x86_64.rpm
+sudo yum localinstall java-26-amazon-corretto-devel-26.0.2.10-1.x86_64.rpm
 ```
 
 ### Verify Your Installation
@@ -177,12 +177,12 @@ In the terminal, run the following command to verify the installation.
 java -version
 ```
 
-Expected output for 26.0.1:
+Expected output for 26.0.2:
 
 ```
-openjdk version "26.0.1" 2026-04-21
-OpenJDK Runtime Environment Corretto-26.0.1.8.1 (build 26.0.1+8-FR)
-OpenJDK 64-Bit Server VM Corretto-26.0.1.8.1 (build 26.0.1+8-FR, mixed mode)
+openjdk version "26.0.2" 2026-07-21
+OpenJDK Runtime Environment Corretto-26.0.2.10.1 (build 26.0.2+10-FR)
+OpenJDK 64-Bit Server VM Corretto-26.0.2.10.1 (build 26.0.2+10-FR, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`,
