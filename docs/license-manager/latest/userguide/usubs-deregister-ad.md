@@ -1,9 +1,12 @@
 # Deregister an Active Directory from License Manager settings
 
-You can deregister your Active Directory from License Manager settings if you no longer want to
+You can deregister an Active Directory from License Manager settings if you no longer want to
 use it for user-based subscriptions. Deregistering the directory configuration from License Manager settings
 doesn't delete the directory. When you deregister the directory from the settings, you can
 no longer associate users from that directory for user-based subscriptions in License Manager.
+
+If you have multiple Active Directories registered, deregistering one directory does
+not affect instances or user associations for your other registered directories.
 
 ###### Prerequisites
 
@@ -14,8 +17,9 @@ following tasks:
    users from an instance](usubs-disassociate-users.md "usubs-disassociate-users.md") from each
    instance that references the directory that you want to deregister.
 2. After all of the subscription users are disassociated from the instance, terminate
-   the instance. Repeat until all instances that refer to the Active Directory
-   are terminated.
+   the instance. Repeat until all instances associated with the Active Directory you are
+   deregistering are terminated. Instances associated with other registered Active
+   Directories are not affected.
 3. You also need to [Unsubscribe users](usubs-unsubscribe-users.md "usubs-unsubscribe-users.md") that belong to the
    Active Directory you will deregister to stop incurring changes for them.
    **Deregister**

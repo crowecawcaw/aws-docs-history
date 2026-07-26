@@ -1,8 +1,16 @@
 # Launch an instance in a host resource group in License Manager
 
-When you launch an instance, you can specify a host resource group. For example, you can
-use the following [run-instances](../../../cli/latest/reference/ec2/run-instances.md "../../../cli/latest/reference/ec2/run-instances.md")
-command. You must associate a core- or socket-based self-managed license with the AMI.
+When you launch an instance, you can specify a host resource group. The launch requirements depend
+on the host resource group's instance launch option:
+
+- **License configuration required** – You must associate one
+  or more core- or socket-based self-managed licenses with the AMI that match the license
+  configurations configured in the host resource group, or provide the license configurations in the
+  instance launch request.
+- **License configuration not required** – You can launch with
+  any AMI. You do not need to set up a license configuration.
+  For example, you can use the following
+  [run-instances](../../../cli/latest/reference/ec2/run-instances.md "../../../cli/latest/reference/ec2/run-instances.md") command.
 
 ```
 `aws ec2 run-instances --min-count `2` --max-count `2` \

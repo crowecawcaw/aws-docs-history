@@ -14,9 +14,10 @@ tenancies:
   _Amazon Elastic Compute Cloud User Guide_.
 
 To move to the host resource groups tenancy type, you must have at least one host resource group in your account.
-In order to launch an instance into a host resource group, the instance must have the
-same set of licenses that are associated with the host resource group. For more
-information, see [Host resource groups in License Manager](host-resource-groups.md "host-resource-groups.md").
+If the host resource group requires license configurations, the instance must have the same set of
+licenses that are associated with the host resource group. If the host resource group does not require license
+configurations, any instance can be placed into the group without license associations.
+For more information, see [Host resource groups in License Manager](host-resource-groups.md "host-resource-groups.md").
 
 ###### Tenancy conversion limits
 

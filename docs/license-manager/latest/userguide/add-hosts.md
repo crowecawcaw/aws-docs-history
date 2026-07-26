@@ -7,14 +7,13 @@ self-managed licenses and instances types, the host you add must match these req
 
 ###### Note
 
-If you stop instances and want to restart them, you must perform the following two
-tasks:
+If you stop instances and want to restart them, you must
+[modify](../../../AWSEC2/latest/APIReference/API_ModifyInstancePlacement.md "../../../AWSEC2/latest/APIReference/API_ModifyInstancePlacement.md") the
+instance to point to the host resource group. If the host resource group requires license configurations, you must
+also [associate](../APIReference/API_UpdateLicenseSpecificationsForResource.md "../APIReference/API_UpdateLicenseSpecificationsForResource.md") self-managed licenses to match the host resource group.
 
-- [Modify](../../../AWSEC2/latest/APIReference/API_ModifyInstancePlacement.md "../../../AWSEC2/latest/APIReference/API_ModifyInstancePlacement.md") the
-  instance to point to the host resource group.
-- [Associate](../APIReference/API_UpdateLicenseSpecificationsForResource.md "../APIReference/API_UpdateLicenseSpecificationsForResource.md") self-managed licenses to match the host resource group.
-  There is no limit to the number of Dedicated Hosts that you can add to a host resource group. For more
-  information about Resource Groups, see [AWS Resource Groups User Guide](../../../ARG/latest/userguide/welcome.md "../../../ARG/latest/userguide/welcome.md").
+There is no limit to the number of Dedicated Hosts that you can add to a host resource group. For more
+information about Resource Groups, see [AWS Resource Groups User Guide](../../../ARG/latest/userguide/welcome.md "../../../ARG/latest/userguide/welcome.md").
 
 Use the following steps to add one or more Dedicated Hosts to a resource group:
 

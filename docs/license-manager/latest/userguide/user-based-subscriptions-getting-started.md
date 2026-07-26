@@ -84,6 +84,10 @@ user-based subscriptions. If you have user-based subscriptions in multiple
 AWS Regions, each Region must have its own Active Directory with DNS forwarding
 configured.
 
+For Microsoft Office subscriptions, you can register multiple Active Directories in the
+same account and Region. Each Active Directory must be in a unique VPC. For more
+information, see [Multiple Active Directory support for Microsoft Office](user-based-subscriptions.md#usubs-multi-ad "user-based-subscriptions.md#usubs-multi-ad").
+
 ###### Important
 
 You must allow License Manager to create the required [service-linked role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") before you can proceed. For more information, see the
@@ -97,10 +101,15 @@ MSO subscriptions** tab.
 
 ###### Important
 
-If you have already registered one Microsoft Office product type (either Office LTSC Professional
-Plus or Office LTSC Standard) with an Active Directory in a VPC, and you are registering
-the other Microsoft Office product type with the same Active Directory in the same VPC, you must use
-the same subnets and security group as the existing identity provider configuration.
+If a VPC already has an existing registered Active Directory for Microsoft Office, any
+subsequent Microsoft Office registration in that VPC must use the same subnets and
+security group as the existing configuration. This applies when:
+
+- You are registering a second Microsoft Office product type (either Office LTSC
+  Professional Plus or Office LTSC Standard) with the same Active Directory in the
+  same VPC.
+- You are registering a different Active Directory in a VPC that shares a VPC
+  endpoint with an existing registration.
 
 Microsoft RDS SAL
 
@@ -187,12 +196,26 @@ your VPC for user-based subscriptions with the [RegisterIdentityProvider](../../
 aws license-manager-user-subscriptions register-identity-provider --product "`<product_name>`" --identity-provider "ActiveDirectoryIdentityProvider={DirectoryId=`<directory_id>`}" --settings "Subnets=[`subnet-1234567890abcdef0`,`subnet-021345abcdef6789`],SecurityGroupId=`sg-1234567890abcdef0`"
 ```
 
+###### Register an additional Active Directory (AWS CLI)
+
+To register an additional Active Directory for Microsoft Office subscriptions, use the
+same [RegisterIdentityProvider](../../../license-manager-user-subscriptions/latest/APIReference/API_RegisterIdentityProvider.md "../../../license-manager-user-subscriptions/latest/APIReference/API_RegisterIdentityProvider.md") operation with the new directory
+and VPC settings. Each Active Directory must reside in a different VPC.
+
+```
+aws license-manager-user-subscriptions register-identity-provider --product "`<product_name>`" --identity-provider "ActiveDirectoryIdentityProvider={DirectoryId=`<second_directory_id>`}" --settings "Subnets=[`subnet-abcdef1234567890a`,`subnet-bcdef1234567890ab`],SecurityGroupId=`sg-abcdef1234567890a`"
+```
+
 For more information about the available software products, see
 [Supported software products for user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-software "user-based-subscriptions.md#usubs-software").
 
 ###### Note
 
-Registering the same Active Directory for the same product more than once in the same region may result in duplicate user subscription charges.
+For Microsoft Office products, each VPC can only have one registered Active Directory
+per product. You cannot register a different Active Directory in a VPC that already has
+one registered for the same product. For other products, registering the same Active
+Directory for the same product more than once in the same Region may result in duplicate
+user subscription charges.
 
 ## Step 3: Configure RDS license server
 

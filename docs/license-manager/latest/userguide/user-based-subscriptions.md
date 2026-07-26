@@ -28,6 +28,7 @@ month.
 - [Supported software products for user-based subscriptions in License Manager](#usubs-software "#usubs-software")
 - [Combine Microsoft Office with other software](#usubs-combine-products "#usubs-combine-products")
 - [Active Directory](#ad-support "#ad-support")
+- [Multiple Active Directory support for Microsoft Office](#usubs-multi-ad "#usubs-multi-ad")
 - [Additional software](#usubs-software-additional "#usubs-software-additional")
 - [Get started with user-based subscriptions in License Manager](user-based-subscriptions-getting-started.md "user-based-subscriptions-getting-started.md")
 - [Configure Active Directory GPO for more active remote user sessions](usubs-configure-gpo.md "usubs-configure-gpo.md")
@@ -453,6 +454,20 @@ ensure that Active Directory nodes are accessible, configure DNS resolution as f
   for your VPC. For more information, see [View and update DNS
   attributes for your VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating").
 
+###### Network considerations for multiple Active Directories
+
+If you register multiple Active Directories for Microsoft Office user-based subscriptions,
+consider the following network requirements:
+
+- Each registered Active Directory must be in a separate VPC.
+- Instances are automatically associated with a registered Active Directory based on
+  their VPC. Ensure that instances that provide user-based subscriptions are launched in
+  a VPC that has a registered Active Directory, or in a VPC that is peered with exactly
+  one VPC that has a registered Active Directory.
+- If you use VPC peering, ensure that each instance VPC is peered with only one VPC that
+  has a registered Active Directory. Peering with multiple Active Directory VPCs results
+  in an ambiguous configuration that prevents instance activation.
+
 ### Instances that provide user-based subscription products
 
 For your user-based subscription instances to function as expected, you must meet the
@@ -692,6 +707,57 @@ This table indicates which types of Active Directory are supported by each softw
 | Microsoft Visual Studio | Supported                | Not supported   |
 | Microsoft Office        | Supported                | Not supported   |
 | RDS SAL Product         | Supported                | Supported       |
+
+## Multiple Active Directory support for Microsoft Office
+
+You can register multiple Active Directories for Microsoft Office user-based subscriptions
+within a single account and Region. This allows you to maintain separate Active Directories
+for different business units, environments, or workloads without requiring VPC peering
+or trust relationships between them.
+
+When you register multiple Active Directories, the following constraints apply:
+
+- You can register up to 20 Active Directories per account per Region. In case you
+  need adjustment, please reach out to AWS Support.
+- Each Active Directory must be associated with a unique VPC. You cannot register more
+  than one Active Directory in the same VPC.
+- If multiple Active Directories share the same VPC endpoint VPC, the subnets and security
+  group configuration must be identical across all registrations.
+- Accounts that use a shared Active Directory from another account cannot register
+  additional Active Directories.
+
+###### How License Manager selects the Active Directory for an instance
+
+When you launch an instance with a Microsoft Office user-based subscription product,
+License Manager automatically determines which registered Active Directory to use for
+activation. No additional launch parameters are required.
+
+License Manager resolves the Active Directory using the following logic:
+
+1. **Direct VPC match** – If the instance is launched in a VPC that has a registered
+   Active Directory, that directory is used.
+2. **Peered VPC match** – If the instance is launched in a VPC that does not have a
+   registered Active Directory, but is peered with exactly one VPC that does, the
+   peered directory is used.
+
+If License Manager cannot determine a single Active Directory for an instance, activation
+will not succeed. To avoid this, ensure that each instance VPC can reach only one
+registered Active Directory, either directly or through VPC peering.
+
+###### Important
+
+If an instance VPC is peered with multiple VPCs that each have a
+registered Active Directory, License Manager cannot determine which directory to use
+and the instance is unable to complete its initial configuration. Resources that are
+unable to complete the initial configuration are terminated. Review your VPC peering
+topology to ensure that each instance VPC has a path to only one registered Active
+Directory.
+
+###### Filtering instances by Active Directory
+
+If you have multiple Active Directories registered, you can filter instances by Active
+Directory in the console or by using the ActiveDirectoryId filter with the ListInstances
+API.
 
 ## Additional software
 

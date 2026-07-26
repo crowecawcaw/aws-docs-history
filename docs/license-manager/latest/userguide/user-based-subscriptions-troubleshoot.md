@@ -40,6 +40,12 @@ user-based subscriptions in AWS License Manager.
 - [Using user subscription with older Windows Server versions](user-based-subscriptions-troubleshoot.md#older_windows_versions "user-based-subscriptions-troubleshoot.md#older_windows_versions")
 - [Using License Manager user subscriptions across accounts or regions](user-based-subscriptions-troubleshoot.md#unsupported_scenarios "user-based-subscriptions-troubleshoot.md#unsupported_scenarios")
 - [Tips for contacting AWS Support](user-based-subscriptions-troubleshoot.md#aws_support_tips "user-based-subscriptions-troubleshoot.md#aws_support_tips")
+- [Troubleshooting multiple Active Directory registrations](user-based-subscriptions-troubleshoot.md#multi-ad-troubleshoot "user-based-subscriptions-troubleshoot.md#multi-ad-troubleshoot")
+
+  - [Instance terminated because multiple Active Directories are reachable](user-based-subscriptions-troubleshoot.md#multi-ad-ambiguous "user-based-subscriptions-troubleshoot.md#multi-ad-ambiguous")
+  - [Instance activation failed because no Active Directory is reachable](user-based-subscriptions-troubleshoot.md#multi-ad-no-ad-reachable "user-based-subscriptions-troubleshoot.md#multi-ad-no-ad-reachable")
+  - [Cannot register Active Directory because VPC already has one](user-based-subscriptions-troubleshoot.md#multi-ad-vpc-exists "user-based-subscriptions-troubleshoot.md#multi-ad-vpc-exists")
+  - [Registration failed due to VPC endpoint configuration mismatch](user-based-subscriptions-troubleshoot.md#multi-ad-vpce-mismatch "user-based-subscriptions-troubleshoot.md#multi-ad-vpce-mismatch")
 
 ## Troubleshoot instance compliance
 
@@ -373,3 +379,63 @@ These scenarios are not supported:
 - For any RDP related issues we would require RDP related logs to help debug these issues. Please utilize the 'AWSSupport-RunEC2RescueForWindowsTool' for environments with internet access. For more information, see [EC2Rescue for Windows Server](../../../AWSEC2/latest/WindowsGuide/ec2rw-ssm.md "../../../AWSEC2/latest/WindowsGuide/ec2rw-ssm.md").
 - By using an Office instance as a working instance and mounting a volume restored from a snapshot of the original instance's volume, it is possible to collect data even in an environment without internet access.
 - Troubleshooting Instance Launches from Backup AMIs: If you launch an instance from a backup AMI, you must terminate the original instance.
+
+## Troubleshooting multiple Active Directory registrations
+
+### Instance terminated because multiple Active Directories are reachable
+
+**Problem:** An instance was terminated after launch with the error
+"This instance's VPC is peered with multiple VPCs that each have a registered Active Directory."
+
+**Cause:** The instance was launched in a VPC that is peered with more than one VPC
+containing a registered Active Directory. License Manager cannot determine which Active
+Directory to use for activation. Resources that are unable to complete the initial
+configuration are terminated.
+
+**Solution:** Review your VPC peering configuration and ensure that the instance VPC is
+peered with only one VPC that has a registered Active Directory for the product. You can
+either:
+
+- Remove VPC peering connections to additional Active Directory VPCs, or
+- Launch the instance in a VPC that directly contains the intended Active Directory.
+
+### Instance activation failed because no Active Directory is reachable
+
+**Problem:** An instance failed activation with the error
+"No registered Active Directory is reachable from this instance's VPC."
+
+**Cause:** The instance was launched in a VPC that does not contain a registered Active
+Directory and is not peered with any VPC that has one.
+
+**Solution:** Ensure that the instance VPC either:
+
+- Has a registered Active Directory configured directly in it, or
+- Is peered with a VPC that contains a registered Active Directory.
+
+Verify your VPC peering connections and that the Active Directory registrations are in
+the expected VPCs.
+
+### Cannot register Active Directory because VPC already has one
+
+**Problem:** When trying to register a new Active Directory, you receive an error
+indicating that an existing identity provider is already registered for the VPC.
+
+**Cause:** Each VPC can only have one registered Active Directory per product. You are
+attempting to register a second Active Directory in a VPC that already has one.
+
+**Solution:** Each Active Directory you register must reside in a unique VPC. To register
+an additional Active Directory, ensure it is provisioned in a VPC that does not already
+have a registered Active Directory for the same product.
+
+### Registration failed due to VPC endpoint configuration mismatch
+
+**Problem:** When registering an additional Active Directory, you receive an error about
+subnets and security groups not matching an existing VPC endpoint.
+
+**Cause:** A VPC endpoint already exists in the VPC from a different Active Directory
+registration. New registrations that share the same VPC endpoint VPC must use identical
+subnet and security group settings.
+
+**Solution:** Use the same subnets and security group as the existing registered identity
+provider configuration. You can view the current configuration in the License Manager console
+under Settings, or by using the ListIdentityProviders API.
