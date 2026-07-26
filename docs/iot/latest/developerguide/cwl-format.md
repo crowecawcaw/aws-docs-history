@@ -1503,6 +1503,7 @@ The AWS IoT rules engine generates logs for the following events:
 - [FunctionExecution log entry](#log-rules-fn-exec "#log-rules-fn-exec")
 - [RuleExecution log entry](#log-rules-rule-ex "#log-rules-rule-ex")
 - [RuleMatch log entry](#log-rules-rule-match "#log-rules-rule-match")
+- [RuleEvaluation throttled log entry](#log-rules-rule-eval-throttled "#log-rules-rule-eval-throttled")
 - [RuleExecutionThrottled log entry](#log-rules-rule-msg-throttled "#log-rules-rule-msg-throttled")
 - [RuleNotFound log entry](#log-rules-rule-not-found "#log-rules-rule-not-found")
 - [StartingRuleExecution log entry](#log-rules-start-rule-ex "#log-rules-start-rule-ex")
@@ -1702,9 +1703,59 @@ topicName
 
 The name of the subscribed topic.
 
+### RuleEvaluation throttled log entry
+
+When AWS IoT Rules Engine throttles a rule evaluation on the rule evaluations per second per account limit, it generates a log entry with an
+`eventType` of `RuleEvaluation` and reason as `Throttled`.
+
+#### RuleEvaluation throttled log entry example
+
+```
+{
+    "timestamp": "2024-11-13 07:32:27.856",
+    "logLevel": "ERROR",
+    "traceId": "82995222-049b-ee5c-0cd4-15635f052ed3",
+    "accountId": "123456789012",
+    "status": "Failure",
+    "eventType": "RuleEvaluation",
+    "clientId": "57b3b41a-c726-44ab-bcd4-2cc1c2cc4295",
+    "topicName": "N/A",
+    "ruleName": "N/A",
+    "principalId": "N/A",
+    "reason": "Throttled",
+    "details": "Exceeded Rule Evaluations per second per account limit"
+}
+```
+
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `RuleEvaluation` log entries contain the following attributes:
+
+clientId
+
+The ID of the client making the request.
+
+details
+
+A brief explanation of the error.
+
+principalId
+
+The ID of the principal making the request. Always N/A for this log entry.
+
+reason
+
+The string "Throttled".
+
+ruleName
+
+The name of the rule. Always N/A for this log entry.
+
+topicName
+
+The name of the published topic. Always N/A for this log entry.
+
 ### RuleExecutionThrottled log entry
 
-When an execution is throttled, the AWS IoT rules engine generates a log entry with an
+When a rule evaluation is throttled by the rules engine because of malicious behavior such as excessive basic ingest publish requests to non-existent rules, the AWS IoT rules engine generates a log entry with an
 `eventType` of `RuleExecutionThrottled`.
 
 #### RuleExecutionThrottled log entry example

@@ -448,6 +448,47 @@ When key health becomes `UNHEALTHY`, AWS IoT Core operations fail immediately. I
 permissions, and policies. Monitor the `CMK.Health` metric for status changes. If operations continue to fail after reviewing your
 configurations, contact your account manager or the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") for additional assistance.
 
+#### Monitoring branch key rotation health
+
+AWS IoT Core uses a hierarchical key structure to encrypt your data. At the top of this hierarchy is your AWS KMS key (the
+customer managed key you configure). Below that, AWS IoT Core maintains _branch keys_ – internal keys
+derived from your AWS KMS key. AWS IoT Core then uses these branch keys to generate unique wrapping keys, which perform the actual
+encryption and decryption of your data. This layered approach limits the scope of any single key and follows AWS encryption
+best practices. AWS IoT Core manages branch keys as an internal implementation detail, separate from your
+AWS KMS key rotation, which AWS KMS manages directly. For more information, see [Rotate your active branch key](../../../encryption-sdk/latest/developer-guide/rotate-branch-key.md "../../../encryption-sdk/latest/developer-guide/rotate-branch-key.md").
+
+AWS IoT Core rotates branch keys annually as a security best practice. Rotation creates a new active branch key version while
+preserving previous versions for decrypting existing data. This rotation requires the `kms:Encrypt` permission on the
+IAM role associated with your customer managed key configuration. AWS IoT Core emits the `CMK.BranchKeyRotationHealth`
+metric to CloudWatch once every minute to indicate whether your AWS KMS access role has the permissions required for rotation.
+
+The `CMK.BranchKeyRotationHealth` metric can have the following values:
+
+- The value is `1`: The AWS KMS access role has the required `kms:Encrypt` permission and branch key rotation can proceed normally.
+- The value is `0`: The AWS KMS access role is missing the `kms:Encrypt` permission and branch key rotation cannot be performed. Your existing decryption operations will continue to function normally, but AWS IoT Core will be unable to rotate your branch keys until the permission is restored. Add `kms:Encrypt` to your AWS KMS access role to re-enable rotation. For the full list of required permissions, see [Key policy](#key-policy "#key-policy").
+
+###### Note
+
+A value of `0` does not indicate a disruption to your current AWS IoT Core operations. Your data remains encrypted
+and accessible. However, you should update your AWS KMS access role permissions promptly to ensure branch keys can be rotated on
+schedule.
+
+To be notified when branch key rotation can't proceed, set up a CloudWatch alarm for the `CMK.BranchKeyRotationHealth` metric:
+
+```
+aws cloudwatch put-metric-alarm --region us-west-2 \
+  --alarm-name "IoTCore-CMK-BranchKeyRotationHealth-Alert" \
+  --alarm-description "Alert when IoT Core branch key rotation health is degraded" \
+  --metric-name "CMK.BranchKeyRotationHealth" \
+  --namespace "AWS/IoT" \
+  --statistic "Minimum" \
+  --period 300 \
+  --evaluation-periods 1 \
+  --threshold 1 \
+  --comparison-operator "LessThanThreshold" \
+  --alarm-actions "arn:aws:sns:us-west-2:111122223333:iot-alerts"
+```
+
 #### AWS CloudTrail events
 
 You can also monitor AWS IoT Core's usage of the KMS key for encrypt decrypt operations. AWS IoT Core will make `DescribeKey`, `Decrypt`, `ReEncrypt`, and `GenerateDataKeyWithoutPlaintext` operations on your KMS key to encrypt / decrypt data belonging to your AWS account stored at rest.

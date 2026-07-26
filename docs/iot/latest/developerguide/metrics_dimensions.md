@@ -71,13 +71,14 @@ The authentication metrics are displayed in the CloudWatch console under
 
 ## Rule metrics
 
-| Metric                   | Description                                                                                                                                                                                                                             |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ParseError`             | The number of JSON parse errors that occurred in messages published on a<br>topic on which a rule is listening. The `RuleName` dimension contains<br>the name of the rule.                                                              |
-| `RuleExecutionThrottled` | The number of messages throttled by the rules engine because of malicious<br>behavior such as excessive basic ingest publish requests to non-existent rules. The `RuleName` dimension contains the name of the rule to be<br>triggered. |
-| `RuleNotFound`           | The rule to be triggered could not be found. The `RuleName`<br>dimension contains the name of the rule.                                                                                                                                 |
-| `RulesExecuted`          | The number of AWS IoT rules executed.                                                                                                                                                                                                   |
-| `TopicMatch`             | The number of incoming messages published on a topic on which a rule is<br>listening. The `RuleName` dimension contains the name of the<br>rule.                                                                                        |
+| Metric                              | Description                                                                                                                                                                                                                             |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ParseError`                        | The number of JSON parse errors that occurred in messages published on a<br>topic on which a rule is listening. The `RuleName` dimension contains<br>the name of the rule.                                                              |
+| `RuleExecutionThrottled`            | The number of messages throttled by the rules engine because of malicious<br>behavior such as excessive basic ingest publish requests to non-existent rules. The `RuleName` dimension contains the name of the rule to be<br>triggered. |
+| `RuleEvaluation (Status=Throttled)` | The number of rule evaluations that were throttled. The `Status`<br>dimension specifies the state of the request. Currently, the only supported<br>status is `Throttled`, which indicates that the request was<br>throttled.            |
+| `RuleNotFound`                      | The rule to be triggered could not be found. The `RuleName`<br>dimension contains the name of the rule.                                                                                                                                 |
+| `RulesExecuted`                     | The number of AWS IoT rules executed.                                                                                                                                                                                                   |
+| `TopicMatch`                        | The number of incoming messages published on a topic on which a rule is<br>listening. The `RuleName` dimension contains the name of the<br>rule.                                                                                        |
 
 ## Rule action metrics
 
