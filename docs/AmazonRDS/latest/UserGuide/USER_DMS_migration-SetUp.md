@@ -51,10 +51,15 @@ After creating your target database, use the following steps to set up the data 
    and choose an IAM role from the dropdown that grants DMS the permissions to create the resources required for the migration.
    If you don't have existing IAM role, choose **Create and use new IAM role**.
 
-6. Confirm that the **View migration settings** tab shows the required settings for your data migration to be set up successfully.
-7. Select **Migrate** to complete the migration set up.
-   After completing these steps, you can see the resources being set up for the data migration by choosing
-   **View details** in the progress banner in the console. Once the required resources are set up,
-   the migration automatically starts. If you create
+###### Note
+
+If role manager is enabled in your account, Amazon RDS attaches the roles for you, and the role options
+described here (for source secret, target secret, and data migration) are replaced by a
+**Customize** option. To use a different role, choose **Customize**.
+For more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 6. Confirm that the **View migration settings** tab shows the required settings for your data migration to be set up successfully. 7. Select **Migrate** to complete the migration set up.
+After completing these steps, you can see the resources being set up for the data migration by choosing
+**View details** in the progress banner in the console. Once the required resources are set up,
+the migration automatically starts. If you create
 
 To migrate multiple databases into the target database, start this process again with details about the new EC2 database.

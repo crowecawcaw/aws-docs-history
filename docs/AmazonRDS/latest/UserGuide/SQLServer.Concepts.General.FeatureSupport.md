@@ -5,6 +5,7 @@ previous versions, unless otherwise noted in the Microsoft documentation.
 
 ###### Topics
 
+- [Microsoft SQL Server 2025 features](#SQLServer.Concepts.General.FeatureSupport.2025 "#SQLServer.Concepts.General.FeatureSupport.2025")
 - [Microsoft SQL Server 2022 features](#SQLServer.Concepts.General.FeatureSupport.2022 "#SQLServer.Concepts.General.FeatureSupport.2022")
 - [Microsoft SQL Server 2019 features](#SQLServer.Concepts.General.FeatureSupport.2019 "#SQLServer.Concepts.General.FeatureSupport.2019")
 - [Microsoft SQL Server 2017 features](#SQLServer.Concepts.General.FeatureSupport.2017 "#SQLServer.Concepts.General.FeatureSupport.2017")
@@ -14,6 +15,24 @@ previous versions, unless otherwise noted in the Microsoft documentation.
 - [Microsoft SQL Server 2008 R2 end of support on Amazon RDS](#SQLServer.Concepts.General.FeatureSupport.2008 "#SQLServer.Concepts.General.FeatureSupport.2008")
 - [Change data capture support for Microsoft SQL Server DB instances](SQLServer.Concepts.General.CDC.md "SQLServer.Concepts.General.CDC.md")
 - [Features not supported and features with limited support](SQLServer.Concepts.General.FeatureNonSupport.md "SQLServer.Concepts.General.FeatureNonSupport.md")
+
+## Microsoft SQL Server 2025 features
+
+SQL Server 2025 includes the following new features:
+
+- External REST endpoint invocation (`sp_invoke_external_rest_endpoint`) – New system stored procedure that enables T-SQL code to call AWS services directly from the database engine, without additional middleware. Use it to invoke AWS services such as AWS Lambda and Amazon Bedrock, call external REST APIs, and build event-driven workflows with AWS infrastructure.
+- AI and vector support – Native vector data type for storing and querying vector embeddings, vector functions (`VECTOR_DISTANCE`, `VECTOR_NORM`, `VECTOR_NORMALIZE`), and external AI model management for REST inference endpoints.
+- Regular expressions – New T-SQL functions (`REGEXP_LIKE`, `REGEXP_REPLACE`, `REGEXP_SUBSTR`, `REGEXP_INSTR`, `REGEXP_COUNT`, `REGEXP_MATCHES`, `REGEXP_SPLIT_TO_TABLE`) for pattern matching and text manipulation.
+- JSON native binary format – JSON data is stored in an optimized binary format, with built-in functions for parsing, reading, modifying, and formatting JSON.
+- Optimized locking – Reduces blocking and lock memory consumption, and avoids lock escalation.
+- Standard Edition capacity increase – SQL Server 2025 increases the maximum compute capacity to 4 sockets or 32 cores and the maximum buffer pool memory to 256 GB.
+- Resource Governor in Standard Edition – Resource Governor is now available in Standard Edition with the same functionality as in Enterprise Edition, including the ability to manage TempDB space usage per workload. For more information, see [Resource Governor](https://learn.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver17 "https://learn.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver17") in the Microsoft documentation.
+- Power BI Report Server replaces SSRS – Reporting services is consolidated under Power BI Report Server (PBIRS). For more information, see [Support for SQL Server Reporting Services and Power BI Report Server in Amazon RDS for SQL Server](Appendix.SQLServer.Options.SSRS.md "Appendix.SQLServer.Options.SSRS.md").
+- Developer editions – New separate Developer EE and Developer SE editions replace the single Developer edition in prior versions. For supported instance classes, see [DB instance class support for Microsoft SQL Server](SQLServer.Concepts.General.InstanceClasses.md "SQLServer.Concepts.General.InstanceClasses.md").
+
+For the full list of SQL Server 2025 features, see [What's new in SQL Server 2025 (17.x)](https://learn.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2025?view=sql-server-ver17 "https://learn.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2025?view=sql-server-ver17") in the Microsoft documentation.
+
+For a list of unsupported features, see [Features not supported and features with limited support](SQLServer.Concepts.General.FeatureNonSupport.md "SQLServer.Concepts.General.FeatureNonSupport.md").
 
 ## Microsoft SQL Server 2022 features
 

@@ -45,7 +45,7 @@ The following limitations apply to SQL Server read replicas on Amazon RDS:
 
 - Read replicas are only available on the SQL Server Enterprise Edition (EE)
   engine.
-- Read replicas are available for SQL Server versions 2016–2022.
+- Read replicas are available for SQL Server versions 2016–2025.
 - You can create up to 15 read replicas from one source DB instance.
   Replication might lag when your source DB instance has more than 5 read replicas.
 - Read replicas are only available for DB instances running on DB instance classes

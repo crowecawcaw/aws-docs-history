@@ -201,6 +201,8 @@ EXEC dbo.rds_create_workload_group
 @REQUEST_MEMORY_GRANT_TIMEOUT_SEC = value,
 @MAX_DOP = value,
 @GROUP_MAX_REQUESTS = value,
+@GROUP_MAX_TEMPDB_DATA_MB = value,
+@GROUP_MAX_TEMPDB_DATA_PERCENT = value,
 @pool_name = value
 ```
 
@@ -228,6 +230,18 @@ The following parameters are optional:
 - `@GROUP_MAX_REQUESTS` = Specifies the maximum number of simultaneous requests that are allowed to execute
   in the workload group. `value` must be 0 or a positive integer. The default setting for
   `value` is 0, and allows unlimited requests.
+- `@GROUP_MAX_TEMPDB_DATA_MB` – Specifies the maximum amount of tempdb data space, in megabytes,
+  that a workload group can consume. `value` must be 0, a positive number, or NULL.
+  Fractional values are allowed. When the value is 0, tempdb space allocations by sessions in the workload group
+  are not allowed. When a value isn't set, resource governor doesn't limit tempdb space consumption by the
+  workload group. This parameter is available on SQL Server 2025 and above.
+- `@GROUP_MAX_TEMPDB_DATA_PERCENT` – Specifies the maximum amount of tempdb data space that a
+  workload group can consume, as a percentage of the maximum tempdb size. `value` must
+  be in the range from 0 to 100, or NULL. Fractional values are allowed. When the value is 0, tempdb space
+  allocations by sessions in the workload group are not allowed. When a value isn't set, resource governor
+  doesn't limit tempdb space consumption by the workload group. When `GROUP_MAX_TEMPDB_DATA_MB` is set,
+  or when tempdb maximum size isn't defined, `GROUP_MAX_TEMPDB_DATA_PERCENT` has no effect.
+  This parameter is available on SQL Server 2025 and above.
 - `@pool_name` = Associates the workload group with the user-defined resource pool identified by
   `pool_name`, or with the `default` resource pool. If `pool_name`
   isn't provided, the workload group is associated with the built-in `default` pool.
@@ -254,6 +268,29 @@ EXEC msdb.dbo.rds_alter_resource_governor_configuration;
 select * from sys.resource_governor_workload_groups
 ```
 
+Example of creating a workload group with tempdb governance (SQL Server 2025 and above):
+
+```
+-- Create workload group with tempdb space limits
+USE msdb;
+EXEC dbo.rds_create_workload_group
+    @group_name = 'etl_workload',
+    @IMPORTANCE = 'MEDIUM',
+    @REQUEST_MAX_MEMORY_GRANT_PERCENT = 25,
+    @MAX_DOP = 4,
+    @GROUP_MAX_TEMPDB_DATA_MB = 2048,
+    @GROUP_MAX_TEMPDB_DATA_PERCENT = 30,
+    @pool_name = 'etl_pool';
+
+-- Apply changes
+EXEC msdb.dbo.rds_alter_resource_governor_configuration;
+
+-- Validate configuration
+SELECT name, group_max_tempdb_data_mb, group_max_tempdb_data_percent
+FROM sys.resource_governor_workload_groups
+WHERE name = 'etl_workload';
+```
+
 ### Alter workload group
 
 **Usage**
@@ -267,6 +304,8 @@ EXEC msdb.dbo.rds_alter_workload_group
     @REQUEST_MEMORY_GRANT_TIMEOUT_SEC = value,
     @MAX_DOP = value,
     @GROUP_MAX_REQUESTS = value,
+    @GROUP_MAX_TEMPDB_DATA_MB = value,
+    @GROUP_MAX_TEMPDB_DATA_PERCENT = value,
     @pool_name = value
 ```
 
@@ -297,6 +336,14 @@ The following parameters are optional:
   `value` is from 0 through 64. The default setting for `value`, 0, uses the global setting.
 - `@GROUP_MAX_REQUESTS` - Specifies the maximum number of simultaneous requests that are allowed to execute in the workload group.
   `value` must be 0 or a positive integer. The default setting for `value` is 0, and allows unlimited requests.
+- `@GROUP_MAX_TEMPDB_DATA_MB` – Specifies the maximum amount of tempdb data space, in megabytes,
+  that a workload group can consume. `value` must be 0, a positive number, or NULL.
+  Fractional values are allowed. This parameter is available on SQL Server 2025 and above.
+- `@GROUP_MAX_TEMPDB_DATA_PERCENT` – Specifies the maximum amount of tempdb data space that a
+  workload group can consume, as a percentage of the maximum tempdb size. `value` must
+  be in the range from 0 to 100, or NULL. Fractional values are allowed. When `GROUP_MAX_TEMPDB_DATA_MB`
+  is set, or when tempdb maximum size isn't defined, `GROUP_MAX_TEMPDB_DATA_PERCENT` has no effect.
+  This parameter is available on SQL Server 2025 and above.
 - `@pool_name` - Associates the workload group with the user-defined resource pool identified by `pool_name`.
 
 **Examples**
@@ -345,6 +392,25 @@ EXEC msdb.dbo.rds_alter_resource_governor_configuration;
 
 --Validate configuration
 select * from sys.resource_governor_workload_groups
+```
+
+Example to modify a workload group with tempdb governance (SQL Server 2025 and above):
+
+```
+-- Add tempdb limits to an existing workload group
+USE msdb;
+EXEC msdb.dbo.rds_alter_workload_group
+    @group_name = 'etl_workload',
+    @GROUP_MAX_TEMPDB_DATA_MB = 4096,
+    @GROUP_MAX_TEMPDB_DATA_PERCENT = 50;
+
+-- Apply changes
+EXEC msdb.dbo.rds_alter_resource_governor_configuration;
+
+-- Validate configuration
+SELECT name, group_max_tempdb_data_mb, group_max_tempdb_data_percent
+FROM sys.resource_governor_workload_groups
+WHERE name = 'etl_workload';
 ```
 
 ### Drop workload group

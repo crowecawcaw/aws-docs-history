@@ -67,6 +67,7 @@ Resource governor uses three fundamental concepts:
 
 Amazon RDS supports resource governor for the following SQL Server versions and editions in all AWS Regions where RDS for SQL Server is available:
 
+- SQL Server 2025 Standard, Developer, and Enterprise Editions
 - SQL Server 2022 Developer and Enterprise Editions
 - SQL Server 2019 Enterprise Edition
 - SQL Server 2017 Enterprise Edition
@@ -78,7 +79,8 @@ The following limitations and recommendations apply to resource governor:
 
 - Edition and service restrictions:
 
-  - Available only in SQL Server Enterprise Edition.
+  - Available in SQL Server Enterprise and Developer Editions for versions 2016 through 2025.
+    Starting with SQL Server 2025, resource governor is also available in Standard Edition.
   - Resource management is limited to the SQL Server Database Engine.
     Resource governor for Analysis Services, Integration Services, and Reporting Services are not supported.
 
@@ -102,6 +104,8 @@ The following limitations and recommendations apply to resource governor:
 
   - Workload group names starting with `rds_` aren't supported.
   - Internal workload group modification isn't permitted.
+  - The `@GROUP_MAX_TEMPDB_DATA_MB` and `@GROUP_MAX_TEMPDB_DATA_PERCENT` parameters are only
+    supported on SQL Server 2025 and above. Specifying these parameters on earlier versions returns an error.
   - For the default workload group:
 
     - Only the `REQUEST_MAX_MEMORY_GRANT_PERCENT` parameter can be modified.

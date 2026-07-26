@@ -52,10 +52,10 @@ When you use BYOM, you are responsible for:
 
 ## Supported editions and major versions
 
-| Edition                 | Major Versions                   |
-| ----------------------- | -------------------------------- |
-| Enterprise Edition (EE) | SQL Server 2019, SQL Server 2022 |
-| Standard Edition (SE)   | SQL Server 2019, SQL Server 2022 |
+| Edition                 | Major Versions                                    |
+| ----------------------- | ------------------------------------------------- |
+| Enterprise Edition (EE) | SQL Server 2019, SQL Server 2022, SQL Server 2025 |
+| Standard Edition (SE)   | SQL Server 2019, SQL Server 2022, SQL Server 2025 |
 
 ## Supported instance types
 
@@ -103,7 +103,7 @@ There is no additional charge for AWS License Manager. For pricing information, 
 
 ## Current limitations
 
-- **Major version upgrades** In-place major version upgrades are not supported. You cannot upgrade a BYOM instance from SQL Server 2019 to SQL Server 2022 directly. To move to a newer major version, create a new BYOM DB instance with the target version and migrate your data using native backup and restore.
+- **Major version upgrades** In-place major version upgrades are not supported. For example, you cannot upgrade a BYOM instance from SQL Server 2019 to SQL Server 2022 or SQL Server 2025 directly. To move to a newer major version, create a new BYOM DB instance with the target version and migrate your data using native backup and restore.
 - A BYOM engine version is specific to your AWS account and Region. Each account must create its own BYOM engine versions independently. Cross-account operations are currently not supported.
 - **Cross-region operations** BYOM engine versions are Region-specific. To perform cross-region operations, you must first create a BYOM engine version for the same engine version in the target Region. This applies to:
 
@@ -117,3 +117,4 @@ There is no additional charge for AWS License Manager. For pricing information, 
   - SQL Server Reporting Services (SSRS)
 
 - BYOM does not currently support SQL Server 2019 engine version `15.00.4043.16.v1`. To use BYOM with SQL Server 2019, choose a different supported engine version.
+- BYOM supports SQL Server 2025 Enterprise Edition and Standard Edition starting with version `17.00.4045.5.v1`.

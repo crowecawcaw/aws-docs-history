@@ -22,8 +22,8 @@ Before you create a BYOM DB instance, verify the following:
 6. For **Database management type**, choose **Amazon RDS**.
 7. For **Edition**, choose **SQL Server Standard Edition** or **SQL Server Enterprise Edition**.
 8. For **License model**, choose **BYOM (Bring Your Own Media)**.
-9. For **Major engine version**, choose the SQL Server version that matches your installation media (for example, 2022).
-10. For **Minor engine version**, choose the target minor version (for example, `16.00.4175.1.v1`).
+9. For **Major engine version**, choose the SQL Server version that matches your installation media (for example, 2022 or 2025).
+10. For **Minor engine version**, choose the target minor version (for example, `16.00.4175.1.v1` for SQL Server 2022, or `17.00.4045.5.v1` for SQL Server 2025).
 11. For **DB instance identifier**, enter a unique name for your DB instance.
 12. Configure the remaining settings (DB instance class, storage, connectivity, authentication, backups, and maintenance) as you would for a License Included instance.
 13. Choose **Create database**.
@@ -34,7 +34,7 @@ Use the `create-db-instance` command with `--license-model bring-your-own-media`
 ```
 aws rds create-db-instance \
     --engine sqlserver-ee \
-    --engine-version 16.00.4175.1.v1 \
+    --engine-version 17.00.4045.5.v1 \
     --license-model bring-your-own-media \
     --db-instance-identifier my-byom-instance \
     --db-instance-class db.m7i.xlarge \
@@ -58,7 +58,7 @@ In the response, confirm the following values:
 
 - `"LicenseModel": "bring-your-own-media"` — The instance uses your own SQL Server license.
 - `"Engine": "sqlserver-ee"` — The correct engine edition.
-- `"EngineVersion": "16.00.4175.1.v1"` — The target engine version.
+- `"EngineVersion": "17.00.4045.5.v1"` — The target engine version.
 
 ## Considerations
 

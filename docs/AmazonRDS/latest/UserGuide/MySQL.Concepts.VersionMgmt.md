@@ -13,6 +13,7 @@ version number changes—for example, going from version 8.0.32 to 8.0.34.
 - [Supported MySQL major versions on Amazon RDS](#MySQL.Concepts.VersionMgmt.ReleaseCalendar "#MySQL.Concepts.VersionMgmt.ReleaseCalendar")
 - [Amazon RDS Extended Support versions for RDS for MySQL](#mysql-extended-support-releases "#mysql-extended-support-releases")
 - [Working with the Database Preview environment](#mysql-working-with-the-database-preview-environment "#mysql-working-with-the-database-preview-environment")
+- [MySQL version 9.7 in the Database Preview environment](#mysql-preview-environment-version-9-7 "#mysql-preview-environment-version-9-7")
 - [MySQL version 9.6 in the Database Preview environment](#mysql-preview-environment-version-9-6 "#mysql-preview-environment-version-9-6")
 - [MySQL version 9.5 in the Database Preview environment](#mysql-preview-environment-version-9-5 "#mysql-preview-environment-version-9-5")
 - [Deprecated versions for Amazon RDS for MySQL](#MySQL.Concepts.DeprecatedVersions "#MySQL.Concepts.DeprecatedVersions")
@@ -758,6 +759,15 @@ rds-preview.us-east-2.amazonaws.com
 To create the RDS for MySQL DB instance, follow the same process that you
 would for creating any Amazon RDS DB instance. For more information, see the
 [RDS API](USER_CreateDBInstance.md#USER_CreateDBInstance.API "USER_CreateDBInstance.md#USER_CreateDBInstance.API") procedure in [Creating a DB instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Creating "USER_CreateDBInstance.md#USER_CreateDBInstance.Creating").
+
+## MySQL version 9.7 in the Database Preview environment
+
+MySQL version 9.7 is now available in the Amazon RDS Database Preview environment. MySQL
+version 9.7 contains several improvements that are described in [Changes in
+MySQL 9.7.0](https://dev.mysql.com/doc/relnotes/mysql/9.7/en/news-9-7-0.html "https://dev.mysql.com/doc/relnotes/mysql/9.7/en/news-9-7-0.html").
+
+For information on the Database Preview environment, see [Working with the Database Preview environment](#mysql-working-with-the-database-preview-environment "#mysql-working-with-the-database-preview-environment"). To access the
+Preview Environment from the console, select [https://console.aws.amazon.com/rds-preview/](https://console.aws.amazon.com/rds-preview/ "https://console.aws.amazon.com/rds-preview/").
 
 ## MySQL version 9.6 in the Database Preview environment
 

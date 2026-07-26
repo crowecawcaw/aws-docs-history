@@ -8,27 +8,45 @@ installation media imported into Amazon RDS. It is necessary to upload the base 
 When creating a CEV, you must follow specific naming conventions:
 
 - CEV name must follow the pattern `major-version.minor-version.customized-string`.
-- `customized-string` can contain 1-50 alphanumeric characters, underscores, dashes, and periods. For example: `16.00.4215.2.my-dev-cev` for SQL Server 2022.
+- `customized-string` can contain 1-50 alphanumeric characters, underscores, dashes, and periods. For example: `17.00.4045.5.my-dev-cev` for SQL Server 2025.
 
-To list all supported engine versions, use the following AWS CLI command:
+To list all supported engine versions for Developer Edition (Enterprise Edition capabilities), use the following AWS CLI command:
 
 ```
-aws rds describe-db-engine-versions --engine sqlserver-dev-ee --output json --query "{DBEngineVersions: DBEngineVersions[?Status=='requires-custom-engine-version'].{Engine: Engine, EngineVersion: EngineVersion, Status: Status, DBEngineVersionDescription: DBEngineVersionDescription}}"
+aws rds describe-db-engine-versions --engine sqlserver-dev-ee --output json --query "{DBEngineVersions: DBEngineVersions[?Status=='requires-custom-engine-version'].{Engine: Engine, EngineVersion: EngineVersion, Status: Status, DBEngineDescription: DBEngineDescription, DBEngineVersionDescription: DBEngineVersionDescription}}"
 
 {
     "DBEngineVersions": [
         {
             "Engine": "sqlserver-dev-ee",
-            "EngineVersion": "`16.00.4215.2.v1`",
+            "EngineVersion": "`17.00.4045.5.v1`",
             "Status": "requires-custom-engine-version",
             "DBEngineDescription": "Microsoft SQL Server Enterprise Developer Edition",
-            "DBEngineVersionDescription": "SQL Server 2022 16.00.4215.2.v1"
+            "DBEngineVersionDescription": "SQL Server 2025 17.00.4045.5.v1"
         }
     ]
 }
 ```
 
-###### To create the custom engine version
+To list all supported engine versions for Developer Edition (Standard Edition capabilities), use the following AWS CLI command:
+
+```
+aws rds describe-db-engine-versions --engine sqlserver-dev-se --output json --query "{DBEngineVersions: DBEngineVersions[?Status=='requires-custom-engine-version'].{Engine: Engine, EngineVersion: EngineVersion, Status: Status, DBEngineDescription: DBEngineDescription, DBEngineVersionDescription: DBEngineVersionDescription}}"
+
+{
+    "DBEngineVersions": [
+        {
+            "Engine": "sqlserver-dev-se",
+            "EngineVersion": "`17.00.4045.5.v1`",
+            "Status": "requires-custom-engine-version",
+            "DBEngineDescription": "Microsoft SQL Server Standard Developer Edition",
+            "DBEngineVersionDescription": "SQL Server 2025 17.00.4045.5.v1"
+        }
+    ]
+}
+```
+
+###### To create a custom engine version for Developer Edition (Enterprise Edition capabilities)
 
 - Use the [create-custom-db-engine-version](../../../cli/latest/reference/rds/create-custom-db-engine-version.md "../../../cli/latest/reference/rds/create-custom-db-engine-version.md") command.
 
@@ -49,21 +67,41 @@ You can also specify the following options:
 ```
 aws rds create-custom-db-engine-version \
 --engine sqlserver-dev-ee \
---engine-version `16.00.4215.2.cev-dev-ss2022-cu21` \
+--engine-version `17.00.4045.5.cev-dev-ss2025-cu5` \
 --region us-west-2 \
 --database-installation-files-s3-bucket-name my-s3-installation-media-bucket \
 --database-installation-files-s3-prefix sqlserver-dev-media \
---database-installation-files "SQLServer2022-x64-ENU-Dev.iso" "SQLServer2022-KB5065865-x64.exe"
+--database-installation-files "SQLServer2025-x64-ENU-EntDev.iso" "SQLServer2025-KB5084896-x64.exe"
+```
+
+###### To create a custom engine version for Developer Edition (Standard Edition capabilities)
+
+- Use the [create-custom-db-engine-version](../../../cli/latest/reference/rds/create-custom-db-engine-version.md "../../../cli/latest/reference/rds/create-custom-db-engine-version.md") command with `--engine sqlserver-dev-se`.
+
+```
+aws rds create-custom-db-engine-version \
+--engine sqlserver-dev-se \
+--engine-version `17.00.4045.5.cev-dev-se-ss2025-cu5` \
+--region us-west-2 \
+--database-installation-files-s3-bucket-name my-s3-installation-media-bucket \
+--database-installation-files-s3-prefix sqlserver-dev-media \
+--database-installation-files "SQLServer2025-x64-ENU-StdDev.iso" "SQLServer2025-KB5084896-x64.exe"
 ```
 
 CEV creation typically takes 15-30 minutes. To monitor the CEV
 creation progress, use the following command:
 
 ```
-# Check CEV status
+# For Developer Edition (Enterprise Edition capabilities)
 aws rds describe-db-engine-versions \
 --engine sqlserver-dev-ee \
---engine-version `16.00.4215.2.my-dev-cev` \
+--engine-version `17.00.4045.5.my-dev-cev` \
+--region us-west-2
+
+# For Developer Edition (Standard Edition capabilities)
+aws rds describe-db-engine-versions \
+--engine sqlserver-dev-se \
+--engine-version `17.00.4045.5.my-dev-se-cev` \
 --region us-west-2
 ```
 
@@ -88,20 +126,22 @@ You can see the state of your CEVs using the AWS CLI:
 ```
 aws rds describe-db-engine-versions \
 --engine sqlserver-dev-ee \
---engine-version `16.00.4215.2.my-dev-cev` \
+--engine-version `17.00.4045.5.my-dev-cev` \
 --region us-west-2 \
 --query 'DBEngineVersions[0].{Version:EngineVersion,Status:Status}'
 ```
 
+For Developer Edition (Standard Edition capabilities), replace `sqlserver-dev-ee` with `sqlserver-dev-se`.
+
 Sample output
 
 ```
-| DescribeDBEngineVersions                     |
-+------------+---------------------------------+
-| Status | Version                             |
-+------------+---------------------------------+
-| available | 16.00.4215.2.cev-dev-ss2022-cu21    |
-+------------+---------------------------------+
+| DescribeDBEngineVersions                          |
++------------+--------------------------------------+
+| Status | Version                                  |
++------------+--------------------------------------+
+| available | 17.00.4045.5.cev-dev-ss2025-cu5         |
++------------+--------------------------------------+
 ```
 
 When a CEV shows `failed` status, you can determine the reason using the following command:
@@ -109,7 +149,7 @@ When a CEV shows `failed` status, you can determine the reason using the followi
 ```
 aws rds describe-db-engine-versions \
 --engine sqlserver-dev-ee \
---engine-version `16.00.4215.2.my-dev-cev` \
+--engine-version `17.00.4045.5.my-dev-cev` \
 --region us-west-2 \
 --query 'DBEngineVersions[0].{Version:EngineVersion,Status:Status,FailureReason:FailureReason}'
 ```

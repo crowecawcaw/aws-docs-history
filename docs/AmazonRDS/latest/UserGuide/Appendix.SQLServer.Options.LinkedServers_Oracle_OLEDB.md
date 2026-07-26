@@ -37,6 +37,7 @@ linked servers with Oracle OLEDB, you can:
 RDS for SQL Server supports linked servers with Oracle OLEDB in all Regions for SQL Server Standard
 and Enterprise Editions on the following versions:
 
+- SQL Server 2025, all versions
 - SQL Server 2022, all versions
 - SQL Server 2019, all versions
 - SQL Server 2017, all versions

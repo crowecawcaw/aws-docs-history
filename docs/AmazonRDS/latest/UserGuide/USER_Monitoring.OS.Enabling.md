@@ -87,11 +87,17 @@ actions in the **Databases** page:
 3. Set the **Monitoring Role** property to the IAM role that you created to permit Amazon RDS to
    communicate with Amazon CloudWatch Logs for you, or choose **Default** to have RDS create a role for you
    named `rds-monitoring-role`.
-4. Set the **Granularity** property to the interval, in seconds, between points when
-   metrics are collected for your DB instance or
-   read replica. The **Granularity** property can
-   be set to one of the following values: `1`, `5`, `10`, `15`,
-   `30`, or `60`.
+
+###### Note
+
+If role manager is enabled in your account, Amazon RDS attaches the role for you, and the role options
+described here are replaced by a **Customize** option. To use a different role,
+choose **Customize**. For more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 4. Set the **Granularity** property to the interval, in seconds, between points when
+metrics are collected for your DB instance or
+read replica. The **Granularity** property can
+be set to one of the following values: `1`, `5`, `10`, `15`,
+`30`, or `60`.
 
 The fastest that the RDS console refreshes is every 5 seconds. If you set the granularity to 1 second in
 the RDS console, you still see updated metrics only every 5 seconds. You can retrieve 1-second metric updates

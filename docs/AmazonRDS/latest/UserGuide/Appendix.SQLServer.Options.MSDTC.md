@@ -46,7 +46,7 @@ The following limitations apply to using MSDTC on RDS for SQL Server:
   maintains this functionality for domain-joined instances. However, for standalone instances make sure to configure the
   DNS server manually.
 - Java Database Connectivity (JDBC) XA transactions are supported for SQL Server 2017 version 14.00.3223.3 and
-  higher, and SQL Server 2019.
+  higher, SQL Server 2019, SQL Server 2022, and SQL Server 2025.
 - Distributed transactions that depend on client dynamic link libraries (DLLs) on RDS
   instances aren't supported.
 - Using custom XA dynamic link libraries isn't supported.

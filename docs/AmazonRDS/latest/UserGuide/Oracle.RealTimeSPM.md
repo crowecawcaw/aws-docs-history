@@ -145,7 +145,7 @@ Consider the following when you use real-time SQL plan management:
 - Real-time SQL plan management operates transparently. You don't need to
   change your application code.
 - SQL plan baselines consume space in the SYSAUX tablespace. Monitor SYSAUX
-  usage after you enable the feature.
+  usage after you turn on the feature.
 - The parameter values passed to `DBMS_SPM.CONFIGURE` (such as
   `'AUTO'` and `'OFF'`) are case-sensitive. Use uppercase
   values.

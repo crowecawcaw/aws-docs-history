@@ -21,6 +21,10 @@ RDS supports SSIS for SQL Server Standard and Enterprise Editions on the followi
 - SQL Server 2017, version 14.00.3223.3.v1 and higher
 - SQL Server 2016, version 13.00.5426.0.v1 and higher
 
+###### Note
+
+Amazon RDS doesn't support SSIS for SQL Server 2025. Support is planned for a future release.
+
 ###### Contents
 
 - [Limitations and recommendations](Appendix.SQLServer.Options.SSIS.md#SSIS.Limitations "Appendix.SQLServer.Options.SSIS.md#SSIS.Limitations")

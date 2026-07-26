@@ -5,6 +5,7 @@ TDE automatically encrypts data before it is written to storage, and automatical
 
 Amazon RDS supports TDE for the following SQL Server versions and editions:
 
+- SQL Server 2025 Standard and Enterprise Editions
 - SQL Server 2022 Standard and Enterprise Editions
 - SQL Server 2019 Standard and Enterprise Editions
 - SQL Server 2017 Enterprise Edition

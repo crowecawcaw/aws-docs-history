@@ -2,8 +2,10 @@
 
 The following Microsoft SQL Server features aren't supported on Amazon RDS:
 
+- Azure Arc–enabled features
 - Backing up to Microsoft Azure Blob Storage
 - Buffer pool extension
+- Change event streaming
 - Custom password policies
 - Data Quality Services
 - Database Log Shipping
@@ -41,3 +43,7 @@ The following Microsoft SQL Server features aren't supported on Amazon RDS:
 - Backup compression offloading with QAT
 - SQL Server Analysis Services (SSAS)
 - Database mirroring with Multi-AZ deployments. SQL Server Always On is the only supported method with Multi-AZ deployments.
+  The following features aren't supported on Amazon RDS with SQL Server 2025. In addition, all features listed as unsupported for SQL Server 2022 also apply to SQL Server 2025.
+
+- ZSTD backup compression
+- SQL Server Integration Services (SSIS)

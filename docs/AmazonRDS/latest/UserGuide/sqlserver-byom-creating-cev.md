@@ -64,7 +64,7 @@ Use `describe-db-engine-versions` to verify which engine versions are eligible f
    - SQL Server Enterprise Edition
    - SQL Server Standard Edition
 
-8. For **Engine version**, choose the SQL Server version that matches your installation files (for example, SQL Server 2022 `16.00.4175.1.v1`).
+8. For **Engine version**, choose the SQL Server version that matches your installation files (for example, SQL Server 2022 `16.00.4175.1.v1` or SQL Server 2025 `17.00.4045.5.v1`).
 9. For **Installation media**, enter the S3 URI that contains your SQL Server RTM media, or choose **Browse S3** to locate and select the file.
 10. Choose **Create custom engine version**.
     The console displays the new BYOM engine version with an initial status of **Pending validation**. The status progresses automatically. For more information, see [BYOM engine version lifecycle states](#sqlserver-byom-creating-cev.lifecycle "#sqlserver-byom-creating-cev.lifecycle").

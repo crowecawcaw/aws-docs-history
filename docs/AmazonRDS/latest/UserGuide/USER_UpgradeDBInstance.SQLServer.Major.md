@@ -2,14 +2,15 @@
 
 Amazon RDS currently supports the following major version upgrades to a Microsoft SQL Server DB instance.
 
-You can upgrade your existing DB instance to SQL Server 2017 or 2019 from any version except SQL Server 2008. To upgrade from SQL
+You can upgrade your existing DB instance to SQL Server 2017, 2019, 2022, or 2025 from any version except SQL Server 2008. To upgrade from SQL
 Server 2008, first upgrade to one of the other versions.
 
-| Current version | Supported upgrade versions                            |
-| --------------- | ----------------------------------------------------- |
-| SQL Server 2019 | SQL Server 2022                                       |
-| SQL Server 2017 | SQL Server 2022<br>SQL Server 2019                    |
-| SQL Server 2016 | SQL Server 2022<br>SQL Server 2019<br>SQL Server 2017 |
+| Current version | Supported upgrade versions                                               |
+| --------------- | ------------------------------------------------------------------------ |
+| SQL Server 2022 | SQL Server 2025                                                          |
+| SQL Server 2019 | SQL Server 2025<br>SQL Server 2022                                       |
+| SQL Server 2017 | SQL Server 2025<br>SQL Server 2022<br>SQL Server 2019                    |
+| SQL Server 2016 | SQL Server 2025<br>SQL Server 2022<br>SQL Server 2019<br>SQL Server 2017 |
 
 You can use an AWS CLI query, such as the following example, to find the available upgrades for a particular database engine
 version.

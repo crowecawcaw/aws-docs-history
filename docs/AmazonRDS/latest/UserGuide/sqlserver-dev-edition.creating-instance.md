@@ -4,11 +4,11 @@ Launching Developer Edition instance on RDS for SQL Server follows a two-step pr
 
 **Key differences for Developer Edition instance creation**
 
-| Parameter          | Developer Edition                                              |
-| ------------------ | -------------------------------------------------------------- |
-| `--engine`         | sqlserver-dev-ee                                               |
-| `--engine-version` | Custom engine version (e.g., 16.00.4215.2.cev-dev-ss2022-cu21) |
-| `--license-model`  | bring-your-own-license                                         |
+| Parameter          | Developer Edition                                                                                                                |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| `--engine`         | `sqlserver-dev-ee` (Enterprise Edition capabilities) or `sqlserver-dev-se` (Standard Edition capabilities, SQL Server 2025 only) |
+| `--engine-version` | Custom engine version (e.g., `17.00.4045.5.cev-dev-ss2025-cu5`)                                                                  |
+| `--license-model`  | bring-your-own-license                                                                                                           |
 
 To create a SQL Server Developer Edition DB instance, use the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") command with the following parameters:
 
@@ -16,7 +16,7 @@ The following options are required:
 
 - `--db-instance-identifier`
 - `--db-instance-class`
-- `--engine` – `sqlserver-dev-ee`
+- `--engine` – `sqlserver-dev-ee` (Enterprise Edition capabilities) or `sqlserver-dev-se` (Standard Edition capabilities, SQL Server 2025 only)
 - `--region`
   **Examples:**
 
@@ -27,12 +27,11 @@ aws rds create-db-instance \
 --db-instance-identifier my-dev-sqlserver \
 --db-instance-class db.m6i.xlarge \
 --engine sqlserver-dev-ee \
---engine-version `16.00.4215.2.my-dev-cev` \
+--engine-version `17.00.4045.5.cev-dev-ss2025-cu5` \
 --allocated-storage 200 \
 --master-username admin \
 --master-user-password `changeThisPassword` \
 --license-model bring-your-own-license \
---no-multi-az \
 --vpc-security-group-ids `sg-xxxxxxxxx` \
 --db-subnet-group-name `my-db-subnet-group` \
 --backup-retention-period 7 \
@@ -46,16 +45,19 @@ aws rds create-db-instance ^
 --db-instance-identifier my-dev-sqlserver ^
 --db-instance-class db.m6i.xlarge ^
 --engine sqlserver-dev-ee ^
---engine-version `16.00.4215.2.cev-dev-ss2022-cu21` ^
+--engine-version `17.00.4045.5.cev-dev-ss2025-cu5` ^
 --allocated-storage 200 ^
 --master-username admin ^
 --master-user-password `master_user_password` ^
 --license-model bring-your-own-license ^
---no-multi-az ^
 --vpc-security-group-ids `sg-xxxxxxxxx` ^
 --db-subnet-group-name `my-db-subnet-group` ^
 --backup-retention-period 7 ^
 --region us-west-2
 ```
+
+###### Note
+
+For Developer Edition (Standard Edition capabilities), use `--engine sqlserver-dev-se` with a `sqlserver-dev-se` CEV version.
 
 Refer to [Creating a DB instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Creating "USER_CreateDBInstance.md#USER_CreateDBInstance.Creating") to create using the AWS console.

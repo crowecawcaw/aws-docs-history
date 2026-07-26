@@ -23,6 +23,10 @@ Amazon RDS supports SSAS for SQL Server Standard and Enterprise Editions on the 
   - SQL Server 2017, version 14.00.3381.3.v1 and higher
   - SQL Server 2016, version 13.00.5882.1.v1 and higher
 
+###### Note
+
+Amazon RDS doesn't support SSAS for SQL Server 2025. Support is planned for a future release.
+
 ###### Contents
 
 - [Limitations](Appendix.SQLServer.Options.SSAS.md#SSAS.Limitations "Appendix.SQLServer.Options.SSAS.md#SSAS.Limitations")

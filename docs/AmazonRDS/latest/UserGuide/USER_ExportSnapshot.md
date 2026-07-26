@@ -374,7 +374,12 @@ chosen S3 bucket, or create a new role.
      role** to create the role automatically. Next, enter a name for the role in **IAM
      role name**.
 
-10. For **AWS KMS key**, enter the ARN for the key to use for encrypting the
+###### Note
+
+If role manager is enabled in your account, Amazon RDS attaches the role for you, and the role options
+described here are replaced by a **Customize** option. To use a different role,
+choose **Customize**. For more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 10. For **AWS KMS key**, enter the ARN for the key to use for encrypting the
 exported data. 11. Choose **Export to Amazon S3**.
 To export a DB snapshot to Amazon S3 using the AWS CLI, use the [start-export-task](../../../cli/latest/reference/rds/start-export-task.md "../../../cli/latest/reference/rds/start-export-task.md") command with the following required
 options:

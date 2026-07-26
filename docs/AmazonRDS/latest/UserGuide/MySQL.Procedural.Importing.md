@@ -362,7 +362,12 @@ access your Amazon S3 bucket. Perform one of the following actions:
     * Choose an existing IAM role. Make sure that this role meets
      all of the criteria in [Creating an IAM role manually](#MySQL.Procedural.Importing.Enabling.IAM "#MySQL.Procedural.Importing.Enabling.IAM").
 
-8. Specify your DB instance information. For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md").
+###### Note
+
+If role manager is enabled in your account, Amazon RDS attaches the role for you, and the role options
+described here are replaced by a **Customize** option. To use a different role,
+choose **Customize**. For more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 8. Specify your DB instance information. For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md").
 
 ###### Note
 

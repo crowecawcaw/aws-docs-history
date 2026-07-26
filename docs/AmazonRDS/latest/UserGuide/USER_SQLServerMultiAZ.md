@@ -21,6 +21,11 @@ on the version of SQL Server that you deploy.
 Amazon RDS supports Multi-AZ with Always On AGs for the following SQL Server versions and
 editions:
 
+- SQL Server 2025:
+
+  - Standard Edition
+  - Enterprise Edition
+
 - SQL Server 2022:
 
   - Standard Edition

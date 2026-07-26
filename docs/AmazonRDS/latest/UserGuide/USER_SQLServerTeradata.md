@@ -25,6 +25,7 @@ Use linked-servers with Teradata ODBC to enable the following capabilities:
 
 RDS for SQL Server supports linked servers with Teradata ODBC in all AWS Regions for SQL Server Standard and Enterprise Edition for the following versions:
 
+- SQL Server 2025, all versions
 - SQL Server 2022, all versions
 - SQL Server 2019, all versions
 - SQL Server 2017, all versions
