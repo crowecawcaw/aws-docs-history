@@ -39,7 +39,7 @@ To review the system overview:
 2. Review the **Run summary** section, which shows the job ID, start time, status, and duration.
 3. Review the **Severity level** chart, which shows a breakdown of threats by severity (Critical, High, Medium, Low) with counts and percentages.
 4. Review the **Threat categories** chart, which shows how many threats fall into each STRIDE category (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege).
-5. Scroll down to the **System overview** section to read the agent’s full analysis.
+5. In the **System overview** section, read the agent’s full analysis.
 
 ###### Tip
 

@@ -39,7 +39,7 @@ Navigate to the threat modeling section in the web application.
 
 1. Log in to the AWS Security Agent web application.
 2. In the left sidebar, choose **Threat models**.
-3. You’ll see a list of existing threat models with their title, latest run status, and threat counts by severity.
+3. You see a list of existing threat models with their title, latest run status, and threat counts by severity.
 
 ## Create a threat model
 
@@ -109,7 +109,7 @@ The service role must have permissions to access your source code in S3 and writ
 1. Review your configuration.
 2. Choose **Create threat model**.
 
-You’ll be redirected to the threat model detail page where you can start a run.
+You are redirected to the threat model detail page where you can start a run.
 
 ## Run a threat model
 

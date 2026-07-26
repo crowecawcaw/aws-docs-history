@@ -132,9 +132,9 @@ AWS Security Agent requires an IAM role to access your AWS resources (VPC, Cloud
 
 4. If using an existing role:
 
-   1. Click the dropdown menu under **Choose an existing role**
+   1. Choose the dropdown menu under **Choose an existing role**
    2. Select your IAM role from the list
-   3. Click the refresh icon to update the list if needed
+   3. Choose the refresh icon to update the list if needed
 
 ###### Note
 
@@ -145,8 +145,8 @@ The default IAM role includes permissions for accessing VPC resources, CloudWatc
 After configuring all required settings, enable penetration testing for your AWS Security Agent agent.
 
 1. Review all configuration sections to ensure accuracy.
-2. Click **Save** at the bottom of the page.
-3. AWS Security Agent will validate your configuration and create the necessary AWS resources.
+2. Choose **Save**.
+3. AWS Security Agent validates your configuration and creates the necessary AWS resources.
 
 ## Next steps
 

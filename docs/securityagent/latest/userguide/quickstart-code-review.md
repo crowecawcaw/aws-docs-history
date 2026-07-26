@@ -18,7 +18,7 @@ If you haven’t already set up AWS Security Agent, complete the initial setup:
    - This quickstart does not cover enabling single sign-on (SSO) with IAM Identity Center. This allows users to directly access the AWS Security Agent web application, from the AWS Console.
    - If you want to enable users without AWS Management Console Access to perform tasks such as starting a penetration test or design review, you should enable the IAM Identity Center integration.
 
-5. Click **Set up AWS Security Agent**.
+5. Choose **Set up AWS Security Agent**.
 
 ###### Note
 
@@ -78,8 +78,8 @@ If you already have GitHub repositories or S3 buckets connected to your Agent Sp
 You create and run code reviews only in the AWS Security Agent web application.
 
 1. Select the **Web app** tab and then **Admin access** to launch the AWS Security Agent web application. Alternatively, if you have IAM Identity Center configured, log in directly.
-2. In the left sidebar, click **Code reviews**.
-3. Click **Create code review**.
+2. In the left sidebar, choose **Code reviews**.
+3. Choose **Create code review**.
 4. Configure the code review:
 
    1. Enter a **Title** that identifies the scope of this review (for example, "billing-service-security-review").
@@ -87,8 +87,8 @@ You create and run code reviews only in the AWS Security Agent web application.
    3. Select the **Service role** from your configured roles.
    4. (Optional) Select **Enable automatic code remediation** to have AWS Security Agent automatically submit pull requests with fixes for all findings.
 
-5. Click **Create code review**.
-6. On the code review detail page, click **Start review**.
+5. Choose **Create code review**.
+6. On the code review detail page, choose **Start review**.
 
 ## Step 4: Review code review findings
 

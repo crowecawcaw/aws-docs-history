@@ -25,7 +25,7 @@ Navigate to the threat modeling configuration for your Agent Space.
 1. In the AWS Security Agent console, select your Agent Space.
 2. Choose **Configure threat model** from the **Threat model** card, or from the **Threat model** tab.
 
-You’ll be directed to the **Configure threat model** wizard, which has two optional steps.
+You are directed to the **Configure threat model** wizard, which has two optional steps.
 
 ## Step 1: Connect source code repositories (optional)
 

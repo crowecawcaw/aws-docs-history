@@ -25,7 +25,7 @@ The penetration test details page displays a summary of test status, completion 
 
 ## Step 2: Monitor test progress
 
-Track the progress of your penetration test run using the step indicator at the top of the page.
+Track the progress of your penetration test run using the step indicator.
 
 1. Locate the horizontal step indicator below the page header.
 2. Review the status of each testing phase:
@@ -50,7 +50,7 @@ Each step displays a status indicator (Complete, In progress, or Pending). Findi
 Access detailed logs of all actions AWS Security Agent executed during the pentest.
 
 1. The actions are categorized by action type and risk-types.
-2. Click on a specific action to view detailed logs:
+2. Select a specific action to view detailed logs:
 
    - **Testing Summary** – High-level summary of the agent actions and results
    - **Penetration test logs** – Detailed logs of all testing activities
@@ -96,8 +96,8 @@ Prioritize findings with **Critical** or **High** severity badges and **High** c
 
 Select individual findings to view comprehensive information about each vulnerability.
 
-1. Click on a finding name in the left panel to display its details in the right panel.
-2. Review the validation status at the top of the details panel:
+1. Select a finding name in the left panel to display its details in the right panel.
+2. Review the validation status:
 
 ###### Note
 
@@ -105,7 +105,7 @@ If a finding displays the Unknown "This finding is not validated by AWS Security
 
     * **Agent confidence** – The confidence level AWS Security Agent has in this finding
     * **Severity** – The risk level with a color-coded badge
-    * **Finding logs** – Click "Trace actions & logs" to view detailed execution logs and evidence
+    * **Finding logs** – Choose "Trace actions & logs" to view detailed execution logs and evidence
     * **Risk type** – The category or type of security risk (e.g., Authentication Bypass, SQL Injection)
 
 4. Expand the **Description** section to read:
@@ -258,7 +258,7 @@ For **Critical** and **High** severity findings with **High** confidence:
 3. Access ready-to-implement code fixes through one of these methods:
 
    - For automatic remediation: Use the pull request link in the remediation section
-   - For manual requests: Click 'Remediation Code' on the findings page to request a pull request
+   - For manual requests: Choose 'Remediation Code' on the findings page to request a pull request
      **Prerequisites:**
    - Admin must enable code remediation for GitHub repositories in the AWS Security Agent console
    - Repositories must be included in your pentest configuration

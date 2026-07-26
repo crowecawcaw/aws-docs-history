@@ -20,7 +20,7 @@ Navigate to your completed code review run to view the summary and findings.
 
 ## Step 2: Monitor run progress
 
-Track the progress of your code review run using the step indicator at the top of the run detail page.
+Track the progress of your code review run using the step indicator.
 
 1. Locate the horizontal step indicator below the page header.
 2. Review the status of each phase:
@@ -98,8 +98,8 @@ By default, you see only findings with **High** agent confidence. To also show f
 
 Select individual findings to view comprehensive information about each vulnerability.
 
-1. Click on a finding in the left panel to display its details in the right panel.
-2. Review the available actions at the top of the detail panel:
+1. Select a finding in the left panel to display its details in the right panel.
+2. Review the available actions:
 
    - **Resolve finding** – Mark the finding as resolved after you’ve addressed it
    - **Remediate code** – Generate a pull request with a fix (available for GitHub sources)

@@ -70,7 +70,7 @@ In order to run a penetration test with a VPC, your agent space service role mus
 
 1. Navigate to the Penetration Tests overview page
 2. Select the penetration test that you need to add VPC configuration for, and then choose **Modify pentest details**
-3. Select **Next** at the bottom of the page to reach the **VPC Resources** section
+3. Select **Next** to reach the **VPC Resources** section
 4. Select the **VPC**, **Subnet**, and **Security groups**
 5. Select **Next** to reach the last section and **Save** the penetration test
 

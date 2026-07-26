@@ -80,12 +80,12 @@ Authorize the AWS Security Agent GitHub App to access your GitHub organization o
 Complete all steps in this process without closing your browser or navigating away. If the registration process is interrupted, you may need to uninstall the GitHub App and start over.
 
 1. In the AWS Security Agent Management Console, navigate to **Integrations**.
-2. Click **Add integration**.
+2. Choose **Add integration**.
 3. Select **GitHub**.
-4. Click **Next**.
-5. Click **Install and authorize**.
+4. Choose **Next**.
+5. Choose **Install and authorize**.
 
-You’ll be redirected to GitHub to complete the authorization. Ensure you’re logged into GitHub with an account that has admin access to the organization or user account you want to connect. 6. In GitHub, select the account or organization where you want to install the AWS Security Agent GitHub App. 7. Select which repositories AWS Security Agent can access:
+You are redirected to GitHub to complete the authorization. Ensure you’re logged into GitHub with an account that has admin access to the organization or user account you want to connect. 6. In GitHub, select the account or organization where you want to install the AWS Security Agent GitHub App. 7. Select which repositories AWS Security Agent can access:
 
     * **All repositories** - Grant access to all current and future repositories in the organization or user account
     * **Only select repositories** - Choose specific repositories from the dropdown. You can select multiple repositories one at a time.
@@ -95,7 +95,7 @@ You’ll be redirected to GitHub to complete the authorization. Ensure you’re 
 
     You can modify repository access at any time by visiting the GitHub App settings in your GitHub organization or user account settings.
 
-8. Click **Install and authorize**. 9. You’ll be redirected back to the AWS Management Console to complete the registration. 10. In the **Registration details** section, configure the following fields:
+8. Choose **Install and authorize**. 9. You are redirected back to the AWS Management Console to complete the registration. 10. In the **Registration details** section, configure the following fields:
 
     1. **Registration name** - Enter a descriptive name for this GitHub connection. Use a name that identifies the GitHub organization or user account, such as "Acme-Corp-Org" or "Production-Repos".
     2. **Account type** - Select one of the following from the dropdown:
@@ -107,7 +107,7 @@ You’ll be redirected to GitHub to complete the authorization. Ensure you’re 
     	* **User** - If you connected a personal GitHub user account
     3. **Organization name** (appears only if you selected Organization) - Enter the exact name of your GitHub organization as it appears in GitHub.
 
-11. Click **Connect**. 12. You’ll see a confirmation message and return to the Integrations page, where your new GitHub connection appears with its registration name. To connect additional GitHub organizations or user accounts, repeat this process by clicking **Add integration** again.
+11. Choose **Connect**. 12. You see a confirmation message and return to the Integrations page, where your new GitHub connection appears with its registration name. To connect additional GitHub organizations or user accounts, repeat this process by choosing **Add integration** again.
 
 ## Troubleshoot GitHub integration
 
@@ -143,6 +143,6 @@ A GitHub App can only be installed once to a GitHub account or GitHub organizati
 After connecting GitHub to AWS Security Agent:
 
 - Navigate to the Agent Space where you want to use these repositories
-- Click **Enable code review** or **Setup penetration testing** to connect specific repositories to your Agent Space and configure their usage
+- Choose **Enable code review** or **Setup penetration testing** to connect specific repositories to your Agent Space and configure their usage
 - Enable automated remediation to allow AWS Security Agent to submit pull requests with vulnerability fixes
 - Review GitHub App permissions and repository access in your GitHub organization settings

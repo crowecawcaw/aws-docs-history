@@ -13,7 +13,7 @@ Find solutions to commonly seen errors when using AWS Security Agent.
 2. Go back to the integrations page and restart the integration process by clicking on `Add Integrations`, install and authorize the app into your desired GitHub organization once again.
 3. Select `Organization` from the dropdown of `GitHub account type`
 4. Make sure the `Organization Name` you input is the EXACT same as the one you installed the application into.
-5. Click the Connect button to create your GitHub organization integration.
+5. Choose **Connect** to create your GitHub organization integration.
 
 ## Access Denied: Insufficient permissions to install GitHub App into organization
 
@@ -25,8 +25,8 @@ When you attempt to install the AWS Security Agent application into your desired
 You can verify whether you are a `Member` or an `Owner` of the GitHub organization by following the below steps.
 
 1. Go to [github.com](https://github.com "https://github.com")
-2. Click on your profile in the top right of the website
-3. Navigate to `Organizations` on the dropdown menu and click it
+2. Choose your profile on the website
+3. Navigate to `Organizations` on the dropdown menu and choose it
 4. Find the organization you wish to install AWS Security Agent into from the list of organizations, it will specify whether you are a `Member` or an `Owner` next to the organization name.
 
 Possible solutions:

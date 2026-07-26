@@ -17,7 +17,7 @@ Before you begin, ensure you have:
 
 - Target domains can be reused between agent spaces and share verification status
 
-  - To add an existing target domain to an agent space, navigate to the **Penetration test** tab of the agent space. Select **Add domain** and click the desired domain under **Select from available previously registered domains** in the domain name field
+  - To add an existing target domain to an agent space, navigate to the **Penetration test** tab of the agent space. Select **Add domain** and choose the desired domain under **Select from available previously registered domains** in the domain name field
   - Target domains must be associated with an agent space before they can be used in a penetration test
 
 - Removing a domain from an agent space does not delete the domain. The associated target domain can be permanently deleted from the Target Domains overview page

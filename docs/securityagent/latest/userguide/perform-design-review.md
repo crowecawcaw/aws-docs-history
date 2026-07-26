@@ -21,11 +21,11 @@ Navigate to the design review creation page in the Agent Web App.
 
 1. Log in to the AWS Security Agent web application.
 2. Navigate to the **Design reviews** section.
-3. Click **Create Design Review**.
+3. Choose **Create Design Review**.
 
 ###### Tip
 
-You can view your organization’s enabled security requirements by navigating to the **Security requirements** page in the AWS Security Agent console. Click on any enabled requirement to view its details. These requirements are used to analyze your design files.
+You can view your organization’s enabled security requirements by navigating to the **Security requirements** page in the AWS Security Agent console. Select any enabled requirement to view its details. These requirements are used to analyze your design files.
 
 ## Step 2: Name your design review
 
@@ -49,7 +49,7 @@ Upload the design documents you want AWS Security Agent to analyze for security 
 A maximum of 5 files may be uploaded per design review. Each file must be 2MB or smaller, with a combined total of 6MB across all files. Supported formats: DOC, DOCX, JPEG, MD, PDF, PNG and TXT. 2. Upload your files using one of these methods:
 
     1. **Drag and drop** – Drag files directly into the file dropzone area
-    2. **Browse** – Click **Choose files** to browse and select files from your computer
+    2. **Browse** – Use the **Choose files** button to browse and select files from your computer
 
 3. Verify that all required files are uploaded.
 
@@ -62,12 +62,12 @@ For best results, include architecture diagrams, design specifications, and tech
 After configuring all required information, initiate the security analysis of your design documents.
 
 1. Review all uploaded files and settings to ensure accuracy.
-2. Click **Start design review** at the bottom of the page.
-3. AWS Security Agent will analyze your design documents against enabled security requirements.
+2. Choose **Start design review**.
+3. AWS Security Agent analyzes your design documents against enabled security requirements.
 
 ###### Note
 
-The design review process typically completes within minutes, depending on the number and size of files uploaded. You’ll receive security findings based on your organization’s security requirements.
+The design review process typically completes within minutes, depending on the number and size of files uploaded. You receive security findings based on your organization’s security requirements.
 
 ## Next steps
 

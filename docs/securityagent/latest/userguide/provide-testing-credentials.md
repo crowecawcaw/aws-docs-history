@@ -26,7 +26,7 @@ If you select **Advanced setting**, you can choose from three credential strateg
 4. (Optional) In the **2FA - optional** field, provide a TOTP secret for applications that require two-factor authentication. You can either:
 
    - Enter the TOTP secret directly (for example, `JBSWY3DPEHPK3PXP`), or enter the full `otpauth://totp/` URI (for example, `otpauth://totp/Example:user@example.com?secret=JBSWY3DPEHPK3PXP&issuer=Example`).
-   - Click the upload icon to upload a QR code image from your authenticator app setup page. The QR code is scanned locally and the TOTP URI is extracted automatically.
+   - Choose the upload icon to upload a QR code image from your authenticator app setup page. The QR code is scanned locally and the TOTP URI is extracted automatically.
 
    When a TOTP secret is provided, the agent automatically generates fresh one-time codes and enters them when a 2FA prompt is detected during login.
 
@@ -98,9 +98,9 @@ The agent invokes your Lambda function and receives its output as credentials. U
 
 To test different user roles or authentication systems:
 
-1. Click **Add another credential**.
+1. Choose **Add another credential**.
 2. Configure the additional credential using either input method.
-3. To remove a credential, click **Remove** in the credential section.
+3. To remove a credential, choose **Remove** in the credential section.
 
 ## Login Optimization
 

@@ -28,7 +28,7 @@ Each Agent Space contains:
 Create a new Agent Space for an application or project you want to secure.
 
 1. In the AWS Security Agent console, navigate to the **Agent Spaces** page.
-2. Click **Create Agent Space**.
+2. Choose **Create Agent Space**.
 3. In the **Agent Space name** field, enter a name for your Agent Space.
 
 ###### Note
@@ -37,7 +37,7 @@ The Agent Space name is displayed to users in the web application and helps iden
 
 ###### Tip
 
-The description helps distinguish the Agent Space’s purpose. We recommend describing the specific application or project this Agent Space will secure, such as "Customer portal web application" or "Payment processing microservices" or "Internal analytics platform." 5. Click **Create**.
+The description helps distinguish the Agent Space’s purpose. We recommend describing the specific application or project this Agent Space will secure, such as "Customer portal web application" or "Payment processing microservices" or "Internal analytics platform." 5. Choose **Create**.
 
 ###### Note
 

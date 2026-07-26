@@ -25,7 +25,7 @@ Navigate to the code reviews section in the web application.
 
 1. Log in to the AWS Security Agent web application.
 2. In the left sidebar, choose **Code reviews**.
-3. You’ll see a list of existing code reviews with their source information, last run status, and findings summary.
+3. You see a list of existing code reviews with their source information, last run status, and findings summary.
 
 ## Create a code review
 
@@ -153,7 +153,7 @@ If your application requires network access to domains not on this list, the con
 1. Review your configuration to ensure accuracy.
 2. Choose **Create code review**.
 
-You’ll be redirected to the code review detail page where you can start a review run.
+You are redirected to the code review detail page where you can start a review run.
 
 ## Run a code review
 
@@ -170,7 +170,7 @@ Track the progress of your code review as it executes.
 
 ### Review run phases
 
-A code review run progresses through the following phases, displayed as a progress indicator at the top of the run detail page:
+A code review run progresses through the following phases, displayed as a progress indicator:
 
 1. **Preflight** – AWS Security Agent validates access to your source code and sets up the testing environment. The preflight checks include:
 

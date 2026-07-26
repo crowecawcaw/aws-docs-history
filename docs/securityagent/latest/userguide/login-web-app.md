@@ -44,7 +44,7 @@ Bookmark this URL for easy access. This is the universal entry point to view all
 1. Log into the AWS Management Console.
 2. Navigate to the AWS Security Agent console.
 3. Navigate to the Agent Space you want to access.
-4. Click one of the following:
+4. Choose one of the following:
 
    - **Launch web application** button on the Agent Space overview page
    - **Launch web app** button in the Code review section
@@ -75,7 +75,7 @@ Choose one of the following methods:
 1. Log into the AWS Management Console.
 2. Navigate to the AWS Security Agent console.
 3. Navigate to the Agent Space you want to access.
-4. Click the **Admin access** button on the Agent Space overview page.
+4. Choose the **Admin access** button on the Agent Space overview page.
 5. The web application opens in a new tab with automatic authentication for that Agent Space.
 
 ###### Note

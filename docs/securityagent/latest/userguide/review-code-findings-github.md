@@ -22,7 +22,7 @@ AWS Security Agent provides different types of results depending on what it find
 
 If AWS Security Agent identifies security issues in your code changes, it posts a review that includes:
 
-- **Summary** - A high-level overview of all security findings at the top of the review, describing the types of issues identified and their potential impact
+- **Summary** - A high-level overview of all security findings, describing the types of issues identified and their potential impact
 - **Individual findings** - Detailed security findings appear as threaded comments under the main review, with each finding including:
 
   - Description of the security issue

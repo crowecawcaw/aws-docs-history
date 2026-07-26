@@ -30,14 +30,14 @@ Navigate to the code review setup for your Agent Space.
 1. In the AWS Security Agent console, select your Agent Space.
 2. Choose **Enable code review** from one of the following locations:
 
-   - The **Code review** card at the top of the Agent Space page
+   - The **Code review** card
    - The **Code review** tab, then choose **Enable code review**
 
 ###### Tip
 
 If you would like AWS Security Agent to address code review feedback automatically, enable **Code remediation** as well. See [Enable users to start remediation of penetration test and code review findings](enable-remediate-findings.md "enable-remediate-findings.md") for details.
 
-You’ll be directed to the **Setup code review configurations** wizard.
+You are directed to the **Setup code review configurations** wizard.
 
 ## Step 1: Connect integrations, repos, and buckets
 

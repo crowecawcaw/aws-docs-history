@@ -21,7 +21,7 @@ Navigate to the penetration test creation page in the Agent Web App.
 
 1. Log in to the AWS Security Agent web application.
 2. Navigate to the **Penetration tests** section.
-3. Click **Create a penetration test**.
+3. Choose **Create a penetration test**.
 
 ###### Tip
 
@@ -47,16 +47,16 @@ Specify the verified domains that will be actively tested for security vulnerabi
 
 1. In the **Penetration test scope** section, locate **Target URLs**.
 2. Expand the **Verified domains** section to view available domains.
-3. Click in the **Target URL** field and enter a target domain URL.
+3. In the **Target URL** field, enter a target domain URL.
 
 ###### Important
 
 Only verified domains can be tested. The URL must be under a domain you’ve previously verified in AWS Security Agent. Sub-domains of a verified domain do not require separate verification. 4. To add multiple target domains:
 
-    1. Click **Add domain**.
+    1. Choose **Add domain**.
     2. Enter each additional domain URL.
 
-5. To remove a target domain, click **Remove** next to the domain URL.
+5. To remove a target domain, choose **Remove** next to the domain URL.
 
 ###### Tip
 
@@ -67,7 +67,7 @@ For best results, include all domains that are part of your application’s user
 Choose specific risk categories to exclude from testing if they’re not applicable to your application.
 
 1. Locate the **Exclude risk types** field.
-2. Click the dropdown to view available risk types.
+2. Choose the dropdown to view available risk types.
 3. Select one or more risk types to exclude from the penetration test.
 
 ###### Note
@@ -79,52 +79,52 @@ Excluding risk types limits the scope of testing. Only exclude risk types that a
 Specify URL paths that should not be tested during the penetration test. AWS Security Agent excludes the specified path and all paths nested beneath it. For example, if you add `https://example.com/admin` as an out-of-scope URL, `https://example.com/admin/tools` is also out-of-scope.
 
 1. Locate the **Out-of-scope URLs** section.
-2. Click in the input field and enter a URL path to exclude (for example, `/admin/delete` or `/api/reset`).
+2. In the **Out-of-scope URLs** input field, enter a URL path to exclude (for example, `/admin/delete` or `/api/reset`).
 
 ###### Warning
 
-Out-of-scope paths will not be tested for vulnerabilities. Ensure you only exclude paths that should not be accessed during testing, such as destructive operations or sensitive administrative functions. 3. To add multiple out-of-scope paths:
+Out-of-scope paths are not tested for vulnerabilities. Make sure you exclude only paths that should not be accessed during testing, such as destructive operations or sensitive administrative functions. 3. To add multiple out-of-scope paths:
 
-    1. Click **Add URL**.
+    1. Choose **Add URL**.
     2. Enter each additional path.
 
-4. To remove a path, click **Remove** next to the path.
+4. To remove a path, choose **Remove** next to the path.
 
 ### Add accessible domains (optional)
 
 Specify domains that are required for the test but are not targets for vulnerability testing.
 
 1. Locate the **Accessible URLs** section.
-2. Click in the input field and enter a domain that should be accessible during testing.
+2. In the **Accessible URLs** input field, enter a domain that should be accessible during testing.
 
 ###### Note
 
 Add accessible domains for third-party services (such as Okta, Auth0, Stripe) that are outside your target domain. This is required so AWS Security Agent can access these URLs for login and navigation during testing. AWS Security Agent does NOT penetration test these domains—they are used solely for access purposes. Accessible domains do not require ownership verification, even if they belong to a different domain than your target. Only target domains require verified ownership. 3. To add multiple accessible domains:
 
-    1. Click **Add URL**.
+    1. Choose **Add URL**.
     2. Enter each additional domain.
 
-4. To remove a domain, click **Remove** next to the domain.
+4. To remove a domain, choose **Remove** next to the domain.
 
 ### Add custom HTTP headers (optional)
 
 Specify custom HTTP headers that will be added to any requests made by AWS Security Agent during penetration testing.
 
 1. Locate the **Custom HTTP headers** section.
-2. Click in the input field and enter a header name and value that will be associated with outbound requests.
+2. In the **Custom HTTP headers** input field, enter a header name and value that will be associated with outbound requests.
 
 ###### Note
 
-By default, AWS Security Agent will add a custom header for **User-Agent** set to **securityagent** unless a different custom **User-Agent** header value is specified. 3. To add multiple custom headers:
+By default, AWS Security Agent adds a custom header for **User-Agent** set to **securityagent** unless a different custom **User-Agent** header value is specified. 3. To add multiple custom headers:
 
-    1. Click **Add header**.
+    1. Choose **Add header**.
     2. Enter each additional custom header.
 
-4. To remove a custom header, click **Remove** next to the header.
+4. To remove a custom header, choose **Remove** next to the header.
 
 ## Configure IAM Role
 
-Select the pre-configured service role for this penetration test. AWS Security Agent uses an Agent Space-based permission model where administrators configure IAM roles when setting up your Agent Space. You’ll select from roles that are already configured and ready to use.
+Select the pre-configured service role for this penetration test. AWS Security Agent uses an Agent Space-based permission model where administrators configure IAM roles when setting up your Agent Space. You select from roles that are already configured and ready to use.
 
 1. In the **Permissions** section, locate the **Service roles** dropdown.
 2. Select the IAM role that grants AWS Security Agent access to required AWS resources.
@@ -223,15 +223,15 @@ Provide instructions to guide AWS Security Agent through your application’s au
 
 ###### Note
 
-The agent login prompt tells the agent how to apply your credentials to your application. This is useful for complex authentication flows, multi-step login processes, or applications with non-standard login procedures. Include step-by-step instructions such as "Navigate to /login, enter username in the 'Email' field, enter password, and click 'Sign In'."
+The agent login prompt tells the agent how to apply your credentials to your application. This is useful for complex authentication flows, multi-step login processes, or applications with non-standard login procedures. Include step-by-step instructions such as "Navigate to /login, enter username in the 'Email' field, enter password, and choose 'Sign In'."
 
 ### Add multiple credentials (optional)
 
 If your application requires multiple sets of credentials or different domains need separate authentication, add additional credential sets.
 
-1. After completing the first credential configuration, click **Add another credential**.
+1. After completing the first credential configuration, choose **Add another credential**.
 2. Repeat the credential configuration steps for each additional credential set.
-3. To remove a credential set, click **Remove** next to the credential header.
+3. To remove a credential set, choose **Remove** next to the credential header.
 
 ###### Tip
 
@@ -251,8 +251,8 @@ Select existing resources or upload new files that will help guide the penetrati
 
 1. In the **Connected resources** section, you can:
 
-   - Click **Select from available** to choose from resources already connected to AWS Security Agent (such as GitHub repositories or S3 buckets).
-   - Click **Upload** to add new files directly from your local system.
+   - Choose **Select from available** to choose from resources already connected to AWS Security Agent (such as GitHub repositories or S3 buckets).
+   - Choose **Upload** to add new files directly from your local system.
 
 ###### Tip
 
@@ -262,7 +262,7 @@ Useful resources include API documentation, architecture diagrams, OpenAPI/Swagg
 
 Choose from resources that are already integrated with AWS Security Agent.
 
-1. Click **Select from existing resources**.
+1. Choose **Select from existing resources**.
 2. Browse the list of available resources from connected sources such as:
 
    - GitHub repositories, under the **GitHub repositories tab**
@@ -271,7 +271,7 @@ Choose from resources that are already integrated with AWS Security Agent.
    - Documentation repositories
 
 3. Select the resources you want to include in the penetration test.
-4. Click **Add to penetration test** to attach the selected resources.
+4. Choose **Add to penetration test** to attach the selected resources.
 
 ###### Example
 
@@ -289,14 +289,14 @@ If you have a private VPC associated with your pentest and a GitHub repository c
 
 Upload files directly from your local system or provide plain text content to AWS Security Agent.
 
-1. Click **Upload**.
+1. Choose **Upload**.
 2. Choose one of the following input methods:
 
    - **Upload local files** - Select one or more files from your local system.
-   - **Paste plain text** - Type or paste text content directly into the input field. Click **Upload**.
+   - **Paste plain text** - Type or paste text content directly into the input field. Choose **Upload**.
 
-3. Then click **Add** to complete uploading.
-4. The uploaded resources will appear in the **Connected resources** table.
+3. Then choose **Add** to complete uploading.
+4. The uploaded resources appear in the **Connected resources** table.
 
 ###### Tip
 
@@ -308,7 +308,7 @@ Ensure uploaded files and pasted content do not contain sensitive information su
 
 ### Connect existing resources
 
-Existing resources can be from what you’ve previously uploaded to AWS Security Agent, from your S3 bucket, and your integrated GitHub repositories. Click **Select from existing resources** to select them.
+Existing resources can be from what you’ve previously uploaded to AWS Security Agent, from your S3 bucket, and your integrated GitHub repositories. Choose **Select from existing resources** to select them.
 
 ### Manage connected resources
 
@@ -322,7 +322,7 @@ The **Connected resources** table displays all resources included in the penetra
 To manage resources:
 
 1. Select one or more resources using the checkboxes.
-2. Click **Remove from penetration test** to detach selected resources.
+2. Choose **Remove from penetration test** to detach selected resources.
 
 ###### Note
 
@@ -337,9 +337,9 @@ After configuring all settings, you’re ready to create the penetration test.
 1. Review all configuration sections to ensure accuracy.
 2. Choose one of the following options:
 
-   - Click **Create penetration** to save the configuration without running it immediately.
-   - Click **Create and execute** to save the configuration and immediately start the penetration test.
-   - Click **Cancel** to discard the penetration test configuration.
+   - Choose **Create penetration** to save the configuration without running it immediately.
+   - Choose **Create and execute** to save the configuration and immediately start the penetration test.
+   - Choose **Cancel** to discard the penetration test configuration.
 
 ###### Important
 
