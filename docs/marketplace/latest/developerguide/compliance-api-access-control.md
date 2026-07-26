@@ -25,6 +25,7 @@ seller](../userguide/user-guide-for-sellers.md "../userguide/user-guide-for-sell
 - [Granting permission to manage tags on resources](#compliance-grant-permission-manage-tags "#compliance-grant-permission-manage-tags")
 - [Granting permission to manage tags on resources only when those resources have specific tags](#compliance-grant-permission-manage-tags-specific-tags "#compliance-grant-permission-manage-tags-specific-tags")
 - [Requiring tags when starting invoice submission tasks](#compliance-requiring-tags-when-starting-tasks "#compliance-requiring-tags-when-starting-tasks")
+- [Requiring tags when starting tax compliance profile change tasks](#compliance-requiring-tags-when-starting-tcp-tasks "#compliance-requiring-tags-when-starting-tcp-tasks")
 - [Verification evidence operations](#compliance-verification-verification-evidence-operations "#compliance-verification-verification-evidence-operations")
 
 ## Allowing actions with AWS managed policies
@@ -56,6 +57,12 @@ resource types:
 - **VerificationEvidence** – Contains verification
   data for a specific verification category and
   subject being verified.
+- **TaxComplianceProfile** – A tax compliance
+  profile that represents a seller's compliance configuration for a specific
+  jurisdiction.
+- **TaxComplianceProfileChangeTask** – A task that
+  tracks the asynchronous processing of a tax compliance profile create or update
+  request.
 
 To allow a user or role full access to invoice submission task operations, you can add
 the following IAM policy. With this policy, the user or role can use all invoice
@@ -115,6 +122,27 @@ the following IAM policy.
         "aws-marketplace:StartVerification",
         "aws-marketplace:GetVerification",
         "aws-marketplace:ListVerifications"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+To allow a user or role full access to tax compliance profile operations, you can add
+the following IAM policy.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "aws-marketplace:StartTaxComplianceProfileChangeTask",
+        "aws-marketplace:ListTaxComplianceProfileChangeTasks",
+        "aws-marketplace:GetTaxComplianceProfile",
+        "aws-marketplace:ListTaxComplianceProfiles"
       ],
       "Resource": "*"
     }
@@ -185,6 +213,26 @@ specific verification evidence resource.
       ],
       "Resource": [
         "arn:aws:aws-marketplace:us-east-1:`123456789012`:verification-type/business-verification/verification-evidence/`evidence-a1b2c3d4e5f6g`"
+      ]
+    }
+  ]
+}
+```
+
+The following example allows the `GetTaxComplianceProfile` action on a
+specific tax compliance profile.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "aws-marketplace:GetTaxComplianceProfile"
+      ],
+      "Resource": [
+        "arn:aws:aws-marketplace:us-east-1:`123456789012`:tax-compliance-profile/`tcp-a1b2c3d4e5f6g`"
       ]
     }
   ]
@@ -270,10 +318,35 @@ any verification evidence resource (`"*"`) that has a tag key of
 }
 ```
 
+Similarly, the following IAM policy allows the
+`GetTaxComplianceProfile` action on any tax compliance profile resource
+(`"*"`) that has a tag key of `Department` and tag value of
+`Tax`.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "aws-marketplace:GetTaxComplianceProfile"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceTag/Department": "Tax"
+        }
+      }
+    }
+  ]
+}
+```
+
 ## Managing tags on resources
 
 You can add, list, and remove tags from existing Compliance API resources such as
-invoice submission tasks and issued tax invoices.
+invoice submission tasks, issued tax invoices, and tax compliance profiles.
 
 ### Add tags to resources
 
@@ -438,6 +511,37 @@ You can enforce tagging when invoice submission tasks are created by using the
         "ForAllValues:StringEquals": {
           "aws:TagKeys": [
             "product-team"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+## Requiring tags when starting tax compliance profile change tasks
+
+You can enforce tagging when tax compliance profile change tasks are created by using the
+`aws:RequestTag` and `aws:TagKeys` condition keys with the
+`StartTaxComplianceProfileChangeTask` action.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "aws-marketplace:StartTaxComplianceProfileChangeTask"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestTag/RequiresApproval": "true"
+        },
+        "ForAllValues:StringEquals": {
+          "aws:TagKeys": [
+            "RequiresApproval"
           ]
         }
       }
