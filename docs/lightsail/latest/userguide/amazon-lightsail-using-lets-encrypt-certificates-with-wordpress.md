@@ -20,10 +20,10 @@ If your instance uses the WordPress blueprint packaged by Lightsail, see
 
 ###### Tip
 
-Amazon Lightsail offers a guided workflow that automates the installation and configuration
-of a Let's Encrypt certificate on your WordPress instance. We highly recommend that you use
-the workflow instead of following the manual steps in this tutorial. For more information, see
-[Launch and
+Amazon Lightsail offers a guided workflow that automates the installation, configuration,
+and renewal of a Let's Encrypt certificate on your WordPress instance. We highly recommend
+that you use the workflow instead of following the manual steps in this tutorial. For more
+information, see [Launch and
 configure a WordPress instance](amazon-lightsail-launch-and-configure-wordpress.md "amazon-lightsail-launch-and-configure-wordpress.md").
 
 Lightsail makes it easy to secure your websites and applications with SSL/TLS using
@@ -252,7 +252,7 @@ sudo certbot -d $DOMAIN -d $WILDCARD --manual --preferred-challenges dns certonl
 
 4. Enter your email address when prompted, because it’s used for renewal and security
    notices.
-5. Read the Let’s Encrypt terms of service. When done, press A if you agree. If you
+5. Read the Let’s Encrypt terms of service. When done, press Y if you agree. If you
    disagree, you cannot obtain a Let’s Encrypt certificate.
 6. Respond accordingly to the prompt to share your email address and to the warning about
    your IP address being logged.
@@ -532,10 +532,10 @@ For more information, see [Getting the
 application user name and password for your Bitnami instance in
 Amazon Lightsail](log-in-to-your-bitnami-application-running-on-amazon-lightsail.md "log-in-to-your-bitnami-application-running-on-amazon-lightsail.md"). 3. Choose **Plugins** from the left navigation pane. 4. Choose **Add New** from the top of the Plugins page.
 
-![Add a new plug-in in WordPress.](images/amazon-lightsail-wordpress-add-new-plugin.png) 5. Search for **Really Simple SSL**. 6. Choose **Install Now** next to the Really Simple SSL plug-in in the
+![Add a new plug-in in WordPress.](images/instances/lets-encrypt/amazon-lightsail-wordpress-add-new-plugin.png) 5. Search for **Really Simple SSL**. 6. Choose **Install Now** next to the Really Simple SSL plug-in in the
 search results.
 
-![The Really Simple SSL plug-in for WordPress.](images/amazon-lightsail-wordpress-really-simple-ssl-plugin.png) 7. After it’s done installing, choose **Activate**. 8. In the prompt that appears, choose **Go ahead, activate SSL!** You
+![The Really Simple SSL plug-in for WordPress.](images/instances/lets-encrypt/amazon-lightsail-wordpress-really-simple-ssl-plugin.png) 7. After it’s done installing, choose **Activate**. 8. In the prompt that appears, choose **Go ahead, activate SSL!** You
 may be redirected to the sign in page for the administration dashboard of your WordPress
 instance.
 
@@ -543,7 +543,25 @@ Your WordPress instance is now configured to use SSL encryption. Additionally, y
 WordPress instance is now configured to automatically redirect connections from HTTP to
 HTTPS. When a visitor goes to `http://example.com`, they are automatically
 redirected to the encrypted HTTPS connection (i.e.,
-`https://example.com`).
+`https://example.com`). 9. Go back to the Lightsail browser-based SSH session for your WordPress instance and
+enter the following command to restore restrictive permissions on your configuration files.
+These files contain database credentials and security keys that should not be left
+world-readable.
+
+    * For newer instances that use the Debian Linux distribution:
+
+
+
+    ```
+    sudo chmod 640 /opt/bitnami/wordpress/wp-config.php && sudo chmod 640 /opt/bitnami/apache/conf/vhosts/htaccess/wordpress-htaccess.conf
+    ```
+    * For older instances that use the Ubuntu Linux distribution:
+
+
+
+    ```
+    sudo chmod 640 /opt/bitnami/apps/wordpress/htdocs/wp-config.php && sudo chmod 640 /opt/bitnami/apps/wordpress/conf/htaccess.conf
+    ```
 
 ## Step 9: Renew the Let's Encrypt certificates every 90 days
 
@@ -551,3 +569,10 @@ Let’s Encrypt certificates are valid for 90 days. Certificates can be renewed 
 before they expire. To renew the Let's Encrypt certificates, run the original command used to
 obtain them. Repeat the steps in the [Request a Let’s Encrypt
 SSL wildcard certificate](#request-a-lets-encrypt-certificate-wordpress "#request-a-lets-encrypt-certificate-wordpress") section of this tutorial.
+
+###### Note
+
+The Amazon Lightsail guided workflow handles certificate renewal automatically. To avoid
+renewing certificates manually, switch to the guided workflow. For more information, see
+[Launch and configure a
+WordPress instance](amazon-lightsail-launch-and-configure-wordpress.md "amazon-lightsail-launch-and-configure-wordpress.md").

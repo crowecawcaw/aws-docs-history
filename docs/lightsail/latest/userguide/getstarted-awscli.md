@@ -275,8 +275,8 @@ permitted by applicable law.
       |___/_|\__|_|_|\__,_|_|_|_|_|
 
   *** Welcome to the Bitnami package for WordPress 6.7.2           ***
-  *** Documentation:  https://docs.bitnami.com/aws/apps/wordpress/ ***
-  ***                 https://docs.bitnami.com/aws/                ***
+  *** Documentation:  https://docs.bitnami.com/general/apps/wordpress/ ***
+  ***                 https://docs.bitnami.com/general/                ***
   *** Bitnami Forums: https://github.com/bitnami/vms/              ***
 
 bitnami@ip-172-26-6-136:~$ df

@@ -35,7 +35,7 @@ After you enable IPv6, a public IPv6 address is assigned to your instance,
 and the IPv6 firewall becomes available.
 
 ![Lightsail IPv6 firewall showing applications, protocols, ports, and IPv6 address restrictions.](images/lightsail-ipv6-firewall.png) 5. Take note of the instance's **Public IPv4** and
-**Public IPv6** addresses at the top of the page.
+**Public IPv6** addresses.
 You will use them in the following sections.
 
 [Show moreShow less](# "#")

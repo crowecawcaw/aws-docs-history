@@ -101,8 +101,8 @@ section later in this guide.
 ![Public IP address of an instance](images/quick-start-public-ip.png) 2. Browse to the public IP address of your instance, for example by going to
 `http://203.0.113.0`.
 
-The home page of your WordPress website should appear. 3. Choose **Manage** in the bottom right corner of your
-WordPress website home page.
+The home page of your WordPress website should appear. 3. On your WordPress website home page, choose the
+**Manage** banner.
 
 If the **Manage** banner is not shown, you can reach the sign
 in page by browsing to
@@ -208,7 +208,7 @@ Bitnami
 
 Read the Bitnami documentation to learn how to configure your WordPress Multisite
 instance. For more information, see the [WordPress Multisite
-Packaged By Bitnami For AWS Cloud](https://docs.bitnami.com/aws/apps/wordpress-multisite/ "https://docs.bitnami.com/aws/apps/wordpress-multisite/").
+Packaged By Bitnami For AWS Cloud](https://docs.bitnami.com/general/apps/wordpress-multisite/ "https://docs.bitnami.com/general/apps/wordpress-multisite/").
 
 ###### Step 2: Get the default application password to access the WordPress administration
 
@@ -321,8 +321,8 @@ section later in this guide.
 ![Public IP address of an instance](images/quick-start-public-ip.png) 2. Browse to the public IP address of your instance, for example by going to
 `http://203.0.113.0`.
 
-The home page of your WordPress website should appear. 3. Choose **Manage** in the bottom right corner of your
-WordPress website home page.
+The home page of your WordPress website should appear. 3. On your WordPress website home page, choose the
+**Manage** banner.
 
 If the **Manage** banner is not shown, you can reach the sign
 in page by browsing to

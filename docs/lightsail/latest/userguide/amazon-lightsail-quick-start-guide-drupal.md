@@ -35,7 +35,7 @@ running on Amazon Lightsail:
 
 Read the Bitnami documentation to learn how to configure your Drupal application. For
 more information, see the [Drupal
-Packaged By Bitnami For AWS Cloud](https://docs.bitnami.com/aws/apps/drupal/ "https://docs.bitnami.com/aws/apps/drupal/").
+Packaged By Bitnami For AWS Cloud](https://docs.bitnami.com/general/apps/drupal/ "https://docs.bitnami.com/general/apps/drupal/").
 
 ## Step 2: Get the default application password to access the Drupal administration dashboard
 
@@ -91,8 +91,8 @@ guide.
 ![Public IP address of an instance](images/quick-start-public-ip.png) 2. Browse to the public IP address of your instance, for example by going to
 `http://203.0.113.0`.
 
-The home page of your Drupal website should appear. 3. Choose **Manage** in the bottom right corner of your Drupal
-website home page.
+The home page of your Drupal website should appear. 3. On your Drupal
+website home page, choose the **Manage** banner.
 
 If the **Manage** banner is not shown, you can reach the sign
 in page by browsing to
@@ -129,9 +129,7 @@ website](#amazon-lightsail-https-drupal "#amazon-lightsail-https-drupal") sectio
 Complete the following procedure to configure HTTPS on your Drupal website. These
 steps show you how to use the Bitnami HTTPS Configuration Tool
 (`bncert-tool`), which is a command line tool for requesting Let's Encrypt
-SSL/TLS certificates. For more information see [Learn About The Bitnami
-HTTPS Configuration Tool](https://docs.bitnami.com/aws/how-to/understand-bncert/ "https://docs.bitnami.com/aws/how-to/understand-bncert/") in the _Bitnami
-documentation_.
+SSL/TLS certificates.
 
 ###### Important
 

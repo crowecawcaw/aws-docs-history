@@ -53,7 +53,7 @@ Lightsail database.
 3. Note of the name and AWS Region for the database instance that you want to
    upgrade.
 
-![The name and Region of the new database instance in the Lightsail console.](images/mysql80-upgrade-dbname-endpoint.png) 4. In the lower left corner of the Lightsail console, choose
+![The name and Region of the new database instance in the Lightsail console.](images/mysql80-upgrade-dbname-endpoint.png) 4. On the Console Toolbar, choose
 **CloudShell**. A CloudShell terminal will open in
 the same browser tab. When the command prompt displays, the shell is ready for
 interaction. 5. Enter the following command at the CloudShell prompt to get a list of

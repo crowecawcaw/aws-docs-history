@@ -174,7 +174,7 @@ user interface might present warnings about the mismatch.
 
 1. Access the Plesk user interface using the new public IP address that is assigned. For example, `https://192.0.2.0:8443`.
 2. Authenticate using the sign in credentials that you created previously in [Step 2: Sign in to the Plesk user interface for the first time](#sign-in-to-plesk-ui "#sign-in-to-plesk-ui").
-3. In the bottom-left corner of the Plesk user interface, choose **Change View**, then choose **Switch to Power User view**.
+3. In the Plesk user interface, choose **Change View**, then choose **Switch to Power User view**.
 4. In the left navigation pane of the Plesk user interface, choose **Tools & Settings**.
 5. Under **Tools & Resources**, choose **IP Addresses**.
 6. Choose **Update public IPs**.

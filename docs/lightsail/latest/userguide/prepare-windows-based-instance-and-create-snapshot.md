@@ -48,7 +48,7 @@ create an instance from the snapshot you created before running Sysprep.
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
 2. On the Lightsail home page, choose the name of the Windows Server instance for which
    you want to create a snapshot.
-3. Choose **Stop** at the top of the instance management page to stop
+3. Choose **Stop** on the instance management page to stop
    your instance.
 
 ![Stop your Windows Server instance before creating a snapshot.](images/amazon-lightsail-stop-a-windows-instance.png)
@@ -69,7 +69,7 @@ Resource names:
 
 6. Choose **Create**. 7. At the prompt, choose **Create snapshot** again to confirm.
 
-The snapshot process takes a few minutes to complete. 8. After the snapshot is created, choose **Start** at the top of the
+The snapshot process takes a few minutes to complete. 8. After the snapshot is created, choose **Start** on the
 instance management page to start your instance again.
 
 ## Step 2: Connect to your instance and shut it down using Sysprep
@@ -133,7 +133,7 @@ Resource names:
 4. Choose **Create**. 5. At the prompt, choose **Create snapshot** to confirm that you
 prepared the instance for the snapshot.
 
-The snapshot process takes a few minutes to complete. 6. After the snapshot is created, choose **Start** at the top of the
+The snapshot process takes a few minutes to complete. 6. After the snapshot is created, choose **Start** on the
 instance management page to start your instance again.
 
 At this point, you should have two snapshots of your Windows Server instance as shown

@@ -37,8 +37,8 @@ similar, but the steps will be different.
 
 **Google Chrome**
 
-1. In the browser, at the top right, choose **Customize and control Google
-   Chrome**.
+1. In the browser, choose the **Customize and control Google
+   Chrome** menu.
 
 ![Google Chrome customize and control menu.](images/amazon-lightsail-har-tutorial-chrome.png) 2. Pause on **More tools**, and then choose **Developer
 tools**. 3. With DevTools open in the browser, choose the **Network**
@@ -50,8 +50,8 @@ DevTools](https://developers.google.com/web/tools/chrome-devtools/open "https://
 
 **Microsoft Edge (Chromium)**
 
-1. In the browser, at the top right, choose **Settings and
-   more**.
+1. In the browser, choose the **Settings and
+   more** menu.
 
 ![Microsoft Edge settings and more menu.](images/amazon-lightsail-har-tutorial-edge.png) 2. Pause on **More tools**, and then choose **Developer
 tools**. 3. With DevTools open in the browser, choose the **Network**
@@ -60,7 +60,7 @@ file.
 
 **Mozilla Firefox**
 
-1. In the browser, at the top right, choose **Open Application
+1. In the browser, choose **Open Application
    Menu**.
 
 ![Mozilla Firefox open application menu.](images/amazon-lightsail-har-tutorial-firefox.png) 2. Choose **More tools**, and then choose **Web Developer

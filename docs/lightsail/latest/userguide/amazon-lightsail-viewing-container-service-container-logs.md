@@ -58,14 +58,12 @@ versions, if any. 5. Choose one of the following options to view container logs:
      **Version details** page that appears, choose Open log for the
      container entries that are listed.
 
-The container log opens in a new browser window. You can scroll down to view more log
-entries, and refresh the page to load the newest set of entries. The filtering options are
-displayed at the bottom of the page.
+The container log opens in a new browser window. The filtering options are
+displayed in the **Filtering** section of the page.
 
 ###### Note
 
-Log entries are displayed in ascending order, and in Coordinated Universal Time
-(UTC). That is, the oldest log entries are at the top, and you must scroll down to see
-newer log entries.
+Log entries are displayed in ascending chronological order and in Coordinated Universal Time
+(UTC). That is, the oldest log entries appear first.
 
 ![Container log in the Lightsail console](images/container-service-container-log.png)

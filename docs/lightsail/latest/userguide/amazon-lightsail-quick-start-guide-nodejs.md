@@ -176,7 +176,7 @@ Read the Bitnami documentation to learn how to deploy your Node.js application, 
 support with SSL certificates, upload files to the server with SFTP, and more.
 
 For more information, see the [Bitnami Node.js for
-AWS Cloud](https://docs.bitnami.com/aws/infrastructure/nodejs/ "https://docs.bitnami.com/aws/infrastructure/nodejs/").
+AWS Cloud](https://docs.bitnami.com/general/infrastructure/nodejs/ "https://docs.bitnami.com/general/infrastructure/nodejs/").
 
 ###### Step 5: Create a snapshot of your
 

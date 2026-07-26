@@ -35,7 +35,7 @@ running on Amazon Lightsail:
 ## Step 1: Read the Bitnami documentation
 
 Read the Bitnami documentation to learn how to configure your Redmine application. For
-more information, see the [Redmine Packaged By Bitnami For AWS Cloud](https://docs.bitnami.com/aws/apps/redmine/ "https://docs.bitnami.com/aws/apps/redmine/").
+more information, see the [Redmine Packaged By Bitnami For AWS Cloud](https://docs.bitnami.com/general/apps/redmine/ "https://docs.bitnami.com/general/apps/redmine/").
 
 ## Step 2: Get the default application password to access the Redmine administration dashboard
 
@@ -92,8 +92,8 @@ later in this guide.
 ![Public IP address of an instance](images/quick-start-public-ip.png) 2. Browse to the public IP address of your instance, for example by going to
 `http://203.0.113.0`.
 
-The home page of your Redmine website should appear. 3. Choose **Manage** in the bottom right corner of your Redmine
-website home page.
+The home page of your Redmine website should appear. 3. On your Redmine
+website home page, choose the **Manage** banner.
 
 If the **Manage** banner is not shown, you can reach the sign
 in page by browsing to
@@ -130,9 +130,7 @@ website](#amazon-lightsail-https-redmine "#amazon-lightsail-https-redmine") sect
 Complete the following procedure to configure HTTPS on your Redmine website. These
 steps show you how to use the Bitnami HTTPS Configuration Tool
 (`bncert-tool`), which is a command line tool for requesting Let's Encrypt
-SSL/TLS certificates. For more information see [Learn About The Bitnami
-HTTPS Configuration Tool](https://docs.bitnami.com/aws/how-to/understand-bncert/ "https://docs.bitnami.com/aws/how-to/understand-bncert/") in the _Bitnami
-documentation_.
+SSL/TLS certificates.
 
 ###### Important
 

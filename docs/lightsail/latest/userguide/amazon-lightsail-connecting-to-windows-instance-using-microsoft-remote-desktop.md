@@ -46,7 +46,7 @@ Mac, and configure it to connect to your instance.
    choose **GET** to install the application.
 
 ![The Microsoft Remote Desktop application.](images/connect-using-remote-desktop-mac-03.png) 3. Open **Microsoft Remote Desktop** after the installation is
-complete. 4. At the top, choose the **plus (+)** icon, and choose
+complete. 4. Choose the **plus (+)** icon, and choose
 **Add PC**.
 
 ![The Add PC option in the Microsoft Remote Desktop application.](images/connect-using-remote-desktop-mac-04.png) 5. In the **PC name** text box, paste the public IP address of your

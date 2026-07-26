@@ -209,7 +209,7 @@ Read the Bitnami documentation to learn how to deploy your Nginx application, en
 support with SSL certificates, upload files to the server with SFTP, and more.
 
 For more information, see the [Bitnami Nginx for
-AWS Cloud](https://docs.bitnami.com/aws/infrastructure/nginx/ "https://docs.bitnami.com/aws/infrastructure/nginx/").
+AWS Cloud](https://docs.bitnami.com/general/infrastructure/nginx/ "https://docs.bitnami.com/general/infrastructure/nginx/").
 
 ###### Step 6: Create a snapshot of your
 

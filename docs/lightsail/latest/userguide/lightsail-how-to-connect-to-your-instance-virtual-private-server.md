@@ -52,7 +52,7 @@ SSH.
 
 1. Highlight text in your local desktop, then press **Ctrl+C** or
    **Cmd+C** to copy it to your local clipboard.
-2. In the bottom right corner of the browser-based SSH client, choose the clipboard icon.
+2. Choose the clipboard icon in the browser-based SSH client.
    The browser-based SSH client clipboard text box appears.
 3. Click into the text box, then press **Ctrl+V** or
    **Cmd+V** to paste the contents from your local clipboard into the
@@ -65,7 +65,7 @@ SSH.
 ###### To copy text from the browser-based SSH client
 
 1. Highlight text on the terminal screen.
-2. In the bottom right corner of the browser-based SSH client, choose the clipboard icon.
+2. Choose the clipboard icon in the browser-based SSH client.
    The browser-based SSH client clipboard text box appears.
 3. Highlight the text that you want to copy, then press **Ctrl+C** or
    **Cmd+C** to copy the text to your local clipboard. You can now paste

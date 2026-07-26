@@ -105,7 +105,7 @@ The Bitnami application home page opens. The home page displays according to the
 Bitnami blueprint you chose for your instance. For example, this is the WordPress
 application home page:
 
-![The Bitnami application home page for WordPress.](images/amazon-lightsail-bitnami-application-home-page.png) 2. Choose the Bitnami logo at the bottom right corner of the application home page to go
+![The Bitnami application home page for WordPress.](images/amazon-lightsail-bitnami-application-home-page.png) 2. On the application home page, choose the Bitnami logo to go
 to the application information page.
 
 ###### Note
@@ -125,28 +125,25 @@ In**.
 ## Next steps
 
 Use the following links to learn more about the Bitnami blueprints and view their
-tutorials. For example, you can [install plugins](https://docs.bitnami.com/aws/apps/wordpress/#how-to-install-a-plugin-on-wordpress "https://docs.bitnami.com/aws/apps/wordpress/#how-to-install-a-plugin-on-wordpress") or [enable HTTPS support with SSL certificates](https://docs.bitnami.com/aws/apps/wordpress/#how-to-enable-https-support-with-ssl-certificates "https://docs.bitnami.com/aws/apps/wordpress/#how-to-enable-https-support-with-ssl-certificates") for your WordPress instance.
+tutorials. For example, you can [install plugins](https://docs.bitnami.com/general/apps/wordpress/configuration/install-plugins/ "https://docs.bitnami.com/general/apps/wordpress/configuration/install-plugins/") or [enable HTTPS support with SSL certificates](https://docs.bitnami.com/general/apps/wordpress/administration/create-ssl-certificate-apache/ "https://docs.bitnami.com/general/apps/wordpress/administration/create-ssl-certificate-apache/") for your WordPress instance.
 
 - [Bitnami WordPress for
-  Amazon Web Services](https://docs.bitnami.com/aws/apps/wordpress/ "https://docs.bitnami.com/aws/apps/wordpress/")
+  Amazon Web Services](https://docs.bitnami.com/general/apps/wordpress/ "https://docs.bitnami.com/general/apps/wordpress/")
 - [Bitnami LAMP stack for
-  Amazon Web Services](https://docs.bitnami.com/aws/infrastructure/lamp/ "https://docs.bitnami.com/aws/infrastructure/lamp/")
+  Amazon Web Services](https://docs.bitnami.com/general/infrastructure/lamp/ "https://docs.bitnami.com/general/infrastructure/lamp/")
 - [Bitnami Node.js for
-  Amazon Web Services](https://docs.bitnami.com/aws/infrastructure/nodejs/ "https://docs.bitnami.com/aws/infrastructure/nodejs/")
+  Amazon Web Services](https://docs.bitnami.com/general/infrastructure/nodejs/ "https://docs.bitnami.com/general/infrastructure/nodejs/")
 - [Bitnami Joomla for
-  Amazon Web Services](https://docs.bitnami.com/aws/apps/joomla/ "https://docs.bitnami.com/aws/apps/joomla/")
+  Amazon Web Services](https://docs.bitnami.com/general/apps/joomla/ "https://docs.bitnami.com/general/apps/joomla/")
 - [Bitnami Magento for
-  Amazon Web Services](https://docs.bitnami.com/aws/apps/magento/ "https://docs.bitnami.com/aws/apps/magento/")
+  Amazon Web Services](https://docs.bitnami.com/general/apps/magento/ "https://docs.bitnami.com/general/apps/magento/")
 - [Bitnami MEAN stack for
-  Amazon Web Services](https://docs.bitnami.com/aws/infrastructure/mean/ "https://docs.bitnami.com/aws/infrastructure/mean/")
+  Amazon Web Services](https://docs.bitnami.com/general/infrastructure/mean/ "https://docs.bitnami.com/general/infrastructure/mean/")
 - [Bitnami Drupal for
-  Amazon Web Services](https://docs.bitnami.com/aws/apps/drupal/ "https://docs.bitnami.com/aws/apps/drupal/")
+  Amazon Web Services](https://docs.bitnami.com/general/apps/drupal/ "https://docs.bitnami.com/general/apps/drupal/")
 - [Bitnami GitLab for
-  Amazon Web Services](https://docs.bitnami.com/aws/apps/gitlab/ "https://docs.bitnami.com/aws/apps/gitlab/")
+  Amazon Web Services](https://docs.bitnami.com/general/apps/gitlab/ "https://docs.bitnami.com/general/apps/gitlab/")
 - [Bitnami Redmine for
-  Amazon Web Services](https://docs.bitnami.com/aws/apps/redmine/ "https://docs.bitnami.com/aws/apps/redmine/")
+  Amazon Web Services](https://docs.bitnami.com/general/apps/redmine/ "https://docs.bitnami.com/general/apps/redmine/")
 - [Bitnami Nginx (LEMP stack)
-  for Amazon Web Services](https://docs.bitnami.com/aws/infrastructure/nginx/ "https://docs.bitnami.com/aws/infrastructure/nginx/")
-
-For more information, see [Get Started with Bitnami Applications using Amazon Lightsail](https://docs.bitnami.com/aws/get-started-lightsail/ "https://docs.bitnami.com/aws/get-started-lightsail/") or [Using Amazon Lightsail
-FAQ](https://docs.bitnami.com/aws/faq/#using-amazon-lightsail "https://docs.bitnami.com/aws/faq/#using-amazon-lightsail").
+  for Amazon Web Services](https://docs.bitnami.com/general/infrastructure/nginx/ "https://docs.bitnami.com/general/infrastructure/nginx/")

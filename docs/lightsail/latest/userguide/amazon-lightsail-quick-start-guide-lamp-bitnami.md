@@ -101,7 +101,7 @@ Read the Bitnami documentation to learn how to deploy your application, enable H
 support with SSL certificates, upload files to the server with SFTP, and more.
 
 For more information, see the [Bitnami LAMP for
-AWS Cloud](https://docs.bitnami.com/aws/infrastructure/lamp/ "https://docs.bitnami.com/aws/infrastructure/lamp/").
+AWS Cloud](https://docs.bitnami.com/general/infrastructure/lamp/ "https://docs.bitnami.com/general/infrastructure/lamp/").
 
 ## Step 6: Create a snapshot of your LAMP instance
 

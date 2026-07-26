@@ -45,7 +45,7 @@ browser-based SSH client. After you're connected, you will run the Bitnami Confi
 Tool (bnconfig) tool to remove the Bitnami icon from the home page of your application.
 The bnconfig tool is a command line tool that allows you to configure you’re the
 application on your Bitnami blueprint instance. For more information, see [Learn About
-The Bitnami Configuration Tool](https://docs.bitnami.com/aws/faq/configuration/understand-bnconfig/ "https://docs.bitnami.com/aws/faq/configuration/understand-bnconfig/") in the _Bitnami
+The Bitnami Configuration Tool](https://docs.bitnami.com/general/faq/configuration/understand-bnconfig/ "https://docs.bitnami.com/general/faq/configuration/understand-bnconfig/") in the _Bitnami
 documentation_. 5. Return to the browser tab that is on the Lightsail home page. 6. Choose the browser-based SSH client icon that is next to the name of the instance that
 you wish to connect to.
 

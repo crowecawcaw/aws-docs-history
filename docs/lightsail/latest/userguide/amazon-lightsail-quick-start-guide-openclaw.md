@@ -504,4 +504,4 @@ OpenClaw instances use different MOTD (Message of the Day) versions depending on
 - Gateway management: Use simplified commands `openclaw gateway start/stop/status`
 - Token rotation: Automatic daily rotation
 
-**How to check your MOTD version:** SSH into your instance and look at the welcome message displayed. The MOTD version will be shown at the top.
+**How to check your MOTD version:** SSH into your instance and look at the welcome message displayed. The MOTD version appears in the first line of the welcome message.

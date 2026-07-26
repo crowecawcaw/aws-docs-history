@@ -32,7 +32,7 @@ running on Amazon Lightsail:
 ## Step 1: Read the Bitnami documentation
 
 Read the Bitnami documentation to learn how to configure your Ghost application. For
-more information, see the [_Ghost Packaged By Bitnami For AWS Cloud_](https://docs.bitnami.com/aws/apps/ghost/ "https://docs.bitnami.com/aws/apps/ghost/").
+more information, see the [_Ghost Packaged By Bitnami For AWS Cloud_](https://docs.bitnami.com/general/apps/ghost/ "https://docs.bitnami.com/general/apps/ghost/").
 
 ## Step 2: Get the default application password to access the Ghost administration dashboard
 
@@ -84,7 +84,7 @@ following steps to make the application aware of the new static IP address.
 ![Public or static IP address of a Lightsail instance](images/quick-start-public-static-ip.png) 2. On the instance management page, under the **Connect** tab,
 choose **Connect using SSH**.
 
-![Connect to your instance using SSH](images/quick-start-connect-using-ssh.png) 3. After you're connected, enter the following command. Replace
+![Connect to your instance using SSH](/images/lightsail/latest/userguide/images/quick-start-connect-using-ssh.png) 3. After you're connected, enter the following command. Replace
 `<StaticIP>` with the new static IP address
 of your instance.
 
@@ -128,8 +128,8 @@ later in this guide.
 ![Public IP address of an instance](images/quick-start-public-ip.png) 2. Browse to the public IP address of your instance, for example by going to
 `http://203.0.113.0`.
 
-The home page of your Ghost website should appear. 3. Choose **Manage** in the bottom right corner of your Ghost
-website home page.
+The home page of your Ghost website should appear. 3. On your Ghost
+website home page, choose the **Manage** banner.
 
 If the **Manage** banner is not shown, you can reach the sign
 in page by browsing to
@@ -195,9 +195,7 @@ website](#amazon-lightsail-https-ghost "#amazon-lightsail-https-ghost") section 
 
 Complete the following procedure to configure HTTPS on your Ghost website. These steps
 show you how to use the Bitnami HTTPS Configuration Tool (`bncert-tool`),
-which is a command line tool for requesting Let's Encrypt SSL/TLS certificates. For more
-information see [Learn About The Bitnami HTTPS Configuration Tool](https://docs.bitnami.com/aws/how-to/understand-bncert/ "https://docs.bitnami.com/aws/how-to/understand-bncert/") in the _Bitnami
-documentation_.
+which is a command line tool for requesting Let's Encrypt SSL/TLS certificates.
 
 ###### Important
 

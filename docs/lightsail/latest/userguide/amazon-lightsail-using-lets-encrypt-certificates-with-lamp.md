@@ -201,7 +201,7 @@ sudo certbot -d $DOMAIN -d $WILDCARD --manual --preferred-challenges dns certonl
 
 4. Enter your email address when prompted, because it’s used for renewal and security
    notices.
-5. Read the Let’s Encrypt terms of service. When done, press A if you agree. If you
+5. Read the Let’s Encrypt terms of service. When done, press Y if you agree. If you
    disagree, you cannot obtain a Let’s Encrypt certificate.
 6. Respond accordingly to the prompt to share your email address and to the warning about
    your IP address being logged.
@@ -332,7 +332,7 @@ sudo /opt/bitnami/ctlscript.sh stop
 
 You should see a response similar to the following:
 
-![Instance services stopped.](images/amazon-lightsail-ssh-stop-services.png) 2. Enter the following commands individually to rename your existing certificate files as
+![Instance services stopped.](/images/lightsail/latest/userguide/images/amazon-lightsail-ssh-stop-services.png) 2. Enter the following commands individually to rename your existing certificate files as
 backups. Refer to the **Important** block at the beginning of
 this tutorial for information about the different distributions and file
 structures.

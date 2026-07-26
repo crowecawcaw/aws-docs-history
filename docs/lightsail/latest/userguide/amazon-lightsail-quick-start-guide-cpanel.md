@@ -177,7 +177,7 @@ earlier in the [Step 2:
 Attach a static IP address to your cPanel & WHM instance](#amazon-lightsail-cpanel-attach-static-ip "#amazon-lightsail-cpanel-attach-static-ip") section of this
 guide.
 
-1. Choose the navigation menu icon in the top-left section of the WHM console.
+1. Choose the navigation menu icon in the WHM console.
 
 ![WHM navigation menu icon](images/amazon-lightsail-whm-menu-icon.png) 2. Enter `Change hostname` in the search text box in the WHM console, then
 choose the **Change hostname** option in the results.
@@ -191,7 +191,7 @@ hostname** text box. For example, enter `management.example.com` or
 You can only specify a subdomain as the hostname, and you cannot specify
 `whm` or `cpanel` as the subdomain.
 
-![Change the hostname of your cPanel & WHM instance](images/amazon-lightsail-whm-new-hostname.png) 4. Choose **Change**. 5. Choose the navigation menu icon in the top-left section of the WHM console.
+![Change the hostname of your cPanel & WHM instance](images/amazon-lightsail-whm-new-hostname.png) 4. Choose **Change**. 5. Choose the navigation menu icon in the WHM console.
 
 ![WHM navigation menu icon](images/amazon-lightsail-whm-menu-icon.png) 6. Choose **Basic WebHost Manager Setup**.
 

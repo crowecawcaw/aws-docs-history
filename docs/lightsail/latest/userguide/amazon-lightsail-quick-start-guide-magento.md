@@ -270,7 +270,7 @@ website, for example `https://www.example.com/`.
 Storefront**, **Use Secure URLs in Admin**, and
 **Upgrade Insecure Requests** options.
 
-![Magento administration dashboard](images/magento-quick-start-magento-base-urls-secure-options.png) 15. Choose Save Config at the top of the page.
+![Magento administration dashboard](images/magento-quick-start-magento-base-urls-secure-options.png) 15. Choose **Save Config**.
 
 HTTPS is now configured for your Magento website. When customers browse to the HTTP
 version (e.g., `http://www.example.com`) of your Magento website, they will be
@@ -280,7 +280,7 @@ automatically redirected to the HTTPS version (e.g.,
 ## Step 6: Configure SMTP for email notifications
 
 Configure the SMTP settings of your Magento website to enable email notifications for it.
-For more information, see [Install the Magento Magepal SMTP extension](https://docs.bitnami.com/aws/apps/magento/configuration/install-extension-smtp/ "https://docs.bitnami.com/aws/apps/magento/configuration/install-extension-smtp/") in the _Bitnami
+For more information, see [Install the Magento Magepal SMTP extension](https://docs.bitnami.com/general/apps/magento/configuration/install-extension-smtp/ "https://docs.bitnami.com/general/apps/magento/configuration/install-extension-smtp/") in the _Bitnami
 documentation_.
 
 ###### Important
@@ -299,7 +299,7 @@ Passwords](https://support.google.com/accounts/answer/185833?hl=en "https://supp
 Read the Bitnami documentation to learn how to perform administrative tasks on your
 Magento instance and website, such as install plugins and customize the theme. For more
 information, see [Bitnami Magento Stack
-for AWS Cloud](https://docs.bitnami.com/aws/apps/magento/ "https://docs.bitnami.com/aws/apps/magento/") in the _Bitnami documentation_.
+for AWS Cloud](https://docs.bitnami.com/general/apps/magento/ "https://docs.bitnami.com/general/apps/magento/") in the _Bitnami documentation_.
 
 You should also read the Magento documentation to learn how to administer your Magento
 website. For more information, see the [Magento 2.4 User Guide](https://docs.magento.com/user-guide/ "https://docs.magento.com/user-guide/").

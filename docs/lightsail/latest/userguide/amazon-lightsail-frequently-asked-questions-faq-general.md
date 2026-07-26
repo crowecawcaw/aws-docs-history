@@ -55,7 +55,7 @@ a service quota, open a case with [Support](https://console.aws.amazon.com/suppo
 
 The context-sensitive help panel in Lightsail offers immediate helpful tips about your
 actions in the console. To open the help panel, choose the help panel icon
-**ⓘ** in the upper-right corner of the Lightsail console. From
+**ⓘ** in the Lightsail console. From
 the Lightsail console, you can also access a library of [getting started
 guides](https://lightsail.aws.amazon.com/ls/docs/getting-started "https://lightsail.aws.amazon.com/ls/docs/getting-started"), [overviews](https://lightsail.aws.amazon.com/ls/docs/overview "https://lightsail.aws.amazon.com/ls/docs/overview"), and [how-to topics](https://lightsail.aws.amazon.com/ls/docs/how-to "https://lightsail.aws.amazon.com/ls/docs/how-to"). And if you want to use the Lightsail API, or AWS CLI, Lightsail
 has a full API reference for all supported programming languages. You can also use

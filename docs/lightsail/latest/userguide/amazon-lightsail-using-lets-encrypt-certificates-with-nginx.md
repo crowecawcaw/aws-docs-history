@@ -68,7 +68,12 @@ sudo apt-get update
 sudo apt-get install software-properties-common -y
 ```
 
-5. Enter the following command to update apt to include the new repository:
+###### Note
+
+If you encounter a `Could not get lock` error when running the
+`sudo apt-get install` command, wait approximately 15 minutes and try
+again. This error might be caused by a cron job that is using the Apt package management
+tool to install unattended upgrades. 5. Enter the following command to update apt to include the new repository:
 
 ```
 sudo apt-get update -y
@@ -117,7 +122,7 @@ echo $DOMAIN && echo $WILDCARD
 
 You should see a result similar to the following:
 
-![Confirm the domain environment variables.](images/instances/lets-encrypt/confirm-variables.png) 3. Enter the following command to start Certbot in interactive mode. This command tells
+![Confirm the domain environment variables.](images/instances/lets-encrypt/confirm-domain-and-wildcard-variables.png) 3. Enter the following command to start Certbot in interactive mode. This command tells
 Certbot to use a manual authorization method with DNS challenges to verify domain
 ownership. It requests a wildcard certificate for your top-level domain, as well as its
 subdomains.
@@ -128,7 +133,7 @@ sudo certbot -d $DOMAIN -d $WILDCARD --manual --preferred-challenges dns certonl
 
 4. Enter your email address when prompted, because it's used for renewal and security
    notices.
-5. Read the Let's Encrypt terms of service. When done, press A if you agree. If you
+5. Read the Let's Encrypt terms of service. When done, press Y if you agree. If you
    disagree, you cannot obtain a Let's Encrypt certificate.
 6. Respond accordingly to the prompt to share your email address and to the warning about
    your IP address being logged.

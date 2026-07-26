@@ -316,9 +316,8 @@ so, choose **Shop Parameters** in the navigation pane, and then choose
 
 ![Email option in the navigation pane](images/prestashop-quick-start-advanced-parameters-email.png)
 
-For more information, For more information, see [User Guide
-PrestaShop](https://docs.prestashop-project.org/1.7-documentation/user-guide "https://docs.prestashop-project.org/1.7-documentation/user-guide") in the _PrestaShop documentation_ and [Configure
-SMTP for outbound emails](https://docs.bitnami.com/aws/apps/prestashop/configuration/configure-smtp/ "https://docs.bitnami.com/aws/apps/prestashop/configuration/configure-smtp/") in the Bitnami documentation.
+For more information, see [User Guide
+PrestaShop](https://docs.prestashop-project.org/1.7-documentation/user-guide "https://docs.prestashop-project.org/1.7-documentation/user-guide") in the _PrestaShop documentation_.
 
 ###### Important
 
@@ -331,14 +330,9 @@ must use an app password instead of using the standard password that you use to 
 Gmail. For more information, see [Sign in with App
 Passwords](https://support.google.com/accounts/answer/185833?hl=en "https://support.google.com/accounts/answer/185833?hl=en").
 
-## Step 7: Read the Bitnami and PrestaShop documentation
+## Step 7: Read the PrestaShop documentation
 
-Read the Bitnami documentation to learn how to perform administrative tasks on your
-PrestaShop instance and website, such as install plugins and customize the theme. For more
-information, see [Bitnami PrestaShop
-Stack for AWS Cloud](https://docs.bitnami.com/aws/apps/prestashop/ "https://docs.bitnami.com/aws/apps/prestashop/") in the _Bitnami documentation_.
-
-You should also read the PrestaShop documentation to learn how to administer your
+You should read the PrestaShop documentation to learn how to administer your
 PrestaShop website. For more information, see the [User Guide
 PrestaShop](https://docs.prestashop-project.org/1.7-documentation/user-guide "https://docs.prestashop-project.org/1.7-documentation/user-guide") in the _PrestaShop documentation_.
 

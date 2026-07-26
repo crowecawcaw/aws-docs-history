@@ -33,7 +33,7 @@ and running on Amazon Lightsail:
 ## Step 1: Read the Bitnami documentation
 
 Read the Bitnami documentation to learn how to configure your GitLab CE application.
-For more information, see the [GitLab CE Packaged By Bitnami For AWS Cloud](https://docs.bitnami.com/aws/apps/gitlab/ "https://docs.bitnami.com/aws/apps/gitlab/").
+For more information, see the [GitLab CE Packaged By Bitnami For AWS Cloud](https://docs.bitnami.com/general/apps/gitlab/ "https://docs.bitnami.com/general/apps/gitlab/").
 
 ## Step 2: Get the default application password to access the GitLab CE admin area
 

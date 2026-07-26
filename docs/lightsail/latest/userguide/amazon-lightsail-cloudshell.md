@@ -68,8 +68,7 @@ Lightsail:
 
 1. Sign in to the Lightsail console at
    [https://lightsail.aws.amazon.com/](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
-2. Choose **CloudShell** on the Console Toolbar,
-   in the lower left of the console. When the command prompt displays, the shell is
+2. Choose **CloudShell** on the Console Toolbar. When the command prompt displays, the shell is
    ready for interaction.
 
 ![AWS CloudShell on the Lightsail console toolbar.](images/lightsail-cloudshell-console-toolbar.png) 3. (Optional) To choose a pre-installed shell to work with, enter one of the
@@ -102,7 +101,7 @@ operation, see [GetInstances](../../2016-11-28/api-reference/API_GetInstances.md
 1. Sign in to the Lightsail console at
    [https://lightsail.aws.amazon.com/](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
 2. Choose **CloudShell** on the Console
-   Toolbar, in the lower left of the console.
+   Toolbar.
 3. Enter the following command after the AWS CloudShell prompt:
 
 ```

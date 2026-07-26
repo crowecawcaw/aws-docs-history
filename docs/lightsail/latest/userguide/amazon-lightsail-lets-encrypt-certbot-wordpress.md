@@ -1,39 +1,45 @@
-# Enable HTTPS on your LAMP instance with Let's Encrypt and Certbot
+# Enable HTTPS on your WordPress instance with Let's Encrypt and Certbot
 
-Amazon Lightsail makes it easy to secure your websites and applications with SSL/TLS using
-Lightsail load balancers. However, using a Lightsail load balancer might not generally be
-the right choice. Perhaps your site doesn't need the scalability or fault tolerance load
-balancers provide, or maybe you're optimizing for cost.
+###### Tip
+
+Amazon Lightsail offers a guided workflow that automates the installation, configuration,
+and renewal of a Let's Encrypt certificate on your WordPress instance. We highly recommend
+that you use the workflow instead of following the manual steps in this tutorial. For more
+information, see [Launch and
+configure a WordPress instance](amazon-lightsail-launch-and-configure-wordpress.md "amazon-lightsail-launch-and-configure-wordpress.md").
+
+With Amazon Lightsail load balancers, you can secure your websites and applications with
+SSL/TLS. However, using a Lightsail load balancer might not generally be the right choice.
+Perhaps your site doesn't need the scalability or fault tolerance that load balancers provide,
+or maybe you're optimizing for cost.
 
 In the latter case, you might consider using Let's Encrypt to obtain a free SSL certificate.
 This tutorial shows you how to request a Let's Encrypt wildcard certificate using Certbot, and
-configure it on your LAMP instance packaged by Lightsail.
+integrate it with your WordPress instance using the Really Simple SSL plugin.
 
 **Contents**
 
-- [Step 1: Complete the
-  prerequisites](#complete-the-prerequisites-lets-encrypt-lamp-lightsail "#complete-the-prerequisites-lets-encrypt-lamp-lightsail")
-- [Step 2: Install Certbot on
-  your Lightsail instance](#install-certbot-on-your-instance-lamp-lightsail "#install-certbot-on-your-instance-lamp-lightsail")
-- [Step 3: Request
-  a Let's Encrypt SSL wildcard certificate](#request-a-lets-encrypt-certificate-lamp-lightsail "#request-a-lets-encrypt-certificate-lamp-lightsail")
-- [Step 4: Add TXT
-  records to your domain's DNS zone](#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-lamp-lightsail "#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-lamp-lightsail")
-- [Step 5: Confirm
-  that the TXT records have propagated](#confirm-the-text-records-have-propagated-lets-encrypt-lamp-lightsail "#confirm-the-text-records-have-propagated-lets-encrypt-lamp-lightsail")
-- [Step 6: Complete
-  the Let's Encrypt SSL certificate request](#complete-the-lets-encrypt-ssl-certificate-request-lamp-lightsail "#complete-the-lets-encrypt-ssl-certificate-request-lamp-lightsail")
-- [Step 7: Create
-  links to the Let's Encrypt certificate files in the LAMP server directory](#lamp-lightsail-certbot-configure-apache "#lamp-lightsail-certbot-configure-apache")
-- [Step 8: Renew the
-  Let's Encrypt certificates every 90 days](#renew-a-lets-encrypt-certificate-lamp-lightsail "#renew-a-lets-encrypt-certificate-lamp-lightsail")
+- [Step 1: Complete the prerequisites](#complete-the-prerequisites-lets-encrypt-wordpress-lightsail "#complete-the-prerequisites-lets-encrypt-wordpress-lightsail")
+- [Step 2:
+  Install Certbot on your Lightsail instance](#install-certbot-on-your-instance-wordpress-lightsail "#install-certbot-on-your-instance-wordpress-lightsail")
+- [Step 3:
+  Request a Let's Encrypt SSL wildcard certificate](#request-a-lets-encrypt-certificate-wordpress-lightsail "#request-a-lets-encrypt-certificate-wordpress-lightsail")
+- [Step 4: Add TXT records to your domain's DNS zone](#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-wordpress-lightsail "#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-wordpress-lightsail")
+- [Step 5: Confirm that the TXT records have propagated](#confirm-the-text-records-have-propagated-lets-encrypt-wordpress-lightsail "#confirm-the-text-records-have-propagated-lets-encrypt-wordpress-lightsail")
+- [Step 6: Complete the Let's Encrypt SSL certificate request](#complete-the-lets-encrypt-ssl-certificate-request-wordpress-lightsail "#complete-the-lets-encrypt-ssl-certificate-request-wordpress-lightsail")
+- [Step 7:
+  Create certificate file links in the Apache directory](#wordpress-lightsail-certbot-link-certificate-files "#wordpress-lightsail-certbot-link-certificate-files")
+- [Step 8:
+  Configure HTTPS redirection with the Really Simple SSL plug-in](#wordpress-lightsail-certbot-really-simple-ssl "#wordpress-lightsail-certbot-really-simple-ssl")
+- [Step 9:
+  Renew the Let's Encrypt certificates every 90 days](#renew-a-lets-encrypt-certificate-wordpress-lightsail "#renew-a-lets-encrypt-certificate-wordpress-lightsail")
 
 ## Step 1: Complete the prerequisites
 
 Complete the following prerequisites if you haven't already done so:
 
-- Create a LAMP instance in Lightsail. To learn more, see [Create an
-  instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md "how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md").
+- Create a WordPress instance in Lightsail. To learn more, see [Launch and configure a
+  WordPress instance](amazon-lightsail-launch-and-configure-wordpress.md "amazon-lightsail-launch-and-configure-wordpress.md").
 - Register a domain name, and get administrative access to edit its DNS records. To
   learn more, see [DNS](understanding-dns-in-amazon-lightsail.md "understanding-dns-in-amazon-lightsail.md").
 
@@ -48,8 +54,8 @@ to manage your domain's DNS records](lightsail-how-to-create-dns-entry.md "light
   about configuring PuTTY, see [Download and set up PuTTY
   to connect using SSH](lightsail-how-to-set-up-putty-to-connect-using-ssh.md "lightsail-how-to-set-up-putty-to-connect-using-ssh.md").
 
-After you've completed the prerequisites, continue to the [next section](#install-certbot-on-your-instance-lamp-lightsail "#install-certbot-on-your-instance-lamp-lightsail") of this
-tutorial.
+After you've completed the prerequisites, continue to the [next
+section](#install-certbot-on-your-instance-wordpress-lightsail "#install-certbot-on-your-instance-wordpress-lightsail") of this tutorial.
 
 ## Step 2: Install Certbot on your Lightsail instance
 
@@ -98,7 +104,8 @@ sudo apt-get install certbot -y
 Certbot is now installed on your Lightsail instance.
 
 Keep the browser-based SSH terminal window open—you return to it later in this
-tutorial. Continue to the [next section](#request-a-lets-encrypt-certificate-lamp-lightsail "#request-a-lets-encrypt-certificate-lamp-lightsail") of this tutorial.
+tutorial. Continue to the [next
+section](#request-a-lets-encrypt-certificate-wordpress-lightsail "#request-a-lets-encrypt-certificate-wordpress-lightsail") of this tutorial.
 
 ## Step 3: Request a Let’s Encrypt SSL wildcard certificate
 
@@ -163,7 +170,7 @@ verification.
 ![TXT records for Let's Encrypt certificates.](images/instances/lets-encrypt/get-TXT-records.png)
 
 Keep the Lightsail browser-based SSH session open—you return to it later in this
-tutorial. Continue to the [next section](#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-lamp-lightsail "#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-lamp-lightsail") of this tutorial.
+tutorial. Continue to the [next section](#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-wordpress-lightsail "#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-wordpress-lightsail") of this tutorial.
 
 ## Step 4: Add TXT records to your domain’s DNS zone
 
@@ -200,7 +207,7 @@ save the record. 7. Choose **Save**. 8. Repeat steps 4 through 7 to add the seco
 Encrypt certificate request.
 
 Keep the Lightsail console browser window open—you return to it later in this
-tutorial. Continue to the [next section](#confirm-the-text-records-have-propagated-lets-encrypt-lamp-lightsail "#confirm-the-text-records-have-propagated-lets-encrypt-lamp-lightsail") of this tutorial.
+tutorial. Continue to the [next section](#confirm-the-text-records-have-propagated-lets-encrypt-wordpress-lightsail "#confirm-the-text-records-have-propagated-lets-encrypt-wordpress-lightsail") of this tutorial.
 
 ## Step 5: Confirm that the TXT records have propagated
 
@@ -243,13 +250,13 @@ _acme-challenge.example.com
 
 ## Step 6: Complete the Let's Encrypt SSL certificate request
 
-Go back to the Lightsail browser-based SSH session for your LAMP instance and complete
-the Let's Encrypt certificate request. Certbot saves your SSL certificate, chain, and key
-files to a specific directory on your LAMP instance.
+Go back to the Lightsail browser-based SSH session for your WordPress instance and
+complete the Let's Encrypt certificate request. Certbot saves your SSL certificate, chain, and
+key files to a specific directory on your WordPress instance.
 
 ###### To complete the Let's Encrypt SSL certificate request
 
-1. In the Lightsail browser-based SSH session for your LAMP instance, press
+1. In the Lightsail browser-based SSH session for your WordPress instance, press
    **Enter** to continue your Let's Encrypt SSL certificate request. If
    successful, a response similar to the one shown in the following screenshot
    appears:
@@ -262,52 +269,129 @@ sure to replace `domain` with your domain, such as
 `/etc/letsencrypt/live/example.com/`. 2. Make note of the expiration date specified in the message. You use it to renew your
 certificate by that date.
 
-![Let's Encrypt certificate renewal date.](images/instances/lets-encrypt/certificate-renewal-date.png) 3. Now that you have the Let's Encrypt SSL certificate, continue to the [next section](#lamp-lightsail-certbot-configure-apache "#lamp-lightsail-certbot-configure-apache") of
-this tutorial.
+![Let's Encrypt certificate renewal date.](images/instances/lets-encrypt/certificate-renewal-date.png) 3. Now that you have the Let's Encrypt SSL certificate, continue to the [next
+section](#wordpress-lightsail-certbot-link-certificate-files "#wordpress-lightsail-certbot-link-certificate-files") of this tutorial.
 
-## Step 7: Create links to the Let's Encrypt certificate files in the LAMP server directory
+## Step 7: Create certificate file links in the Apache directory
 
-Create links to the Let's Encrypt SSL certificate files in the LAMP server directory on
-your LAMP instance. Also, back up your existing certificates, in case you need them
+Create links to the Let's Encrypt SSL certificate files in the Apache server directory on
+your WordPress instance. Also, back up your existing certificates, in case you need them
 later.
 
-###### To create links to the Let's Encrypt certificate files in the LAMP server directory
+###### To create links to the Let's Encrypt certificate files in the Apache server directory
 
-1. In the Lightsail browser-based SSH session for your LAMP instance, enter the
+1. In the Lightsail browser-based SSH session for your WordPress instance, enter the
    following command to stop the underlying services:
 
 ```
 sudo systemctl stop apache2
-sudo systemctl stop mariadb
 ```
 
-2. Run the command below to change the SSL configuration:
+2. Enter the following command to set an environment variable for your domain. Be sure to
+   replace `domain` with the name of your registered domain
+   name.
 
 ```
-sudo sed \
--i -e "s|SSLCertificateFile /etc/ssl/certs/ssl-cert-snakeoil.pem|SSLCertificateFile /etc/letsencrypt/live/$DOMAIN/fullchain.pem|g" \
--i -e "s|SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key|SSLCertificateKeyFile /etc/letsencrypt/live/$DOMAIN/privkey.pem|g" \
-/etc/apache2/sites-enabled/default-ssl.conf
+DOMAIN=`domain`
+```
+
+Example:
+
+```
+DOMAIN=example.com
 ```
 
 ###### Note
 
 If you closed your browser-based SSH terminal window since setting the `DOMAIN`
 variable in Step 3, run `DOMAIN=`example.com`` again,
-replacing `example.com` with your domain. 3. Enter the following command to restart apache2:
+replacing `example.com` with your domain. 3. Enter the following command to confirm the variable returns the correct value:
 
 ```
-sudo systemctl restart apache2
-sudo systemctl restart mariadb
+echo $DOMAIN
 ```
 
-Your LAMP instance is now configured to automatically redirect connections from HTTP
-to HTTPS. When a visitor goes to `http://www.example.com`, they are
-automatically redirected to the encrypted `https://www.example.com`
-address.
+![Confirm the domain environment variable.](images/instances/lets-encrypt/confirm-domain-variable.png) 4. Enter the following commands individually to back up your existing certificate
+files:
 
-## Step 8: Renew the Let's Encrypt certificates every 90 days
+```
+export BACKUP_PATH=/opt/aws/wordpress
+sudo cp /etc/ssl/certs/ssl-cert-snakeoil.pem $BACKUP_PATH/ssl-cert-snakeoil.pem.backup
+sudo cp /etc/ssl/private/ssl-cert-snakeoil.key $BACKUP_PATH/ssl-cert-snakeoil.key.backup
+```
+
+5. Enter the following commands individually to create links to your Let's Encrypt
+   certificate files in the Apache directory:
+
+```
+sudo ln -sf /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/ssl/certs/ssl-cert-snakeoil.pem
+sudo ln -sf /etc/letsencrypt/live/$DOMAIN/privkey.pem /etc/ssl/private/ssl-cert-snakeoil.key
+```
+
+6. Enter the following command to start the underlying services that you had stopped
+   earlier:
+
+```
+sudo systemctl start apache2
+```
+
+The SSL certificate files for your WordPress instance are now in the correct
+directory. 7. Continue to the [next section](#wordpress-lightsail-certbot-really-simple-ssl "#wordpress-lightsail-certbot-really-simple-ssl") of this tutorial.
+
+## Step 8: Configure HTTPS redirection with the Really Simple SSL plug-in
+
+Install the Really Simple SSL plug-in on your WordPress site, and use it to integrate the
+SSL certificate. Really Simple SSL also configures HTTP to HTTPS redirection to ensure that
+users who visit your site are always on the HTTPS connection.
+
+###### To integrate the SSL certificate with your WordPress site using the Really Simple SSL plug-in
+
+1. In the Lightsail browser-based SSH session for your WordPress instance, enter the
+   following command to set your `wp-config.php` file to be writeable. The Really
+   Simple SSL plug-in writes to the `wp-config.php` file to configure your
+   certificates.
+
+```
+sudo chmod 666 /var/www/wp-config.php
+```
+
+2. Open a new browser window and sign in to the administration dashboard of your
+   WordPress instance.
+
+###### Note
+
+For more information, see [Launch and configure a
+WordPress instance](amazon-lightsail-launch-and-configure-wordpress.md "amazon-lightsail-launch-and-configure-wordpress.md"). 3. Choose **Plugins** from the left navigation pane. 4. Choose **Add New Plugin** from the top of the Plugins page.
+
+![Add New Plugin in the WordPress administration dashboard.](images/instances/lets-encrypt/amazon-lightsail-wordpress-add-new-plugin.png) 5. Search for **Really Simple SSL**. 6. Choose **Install Now** next to the Really Simple SSL plug-in in the
+search results.
+
+![Really Simple SSL plug-in in the WordPress plug-in search results.](images/instances/lets-encrypt/amazon-lightsail-wordpress-really-simple-ssl-plugin.png) 7. After it's done installing, choose **Activate**. 8. In the prompt that appears, choose **Go ahead, activate SSL!** You
+might be redirected to the sign-in page for the administration dashboard of your WordPress
+instance. 9. Go back to the Lightsail browser-based SSH session for your WordPress instance and
+enter the following command to restore restrictive permissions on the
+`wp-config.php` file. This file contains database credentials and security
+keys that should not be left world-readable.
+
+```
+sudo chmod 640 /var/www/wp-config.php
+```
+
+Your WordPress instance is now configured to use SSL encryption. Additionally, your
+WordPress instance is now configured to automatically redirect connections from HTTP to HTTPS.
+When a visitor goes to `http://example.com`, they are automatically redirected to
+the encrypted HTTPS connection (that is, `https://example.com`).
+
+## Step 9: Renew the Let's Encrypt certificates every 90 days
 
 Let's Encrypt certificates are valid for 90 days. Certificates can be renewed 30 days
-before they expire. To renew the Let's Encrypt certificates, run the original command used
-to obtain them. Repeat the steps in the [Request a Let's Encrypt SSL wildcard certificate](#request-a-lets-encrypt-certificate-lamp-lightsail "#request-a-lets-encrypt-certificate-lamp-lightsail") section of this tutorial.
+before they expire. To renew the Let's Encrypt certificates, run the original command used to
+obtain them. Repeat the steps in the [Request a
+Let's Encrypt SSL wildcard certificate](#request-a-lets-encrypt-certificate-wordpress-lightsail "#request-a-lets-encrypt-certificate-wordpress-lightsail") section of this tutorial.
+
+###### Note
+
+The Amazon Lightsail guided workflow handles certificate renewal automatically. To avoid
+renewing certificates manually, switch to the guided workflow. For more information, see
+[Launch and configure a
+WordPress instance](amazon-lightsail-launch-and-configure-wordpress.md "amazon-lightsail-launch-and-configure-wordpress.md").
