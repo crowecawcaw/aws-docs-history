@@ -49,8 +49,8 @@ You can share the following Oracle Database@AWS resources:
 
 Oracle Database@AWS shares the preceding resources through the following process:
 
-1. The buyer account (the account that accepts the Oracle Database@AWS private offer
-   via AWS Marketplace) provisions Oracle Database@AWS resources, such as Exadata infrastructure and
+1. The buyer account (the account that accepts the Oracle Database@AWS private offer or
+   public offer via AWS Marketplace) provisions Oracle Database@AWS resources, such as Exadata infrastructure and
    an ODB network.
 2. The buyer account creates a resource share using AWS RAM, specifying the
    resources to share and the trusted accounts to share them with.
@@ -117,8 +117,11 @@ When sharing Oracle Database@AWS resources, keep in mind the following limitatio
 - When you create a resource share, the actions (managed permissions) for each resource
   type are automatically selected and can't be modified.
 - You can't use Oracle Database@AWS as a resource and share with other AWS accounts.
-- A trusted account can use shared resources from only one buyer account (from one private
-  offer). Thus, two buyer accounts can't share resources with the same trusted account.
+- A trusted account can use shared resources from only one buyer account (from one
+  private offer or one public offer). Thus, two buyer accounts can't share resources with the same trusted account. However,
+  a grantee account that received an entitlement share from the buyer account can also share its
+  own resources with the same trusted account. For more information about entitlement sharing,
+  see [Sharing Oracle Database@AWS entitlements with another account using AWS License Manager](sharing-entitlement-task.md#sharing-entitlements "sharing-entitlement-task.md#sharing-entitlements").
 - A buyer account can't share resources with another buyer account.
 - Resources shared with a trusted account must be shared by the buyer account in
   the buyer's [home region](https://docs.oracle.com/en/cloud/foundation/cloud_architecture/governance/regions.html#home-region "https://docs.oracle.com/en/cloud/foundation/cloud_architecture/governance/regions.html#home-region") first.
@@ -131,8 +134,11 @@ When creating or using Oracle Database@AWS resources, keep in mind the following
 limitations:
 
 - Only the buyer account can create Exadata infrastructure and ODB network resources. The buyer account is the
-  one that accepts the Oracle Database@AWS private offer.
-- Trusted accounts can create resources only on Exadata infrastructure shared by the buyer account.
+  one that accepts the Oracle Database@AWS offer.
+- Trusted accounts can create resources only on Exadata infrastructure shared by the buyer account. Both
+  Exadata infrastructure and the ODB network must be shared for a trusted account to create a VM cluster.
+- Trusted accounts can view and manage only their own VM clusters on shared Exadata infrastructure. They
+  can't see VM clusters that other trusted accounts created on the same Exadata infrastructure.
 - Trusted accounts must initialize the Oracle Database@AWS service in their account before they
   can use shared resources.
 

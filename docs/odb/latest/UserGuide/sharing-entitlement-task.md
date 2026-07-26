@@ -8,7 +8,7 @@ This topic explains how to share entitlements using AWS License Manager.
 Before you share Oracle Database@AWS entitlements, make sure that you have the following:
 
 - An active Oracle Database@AWS subscription (you must be the buyer account that
-  accepted the private offer through AWS Marketplace)
+  accepted a private offer or public offer through AWS Marketplace)
 - The IDs of the AWS accounts in your organization that you want to share
   entitlements with
 - Necessary permissions for grantor and grantee to use AWS License Manager resources
@@ -30,6 +30,7 @@ In addition to AWS License Manager permissions, Oracle Database@AWS requires the
 
 - `odb:UpdateGrantShare`
 - `odb:DeleteGrantShare`
+- `license-manager:ListReceivedGrants`
 
 ## Sharing Oracle Database@AWS entitlements with another account using AWS License Manager
 

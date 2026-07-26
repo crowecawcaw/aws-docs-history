@@ -17,7 +17,7 @@ Before you share Oracle Database@AWS resources, make sure that you have the
 following:
 
 - An active Oracle Database@AWS subscription (you must be the buyer account that
-  accepted the private offer through AWS Marketplace)
+  accepted a private offer or public offer through AWS Marketplace)
 - The IDs or names of the resources you want to share, such as Exadata infrastructure or
   ODB networks
 - The IDs of the AWS accounts in your organization that you want to share

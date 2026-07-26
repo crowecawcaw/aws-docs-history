@@ -64,7 +64,7 @@ You can use Oracle Database@AWS in the following AWS Regions:
 | Canada (Central)        | `ca-central-1` | `cac1-az1`, `cac1-az4` |
 | US East (N. Virginia)   | `us-east-1`    | `use1-az4`, `use1-az6` |
 | US East (Ohio)          | `us-east-2`    | `use2-az1`, `use2-az2` |
-| US West (N. California) | `us-west-1`    | `usw1-az1`             |
+| US West (N. California) | `us-west-1`    | `usw1-az1`, `usw1-az3` |
 | US West (Oregon)        | `us-west-2`    | `usw2-az3`, `usw2-az4` |
 
 **Europe**
@@ -91,7 +91,7 @@ You can use Oracle Database@AWS in the following AWS Regions:
 | Asia Pacific (Hyderabad) | `ap-south-2`     | `aps2-az1`, `aps2-az3`   |
 | Asia Pacific (Singapore) | `ap-southeast-1` | `apse1-az1`              |
 | Asia Pacific (Sydney)    | `ap-southeast-2` | `apse2-az1`, `apse2-az2` |
-| Asia Pacific (Melbourne) | `ap-southeast-4` | `apse4-az1`              |
+| Asia Pacific (Melbourne) | `ap-southeast-4` | `apse4-az1`, `apse4-az3` |
 
 **South America**
 
@@ -216,6 +216,30 @@ client subnet. If the CIDR range is /25, 128 IP addresses are available. Thus, y
 
 To create an Autonomous Database Serverless instance, you need only an ODB network. No Exadata
 infrastructure or VM cluster creation is needed.
+
+###### Private endpoint and Availability Zone considerations
+
+When you configure private endpoint connectivity for Oracle Autonomous Database Serverless (ADB-S), the
+service associates the database endpoint with an ODB network. The ODB network resides in a single
+Availability Zone (AZ) and is specific to that AZ.
+
+If Autonomous Data Guard performs a failover, the database moves to a standby in a
+different AZ. Application traffic routes through the ODB network in the original AZ. A failover
+can cause the following connectivity issues:
+
+- **Cross-AZ latency** – If the database fails over to
+  a different AZ, traffic routes through an indirect network path. This introduces additional
+  latency compared to same-AZ connectivity.
+- **AZ failure** – If the AZ that hosts the ODB network
+  becomes unavailable, applications lose connectivity to the database. This happens even if the
+  standby database is healthy in another AZ.
+  If your ADB-S deployment uses private endpoint connectivity with Autonomous Data Guard
+  enabled, these connectivity issues apply.
+
+For production workloads that require high availability across Availability Zones, use
+cross-Region Autonomous Data Guard. Configure a standby in a different AWS Region for an
+additional disaster recovery option. For workloads that require same-Region high availability,
+test whether cross-AZ failover latency meets your requirements.
 
 ###### To create an Autonomous Database Serverless instance
 

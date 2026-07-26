@@ -4,6 +4,14 @@ Before you can begin using Oracle Database@AWS, make sure you're signed up for A
 necessary users. Then you can purchase Oracle Database@AWS from AWS Marketplace by accepting a private
 offer from Oracle or by subscribing to a public offer.
 
+###### Required SCP permission for odb:GetOciOnboardingStatus
+
+If your organization uses service control policies (SCPs) that restrict AWS Regions,
+the `odb:GetOciOnboardingStatus` action must be allowed in
+US East (N. Virginia). This requirement applies to all accounts that use Oracle Database@AWS. The service
+might call this API in US East (N. Virginia) regardless of the Region where you operate
+Oracle Database@AWS. Without this permission, the service fails to initialize.
+
 ## Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see

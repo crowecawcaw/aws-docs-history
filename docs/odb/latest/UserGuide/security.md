@@ -32,11 +32,10 @@ depends on what type of task you need to perform with Oracle Database@AWS:
 - Oracle Database@AWS isn't immediately accessible from the internet and deployed on private subnets in AWS only.
 - Oracle Database@AWS uses many default Transmission Control Protocol (TCP) ports for various operations.
   For the full list of ports, see Default port assignments.
-- To store and manage keys by using Transparent Data Encryption (TDE), which is enabled by default,
-  Oracle Database@AWS uses AWS Key Management Service. Oracle Database@AWS also supports [OCI vaults](https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Concepts/keyoverview.htm "https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Concepts/keyoverview.htm")
-  or [Oracle Key Vault](https://www.oracle.com/security/database-security/key-vault/ "https://www.oracle.com/security/database-security/key-vault/").
-- By default, the database is configured by using Oracle-managed encryption keys.
-  The database also supports customer-managed keys.
+- By default, Oracle Database@AWS uses Transparent Data Encryption (TDE) with Oracle-managed
+  encryption keys. For customer-managed keys, Oracle Database@AWS supports AWS Key Management Service, [OCI
+  vaults](https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Concepts/keyoverview.htm "https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Concepts/keyoverview.htm"), or [Oracle Key
+  Vault](https://www.oracle.com/security/database-security/key-vault/ "https://www.oracle.com/security/database-security/key-vault/").
 - To enhance data protection, use Oracle Data Safe with Oracle Database@AWS.
   The following topics show you how to configure Oracle Database@AWS to meet your
   security and compliance objectives.

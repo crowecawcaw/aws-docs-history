@@ -406,7 +406,7 @@ ODB network.
 The following diagram shows a transit gateway that is connected to two VPCs and one
 on-premises network.
 
-![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](/images/odb/latest/UserGuide/images/ODB-tgw.png)
+![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](images/ODB-tgw.png)
 
 In the preceding diagram, one VPC is peered to an ODB network. In this configuration, the ODB network
 can route traffic to all VPCs attached to the transit gateway. The route table for each VPC

@@ -81,7 +81,7 @@ You can use Oracle Database@AWS in the following AWS Regions:
 | Canada (Central)        | `ca-central-1` | `cac1-az1`, `cac1-az4` |
 | US East (N. Virginia)   | `us-east-1`    | `use1-az4`, `use1-az6` |
 | US East (Ohio)          | `us-east-2`    | `use2-az1`, `use2-az2` |
-| US West (N. California) | `us-west-1`    | `usw1-az1`             |
+| US West (N. California) | `us-west-1`    | `usw1-az1`, `usw1-az3` |
 | US West (Oregon)        | `us-west-2`    | `usw2-az3`, `usw2-az4` |
 
 **Europe**
@@ -108,7 +108,7 @@ You can use Oracle Database@AWS in the following AWS Regions:
 | Asia Pacific (Hyderabad) | `ap-south-2`     | `aps2-az1`, `aps2-az3`   |
 | Asia Pacific (Singapore) | `ap-southeast-1` | `apse1-az1`              |
 | Asia Pacific (Sydney)    | `ap-southeast-2` | `apse2-az1`, `apse2-az2` |
-| Asia Pacific (Melbourne) | `ap-southeast-4` | `apse4-az1`              |
+| Asia Pacific (Melbourne) | `ap-southeast-4` | `apse4-az1`, `apse4-az3` |
 
 **South America**
 
