@@ -84,17 +84,17 @@ marketplaceClient = boto3.client('marketplace-entitlement', region_name='us-east
 entitlement = marketplaceClient.get_entitlements({
     'ProductCode': 'productCode',
     'Filter' : {
-        # Option 1: Using CustomerIdentifier (existing integrations only, not supported for new integrations)
-        'CUSTOMER_IDENTIFIER': [
-            'customerID',
+        # Option 1: Using CustomerAWSAccountId (preferred)
+        'CUSTOMER_AWS_ACCOUNT_ID': [
+            'awsAccountId',
         ]
-        # Option 2: Using CustomerAWSAccountId (required for new integrations)
-        # 'CUSTOMER_AWS_ACCOUNT_ID': [
-        #     'awsAccountId',
-        # ]
-        # Option 3: Using LICENSE_ARN (to get entitlements for the license)
+        # Option 2: Using LICENSE_ARN (to get entitlements for the license)
         # 'LICENSE_ARN': [
         #     'licenseARN',
+        # ]
+        # Option 3: Using CustomerIdentifier (existing integrations only, not supported for new integrations)
+        # 'CUSTOMER_IDENTIFIER': [
+        #     'customerID',
         # ]
     },
     'NextToken' : 'string',
@@ -143,7 +143,7 @@ pay-as-you-go fees.
 
 ###### Important
 
-`BatchMeterUsage` does not support `CustomerIdentifier` for new SaaS product integrations. New integrations must use `CustomerAWSAccountId` and `LicenseArn`. Existing integrations continue to work unchanged.
+`BatchMeterUsage` does not support `CustomerIdentifier` for new SaaS product integrations. For new integrations, see [BatchMeterUsage code example: With License ARN](#saas-batchmeterusage-licensearn-example "#saas-batchmeterusage-licensearn-example").
 
 ```
 # NOTE: Your application will need to aggregate usage for the
@@ -153,15 +153,12 @@ pay-as-you-go fees.
 # productCode is supplied after the AWS Marketplace Ops team has
 # published the product to limited
 #
-# You can use either:
-# - customerID from the ResolveCustomer response
-# - AWS account ID of the buyer
+# customerID is obtained from the ResolveCustomer response
 
 # Import AWS Python SDK
 import boto3
 from datetime import datetime
 
-# Option 1: Using CustomerIdentifier (existing integrations only, not supported for new integrations)
 usageRecord = [
     {
         'Timestamp': datetime(2015, 1, 1),
@@ -170,16 +167,6 @@ usageRecord = [
         'Quantity': 123
     }
 ]
-
-# Option 2: Using CustomerAWSAccountId (required for new integrations)
-# usageRecord = [
-#     {
-#         'Timestamp': datetime(2015, 1, 1),
-#         'CustomerAWSAccountId': 'awsAccountId',
-#         'Dimension': 'string',
-#         'Quantity': 123
-#     }
-# ]
 
 marketplaceClient = boto3.client('meteringmarketplace')
 

@@ -46,13 +46,21 @@ You must submit the following information before you can start listing your offe
 
 1. GST identification number (GSTIN)
 2. Permanent Account Number (PAN) - auto-populated from the GSTIN you provided
-3. Seller signature that is used on tax invoices for your buyers - submit a ticket using the [contact us form](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Faws.amazon.com%2Fmarketplace%2Fmanagement%2Fcontact-us%2F%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Faws-mp-seller-management-portal&forceMobileApp=0&code_challenge=gJsMIbNKDQWf7J8FBg2WdLN_ltqbJN6XDk5NTByYUK0&code_challenge_method=SHA-256 "https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Faws.amazon.com%2Fmarketplace%2Fmanagement%2Fcontact-us%2F%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Faws-mp-seller-management-portal&forceMobileApp=0&code_challenge=gJsMIbNKDQWf7J8FBg2WdLN_ltqbJN6XDk5NTByYUK0&code_challenge_method=SHA-256") to submit a wet seller signature sample. You are notified by email once your seller signature is approved, within 1-3 business days. You can proceed to add a disbursement method (Step 5) after your seller signature has been approved.
-4. Legal business name and address that corresponds to your GSTIN for tax purposes
-5. Acknowledgements on:
+3. Seller signature that is used on tax invoices for your buyers – In the tax registration form, upload an image of your authorized seller signature under the **Seller signature** section. You can access the tax registration form from the **Tax summary** container on the **Tax details** page.
 
-   1. non-applicability of Withholding Tax (WHT) on listing fees;
-   2. confirmation that your GSTIN is enabled for e-invoicing;
-   3. authorization to AWS India to raise invoices (e-invoices to GST registered buyers) for sales made by you through AWS Marketplace, along with a declaration that you are responsible for remitting the applicable GST to the Government
+The following requirements apply to seller signature uploads:
+
+    * File format: .png, .jpg, .jpeg, or .gif only
+    * Maximum file size: 3.5 MB
+    * Maximum files: 1
+
+After you upload your signature, it goes through a validation process that can take up to 30 minutes. The validation status (accepted or rejected) is displayed in the **Tax summary** container on the **Tax details** page. If your signature is rejected, a reason is provided so you can adjust and re-upload your signature.
+
+You will also receive email notifications if any compliance validation process fails for GSTIN updates or seller signature updates. 4. Legal business name and address that corresponds to your GSTIN for tax purposes 5. Acknowledgements on:
+
+    1. non-applicability of Withholding Tax (WHT) on listing fees;
+    2. confirmation that your GSTIN is enabled for e-invoicing;
+    3. authorization to AWS India to raise invoices (e-invoices to GST registered buyers) for sales made by you through AWS Marketplace, along with a declaration that you are responsible for remitting the applicable GST to the Government
 
 ###### Important
 
