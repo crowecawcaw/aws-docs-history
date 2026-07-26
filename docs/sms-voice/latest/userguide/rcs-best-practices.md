@@ -219,9 +219,16 @@ campaign.
 Rendering differences between Android and iOS| Feature | Android | iOS |
 | --- | --- | --- |
 | GIF images | Animated | Static (first frame only) |
-| Link previews in text | URL anywhere in message | URL must be the last element |
-| Card media heights | Respects SHORT, MEDIUM, and TALL | Might ignore the height property |
+| Link previews in text | URL anywhere in message | URL must be the last element. A URL followed by<br>additional text may not be clickable. |
+| Card media heights | Respects SHORT, MEDIUM, and TALL | Renders all vertical heights identically. Might<br>ignore the height property. |
 | Suggestion chip order | Preserved as sent | Might reorder chips |
+| Suggested action persistence | Actions outside cards disappear after tap. Card<br>buttons persist. | All buttons (card and non-card) persist after<br>tap. |
+| Display name with path characters<br>(`/`, `\`,<br>`:`) | Rendered as registered | Characters may be stripped by the iOS rendering<br>layer |
+| Agent banner image | Visible on agent profile | Not displayed |
+| Privacy policy link | Visible on agent profile | Not displayed |
+| Multiple contacts per type | All contact entries visible | Only first contact per type visible (by list<br>order) |
+| Media with large accessibility text sizes | Stable rendering | May crop images when large text sizes are<br>enabled |
+| Carrier verification badge | "Verified by [Carrier]" or "Verified by<br>Google" | Same badge values. Rendering controlled by<br>Apple. |
 
 Design recommendations based on these differences:
 
@@ -233,6 +240,72 @@ Design recommendations based on these differences:
   information.
 - Test suggestion ordering on both platforms if the sequence is
   meaningful to the user flow.
+
+### Display name rendering on iOS
+
+Apple's iOS Messages app may strip characters that resemble
+operating system path separators (`/`, `\`,
+`:`) or URL escape sequences from the displayed agent
+name. This behavior is controlled at the OS level and cannot be
+overridden by AWS, Google, carriers, or messaging partners.
+
+To avoid display name mismatches:
+
+- Use only alphanumeric characters, spaces, hyphens, periods,
+  and standard punctuation (such as `&`,
+  `'`, `!`) in your display
+  name.
+- Do not use forward slashes, backslashes, or colons as part
+  of your brand name.
+- If your brand name includes these characters, consider an
+  alternative representation (for example, use a hyphen or
+  space instead of a slash).
+- Always verify your agent's appearance on an iOS test device
+  during the testing phase before requesting carrier launch.
+  This is one of the primary purposes of testing
+  agents.
+
+If you have already launched an agent with an affected display name
+and need to change it, contact AWS Support. Display name changes on
+launched agents require carrier re-approval.
+
+### Agent profile visibility on iOS
+
+Some agent profile elements that are visible on Android are not
+displayed on iOS:
+
+- **Banner image**: Not shown
+  on iOS. Do not rely on the banner to communicate critical
+  brand information.
+- **Privacy policy link**: Not
+  visible in the iOS agent profile view. Ensure your privacy
+  policy is accessible through other means (such as your
+  website or a suggested action in your welcome
+  message).
+- **Multiple contacts**: If you
+  configure multiple phone numbers, emails, or websites, iOS
+  shows only the first entry per contact type. Place your
+  primary contact first in the list when configuring your
+  agent.
+
+### Testing across platforms
+
+RCS rendering depends on the recipient's operating system version,
+device model, and carrier configuration. Before requesting carrier
+launch:
+
+- Send test messages to both Android and iOS
+  devices.
+- Verify display name, logo, banner, description, suggested
+  actions, rich cards, and media on both platforms.
+- Test with different text sizes and accessibility settings
+  on iOS.
+- Confirm link previews render correctly on both
+  platforms.
+
+Apple's RCS implementation is still evolving. Behaviors may change
+with iOS updates. Monitor your messaging experience after iOS
+releases and adjust your content accordingly.
 
 ## Opt-out handling
 

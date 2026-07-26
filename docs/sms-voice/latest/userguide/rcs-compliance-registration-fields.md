@@ -11,18 +11,18 @@ These fields are displayed to recipients in their messaging app. They
 form your brand identity and are visible every time a user views your
 agent's profile or receives a message from you.
 
-| Field                | Where it appears                                                                   | Constraints                                  |
-| -------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------- |
-| **Display name**     | Shown as the sender name alongside messages and at the<br>top of the agent profile | 1-40 characters                              |
-| **Description**      | Shown on the agent profile page in the messaging app                               | 1-100 characters                             |
-| **Logo**             | Shown next to your messages and on the agent profile                               | 224x224 px, PNG with transparency, max 50 KB |
-| **Banner image**     | Shown at the top of the agent profile (Android only)                               | 1440x448 px, PNG or JPEG, max 200 KB         |
-| **Accent color**     | Used as highlight color in the messaging app UI                                    | Hex code, min 4.5:1 contrast ratio vs white  |
-| **Contact phone**    | Shown on agent profile as a tappable contact option                                | E.164 format, with a label                   |
-| **Contact email**    | Shown on agent profile as a tappable contact option                                | Valid email, with a label                    |
-| **Contact website**  | Shown on agent profile as a tappable link                                          | Valid URL, with a label                      |
-| **Privacy policy**   | Linked from the agent profile                                                      | Valid accessible URL, with a label           |
-| **Terms of service** | Linked from the agent profile                                                      | Valid accessible URL, with a label           |
+| Field                | Where it appears                                                                   | Constraints                                                                                                                                                                                                                                                                                                                                                                                           |
+| -------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Display name**     | Shown as the sender name alongside messages and at the<br>top of the agent profile | 1-40 characters. Avoid operating system path separator<br>characters (`/`, `\`, `:`)<br>and URL-encoded equivalents (`%2f`,<br>`%5c`, `%2e`). While registration<br>may succeed, iOS devices may strip these characters from the<br>displayed name. See<br>[RCS best practices](rcs-best-practices.md#rcs-best-practices-device-variance "rcs-best-practices.md#rcs-best-practices-device-variance"). |
+| **Description**      | Shown on the agent profile page in the messaging app                               | 1-100 characters. Must not contain script content, JSON,<br>HTML, OS paths, Unix commands, URL-encoded escape sequences<br>(`%2e`, `%2f`, `%5c`,<br>`%25`), template syntax, or nested scopes such as<br>`{outer (inner)}`.                                                                                                                                                                           |
+| **Logo**             | Shown next to your messages and on the agent profile                               | 224x224 px, PNG with transparency, max 50 KB                                                                                                                                                                                                                                                                                                                                                          |
+| **Banner image**     | Shown at the top of the agent profile (Android only)                               | 1440x448 px, PNG or JPEG, max 200 KB                                                                                                                                                                                                                                                                                                                                                                  |
+| **Accent color**     | Used as highlight color in the messaging app UI                                    | Hex code, min 4.5:1 contrast ratio vs white                                                                                                                                                                                                                                                                                                                                                           |
+| **Contact phone**    | Shown on agent profile as a tappable contact option                                | E.164 format, with a label                                                                                                                                                                                                                                                                                                                                                                            |
+| **Contact email**    | Shown on agent profile as a tappable contact option                                | Valid email, with a label                                                                                                                                                                                                                                                                                                                                                                             |
+| **Contact website**  | Shown on agent profile as a tappable link                                          | Valid URL, with a label                                                                                                                                                                                                                                                                                                                                                                               |
+| **Privacy policy**   | Linked from the agent profile                                                      | Valid accessible URL, with a label                                                                                                                                                                                                                                                                                                                                                                    |
+| **Terms of service** | Linked from the agent profile                                                      | Valid accessible URL, with a label                                                                                                                                                                                                                                                                                                                                                                    |
 
 Because these fields are visible to end users, they must be accurate,
 professional, and represent your brand correctly. Changes to some profile
@@ -64,3 +64,35 @@ When writing your **campaign description**
 and **opt-in/opt-out details**, these are for
 the reviewer only. Be thorough and explicit about your compliance
 practices — the end user never sees these fields.
+
+## Character restrictions and rendering behavior
+
+The display name and description fields have character restrictions
+beyond their length limits.
+
+**Display name**: Avoid characters that
+function as operating system path separators (`/`,
+`\`, `:`) or their URL-encoded equivalents. While
+registration does not reject these characters, Apple's iOS Messages app
+may strip them from the displayed sender name. This causes a mismatch
+between your registered name and what iOS recipients see. Always verify
+your agent's appearance on an iOS test device during the testing phase
+before requesting carrier launch.
+
+**Description**: The following content
+types are not allowed in the description field and may cause registration
+rejection:
+
+- Script content (JavaScript, etc.)
+- JSON or HTML markup
+- URL-encoded escape sequences (`%2e`,
+  `%2f`, `%5c`, `%25`)
+- Template syntax (such as `{{variable}}`)
+- Operating system paths (strings resembling file paths)
+- Unix commands
+- Nested scopes such as `{outer content (inner
+ content)}` or `([nested {example}])`
+
+These restrictions are enforced by Google's RCS Business Messaging
+platform and apply regardless of which carrier or region you launch
+in.
