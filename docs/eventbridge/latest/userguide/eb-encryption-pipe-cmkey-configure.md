@@ -30,8 +30,8 @@ an existing pipe. This includes:
 - Changing from one customer managed key to another.
 
 When you update a pipe to use a different AWS KMS key, EventBridge
-decrypts any data stored on the pipe and then encrypts it using the new
-key.
+uses the new key to re-encrypt the data keys that protect data stored on
+the pipe. EventBridge does not re-encrypt the stored data itself.
 
 ###### To update the KMS key used for encryption on a pipe (console)
 
