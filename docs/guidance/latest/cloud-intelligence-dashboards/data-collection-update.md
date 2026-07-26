@@ -85,7 +85,7 @@ To ensure full visibility of data across your organization accounts, in the para
    about resources will be collected. Specify at least the same regions
    your existing Data Collection stack uses.
 
-![Optimization Data Collection Stack update - regions parameter](/images/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1f-data-collection-update-compopt-regions.png)
+![Optimization Data Collection Stack update - regions parameter](images/data-collection/update-process/data-collectors/1f-data-collection-update-compopt-regions.png)
 
 1. Click **Next** at the bottom of the **Specify stack details** stage, and
    then, click **Next** again at the bottom of the **Configure stack options**

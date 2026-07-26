@@ -17,10 +17,10 @@ access to Management Account please follow this [guide](data-collection-without-
 - Access to a Linked Account - referred as **Data Collection Account**
 - Deployment can be only done in following **regions**: (eu-west-1,
   us-east-2, us-east-1, us-west-1, us-west-2, ap-southeast-1,
-  eu-central-1, eu-west-2, eu-north-1, ap-southeast-2, ap-south-1,
-  ap-northeast-3, ap-northeast-2, ap-northeast-1, ca-central-1,eu-west-3,
-  sa-east-1). Please make sure you choose one of these regions to install
-  the Data Collection stack.
+  eu-central-1, eu-central-2, eu-west-2, eu-north-1, eu-south-1,
+  ap-southeast-2, ap-south-1, ap-northeast-3, ap-northeast-2,
+  ap-northeast-1, ca-central-1, eu-west-3, sa-east-1). Please make sure
+  you choose one of these regions to install the Data Collection stack.
 - Lambda
   [concurrent
   executions limit](../../../lambda/latest/dg/gettingstarted-limits.md "../../../lambda/latest/dg/gettingstarted-limits.md") of at least 500 (1000 is recommended) in your Data

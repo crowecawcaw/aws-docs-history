@@ -17,6 +17,19 @@ Subscribe to the RSS feed to get notified about new releases automatically:
 The highlights below cover notable releases from the past year, most recent
 first.
 
+## CID Data Collection v3.14.6: Identity Center module, new regions (July 23, 2026)
+
+- **New IAM Identity Center module** — collects Identity Center users and groups,
+  enabling user-attribute enrichment in dashboards.
+- **Two new supported regions** — Europe (Milan) `eu-south-1` and Europe (Zurich)
+  `eu-central-2` are now available for deploying the Data Collection stack.
+- **WorkSpaces metrics improvements** — throttle handling with fallback, new
+  metrics, and bug fixes for the EUC dashboard data collection.
+
+See [CID Data Collection](data-collection.md "data-collection.md").
+
+View the [changelog entry](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-data-collection/releases/tag/3.14.6 "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-data-collection/releases/tag/3.14.6").
+
 ## cid-cmd v4.4.14: organizational taxonomy and `cid-cmd map` (June 4, 2026)
 
 The `cid-cmd map` command provides an interactive workflow to build an enriched
