@@ -566,3 +566,5 @@ You can now delete the resources that you created for this tutorial, unless you 
 3. Choose **Delete**.
 4. Enter `delete` in the text box.
 5. Choose **Delete table**.
+
+If you encounter errors when invoking your function through API Gateway, see [Handling Lambda errors with an API Gateway API](services-apigateway-errors.md "services-apigateway-errors.md").

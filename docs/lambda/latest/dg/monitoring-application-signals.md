@@ -33,7 +33,7 @@ Lambda does the following on your behalf:
   layer-provided instrumentation.
 - Adds the `AWS_LAMBDA_EXEC_WRAPPER` environment variable to your function,
   and sets its value to `/opt/otel-instrument`. This environment variable
-  modifies your function's startup behavior to utilize the Application Signals layer, and is
+  modifies your function's startup behavior to use the Application Signals layer, and is
   required for proper instrumentation. If this environment variable already exists, ensure
   that it's set to the required value.
 

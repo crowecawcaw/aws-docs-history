@@ -52,7 +52,7 @@ key. Suppose a producer is putting records into your Kinesis stream in the follo
 }
 ```
 
-To filter only those records where the order type is “buy,” the `FilterCriteria` object would be as follows.
+To filter only those records where the order type is "buy," the `FilterCriteria` object would be as follows.
 
 ```
 {

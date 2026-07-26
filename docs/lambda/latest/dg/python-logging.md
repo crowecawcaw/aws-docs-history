@@ -110,10 +110,10 @@ Lambda Advanced Logging Controls and not by setting the log level in code. To le
 
 ## Using Lambda advanced logging controls with Python
 
-To give you more control over how your functions’ logs are captured, processed, and consumed, you can configure the following logging
+To give you more control over how your functions' logs are captured, processed, and consumed, you can configure the following logging
 options for supported Lambda Python runtimes:
 
-- **Log format** - select between plain text and structured JSON format for your function’s logs
+- **Log format** - select between plain text and structured JSON format for your function's logs
 - **Log level** - for logs in JSON format, choose the detail level of the logs Lambda sends to Amazon CloudWatch,
   such as ERROR, DEBUG, or INFO
 - **Log group** - choose the CloudWatch log group your function sends logs to
@@ -125,7 +125,7 @@ To learn more about using the log format and log level options with your Python 
 
 ### Using structured JSON logs with Python
 
-If you select JSON for your function’s log format, Lambda will send logs output by the Python standard logging library to CloudWatch as
+If you select JSON for your function's log format, Lambda will send logs output by the Python standard logging library to CloudWatch as
 structured JSON. Each JSON log object contains at least four key value pairs with the following keys:
 
 - `"timestamp"` - the time the log message was generated
@@ -139,7 +139,7 @@ The examples in the following sections show how log outputs generated using the 
 configure your function's log format as JSON.
 
 Note that if you use the `print` method to produce basic log outputs as described in [Printing to the log](#python-logging-output "#python-logging-output"), Lambda will capture
-these outputs as plain text, even if you configure your function’s logging format as JSON.
+these outputs as plain text, even if you configure your function's logging format as JSON.
 
 #### Standard JSON log outputs using Python logging library
 
@@ -239,12 +239,12 @@ def lambda_handler(event, context):
 
 #### JSON structured logs with other logging tools
 
-If your code already uses another logging library, such as Powertools for AWS Lambda, to produce JSON structured logs, you don’t need to
-make any changes. AWS Lambda doesn’t double-encode any logs that are already JSON encoded. Even if you configure your function to use the
+If your code already uses another logging library, such as Powertools for AWS Lambda, to produce JSON structured logs, you don't need to
+make any changes. AWS Lambda doesn't double-encode any logs that are already JSON encoded. Even if you configure your function to use the
 JSON log format, your logging outputs appear in CloudWatch in the JSON structure you define.
 
 The following example shows how log outputs generated using the Powertools for AWS Lambda package are captured in CloudWatch Logs. The format
-of this log output is the same whether your function’s logging configuration is set to JSON or TEXT. For more information about using
+of this log output is the same whether your function's logging configuration is set to JSON or TEXT. For more information about using
 Powertools for AWS Lambda, see [Using Powertools for AWS Lambda (Python) and AWS SAM for structured logging](#python-logging-sam "#python-logging-sam") and [Using Powertools for AWS Lambda (Python) and AWS CDK for structured logging](#python-logging-powertools-cdk "#python-logging-powertools-cdk")
 
 ###### Example Python logging code snippet (using Powertools for AWS Lambda)
@@ -280,13 +280,13 @@ For AWS Lambda to filter your application logs according to their log level, you
 this in two ways:
 
 - Create log outputs using the standard Python `logging` library and configure your function to use JSON log formatting.
-  AWS Lambda then filters your log outputs using the “level” key value pair in the JSON object described in [Using structured JSON logs with Python](#python-logging-JSON "#python-logging-JSON").
-  To learn how to configure your function’s log format, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced "monitoring-logs.md#monitoring-cloudwatchlogs-advanced").
-- Use another logging library or method to create JSON structured logs in your code that include a “level” key value pair defining the
+  AWS Lambda then filters your log outputs using the "level" key value pair in the JSON object described in [Using structured JSON logs with Python](#python-logging-JSON "#python-logging-JSON").
+  To learn how to configure your function's log format, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced "monitoring-logs.md#monitoring-cloudwatchlogs-advanced").
+- Use another logging library or method to create JSON structured logs in your code that include a "level" key value pair defining the
   level of the log output. For example, you can use Powertools for AWS Lambda to generate JSON structured log outputs from your code.
 
 You can also use a print statement to output a JSON object containing a log level identifier. The following print statement produces
-a JSON formatted output where the log level is set to INFO. AWS Lambda will send the JSON object to CloudWatch Logs if your function’s logging level
+a JSON formatted output where the log level is set to INFO. AWS Lambda will send the JSON object to CloudWatch Logs if your function's logging level
 is set to INFO, DEBUG, or TRACE.
 
 ```
@@ -726,7 +726,7 @@ class HelloWorldStack(Stack):
         powertools_layer = lambda_.LayerVersion.from_layer_version_arn(
             self,
             id="lambda-powertools",
-            # Using AWS Lambda Powertools via Lambda Layer
+            # Using AWS Lambda Powertools with Lambda Layer
             # This imports the Powertools layer which provides observability features for Lambda functions
             # For available versions, see: https://docs.aws.amazon.com/powertools/python/latest/#lambda-layer
         )

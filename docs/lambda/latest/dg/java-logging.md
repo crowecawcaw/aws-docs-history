@@ -104,10 +104,10 @@ invocation. The report line provides the following details:
 
 ## Using Lambda advanced logging controls with Java
 
-To give you more control over how your functions’ logs are captured, processed, and consumed, you can configure the following logging
+To give you more control over how your functions' logs are captured, processed, and consumed, you can configure the following logging
 options for supported Java runtimes:
 
-- **Log format** - select between plain text and structured JSON format for your function’s logs
+- **Log format** - select between plain text and structured JSON format for your function's logs
 - **Log level** - for logs in JSON format, choose the detail level of the logs Lambda sends to CloudWatch, such as
   ERROR, DEBUG, or INFO
 - **Log group** - choose the CloudWatch log group your function sends logs to
@@ -154,7 +154,7 @@ This log output by this example code would be captured in CloudWatch Logs as fol
 
 If you don't assign a level to your log output, Lambda will automatically assign it the level INFO.
 
-If your code already uses another logging library to produce JSON structured logs, you don’t need to make any changes. Lambda doesn’t
+If your code already uses another logging library to produce JSON structured logs, you don't need to make any changes. Lambda doesn't
 double-encode any logs that are already JSON encoded. Even if you configure your function to use the JSON log format, your logging outputs
 appear in CloudWatch in the JSON structure you define.
 
@@ -164,9 +164,9 @@ For AWS Lambda to filter your application logs according to their log level, you
 this in two ways:
 
 - Create log outputs using the standard `LambdaLogger` and configure your function to use JSON log formatting. Lambda then
-  filters your log outputs using the “level” key value pair in the JSON object described in [Using structured JSON log format with Java](#java-logging-advanced-JSON "#java-logging-advanced-JSON").
-  To learn how to configure your function’s log format, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced "monitoring-logs.md#monitoring-cloudwatchlogs-advanced").
-- Use another logging library or method to create JSON structured logs in your code that include a “level” key value pair defining the
+  filters your log outputs using the "level" key value pair in the JSON object described in [Using structured JSON log format with Java](#java-logging-advanced-JSON "#java-logging-advanced-JSON").
+  To learn how to configure your function's log format, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced "monitoring-logs.md#monitoring-cloudwatchlogs-advanced").
+- Use another logging library or method to create JSON structured logs in your code that include a "level" key value pair defining the
   level of the log output. You can use any logging library that can write JSON logs to `stdout` or `stderr`. For
   example, you can use Powertools for AWS Lambda or the Log4j2 package to generate JSON structured log outputs from your code. See
   [Using Powertools for AWS Lambda (Java) and AWS SAM for structured logging](#java-logging-sam "#java-logging-sam") and [Implementing advanced logging with Log4j2 and SLF4J](#java-logging-log4j2 "#java-logging-log4j2") to learn more.

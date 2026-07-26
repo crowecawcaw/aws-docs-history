@@ -55,7 +55,7 @@ You should see output similar to the following.
 }
 ```
 
-Make a note of the Amazon Resource Name (ARN) of your topic. You’ll need it later in the tutorial when you add permissions to your
+Make a note of the Amazon Resource Name (ARN) of your topic. You'll need it later in the tutorial when you add permissions to your
 Lambda function to subscribe to the topic.
 
 ## Create a function execution role (account B)
@@ -64,7 +64,7 @@ Lambda function to subscribe to the topic.
 
 An execution role is an IAM role that grants a Lambda function permission to access AWS services and resources. Before you create your
 function in **account B**, you create a role that gives the function basic permissions to write logs to
-CloudWatch Logs. We’ll add the permissions to read from your Amazon SNS topic in a later step.
+CloudWatch Logs. We'll add the permissions to read from your Amazon SNS topic in a later step.
 
 ###### To create an execution role
 
@@ -535,7 +535,7 @@ You should see output similar to the following.
 }
 ```
 
-5. Record the Amazon Resource Name (ARN) of your function. You’ll need it later in the tutorial
+5. Record the Amazon Resource Name (ARN) of your function. You'll need it later in the tutorial
    when you add permissions to allow Amazon SNS to invoke your function.
 
 ## Add permissions to function (account B)
@@ -627,8 +627,8 @@ You should see output similar to the following.
 ![Next step: Publish messages](images/services-sns-tutorial/sns_tut_steps_7.png)
 
 Now that your Lambda function in **account B** is subscribed to your Amazon SNS topic in **account A**,
-it’s time to test your setup by publishing messages to your topic. To confirm that Amazon SNS has invoked your Lambda function, you use CloudWatch Logs to view
-your function’s output.
+it's time to test your setup by publishing messages to your topic. To confirm that Amazon SNS has invoked your Lambda function, you use CloudWatch Logs to view
+your function's output.
 
 ###### To publish a message to your topic and view your function's output
 
@@ -643,7 +643,7 @@ your function’s output.
 ```
 
 This will return a message ID with a unique identifier, indicating that Amazon SNS has accepted the message. Amazon SNS then attempts to deliver
-the message to the topic’s subscribers. To confirm that Amazon SNS has invoked your Lambda function, use CloudWatch Logs to view your function’s output: 3. In **account B**, open the [Log groups](https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups "https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups") page of the Amazon CloudWatch console. 4. Choose the log group for your function (`/aws/lambda/Function-With-SNS`). 5. Choose the most recent log stream. 6. If your function was correctly invoked, you’ll see output similar to the following showing the contents of the message you published to
+the message to the topic's subscribers. To confirm that Amazon SNS has invoked your Lambda function, use CloudWatch Logs to view your function's output: 3. In **account B**, open the [Log groups](https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups "https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups") page of the Amazon CloudWatch console. 4. Choose the log group for your function (`/aws/lambda/Function-With-SNS`). 5. Choose the most recent log stream. 6. If your function was correctly invoked, you'll see output similar to the following showing the contents of the message you published to
 your topic.
 
 ```

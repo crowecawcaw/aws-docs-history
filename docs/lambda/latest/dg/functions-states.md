@@ -29,7 +29,7 @@ Function states include:
   restore it to the active state.
 
 A function also transitions to the `Inactive` state if Lambda loses access to the function's source artifact. This applies to [container image](images-create.md "images-create.md") functions where the image is deleted from Amazon ECR or permissions are revoked, and to .zip functions that use [self-managed S3 code storage](configuration-self-managed-storage.md "configuration-self-managed-storage.md") where the source object is deleted or bucket policy permissions are revoked. To restore the function, restore access to the source artifact and update the function.
-If you are using SDK-based automation workflows or calling Lambda’s service APIs directly, ensure that you check a function's state before invocation to verify that it is active.
+If you are using SDK-based automation workflows or calling Lambda's service APIs directly, ensure that you check a function's state before invocation to verify that it is active.
 You can do this with the Lambda API action [GetFunction](../api/API_GetFunction.md "../api/API_GetFunction.md"), or by configuring a waiter using the
 [AWS SDK for Java 2.0](https://github.com/aws/aws-sdk-java-v2 "https://github.com/aws/aws-sdk-java-v2").
 

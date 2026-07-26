@@ -59,9 +59,9 @@ JSON formatted log outputs.
 Currently, the default log format for all Lambda runtimes is plain text. For Lambda Managed Instances, the log format is
 always JSON and cannot be changed.
 
-If you’re already using logging libraries like Powertools for AWS Lambda to generate your function logs in JSON structured format, you
-don’t need to change your code if you select JSON log formatting. Lambda doesn’t double-encode any logs that are already JSON encoded, so
-your function’s application logs will continue to be captured as before.
+If you're already using logging libraries like Powertools for AWS Lambda to generate your function logs in JSON structured format, you
+don't need to change your code if you select JSON log formatting. Lambda doesn't double-encode any logs that are already JSON encoded, so
+your function's application logs will continue to be captured as before.
 
 ## JSON format for system logs
 
@@ -102,7 +102,7 @@ cases, system log events contain more information when output in JSON format tha
 ###### Note
 
 The [Accessing real-time telemetry data for extensions using the Telemetry API](telemetry-api.md "telemetry-api.md") always emits platform events such as `START` and `REPORT` in JSON format.
-Configuring the format of the system logs Lambda sends to CloudWatch doesn’t affect Lambda Telemetry API behavior.
+Configuring the format of the system logs Lambda sends to CloudWatch doesn't affect Lambda Telemetry API behavior.
 
 ## JSON format for application logs
 
@@ -148,12 +148,12 @@ For comparison, the following two examples show the same log output in both plai
 ## Setting your function's log format
 
 To configure the log format for your function, you can use the Lambda console or the AWS Command Line Interface (AWS CLI). You can also configure a
-function’s log format using the [CreateFunction](../api/API_CreateFunction.md "../api/API_CreateFunction.md") and [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md") Lambda API
+function's log format using the [CreateFunction](../api/API_CreateFunction.md "../api/API_CreateFunction.md") and [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md") Lambda API
 commands, the AWS Serverless Application Model (AWS SAM) [AWS::Serverless::Function](../../../serverless-application-model/latest/developerguide/sam-resource-function.md "../../../serverless-application-model/latest/developerguide/sam-resource-function.md")
 resource, and the CloudFormation [AWS::Lambda::Function](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md")
 resource.
 
-Changing your function’s log format doesn’t affect existing logs stored in CloudWatch Logs. Only new logs will use the updated format.
+Changing your function's log format doesn't affect existing logs stored in CloudWatch Logs. Only new logs will use the updated format.
 
 If you change your function's log format to JSON and do not set log level, then Lambda automatically sets your function's application log
 level and system log level to INFO.
@@ -176,7 +176,7 @@ and [EMF](https://www.npmjs.com/package/aws-embedded-metrics "https://www.npmjs.
 continue to parse your logs correctly. If you switch to the JSON log format, we also recommend that you carry out testing to ensure
 compatibility with your function's embedded metrics. For further advice about node.js functions that emit EMF logs, see [Using embedded metric format (EMF) client libraries with structured JSON logs](nodejs-logging.md#nodejs-logging-advanced-emf "nodejs-logging.md#nodejs-logging-advanced-emf").
 
-###### To configure a function’s log format (console)
+###### To configure a function's log format (console)
 
 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
 2. Choose a function
@@ -203,7 +203,7 @@ compatibility with your function's embedded metrics. For further advice about no
 - To configure log format when you create a new function, use the `--logging-config` option in the [create-function](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html")
   command. Set `LogFormat` to either `JSON` or `Text`. The following example command creates a Node.js function that outputs logs in structured JSON.
 
-If you don’t specify a log format when you create a function, Lambda will use the default log format for the runtime version you
+If you don't specify a log format when you create a function, Lambda will use the default log format for the runtime version you
 select. For information about default logging formats, see [Default log formats](#monitoring-cloudwatchlogs-format-default "#monitoring-cloudwatchlogs-format-default").
 
 ```

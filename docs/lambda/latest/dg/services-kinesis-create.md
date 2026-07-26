@@ -40,7 +40,7 @@ AWS Management Console
    and select your function.
 2. In the **Configuration** tab, select **Permissions**.
 3. In the **Execution role** pane, under **Role name**, choose the link to
-   your function’s execution role. This link opens the page for that role in the IAM console.
+   your function's execution role. This link opens the page for that role in the IAM console.
 4. In the **Permissions policies** pane, choose **Add permissions**, then
    select **Attach policies**.
 5. In the search field, enter `AWSLambdaKinesisExecutionRole`.
@@ -50,7 +50,7 @@ AWS CLI
 
 ###### To add Kinesis permissions to your function
 
-- Run the following CLI command to add the `AWSLambdaKinesisExecutionRole` policy to your function’s execution role:
+- Run the following CLI command to add the `AWSLambdaKinesisExecutionRole` policy to your function's execution role:
 
 ```
 `aws iam attach-role-policy \
@@ -62,7 +62,7 @@ AWS SAM
 
 ###### To add Kinesis permissions to your function
 
-- In your function’s definition, add the `Policies` property as shown in the following example:
+- In your function's definition, add the `Policies` property as shown in the following example:
 
 ```
 Resources:
@@ -117,7 +117,7 @@ AWS SAM
 
 ###### To create the Kinesis event source mapping
 
-- In your function’s definition, add the `KinesisEvent` property as shown in the following example:
+- In your function's definition, add the `KinesisEvent` property as shown in the following example:
 
 ```
 Resources:
@@ -167,7 +167,7 @@ configure the stream using a resource-based policy to give your Lambda function 
 configure your stream to allow cross-account access, see [Sharing access with cross-account AWS Lambda functions](../../../streams/latest/dev/resource-based-policy-examples.md#Resource-based-policy-examples-lambda "../../../streams/latest/dev/resource-based-policy-examples.md#Resource-based-policy-examples-lambda")
 in the _Amazon Kinesis Streams Developer guide_.
 
-Once you’ve configured your stream with a resource-based policy that gives your Lambda function the required
+Once you've configured your stream with a resource-based policy that gives your Lambda function the required
 permissions, create the event source mapping using any of the methods described in the previous section.
 
 If you choose to create your event source mapping using the Lambda console, paste the ARN of your stream directly

@@ -31,11 +31,11 @@ For compute-intensive operations, if your function experiences slower-than-expec
 may be due to your function being CPU-bound. In this case, the computational capacity of the function
 cannot keep pace with the work.
 
-While Lambda doesn't allow you to modify CPU configuration directly, CPU is indirectly controlled via
+While Lambda doesn't allow you to modify CPU configuration directly, CPU is indirectly controlled through
 the memory settings. The Lambda service proportionally allocates more virtual CPU as you allocate more
 memory. At 1.8 GB memory, a Lambda function has an entire vCPU allocated, and above this level it has
 access to more than one vCPU core. At 10,240MB, it has 6 vCPUs available. In other words, you can improve
-performance by increasing the memory allocation, even if the function doesn’t use all of the memory.
+performance by increasing the memory allocation, even if the function doesn't use all of the memory.
 
 ## Timeouts
 
@@ -66,7 +66,7 @@ application for a range of expected file sizes, up to and including the maximum 
 
 Global variables and objects stored in the INIT phase of a Lambda invocation retain their state between
 warm invocations. They are completely reset only when the execution environment is run for the first time
-(also known as a “cold start”). Any variables stored in the handler are destroyed when the handler exits. It’s
+(also known as a "cold start"). Any variables stored in the handler are destroyed when the handler exits. It's
 best practice to use the INIT phase to set up database connections, load libraries, create caches, and load
 immutable assets.
 
@@ -92,11 +92,11 @@ Configured with 128 MB of memory, after invoking this function 1000 times, the *
 tab of the Lambda function shows the typical changes in invocations, duration, and error counts when a memory leak
 occurs:
 
-![debugging ops figure 4](images/debugging-ops-figure-4.png)
+![Lambda console Monitoring tab showing invocations dropping, duration increasing, and error count rising during a memory leak.](images/debugging-ops-figure-4.png)
 
 1. **Invocations** – A steady transaction rate is interrupted
    periodically as the invocations take longer to complete. During the steady state, the memory leak is not
-   consuming all of the function’s allocated memory. As performance degrades, the operating system is paging
+   consuming all of the function's allocated memory. As performance degrades, the operating system is paging
    local storage to accommodate the growing memory required by the function, which results in fewer transactions
    being completed.
 2. **Duration** – Before the function runs out of memory, it finishes
@@ -110,7 +110,7 @@ After the error, Lambda restarts the execution environment, which explains why a
 the original state. Expanding the CloudWatch metrics for duration provides more detail for the minimum, maximum and average
 duration statistics:
 
-![debugging ops figure 5](images/debugging-ops-figure-5.png)
+![CloudWatch duration metrics showing minimum, maximum, and average statistics with a spike during the memory leak period.](images/debugging-ops-figure-5.png)
 
 To find the errors generated across the 1000 invocations, you can use the CloudWatch Insights query language. The
 following query excludes informational logs to report only the errors:
@@ -128,11 +128,11 @@ fields @timestamp, @message
 
 When run against the log group for this function, this shows that timeouts were responsible for the periodic errors:
 
-![debugging ops figure 6](images/debugging-ops-figure-6.png)
+![CloudWatch Logs Insights query results showing timeout errors from the Lambda function.](images/debugging-ops-figure-6.png)
 
 ## Asynchronous results returned to a later invocation
 
-For function code that uses asynchronous patterns, it’s possible for the callback results from one invocation
+For function code that uses asynchronous patterns, it's possible for the callback results from one invocation
 to be returned in a future invocation. This example uses Node.js, but the same logic can apply to other runtimes
 using asynchronous patterns. The function uses the traditional callback syntax in JavaScript. It calls an
 asynchronous function with an incremental counter that tracks the number of invocations:
@@ -154,17 +154,17 @@ function doWork(id, callback) {
 
 When invoked several times in succession, the results of the callbacks occur in subsequent invocations:
 
-![debugging ops figure 7](images/debugging-ops-figure-7.png)
+![CloudWatch logs showing callback results from one invocation appearing in subsequent invocations.](images/debugging-ops-figure-7.png)
 
 1. The code calls the `doWork` function, providing a callback function as the last parameter.
 2. The `doWork` function takes some period of time to complete before invoking the callback.
-3. The function’s logging indicates that the invocation is ending before the `doWork` function
+3. The function's logging indicates that the invocation is ending before the `doWork` function
    finishes execution. Additionally, after starting an iteration, callbacks from previous iterations are being
    processed, as shown in the logs.
 
 In JavaScript, asynchronous callbacks are handled with an
 [event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop "https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop"). Other runtimes use
-different mechanisms to handle concurrency. When the function’s execution environment ends, Lambda freezes the environment
+different mechanisms to handle concurrency. When the function's execution environment ends, Lambda freezes the environment
 until the next invocation. After it resumes, JavaScript continues processing the event loop, which in this case includes
 an asynchronous callback from a previous invocation. Without this context, it can appear that the function is running
 code for no reason, and returning arbitrary data. In fact, it is really an artifact of how runtime concurrency and the
@@ -192,10 +192,10 @@ function doWork(id) {
 ```
 
 Using this syntax prevents the handler from exiting before the asynchronous function is finished. In this case, if
-the callback takes longer than the Lambda function’s timeout, the function will throw an error, instead of returning the
+the callback takes longer than the Lambda function's timeout, the function will throw an error, instead of returning the
 callback result in a later invocation:
 
-![debugging ops figure 8](images/debugging-ops-figure-8.png)
+![CloudWatch logs showing the function timing out when using await, preventing callback leaking to later invocations.](images/debugging-ops-figure-8.png)
 
 1. The code calls the asynchronous `doWork` function using the await keyword in the handler.
 2. The `doWork` function takes some period of time to complete before resolving the promise.
@@ -229,7 +229,7 @@ function doWork(id, callback) {
 }
 ```
 
-![debugging ops figure 9](images/debugging-ops-figure-9.png)
+![CloudWatch logs showing the function detecting and logging when a callback originated from a different invocation.](images/debugging-ops-figure-9.png)
 
 1. The Lambda function handler takes the context parameter, which provides access to a unique invocation request ID.
 2. The `awsRequestId` is passed to the doWork function. In the callback, the ID is compared with the

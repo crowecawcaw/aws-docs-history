@@ -52,21 +52,21 @@ While Amazon DocumentDB is creating your cluster, create an AWS Secrets Manager 
 5. Choose **Store**.
 6. Refresh the console to verify that you successfully stored the `DocumentDBSecret` secret.
 
-Note the **Secret ARN**. You’ll need it in a later step.
+Note the **Secret ARN**. You'll need it in a later step.
 
 ## Connect to the cluster
 
 ###### Connect to your Amazon DocumentDB cluster using AWS CloudShell
 
 1. On the Amazon DocumentDB management console, under **Clusters**, locate the cluster
-   you created. Choose your cluster by clicking the check box next to it.
+   you created. Choose your cluster by selecting the check box next to it.
 2. Choose **Connect to cluster**. The CloudShell **Run command** screen appears.
 3. In the **New environment name** field, enter a unique name, such as "test" and choose **Create and run**.
 4. When prompted, enter your password. When the prompt becomes `rs0 [direct: primary] <env-name>>`, you are successfully connected to your Amazon DocumentDB cluster.
 
 ## Activate change streams
 
-For this tutorial, you’ll track changes to the `products` collection of the `docdbdemo` database
+For this tutorial, you'll track changes to the `products` collection of the `docdbdemo` database
 in your Amazon DocumentDB cluster. You do this by activating [change streams](../../../documentdb/latest/developerguide/change_streams.md "../../../documentdb/latest/developerguide/change_streams.md").
 
 ###### To create a new database within your cluster
@@ -143,7 +143,7 @@ This completes the cluster setup portion of this tutorial.
 
 ## Create the execution role
 
-In the next set of steps, you’ll create your Lambda function. First, you need to create the execution role that gives
+In the next set of steps, you'll create your Lambda function. First, you need to create the execution role that gives
 your function permission to access your cluster. You do this by creating an IAM policy first, then attaching this
 policy to an IAM role.
 
@@ -219,8 +219,8 @@ JSON
 
 ## Create the Lambda function
 
-This tutorial uses the Python 3.14 runtime, but we’ve also provided example code files for other runtimes. You can select the
-tab in the following box to see the code for the runtime you’re interested in.
+This tutorial uses the Python 3.14 runtime, but we've also provided example code files for other runtimes. You can select the
+tab in the following box to see the code for the runtime you're interested in.
 
 The code receives an Amazon DocumentDB event input and processes the message that it contains.
 
@@ -803,7 +803,7 @@ After you create this event source mapping, AWS Lambda immediately starts pollin
 Wait for the event source mapping to reach the **Enabled** state. This can take several minutes. Then, test the end-to-end setup by inserting, updating, and deleting database records. Before you begin:
 
 1. [Reconnect to your Amazon DocumentDB cluster](#docdb-connect-to-cluster "#docdb-connect-to-cluster") in your CloudShell environment.
-2. Run the following command to ensure that you’re using the `docdbdemo` database:
+2. Run the following command to ensure that you're using the `docdbdemo` database:
 
 ```
 use docdbdemo

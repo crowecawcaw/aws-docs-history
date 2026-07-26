@@ -139,7 +139,7 @@ This `OrderHandler.java` file contains the following sections of code:
 - `public class OrderHandler ...`: This defines your Java class, and must
   be a [valid class definition](#java-handler-signatures "#java-handler-signatures").
 - `private static final S3Client S3_CLIENT ...`: This initializes an S3
-  client outside of any of the class’s methods. This causes Lambda to run this code during
+  client outside of any of the class's methods. This causes Lambda to run this code during
   the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib "lambda-runtime-environment.md#runtimes-lifecycle-ib").
 - `public record Order ...`: Define the shape of the expected input event
   in this custom Java [record](https://openjdk.org/jeps/395 "https://openjdk.org/jeps/395").
@@ -305,8 +305,8 @@ bytes from the input stream, writes to the output stream, and returns void. For 
 using the Java 21 runtime, see
 [HandlerStream.java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-basic/src/main/java/example/HandlerStream.java "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-basic/src/main/java/example/HandlerStream.java").
 
-If you’re working only with basic and generic types (i.e. `String`, `Integer`,
-`List`, or `Map`) in your Java function , you don’t need to implement an interface.
+If you're working only with basic and generic types (i.e. `String`, `Integer`,
+`List`, or `Map`) in your Java function , you don't need to implement an interface.
 For example, if your function takes in a `Map<String, String>` input and returns a
 `String`, your class definition and handler signature may look like the following:
 
@@ -318,7 +318,7 @@ public class ExampleHandler {
 }
 ```
 
-In addition, when you don’t implement an interface, the
+In addition, when you don't implement an interface, the
 [context](java-context.md "java-context.md") object is optional. For example, your class definition
 and handler signature may look like the following:
 
@@ -336,14 +336,14 @@ For Lambda functions in Java, if you are implementing either the `RequestHandler
 `RequestStreamHandler` interface, your main handler method must be named
 `handleRequest`. Also, include the `@Override` tag above your
 `handleRequest` method. When you deploy your function to Lambda, specify the main handler
-in your function’s configuration in the following format:
+in your function's configuration in the following format:
 
 - `<package>`.`<Class>` –
   For example, `example.OrderHandler`.
 
-For Lambda functions in Java that don’t implement the `RequestHandler` or
+For Lambda functions in Java that don't implement the `RequestHandler` or
 `RequestStreamHandler` interface, you can use any name for the handler. When you deploy
-your function to Lambda, specify the main handler in your function’s configuration in the following
+your function to Lambda, specify the main handler in your function's configuration in the following
 format:
 
 - `<package>`.`<Class>`::`<handler_method_name>` –
@@ -390,7 +390,7 @@ There are many possible input events for Lambda functions in Java:
   number with no additional formatting—for example, `3.5`. The Java runtime converts
   the value into an object of the specified type.
 - `String` – The event is a JSON string, including quotes—for example,
-  `“My string”`. The runtime converts the value into a `String` object
+  `"My string"`. The runtime converts the value into a `String` object
   without quotes.
 - `List<Integer>`, `List<String>`,
   `List<Object>`, etc. – The event is a JSON array. The runtime
@@ -435,7 +435,7 @@ information about the context object, see [Using the Lambda context object to re
 
 ## Using the AWS SDK for Java v2 in your handler
 
-Often, you’ll use Lambda functions to interact with or make updates to other AWS resources.
+Often, you'll use Lambda functions to interact with or make updates to other AWS resources.
 The simplest way to interface with these resources is to use the AWS SDK for Java v2.
 
 ###### Note
@@ -598,4 +598,4 @@ public class MyHandler {
 
 - **Reduce the time it takes Lambda to unpack deployment packages** authored in
   Java by putting your dependency `.jar` files in a separate /lib directory. This is faster than
-  putting all your function’s code in a single jar with a large number of `.class` files. See [Deploy Java Lambda functions with .zip or JAR file archives](java-package.md "java-package.md") for instructions.
+  putting all your function's code in a single jar with a large number of `.class` files. See [Deploy Java Lambda functions with .zip or JAR file archives](java-package.md "java-package.md") for instructions.

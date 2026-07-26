@@ -38,3 +38,5 @@ Resources:
       Layers:
         - !Ref MyLambdaLayer
 ```
+
+You can also use AWS Serverless Application Model to manage layers. For more information, see [Using AWS SAM with layers](layers-sam.md "layers-sam.md").

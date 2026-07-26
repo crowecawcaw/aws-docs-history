@@ -2,7 +2,7 @@
 
 The durable execution SDK is the foundation for building durable functions. It provides primitives to checkpoint progress, handle retries, and manage execution flow. The SDK abstracts the complexity of checkpoint management and replay, letting you write sequential code that automatically becomes fault-tolerant.
 
-The SDK is available for JavaScript, TypeScript, Python, and Java. For complete API documentation, quickstart tutorials, and language-specific guides, see the [AWS Durable Execution SDK Developer Guide](../../../durable-execution.md "../../../durable-execution.md").
+The SDK is available for JavaScript, TypeScript, Python, Java, and C# (.NET). For complete API documentation, quickstart tutorials, and language-specific guides, see the [AWS Durable Execution SDK Developer Guide](../../../durable-execution.md "../../../durable-execution.md").
 
 ## What the SDK does
 
@@ -56,11 +56,11 @@ Basic operations are the fundamental building blocks for durable functions:
 
 Callback operations enable your function to pause and wait for external systems to provide input. These operations create checkpoints when the callback is created and when it's completed:
 
-| Operation                            | Checkpoint timing | Number of operations                      | Data persisted                                                                        |
-| ------------------------------------ | ----------------- | ----------------------------------------- | ------------------------------------------------------------------------------------- |
-| **CreateCallback**                   | Started           | 1                                         | N/A                                                                                   |
-| **Callback completion via API call** | Completed         | 0                                         | Callback payload                                                                      |
-| **WaitForCallback**                  | Started           | 3 + N retries (context + callback + step) | Payloads returned by submitter step attempts, plus two copies of the callback payload |
+| Operation                                | Checkpoint timing | Number of operations                      | Data persisted                                                                        |
+| ---------------------------------------- | ----------------- | ----------------------------------------- | ------------------------------------------------------------------------------------- |
+| **CreateCallback**                       | Started           | 1                                         | N/A                                                                                   |
+| **Callback completion through API call** | Completed         | 0                                         | Callback payload                                                                      |
+| **WaitForCallback**                      | Started           | 3 + N retries (context + callback + step) | Payloads returned by submitter step attempts, plus two copies of the callback payload |
 
 ### Compound operations
 

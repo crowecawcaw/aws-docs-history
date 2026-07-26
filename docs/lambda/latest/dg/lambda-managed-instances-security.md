@@ -18,7 +18,7 @@ Account administrators control which functions can use specific capacity provide
 
 - Creating functions that use Lambda Managed Instances
 - Updating function configurations to use a capacity provider
-- Deploying functions via infrastructure as code
+- Deploying functions by using infrastructure as code
 
 **Example IAM Policy**
 
@@ -42,7 +42,7 @@ AWS Lambda uses the `AWSServiceRoleForLambda` service-linked role to manage Lamb
 ## Best Practices
 
 1. **Separate by Trust Level**: Create different capacity providers for workloads with different security requirements
-2. **Use Descriptive Names**: Name capacity providers to clearly indicate their intended use and trust level (e.g., `production-trusted`, `dev-sandbox`)
+2. **Use Descriptive Names**: Name capacity providers to clearly indicate their intended use and trust level (for example, `production-trusted`, `dev-sandbox`)
 3. **Apply Least Privilege**: Grant `PassCapacityProvider` permissions only for necessary capacity providers
 4. **Monitor Usage**: Use AWS CloudTrail to monitor capacity provider assignments and access patterns
 

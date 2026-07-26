@@ -50,7 +50,7 @@ When you run this command, the command line interface (CLI) asks you a couple of
 questions about your Lambda function:
 
 - **HTTP function** – If you intend to invoke
-  your function via [API Gateway](services-apigateway.md "services-apigateway.md") or a
+  your function through [API Gateway](services-apigateway.md "services-apigateway.md") or a
   [function URL](urls-configuration.md "urls-configuration.md"), answer
   **Yes**. Otherwise, answer **No**.
   In the example code on this page, we invoke our function with a custom JSON event,
@@ -211,7 +211,7 @@ For this handler:
     `serde_json::Value`, or a custom struct as long as it implements
     `Serialize`. When your code reaches an Ok(U) statement, this indicates
     successful execution, and your function returns a value of type `U`.
-  - When your code encounters an error (i.e. `Err(Error)`), your function
+  - When your code encounters an error (that is, `Err(Error)`), your function
     logs the error in Amazon CloudWatch and returns an error response of type `Error`.
 
 In our example, the handler signature looks like the following:
@@ -240,7 +240,7 @@ async fn handler(_: ()) -> Result<Value, Error>
 
 ## Handler naming conventions
 
-Lambda handlers in Rust don’t have strict naming restrictions. Although you can use any name
+Lambda handlers in Rust don't have strict naming restrictions. Although you can use any name
 for your handler, function names in Rust are generally in `snake_case`.
 
 For smaller applications, such as in this example, you can use a single `main.rs`
@@ -342,7 +342,7 @@ For more information about the context object, see [Using the Lambda context obj
 
 ## Using the AWS SDK for Rust in your handler
 
-Often, you’ll use Lambda functions to interact with or make updates to other AWS resources.
+Often, you'll use Lambda functions to interact with or make updates to other AWS resources.
 The simplest way to interface with these resources is to use the
 [AWS SDK for Rust](../../../sdk-for-rust/latest/dg/welcome.md "../../../sdk-for-rust/latest/dg/welcome.md").
 

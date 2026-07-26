@@ -90,7 +90,7 @@ or if you over-provisioned your function's memory size.
 using the open source AWS Lambda Power Tuning project. For more information, see
 [AWS Lambda Power Tuning](https://github.com/alexcasalboni/aws-lambda-power-tuning "https://github.com/alexcasalboni/aws-lambda-power-tuning") on GitHub.
 
-To optimize function performance, we also recommend deploying libraries that can leverage
+To optimize function performance, we also recommend deploying libraries that can use
 Advanced Vector Extensions 2 (AVX2). This allows you to process demanding workloads, including
 machine learning inferencing, media processing, high performance computing (HPC), scientific
 simulations, and financial modeling. For more information, see
@@ -149,7 +149,7 @@ strategies to improve throttle tolerance:
 [CloudWatch Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md")** instead of creating or
 updating a metric from within your Lambda function code. It's a much more efficient way to track the health of
 your Lambda functions, allowing you to catch issues early in the development process. For instance, you can
-configure an alarm based on the expected duration of your Lambda function invocation in order to address
+configure an alarm based on the expected duration of your Lambda function invocation to address
 any bottlenecks or latencies attributable to your function code.
 
 **Emit custom metrics asynchronously using Embedded Metric Format (EMF).**
@@ -172,7 +172,7 @@ the Logger utility from Powertools for AWS Lambda to automatically format logs i
 [.NET](../../../powertools/dotnet/core/logging.md "../../../powertools/dotnet/core/logging.md")
 Logger utilities in the Powertools for AWS Lambda documentation.
 
-**Leverage your logging library and [AWS Lambda Metrics and Dimensions](../../../AmazonCloudWatch/latest/monitoring/lam-metricscollected.md "../../../AmazonCloudWatch/latest/monitoring/lam-metricscollected.md")** to catch
+**Use your logging library and [AWS Lambda Metrics and Dimensions](../../../AmazonCloudWatch/latest/monitoring/lam-metricscollected.md "../../../AmazonCloudWatch/latest/monitoring/lam-metricscollected.md")** to catch
 app errors (e.g. ERR, ERROR, WARNING, etc.)
 
 **Use [AWS Cost Anomaly Detection](../../../cost-management/latest/userguide/manage-ad.md "../../../cost-management/latest/userguide/manage-ad.md")** to detect unusual activity on your account.

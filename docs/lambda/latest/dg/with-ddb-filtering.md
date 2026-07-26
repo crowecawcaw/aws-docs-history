@@ -20,7 +20,7 @@ DynamoDB event source mappings only support filtering on the `dynamodb` key.
 ## DynamoDB event
 
 Suppose you have a DynamoDB table with the primary key `CustomerName` and attributes `AccountManager` and
-`PaymentTerms`. The following shows an example record from your DynamoDB table’s stream.
+`PaymentTerms`. The following shows an example record from your DynamoDB table's stream.
 
 ```
 {
@@ -56,7 +56,7 @@ The following sections provide examples for different filter types.
 
 ### Filtering with table keys
 
-Suppose you want your function to process only those records where the primary key `CustomerName` is “AnyCompany Industries.” The
+Suppose you want your function to process only those records where the primary key `CustomerName` is "AnyCompany Industries." The
 `FilterCriteria` object would be as follows.
 
 ```
@@ -124,7 +124,7 @@ FilterCriteria:
 ## Filtering with table attributes
 
 With DynamoDB, you can also use the `NewImage` and `OldImage` keys to filter for attribute values. Suppose you want
-to filter records where the `AccountManager` attribute in the latest table image is “Pat Candella” or "Shirley Rodriguez." The
+to filter records where the `AccountManager` attribute in the latest table image is "Pat Candella" or "Shirley Rodriguez." The
 `FilterCriteria` object would be as follows.
 
 ```
@@ -270,7 +270,7 @@ FilterCriteria:
 
 ###### Note
 
-DynamoDB event filtering doesn’t support the use of numeric operators (numeric equals and numeric range). Even if items in your
+DynamoDB event filtering doesn't support the use of numeric operators (numeric equals and numeric range). Even if items in your
 table are stored as numbers, these parameters are converted to strings in the JSON record object.
 
 ## Using the Exists operator

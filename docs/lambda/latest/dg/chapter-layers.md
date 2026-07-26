@@ -20,7 +20,7 @@ There are multiple reasons why you might consider using layers:
   package.
 - **To use the Lambda console code editor.** The code
   editor is a useful tool for testing minor function code updates quickly. However, you
-  can’t use the editor if your deployment package size is too large. Using layers reduces
+  can't use the editor if your deployment package size is too large. Using layers reduces
   your package size and can unlock usage of the code editor.
 - **To lock an embedded SDK version.**The embedded SDKs may change without notice as AWS releases new services and features. You can lock a version
   of the SDK by creating a Lambda layer with the specific version needed. The
@@ -37,7 +37,7 @@ functions that share dependencies. One uses Lambda layers, and the other does no
 
 ![Comparison of two functions that don't use layers, and two functions that share a layer.](images/lambda-layers-diagram.png)
 When you add a layer to a function, Lambda extracts the layer contents into the `/opt`
-directory in your function’s [execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md").
+directory in your function's [execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md").
 All natively supported Lambda runtimes include paths to specific directories within the
 `/opt` directory. This gives your function access to your layer content. For more
 information about these specific paths and how to properly package your layers, see

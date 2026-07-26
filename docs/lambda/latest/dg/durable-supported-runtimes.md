@@ -1,24 +1,26 @@
 # Supported runtimes for durable functions
 
-Durable functions are available for selected managed runtimes and OCI container images for additional runtime version flexibility. You can create durable functions for Node.js, Python, and Java using managed runtimes directly in the console or programmatically through infrastructure-as-code.
+Durable functions are available for selected managed runtimes and OCI container images for additional runtime version flexibility. You can create durable functions for Node.js, Python, Java, and C# (.NET) using managed runtimes directly in the console or programmatically through infrastructure-as-code.
 
 ## Lambda managed runtimes
 
 The following managed runtimes support durable functions when you create functions in the Lambda console or using the AWS CLI with the `--durable-config '{"ExecutionTimeout": 3600, "RetentionPeriodInDays": 7}'` parameter. For complete information about Lambda runtimes, see [Lambda runtimes](lambda-runtimes.md "lambda-runtimes.md").
 
-| Language | Runtime    |
-| -------- | ---------- |
-| Node.js  | nodejs22.x |
-| Node.js  | nodejs24.x |
-| Python   | python3.13 |
-| Python   | python3.14 |
-| Java     | java17     |
-| Java     | java21     |
-| Java     | java25     |
+| Language  | Runtime    |
+| --------- | ---------- |
+| Node.js   | nodejs22.x |
+| Node.js   | nodejs24.x |
+| Python    | python3.13 |
+| Python    | python3.14 |
+| Java      | java17     |
+| Java      | java21     |
+| Java      | java25     |
+| C# (.NET) | dotnet8    |
+| C# (.NET) | dotnet10   |
 
 ###### Note
 
-Lambda Node.js and Python runtimes include the durable execution SDK for testing and development. However, we recommend including the SDK in your deployment package for production. This ensures version consistency and avoids potential runtime updates that might affect your function behavior. Because Java is a compiled language, Lambda Java runtimes do not include the durable execution SDK, so it must be included in your deployment package.
+Lambda Node.js and Python runtimes include the durable execution SDK for testing and development. However, we recommend including the SDK in your deployment package for production. This ensures version consistency and avoids potential runtime updates that might affect your function behavior. Because Java and C# (.NET) are compiled languages, Lambda Java and .NET runtimes do not include the durable execution SDK, so it must be included in your deployment package.
 
 ### Node.js
 
@@ -67,6 +69,18 @@ mvn install
 ```
 
 The Java SDK provides both synchronous and asynchronous versions of each method.
+
+### C# (.NET)
+
+Add the SDK to your .NET project:
+
+```
+
+dotnet add package Amazon.Lambda.DurableExecution
+
+```
+
+The .NET SDK exposes durable operations through `IDurableContext`. Your handler receives the durable execution service envelope and delegates to `DurableFunction.WrapAsync`. Every operation body takes a `CancellationToken`.
 
 ## Container images
 

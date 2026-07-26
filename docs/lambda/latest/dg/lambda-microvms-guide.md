@@ -1,14 +1,14 @@
 # AWS Lambda MicroVMs
 
 If you're building an application where multiple users or AI agents
-connect to a compute environment and run code (for e.g. interactive
+connect to a compute environment and run code (for example, interactive
 development environments, CI/CD systems, or sandboxes for AI) – you
 need compute environments that start fast, stay isolated between tenants, and
 don't require you to manage servers or networking.
 
 AWS Lambda MicroVMs are purpose-built for these use cases. They are
 serverless compute environments that provide VM-level isolation with full
-operating system capabilities (for e.g. installing system packages or
+operating system capabilities (for example, installing system packages or
 mounting filesystems), snapshot-based rapid startup speeds, and fine-grained
 control over ingress networking (port access, support for HTTP/2, gRPC,
 WebSockets) and egress networking (public internet access and VPC
@@ -46,7 +46,7 @@ Pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/p
 5. When idle, the MicroVM suspends, preserving memory and disk state
    while reducing costs. It resumes with memory and disk state intact when
    traffic returns. Suspend-resume behavior can be configured automatically
-   through lifecycle policies or triggered directly via API invocations to
+   through lifecycle policies or triggered directly through API invocations to
    `suspend-microvm` and `resume-microvm`.
 6. When the session ends, you terminate the MicroVM to release all
    resources.

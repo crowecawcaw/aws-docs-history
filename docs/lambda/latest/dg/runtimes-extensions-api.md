@@ -40,7 +40,7 @@ The lifecycle of the execution environment includes the following phases:
 
 - `**Init**`: In this phase, Lambda creates or
   unfreezes an execution environment with the configured resources, downloads the code for the function and
-  all layers, initializes any extensions, initializes the runtime, and then runs the function’s initialization
+  all layers, initializes any extensions, initializes the runtime, and then runs the function's initialization
   code (the code outside the main handler). The `Init` phase happens either during the first
   invocation, or in advance of function invocations if you have enabled [provisioned concurrency](provisioned-concurrency.md "provisioned-concurrency.md").
 
@@ -261,7 +261,7 @@ such as logging, security, governance, and telemetry collection.
 timeout): Because extensions share resources with the runtime, memory exhaustion affects
 them. When the runtime fails, all extensions and the runtime itself participate in the
 `Shutdown` phase. In addition, the runtime is restarted—either
-automatically as part of the current invocation, or via a deferred re-initialization
+automatically as part of the current invocation, or through a deferred re-initialization
 mechanism.
 
 If there is a failure (such as a function timeout or runtime error) during

@@ -11,7 +11,7 @@ To complete this tutorial, you carry out the following steps:
 2. Create a Lambda function that resizes an image and outputs a thumbnail to an Amazon S3 bucket.
 3. Configure a Lambda trigger that invokes your function when objects are uploaded to your source bucket.
 4. Test your function, first with a dummy event, and then by uploading an image to your source bucket.
-   By completing these steps, you’ll learn how to use Lambda to carry out a file processing task on objects added to an Amazon S3 bucket. You can
+   By completing these steps, you'll learn how to use Lambda to carry out a file processing task on objects added to an Amazon S3 bucket. You can
    complete this tutorial using the AWS Command Line Interface (AWS CLI) or the AWS Management Console.
 
 If you're looking for a simpler example to learn how to configure an Amazon S3 trigger for Lambda, you can try [Tutorial: Using an Amazon S3 trigger to invoke a Lambda function](with-s3-example.md "with-s3-example.md").
@@ -100,7 +100,7 @@ and `LocationConstraint`, choose the same AWS Region you used to create your sou
 
 ![Next step: Upload a test object](images/services-s3-tutorial/s3thumb_tut_steps2.png)
 
-Later in the tutorial, you’ll test your Lambda function by invoking it using the AWS CLI or the Lambda console. To confirm that your function
+Later in the tutorial, you'll test your Lambda function by invoking it using the AWS CLI or the Lambda console. To confirm that your function
 is operating correctly, your source bucket needs to contain a test image. This image can be any JPG or PNG file you choose.
 
 AWS Management Console
@@ -250,7 +250,7 @@ AWS CLI
 
 ###### To create an execution role and attach your permissions policy (AWS CLI)
 
-1. Save the following JSON in a file named `trust-policy.json`. This trust policy allows Lambda to use the role’s
+1. Save the following JSON in a file named `trust-policy.json`. This trust policy allows Lambda to use the role's
    permissions by giving the service principal `lambda.amazonaws.com` permission to call the AWS Security Token Service (AWS STS) `AssumeRole`
    action.
 
@@ -277,7 +277,7 @@ AWS CLI
 ```
 
 3. To attach the permissions policy you created in the previous step, run the following CLI command. Replace the AWS account number
-   in the policy’s ARN with your own account number.
+   in the policy's ARN with your own account number.
 
 ```
 `aws iam attach-role-policy --role-name LambdaS3Role --policy-arn arn:aws:iam::`123456789012`:policy/LambdaS3Policy`
@@ -521,7 +521,7 @@ AWS Management Console
 
 ###### To create the function (console)
 
-To create your Lambda function using the console, you first create a basic function containing some ‘Hello world’ code. You then
+To create your Lambda function using the console, you first create a basic function containing some 'Hello world' code. You then
 replace this code with your own function code by uploading the.zip or JAR file you created in the previous step.
 
 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
@@ -826,7 +826,7 @@ You should see output similar to the following. The `Key` parameter shows the fi
 
 ![Next step: Test the function](images/services-s3-tutorial/s3thumb_tut_steps9.png)
 
-Now that you’ve confirmed your Lambda function is operating correctly, you’re ready to test your complete setup by adding an image file to
+Now that you've confirmed your Lambda function is operating correctly, you're ready to test your complete setup by adding an image file to
 your Amazon S3 source bucket. When you add your image to the source bucket, your Lambda function should be automatically invoked. Your function
 creates a resized version of the file and stores it in your target bucket.
 
@@ -867,7 +867,7 @@ AWS CLI
 `aws s3api list-objects-v2 --bucket `amzn-s3-demo-source-bucket-resized``
 ```
 
-If your function runs successfully, you’ll see output similar to the following. Your target bucket should now contain two resized files.
+If your function runs successfully, you'll see output similar to the following. Your target bucket should now contain two resized files.
 
 ```
 {

@@ -312,8 +312,8 @@ If you upload your .zip or JAR file from an Amazon S3 bucket using the AWS CLI, 
 To create a new function using a .zip or JAR file with the AWS CLI, you must specify the following:
 
 - The name of your function (`--function-name`)
-- Your function’s runtime (`--runtime`)
-- The Amazon Resource Name (ARN) of your function’s [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") (`--role`)
+- Your function's runtime (`--runtime`)
+- The Amazon Resource Name (ARN) of your function's [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") (`--role`)
 - The name of the handler method in your function code (`--handler`)
 
 You must also specify the location of your .zip or JAR file. If your .zip or JAR file is located in a folder on your local build machine, use

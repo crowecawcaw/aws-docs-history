@@ -178,7 +178,7 @@ In the previous diagram:
   environment is used for a new invocation, Lambda re-initializes the extension and runtime
   together with the next invocation.
 
-Note that the Lambda reset does not clear the `/tmp` directory content prior to the next init phase.
+Note that the Lambda reset does not clear the `/tmp` directory content before the next init phase.
 This behavior is consistent with the regular shutdown phase.
 
 ###### Note
@@ -301,19 +301,19 @@ execution environment has the following implications:
 
 ## Cold starts and latency
 
-When Lambda receives a request to run a function via the Lambda API, the service first prepares an execution
+When Lambda receives a request to run a function through the Lambda API, the service first prepares an execution
 environment. During this initialization phase, the service downloads your code, starts the environment, and
 runs any initialization code outside of the main handler. Finally, Lambda runs the handler code.
 
 ![perf optimize figure 1](images/perf-optimize-figure-1.png)
 
 In this diagram, the first two steps of downloading the code and setting up the environment are frequently referred
-to as a “cold start”. You are [charged for this time](https://aws.amazon.com/blogs/compute/aws-lambda-standardizes-billing-for-init-phase/ "https://aws.amazon.com/blogs/compute/aws-lambda-standardizes-billing-for-init-phase/"), and it adds latency to your overall invocation duration.
+to as a "cold start". You are [charged for this time](https://aws.amazon.com/blogs/compute/aws-lambda-standardizes-billing-for-init-phase/ "https://aws.amazon.com/blogs/compute/aws-lambda-standardizes-billing-for-init-phase/"), and it adds latency to your overall invocation duration.
 
 After the invocation completes, the execution environment is frozen. To improve resource management and performance,
 Lambda retains the execution environment for a period of time. During this time, if another request arrives for the same
 function, Lambda can reuse the environment. This second request typically finishes more quickly, since the execution
-environment is already fully set up. This is called a “warm start”.
+environment is already fully set up. This is called a "warm start".
 
 Cold starts typically occur in under 1% of invocations. The duration of a cold start varies from under 100 ms to over
 1 second. In general, cold starts are typically more common in development and test functions than production workloads.
@@ -367,7 +367,7 @@ There are a number of steps that developers can take to optimize static initiali
 many objects and connections, you may be able to rearchitect a single function into multiple, specialized functions.
 These are individually smaller and each have less initialization code.
 
-It’s important that functions only import the libraries and dependencies that they need. For example, if you only
+It's important that functions only import the libraries and dependencies that they need. For example, if you only
 use Amazon DynamoDB in the AWS SDK, you can require an individual service instead of the entire SDK. Compare the following
 three examples:
 

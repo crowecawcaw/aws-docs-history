@@ -31,7 +31,7 @@ For more information, see [Idempotency utility](https://docs.powertools.aws.dev/
 ## Adding an Amazon SNS topic trigger for a Lambda function using the console
 
 To add an SNS topic as a trigger for a Lambda function, the easiest way is to use
-the Lambda console. When you add the trigger via the console, Lambda automatically
+the Lambda console. When you add the trigger through the console, Lambda automatically
 sets up the necessary permissions and subscriptions to start receiving events from
 the SNS topic.
 

@@ -51,7 +51,7 @@ Note that execution environments with very low concurrency may experience thrott
 
 ## Cost optimization
 
-**Leverage EC2 pricing options.** Take advantage of EC2 Savings Plans and Reserved Instances to reduce costs. These pricing options apply to the underlying EC2 compute (the 15% management fee is not discounted).
+**Use EC2 pricing options.** Take advantage of EC2 Savings Plans and Reserved Instances to reduce costs. These pricing options apply to the underlying EC2 compute (the 15% management fee is not discounted).
 
 **Optimize for steady-state workloads.** Lambda Managed Instances are best suited for steady-state functions with predictable high-volume traffic. For bursty traffic patterns, Lambda (default) may be more cost-effective.
 

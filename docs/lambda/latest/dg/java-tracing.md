@@ -555,7 +555,7 @@ public class HelloWorldStack extends Stack {
 </project>
 ```
 
-10. Make sure you’re in the `hello-world` directory and deploy your application.
+10. Make sure you're in the `hello-world` directory and deploy your application.
 
 ```
 cdk deploy
@@ -648,6 +648,8 @@ For Java runtimes, you can choose between two layers to consume:
   the OTel SDK. For detailed instructions on how to consume this layer, see [AWS Distro for OpenTelemetry
   Lambda Support for Java](https://aws-otel.github.io/docs/getting-started/lambda/lambda-java "https://aws-otel.github.io/docs/getting-started/lambda/lambda-java") in the ADOT documentation.
 
+To learn how to convert Lambda Telemetry API events to OpenTelemetry spans, see [Converting Lambda Telemetry API Event objects to OpenTelemetry Spans](telemetry-otel-spans.md "telemetry-otel-spans.md").
+
 ## Using the X-Ray SDK to instrument your Java functions
 
 To record data about calls that your function makes to other resources and services in your application, you
@@ -669,7 +671,7 @@ dependencies {
 ```
 
 After you add the correct dependencies and make the necessary code changes, activate tracing in your
-function's configuration via the Lambda console or the API.
+function's configuration through the Lambda console or the API.
 
 ## Activating tracing with the Lambda console
 
@@ -835,7 +837,7 @@ Resources:
 With this configuration, you update the library layer only if you change your runtime dependencies.
 Since the function deployment package contains only your code, this can help reduce upload times.
 
-Creating a layer for dependencies requires build configuration changes to generate the layer archive prior to
+Creating a layer for dependencies requires build configuration changes to generate the layer archive before
 deployment. For a working example, see the [java-basic](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-basic "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-basic") sample
 application on GitHub.
 

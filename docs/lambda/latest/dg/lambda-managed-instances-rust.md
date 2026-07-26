@@ -72,11 +72,11 @@ run_concurrent(service_fn(move |event: LambdaEvent<Request>| {
 
 ## Shared /tmp directory
 
-The `/tmp` directory is shared across all concurrent invocations in the same execution environment. Use unique file names per invocation (e.g. include the request ID) or implement explicit file locking to avoid data corruption.
+The `/tmp` directory is shared across all concurrent invocations in the same execution environment. Use unique file names per invocation (for example, include the request ID) or implement explicit file locking to avoid data corruption.
 
 ## Logging
 
-Log interleaving (log entries from different requests being interleaved in logs) is normal in multi-concurrent systems. Functions using Lambda Managed Instances support structured JSON log format via Lambda's [advanced logging controls](monitoring-logs.md#monitoring-cloudwatchlogs-advanced "monitoring-logs.md#monitoring-cloudwatchlogs-advanced"). This format includes the `requestId`, allowing log entries to be correlated to a single request. For further information, see [Implementing advanced logging with the Tracing crate](rust-logging.md#rust-logging-tracing "rust-logging.md#rust-logging-tracing").
+Log interleaving (log entries from different requests being interleaved in logs) is normal in multi-concurrent systems. Functions using Lambda Managed Instances support structured JSON log format through Lambda's [advanced logging controls](monitoring-logs.md#monitoring-cloudwatchlogs-advanced "monitoring-logs.md#monitoring-cloudwatchlogs-advanced"). This format includes the `requestId`, allowing log entries to be correlated to a single request. For further information, see [Implementing advanced logging with the Tracing crate](rust-logging.md#rust-logging-tracing "rust-logging.md#rust-logging-tracing").
 
 ## Request Context
 

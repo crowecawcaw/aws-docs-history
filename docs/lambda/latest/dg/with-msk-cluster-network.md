@@ -43,7 +43,7 @@ uses the subnet and security group configuration of your MSK cluster, not your L
 After polling the message from the cluster, the way Lambda invokes your function is different in each mode:
 
 - In provisioned mode, Lambda automatically handles the connection between the event source mapping
-  VPC and the function VPC. So, you don’t need any additional networking components to successfully
+  VPC and the function VPC. So, you don't need any additional networking components to successfully
   invoke your function.
 - In on-demand mode, your Lambda event source mapping invokes your function via a path through your
   customer-managed VPC. Because of this, you need to configure either a
@@ -60,7 +60,7 @@ endpoints allow private subnets to securely connect to AWS services or other pri
 traversing the public internet. See [Configuring a NAT gateway for an MSK event source](#msk-nat-gateway "#msk-nat-gateway") or [Configuring AWS PrivateLink endpoints for an MSK event source](#msk-vpc-privatelink "#msk-vpc-privatelink")
 for details on how to configure these resources.
 
-So far, we’ve assumed that your MSK cluster resides in a private subnet within your VPC, which is the more
+So far, we've assumed that your MSK cluster resides in a private subnet within your VPC, which is the more
 common case. However, even if your MSK cluster is in a public subnet within your VPC, you must configure
 AWS PrivateLink endpoints to enable a secure connection. The following table summarizes the networking
 configuration requirements based on how you configure your MSK cluster and Lambda event source mapping:
@@ -81,18 +81,18 @@ Ensure that you have the following security group rules configured:
   use a self-referencing security group rule to allow access from instances within the same security group.
 - **Outbound rules** – Allow all traffic on port `443`
   for external destinations if your function needs to communicate with other AWS services. Alternatively,
-  you can use a self-referencing security group rule to limit access to the broker if you don’t need to
+  you can use a self-referencing security group rule to limit access to the broker if you don't need to
   communicate with other AWS services.
-- **Amazon VPC endpoint inbound rules** – If you’re using an Amazon VPC endpoint,
+- **Amazon VPC endpoint inbound rules** – If you're using an Amazon VPC endpoint,
   the security group associated with the endpoint must allow inbound traffic on port `443` from
-  the cluster’s security group.
+  the cluster's security group.
 
 ## Configuring a NAT gateway for an MSK event source
 
 You can configure a NAT gateway to allow your event source mapping to poll messages from your cluster, and
 invoke the function via a path through your VPC. This is required only if your event source mapping uses on-demand
 mode, and your cluster resides within a private subnet of your VPC. If your cluster resides in a public subnet of
-your VPC, or your event source mapping uses provisioned mode, you don’t need to configure a NAT gateway.
+your VPC, or your event source mapping uses provisioned mode, you don't need to configure a NAT gateway.
 
 A [NAT gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") allows resources
 in a private subnet to access the public internet. If you need private connectivity to Lambda, see
@@ -114,7 +114,7 @@ necessary for each Availability Zone (AZ).
      [public connectivity](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md").
    - If your MSK cluster is replicated across multiple AZs, create one NAT gateway per AZ. For example,
      in each AZ, your VPC should have one private subnet containing your cluster, and one public subnet
-     containing your NAT gateway. For a setup with three AZs, you’ll have three private subnets, three
+     containing your NAT gateway. For a setup with three AZs, you'll have three private subnets, three
      public subnets, and three NAT gateways.
 
 2. After you create your NAT gateway, open the [Amazon VPC
@@ -188,7 +188,7 @@ these steps as necessary for each endpoint (Lambda, STS, Secrets Manager).
 
 By default, Amazon VPC endpoints have open IAM policies that allow broad access to resources. Best practice
 is to restrict these policies to perform the needed actions using that endpoint. For example, for your
-Secrets Manager endpoint, you can modify its policy such that it allows only your function’s execution role to
+Secrets Manager endpoint, you can modify its policy such that it allows only your function's execution role to
 access the secret.
 
 ###### Example VPC endpoint policy – Secrets Manager endpoint

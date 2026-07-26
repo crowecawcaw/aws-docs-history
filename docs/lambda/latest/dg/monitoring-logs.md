@@ -42,7 +42,7 @@ For detailed setup instructions for each destination, refer to the following sec
 To give you more control over how your function logs are captured, processed, and consumed, Lambda offers the following logging
 configuration options:
 
-- **Log format** - select between plain text and structured JSON format for your function’s logs.
+- **Log format** - select between plain text and structured JSON format for your function's logs.
 - **Log level** - for JSON structured logs, choose the detail level of the logs Lambda sends to CloudWatch, such as `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, and `TRACE`.
 - **Log group** - choose the CloudWatch log group your function sends logs to.
 

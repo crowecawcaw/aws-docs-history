@@ -508,3 +508,5 @@ def run_with_retry(client, params, max_retries=5):
             time.sleep(delay)
     raise Exception("Max retries exceeded")
 ```
+
+For information about supported service integrations with Lambda Managed Instances, see [Integrations](microvms-integrations.md "microvms-integrations.md").

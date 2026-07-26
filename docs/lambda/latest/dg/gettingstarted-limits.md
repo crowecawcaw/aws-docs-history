@@ -19,7 +19,7 @@ To see the quotas that apply to your account, navigate to the
 your service quotas, request a quota increase, and view current utilization. From here, you can drill down to a
 specific AWS service, such as Lambda:
 
-![application design figure 1](images/application-design-figure-1.png)
+![The Service Quotas console showing Lambda quotas with current utilization](images/application-design-figure-1.png)
 The following sections list default quotas and limits in Lambda by category.
 
 ###### Topics
@@ -111,10 +111,10 @@ Lambda MicroVMs support the ARM64 (AWS Graviton) architecture.
 
 ### Compute and storage
 
-| Resource                                                          | Default quota                                                                                                                                                                                                                                                                                                                                                      | Adjustable |
-| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
-| Memory allocated across all MicroVMs (per account, per<br>Region) | 400 GB (i.e. 200 MicroVMs at 2 GB configured memory each or 400<br>MicroVMs at 1 GB configured memory each).<br>1,024 GB in US East (N. Virginia), US West (Oregon), US East<br>(Ohio), and Asia Pacific (Tokyo) (i.e. 512 MicroVMs at 2 GB configured<br>memory each or 1,024 MicroVMs at 1 GB configured memory each).<br>Burstable up to four times this quota. | Yes        |
-| Maximum execution duration per MicroVM                            | 8 hours (28,800 seconds)                                                                                                                                                                                                                                                                                                                                           | No         |
+| Resource                                                          | Default quota                                                                                                                                                                                                                                                                                                                                                              | Adjustable |
+| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| Memory allocated across all MicroVMs (per account, per<br>Region) | 400 GB (that is, 200 MicroVMs at 2 GB configured memory each or 400<br>MicroVMs at 1 GB configured memory each).<br>1,024 GB in US East (N. Virginia), US West (Oregon), US East<br>(Ohio), and Asia Pacific (Tokyo) (that is, 512 MicroVMs at 2 GB configured<br>memory each or 1,024 MicroVMs at 1 GB configured memory each).<br>Burstable up to four times this quota. | Yes        |
+| Maximum execution duration per MicroVM                            | 8 hours (28,800 seconds)                                                                                                                                                                                                                                                                                                                                                   | No         |
 
 ### Images and versions
 
@@ -158,7 +158,7 @@ _Amazon Web Services General Reference_, and [Invoking Lambda with events from o
 Many applications involving Lambda use multiple AWS services. Because different services
 have different quotas for various features, it can be challenging to manage these quotas across
 your entire application. For example, API Gateway has a default throttle limit of 10,000 requests per
-second, whereas Lambda has a default concurrency limit of 1,000. Due to this mismatch, it's possible
+second, whereas Lambda has a default concurrency limit of 1,000. Because of this mismatch, it's possible
 to have more incoming requests from API Gateway that Lambda can handle. You can resolve this by requesting
 a Lambda concurrency limit increase to match the expected level of traffic.
 

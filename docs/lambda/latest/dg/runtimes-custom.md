@@ -101,7 +101,7 @@ see the following:
 
 - `/runtime/invocation/AwsRequestId/response` – Propagates the
   `Content-Type` header from the runtime to send to the client. Lambda returns
-  the response payload in chunks via HTTP/1.1 chunked transfer encoding. To stream the response to Lambda, the runtime must:
+  the response payload in chunks by using HTTP/1.1 chunked transfer encoding. To stream the response to Lambda, the runtime must:
 
   - Set the `Lambda-Runtime-Function-Response-Mode` HTTP header to
     `streaming`.

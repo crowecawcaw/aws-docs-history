@@ -3,7 +3,7 @@
 AWS Lambda provides a variety of open source tools, libraries, and components to help you
 build, customize, and optimize your serverless applications. These resources include
 runtime interface clients, event libraries, container base images, development tools, and sample projects that are
-maintained by AWS and available on GitHub. By leveraging these open source repositories,
+maintained by AWS and available on GitHub. By using these open source repositories,
 you can extend Lambda's capabilities, create custom runtimes, process events from various AWS services,
 and gain deeper insights into your function's performance. This page provides an overview
 of the key open source projects that support Lambda development.
@@ -55,7 +55,7 @@ For compiled languages, AWS provides the following event libraries:
 
 For interpreted languages like Node.js, Python, and Ruby, events can be parsed
 directly as JSON objects without requiring a separate library. However, developers using
-Node.js and Python can leverage powertools for AWS Lambda, which provides built-in
+Node.js and Python can use powertools for AWS Lambda, which provides built-in
 schemas for AWS events that offer type hinting, data validation, and functionality
 similar to what compiled language libraries provide.
 
@@ -79,7 +79,7 @@ utilities to prevent duplicate processing, and batch processing for multi-record
 handling and Kafka consumer library. These features help you minimize code
 complexity and operational overhead.
 
-You can also leverage built-in event schema validation, structured logging and
+You can also use built-in event schema validation, structured logging and
 tracing, and parameter store integration which are designed to accelerate the
 creation of production-ready Lambda functions while following AWS well-architected
 best practices.

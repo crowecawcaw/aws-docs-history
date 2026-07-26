@@ -639,7 +639,7 @@ disabled to pause polling temporarily without losing any records.
 ## Test the setup
 
 To test the event source mapping, add event records to your Kinesis stream. The `--data` value is a
-string that the CLI encodes to base64 prior to sending it to Kinesis. You can run the same command more than once to
+string that the CLI encodes to base64 before sending it to Kinesis. You can run the same command more than once to
 add multiple records to the stream.
 
 ```

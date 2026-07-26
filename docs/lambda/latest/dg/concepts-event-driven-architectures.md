@@ -3,7 +3,7 @@
 An event is anything that triggers a Lambda function to run. Events can trigger a Lambda function in two ways: through direct invocation (push) and event source mappings (pull).
 
 Many AWS services can directly invoke your Lambda functions. These services _push_ events to your Lambda function. Events that trigger functions can be almost anything, from an HTTP request through API Gateway,
-a schedule managed by an EventBridge rule, an AWS IoT event, or an Amazon S3 event. With event source mapping, Lambda actively fetches (or _pulls_) events from a queue or stream.
+a schedule managed by EventBridge Scheduler, an AWS IoT event, or an Amazon S3 event. With event source mapping, Lambda actively fetches (or _pulls_) events from a queue or stream.
 You configure Lambda to check for events from a supported service, and Lambda handles the polling and invocation of your function.
 
 When passed to your function, events are structured in JSON format. The JSON structure varies depending on the service that generates it and the event type. While standard Lambda function invocations can last up to 15 minutes, Lambda is best-suited for short invocations that last one second or less.
@@ -101,7 +101,7 @@ which can help simplify the microservice logic.
 ### Variable latency
 
 Unlike monolithic applications, which might process everything within the same memory space on a single device,
-event-driven applications communicate across networks. This design introduces variable latency. While it’s
+event-driven applications communicate across networks. This design introduces variable latency. While it's
 possible to engineer applications to minimize latency, monolithic applications can almost always be optimized
 for lower latency at the expense of scalability and availability.
 
@@ -155,10 +155,10 @@ more complicated to determine what happened to a specific event that caused an e
 
 There are three important requirements for building a successful debugging approach in event-driven systems.
 First, a robust logging system is critical, and this is provided across AWS services and embedded in Lambda
-functions by Amazon CloudWatch. Second, in these systems, it’s important to ensure that every event has a transaction
+functions by Amazon CloudWatch. Second, in these systems, it's important to ensure that every event has a transaction
 identifier that is logged at each step throughout a transaction, to help when searching for logs.
 
-Finally, it’s highly recommended to automate the parsing and analysis of logs by using a debugging and
+Finally, it's highly recommended to automate the parsing and analysis of logs by using a debugging and
 monitoring service like AWS X-Ray. This can consume logs across multiple Lambda invocations and services,
 making it much easier to pinpoint the root cause of issues. See [Troubleshooting walkthrough](lambda-troubleshooting.md "lambda-troubleshooting.md") for in-depth coverage of using X-Ray for troubleshooting.
 
@@ -169,7 +169,7 @@ When building event-driven architectures with Lambda, avoid the following common
 ### The Lambda monolith
 
 In many applications migrated from traditional servers, such as Amazon EC2 instances or Elastic Beanstalk applications,
-developers “lift and shift” existing code. Frequently, this results in a single Lambda function that contains
+developers "lift and shift" existing code. Frequently, this results in a single Lambda function that contains
 all of the application logic that is triggered for all events. For a basic web application, a monolithic
 Lambda function would handle all API Gateway routes and integrate with all necessary downstream resources.
 
@@ -179,21 +179,21 @@ This approach has several drawbacks:
 
 - **Package size** – The Lambda function might be much larger because
   it contains all possible code for all paths, which makes it slower for the Lambda service to run.
-- **Hard to enforce least privilege** – The function’s
+- **Hard to enforce least privilege** – The function's
   [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") must allow permissions to all
   resources needed for all paths, making the permissions very broad. This is a security concern. Many
   paths in the functional monolith do not need all the permissions that have been granted.
 - **Harder to upgrade** – In a production system, any upgrades to
   the single function are more risky and could break the entire application. Upgrading a single path in
   the Lambda function is an upgrade to the entire function.
-- **Harder to maintain** – It’s more difficult to have multiple
-  developers working on the service since it’s a monolithic code repository. It also increases the
+- **Harder to maintain** – It's more difficult to have multiple
+  developers working on the service since it's a monolithic code repository. It also increases the
   cognitive burden on developers and makes it harder to create appropriate test coverage for code.
 - **Harder to reuse code** – It's harder to separate reusable
   libraries from monoliths, making code reuse more difficult. As you develop and support more projects,
-  this can make it harder to support the code and scale your team’s velocity.
+  this can make it harder to support the code and scale your team's velocity.
 - **Harder to test** – As the lines of code increase, it becomes
-  harder to unit test all the possible combinations of inputs and entry points in the code base. It’s
+  harder to unit test all the possible combinations of inputs and entry points in the code base. It's
   generally easier to implement unit testing for smaller services with less code.
 
 The preferred alternative is to break down the monolithic Lambda function into individual microservices, mapping
@@ -209,7 +209,7 @@ services. Generally, the service or resource that invokes a Lambda function shou
 or resource that the function outputs to. Failure to manage this can result in infinite loops.
 
 For example, a Lambda function writes an object to an Amazon S3 object, which in turn invokes the same Lambda
-function via a put event. The invocation causes a second object to be written to the bucket, which invokes
+function by using a put event. The invocation causes a second object to be written to the bucket, which invokes
 the same Lambda function:
 
 ![event driven architectures figure 15](images/event-driven-architectures-figure-15.png)

@@ -8,7 +8,7 @@ This section explains how to create and delete layers in Lambda. For more concep
 information about layers and why you might consider using them, see
 [Managing Lambda dependencies with layers](chapter-layers.md "chapter-layers.md").
 
-After you’ve [packaged your layer content](packaging-layers.md "packaging-layers.md"), the
+After you've [packaged your layer content](packaging-layers.md "packaging-layers.md"), the
 next step is to create the layer in Lambda. This section demonstrates how to create and
 delete layers using the Lambda console or the Lambda API only. To create a layer using
 AWS CloudFormation, see [Using AWS CloudFormation with layers](layers-cfn.md "layers-cfn.md"). To create a layer using the

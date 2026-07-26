@@ -2,7 +2,7 @@
 
 Use tenant isolation mode when you need isolated request processing for individual end-users or tenants invoking a Lambda function. This capability simplifies building multi-tenant applications that process tenant-specific code or data, such as SaaS platforms for workflow automation or code execution, by removing the need to manage tenant-specific function resources and request routing logic.
 
-Multi-tenant applications have strict isolation requirements when running code or processing data for individual tenants or end-users. With tenant isolation mode, Lambda uses a customer-specified tenant identifier to route requests to underlying function execution environments, ensuring that a function’s execution environments are only used to serve invocations from the specified end-user or tenant. Lambda’s function execution environments leverage [Firecracker virtualization](https://firecracker-microvm.github.io/ "https://firecracker-microvm.github.io/") to provide workload isolation.
+Multi-tenant applications have strict isolation requirements when running code or processing data for individual tenants or end-users. With tenant isolation mode, Lambda uses a customer-specified tenant identifier to route requests to underlying function execution environments, ensuring that a function's execution environments are only used to serve invocations from the specified end-user or tenant. Lambda's function execution environments use [Firecracker virtualization](https://firecracker-microvm.github.io/ "https://firecracker-microvm.github.io/") to provide workload isolation.
 
 When a function using tenant isolation mode receives an invoke with a tenant identifier, Lambda first attempts to locate an available execution environment associated with that tenant identifier. If no execution environments exist, Lambda creates and assigns a new execution environment to that tenant. As function invocations with the specified tenant identifier scale up, Lambda locates or creates new execution environments as necessary.
 
@@ -43,8 +43,8 @@ When using tenant isolation with your Lambda functions, keep the following in mi
 
 - **Immutable configuration**: Tenant isolation is an immutable function property. It can only be enabled when creating a function.
 - **Required tenant-id parameter**: Functions using tenant isolation mode must be invoked with a `tenant-id` parameter. Omitting this parameter will cause function invocations to fail.
-- **Execution role applies to all tenants**: Invocations from all tenants use the permissions defined in your Lambda function’s [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md").
-- **Concurrency**: There are no changes to your function’s [concurrency](lambda-concurrency.md "lambda-concurrency.md") or [scaling behavior](scaling-behavior.md "scaling-behavior.md") when using tenant isolation. Lambda imposes a limit of 2,500 tenant-isolated execution environments (active or idle) for every 1,000 [concurrent executions](gettingstarted-limits.md#compute-and-storage "gettingstarted-limits.md#compute-and-storage") configured for your Lambda function.
+- **Execution role applies to all tenants**: Invocations from all tenants use the permissions defined in your Lambda function's [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md").
+- **Concurrency**: There are no changes to your function's [concurrency](lambda-concurrency.md "lambda-concurrency.md") or [scaling behavior](scaling-behavior.md "scaling-behavior.md") when using tenant isolation. Lambda imposes a limit of 2,500 tenant-isolated execution environments (active or idle) for every 1,000 [concurrent executions](gettingstarted-limits.md#compute-and-storage "gettingstarted-limits.md#compute-and-storage") configured for your Lambda function.
 
 ## Pricing
 

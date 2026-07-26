@@ -32,7 +32,7 @@ For asynchronous invocation, the retry logic is the same regardless of the invoc
 - **Other accounts and clients** – When you grant access to other
   accounts, you can use [resource-based policies](access-control-resource-based.md "access-control-resource-based.md") to restrict
   the services or resources they can configure to invoke your function. To protect your function from being
-  overloaded, consider putting an API layer in front of your function with [Amazon API Gateway](services-apigateway.md "services-apigateway.md").
+  overloaded, consider putting an API layer in front of your function with [Amazon API Gateway](services-apigateway.md "services-apigateway.md"). For information about handling API Gateway errors, see [Handling Lambda errors with an API Gateway API](services-apigateway-errors.md "services-apigateway-errors.md").
   To help you deal with errors in Lambda applications, Lambda integrates with services like Amazon CloudWatch and AWS X-Ray.
   You can use a combination of logs, metrics, alarms, and tracing to quickly detect and identify issues in your
   function code, API, or other resources that support your application. For more information, see [Monitoring, debugging, and troubleshooting Lambda functions](lambda-monitoring.md "lambda-monitoring.md").

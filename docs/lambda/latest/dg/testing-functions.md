@@ -61,7 +61,7 @@ Shareable test events are test events that you can share with other users in the
 You can edit other users' shareable test events and invoke your function with them.
 
 Lambda saves shareable test events as schemas in an [Amazon EventBridge (CloudWatch Events)
-schema registry](../../../eventbridge/latest/userguide/eb-schema-registry.md "../../../eventbridge/latest/userguide/eb-schema-registry.md") named `lambda-testevent-schemas`. As Lambda utilizes this registry
+schema registry](../../../eventbridge/latest/userguide/eb-schema-registry.md "../../../eventbridge/latest/userguide/eb-schema-registry.md") named `lambda-testevent-schemas`. As Lambda uses this registry
 to store and call shareable test events you create, we recommend that you do not edit this registry or create a registry
 using the `lambda-testevent-schemas` name.
 

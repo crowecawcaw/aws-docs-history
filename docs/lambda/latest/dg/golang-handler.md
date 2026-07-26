@@ -391,7 +391,7 @@ return err
 ```
 
 After loading this configuration into the `cfg` variable, you can pass this variable into
- client instantiations. The example code instantiates an Amazon S3 client as follows:
+ client instantiations. The example code creates an Amazon S3 client as follows:
 
 
 

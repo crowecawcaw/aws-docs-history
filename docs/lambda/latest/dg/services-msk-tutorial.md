@@ -95,7 +95,7 @@ To get a Windows-integrated version of Ubuntu and Bash, [install the Windows Sub
 Use AWS PrivateLink to connect Lambda and Amazon MSK. You can do so by creating interface
 Amazon VPC endpoints in the Amazon VPC console. For more information about networking configuration, see [Configuring your Amazon MSK cluster and Amazon VPC network for Lambda](with-msk-cluster-network.md "with-msk-cluster-network.md").
 
-When a Amazon MSK event source mapping runs on the behalf of a Lambda function, it assumes the Lambda function’s execution role. This IAM role
+When a Amazon MSK event source mapping runs on the behalf of a Lambda function, it assumes the Lambda function's execution role. This IAM role
 authorizes the mapping to access resources secured by IAM, such as your Amazon MSK cluster. Although the
 components share an execution role, the Amazon MSK mapping and your Lambda function have separate connectivity
 requirements for their respective tasks, as shown in the following diagram.

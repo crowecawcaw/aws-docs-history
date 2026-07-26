@@ -12,11 +12,11 @@ an EventBridge Scheduler trigger and an IAM execution role that gives the functi
 
 ###### Tip
 
-If you’re new to Lambda, we recommend that you complete the tutorial [Create your first Lambda function](getting-started.md "getting-started.md") before
+If you're new to Lambda, we recommend that you complete the tutorial [Create your first Lambda function](getting-started.md "getting-started.md") before
 creating this example app.
 
 You can deploy your app manually by creating and configuring resources with the AWS Management Console. You can
-also deploy the app by using the AWS Serverless Application Model (AWS SAM). AWS SAM is an infrastructure as code (IaC) tool. With IaC, you don’t create
+also deploy the app by using the AWS Serverless Application Model (AWS SAM). AWS SAM is an infrastructure as code (IaC) tool. With IaC, you don't create
 resources manually, but define them in code and then deploy them automatically.
 
 If you want to learn more about using Lambda with IaC before deploying this example app, see [Using Lambda with infrastructure as code (IaC)](foundation-iac.md "foundation-iac.md").
@@ -617,42 +617,21 @@ To give your function the permissions it needs to read and delete DynamoDB items
 
 ###### To set up EventBridge Scheduler as a trigger (console)
 
-1. Open the [EventBridge console](https://console.aws.amazon.com/events/home "https://console.aws.amazon.com/events/home").
-2. In the left navigation pane, choose **Schedulers** under the
-   **Scheduler** section.
-3. Choose **Create schedule**.
-4. Configure the schedule by doing the following:
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
+2. Choose your function (`ScheduledDBMaintenance`).
+3. In the **Function overview** pane, choose **Add trigger**.
+4. From the trigger source dropdown, choose **Scheduler**.
+5. Configure the schedule by doing the following:
 
-   1. Under **Schedule name**, enter a name for your schedule (for example, `DynamoDBCleanupSchedule`).
-   2. Under **Schedule pattern**, choose **Recurring schedule**.
-   3. For **Schedule type** leave the default as **Cron-based schedule**,
-      then enter the following schedule details:
+   1. For **Schedule name**, enter `DynamoDBCleanupSchedule`.
+   2. For **Schedule group**, leave the default (`default`).
+   3. For **Schedule type**, choose **Recurring schedule** and enter
+      the following cron expression: `cron(0 3 1 * ? *)`.
 
-      - **Minutes**: `0`
-      - **Hours**: `3`
-      - **Day of month**: `1`
-      - **Month**: `*`
-      - **Day of the week**: `?`
-      - **Year**: `*`
-        When evaluated, this cron expression runs on the first day of every month at 03:00 AM.
+   When evaluated, this cron expression runs on the first day of every month at 03:00 AM. 4. For **Flexible time window**, choose **Off**. 5. Leave the **Payload** field empty. 6. For the execution role, choose **Create new role for this schedule** and enter a role name.
+   EventBridge Scheduler creates a new policy with the required permissions the schedule needs to invoke your function.
 
-   4. For **Flexible time window**, select **Off**.
-
-5. Choose **Next**.
-6. Configure the trigger for your Lambda function by doing the following:
-
-   1. In the **Target detail** pane, leave **Target API** set to **Templated targets**,
-      then select **AWS Lambda Invoke**.
-   2. Under **Invoke**, select your Lambda function (`ScheduledDBMaintenance`) from the dropdown list.
-   3. Leave the **Payload** empty and choose **Next**.
-   4. Scroll down to **Permissions** and select **Create a new role for this schedule**.
-      When you create a new EventBridge Scheduler schedule using the console, EventBridge Scheduler creates a new policy with the required
-      permissions the schedule needs to invoke your function. For more information about managing your schedule permissions, see
-      [Cron-based schedules](../../../scheduler/latest/UserGuide/schedule-types.md#cron-based "../../../scheduler/latest/UserGuide/schedule-types.md#cron-based").
-      in the _EventBridge Scheduler User Guide_.
-   5. Choose **Next**.
-
-7. Review your settings and choose **Create schedule** to complete creation of the schedule and Lambda trigger.
+6. Choose **Add**.
 
 AWS SAM
 
@@ -696,10 +675,12 @@ reset your recurrence schedule to run once a month.
 
 ###### To run the application using the AWS Management Console
 
-1. Navigate back to the EventBridge Scheduler console page.
-2. Choose your schedule, then choose **Edit**.
-3. In the **Schedule pattern** section, under **Recurrence**, choose **One-time schedule**.
-4. Set your invocation time to a few minutes from now, review your settings, then choose **Save**.
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
+2. Choose your function (`ScheduledDBMaintenance`).
+3. In the **Triggers** section, choose the `DynamoDBCleanupSchedule` trigger.
+4. Choose **Edit**.
+5. For **Schedule type**, choose **One-time schedule**.
+6. Set your invocation time to a few minutes from now, then choose **Save**.
 
 After the schedule runs and invokes its target, you run the `test_app.py` script to verify that your function successfully removed all old records
 from the DynamoDB table.

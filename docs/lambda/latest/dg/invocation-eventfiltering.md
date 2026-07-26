@@ -99,7 +99,7 @@ mapping receives the following record from an Amazon SQS queue:
   and `Temperature`.
 
 Different types of event source use different key values for their data fields. To filter
-on data properties, make sure that you use the correct key in your filter’s pattern. For a list
+on data properties, make sure that you use the correct key in your filter's pattern. For a list
 of data filtering keys, and to see examples of filter patterns for each supported AWS service,
 refer to [Using filters with different AWS services](#filtering-by-service "#filtering-by-service").
 
@@ -605,7 +605,7 @@ field at all in log entries.
 ## Using filters with different AWS services
 
 Different types of event source use different key values for their data fields. To filter on
-data properties, make sure that you use the correct key in your filter’s pattern. The following table
+data properties, make sure that you use the correct key in your filter's pattern. The following table
 gives the filtering keys for each supported AWS service.
 
 | AWS service               | Filtering key |

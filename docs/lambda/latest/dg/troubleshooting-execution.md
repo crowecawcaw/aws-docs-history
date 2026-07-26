@@ -216,7 +216,7 @@ addition to `$LATEST`. When troubleshooting these functions, first determine tha
 invoked the intended version or alias. You can do this by checking your function logs. The version of the function
 that was invoked is always shown in the START log line:
 
-![debugging ops figure 1](images/debugging-ops-figure-1.png)
+![CloudWatch log showing the START line with the function version number highlighted.](images/debugging-ops-figure-1.png)
 
 ## Lambda: Detecting infinite loops
 
@@ -234,7 +234,7 @@ bucket, and so on. These types of loops can be caused by a number of different A
 Amazon SQS queues and DynamoDB tables. You can use [recursive loop detection](invocation-recursion.md "invocation-recursion.md")
 to identify these patterns.
 
-![debugging ops figure 2](images/debugging-ops-figure-2.png)
+![Diagram showing an infinite loop between a Lambda function and an S3 bucket, where each invocation triggers another event.](images/debugging-ops-figure-2.png)
 
 You can avoid these loops by ensuring that Lambda functions write to resources that are not the same as the
 consuming resource. If you must publish data back to the consuming resource, ensure that the new data doesn't
@@ -253,7 +253,7 @@ _Downstream services that your Lambda function relies on are unavailable_
 For Lambda functions that call out to third-party endpoints or other downstream resources, ensure that they can
 handle service errors and timeouts. These downstream resources can have variable response times, or become
 unavailable due to service disruptions. Depending upon the implementation, these downstream errors may appear
-as Lambda timeouts or exceptions if the service’s error response is not handled within the function code.
+as Lambda timeouts or exceptions if the service's error response is not handled within the function code.
 
 Anytime a function depends on a downstream service, such as an API call, implement appropriate error
 handling and retry logic. For critical services, the Lambda function should publish metrics or logs to CloudWatch.

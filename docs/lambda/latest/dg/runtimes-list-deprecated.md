@@ -11,7 +11,7 @@ Refer to the following sections to learn how to use the AWS CLI and AWS SDKs to 
 
 ## Listing function versions that use a particular runtime
 
-To use the AWS CLI to list all of your function versions that use a particular runtime, run the following command. Replace `RUNTIME_IDENTIFIER` with the name of the runtime that’s being
+To use the AWS CLI to list all of your function versions that use a particular runtime, run the following command. Replace `RUNTIME_IDENTIFIER` with the name of the runtime that's being
 deprecated and choose your own AWS Region. To list only $LATEST function versions, omit `--function-version ALL` from the command.
 
 ```
@@ -20,7 +20,7 @@ deprecated and choose your own AWS Region. To list only $LATEST function version
 
 ###### Tip
 
-The example command lists functions in the `us-east-1` region for a particular AWS account You’ll need to repeat this command for
+The example command lists functions in the `us-east-1` region for a particular AWS account You'll need to repeat this command for
 each region in which your account has functions and for each of your AWS accounts.
 
 You can also list functions that use a particular runtime using one of the AWS SDKs. The following example code uses the V3 AWS SDK for JavaScript and the

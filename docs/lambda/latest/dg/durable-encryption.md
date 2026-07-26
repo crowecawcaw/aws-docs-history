@@ -47,7 +47,7 @@ A durable function's key policy grants each principal only the AWS KMS actions i
 
 The policy grants the following capabilities:
 
-- **Enable IAM User Permissions**. Grants the account root unconditional access to manage the key. This statement uses no conditions because scoping it would prevent you from rotating, updating, or deleting the key.
+- **Enable IAM user Permissions**. Grants the account root unconditional access to manage the key. This statement uses no conditions because scoping it would prevent you from rotating, updating, or deleting the key.
 - **Allow Lambda to use this key for durable functions**. Grants the Lambda service principal `kms:GenerateDataKey` and `kms:Decrypt`.
 - **Allow the function execution role to decrypt durable execution data**. Grants the execution role `kms:Decrypt` to read state and progress the execution.
 - **Allow the function author to describe this key**. Grants `kms:DescribeKey` so Lambda can validate that the key is symmetric and enabled during `CreateFunction` or `UpdateFunctionConfiguration`.

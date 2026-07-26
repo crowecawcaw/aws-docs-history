@@ -265,7 +265,7 @@ configuration, or set the configuration to an amount greater than zero.
 
 ## Deleting function URLs
 
-When you delete a function URL, you can’t recover it. Creating a new function URL will result in a different URL address.
+When you delete a function URL, you can't recover it. Creating a new function URL will result in a different URL address.
 
 ###### Note
 

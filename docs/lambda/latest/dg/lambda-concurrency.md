@@ -245,7 +245,7 @@ To learn how to manage reserved concurrency settings for your functions, see [Co
 You use reserved concurrency to define the maximum number of execution environments reserved for a Lambda function.
 However, none of these environments come pre-initialized. As a result, your function invocations may take longer
 because Lambda must first initialize the new environment before being able to use it to invoke your function.
-When Lambda has to initialize a new environment in order to carry out an invocation, this is known as a
+When Lambda has to initialize a new environment to carry out an invocation, this is known as a
 [cold start](lambda-runtime-environment.md#cold-start-latency "lambda-runtime-environment.md#cold-start-latency").
 To mitigate cold starts, you can use provisioned concurrency.
 

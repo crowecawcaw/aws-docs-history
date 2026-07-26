@@ -44,7 +44,7 @@ If you prefer to create your own IAM permissions policy, make sure to add all of
 - ec2:UnassignPrivateIpAddresses
 
 Note that your function's role only needs these permissions to create the network interfaces, not to invoke your function. You can still
-invoke your function successfully when it’s attached to an Amazon VPC, even if you remove these permissions from your function’s execution role.
+invoke your function successfully when it's attached to an Amazon VPC, even if you remove these permissions from your function's execution role.
 
 To attach your function to a VPC, Lambda also needs to verify network resources using your IAM user role. Ensure that your user role
 has the following IAM permissions:
@@ -245,11 +245,11 @@ To ensure that your Lambda VPC configuration meets best practice guidelines, fol
 
 ### Security best practices
 
-To attach your Lambda function to a VPC, you need to give your function’s execution role a number of Amazon EC2 permissions. These
+To attach your Lambda function to a VPC, you need to give your function's execution role a number of Amazon EC2 permissions. These
 permissions are required to create the network interfaces your function uses to access the resources in the VPC. However, these
-permissions are also implicitly granted to your function’s code. This means that your function code has permission to make these Amazon EC2 API calls.
+permissions are also implicitly granted to your function's code. This means that your function code has permission to make these Amazon EC2 API calls.
 
-To follow the principle of least-privilege access, add a deny policy like the following example to your function’s execution role.
+To follow the principle of least-privilege access, add a deny policy like the following example to your function's execution role.
 This policy prevents your function code from making calls to the Amazon EC2 APIs, while still allowing the Lambda service to manage VPC resources on your behalf.
 The policy uses the `lambda:SourceFunctionArn` condition key, which only applies to API calls made by your function code during execution.
 For more information, see [Using source function ARN to control function access behavior](permissions-source-function-arn.md "permissions-source-function-arn.md").
@@ -295,7 +295,7 @@ in the _Amazon Virtual Private Cloud User Guide_.
 ### Performance best practices
 
 When you attach your function to a VPC, Lambda checks to see if there is an available network resource (Hyperplane ENI) it can use to
-connect to. Hyperplane ENIs are associated with a particular combination of security groups and VPC subnets. If you’ve already attached
+connect to. Hyperplane ENIs are associated with a particular combination of security groups and VPC subnets. If you've already attached
 one function to a VPC, specifying the same subnets and security groups when you attach another function means that Lambda can share the
 network resources and avoid the need to create a new Hyperplane ENI. For more information about Hyperplane ENIs and their lifecycle,
 see [Understanding Hyperplane Elastic Network Interfaces (ENIs)](#configuration-vpc-enis "#configuration-vpc-enis").
@@ -305,17 +305,17 @@ see [Understanding Hyperplane Elastic Network Interfaces (ENIs)](#configuration-
 A Hyperplane ENI is a managed resource that acts as a network interface between your Lambda function and the resources you want your function
 to connect to. The Lambda service creates and manages these ENIs automatically when you attach your function to a VPC.
 
-Hyperplane ENIs are not directly visible to you, and you don’t need to configure or manage them. However, knowing how they work can help
-you to understand your function’s behavior when you attach it to a VPC.
+Hyperplane ENIs are not directly visible to you, and you don't need to configure or manage them. However, knowing how they work can help
+you to understand your function's behavior when you attach it to a VPC.
 
 The first time you attach a function to a VPC using a particular subnet and security group combination, Lambda creates a Hyperplane ENI. Other
 functions in your account that use the same subnet and security group combination can also use this ENI. Wherever possible, Lambda reuses existing
 ENIs to optimize resource utilization and minimize the creation of new ENIs. Each Hyperplane ENI supports up to 65,000 connections/ports. If the
 number of connections exceeds this limit, Lambda scales the number of ENIs automatically based on network traffic and concurrency requirements.
 
-For new functions, while Lambda is creating a Hyperplane ENI, your function remains in the Pending state and you can’t invoke it. Your function
-transitions to the Active state only when the Hyperplane ENI is ready, which can take several minutes. For existing functions, you can’t perform
-additional operations that target the function, such as creating versions or updating the function’s code, but you can continue to invoke previous
+For new functions, while Lambda is creating a Hyperplane ENI, your function remains in the Pending state and you can't invoke it. Your function
+transitions to the Active state only when the Hyperplane ENI is ready, which can take several minutes. For existing functions, you can't perform
+additional operations that target the function, such as creating versions or updating the function's code, but you can continue to invoke previous
 versions of the function.
 
 As part of managing the ENI lifecycle, Lambda may delete and recreate ENIs to load balance network traffic across ENIs or to address issues found
@@ -556,3 +556,6 @@ In the following tutorials, you connect a Lambda function to resources in your V
 
 - [Tutorial: Using a Lambda function to access Amazon RDS in an Amazon VPC](../../../AmazonRDS/latest/UserGuide/rds-lambda-tutorial.md "../../../AmazonRDS/latest/UserGuide/rds-lambda-tutorial.md")
 - [Tutorial: Configuring a Lambda function to access Amazon ElastiCache in an Amazon VPC](../../../AmazonElastiCache/latest/dg/LambdaRedis.md "../../../AmazonElastiCache/latest/dg/LambdaRedis.md")
+
+To connect your function to resources in a VPC that belongs to another AWS account, see
+[Giving Lambda functions access to a resource in an Amazon VPC in another account](configuration-vpc-cross-account.md "configuration-vpc-cross-account.md").

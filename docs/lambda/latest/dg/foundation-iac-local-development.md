@@ -1,7 +1,7 @@
-# Developing Lambda functions locally with VS Code
+# Developing Lambda functions locally
 
-You can move your Lambda functions from the Lambda console to Visual Studio Code, which provides a full development environment and allows you to use other local development
-options like AWS SAM and AWS CDK.
+You can move your Lambda functions from the Lambda console to your preferred IDE, which provides a full development environment and allows you to use other local development
+options like AWS SAM and AWS CDK. The Lambda console supports opening functions directly in Visual Studio Code, Kiro, or Cursor.
 
 ## Key benefits of local development
 
@@ -14,10 +14,15 @@ While the Lambda console provides a quick way to edit and test functions, local 
 
 ## Prerequisites
 
-Before developing Lambda functions locally in VS Code, you must have:
+Before developing Lambda functions locally using VS Code, Kiro, and Cursor, you must install them using the instructions below:
 
 - **VS Code**: For installation instructions, see [Download VS Code](https://code.visualstudio.com/download "https://code.visualstudio.com/download").
-- **AWS Toolkit for Visual Studio Code**: For installation instructions, see [Setting up the AWS Toolkit for Visual Studio Code](../../../toolkit-for-vscode/latest/userguide/setup-toolkit.md "../../../toolkit-for-vscode/latest/userguide/setup-toolkit.md"). For an overview, see
+- **Kiro**: For installation instructions, see [Getting started with Kiro](https://kiro.dev/docs/getting-started/installation/ "https://kiro.dev/docs/getting-started/installation/").
+- **Cursor**: For installation instructions, see [Download Cursor](https://cursor.com/download "https://cursor.com/download").
+
+You also need the following:
+
+- **AWS Toolkit for Visual Studio Code**: For VS Code installation instructions, see [Setting up the AWS Toolkit for Visual Studio Code](../../../toolkit-for-vscode/latest/userguide/setup-toolkit.md "../../../toolkit-for-vscode/latest/userguide/setup-toolkit.md"). For an overview, see
   [AWS Toolkit for Visual Studio Code](https://aws.amazon.com/visualstudiocode/ "https://aws.amazon.com/visualstudiocode/").
 - **AWS credentials**: For information about configuring credentials, see [Setting up your AWS credentials](../../../toolkit-for-vscode/latest/userguide/setup-credentials.md "../../../toolkit-for-vscode/latest/userguide/setup-credentials.md").
 - **AWS SAM CLI**: For installation instructions, see [Installing the AWS SAM CLI](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install.md").
@@ -29,7 +34,7 @@ If you already have an AWS account and profile configured locally, ensure that t
 
 ## Authentication and access control
 
-To develop Lambda functions locally, you need AWS credentials to securely access and manage AWS resources on your behalf, just like they would in the cloud. The AWS Toolkit for VS Code supports the following authentication methods:
+To develop Lambda functions locally, you need AWS credentials to securely access and manage AWS resources on your behalf, just like they would in the cloud.
 
 The AWS Toolkit for VS Code supports the following authentication methods:
 
@@ -85,21 +90,23 @@ The following table summarizes the credential setup process you will complete in
 | Enter profile name, access key, secret key               | Provide credentials for connection           |
 | See AWS Explorer update                                  | Confirm you're connected                     |
 
-Complete the following steps authenticate to your AWS account:
-
-1. Open the Sign In panel in VS Code:
-
-   1. To start the authentication process, select the AWS icon in the left navigation pane or open the Command Palette (Cmd+Shift+P on Mac or Ctrl+Shift+P on Windows/Linux) and search for and select **AWS Add a New Connection**.
-
-2. In the sign in panel, choose **IAM Credentials** and select **Continue**.
+Complete the following steps to authenticate to your AWS account:
 
 ###### Note
 
-To proceed, you will need to allow AWS IDE Extensions for VS Code to access your data. 3. Enter your profile name, access key ID, and secret access key, then select **Continue**. 4. Verify the connection by checking the AWS Explorer in VS Code for your AWS services and resources.
+The following steps apply to VS Code, Kiro, and Cursor. Because Kiro and Cursor are built on VS Code, the authentication flow is the same across all three IDEs.
+
+1. Open the Sign In panel in your IDE:
+
+To start the authentication process, select the AWS icon in the left navigation pane or open the Command Palette (Cmd+Shift+P on Mac or Ctrl+Shift+P on Windows/Linux) and search for and select **AWS Add a New Connection**. 2. In the sign in panel, choose **IAM Credentials** and select **Continue**.
+
+###### Note
+
+To proceed, you will need to allow AWS IDE Extensions to access your data. 3. Enter your profile name, access key ID, and secret access key, then select **Continue**. 4. Verify the connection by checking the AWS Explorer in your IDE for your AWS services and resources.
 
 For information on setting up authentication with long-term credentials, see [Using long-term credentials to authenticate AWS SDKs and tools](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md").
 
-For information about configuring authentication, see [AWS IAM credentials](../../../toolkit-for-vscode/latest/userguide/setup-credentials.md "../../../toolkit-for-vscode/latest/userguide/setup-credentials.md") in the AWS Toolkit for Visual Studio Code User Guide.
+For information about configuring authentication, see [AWS IAM credentials](../../../toolkit-for-vscode/latest/userguide/iam-credentials.md "../../../toolkit-for-vscode/latest/userguide/iam-credentials.md") in the AWS Toolkit for Visual Studio Code User Guide.
 
 ## Moving from console to local development
 
@@ -107,26 +114,30 @@ For information about configuring authentication, see [AWS IAM credentials](../.
 
 If you've made changes in the console, make sure you don't have any undeployed changes before transitioning to local development.
 
-To move a Lambda function from the Lambda console to VS Code, complete the following steps:
+To move a Lambda function from the Lambda console to a local IDE, complete the following steps:
 
 1. Open the [Lambda console](https://console.aws.amazon.com/lambda "https://console.aws.amazon.com/lambda").
 2. Choose the name of your function.
 3. Select the **Code source** tab.
-4. Choose **Open in Visual Studio Code**.
+4. Open your function in your IDE of choice by choosing the dropdown arrow next to the button. The supported options are **Open in Visual Studio Code**, **Open in Kiro**, and **Open in Cursor**.
 
 ###### Note
 
-The **Open in Visual Studio Code** button is only available in AWS Toolkit version **3.69.0** and later. If you have an earlier
-version of the AWS Toolkit installed, you may see a `Cannot open the handler` message in VS Code. To resolve this, update your AWS Toolkit to the latest version. 5. When prompted, allow your browser to open VS Code.
+Your IDE selection is persisted. Once you choose an IDE, subsequent visits will show that IDE as the primary button. 5. When prompted, allow your browser to open the selected IDE.
 
-When you open your function in VS Code, Lambda creates a local project with your function code in a temporary location that's designed for quick testing and deployment.
+When you open your function in your IDE, Lambda creates a local project with your function code in a temporary location that's designed for quick testing and deployment.
 This includes the function code, dependencies, and a basic project structure that you can use for local development.
 
-For details on using AWS in VS Code, see the _[AWS Toolkit for Visual Studio Code User Guide](../../../toolkit-for-vscode/latest/userguide/welcome.md "../../../toolkit-for-vscode/latest/userguide/welcome.md")_.
+###### Note
+
+The Open in IDE button requires AWS Toolkit version **3.69.0** or later. If you have an earlier
+version of the AWS Toolkit installed, you may see a `Cannot open the handler` message. To resolve this, update your AWS Toolkit to the latest version.
+
+For details on using AWS in your IDE, see the _[AWS Toolkit for Visual Studio Code User Guide](../../../toolkit-for-vscode/latest/userguide/welcome.md "../../../toolkit-for-vscode/latest/userguide/welcome.md")_.
 
 ## Working with functions locally
 
-After opening your function in VS Code, follow these steps to access and manage your functions:
+After opening your function in your preferred IDE, follow these steps to access and manage your functions. For the example below we have used VS Code.
 
 1. Select the AWS icon in the sidebar to open the AWS Explorer:
 
@@ -136,19 +147,17 @@ After opening your function in VS Code, follow these steps to access and manage 
 
 ![Lambda functions with action icons for deploy, invoke, and more](images/console-to-ide-lambdaActions.png)
 
-With your function opened in VS Code, you can:
+With your function opened in your IDE, you can:
 
 - Edit function code with full language support and code completion.
-- Use the [LocalStack integration in VS Code](../../../toolkit-for-vscode/latest/userguide/lambda-localstack.md "../../../toolkit-for-vscode/latest/userguide/lambda-localstack.md") to test Lambda functions that make API calls to other AWS services during execution, such as reading from DynamoDB tables or writing to Amazon S3 buckets. LocalStack is a cloud service emulator that provides a complete local development environment for testing service integrations. You can also [use AWS SAM CLI to test your function in a local container](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-using-invoke.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-using-invoke.md"). If your function makes API calls to other AWS services those calls will reach real AWS resources, not emulated ones.
-- Debug your function with breakpoints and variable inspection. For more information, see [Running and debugging Lambda functions directly from code](../../../toolkit-for-vscode/latest/userguide/serverless-apps-run-debug-no-template.md "../../../toolkit-for-vscode/latest/userguide/serverless-apps-run-debug-no-template.md") in the _AWS Toolkit for Visual Studio Code User Guide_.
+- Use the [LocalStack integration](../../../toolkit-for-vscode/latest/userguide/lambda-localstack.md "../../../toolkit-for-vscode/latest/userguide/lambda-localstack.md") to test Lambda functions that make API calls to other AWS services during execution, such as reading from DynamoDB tables or writing to Amazon S3 buckets. LocalStack is a cloud service emulator that provides a complete local development environment for testing service integrations. You can also [use AWS SAM CLI to test your function in a local container](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-using-invoke.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-using-invoke.md"). If your function makes API calls to other AWS services, those calls will reach real AWS resources, not emulated ones.
+- Debug your function with breakpoints and variable inspection. For more information, see [Running and debugging Lambda functions directly from code](../../../toolkit-for-vscode/latest/userguide/debug-direct.md "../../../toolkit-for-vscode/latest/userguide/debug-direct.md") in the _AWS Toolkit for Visual Studio Code User Guide_.
 - Deploy your updated function back to AWS using the cloud icon.
 - Install and manage dependencies for your function.
 
-For more information, see [Working with AWS Lambda functions](../../../toolkit-for-vscode/latest/userguide/building-lambda.md "../../../toolkit-for-vscode/latest/userguide/building-lambda.md") in the AWS Toolkit for Visual Studio Code User Guide.
-
 ## Convert your function to an AWS SAM template and use IaC tools
 
-In VS Code, you can convert your Lambda function to an AWS SAM template by choosing the **Convert to AWS SAM Application** icon next to your Lambda function.
+In all supported IDEs (VS Code, Kiro, and Cursor), you can convert your Lambda function to an AWS SAM template by choosing the **Convert to AWS SAM Application** icon next to your Lambda function.
 You will be prompted to select an AWS SAM project location. Once selected, your Lambda function will be converted to a `template.yaml` file that is saved in your new AWS SAM project.
 
 With your function converted to an AWS SAM template, you can:

@@ -18,7 +18,7 @@ This page describes how to produce log output from your Lambda function's code, 
 
 To output logs from your function code, you can use `puts` statements, or any logging library that
 writes to `stdout` or `stderr`. The following example logs the values of environment variables
-and the event object.
+and the event object. For information about the context object available to your handler, see [Using the Lambda context object to retrieve Ruby function information](ruby-context.md "ruby-context.md").
 
 ###### Example lambda\_function.rb
 

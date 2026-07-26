@@ -209,7 +209,7 @@ npm init
 npm install -D @types/aws-lambda esbuild
 ```
 
-4. Create a new file called **index.ts**. Add the following code to the new file. This is the code for the Lambda function. The function returns a `hello world` message. The function doesn’t create any API Gateway resources.
+4. Create a new file called **index.ts**. Add the following code to the new file. This is the code for the Lambda function. The function returns a `hello world` message. The function doesn't create any API Gateway resources.
 
 ###### Note
 

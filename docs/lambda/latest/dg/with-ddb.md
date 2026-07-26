@@ -55,7 +55,7 @@ source mapping. Due to short times in between invokes, Lambda may briefly report
 than the number of shards. This can be true even for Lambda functions without extensions.
 
 Configure the [ParallelizationFactor](../api/API_CreateEventSourceMapping.md#lambda-CreateEventSourceMapping-request-ParallelizationFactor "../api/API_CreateEventSourceMapping.md#lambda-CreateEventSourceMapping-request-ParallelizationFactor") setting to process one shard of a DynamoDB stream with more than one Lambda invocation simultaneously.
-You can specify the number of concurrent batches that Lambda polls from a shard via a parallelization factor from 1
+You can specify the number of concurrent batches that Lambda polls from a shard by using a parallelization factor from 1
 (default) to 10. For example, when you set `ParallelizationFactor` to 2, you can have 200 concurrent
 Lambda invocations at maximum to process 100 DynamoDB stream shards (though in practice, you may see different values
 for the `ConcurrentExecutions` metric). This helps scale up the processing throughput when the data volume

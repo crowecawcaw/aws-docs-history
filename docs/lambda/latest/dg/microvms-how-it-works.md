@@ -99,7 +99,7 @@ At runtime, a MicroVM transitions through the following stages:
 2. **Running** – Your application
    receives and processes requests through its endpoint URL.
 3. **Suspend** – After a
-   configurable idle period (or via the `suspend-microvm` API),
+   configurable idle period (or through the `suspend-microvm` API),
    the MicroVM transitions through `SUSPENDING` to
    `SUSPENDED`. Memory and disk state are preserved.
 4. **Resume** – The MicroVM

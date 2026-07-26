@@ -41,8 +41,8 @@ and [Creating and updating Node.js Lambda functions using .zip files](#nodejs-pa
 ## Creating a .zip deployment package with no dependencies
 
 If your function code has no dependencies except for libraries included in the Lambda runtime, your .zip file contains only the `index.js` or
-`index.mjs` file with your function’s handler code. Use your preferred zip utility to create a .zip file with your `index.js` or
-`index.mjs` file at the root. If the file containing your handler code isn't at the root of your .zip file, Lambda won’t be able to run your code.
+`index.mjs` file with your function's handler code. Use your preferred zip utility to create a .zip file with your `index.js` or
+`index.mjs` file at the root. If the file containing your handler code isn't at the root of your .zip file, Lambda won't be able to run your code.
 
 To learn how to deploy your .zip file to create a new Lambda function or update an existing one, see [Creating and updating Node.js Lambda functions using .zip files](#nodejs-package-create-update "#nodejs-package-create-update").
 
@@ -100,7 +100,8 @@ ensure that zip compresses the subfolders.
 
 The instructions in this section show you how to include your dependencies in a layer. For instructions
 on how to include your dependencies in your deployment package, see
-[Creating a .zip deployment package with dependencies](#nodejs-package-create-dependencies "#nodejs-package-create-dependencies").
+[Creating a .zip deployment package with dependencies](#nodejs-package-create-dependencies "#nodejs-package-create-dependencies"). For more information about creating and managing
+Node.js layers, see [Working with layers for Node.js Lambda functions](nodejs-layers.md "nodejs-layers.md").
 
 When you add a layer to a function, Lambda loads the layer content into the
 `/opt` directory of that execution environment. For each Lambda runtime,

@@ -116,7 +116,7 @@ You can view any active function's concurrency metrics using [CloudWatch metrics
 Specifically, the `ConcurrentExecutions` metric shows you the number of
 concurrent invocations for functions in your account.
 
-![Graph showing concurrency for a function over time.](images/concurrency-concurrent-executions-metrics.png)
+![Graph showing concurrency for a function over time.](/images/lambda/latest/dg/images/concurrency-concurrent-executions-metrics.png)
 
 The previous graph suggests that this function serves an average of 5 to 10
 concurrent requests at any given time, and peaks at 20 requests.
@@ -344,7 +344,7 @@ these alarms. For example, suppose your Lambda function executes quickly
 (i.e. 20-100 ms) and your traffic comes in quick bursts. In this case,
 the number of requests exceeds the allocated provisioned concurrency during the
 burst. However, Application Auto Scaling requires the burst load to sustain for at least 3 minutes
-in order to provision additional environments. Additionally, both CloudWatch alarms require 3
+to provision additional environments. Additionally, both CloudWatch alarms require 3
 data points that hit the target average to activate the auto scaling policy. If your
 function experiences quick bursts of traffic, using the
 **Maximum** statistic instead of the

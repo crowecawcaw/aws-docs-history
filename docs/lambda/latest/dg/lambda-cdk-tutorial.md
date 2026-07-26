@@ -96,7 +96,7 @@ To define your CDK stack, follow the instructions for your preferred programming
 - The REST API's logical name: `HelloApi`
 - The API Gateway endpoint's logical name: `ApiGwEndpoint`
 
-Note that all of the CDK stacks in this tutorial use the Node.js [runtime](lambda-runtimes.md "lambda-runtimes.md") for the Lambda function. You can use different programming languages for the CDK stack and the Lambda function to leverage the strengths of each language. For example, you can use TypeScript for the CDK stack to leverage the benefits of static typing for your infrastructure code. You can use JavaScript for the Lambda function to take advantage of the flexibility and rapid development of a dynamically typed language.
+Note that all of the CDK stacks in this tutorial use the Node.js [runtime](lambda-runtimes.md "lambda-runtimes.md") for the Lambda function. You can use different programming languages for the CDK stack and the Lambda function to use the strengths of each language. For example, you can use TypeScript for the CDK stack to use the benefits of static typing for your infrastructure code. You can use JavaScript for the Lambda function to take advantage of the flexibility and rapid development of a dynamically typed language.
 
 JavaScript
 Open the `lib/hello-lambda-stack.js` file and replace the contents with the following.

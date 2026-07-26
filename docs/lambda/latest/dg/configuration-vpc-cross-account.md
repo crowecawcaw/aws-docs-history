@@ -50,7 +50,7 @@ Create an Amazon VPC, subnets, route tables, and a security group in your Lambda
 
 ## Grant VPC permissions to your function's execution role
 
-Attach [AWSLambdaVPCAccessExecutionRole](../../../aws-managed-policy/latest/reference/AWSLambdaVPCAccessExecutionRole.md "../../../aws-managed-policy/latest/reference/AWSLambdaVPCAccessExecutionRole.md") to your function’s execution role to allow it to connect to VPCs.
+Attach [AWSLambdaVPCAccessExecutionRole](../../../aws-managed-policy/latest/reference/AWSLambdaVPCAccessExecutionRole.md "../../../aws-managed-policy/latest/reference/AWSLambdaVPCAccessExecutionRole.md") to your function's execution role to allow it to connect to VPCs.
 
 ###### To grant VPC permissions to your function's execution role
 

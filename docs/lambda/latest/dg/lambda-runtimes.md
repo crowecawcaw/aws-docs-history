@@ -111,12 +111,12 @@ The following list shows the target launch month for upcoming Lambda runtimes. T
 ## Runtime deprecation policy
 
 Lambda runtimes for .zip file archives are built around a combination of operating system,
-programming language, and software libraries that are subject to maintenance and security updates. Lambda’s standard deprecation policy is to
+programming language, and software libraries that are subject to maintenance and security updates. Lambda's standard deprecation policy is to
 deprecate a runtime when any major component of the runtime reaches the end of community long-term support (LTS) and security updates are no
 longer available. Most usually, this is the language runtime, though in some cases, a runtime can be deprecated because the operating system
 (OS) reaches end of LTS.
 
-After a runtime is deprecated, AWS may no longer apply security patches or updates to that runtime, and functions using that runtime are no longer eligible for technical support. Such deprecated runtimes are provided ‘as-is’, without any warranties, and may contain bugs, errors,
+After a runtime is deprecated, AWS may no longer apply security patches or updates to that runtime, and functions using that runtime are no longer eligible for technical support. Such deprecated runtimes are provided 'as-is', without any warranties, and may contain bugs, errors,
 defects, or other vulnerabilities.
 
 To learn more about managing runtime upgrades and deprecation, see the following sections and [Managing AWS Lambda runtime upgrades](https://aws.amazon.com/blogs/compute/managing-aws-lambda-runtime-upgrades/ "https://aws.amazon.com/blogs/compute/managing-aws-lambda-runtime-upgrades/")
@@ -125,7 +125,7 @@ on the _AWS Compute Blog_.
 ###### Important
 
 Lambda occasionally delays deprecation of a Lambda runtime for a limited period beyond the end of support date of the language version
-that the runtime supports. During this period, Lambda only applies security patches to the runtime OS. Lambda doesn’t apply security patches
+that the runtime supports. During this period, Lambda only applies security patches to the runtime OS. Lambda doesn't apply security patches
 to programming language runtimes after they reach their end of support date.
 
 ## Shared responsibility model
@@ -134,7 +134,7 @@ Lambda is responsible for curating and publishing security updates for all suppo
 updates automatically to functions using managed runtimes. Where the default automatic runtime update setting has been changed, see the [runtime management controls shared responsibility model](runtime-management-shared.md "runtime-management-shared.md").
 For functions deployed using container images, you're responsible for rebuilding your function's container image from the latest base image and redeploying the container image.
 
-When a runtime is deprecated, Lambda’s responsibility for updating the managed runtime and container base images ceases. You are responsible for upgrading your functions to
+When a runtime is deprecated, Lambda's responsibility for updating the managed runtime and container base images ceases. You are responsible for upgrading your functions to
 use a supported runtime or base image.
 
 In all cases, you are responsible for applying updates to your function code, including its dependencies. Your responsibilities under the shared responsibility model are
@@ -144,7 +144,7 @@ summarized in the following table.
 | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Supported managed runtime               | Provide regular runtime updates with security patches and other updates.<br>Apply runtime updates automatically by default (see [Runtime update modes](runtimes-update.md#runtime-management-controls "runtimes-update.md#runtime-management-controls") for non-default behaviors). | Update your function code, including dependencies, to address any security vulnerabilities.                                                                                                           |
 | Supported container image               | Provide regular updates to container base image with security patches and other updates.                                                                                                                                                                                            | Update your function code, including dependencies, to address any security vulnerabilities.<br>Regularly re-build and re-deploy your container image using the latest base image.                     |
-| Managed runtime approaching deprecation | Notify customers prior to runtime deprecation via documentation, Health Dashboard, email, and Trusted Advisor.<br>Responsibility for runtime updates ends at deprecation.                                                                                                           | Monitor Lambda documentation, Health Dashboard, email, or Trusted Advisor for runtime deprecation information.<br>Upgrade functions to a supported runtime before the previous runtime is deprecated. |
+| Managed runtime approaching deprecation | Notify customers before runtime deprecation through documentation, Health Dashboard, email, and Trusted Advisor.<br>Responsibility for runtime updates ends at deprecation.                                                                                                         | Monitor Lambda documentation, Health Dashboard, email, or Trusted Advisor for runtime deprecation information.<br>Upgrade functions to a supported runtime before the previous runtime is deprecated. |
 | Container image approaching deprecation | Deprecation notifications are not available for functions using container images.<br>Responsibility for container base image updates ends at deprecation.                                                                                                                           | Be aware of deprecation schedules and upgrade functions to a supported base image before the previous image is deprecated.                                                                            |
 
 ## Runtime use after deprecation

@@ -189,7 +189,7 @@ To create and configure a function that uses a .zip file archive, use the follow
 ## Downloading your function code
 
 You can download the current unpublished (`$LATEST`) version of your function code .zip
-via the Lambda console. To do this, first ensure that you have the following IAM permissions:
+from the Lambda console. To do this, first ensure that you have the following IAM permissions:
 
 - `iam:GetPolicy`
 - `iam:GetPolicyVersion`

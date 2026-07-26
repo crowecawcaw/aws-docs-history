@@ -234,6 +234,6 @@ Resources:
 With this configuration, you update the library layer only if you change your runtime dependencies.
 Since the function deployment package contains only your code, this can help reduce upload times.
 
-Creating a layer for dependencies requires build changes to generate the layer archive prior to deployment.
+Creating a layer for dependencies requires build changes to generate the layer archive before deployment.
 For a working example, see the [blank-ruby](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-ruby "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-ruby") sample
 application.

@@ -10,9 +10,9 @@ You have access to a variety of tools that increase productivity and ease-of-use
 
 ## Local development tools
 
-Local development environments enable you to work offline and leverage advanced IDE features while iterating quickly on your Lambda functions. These tools help you debug complex functions and develop in environments with limited connectivity. They also support team collaboration and integration with version control systems.
+Local development environments enable you to work offline and use advanced IDE features while iterating quickly on your Lambda functions. These tools help you debug complex functions and develop in environments with limited connectivity. They also support team collaboration and integration with version control systems.
 
-For more information on developing Lambda functions locally, see [Developing Lambda functions locally with VS Code](foundation-iac-local-development.md "foundation-iac-local-development.md"). This page describes how to move Lambda function development from the AWS console to Visual Studio Code, which provides a rich development environment with features like debugging and code completion. To make the transition, you need to set up the AWS Toolkit for Visual Studio Code and credentials, after which you can use advanced features in VS Code while maintaining the ability to deploy directly to AWS.
+For more information on developing Lambda functions locally, see [Developing Lambda functions locally](foundation-iac-local-development.md "foundation-iac-local-development.md"). This page describes how to move Lambda function development from the AWS console to Visual Studio Code, which provides a rich development environment with features like debugging and code completion. To make the transition, you need to set up the AWS Toolkit for Visual Studio Code and credentials, after which you can use advanced features in VS Code while maintaining the ability to deploy directly to AWS.
 
 Local development for Lambda provides several key capabilities:
 
@@ -21,11 +21,11 @@ Local development for Lambda provides several key capabilities:
 - Debug and test functions locally
 - Apply best practices for local function management
 
-For more information, see [Developing Lambda functions locally with VS Code](foundation-iac-local-development.md "foundation-iac-local-development.md").
+For more information, see [Developing Lambda functions locally](foundation-iac-local-development.md "foundation-iac-local-development.md").
 
 ## Infrastructure as Code (IaC) tools
 
-With Infrastructure as Code (IaC) tools, you can define and manage your serverless architecture using code. This approach helps maintain consistency across environments, lets you control your infrastructure versions, and facilitates DevOps practices. IaC is especially valuable for automating deployments, ensuring consistent environments, and managing multi-region deployments.
+With Infrastructure as Code (IaC) tools, you can define and manage your serverless architecture using code. This approach helps maintain consistency across environments, lets you control your infrastructure versions, and helps DevOps practices. IaC is especially valuable for automating deployments, ensuring consistent environments, and managing multi-region deployments.
 
 Key IaC tools and concepts for Lambda include frameworks for template creation, deployment management, and best practices for serverless infrastructure:
 
@@ -40,7 +40,7 @@ For more information, see [Using Lambda with infrastructure as code (IaC)](found
 
 ## GitHub Actions tools
 
-GitHub Actions provides automated deployment capabilities for your Lambda functions directly from your code repository. By creating workflow files in your repository, you can automatically deploy Lambda functions whenever code or configuration changes are pushed, streamlining your continuous integration and continuous deployment (CI/CD) pipeline. The Deploy Lambda Function action offers a declarative YAML interface that simplifies the deployment process, handles AWS credentials through OpenID Connect (OIDC), and supports various deployment scenarios including code updates, configuration changes, and dry run validations. This integration enables teams to maintain a consistent and automated deployment process while leveraging their existing GitHub workflows.
+GitHub Actions provides automated deployment capabilities for your Lambda functions directly from your code repository. By creating workflow files in your repository, you can automatically deploy Lambda functions whenever code or configuration changes are pushed, streamlining your continuous integration and continuous deployment (CI/CD) pipeline. The Deploy Lambda function action offers a declarative YAML interface that simplifies the deployment process, handles AWS credentials through OpenID Connect (OIDC), and supports various deployment scenarios including code updates, configuration changes, and dry run validations. This integration enables teams to maintain a consistent and automated deployment process while using their existing GitHub workflows.
 
 For more information, see [Using GitHub Actions to deploy Lambda functions](deploying-github-actions.md "deploying-github-actions.md").
 
@@ -55,6 +55,6 @@ For more information, see [Powertools for AWS Lambda](powertools-for-lambda.md "
 
 ## Workflow and event management tools
 
-Lambda applications can be used in orchestration of complex workflows and handling of various events. AWS provides specialized tools to help you manage these aspects of serverless development. Learn about AWS Step Functions for workflow orchestration and Amazon EventBridge for event management, and how to integrate them with your Lambda functions. These tools can significantly enhance the scalability and reliability of your serverless applications by providing robust state management and event-driven architectures. By leveraging these services, you can build more sophisticated and resilient Lambda-based solutions that can handle complex business processes and react to a wide range of system and application events.
+Lambda applications can be used in orchestration of complex workflows and handling of various events. AWS provides specialized tools to help you manage these aspects of serverless development. Learn about AWS Step Functions for workflow orchestration and Amazon EventBridge for event management, and how to integrate them with your Lambda functions. These tools can significantly enhance the scalability and reliability of your serverless applications by providing robust state management and event-driven architectures. By using these services, you can build more sophisticated and resilient Lambda-based solutions that can handle complex business processes and react to a wide range of system and application events.
 
 For more information, see [Managing Lambda workflows and events](workflow-event-management.md "workflow-event-management.md").

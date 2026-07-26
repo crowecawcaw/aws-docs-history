@@ -247,7 +247,7 @@ the full handler string is `ExampleCS::ExampleLambda.OrderHandler::HandleRequest
 ## Executable assembly handlers
 
 You can also define Lambda functions in C# as an executable assembly. Executable assembly handlers
-utilize C#'s top-level statements feature, in which the compiler generates the `Main()`
+use C#'s top-level statements feature, in which the compiler generates the `Main()`
 method and puts your function code within it. When using executable assemblies, the Lambda runtime
 must be bootstrapped. To do this, use the `LambdaBootstrapBuilder.Create` method in your
 code. The inputs to this method are the main handler function as well as the Lambda serializer to use.
@@ -572,7 +572,7 @@ invoke your function.
 
 In the example code, the S3 client initialization code is outside the main handler method. The runtime
 initializes the client before the function handles its first event, which can lead to longer processing
-times. Subsequent events are much faster because Lambda doesn’t need to initialize the client again.
+times. Subsequent events are much faster because Lambda doesn't need to initialize the client again.
 
 ## Simplify function code with the Lambda Annotations framework
 
@@ -586,7 +586,7 @@ focus on your business logic. See
 [Amazon.Lambda.Annotations](https://www.nuget.org/packages/Amazon.Lambda.Annotations "https://www.nuget.org/packages/Amazon.Lambda.Annotations")
 in the nuget documentation for examples.
 
-For an example of a full application utilizing Lambda Annotations, see the
+For an example of a full application using Lambda Annotations, see the
 [PhotoAssetManager](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/PhotoAssetManager "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/PhotoAssetManager") example in the `awsdocs/aws-doc-sdk-examples` GitHub repository. The
 main `Function.cs` file in the `PamApiAnnotations` directory uses
 Lambda Annotations. For comparison, the `PamApi` directory has equivalent files written

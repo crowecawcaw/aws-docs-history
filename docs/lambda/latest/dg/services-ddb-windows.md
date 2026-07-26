@@ -38,7 +38,7 @@ can return a `TimeWindowEventResponse` object, which has the following JSON shap
 For Java functions, we recommend using a `Map<String, String>` to represent the state.
 
 At the end of the window, the flag `isFinalInvokeForWindow` is set to `true` to indicate
-that this is the final state and that it’s ready for processing. After processing, the window completes and your
+that this is the final state and that it's ready for processing. After processing, the window completes and your
 final invocation completes, and then the state is dropped.
 
 At the end of your window, Lambda uses final processing for actions on the aggregation results. Your final

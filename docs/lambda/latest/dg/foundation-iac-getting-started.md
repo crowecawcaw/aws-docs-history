@@ -3,19 +3,19 @@
 In this tutorial, you can get started using IaC with Lambda by creating an AWS SAM template from an existing Lambda function and then building out a
 serverless application in Infrastructure Composer by adding other AWS resources.
 
-As you carry out this tutorial, you’ll learn some fundamental concepts, like how AWS resources are specified in AWS SAM. You’ll also learn
+As you carry out this tutorial, you'll learn some fundamental concepts, like how AWS resources are specified in AWS SAM. You'll also learn
 how to use Infrastructure Composer to build a serverless application you can deploy using AWS SAM or CloudFormation.
 
-To complete this tutorial, you’ll carry out the following steps:
+To complete this tutorial, you'll carry out the following steps:
 
 - Create an example Lambda function
 - Use the Lambda console to view the AWS SAM template for the function
-- Export your function’s configuration to AWS Infrastructure Composer and design a simple serverless application based on your function’s configuration
+- Export your function's configuration to AWS Infrastructure Composer and design a simple serverless application based on your function's configuration
 - Save an updated AWS SAM template you can use as a basis to deploy your serverless application
 
 ## Prerequisites
 
-In this tutorial, you use Infrastructure Composer’s [local sync](../../../application-composer/latest/dg/reference-features-local-sync.md "../../../application-composer/latest/dg/reference-features-local-sync.md")
+In this tutorial, you use Infrastructure Composer's [local sync](../../../application-composer/latest/dg/reference-features-local-sync.md "../../../application-composer/latest/dg/reference-features-local-sync.md")
 feature to save your template and code files to your local build machine. To use this feature, you need a browser that supports the File
 System Access API, which allows web applications to read, write, and save files in your local file system . We recommend using either
 Google Chrome or Microsoft Edge. For more information about the File System Access API, see
@@ -47,7 +47,7 @@ like Lambda functions to start specifying a serverless application.
 2. Choose the function you just created (`LambdaIaCDemo`).
 3. In the **Function overview** pane, choose **Template**.
 
-In place of the diagram representing your function’s configuration, you’ll see an AWS SAM template for your function. The
+In place of the diagram representing your function's configuration, you'll see an AWS SAM template for your function. The
 template should look like the following.
 
 ```
@@ -97,7 +97,7 @@ Resources:
                 arn:aws:logs:us-east-1:123456789012:log-group:/aws/lambda/LambdaIaCDemo:*
 ```
 
-Let’s take a moment to look at the YAML template for your function and understand some key concepts.
+Let's take a moment to look at the YAML template for your function and understand some key concepts.
 
 The template starts with the declaration `Transform: AWS::Serverless-2016-10-31`. This declaration is required because behind
 the scenes, AWS SAM templates are deployed through CloudFormation. Using the `Transform` statement identifies the template as an AWS SAM
@@ -109,7 +109,7 @@ because during deployment, AWS SAM templates expand to CloudFormation templates,
 
 At the moment, there is just one resource defined in the `Resources` section of the template, your Lambda function
 `LambdaIaCDemo`. To add a Lambda function to an AWS SAM template, you use the `AWS::Serverless::Function` resource type. The `Properties` of a Lambda
-function resource define the function’s runtime, function handler, and other configuration options. The path to your function’s source code
+function resource define the function's runtime, function handler, and other configuration options. The path to your function's source code
 that AWS SAM should use to deploy the function is also defined here. To learn more about Lambda function resources in AWS SAM, see
 [AWS::Serverless::Function](../../../serverless-application-model/latest/developerguide/sam-resource-function.md "../../../serverless-application-model/latest/developerguide/sam-resource-function.md")
 in the _AWS SAM Developer Guide_.
@@ -124,8 +124,8 @@ To learn more about the structure of AWS SAM templates, see [AWS SAM template an
 
 ## Use AWS Infrastructure Composer to design a serverless application
 
-To start building out a simple serverless application using your function’s AWS SAM template as a starting point, you export your function
-configuration to Infrastructure Composer and activate Infrastructure Composer’s local sync mode. Local sync automatically saves your function’s code and your AWS SAM template to
+To start building out a simple serverless application using your function's AWS SAM template as a starting point, you export your function
+configuration to Infrastructure Composer and activate Infrastructure Composer's local sync mode. Local sync automatically saves your function's code and your AWS SAM template to
 your local build machine and keeps your saved template synced as you add other AWS resources in Infrastructure Composer.
 
 ###### To export your function to Infrastructure Composer
@@ -136,7 +136,7 @@ To export your function's configuration and code to Infrastructure Composer, Lam
 configuration and code to Infrastructure Composer. 3. (Optional) To choose another name for the Amazon S3 bucket that Lambda creates, enter a new name and choose **Confirm and create project**.
 Amazon S3 bucket names must be globally unique and follow the [bucket naming rules](../../../AmazonS3/latest/userguide/bucketnamingrules.md "../../../AmazonS3/latest/userguide/bucketnamingrules.md").
 
-Selecting **Confirm and create project** opens the Infrastructure Composer console. On the _canvas_, you’ll see your Lambda function. 4. From the **Menu** dropdown, choose **Activate local sync**. 5. In the dialog box that opens, choose **Select folder** and select a folder on your local build machine. 6. Choose **Activate** to activate local sync.
+Selecting **Confirm and create project** opens the Infrastructure Composer console. On the _canvas_, you'll see your Lambda function. 4. From the **Menu** dropdown, choose **Activate local sync**. 5. In the dialog box that opens, choose **Select folder** and select a folder on your local build machine. 6. Choose **Activate** to activate local sync.
 
 To export your function to Infrastructure Composer, you need permission to use certain API actions. If you're unable to export your function, see
 [Required permissions](services-appcomposer.md#services-appcomposer-permissions "services-appcomposer.md#services-appcomposer-permissions") and make sure you have the permissions you need.
@@ -175,7 +175,7 @@ simple queue as a trigger for your Lambda function and a DynamoDB table for the 
    5. Connect the DynamoDB table to your Lambda function by clicking on the right hand port of the Lambda function card and dragging it to
       the left hand port on the DynamoDB card.
 
-Now that you’ve added these extra resources, let’s take a look at the updated AWS SAM template Infrastructure Composer has created.
+Now that you've added these extra resources, let's take a look at the updated AWS SAM template Infrastructure Composer has created.
 
 ###### To view your updated AWS SAM template
 

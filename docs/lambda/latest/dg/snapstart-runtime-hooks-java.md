@@ -12,7 +12,7 @@ main elements:
 - `Context <R extends Resource>` – To receive notifications for checkpoints and
   restores, a `Resource` must be registered with a `Context`.
 - `Core` – The coordination service, which provides the default global `Context`
-  via the static method `Core.getGlobalContext()`.
+  through the static method `Core.getGlobalContext()`.
   For more information about `Context` and `Resource`, see [Package org.crac](https://javadoc.io/doc/io.github.crac/org-crac/latest/index.html "https://javadoc.io/doc/io.github.crac/org-crac/latest/index.html") in the CRaC
   documentation.
 

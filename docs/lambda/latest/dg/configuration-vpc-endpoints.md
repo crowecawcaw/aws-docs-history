@@ -147,3 +147,6 @@ You need to include both the qualified and the unqualified function ARN in the r
    ]
 }
 ```
+
+To give your function access to resources in a VPC that belongs to another AWS account, see
+[Giving Lambda functions access to a resource in an Amazon VPC in another account](configuration-vpc-cross-account.md "configuration-vpc-cross-account.md").

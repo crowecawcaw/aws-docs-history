@@ -10,7 +10,7 @@ This tutorial demonstrates how to:
 2. Create a Lambda function that returns the object type of objects in an Amazon S3 bucket.
 3. Configure a Lambda trigger that invokes your function when objects are uploaded to your bucket.
 4. Test your function, first with a dummy event, and then using the trigger.
-   By completing these steps, you’ll learn how to configure a Lambda function to run whenever objects are added to or deleted from an
+   By completing these steps, you'll learn how to configure a Lambda function to run whenever objects are added to or deleted from an
    Amazon S3 bucket. You can complete this tutorial using only the AWS Management Console.
 
 ## Create an Amazon S3 bucket
@@ -43,7 +43,7 @@ This tutorial demonstrates how to:
 3. Choose **Add files** and select the object that you want to upload. You can select any file (for example, `HappyFace.jpg`).
 4. Choose **Open**, then choose **Upload**.
 
-Later in the tutorial, you’ll test your Lambda function using this object.
+Later in the tutorial, you'll test your Lambda function using this object.
 
 ## Create a permissions policy
 
@@ -138,8 +138,8 @@ Create a Lambda function in the console using the Python 3.14 runtime.
 
 ![Next step: Deploy the function code](images/services-s3-example/s3trigger_tut_steps6.png)
 
-This tutorial uses the Python 3.14 runtime, but we’ve also provided example code files for other runtimes. You can select the
-tab in the following box to see the code for the runtime you’re interested in.
+This tutorial uses the Python 3.14 runtime, but we've also provided example code files for other runtimes. You can select the
+tab in the following box to see the code for the runtime you're interested in.
 
 The Lambda function retrieves the key name of the uploaded object and the name of the bucket from the `event` parameter it receives
 from Amazon S3. The function then uses the [get\_object](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/get_object.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/get_object.html") method from the AWS SDK for Python (Boto3) to retrieve the object's metadata, including the content type (MIME type) of the uploaded object.
@@ -722,7 +722,7 @@ deleted the function or modified its permissions policies.
 
 4. Choose **Save**.
 5. Choose **Test**.
-6. If your function runs successfully, you’ll see output similar to the following in the **Execution results** tab.
+6. If your function runs successfully, you'll see output similar to the following in the **Execution results** tab.
 
 ```
 Response
@@ -744,7 +744,7 @@ Request ID
 ![Tutorial workflow diagram showing you are in the testing step testing using the S3 trigger](images/services-s3-example/s3trigger_tut_steps9.png)
 
 To test your function with the configured trigger, upload an object to your Amazon S3 bucket using the console. To verify that your Lambda
-function ran as expected, use CloudWatch Logs to view your function’s output.
+function ran as expected, use CloudWatch Logs to view your function's output.
 
 ###### To upload an object to your Amazon S3 bucket
 
@@ -760,7 +760,7 @@ function ran as expected, use CloudWatch Logs to view your function’s output.
 2. Make sure you're working in the same AWS Region you created your Lambda function in. You can change your Region using the drop-down
    list at the top of the screen.
 
-![Image showing drop down region menu in Lambda console](images/console_region_select.png) 3. Choose **Logs**, then choose **Log groups**. 4. Choose the log group for your function (`/aws/lambda/s3-trigger-tutorial`). 5. Under **Log streams**, choose the most recent log stream. 6. If your function was invoked correctly in response to your Amazon S3 trigger, you’ll see output similar to the following. The
+![Image showing drop down region menu in Lambda console](images/console_region_select.png) 3. Choose **Logs**, then choose **Log groups**. 4. Choose the log group for your function (`/aws/lambda/s3-trigger-tutorial`). 5. Under **Log streams**, choose the most recent log stream. 6. If your function was invoked correctly in response to your Amazon S3 trigger, you'll see output similar to the following. The
 `CONTENT TYPE` you see depends on the type of file you uploaded to your bucket.
 
 ```

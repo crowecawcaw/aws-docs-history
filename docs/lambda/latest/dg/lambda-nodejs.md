@@ -100,7 +100,7 @@ restore the same behavior from Node.js 18 and earlier runtimes, set the `NODE_EX
 [environment variable](configuration-envvars.md "configuration-envvars.md") to `/var/runtime/ca-cert.pem`.
 
 For optimal performance, we recommend bundling only the certificates that you need with your deployment package
-and loading them via the `NODE_EXTRA_CA_CERTS` environment variable. The certificates file should
+and loading them through the `NODE_EXTRA_CA_CERTS` environment variable. The certificates file should
 consist of one or more trusted root or intermediate CA certificates in PEM format. For example, for RDS, include
 the required certificates alongside your code as `certificates/rds.pem`. Then, load the certificates
 by setting `NODE_EXTRA_CA_CERTS` to `/var/task/certificates/rds.pem`.

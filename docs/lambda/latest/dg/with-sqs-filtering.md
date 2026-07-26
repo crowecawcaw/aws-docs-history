@@ -47,7 +47,7 @@ An example record for this queue would look as follows.
 ```
 
 To filter based on the contents of your Amazon SQS messages, use the `body` key in the Amazon SQS message record. Suppose you want to process
-only those records where the `RequestCode` in your Amazon SQS message is “BBBB.” The `FilterCriteria` object would be
+only those records where the `RequestCode` in your Amazon SQS message is "BBBB." The `FilterCriteria` object would be
 as follows.
 
 ```

@@ -140,8 +140,8 @@ concurrency" and `PC` as "provisioned concurrency"):
 
 ###### Note
 
-You can’t allocate more `PC` than `RC` for a function.
-Thus, a function’s `RC` is always greater than or equal to its
+You can't allocate more `PC` than `RC` for a function.
+Thus, a function's `RC` is always greater than or equal to its
 `PC`. To calculate the contribution to allocated concurrency
 for such functions with both `PC` and `RC`, Lambda
 considers only `RC`, which is the maximum of the two.

@@ -22,7 +22,7 @@ Before you can configure a Lambda function to use a layer, you must:
   function and all layers cannot exceed the unzipped deployment package size quota of 250 MB.
   For more information, see [Lambda quotas](gettingstarted-limits.md "gettingstarted-limits.md").
 
-Your functions can continue to use any layer version that you’ve already added, even
+Your functions can continue to use any layer version that you've already added, even
 after that layer version has been deleted, or after your permission to access the layer
 is revoked. However, you cannot create a new function that uses a deleted layer version.
 
@@ -66,7 +66,7 @@ is revoked. However, you cannot create a new function that uses a deleted layer 
 
 ## Finding layer information
 
-To find layers in your account that are compatible with your function’s runtime,
+To find layers in your account that are compatible with your function's runtime,
 use the [ListLayers](../api/API_ListLayers.md "../api/API_ListLayers.md") API. For example, you can use the following [list-layers](../../../cli/latest/reference/lambda/list-layers.md "../../../cli/latest/reference/lambda/list-layers.md") AWS Command Line Interface (CLI) command:
 
 ```

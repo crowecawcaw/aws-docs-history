@@ -30,7 +30,7 @@ With such a long invocation time, messages begin arriving in the queue more rapi
 processed. If your account's unreserved concurrency is 100, Lambda scales up to 100 concurrent executions,
 and then throttling occurs. You can see this pattern in the CloudWatch metrics for the function:
 
-![debugging ops figure 10](images/debugging-ops-figure-10.png)
+![CloudWatch metrics showing concurrent executions reaching 100 and throttles increasing as the function hits the concurrency limit.](images/debugging-ops-figure-10.png)
 
 CloudWatch metrics for the function show no errors, but the **Concurrent executions** chart
 shows that the maximum concurrency of 100 is reached. As a result, the **Throttles** chart
@@ -51,13 +51,13 @@ If the processing function throws errors, Lambda returns the messages to the SQS
 your function from scaling to prevent errors at scale. The following SQS metrics in CloudWatch indicate an issue
 with queue processing:
 
-![debugging ops figure 11](images/debugging-ops-figure-11.png)
+![SQS CloudWatch metrics showing the age of oldest message and visible messages increasing while no messages are deleted.](images/debugging-ops-figure-11.png)
 
 In particular, both the age of the oldest message and the number of messages visible are increasing,
 while no messages are deleted. The queue continues to grow but messages are not being processed. The
 CloudWatch metrics for the processing Lambda function also indicate that there is a problem:
 
-![debugging ops figure 12](images/debugging-ops-figure-12.png)
+![Lambda CloudWatch metrics showing growing error count with reduced concurrent executions and no throttling, indicating Lambda stopped scaling due to errors.](images/debugging-ops-figure-12.png)
 
 The **Error count** metric is non-zero and growing, while **Concurrent
 executions** have reduced and throttling has stopped. This shows that Lambda has stopped scaling up
@@ -67,7 +67,7 @@ You can resolve this issue by identifying the function causing the error, then f
 the error. After you fix the error and deploy the new function code, the CloudWatch metrics should show the
 processing recover:
 
-![debugging ops figure 13](images/debugging-ops-figure-13.png)
+![Lambda CloudWatch metrics showing error count dropping to zero and success rate returning to 100% after the fix is deployed.](images/debugging-ops-figure-13.png)
 
 Here, the **Error count** metric drops to zero and the **Success rate**
 metric returns to 100%. Lambda starts scaling up the function again, as shown in the **Concurrent

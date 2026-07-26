@@ -12,7 +12,7 @@ The Lambda [Java managed runtimes](lambda-java.md#java-runtimes "lambda-java.md#
 
 When your Lambda function is invoked, the input event data needs to be deserialized into a Java object, and the output from your function needs to be serialized back into a format that can be returned as the function's response. The Lambda Java managed runtimes provide default serialization and deserialization capabilities that work well for handling event payloads from various AWS services, such as Amazon API Gateway and Amazon Simple Queue Service (Amazon SQS). To work with these service integration events in your function, add the [aws-java-lambda-events](https://mvnrepository.com/artifact/com.amazonaws/aws-lambda-java-events "https://mvnrepository.com/artifact/com.amazonaws/aws-lambda-java-events") dependency to your project. This AWS library contains Java objects representing these service integration events.
 
-You can also use your own objects to represent the event JSON that you pass to your Lambda function. The managed runtime attempts to serialize the JSON to a new instance of your object with its default behavior. If the default serializer doesn’t have the desired behavior for your use case, use custom serialization.
+You can also use your own objects to represent the event JSON that you pass to your Lambda function. The managed runtime attempts to serialize the JSON to a new instance of your object with its default behavior. If the default serializer doesn't have the desired behavior for your use case, use custom serialization.
 
 For example, assume that your function handler expects a `Vehicle` class as input, with the following structure:
 
@@ -36,7 +36,7 @@ In this scenario, the default serialization in the managed runtime expects the J
 
 ## Implementing custom serialization
 
-Use a [Service Provider Interface](https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html "https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html") to load a serializer of your choice instead of the managed runtime’s default serialization logic. You can serialize your JSON event payloads directly into Java objects, using the standard `RequestHandler` interface.
+Use a [Service Provider Interface](https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html "https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html") to load a serializer of your choice instead of the managed runtime's default serialization logic. You can serialize your JSON event payloads directly into Java objects, using the standard `RequestHandler` interface.
 
 ###### To use custom serialization in your Lambda Java function
 

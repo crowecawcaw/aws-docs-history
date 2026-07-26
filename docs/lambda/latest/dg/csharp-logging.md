@@ -43,10 +43,10 @@ invocation. The report line provides the following details.
 
 ## Using Lambda advanced logging controls with .NET
 
-To give you more control over how your functions’ logs are captured, processed, and consumed, you can configure the following logging
+To give you more control over how your functions' logs are captured, processed, and consumed, you can configure the following logging
 options for supported .NET runtimes:
 
-- **Log format** - select between plain text and structured JSON format for your function’s logs
+- **Log format** - select between plain text and structured JSON format for your function's logs
 - **Log level** - for logs in JSON format, choose the detail level of the logs Lambda sends to CloudWatch, such as
   ERROR, DEBUG, or INFO
 - **Log group** - choose the CloudWatch log group your function sends logs to
@@ -297,7 +297,7 @@ log-level filtering for your function, see [Log-level filtering](monitoring-clou
 For AWS Lambda to filter your log messages by log level, you can either use JSON formatted logs or use the .NET `Console` methods to output log messages.
 To create JSON formatted logs, [configure your function's log type to JSON](monitoring-cloudwatchlogs-logformat.md#monitoring-cloudwatchlogs-set-format "monitoring-cloudwatchlogs-logformat.md#monitoring-cloudwatchlogs-set-format") and use the `ILambdaLogger` instance.
 
-With JSON-formatted logs, Lambda filters your log outputs using the “level” key value pair in the JSON object described in [Using structured JSON log format with .NET](#csharp-logging-advanced-JSON "#csharp-logging-advanced-JSON").
+With JSON-formatted logs, Lambda filters your log outputs using the "level" key value pair in the JSON object described in [Using structured JSON log format with .NET](#csharp-logging-advanced-JSON "#csharp-logging-advanced-JSON").
 
 If you use the .NET `Console` methods to write messages to CloudWatch Logs, Lambda applies log levels to your messages as follows:
 

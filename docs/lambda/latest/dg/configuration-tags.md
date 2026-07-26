@@ -9,6 +9,9 @@ Tags apply at the function level, not to versions or aliases. Tags are not part 
 configuration that AWS Lambda creates a snapshot of when you publish a version. You can use the Lambda API to view and
 update tags. You can also view and update tags while managing a specific function in the Lambda console.
 
+You can also use tags to control access to your functions with attribute-based access control (ABAC). For more
+information, see [Using attribute-based access control in Lambda](attribute-based-access-control.md "attribute-based-access-control.md").
+
 ###### Sections
 
 - [Permissions required for working with tags](#fxn-tags-required-permissions "#fxn-tags-required-permissions")

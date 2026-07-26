@@ -66,12 +66,12 @@ YYYY/MM/DD[Function version][Execution environment GUID]
 ```
 
 A single execution environment writes to the same log stream during its lifetime. The log stream
-contains messages from that execution environment and also any output from your Lambda function’s code.
+contains messages from that execution environment and also any output from your Lambda function's code.
 Every message is timestamped, including your custom logs. Even if your function does not log any
 output from your code, there are three minimal log statements generated per invocation
 (START, END and REPORT):
 
-![monitoring observability figure 3](images/monitoring-observability-figure-3.png)
+![CloudWatch log stream showing START, END, and REPORT lines for a Lambda function invocation.](images/monitoring-observability-figure-3.png)
 
 These logs show:
 
@@ -230,7 +230,7 @@ exports.handler = async (event) => {
 
 The resulting CloudWatch log file contains a separate field specifying the log level:
 
-![monitoring observability figure 10](images/monitoring-observability-figure-10.png)
+![CloudWatch log entry showing a log level field that distinguishes ERROR from INFO messages.](images/monitoring-observability-figure-10.png)
 
 A CloudWatch Logs Insights query can then filter on log level. For example, to query for errors only, you can use
 the following query:
@@ -246,7 +246,7 @@ fields @timestamp, @message
 JSON is commonly used to provide structure for application logs. In the following example, the logs have
 been converted to JSON to output three distinct values:
 
-![monitoring observability figure 11](images/monitoring-observability-figure-11.png)
+![CloudWatch log entries showing JSON-structured output with distinct fields for file size, upload time, and invocation count.](images/monitoring-observability-figure-11.png)
 
 The CloudWatch Logs Insights feature automatically discovers values in JSON output and parses the messages as
 fields, without the need for custom glob or regular expression. By using the JSON-structured logs, the
@@ -263,7 +263,7 @@ fields @message
 
 This query might produce the following result:
 
-![monitoring observability figure 12](images/monitoring-observability-figure-12.png)
+![CloudWatch Logs Insights query results filtered by JSON fields showing matching log entries.](images/monitoring-observability-figure-12.png)
 
 The discovered fields in JSON are automatically populated in the _Discovered fields_
 menu on the right side. Standard fields emitted by the Lambda service are prefixed with '@', and you can
@@ -318,10 +318,10 @@ fields @message
 We included these aggregates because it may be more useful to visualize minimum, maximum,
 and average file sizes to find outliers. You can view the results in the **Visualization** tab:
 
-![monitoring observability figure 14](images/monitoring-observability-figure-14.png)
+![CloudWatch Logs Insights visualization tab showing a time-series graph of minimum, average, and maximum file sizes.](images/monitoring-observability-figure-14.png)
 
 After you have finished building the visualization, you can optionally add the graph to a CloudWatch dashboard.
 To do this, choose **Add to dashboard** above the visualization. This adds the query as a
 widget and enables you to select automatic refresh intervals, making it easier to continuously monitor the results:
 
-![monitoring observability figure 15](images/monitoring-observability-figure-15.png)
+![CloudWatch dashboard with a Logs Insights query widget added, showing the Add to dashboard option.](images/monitoring-observability-figure-15.png)

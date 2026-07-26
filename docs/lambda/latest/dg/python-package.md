@@ -41,7 +41,7 @@ compatibility issues between the new version of the runtime and the version of u
 
 ###### Important
 
-To maintain full control over your dependencies and to avoid possible version misalignment issues, we recommend you add all of your function’s
+To maintain full control over your dependencies and to avoid possible version misalignment issues, we recommend you add all of your function's
 dependencies to your deployment package, even if versions of them are included in the Lambda runtime. This includes the Boto3 SDK.
 
 To find out which version of the SDK for Python (Boto3) is included in the runtime you're using, see [Runtime-included SDK versions](lambda-python.md#python-sdk-included "lambda-python.md#python-sdk-included").
@@ -54,8 +54,8 @@ and [Creating and updating Python Lambda functions using .zip files](#python-pac
 ## Creating a .zip deployment package with no dependencies
 
 If your function code has no dependencies, your .zip file contains only the .py file with
-your function’s handler code. Use your preferred zip utility to create a .zip file with your .py file at the root. If the .py file is not at
-the root of your .zip file, Lambda won’t be able to run your code.
+your function's handler code. Use your preferred zip utility to create a .zip file with your .py file at the root. If the .py file is not at
+the root of your .zip file, Lambda won't be able to run your code.
 
 To learn how to deploy your .zip file to create a new Lambda function or update an existing one, see [Creating and updating Python Lambda functions using .zip files](#python-package-create-update "#python-package-create-update").
 
@@ -124,7 +124,7 @@ my_deployment_package.zip
 |- lambda_function.py
 ```
 
-If the .py file containing your function’s handler code is not at the root of your .zip file, Lambda will not be able to run your code.
+If the .py file containing your function's handler code is not at the root of your .zip file, Lambda will not be able to run your code.
 
 ###### To create the deployment package (virtual environment)
 
@@ -202,7 +202,7 @@ print(search_path)
 Because dependencies in your deployment package or layers take precedence over runtime-included libraries, this can cause version
 misalignment problems if you include an SDK dependency such as urllib3 in your package without including the SDK as well. If you deploy your own version of
 a Boto3 dependency, you must also deploy Boto3 as a dependency in your deployment package. We recommend that you package all of your
-function’s dependencies, even if versions of them are included in the runtime.
+function's dependencies, even if versions of them are included in the runtime.
 
 You can also add dependencies in a separate folder inside your .zip package. For example, you might add a version of the Boto3 SDK to a folder
 in your .zip package called `common`. When your .zip package is decompressed and mounted, this folder is placed inside the
@@ -223,11 +223,11 @@ on a build machine with a different architecture or operating system might not b
 If your function uses only pure Python packages and modules, you can use the `pip install` command to install your dependencies on
 any local build machine and create your .zip file. Many popular Python libraries, including NumPy and Pandas, are not pure Python and contain code
 written in C or C++. When you add libraries containing C/C++ code to your deployment package, you must build your package correctly to ensure that
-it’s compatible with the Lambda execution environment.
+it's compatible with the Lambda execution environment.
 
-Most packages available on the Python Package Index ([PyPI](https://pypi.org/ "https://pypi.org/")) are available as “wheels” (.whl files). A
+Most packages available on the Python Package Index ([PyPI](https://pypi.org/ "https://pypi.org/")) are available as "wheels" (.whl files). A
 .whl file is a type of ZIP file which contains a built distribution with pre-compiled binaries for a particular operating system and instruction
-set architecture. To make your deployment package compatible with Lambda, you install the wheel for Linux operating systems and your function’s
+set architecture. To make your deployment package compatible with Lambda, you install the wheel for Linux operating systems and your function's
 instruction set architecture.
 
 Some packages may only be available as source distributions. For these packages, you need to compile and build the C/C++ components yourself.
@@ -240,7 +240,7 @@ To see what distributions are available for your required package, do the follow
 
 ### Working with built distributions (wheels)
 
-To download a wheel that’s compatible with Lambda, you use the pip `--platform` option.
+To download a wheel that's compatible with Lambda, you use the pip `--platform` option.
 
 If your Lambda function uses the **x86\_64** instruction set architecture, run the following
 `pip install` command to install a compatible wheel in your `package` directory. Replace `--python 3.x` with

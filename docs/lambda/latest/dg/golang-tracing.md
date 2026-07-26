@@ -40,7 +40,8 @@ initialization of OTel. For more information, see [Custom configuration for the 
 
 For Go runtimes, you can add the **AWS managed Lambda layer for ADOT Go**
 to automatically instrument your functions. For detailed instructions on how to add this layer, see [AWS Distro for OpenTelemetry Lambda
-Support for Go](https://aws-otel.github.io/docs/getting-started/lambda/lambda-go "https://aws-otel.github.io/docs/getting-started/lambda/lambda-go") in the ADOT documentation.
+Support for Go](https://aws-otel.github.io/docs/getting-started/lambda/lambda-go "https://aws-otel.github.io/docs/getting-started/lambda/lambda-go") in the ADOT documentation. To learn how to convert Lambda Telemetry API events to
+OpenTelemetry spans, see [Converting Lambda Telemetry API Event objects to OpenTelemetry Spans](telemetry-otel-spans.md "telemetry-otel-spans.md").
 
 ## Using the X-Ray SDK to instrument your Go functions
 
@@ -63,7 +64,7 @@ svc.ListBucketsWithContext(ctx aws.Context, input *ListBucketsInput)
 ```
 
 After you add the correct dependencies and make the necessary code changes, activate tracing in your
-function's configuration via the Lambda console or the API.
+function's configuration through the Lambda console or the API.
 
 ## Activating tracing with the Lambda console
 

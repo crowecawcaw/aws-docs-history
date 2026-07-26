@@ -133,7 +133,7 @@ task that processes a batch, there is the potential for the volume of transactio
 processed within the 15-minute Lambda duration limit. If the limitations of external systems force you to use a
 scheduler, you should generally schedule for the shortest reasonable recurring time period.
 
-For example, it’s not best practice to use a batch process that triggers a Lambda function to fetch a list of
+For example, it's not best practice to use a batch process that triggers a Lambda function to fetch a list of
 new Amazon S3 objects. This is because the service may receive more new objects in between batches than can be
 processed within a 15-minute Lambda function.
 
@@ -166,8 +166,8 @@ to manage orchestration. This extracts the error handling, routing, and branchin
 it with state machines declared using JSON. Apart from making workflows more robust and observable, you can also
 add versioning to workflows and make the state machine a codified resource that you can add to a code repository.
 
-It’s common for simpler workflows in Lambda functions to become more complex over time. When operating a
-production serverless application, it’s important to identify when this is happening, so you can migrate this
+It's common for simpler workflows in Lambda functions to become more complex over time. When operating a
+production serverless application, it's important to identify when this is happening, so you can migrate this
 logic to a state machine or durable function.
 
 ## Implement idempotency

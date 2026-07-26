@@ -5,6 +5,7 @@ from one central, managed service. With EventBridge Scheduler, you can create sc
 up flexible time windows for delivery, define retry limits, and set the maximum retention time for unprocessed events.
 
 When you set up EventBridge Scheduler with Lambda, EventBridge Scheduler invokes your Lambda function asynchronously.
+You can create a schedule from the Lambda console (using the Add trigger flow), the EventBridge Scheduler console, the AWS CLI, or CloudFormation.
 This page explains how to use EventBridge Scheduler to invoke a Lambda function on a schedule.
 
 ## Set up the execution role
@@ -13,113 +14,60 @@ When you create a new schedule, EventBridge Scheduler must have permission to in
 using an _execution role_. The permission policy you attach to your schedule's execution role defines the required permissions.
 These permissions depend on the target API you want EventBridge Scheduler to invoke.
 
-When you use the EventBridge Scheduler console to create a schedule, as in the following procedure, EventBridge Scheduler automatically sets up an execution role based on your selected target.
+When you create a schedule using the Lambda console or the EventBridge Scheduler console, EventBridge Scheduler automatically sets up an execution role based on your selected target.
 If you want to create a schedule using one of the EventBridge Scheduler SDKs, the AWS CLI, or CloudFormation, you must have an existing execution role that grants the permissions
 EventBridge Scheduler requires to invoke a target. For more information about manually setting up an execution role for your schedule, see [Setting up an execution role](../../../scheduler/latest/UserGuide/setting-up.md#setting-up-execution-role "../../../scheduler/latest/UserGuide/setting-up.md#setting-up-execution-role")
 in the _EventBridge Scheduler User Guide_.
 
-## Create a schedule
+## Create a schedule from the Lambda console
 
-###### To create a schedule by using the console
+Use the **Add trigger** flow in the Lambda console to create an EventBridge Scheduler schedule without leaving the console.
 
-1. Open the Amazon EventBridge Scheduler console at [https://console.aws.amazon.com/scheduler/home](https://console.aws.amazon.com/scheduler/home/ "https://console.aws.amazon.com/scheduler/home/").
-2. On the **Schedules** page, choose **Create schedule**.
-3. On the **Specify schedule detail** page, in the **Schedule name and description** section, do the following:
+###### To create a Scheduler trigger using the Lambda console
 
-   1. For **Schedule name**, enter a name for your
-      schedule. For example, `MyTestSchedule`.
-   2. (Optional) For **Description**, enter a
-      description for your schedule. For example, `My first
-  schedule`.
-   3. For **Schedule group**, choose a schedule group from
-      the dropdown list. If you don't have a group, choose
-      **default**. To create a schedule group, choose
-      **create your own schedule**.
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
+2. Choose the function you want to schedule.
+3. In the **Function overview** pane, choose **Add trigger**.
+4. From the trigger source dropdown, choose **Scheduler**.
+5. Configure the schedule settings:
 
-   You use schedule groups to add tags to groups of schedules.
+   1. **Schedule name** – Enter a name for your schedule.
+   2. **Schedule group** – Choose a schedule group or use `default`.
+   3. **Schedule type** – Choose one of the following:
 
-4. 1. Choose your schedule options.
+      - **One-time schedule** – Invokes the function once at the specified date and time.
+      - **Recurring schedule** – Invokes the function repeatedly using a cron or rate expression.
 
-   | Occurrence                                                                                                                                              | Do this...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-   | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-   | **One-time schedule**<br>A one-time schedule invokes a target only once<br>at the date and time that you specify.                                       | For **Date and time**, do the<br>following:<br>• Enter a valid date in<br>`YYYY/MM/DD` format.<br>• Enter a timestamp in 24-hour<br>`hh:mm` format.<br>• For **Timezone**, choose<br>the timezone.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-   | **Recurring schedule**<br>A recurring schedule invokes a target at a<br>rate that you specify using a<br>*_cron_<br>• expression or rate<br>expression. | 1. For **Schedule type**, do<br>one of the following:<br>• To use a cron expression to define the<br>schedule, choose *_Cron-based<br>schedule_<br>• and enter the cron<br>expression.<br>• To use a rate expression to define the<br>schedule, choose *_Rate-based<br>schedule_<br>• and enter the rate<br>expression.<br>For more information about cron and rate<br>expressions, see [Schedule types on EventBridge Scheduler](../../../scheduler/latest/UserGuide/schedule-types.md#cron-based "../../../scheduler/latest/UserGuide/schedule-types.md#cron-based") in the _Amazon EventBridge Scheduler User Guide_.<br>2. For **Flexible time<br>window**, choose **Off**<br>to turn off the option, or choose one of the<br>pre-defined time windows.<br>For example, if you choose *_15<br>minutes_<br>• and you set a recurring<br>schedule to invoke its target once every hour, the<br>schedule runs within 15 minutes after the start of<br>every hour. |
+   4. (Optional) Enter a JSON payload. If you don't enter a payload, EventBridge Scheduler uses an empty event to invoke the function.
+   5. Configure the execution role. To have EventBridge Scheduler create a new execution role for you, choose
+      **Create new role for this schedule**. Then, enter a name for **Role name**.
+      If you choose this option, EventBridge Scheduler creates a policy with the required permissions and attaches it to the role.
 
-5. (Optional) If you chose **Recurring schedule** in the previous step,
-   in the **Timeframe** section, do the following:
+6. Choose **Add**.
 
-   1. For **Timezone**,
-      choose a timezone.
-   2. For **Start date and time**, enter a valid date in
-      `YYYY/MM/DD` format, and then specify a timestamp in
-      24-hour `hh:mm` format.
-   3. For **End date and time**, enter a valid date in
-      `YYYY/MM/DD` format, and then specify a timestamp in
-      24-hour `hh:mm` format.
+###### Tip
 
-6. Choose **Next**.
-7. On the **Select target** page, choose the AWS API operation that EventBridge Scheduler invokes:
+You can also search for `schedule`, `cron`, `time`, or `recurring` to find this trigger in the Add trigger flow.
 
-   1. Choose **AWS Lambda Invoke**.
-   2. In the **Invoke** section, select a function or choose **Create new Lambda function**.
-   3. (Optional) Enter a JSON payload. If you don't enter a payload, EventBridge Scheduler uses an empty event to invoke the function.
+You can also use the [EventBridge Scheduler console](https://console.aws.amazon.com/scheduler/home "https://console.aws.amazon.com/scheduler/home") to create a schedule.
+With the EventBridge Scheduler console, you can configure additional options such as flexible time windows and dead-letter queues.
 
-8. Choose **Next**.
-9. On the **Settings** page, do the following:
+## Viewing EventBridge Scheduler triggers
 
-   1. To turn on the schedule, under **Schedule
-      state**, toggle **Enable schedule**.
-   2. To configure a retry policy for your schedule, under
-      **Retry policy and dead-letter queue (DLQ)**,
-      do the following:
+All EventBridge Scheduler schedules targeting your function appear in the
+**Triggers** section of the function configuration page under
+the **Scheduler** label. This includes schedules created from
+any of the following sources:
 
-      - Toggle **Retry**.
-      - For **Maximum age of event**,
-        enter the maximum **hour(s)** and
-        **min(s)** that EventBridge Scheduler must keep an
-        unprocessed event.
-      - The maximum time is 24 hours.
-      - For **Maximum retries**, enter the
-        maximum number of times EventBridge Scheduler retries the schedule if the
-        target returns an error.
+- The Lambda console (Add trigger flow)
+- The EventBridge Scheduler console
+- The AWS CLI, SDK, CloudFormation, AWS SAM (using the `ScheduleV2` event type), or AWS CDK (using the `aws-scheduler` module)
 
-      The maximum value is 185 retries.
-      With retry policies, if a schedule fails to invoke its target,
-      EventBridge Scheduler re-runs the schedule. If configured, you must set the maximum
-      retention time and retries for the schedule.
+###### Note
 
-   3. Choose where EventBridge Scheduler stores undelivered events.
-
-   | **Dead-letter queue (DLQ)**<br>option                                                 | Do this...                                                                                                                                          |
-   | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | Don't store                                                                           | Choose **None**.                                                                                                                                    |
-   | Store the event in the same AWS account where<br>you're creating the schedule         | 1. Choose **Select an Amazon SQS queue in<br>my AWS account as a DLQ**.<br>2. Choose the Amazon Resource Name (ARN) of<br>the Amazon SQS queue.     |
-   | Store the event in a different AWS account from<br>where you're creating the schedule | 1. Choose **Specify an Amazon SQS queue in<br>other AWS accounts as a DLQ**.<br>2. Enter the Amazon Resource Name (ARN) of<br>the Amazon SQS queue. |
-   4. To use a customer managed key to encrypt your target input, under
-      **Encryption**, choose **Customize
-      encryption settings (advanced)**.
-
-   If you choose this option, enter an existing KMS key ARN or choose
-   **Create an AWS KMS key** to navigate to the
-   AWS KMS console. For more information about how EventBridge Scheduler encrypts your data
-   at rest, see [Encryption at
-   rest](../../../scheduler/latest/UserGuide/encryption-rest.md "../../../scheduler/latest/UserGuide/encryption-rest.md") in the _Amazon EventBridge Scheduler User
-   Guide_. 5. To have EventBridge Scheduler create a new execution role for you, choose
-   **Create new role for this schedule**.
-   Then, enter a name for **Role name**. If you choose
-   this option, EventBridge Scheduler attaches the required permissions necessary for
-   your templated target to the role.
-
-10. Choose **Next**.
-11. In the **Review and create schedule** page, review the
-    details of your schedule. In each section, choose **Edit** to
-    go back to that step and edit its details.
-12. Choose **Create schedule**.
-
-You can view a list of your new and existing schedules on the
-**Schedules** page. Under the
-**Status** column, verify that your new schedule is
-**Enabled**.
+If a schedule uses a customer managed key for encryption with a Universal Target Invocation (UTI)
+target, it might not appear in the triggers list. To view these schedules, use the
+[EventBridge Scheduler console](https://console.aws.amazon.com/scheduler/home "https://console.aws.amazon.com/scheduler/home").
 
 To confirm that EventBridge Scheduler invoked the function, [check the function's Amazon CloudWatch logs](monitoring-cloudwatchlogs-view.md#monitoring-cloudwatchlogs-console "monitoring-cloudwatchlogs-view.md#monitoring-cloudwatchlogs-console").
 

@@ -24,9 +24,11 @@ resources for each app, or use to AWS SAM to quickly deploy resources as you wou
 ## Scheduled Tasks
 
 - **[Database Maintenance Application](scheduled-task-app.md "scheduled-task-app.md")**: Create a serverless application that automatically
-  deletes entries more than 12 months old from an Amazon DynamoDB table using a cron schedule, which is useful for automated database maintenance and data lifecycle management.
-- **[Create an EventBridge scheduled rule for Lambda functions](../../../eventbridge/latest/userguide/run-lambda-schedule.md "../../../eventbridge/latest/userguide/run-lambda-schedule.md")**:
-  Use scheduled expressions for rules in EventBridge to trigger a Lambda function on a timed schedule. This format uses cron syntax and can be set with a one-minute granularity.
+  deletes entries older than 12 months from an Amazon DynamoDB table on a cron schedule. This is useful for automated database maintenance and data lifecycle management.
+- **[Create an EventBridge Scheduler schedule for Lambda functions](with-eventbridge-scheduler.md "with-eventbridge-scheduler.md")**:
+  Use EventBridge Scheduler to invoke a Lambda function on a one-time or recurring schedule. EventBridge Scheduler supports cron and rate expressions,
+  flexible time windows, retry policies, and dead-letter queues. You can create a schedule directly from the Lambda
+  console using the Add trigger flow, or from the EventBridge Scheduler console.
 
 ## Additional resources
 

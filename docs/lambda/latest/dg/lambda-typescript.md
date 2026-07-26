@@ -33,7 +33,7 @@ When using esbuild, consider the following:
 
 - There are several [TypeScript caveats](https://esbuild.github.io/content-types/#typescript-caveats "https://esbuild.github.io/content-types/#typescript-caveats").
 - You must configure your TypeScript transpilation settings to match the Node.js runtime that you plan to use. For more information, see [Target](https://esbuild.github.io/api/#target "https://esbuild.github.io/api/#target") in the esbuild documentation. For an example of a **tsconfig.json** file that demonstrates how to target a specific Node.js version supported by Lambda, refer to the [TypeScript GitHub repository](https://github.com/tsconfig/bases/blob/main/bases/node14.json "https://github.com/tsconfig/bases/blob/main/bases/node14.json").
-- esbuild doesn’t perform type checks. To check types, use the `tsc` compiler. Run `tsc -noEmit` or add a `"noEmit"` parameter to your **tsconfig.json** file, as shown in the following example. This configures `tsc` to not emit JavaScript files. After checking types, use esbuild to convert the TypeScript files into JavaScript.
+- esbuild doesn't perform type checks. To check types, use the `tsc` compiler. Run `tsc -noEmit` or add a `"noEmit"` parameter to your **tsconfig.json** file, as shown in the following example. This configures `tsc` to not emit JavaScript files. After checking types, use esbuild to convert the TypeScript files into JavaScript.
 
 ###### Example tsconfig.json
 

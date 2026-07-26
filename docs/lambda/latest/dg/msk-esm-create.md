@@ -97,7 +97,7 @@ aws lambda create-event-source-mapping \
   --source-access-configurations '[{"Type": "CLIENT_CERTIFICATE_TLS_AUTH","URI": "arn:aws:secretsmanager:us-east-1:111122223333:secret:my-secret"}]'
 ```
 
-When the cluster uses [IAM authentication](msk-cluster-auth.md#msk-iam-auth "msk-cluster-auth.md#msk-iam-auth"), you don’t need a
+When the cluster uses [IAM authentication](msk-cluster-auth.md#msk-iam-auth "msk-cluster-auth.md#msk-iam-auth"), you don't need a
 [SourceAccessConfiguration](../api/API_SourceAccessConfiguration.md "../api/API_SourceAccessConfiguration.md") object. This is shown in the following command:
 
 ```

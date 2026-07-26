@@ -31,7 +31,7 @@ permissions.
 
 ### Custom log destinations
 
-You can configure a custom log group and stream via the
+You can configure a custom log group and stream by using the
 `--logging` parameter on `run-microvm` or
 `create-microvm-image`:
 

@@ -20,7 +20,7 @@ For more information about debugging and troubleshooting Lambda applications, se
 
 ###### Topics
 
-- [General: Permission is denied / Cannot load such file](#troubleshooting-deployment-denied "#troubleshooting-deployment-denied")
+- [General: Permission is denied or Cannot load such file](#troubleshooting-deployment-denied "#troubleshooting-deployment-denied")
 - [General: Error occurs when calling the UpdateFunctionCode](#troubleshooting-deployment-updatefunctioncode "#troubleshooting-deployment-updatefunctioncode")
 - [Amazon S3: Error Code PermanentRedirect.](#troubleshooting-deployment-PermanentRedirect "#troubleshooting-deployment-PermanentRedirect")
 - [General: Cannot find, cannot load, unable to import, class not found, no such file or directory](#troubleshooting-deployment-functionHandler1 "#troubleshooting-deployment-functionHandler1")
@@ -32,7 +32,7 @@ For more information about debugging and troubleshooting Lambda applications, se
 - [Lambda: Concurrency and memory quotas](#troubleshooting-deployment-quotas "#troubleshooting-deployment-quotas")
 - [Lambda: Invalid alias configuration for provisioned concurrency](#troubleshooting-deployment-provisioned-concurrency "#troubleshooting-deployment-provisioned-concurrency")
 
-## General: Permission is denied / Cannot load such file
+## General: Permission is denied or Cannot load such file
 
 **Error:**
 _EACCES: permission denied, open '/var/task/index.js'_
@@ -169,7 +169,7 @@ Alternatively, you can configure your functions and layers to use [self-managed 
 You can view your total storage usage in the Lambda console, under the
 **Dashboard** submenu:
 
-![monitoring observability figure 26](images/monitoring-observability-figure-26.png)
+![Lambda console Dashboard page showing total code storage usage across all functions and layers.](images/monitoring-observability-figure-26.png)
 
 ## Lambda: Layer conversion failed
 

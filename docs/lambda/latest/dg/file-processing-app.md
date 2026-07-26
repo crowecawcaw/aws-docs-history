@@ -16,11 +16,11 @@ To implement this app, you create the following resources:
 
 ###### Tip
 
-If you’re brand new to Lambda, we recommend that you start with the tutorial [Create your first Lambda function](getting-started.md "getting-started.md") before
+If you're brand new to Lambda, we recommend that you start with the tutorial [Create your first Lambda function](getting-started.md "getting-started.md") before
 creating this example app.
 
 You can deploy your app manually by creating and configuring resources with the AWS Management Console or the AWS Command Line Interface (AWS CLI). You can
-also deploy the app by using the AWS Serverless Application Model (AWS SAM). AWS SAM is an infrastructure as code (IaC) tool. With IaC, you don’t create
+also deploy the app by using the AWS Serverless Application Model (AWS SAM). AWS SAM is an infrastructure as code (IaC) tool. With IaC, you don't create
 resources manually, but define them in code and then deploy them automatically.
 
 If you want to learn more about using Lambda with IaC before deploying this example app, see [Using Lambda with infrastructure as code (IaC)](foundation-iac.md "foundation-iac.md").
@@ -204,7 +204,7 @@ AWS CLI
 
 ###### To create an execution role and attach the `AmazonS3FullAccess` managed policy (AWS CLI)
 
-1. Save the following JSON in a file named `trust-policy.json`. This trust policy allows Lambda to use the role’s
+1. Save the following JSON in a file named `trust-policy.json`. This trust policy allows Lambda to use the role's
    permissions by giving the service principal `lambda.amazonaws.com` permission to call the AWS Security Token Service (AWS STS) `AssumeRole`
    action.
 
@@ -274,7 +274,7 @@ Console
 
 ###### To create the function (console)
 
-To create your Lambda function using the console, you first create a basic function containing some ‘Hello world’ code. You then
+To create your Lambda function using the console, you first create a basic function containing some 'Hello world' code. You then
 replace this code with your own function code by uploading the.zip file you created in the previous step.
 
 To ensure that your function doesn't time out when encrypting large PDF files, you configure the function's memory and timeout settings.
@@ -564,7 +564,7 @@ AWS CLI
 `aws s3api list-objects-v2 --bucket `amzn-s3-demo-bucket-encrypted``
 ```
 
-If your function runs successfully, you’ll see output similar to the following. Your target bucket should contain a file with the
+If your function runs successfully, you'll see output similar to the following. Your target bucket should contain a file with the
 name format ``<your_test_file>`_encrypted.pdf`, where `<your_test_file>`
 is the name of the file you uploaded.
 
@@ -783,7 +783,7 @@ Now you've created this example app, you can use the provided code as a basis to
 code in the `lambda_function.py` file to implement the file-processing logic for your use case.
 
 Many typical file-processing use cases involve image processing. When using Python, the most popular image-processing libraries like
-[pillow](https://pypi.org/project/pillow/ "https://pypi.org/project/pillow/") typically contain C or C++ components. In order to ensure that your function's deployment package is
+[pillow](https://pypi.org/project/pillow/ "https://pypi.org/project/pillow/") typically contain C or C++ components. To ensure that your function's deployment package is
 compatible with the Lambda execution environment, it's important to use the correct source distribution binary.
 
 When deploying your resources with AWS SAM, you need to take some extra steps to include the right source distribution in your deployment package. Because AWS SAM won't install dependencies

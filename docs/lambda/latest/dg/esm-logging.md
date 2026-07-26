@@ -25,7 +25,7 @@ For event source mapping system logs, you can choose between the following log l
 | WARN (least detail) | Messages about potential warns and errors that may lead to unexpected behavior |
 
 When you select a log level, Lambda event poller sends logs at that level and lower. For example, if you set the event source mapping system log level to INFO,
-event poller doesn’t send log outputs at the DEBUG level.
+event poller doesn't send log outputs at the DEBUG level.
 
 ## Configuring logging
 
@@ -43,7 +43,7 @@ You can set the logging configure when creating or updating a Kafka event source
    - To modify an existing Kafka trigger, choose the trigger and then choose **Edit**.
 
 4. Under **Event poller configuration**, for **Provisioned mode**, enable the **Configure** checkbox. And the **Log level** setting would show up.
-5. Click **Log level** dropdown list and select a level for the event source mapping.
+5. Choose **Log level** dropdown list and select a level for the event source mapping.
 6. Choose **Add** or **Save** at the bottom to create or update the event source mapping.
 
 ### Configuring logging (AWS CLI)

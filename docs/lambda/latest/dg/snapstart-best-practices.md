@@ -95,7 +95,7 @@ def lambda_handler(event, context):
     ...
 ```
 
-To reduce just-in-time (JIT) compilation and assembly loading time, consider invoking your function handler from a `RegisterBeforeCheckpoint` [runtime hook](snapstart-runtime-hooks-dotnet.md "snapstart-runtime-hooks-dotnet.md"). Because of how .NET tiered compilation works, you’ll get optimal results by invoking the handler multiple times, as shown in the following example.
+To reduce just-in-time (JIT) compilation and assembly loading time, consider invoking your function handler from a `RegisterBeforeCheckpoint` [runtime hook](snapstart-runtime-hooks-dotnet.md "snapstart-runtime-hooks-dotnet.md"). Because of how .NET tiered compilation works, you'll get optimal results by invoking the handler multiple times, as shown in the following example.
 
 ###### Important
 

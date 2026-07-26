@@ -36,7 +36,7 @@ When using Lambda, you are responsible only for your code. Lambda runs your code
 including server and operating system maintenance, capacity provisioning, automatic scaling, and logging.
 
 Because Lambda is a serverless,
-event-driven compute service, it uses a different programming paradigm than traditional web applications. The following model illustrates how Lambda works:
+event-driven compute service, it uses a different programming approach than traditional web applications. The following model illustrates how Lambda works:
 
 1. You write and organize your code in [Lambda functions](concepts-basics.md#gettingstarted-concepts-function "concepts-basics.md#gettingstarted-concepts-function"), which are the basic building blocks you use to create a Lambda application.
 2. You control security and access through [Lambda permissions](lambda-permissions.md "lambda-permissions.md"), using [execution roles](lambda-intro-execution-role.md "lambda-intro-execution-role.md") to manage what AWS services your functions can interact with and what resource policies can interact with your code.
@@ -91,7 +91,7 @@ _of_ the cloud and security _in_ the cloud:
   compliance programs that apply to AWS Lambda, see [AWS services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
 - **Security in the cloud** – Your responsibility is determined by the
   AWS service that you use. You are also responsible for other factors including the sensitivity of your data,
-  your company’s requirements, and applicable laws and regulations.
+  your company's requirements, and applicable laws and regulations.
 
 This documentation helps you understand how to apply the shared responsibility model when using Lambda. The
 following topics show you how to configure Lambda to meet your security and compliance objectives. You also learn how

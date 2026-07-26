@@ -152,8 +152,8 @@ a new function version and updates the `live` alias to point to the new version.
 
 The `DeploymentPreference` property determines the rate at which the CodeDeploy application shifts
 traffic from the original version of the Lambda function to the new version. The value
-`Linear10PercentEvery2Minutes` shifts an additional ten percent of the traffic to the new
-version every two minutes.
+`Linear10PercentEvery2Minutes` shifts an additional 10 percent of the traffic to the new
+version every 2 minutes.
 
 For a list of the predefined deployment configurations, see [Deployment configurations](../../../codedeploy/latest/userguide/deployment-configurations.md "../../../codedeploy/latest/userguide/deployment-configurations.md").
 

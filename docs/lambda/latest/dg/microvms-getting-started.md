@@ -264,3 +264,4 @@ aws lambda-microvms terminate-microvm \
   hooks, versioning, and snapshot compatibility.
 - See [Running MicroVMs](microvms-launching.md "microvms-launching.md") for SDK examples, lifecycle
   hooks, and scaling strategies.
+- See [Integrations](microvms-integrations.md "microvms-integrations.md") for supported service integrations.

@@ -47,8 +47,8 @@ and [Creating and updating Ruby Lambda functions using .zip files](#ruby-package
 
 ## Creating a .zip deployment package with no dependencies
 
-If your function code has no dependencies, your .zip file contains only the .rb file with your function’s handler code. Use your preferred
-zip utility to create a .zip file with your .rb file at the root. If the .rb file is not at the root of your .zip file, Lambda won’t be able to
+If your function code has no dependencies, your .zip file contains only the .rb file with your function's handler code. Use your preferred
+zip utility to create a .zip file with your .rb file at the root. If the .rb file is not at the root of your .zip file, Lambda won't be able to
 run your code.
 
 To learn how to deploy your .zip file to create a new Lambda function or update an existing one, see [Creating and updating Ruby Lambda functions using .zip files](#ruby-package-create-functions "#ruby-package-create-functions").
@@ -134,7 +134,7 @@ To learn how to package your Ruby dependencies into a Lambda layer, see [Working
 
 Many common Ruby gems such as `nokogiri`, `nio4r`, and `mysql` contain native extensions written in
 C. When you add libraries containing C code to your deployment package, you must build your package correctly to ensure that
-it’s compatible with the Lambda execution environment.
+it's compatible with the Lambda execution environment.
 
 For production applications, we recommend building and deploying your code using the AWS Serverless Application Model (AWS SAM). In AWS SAM use the `sam build --use-container`
 option to build your function inside a Lambda-like Docker container. To learn more about using AWS SAM to deploy your function code, see [Building applications](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-using-build.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-using-build.md")

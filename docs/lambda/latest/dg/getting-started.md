@@ -27,8 +27,8 @@ in the _AWS Account Management Reference Guide_.
 In this example, your function takes a JSON object containing two integer values labeled `"length"` and `"width"`.
 The function multiplies these values to calculate an area and returns this as a JSON string.
 
-Your function also prints the calculated area, along with the name of its CloudWatch log group. Later in the tutorial, you’ll learn to use [CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md")
-to view records of your functions’ invocation.
+Your function also prints the calculated area, along with the name of its CloudWatch log group. Later in the tutorial, you'll learn to use [CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md")
+to view records of your functions' invocation.
 
 ###### To create a Hello world Lambda function with the console
 
@@ -93,7 +93,7 @@ than one Node.js function, but the _handler_ function is always the entry point 
 invoked, Lambda runs this method.
 
 When you created your Hello world function using the console, Lambda automatically set the name of the handler method for your
-function to `handler`. Be sure not to edit the name of this Node.js function. If you do, Lambda won’t be able to run your code
+function to `handler`. Be sure not to edit the name of this Node.js function. If you do, Lambda won't be able to run your code
 when you invoke your function.
 
 To learn more about the Lambda handler in Node.js, see [Define Lambda function handler in Node.js](nodejs-handler.md "nodejs-handler.md").
@@ -104,7 +104,7 @@ The function `handler` takes two arguments, `event` and `context`. An _event_ in
 
 If your function is invoked by another AWS service, the event object contains information about the event that caused the invocation. For example, if your function is invoked when an object is uploaded to an Amazon Simple Storage Service (Amazon S3) bucket, the event contains the name of the bucket and the object key.
 
-In this example, you’ll create an event in the console by entering a JSON formatted document with two key-value pairs.
+In this example, you'll create an event in the console by entering a JSON formatted document with two key-value pairs.
 
 - The Lambda context object:
 
@@ -179,7 +179,7 @@ than one Python function, but the _handler_ function is always the entry point t
 invoked, Lambda runs this method.
 
 When you created your Hello world function using the console, Lambda automatically set the name of the handler method for your
-function to `lambda_handler`. Be sure not to edit the name of this Python function. If you do, Lambda won’t be able to run your code
+function to `lambda_handler`. Be sure not to edit the name of this Python function. If you do, Lambda won't be able to run your code
 when you invoke your function.
 
 To learn more about the Lambda handler in Python, see [Define Lambda function handler in Python](python-handler.md "python-handler.md").
@@ -192,7 +192,7 @@ in Lambda is a JSON formatted document that contains data for your function to p
 If your function is invoked by another AWS service, the event object contains information about the event that caused the
 invocation. For example, if your function is invoked when an object is uploaded to an Amazon Simple Storage Service (Amazon S3) bucket, the event contains the name of the bucket and the object key.
 
-In this example, you’ll create an event in the console by entering a JSON formatted document with two key-value pairs.
+In this example, you'll create an event in the console by entering a JSON formatted document with two key-value pairs.
 
 - The Lambda context object:
 
@@ -346,7 +346,7 @@ the function's logs, and the [execution role](lambda-intro-execution-role.md "la
 
 ## Additional resources and next steps
 
-Now that you’ve created and tested a simple Lambda function using the console, take these next steps:
+Now that you've created and tested a simple Lambda function using the console, take these next steps:
 
 - Learn to add dependencies to your function and deploy it using a .zip deployment package. Choose your preferred language from the following links.
 

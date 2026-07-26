@@ -43,7 +43,7 @@ runtime.
 | --------------------- | ------------------------------------------------------------------------- |
 | Firecracker isolation | Hardware-virtualized boundary per session                                 |
 | Snapshot-based boot   | Resume from Firecracker snapshot in sub-second to single-digit<br>seconds |
-| IAM via IMDSv2        | Uses short-term, least privilege credentials                              |
+| IAM through IMDSv2    | Uses short-term, least privilege credentials                              |
 | Stateful duration     | Can run up to 8 hours with full disk and memory<br>access                 |
 | Pay-per-session       | MicroVMs are terminated when sessions are complete, which ends<br>billing |
 

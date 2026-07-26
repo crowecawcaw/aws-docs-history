@@ -86,10 +86,10 @@ provides the following details.
 
 ## Using Lambda advanced logging controls with Node.js
 
-To give you more control over how your functions’ logs are captured, processed, and consumed, you can configure the following logging
+To give you more control over how your functions' logs are captured, processed, and consumed, you can configure the following logging
 options for supported Node.js runtimes:
 
-- **Log format** - select between plain text and structured JSON format for your function’s logs
+- **Log format** - select between plain text and structured JSON format for your function's logs
 - **Log level** - for logs in JSON format, choose the detail level of the logs Lambda sends to Amazon CloudWatch,
   such as ERROR, DEBUG, or INFO
 - **Log group** - choose the CloudWatch log group your function sends logs to
@@ -101,7 +101,7 @@ To use the log format and log level options with your Node.js Lambda functions, 
 
 ### Using structured JSON logs with Node.js
 
-If you select JSON for your function’s log format, Lambda will send logs output using the console methods of `console.trace`,
+If you select JSON for your function's log format, Lambda will send logs output using the console methods of `console.trace`,
 `console.debug`, `console.log`, `console.info`, `console.error`, and `console.warn` to
 CloudWatch as structured JSON. Each JSON log object contains at least four key value pairs with the following keys:
 
@@ -114,8 +114,8 @@ Depending on the logging method that your function uses, this JSON object may al
 if your function uses `console` methods to log error objects using multiple arguments, the JSON object will contain extra
 key value pairs with the keys `errorMessage`, `errorType`, and `stackTrace`.
 
-If your code already uses another logging library, such as Powertools for AWS Lambda, to produce JSON structured logs, you don’t need to
-make any changes. Lambda doesn’t double-encode any logs that are already JSON encoded, so your function’s application logs will continue to be
+If your code already uses another logging library, such as Powertools for AWS Lambda, to produce JSON structured logs, you don't need to
+make any changes. Lambda doesn't double-encode any logs that are already JSON encoded, so your function's application logs will continue to be
 captured as before.
 
 For more information about using the Powertools for AWS Lambda logging package to create JSON structured logs in the Node.js runtime, see
@@ -301,9 +301,9 @@ For AWS Lambda to filter your application logs according to their log level, you
 this in two ways:
 
 - Create log outputs using the standard console methods and configure your function to use JSON log formatting. AWS Lambda then filters
-  your log outputs using the “level” key value pair in the JSON object described in [Using structured JSON logs with Node.js](#nodejs-logging-advanced-JSON "#nodejs-logging-advanced-JSON"). To learn
-  how to configure your function’s log format, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced "monitoring-logs.md#monitoring-cloudwatchlogs-advanced").
-- Use another logging library or method to create JSON structured logs in your code that include a “level” key value pair defining the
+  your log outputs using the "level" key value pair in the JSON object described in [Using structured JSON logs with Node.js](#nodejs-logging-advanced-JSON "#nodejs-logging-advanced-JSON"). To learn
+  how to configure your function's log format, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced "monitoring-logs.md#monitoring-cloudwatchlogs-advanced").
+- Use another logging library or method to create JSON structured logs in your code that include a "level" key value pair defining the
   level of the log output. For example, you can use Powertools for AWS Lambda to generate JSON structured log outputs from your code. See
   [Log and monitor TypeScript Lambda functions](typescript-logging.md "typescript-logging.md") to learn more about using Powertools with the Node.js runtime.
 
