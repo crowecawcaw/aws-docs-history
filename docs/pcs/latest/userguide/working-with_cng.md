@@ -25,3 +25,4 @@ across HPC environments.
 - [Deleting a compute node group in AWS PCS](working-with_cng_delete.md "working-with_cng_delete.md")
 - [Get compute node group details in AWS PCS](working-with_cng_get-details.md "working-with_cng_get-details.md")
 - [Finding compute node group instances in AWS PCS](working-with_compute-instances.md "working-with_compute-instances.md")
+- [Run custom scripts with node lifecycle actions in AWS PCS](cng-node-lifecycle-actions.md "cng-node-lifecycle-actions.md")

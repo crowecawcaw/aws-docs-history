@@ -133,6 +133,8 @@ The following tables list the checksums for recent versions of the installers. R
 
 AWS PCS agent| Installer | Download URL | SHA256 checksum |
 | --- | --- | --- |
+| AWS PCS agent 1.5.0-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.5.0-1.tar.gz<br>`` | `<br>95a0de1a59d569e28f4dfbdf79da02bb49c4f4febaddc18a5e621c3bee09fa11<br>` |
+| AWS PCS agent 1.4.1-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.4.1-1.tar.gz<br>`` | `<br>a5829029a293a1e7486c5a2c3c84c15c9d581b4918d2639c8c3ac5a96d7f10f5<br>` |
 | AWS PCS agent 1.4.0-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.4.0-1.tar.gz<br>`` | `<br>e9a342478483df8e4666741ef2aad504321676508d489f88e96311297990a17f<br>` |
 | AWS PCS agent 1.3.2-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.3.2-1.tar.gz<br>`` | `<br>06b32a952a1c849e3442e35c28ac2e4d6962b09286cad748f3c83d561b52ec6f<br>` |
 | AWS PCS agent 1.3.1-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.3.1-1.tar.gz<br>`` | `<br>5b7f1eb7b3a86bd2d331b5cb0138d868dc9452da34b480becd86af892c7e8d19<br>` |

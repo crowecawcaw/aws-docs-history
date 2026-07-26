@@ -8,7 +8,6 @@ Before you configure CLI Filter Plugins, complete these tasks:
 
 - Verify you are using Slurm version 24.11 or later. For 24.11 and 25.05, see [Requirements](slurm-cli-filter-plugins.md#slurm-cli-filter-plugins-requirements "slurm-cli-filter-plugins.md#slurm-cli-filter-plugins-requirements").
 - Write and test a Lua script that implements CLI Filter Plugin API
-- Name your Lua script exactly `cli_filter.lua`
 - Choose a method to deploy your script to all cluster instances (AMI, S3, or file
   system)
 
@@ -53,8 +52,7 @@ aws pcs create-cluster --cluster-name `cluster-name` \
 ###### Note
 
 If you use the AWS PCS Sample AMI for all compute node groups, skip this step. Slurm is
-already installed. 2. Deploy your `cli_filter.lua` script to
-`/etc/aws/pcs/scheduler/slurm-<version>/cli_filter.lua` on all
+already installed. 2. Deploy your Lua script to `/etc/aws/pcs/scheduler/slurm-`version`/cli_filter.lua` on all
 instances in the cluster.
 
 For example, for Slurm version 25.11:
@@ -63,8 +61,12 @@ For example, for Slurm version 25.11:
 /etc/aws/pcs/scheduler/slurm-25.11/cli_filter.lua
 ```
 
-3. Launch all login and compute nodes using your prepared AMIs.
-4. Test job submission to verify CLI Filter Plugin executes correctly.
+###### Note
+
+Starting with Slurm version 25.11, you can customize the path through `cli_filter_lua_path` in the
+`CliFilterParameters` Slurm custom setting. This parameter defaults to
+`/etc/aws/pcs/scheduler/slurm/cli_filter.lua`. The AWS PCS agent links this path to the versioned
+location starting from v1.4.1-1. 3. Launch all login and compute nodes using your prepared AMIs. 4. Test job submission to verify CLI Filter Plugin executes correctly.
 
 ## Enable or disable CLI Filter Plugins on existing clusters
 

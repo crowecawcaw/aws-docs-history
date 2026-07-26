@@ -16,7 +16,6 @@ For Slurm versions 24.11 and 25.05, CLI Filter Plugins require installing Slurm 
   by any user and must not be used for security-critical policies. Users can disable CLI Filter Plugins by providing a custom configuration that has `CLIFilterPlugins` disabled while submitting jobs.
 - **Lua implementation only** – Lua script
   implementation is supported. C implementation is not supported.
-- **`CliFilterParameters` required for Slurm 25.11 and later** – Starting with Slurm version 25.11, the CLI filter plugin requires `CliFilterParameters` to locate the Lua script. If you don't set `CliFilterParameters`, Slurm can't find the script and the plugin fails to initialize.
 
 ###### Topics
 

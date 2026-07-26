@@ -1,5 +1,11 @@
 # Working with Amazon EC2 user data for AWS PCS
 
+###### Note
+
+For most node configuration tasks, we recommend node lifecycle actions. They provide reusable,
+API-native configuration with per-script error handling and reboot control. Use launch template
+user data for tasks that must run before the AWS PCS agent starts. For more information, see [Node lifecycle actions](cng-node-lifecycle-actions.md "cng-node-lifecycle-actions.md").
+
 You can supply EC2 user data in your launch template that `cloud-init` runs when
 your instances launch. User data blocks with the content type `cloud-config` run before
 the instance registers with the AWS PCS API, while user data blocks with content type
@@ -7,7 +13,7 @@ the instance registers with the AWS PCS API, while user data blocks with content
 daemon starts. For more information about content types, see the [cloud-init
 documentation](https://cloudinit.readthedocs.io/en/latest/explanation/format.html "https://cloudinit.readthedocs.io/en/latest/explanation/format.html").
 
-our user data can perform common configuration scenarios, including but not limited to the
+Our user data can perform common configuration scenarios, including but not limited to the
 following:
 
 - [Including users or groups](https://cloudinit.readthedocs.io/en/latest/topics/examples.html#including-users-and-groups "https://cloudinit.readthedocs.io/en/latest/topics/examples.html#including-users-and-groups")

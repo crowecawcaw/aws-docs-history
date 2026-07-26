@@ -84,6 +84,12 @@ https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-3#/stacks
 https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/create/review?stackName=hpc-networking&templateURL=https://aws-hpc-recipes.s3.us-east-1.amazonaws.com/main/recipes/net/hpc_large_scale/assets/main.yaml
 ```
 
+- **Asia Pacific (Seoul) (ap-northeast-2)**
+
+```
+https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-2#/stacks/create/review?stackName=hpc-networking&templateURL=https://aws-hpc-recipes.s3.us-east-1.amazonaws.com/main/recipes/net/hpc_large_scale/assets/main.yaml
+```
+
 - **Asia Pacific (Osaka) (ap-northeast-3)**
 
 ```

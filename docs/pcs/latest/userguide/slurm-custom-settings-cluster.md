@@ -71,6 +71,11 @@ AWS PCS supports a minimum value of 5 seconds for `MinJobAge`.
 - [RequeueExitHold](https://slurm.schedmd.com/slurm.conf.html#OPT_RequeueExitHold "https://slurm.schedmd.com/slurm.conf.html#OPT_RequeueExitHold")
 - [SchedulerParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_SchedulerParameters "https://slurm.schedmd.com/slurm.conf.html#OPT_SchedulerParameters")
 - [SelectTypeParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_SelectTypeParameters "https://slurm.schedmd.com/slurm.conf.html#OPT_SelectTypeParameters")
+
+###### Note
+
+AWS PCS supports the `CR_Socket` and `CR_Socket_Memory` values on Slurm version 25.11 and later.
+
 - [SrunPortRange](https://slurm.schedmd.com/slurm.conf.html#OPT_SrunPortRange "https://slurm.schedmd.com/slurm.conf.html#OPT_SrunPortRange")
 - [TaskEpilog](https://slurm.schedmd.com/slurm.conf.html#OPT_TaskEpilog "https://slurm.schedmd.com/slurm.conf.html#OPT_TaskEpilog")
 - [TaskPluginParam](https://slurm.schedmd.com/slurm.conf.html#OPT_TaskPluginParam "https://slurm.schedmd.com/slurm.conf.html#OPT_TaskPluginParam")

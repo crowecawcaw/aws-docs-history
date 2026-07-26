@@ -38,6 +38,7 @@ endpoints](../../../general/latest/gr/rande.md#dual-stack-endpoints "../../../ge
 | Asia Pacific (Sydney)     | ap-southeast-2 | pcs.ap-southeast-2.amazonaws.com<br>pcs.ap-southeast-2.api.aws                                                                         | HTTPS    |
 | Asia Pacific (Jakarta)    | ap-southeast-3 | pcs.ap-southeast-3.amazonaws.com<br>pcs.ap-southeast-3.api.aws                                                                         | HTTPS    |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | pcs.ap-northeast-1.amazonaws.com<br>pcs.ap-northeast-1.api.aws                                                                         | HTTPS    |
+| Asia Pacific (Seoul)      | ap-northeast-2 | pcs.ap-northeast-2.amazonaws.com<br>pcs.ap-northeast-2.api.aws                                                                         | HTTPS    |
 | Asia Pacific (Osaka)      | ap-northeast-3 | pcs.ap-northeast-3.amazonaws.com<br>pcs.ap-northeast-3.api.aws                                                                         | HTTPS    |
 | Europe (Frankfurt)        | eu-central-1   | pcs.eu-central-1.amazonaws.com<br>pcs.eu-central-1.api.aws                                                                             | HTTPS    |
 | Europe (Ireland)          | eu-west-1      | pcs.eu-west-1.amazonaws.com<br>pcs.eu-west-1.api.aws                                                                                   | HTTPS    |

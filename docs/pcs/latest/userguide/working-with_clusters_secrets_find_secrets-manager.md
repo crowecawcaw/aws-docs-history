@@ -15,7 +15,7 @@ A AWS PCS cluster secret has a name in the form
 
 AWS CLI
 Each AWS PCS cluster secret is also tagged with
-`aws:pcs:`cluster-id``. You can get the secret ID for a
+`aws:pcs:cluster-id`. You can get the secret ID for a
 cluster with the command that follows. Make these substitutions before running the
 command:
 
@@ -27,6 +27,6 @@ command:
 ```
 aws secretsmanager list-secrets \
     --region `region`  \
-    --filters Key=tag-key,Values=aws:pcs:`cluster-id` \
+    --filters Key=tag-key,Values=aws:pcs:cluster-id \
             Key=tag-value,Values=`cluster-id`
 ```

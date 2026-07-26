@@ -26,10 +26,7 @@ Before starting, ensure all compute nodes are on the latest patch of Slurm versi
 
 ## Limitations
 
-The following configurations require additional steps or are incompatible with Option 1 (rolling update). Without the noted workarounds, you must use Option 2 (full-fleet maintenance stop) instead:
-
-- **Spank plugins** – If your cluster uses Spank plugins (plugstack configuration), Option 1 isn't supported. A rolling update might cause a plugstack configuration version mismatch and plugin failures.
-- **CLI filter plugins updating to 25.11** – If your cluster uses CLI filter plugins and is updating to version 25.11, Option 1 (rolling update) requires that you set `CliFilterParameters` explicitly in the cluster's Slurm settings during the update. Without `CliFilterParameters`, nodes running the previous version can't resolve the CLI filter script path after the controller updates, which causes `sbatch` failures. For more information, see [Use Slurm CLI Filter Plugins to customize job submission in AWS PCS](slurm-cli-filter-plugins.md "slurm-cli-filter-plugins.md").
+If your cluster uses Spank plugins (plugstack configuration), AWS PCS doesn't support Option 1. A rolling update might cause a plugstack configuration version mismatch and plugin failures.
 
 ## Version compatibility
 

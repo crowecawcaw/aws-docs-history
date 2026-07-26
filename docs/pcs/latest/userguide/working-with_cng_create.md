@@ -12,6 +12,13 @@ possible.
 
 You can configure custom Slurm settings on compute node groups to control resource utilization and node-level behaviors. For more information, see [Configuring custom Slurm settings in AWS PCS](slurm-custom-settings.md "slurm-custom-settings.md").
 
+###### Note
+
+To run custom scripts at defined points in a compute node's lifecycle – such as
+mounting file systems, installing software, or joining a directory service – without
+embedding the logic in launch template user data, use node lifecycle actions. For more
+information, see [Node lifecycle actions](cng-node-lifecycle-actions.md "cng-node-lifecycle-actions.md").
+
 ###### Important
 
 AWS PCS currently requires a kernel with IPv4 support for local node
@@ -121,11 +128,19 @@ AWS Management Console
 
 7. (Optional) In the **Slurm custom settings** section,
    you can add parameter name and value pairs to configure additional Slurm settings. For a complete list of supported parameters, see [Custom Slurm settings for AWS PCS compute node groups](slurm-custom-settings-cng.md "slurm-custom-settings-cng.md").
-8. (Optional) Under **Tags**, add any tags to your compute node
+8. (Optional) In the **Node lifecycle actions** section, you can add
+   scripts that run at defined points in a compute node's lifecycle. Choose **Add
+   script**. Select the lifecycle stage, and specify the script location, a name,
+   optional arguments, error handling behavior, and execution policy. To add more scripts,
+   repeat these steps. Scripts run from top to bottom within a stage. To change the execution
+   order, choose **Actions** for a script, and then choose **Move
+   up** or **Move down**. For more information,
+   see [Node lifecycle actions](cng-node-lifecycle-actions.md "cng-node-lifecycle-actions.md").
+9. (Optional) Under **Tags**, add any tags to your compute node
    group.
-9. Choose **Create compute node group**. The **Status**
-   field shows `Creating` while AWS PCS provisions the node group.
-   This can take several minutes.
+10. Choose **Create compute node group**. The **Status**
+    field shows `Creating` while AWS PCS provisions the node group.
+    This can take several minutes.
 
 ###### Recommended next step
 
@@ -251,6 +266,9 @@ There are several optional configuration settings you can add to the
   group. It is meant to be used in conjunction with the `CR_CPU_Memory` option for
   the cluster in AWS PCS in your Slurm configuration. For more information,
   see [RealMemory](https://slurm.schedmd.com/slurm.conf.html#OPT_RealMemory "https://slurm.schedmd.com/slurm.conf.html#OPT_RealMemory") in the Slurm documentation.
+- Use `--node-lifecycle-actions` to run custom scripts at defined points in a
+  compute node's lifecycle, such as mounting file systems, installing software, or joining a
+  directory service. For more information, see [Configure node lifecycle actions in AWS PCS](cng-node-lifecycle-actions-configure.md "cng-node-lifecycle-actions-configure.md"). For example commands, see [Node lifecycle action examples for AWS PCS](cng-node-lifecycle-actions-examples.md "cng-node-lifecycle-actions-examples.md").
 
 ###### Important
 

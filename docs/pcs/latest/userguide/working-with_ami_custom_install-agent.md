@@ -29,7 +29,7 @@ Slurm. For more information about the AWS PCS agent, see [AWS PCS agent versions
    instance, such as `us-east-1`.
 
 ```
-curl https://aws-pcs-repo-`region`.s3.`region`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.4.0-1.tar.gz -o aws-pcs-agent-v1.4.0-1.tar.gz
+curl https://aws-pcs-repo-`region`.s3.`region`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.5.0-1.tar.gz -o aws-pcs-agent-v1.5.0-1.tar.gz
 ```
 
 You can also get the latest version by replacing the version number with
@@ -79,8 +79,8 @@ the file has not been altered or corrupted since it was published.
 
 
     ```
-    wget https://aws-pcs-repo-`region`.s3.`region`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.4.0-1.tar.gz.sig && \
-        gpg --verify ./aws-pcs-agent-v1.4.0-1.tar.gz.sig
+    wget https://aws-pcs-repo-`region`.s3.`region`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.5.0-1.tar.gz.sig && \
+        gpg --verify ./aws-pcs-agent-v1.5.0-1.tar.gz.sig
     ```
 
     The output should be similar to the following:
@@ -88,7 +88,7 @@ the file has not been altered or corrupted since it was published.
 
 
     ```
-    gpg: assuming signed data in './aws-pcs-agent-v1.4.0-1.tar.gz'
+    gpg: assuming signed data in './aws-pcs-agent-v1.5.0-1.tar.gz'
     gpg: Signature made Thu 06 Nov 2025 11:10:36 AM CET using RSA key ID ECC0AE5C
     gpg: Good signature from "AWS PCS Packages (AWS PCS Packages)"
     gpg: WARNING: This key is not certified with a trusted signature!
@@ -110,7 +110,7 @@ the file has not been altered or corrupted since it was published.
 extracted directory.
 
 ```
-tar -xf aws-pcs-agent-v1.4.0-1.tar.gz && \
+tar -xf aws-pcs-agent-v1.5.0-1.tar.gz && \
     cd aws-pcs-agent
 ```
 
@@ -130,6 +130,6 @@ The output should be similar to the following:
 
 ```
 AGENT_INSTALL_DATE='Fri Dec 13 12:28:43 UTC 2024'
-AGENT_VERSION='1.4.0'
+AGENT_VERSION='1.5.0'
 AGENT_RELEASE='1'
 ```
