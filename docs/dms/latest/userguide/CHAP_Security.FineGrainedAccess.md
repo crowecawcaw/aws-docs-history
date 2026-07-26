@@ -10,7 +10,7 @@ You can create an IAM user account and assign a policy based on the AWS DMS
 resource's ARN.
 
 The following policy denies access to the AWS DMS replication instance with the ARN
-_arn:aws:dms:us-east-1:152683116:rep:DOH67ZTOXGLIXMIHKITV_:
+_arn:aws:dms:us-east-1:111122223333:rep:DOH67ZTOXGLIXMIHKITV_:
 
 JSON
 
@@ -35,18 +35,18 @@ For example, the following commands fail when the policy is in effect.
 ```
 
 $ aws dms delete-replication-instance
-   --replication-instance-arn "arn:aws:dms:us-east-1:152683116:rep:DOH67ZTOXGLIXMIHKITV"
+   --replication-instance-arn "arn:aws:dms:us-east-1:111122223333:rep:DOH67ZTOXGLIXMIHKITV"
 
 A client error (AccessDeniedException) occurred when calling the DeleteReplicationInstance
-operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
-dms:DeleteReplicationInstance on resource: arn:aws:dms:us-east-1:152683116:rep:DOH67ZTOXGLIXMIHKITV
+operation: User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform:
+dms:DeleteReplicationInstance on resource: arn:aws:dms:us-east-1:111122223333:rep:DOH67ZTOXGLIXMIHKITV
 
 $ aws dms modify-replication-instance
-   --replication-instance-arn "arn:aws:dms:us-east-1:152683116:rep:DOH67ZTOXGLIXMIHKITV"
+   --replication-instance-arn "arn:aws:dms:us-east-1:111122223333:rep:DOH67ZTOXGLIXMIHKITV"
 
 A client error (AccessDeniedException) occurred when calling the ModifyReplicationInstance
-operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
-dms:ModifyReplicationInstance on resource: arn:aws:dms:us-east-1:152683116:rep:DOH67ZTOXGLIXMIHKITV
+operation: User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform:
+dms:ModifyReplicationInstance on resource: arn:aws:dms:us-east-1:111122223333:rep:DOH67ZTOXGLIXMIHKITV
 
 ```
 
@@ -80,18 +80,18 @@ is in effect.
 ```
 
 $ aws dms delete-endpoint
-   --endpoint-arn "arn:aws:dms:us-east-1:152683116:endpoint:D6E37YBXTNHOA6XRQSZCUGX"
+   --endpoint-arn "arn:aws:dms:us-east-1:111122223333:endpoint:D6E37YBXTNHOA6XRQSZCUGX"
 
 A client error (AccessDeniedException) occurred when calling the DeleteEndpoint operation:
-User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform: dms:DeleteEndpoint
-on resource: arn:aws:dms:us-east-1:152683116:endpoint:D6E37YBXTNHOA6XRQSZCUGX
+User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform: dms:DeleteEndpoint
+on resource: arn:aws:dms:us-east-1:111122223333:endpoint:D6E37YBXTNHOA6XRQSZCUGX
 
 $ aws dms modify-endpoint
-   --endpoint-arn "arn:aws:dms:us-east-1:152683116:endpoint:D6E37YBXTNHOA6XRQSZCUGX"
+   --endpoint-arn "arn:aws:dms:us-east-1:111122223333:endpoint:D6E37YBXTNHOA6XRQSZCUGX"
 
 A client error (AccessDeniedException) occurred when calling the ModifyEndpoint operation:
-User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform: dms:ModifyEndpoint
-on resource: arn:aws:dms:us-east-1:152683116:endpoint:D6E37YBXTNHOA6XRQSZCUGX
+User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform: dms:ModifyEndpoint
+on resource: arn:aws:dms:us-east-1:111122223333:endpoint:D6E37YBXTNHOA6XRQSZCUGX
 
 ```
 
@@ -121,11 +121,11 @@ in effect.
 ```
 
 $ aws dms delete-replication-task
-   --replication-task-arn "arn:aws:dms:us-east-1:152683116:task:UO3YR4N47DXH3ATT4YMWOIT"
+   --replication-task-arn "arn:aws:dms:us-east-1:111122223333:task:UO3YR4N47DXH3ATT4YMWOIT"
 
 A client error (AccessDeniedException) occurred when calling the DeleteReplicationTask operation:
-User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform: dms:DeleteReplicationTask
-on resource: arn:aws:dms:us-east-1:152683116:task:UO3YR4N47DXH3ATT4YMWOIT
+User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform: dms:DeleteReplicationTask
+on resource: arn:aws:dms:us-east-1:111122223333:task:UO3YR4N47DXH3ATT4YMWOIT
 
 ```
 
@@ -246,7 +246,7 @@ access when the tag value is "Desktop" and the tag key is "Env".
 ```
 
 $ aws dms list-tags-for-resource
-   --resource-name arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN
+   --resource-name arn:aws:dms:us-east-1:111122223333:rep:46DHOU7JOJYOJXWDOZNFEN
    --endpoint-url http://localhost:8000
 {
     "TagList": [
@@ -258,33 +258,33 @@ $ aws dms list-tags-for-resource
 }
 
 $ aws dms delete-replication-instance
-   --replication-instance-arn "arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN"
+   --replication-instance-arn "arn:aws:dms:us-east-1:111122223333:rep:46DHOU7JOJYOJXWDOZNFEN"
 A client error (AccessDeniedException) occurred when calling the DeleteReplicationInstance
-operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
-dms:DeleteReplicationInstance on resource: arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN
+operation: User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform:
+dms:DeleteReplicationInstance on resource: arn:aws:dms:us-east-1:111122223333:rep:46DHOU7JOJYOJXWDOZNFEN
 
 $ aws dms modify-replication-instance
-   --replication-instance-arn "arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN"
+   --replication-instance-arn "arn:aws:dms:us-east-1:111122223333:rep:46DHOU7JOJYOJXWDOZNFEN"
 
 A client error (AccessDeniedException) occurred when calling the ModifyReplicationInstance
-operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
-dms:ModifyReplicationInstance on resource: arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN
+operation: User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform:
+dms:ModifyReplicationInstance on resource: arn:aws:dms:us-east-1:111122223333:rep:46DHOU7JOJYOJXWDOZNFEN
 
 $ aws dms add-tags-to-resource
-   --resource-name arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN
+   --resource-name arn:aws:dms:us-east-1:111122223333:rep:46DHOU7JOJYOJXWDOZNFEN
    --tags Key=CostCenter,Value=1234
 
 A client error (AccessDeniedException) occurred when calling the AddTagsToResource
-operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
-dms:AddTagsToResource on resource: arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN
+operation: User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform:
+dms:AddTagsToResource on resource: arn:aws:dms:us-east-1:111122223333:rep:46DHOU7JOJYOJXWDOZNFEN
 
 $ aws dms remove-tags-from-resource
-   --resource-name arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN
+   --resource-name arn:aws:dms:us-east-1:111122223333:rep:46DHOU7JOJYOJXWDOZNFEN
    --tag-keys Env
 
 A client error (AccessDeniedException) occurred when calling the RemoveTagsFromResource
-operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
-dms:RemoveTagsFromResource on resource: arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN
+operation: User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform:
+dms:RemoveTagsFromResource on resource: arn:aws:dms:us-east-1:111122223333:rep:46DHOU7JOJYOJXWDOZNFEN
 
 ```
 
@@ -322,7 +322,7 @@ access when the tag value is "Desktop" and the tag key is "Env".
 ```
 
 $ aws dms list-tags-for-resource
-   --resource-name arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I
+   --resource-name arn:aws:dms:us-east-1:111122223333:endpoint:J2YCZPNGOLFY52344IZWA6I
 {
     "TagList": [
         {
@@ -333,34 +333,34 @@ $ aws dms list-tags-for-resource
 }
 
 $ aws dms delete-endpoint
-   --endpoint-arn "arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I"
+   --endpoint-arn "arn:aws:dms:us-east-1:111122223333:endpoint:J2YCZPNGOLFY52344IZWA6I"
 
 A client error (AccessDeniedException) occurred when calling the DeleteEndpoint
-operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
-dms:DeleteEndpoint on resource: arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I
+operation: User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform:
+dms:DeleteEndpoint on resource: arn:aws:dms:us-east-1:111122223333:endpoint:J2YCZPNGOLFY52344IZWA6I
 
 $ aws dms modify-endpoint
-   --endpoint-arn "arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I"
+   --endpoint-arn "arn:aws:dms:us-east-1:111122223333:endpoint:J2YCZPNGOLFY52344IZWA6I"
 
 A client error (AccessDeniedException) occurred when calling the ModifyEndpoint
-operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
-dms:ModifyEndpoint on resource: arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I
+operation: User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform:
+dms:ModifyEndpoint on resource: arn:aws:dms:us-east-1:111122223333:endpoint:J2YCZPNGOLFY52344IZWA6I
 
 $ aws dms add-tags-to-resource
-   --resource-name arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I
+   --resource-name arn:aws:dms:us-east-1:111122223333:endpoint:J2YCZPNGOLFY52344IZWA6I
    --tags Key=CostCenter,Value=1234
 
 A client error (AccessDeniedException) occurred when calling the AddTagsToResource
-operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
-dms:AddTagsToResource on resource: arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I
+operation: User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform:
+dms:AddTagsToResource on resource: arn:aws:dms:us-east-1:111122223333:endpoint:J2YCZPNGOLFY52344IZWA6I
 
 $ aws dms remove-tags-from-resource
-   --resource-name arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I
+   --resource-name arn:aws:dms:us-east-1:111122223333:endpoint:J2YCZPNGOLFY52344IZWA6I
    --tag-keys Env
 
 A client error (AccessDeniedException) occurred when calling the RemoveTagsFromResource
-operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
-dms:RemoveTagsFromResource on resource: arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I
+operation: User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform:
+dms:RemoveTagsFromResource on resource: arn:aws:dms:us-east-1:111122223333:endpoint:J2YCZPNGOLFY52344IZWA6I
 
 ```
 
@@ -398,7 +398,7 @@ access when the tag value is "Desktop" and the tag key is "Env".
 ```
 
 $ aws dms list-tags-for-resource
-   --resource-name arn:aws:dms:us-east-1:152683116:task:RB7N24J2XBUPS3RFABZTG3
+   --resource-name arn:aws:dms:us-east-1:111122223333:task:RB7N24J2XBUPS3RFABZTG3
 {
     "TagList": [
         {
@@ -409,26 +409,26 @@ $ aws dms list-tags-for-resource
 }
 
 $ aws dms delete-replication-task
-   --replication-task-arn "arn:aws:dms:us-east-1:152683116:task:RB7N24J2XBUPS3RFABZTG3"
+   --replication-task-arn "arn:aws:dms:us-east-1:111122223333:task:RB7N24J2XBUPS3RFABZTG3"
 
 A client error (AccessDeniedException) occurred when calling the DeleteReplicationTask
-operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
-dms:DeleteReplicationTask on resource: arn:aws:dms:us-east-1:152683116:task:RB7N24J2XBUPS3RFABZTG3
+operation: User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform:
+dms:DeleteReplicationTask on resource: arn:aws:dms:us-east-1:111122223333:task:RB7N24J2XBUPS3RFABZTG3
 
 $ aws dms add-tags-to-resource
-   --resource-name arn:aws:dms:us-east-1:152683116:task:RB7N24J2XBUPS3RFABZTG3
+   --resource-name arn:aws:dms:us-east-1:111122223333:task:RB7N24J2XBUPS3RFABZTG3
    --tags Key=CostCenter,Value=1234
 
 A client error (AccessDeniedException) occurred when calling the AddTagsToResource
-operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
-dms:AddTagsToResource on resource: arn:aws:dms:us-east-1:152683116:task:RB7N24J2XBUPS3RFABZTG3
+operation: User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform:
+dms:AddTagsToResource on resource: arn:aws:dms:us-east-1:111122223333:task:RB7N24J2XBUPS3RFABZTG3
 
 $ aws dms remove-tags-from-resource
-   --resource-name arn:aws:dms:us-east-1:152683116:task:RB7N24J2XBUPS3RFABZTG3
+   --resource-name arn:aws:dms:us-east-1:111122223333:task:RB7N24J2XBUPS3RFABZTG3
    --tag-keys Env
 
 A client error (AccessDeniedException) occurred when calling the RemoveTagsFromResource
-operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
-dms:RemoveTagsFromResource on resource: arn:aws:dms:us-east-1:152683116:task:RB7N24J2XBUPS3RFABZTG3
+operation: User: arn:aws:iam::111122223333:user/dmstestusr is not authorized to perform:
+dms:RemoveTagsFromResource on resource: arn:aws:dms:us-east-1:111122223333:task:RB7N24J2XBUPS3RFABZTG3
 
 ```

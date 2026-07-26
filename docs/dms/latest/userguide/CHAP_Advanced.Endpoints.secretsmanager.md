@@ -49,7 +49,7 @@ following:
 - For **Service Category**, you should select
   **AWS services.**
 - For **Service name**, search
-  `seretsmanager` and select the secretes manager
+  `secretsmanager` and select the
   service.
 
 1. Select **VPC and Subnets** and configure the

@@ -399,7 +399,7 @@ series of operations from multiple transactional resources into a single, reliab
 global transaction. An XA transaction uses a two-phase commit protocol. In general,
 capturing changes while there are open XA transactions might lead to loss of data. If
 your database does not use XA transactions, you can ignore this permission and the
-configuration `IgnoreOpenXaTransactionsCheck` by using the deafult value
+configuration `IgnoreOpenXaTransactionsCheck` by using the default value
 `TRUE`. To start replicating from a source that has XA transactions, do
 the following:
 

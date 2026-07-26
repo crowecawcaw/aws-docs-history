@@ -47,7 +47,7 @@ the corresponding recommended target data type to use.
 
 | Source data type | Recommended Babelfish data type |
 | ---------------- | ------------------------------- |
-| HEIRARCHYID      | NVARCHAR(250)                   |
+| HIERARCHYID      | NVARCHAR(250)                   |
 | GEOMETRY         | VARCHAR(MAX)                    |
 | GEOGRAPHY        | VARCHAR(MAX)                    |
 

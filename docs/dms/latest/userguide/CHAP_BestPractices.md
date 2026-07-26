@@ -485,7 +485,7 @@ COMMIT
 ```
 
 Next, create a migration task and modify the LOB handling for your table using
-the new `lob-settings` rule. The `bulk-max-siz` value
+the new `lob-settings` rule. The `bulk-max-size` value
 determines the maximum LOB size (KB). It's truncated if it's bigger
 than the size specified.
 

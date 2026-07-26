@@ -278,7 +278,7 @@ option is set to `true`, the task fails.
   `false`, AWS DMS reports all errors instead of ignoring
   them. The default is `true`.
 - `DataMaskingErrorPolicy` – Determines the action AWS DMS takes when the data masking is failed due to incompatible data type or any other reason.
-  The follwing are available options:
+  The following are available options:
 
   - `STOP_TASK` (Default) – The task stops and manual intervention is required.
   - `IGNORE_RECORD` – The task continues and the data for that record is ignored.

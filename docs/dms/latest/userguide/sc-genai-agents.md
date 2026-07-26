@@ -153,7 +153,7 @@ with DMS Schema Conversion.
 - **Use the assessment report** — After
   conversion or assessment, generate an assessment report to get a summary
   of conversion results and remaining manual work. For more information,
-  see [Creating database migration assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md").
+  see [Conversion assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md").
 
 ## Examples
 

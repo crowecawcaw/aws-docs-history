@@ -126,51 +126,51 @@ task source types.
 The following table shows the possible categories and events for the replication
 instance source type.
 
-| Category             | DMS event ID   | Description                                                                                                                                                                        |
-| -------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Configuration Change | DMS-EVENT-0012 | The replication instance class for this replication instance is<br>being changed.                                                                                                  |
-| Configuration Change | DMS-EVENT-0014 | The replication instance class for this replication instance has<br>changed.                                                                                                       |
-| Configuration Change | DMS-EVENT-0018 | The storage for the replication instance is being increased.                                                                                                                       |
-| Configuration Change | DMS-EVENT-0017 | The storage for the replication instance has been increased.                                                                                                                       |
-| Configuration Change | DMS-EVENT-0024 | The replication instance is transitioning to a Multi-AZ<br>configuration.                                                                                                          |
-| Configuration Change | DMS-EVENT-0025 | The replication instance finished transitioning to a Multi-AZ<br>configuration.                                                                                                    |
-| Configuration Change | DMS-EVENT-0030 | The replication instance is transitioning to a Single-AZ<br>configuration.                                                                                                         |
-| Configuration Change | DMS-EVENT-0029 | The replication instance has finished transitioning to a Single-AZ<br>configuration.                                                                                               |
-| Creation             | DMS-EVENT-0067 | A replication instance is being created.                                                                                                                                           |
-| Creation             | DMS-EVENT-0005 | A replication instance is created.                                                                                                                                                 |
-| Deletion             | DMS-EVENT-0066 | The replication instance is being deleted.                                                                                                                                         |
-| Deletion             | DMS-EVENT-0003 | The replication instance is deleted.                                                                                                                                               |
-| Maintenance          | DMS-EVENT-0047 | Management software on the replication instance has been<br>updated.                                                                                                               |
-| Maintenance          | DMS-EVENT-0026 | Offline maintenance of the replication instance is taking place. The<br>replication instance is currently unavailable.                                                             |
-| Maintenance          | DMS-EVENT-0027 | Offline maintenance of the replication instance is complete. The<br>replication instance is now available.                                                                         |
-| Maintenance          | DMS-EVENT-0068 | A replication instance is in a state that can't be upgraded.                                                                                                                       |
-| LowStorage           | DMS-EVENT-0007 | The replication instance has consumed more than 90% of its allocated storage. You can<br>monitor the storage space for a replication instance using the Free Storage Space metric. |
-| Failover             | DMS-EVENT-0013 | Failover started for a Multi-AZ replication instance.                                                                                                                              |
-| Failover             | DMS-EVENT-0049 | Failover is complete for a Multi-AZ replication instance.                                                                                                                          |
-| Failover             | DMS-EVENT-0015 | Multi-AZ failover to standby is complete.                                                                                                                                          |
-| Failover             | DMS-EVENT-0050 | Multi-AZ activation has started.                                                                                                                                                   |
-| Failover             | DMS-EVENT-0051 | Multi-AZ activation had completed.                                                                                                                                                 |
-| Failover             | DMS-EVENT-0034 | If you request failover too frequently, this event occurs instead of<br>regular failover events.                                                                                   |
-| Failure              | DMS-EVENT-0031 | The replication instance has gone into storage failure.                                                                                                                            |
-| Failure              | DMS-EVENT-0036 | The replication instance has failed due to an incompatible<br>network.                                                                                                             |
-| Failure              | DMS-EVENT-0037 | The service can't access the AWS KMS key used to encrypt the data<br>volume.                                                                                                       |
+| Category            | DMS event ID   | Description                                                                                                                                                                        |
+| ------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ConfigurationChange | DMS-EVENT-0012 | The replication instance class for this replication instance is<br>being changed.                                                                                                  |
+| ConfigurationChange | DMS-EVENT-0014 | The replication instance class for this replication instance has<br>changed.                                                                                                       |
+| ConfigurationChange | DMS-EVENT-0018 | The storage for the replication instance is being increased.                                                                                                                       |
+| ConfigurationChange | DMS-EVENT-0017 | The storage for the replication instance has been increased.                                                                                                                       |
+| ConfigurationChange | DMS-EVENT-0024 | The replication instance is transitioning to a Multi-AZ<br>configuration.                                                                                                          |
+| ConfigurationChange | DMS-EVENT-0025 | The replication instance finished transitioning to a Multi-AZ<br>configuration.                                                                                                    |
+| ConfigurationChange | DMS-EVENT-0030 | The replication instance is transitioning to a Single-AZ<br>configuration.                                                                                                         |
+| ConfigurationChange | DMS-EVENT-0029 | The replication instance has finished transitioning to a Single-AZ<br>configuration.                                                                                               |
+| Creation            | DMS-EVENT-0067 | A replication instance is being created.                                                                                                                                           |
+| Creation            | DMS-EVENT-0005 | A replication instance is created.                                                                                                                                                 |
+| Deletion            | DMS-EVENT-0066 | The replication instance is being deleted.                                                                                                                                         |
+| Deletion            | DMS-EVENT-0003 | The replication instance is deleted.                                                                                                                                               |
+| Maintenance         | DMS-EVENT-0047 | Management software on the replication instance has been<br>updated.                                                                                                               |
+| Maintenance         | DMS-EVENT-0026 | Offline maintenance of the replication instance is taking place. The<br>replication instance is currently unavailable.                                                             |
+| Maintenance         | DMS-EVENT-0027 | Offline maintenance of the replication instance is complete. The<br>replication instance is now available.                                                                         |
+| Maintenance         | DMS-EVENT-0068 | A replication instance is in a state that can't be upgraded.                                                                                                                       |
+| LowStorage          | DMS-EVENT-0007 | The replication instance has consumed more than 90% of its allocated storage. You can<br>monitor the storage space for a replication instance using the Free Storage Space metric. |
+| Failover            | DMS-EVENT-0013 | Failover started for a Multi-AZ replication instance.                                                                                                                              |
+| Failover            | DMS-EVENT-0049 | Failover is complete for a Multi-AZ replication instance.                                                                                                                          |
+| Failover            | DMS-EVENT-0015 | Multi-AZ failover to standby is complete.                                                                                                                                          |
+| Failover            | DMS-EVENT-0050 | Multi-AZ activation has started.                                                                                                                                                   |
+| Failover            | DMS-EVENT-0051 | Multi-AZ activation had completed.                                                                                                                                                 |
+| Failover            | DMS-EVENT-0034 | If you request failover too frequently, this event occurs instead of<br>regular failover events.                                                                                   |
+| Failure             | DMS-EVENT-0031 | The replication instance has gone into storage failure.                                                                                                                            |
+| Failure             | DMS-EVENT-0036 | The replication instance has failed due to an incompatible<br>network.                                                                                                             |
+| Failure             | DMS-EVENT-0037 | The service can't access the AWS KMS key used to encrypt the data<br>volume.                                                                                                       |
 
 The following table shows the possible categories and events for the replication task
 source type.
 
-| Category             | DMS event ID   | Description                                                 |
-| -------------------- | -------------- | ----------------------------------------------------------- |
-| State Change         | DMS-EVENT-0069 | The replication task has started.                           |
-| State Change         | DMS-EVENT-0081 | A reload of table details has been requested.               |
-| State Change         | DMS-EVENT-0079 | The replication task has stopped.                           |
-| State Change         | DMS-EVENT-0091 | Reading paused, swap files limit reached.                   |
-| State Change         | DMS-EVENT-0092 | Reading paused, disk usage limit reached.                   |
-| State Change         | DMS-EVENT-0093 | Reading resumed.                                            |
-| Failure              | DMS-EVENT-0078 | The replication task has failed.                            |
-| Failure              | DMS-EVENT-0082 | A call to delete the task has failed to clean up task data. |
-| Configuration Change | DMS-EVENT-0080 | The replication task is modified.                           |
-| Deletion             | DMS-EVENT-0073 | The replication task is deleted.                            |
-| Creation             | DMS-EVENT-0074 | The replication task is created.                            |
+| Category            | DMS event ID   | Description                                                 |
+| ------------------- | -------------- | ----------------------------------------------------------- |
+| StateChange         | DMS-EVENT-0069 | The replication task has started.                           |
+| StateChange         | DMS-EVENT-0081 | A reload of table details has been requested.               |
+| StateChange         | DMS-EVENT-0079 | The replication task has stopped.                           |
+| StateChange         | DMS-EVENT-0091 | Reading paused, swap files limit reached.                   |
+| StateChange         | DMS-EVENT-0092 | Reading paused, disk usage limit reached.                   |
+| StateChange         | DMS-EVENT-0093 | Reading resumed.                                            |
+| Failure             | DMS-EVENT-0078 | The replication task has failed.                            |
+| Failure             | DMS-EVENT-0082 | A call to delete the task has failed to clean up task data. |
+| ConfigurationChange | DMS-EVENT-0080 | The replication task is modified.                           |
+| Deletion            | DMS-EVENT-0073 | The replication task is deleted.                            |
+| Creation            | DMS-EVENT-0074 | The replication task is created.                            |
 
 The following table shows the possible categories and events for the premigration
 assessment source type.

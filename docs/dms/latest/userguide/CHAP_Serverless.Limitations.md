@@ -3,7 +3,7 @@
 AWS DMS Serverless has the following limitations:
 
 - You can only modify an AWS DMS replication configuration that is in the `CREATED`,
-  `STOPPED`, or `FAILED` states. For details about which settings you can
+  `STOPPED`, `FAILED`, or `FAILED_PROVISION` states. For details about which settings you can
   change under which conditions, see [Modifying AWS DMS serverless replications](CHAP_Serverless.Components.md#CHAP_Serverless.modify "CHAP_Serverless.Components.md#CHAP_Serverless.modify").
 - You can only delete an AWS DMS replication configuration that is in the
   `STOPPED`, or `FAILED` states.

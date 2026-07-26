@@ -70,7 +70,7 @@ that subnet's NACL.
 You must ensure the following criteria for regarding the NACL rules.:
 
 - **Order of rules**: NACLs processes rules
-  in the ascending order based on th erule number. Ensure that all the
+  in ascending order by rule number. Make sure that all the
   rules set as "**Allow**" have lower rule
   numbers than all the rules set as "**Deny**" as that might block traffic.
 - **Stateless nature**: NACLs are

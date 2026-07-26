@@ -26,8 +26,8 @@ To review long-running transactions, do one of the following:
   related information:
 
 ```
-SELECT pid, age(clock_timestamp(), query_start), usename, query
-FROM pg_stat_activity WHERE query != '<IDLE>'
+SELECT pid, age(clock_timestamp(), query_start), usename, state, query
+FROM pg_stat_activity WHERE state != 'idle'
 AND query NOT ILIKE '%pg_stat_activity%'
 ORDER BY query_start desc;
 ```

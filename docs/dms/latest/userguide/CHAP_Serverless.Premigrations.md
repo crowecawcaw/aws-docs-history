@@ -50,7 +50,7 @@ assessment process. You must configure the `kms:GenerateDataKey` and
       "Sid": "AccessForDMSServerlessPremigration",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::<CustomerAccountId>:role/aws-service-role/dms.amazonaws.com/AWSServiceRoleForDMSServerless"
+        "AWS": "arn:aws:iam::111122223333:role/aws-service-role/dms.amazonaws.com/AWSServiceRoleForDMSServerless"
       },
       "Action": [
         "kms:Decrypt",

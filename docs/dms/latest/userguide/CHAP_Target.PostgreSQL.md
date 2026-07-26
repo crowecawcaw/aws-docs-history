@@ -219,7 +219,7 @@ is mydb, rename the schema to mydb\_dbo using a transformation rule.
 ###### Note
 
 When using Babelfish for Aurora PostgreSQL 16 or later, the default migration mode
-is "mutidatabase". When running DMS migration tasks, ensure to review the
+is "multidatabase". When running AWS DMS migration tasks, ensure to review the
 migration mode parameter and update the transformation rules if needed.
 
 If you use single database mode, you don't need a transformation rule to
@@ -284,7 +284,7 @@ The following limitations apply when using a PostgreSQL target endpoint with Bab
   recognize.
 - AWS DMS doesn't support the sql\_variant data type.
 - Babelfish under Postgres endpoint does not support
-  `HEIRARCHYID`, `GEOMETRY` (prior to 3.5.4) and
+  `HIERARCHYID`, `GEOMETRY` (prior to 3.5.4) and
   `GEOGRAPHY` (prior to 3.5.4) data types. To migrate these
   data types, you can add transformation rules to convert the data type to
   wstring(250).

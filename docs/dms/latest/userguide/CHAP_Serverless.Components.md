@@ -44,10 +44,14 @@ The following diagram shows the state transitions for an AWS DMS Serverless repl
   **Running**. In the **Running** state, the replication of data is ongoing.
 - A replication that you stop enters the **Stopped** state. A
   replication can go into a stopped state for full-load only replication tasks
-  that are successfully completed. These circumstances need to be accounted for
-  resuming or restarting replications in the stopped or failed state:
+  that are successfully completed. After a serverless replication has been
+  started, you must resume it by using `resume-processing` as the start type.
+  You cannot restart it fresh. The `start-replication` API is used only for the
+  initial start; use the `start-replication` action with `start-replication-type`
+  set to `resume-processing` for subsequent starts. Note the following
+  when resuming replications in the stopped or failed state:
 
-  - You cannot restart a replication that has not started in 48 hours as AWS DMS deprovisions the
+  - You cannot resume a replication that has not started in 48 hours as AWS DMS deprovisions the
     resources.
 
 ###### This topic contains the following sections.
@@ -164,7 +168,7 @@ AWS DMS creates a serverless replication to perform your migration.
 
 To modify your replication configuration, use the `modify-replication-config` action.
 You can only modify an AWS DMS replication configuration that is in the `CREATED`, `STOPPED`,
-or `FAILED` states. For information about the `modify-replication-config` action, see
+`FAILED`, or `FAILED_PROVISION` states. For information about the `modify-replication-config` action, see
 [ModifyReplicationConfig](../APIReference/API_ModifyReplicationConfig.md "../APIReference/API_ModifyReplicationConfig.md")
 in the _AWS Database Migration Service API Reference_.
 

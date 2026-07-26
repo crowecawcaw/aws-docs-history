@@ -179,7 +179,7 @@ The following limitations apply when accessing the backup transaction logs:
 
 - Encrypted backups aren't supported.
 - Backups stored at a URL or on Windows Azure aren't supported.
-- AWS DMS doe snot support direct processing of transaction log backups at the
+- AWS DMS does not support direct processing of transaction log backups at the
   file level from alternative shared folders.
 - For Cloud SQL Server sources other than Amazon RDS for Microsoft SQL Server, AWS DMS supports ongoing replication (CDC)
   with the active transaction log only. You can't use the backup

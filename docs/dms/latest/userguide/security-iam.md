@@ -299,6 +299,12 @@ of these are `dms-vpc-role` and `dms-cloudwatch-logs-role`. If you
 use Amazon Redshift as a target database, you must also add the IAM role
 `dms-access-for-endpoint` to your AWS account.
 
+###### Important
+
+You must use these exact role names as shown: `dms-vpc-role`,
+`dms-cloudwatch-logs-role`, and `dms-access-for-endpoint`. AWS DMS
+looks for these roles by name. If you use custom role names, AWS DMS cannot find the roles and the service does not work correctly.
+
 Updates to managed policies are automatic. If you are using a custom policy with the
 IAM roles, be sure to periodically check for updates to the managed policy in this
 documentation. You can view the details of the managed policy by using a combination of

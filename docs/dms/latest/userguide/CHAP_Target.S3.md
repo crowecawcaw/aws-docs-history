@@ -126,8 +126,8 @@ Before using Amazon S3 as a target, check that the following are true:
   route. For information about VPC endpoints, see
   [Configuring VPC endpoints for AWS DMS](CHAP_VPC_Endpoints.md "CHAP_VPC_Endpoints.md").
 
-To set up this account access, ensure that the role assigned to the user account
-used to create the migration task has the following set of permissions.
+To set up this account access, ensure that the IAM role used to create the target endpoint
+has the following set of permissions.
 
 JSON
 
@@ -800,7 +800,7 @@ The default value is `false`.
   endpoint, set `DatePartitionTimezone` to convert the current UTC time
   into a specified time zone. The conversion occurs when a date partition folder
   is created and a CDC filename is generated. The time zone format is
-  Area/Location. Use this parameter when `DatePartitionedEnabled` is
+  Area/Location. Use this parameter when `DatePartitionEnabled` is
   set to `true`, as shown in the following example:
 
 ```

@@ -6,7 +6,7 @@ your project until you are ready to apply it to your target database.
 
 Before you apply the converted code, you can update your source database code and
 convert the updated objects again to address the existing action items. For more
-information about items that DMS Schema Conversion can't convert automatically, see [Creating database migration assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md"). For more
+information about items that DMS Schema Conversion can't convert automatically, see [Conversion assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md"). For more
 information about refreshing your source database objects in migration project for
 DMS Schema Conversion, see [Refreshing your database
 schemas](schema-conversion-refresh.md "schema-conversion-refresh.md").

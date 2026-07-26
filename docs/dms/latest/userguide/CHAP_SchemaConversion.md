@@ -34,7 +34,7 @@ Use the following topics to learn how to use DMS Schema Conversion.
 - [Creating and setting target data providers in DMS Schema Conversion](data-providers-target.md "data-providers-target.md")
 - [Virtual mode for offline source and virtual target](virtual-data-provider.md "virtual-data-provider.md")
 - [Managing migration projects in DMS Schema Conversion](sc-migration-projects.md "sc-migration-projects.md")
-- [Creating database migration assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md")
+- [Conversion assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md")
 - [Using DMS Schema Conversion](schema-conversion.md "schema-conversion.md")
 - [Using AI agents with DMS Schema Conversion](sc-genai-agents.md "sc-genai-agents.md")
 - [Using extension packs in DMS Schema Conversion](extension-pack.md "extension-pack.md")
@@ -82,7 +82,7 @@ Assess your migration
 DMS Schema Conversion reads your source metadata and creates a conversion assessment
 report that shows what it can convert automatically and what needs manual
 work. Use the report to estimate the effort of a migration before you commit
-to it. For more information, see [Creating database migration assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md").
+to it. For more information, see [Conversion assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md").
 
 Convert your schema
 
@@ -119,6 +119,12 @@ which paths support generative AI conversion.
 | IBM Db2 for z/OS | Aurora PostgreSQL or RDS for PostgreSQL | Yes                      |
 | IBM Db2 for z/OS | Amazon RDS for Db2                      | No                       |
 | SAP ASE          | Aurora PostgreSQL or RDS for PostgreSQL | Yes                      |
+
+###### Note
+
+IBM Db2 for LUW and IBM Db2 for z/OS conversion paths are not available in
+the AWS Management Console. To use these conversion paths, use the AWS DMS API or
+AWS CLI.
 
 For the supported versions of each database, see [Sources for DMS Schema Conversion](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion") and [Targets for DMS Schema Conversion](CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.SchemaConversion "CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.SchemaConversion"). For more
 information about generative AI conversion, including how it uses cross-Region inference,

@@ -31,7 +31,7 @@ one of the two following options.
 
 DMS data collector collects information from the database or OS servers. It includes
 schemas, versions, editions, CPU, memory, and disk capacity. DMS data collector also collects
-and provides metrics such as IOPS, I/O throughput and active datbase server connections.
+and provides metrics such as IOPS, I/O throughput and active database server connections.
 You can compute target recommendations in DMS Fleet Advisor based on this information. If the source
 database is over- or underprovisioned, then the target recommendations also
 will be over- or underprovisioned.
@@ -42,7 +42,7 @@ This is the default option.
 
 In addition to metadata and database capacity information, DMS data collector collects actual
 utilization metrics of CPU, memory, and disk capacity for the databases or OS servers.
-DMS data collector also collects and provides metrics such as IOPS, I/O throughput and active datbase server connections.
+DMS data collector also collects and provides metrics such as IOPS, I/O throughput and active database server connections.
 Target recommendations provided will be more accurate because they are based on the
 actual database workloads.
 

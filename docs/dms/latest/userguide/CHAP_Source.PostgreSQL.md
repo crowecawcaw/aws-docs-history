@@ -98,10 +98,10 @@ following:
 ```
 
             # Replication Instance
-            host all all 12.3.4.56/00 md5
+            host all all 12.3.4.56/32 md5
             # Allow replication connections from localhost, by a user with the
             # replication privilege.
-            host replication dms 12.3.4.56/00 md5
+            host replication dms 12.3.4.56/32 md5
 
 ```
 
@@ -1103,7 +1103,7 @@ $$;
   values. As a workaround, pre-create the table with a `VARCHAR(1)`
   data type for the column (or have AWS DMS create the table). Then have downstream
   processing treat an "F" as False and a "T" as True.
-- AWS DMS does not support change processing of TRUNCATE operations.
+- AWS DMS supports change processing of TRUNCATE operations for PostgreSQL version 11 and later, starting with AWS DMS version 3.5. For earlier versions, TRUNCATE operations are not captured during CDC.
 - The OID LOB data type isn't migrated to the target.
 - AWS DMS supports the PostGIS data type for only homogeneous migrations.
 - If your source is a PostgreSQL database that is on-premises or on an Amazon EC2
@@ -1200,6 +1200,9 @@ alter event trigger awsdms_intercept_ddl enable always;
 - AWS DMS does not support Materialized Views.
 - For full load and CDC tasks using a read replica as the source, AWS DMS cannot
   create replication slots on read replicas.
+- Amazon Aurora PostgreSQL read replicas are not supported as a source for CDC
+  with AWS DMS versions earlier than 3.6.1. CDC from Aurora PostgreSQL read replicas
+  requires PostgreSQL version 16.x or later and AWS DMS version 3.6.1 or later.
 
 ## Source data types for PostgreSQL
 

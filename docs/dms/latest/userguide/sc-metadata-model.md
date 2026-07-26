@@ -44,7 +44,7 @@ The typical workflow includes the following steps:
    reference, see [StartMetadataModelImport](../APIReference/API_StartMetadataModelImport.md "../APIReference/API_StartMetadataModelImport.md").
 2. **Assess** — Analyze the selected source
    metadata models to identify conversion complexity and potential issues. For more
-   information, see [Creating database migration assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md").
+   information, see [Conversion assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md").
 3. **Convert** — Convert the selected source
    metadata models to a target-compatible format. The converted definitions are
    stored as part of the target metadata tree. For more information, see [Converting database schemas in DMS Schema Conversion: step-by-step guide](schema-conversion-convert.md "schema-conversion-convert.md").
@@ -56,7 +56,7 @@ The typical workflow includes the following steps:
    about applying converted objects, see [Applying your converted code](schema-conversion-save-apply.md#schema-conversion-apply "schema-conversion-save-apply.md#schema-conversion-apply").
 
 After you assess or convert source metadata models, you can generate an assessment
-report to review the results. For more information, see [Creating database migration assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md").
+report to review the results. For more information, see [Conversion assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md").
 
 For supported migration pairs, you can also create custom statement metadata models
 from SQL definitions using [StartMetadataModelCreation](../APIReference/API_StartMetadataModelCreation.md "../APIReference/API_StartMetadataModelCreation.md"). For more information, see [Create statement

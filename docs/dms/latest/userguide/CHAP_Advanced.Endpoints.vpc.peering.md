@@ -32,7 +32,7 @@ You must perform the following steps:
 
    If the accepter VPC is associated with a different AWS
    account, you must have the Account ID and VPC ID for that
-   acount.
+   account.
 
 5. Click **Create the Peering Connection**.
 

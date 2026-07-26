@@ -174,7 +174,7 @@ To promote CDC performance, AWS DMS supports these task settings:
 ## Connecting to Kafka using Transport Layer Security (TLS)
 
 A Kafka cluster accepts secure connections using Transport Layer Security (TLS).
-With DMS, you can use any one of the following three security protocol options to secure
+With AWS DMS, you can use any one of the following three security protocol options to secure
 a Kafka endpoint connection.
 
 **SSL encryption (`server-encryption`)**
@@ -263,7 +263,7 @@ To enable client authentication and encryption using SSL authentication to
 connect to Amazon MSK, do the following:
 
 - Prepare a private key and public certificate for Kafka.
-- Upload certificates to the DMS certificate manager.
+- Upload certificates to the AWS DMS certificate manager.
 - Create a Kafka target endpoint with corresponding certificate ARNs specified in Kafka endpoint settings.
 
 ###### To prepare a private key and public certificate for Amazon MSK
@@ -319,9 +319,9 @@ string.
 
 ```
 
-###### To upload a public certificate and private key to the DMS certificate manager and test the connection to Amazon MSK
+###### To upload a public certificate and private key to the AWS DMS certificate manager and test the connection to Amazon MSK
 
-1. Upload to DMS certificate manager using the following command.
+1. Upload to AWS DMS certificate manager using the following command.
 
 ```
 aws dms import-certificate --certificate-identifier signed-cert --certificate-pem file://`path to signed cert`
@@ -346,7 +346,7 @@ aws dms test-connection -replication-instance-arn=$rep_inst_arn —endpoint-arn=
 You can use SSL authentication to secure a connection to a self-managed
 Kafka cluster. In some cases, you might use a private Certification
 Authority (CA) in your on-premises Kafka cluster. If so, upload your CA
-chain, public certificate, and private key to the DMS certificate manager.
+chain, public certificate, and private key to the AWS DMS certificate manager.
 Then, use the corresponding Amazon Resource Name (ARN) in your endpoint
 settings when you create your on-premises Kafka target endpoint.
 
@@ -425,7 +425,7 @@ Openssl pkcs12 -in keystore.p12 -out encrypted-private-server-key.pem –nocerts
 
 9. Upload `encrypted-private-server-key.pem`,
    `signed-certificate.pem`, and `ca-cert` to the
-   DMS certificate manager.
+   AWS DMS certificate manager.
 10. Create an endpoint by using the returned ARNs.
 
 ```
@@ -468,7 +468,7 @@ cluster, as shown in the following JSON example.
 
 ###### Note
 
-- Currently, AWS DMS supports only public CA backed SASL-SSL. DMS
+- Currently, AWS DMS supports only public CA backed SASL-SSL. AWS DMS
   does not support SASL-SSL for use with self-managed Kafka that is backed
   by private CA.
 - For SASL-SSL authentication, AWS DMS supports the SCRAM-SHA-512
@@ -477,7 +477,7 @@ cluster, as shown in the following JSON example.
   `SaslMechanism` parameter of the
   `KafkaSettings` API data type to `PLAIN`. The
   datatype `PLAIN` is supported by Kafka, but not supported by
-  Amazon Kafka (MSK).
+  Amazon MSK.
 
 ## Using a before image to view original values of CDC rows for Apache Kafka as a target
 
@@ -546,7 +546,7 @@ For `BeforeImageSettings` options, the following applies:
 
 ### Using a before image transformation rule
 
-As as an alternative to task settings, you can use the
+As an alternative to task settings, you can use the
 `add-before-image-columns` parameter, which applies a column
 transformation rule. With this parameter, you can enable before imaging during
 CDC on data streaming targets like Kafka.
@@ -709,7 +709,7 @@ provided with your instance.
 }
 ```
 
-- The `IncludeTransactionDetails` endpoint setting is only supported when the source endpoint is Oracle, SQL Server, PostgreSQL, or MySQL. For other source endpoint types, transaction details will not be included.
+- The `IncludeTransactionDetails` endpoint setting is only supported when the source endpoint is Oracle, SQL Server, PostgreSQL, or MySQL. For other source endpoint types, AWS DMS does not include transaction details.
 - `BatchApply` is
   not supported for a Kafka endpoint. Using Batch Apply (for example,
   the `BatchApplyEnabled` target metadata task setting) for
@@ -738,7 +738,7 @@ provided with your instance.
 }
 ```
 
-- AWS DMS Kafka target endpoints do not support Amazon MSK servless.
+- AWS DMS Kafka target endpoints do not support Amazon MSK Serverless.
 - When defining mapping rules, having both, object mapping rule and a
   transformation rule is not supported. You must set only one rule.
 - AWS DMS supports SASL Authentication for Apache Kafka versions up to 3.8.
@@ -1090,6 +1090,32 @@ table in the `Test` schema, to the topic specified in the target endpoint.
 
 By using Kafka multitopic replication, you can group and migrate source tables
 to separate Kafka topics using a single replication task.
+
+By default, AWS DMS converts target Kafka topic names to all lowercase. With AWS DMS engine versions
+3.4.6 and higher, you can use the `disable-kafka-topic-normalization` attribute in an
+object-mapping rule to preserve the original case of the target Kafka topic names. Set this
+attribute to `true` to prevent AWS DMS from converting topic names to lowercase. The
+default value is `false` (topic names are converted to lowercase). The following example
+shows how to use this setting.
+
+```
+{
+    "rules": [
+        {
+            "rule-type": "object-mapping",
+            "rule-id": "1",
+            "rule-name": "MapToKafka",
+            "rule-action": "map-record-to-record",
+            "kafka-target-topic": "MyTopic",
+            "disable-kafka-topic-normalization": true,
+            "object-locator": {
+                "schema-name": "Test",
+                "table-name": "Customer"
+            }
+        }
+    ]
+}
+```
 
 ### Message format for Apache Kafka
 

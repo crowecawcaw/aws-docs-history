@@ -81,7 +81,7 @@ resources.
         "dms:DeleteReplicationInstance"
       ],
       "Effect": "Deny",
-      "Resource": "arn:aws:dms:us-west-2:<account-id>:rep:<replication-instance-id>",
+      "Resource": "arn:aws:dms:us-west-2:111122223333:rep:EXAMPLE1AAAA2BBBB3CCCC4",
       "Principal": "*"
     }
   ]

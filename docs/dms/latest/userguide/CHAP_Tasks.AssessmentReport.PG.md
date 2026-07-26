@@ -53,7 +53,7 @@ This section describes individual premigration assessments for migration tasks t
 
 This premigration assessment validates whether the DDL event trigger is set to `ENABLE ALWAYS`. When your source database is also a target for another third–party replication system,
 DDL changes might not migrate during CDC. This situation can prevent DMS from triggering the the `awsdms_intercept_ddl` event.
-To work around the situation, modify the trigger on your source database like in the follwoing example:
+To work around the situation, modify the trigger on your source database like in the following example:
 
 ```
 alter event trigger awsdms_intercept_ddl enable always;

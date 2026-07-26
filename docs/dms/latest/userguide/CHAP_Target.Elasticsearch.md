@@ -212,7 +212,7 @@ bytes.
 - AWS DMS does not support connection to an Amazon ES cluster that has
   Fine-grained Access Control enabled with master user and password.
 - AWS DMS does not support OpenSearch Service serverless.
-- OpenSearch Service does not support writing data to pre-existing indexes.
+- Starting with AWS DMS version 3.1, OpenSearch Service supports writing data to pre-existing indexes.
 - The replication task setting,
   `TargetTablePrepMode:TRUNCATE_BEFORE_LOAD` is not supported for
   use with a OpenSearch target endpoint.

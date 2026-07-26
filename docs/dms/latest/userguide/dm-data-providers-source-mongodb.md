@@ -94,7 +94,7 @@ To use Amazon DocumentDB for homogeneous data migration, store user credentials 
 - AWS DMS doesn't support time series collection migration.
 - AWS DMS doesn't support `create`, `drop`, or
   `rename collection` DDL events during the CDC phase.
-- AWS DMS doesn't suport inconsistent datatypes in the collection for the `_id`
+- AWS DMS doesn't support inconsistent datatypes in the collection for the `_id`
   field. For example, the following unsupported collection has multiple data types for the `_id`
   field.
 

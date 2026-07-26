@@ -114,5 +114,5 @@ summary and action items in the lower-center pane. You can see the same informat
 when you create an assessment report. The assessment report is useful for
 identifying and resolving schema items that DMS Schema Conversion can't convert. You can save the
 assessment report summary and the list of conversion action items in CSV files. For
-more information, see [Database migration assessment
+more information, see [Conversion assessment
 reports](assessment-reports.md "assessment-reports.md").

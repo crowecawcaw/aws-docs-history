@@ -37,12 +37,12 @@ You must consider the following additional configuration information:
   to resolve the VPC endpoint DNS names. You can confirm that by navigating to
   VPCs in the [Amazon VPC
   console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/") and select your VPC to verify that **DNS
-  resolution** and **DNS hotnames** are set to
+  resolution** and **DNS hostnames** are set to
   "**Yes**".
 
 **Testing connectivity:**
 
 - From your replication instance, you can perform a DNS lookup to ensure it
   resolves the VPC endpoint: `nslookup
- secretsmanager.<region>amazonaws.com`. It must return the Ip
+ secretsmanager.`region`.amazonaws.com`. It must return the IP
   address associated with your VPC endpoint

@@ -111,11 +111,11 @@ or the AWS DMS API.
 ```
 create-replication-task
   --replication-task-settings '{"ValidationSettings":{"EnableValidation":true}}'
-  --replication-instance-arn arn:aws:dms:us-east-1:5731014:
+  --replication-instance-arn arn:aws:dms:us-east-1:111122223333:
      rep:36KWVMB7Q
-  --source-endpoint-arn arn:aws:dms:us-east-1:5731014:
+  --source-endpoint-arn arn:aws:dms:us-east-1:111122223333:
      endpoint:CSZAEFQURFYMM
-  --target-endpoint-arn arn:aws:dms:us-east-1:5731014:
+  --target-endpoint-arn arn:aws:dms:us-east-1:111122223333:
      endpoint:CGPP7MF6WT4JQ
   --migration-type full-load-and-cdc
   --table-mappings '{"rules": [{"rule-type": "selection", "rule-id": "1",
@@ -128,15 +128,14 @@ the data validation report in JSON format. The following command
 shows the data validation report.
 
 ```
-aws dms  describe-table-statistics --replication-task-arn arn:aws:dms:us-east-1:5731014:
-rep:36KWVMB7Q
+aws dms  describe-table-statistics --replication-task-arn arn:aws:dms:us-east-1:111122223333:task:36KWVMB7Q
 ```
 
 The report would be similar to the following.
 
 ```
 {
-    "ReplicationTaskArn": "arn:aws:dms:us-west-2:5731014:task:VFPFTYKK2RYSI",
+    "ReplicationTaskArn": "arn:aws:dms:us-west-2:111122223333:task:VFPFTYKK2RYSI",
     "TableStatistics": [
         {
             "ValidationPendingRecords": 2,
