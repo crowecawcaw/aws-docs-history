@@ -8,6 +8,10 @@ With Amazon EMR 6.6.0 and higher, deploy EMR Serverless. This deployment option 
 available with earlier Amazon EMR release versions. When you submit your job, specify one of
 the following supported releases.
 
+###### Note
+
+For information about the minimum supported releases in each Region, see [Regional release support](endpoints-quotas.md#regional-release-support "endpoints-quotas.md#regional-release-support").
+
 ###### Topics
 
 - [AWS runtime for Apache Spark (emr-spark-8.0.0)](release-version-emr-spark-8.0.0.md "release-version-emr-spark-8.0.0.md")

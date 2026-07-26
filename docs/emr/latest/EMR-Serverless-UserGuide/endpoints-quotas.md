@@ -49,6 +49,20 @@ EMR Serverless service endpoints| Region name | Region | Endpoint | Protocol |
 | AWS GovCloud (US-East) | `us-gov-east-1` | `emr-serverless.us-gov-east-1.amazonaws.com` | HTTPS |
 | AWS GovCloud (US-West) | `us-gov-west-1` | `emr-serverless.us-gov-west-1.amazonaws.com` | HTTPS |
 
+## Regional release support
+
+For information about the minimum supported releases in each Region, see the
+following table.
+
+Minimum supported EMR releases by Region| Region name | Region | Minimum supported EMR release |
+| --- | --- | --- |
+| Asia Pacific (Taipei) | `ap-east-2` | emr-7.10.0 and later |
+| Asia Pacific (Malaysia) | `ap-southeast-5` | emr-7.10.0 and later |
+| Asia Pacific (New Zealand) | `ap-southeast-6` | emr-7.10.0 and later |
+| Asia Pacific (Thailand) | `ap-southeast-7` | emr-7.10.0 and later |
+| Canada West (Calgary) | `ca-west-1` | emr-6.9.0 and later |
+| Mexico (Central) | `mx-central-1` | emr-7.10.0 and later |
+
 ## Service quotas
 
 _Service quotas_, also known as _limits_, are
