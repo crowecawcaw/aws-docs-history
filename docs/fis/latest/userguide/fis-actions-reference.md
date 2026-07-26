@@ -1195,7 +1195,7 @@ Runs I/O stress on the target pods. For more information, see [EKS Pod actions](
   Optional. The Kubernetes annotations that are attached to the fault orchestration pod created by FIS.
 - **fisPodSecurityPolicy** –
   Optional. The [Kubernetes Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/ "https://kubernetes.io/docs/concepts/security/pod-security-standards/") policy to use for the fault orchestration pod created by FIS and the ephemeral containers.
-  Possible values are `privileged`, `baseline` and `restricted`. This action is compatible with all policy levels.
+  Possible values are `privileged` and `baseline`.
 
 ###### Permissions
 
