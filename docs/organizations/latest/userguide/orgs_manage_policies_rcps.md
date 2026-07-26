@@ -50,31 +50,49 @@ the member accounts within your organization. This also means that RCPs apply to
 
 RCPs apply to actions for the following AWS services:
 
-- [Amazon S3](../../../s3.md "../../../s3.md")
-- [AWS Security Token Service](../../../iam.md "../../../iam.md")
-- [AWS Key Management Service](../../../kms.md "../../../kms.md")
-- [Amazon SQS](../../../sqs.md "../../../sqs.md")
-- [AWS Secrets Manager](../../../secretsmanager.md "../../../secretsmanager.md")
-- [Amazon Cognito](../../../cognito.md "../../../cognito.md")
-- [Amazon CloudWatch Logs](../../../cloudwatch.md "../../../cloudwatch.md")
-- [Amazon DynamoDB](../../../dynamodb.md "../../../dynamodb.md")
-- [AWS AppConfig](../../../appconfig.md "../../../appconfig.md")
-- [Amazon AppStream](../../../appstream.md "../../../appstream.md")
-- [Amazon EC2 Auto Scaling](../../../autoscaling.md "../../../autoscaling.md")
-- [AWS CodeBuild](../../../codebuild.md "../../../codebuild.md")
-- [AWS CodeCommit](../../../codecommit.md "../../../codecommit.md")
-- [Amazon Comprehend](../../../comprehend.md "../../../comprehend.md")
-- [Amazon Comprehend Medical](../../../comprehendmedical.md "../../../comprehendmedical.md")
-- [DynamoDB Accelerator](../../../dax.md "../../../dax.md")
-- [Amazon Elastic Container Registry](../../../ecr.md "../../../ecr.md")
-- [AWS Health](../../../health.md "../../../health.md")
-- [Amazon Kinesis Video Streams](../../../kinesisvideo.md "../../../kinesisvideo.md")
-- [Amazon OpenSearch Serverless](../../../opensearch-service.md "../../../opensearch-service.md")
-- [AWS Sign-In](../../../signin.md "../../../signin.md")
-- [AWS Support](../../../support.md "../../../support.md")
-- [Amazon Textract](../../../textract.md "../../../textract.md")
-- [Amazon Transcribe](../../../transcribe.md "../../../transcribe.md")
-- [Amazon Translate](../../../translate.md "../../../translate.md")
+- [Amazon AppStream](../../../appstream2.md "../../../appstream2.md") `[appstream]`
+- [Amazon CloudFront](../../../cloudfront.md "../../../cloudfront.md") `[cloudfront]`
+- [Amazon CloudSearch](../../../cloudsearch.md "../../../cloudsearch.md") `[cloudsearch]`
+- [Amazon CloudWatch Logs](../../../cloudwatch.md "../../../cloudwatch.md") `[logs]`
+- [Network Synthetic Monitor](../../../network-monitor.md "../../../network-monitor.md") `[networkmonitor]`
+- [Amazon Cognito](../../../cognito.md "../../../cognito.md") `[cognito-identity]`
+- [Amazon Comprehend](../../../comprehend.md "../../../comprehend.md") `[comprehend]`
+- [Amazon Comprehend Medical](../../../comprehend-medical.md "../../../comprehend-medical.md") `[comprehendmedical]`
+- [Amazon Data Firehose](../../../firehose.md "../../../firehose.md") `[firehose]`
+- [Amazon DynamoDB](../../../dynamodb.md "../../../dynamodb.md") `[dynamodb]`
+- [DynamoDB Accelerator](../../../dax.md "../../../dax.md") `[dax]`
+- [Amazon EC2 Auto Scaling](../../../autoscaling.md "../../../autoscaling.md") `[autoscaling]`
+- [Amazon Elastic Container Registry](../../../ecr.md "../../../ecr.md") `[ecr]`
+- [Amazon Inspector Scan](../../../inspector.md "../../../inspector.md") `[inspector2]`
+- [Amazon Kendra](../../../kendra.md "../../../kendra.md") `[kendra]`
+- [https://docs.aws.amazon.com/kendra-ranking](../../../kendra-ranking.md "../../../kendra-ranking.md") `[kendra-ranking]`
+- [Amazon Kinesis Video Streams](../../../kinesisvideo.md "../../../kinesisvideo.md") `[kinesisvideo]`
+- [https://docs.aws.amazon.com/memorydb](../../../memorydb.md "../../../memorydb.md") `[memorydb]`
+- [Amazon OpenSearch Serverless](../../../opensearch-service.md "../../../opensearch-service.md") `[aoss]`
+- [https://docs.aws.amazon.com/polly](../../../polly.md "../../../polly.md") `[polly]`
+- [Amazon S3](../../../s3.md "../../../s3.md") `[s3]`
+- [Amazon SQS](../../../sqs.md "../../../sqs.md") `[sqs]`
+- [Amazon Textract](../../../textract.md "../../../textract.md") `[textract]`
+- [Amazon Timestream for InfluxDB](../../../timestream-influxdb.md "../../../timestream-influxdb.md") `[timestream-influxdb]`
+- [Amazon Transcribe](../../../transcribe.md "../../../transcribe.md") `[transcribe]`
+- [Amazon Translate](../../../translate.md "../../../translate.md") `[translate]`
+- [AWS AppConfig](../../../appconfig.md "../../../appconfig.md") `[appconfig]`
+- [AWS CodeBuild](../../../codebuild.md "../../../codebuild.md") `[codebuild]`
+- [AWS CodeCommit](../../../codecommit.md "../../../codecommit.md") `[codecommit]`
+- [AWS CodePipeline](../../../codepipeline.md "../../../codepipeline.md") `[codepipeline]`
+- [AWS Elemental MediaStore](../../../mediastore.md "../../../mediastore.md") `[mediastore]`
+- [AWS Fault Injection Service](../../../fis.md "../../../fis.md") `[fis]`
+- [AWS Health](../../../health.md "../../../health.md") `[health]`
+- [AWS Key Management Service](../../../kms.md "../../../kms.md") `[kms]`
+- [AWS Pricing Calculator](../../../pricing.md "../../../pricing.md") `[pricing]`
+- [AWS Private CA Connector for Active Directory](../../../pca-connector-ad.md "../../../pca-connector-ad.md") `[pca-connector-ad]`
+- [AWS Secrets Manager](../../../secretsmanager.md "../../../secretsmanager.md") `[secretsmanager]`
+- [AWS Security Token Service](../../../iam.md "../../../iam.md") `[sts]`
+- [AWS Sign-In](../../../signin.md "../../../signin.md") `[signin]`
+- [AWS Support](../../../aws-support.md "../../../aws-support.md") `[support]`
+- [https://docs.aws.amazon.com/transfer](../../../transfer.md "../../../transfer.md") `[transfer]`
+- [AWS WAF](../../../waf.md "../../../waf.md") `[wafv2]`
+- [AWS Cost Optimization Hub](../../../cost-optimization-hub.md "../../../cost-optimization-hub.md") `[cost-optimization-hub]`
 
 ## Testing effects of RCPs
 

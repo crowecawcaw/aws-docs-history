@@ -43,7 +43,19 @@ Make sure you have applied the necessary permissions for migrating an
 account to the respective
 organizations.
 
-**To leave an organization, you must have the following permissions:**
+###### Note
+
+With direct account transfer, you migrate an account by having the new
+organization send an invitation and the migrating account accept it. The
+account doesn't need to leave its current organization or operate as a
+standalone account first. For more information, see [AWS Organizations now supports direct account transfers](https://aws.amazon.com/about-aws/whats-new/2025/11/aws-organizations-direct-account-transfers/ "https://aws.amazon.com/about-aws/whats-new/2025/11/aws-organizations-direct-account-transfers/").
+
+You need the `organizations:LeaveOrganization` permission only
+if you want an account to leave its organization and become a standalone
+account, rather than migrate directly to another organization.
+
+**To have an account leave an organization and become a standalone
+account, you must have the following permissions:**
 
 - `organizations:DescribeOrganization` (console
   only)

@@ -86,7 +86,7 @@ Backup policy elements| Element | Description | Required |
 | [rules](#backup-policy-rules "#backup-policy-rules") | List of backup rules. Each rule defines when backups start and the<br>execution window for the resources specified in the `regions`<br>and `selections` elements. | Yes |
 | [regions](#backup-plan-regions "#backup-plan-regions") | List of AWS Regions where a backup policy can protect<br>resources. | Yes |
 | [selections](#backup-plan-selections "#backup-plan-selections") | One or more resource types within the specified `regions`<br>that the backup `rules` protect. | Yes |
-| [advanced\_backup\_settings](#advanced-backup-settings "#advanced-backup-settings") | Configuration options for specific backup scenarios.<br>Currently, the only advanced backup setting that is supported is<br>enabling Microsoft Volume Shadow Copy Service (VSS) backups for<br>Windows or SQL Server running on an Amazon EC2 instance. | No |
+| [advanced\_backup\_settings](#advanced-backup-settings "#advanced-backup-settings") | Configuration options for specific backup scenarios.<br>Supported advanced backup settings include enabling Microsoft<br>Volume Shadow Copy Service (VSS) backups for Windows or SQL Server<br>running on Amazon EC2 instances, and configuring ACL and object tag<br>backup options for Amazon S3. | No |
 | [backup\_plan\_tags](#backup-plan-tags "#backup-plan-tags") | Tags you want to associate with a backup plan. Each tag is a<br>label consisting of a user-defined key and value.<br>Tags can help you manage, identify, organize, search for, and<br>filter your backup plans. | No |
 | [scan\_settings](#scan-settings "#scan-settings") | Configuration options for scan settings. Currently the only scan settings that<br>is support is enable Amazon GuardDuty Malware Protection for AWS Backup. | No |
 
@@ -184,9 +184,12 @@ specific backup scenarios. Each setting contains the following elements:
 
 Advanced backup settings elements| Element | Description | Required |
 | --- | --- | --- |
-| `advanced_backup_settings` | Specifies settings for specific backup scenarios. This key contains<br>one or more settings. Each setting is a JSON object string with the<br>following elements: Currently the only advanced backup setting<br>that is supported is enabling Microsoft Volume Shadow Copy Service<br>(VSS) backups for Windows or SQL Server running on an Amazon EC2<br>instance.<br>Each advanced backup setting the following elements:<br>• `Object key name`: String that specifies the<br>type of resource to which the following advanced settings<br>apply.<br>The key name must be the `"ec2"` resource<br>type<br>• `Object value`: Dtring that contains one or<br>more backup settings specific to the associated resource<br>type.<br>The value specifies that `"windows_vss"`<br>support is either `enabled` or<br>`disabled` for backups performed on the Amazon EC2<br>instances. | No |
+| `advanced_backup_settings` | Specifies settings for specific backup scenarios. This key contains<br>one or more settings. Each setting is a JSON object string with the<br>following elements:<br>Each advanced backup setting contains the following elements:<br>• `Object key name`: String that specifies the<br>type of resource to which the following advanced settings<br>apply.<br>Supported resource types are `"ec2"` and<br>`"s3"`.<br>• `Object value`: String that contains one or<br>more backup settings specific to the associated resource<br>type.<br>For `"ec2"`: The `"windows_vss"`<br>setting enables or disables Microsoft Volume Shadow Copy<br>Service (VSS) backups for Windows or SQL Server running on<br>Amazon EC2 instances. Values: `enabled` or<br>`disabled`.<br>For `"s3"`: The following settings control<br>Amazon S3 backup behavior:<br>+ `"backup_acls"`: Specifies whether to<br>back up access control lists (ACLs) for Amazon S3<br>objects. Values: `enabled` (default) or<br>`disabled`.<br>+ `"backup_object_tags"`: Specifies<br>whether to back up object tags for Amazon S3 objects.<br>Values: `enabled` (default) or<br>`disabled`. | No |
 
 **Example:**
+
+The following example shows advanced backup settings for both Amazon EC2 and Amazon S3
+resources:
 
 ```
 
@@ -194,6 +197,14 @@ Advanced backup settings elements| Element | Description | Required |
     "ec2": {
         "windows_vss": {
             "@@assign": "enabled"
+        }
+    },
+    "s3": {
+        "backup_acls": {
+            "@@assign": "disabled"
+        },
+        "backup_object_tags": {
+            "@@assign": "disabled"
         }
     }
 },

@@ -31,7 +31,13 @@ addition, the following restrictions apply:
 
 ###### Note
 
-AWS PrivateLink for AWS Organizations is available in all commercial AWS Regions,
-the AWS China (Ningxia) Region, and the AWS GovCloud (US-West) Region.
+AWS Organizations is a global service. You can create an interface VPC endpoint for
+AWS Organizations only in the Region where the AWS Organizations control plane is located. In
+commercial AWS Regions, the control plane is located in US East (N. Virginia)
+(us-east-1). AWS Organizations also supports interface VPC endpoints in the AWS China
+(Ningxia) Region and the AWS GovCloud (US-West) Region. If your VPC is in a
+different Region from the control plane Region, you must use AWS Transit Gateway
+to access the AWS Organizations interface VPC endpoint from another Region. For more
+information, see [Creating a VPC endpoint for AWS Organizations](create-vpc-endpoint.md "create-vpc-endpoint.md").
 
 - AWS PrivateLink for AWS Organizations does not support Transport Layer Security (TLS) 1.1.
