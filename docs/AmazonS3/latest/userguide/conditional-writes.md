@@ -160,7 +160,7 @@ is the AWS Command Line Interface?](../../../cli/latest/userguide/cli-chap-welco
 
 ## Conditional write behavior
 
-**Conditional writesor copies with `If-None-Match` header**
+**Conditional writes or copies with `If-None-Match` header**
 
 Conditional writes with the `If-None-Match` header evaluate
 against existing objects in a bucket. If there's no existing object with the

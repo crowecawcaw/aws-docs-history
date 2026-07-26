@@ -52,7 +52,7 @@ The following naming rules apply for general purpose buckets.
 - General purpose buckets exist in a global namespace, which means that each bucket name must be unique across all
   AWS accounts in all the AWS Regions within a partition. A partition is a grouping of
   Regions. AWS currently has four partitions: `aws` (Standard Regions),
-  `aws-cn` (China Regions), `aws-us-gov` (AWS GovCloud (US)), and `aws-eusc` (European Sovereign Cloud). After creating a general purpose bucket in the shared global namespace, that bucket name is unavailable for anyone else to create within partition. When a bucket owner deletes their bucket, the bucket name becomes available again in the global namespace for anyone to re-create.
+  `aws-cn` (China Regions), `aws-us-gov` (AWS GovCloud (US)), and `aws-eusc` (European Sovereign Cloud). After creating a general purpose bucket in the shared global namespace, that bucket name is unavailable for anyone else to create within a partition. When a bucket owner deletes their bucket, the bucket name might become available again in the global namespace for anyone to re-create. However, the name might not become available immediately, and in some cases might not become available again at all.
 - A bucket name in the shared global namespace can't be used by another AWS account in the same partition until the
   bucket is deleted. **After you delete a bucket in the shared global namespace, be aware that another
   AWS account in the same partition can use the same bucket name for a new bucket and can

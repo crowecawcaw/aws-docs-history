@@ -63,14 +63,14 @@ identities. This policy grants permissions for the Amazon EFS Container Storage 
 information about this policy, see
 [AmazonS3FilesCSIDriverPolicy](../../../aws-managed-policy/latest/reference/AmazonS3FilesCSIDriverPolicy.md "../../../aws-managed-policy/latest/reference/AmazonS3FilesCSIDriverPolicy.md") in the AWS Managed Policy Reference.
 
-## AWS managed policy: AmazonElasticFileSystemUtils
+## AWS managed policy: AmazonElasticFileSystemsUtils
 
-You can attach the `AmazonElasticFileSystemUtils` policy to your IAM
+You can attach the `AmazonElasticFileSystemsUtils` policy to your IAM
 identities. This policy grants permissions for the S3 Files client utilities
 (amazon-efs-utils) to perform operations such as describing mount targets, publishing
 CloudWatch metrics and logs, and communicating with AWS Systems Manager. For more
 information about this policy, see
-[AmazonElasticFileSystemUtils](../../../aws-managed-policy/latest/reference/AmazonElasticFileSystemUtils.md "../../../aws-managed-policy/latest/reference/AmazonElasticFileSystemUtils.md") in the AWS Managed Policy Reference.
+[AmazonElasticFileSystemsUtils](../../../aws-managed-policy/latest/reference/AmazonElasticFileSystemsUtils.md "../../../aws-managed-policy/latest/reference/AmazonElasticFileSystemsUtils.md") in the AWS Managed Policy Reference.
 
 ## Amazon S3 Files updates to AWS managed policies
 
@@ -78,7 +78,7 @@ View details about updates to AWS managed policies for Amazon S3 Files since S3 
 
 | Change                                       | Description                                                                                                                                       | Date          |
 | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `AmazonElasticFileSystemUtils` — Updated     | Added Amazon CloudWatch PutMetricData permissions to support<br>publishing client connectivity metrics.                                           | April 7, 2026 |
+| `AmazonElasticFileSystemsUtils` — Updated    | Added Amazon CloudWatch PutMetricData permissions to support<br>publishing client connectivity metrics.                                           | April 7, 2026 |
 | `AmazonS3FilesCSIDriverPolicy` — Added       | New managed policy that grants permissions for the Amazon EFS CSI<br>driver to manage S3 Files access points on behalf of Amazon EKS<br>clusters. | April 7, 2026 |
 | `AmazonS3FilesClientReadOnlyAccess` — Added  | New managed policy that grants read-only client access to S3 Files<br>file systems.                                                               | April 7, 2026 |
 | `AmazonS3FilesClientReadWriteAccess` — Added | New managed policy that grants read and write client access to S3<br>Files file systems.                                                          | April 7, 2026 |

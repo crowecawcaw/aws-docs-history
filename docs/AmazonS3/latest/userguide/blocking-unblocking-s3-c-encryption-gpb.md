@@ -76,7 +76,7 @@ aws s3api put-bucket-encryption \
   --server-side-encryption-configuration '{
     "Rules": [{
       "BlockedEncryptionTypes": {
-        "EncryptionType": "SSE-C"
+        "EncryptionType": ["SSE-C"]
       }
     }]
   }'
@@ -90,7 +90,7 @@ aws s3api put-bucket-encryption \
   --server-side-encryption-configuration '{
     "Rules": [{
       "BlockedEncryptionTypes": {
-        "EncryptionType": "NONE"
+        "EncryptionType": ["NONE"]
       }
     }]
   }'
