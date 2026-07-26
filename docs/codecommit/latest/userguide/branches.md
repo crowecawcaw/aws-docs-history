@@ -20,7 +20,7 @@ a branch and the default branch (or any two branches). To view the history of br
 merges in your repository, you can use the [Commit visualizer](how-to-view-commit-details.md#how-to-view-commit-details-console-visualizer "how-to-view-commit-details.md#how-to-view-commit-details-console-visualizer"), which
 is shown in the following graphic.
 
-![A view of branches in a repository](images/codecommit-cv-complex1.png)
+![A view of branches in a repository](/images/codecommit/latest/userguide/images/codecommit-cv-complex1.png)
 For information about working with other aspects of your repository in CodeCommit, see [Working with repositories](repositories.md "repositories.md"), [Working with files](files.md "files.md"), [Working with pull requests](pull-requests.md "pull-requests.md"), [Working with commits](commits.md "commits.md"), and [Working with user preferences](user-preferences.md "user-preferences.md").
 
 ###### Topics
