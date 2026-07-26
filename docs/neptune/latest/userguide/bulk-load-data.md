@@ -94,7 +94,7 @@ _Example:_ In the command `aws s3 cp
 
 Alternatively, you can use the AWS Management Console to upload files to the S3 bucket. Open the
 Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"), and
-choose a bucket. In the upper-left corner, choose **Upload** to upload
+choose a bucket. Choose **Upload** to upload
 files. 2. From a command line window, enter the following to run the Neptune loader, using the
 correct values for your endpoint, Amazon S3 path, format, and IAM role ARN.
 

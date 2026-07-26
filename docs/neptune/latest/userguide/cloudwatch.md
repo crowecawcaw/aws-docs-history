@@ -26,12 +26,12 @@ occurs. For more information about using CloudWatch and alarms, see the [CloudWa
 2. In the navigation pane, choose **Metrics**.
 3. In the **All Metrics** pane, choose **Neptune**, and
    then choose **DBClusterIdentifier**.
-4. In the upper pane, scroll down to view the full list of metrics for your cluster. The
+4. In the metrics pane, review the full list of metrics for your cluster. The
    available Neptune metric options appear in the **Viewing** list.
 
 To select or deselect an individual metric, in the results pane, select the check box
 next to the resource name and metric. Graphs showing the metrics for the selected items
-appear at the bottom of the console. To learn more about CloudWatch graphs, see [Graph Metrics](../../../AmazonCloudWatch/latest/DeveloperGuide/graph_metrics.md "../../../AmazonCloudWatch/latest/DeveloperGuide/graph_metrics.md") in the
+appear in the graph pane. To learn more about CloudWatch graphs, see [Graph Metrics](../../../AmazonCloudWatch/latest/DeveloperGuide/graph_metrics.md "../../../AmazonCloudWatch/latest/DeveloperGuide/graph_metrics.md") in the
 _Amazon CloudWatch User Guide_.
 
 ## Viewing CloudWatch Data (AWS CLI)

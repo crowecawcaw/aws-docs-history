@@ -100,7 +100,7 @@ than its IP address.
 
 1. Sign in to the AWS Management Console and open the Amazon VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. In the upper-right corner of the console, choose the AWS region where
+2. From the **Region** selector, choose the AWS Region where
    you want to create a VPC security group for Neptune. In the list of Amazon VPC
    resources for that region, it should show that you have at least one VPC and several
    subnets. If it does not, you don't have a default VPC in that Region.

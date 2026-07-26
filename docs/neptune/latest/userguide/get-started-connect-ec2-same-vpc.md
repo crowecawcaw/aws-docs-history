@@ -33,7 +33,7 @@ permissions must be set to 400 (`chmod 400 `keypair.pem``).
 
 1. Sign in to the AWS Management Console and open the Amazon VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. In the top-right corner of the AWS Management Console, choose the Region
+2. From the **Region** selector, choose the AWS Region
    to create your VPC in.
 3. In the **VPC Dashboard**, choose **Launch
    VPC Wizard**.

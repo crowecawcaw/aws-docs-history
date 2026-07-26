@@ -11,6 +11,7 @@ a `neptune-db:` prefix.
 - [IAM resource types for accessing data in Amazon Neptune](iam-data-resources.md "iam-data-resources.md")
 - [IAM condition keys for accessing data in Amazon Neptune](iam-data-condition-keys.md "iam-data-condition-keys.md")
 - [Creating IAM data-access policies in Amazon Neptune](iam-data-access-examples.md "iam-data-access-examples.md")
+- [Tag-based access control for Amazon Neptune data-plane operations](iam-data-tbac.md "iam-data-tbac.md")
 
 ## Using query actions in Neptune data-access policy statements
 

@@ -7,8 +7,8 @@ AWS Management Console.
 To create a new Neptune DB cluster with IAM authentication by using the console,
 follow the instructions for creating a Neptune DB cluster in [Launching a Neptune DB cluster using the AWS Management Console](manage-console-launch-console.md "manage-console-launch-console.md").
 
-During the creation process, scroll down to **Additional settings**
-and select **Turn on IAM Authentication**.
+During the creation process, under **Additional settings**,
+choose **Turn on IAM Authentication**.
 
 ###### To enable or disable IAM authentication for an existing DB instance or cluster
 
@@ -16,7 +16,7 @@ and select **Turn on IAM Authentication**.
 2. In the navigation pane, choose **Clusters**.
 3. Choose the Neptune DB cluster that you want to modify, and then choose
    **Modify**.
-4. Scroll down to **Additional settings**. For **IAM DB
+4. Under **Additional settings**, for **IAM DB
    Authentication**, choose either **Turn on IAM Authentication** or
    **Turn off IAM Authentication** (to disable). Then choose
    **Next**.
