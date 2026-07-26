@@ -599,7 +599,7 @@ As Karpenter takes an application-first approach to provision compute
 capacity for to the Kubernetes data plane, there are common workload
 scenarios that you might be wondering how to configure them properly.
 [Karpenter
-Blueprints](https://github.com/aws-ia/terraform-aws-eks-blueprints-addons "https://github.com/aws-ia/terraform-aws-eks-blueprints-addons") is a repository that includes a list of common workload
+Blueprints](https://github.com/aws-samples/karpenter-blueprints "https://github.com/aws-samples/karpenter-blueprints") is a repository that includes a list of common workload
 scenarios following the best practices described here. You’ll have all
 the resources you need to even create an EKS cluster with Karpenter
 configured, and test each of the blueprints included in the repository.

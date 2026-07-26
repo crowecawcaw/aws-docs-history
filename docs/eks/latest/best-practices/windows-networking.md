@@ -95,6 +95,6 @@ The AWSVPC CNI is the de facto CNI plugin for Windows and Linux worker nodes. Wh
 
 It is considered a best practice to change from the default mode of open communication between pods on your Kubernetes cluster to limiting access based on network polices. The open source [Project Calico](https://www.tigera.io/tigera-products/calico/ "https://www.tigera.io/tigera-products/calico/") has strong support for network polices that work with both Linux and Windows nodes. This feature is separate and not dependent on using the Calico CNI. We therefore recommend installing Calico and using it for network policy management.
 
-Instructions for installing Calico in EKS can be found on the [Installing Calico on Amazon EKS](../userguide/calico.md "../userguide/calico.md") page.
+For instructions on installing Calico on Amazon EKS, see [Installing Calico on Amazon EKS](https://docs.tigera.io/calico/latest/getting-started/kubernetes/managed-public-cloud/eks "https://docs.tigera.io/calico/latest/getting-started/kubernetes/managed-public-cloud/eks") on the Tigera website.
 
 In addition, the advice provided in the [Amazon EKS Best Practices Guide for Security - Network Section](network-security.md "network-security.md") applies equally to EKS clusters with Windows worker nodes, however, some features like "Security Groups for Pods" are not supported by Windows at this time.
