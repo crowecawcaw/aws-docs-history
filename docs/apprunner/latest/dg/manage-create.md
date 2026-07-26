@@ -71,7 +71,7 @@ a container instance of this image.
    1. In the **Deployment settings** section, choose **Manual** or **Automatic**.
 
    For more information about deployment methods, see [Deployment methods](manage-deploy.md#manage-deploy.methods "manage-deploy.md#manage-deploy.methods"). 2. Choose **Next**.
-   ![Source and deployment settings while creating an App Runner service](images/getting-started-create-source-depl.png)
+   ![Source and deployment settings while creating an App Runner service](/images/apprunner/latest/dg/images/getting-started-create-source-depl.png)
 
 3. Configure the application build.
 
