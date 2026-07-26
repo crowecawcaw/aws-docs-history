@@ -4,6 +4,20 @@ Amazon DynamoDB point-in-time recovery (PITR) provides continuous backups of you
 data. You can restore a table to a point in time using the DynamoDB console or the AWS Command Line Interface
 (AWS CLI). The point-in-time recovery process restores to a new table.
 
+Because a restore always creates a new table, your source table stays fully available for
+reads and writes while the restore runs. The restore duration depends on the amount of data
+and the number of secondary indexes that DynamoDB rebuilds on the new table—larger tables
+and more indexes take longer, and no fixed completion time is guaranteed. To make a restore
+faster, you can exclude some or all secondary indexes from the new table.
+
+A restore recreates the following on the new table from the source table's settings at the
+restore point: the table data, global secondary indexes, local secondary indexes,
+provisioned read and write capacity, and encryption settings. After the restore completes,
+you must set up the following on the new table yourself, because a restore does not carry
+them over: auto scaling policies, AWS Identity and Access Management policies, CloudWatch metrics
+and alarms, tags, DynamoDB Streams settings, Time to Live settings, and point-in-time recovery
+settings.
+
 If you want to use the AWS CLI, you must configure it first. For more information, see [Accessing DynamoDB](AccessingDynamoDB.md "AccessingDynamoDB.md").
 
 ###### Topics

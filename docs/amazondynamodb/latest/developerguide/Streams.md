@@ -175,6 +175,27 @@ records in the correct order. It automatically handles new or expired shards, in
 addition to shards that split while the application is running. For more
 information, see [Using the DynamoDB Streams Kinesis adapter to process stream records](Streams.KCLAdapter.md "Streams.KCLAdapter.md").)
 
+Each open shard corresponds to exactly one table [Partitions and data distribution in DynamoDB](HowItWorks.Partitions.md "HowItWorks.Partitions.md"): a given
+partition writes its stream records to a single dedicated shard, and no other
+partition writes to that shard. As DynamoDB adds partitions to a table to handle more
+data or throughput, it adds shards to match, so the stream scales alongside the
+table.
+
+When you use AWS Lambda to consume a stream through an [event source
+mapping](../../../lambda/latest/dg/invocation-eventsourcemapping.md "../../../lambda/latest/dg/invocation-eventsourcemapping.md"), Lambda processes each open shard with a single function instance
+and reads that shard's records in sequence-number order. Lambda also follows shard
+lineage for you, processing a parent shard before its child shards. By default, one
+function instance processes one shard; you can raise the
+`ParallelizationFactor` (up to 10) so that Lambda processes a single
+shard with multiple concurrent instances while still preserving the order of changes
+for each item.
+
+DynamoDB Streams guarantees ordering at the level of an individual item—that is, across
+all modifications to the same primary key (the partition key, or the partition key
+and sort key)—not across an entire partition. Because an item collection that
+shares a partition key can span more than one partition, DynamoDB preserves the order
+of changes for each item rather than across a whole item collection.
+
 The following diagram shows the relationship between a stream, shards in the
 stream, and stream records in the shards.
 

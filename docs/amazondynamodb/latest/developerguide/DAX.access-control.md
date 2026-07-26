@@ -11,6 +11,23 @@ you can implement proper security measures for your applications that use DAX.
 This section describes the access control mechanisms provided by DAX and provides sample
 IAM policies that you can tailor to your needs.
 
+###### Protect sensitive data in cluster names
+
+When you create a DAX cluster, do not include sensitive identifying information,
+such as your customers' account numbers, in the cluster name. Cluster names can be
+visible outside your account. When you enable encryption in transit, DAX uses AWS
+Certificate Manager (ACM) to provision a Transport Layer Security (TLS) certificate for
+the cluster endpoint, and that certificate includes your cluster name.
+
+ACM automatically records every public certificate that it issues in public
+Certificate Transparency (CT) logs, and browser policy requirements prevent you from
+opting out. As a result, public CT logs contain the names of TLS-enabled DAX clusters
+after ACM issues or renews the certificate. For general guidance on resource naming, see
+[Data protection in DynamoDB](data-protection.md "data-protection.md"). For more
+information about CT logging, see [Certificate
+transparency logging](../../../acm/latest/userguide/acm-concepts.md#concept-transparency "../../../acm/latest/userguide/acm-concepts.md#concept-transparency") in the _AWS Certificate Manager User
+Guide_.
+
 With DynamoDB, you can create IAM policies that limit the actions a user can perform on
 individual DynamoDB resources. For example, you can create a user role that only allows the
 user to perform read-only actions on a particular DynamoDB table. (For more information, see

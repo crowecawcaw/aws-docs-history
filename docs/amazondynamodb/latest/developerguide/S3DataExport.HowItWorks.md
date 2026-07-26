@@ -14,6 +14,14 @@ availability. The export file formats supported are DynamoDB JSON and Amazon Ion
 can also export data to an S3 bucket owned by another AWS account and to a different AWS
 region. Your data is always encrypted end-to-end.
 
+###### Note
+
+No service-level agreement (SLA) guarantees export completion times, and these times
+can vary. An export's duration depends on factors such as the size of the table or data
+being exported, how the data is distributed across the table, and other exports that are
+in progress. For this reason, avoid building workflows that depend on an export
+completing within a fixed amount of time.
+
 DynamoDB full exports are charged based on the size of the DynamoDB table (table data and local
 secondary indexes) at the point in time for which the export is done. DynamoDB incremental
 exports are charged based on the size of data processed from your continuous backups for the

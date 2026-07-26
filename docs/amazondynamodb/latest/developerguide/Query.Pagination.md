@@ -29,6 +29,15 @@ retrieve them one page at a time, applications should do the following:
    is more data in the result set. The only way to know when you have reached the end of
    the result set is when `LastEvaluatedKey` is empty.
 
+A non-empty `LastEvaluatedKey` only means that the previous
+`Query` stopped at a page boundary—the 1 MB page-size limit or a
+`Limit` value—not that more matching items necessarily remain. In
+particular, when you use a `FilterExpression`, `Query` applies the
+1 MB/`Limit` page cap to the items it reads _before_
+applying the filter, so a page can return zero matching items and still include a
+`LastEvaluatedKey`. Keep issuing requests with the returned
+`LastEvaluatedKey` until the response no longer contains one.
+
 You can use the AWS CLI to view this behavior. The AWS CLI sends low-level
 `Query` requests to DynamoDB repeatedly, until `LastEvaluatedKey`
 is no longer present in the results. Consider the following AWS CLI example that retrieves
