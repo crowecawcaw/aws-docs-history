@@ -38,7 +38,7 @@ using wheel, refer to [Managing dependencies using Python wheel](best-practices-
 
 The following image depicts where to find the **Private network** option on the Amazon MWAA console.
 
-![This image depicts where to find the Private network option on the Amazon MWAA console.](/images/mwaa/latest/userguide/images/mwaa-console-private-network-2026.png)
+![This image depicts where to find the Private network option on the Amazon MWAA console.](images/mwaa-console-private-network-2026.png)
 
 - **Private routing**. An [Amazon VPC without internet access](networking-about.md "networking-about.md")
   limits network traffic within the VPC. This page assumes your Amazon VPC does not have internet access and requires VPC endpoints for each AWS

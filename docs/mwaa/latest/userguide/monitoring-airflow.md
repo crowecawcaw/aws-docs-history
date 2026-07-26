@@ -22,15 +22,15 @@ Amazon MWAA can send Apache Airflow logs to Amazon CloudWatch. You can access lo
 
 ## Log types
 
-Amazon MWAA creates a log group for each Airflow logging option you enable, and pushes the logs to the CloudWatch Logs groups associated with an environment. Log groups are named in the following format: `YourEnvironmentName-`LogType``. For example, if your environment's named `Airflow-v202-Public`, Apache Airflow task logs are sent to `Airflow-v202-Public-`Task``.
+Amazon MWAA creates a log group for each Airflow logging option you enable, and pushes the logs to the CloudWatch Logs groups associated with an environment. Log groups are named in the following format: `airflow-YourEnvironmentName-`LogType``. For example, if your environment's named `Airflow-v202-Public`, Apache Airflow task logs are sent to `airflow-Airflow-v202-Public-`Task``.
 
-| Log type                              | Description                                                                                 |
-| ------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `YourEnvironmentName-`DAGProcessing`` | The logs of the DAG processor manager (the part of the scheduler that processes DAG files). |
-| `YourEnvironmentName-`Scheduler``     | The logs the Airflow scheduler generates.                                                   |
-| `YourEnvironmentName-`Task``          | The task logs a DAG generates.                                                              |
-| `YourEnvironmentName-`WebServer``     | The logs the Airflow web interface generates.                                               |
-| `YourEnvironmentName-`Worker``        | The logs generated as part of workflow and DAG execution.                                   |
+| Log type                                      | Description                                                                                 |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `airflow-YourEnvironmentName-`DAGProcessing`` | The logs of the DAG processor manager (the part of the scheduler that processes DAG files). |
+| `airflow-YourEnvironmentName-`Scheduler``     | The logs the Airflow scheduler generates.                                                   |
+| `airflow-YourEnvironmentName-`Task``          | The task logs a DAG generates.                                                              |
+| `airflow-YourEnvironmentName-`WebServer``     | The logs the Airflow web interface generates.                                               |
+| `airflow-YourEnvironmentName-`Worker``        | The logs generated as part of workflow and DAG execution.                                   |
 
 ## Enabling Apache Airflow logs
 

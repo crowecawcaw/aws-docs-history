@@ -37,7 +37,7 @@ using wheel, refer to [Managing dependencies using Python wheel](best-practices-
 
 The following image depicts where to find the **Private network** option on the Amazon MWAA console.
 
-![This image depicts where to find the Private network option on the Amazon MWAA console.](images/mwaa-console-private-network-2026.png)
+![This image depicts where to find the Private network option on the Amazon MWAA console.](/images/mwaa/latest/userguide/images/mwaa-console-private-network-2026.png)
 
 ## Use cases
 

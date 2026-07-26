@@ -72,7 +72,14 @@ The following section describes the steps to create an Amazon MWAA environment.
 
    ###### Note
 
-   If no value is specified, defaults to the latest Apache Airflow version. The latest available version is Apache Airflow v3.0.6.
+   If no value is specified, defaults to the latest Apache Airflow version. The latest available version is Apache Airflow v3.2.1. 3. Enter your preferred maintenance period in the **Weekly maintenance window**.
+
+   ###### Note
+
+   Amazon MWAA performs two types of maintenance on your environment:
+
+        * **Routine database maintenance** – Amazon MWAA passes a maintenance window to the underlying Amazon Aurora PostgreSQL metadata database. This maintenance does not interrupt your running DAGs, tasks, or other Apache Airflow operations.
+        * **Critical patching** – In rare cases, Amazon MWAA might apply security or stability patches to affected environments. Before a patch, you receive a notification through the AWS Health Dashboard. A critical patch restarts your environment, making it temporarily unavailable.You cannot opt out of maintenance on managed services.
 
 5. Under **DAG code in Amazon S3** specify the following:
 

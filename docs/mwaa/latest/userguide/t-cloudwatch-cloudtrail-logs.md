@@ -13,6 +13,7 @@ The topics on this page contain resolutions to Amazon CloudWatch Logs and AWS Cl
   - [I get Cannot locate a 64-bit Oracle Client library: "libclntsh.so: cannot open shared object file: No such file or directory in Apache Airflow logs](t-cloudwatch-cloudtrail-logs.md#t-plugins-logs "t-cloudwatch-cloudtrail-logs.md#t-plugins-logs")
   - [I get psycopg2 'server closed the connection unexpectedly' in my scheduler logs](t-cloudwatch-cloudtrail-logs.md#scheduler-postgres-library "t-cloudwatch-cloudtrail-logs.md#scheduler-postgres-library")
   - [I get Executor reports task instance %s finished (%s) although the task says its %s in my DAG processing logs](t-cloudwatch-cloudtrail-logs.md#long-running-tasks "t-cloudwatch-cloudtrail-logs.md#long-running-tasks")
+  - [Triggerer logs do not appear in the Airflow UI](t-cloudwatch-cloudtrail-logs.md#t-triggerer-logs-missing "t-cloudwatch-cloudtrail-logs.md#t-triggerer-logs-missing")
   - [I get Could not read remote logs from log\_group: airflow-\*{\*environmentName}-Task log\_stream:\* {\*DAG\_ID}/\*{\*TASK\_ID}/\*{\*time}/\*{\*n}.log. in my task logs](t-cloudwatch-cloudtrail-logs.md#t-task-fail-permission "t-cloudwatch-cloudtrail-logs.md#t-task-fail-permission")
 
 ## Logs
@@ -146,6 +147,16 @@ Executor reports task instance %s finished (%s) although the task says its %s. (
 We recommend the following steps:
 
 - Consider breaking up the task into multiple, shorter running tasks. Airflow typically has a model whereby operators are asynchronous. It invokes activities on external systems, and Apache Airflow Sensors poll to check when it's complete. If a Sensor fails, it can be safely retried without impacting the Operator's functionality.
+
+### Triggerer logs do not appear in the Airflow UI
+
+If triggerer logs do not appear in the Apache Airflow UI, your execution role might be missing the `logs:DescribeLogStreams` permission. Without this permission, Amazon MWAA cannot discover triggerer log streams. No error appears in the logs, which can make this issue difficult to identify.
+
+Add `logs:DescribeLogStreams` to your execution role. Scope the permission to your environment's log group ARN. For more information, see [Amazon MWAA execution role](mwaa-create-role.md "mwaa-create-role.md").
+
+###### Note
+
+This issue affects your environment if you use Apache Airflow version 3.x with deferrable operators. If you created your execution role in the console before the default role included this permission, add it manually.
 
 ### I get `Could not read remote logs from log_group: airflow-*{*environmentName}-Task log_stream:* {*DAG_ID}/*{*TASK_ID}/*{*time}/*{*n}.log.` in my task logs
 
