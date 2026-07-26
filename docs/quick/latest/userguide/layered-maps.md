@@ -8,11 +8,6 @@ dimensions. Shape layers can be styled by color, border, and opacity. Quick
 authors can also add interactivity to layer maps through tooltips and custom
 actions.
 
-###### Note
-
-Amazon Quick layer map visuals only support polygon shapes. Line and point
-geometries are not supported.
-
 The following image shows a layer map visual in Amazon Quick.
 
 ![Choropleth map of Washington DC area showing percentage data by census tract with gradient from green to orange.](images/layer-map.png)

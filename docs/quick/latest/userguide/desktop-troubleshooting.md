@@ -259,6 +259,5 @@ This action is irreversible. It removes all Quick data, including conversations,
 If the preceding troubleshooting steps don't resolve your issue, you can use the following resources.
 
 - **Export diagnostics** and share them with your support team.
-- **Developer menu** – Choose the connection status dot (green dot in the top-right corner) to access Mission Control, Metrics overlay, Debug panel, and Memory panel for advanced diagnostics.
 - Contact your organization's IT administrator for enterprise account issues.
 - Visit the Amazon Quick documentation for the latest guidance.

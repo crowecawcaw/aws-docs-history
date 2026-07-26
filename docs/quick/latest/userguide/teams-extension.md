@@ -260,10 +260,10 @@ Now you can follow these steps to create a new extension access configuration th
 ###### To create an extension access configuration
 
 1. Sign in to the Amazon Quick console.
-2. In the top right, choose the profile picture icon.
+2. Choose the profile picture icon.
 3. From the drop-down menu, choose **Manage account**.
 4. Under **Permissions**, choose **Extension access**.
-5. In the top right, choose **New extension access**.
+5. Choose **New extension access**.
 6. If this is your first time setting up extension access, you are prompted to complete the **Trusted Token Issuer Setup**. Configure the following fields and then choose **Next**:
 
    - **Trusted Token Issuer ARN** – Enter the trusted token issuer ARN that you noted from the earlier steps.
@@ -300,12 +300,12 @@ allow Amazon Quick to integrate with your Microsoft Teams
 environment.
 
 1. Sign in to the Amazon Quick console.
-2. In the top right, select the profile picture icon.
+2. Choose the profile picture icon.
 3. From the drop-down menu, select **Manage
    account**.
 4. Under **Permissions**, select **Extension
    access**.
-5. In the top right, select **New extension
+5. Choose **New extension
    access**.
 6. Select **Microsoft Teams**, then,
    **Next**.
@@ -357,7 +357,7 @@ Use these steps to modify the configuration settings of an existing
 Microsoft Teams extension access.
 
 1. Sign in to the Amazon Quick console.
-2. In the top right, select the profile picture icon.
+2. Choose the profile picture icon.
 3. From the drop-down menu, select **Manage
    account**.
 4. Under **Permissions**, select **Extension
@@ -377,7 +377,7 @@ Follow these steps to permanently remove a Microsoft Teams
 extension access configuration. This action cannot be undone.
 
 1. Sign in to the Amazon Quick console.
-2. In the top right, select the profile picture icon.
+2. Choose the profile picture icon.
 3. From the drop-down menu, select **Manage
    account**.
 4. Under **Permissions**, select **Extension

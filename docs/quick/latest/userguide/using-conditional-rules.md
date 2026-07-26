@@ -9,7 +9,7 @@ conditional rules you have set.
 1. From the Quick homepage, choose
    **Analyses**, and then choose the analysis you want
    to customize.
-2. On the **Controls** bar at the top of your workspace,
+2. On the **Controls** bar,
    choose the dropdown icon.
 3. Choose the parameter control associated with the conditional rule you
    created.
@@ -33,7 +33,7 @@ appears only when specific conditions are met.
 1. From the Quick homepage, choose
    **Analyses**, and then choose the analysis you want
    to customize.
-2. On the **Controls** bar at the top of your workspace,
+2. On the **Controls** bar,
    choose the control that you want to move.
 3. At the upper right-hand side of the control, open the **Menu
    options** menu.

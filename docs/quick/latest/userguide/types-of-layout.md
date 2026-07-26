@@ -14,8 +14,7 @@ want within a dashboard, but visuals can’t overlap.
 
 Dashboards are displayed as designed, with options to fit to screen or view at
 actual size. You can also fit an entire dashboard to your window by choosing
-**Fit to window** for **View** in the
-top-right corner. This option was previously called
+**Fit to window** for **View**. This option was previously called
 **Optimized**.
 
 ###### Note
@@ -37,8 +36,7 @@ Dashboards are displayed the way that you choose to design them, with options
 to fit to screen or to view at its actual size. You can optimize free-form
 layouts for viewing at specific resolutions, with the default being 1,600
 pixels. You can also fit an entire dashboard to a browser's window by
-choosing **Fit to window** for **View** in the
-top-right corner.
+choosing **Fit to window** for **View**.
 
 ###### Note
 
