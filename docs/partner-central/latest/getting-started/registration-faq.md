@@ -63,3 +63,9 @@ To maintain the security and integrity of the AWS Partner Network and AWS custom
 To register as an AWS Partner, your AWS account must be on a paid plan rather than the AWS Free Tier, and your account must be in good standing with AWS. Upgrading to a paid plan does not incur additional costs beyond your actual AWS usage.
 
 If you are currently on the AWS Free Tier, log into the AWS Management Console and [upgrade your account to a paid plan](https://console.aws.amazon.com/billing/home?#/freetier/upgrade "https://console.aws.amazon.com/billing/home?#/freetier/upgrade"). If your account is already on a paid plan and the error persists, sign in to the AWS Management Console and contact APN support through [this external link](https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US "https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US") and specify the issue.
+
+## When I enter the Alliance Lead email address in the registration form, I see "domain in use" error. How do I resolve this?
+
+This error means your company already has a AWS Partner Central account. Your company hasn't yet migrated that account to the new Partner Central in the AWS Management Console. You don't need to create a new account.
+
+To resolve this error, return to [legacy Partner Central](https://partnercentral.awspartner.com/partnercentral2/s/login "https://partnercentral.awspartner.com/partnercentral2/s/login"), sign in as an existing AWS Partner, and complete the migration.

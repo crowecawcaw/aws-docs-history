@@ -8,4 +8,5 @@ User access to AWS Partner Central is managed through AWS Identity and Access Ma
 - [Controlling access in AWS Partner Central account management](controlling-access-in-apc-account-management.md "controlling-access-in-apc-account-management.md")
 - [AWS managed policies for AWS Partner Central users](managed-policies.md "managed-policies.md")
 - [Mapping Partner Central Users to Managed Policies](managed-policy-mappings.md "managed-policy-mappings.md")
+- [Mapping legacy Partner Central roles to AWS IAM](legacy-role-mappings.md "legacy-role-mappings.md")
 - [User Management FAQs](user-management-faq.md "user-management-faq.md")

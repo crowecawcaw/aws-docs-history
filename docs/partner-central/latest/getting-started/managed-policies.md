@@ -37,8 +37,23 @@ for AWS Marketplace sellers](../../../marketplace/latest/userguide/security-iam-
 You can attach the `AWSPartnerCentralFullAccess` policy to your IAM
 identities.
 
-This policy grants full access to AWS Partner Central and related AWS
-services.
+With this policy, you can access all AWS Partner Central features and related services. This policy allows the following operations:
+
+- Create, edit, and submit opportunities
+- Accept and manage leads
+- Create and manage fund requests and claims
+- View historical fund requests and funding wallets
+- Manage Partner Central settings and create Partner and Seller profiles
+- Access and manage Marketing Central campaigns, content, and case studies
+- View and manage channel relationships, channel handshakes, deal registration requests, and distribution engagement requests
+- Create and manage subsidiary account connections
+- Accept and manage multi-partner connections and opportunities
+- Search for and request connections with other AWS Partners
+- Create and manage Partner Business plans
+- Access Partner Scorecard and Partner Analytics
+- Access Badge Manager, Guides, and Amazon Q (Partner Assistant)
+- Create and manage program applications
+- Access Partner Central and Marketplace support
 
 To view the permissions for this policy, see
 [AWSPartnerCentralFullAccess](../../../aws-managed-policy/latest/reference/AWSPartnerCentralFullAccess.md "../../../aws-managed-policy/latest/reference/AWSPartnerCentralFullAccess.md")
@@ -69,7 +84,13 @@ Reference_.
 You can attach the `AWSPartnerCentralOpportunityManagement` policy to your
 IAM identities.
 
-This policy grants full access to manage opportunities in AWS Partner Central.
+With this policy, you can manage opportunities and leads in AWS Partner Central. This policy allows the following operations:
+
+- Create, edit, and submit opportunities
+- Accept and manage leads
+- Accept and manage multi-partner opportunities
+- Access Partner Scorecard, Guides, and Amazon Q (Partner Assistant)
+- Access Partner Central support
 
 To view the permissions for this policy, see
 [AWSPartnerCentralOpportunityManagement](../../../aws-managed-policy/latest/reference/AWSPartnerCentralOpportunityManagement.md "../../../aws-managed-policy/latest/reference/AWSPartnerCentralOpportunityManagement.md")
@@ -108,7 +129,14 @@ Reference_.
 You can attach the `AWSPartnerCentralChannelManagement` policy to your
 IAM identities.
 
-This policy grants access to manage channel programs and relationships in AWS Partner Central.
+With this policy, you can manage channel programs and partner relationships in AWS Partner Central. This policy allows the following operations:
+
+- View and manage channel relationships
+- Manage channel handshakes
+- View and manage distribution engagement requests
+- Manage and submit deal registration requests
+- Access Guides and Amazon Q (Partner Assistant)
+- Access Partner Central support
 
 To view the permissions for this policy, see
 [AWSPartnerCentralChannelManagement](../../../aws-managed-policy/latest/reference/AWSPartnerCentralChannelManagement.md "../../../aws-managed-policy/latest/reference/AWSPartnerCentralChannelManagement.md")
@@ -132,7 +160,12 @@ Reference_.
 You can attach the `AWSPartnerCentralMarketingManagement` policy to your
 IAM identities.
 
-This policy grants access to manage marketing activities and campaigns in AWS Partner Central.
+With this policy, you can manage marketing activities and promotional content in AWS Partner Central. This policy allows the following operations:
+
+- Access and manage Marketing Central campaigns and content
+- Create and manage case studies
+- Access Badge Manager, Guides, and Amazon Q (Partner Assistant)
+- Access Partner Central support
 
 To view the permissions for this policy, see
 [AWSPartnerCentralMarketingManagement](../../../aws-managed-policy/latest/reference/AWSPartnerCentralMarketingManagement.md "../../../aws-managed-policy/latest/reference/AWSPartnerCentralMarketingManagement.md")
@@ -144,7 +177,13 @@ Reference_.
 You can attach the `PartnerCentralIncentiveBenefitManagement` policy to your
 IAM identities.
 
-This policy grants access to manage all the incentive benefits in AWS Partner Central.
+With this policy, you can manage incentive benefits, funding, and claims in AWS Partner Central. This policy allows the following operations:
+
+- Create and manage fund requests and claims
+- View historical fund requests
+- View funding wallets
+- Access Guides and Amazon Q (Partner Assistant)
+- Access Partner Central support
 
 To view the permissions for this policy, see
 [PartnerCentralIncentiveBenefitManagement](../../../aws-managed-policy/latest/reference/PartnerCentralIncentiveBenefitManagement.md "../../../aws-managed-policy/latest/reference/PartnerCentralIncentiveBenefitManagement.md")
