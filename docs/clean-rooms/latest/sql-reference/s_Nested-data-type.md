@@ -4,6 +4,14 @@ AWS Clean Rooms supports queries involving data with nested data types, specific
 STRUCT, ARRAY, and MAP column types. Only the custom analysis rule supports nested data
 types.
 
+###### Note
+
+Nested data types (ARRAY, MAP, and STRUCT) are not supported for Amazon Athena data
+sources. If a configured table that uses an Amazon Athena data source contains a
+nested-type column, queries fail during table setup. This occurs even when the query
+doesn't reference that column. To work around this limitation, exclude the nested-type
+columns from the view, or cast them to a supported type such as STRING.
+
 Notably, nested data types don't conform to the rigid, tabular structure of the
 relational data model of SQL databases.
 
