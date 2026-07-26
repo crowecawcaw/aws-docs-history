@@ -312,7 +312,7 @@ In the **welcome** page:
 
 Or in the **Your environments** page:
 
-![Choose the Create environment button if the welcome page isn't displayed](images/console_create_env_new_UX.png) 6. On the **Create environment** page, enter a name for your
+![Choose the Create environment button if the welcome page isn't displayed](/images/cloud9/latest/user-guide/images/console_create_env_new_UX.png) 6. On the **Create environment** page, enter a name for your
 environment. 7. For **Description**, enter something about your environment. For
 this tutorial, use `This environment is for the AWS Cloud9 tutorial.` 8. For **Environment type**, choose **Existing
 Compute** from the following options:
@@ -405,7 +405,7 @@ redirected to the home page. When the account is created successfully, a green
 flash bar appears at the top of the AWS Cloud9 console. You can select the new
 environment and choose **Open in Cloud9** to launch the IDE.
 
-![AWS Cloud9 IDE selector in the AWS Cloud9 console](images/cloud9-ide-open.png)
+![AWS Cloud9 IDE selector in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/cloud9-ide-open.png)
 
 If the account fails to create, a red flash bar appears at the top of the AWS Cloud9
 console. Your account might fail to create due to a problem with your web browser,
