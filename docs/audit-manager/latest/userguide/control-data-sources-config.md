@@ -46,7 +46,7 @@ documentation](../../../config/latest/developerguide/managed-rules-by-aws-config
   rule in the table. If it's a managed rule, the **Type** column shows
   **AWS managed**.
 
-![A managed rule as shown in the AWS Config console.](images/rules-managed-console.png)
+![A managed rule as shown in the AWS Config console.](/images/audit-manager/latest/userguide/images/rules-managed-console.png)
 
 ## Supported AWS Config managed rules
 
