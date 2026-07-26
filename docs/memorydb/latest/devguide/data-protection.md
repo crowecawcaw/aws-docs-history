@@ -37,6 +37,12 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   provide a URL to an external server, we strongly recommend that you do not include credentials
   information in the URL to validate your request to that server.
 
+MemoryDB provisions every cluster with a TLS certificate for the cluster endpoint that
+includes the cluster name. AWS Certificate Manager records publicly trusted TLS certificates in
+public, append-only Certificate Transparency logs. As a result, MemoryDB cluster names appear in
+public Certificate Transparency logs. Don't include confidential or sensitive information
+in cluster names.
+
 ###### Topics
 
 - [At-Rest Encryption in MemoryDB](at-rest-encryption.md "at-rest-encryption.md")

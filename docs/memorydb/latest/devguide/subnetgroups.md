@@ -45,4 +45,5 @@ Supported MemoryDB AZ IDs| Region Name/Region | Supported AZ IDs |
 - [Creating a subnet group](subnetgroups.creating.md "subnetgroups.creating.md")
 - [Updating a subnet group](subnetgroups.modifying.md "subnetgroups.modifying.md")
 - [Viewing subnet group details](subnetgroups.Viewing.md "subnetgroups.Viewing.md")
+- [Ensuring sufficient IP addresses for scaling operations](subnetgroups.ipcapacity.md "subnetgroups.ipcapacity.md")
 - [Deleting a subnet group](subnetgroups.deleting.md "subnetgroups.deleting.md")

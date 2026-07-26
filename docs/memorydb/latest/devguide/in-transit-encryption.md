@@ -29,6 +29,17 @@ MemoryDB in-transit encryption implements the following features:
 From 07/20/2023, TLS 1.2 is the minimum supported version for new and existing clusters.
 Use this [link](https://aws.amazon.com/blogs/security/tls-1-2-required-for-aws-endpoints/ "https://aws.amazon.com/blogs/security/tls-1-2-required-for-aws-endpoints/") to learn more about TLS 1.2 at AWS.
 
+###### Certificate Transparency logging
+
+MemoryDB provisions a TLS certificate that includes the cluster name for every
+cluster endpoint. AWS Certificate Manager records publicly trusted TLS certificates
+in public, append-only Certificate Transparency logs. As a result, every MemoryDB
+cluster name appears in public Certificate Transparency logs. Don't include
+confidential or sensitive information in cluster names. For more information about
+Certificate Transparency logging, see [Certificate
+Transparency logging](../../../acm/latest/userguide/acm-concepts.md#concept-transparency "../../../acm/latest/userguide/acm-concepts.md#concept-transparency") in the _AWS Certificate Manager User
+Guide_.
+
 For more information on connecting to MemoryDB clusters, see [Connecting to MemoryDB nodes using redis-cli](getting-started.md#connect-tls "getting-started.md#connect-tls").
 
 ## See also
