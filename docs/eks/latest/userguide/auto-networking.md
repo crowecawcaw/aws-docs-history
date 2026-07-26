@@ -40,6 +40,7 @@ EKS Auto Mode supports:
 - The `HostPort` and `HostNetwork` options for Kubernetes Pods.
 - Nodes and Pods in public or private subnets.
 - Caching DNS queries on the node.
+- Static network interface configuration for EFA workloads. For more information, see [Static Network Interface Configuration](create-node-class.md#static-network-interfaces "create-node-class.md#static-network-interfaces").
 
 EKS Auto Mode does **not** support:
 

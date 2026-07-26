@@ -155,7 +155,7 @@ Karpenter is a Kubernetes Node Autoscaler built for flexibility, performance, an
 
 - [Project URL](https://github.com/kubernetes-sigs/karpenter "https://github.com/kubernetes-sigs/karpenter")
 - [Project documentation](https://karpenter.sh/ "https://karpenter.sh/")
-- Amazon EKS workshop: [Karpenter](https://www.eksworkshop.com/docs/autoscaling/compute/karpenter/ "https://www.eksworkshop.com/docs/autoscaling/compute/karpenter/")
+- Amazon EKS workshop: [Karpenter](https://www.eksworkshop.com/docs/fundamentals/compute/karpenter/ "https://www.eksworkshop.com/docs/fundamentals/compute/karpenter/")
 
 ### Escalator
 

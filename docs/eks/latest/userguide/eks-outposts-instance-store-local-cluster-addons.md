@@ -14,10 +14,12 @@ If you are interested in creating a local cluster on an EBS-backed Outpost using
 
 ## Validated add-ons
 
-| Add-on                                               | Description                                                   | [Amazon VPC CNI plugin for Kubernetes](managing-vpc-cni.md "managing-vpc-cni.md") |
-| ---------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| Provides native VPC networking for pods.             | [kube-proxy](managing-kube-proxy.md "managing-kube-proxy.md") | Maintains network rules on nodes for Kubernetes Service communication.            |
-| [CoreDNS](managing-coredns.md "managing-coredns.md") | Provides DNS resolution for Kubernetes Services.              | [EKS Pod Identity Agent](pod-id-agent-setup.md "pod-id-agent-setup.md")           |
+| Add-on                                                                            | Description                                                            |
+| --------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [Amazon VPC CNI plugin for Kubernetes](managing-vpc-cni.md "managing-vpc-cni.md") | Provides native VPC networking for pods.                               |
+| [kube-proxy](managing-kube-proxy.md "managing-kube-proxy.md")                     | Maintains network rules on nodes for Kubernetes Service communication. |
+| [CoreDNS](managing-coredns.md "managing-coredns.md")                              | Provides DNS resolution for Kubernetes Services.                       |
+| [EKS Pod Identity Agent](pod-id-agent-setup.md "pod-id-agent-setup.md")           | Enables pods to use EKS Pod Identity to authenticate to AWS services.  |
 
 Customer-managed versions of the Amazon VPC CNI plugin, `kube-proxy`, and CoreDNS are automatically installed when you create a local cluster. You can optionally install the managed versions of these add-ons.
 

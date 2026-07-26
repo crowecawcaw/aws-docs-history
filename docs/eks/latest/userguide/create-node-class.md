@@ -195,6 +195,22 @@ spec:
     # enableV4Egress is default to true. Setting it to false when using network policy or blocking IPv4 traffic in IPv6 clusters
     enableV4Egress: false
 
+    # Optional: Static network interface configuration for EFA workloads
+    networkInterfaces:
+      # The primary ENI (networkCardIndex 0, deviceIndex 0) must use interfaceType: interface
+      # secondaryIPv4Count and secondaryIPv4PrefixCount are only supported on networkCardIndex 0
+    - deviceIndex: 0
+      interfaceType: interface
+      networkCardIndex: 0
+      secondaryIPv4Count: 10
+    - deviceIndex: 1
+      interfaceType: interface
+      networkCardIndex: 0
+      secondaryIPv4PrefixCount: 2 # Only one of secondaryIPv4Count or secondaryIPv4PrefixCount per ENI
+    - deviceIndex: 0
+      interfaceType: efa-only
+      networkCardIndex: 1
+
   advancedSecurity:
     # Optional, US regions only: Specifying `fips: true` will cause nodes in the nodeclass to run FIPS compatible AMIs.
     fips: false
@@ -373,3 +389,62 @@ spec:
 ### Considerations for disabling enableV4Egress
 
 - **Network Policy in IPv6 Cluster**: IPv6 clusters allow IPv4 traffic by default. Setting `enableV4Egress: false` blocks IPv4 egress traffic, providing enhanced security especially when used with Network Policies.
+
+## Static Network Interface Configuration
+
+The `networkInterfaces` field under `advancedNetworking` enables you to statically define the network interfaces attached to instances at launch. This is primarily used to configure [Elastic Fabric Adapter (EFA)](../../../AWSEC2/latest/UserGuide/efa.md "../../../AWSEC2/latest/UserGuide/efa.md") devices for high-performance inter-node communication in distributed training and inference workloads. This feature can be paired with [static capacity node pools](auto-static-capacity.md "auto-static-capacity.md") to maintain pre-warmed, EFA-ready nodes. For more information about EFA device management in EKS, see [Manage EFA devices on Amazon EKS](device-management-efa.md "device-management-efa.md"). For the recommended EFA configuration for specific instance types, see [Maximize network bandwidth for EFA-enabled instance types](../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md "../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md") in the _Amazon EC2 User Guide_.
+
+### How it works
+
+Each entry in `networkInterfaces` defines a network interface that is attached to the instance during launch. Each entry specifies a `networkCardIndex` (the network card, where `0` is the primary), a `deviceIndex` (the device position on that card), and an `interfaceType` (`interface` for standard IP-based traffic, or `efa-only` for EFA interfaces dedicated to RDMA traffic without IP addresses). The primary ENI (`networkCardIndex: 0`, `deviceIndex: 0`) must use `interfaceType: interface` to support IP-based node communication. The `efa-only` interfaces support only EFA device capabilities for RDMA and cannot be configured with IP addresses.
+
+You can assign IP capacity to interfaces on the primary network card (`networkCardIndex: 0`) using `secondaryIPv4Count` (each unit provides 1 IP address) or `secondaryIPv4PrefixCount` (each unit provides a /28 prefix with 16 IP addresses). Only one of these can be used per interface, and they are only supported on `networkCardIndex: 0`. They cannot be used on `efa-only` interfaces.
+
+###### Important
+
+When `networkInterfaces` is configured, EKS Auto Mode does not attach additional IPs, prefixes, or ENIs after instance launch. Only the interfaces and IP addresses configured at launch are available to Pods. You must plan your pod density based on the number of IPs configured.
+
+### Considerations
+
+IPv6 is not supported with statically defined network interfaces. `associatePublicIPAddress` is not compatible when more than one network interface is defined, so nodes using multiple interfaces cannot have public IPs (either in public-only clusters or mixed public/private clusters).
+
+When using `podSubnetSelectorTerms` and `podSecurityGroupSelectorTerms` with static network interfaces, configure the primary ENI with 0 secondary IPs. The primary ENI uses the node subnet and security groups, while Pod traffic uses the pod subnet configuration on secondary ENIs.
+
+### Example: EFA-only interfaces for GPU training
+
+The following example shows a `NodeClass` configured with EFA-only interfaces for a GPU instance used in distributed training. The primary interface has a /28 prefix (16 pod IPs) and 4 additional EFA-only interfaces provide RDMA connectivity. This configuration can be paired with a [static capacity node pool](auto-static-capacity.md "auto-static-capacity.md") to maintain pre-warmed, EFA-ready nodes.
+
+```
+apiVersion: eks.amazonaws.com/v1
+kind: NodeClass
+metadata:
+  name: efa-training
+spec:
+  role: MyNodeRole
+  subnetSelectorTerms:
+    - tags:
+        Name: "private-subnet"
+  securityGroupSelectorTerms:
+    - tags:
+        Name: "efa-security-group"
+  placementGroupSelector:
+    name: "ml-training-pg"
+  advancedNetworking:
+    networkInterfaces:
+    - deviceIndex: 0
+      interfaceType: interface
+      networkCardIndex: 0
+      secondaryIPv4PrefixCount: 1
+    - deviceIndex: 1
+      interfaceType: efa-only
+      networkCardIndex: 0
+    - deviceIndex: 0
+      interfaceType: efa-only
+      networkCardIndex: 1
+    - deviceIndex: 0
+      interfaceType: efa-only
+      networkCardIndex: 2
+    - deviceIndex: 0
+      interfaceType: efa-only
+      networkCardIndex: 3
+```

@@ -20,6 +20,16 @@ Before connecting hybrid nodes to your Amazon EKS cluster, make sure you have co
 - You have created your hybrid nodes-enabled Amazon EKS cluster. See [Create an Amazon EKS cluster with hybrid nodes](hybrid-nodes-cluster-create.md "hybrid-nodes-cluster-create.md") for more information.
 - You have associated your Hybrid Nodes IAM role with Kubernetes Role-Based Access Control (RBAC) permissions. See [Prepare cluster access for hybrid nodes](hybrid-nodes-cluster-prep.md "hybrid-nodes-cluster-prep.md") for more information.
 
+###### Required nodeadm version for SSM credential provider
+
+If you use AWS Systems Manager (SSM) as your credential provider for hybrid nodes, you must use `nodeadm` version `1.0.19` or later for new installations and upgrades. Earlier versions of `nodeadm` contain an outdated SSM signing key and fail during `nodeadm install` and `nodeadm upgrade` with the following signature verification error:
+
+```
+"msg":"Command failed","error":"failed to install ssm installer: validating ssm-setup-cli signature: Signature Verification Error: No matching signature"
+```
+
+To resolve this error, [download the latest version](hybrid-nodes-nodeadm.md#hybrid-nodes-nodeadm-download "hybrid-nodes-nodeadm.md#hybrid-nodes-nodeadm-download") of `nodeadm` before running `nodeadm install` or `nodeadm upgrade`.
+
 ## Step 1: Install the hybrid nodes CLI (`nodeadm`) on each on-premises host
 
 If you are including the Amazon EKS Hybrid Nodes CLI (`nodeadm`) in your pre-built operating system images, you can skip this step. For more information on the hybrid nodes version of `nodeadm`, see [Hybrid nodes nodeadm reference](hybrid-nodes-nodeadm.md "hybrid-nodes-nodeadm.md").

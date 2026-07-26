@@ -6,6 +6,16 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 This topic covers some common errors that you might see while using Amazon EKS Hybrid Nodes and how to fix them. For other troubleshooting information, see [Troubleshoot problems with Amazon EKS clusters and nodes](troubleshooting.md "troubleshooting.md") and [Knowledge Center tag for Amazon EKS](https://repost.aws/tags/knowledge-center/TA4IvCeWI1TE66q4jEj4Z9zg/amazon-elastic-kubernetes-service "https://repost.aws/tags/knowledge-center/TA4IvCeWI1TE66q4jEj4Z9zg/amazon-elastic-kubernetes-service") on _AWS re:Post_. If you cannot resolve the issue, contact AWS Support.
 
+###### Required nodeadm version for SSM credential provider
+
+If you use AWS Systems Manager (SSM) as your credential provider for hybrid nodes, you must use `nodeadm` version `1.0.19` or later for new installations and upgrades. Earlier versions of `nodeadm` contain an outdated SSM signing key and fail during `nodeadm install` and `nodeadm upgrade` with the following signature verification error:
+
+```
+"msg":"Command failed","error":"failed to install ssm installer: validating ssm-setup-cli signature: Signature Verification Error: No matching signature"
+```
+
+To resolve this error, [download the latest version](hybrid-nodes-nodeadm.md#hybrid-nodes-nodeadm-download "hybrid-nodes-nodeadm.md#hybrid-nodes-nodeadm-download") of `nodeadm` before running `nodeadm install` or `nodeadm upgrade`.
+
 **Node troubleshooting with `nodeadm debug`**
 You can run the `nodeadm debug` command from your hybrid nodes to validate networking and credential requirements are met. For more information on the `nodeadm debug` command, see [Hybrid nodes nodeadm reference](hybrid-nodes-nodeadm.md "hybrid-nodes-nodeadm.md").
 

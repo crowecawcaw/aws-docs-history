@@ -24,11 +24,56 @@ The EFA DRA driver is not supported with Karpenter or EKS Auto Mode. Use the [EF
 
 ## Creating EKS nodes with EFA interfaces
 
-When you create EKS nodes with EFA interfaces, the EFA interfaces are attached to the instance during instance provisioning. You can customize the per-device EFA configuration and use [placement groups](../../../AWSEC2/latest/UserGuide/placement-groups.md "../../../AWSEC2/latest/UserGuide/placement-groups.md") with Karpenter, EKS managed node groups, or EKS self-managed node groups. With Karpenter, you pass configuration for each network interface via the `NodeClass`. With EKS managed node groups or self-managed nodes, you pass configuration for each network interface with [launch templates](../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md "../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md"). EKS Auto Mode support for per-device EFA configuration and placement groups is coming soon.
+When you create EKS nodes with EFA interfaces, the EFA interfaces are attached to the instance during instance provisioning. You can customize the per-device EFA configuration and use [placement groups](../../../AWSEC2/latest/UserGuide/placement-groups.md "../../../AWSEC2/latest/UserGuide/placement-groups.md") with EKS Auto Mode, Karpenter, EKS managed node groups, or EKS self-managed node groups. With EKS Auto Mode, you pass configuration for each network interface through the `NodeClass` under `advancedNetworking.networkInterfaces`. With Karpenter, you pass configuration for each network interface via the `EC2NodeClass`. With EKS managed node groups or self-managed nodes, you pass configuration for each network interface with [launch templates](../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md "../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md").
 
 When using [eksctl](install-kubectl.md#eksctl-install-update "install-kubectl.md#eksctl-install-update") for provisioning EKS nodes with the `efaEnabled` setting, all interfaces are configured with interface type `EFA`, an EFA-specific security group is created, and the EFA device plugin is installed on the cluster. If you need to customize the per-device EFA configuration when using `eksctl`, it is recommended to use `eksctl’s support for [launch templates](../eksctl/launch-template-support.md "../eksctl/launch-template-support.md").
 
 The following examples show how to configure `NodeClass` and launch templates with EFA interfaces. This is useful to customize the interfaces used for EFA vs standard IP-based traffic. For information on the number of EFA interfaces supported by each instance type and how to configure them for maximum network bandwidth, see [Maximize network bandwidth for EFA-enabled instance types](../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md "../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md") in the _Amazon EC2 User Guide_.
+
+## EKS Auto Mode
+
+In EKS Auto Mode, you configure EFA network interfaces using the `advancedNetworking.networkInterfaces` field in the `NodeClass` (`eks.amazonaws.com/v1`). Each entry specifies a `networkCardIndex`, `deviceIndex`, and `interfaceType`. The `interfaceType` can be `interface` for standard network interfaces or `efa-only` for EFA interfaces dedicated to RDMA traffic without IP addresses assigned.
+
+When `networkInterfaces` is configured, instances launched by the `NodePool` referencing the `NodeClass` use this configuration regardless of whether Pods request `vpc.amazonaws.com/efa` resources. EKS Auto Mode does not attach additional IPs, prefixes, or ENIs after instance launch for nodes with static network interface configuration — only the interfaces and IPs configured at launch are available to Pods.
+
+This feature can be used with [static capacity node pools](auto-static-capacity.md "auto-static-capacity.md") to maintain pre-warmed, EFA-ready nodes for distributed training and inference workloads.
+
+```
+apiVersion: eks.amazonaws.com/v1
+kind: NodeClass
+metadata:
+  name: efa-node-class
+spec:
+  role: MyNodeRole
+  subnetSelectorTerms:
+    - tags:
+        Name: "private-subnet"
+  securityGroupSelectorTerms:
+    - tags:
+        Name: "efa-security-group"
+  placementGroupSelector:
+    name: "ml-training-pg"
+  advancedNetworking:
+    networkInterfaces:
+    - deviceIndex: 0
+      interfaceType: interface
+      networkCardIndex: 0
+      secondaryIPv4PrefixCount: 1
+    - networkCardIndex: 0
+      deviceIndex: 1
+      interfaceType: efa-only
+    - networkCardIndex: 1
+      deviceIndex: 0
+      interfaceType: efa-only
+    - networkCardIndex: 2
+      deviceIndex: 0
+      interfaceType: efa-only
+    - networkCardIndex: 3
+      deviceIndex: 0
+      interfaceType: efa-only
+```
+
+For the full list of constraints on static network interface configuration, see [Static Network Interface Configuration](create-node-class.md#static-network-interfaces "create-node-class.md#static-network-interfaces") in the NodeClass documentation.
 
 ## Karpenter
 

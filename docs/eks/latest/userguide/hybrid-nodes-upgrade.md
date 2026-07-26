@@ -14,6 +14,16 @@ If you do not have spare capacity to create new hybrid nodes on your target Kube
 
 If you are upgrading your hybrid nodes in-place with `nodeadm`, there is downtime for the node during the process where the older version of the Kubernetes components are shut down and the new Kubernetes version components are installed and started.
 
+###### Required nodeadm version for SSM credential provider
+
+If you use AWS Systems Manager (SSM) as your credential provider for hybrid nodes, you must use `nodeadm` version `1.0.19` or later for new installations and upgrades. Earlier versions of `nodeadm` contain an outdated SSM signing key and fail during `nodeadm install` and `nodeadm upgrade` with the following signature verification error:
+
+```
+"msg":"Command failed","error":"failed to install ssm installer: validating ssm-setup-cli signature: Signature Verification Error: No matching signature"
+```
+
+To resolve this error, [download the latest version](hybrid-nodes-nodeadm.md#hybrid-nodes-nodeadm-download "hybrid-nodes-nodeadm.md#hybrid-nodes-nodeadm-download") of `nodeadm` before running `nodeadm install` or `nodeadm upgrade`.
+
 ## Prerequisites
 
 Before upgrading, make sure you have completed the following prerequisites.
