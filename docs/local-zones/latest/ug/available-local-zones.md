@@ -108,6 +108,7 @@ The following Local Zones are available in Europe:
 | Denmark (Copenhagen)       | `eu-north-1-cph-1a`   | `eun1-cph1-az1` | `eu-north-1-cph-1`   | `eu-north-1`       | `eun1-az2`     | `Denmark` |
 | Finland (Helsinki)         | `eu-north-1-hel-1a`   | `eun1-hel1-az1` | `eu-north-1-hel-1`   | `eu-north-1`       | `eun1-az1`     | `Finland` |
 | Germany (Hamburg)          | `eu-central-1-ham-1a` | `euc1-ham1-az1` | `eu-central-1-ham-1` | `eu-central-1`     | `euc1-az3`     | `Germany` |
+| Greece (Athens)            | `eu-central-1-ath-1a` | `euc1-ath1-az1` | `eu-central-1-ath-1` | `eu-central-1`     | `euc1-az2`     | `Greece`  |
 | Poland (Warsaw)            | `eu-central-1-waw-1a` | `euc1-waw1-az1` | `eu-central-1-waw-1` | `eu-central-1`     | `euc1-az3`     | `Poland`  |
 | Turkey (Istanbul)          | `eu-central-1-ist-1a` | `euc1-ist1-az1` | `eu-central-1-ist-1` | `eu-central-1`     | `euc1-az1`     | `Turkey`  |
 
