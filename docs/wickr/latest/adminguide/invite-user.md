@@ -27,3 +27,9 @@ Wickr client applications, and a link to register for Wickr. As users
 register for Wickr using the link in the email, their status in the
 Wickr team directory will change from **Pending** to
 **Active**.
+
+###### Important
+
+Invitation links expire after 21 days. If a user does not
+register within 21 days, you must resend the invitation from the
+**Team directory** tab.

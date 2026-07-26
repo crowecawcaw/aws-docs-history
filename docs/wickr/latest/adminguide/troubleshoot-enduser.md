@@ -184,6 +184,25 @@ Usernames in AWS Wickr have the following requirements:
 4. Return to the login screen and choose the option to resend the
    verification email.
 
+### Invitation link expired
+
+**Symptom:** You choose the registration
+link in your invitation email, but the link does not work or registration
+fails.
+
+**Cause:** Invitation links expire 21 days
+after your administrator sends them. If you did not register within that
+time, the link is no longer valid.
+
+**Resolution:** To resolve this issue,
+complete the following steps.
+
+1. Contact your network administrator and ask them to resend the
+   invitation from the **Team directory** tab in
+   the AWS Management Console for Wickr.
+2. Complete registration within 21 days of receiving the new
+   invitation.
+
 ## Password reset
 
 ###### Note
