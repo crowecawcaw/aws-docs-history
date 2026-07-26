@@ -2,6 +2,23 @@
 
 This page describes changes for each release of the Amazon GameLift Streams Web SDK.
 
+## Version 1.3.0
+
+- Added dynamic resolution. This feature automatically adjusts stream resolution to deliver the best visual quality the viewer's network connection can sustain.
+- New `dynamicResolution` configuration option with values `'auto'` (default) or `'disabled'`. In `'auto'` mode, the feature is enabled or disabled based on detected client platform compatibility.
+
+###### Dynamic resolution and video element sizing
+
+When dynamic resolution is active, the stream resolution may change during a session. If the HTML `<video>` element used for playback does not have explicit fixed dimensions, the element may visibly resize when the resolution changes. To prevent layout shifts, set fixed dimensions on your video element. The following CSS is one example:
+
+```
+
+#streamVideoElement {
+    width: 100%;
+    object-fit: contain;
+}
+```
+
 ## Version 1.2.0
 
 - Improved device detection and support for some smart TVs.

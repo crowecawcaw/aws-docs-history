@@ -2,6 +2,36 @@
 
 The following release notes are in reverse chronological order, with the latest updates listed first. Amazon GameLift Streams was first released in 2025.
 
+### Custom aspect ratio
+
+Amazon GameLift Streams now supports configuring a custom aspect ratio per stream session to
+accommodate different player devices. Supported aspect ratios include
+landscape, portrait, and square — delivering a full-screen
+experience without letterboxing or cropping.
+
+###### Learn more:
+
+- [Custom stream resolution](custom-stream-resolution.md "custom-stream-resolution.md"), _Amazon GameLift Streams Developer Guide_
+
+### Dynamic resolution
+
+Amazon GameLift Streams now automatically adjusts the stream resolution to deliver the
+best visual quality the viewer's network connection can sustain. This
+feature is enabled by default in Web SDK version 1.3.0 or later.
+
+###### Dynamic resolution and video element sizing
+
+When dynamic resolution is active, the stream resolution may change
+during a session. If the HTML video element used for playback does not
+have explicit fixed dimensions, the element may visibly resize when the
+resolution adjusts. To prevent unexpected layout changes, set fixed
+dimensions on your video element. For details, see
+[Dynamic resolution in the Amazon GameLift Streams Web SDK release notes](web-sdk-release-notes.md "web-sdk-release-notes.md").
+
+###### Learn more:
+
+- [Dynamic resolution](web-sdk-release-notes.md "web-sdk-release-notes.md"), _Amazon GameLift Streams Web SDK Release Notes_
+
 With IAM role support for stream sessions, your application can now access AWS
 resources in your account, such as Amazon S3 buckets and DynamoDB tables. When you pass a
 role ARN on `StartStreamSession`, Amazon GameLift Streams assumes the role on your behalf

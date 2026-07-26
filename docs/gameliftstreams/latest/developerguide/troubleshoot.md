@@ -66,8 +66,12 @@ terminal connection into the live runtime environment of your stream session usi
 
 ### Application issues due to screen resolution
 
-Applications might freeze, crash, or render incorrectly if you attempt to use a full-screen resolution that is not 1920x1080. We
-recommend that you use a borderless fullscreen window to run your application and do not attempt to change the resolution.
+Amazon GameLift Streams sets the monitor resolution when a session starts, either at the default 1920 × 1080 or at a custom resolution you
+specify. Applications that attempt to change the monitor resolution at runtime during the session
+might freeze, crash, or render incorrectly. We recommend configuring the application to render at
+the monitor resolution in fullscreen. Do not modify the monitor resolution during the session.
+
+For more information about setting a custom resolution at session start, see [Custom stream resolution in Amazon GameLift Streams](custom-stream-resolution.md "custom-stream-resolution.md").
 
 ### Application terminates at start of stream session
 

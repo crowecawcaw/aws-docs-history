@@ -11,8 +11,9 @@ or launch script:
 aws sts get-caller-identity
 ```
 
-All AWS SDKs automatically discover session credentials and refresh them before they
-expire. You do not need to manage credential rotation in your application code.
+The AWS CLI and all AWS SDKs automatically discover session credentials and refresh
+them before they expire. You do not need to manage credential rotation in your application
+code.
 
 For more information about how the AWS SDK discovers credentials, see
 [Credential providers](../../../sdkref/latest/guide/standardized-credentials.md "../../../sdkref/latest/guide/standardized-credentials.md")

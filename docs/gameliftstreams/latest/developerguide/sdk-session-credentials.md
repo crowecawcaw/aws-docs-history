@@ -33,9 +33,13 @@ my-app.exe --config "%LOCAL_CONFIG_FILE%" %*
 exit /b %ERRORLEVEL%
 ```
 
-You do not need to change your application code. Credentials are automatically
-discovered through the [AWS SDK
-credential provider chain](../../../sdkref/latest/guide/standardized-credentials.md#credentialProviderChain "../../../sdkref/latest/guide/standardized-credentials.md#credentialProviderChain") and refreshed for the lifetime of the session.
+You do not need to change your application code. The AWS CLI and all AWS SDKs
+automatically discover and use the credentials through the [AWS SDK
+credential provider chain](../../../sdkref/latest/guide/standardized-credentials.md#credentialProviderChain "../../../sdkref/latest/guide/standardized-credentials.md#credentialProviderChain").
+
+The AWS CLI version 2.35.11 is available on all Amazon GameLift Streams runtime environments (Windows,
+Ubuntu, and Proton). The AWS CLI and all AWS SDKs automatically refresh credentials for
+the lifetime of the session.
 
 For the full setup guide, including IAM role creation, trust policies, and troubleshooting, see
 [Provide AWS credentials to your streaming application](session-credentials.md "session-credentials.md").
