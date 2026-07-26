@@ -54,7 +54,7 @@ A job is a set of work that a user submits to Deadline Cloud to be scheduled and
 **Job priority**
 
 Job priority is the approximate order that Deadline Cloud processes a job in a queue.
-You can set the job priority between 1 and 100, jobs with a higher number
+You can set the job priority between 0 and 100, jobs with a higher number
 priority are generally processed first. Jobs with the same priority are
 processed in the order received.
 

@@ -1,100 +1,65 @@
 # Task chunking for job templates
 
-Task chunking lets you group multiple tasks into a single unit of work called a chunk.
-In a render job, for example, this means Deadline Cloud can dispatch multiple frames together instead
-of one frame per command invocation. This reduces the overhead of starting applications for
-each task and shortens total job runtime. For details, see [Running multiple frames at a time](https://github.com/OpenJobDescription/openjd-specifications/wiki/Job-Intro-03-Creating-a-Job-Template#42-running-multiple-frames-at-a-time "https://github.com/OpenJobDescription/openjd-specifications/wiki/Job-Intro-03-Creating-a-Job-Template#42-running-multiple-frames-at-a-time") in the OpenJD wiki.
+Render and simulation jobs often spend more time loading the application and scene file
+than processing each frame. When a job runs one frame per task, that load time repeats for
+every frame. _Task chunking_ groups multiple tasks into a single unit of
+work called a _chunk_, so the application loads once for each chunk
+instead of once for each frame. Chunking helps most when the load time is long relative to
+the time to process each frame, such as a scene that loads for minutes and then renders each
+frame in seconds.
 
-OpenJD supports extensions that add optional features to job templates. Task chunking is
-enabled by adding the `TASK_CHUNKING` extension. To use chunking, add the extension
-to your job template and use the `CHUNK[INT]` task parameter type. Submit chunked
-jobs using the same `deadline bundle submit` command. For example, the following
-job template renders frames in chunks of 10:
+If you're migrating from Deadline 10, task chunking replaces the frames per task
+setting, also called chunk size, in the Deadline 10 submitters.
 
-```
-specificationVersion: 'jobtemplate-2023-09'
-extensions:
-  - TASK_CHUNKING
-name: Blender Render with Contiguous Chunking
-parameterDefinitions:
-  - name: BlenderSceneFile
-    type: PATH
-    objectType: FILE
-    dataFlow: IN
-  - name: Frames
-    type: STRING
-    default: "1-100"
-  - name: OutputDir
-    type: PATH
-    objectType: DIRECTORY
-    dataFlow: OUT
-    default: "./output"
-steps:
-  - name: RenderBlender
-    parameterSpace:
-      taskParameterDefinitions:
-        - name: Frame
-          type: CHUNK[INT]
-          range: "{{Param.Frames}}"
-          chunks:
-            defaultTaskCount: 10
-            rangeConstraint: CONTIGUOUS
-    script:
-      actions:
-        onRun:
-          command: bash
-          args: ["{{Task.File.Run}}"]
-      embeddedFiles:
-        - name: Run
-          type: TEXT
-          data: |
-            set -xeuo pipefail
+Task chunking is an extension to Open Job Description (OpenJD) named
+`TASK_CHUNKING`. In a job template that uses the extension, you define a task
+parameter with type `CHUNK[INT]`. When the job runs, Deadline Cloud dispatches a range of
+values to each task instead of a single value, and the `{{Task.Param.Frame}}`
+variable in your script expands to a range expression such as `1-10`. Your script
+passes that range to the application. For the full specification, see [RFC 0001: Task Chunking](https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md "https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md") on GitHub.
 
-            mkdir -p '{{Param.OutputDir}}'
+To use task chunking, you make two decisions:
 
-            # Parse the chunk range (e.g., "1-10") into start and end frames
-            START_FRAME="$(echo '{{Task.Param.Frame}}' | cut -d- -f1)"
-            END_FRAME="$(echo '{{Task.Param.Frame}}' | cut -d- -f2)"
+- **Range constraint** – Choose
+  `CONTIGUOUS` when your application accepts start and end frame arguments.
+  Every chunk is then a consecutive range such as `1-10`. Choose
+  `NONCONTIGUOUS` when your application accepts arbitrary frame lists. Chunks
+  can then cover sparse frame sets such as `1-3,5,7-20:2`, which is useful when
+  rendering pick-up frames.
+- **Chunk size** – The
+  `defaultTaskCount` field sets a fixed number of frames for each chunk. If chunks
+  are too small, load time dominates and the job runs inefficiently. If chunks are too
+  large, the job can't balance work across a larger fleet. To avoid tuning the value by
+  hand, set the optional `targetRuntimeSeconds` field. Deadline Cloud then adjusts chunk
+  sizes toward that target runtime based on the observed runtimes of completed
+  chunks.
+  Chunk size also caps parallelism. A step produces one task for each chunk, which is
+  approximately the frame count divided by the chunk size, and each task runs on one worker.
+  The following table shows how the chunk size limits the number of workers that can process a
+  100-frame job in parallel.
 
-            blender --background '{{Param.BlenderSceneFile}}' \
-                    --render-output '{{Param.OutputDir}}/output_####' \
-                    --render-format PNG \
-                    --use-extension 1 \
-                    -s "$START_FRAME" \
-                    -e "$END_FRAME" \
-                    --render-anim
-```
+| Frames in job | Chunk size | Tasks (maximum parallel workers) |
+| ------------- | ---------- | -------------------------------- |
+| 100           | 1          | 100                              |
+| 100           | 10         | 10                               |
+| 100           | 50         | 2                                |
 
-In this example, Deadline Cloud divides the 100 frames into chunks like `1-10`,
-`11-20`, and so on. The `{{Task.Param.Frame}}` variable expands to a
-range expression like `1-10`. Because `rangeConstraint` is set to
-`CONTIGUOUS`, the range is always in `start-end` format. The script
-parses this range and passes the start and end frames to Blender using the `-s`
-and `-e` options with `--render-anim`.
+If the chunk size is larger than the frame count divided by the number of available
+workers, some workers stay idle. When you set `targetRuntimeSeconds`, Deadline Cloud
+balances this trade-off for you by adjusting chunk sizes toward the target runtime.
 
-The `chunks` property supports the following fields:
+Chunked jobs differ from one-frame-per-task jobs in two ways. In the Deadline Cloud monitor, the step's
+task list shows one task for each chunk, identified by its frame range. When you download the
+output for a single task in a chunked job, Deadline Cloud downloads the output for the entire chunk.
+For example, if Deadline Cloud processed frames 1-10 together as a chunk, downloading the output for
+frame 3 downloads all of frames 1-10. Downloading chunked output requires
+`deadline-cloud` version 0.53.3 or later.
 
-- `defaultTaskCount` – (Required) How many tasks to combine into a
-  single chunk. The maximum value is 150.
-- `rangeConstraint` – (Required) If `CONTIGUOUS`, a chunk
-  is always a contiguous range like `1-10`. If `NONCONTIGUOUS`, a
-  chunk can be an arbitrary set like `1,3,7-10`.
-- `targetRuntimeSeconds` – (Optional) The target runtime in seconds
-  for each chunk. Deadline Cloud can dynamically adjust the chunk size to approach this target once
-  some chunks have completed.
-  For more task chunking examples, including basic and Blender examples with both
-  contiguous and non-contiguous chunks, see the [task
-  chunking samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/task_chunking "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/task_chunking") in the Deadline Cloud samples repository on GitHub.
+For more information about task chunking, see the following topics:
 
-###### Customer-managed fleet requirements
-
-Task chunking requires a compatible worker agent version. If you use customer-managed
-fleets, ensure your worker agents are updated before submitting jobs with chunking.
-Service-managed fleets always use a compatible worker agent version.
-
-###### Downloading output for chunked jobs
-
-When you download output for a single task in a chunked job, Deadline Cloud downloads the output
-for the entire chunk. For example, if frames 1-10 were processed together, downloading the
-output for frame 3 includes all frames 1-10. This feature requires `deadline-cloud`
-version 0.53.3 or later.
+- [Add task chunking to a job template](build-job-bundle-chunking-add.md "build-job-bundle-chunking-add.md") – Convert an existing job
+  template to use chunking.
+- [CHUNK[INT] task parameter reference](build-job-bundle-chunking-reference.md "build-job-bundle-chunking-reference.md") – Look up every field of
+  the `CHUNK[INT]` parameter.
+- [Group frames into chunks with task chunking on Deadline Cloud](examples-jb-task-chunking.md "examples-jb-task-chunking.md") – Run ready-made chunking
+  samples.

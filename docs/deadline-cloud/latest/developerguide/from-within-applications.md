@@ -1,7 +1,7 @@
 # Submit a job within an application
 
 To make it easy for users to submit jobs, you can use the scripting runtimes or plugin
-systems provided by an application. Users have a familiar interface and you can create powerful
+systems provided by an application. Users have a familiar interface and you can create
 tools that assist the users when submitting a workload.
 
 ## Embed job bundles in an application

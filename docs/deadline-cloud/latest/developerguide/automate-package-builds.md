@@ -3,7 +3,7 @@
 For CI/CD workflows or when you need to build packages for multiple operating
 systems, you can create a Deadline Cloud package building queue. The queue schedules
 build jobs on your fleet, which build the packages and publish them to your Amazon Simple Storage Service (Amazon S3) conda
-channel. This simplifies maintaining continuous package builds for software releases
+channel. This automation simplifies maintaining continuous package builds for software releases
 across all your required configurations.
 
 You can create a package building queue using an AWS CloudFormation (CloudFormation) template, or
@@ -156,7 +156,7 @@ choose **View logs**, the monitor shows the session actions:
 
 - **Sync attachments** – Copies the input job
   attachments or mounts a virtual file system.
-- **Launch Conda** – The queue environment
+- **Launch conda** – The queue environment
   action. The build job doesn't specify conda packages, so this action finishes
   quickly.
 - **Launch CondaBuild Env** – Creates a conda

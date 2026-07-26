@@ -22,7 +22,7 @@ pip install deadline --upgrade
 
 The `job_attachments_devguide` job bundle has a single step with a task that
 runs a bash shell script whose file system location is passed as a job parameter. The job
-parameter’s definition is:
+parameter's definition is:
 
 ```
 ...
@@ -34,11 +34,11 @@ parameter’s definition is:
 ...
 ```
 
-The `dataFlow` property’s `IN` value tells job attachments that
+The `dataFlow` property's `IN` value tells job attachments that
 the value of the `ScriptFile` parameter is an input to the job. The value of the
-`default` property is a relative location to the job bundle’s directory, but it
+`default` property is a relative location to the job bundle's directory, but it
 can also be an absolute path. This parameter definition declares the `script.sh`
-file in the job bundle’s directory as an input file required for the job to run.
+file in the job bundle's directory as an input file required for the job to run.
 
 Next, make sure that the Deadline Cloud CLI does not have a storage profile configured then
 submit the job to queue `Q1`:
@@ -82,7 +82,7 @@ When you submit the job, Deadline Cloud first hashes the `script.sh` file and th
 uploads it to Amazon S3.
 
 Deadline Cloud treats the S3 bucket as content-addressable storage. Files are uploaded to S3
-objects. The object name is derived from a hash of the file’s contents. If two files have
+objects. The object name is derived from a hash of the file's contents. If two files have
 identical contents they have the same hash value regardless of where the files are located
 or what they are named. This content-addressable storage enables Deadline Cloud to avoid uploading a file if it is already
 available.
@@ -105,7 +105,7 @@ Two objects were uploaded to S3:
 - `DeadlineCloud/Data/87cb19095dd5d78fcaf56384ef0e6241.xxh128` – The
   contents of `script.sh`. The value
   `87cb19095dd5d78fcaf56384ef0e6241` in the object key is the hash of the
-  file’s contents, and the extension `xxh128` indicates that the hash value was
+  file's contents, and the extension `xxh128` indicates that the hash value was
   calculated as a 128 bit [xxhash](https://xxhash.com/ "https://xxhash.com/").
 - `DeadlineCloud/Manifests/<farm-id>/<queue-id>/Inputs/<guid>/a1d221c7fd97b08175b3872a37428e8c_input`
   – The manifest object for the job submission. The values
@@ -116,7 +116,7 @@ Two objects were uploaded to S3:
   `/home/cloudshell-user/job_attachments_devguide`, the directory where
   `script.sh` is located.
   The manifest object contains the information for the input files on a specific root
-  path uploaded to S3 as part of the job’s submission. Download this manifest file (`aws
+  path uploaded to S3 as part of the job's submission. Download this manifest file (`aws
  s3 cp s3://$Q1_S3_BUCKET/<objectname>`). Its contents are similar to:
 
 ```
@@ -136,10 +136,10 @@ Two objects were uploaded to S3:
 ```
 
 This indicates that the file `script.sh` was uploaded, and the hash of that
-file’s contents is `87cb19095dd5d78fcaf56384ef0e6241`. This hash value matches
+file's contents is `87cb19095dd5d78fcaf56384ef0e6241`. This hash value matches
 the value in the object name
 `DeadlineCloud/Data/87cb19095dd5d78fcaf56384ef0e6241.xxh128`. It is used by
-Deadline Cloud to know which object to download for this file’s contents.
+Deadline Cloud to know which object to download for this file's contents.
 
 The full schema for this file is [available in GitHub](https://github.com/aws-deadline/deadline-cloud/blob/mainline/src/deadline/job_attachments/asset_manifests/v2023_03_03/validate.py "https://github.com/aws-deadline/deadline-cloud/blob/mainline/src/deadline/job_attachments/asset_manifests/v2023_03_03/validate.py").
 

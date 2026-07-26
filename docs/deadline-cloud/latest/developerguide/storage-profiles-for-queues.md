@@ -65,7 +65,7 @@ $ aws deadline update-queue --farm-id $FARM_ID --queue-id $QUEUE1_ID \
 An error occurred (ValidationException) when calling the UpdateQueue operation: Storage profile id: sp-`00112233445566778899aabbccddeeff` does not have required file system location: FS1
 ```
 
-This is because the `WS2` storage profile doesn't contain a definition for
+The reason is that the `WS2` storage profile doesn't contain a definition for
 the file system location named `FS1` that queue `Q1` requires.
 
 Associating a fleet that is configured with a storage profile that is not in the

@@ -2,12 +2,9 @@
 
 The samples repository includes the following Nuke conda recipes:
 
-- [nuke-16.0](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-16.0 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-16.0")
-  — Foundry Nuke 16.0 for Linux 64-bit.
-- [nuke-17.0](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-17.0 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-17.0")
-  — Foundry Nuke 17.0 for Linux 64-bit.
-- [nuke-denoise](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-denoise "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-denoise")
-  — Nuke De:Noise OFX plugin. The recipe demonstrates how to package OFX
+- [nuke-16.0](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-16.0 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-16.0"): Foundry Nuke 16.0 for Linux 64-bit.
+- [nuke-17.0](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-17.0 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-17.0"): Foundry Nuke 17.0 for Linux 64-bit.
+- [nuke-denoise](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-denoise "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-denoise"): Nuke De:Noise OFX plugin. The recipe demonstrates how to package OFX
   plugins for Nuke. Place `.bundle` files in a known
   directory in `$PREFIX` and set the
   `OFX_PLUGIN_PATH` environment variable.

@@ -2,13 +2,13 @@
 
 In many rendering use cases, loading the application and scene data can take a
 significant amount of time. If a job reloads them for every frame, it will spend most of its
-time on overhead. It’s often possible to load the application once as a background daemon
+time on overhead. It's often possible to load the application once as a background daemon
 process, have it load the scene data, and then send it commands via inter-process
 communication (IPC) to perform the renders.
 
 Many of the open source Deadline Cloud integrations use this pattern. The Open Job Description
 project provides an [adaptor
-runtime library](https://github.com/OpenJobDescription/openjd-adaptor-runtime-for-python "https://github.com/OpenJobDescription/openjd-adaptor-runtime-for-python") with robust IPC patterns on all supported operating systems.
+runtime library](https://github.com/OpenJobDescription/openjd-adaptor-runtime-for-python "https://github.com/OpenJobDescription/openjd-adaptor-runtime-for-python") with reliable IPC patterns on all supported operating systems.
 
 To demonstrate this pattern, there is a [self-contained sample job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_daemon_process/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_daemon_process/template.yaml") that uses Python and bash code to implement a
 background daemon and the IPC for tasks to communicate with it. The daemon is implemented in
@@ -49,7 +49,7 @@ cd deadline-cloud-samples/job_bundles
 
 2. In the Deadline Cloud monitor application, you will see the new job and can monitor its
    progress. Once the Linux fleet associated with the queue has a worker available to run
-   the job’s task, it completes in about a minute. With one of the tasks selected, choose
+   the job's task, it completes in about a minute. With one of the tasks selected, choose
    the **View logs** option in the top right menu of the tasks panel.
 
 On the right there are two session actions, **Launch

@@ -7,10 +7,8 @@ recipes:
 - [houdini-21.0](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-21.0 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-21.0")
 - [houdini-redshift-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-redshift-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-redshift-2025")
   and
-  [houdini-redshift-2026](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-redshift-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-redshift-2026")
-  — Redshift renderer for Houdini.
-- [houdini-vray-7](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-vray-7 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-vray-7")
-  — V-Ray 7 renderer for Houdini.
+  [houdini-redshift-2026](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-redshift-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-redshift-2026"): Redshift renderer for Houdini.
+- [houdini-vray-7](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-vray-7 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-vray-7"): V-Ray 7 renderer for Houdini.
   The
   [Render USD scenes with Houdini Husk on Deadline Cloud](examples-jb-houdini-husk-usd.md "examples-jb-houdini-husk-usd.md") job bundle uses these
   recipes to render USD scenes with Karma, V-Ray, and Redshift Hydra render

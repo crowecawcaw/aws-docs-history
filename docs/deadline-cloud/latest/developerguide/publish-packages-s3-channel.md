@@ -135,7 +135,7 @@ it to the `noarch` subdirectory of the channel prefix. Replace
 
 ```
 echo '{"info":{"subdir":"noarch"},"packages":{},"packages.conda":{},"removed":[],"repodata_version":1}' > empty_channel_repodata.json
-aws s3api put-object --body empty_channel_repodata.json --key Conda/Default/noarch/repodata.json --bucket `amzn-s3-demo-bucket`
+aws s3api put-object --body empty_channel_repodata.json --key conda/Default/noarch/repodata.json --bucket `amzn-s3-demo-bucket`
 ```
 
 The `/Conda/Default` prefix must match the channel prefix that your queue

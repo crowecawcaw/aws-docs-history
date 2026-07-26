@@ -33,7 +33,7 @@ information, use any of the following methods:
 - In the terminal, enter `deadline config set telemetry.opt_out
  true`.
 
-This will opt out the CLI, submitters, and worker agent when running as the current
+The command opts out the CLI, submitters, and worker agent when running as the current
 user.
 
 - When installing the Deadline Cloud worker agent, add the

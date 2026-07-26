@@ -11,7 +11,7 @@ to use the outputs.
 Use the `job_attachments_devguide_output` job bundle for this example. Start by
 making a copy in your AWS CloudShell environment from your clone of the Deadline Cloud samples GitHub
 repository. Modify it to add a dependent step that only runs after the existing step and uses
-that step’s output:
+that step's output:
 
 ```
 cp -r deadline-cloud-samples/job_bundles/job_attachments_devguide_output ~/

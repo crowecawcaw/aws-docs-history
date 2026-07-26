@@ -6,13 +6,13 @@ job bundle renders 3ds Max scenes with V-Ray and converts the output from
 V-Ray's native VRIMG format to EXR while preserving denoising data. The
 bundle includes the following features:
 
-- **Frame chunking** — Handles both
+- **Frame chunking**: Handles both
   contiguous ranges (for example, `1-100`) and non-contiguous
   ranges (for example, `1-5,10,15-20`).
-- **VRIMG to EXR conversion** — Converts
+- **VRIMG to EXR conversion**: Converts
   V-Ray's native VRIMG format to EXR while preserving denoising data,
   beauty passes, multi-channel data, and high dynamic range.
-- **Automatic cleanup** — Removes
+- **Automatic cleanup**: Removes
   temporary VRIMG files after successful conversion.
   To run this bundle, you need 3ds Max 2025 and V-Ray for 3ds Max 2025
   installed on Windows worker hosts. You can use the

@@ -14,7 +14,7 @@ FleetId, LicenseEndpointId
 **Alarm description:** This alarm detects when
 the active license sessions for a service-managed fleet or license endpoint are
 approaching your account quota.
-If this occurs, you can raise the account quota for license sessions.
+If this error occurs, you can raise the account quota for license sessions.
 See your current quotas and request increases using Service Quotas.
 To learn more, see the [Service Quotas User Guide](../../../servicequotas/latest/userguide.md "../../../servicequotas/latest/userguide.md").
 

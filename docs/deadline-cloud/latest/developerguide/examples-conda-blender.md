@@ -10,10 +10,8 @@ versions and add-ons. Each recipe builds for Linux 64-bit and Windows
 - [blender-4.5](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.5 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.5")
 - [blender-5.0](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-5.0 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-5.0")
 - [blender-5.1](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-5.1 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-5.1")
-- [blender-flipfluids](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-flipfluids "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-flipfluids")
-  — FLIP Fluids physics simulation add-on for Blender.
-- [blender-plugin-bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-plugin-bundle "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-plugin-bundle")
-  — A bundle of Blender plugins packaged together.
+- [blender-flipfluids](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-flipfluids "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-flipfluids"): FLIP Fluids physics simulation add-on for Blender.
+- [blender-plugin-bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-plugin-bundle "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-plugin-bundle"): A bundle of Blender plugins packaged together.
   Submit a Blender 4.5 build job from the
   `conda_recipes` directory of the samples repository:
 

@@ -4,8 +4,8 @@ AWS Deadline Cloud is a fully-managed AWS service that enables you to have a sca
 farm up and running in minutes. It provides an administration console for managing users, farms,
 queues for scheduling jobs, and fleets of workers that do the processing.
 
-This developer guide is for pipeline, tools, and applications developers in a wide range of
-use cases, including the following:
+This developer guide is for pipeline, tools, and applications developers with
+use cases including the following:
 
 - Pipeline developers and technical directors can integrate Deadline Cloud APIs and features into
   their custom production pipelines.
@@ -16,7 +16,13 @@ use cases, including the following:
   fleets of workers.
 - Web and cloud-based service developers can integrate Deadline Cloud processing into their
   platforms, enabling customers to submit and track jobs on demand.
-  We provide tools that enable you to work directly with any step of your pipeline:
+  This developer guide covers job bundles, submitters, customer-managed fleets, and
+  integrations with the Deadline Cloud API, AWS Command Line Interface (AWS CLI), and SDKs. If you submit and monitor jobs from
+  a digital content creation (DCC) application, see the [AWS Deadline Cloud User Guide](../userguide/what-is-deadline-cloud.md "../userguide/what-is-deadline-cloud.md").
+  The User Guide also covers setting up farms, queues, users, and budgets in the console. Each
+  topic is documented once, in the guide for its audience. The other guide links to it.
+
+We provide tools that enable you to work directly with any step of your pipeline:
 
 - A command-line interface that you can use directly or from scripts.
 - The AWS SDK for 11 popular programming languages.

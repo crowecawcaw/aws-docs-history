@@ -2,7 +2,9 @@
 
 When you create a customer-managed fleet (CMF), you have full control over your processing
 pipeline. You define the network and software environment for each worker. Deadline Cloud acts as the
-repository and scheduler for your jobs.
+repository and scheduler for your jobs. For more information about choosing a fleet type, see
+[Choose between service-managed and
+customer-managed fleets](../userguide/fleet-types.md "../userguide/fleet-types.md") in the _Deadline Cloud User Guide_.
 
 A worker may be an Amazon Elastic Compute Cloud (Amazon EC2) instance, a worker in a co-location facility, or an
 on-premises worker. Each worker must run the Deadline Cloud worker agent. All workers must have access to

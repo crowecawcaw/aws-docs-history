@@ -2,7 +2,9 @@
 
 A service-managed fleet (SMF) is a collection of workers managed by Deadline Cloud. An SMF eliminates
 the need to manage fleet scaling for processing demands or reduce fleet size after task
-completion.
+completion. For more information about choosing a fleet type, see [Choose between
+service-managed and customer-managed fleets](../userguide/fleet-types.md "../userguide/fleet-types.md") in the _Deadline Cloud User
+Guide_.
 
 When an SMF is associated with a queue using the default conda queue environment, Deadline Cloud
 configures the workers in the fleet with the appropriate software package. For supported partner

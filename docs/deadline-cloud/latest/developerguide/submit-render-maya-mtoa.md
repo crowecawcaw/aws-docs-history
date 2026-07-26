@@ -56,6 +56,6 @@ deadline bundle submit turntable_with_maya_arnold
 
 Use the Deadline Cloud monitor to track the progress of the job. In the monitor,
 select the task for the job and choose **View logs**. Select the
-**Launch Conda** session action to verify that the
+**Launch conda** session action to verify that the
 `maya`, `maya-mtoa`, and `maya-openjd` packages
 were found in the Amazon S3 channel.

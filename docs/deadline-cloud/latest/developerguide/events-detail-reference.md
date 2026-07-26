@@ -125,7 +125,7 @@ occur:
   newFleetSize.
 - When the service detects that the actual fleet size does not match the
   recommended fleet size. You can get the actual fleet size from the
-  workerCount in the GetFleet operation response. This may happen when an
+  workerCount in the GetFleet operation response. This mismatch might happen when an
   active Amazon EC2 instance fails to register as a Deadline Cloud
   worker.
 
@@ -265,7 +265,7 @@ The lifecycle state that the job is entering.
 
 A job is composed of many tasks. Each task has a status. The status of all tasks
 are combined to give an overall status for a job. For more information, see [Job
-states in Deadline Cloud](../userguide/jobs-states.md "../userguide/jobs-states.md") in the _AWS Deadline Cloud User Guide_.
+states in Deadline Cloud](../userguide/jobs-monitoring.md "../userguide/jobs-monitoring.md") in the _AWS Deadline Cloud User Guide_.
 
 A job run status change event is sent when:
 

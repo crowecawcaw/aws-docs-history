@@ -119,13 +119,13 @@ deadline bundle submit ./lora_training \
 Training parameters| Parameter | Description | Default |
 | --- | --- | --- |
 | Model Version | `flux.2-klein-base-4b` or `flux.2-klein-4b` | `flux.2-klein-base-4b` |
-| Dataset Path | Directory containing training images | — |
-| Instance Prompt | Text describing your subject | — |
+| Dataset Path | Directory containing training images | None |
+| Instance Prompt | Text describing your subject | None |
 | Resolution | Training image resolution in pixels | 512 |
 | Network Dim | LoRA rank (higher = more capacity) | 16 |
 | Network Alpha | LoRA alpha scaling factor | 16 |
 | Max Training Steps | Number of training iterations | 1500 |
-| Output Directory | Where to save trained weights | — |
+| Output Directory | Where to save trained weights | None |
 
 ### Training output
 
@@ -177,8 +177,8 @@ multiple workers for faster generation.
 
 Generation parameters| Parameter | Description | Default |
 | --- | --- | --- |
-| LoRA Path | Path to trained `.safetensors` file | — |
-| Prompt | Text description (include your trigger word) | — |
+| LoRA Path | Path to trained `.safetensors` file | None |
+| Prompt | Text description (include your trigger word) | None |
 | Number of Images | Total images to generate | 1 |
 | Width | Output width in pixels | 1024 |
 | Height | Output height in pixels | 1024 |

@@ -1,7 +1,7 @@
 # What is a Deadline Cloud workload
 
 With AWS Deadline Cloud, you can submit jobs to run your applications in the cloud and process data
-for the production of content or insights crucial to your business. Deadline Cloud uses [Open Job Description](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications")
+for the production of content or insights important to your business. Deadline Cloud uses [Open Job Description](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications")
 (OpenJD) as the syntax for job templates, a specification designed for the needs of visual
 compute pipelines but applicable to many other use cases. Some example workloads include
 computer graphics rendering, physics simulation, and photogrammetry.
@@ -18,7 +18,7 @@ games, product catalog imagery, 3D reconstructions for building information mode
 and more. This content is typically created by a team of artistic or technical specialists
 running a variety of software applications and custom scripting. Members of the team pass data
 between each other using a production pipeline. Many tasks performed by the pipeline involve
-intensive computations that would take days if run on a user’s workstation.
+intensive computations that would take days if run on a user's workstation.
 
 Some examples of tasks in these production pipelines include:
 
@@ -37,7 +37,7 @@ These tasks involve many parameters to adjust to get an artistic result or to fi
 the output quality. Often there is a GUI to select those parameter values with a button or
 menu to run the process locally within the application. When a user runs the process, the
 application and possibly the host computer itself cannot be used to perform other operations
-because it uses the application state in memory and may consume all of the host computer’s CPU
+because it uses the application state in memory and might consume all of the host computer's CPU
 and memory resources.
 
 In many cases the process is quick. During the course of production, the speed of the
@@ -52,14 +52,14 @@ There are two levels of support to aim for when developing support for a workloa
 Deadline Cloud:
 
 - Offloading the workload from the user workstation to a Deadline Cloud farm with no parallelism
-  or speed-up. This may under-utilize the available compute resources in the farm, but the
+  or speed-up. This approach might under-utilize the available compute resources in the farm, but the
   ability to shift long operations to a batch processing system enables users to get more
   done with their own workstation.
 - Optimizing the parallelism of the workload so that it utilizes the Deadline Cloud farm's
   horizontal scale to complete quickly.
 
 There are times that it is obvious how to make a workload run in parallel. For example,
-each frame of a computer graphics render can be done independently. It’s important not to get
+each frame of a computer graphics render can be done independently. It's important not to get
 stuck on this parallelism, however. Instead, understand that offloading a long-running
 workload to Deadline Cloud provides significant benefits, even when there is no obvious way to split
 the workload up.
@@ -75,7 +75,7 @@ consider when defining a workload for Deadline Cloud:
 - **The application to run**. The job must be able to launch
   application processes, and therefore needs an installation of the application available as
   well as any licensing the application uses, such as access to a floating license server.
-  This is typically part of the farm configuration, and not embedded in the job bundle
+  The installation and licensing are typically part of the farm configuration, and not embedded in the job bundle
   itself.
 
   - [Configure jobs using queue environments](configure-jobs.md "configure-jobs.md")
@@ -158,8 +158,8 @@ Here are some ways you can make your job bundle portable.
   - You can write portable Python scripts using `pathlib` to handle file
     system path differences and avoid operating-specific features. The Python
     documentation includes annotations for this, for example in the [signal library
-    documentation](https://docs.python.org/3/library/signal.html "https://docs.python.org/3/library/signal.html"). Linux-specific feature support is marked as “Availability:
-    Linux.”
+    documentation](https://docs.python.org/3/library/signal.html "https://docs.python.org/3/library/signal.html"). Linux-specific feature support is marked as "Availability:
+    Linux."
 
 - Use job parameters to specify application requirements. Use consistent conventions
   that the farm administrator can apply in [queue

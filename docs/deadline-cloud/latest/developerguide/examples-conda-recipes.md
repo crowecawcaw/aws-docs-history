@@ -62,12 +62,10 @@ The repository also includes recipes that package the Deadline Cloud client
 libraries themselves so that jobs can call Deadline Cloud APIs from inside a
 queue:
 
-- [deadline](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/deadline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/deadline")
-  — The Deadline Cloud Python client (`deadline` CLI and
+- [deadline](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/deadline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/deadline"): The Deadline Cloud Python client (`deadline` CLI and
   `deadline.job_attachments`), packaged for Linux, Windows,
   Linux ARM, and macOS.
-- [openjd-adaptor-runtime](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/openjd-adaptor-runtime "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/openjd-adaptor-runtime")
-  — The runtime that the DCC Open Job Description adaptors build on top of, packaged
+- [openjd-adaptor-runtime](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/openjd-adaptor-runtime "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/openjd-adaptor-runtime"): The runtime that the DCC Open Job Description adaptors build on top of, packaged
   for Linux and Windows with Python 3.13.
   The following sections describe the recipe families available in the
   samples repository.

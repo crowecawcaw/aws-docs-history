@@ -6,7 +6,7 @@ This content is intended for chief technology officers (CTOs), architects, devel
 
 An end-to-end rendering workflow requires solutions at multiple layers of the process such as job generation, asset access, and job monitoring. Deadline Cloud offers multiple solutions for each layer of the rendering process. By selecting from Deadline Cloud's options in each layer, you can design a workflow that matches your use case.
 
-For each layer, you will need to decide which approach is best for your use case. These are not strict scenario definitions and are not the only way to use Deadline Cloud. Instead these are a high-level set of concepts to help you understand how Deadline Cloud might be able to fit into your business or workflow. You can separate Deadline Cloud workloads into the following layers: Job Source, Job Submission, Application Management, Application Licensing, Asset Access, Output Management, and Worker Infrastructure Management.
+For each layer, decide which approach is best for your use case. These scenarios are not strict definitions and are not the only way to use Deadline Cloud. Instead they form a high-level set of concepts to help you understand how Deadline Cloud might be able to fit into your business or workflow. You can separate Deadline Cloud workloads into the following layers: Job Source, Job Submission, Application Management, Application Licensing, Asset Access, Output Management, and Worker Infrastructure Management.
 
 In general, you can mix-and-match any scenario in one layer with any other scenario in another layer, except specific combinations which are specified below.
 
@@ -24,7 +24,7 @@ In most cases, these artists use Deadline Cloud integrated submitters and the De
 
 ### Automated workflow
 
-In this scenario, a programmatic system owned by the customer is the primary generator of jobs in the Deadline Cloud farm. This could be asset generation in a retail pipeline, like a turntable video generated from a 3D model or scan. This could be automated compositing of broadcast graphics and player cards for sports. The theme of this scenario is an individual isn't manually submitting each job to Deadline Cloud, but instead the job is generated as part of a larger system.
+In this scenario, a programmatic system owned by the customer is the primary generator of jobs in the Deadline Cloud farm. The jobs could be asset generation in a retail pipeline, like a turntable video generated from a 3D model or scan. Another example is automated compositing of broadcast graphics and player cards for sports. The theme of this scenario is an individual isn't manually submitting each job to Deadline Cloud, but instead the job is generated as part of a larger system.
 
 With automated jobs, it is less common for Deadline Cloud integrated submitters and the Deadline Cloud monitor to be used. Often the job definitions will be custom application development written by you and job outputs will automatically flow into a Digital Asset Management (DAM) system or Media Asset Management (MAM) system for approval and distribution.
 
@@ -56,7 +56,7 @@ When using service-managed fleets, a Deadline Cloud-managed conda channel is aut
 
 ### Self-managed conda channel
 
-If you are not able to use the Deadline Cloud-managed conda channel, you must determine how to install, patch and otherwise manage applications on your Deadline Cloud fleet. One option is to create a conda channel that you setup and maintain. This will most closely interoperate with the Deadline Cloud-managed conda channel. For example, you can use a DCC from the Deadline Cloud-managed conda channel but bring your own package that contains a specific DCC plugin. For more information about this process, see [Create a conda channel using S3](configure-jobs-s3-channel.md "configure-jobs-s3-channel.md").
+If you are not able to use the Deadline Cloud-managed conda channel, you must determine how to install, patch and otherwise manage applications on your Deadline Cloud fleet. One option is to create a conda channel that you setup and maintain. This approach most closely interoperates with the Deadline Cloud-managed conda channel. For example, you can use a DCC from the Deadline Cloud-managed conda channel but bring your own package that contains a specific DCC plugin. For more information about this process, see [Create a conda channel using S3](configure-jobs-s3-channel.md "configure-jobs-s3-channel.md").
 
 ### Custom application management
 
@@ -68,7 +68,7 @@ If you already manage applications on a customer-managed fleets with long-lived 
 
 ## Application licensing
 
-Many workloads commonly ran on Deadline Cloud require software licensing from the software vendor. These applications are often licensed per-seat, per-CPU or per-host. It is your responsibility to ensure that your usage of 3rd party software on Deadline Cloud abides by the 3rd party licensing agreement. If you are using open-source software, custom software, or otherwise license-free software, then configuring this layer is not required. Keep in mind that Deadline Cloud only supports render licensing and does not support workstation licensing.
+Many workloads commonly ran on Deadline Cloud require software licensing from the software vendor. These applications are often licensed by seat, CPU, or host. It is your responsibility to ensure that your usage of 3rd party software on Deadline Cloud abides by the 3rd party licensing agreement. If you are using open-source software, custom software, or otherwise license-free software, then configuring this layer is not required. Deadline Cloud only supports render licensing and does not support workstation licensing.
 
 ### Service-managed fleets and usage-based licensing
 
@@ -85,9 +85,9 @@ For more information about custom licensing, see [Connect service-managed fleets
 
 ## Asset access
 
-After a job is submitted to a worker and the application is configured, the worker must be configured to access the asset data required for the job. This could be 3D data, texture data, animation data, video frames or any other sort of data used in your job.
+After a job is submitted to a worker and the application is configured, the worker must be configured to access the asset data required for the job. The assets could be 3D data, texture data, animation data, video frames or any other sort of data used in your job.
 
-Start with thinking about where your data is currently stored. This might be on the workstation hard drive, a user collaboration tool, source control, a shared filesystem on-premises or in the cloud, Amazon S3 or any number of other locations.
+Start with thinking about where your data is currently stored. The data might be on the workstation hard drive, a user collaboration tool, source control, a shared filesystem on-premises or in the cloud, Amazon S3 or any number of other locations.
 
 Next, consider what is necessary for a worker to access this data. Is this data only made available on your corporate network? What identity or credentials is required to access the data? Is the data source scaled to support the job with the number of workers you expect to process the job?
 
@@ -113,7 +113,7 @@ After jobs submitted to Deadline Cloud are successfully completed, a person or p
 
 ### Deadline Cloud monitor
 
-The Deadline Cloud monitor application is available on the web and for desktop. This solution is best suited for studios using interactive workflows for a wide range of DCCs using job attachments for storage. The monitor only supports you when using IAM Identity Center. IAM Identity Center is a Workforce Identity product, not a consumer identity (B2C) solution so it is not appropriate for many B2C scenarios.
+The Deadline Cloud monitor application is available on the web and for desktop. This solution is best suited for studios using interactive workflows for many DCCs using job attachments for storage. The monitor only supports you when using IAM Identity Center. IAM Identity Center is a Workforce Identity product, not a consumer identity (B2C) solution so it is not appropriate for many B2C scenarios.
 
 ### Custom monitor application
 
@@ -129,7 +129,7 @@ Deadline Cloud fleets are a grouping of servers (workers) that are able to proce
 
 ### Service-managed fleets
 
-In a service-managed fleet, Deadline Cloud takes responsibility for the worker hosts, operating system, networking, patching, autoscaling and other factors of running a render farm. You specify the minimum and maximum number of workers you want, along with the system specifications required for your application and Deadline Cloud does the rest. Service-managed fleets are the only fleet option that can use Deadline Cloud-managed conda channels to easily manage industry DCC applications. Additionally, Deadline Cloud UBL is automatically configured with service-managed fleets. Wait and Save fleets for lower cost, delay-tolerant workloads is only available using service-managed fleets.
+In a service-managed fleet, Deadline Cloud takes responsibility for the worker hosts, operating system, networking, patching, auto scaling, and other factors of running a render farm. You specify the minimum and maximum number of workers you want, along with the system specifications required for your application and Deadline Cloud does the rest. Service-managed fleets are the only fleet option that can use Deadline Cloud-managed conda channels to easily manage industry DCC applications. Additionally, Deadline Cloud UBL is automatically configured with service-managed fleets. Wait and Save fleets for lower cost, delay-tolerant workloads is only available using service-managed fleets.
 
 ### Customer-managed fleets
 
@@ -160,7 +160,7 @@ With this configuration, studios can create development and production environme
 
 ### Studio in the Cloud
 
-Modern visual effects and animation studios are increasingly moving their entire pipeline to the cloud, including artist workstations. This approach eliminates the need for on-premises infrastructure, enables global collaboration, and provides seamless scaling for both interactive work and rendering. However, it also introduces new challenges in managing cloud resources, ensuring low-latency access to data, and integrating cloud-based workstations with render farms.
+Modern visual effects and animation studios are increasingly moving their entire pipeline to the cloud, including artist workstations. This approach eliminates the need for on-premises infrastructure, enables global collaboration, and scales for both interactive work and rendering. However, it also introduces new challenges in managing cloud resources, ensuring low-latency access to data, and integrating cloud-based workstations with render farms.
 
 A typical cloud-native studio requires a unified approach to managing cloud workstations, shared storage, rendering infrastructure, and software deployment across all these components. Traditional approaches often resulted in complex, manually-managed systems that struggled to balance performance, cost, and flexibility.
 
@@ -173,7 +173,7 @@ A Deadline Cloud deployment for a cloud-native studio can be implemented using:
 - Monitoring via the Deadline Cloud monitor application
 - Infrastructure management using service-managed fleets
 
-This approach allows artists to work on cloud-based workstations with direct access to high-performance shared storage and seamlessly submit jobs to the Deadline Cloud farm. The studio can manage software deployment across both workstations and render nodes using the same conda channels, ensuring consistency and reducing maintenance overhead.
+This approach allows artists to work on cloud-based workstations with direct access to high-performance shared storage and submit jobs to the Deadline Cloud farm. The studio can manage software deployment across both workstations and render nodes using the same conda channels, ensuring consistency and reducing maintenance overhead.
 
 Key benefits of this configuration include:
 
@@ -191,7 +191,7 @@ Storage configuration in this scenario typically involves:
 
 This cloud-native approach allows studios to eliminate on-premises infrastructure, enabling rapid scaling for projects of any size while maintaining familiar artist workflows. It provides the flexibility to use a mix of service-managed and customer-managed resources, optimizing for both ease of management and specific performance requirements.
 
-By leveraging cloud workstations alongside Deadline Cloud, studios can achieve a fully integrated, globally accessible production pipeline that scales seamlessly from small teams to large productions.
+By using cloud workstations alongside Deadline Cloud, studios can achieve a fully integrated, globally accessible production pipeline that scales from small teams to large productions.
 
 ### ECommerce Automation
 
@@ -217,7 +217,7 @@ This approach enables processing of thousands of products per day, automatically
 
 Traditional digital content creation (DCC) software typically requires users to maintain their own rendering infrastructure or process renders locally on their workstation, leading to either significant hardware investments or long wait times that interrupt creative workflows. For software vendors, providing cloud rendering capabilities traditionally required building and maintaining complex infrastructure and billing systems.
 
-A Deadline Cloud deployment integrated into B2C software enables seamless cloud rendering directly within the user's familiar interface. This integration combines:
+A Deadline Cloud deployment integrated into B2C software enables cloud rendering directly within the user's familiar interface. This integration combines:
 
 - Interactive workflow job submission embedded within the DCC application
 - Deadline Cloud-managed conda channels for render application deployment
@@ -234,7 +234,7 @@ This approach allows end users to submit renders to the cloud with a single clic
 - Billing is handled through the vendor's existing systems
 - Job status and outputs are streamed directly back to the user's application
 
-The shared fleet approach ensures optimal performance by maintaining a warm pool of workers, minimizing startup times while maximizing resource utilization across the user base. This configuration allows software vendors to offer cloud rendering as a seamless product feature rather than a separate service requiring additional setup or accounts.
+The shared fleet approach ensures optimal performance by maintaining a warm pool of workers, minimizing startup times while maximizing resource utilization across the user base. This configuration allows software vendors to offer cloud rendering as a built-in product feature rather than a separate service requiring additional setup or accounts.
 
 End users benefit from:
 

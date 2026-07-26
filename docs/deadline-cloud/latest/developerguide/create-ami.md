@@ -8,7 +8,7 @@ Instances_.
 
 ###### Important
 
-Creating an AMI creates a snapshot of the Amazon EC2 instance’s attached volumes. Any
+Creating an AMI creates a snapshot of the Amazon EC2 instance's attached volumes. Any
 software installed on the instance persists so instances, which are reused when you
 launch instances from the AMI. We recommend adopting a patching strategy and regularly
 updating any new AMI with updated software before applying to your fleet.
@@ -26,7 +26,7 @@ diagnosing possible issue in worker fleets that use the AMI.
 You should also enable the worker agent system service so the Deadline Cloud worker agent
 launch when the Amazon EC2 is started.
 
-Finally, we recommend you enable the worker agent auto shutdown. This allows the
+Finally, we recommend you enable the worker agent auto shutdown. Auto shutdown allows the
 worker fleet to scale up when needed and to shutdown when the rendering job finishes.
 This auto scaling helps ensure you're only using resources as needed.
 

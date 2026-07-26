@@ -26,7 +26,7 @@ fleet**
 
 9. Review your selections, then choose **Next**.
 10. Select an **operating system** for your fleet. All of
-    a fleet’s workers must have a common operating system.
+    a fleet's workers must have a common operating system.
 11. Select the **host CPU architecture**.
 12. Select the minimum and maximum vCPU and memory **Hardware
     capabilities** to meet the workload demands of your fleets.
@@ -49,7 +49,7 @@ fleet**
 
 We recommend associating a fleet only with queues that are all in
 the same trust boundary. This recommendation ensures a strong security boundary
-between running jobs on the same worker. 19. Review the queue associations, then choose **Next**. 20. (Optional) For Default Conda queue environment,
+between running jobs on the same worker. 19. Review the queue associations, then choose **Next**. 20. (Optional) For Default conda queue environment,
 we'll create an environment for your queue that will install conda packages
 requested by jobs.
 

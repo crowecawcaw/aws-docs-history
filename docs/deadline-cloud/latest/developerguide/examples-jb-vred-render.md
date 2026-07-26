@@ -11,9 +11,9 @@ manages settings such as quality, resolution, and tiling.
 The bundle provides two template options:
 
 - **Basic template**
-  (`template.yaml`) — Standard rendering functionality.
+  (`template.yaml`): Standard rendering functionality.
 - **Tiling template**
-  (`template_tiling.yaml`) — Adds region/tile-based rendering
+  (`template_tiling.yaml`): Adds region/tile-based rendering
   and a tile assembly step that combines rendered tiles into final images.
   To use this template, rename it to `template.yaml`.
   The job parameters cover input and output paths, render settings such as

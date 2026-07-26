@@ -37,7 +37,7 @@ these kinds of job parameters is remapped to a local file system location on the
 runs the job, then Deadline Cloud will look for new files at the location and upload those to Amazon S3 as
 job outputs.
 
-To see how this works, first start the Deadline Cloud worker agent in an AWS CloudShell tab. Let any
+To see how this process works, first start the Deadline Cloud worker agent in an AWS CloudShell tab. Let any
 previously submitted jobs finish running. Then delete the job logs from the logs directory:
 
 ```

@@ -10,10 +10,10 @@ Financial Derivatives with AWS Batch](https://ec2spotworkshops.com/monte-carlo-w
 
 The bundle defines a two-step pipeline:
 
-1. `PricePositions` — One task per portfolio position.
+1. `PricePositions`: One task per portfolio position.
    Tasks are grouped into chunks that calibrate the Heston model once and
    price all positions in the chunk, amortizing calibration cost.
-2. `AggregateResults` — Collects per-position results into
+2. `AggregateResults`: Collects per-position results into
    a portfolio summary.
    The bundle uses the Open Job Description
    [TASK\_CHUNKING](https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md "https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md")

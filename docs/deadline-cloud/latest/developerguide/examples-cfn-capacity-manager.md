@@ -11,12 +11,12 @@ Spot fleet's maximum worker count to cover any deficit.
 
 For example, with a target maximum worker count of 20 workers:
 
-- Wait and Save has 15 workers — Spot fleet maximum is set to 5.
-- Wait and Save scales down to 8 — Spot fleet maximum increases to
+- Wait and Save has 15 workers. Spot fleet maximum is set to 5.
+- Wait and Save scales down to 8. Spot fleet maximum increases to
 
 12.
 
-- Wait and Save scales up to 18 — Spot fleet maximum decreases to
+- Wait and Save scales up to 18. Spot fleet maximum decreases to
 
 2.
 

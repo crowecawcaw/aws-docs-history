@@ -6,14 +6,10 @@ recipes:
 - [cinema4d-2024](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-2024 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-2024")
   and
   [cinema4d-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-2025")
-- [cinema4d-c4dtoa-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-c4dtoa-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-c4dtoa-2025")
-  — Arnold renderer (C4DtoA) for Cinema 4D 2025.
-- [cinema4d-vray-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-vray-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-vray-2025")
-  — V-Ray for Cinema 4D 2025.
-- [cinema4d-insydium-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-insydium-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-insydium-2025")
-  — Insydium plugins for Cinema 4D 2025.
-- [cinema4d-openjd](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-openjd "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-openjd")
-  — Builds the Cinema 4D Open Job Description adaptor with rattler-build for Python
+- [cinema4d-c4dtoa-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-c4dtoa-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-c4dtoa-2025"): Arnold renderer (C4DtoA) for Cinema 4D 2025.
+- [cinema4d-vray-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-vray-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-vray-2025"): V-Ray for Cinema 4D 2025.
+- [cinema4d-insydium-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-insydium-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-insydium-2025"): Insydium plugins for Cinema 4D 2025.
+- [cinema4d-openjd](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-openjd "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-openjd"): Builds the Cinema 4D Open Job Description adaptor with rattler-build for Python
   3.13.
   The Cinema 4D Windows installer requires Administrator permissions
   that are not available in most conda package build environments. Each

@@ -40,7 +40,7 @@ You can create a Python virtual environment on Linux if you have installed Pytho
 
 ###### Note
 
-On Windows, agent files must be installed into Python’s global site-packages
+On Windows, agent files must be installed into Python's global site-packages
 directory. Python virtual environments are not currently supported.
 
 ###### To create and activate a Python virtual environment
@@ -253,7 +253,7 @@ usermod -a -G `deadline-job-users` `jobRunAsUser`
   agent's primary group. If a `jobRunAsUser` is part of this group,
   worker agent files may be accessible to jobs running on the worker.
 - The default AWS Region must match the Region of the farm that the worker
-  belongs to. This should be applied to all `jobRunAsUser` accounts on
+  belongs to. Apply this setting to all `jobRunAsUser` accounts on
   the worker.
 
 ```
@@ -288,7 +288,7 @@ To use a Windows user as the `jobRunAsUser`, it must meet the following
 requirements:
 
 - All queue `jobRunAsUser` users must exist.
-- Their passwords must match the value of the secret specified in their queue’s
+- Their passwords must match the value of the secret specified in their queue's
   `JobRunAsUser` field. For instructions, see step 7 in [Deadline Cloud
   queues](../userguide/queues.md "../userguide/queues.md") in the _AWS Deadline Cloud User Guide_.
 - The agent-user must be able to log on as those users.

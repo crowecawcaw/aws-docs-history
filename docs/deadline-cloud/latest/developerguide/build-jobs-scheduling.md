@@ -155,6 +155,17 @@ the standard weighted formula with no special treatment.
 
 ## Determine fleet compatibility
 
+Queues and fleets divide the work of routing jobs. A queue organizes jobs and controls
+who can submit and view them. Fleets and host requirements select which workers run
+each step.
+
+To dedicate specific workers to certain jobs, create a separate fleet for those
+workers instead of a separate queue. For example, use a separate fleet for machines with
+particular hardware or for machines reserved for sensitive content. One queue can be
+associated with several fleets, and each step's host requirements select a compatible
+fleet. If you're coming from Deadline 10, fleets and host requirements replace worker
+groups. For the full concept mapping, see [Migrate from Deadline 10 to AWS Deadline Cloud](migrate-from-deadline-10.md "migrate-from-deadline-10.md").
+
 After you create a job, Deadline Cloud checks the host requirements for each step in the job
 against the capabilities of the fleets associated with the queue the job was submitted to.
 If a fleet meets the host requirements, the job is put into the `READY`
@@ -162,7 +173,9 @@ state.
 
 If any step in the job has requirements that can't be met by a fleet associated with the
 queue, the step's status is set to `NOT_COMPATIBLE`. In addition, the rest of the
-steps in the job are canceled.
+steps in the job are canceled. If you associate a compatible fleet with the queue later,
+existing `NOT_COMPATIBLE` jobs don't automatically restart – to run them,
+requeue them. For more information, see [Modify a job in Deadline Cloud](build-jobs-modifying.md "build-jobs-modifying.md").
 
 Capabilities for a fleet are set at the fleet level. Even if a worker in a fleet meets
 the job's requirements, it won't be assigned tasks from the job if its fleet doesn't meet

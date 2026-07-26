@@ -15,7 +15,7 @@ workloads, customizations, and pipeline integrations.
    commands to run the examples in this tutorial. Keep the CloudShell window open as
    you proceed.
 2. Create a name for your farm, and add that farm name to `~/.bashrc`.
-   This will make it available for other terminal sessions.
+   Storing the name makes it available in other terminal sessions.
 
 ```
 `echo "DEV_FARM_NAME=DeveloperFarm" >> ~/.bashrc

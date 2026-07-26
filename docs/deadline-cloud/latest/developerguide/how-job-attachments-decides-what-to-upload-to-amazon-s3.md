@@ -3,14 +3,14 @@
 The files and directories that job attachments considers for upload to Amazon S3 as inputs
 to your job are:
 
-- The values of all `PATH`-type job parameters defined in the job bundle’s
+- The values of all `PATH`-type job parameters defined in the job bundle's
   job template with a `dataFlow` value of `IN` or
   `INOUT`.
-- The files and directories listed as inputs in the job bundle’s asset references
+- The files and directories listed as inputs in the job bundle's asset references
   file.
   If you submit a job with no storage profile, all of the files considered for uploading
   are uploaded. If you submit a job with a storage profile, files are not uploaded to Amazon S3 if
-  they are located in the storage profile’s `SHARED`-type file system locations
+  they are located in the storage profile's `SHARED`-type file system locations
   that are also required file system locations for the queue. These locations are expected to
   be available on the worker hosts that run the job, so there is no need to upload them to S3.
 
@@ -121,7 +121,7 @@ input files that were uploaded are:
   locations for queue `Q1`.
   The files in file system locations `FSCommon`
   (`/shared/common/file.txt`) and `FS1`
-  (`/shared/projects/project1/file.txt`) are not in the list. This is because
+  (`/shared/projects/project1/file.txt`) are not in the list. The reason is that
   those file system locations are `SHARED` in the `WSAll` storage
   profile and they both are in the list of required file system locations in queue
   `Q1`.

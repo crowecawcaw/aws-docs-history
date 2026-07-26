@@ -41,8 +41,8 @@ CloudTrail Lake event data stores and queries incur costs. When you create an ev
 ## Deadline Cloud data events in CloudTrail
 
 [Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations performed on or in a
-resource (for example, reading or writing to an Amazon S3 object). These are also known as data
-plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log
+resource (for example, reading or writing to an Amazon S3 object). These operations are also known as data
+plane operations. Data events are often high-volume activities. By default, CloudTrail doesn't log
 data events. The CloudTrail **Event history** doesn't record data events.
 
 Additional charges apply for data events. For more information about CloudTrail pricing, see

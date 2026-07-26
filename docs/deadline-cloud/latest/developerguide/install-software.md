@@ -20,8 +20,12 @@ On Linux, you might specify the `PATH` for a user in one of the following:
 
 ## Install digital content creation tool adaptors
 
-Deadline Cloud provides OpenJobDescription adaptors for using popular digital content creation (DCC)
-applications. To use these adaptors in a customer-managed fleet, you must install the DCC software
+Deadline Cloud provides Open Job Description (OpenJD) adaptors for using popular digital content creation (DCC)
+applications. An adaptor is a command-line program that runs the DCC application on the worker
+host, keeps the application loaded between tasks, reports render progress to the job's logs, and
+applies path mapping. For more information, see [Adaptor packages](conda-package.md#conda-package-adaptors "conda-package.md#conda-package-adaptors").
+
+To use these adaptors in a customer-managed fleet, you must install the DCC software
 and the application adaptors. Then, ensure the software's executable programs are available on
 the system search path (for example, in the `PATH` environment variable).
 

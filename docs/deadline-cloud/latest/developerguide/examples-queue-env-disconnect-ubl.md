@@ -15,5 +15,5 @@ can be unset accidentally.
 
 ###### Note
 
-This is a sample. Additional UBL environment variables may be added
+This queue environment is a sample. Additional UBL environment variables can be added
 in the future.

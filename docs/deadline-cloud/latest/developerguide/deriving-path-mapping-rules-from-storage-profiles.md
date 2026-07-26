@@ -14,7 +14,7 @@ profile to queue `Q1` has the path mapping rules:
   Deadline Cloud creates rules for the `FSComm` and `FS1` file system
   locations, but not the `FS2` file system location even though both the
   `WSAll` and `WorkerConfig` storage profiles define `FS2`.
-  This is because queue `Q1`'s list of required file system locations is
+  The reason is that queue `Q1`'s list of required file system locations is
   `["FSComm", "FS1"]`.
 
 You can confirm the path mapping rules available to jobs submitted with a particular

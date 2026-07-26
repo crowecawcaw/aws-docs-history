@@ -35,30 +35,15 @@ A Blender variant with non-contiguous chunks.
 
 Choose a range constraint based on the application:
 
-- `CONTIGUOUS` — Use when the application supports
+- `CONTIGUOUS`: Use when the application supports
   start and end frame arguments.
-- `NONCONTIGUOUS` — Use when the application supports
+- `NONCONTIGUOUS`: Use when the application supports
   arbitrary frame lists.
-  To enable task chunking in a template, add
-  `extensions: [TASK_CHUNKING]`, define a parameter of type
-  `CHUNK[INT]`, and configure
-  `defaultTaskCount`,
-  `targetRuntimeSeconds`, and
-  `rangeConstraint`:
+  Submit any of the samples with the Deadline Cloud CLI:
 
 ```
-specificationVersion: 'jobtemplate-2023-09'
-extensions:
-  - TASK_CHUNKING
-steps:
-  - name: Render
-    parameterSpace:
-      taskParameterDefinitions:
-        - name: Frame
-          type: CHUNK[INT]
-          range: "{{Param.Frames}}"
-          chunks:
-            defaultTaskCount: 10
-            targetRuntimeSeconds: 600
-            rangeConstraint: CONTIGUOUS
+deadline bundle submit `sample-directory`
 ```
+
+To learn how task chunking works and how to add it to your own job
+templates, see [Task chunking for job templates](build-job-bundle-chunking.md "build-job-bundle-chunking.md").

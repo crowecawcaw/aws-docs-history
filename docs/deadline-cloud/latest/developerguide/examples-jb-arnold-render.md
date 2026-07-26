@@ -6,7 +6,7 @@ job bundle renders Arnold `.ass` (Arnold Scene Source) files using
 the `kick` command-line renderer that ships with MtoA (Arnold for
 Maya). Point it at a directory of `.ass` files with a naming
 pattern, and it renders each frame as a separate task distributed across
-workers. This is useful for batch rendering pre-exported Arnold scenes
+workers. This sample is useful for batch rendering pre-exported Arnold scenes
 without a full Maya session.
 
 The bundle includes a sample `cornell.0001.ass` file in the

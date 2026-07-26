@@ -3,10 +3,10 @@
 This section explains how to create an Amazon EC2 Auto Scaling fleet.
 
 Use the CloudFormation YAML template below to create an Amazon EC2 Auto Scaling (Auto Scaling) group, an Amazon Virtual Private Cloud (Amazon VPC)
-with two subnets, an instance profile, and an instance access role. These are required to launch
-instance using Auto Scaling in the subnets.
+with two subnets, an instance profile, and an instance access role. These resources are required to launch
+an instance using Auto Scaling in the subnets.
 
-You should review and update the list of instance types to fit your rendering needs.
+We recommend that you review and update the list of instance types to fit your rendering needs.
 
 For a complete explanation of the resources and parameters used in the CloudFormation YAML
 template, see the [Deadline Cloud resource type
@@ -223,7 +223,7 @@ the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-cons
 
 ## Auto scale your Amazon EC2 fleet with Deadline Cloud scale recommendation feature
 
-Deadline Cloud leverages an Amazon EC2 Auto Scaling (Auto Scaling) group to scale the Amazon EC2 customer-managed fleet (CMF)
+Deadline Cloud uses an Amazon EC2 Auto Scaling (Auto Scaling) group to scale the Amazon EC2 customer-managed fleet (CMF)
 automatically. You need to configure the fleet mode as well as deploy the required
 infrastructure in your account to make your fleet auto scale. The infrastructure you deployed
 will work for all fleets, so you only need to set it up once.

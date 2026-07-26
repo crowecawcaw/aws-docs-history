@@ -32,7 +32,7 @@ mkdir ~/demoenv-persist`
 ###### Note
 
 On Windows, it is required that the agent files are installed
-into Python’s global site-packages directory. Python virtual environments are
+into Python's global site-packages directory. Python virtual environments are
 not currently supported.
 
 ```

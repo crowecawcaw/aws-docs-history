@@ -174,7 +174,7 @@ For more information about CloudWatch Logs Insights, see [Analyzing log data wit
 
 ##### Worker agent structured logging
 
-Deadline Cloud's worker agent publishes structured JSON logs to CloudWatch. The worker agent offers a wide array of structured logs for analyzing worker health. For more information, see [Deadline Cloud worker agent logging](https://github.com/aws-deadline/deadline-cloud-worker-agent/blob/mainline/docs/logging.md "https://github.com/aws-deadline/deadline-cloud-worker-agent/blob/mainline/docs/logging.md") on GitHub.
+The Deadline Cloud worker agent publishes structured JSON logs to CloudWatch. The worker agent offers many structured logs for analyzing worker health. For more information, see [Deadline Cloud worker agent logging](https://github.com/aws-deadline/deadline-cloud-worker-agent/blob/mainline/docs/logging.md "https://github.com/aws-deadline/deadline-cloud-worker-agent/blob/mainline/docs/logging.md") on GitHub.
 
 The attributes of the structured logs are unpacked to fields in Log Insights. You can use this CloudWatch capability to count and analyze host configuration startup failures. For example, a count and bin query can be used to determine how often failures occur:
 
