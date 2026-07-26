@@ -213,6 +213,10 @@ The following advanced event selector fields are optional:
   `errorCode`.
 - `vpcEndpointId` – Identifies the VPC endpoint that the operation passed through. You can
   use any operator with `vpcEndpointId`.
+- `userIdentity.arn` – Include or exclude events for actions taken by specific IAM identities. For more information, see [CloudTrail userIdentity element](cloudtrail-event-reference-user-identity.md "cloudtrail-event-reference-user-identity.md"). You can use
+  any operator with `userIdentity.arn`. CloudTrail supports this field
+  for trails only. You cannot filter network activity events on
+  `userIdentity.arn` for event data stores.
 
 Network activity events are not logged by default when you create a trail or event
 data store. To record CloudTrail network activity events, you must explicitly configure each event

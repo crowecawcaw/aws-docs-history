@@ -648,9 +648,11 @@ To avoid receiving duplicate global service events, remember the following:
 - If you have multiple single Region trails, consider configuring your trails so
   that global service events are delivered in only one of the trails. For more
   information, see [Enabling and disabling global service event logging](cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-update-trail.md#cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-examples-gses "cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-update-trail.md#cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-examples-gses").
-- If you convert a multi-Region trail to a single-Region trail, global service event logging is turned off automatically for
-  that trail. Similarly, if you convert a single-Region trail to a multi-Region trail, global service event logging is turned on
-  automatically for that trail.
+- When `IncludeGlobalServiceEvents` is `true`,
+  CloudTrail delivers global service events only to single-Region trails in
+  US East (N. Virginia). For multi-Region trails,
+  `IncludeGlobalServiceEvents` must be
+  `true`.
 
 For more information about changing global service event logging for a trail,
 see [Enabling and disabling global service event logging](cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-update-trail.md#cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-examples-gses "cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-update-trail.md#cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-examples-gses").

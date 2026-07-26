@@ -92,7 +92,19 @@ To confirm that the trail now applies to a single Region, the
 }
 ```
 
+###### Global service events after trail conversion
+
+The `IncludeGlobalServiceEvents` value remains
+`true` after conversion. CloudTrail delivers global service events only
+to single-Region trails in US East (N. Virginia).
+
 ## Enabling and disabling global service event logging
+
+When `IncludeGlobalServiceEvents` is `true`,
+CloudTrail delivers global service events only to single-Region trails in
+US East (N. Virginia). For multi-Region trails,
+`IncludeGlobalServiceEvents` must be
+`true`.
 
 To change a trail so that it does not log global service events, use the
 `--no-include-global-service-events` option.

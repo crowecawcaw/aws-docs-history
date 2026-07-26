@@ -1,7 +1,9 @@
 # Viewing Insights events for event data stores
 
 This section describes how you can view Insights events for an Insights
-event data store by viewing the **Insights events dashboard** and running sample queries. For information about how to enable CloudTrail Insights
+event data store by viewing the **Insights events dashboard** and running sample queries.
+
+For information about how to enable CloudTrail Insights
 on an event data store, see [Enabling CloudTrail Insights on an existing event data store with the console](insights-events-enable.md#insights-events-enable-lake "insights-events-enable.md#insights-events-enable-lake").
 
 CloudTrail queries incur charges based upon the amount of data scanned. To help control

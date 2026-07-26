@@ -162,7 +162,7 @@ If you do not create a resource policy for the channel, only the channel owner c
 
 
 
-    ![Partner documentation for external ID](images/integration-external-id.png)
+    ![Partner documentation for external ID](/images/awscloudtrail/latest/userguide/images/integration-external-id.png)
 
     ###### Note
 
