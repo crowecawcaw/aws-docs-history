@@ -24,7 +24,7 @@ ensure `api` scope.
 
 INVALID\_INPUT error
 Verify you are using the correct analysis type name. Valid values are:
-`tech-debt-quick`, `tech-debt-comprehensive`,
+`rapid-techdebt-analysis`, `tech-debt-comprehensive`,
 `security`, `agentic-readiness`,
 `modernization-readiness`, `custom`.
 

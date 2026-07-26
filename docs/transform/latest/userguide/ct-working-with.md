@@ -81,7 +81,7 @@ atx ct repository update --source `name` --labels "`migration:wave-1`"
 
 The `--type` flag specifies the kind of analysis to run:
 
-- `tech-debt-quick` – Outdated dependencies and easy
+- `rapid-techdebt-analysis` – Outdated dependencies and easy
   wins.
 - `tech-debt-comprehensive` – Deeper AI-powered analysis covering
   dependency, security, pattern, performance, maintainability, architecture, code-quality, and

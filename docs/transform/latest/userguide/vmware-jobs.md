@@ -86,6 +86,19 @@ job of any type. For information about the different job types, see [Job types](
 3. After you answer all the chat questions, choose **Create
    job**.
 
+## Downloading a workspace summary report
+
+You can generate a workspace summary report as a downloadable PDF at any time
+during your migration. The report provides a consolidated view across all migration
+jobs in your workspace, including job statuses and current workflow steps, user
+actions and approvals, wave planning details, network migration topology, landing
+zone configuration, rehost progress, containerization decisions, and key artifacts
+produced. To generate a report, ask the agent in the chat for a workspace
+summary — for example, "Give me a workspace summary of my migration progress
+across all jobs." The agent compiles data from all jobs and delivers the PDF
+directly in the chat as a downloadable file. You can use this report to track
+overall migration progress or share status with stakeholders.
+
 ## Limitations
 
 AWS Transform has the following limitations:

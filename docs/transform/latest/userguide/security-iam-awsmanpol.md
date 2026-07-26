@@ -19,25 +19,27 @@ _IAM User Guide_.
 
 View details about updates to AWS managed policies for AWS Transform since March 1, 2021.
 
-| Change                                                                                                                                                                                                 | Description                                                                                                                                                                                                                                                        | Date               |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
-| [AWSTransformSecurityAgentExecutorAccess](#security-iam-awsmanpol-AWSTransformSecurityAgentExecutorAccess "#security-iam-awsmanpol-AWSTransformSecurityAgentExecutorAccess") – New policy              | Added a new AWS managed policy that grants AWS Transform Continuous Modernization the permissions needed to invoke the AWS Security Agent service for automated code security reviews and remediation, including uploading scan artifacts and retrieving findings. | June 30, 2026      |
-| [AWSServiceRoleForAWSTransformCustom](#security-iam-awsmanpol-AWSServiceRoleForAWSTransformCustom "#security-iam-awsmanpol-AWSServiceRoleForAWSTransformCustom") – Updated policy                      | Added CloudWatch Logs permissions to allow AWS Transform custom to publish logs to the `/aws/TransformCustom` log group in your account.                                                                                                                           | May 5, 2026        |
-| [AWSTransformCustomExecuteTransformations](#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations "#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations") – Updated policy       | Added permission to create the AWS Transform custom service-linked role (`AWSServiceRoleForAWSTransformCustom`) to enable CloudWatch metrics emission to customer accounts.                                                                                        | April 27, 2026     |
-| [AWSTransformCustomManageTransformations](#security-iam-awsmanpol-AWSTransformCustomManageTransformations "#security-iam-awsmanpol-AWSTransformCustomManageTransformations") – Updated policy          | Added permission to create the AWS Transform custom service-linked role (`AWSServiceRoleForAWSTransformCustom`) to enable CloudWatch metrics emission to customer accounts.                                                                                        | April 27, 2026     |
-| [AWSTransformCustomFullAccess](#security-iam-awsmanpol-AWSTransformCustomFullAccess "#security-iam-awsmanpol-AWSTransformCustomFullAccess") – Updated policy                                           | Added permission to create the AWS Transform custom service-linked role (`AWSServiceRoleForAWSTransformCustom`) to enable CloudWatch metrics emission to customer accounts.                                                                                        | April 7, 2026      |
-| [AWSServiceRoleForAWSTransformCustom](#security-iam-awsmanpol-AWSServiceRoleForAWSTransformCustom "#security-iam-awsmanpol-AWSServiceRoleForAWSTransformCustom") – New policy                          | Added a new AWS managed policy for the AWS Transform custom service-linked role. This policy allows AWS Transform custom to publish CloudWatch metrics to your account.                                                                                            | March 23, 2026     |
-| [DBModProvisioningAndMigration](#security-iam-awsmanpol-DBModProvisioningAndMigration "#security-iam-awsmanpol-DBModProvisioningAndMigration") – New policy                                            | This policy grants database provisioning and migration capabilities.                                                                                                                                                                                               | March 24, 2026     |
-| [DBModDiscoveryAndAssessment](#security-iam-awsmanpol-DBModDiscoveryAndAssessment "#security-iam-awsmanpol-DBModDiscoveryAndAssessment") – New policy                                                  | Added a new AWS managed policy that provides comprehensive database modernization discovery and assessment capabilities.                                                                                                                                           | March 24, 2026     |
-| [AWSTransformCustomFullAccess](#security-iam-awsmanpol-AWSTransformCustomFullAccess "#security-iam-awsmanpol-AWSTransformCustomFullAccess") – New policy                                               | Added a new AWS managed policy that provides full access to AWS Transform custom.                                                                                                                                                                                  | December 5, 2025   |
-| [AWSTransformCustomExecuteTransformations](#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations "#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations") – New policy           | Added a new AWS managed policy that provides access to execute transformations in AWS Transform custom.                                                                                                                                                            | December 5, 2025   |
-| [AWSTransformCustomManageTransformations](#security-iam-awsmanpol-AWSTransformCustomManageTransformations "#security-iam-awsmanpol-AWSTransformCustomManageTransformations") – New policy              | Added a new AWS managed policy that provides access to create, update, read, and delete transformation resources in AWS Transform custom, as well as execute transformations.                                                                                      | December 5, 2025   |
-| [AWSServiceRoleForAWSTransform](#security-iam-awsmanpol-AWSServiceRoleForAWSTransform "#security-iam-awsmanpol-AWSServiceRoleForAWSTransform") – Updated policy                                        | Added permissions to access the AWS Transform service-linked secret used to store the client secret for external identity providers.<br>Added permissions to create a premium support case from the AWS Transform web app.                                         | December 1, 2025   |
-| [AWSTransformApplicationECSDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationECSDeploymentPolicy "#security-iam-awsmanpol-AWSTransformApplicationECSDeploymentPolicy") – Updated policy | Added IAM role inspection permissions, ECS service-linked role creation, and KMS permissions for ECR encryption support.                                                                                                                                           | November 22, 2025  |
-| [AWSTransformApplicationDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy "#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy") – Updated<br>policy       | Added EC2 networking permissions, IAM role inspection permissions, S3 bucket listing permissions, and KMS encryption support for enhanced deployment capabilities.                                                                                                 | November 22, 2025  |
-| [AWSServiceRoleForAWSTransform](#security-iam-awsmanpol-AWSServiceRoleForAWSTransform "#security-iam-awsmanpol-AWSServiceRoleForAWSTransform") – Updated policy                                        | Added support for customer managed keys in IAM Identity Center.                                                                                                                                                                                                    | September 17, 2025 |
-| [AWSTransformApplicationDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy "#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy") – New<br>policy           | Added a new AWS managed policy that enables AWS Transform to deploy transformed<br>.NET applications by creating and managing Amazon EC2 instances, CloudFormation stacks,<br>and associated resources.                                                            | August 28, 2025    |
-| [AWSServiceRoleForAWSTransform](#security-iam-awsmanpol-AWSServiceRoleForAWSTransform "#security-iam-awsmanpol-AWSServiceRoleForAWSTransform") – Updated policy                                        | Added a new policy.                                                                                                                                                                                                                                                | May 15, 2025       |
+| Change                                                                                                                                                                                                      | Description                                                                                                                                                                                                                                                                                                 | Date               |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [AWSTransformInfrastructureExecutorAccessBatch](#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessBatch "#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessBatch") – New policy | Added a new AWS managed policy that grants the permissions needed to execute AWS Transform Continuous Modernization assessments and transformations using AWS Batch, including uploading source code, retrieving results, monitoring Batch job status, reading logs, and managing transformation schedules. | July 20, 2026      |
+| [AWSTransformInfrastructureExecutorAccessEC2](#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessEC2 "#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessEC2") – New policy       | Added a new AWS managed policy that grants the permissions needed to execute AWS Transform Continuous Modernization assessments and transformations using Amazon EC2, including uploading source code, retrieving results, monitoring job status, and managing transformation schedules.                    | July 20, 2026      |
+| [AWSTransformSecurityAgentExecutorAccess](#security-iam-awsmanpol-AWSTransformSecurityAgentExecutorAccess "#security-iam-awsmanpol-AWSTransformSecurityAgentExecutorAccess") – New policy                   | Added a new AWS managed policy that grants AWS Transform Continuous Modernization the permissions needed to invoke the AWS Security Agent service for automated code security reviews and remediation, including uploading scan artifacts and retrieving findings.                                          | June 30, 2026      |
+| [AWSServiceRoleForAWSTransformCustom](#security-iam-awsmanpol-AWSServiceRoleForAWSTransformCustom "#security-iam-awsmanpol-AWSServiceRoleForAWSTransformCustom") – Updated policy                           | Added CloudWatch Logs permissions to allow AWS Transform custom to publish logs to the `/aws/TransformCustom` log group in your account.                                                                                                                                                                    | May 5, 2026        |
+| [AWSTransformCustomExecuteTransformations](#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations "#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations") – Updated policy            | Added permission to create the AWS Transform custom service-linked role (`AWSServiceRoleForAWSTransformCustom`) to enable CloudWatch metrics emission to customer accounts.                                                                                                                                 | April 27, 2026     |
+| [AWSTransformCustomManageTransformations](#security-iam-awsmanpol-AWSTransformCustomManageTransformations "#security-iam-awsmanpol-AWSTransformCustomManageTransformations") – Updated policy               | Added permission to create the AWS Transform custom service-linked role (`AWSServiceRoleForAWSTransformCustom`) to enable CloudWatch metrics emission to customer accounts.                                                                                                                                 | April 27, 2026     |
+| [AWSTransformCustomFullAccess](#security-iam-awsmanpol-AWSTransformCustomFullAccess "#security-iam-awsmanpol-AWSTransformCustomFullAccess") – Updated policy                                                | Added permission to create the AWS Transform custom service-linked role (`AWSServiceRoleForAWSTransformCustom`) to enable CloudWatch metrics emission to customer accounts.                                                                                                                                 | April 7, 2026      |
+| [AWSServiceRoleForAWSTransformCustom](#security-iam-awsmanpol-AWSServiceRoleForAWSTransformCustom "#security-iam-awsmanpol-AWSServiceRoleForAWSTransformCustom") – New policy                               | Added a new AWS managed policy for the AWS Transform custom service-linked role. This policy allows AWS Transform custom to publish CloudWatch metrics to your account.                                                                                                                                     | March 23, 2026     |
+| [DBModProvisioningAndMigration](#security-iam-awsmanpol-DBModProvisioningAndMigration "#security-iam-awsmanpol-DBModProvisioningAndMigration") – New policy                                                 | This policy grants database provisioning and migration capabilities.                                                                                                                                                                                                                                        | March 24, 2026     |
+| [DBModDiscoveryAndAssessment](#security-iam-awsmanpol-DBModDiscoveryAndAssessment "#security-iam-awsmanpol-DBModDiscoveryAndAssessment") – New policy                                                       | Added a new AWS managed policy that provides comprehensive database modernization discovery and assessment capabilities.                                                                                                                                                                                    | March 24, 2026     |
+| [AWSTransformCustomFullAccess](#security-iam-awsmanpol-AWSTransformCustomFullAccess "#security-iam-awsmanpol-AWSTransformCustomFullAccess") – New policy                                                    | Added a new AWS managed policy that provides full access to AWS Transform custom.                                                                                                                                                                                                                           | December 5, 2025   |
+| [AWSTransformCustomExecuteTransformations](#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations "#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations") – New policy                | Added a new AWS managed policy that provides access to execute transformations in AWS Transform custom.                                                                                                                                                                                                     | December 5, 2025   |
+| [AWSTransformCustomManageTransformations](#security-iam-awsmanpol-AWSTransformCustomManageTransformations "#security-iam-awsmanpol-AWSTransformCustomManageTransformations") – New policy                   | Added a new AWS managed policy that provides access to create, update, read, and delete transformation resources in AWS Transform custom, as well as execute transformations.                                                                                                                               | December 5, 2025   |
+| [AWSServiceRoleForAWSTransform](#security-iam-awsmanpol-AWSServiceRoleForAWSTransform "#security-iam-awsmanpol-AWSServiceRoleForAWSTransform") – Updated policy                                             | Added permissions to access the AWS Transform service-linked secret used to store the client secret for external identity providers.<br>Added permissions to create a premium support case from the AWS Transform web app.                                                                                  | December 1, 2025   |
+| [AWSTransformApplicationECSDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationECSDeploymentPolicy "#security-iam-awsmanpol-AWSTransformApplicationECSDeploymentPolicy") – Updated policy      | Added IAM role inspection permissions, ECS service-linked role creation, and KMS permissions for ECR encryption support.                                                                                                                                                                                    | November 22, 2025  |
+| [AWSTransformApplicationDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy "#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy") – Updated<br>policy            | Added EC2 networking permissions, IAM role inspection permissions, S3 bucket listing permissions, and KMS encryption support for enhanced deployment capabilities.                                                                                                                                          | November 22, 2025  |
+| [AWSServiceRoleForAWSTransform](#security-iam-awsmanpol-AWSServiceRoleForAWSTransform "#security-iam-awsmanpol-AWSServiceRoleForAWSTransform") – Updated policy                                             | Added support for customer managed keys in IAM Identity Center.                                                                                                                                                                                                                                             | September 17, 2025 |
+| [AWSTransformApplicationDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy "#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy") – New<br>policy                | Added a new AWS managed policy that enables AWS Transform to deploy transformed<br>.NET applications by creating and managing Amazon EC2 instances, CloudFormation stacks,<br>and associated resources.                                                                                                     | August 28, 2025    |
+| [AWSServiceRoleForAWSTransform](#security-iam-awsmanpol-AWSServiceRoleForAWSTransform "#security-iam-awsmanpol-AWSServiceRoleForAWSTransform") – Updated policy                                             | Added a new policy.                                                                                                                                                                                                                                                                                         | May 15, 2025       |
 
 ## AWS managed policy: AWSServiceRoleForAWSTransform
 
@@ -199,6 +201,112 @@ This policy includes the following permissions:
 
 To view the policy permission details see [AWSTransformCustomManageTransformations](../../../aws-managed-policy/latest/reference/AWSTransformCustomManageTransformations.md "../../../aws-managed-policy/latest/reference/AWSTransformCustomManageTransformations.md") in the AWS Managed Policy Reference
 Guide.
+
+## AWS managed policy: AWSTransformInfrastructureExecutorAccessBatch
+
+This policy grants the permissions needed to execute AWS Transform Continuous Modernization
+assessments and transformations using AWS Batch. Attach this policy to an IAM
+role in your account. The AWS Transform Continuous Modernization CLI and agent assume this
+role to upload source code, retrieve results, monitor Batch job status, read logs,
+and manage transformation schedules.
+
+**Description**
+
+This policy includes the following permissions:
+
+- **AWS Lambda** – Allows invoking and retrieving the
+  configuration of `atx`-prefixed Lambda functions that orchestrate the
+  transformation workflow.
+- **Amazon S3** – Allows uploading source code to
+  `atx-source-code-*` buckets and downloading transformation results from
+  `atx-custom-output-*` and `atx-ct-output-*` buckets.
+- **AWS Key Management Service (KMS)** – Allows encryption and
+  decryption of data using the AWS Transform encryption key
+  (`alias/atx-encryption-key`).
+- **Amazon CloudWatch Logs** – Allows reading Batch job and Lambda
+  execution log events for transformation monitoring and debugging.
+- **Amazon CloudWatch** – Allows getting and listing the AWS Transform
+  CLI dashboard for operational visibility.
+- **AWS Batch** – Allows describing and listing
+  compute environments, job queues, job definitions, and job status.
+- **CloudFormation** – Allows describing and listing
+  AWS Transform infrastructure stacks to check deployment status.
+- **Resource Groups Tagging API** – Allows retrieving
+  tagged resources to discover AWS Transform infrastructure in your account.
+- **AWS Secrets Manager** – Allows retrieving and
+  describing AWS Transform secrets stored under the `atx/` prefix.
+- **Amazon EventBridge Scheduler** – Allows managing
+  scheduled transformation jobs within the `atx-ct` schedule
+  group.
+- **Amazon EC2** – Allows describing VPC, subnet,
+  security group, route table, and NAT gateway configuration for Batch compute
+  environment networking.
+- **AWS Identity and Access Management (IAM)** – Allows reading
+  `ATX`-prefixed and `Atx`-prefixed role configurations to
+  validate infrastructure setup, and passing the
+  `AtxSchedulerInvocationRole` to Amazon EventBridge Scheduler so that it can
+  invoke scheduled jobs.
+
+The policy implements least-privilege access through resource-level permissions,
+tag-based conditions, the `aws:ResourceAccount` condition, and service-scoped
+`iam:PassedToService` conditions to ensure operations are limited to AWS Transform
+resources within the same AWS account.
+
+**Permissions details**
+
+To view the policy permission details see [AWSTransformInfrastructureExecutorAccessBatch](../../../aws-managed-policy/latest/reference/AWSTransformInfrastructureExecutorAccessBatch.md "../../../aws-managed-policy/latest/reference/AWSTransformInfrastructureExecutorAccessBatch.md") in the AWS Managed Policy
+Reference Guide.
+
+## AWS managed policy: AWSTransformInfrastructureExecutorAccessEC2
+
+This policy grants the permissions needed to execute AWS Transform Continuous Modernization
+assessments and transformations using Amazon EC2. Attach this policy to an IAM role in
+your account. The AWS Transform Continuous Modernization CLI and agent assume this role to
+upload source code, retrieve results, monitor job status, and manage transformation
+schedules.
+
+**Description**
+
+This policy includes the following permissions:
+
+- **CloudFormation** – Allows describing AWS Transform
+  infrastructure stacks, stack events, stack resources, and drift detection status,
+  listing stacks, and validating CloudFormation templates before deployment.
+- **Amazon EC2** – Allows describing instances, AMIs,
+  VPCs, subnets, security groups, key pairs, route tables, NAT gateways, and internet
+  gateways. Permits starting and stopping EC2 instances tagged with
+  `atx-remote-infra: true`.
+- **Amazon EC2 Systems Manager (SSM)** – Allows monitoring command
+  execution status, and running commands and sessions on AWS Transform-tagged instances,
+  including running the `AWS-RunShellScript` document.
+- **Amazon S3** – Allows managing source code and output
+  artifacts in AWS Transform buckets, including getting, putting, and deleting objects and
+  listing buckets.
+- **AWS Key Management Service (KMS)** – Allows encryption and
+  decryption of data using the AWS Transform encryption key
+  (`alias/atx-encryption-key`).
+- **AWS Secrets Manager** – Allows retrieving and
+  describing transformation secrets, such as repository credentials, stored under the
+  `atx/` prefix.
+- **Amazon EventBridge Scheduler** – Allows managing
+  scheduled transformation jobs within the `atx-ct` schedule
+  group.
+- **Resource Groups Tagging API** – Allows retrieving
+  tagged resources to discover AWS Transform infrastructure in your account.
+- **AWS Identity and Access Management (IAM)** – Allows passing the
+  `atx-transform-role*` role to Amazon EC2 and the
+  `AtxSchedulerInvocationRole` to Amazon EventBridge Scheduler, and reading
+  role and instance profile configuration for EC2 instances.
+
+The policy implements least-privilege access through resource-level permissions,
+tag-based conditions, the `aws:ResourceAccount` condition, and service-scoped
+`iam:PassedToService` conditions to ensure operations are limited to AWS Transform
+resources within the same AWS account.
+
+**Permissions details**
+
+To view the policy permission details see [AWSTransformInfrastructureExecutorAccessEC2](../../../aws-managed-policy/latest/reference/AWSTransformInfrastructureExecutorAccessEC2.md "../../../aws-managed-policy/latest/reference/AWSTransformInfrastructureExecutorAccessEC2.md") in the AWS Managed Policy
+Reference Guide.
 
 ## AWS managed policy: AWSTransformSecurityAgentExecutorAccess
 

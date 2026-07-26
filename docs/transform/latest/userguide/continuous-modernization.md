@@ -46,7 +46,7 @@ modernization needs.
 
 | Type                      | Description                                                                                                                                                                                                                                   |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tech-debt-quick`         | Fast metadata-only scan of package manifests (`pom.xml`,<br>`package.json`, `requirements.txt`) to identify stale versions<br>and outdated dependencies. Does not analyze source code.                                                        |
+| `rapid-techdebt-analysis` | Fast metadata-only scan of package manifests (`pom.xml`,<br>`package.json`, `requirements.txt`) to identify stale versions<br>and outdated dependencies. Does not analyze source code.                                                        |
 | `tech-debt-comprehensive` | Deep code-level technical debt analysis using the AWS Transform agent. Examines source<br>code to identify debt patterns, code quality issues, architecture concerns, and<br>improvement opportunities.                                       |
 | `security`                | Security vulnerability and CVE detection using the AWS Security Agent. Scans<br>source code and dependencies for known vulnerabilities, insecure coding patterns, and<br>exploitable weaknesses. Requires one-time infrastructure setup.      |
 | `agentic-readiness`       | AI and agent integration readiness assessment. Scores 56 criteria across five<br>categories: Infrastructure & Platform, Application Architecture, Data Foundations,<br>Identity/Security/Governance, and Operations & Observability.          |
@@ -79,7 +79,7 @@ wave); and target specific repositories for analysis or remediation.
 
 An analysis is a scan of one or more repositories using a specific analysis type. Each
 analysis produces findings that identify issues in your code. You can run analyses on demand
-or schedule them to run automatically. Analysis types include tech-debt-quick,
+or schedule them to run automatically. Analysis types include rapid-techdebt-analysis,
 tech-debt-comprehensive, security, agentic-readiness, modernization-readiness, and custom.
 Each analysis tracks its status (pending, running, complete, cancelled, or failed) and the
 repositories it scanned.
