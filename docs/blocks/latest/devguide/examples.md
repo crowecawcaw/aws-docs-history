@@ -17,21 +17,25 @@ const notes = new KVStore(scope, 'notes', {});
 
 export const api = new ApiNamespace(scope, 'api', (context) => ({
   async create(title: string, body: string) {
-    const user = await auth.getCurrentUser(context);
+    const user = await auth.requireAuth(context);
     const id = crypto.randomUUID();
     const note = { id, title, body, createdAt: Date.now() };
-    await notes.set(`${user.userId}:${id}`, note);
+    await notes.put(`${user.username}:${id}`, note);
     return note;
   },
 
   async list() {
-    const user = await auth.getCurrentUser(context);
-    return notes.list({ prefix: `${user.userId}:` });
+    const user = await auth.requireAuth(context);
+    const results = [];
+    for await (const entry of notes.scan()) {
+      if (entry.key.startsWith(`${user.username}:`)) results.push(entry.value);
+    }
+    return results;
   },
 
   async delete(id: string) {
-    const user = await auth.getCurrentUser(context);
-    await notes.delete(`${user.userId}:${id}`);
+    const user = await auth.requireAuth(context);
+    await notes.delete(`${user.username}:${id}`);
   },
 }));
 
@@ -61,19 +65,28 @@ const realtime = new Realtime(scope, 'realtime', {
 
 export const api = new ApiNamespace(scope, 'api', (context) => ({
   async sendMessage(text: string) {
-    const user = await auth.getCurrentUser(context);
-    const msg = { id: crypto.randomUUID(), user: user.userId, text, ts: Date.now() };
-    await messages.set(`msg:${msg.id}`, msg);
+    const user = await auth.requireAuth(context);
+    const msg = { id: crypto.randomUUID(), user: user.username, text, ts: Date.now() };
+    await messages.put(`msg:${msg.id}`, msg);
     await realtime.publish('chat', 'general', msg);
     return msg;
   },
 
   async getHistory() {
-    return messages.list({ prefix: 'msg:' });
+    const results = [];
+    for await (const entry of messages.scan()) {
+      if (entry.key.startsWith('msg:')) results.push(entry.value);
+    }
+    return results;
+  },
+
+  async subscribeChat() {
+    await auth.requireAuth(context); // Ensure caller is authenticated
+    return realtime.getChannel('chat', 'general');
   },
 }));
 
-export { auth, realtime };
+export { auth };
 ```
 
 ### Frontend integration
@@ -81,13 +94,10 @@ export { auth, realtime };
 The frontend subscribes to real-time updates:
 
 ```
-import { api, realtime, auth } from '../aws-blocks/index.js';
+import { api } from 'aws-blocks';
 
-// Authenticate
-await auth.signIn('user@example.com', 'password', context);
-
-// Subscribe to messages
-const channel = await realtime.getChannel('chat', 'general');
+// Subscribe to messages via API method
+const channel = await api.subscribeChat();
 channel.subscribe((msg) => {
   console.log(`${msg.user}: ${msg.text}`);
 });
@@ -116,21 +126,25 @@ const metadata = new KVStore(scope, 'file-metadata', {});
 
 export const api = new ApiNamespace(scope, 'api', (context) => ({
   async upload(name: string, data: Buffer) {
-    const user = await auth.getCurrentUser(context);
-    const key = `${user.userId}/${name}`;
+    const user = await auth.requireAuth(context);
+    const key = `${user.username}/${name}`;
     await files.put(key, data);
-    await metadata.set(key, { name, size: data.length, uploadedAt: Date.now() });
+    await metadata.put(key, { name, size: data.length, uploadedAt: Date.now() });
     return { key };
   },
 
   async listFiles() {
-    const user = await auth.getCurrentUser(context);
-    return metadata.list({ prefix: `${user.userId}/` });
+    const user = await auth.requireAuth(context);
+    const results = [];
+    for await (const entry of metadata.scan()) {
+      if (entry.key.startsWith(`${user.username}/`)) results.push(entry.value);
+    }
+    return results;
   },
 
   async download(key: string) {
-    const user = await auth.getCurrentUser(context);
-    if (!key.startsWith(`${user.userId}/`)) throw new Error('Forbidden');
+    const user = await auth.requireAuth(context);
+    if (!key.startsWith(`${user.username}/`)) throw new Error('Forbidden');
     return files.get(key);
   },
 }));
@@ -154,12 +168,12 @@ const db = new Database(scope, 'db');
 
 export const api = new ApiNamespace(scope, 'api', (context) => ({
   async createOrder(items: Array<{ productId: string; qty: number }>) {
-    const user = await auth.getCurrentUser(context);
+    const user = await auth.requireAuth(context);
 
     return db.transaction(async (trx) => {
       const [order] = await trx.query(sql`
         INSERT INTO orders (user_id, status, created_at)
-        VALUES (${user.userId}, 'pending', NOW())
+        VALUES (${user.username}, 'pending', NOW())
         RETURNING *
       `);
 
@@ -175,10 +189,10 @@ export const api = new ApiNamespace(scope, 'api', (context) => ({
   },
 
   async getOrders() {
-    const user = await auth.getCurrentUser(context);
+    const user = await auth.requireAuth(context);
     return db.query(sql`
       SELECT * FROM orders
-      WHERE user_id = ${user.userId}
+      WHERE user_id = ${user.username}
       ORDER BY created_at DESC
     `);
   },
@@ -194,7 +208,7 @@ export { auth };
 
 | Pattern          | Approach                                                                                  |
 | ---------------- | ----------------------------------------------------------------------------------------- |
-| User-scoped data | Prefix keys with `${user.userId}:` to isolate data per user                               |
+| User-scoped data | Prefix keys with `${user.username}:` to isolate data per user                             |
 | Optimistic UI    | Return the created/updated object from API methods so the frontend can update immediately |
 | Background work  | Use the CDK layer to add SQS queues or EventBridge rules alongside Blocks                 |
 | Multi-tenant     | Use Scope IDs or key prefixes to partition data by tenant                                 |

@@ -39,8 +39,6 @@ AWS Blocks propagates errors from your API methods to the frontend with the erro
 
 ```
 // Backend
-import { isBlocksError } from '@aws-blocks/blocks';
-
 export const api = new ApiNamespace(scope, 'api', (context) => ({
   async getItem(id: string) {
     const item = await store.get(id);
@@ -56,7 +54,7 @@ export const api = new ApiNamespace(scope, 'api', (context) => ({
 
 ```
 // Frontend
-import { api } from '../aws-blocks/index.js';
+import { api } from 'aws-blocks';
 import { isBlocksError } from '@aws-blocks/blocks';
 
 try {
@@ -82,8 +80,8 @@ try {
 export const api = new ApiNamespace(scope, 'api', (context) => ({
   async getMyData() {
     // Always authenticate server-side
-    const user = await auth.getCurrentUser(context);
-    return store.get(`user:${user.userId}`);
+    const user = await auth.requireAuth(context);
+    return store.get(`user:${user.username}`);
   },
 }));
 ```
@@ -92,10 +90,10 @@ export const api = new ApiNamespace(scope, 'api', (context) => ({
 
 ```
 // Good: scoped to user
-await store.set(`${user.userId}:${itemId}`, data);
+await store.put(`${user.username}:${itemId}`, data);
 
 // Bad: no user scoping - any authenticated user can access any item
-await store.set(itemId, data);
+await store.put(itemId, data);
 ```
 
 **Choose the right auth Block:**
@@ -133,7 +131,7 @@ rm -rf .bb-data
 export async function createOrder(store: KVStore, userId: string, input: OrderInput) {
   if (!input.title) throw new Error('Title required');
   const order = { id: crypto.randomUUID(), ...input, userId };
-  await store.set(`${userId}:${order.id}`, order);
+  await store.put(`${userId}:${order.id}`, order);
   return order;
 }
 ```
@@ -143,10 +141,10 @@ export async function createOrder(store: KVStore, userId: string, input: OrderIn
 import { createOrder } from './orders.js';
 
 it('creates an order', async () => {
-  const mockStore = { set: vi.fn(), get: vi.fn() };
+  const mockStore = { put: vi.fn(), get: vi.fn() };
   const result = await createOrder(mockStore, 'user-1', { title: 'Test' });
   expect(result.title).toBe('Test');
-  expect(mockStore.set).toHaveBeenCalled();
+  expect(mockStore.put).toHaveBeenCalled();
 });
 ```
 
@@ -161,8 +159,8 @@ it('creates an order', async () => {
 ```
 // Good: one store, partitioned by prefix
 const store = new KVStore(scope, 'data', {});
-await store.set(`users:${id}`, userData);
-await store.set(`orders:${id}`, orderData);
+await store.put(`users:${id}`, userData);
+await store.put(`orders:${id}`, orderData);
 
 // Avoid: separate stores for each entity (more DynamoDB tables, more cost)
 const userStore = new KVStore(scope, 'users', {});

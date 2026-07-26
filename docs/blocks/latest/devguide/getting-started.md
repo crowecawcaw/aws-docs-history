@@ -41,7 +41,8 @@ my-todo-app/
 ├── aws-blocks/
 │   └── index.ts
 ├── src/
-│   └── app.tsx
+│   └── index.ts
+├── index.html
 └── package.json
 ```
 
@@ -69,44 +70,52 @@ The `aws-blocks/index.ts` file defines your backend and API in a single place:
 
 ```
 import { ApiNamespace, Scope, DistributedTable, AuthBasic } from '@aws-blocks/blocks';
+import { z } from 'zod';
 
 const scope = new Scope('todo-app');
 
 const auth = new AuthBasic(scope, 'auth');
+export const authApi = auth.createApi();
+
+const todoSchema = z.object({
+  userId: z.string(),
+  todoId: z.string(),
+  title: z.string(),
+  completed: z.boolean(),
+});
+
 const todos = new DistributedTable(scope, 'todos', {
-  schema: { id: 'string', title: 'string', completed: 'boolean', userId: 'string' },
-  key: { partition: 'userId', sort: 'id' },
+  schema: todoSchema,
+  key: { partitionKey: 'userId', sortKey: 'todoId' },
 });
 ```
 
 This code creates two Blocks:
 
-- `new AuthBasic(scope, 'auth')` creates an authentication system. Locally, this uses JWT tokens. On AWS, this provisions a DynamoDB table for user records.
-- `new DistributedTable(scope, 'todos', {…​})` creates structured data storage. Locally, this is in-memory. On AWS, this provisions a DynamoDB table with indexes.
+- `new AuthBasic(scope, 'auth')` creates an authentication system. Locally, this uses JWT tokens. On AWS, this provisions a DynamoDB table for user records. The `auth.createApi()` call exports the auth API for the frontend to use.
+- `new DistributedTable(scope, 'todos', {…​})` creates structured data storage with a Zod schema for validation. Locally, this is in-memory. On AWS, this provisions a DynamoDB table with indexes.
 
 The API methods use these Blocks:
 
 ```
 export const api = new ApiNamespace(scope, 'api', (context) => ({
   async createTodo(title: string) {
-    const user = await auth.getCurrentUser(context);
-    const id = crypto.randomUUID();
-    await todos.put({ id, title, completed: false, userId: user.userId });
-    return { id, title, completed: false };
+    const user = await auth.requireAuth(context);
+    const todoId = crypto.randomUUID();
+    await todos.put({ userId: user.username, todoId, title, completed: false });
+    return { todoId, title, completed: false };
   },
 
   async listTodos() {
-    const user = await auth.getCurrentUser(context);
-    const results = [];
-    for await (const item of todos.query({ where: { userId: user.userId } })) {
-      results.push(item);
-    }
-    return results;
+    const user = await auth.requireAuth(context);
+    return await Array.fromAsync(
+      todos.query({ where: { userId: { equals: user.username } } })
+    );
   },
 
-  async toggleTodo(id: string) {
-    const user = await auth.getCurrentUser(context);
-    const todo = await todos.get({ userId: user.userId, id });
+  async toggleTodo(todoId: string) {
+    const user = await auth.requireAuth(context);
+    const todo = await todos.get({ userId: user.username, todoId });
     if (!todo) throw new Error('Todo not found');
     await todos.put({ ...todo, completed: !todo.completed });
     return { ...todo, completed: !todo.completed };
@@ -118,10 +127,10 @@ export { auth };
 
 ## Explore the frontend code
 
-The frontend in `src/app.tsx` imports the backend API directly:
+The frontend in `src/index.ts` imports the backend API directly:
 
 ```
-import { api, auth } from '../aws-blocks/index.js';
+import { api, authApi } from 'aws-blocks';
 ```
 
 There is no client generation step, no API URL configuration, and no SDK initialization. TypeScript provides full type safety. If you change a method signature in the backend, the frontend shows a compile error immediately.
@@ -131,13 +140,13 @@ There is no client generation step, no API URL configuration, and no SDK initial
 Add a new API method to `aws-blocks/index.ts` inside the `ApiNamespace` definition:
 
 ```
-  async deleteTodo(id: string) {
-    const user = await auth.getCurrentUser(context);
-    await todos.delete({ userId: user.userId, id });
+  async deleteTodo(todoId: string) {
+    const user = await auth.requireAuth(context);
+    await todos.delete({ userId: user.username, todoId });
   },
 ```
 
-The development server hot-reloads. You can immediately call `api.deleteTodo(id)` from the frontend with full type safety.
+The development server hot-reloads. You can immediately call `api.deleteTodo(todoId)` from the frontend with full type safety.
 
 ## Available Blocks
 
@@ -171,7 +180,7 @@ If you deployed to AWS and want to remove all resources:
 npm run destroy
 
 # Remove sandbox environment
-npm run sandbox -- --destroy
+npm run sandbox:destroy
 ```
 
 ## Next steps

@@ -12,10 +12,10 @@ npm create @aws-blocks/blocks-app@latest <project-name> [-- --template <template
 
 Scaffolds a new AWS Blocks project.
 
-| Option               | Description                                                        |
-| -------------------- | ------------------------------------------------------------------ |
-| `--template default` | Minimal starter with a single API endpoint (default)               |
-| `--template demo`    | Todo app with auth, KVStore, DistributedTable, and CRUD operations |
+| Option               | Description                                                                   |
+| -------------------- | ----------------------------------------------------------------------------- |
+| `--template default` | Todo app with auth, DistributedTable, Realtime, and CRUD operations (default) |
+| `--template demo`    | Full-stack app with auth, KVStore, DistributedTable, and CRUD operations      |
 
 ## Local development
 

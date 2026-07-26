@@ -35,7 +35,7 @@ Integrates with Amazon Cognito for production-grade authentication. Supports soc
 **Best practices:**
 
 - Use `AuthCognito` for production applications.
-- Always call `auth.getCurrentUser(context)` server-side in every API method that accesses user data. Never trust client-side authentication alone.
+- Always call `auth.requireAuth(context)` server-side in every API method that accesses user data. Never trust client-side authentication alone.
 - Scope data access by user ID to prevent unauthorized cross-user access.
 
 ## Data protection

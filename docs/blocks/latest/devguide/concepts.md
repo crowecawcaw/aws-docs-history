@@ -19,7 +19,7 @@ const scope = new Scope('my-app');
 const cache = new KVStore(scope, 'cache', {});
 
 // Same API works locally and in production
-await cache.set('user:123', { name: 'Alice' });
+await cache.put('user:123', { name: 'Alice' });
 const user = await cache.get('user:123');
 ```
 
@@ -56,8 +56,8 @@ const todos = new KVStore(scope, 'todos', {});
 // API methods are callable from the frontend
 export const api = new ApiNamespace(scope, 'api', (context) => ({
   async createTodo(title: string) {
-    const user = await auth.getCurrentUser(context);
-    await todos.set(`${user.userId}:${title}`, { title, done: false });
+    const user = await auth.requireAuth(context);
+    await todos.put(`${user.username}:${title}`, { title, done: false });
   },
 }));
 
@@ -100,7 +100,7 @@ export const api = new ApiNamespace(scope, 'api', (context) => ({
 
 ```
 // Frontend: call the API directly
-import { api } from '../aws-blocks/index.js';
+import { api } from 'aws-blocks';
 
 const result = await api.greet('World');
 // result.message === 'Hello, World!'
@@ -119,8 +119,8 @@ The **BlocksContext** is the request/response object provided to `ApiNamespace` 
 export const api = new ApiNamespace(scope, 'api', (context) => ({
   async protectedAction() {
     // Auth blocks use context to read headers/cookies
-    const user = await auth.getCurrentUser(context);
-    return { userId: user.userId };
+    const user = await auth.requireAuth(context);
+    return { username: user.username };
   },
 }));
 ```

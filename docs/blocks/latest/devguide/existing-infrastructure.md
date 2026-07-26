@@ -157,7 +157,7 @@ See [Creating custom Blocks](custom-building-blocks.md "custom-building-blocks.m
 If a first-party Block is _almost_ right but needs CDK changes you can’t get upstream quickly, you can eject its source into your project:
 
 ```
-npx @aws-blocks/vendorize bb-kv-store ./packages/bb-kv-store
+npm run vendorize -- @aws-blocks/bb-kv-store
 ```
 
 This copies the Block source into your monorepo. You now own it. Modify the CDK, runtime, or local implementation as needed.
