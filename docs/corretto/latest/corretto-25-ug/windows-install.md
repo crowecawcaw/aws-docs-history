@@ -17,8 +17,8 @@ step. 4. Once the install wizard is finished, set the `JAVA_HOME` and
 
 Set `JAVA_HOME` to the installation location, noting that the
 directory contains the currently-installed version. For example, if the default
-directory is used for 25.0.3, then set `JAVA_HOME` as
-`C:\Program Files\Amazon Corretto\jdk25.0.3_9`.
+directory is used for 25.0.4, then set `JAVA_HOME` as
+`C:\Program Files\Amazon Corretto\jdk25.0.4_7`.
 
 Add `%JAVA_HOME%\bin` to the current `PATH`
 variable. 5. Verify the installation by running **java -version** in a command prompt.
@@ -27,9 +27,9 @@ You should see the following output.
 ###### Example
 
 ```
-openjdk version "25.0.3" 2026-04-21 LTS
-OpenJDK Runtime Environment Corretto-25.0.3.9.1 (build 25.0.3+9-LTS)
-OpenJDK 64-Bit Server VM Corretto-25.0.3.9.1 (build 25.0.3+9-LTS, mixed mode)
+openjdk version "25.0.4" 2026-07-21 LTS
+OpenJDK Runtime Environment Corretto-25.0.4.7.1 (build 25.0.4+7-LTS)
+OpenJDK 64-Bit Server VM Corretto-25.0.4.7.1 (build 25.0.4+7-LTS, mixed mode)
 ```
 
 ## Uninstall Amazon Corretto 25
