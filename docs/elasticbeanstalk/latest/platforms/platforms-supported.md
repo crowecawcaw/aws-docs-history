@@ -151,29 +151,29 @@ Elastic Beanstalk supports the following .NET on Windows Server platform version
 
 ### Configuration basics
 
-| Platform Version                                          | Solution Stack Name                                       | Framework                                                                               | Proxy Server |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------ |
-| **Windows Server 2025 with IIS 10.0 version 2.23.2**      | _64bit Windows Server 2025 v2.23.2 running IIS 10.0_      | .NET 10.0.9, supports 10.0.9, 9.0.17, 8.0.28<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server Core 2025 with IIS 10.0 version 2.23.2** | _64bit Windows Server Core 2025 v2.23.2 running IIS 10.0_ | .NET 10.0.9, supports 10.0.9, 9.0.17, 8.0.28<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server 2022 with IIS 10.0 version 2.23.2**      | _64bit Windows Server 2022 v2.23.2 running IIS 10.0_      | .NET 10.0.9, supports 10.0.9, 9.0.17, 8.0.28<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server Core 2022 with IIS 10.0 version 2.23.2** | _64bit Windows Server Core 2022 v2.23.2 running IIS 10.0_ | .NET 10.0.9, supports 10.0.9, 9.0.17, 8.0.28<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server 2019 with IIS 10.0 version 2.23.2**      | _64bit Windows Server 2019 v2.23.2 running IIS 10.0_      | .NET 10.0.9, supports 10.0.9, 9.0.17, 8.0.28<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.23.2** | _64bit Windows Server Core 2019 v2.23.2 running IIS 10.0_ | .NET 10.0.9, supports 10.0.9, 9.0.17, 8.0.28<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.23.2**      | _64bit Windows Server 2016 v2.23.2 running IIS 10.0_      | .NET 10.0.9, supports 10.0.9, 9.0.17, 8.0.28<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.23.2** | _64bit Windows Server Core 2016 v2.23.2 running IIS 10.0_ | .NET 10.0.9, supports 10.0.9, 9.0.17, 8.0.28<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| Platform Version                                          | Solution Stack Name                                       | Framework                                                                                 | Proxy Server |
+| --------------------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------ |
+| **Windows Server 2025 with IIS 10.0 version 2.23.3**      | _64bit Windows Server 2025 v2.23.3 running IIS 10.0_      | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.23.3** | _64bit Windows Server Core 2025 v2.23.3 running IIS 10.0_ | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server 2022 with IIS 10.0 version 2.23.3**      | _64bit Windows Server 2022 v2.23.3 running IIS 10.0_      | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.23.3** | _64bit Windows Server Core 2022 v2.23.3 running IIS 10.0_ | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server 2019 with IIS 10.0 version 2.23.3**      | _64bit Windows Server 2019 v2.23.3 running IIS 10.0_      | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.23.3** | _64bit Windows Server Core 2019 v2.23.3 running IIS 10.0_ | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.23.3**      | _64bit Windows Server 2016 v2.23.3 running IIS 10.0_      | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.23.3** | _64bit Windows Server Core 2016 v2.23.3 running IIS 10.0_ | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
 
 ### More details
 
 | Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.23.2**      | 2026.06.10  |                  | 2.5.1     | 3.3.4515.0 | 4.0        | 3.6.5     |
-| **Windows Server Core 2025 with IIS 10.0 version 2.23.2** | 2026.06.10  |                  | 2.5.1     | 3.3.4515.0 | 4.0        | 3.6.5     |
-| **Windows Server 2022 with IIS 10.0 version 2.23.2**      | 2026.06.10  | 3.7.1252.1       | 2.5.1     | 3.3.4515.0 | 4.0        | 3.6.5     |
-| **Windows Server Core 2022 with IIS 10.0 version 2.23.2** | 2026.06.10  | 3.7.1252.1       | 2.5.1     | 3.3.4515.0 | 4.0        | 3.6.5     |
-| **Windows Server 2019 with IIS 10.0 version 2.23.2**      | 2026.06.10  | 3.7.1252.1       | 2.5.1     | 3.3.4515.0 | 4.0        | 3.6.5     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.23.2** | 2026.06.10  | 3.7.1252.1       | 2.5.1     | 3.3.4515.0 | 4.0        | 3.6.5     |
-| **Windows Server 2016 with IIS 10.0 version 2.23.2**      | 2026.06.10  | 3.7.1252.1       | 2.5.1     | 3.3.4515.0 | 4.0        | 3.6.5     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.23.2** | 2026.06.10  | 3.7.1252.1       | 2.5.1     | 3.3.4515.0 | 4.0        | 3.6.5     |
+| **Windows Server 2025 with IIS 10.0 version 2.23.3**      | 2026.07.15  |                  | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.23.3** | 2026.07.15  |                  | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
+| **Windows Server 2022 with IIS 10.0 version 2.23.3**      | 2026.07.15  | 3.7.1252.1       | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.23.3** | 2026.07.15  | 3.7.1252.1       | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
+| **Windows Server 2019 with IIS 10.0 version 2.23.3**      | 2026.07.15  | 3.7.1252.1       | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.23.3** | 2026.07.15  | 3.7.1252.1       | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
+| **Windows Server 2016 with IIS 10.0 version 2.23.3**      | 2026.07.15  | 3.7.1252.1       | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.23.3** | 2026.07.15  | 3.7.1252.1       | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
 
 ## Node.js
 
