@@ -84,4 +84,4 @@ federation](../../../IAM/latest/UserGuide/id_roles_providers_oidc.md "../../../I
 
 The URL for your AWS Builder ID profile is [https://profile.aws.amazon.com/](https://profile.aws.amazon.com/ "https://profile.aws.amazon.com/").
 When using your AWS Builder ID, the sign-in URL depends on what service you want to access. For
-example, to sign in to Amazon CodeCatalyst, go to [https://codecatalyst.aws/login](https://codecatalyst.aws/login "https://codecatalyst.aws/login").
+example, to sign in to AWS Builder Center, open the [AWS Builder Center website](https://builder.aws.com "https://builder.aws.com").

@@ -7,20 +7,12 @@ By default, when you sign in to an AWS tool or service using your AWS Builder ID
 duration lasts for 30 days except for Amazon Q Developer, which has a 90 day session duration. After
 your session ends, you will need to sign in again.
 
-**AWS Cloud Community**
+**AWS Builder Center**
 
-[Community.aws](https://community.aws/ "https://community.aws/") is a platform by and
-for the community of AWS builders that you can access with your AWS Builder ID.
-It’s a place to discover educational content, share your personal thoughts and
-projects, comment on others’ posts, and follow your favorite builders.
-
-**Amazon CodeCatalyst**
-
-You will create an AWS Builder ID when you start using [Amazon CodeCatalyst](../../../codecatalyst/latest/userguide/welcome.md "../../../codecatalyst/latest/userguide/welcome.md") and choose an alias that will be associated with
-activities such as issues, code commits, and pull requests. Invite others to
-your Amazon CodeCatalyst space, which is complete with the tools, infrastructure, and
-environments your team needs to build your next successful project. You'll need
-an AWS account to deploy a new project to the cloud.
+With the [AWS Builder
+Center website](https://builder.aws.com "https://builder.aws.com"), you can discover educational content, explore
+hands-on workshops, share your personal projects, and connect with other
+builders. You can access AWS Builder Center with your AWS Builder ID.
 
 **AWS Migration Hub**
 

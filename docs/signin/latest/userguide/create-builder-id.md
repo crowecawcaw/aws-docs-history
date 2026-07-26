@@ -29,7 +29,9 @@ Tools and services that use AWS Builder ID direct you to create and use your AWS
 
 1. Navigate to the [AWS Builder ID
    profile](https://profile.aws.amazon.com/ "https://profile.aws.amazon.com/") or the sign-up page of the AWS tool or service that you want
-   to access. For example, to access Amazon CodeCatalyst, go to [https://codecatalyst.aws](https://codecatalyst.aws "https://codecatalyst.aws").
+   to access. For example, to access AWS Builder Center, open the
+   [AWS Builder Center
+   website](https://builder.aws.com "https://builder.aws.com").
 2. Choose how to create your AWS Builder ID
 
    - To use your Google Account, choose **Continue with Google**

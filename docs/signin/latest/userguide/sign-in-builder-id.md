@@ -1,7 +1,7 @@
 # Sign in with AWS Builder ID
 
 AWS Builder ID is a personal profile that provides access to select tools and services including
-[Amazon CodeCatalyst](https://codecatalyst.aws/ "https://codecatalyst.aws/"), [Amazon Q Developer](../../../amazonq/latest/qdeveloper-ug/what-is.md "../../../amazonq/latest/qdeveloper-ug/what-is.md"), and [AWS Training and Certification](https://www.aws.training/ "https://www.aws.training/"). AWS Builder ID represents
+[AWS Builder Center](https://builder.aws.com "https://builder.aws.com"), [Amazon Q Developer](../../../amazonq/latest/qdeveloper-ug/what-is.md "../../../amazonq/latest/qdeveloper-ug/what-is.md"), and [AWS Training and Certification](https://www.aws.training/ "https://www.aws.training/"). AWS Builder ID represents
 you as an individual and is independent from any credentials and data you may have in existing
 AWS accounts. Like other personal profiles, AWS Builder ID remains with you as you progress through
 your personal, educational, and career goals.
@@ -42,8 +42,9 @@ Builder](https://skillbuilder.aws/ "https://skillbuilder.aws/").
 ## To sign in with AWS Builder ID
 
 1. Navigate to the [AWS Builder ID profile](https://profile.aws.amazon.com/ "https://profile.aws.amazon.com/") or
-   the sign-in page of the AWS tool or service that you want to access. For example, to access
-   Amazon CodeCatalyst, go to [https://codecatalyst.aws](https://codecatalyst.aws "https://codecatalyst.aws").
+   the sign-in page of the AWS tool or service that you want to access. For example, to
+   access AWS Builder Center, open the [AWS Builder
+   Center website](https://builder.aws.com "https://builder.aws.com").
 2. Choose how to sign-in to your AWS Builder ID
 
    - [I have an existing account](#sign-in-builder-id-email "#sign-in-builder-id-email")
