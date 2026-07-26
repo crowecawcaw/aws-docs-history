@@ -50,7 +50,7 @@ If you are going to test service request functionality, add the no-action flag, 
 
 To add an attachment, choose **Add Attachment**, browse to the attachment you want, and
 click **Open**. To delete the attachment, click the Delete icon:
-![](/images/managedservices/latest/userguide/images/icon-delete-attachment.png)
+![](images/icon-delete-attachment.png)
 . 6. Choose **Submit**.
 
 A details page opens with information on the service request--such as **Type**, **Subject**,
