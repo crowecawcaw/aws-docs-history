@@ -39,4 +39,5 @@ to request quota increases.
 | Access tokens per global resolver                      | 5,000         | Yes        |
 | Access Sources per global resolver                     | 1,000         | Yes        |
 | Access Sources CIDR size per global resolver           | 65,000        | No         |
+| IPv6 access source /48 blocks per global resolver      | 1             | Yes        |
 | Private hosted zones per DNS view                      | 1,000         | Yes        |
