@@ -71,3 +71,45 @@ to the Managed MCP server:
   the MCP server with GitHub Copilot, follow the instruction in [https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp "https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp")
   to modify the corresponding configuration file and follow the instructions
   per each IDE to activate the setup.
+
+## Troubleshoot with AI button for Amazon EMR console
+
+You can use the **Troubleshoot with AI** button directly on the
+Amazon EMR console to start the troubleshooting agent.
+
+### Troubleshoot with AI button for EMR on EC2 console
+
+Open the Amazon EMR console at [https://console.aws.amazon.com/elasticmapreduce/home](https://console.aws.amazon.com/elasticmapreduce/home "https://console.aws.amazon.com/elasticmapreduce/home"). Choose
+**EMR on EC2** and select your cluster. Open the
+**Steps** tab. For any failed Spark step, select
+the **Failed** button. This reveals the **Troubleshoot
+with AI** button in the popover. Alternatively, select the checkbox next to
+the failed step and choose **Troubleshoot with AI** at the
+top.
+
+The following video shows how to use the **Troubleshoot with AI**
+button for EMR on EC2.
+
+### Troubleshoot with AI button for EMR Serverless console
+
+Open the Amazon EMR console at [https://console.aws.amazon.com/elasticmapreduce/home](https://console.aws.amazon.com/elasticmapreduce/home "https://console.aws.amazon.com/elasticmapreduce/home") and navigate to
+**EMR Studio**. Open your EMR Studio URL. Navigate to
+**Applications** and select the application to troubleshoot. Open
+the **Batch job runs** tab. Select the **Failed**
+button to reveal the **Troubleshoot with AI** button in the
+popover. Alternatively, select the checkbox next to the failed job run and choose
+**Troubleshoot with AI** at the top.
+
+The following video shows how to use the **Troubleshoot with AI**
+button for EMR Serverless.
+
+### Troubleshoot with AI button for EMR on EKS console
+
+Open the Amazon EMR console at [https://console.aws.amazon.com/elasticmapreduce/home](https://console.aws.amazon.com/elasticmapreduce/home "https://console.aws.amazon.com/elasticmapreduce/home"). Choose
+**EMR on EKS virtual clusters** and select your cluster. For any
+failed Spark job run, select the **Failed** button.
+This reveals the **Troubleshoot with AI** button in the
+popover.
+
+The following video shows how to use the **Troubleshoot with AI**
+button for EMR on EKS.
