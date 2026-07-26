@@ -6,6 +6,7 @@ The supported models are as follows:
 
 | Model                 | Model ID                          |
 | --------------------- | --------------------------------- |
+| Claude Opus 5         | `anthropic.claude-opus-5`         |
 | Claude Mythos 5       | `anthropic.claude-mythos-5`       |
 | Claude Fable 5        | `anthropic.claude-fable-5`        |
 | Claude Opus 4.7       | `anthropic.claude-opus-4-7`       |
@@ -128,16 +129,21 @@ main().catch(console.error);
 
 You can combine adaptive thinking with the effort parameter to guide how much thinking Claude does. The effort level acts as soft guidance for Claude's thinking allocation:
 
-| Effort level     | Thinking behavior                                                                                                                             |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `max`            | Claude always thinks with no constraints on thinking depth. Claude Opus 4.6 only — requests using `max` on other models will return an error. |
-| `high` (default) | Claude always thinks. Provides deep reasoning on complex tasks.                                                                               |
-| `medium`         | Claude uses moderate thinking. May skip thinking for very simple queries.                                                                     |
-| `low`            | Claude minimizes thinking. Skips thinking for simple tasks where speed matters most.                                                          |
+| Effort level     | Thinking behavior                                                                                                                                               |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `max`            | Claude always thinks with no constraints on thinking depth. Claude Opus 4.6 and Claude Opus 5 only — requests using `max` on other models will return an error. |
+| `xhigh`          | Claude always thinks with extended depth. Claude Opus 5 and Claude Opus 4.6 only.                                                                               |
+| `high` (default) | Claude always thinks. Provides deep reasoning on complex tasks.                                                                                                 |
+| `medium`         | Claude uses moderate thinking. May skip thinking for very simple queries.                                                                                       |
+| `low`            | Claude minimizes thinking. Skips thinking for simple tasks where speed matters most.                                                                            |
 
 ###### Important
 
 The `effort` parameter must be placed inside a separate `output_config` object in your request body — not inside the `thinking` object. Placing `effort` inside `thinking` will result in a `ValidationException`.
+
+###### Important
+
+**Effort cap when thinking is disabled (Claude Opus 5):** Claude Opus 5 supports `"thinking": {"type": "disabled"}`, but when thinking is disabled, `output_config.effort` is capped at `high`. Requests with `xhigh` or `max` effort combined with disabled thinking will return an `invalid_request_error`. This cap also applies to per-turn effort set via a mid-conversation system message. To use `xhigh` or `max` effort, enable adaptive thinking (the default) or omit the `thinking` parameter entirely.
 
 The following example shows how to set the effort level when using the InvokeModel API:
 

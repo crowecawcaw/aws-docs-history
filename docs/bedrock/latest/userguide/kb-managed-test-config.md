@@ -58,6 +58,13 @@ When using metadata filtering with a managed knowledge base:
   filters are not supported. Use `equals`,
   `greaterThan`, `lessThan`, `in`, or
   `notIn` operators instead.
+- The range operators (`greaterThan`,
+  `greaterThanOrEquals`, `lessThan`, and
+  `lessThanOrEquals`) accept either a number or a date-time
+  value. To filter on a date-time, provide the value as a string in
+  ISO-8601 offset date-time format. Use the full offset form, for
+  example, `2026-03-02T19:02:18Z`. Range operators support
+  date-time string values only for managed knowledge bases.
 - For custom knowledge bases, metadata fields prefixed with
   `x-amz-bedrock` are reserved by the service. For fully
   managed knowledge bases, reserved metadata fields use an underscore

@@ -31,13 +31,13 @@ cross-Region inference, refer to [Supported Regions and models for inference pro
 Amazon Bedrock provides two types of cross-Region inference profiles, each designed for
 different use cases and compliance requirements:
 
-| Feature          | Geographic Cross-Region Inference                 | Global Cross-Region Inference                   | Recommendation                                  |
-| ---------------- | ------------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| Data residency   | Within geographic boundaries (US, EU, APAC, etc.) | Any supported AWS commercial Region worldwide   | Choose Geographic for compliance requirements   |
-| Throughput       | Higher than single-region                         | Highest available                               | Choose Global for maximum performance           |
-| Cost             | Standard pricing                                  | Approximately 10% savings                       | Choose Global for cost optimization             |
-| SCP requirements | Allow all destination Regions in profile          | Allow `"aws:RequestedRegion": "unspecified"`    | Configure based on your organizational policies |
-| Best suited for  | Organizations with data residency regulations     | Organizations prioritizing cost and performance | Assess your compliance and performance needs    |
+| Feature          | Geographic Cross-Region Inference                       | Global Cross-Region Inference                   | Recommendation                                  |
+| ---------------- | ------------------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| Data residency   | Within geographic boundaries (such as US, EU, and APAC) | Any supported AWS commercial Region worldwide   | Choose Geographic for compliance requirements   |
+| Throughput       | Higher than single-region                               | Highest available                               | Choose Global for maximum performance           |
+| Cost             | Standard pricing                                        | Approximately 10% savings                       | Choose Global for cost optimization             |
+| SCP requirements | Allow all destination Regions in profile                | Allow `"aws:RequestedRegion": "unspecified"`    | Configure based on your organizational policies |
+| Best suited for  | Organizations with data residency regulations           | Organizations prioritizing cost and performance | Assess your compliance and performance needs    |
 
 Choose Geographic cross-Region inference when you have data residency requirements and
 need to ensure data processing remains within specific geographic boundaries. Choose

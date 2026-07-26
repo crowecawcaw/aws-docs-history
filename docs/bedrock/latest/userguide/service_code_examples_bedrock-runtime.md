@@ -12,14 +12,13 @@ This topic also includes information about getting started and details about pre
 
 - [Basics](service_code_examples_bedrock-runtime_basics.md "service_code_examples_bedrock-runtime_basics.md")
 
-  - [Hello Amazon Bedrock](bedrock-runtime_example_bedrock-runtime_Hello_section.md "bedrock-runtime_example_bedrock-runtime_Hello_section.md")
+  - [Hello Amazon Bedrock Runtime](bedrock-runtime_example_bedrock-runtime_Hello_section.md "bedrock-runtime_example_bedrock-runtime_Hello_section.md")
 
 - [Scenarios](service_code_examples_bedrock-runtime_scenarios.md "service_code_examples_bedrock-runtime_scenarios.md")
 
   - [Create a playground application to interact with Amazon Bedrock foundation models](bedrock-runtime_example_cross_FMPlayground_section.md "bedrock-runtime_example_cross_FMPlayground_section.md")
   - [Create and invoke a managed prompt](bedrock-runtime_example_bedrock-agent_GettingStartedWithBedrockPrompts_section.md "bedrock-runtime_example_bedrock-agent_GettingStartedWithBedrockPrompts_section.md")
   - [Generate videos from text prompts using Amazon Bedrock](bedrock-runtime_example_bedrock-runtime_Scenario_GenerateVideos_NovaReel_section.md "bedrock-runtime_example_bedrock-runtime_Scenario_GenerateVideos_NovaReel_section.md")
-  - [Invoke multiple foundation models on Amazon Bedrock](bedrock-runtime_example_bedrock-runtime_Scenario_InvokeModels_section.md "bedrock-runtime_example_bedrock-runtime_Scenario_InvokeModels_section.md")
   - [Orchestrate generative AI applications with Step Functions](bedrock-runtime_example_cross_ServerlessPromptChaining_section.md "bedrock-runtime_example_cross_ServerlessPromptChaining_section.md")
   - [Tool use with the Converse API](bedrock-runtime_example_bedrock-runtime_Scenario_ToolUse_section.md "bedrock-runtime_example_bedrock-runtime_Scenario_ToolUse_section.md")
 
@@ -55,8 +54,6 @@ This topic also includes information about getting started and details about pre
   - [Converse](bedrock-runtime_example_bedrock-runtime_Converse_AnthropicClaude_section.md "bedrock-runtime_example_bedrock-runtime_Converse_AnthropicClaude_section.md")
   - [ConverseStream](bedrock-runtime_example_bedrock-runtime_ConverseStream_AnthropicClaude_section.md "bedrock-runtime_example_bedrock-runtime_ConverseStream_AnthropicClaude_section.md")
   - [Document understanding](bedrock-runtime_example_bedrock-runtime_DocumentUnderstanding_AnthropicClaude_section.md "bedrock-runtime_example_bedrock-runtime_DocumentUnderstanding_AnthropicClaude_section.md")
-  - [InvokeModel](bedrock-runtime_example_bedrock-runtime_InvokeModel_AnthropicClaude_section.md "bedrock-runtime_example_bedrock-runtime_InvokeModel_AnthropicClaude_section.md")
-  - [InvokeModelWithResponseStream](bedrock-runtime_example_bedrock-runtime_InvokeModelWithResponseStream_AnthropicClaude_section.md "bedrock-runtime_example_bedrock-runtime_InvokeModelWithResponseStream_AnthropicClaude_section.md")
   - [Reasoning](bedrock-runtime_example_bedrock-runtime_Converse_AnthropicClaudeReasoning_section.md "bedrock-runtime_example_bedrock-runtime_Converse_AnthropicClaudeReasoning_section.md")
   - [Reasoning with a streaming response](bedrock-runtime_example_bedrock-runtime_ConverseStream_AnthropicClaudeReasoning_section.md "bedrock-runtime_example_bedrock-runtime_ConverseStream_AnthropicClaudeReasoning_section.md")
   - [Scenario: Tool use with the Converse API](bedrock-runtime_example_bedrock-runtime_Scenario_ToolUseDemo_AnthropicClaude_section.md "bedrock-runtime_example_bedrock-runtime_Scenario_ToolUseDemo_AnthropicClaude_section.md")
@@ -66,8 +63,6 @@ This topic also includes information about getting started and details about pre
   - [Converse](bedrock-runtime_example_bedrock-runtime_Converse_CohereCommand_section.md "bedrock-runtime_example_bedrock-runtime_Converse_CohereCommand_section.md")
   - [ConverseStream](bedrock-runtime_example_bedrock-runtime_ConverseStream_CohereCommand_section.md "bedrock-runtime_example_bedrock-runtime_ConverseStream_CohereCommand_section.md")
   - [Document understanding](bedrock-runtime_example_bedrock-runtime_DocumentUnderstanding_CohereCommand_section.md "bedrock-runtime_example_bedrock-runtime_DocumentUnderstanding_CohereCommand_section.md")
-  - [InvokeModel: Command R and R+](bedrock-runtime_example_bedrock-runtime_InvokeModel_CohereCommandR_section.md "bedrock-runtime_example_bedrock-runtime_InvokeModel_CohereCommandR_section.md")
-  - [InvokeModelWithResponseStream: Command R and R+](bedrock-runtime_example_bedrock-runtime_InvokeModelWithResponseStream_CohereCommandR_section.md "bedrock-runtime_example_bedrock-runtime_InvokeModelWithResponseStream_CohereCommandR_section.md")
   - [Scenario: Tool use with the Converse API](bedrock-runtime_example_bedrock-runtime_Scenario_ToolUseDemo_CohereCommand_section.md "bedrock-runtime_example_bedrock-runtime_Scenario_ToolUseDemo_CohereCommand_section.md")
 
 - [DeepSeek](service_code_examples_bedrock-runtime_deepseek.md "service_code_examples_bedrock-runtime_deepseek.md")
@@ -79,17 +74,13 @@ This topic also includes information about getting started and details about pre
   - [Converse](bedrock-runtime_example_bedrock-runtime_Converse_MetaLlama_section.md "bedrock-runtime_example_bedrock-runtime_Converse_MetaLlama_section.md")
   - [ConverseStream](bedrock-runtime_example_bedrock-runtime_ConverseStream_MetaLlama_section.md "bedrock-runtime_example_bedrock-runtime_ConverseStream_MetaLlama_section.md")
   - [Document understanding](bedrock-runtime_example_bedrock-runtime_DocumentUnderstanding_MetaLlama_section.md "bedrock-runtime_example_bedrock-runtime_DocumentUnderstanding_MetaLlama_section.md")
-  - [InvokeModel](bedrock-runtime_example_bedrock-runtime_InvokeModel_MetaLlama3_section.md "bedrock-runtime_example_bedrock-runtime_InvokeModel_MetaLlama3_section.md")
-  - [InvokeModelWithResponseStream](bedrock-runtime_example_bedrock-runtime_InvokeModelWithResponseStream_MetaLlama3_section.md "bedrock-runtime_example_bedrock-runtime_InvokeModelWithResponseStream_MetaLlama3_section.md")
 
 - [Mistral AI](service_code_examples_bedrock-runtime_mistral_ai.md "service_code_examples_bedrock-runtime_mistral_ai.md")
 
   - [Converse](bedrock-runtime_example_bedrock-runtime_Converse_Mistral_section.md "bedrock-runtime_example_bedrock-runtime_Converse_Mistral_section.md")
   - [ConverseStream](bedrock-runtime_example_bedrock-runtime_ConverseStream_Mistral_section.md "bedrock-runtime_example_bedrock-runtime_ConverseStream_Mistral_section.md")
   - [Document understanding](bedrock-runtime_example_bedrock-runtime_DocumentUnderstanding_Mistral_section.md "bedrock-runtime_example_bedrock-runtime_DocumentUnderstanding_Mistral_section.md")
-  - [InvokeModel](bedrock-runtime_example_bedrock-runtime_InvokeModel_MistralAi_section.md "bedrock-runtime_example_bedrock-runtime_InvokeModel_MistralAi_section.md")
-  - [InvokeModelWithResponseStream](bedrock-runtime_example_bedrock-runtime_InvokeModelWithResponseStream_MistralAi_section.md "bedrock-runtime_example_bedrock-runtime_InvokeModelWithResponseStream_MistralAi_section.md")
 
-- [Stable Diffusion](service_code_examples_bedrock-runtime_stable_diffusion.md "service_code_examples_bedrock-runtime_stable_diffusion.md")
+- [Stable Image Core](service_code_examples_bedrock-runtime_stable_image_core.md "service_code_examples_bedrock-runtime_stable_image_core.md")
 
   - [InvokeModel](bedrock-runtime_example_bedrock-runtime_InvokeModel_StableDiffusion_section.md "bedrock-runtime_example_bedrock-runtime_InvokeModel_StableDiffusion_section.md")

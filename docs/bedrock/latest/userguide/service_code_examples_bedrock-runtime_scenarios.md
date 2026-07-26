@@ -12,6 +12,5 @@ Scenarios target an intermediate level of experience to help you understand serv
 - [Create a playground application to interact with Amazon Bedrock foundation models](bedrock-runtime_example_cross_FMPlayground_section.md "bedrock-runtime_example_cross_FMPlayground_section.md")
 - [Create and invoke a managed prompt](bedrock-runtime_example_bedrock-agent_GettingStartedWithBedrockPrompts_section.md "bedrock-runtime_example_bedrock-agent_GettingStartedWithBedrockPrompts_section.md")
 - [Generate videos from text prompts using Amazon Bedrock](bedrock-runtime_example_bedrock-runtime_Scenario_GenerateVideos_NovaReel_section.md "bedrock-runtime_example_bedrock-runtime_Scenario_GenerateVideos_NovaReel_section.md")
-- [Invoke multiple foundation models on Amazon Bedrock](bedrock-runtime_example_bedrock-runtime_Scenario_InvokeModels_section.md "bedrock-runtime_example_bedrock-runtime_Scenario_InvokeModels_section.md")
 - [Orchestrate generative AI applications with Step Functions](bedrock-runtime_example_cross_ServerlessPromptChaining_section.md "bedrock-runtime_example_cross_ServerlessPromptChaining_section.md")
 - [Tool use with the Converse API](bedrock-runtime_example_bedrock-runtime_Scenario_ToolUse_section.md "bedrock-runtime_example_bedrock-runtime_Scenario_ToolUse_section.md")

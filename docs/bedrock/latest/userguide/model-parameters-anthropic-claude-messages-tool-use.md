@@ -982,3 +982,62 @@ Error examples:
     "message": "input_examples is not supported for server-side tool"
 }
 ```
+
+## Mid-conversation tool changes (Beta)
+
+###### Note
+
+This feature requires the beta flag `mid-conversation-tool-changes-2026-07-01` in `anthropic_beta`. Currently supported on Claude Opus 5 only.
+
+Claude Opus 5 supports adding and removing tools mid-conversation via `tool_addition` and `tool_removal` content blocks on `role: "system"` messages, instead of re-sending the full top-level `tools` array (which would invalidate the prompt cache).
+
+### Request shape
+
+`tool_addition` and `tool_removal` blocks appear in the `content` array of a `role: "system"` message, alongside optional `text` blocks. Each block references **one** tool via its `tool` field. Multiple blocks are allowed and are processed in content order.
+
+```
+{
+  "role": "system",
+  "content": [
+    {"type": "tool_removal", "tool": {"type": "tool_reference", "name": "get_weather"}},
+    {"type": "tool_addition", "tool": {"type": "tool_reference", "name": "search_docs"}},
+    {"type": "text", "text": "Tool set updated for phase 2."}
+  ]
+}
+```
+
+Both block types support `cache_control` for prompt caching.
+
+### Tool reference variants
+
+The `tool` field is a discriminated union on `type`:
+
+| **type**                | **Fields**                                        | **Refers to**                                   | **Additional beta required** |
+| ----------------------- | ------------------------------------------------- | ----------------------------------------------- | ---------------------------- |
+| `tool_reference`        | `name` (string, pattern `^[a-zA-Z0-9_-]{1,128}$`) | A tool declared directly in top-level `tools[]` | —                            |
+| `mcp_tool_reference`    | `server_name`, `name`                             | A single MCP tool                               | An `mcp-client-*` beta       |
+| `mcp_toolset_reference` | `server_name`                                     | Every tool in the named MCP server's toolset    | An `mcp-client-*` beta       |
+
+`tool_reference` does **not** accept the composed `{server}_{name}` form assigned to MCP-resolved tools; use one of the MCP variants for those.
+
+### Semantics
+
+- The available-tool set starts as everything in `tools[]` (after MCP resolution). Each `tool_removal` subtracts the referenced tool(s); each `tool_addition` re-adds them. A tool removed and later re-added is available at the end.
+- `tool_removal` renders a brief in-context notice so the model stops planning around the removed tool.
+- Mid-conversation tool changes do **not** trigger constrained decoding; `tool_choice` remains the only control for that.
+- Maximum 512 `tool_addition` blocks per request.
+
+### Error responses (400 invalid\_request\_error)
+
+| **Condition**                                                           | **Error**                                                                                 |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Beta flag missing                                                       | Block type rejected as an unknown discriminator                                           |
+| Block outside `role: "system"`                                          | `'tool_addition'/'tool_removal' blocks are only permitted within role: "system" messages` |
+| `tool_reference.name` not in `tools[]`, or names an MCP-resolved tool   | `tool_addition/tool_removal references unknown tool '<name>'`                             |
+| MCP variant with undeclared `server_name`                               | `tool_addition/tool_removal references unknown server '<name>'`                           |
+| MCP variant where server has `tool_configuration.enabled: false`        | `tool_addition/tool_removal references disabled server '<name>'`                          |
+| `mcp_tool_reference` in a `tool_addition` where server has no such tool | Error listing all unresolved tool names for that server                                   |
+
+###### Note
+
+`mcp_tool_reference` in a `tool_removal` is lenient — if the server has since dropped that tool, the removal is a no-op (so historical conversations remain replayable).

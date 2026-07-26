@@ -86,7 +86,7 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 Bedrock offers three inference options:
 
 - **In-Region** keeps requests within a single Region for strict compliance.
-- **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency.
+- **Geo Cross-Region** routes across Regions within a geography (such as US, EU, and APAC) for higher throughput while respecting data residency.
 - **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints.
 
 For more details, see the [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md") page.

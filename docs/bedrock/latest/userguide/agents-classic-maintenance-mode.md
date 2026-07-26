@@ -81,10 +81,50 @@ Classic configurations as a starting point for either path.
 ### Prerequisites to migrate to AgentCore harness
 
 - Node.js 20+ and AgentCore CLI, or Python 3.10+ with boto3
-- AWS credentials in a preview region (us-east-1, us-west-2, eu-central-1, ap-southeast-2)
+- AWS credentials in a region where AgentCore harness is available.
+  For more information, see [Supported AWS Regions for AgentCore](../../../bedrock-agentcore/latest/devguide/agentcore-regions.md "../../../bedrock-agentcore/latest/devguide/agentcore-regions.md").
 - IAM execution role with required permissions
+- (Optional) The [agent toolkit for AWS](https://github.com/aws/agent-toolkit-for-aws "https://github.com/aws/agent-toolkit-for-aws") on the GitHub website provides specialized skills
+  to guide your AI agents through the migration.
 
-### Step 1: Create and configure
+### Migrate with the agent toolkit for AWS (recommended)
+
+The [agent toolkit
+for AWS](https://github.com/aws/agent-toolkit-for-aws "https://github.com/aws/agent-toolkit-for-aws") on the GitHub website includes an `amazon-bedrock` skill that guides your AI
+agent (or coding assistant) through the migration end-to-end. It inspects your
+existing Bedrock Agent, checks migration eligibility, and maps each component to its
+AgentCore harness equivalent. The skill then drives the AgentCore CLI to scaffold and
+deploy the harness. It never modifies your source agent.
+
+To use the skill:
+
+1. Install the agent toolkit for AWS. For instructions on installing
+   the agent toolkit and enabling the skill, see the
+   [agent toolkit for AWS README](https://github.com/aws/agent-toolkit-for-aws/blob/main/README.md "https://github.com/aws/agent-toolkit-for-aws/blob/main/README.md") on the GitHub website.
+2. Enable the `amazon-bedrock` skill for your agent.
+3. (Optional) For streamlined AWS access, configure the AWS MCP server.
+   The skill also works with the AWS CLI and boto3.
+4. Install the latest version of the AgentCore CLI. The skill uses the
+   AgentCore CLI to scaffold and deploy the harness.
+5. Prompt your agent with
+   _"Help me migrate my Bedrock Agent to AgentCore
+   harness"_. Provide the agent ID, name, or ARN, along with the AWS
+   region and profile when the skill asks.
+6. Confirm the account, region, and source agent at each checkpoint.
+   The skill presents a component inventory, an eligibility assessment, and a
+   written migration plan. It pauses for your approval before deploying.
+
+You can also use the skill to answer migration questions without performing a
+migration. If your agent uses a feature with no validated harness path, the skill
+stops and suggests alternatives.
+
+### Migrate manually
+
+If you prefer to migrate without the skill, or your agent is not eligible for the
+skill-driven path, follow these steps to build the harness with the AgentCore
+CLI. Use the latest version of the AgentCore CLI.
+
+#### Step 1: Create and configure
 
 ```
 agentcore create --name my-research-agent
@@ -116,7 +156,7 @@ agentcore add tool --harness my-research-agent \
   --gateway-arn arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gw
 ```
 
-### Step 2: Configure model and system prompt
+#### Step 2: Configure model and system prompt
 
 ```
 agentcore add harness \
@@ -126,7 +166,7 @@ agentcore add harness \
   --tools agentcore-browser,code-interpreter
 ```
 
-### Step 3: Deploy and invoke
+#### Step 3: Deploy and invoke
 
 ```
 agentcore deploy
@@ -143,7 +183,7 @@ agentcore invoke --harness my-research-agent \
   "Summarize this research paper"
 ```
 
-#### Memory
+##### Memory
 
 Enabled by default. To scope memory to individual users, pass
 `--actor-id`:
@@ -156,12 +196,6 @@ agentcore invoke --harness my-research-agent \
 
 Each actor gets isolated memory. Long-term strategies scope extracted knowledge
 by actor ID.
-
-###### Important
-
-An agent skill to guide you through migrating Bedrock Agents Classic directly to
-AgentCore harness is under development. In the meantime, the manual mapping described
-above is the recommended approach.
 
 ## Frequently asked questions
 
@@ -261,10 +295,12 @@ available:
 
 Is there an automated migration tool?
 
-An agent skill to guide you through migrating Bedrock Agents Classic
-directly to AgentCore harness is under development. In the meantime,
-use the manual mapping in the Migration Procedure section
-above.
+Yes. An agent skill to guide you through migrating Bedrock Agents Classic
+directly to AgentCore harness is available in the
+[agent toolkit for AWS](https://github.com/aws/agent-toolkit-for-aws "https://github.com/aws/agent-toolkit-for-aws")
+on the GitHub website. The skill is also available through the AWS MCP server.
+For instructions on installing and using the skill, see the agent toolkit for AWS README on the GitHub website.
+Start with the prompt _"Help me migrate my Bedrock Agent to AgentCore harness."_
 
 How long does migration take?
 

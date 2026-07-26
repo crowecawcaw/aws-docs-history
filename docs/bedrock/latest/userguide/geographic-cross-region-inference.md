@@ -1,7 +1,7 @@
 # Geographic cross-Region inference
 
 Geographic cross-Region inference keeps data processing within specified geographic
-boundaries (US, EU, APAC, etc.) while providing higher throughput than single-region
+boundaries (such as US, EU, and APAC) while providing higher throughput than single-region
 inference. This option is ideal for organizations with data residency requirements and
 compliance regulations.
 
@@ -10,7 +10,7 @@ compliance regulations.
 Note the following information about Geographic cross-Region inference:
 
 - Cross-Region inference requests to an inference profile tied to a
-  geography (e.g. US, EU and APAC) are kept within the AWS Regions that are
+  geography (such as US, EU, and APAC) are kept within the AWS Regions that are
   part of the geography where the data originally resides. For example, a
   request made within the US is kept within the AWS Regions in the US.
   By default the data remains stored only in the source Region, but your input

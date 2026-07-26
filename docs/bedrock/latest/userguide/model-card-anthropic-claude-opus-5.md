@@ -1,20 +1,20 @@
-# Claude Sonnet 5
+# Claude Opus 5
 
-## Orange rounded square icon with white radial loading or progress indicator symbol. Anthropic — Claude Sonnet 5
+## Orange rounded square icon with white radial loading or progress indicator symbol. Anthropic — Claude Opus 5
 
 ## Model Details
 
-Claude Sonnet 5 is Anthropic's most capable Sonnet model yet, built for coding, agents, and professional work at scale. It brings near-Opus intelligence to the model teams run every day, with the same balance of capability, cost, and speed teams already rely on Sonnet for.
+Claude Opus 5 is Anthropic's most advanced Opus model, powering long-running agents while delivering improvements in coding and professional work.
 
-- **Model launch date:** June 30, 2026
+- **Model launch date:** July 24, 2026
 - **Model EOL date:** N/A
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
 - **Model lifecycle:** Active
 - **Context window:** 1M tokens
 - **Max output tokens:** 128K
-- **Reasoning:** Supported (adaptive thinking is always on and cannot be disabled; effort level is configurable)
-- **Knowledge cutoff:** January 2026
-- **Marketplace product ID:** `prod-4ezhkeia6k2cs`
+- **Reasoning:** Supported (adaptive thinking is on by default; can be disabled but effort is capped at high when thinking is disabled)
+- **Knowledge cutoff:** May 2026
+- **Marketplace product ID:** `prod-if5d653ow7ehg`
 
 | **Input Modalities**                                                           | **Output Modalities**                                                             | **[APIs supported](apis.md "apis.md")**                                                    | **[Endpoints supported](endpoints.md "endpoints.md")**    |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------- |
@@ -46,7 +46,7 @@ For more information, see [Prompt caching for faster model inference](prompt-cac
 
 | **Prompt caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoints** |
 | ---------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ----------------------------------------------- |
-| Yes                          | 4,096                               | 4                                     | 5 minutes, 1 hour | `system`, `messages`, and `tools`               |
+| Yes                          | 512                                 | 4                                     | 5 minutes, 1 hour | `system`, `messages`, and `tools`               |
 
 **Computer use using `bedrock-runtime` and `bedrock-mantle` endpoints**
 
@@ -64,10 +64,10 @@ For pricing, please refer to the [Amazon Bedrock Pricing](https://aws.amazon.com
 
 Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
 
-| **Endpoint**      | **Model ID**                | **In-Region endpoint URL**                                      | **Geo inference ID**                                                                       | **Global inference ID**            |
-| ----------------- | --------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------- |
-| `bedrock-runtime` | `anthropic.claude-sonnet-5` | `https://bedrock-runtime.{region}.amazonaws.com`                | `us.anthropic.claude-sonnet-5``eu.anthropic.claude-sonnet-5``au.anthropic.claude-sonnet-5` | `global.anthropic.claude-sonnet-5` |
-| `bedrock-mantle`  | `anthropic.claude-sonnet-5` | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | N/A                                                                                        | N/A                                |
+| **Endpoint**      | **Model ID**              | **In-Region endpoint URL**                                      | **Geo inference ID**                                                                 | **Global inference ID**          |
+| ----------------- | ------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------ | -------------------------------- |
+| `bedrock-runtime` | `anthropic.claude-opus-5` | N/A                                                             | `us.anthropic.claude-opus-5``eu.anthropic.claude-opus-5``au.anthropic.claude-opus-5` | `global.anthropic.claude-opus-5` |
+| `bedrock-mantle`  | `anthropic.claude-opus-5` | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | N/A                                                                                  | N/A                              |
 
 _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages"._
 
@@ -75,9 +75,9 @@ _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime end
 
 Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment. **Priority** offers higher throughput with a time-based commitment. **Flex** provides lower-cost access for flexible, non-time-sensitive workloads. **Reserved** provides dedicated throughput with a term commitment for predictable workloads. For more information, see [service tiers](service-tiers-inference.md "service-tiers-inference.md").
 
-| **Standard**                            | **Priority**                                                            | **Flex**                                                                | **Reserved**                                                            |
-| --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| **Standard**                            | **Priority**                                                            | **Flex**                                                                | **Reserved**                                                            | **Batch**                               |
+| --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------- |
+| Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 
 ## Regional Availability
 
@@ -86,7 +86,7 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 Bedrock offers three inference options:
 
 - **In-Region** keeps requests within a single Region for strict compliance.
-- **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency.
+- **Geo Cross-Region** routes across Regions within a geography (such as US, EU, and APAC) for higher throughput while respecting data residency.
 - **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints.
 
 For more details, see the [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md") page.
@@ -107,6 +107,8 @@ For more details, see the [Regional availability by models](models-region-compat
 | `eu-west-1` (Ireland)          | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
 | `eu-west-2` (London)           | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
 | `eu-west-3` (Paris)            | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `ap-southeast-2` (Sydney)      | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `ap-southeast-4` (Melbourne)   | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
 | `ap-east-2` (Taipei)           | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 | `ap-northeast-1` (Tokyo)       | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 | `ap-northeast-2` (Seoul)       | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
@@ -114,9 +116,7 @@ For more details, see the [Regional availability by models](models-region-compat
 | `ap-south-1` (Mumbai)          | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 | `ap-south-2` (Hyderabad)       | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 | `ap-southeast-1` (Singapore)   | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
-| `ap-southeast-2` (Sydney)      | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 | `ap-southeast-3` (Jakarta)     | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
-| `ap-southeast-4` (Melbourne)   | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
 | `ap-southeast-5` (Malaysia)    | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 | `ap-southeast-6` (New Zealand) | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 | `ap-southeast-7` (Thailand)    | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
@@ -129,10 +129,10 @@ For more details, see the [Regional availability by models](models-region-compat
 
 **Data residency**
 
-- **US geo** (`us.anthropic.claude-sonnet-5`): Keeps data within US and Canada regions.
-- **EU geo** (`eu.anthropic.claude-sonnet-5`): Keeps data within EU regions.
-- **AU geo** (`au.anthropic.claude-sonnet-5`): Keeps data within Australia regions.
-- **Global** (`global.anthropic.claude-sonnet-5`): Routes worldwide for maximum throughput with no residency constraints.
+- **US geo** (`us.anthropic.claude-opus-5`): Keeps data within US and Canada regions.
+- **EU geo** (`eu.anthropic.claude-opus-5`): Keeps data within EU regions.
+- **AU geo** (`au.anthropic.claude-opus-5`): Keeps data within Australia regions.
+- **Global** (`global.anthropic.claude-opus-5`): Routes worldwide for maximum throughput with no residency constraints.
 
 ## Quotas and Limits
 
@@ -182,7 +182,7 @@ from anthropic import AnthropicBedrockMantle
 client = AnthropicBedrockMantle(aws_region="us-east-1")
 
 message = client.messages.create(
-    model="anthropic.claude-sonnet-5",
+    model="anthropic.claude-opus-5",
     max_tokens=1024,
     messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}],
 )
@@ -198,7 +198,7 @@ import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
-    modelId='anthropic.claude-sonnet-5',
+    modelId='global.anthropic.claude-opus-5',
     body=json.dumps({
             'anthropic_version': 'bedrock-2023-05-31',
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
@@ -215,7 +215,7 @@ import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.converse(
-    modelId='anthropic.claude-sonnet-5',
+    modelId='global.anthropic.claude-opus-5',
     messages=[
         {
             'role': 'user',

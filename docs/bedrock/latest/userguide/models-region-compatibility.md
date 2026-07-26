@@ -225,6 +225,42 @@ Rerank| Region | In-Region | Geo | Global |
 
 ## Anthropic
 
+[Claude Opus 5](model-card-anthropic-claude-opus-5.md "model-card-anthropic-claude-opus-5.md")| Region | In-Region | Geo | Global |
+| --- | --- | --- | --- |
+| `us-east-1` (N. Virginia) | | | |
+| `us-east-2` (Ohio) | | | |
+| `us-west-1` (N. California) | | | |
+| `us-west-2` (Oregon) | | | |
+| `ca-central-1` (Canada) | | | |
+| `ca-west-1` (Calgary) | | | |
+| `eu-central-1` (Frankfurt) | | | |
+| `eu-central-2` (Zurich) | | | |
+| `eu-north-1` (Stockholm) | | | |
+| `eu-south-1` (Milan) | | | |
+| `eu-south-2` (Spain) | | | |
+| `eu-west-1` (Ireland) | | | |
+| `eu-west-2` (London) | | | |
+| `eu-west-3` (Paris) | | | |
+| `ap-southeast-2` (Sydney) | | | |
+| `ap-southeast-4` (Melbourne) | | | |
+| `ap-east-2` (Taipei) | | | |
+| `ap-northeast-1` (Tokyo) | | | |
+| `ap-northeast-2` (Seoul) | | | |
+| `ap-northeast-3` (Osaka) | | | |
+| `ap-south-1` (Mumbai) | | | |
+| `ap-south-2` (Hyderabad) | | | |
+| `ap-southeast-1` (Singapore) | | | |
+| `ap-southeast-3` (Jakarta) | | | |
+| `ap-southeast-5` (Malaysia) | | | |
+| `ap-southeast-6` (New Zealand) | | | |
+| `ap-southeast-7` (Thailand) | | | |
+| `il-central-1` (Tel Aviv) | | | |
+| `me-central-1` (UAE) | | | |
+| `me-south-1` (Bahrain) | | | |
+| `af-south-1` (Cape Town) | | | |
+| `sa-east-1` (São Paulo) | | | |
+| `mx-central-1` (Mexico) | | | |
+
 [Claude Sonnet 5](model-card-anthropic-claude-sonnet-5.md "model-card-anthropic-claude-sonnet-5.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
 | `us-east-1` (N. Virginia) | | | |
