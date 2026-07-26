@@ -169,7 +169,14 @@ AWS Clean Rooms ML has additional quotas listed below
 
 Clean Rooms ML quotas| Resource | Default | Description |
 | --- | --- | --- |
+| Active configured dataset associations for each membership | 25 | Maximum number of configured dataset associations for each<br>membership. This quota is adjustable. To request an increase,<br>use the Service Quotas console. |
+| Configured model algorithm association ARNs for each privacy<br>configuration | 10 | Maximum number of configured model algorithm association ARNs<br>for each privacy configuration. This quota is adjustable. To request<br>an increase, use the Service Quotas console. |
 | Maximum duration of a custom modeling inference job | 25 hours | |
+| Maximum dataset size | 25 TB | Maximum size of a configured dataset association. This quota<br>is not adjustable. |
+| Maximum individual object size | 5 GB | Maximum size of an individual object in a configured dataset<br>association. This quota is not adjustable. |
+| Maximum object size for inference | 100 MB per object | Maximum size of an individual object in a configured dataset<br>association used for inference. This quota is not<br>adjustable. |
+| Maximum datasets per training job | 20 | Maximum number of configured dataset associations that you<br>can use in a single training job. This quota is not<br>adjustable. |
+| Maximum datasets per inference job | 1 | Maximum number of configured dataset associations that you<br>can use in a single inference job. This quota is not<br>adjustable. |
 | Maximum number of interactions | 20 billion | Maximum number of interactions allowed in training data. Larger<br>inputs are sampled down. |
 | Minimum number of interactions | 1 million | |
 | Maximum number of distinct users for lookalike model training | 100 million | If more are included, only the top 100 million are used, ranked by<br>number of interactions. |

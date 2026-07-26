@@ -28,15 +28,17 @@ the analysis template from the dropdown list. 6. The parameters form the SQL ana
 **Definition**. 7. Specify the supported **Worker type**
 and the **Number of workers**.
 
-Use the following table to determine the type and number or workers you need for
-your use case.
+Use the following table to determine the worker type and number of workers you need
+for your use case.
 
 | Worker type             | vCPU | Memory (GB) | Storage (GB) | Number of workers | Total Clean Rooms Processing Units (CRPU) |
 | ----------------------- | ---- | ----------- | ------------ | ----------------- | ----------------------------------------- |
-| *_CR.1X_<br>• (default) | 4    | 30          | 100          | 4                 | 8                                         |
+| *_CR.1X_<br>• (default) | 4    | 30          | 500          | 2                 | 4                                         |
 | 128                     | 256  |
-| **CR.4X**               | 16   | 120         | 400          | 4                 | 32                                        |
+| **CR.4X**               | 16   | 120         | 2000         | 2                 | 16                                        |
 | 32                      | 256  |
+| **CR.8X**               | 32   | 244         | 2000         | 2                 | 32                                        |
+| 16                      | 256  |
 
 ###### Note
 

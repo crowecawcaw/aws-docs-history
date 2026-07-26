@@ -12,6 +12,12 @@ affected.
 Populating an intermediate table decrements access budgets on all referenced base tables,
 including transitive dependencies.
 
+###### Note
+
+Populating an intermediate table starts a query to store the data in the service. This
+query counts towards your quotas for concurrent SQL queries per account and concurrent SQL
+query vCPU usage per account. For more information, see [AWS Clean Rooms quotas](clean-rooms-quotas.md "clean-rooms-quotas.md").
+
 ###### To populate an intermediate table
 
 1. Open the AWS Clean Rooms console at [https://console.aws.amazon.com/cleanrooms/](https://console.aws.amazon.com/cleanrooms/ "https://console.aws.amazon.com/cleanrooms/").

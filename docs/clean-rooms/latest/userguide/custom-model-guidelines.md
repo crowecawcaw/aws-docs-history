@@ -40,6 +40,12 @@ docker pull $ecr_registry_endpoint/$base_image`
   parser.add_argument('--train_dir', type=str, default=os.environ.get('SM_CHANNEL_TRAIN', "/opt/ml/input/data/train"))
   parser.add_argument('--train_file_format', type=str, default=os.environ.get('FILE_FORMAT', "csv"))`
   ```
+
+  If you use configured dataset associations instead of ML
+  input channels, your data is available at the same
+  `/opt/ml/input/data/`channel-name``
+  path, based on the channel name specified in the
+  `CreateTrainedModel` request.
   - Ensure that you are able to generate a synthetic or test dataset
     based on the schema of the collaborators that will be used in your
     model code.

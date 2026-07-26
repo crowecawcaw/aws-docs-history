@@ -107,19 +107,20 @@ You can choose the instance type and number of instances (workers) to run your
 SQL
 queries.
 
-For CR.1X, you can select up to 128 workers or a minimum of 4 workers.
+You can select 2 to 128 workers for CR.1X, 2 to 32 workers for CR.4X, and 2 to 16
+workers for CR.8X.
 
-For CR.4X, you can select up to 32 workers or a minimum of 4 workers.
-
-Use the following table to determine the type and number or workers you need for
-your use case.
+Use the following table to determine the worker type and number of workers you need
+for your use case.
 
 | Worker type             | vCPU | Memory (GB) | Storage (GB) | Number of workers | Total Clean Rooms Processing Units (CRPU) |
 | ----------------------- | ---- | ----------- | ------------ | ----------------- | ----------------------------------------- |
-| *_CR.1X_<br>• (default) | 4    | 30          | 100          | 4                 | 8                                         |
+| *_CR.1X_<br>• (default) | 4    | 30          | 500          | 2                 | 4                                         |
 | 128                     | 256  |
-| **CR.4X**               | 16   | 120         | 400          | 4                 | 32                                        |
+| **CR.4X**               | 16   | 120         | 2000         | 2                 | 16                                        |
 | 32                      | 256  |
+| **CR.8X**               | 32   | 244         | 2000         | 2                 | 32                                        |
+| 16                      | 256  |
 
 ###### Note
 

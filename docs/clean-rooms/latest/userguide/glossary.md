@@ -86,6 +86,15 @@ There is only one collaboration creator per collaboration.
 Only the collaboration creator can remove members from the collaboration or delete the
 collaboration.
 
+## Configured dataset association
+
+A configured dataset association represents a reference to data in Amazon S3 that has been
+associated with a collaboration membership for use in ML training or inference workflows.
+A configured dataset association includes a privacy configuration that controls which
+configured model algorithm associations can use the data.
+
+For more information, see [Associating a dataset for use in AWS Clean Rooms ML](working-with-datasets.md "working-with-datasets.md").
+
 ## Configured table
 
 Each configured table represents a reference to an existing table in the AWS Glue Data Catalog that

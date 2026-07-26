@@ -45,7 +45,7 @@ following sections:
 
 In AWS Clean Rooms, you create a collaboration and add the AWS accounts that you want to invite,
 or create a membership to join a collaboration that you've been invited to. You then link the
-data resources needed for your use case: configured tables for event data, configured models
+data resources needed for your use case: configured tables for event data, configured dataset associations for ML training and inference data, configured models
 for ML modeling, or ID namespaces for entity resolution. You have the option to create or
 approve analysis templates to agree in advance on the exact queries and jobs that you want to
 allow in a collaboration. Finally, you analyze the joint data by running SQL queries or
