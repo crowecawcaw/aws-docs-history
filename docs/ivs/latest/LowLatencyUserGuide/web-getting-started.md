@@ -21,7 +21,7 @@ To set up the Amazon IVS player using the `script` tag:
 1. Include the following tag (for the latest version of the player).
 
 ```
-<script src="https://player.live-video.net/1.54.0/amazon-ivs-player.min.js"></script>
+<script src="https://player.live-video.net/1.54.1/amazon-ivs-player.min.js"></script>
 ```
 
 2. Once `amazon-ivs-player.min.js` is loaded, it adds an
@@ -60,7 +60,7 @@ source stream you want to load. The example uses the latest version of the Amazo
 IVS player.
 
 ```
-<script src="https://player.live-video.net/1.54.0/amazon-ivs-player.min.js"></script>
+<script src="https://player.live-video.net/1.54.1/amazon-ivs-player.min.js"></script>
 <video id="video-player" playsinline></video>
 <script>
   if (IVSPlayer.isPlayerSupported) {
@@ -90,7 +90,7 @@ player’s time to start playback.
 
 If you’re using TypeScript, the npm package includes types you may want to import
 and use. For information on these types, see the [Amazon IVS Player
-SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.54.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.54.0/web/").
+SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.54.1/web/ "https://aws.github.io/amazon-ivs-player-docs/1.54.1/web/").
 
 ## Set Up Service Worker
 
@@ -109,7 +109,7 @@ Create a file named `amazon-ivs-service-worker-loader.js` or
 similar and add the following line:
 
 ```
-importScripts('https://player.live-video.net/1.54.0/amazon-ivs-service-worker.min.js');
+importScripts('https://player.live-video.net/1.54.1/amazon-ivs-service-worker.min.js');
 ```
 
 2. When creating a player instance, pass in the following

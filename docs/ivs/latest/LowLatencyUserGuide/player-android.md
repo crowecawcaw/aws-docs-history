@@ -14,11 +14,11 @@ this document. The following operations are supported:
 - Manage quality.
 - Receive events.
 - Receive errors.
-  **Latest version of Android player:** 1.54.0 ([Release Notes](release-notes.md#jul09-26-player-web-ll "release-notes.md#jul09-26-player-web-ll"))
+  **Latest version of Android player:** 1.54.1 ([Release Notes](release-notes.md#jul21-26-player-web-ll "release-notes.md#jul21-26-player-web-ll"))
 
 **Reference documentation:** For information on the most
 important methods available in the Amazon IVS Android player, see the reference
-documentation at [https://aws.github.io/amazon-ivs-player-docs/1.54.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.54.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.54.0/android/").
+documentation at [https://aws.github.io/amazon-ivs-player-docs/1.54.1/android/](https://aws.github.io/amazon-ivs-player-docs/1.54.1/android/ "https://aws.github.io/amazon-ivs-player-docs/1.54.1/android/").
 
 **Sample code:** See the Android sample repository on GitHub:
 [https://github.com/aws-samples/amazon-ivs-player-android-sample](https://github.com/aws-samples/amazon-ivs-player-android-sample "https://github.com/aws-samples/amazon-ivs-player-android-sample").

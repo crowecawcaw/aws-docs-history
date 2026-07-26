@@ -3,6 +3,38 @@
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first,
 organized by date of release.
 
+## July 21, 2026
+
+### IVS Player SDK: Web 1.54.1
+
+| Platform                                                                                                                                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Web player 1.54.1](player-web.md "player-web.md") &<br>[Video.js integration](player-videojs.md "player-videojs.md")<br>& [JW player<br>integration](player-jwplayer.md "player-jwplayer.md") | **NPM Package:**<br>[https://www.npmjs.com/package/amazon-ivs-player](https://www.npmjs.com/package/amazon-ivs-player "https://www.npmjs.com/package/amazon-ivs-player")<br>**Script asset:_<br>• [https://player.live-video.net/1.54.1/amazon-ivs-player.min.js](https://player.live-video.net/1.54.1/amazon-ivs-player.min.js "https://player.live-video.net/1.54.1/amazon-ivs-player.min.js")<br>**Video.js tech asset:_<br>• [https://player.live-video.net/1.54.1/amazon-ivs-videojs-tech.min.js](https://player.live-video.net/1.54.1/amazon-ivs-videojs-tech.min.js "https://player.live-video.net/1.54.1/amazon-ivs-videojs-tech.min.js")<br>**Reference documentation:*<br>• [https://aws.github.io/amazon-ivs-player-docs/1.54.1/web/](https://aws.github.io/amazon-ivs-player-docs/1.54.1/web/ "https://aws.github.io/amazon-ivs-player-docs/1.54.1/web/")<br>• Fixes a regression in 1.54.0 related to certain HLS metadata content. |
+
+## July 21, 2026
+
+### IVS Player SDK: Android 1.54.1, iOS 1.54.1
+
+| Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Android player<br>1.54.1](player-android.md "player-android.md") | **Reference documentation:*<br>• [https://aws.github.io/amazon-ivs-player-docs/1.54.1/android/](https://aws.github.io/amazon-ivs-player-docs/1.54.1/android/ "https://aws.github.io/amazon-ivs-player-docs/1.54.1/android/")<br>• Fixes a regression in 1.54.0 related to certain HLS metadata content.                                                                                                                                                                                                                         |
+| [iOS Player 1.54.1](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.54.1/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.54.1/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.54.1/AmazonIVSPlayer.xcframework.zip")**Reference documentation:*<br>• [https://aws.github.io/amazon-ivs-player-docs/1.54.1/ios/](https://aws.github.io/amazon-ivs-player-docs/1.54.1/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.54.1/ios/")<br>• Fixes a regression in 1.54.0 related to certain HLS metadata content. |
+
+#### Mobile SDK Size: Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 1.543 MB        | 3.956 MB          |
+| armeabi-v7a  | 1.371 MB        | 2.814 MB          |
+| x86\_64      | 1.545 MB        | 4.030 MB          |
+| x86          | 1.608 MB        | 4.043 MB          |
+
+#### Mobile SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 0.809 MB        | 1.739 MB          |
+
 ## July 9, 2026
 
 ### IVS Player SDK: Web 1.54.0

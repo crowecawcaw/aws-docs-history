@@ -9,7 +9,7 @@ project.)
 
 ## Recommended: Integrate the Player SDK (Swift Package Manager)
 
-1. Download the Package.swift file from [https://player.live-video.net/1.54.0/Package.swift](https://player.live-video.net/1.54.0/Package.swift "https://player.live-video.net/1.54.0/Package.swift").
+1. Download the Package.swift file from [https://player.live-video.net/1.54.1/Package.swift](https://player.live-video.net/1.54.1/Package.swift "https://player.live-video.net/1.54.1/Package.swift").
 2. In your project, create a new directory named AmazonIVSPlayer and add it
    to version control.
 3. Put the downloaded Package.swift file in the new directory.
@@ -25,7 +25,7 @@ project.)
 
 ## Alternate Approach: Install the Framework Manually
 
-1. Download the latest version from [https://player.live-video.net/1.54.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.54.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.54.0/AmazonIVSPlayer.xcframework.zip").
+1. Download the latest version from [https://player.live-video.net/1.54.1/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.54.1/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.54.1/AmazonIVSPlayer.xcframework.zip").
 2. Extract the contents of the archive.
    `AmazonIVSPlayer.xcframework` contains the SDK for both
    device and simulator.
