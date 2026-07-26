@@ -23,6 +23,12 @@ supported regions](what-is-mgn.md#supported-regions "what-is-mgn.md#supported-re
 [FSx for ONTAP
 availability by Region](../../../fsx/latest/ONTAPGuide/available-aws-regions.md "../../../fsx/latest/ONTAPGuide/available-aws-regions.md").
 
+###### Important
+
+Do not rename or modify MGN-managed FSx for ONTAP resources (LUNs, igroups, snapshots).
+Changes to these resources disrupt migration and require restarting the migration from
+the beginning.
+
 ### Known limitations (Public Preview)
 
 - **FSx for ONTAP backups can block volume cleanup**.

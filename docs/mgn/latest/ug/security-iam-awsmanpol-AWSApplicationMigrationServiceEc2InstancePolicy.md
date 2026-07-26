@@ -4,7 +4,8 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 This policy allows installing and using the AWS Replication Agent, which is used by AWS Transform MGN to migrate source servers
 that run on EC2 (cross-Region or cross-AZ). An IAM role with this policy should be attached
-(as an EC2 Instance Profile) to the EC2 Instances.
+(as an EC2 Instance Profile) to the EC2 Instances. This policy can only be used
+within the same AWS account.
 
 **Permissions details**
 

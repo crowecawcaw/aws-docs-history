@@ -43,7 +43,8 @@ recommended above in _Temporary Credentials_.
 
 When installing an AWS Replication Agent on an Amazon EC2 instance (when the source server
 is in AWS Regions), you don't need to generate credentials. Instead, you can use an instance
-profile with the required IAM policy:
+profile with the required IAM policy. This option can only be used when replicating a
+server within the same account.
 
 - Go to the Amazon EC2 console and select your Amazon EC2 instance.
 - From the top right-hand menu, select **Actions > Security > Modify
