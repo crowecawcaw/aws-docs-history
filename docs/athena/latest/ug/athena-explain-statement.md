@@ -73,7 +73,6 @@ If the `FORMAT` option is not specified, the output defaults to
 SELECT
 CREATE TABLE AS SELECT
 INSERT
-UNLOAD
 ```
 
 ## EXPLAIN examples
