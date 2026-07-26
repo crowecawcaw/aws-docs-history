@@ -16,7 +16,7 @@ The following are prerequisites for connecting to your DB cluster using IAM auth
 ###### Examples
 
 The code examples use profiles for shared credentials. For information about the specifying credentials,
-see [Credentials](../../../boto3/latest/guide/quickstart.htmlguide/credentials.md "../../../boto3/latest/guide/quickstart.htmlguide/credentials.md") in the AWS SDK for Python (Boto3) documentation.
+see [Credentials](../../../boto3/latest/guide/credentials.md "../../../boto3/latest/guide/credentials.md") in the AWS SDK for Python (Boto3) documentation.
 
 The following code examples show how to generate an authentication token, and
 then use it to connect to a DB

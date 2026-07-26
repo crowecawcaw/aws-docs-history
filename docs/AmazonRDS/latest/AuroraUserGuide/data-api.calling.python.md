@@ -3,7 +3,7 @@
 You can call the Amazon RDS Data API (Data API) from a Python application.
 
 The following examples use the AWS SDK for Python (Boto). For more information about Boto, see the
-[AWS SDK for Python (Boto 3) documentation](../../../boto3/latest/guide/quickstart.htmlindex.md "../../../boto3/latest/guide/quickstart.htmlindex.md").
+[AWS SDK for Python (Boto 3) documentation](../../../boto3/latest/index.md "../../../boto3/latest/index.md").
 
 In each example, replace the DB cluster's Amazon Resource Name (ARN) with
 the ARN for your Aurora DB cluster. Also, replace the secret ARN with
