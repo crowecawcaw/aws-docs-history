@@ -166,7 +166,7 @@ Manually join an EC2 Windows To manually join an existing Amazon EC2 Windows ins
 You will need the IP addresses of the Simple AD DNS servers. This information can be found under **Directory Services** >
 **Directories** > the **Directory ID** link for your directory > **Directory details** and **Networking & Security** sections.
 
-![On the Directory Service console on the directory details page, the IP addresses of the Directory Service provided DNS servers are highlighted.](images/directory_details_highlighted.png)
+![On the Directory Service console on the directory details page, the IP addresses of the Directory Service provided DNS servers are highlighted.](/images/directoryservice/latest/admin-guide/images/directory_details_highlighted.png)
 
 ###### To join a Windows instance to a Simple AD Active Directory
 
