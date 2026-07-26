@@ -68,6 +68,12 @@ that your subnets are in one or more of these Availability Zones.
 | ap-northeast-2  | ap-northeast-2a        | apne2-az1            |
 | ap-northeast-2b | apne2-az2              |
 | ap-northeast-2c | apne2-az3              |
+| ap-northeast-1  | ap-northeast-1a        | apne1-az4            |
+| ap-northeast-1c | apne1-az1              |
+| ap-northeast-1d | apne1-az2              |
+| us-east-2       | us-east-2a             | use2-az1             |
+| us-east-2b      | use2-az2               |
+| us-east-2c      | use2-az3               |
 
 1. In the Amazon VPC console, choose **Create VPC**.
 2. Select **VPC and more** to automatically create a VPC with public and private

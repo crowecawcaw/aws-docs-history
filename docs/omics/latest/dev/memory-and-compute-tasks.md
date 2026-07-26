@@ -49,8 +49,8 @@ on Amazon EC2 instance throughput, see
 
 For standard instance types, the configurations aim for a balance of compute power and memory.
 
-HealthOmics supports the 32xlarge and 48xlarge instances in these regions: US West (Oregon) and US East (N.
-Virginia).
+HealthOmics supports the 32xlarge and 48xlarge instances in these regions: US West (Oregon), US East (N.
+Virginia), Asia Pacific (Seoul), Asia Pacific (Tokyo), and US East (Ohio).
 
 | Instance         | Number of vCPUs | Memory  |
 | ---------------- | --------------- | ------- |
@@ -69,8 +69,8 @@ Virginia).
 
 For compute-optimized instance types, the configurations have more compute power and less memory.
 
-HealthOmics supports the 32xlarge and 48xlarge instances in these regions: US West (Oregon) and US East (N.
-Virginia).
+HealthOmics supports the 32xlarge and 48xlarge instances in these regions: US West (Oregon), US East (N.
+Virginia), Asia Pacific (Seoul), Asia Pacific (Tokyo), and US East (Ohio).
 
 | Instance         | Number of vCPUs | Memory  |
 | ---------------- | --------------- | ------- |
@@ -89,8 +89,8 @@ Virginia).
 
 For memory-optimized instance types, the configurations have less compute power and more memory.
 
-HealthOmics supports the 32xlarge and 48xlarge instances in these regions: US West (Oregon) and US East (N.
-Virginia).
+HealthOmics supports the 32xlarge and 48xlarge instances in these regions: US West (Oregon), US East (N.
+Virginia), Asia Pacific (Seoul), Asia Pacific (Tokyo), and US East (Ohio).
 
 | Instance         | Number of vCPUs | Memory   |
 | ---------------- | --------------- | -------- |
@@ -115,7 +115,7 @@ If you specify a task accelerator that supports multiple instance types, HealthO
 availability. If more than one instance types are available, HealthOmics gives preference to the lower cost instance. The exception is
 for the nvidia-t4-a10g-l4 task accelerator which gives preference to the latest generation instance available in your region.
 
-G4 instances aren't supported in the Israel (Tel Aviv) Region. G5 instances aren't support in the Asia Pacific (Singapore) Region.
+G4 instances aren't supported in the Israel (Tel Aviv) Region. G5 instances aren't supported in the Asia Pacific (Singapore) Region.
 
 ###### Topics
 
@@ -127,7 +127,7 @@ G4 instances aren't supported in the Israel (Tel Aviv) Region. G5 instances aren
 HealthOmics supports the following G6 accelerated-computing instance configurations. All omics.g6 instances use
 Nvidia L4 GPUs.
 
-HealthOmics supports the G6 and G6e instances in these regions: US West (Oregon) and US East (N. Virginia).
+HealthOmics supports the G6 and G6e instances in these regions: US West (Oregon), US East (N. Virginia), Asia Pacific (Seoul), Asia Pacific (Tokyo), and US East (Ohio).
 
 | Instance          | Number of vCPUs | Memory  | Number of GPUs | GPU memory |
 | ----------------- | --------------- | ------- | -------------- | ---------- |

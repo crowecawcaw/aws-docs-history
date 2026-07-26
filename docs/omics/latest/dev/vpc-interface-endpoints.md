@@ -41,7 +41,7 @@ Create a VPC endpoint for HealthOmics by using the following service names:
 - com.amazonaws.`region`.workflows-omics
 - com.amazonaws.`region`.tags-omics
 
-The US East (N. Virginia) and US West (Oregon) regions support AWS PrivateLink FIPS endpoints. For these
+The US East (N. Virginia), US West (Oregon), and US East (Ohio) regions support AWS PrivateLink FIPS endpoints. For these
 regions, you can also use the following service names:
 
 - com.amazonaws.`region`.storage-omics-fips
