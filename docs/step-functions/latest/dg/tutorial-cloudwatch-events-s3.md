@@ -37,7 +37,7 @@ After you create the Amazon S3 bucket, configure it to send events to EventBridg
 1. Navigate to the [Amazon S3 console](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. In the **Buckets** list, choose the name of the bucket that you want to enable events for.
 3. Choose **Properties**.
-4. Scroll down the page to view the **Event Notifications** section, and then choose **Edit** in the
+4. In the **Event Notifications** section, choose **Edit** in the
    **Amazon EventBridge** subsection.
 5. Under **Send notifications to Amazon EventBridge for all events in this bucket**, choose **On**.
 6. Choose **Save changes**.
@@ -62,7 +62,7 @@ You must configure EventBridge rule in the same AWS Region as the Amazon S3 buck
 
 Alternatively, in the navigation pane on the EventBridge console, choose
 **Rules** under **Buses**, and then choose **Create rule**. 2. Enter a **Name** for your rule (for example, `S3Step Functions`) and optionally enter a **Description**
-for the rule. 3. For **Event bus** and **Rule type**, keep the default selections. 4. Choose **Next**. This opens the **Build event pattern** page. 5. Scroll down to the **Event pattern** section, and do the following:
+for the rule. 3. For **Event bus** and **Rule type**, keep the default selections. 4. Choose **Next**. This opens the **Build event pattern** page. 5. In the **Event pattern** section, do the following:
 
     1. For **Event source**, keep the default selection of **AWS events or EventBridge partner events**.
     2. For **AWS service**, choose **Simple Storage Service (S3)**.

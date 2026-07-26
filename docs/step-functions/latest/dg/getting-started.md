@@ -225,7 +225,7 @@ Next, run the workflow and provide external input data as JSON.
 
 Your state machine execution should wait a lot longer (20 seconds), but eventually it should succeed using the input you provided.
 
-In the Graph view, review the **Input/Output** for the first Pass State. Notice how the input you provided was converted into outputs. Also, take a look at the **Execution input and output** at the top of the execution details page. Both locations show the input that you used to start the execution.
+In the Graph view, review the **Input/Output** for the first Pass State. Notice how the input you provided was converted into outputs. Also, take a look at the **Execution input and output** on the execution details page. Both locations show the input that you used to start the execution.
 
 ###### Tip
 

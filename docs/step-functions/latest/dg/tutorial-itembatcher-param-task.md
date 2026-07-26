@@ -105,7 +105,7 @@ def lambda_handler(event, context):
     }
 ```
 
-3. After you create your Lambda function, copy the function's ARN displayed in the upper-right corner of the page. The following is an example ARN, where `function-name` is the name of the
+3. After you create your Lambda function, copy the function's ARN displayed. The following is an example ARN, where `function-name` is the name of the
    Lambda function (in this case, `ProcessEntireBatch`):
 
 ```

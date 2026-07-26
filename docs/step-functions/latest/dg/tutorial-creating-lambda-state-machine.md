@@ -27,7 +27,7 @@ Ensure that your Lambda function is under the same AWS account and AWS Region as
    **Author from scratch**.
 3. For **Function name**, enter `HelloFunction`.
 4. Keep the default selections for all other options, and then choose **Create function**.
-5. After your Lambda function is created, copy the function's Amazon Resource Name (ARN) displayed in the upper-right corner of the page. The following is an example ARN:
+5. After your Lambda function is created, copy the function's Amazon Resource Name (ARN) displayed. The following is an example ARN:
 
 ```
 arn:aws:lambda:`region`:123456789012:function:`HelloFunction`

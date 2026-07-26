@@ -71,7 +71,7 @@ that connect to 3rd party HTTP endpoints and AWS APIs. The
 and control your workflow. Flow states include: Choice, Parallel, Map, Pass, Wait,
 Success, and Fail. The **Patterns** tab provides ready-to-use,
 reusable pre-defined building blocks. You can search among all state types with the
-search box at the top of the panel.
+search box in the panel.
 
 ![Illustrative collection of screen shots showing Actions, Flow, Patterns, and search.](images/wfe-states-browser-01.png)
 

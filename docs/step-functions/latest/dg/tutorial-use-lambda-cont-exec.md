@@ -53,7 +53,7 @@ Your state machine then implements a `Choice` state that executes some applicati
    2. For **Runtime**, choose **Node.js 16.x**.
    3. Keep all the default selections on the page, and then choose **Create function**.
 
-   When your Lambda function is created, make a note of its Amazon Resource Name (ARN) in the upper-right corner of the page, for example:
+   After Lambda creates your function, make a note of its Amazon Resource Name (ARN), for example:
 
    ```
    arn:aws:lambda:`region`:123456789012:function:Iterator
@@ -111,7 +111,7 @@ These values mimic what would come from your state machine during an iteration. 
 already incremented to `5`. The results should increment the `index` to `6` and set `continue` to `true`. 3. Choose **Create**. 4. On the `**Iterator**` page in your Lambda console, be sure **TestIterator** is listed, and then choose
 **Test**.
 
-The results of the test are displayed at the top of the page. Choose **Details** and review the result.
+The test results appear on the page. Choose **Details** and review the result.
 
 ```
 {
@@ -139,7 +139,7 @@ If you set `index` to `9` for this test, the `index` increments to `10`, and `co
 
 4. Keep all the default selections on the page, and then choose **Create function**.
 
-When your Lambda function is created, make a note of its Amazon Resource Name (ARN) in the upper-right corner of the page, for example:
+After Lambda creates your function, make a note of its Amazon Resource Name (ARN), for example:
 
 ```
 arn:aws:lambda:`region`:123456789012:function:Iterator

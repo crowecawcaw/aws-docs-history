@@ -76,8 +76,7 @@ Ensure that your Lambda function is under the same AWS account and AWS Region as
    the role might still need a few minutes to propagate to
    Lambda. 5. Choose **Create function**.
 
-   When your Lambda function is created, note its Amazon Resource Name (ARN) in
-   the upper-right corner of the page. For example:
+   After Lambda creates your function, note its Amazon Resource Name (ARN) displayed on the page. For example:
 
    ```
    arn:aws:lambda:`region`:123456789012:function:TestFunction1

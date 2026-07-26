@@ -44,7 +44,7 @@ Workflow Studio can't generate IAM policies for Task states that call other AWS 
 
 1. Open the [Step Functions console](https://console.aws.amazon.com/states/home "https://console.aws.amazon.com/states/home"), choose **State machines** from the menu, then choose **Create state machine**.
 
-You can also update an existing state machine. Refer Step 4 if you're updating a state machine. 2. Choose **Create from blank**. 3. Name your state machine, then choose **Continue** to edit your state machine in Workflow Studio. 4. Choose the **Config** tab. 5. Scroll down to the **Permissions** section, and do the following:
+You can also update an existing state machine. Refer Step 4 if you're updating a state machine. 2. Choose **Create from blank**. 3. Name your state machine, then choose **Continue** to edit your state machine in Workflow Studio. 4. Choose the **Config** tab. 5. In the **Permissions** section, do the following:
 
     1. For **Execution role**, make sure you keep the default selection of **Create new role**.
 
@@ -104,7 +104,7 @@ Task states that call [AWS SDK integrations](supported-services-awssdk.md "suppo
 
   1.  Close the **Test state** dialog box
   2.  Choose the **Config** tab to view the Config mode.
-  3.  Scroll down to the **Permissions** section.
+  3.  Find the **Permissions** section.
   4.  Workflow Studio displays a banner with the message, **Permissions for certain actions cannot be auto-generated. An IAM role will be created with partial permissions only.** Choose **Review auto-generated permissions**.
   5.  The **Review auto-generated permissions** table displays a row that shows the action corresponding to the task state you want to test. See the links under **Documentation links** to write your own IAM policies into a custom role.
 

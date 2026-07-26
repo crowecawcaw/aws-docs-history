@@ -26,7 +26,7 @@ Standard and Express workflow types, see [Standard and Express console experienc
    and then perform steps 1 through 4 in the [Step 1: Create a Lambda function](tutorial-creating-lambda-state-machine.md#create-lambda-function "tutorial-creating-lambda-state-machine.md#create-lambda-function") section. Make sure to name the Lambda
    function `GetListOfFruits`.
 2. After you create your Lambda function, copy the function's Amazon Resource Name (ARN)
-   displayed in the upper-right corner of the page. To copy the ARN, click the copy icon to copy the Lambda function's Amazon Resource Name. The following is an example ARN, where
+   displayed. To copy the ARN, choose the copy icon to copy the Lambda function's Amazon Resource Name. The following is an example ARN, where
    `function-name` is the name of the Lambda
    function (in this case, `GetListOfFruits`):
 

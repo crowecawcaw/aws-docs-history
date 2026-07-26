@@ -36,7 +36,7 @@ Note that even though your state machine may be able to access files in buckets 
 In this step, you create the prototype for your workflow using Workflow Studio. Workflow Studio is a
 visual workflow designer available in the Step Functions console. You choose the required state
 and API action from the **Flow** and **Actions** tabs
-respectively. You'll use the drag and drop feature of Workflow Studio to create the workflow
+respectively. You will use the drag and drop feature of Workflow Studio to create the workflow
 prototype.
 
 1. Open the [Step Functions console](https://console.aws.amazon.com/states/home "https://console.aws.amazon.com/states/home"), choose **State machines** from the menu, then choose **Create state machine**.
@@ -149,7 +149,7 @@ Ensure that your Lambda function is under the same AWS Region as your state mach
    3. Keep all of the default selections and choose **Create
       function**.
    4. After you create your Lambda function, copy the function's
-      Amazon Resource Name (ARN) displayed in the upper-right corner of the page. You'll
+      Amazon Resource Name (ARN) displayed. You will
       need to provide this in your workflow prototype. The following is an example ARN:
 
    ```
