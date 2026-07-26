@@ -88,7 +88,7 @@ For Solana compatible chain, use enum `SOLANA` for network input.
 
 ###### Note
 
-Once the payment instrument is created, the end user must fund the instrument and grant signing permissions before the agent can process payments. To learn more about funding your wallet, see [How AgentCore payments works](payments-how-it-works.md#payments-how-it-works-funding-wallet "payments-how-it-works.md#payments-how-it-works-funding-wallet").
+Once the payment instrument is created, the end user must fund the instrument and grant signing permissions before the agent can process payments. For detailed instructions, see [Fund the wallet and grant agent permissions](payments-fund-wallet.md "payments-fund-wallet.md").
 
 ## Get a payment instrument
 

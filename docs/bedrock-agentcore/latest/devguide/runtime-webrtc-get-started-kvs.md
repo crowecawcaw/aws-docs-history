@@ -6,7 +6,7 @@ When complete, you will have a working WebRTC connection where audio streams bid
 
 This tutorial requires a VPC with internet egress for connectivity to KVS TURN endpoints. For more information, see [Internet access considerations](agentcore-vpc.md#agentcore-internet-access "agentcore-vpc.md#agentcore-internet-access") . All other prerequisites are handled by the sample application. The sample uses the AgentCore CLI for deployment to AgentCore Runtime.
 
-For the complete sample application, see [WebRTC Voice Agent with KVS TURN](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/06-bi-directional-streaming-webrtc "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/06-bi-directional-streaming-webrtc") on GitHub.
+For the complete sample application, see [WebRTC Voice Agent with KVS TURN](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/02-host-your-agent/01-runtime/03-advanced/03-bidirectional-streaming/05-bidirectional-streaming-webrtc "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/02-host-your-agent/01-runtime/03-advanced/03-bidirectional-streaming/05-bidirectional-streaming-webrtc") on GitHub.
 
 ## Architecture
 

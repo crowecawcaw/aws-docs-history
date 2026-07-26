@@ -21,7 +21,7 @@ By allowing your application endpoint to verify the user identity, AgentCore Ide
 
 The following steps walk you through setting up the workload identity, the OAuth 2.0 credential provider, and the OAuth 2.0 application client from the resource provider for retrieving an OAuth 2.0 access token for your agent application.
 
-You can refer to sample code as an example of a working application: [OAuth 2.0 callback server implementation](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py").
+You can refer to sample code as an example of a working application: [OAuth 2.0 callback server implementation](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-features/05-authenticate-and-authorize/02-outbound-auth/02-outbound-auth-3lo/oauth2_callback_server.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-features/05-authenticate-and-authorize/02-outbound-auth/02-outbound-auth-3lo/oauth2_callback_server.py").
 
 ###### Important
 

@@ -68,7 +68,7 @@ Reflections must match the same namespace pattern as episodes, but reflections c
 
 ###### Important
 
-Because reflections can span multiple actors within the same memory resource, consider the privacy implications of cross-actor analysis when retrieving reflections. Consider using [guardrails in conjunction with memory](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/04-AgentCore-memory/03-advanced-patterns/01-guardrails-integration "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/04-AgentCore-memory/03-advanced-patterns/01-guardrails-integration") or reflecting at the actor level if this is a concern.
+Because reflections can span multiple actors within the same memory resource, consider the privacy implications of cross-actor analysis when retrieving reflections. Consider using [guardrails in conjunction with memory](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/04-manage-context-of-your-agent/memory/03-integrations/03-guardrails-integration "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/04-manage-context-of-your-agent/memory/03-integrations/03-guardrails-integration") or reflecting at the actor level if this is a concern.
 
 ## How to best retrieve episodes to improve agentic performance
 

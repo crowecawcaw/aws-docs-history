@@ -6,7 +6,7 @@ The following sample applications demonstrate bidirectional streaming on Amazon 
 
 Bidirectional WebSocket samples (Sonic, Strands, Echo)
 
-Three WebSocket examples for AgentCore Runtime: a native Amazon Nova Sonic implementation with direct event handling and a web client, a Strands Agents SDK voice agent using the Strands WebSocket transport, and a minimal echo server for testing bidirectional streaming. See [Bidirectional WebSocket samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/06-bi-directional-streaming "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/06-bi-directional-streaming") on GitHub.
+Three WebSocket examples for AgentCore Runtime: a native Amazon Nova Sonic implementation with direct event handling and a web client, a Strands Agents SDK voice agent using the Strands WebSocket transport, and a minimal echo server for testing bidirectional streaming. See [Bidirectional WebSocket samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/02-host-your-agent/01-runtime/03-advanced/03-bidirectional-streaming "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/02-host-your-agent/01-runtime/03-advanced/03-bidirectional-streaming") on GitHub.
 
 Pipecat voice agent with WebSocket
 
@@ -20,7 +20,7 @@ A serverless contact center agent that handles phone calls through the Vonage Vo
 
 WebRTC voice agent with KVS TURN
 
-A minimal WebRTC voice agent using Amazon Kinesis Video Streams for TURN relaying and an Amazon Bedrock foundation model for speech-to-speech conversation. See [WebRTC voice agent with KVS TURN](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/06-bi-directional-streaming-webrtc "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/06-bi-directional-streaming-webrtc") on GitHub.
+A minimal WebRTC voice agent using Amazon Kinesis Video Streams for TURN relaying and an Amazon Bedrock foundation model for speech-to-speech conversation. See [WebRTC voice agent with KVS TURN](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/02-host-your-agent/01-runtime/03-advanced/03-bidirectional-streaming/05-bidirectional-streaming-webrtc "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/02-host-your-agent/01-runtime/03-advanced/03-bidirectional-streaming/05-bidirectional-streaming-webrtc") on GitHub.
 
 Pipecat voice agent with WebRTC
 

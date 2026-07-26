@@ -260,7 +260,7 @@ For advanced use cases, you can build custom session replay viewers and integrat
 
 The following GitHub examples show a standalone session replay viewer and what the complete browser experience looks like when using the browser session replay feature.
 
-For additional examples, see [AgentCore Browser examples on GitHub](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/05-AgentCore-tools/02-Agent-Core-browser-tool/interactive_tools/ "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/05-AgentCore-tools/02-Agent-Core-browser-tool/interactive_tools/").
+For additional examples, see [AgentCore Browser examples on GitHub](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/03-connect-your-agent-to-anything/02-browser "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/03-connect-your-agent-to-anything/02-browser").
 
 The standalone session replay viewer is a separate tool for viewing recorded browser sessions directly from Amazon S3 without creating a new browser.
 
@@ -273,19 +273,7 @@ The standalone session replay viewer is a separate tool for viewing recorded bro
 - Console events, CDP logs, and network logs for each page interaction
 - Session duration tracking integrated at page level
 - Real-time action verification with visual correlation between video and action data
-
-```
-# View the latest recording in a bucket
-python view_recordings.py --bucket session-record-test-123456789012 --prefix replay-data
-
-# View a specific recording
-python view_recordings.py --bucket session-record-test-123456789012 --prefix replay-data --session 01JZVDG02M8MXZY2N7P3PKDQ74
-
-# Use a specific AWS profile
-python view_recordings.py --bucket session-record-test-123456789012 --prefix replay-data --profile my-profile
-```
-
-For reference, see [Standalone session replay viewer on GitHub](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/05-AgentCore-tools/02-Agent-Core-browser-tool/interactive_tools/live_view_sessionreplay/view_recordings.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/05-AgentCore-tools/02-Agent-Core-browser-tool/interactive_tools/live_view_sessionreplay/view_recordings.py").
+  For reference, see [AgentCore Browser observability samples on GitHub](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/03-connect-your-agent-to-anything/02-browser/03-observability "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/03-connect-your-agent-to-anything/02-browser/03-observability").
 
 A comprehensive tool for creating browser sessions with recording capabilities and advanced replay features.
 
@@ -299,10 +287,4 @@ A comprehensive tool for creating browser sessions with recording capabilities a
 - Form filling action verification with click location details
 - Session duration tracking integrated at page level
 - Real-time action verification with visual correlation between video and action data
-
-```
-# View the latest recording in a bucket
-python -m live_view_sessionreplay.browser_interactive_session
-```
-
-For reference, see [Interactive browser session on GitHub](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/05-AgentCore-tools/02-Agent-Core-browser-tool/interactive_tools/live_view_sessionreplay/browser_interactive_session.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/05-AgentCore-tools/02-Agent-Core-browser-tool/interactive_tools/live_view_sessionreplay/browser_interactive_session.py").
+  For reference, see [AgentCore Browser samples on GitHub](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/03-connect-your-agent-to-anything/02-browser "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/03-connect-your-agent-to-anything/02-browser").

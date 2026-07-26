@@ -183,6 +183,7 @@ The Amazon Bedrock AgentCore direct deploy execution role is an IAM role that Am
 
 - `us-east-1` with the AWS Region that you are using
 - `123456789012` with your AWS account ID
+- `agentName` with the name of your agent. You’ll need to decide the agent name before creating the role and AgentCore Runtime.
 
 ```
 {
@@ -198,8 +199,12 @@ The Amazon Bedrock AgentCore direct deploy execution role is an IAM role that Am
     ]
   }, {
     "Effect": "Allow",
-    "Action": ["logs:PutResourcePolicy"],
-    "Resource": ["*"]
+    "Action": [
+      "logs:PutResourcePolicy"
+    ],
+    "Resource": [
+      "arn:aws:logs:us-east-1:123456789012:log-group:/aws/bedrock-agentcore/runtimes/agentName-*"
+    ]
   }, {
     "Effect": "Allow",
     "Action": ["logs:DescribeLogGroups"],
@@ -279,8 +284,12 @@ The AgentCore Runtime execution role is an IAM role that AgentCore Runtime assum
         },
         {
             "Effect": "Allow",
-            "Action": ["logs:PutResourcePolicy"],
-            "Resource": ["*"]
+            "Action": [
+                "logs:PutResourcePolicy"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-east-1:123456789012:log-group:/aws/bedrock-agentcore/runtimes/agentName-*"
+            ]
         },
         {
             "Effect": "Allow",

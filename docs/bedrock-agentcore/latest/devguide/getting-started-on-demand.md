@@ -37,7 +37,7 @@ AgentCore Evaluations currently supports the following agentic frameworks and in
 
 If you have an agent already up and running in AgentCore Runtime, you can directly move to step 2
 
-Create and deploy your agent by following the [Get Started guide for AgentCore Runtime](runtime-getting-started.md "runtime-getting-started.md") . You can find additional examples in the [AgentCore Evaluations Samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/07-AgentCore-evaluations "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/07-AgentCore-evaluations").
+Create and deploy your agent by following the [Get Started guide for AgentCore Runtime](runtime-getting-started.md "runtime-getting-started.md") . You can find additional examples in the [AgentCore Evaluations Samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/06-observe-evaluate-optimize-your-agent/02-evaluate "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/06-observe-evaluate-optimize-your-agent/02-evaluate").
 
 ## Step 2: Invoke your agent
 

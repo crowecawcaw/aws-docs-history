@@ -2,6 +2,10 @@
 
 Complete the prerequisites on this page before you use AgentCore payments.
 
+###### Tip
+
+You can automate the steps on this page with the AgentCore Payments skill in the AWS agent toolkit. The skill is part of the **aws-agents** plugin and lets an AI coding agent create your Payment Manager, connector, credential provider, payment instrument, and session using the `agentcore` CLI, and add an x402 payment tool to your agent. For details, see the [quickstart](payments-getting-started.md "payments-getting-started.md") and the [AWS agent toolkit on GitHub](https://github.com/aws/agent-toolkit-for-aws/tree/main "https://github.com/aws/agent-toolkit-for-aws/tree/main").
+
 ## AWS account and credentials
 
 You need an AWS account with credentials configured. To configure credentials, install and use the AWS Command Line Interface by following the steps at [Getting started with the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
@@ -57,30 +61,14 @@ If you plan to use Privy for user-owned embedded wallet flows, obtain the follow
 
 1. Create a **dedicated** Privy app for AgentCore operations at [dashboard.privy.io](https://dashboard.privy.io/ "https://dashboard.privy.io/"). Do not reuse Privy apps that serve other purposes.
 2. Copy the **App ID** and **App Secret** from your app settings.
-3. In your Privy app, navigate to **Wallet Infrastructure** > **Authorization** and choose **New Key** to generate a P-256 key pair. Privy prefixes the generated private key with `wallet-auth:`. Strip this prefix and keep only the raw base64 content. Note the following values:
+3. In your Privy app, navigate to **Wallet Infrastructure** > **Authorization** and choose **New Key** to generate a P-256 key pair. Note the following values:
 
-| Credential                     | Description                                                                                                                                                 |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `App ID`                       | Your Privy application identifier, sent as the `privy-app-id` header on API calls                                                                           |
-| `App Secret`                   | Secret credential paired with the App ID, used for server-to-server Basic Auth                                                                              |
-| `Authorization ID` (Signer ID) | The public key identifier from the generated P-256 key pair                                                                                                 |
-| `Authorization Private Key`    | The private key from the generated P-256 key pair, used for signing wallet operations. Strip the `wallet-auth:` prefix and use only the raw base64 content. |
-
-###### Note
-
-When you generate an Authorization Key in the Privy dashboard, the private key is prefixed with `wallet-auth:`. AgentCore payments does not accept this prefix — you must strip it before storing the key in your PaymentCredentialProvider. Only the raw base64 key content is needed for transaction signing.
-
-For example, if Privy generates:
-
-```
-wallet-auth:MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQg...
-```
-
-Use only:
-
-```
-MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQg...
-```
+| Credential                     | Description                                                                            |
+| ------------------------------ | -------------------------------------------------------------------------------------- |
+| `App ID`                       | Your Privy application identifier, sent as the `privy-app-id` header on API calls      |
+| `App Secret`                   | Secret credential paired with the App ID, used for server-to-server Basic Auth         |
+| `Authorization ID` (Signer ID) | The public key identifier from the generated P-256 key pair                            |
+| `Authorization Private Key`    | The private key from the generated P-256 key pair, used for signing wallet operations. |
 
 ![Privy key dialog for AgentCore payments](images/payments/privy-keys.png)
 

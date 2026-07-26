@@ -18,15 +18,15 @@ AgentCore provides three AWS PrivateLink endpoints:
 
 The following table shows AWS PrivateLink support status for each AgentCore primitive:
 
-| Primitive                                       | Data plane        | Control plane |
-| ----------------------------------------------- | ----------------- | ------------- |
-| Runtime                                         | Supported         | Supported     |
-| Memory                                          | Supported         | Supported     |
-| Built-in Tools (Code Interpreter, Browser Tool) | Supported         | Supported     |
-| Identity                                        | Supported         | Supported     |
-| Gateway                                         | Supported         | Supported     |
-| Evaluations                                     | Not yet supported | Supported     |
-| Policy                                          | Supported         | Supported     |
+| Primitive                                       | Data plane | Control plane |
+| ----------------------------------------------- | ---------- | ------------- |
+| Runtime                                         | Supported  | Supported     |
+| Memory                                          | Supported  | Supported     |
+| Built-in Tools (Code Interpreter, Browser Tool) | Supported  | Supported     |
+| Identity                                        | Supported  | Supported     |
+| Gateway                                         | Supported  | Supported     |
+| Evaluations and Optimizations                   | Supported  | Supported     |
+| Policy                                          | Supported  | Supported     |
 
 For a list of AWS Regions in which AgentCore interface endpoints are available, see [Supported AWS Regions](agentcore-regions.md "agentcore-regions.md").
 
@@ -362,6 +362,108 @@ Identity
             "*"
          ],
          "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:workload-identity-directory/default/workload-identity/WORKLOAD_IDENTITY_ID"
+      }
+   ]
+}
+```
+
+Evaluations and Optimizations
+
+1. The following endpoint policy allows specific IAM principals to access Evaluations and Optimizations operations.
+
+```
+{
+   "Statement": [
+      {
+         "Sid": "AllowBatchEvaluations",
+         "Effect": "Allow",
+         "Principal": {
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
+         },
+         "Action": [
+            "bedrock-agentcore:StartBatchEvaluation",
+            "bedrock-agentcore:GetBatchEvaluation",
+            "bedrock-agentcore:ListBatchEvaluations",
+            "bedrock-agentcore:StopBatchEvaluation",
+            "bedrock-agentcore:DeleteBatchEvaluation"
+         ],
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:batch-evaluate/*"
+      },
+      {
+         "Sid": "AllowRecommendations",
+         "Effect": "Allow",
+         "Principal": {
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
+         },
+         "Action": [
+            "bedrock-agentcore:StartRecommendation",
+            "bedrock-agentcore:GetRecommendation",
+            "bedrock-agentcore:ListRecommendations",
+            "bedrock-agentcore:DeleteRecommendation"
+         ],
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:recommendation/*"
+      },
+      {
+         "Sid": "AllowEvaluators",
+         "Effect": "Allow",
+         "Principal": {
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
+         },
+         "Action": [
+            "bedrock-agentcore:CreateEvaluator",
+            "bedrock-agentcore:GetEvaluator",
+            "bedrock-agentcore:ListEvaluators",
+            "bedrock-agentcore:UpdateEvaluator",
+            "bedrock-agentcore:DeleteEvaluator"
+         ],
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:evaluator/*"
+      },
+      {
+         "Sid": "AllowOnlineEvaluationConfigs",
+         "Effect": "Allow",
+         "Principal": {
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
+         },
+         "Action": [
+            "bedrock-agentcore:CreateOnlineEvaluationConfig",
+            "bedrock-agentcore:GetOnlineEvaluationConfig",
+            "bedrock-agentcore:ListOnlineEvaluationConfigs",
+            "bedrock-agentcore:UpdateOnlineEvaluationConfig",
+            "bedrock-agentcore:DeleteOnlineEvaluationConfig"
+         ],
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:online-evaluation-config/*"
+      },
+      {
+         "Sid": "AllowABTests",
+         "Effect": "Allow",
+         "Principal": {
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
+         },
+         "Action": [
+            "bedrock-agentcore:CreateABTest",
+            "bedrock-agentcore:GetABTest",
+            "bedrock-agentcore:ListABTests",
+            "bedrock-agentcore:UpdateABTest",
+            "bedrock-agentcore:DeleteABTest"
+         ],
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:ab-test/*"
+      },
+      {
+         "Sid": "AllowConfigurationBundles",
+         "Effect": "Allow",
+         "Principal": {
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
+         },
+         "Action": [
+            "bedrock-agentcore:CreateConfigurationBundle",
+            "bedrock-agentcore:GetConfigurationBundle",
+            "bedrock-agentcore:GetConfigurationBundleVersion",
+            "bedrock-agentcore:ListConfigurationBundles",
+            "bedrock-agentcore:ListConfigurationBundleVersions",
+            "bedrock-agentcore:UpdateConfigurationBundle",
+            "bedrock-agentcore:DeleteConfigurationBundle"
+         ],
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:configuration-bundle/*"
       }
    ]
 }

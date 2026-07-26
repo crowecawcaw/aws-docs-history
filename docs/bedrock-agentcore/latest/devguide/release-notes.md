@@ -4,6 +4,10 @@ We recommend subscribing to the RSS feed so updates to these notes are delivered
 
 ## July 2026
 
+### Amazon Bedrock AgentCore Harness: InvokeHarness now streams MCP tool result metadata
+
+Amazon Bedrock AgentCore harness now surfaces metadata attached to MCP tool results, streaming it in the InvokeHarness response. Previously, Amazon Bedrock AgentCore harness dropped metadata that was included on a tool result before it reached the client. When an MCP tool result includes metadata, you receive it on a dedicated toolResultMetadata delta channel in the InvokeHarness response stream. Amazon Bedrock AgentCore harness automatically splits large metadata into ordered fragments so it streams reliably regardless of size. To consume the metadata, concatenate the toolResultMetadata fragments in the order received and parse the combined result as JSON to recover the original metadata object.
+
 ### Runtime: Unified span destination for agents
 
 Amazon Bedrock AgentCore runtime agents can now deliver spans to the agent’s own Amazon CloudWatch log group (`/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>`), in the `spans` log stream, instead of the shared `aws/spans` log group. Spans arrive alongside the agent’s structured logs and standard output. With all telemetry in one log group, you can scope access control and encryption to an individual agent and export from a single location.
@@ -106,7 +110,7 @@ AgentCore Gateway now supports Server-Sent-Events (SSE), delivering multiple JSO
 
 ### Gateway: Elicitation Pass-Through
 
-MCP servers targets on AgentCore Gateway can now request input from end users mid-tool-execution. The gateway proxies these elicitation requests to the client and routes responses back to the correct downstream server. Supported modes: Form mode — Server sends a structured form (e.g., "Confirm you want to proceed with this refund?"), user responds, server continues. URL mode — Server directs the user to a URL (e.g., OAuth consent page), then completes processing once the user finishes. This enables interactive, human-in-the-loop workflows through a managed gateway — no custom infrastructure required. See [Use elicitation with your AgentCore gateway](gateway-mcp-elicitation.md "gateway-mcp-elicitation.md").
+MCP servers targets on AgentCore Gateway can now request input from end users mid-tool-execution. The gateway proxies these elicitation requests to the client and routes responses back to the correct downstream server. Supported modes: Form mode — Server sends a structured form (for example, "Confirm you want to proceed with this refund?"), user responds, server continues. URL mode — Server directs the user to a URL (for example, an OAuth consent page), then completes processing once the user finishes. This enables interactive, human-in-the-loop workflows through a managed gateway — no custom infrastructure required. See [Use elicitation with your AgentCore gateway](gateway-mcp-elicitation.md "gateway-mcp-elicitation.md").
 
 ### Gateway: Sampling Messages
 
@@ -144,7 +148,7 @@ AgentCore now supports passing arbitrary custom headers through to agents, align
 
 ### Identity, Gateway, and Runtime: VPC Egress Support
 
-Identity, Gateway, and Runtime now support secure egress to resources within customer VPCs, available in managed and self-managed configurations. Enables agents to invoke private resources (e.g., EKS-hosted MCP servers) directly through Gateway and connect to Identity Providers operating within customer VPCs. Includes private DNS resolution for managed VPC egress. See documentation for more details: [Gateway](gateway-quick-start.md "gateway-quick-start.md") | [Identity](identity-private-idp.md "identity-private-idp.md").
+Identity, Gateway, and Runtime now support secure egress to resources within customer VPCs, available in managed and self-managed configurations. Enables agents to invoke private resources (for example, EKS-hosted MCP servers) directly through Gateway and connect to Identity Providers operating within customer VPCs. Includes private DNS resolution for managed VPC egress. See documentation for more details: [Gateway](gateway-quick-start.md "gateway-quick-start.md") | [Identity](identity-private-idp.md "identity-private-idp.md").
 
 ### Runtime: Node.js Direct Code Deployment
 

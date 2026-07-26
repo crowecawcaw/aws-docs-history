@@ -58,7 +58,7 @@ For instructions on downloading session spans, see [Getting started with on-dema
 
 ### About the examples
 
-The examples on this page use the sample agent from the [AgentCore Evaluations tutorials](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/07-AgentCore-evaluations "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/07-AgentCore-evaluations") . The agent has two tools — `calculator` and `weather` — and is deployed on AgentCore Runtime with observability enabled.
+The examples on this page use the sample agent from the [AgentCore Evaluations tutorials](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/06-observe-evaluate-optimize-your-agent/02-evaluate "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/06-observe-evaluate-optimize-your-agent/02-evaluate") . The agent has two tools — `calculator` and `weather` — and is deployed on AgentCore Runtime with observability enabled.
 
 The examples assume a two-turn session:
 

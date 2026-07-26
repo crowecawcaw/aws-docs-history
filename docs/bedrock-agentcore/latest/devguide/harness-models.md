@@ -233,6 +233,52 @@ agentcore deploy
 
 `--api-format` accepts `converse_stream`, `responses`, or `chat_completions` for `--model-provider bedrock`, and `responses` or `chat_completions` for `--model-provider open_ai`. It does not apply to `gemini` or `lite_llm`.
 
+### Apply Amazon Bedrock Guardrails
+
+Use Amazon Bedrock Guardrails to filter harmful content or block denied topics in model inputs and outputs. To apply a guardrail to each model request, add a `guardrailConfig` object to `bedrockModelConfig.additionalParams`. The harness passes this object to Amazon Bedrock with each model request.
+
+To use Amazon Bedrock Guardrails with the harness, configure `bedrockModelConfig` with the `converse_stream` API format. If you omit `apiFormat`, the harness uses `converse_stream` by default. Set this configuration in `CreateHarness` or `UpdateHarness`, or override it for one call in `InvokeHarness`.
+
+The following Python example calls `InvokeHarness` with a guardrail configuration. Replace `HARNESS_ARN` with your harness ARN and `SESSION_ID` with a unique runtime session ID.
+
+```
+import boto3
+
+client = boto3.client("bedrock-agentcore")
+response = client.invoke_harness(
+    harnessArn=HARNESS_ARN,
+    runtimeSessionId=SESSION_ID,
+    model={
+        "bedrockModelConfig": {
+            "modelId": "us.amazon.nova-micro-v1:0",
+            "apiFormat": "converse_stream",
+            "additionalParams": {
+                "guardrailConfig": {
+                    "guardrailIdentifier": "arn:aws:bedrock:us-west-2:111122223333:guardrail/abc123def456",
+                    "guardrailVersion": "1",
+                    "trace": "enabled_full",
+                }
+            },
+        }
+    },
+    messages=[{"role": "user", "content": [{"text": "Help me plan a trip."}]}],
+)
+```
+
+For the baseline model permissions, see the [execution role policy](harness-security.md#harness-execution-role-policy "harness-security.md#harness-execution-role-policy"). Add the following JSON statement to the harness execution role policy:
+
+```
+{
+  "Effect": "Allow",
+  "Action": "bedrock:ApplyGuardrail",
+  "Resource": "arn:aws:bedrock:us-west-2:111122223333:guardrail/abc123def456"
+}
+```
+
+Use a guardrail in the same AWS Region as the model request. When a guardrail intervenes, the response stream reports `guardrail_intervened` as the stop reason.
+
+For more information about guardrail configuration fields, see [Use a guardrail with the Converse API](../../../bedrock/latest/userguide/guardrails-use-converse-api.md "../../../bedrock/latest/userguide/guardrails-use-converse-api.md"). For more information about IAM permissions, see [Set up permissions to use Amazon Bedrock Guardrails](../../../bedrock/latest/userguide/guardrails-permissions.md "../../../bedrock/latest/userguide/guardrails-permissions.md").
+
 ### Use a model through LiteLLM
 
 Use `liteLlmModelConfig` to reach any provider that [LiteLLM](https://docs.litellm.ai/ "https://docs.litellm.ai/") supports, including OpenAI-compatible endpoints. Set `modelId` to a LiteLLM provider-prefixed model ID, such as `gemini/gemini-2.5-pro` or `anthropic/claude-sonnet-4-6`.

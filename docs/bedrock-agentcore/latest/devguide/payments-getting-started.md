@@ -130,16 +130,15 @@ Privy
 1. Create a **dedicated** Privy app at [dashboard.privy.io](https://dashboard.privy.io/ "https://dashboard.privy.io/"). Do not reuse apps that serve other purposes.
 2. Copy the **App ID** and **App Secret** from your app settings.
 3. Navigate to **Wallet Infrastructure** > **Authorization** and choose **New Key** to generate a P-256 key pair.
-4. Strip the `wallet-auth:` prefix from the generated private key. Use only the raw base64 content.
 
 You will use these four values in the next step:
 
-| Credential                  | Description                                                  |
-| --------------------------- | ------------------------------------------------------------ |
-| `App ID`                    | Your Privy application identifier                            |
-| `App Secret`                | Secret for server-to-server Basic Auth                       |
-| `Authorization ID`          | Public key identifier from the P-256 key pair                |
-| `Authorization Private Key` | Private key (base64 only, without the `wallet-auth:` prefix) |
+| Credential                  | Description                                   |
+| --------------------------- | --------------------------------------------- |
+| `App ID`                    | Your Privy application identifier             |
+| `App Secret`                | Secret for server-to-server Basic Auth        |
+| `Authorization ID`          | Public key identifier from the P-256 key pair |
+| `Authorization Private Key` | Private key from the P-256 key pair           |
 
 For full details including security best practices and credential rotation, see [Prerequisites](payments-prerequisites.md "payments-prerequisites.md").
 
@@ -202,6 +201,18 @@ A Payment Manager is the top-level resource that coordinates payment operations.
 
 ###### Example
 
+Console
+For the full console walkthrough including JWT authorization and custom claims, see [Create a Payment Manager and Connector](payments-create-manager.md "payments-create-manager.md").
+
+1. Open the [Amazon Bedrock AgentCore console](https://console.aws.amazon.com/bedrock-agentcore/ "https://console.aws.amazon.com/bedrock-agentcore/").
+2. In the navigation pane, under **Build**, choose **Payments**.
+3. Choose **Create Payment Manager**.
+4. Enter a **Name** for your Payment Manager.
+5. Under **Permissions**, choose **Create and use a new service role** (or select an existing role).
+6. Under **Inbound Auth**, choose **Use IAM username** for IAM authorization.
+7. (Optional) In the **Payment connector** section, choose a name for the connector and either select an existing outbound auth or create a new one by selecting your provider (Coinbase or Stripe Privy) and entering your credentials.
+8. Choose **Create Payment Manager**.
+
 AgentCore CLI
 The CLI creates the credential provider, Payment Manager, and Payment Connector in one flow. From your AgentCore project directory, add a payment manager and connector together.
 
@@ -255,6 +266,45 @@ agentcore deploy
 ```
 
 The deploy step creates IAM roles, stores credentials in AgentCore Identity, and provisions the Payment Manager and Connector. You will see "Creating payment infrastructure…​" in the output.
+
+AgentCore SDK
+The AgentCore SDK creates the Payment Manager, credential provider, and connector in a single call.
+
+```
+from bedrock_agentcore.payments import PaymentClient
+
+payment_client = PaymentClient(region_name="us-west-2")
+
+response = payment_client.create_payment_manager_with_connector(
+    payment_manager_name="my-first-payment-manager",
+    payment_manager_description="Payment manager for my agent.",
+    authorizer_type="AWS_IAM",
+    role_arn="<YOUR_SERVICE_ROLE_ARN>",
+    payment_connector_config={
+        "name": "my-coinbase-connector",
+        "description": "Coinbase CDP connector",
+        "payment_credential_provider_config": {
+            "name": "my-coinbase-provider",
+            "credential_provider_vendor": "CoinbaseCDP",
+            "credentials": {
+                "api_key_id": "<YOUR_CDP_API_KEY_ID>",
+                "api_key_secret": "<YOUR_CDP_API_KEY_SECRET>",
+                "wallet_secret": "<YOUR_CDP_WALLET_SECRET>",
+            },
+        },
+    },
+    wait_for_ready=True,
+    max_wait=300,
+    poll_interval=5,
+)
+
+PAYMENT_MANAGER_ARN = response["paymentManager"]["paymentManagerArn"]
+PAYMENT_CONNECTOR_ID = response["paymentConnector"]["paymentConnectorId"]
+print(f"Payment Manager ARN: {PAYMENT_MANAGER_ARN}")
+print(f"Connector ID: {PAYMENT_CONNECTOR_ID}")
+```
+
+For Stripe Privy, replace the `payment_credential_provider_config` with `credential_provider_vendor: "StripePrivy"` and the corresponding Privy credentials.
 
 AWS CLI
 Create the Payment Manager:
@@ -328,6 +378,33 @@ A payment instrument is an embedded crypto wallet that your agent uses to pay me
 
 ###### Example
 
+AgentCore SDK
+
+```
+from bedrock_agentcore.payments import PaymentManager
+
+manager = PaymentManager(
+    payment_manager_arn=PAYMENT_MANAGER_ARN,
+    region_name="us-west-2"
+)
+
+instrument = manager.create_payment_instrument(
+    user_id="test-user-123",
+    payment_connector_id=PAYMENT_CONNECTOR_ID,
+    payment_instrument_type="EMBEDDED_CRYPTO_WALLET",
+    payment_instrument_details={
+        "embeddedCryptoWallet": {
+            "network": "ETHEREUM",
+            "linkedAccounts": [{"email": {"emailAddress": "your-email@example.com"}}]
+        }
+    },
+)
+INSTRUMENT_ID = instrument["paymentInstrumentId"]
+REDIRECT_URL = instrument["paymentInstrumentDetails"]["redirectUrl"]
+print(f"Instrument created: {INSTRUMENT_ID}")
+print(f"Fund the wallet at: {REDIRECT_URL}")
+```
+
 AWS CLI
 
 ```
@@ -390,6 +467,16 @@ After funding, poll the instrument status until it becomes `ACTIVE`:
 
 ###### Example
 
+AgentCore SDK
+
+```
+instrument = manager.get_payment_instrument(
+    user_id="test-user-123",
+    payment_instrument_id=INSTRUMENT_ID
+)
+print(f"Status: {instrument['status']}")
+```
+
 AWS CLI
 
 ```
@@ -434,6 +521,25 @@ agentcore invoke \
 ```
 
 To use a specific session you created through the SDK, pass `--payment-session-id` instead of `--auto-session`.
+
+AgentCore SDK
+
+```
+from bedrock_agentcore.payments import PaymentManager
+
+manager = PaymentManager(
+    payment_manager_arn=PAYMENT_MANAGER_ARN,
+    region_name="us-west-2"
+)
+
+session = manager.create_payment_session(
+    user_id="test-user-123",
+    limits={"maxSpendAmount": {"value": "5.00", "currency": "USD"}},
+    expiry_time_in_minutes=60
+)
+SESSION_ID = session["paymentSessionId"]
+print(f"Session created: {SESSION_ID} (expires in 60 minutes, $5.00 limit)")
+```
 
 AWS CLI
 
@@ -489,6 +595,35 @@ agentcore invoke \
   --payment-session-id <SESSION_ID> \
   --payment-user-id test-user-123
 ```
+
+AgentCore SDK
+Use the `PaymentManager` class to generate payment headers when you receive an HTTP 402 response:
+
+```
+import uuid
+from bedrock_agentcore.payments import PaymentManager
+
+manager = PaymentManager(
+    payment_manager_arn=PAYMENT_MANAGER_ARN,
+    region_name="us-west-2"
+)
+
+# When you receive a 402 response, generate payment proof
+payment_required_request = {
+    "statusCode": 402,
+    "headers": payment_required["headers"],
+    "body": payment_required["body"],
+}
+payment_proof_headers = manager.generate_payment_header(
+    user_id="test-user-123",
+    payment_instrument_id=INSTRUMENT_ID,
+    payment_session_id=SESSION_ID,
+    payment_required_request=payment_required_request,
+    client_token=str(uuid.uuid4()),
+)
+```
+
+`payment_proof_headers` contains the payment proof header. Include this header when retrying the request to the paid endpoint.
 
 AWS CLI
 Call `process-payment` directly with an x402 payload (used when you handle payment orchestration yourself):
@@ -555,6 +690,26 @@ After the agent processes a payment, check the session to confirm the transactio
 
 ###### Example
 
+AgentCore SDK
+
+```
+session = manager.get_payment_session(
+    user_id="test-user-123",
+    payment_session_id=SESSION_ID
+)
+print(f"Status: {session['status']}, Remaining: {session['remainingAmount']}")
+```
+
+You can also check the instrument balance:
+
+```
+balance = manager.get_payment_instrument_balance(
+    user_id="test-user-123",
+    payment_instrument_id=INSTRUMENT_ID
+)
+print(f"Remaining balance: {balance['amount']} {balance['currency']}")
+```
+
 AWS CLI
 
 ```
@@ -617,6 +772,20 @@ agentcore deploy
 ```
 
 The `remove` commands update the local configuration. The follow-up `deploy` tears down the payment infrastructure in your account.
+
+AgentCore SDK
+
+```
+from bedrock_agentcore.payments import PaymentClient
+
+payment_client = PaymentClient(region_name="us-west-2")
+
+payment_client.delete_payment_manager(
+    payment_manager_id="<paymentManagerId>"
+)
+
+print("Payment Manager deleted.")
+```
 
 AWS CLI
 

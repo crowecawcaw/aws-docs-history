@@ -79,7 +79,7 @@ Let’s now proceed to exploring the two ways to configure observability.
 
 Amazon Bedrock AgentCore Runtime-hosted agents are deployed and executed directly within the Amazon Bedrock AgentCore environment, providing automatic instrumentation with minimal configuration. When you deploy an agent using the AgentCore CLI, the runtime automatically instruments your agent with OpenTelemetry — no additional OTEL libraries or configuration are needed.
 
-For a complete example, refer to this [notebook](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/01-Agentcore-runtime-hosted/Strands%20Agents/runtime_with_strands_and_bedrock_models.ipynb "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/01-Agentcore-runtime-hosted/Strands%20Agents/runtime_with_strands_and_bedrock_models.ipynb")
+For a complete example, refer to the [AgentCore Observability samples on GitHub](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/06-observe-evaluate-optimize-your-agent/01-observe "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/06-observe-evaluate-optimize-your-agent/01-observe")
 
 ### Create your agent project
 

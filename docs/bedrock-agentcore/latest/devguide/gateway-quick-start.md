@@ -1,6 +1,6 @@
 # Get started with AgentCore Gateway
 
-In this quick start guide you’ll learn how to set up a gateway and integrate it into your agents using the AgentCore CLI. For more comprehensive guides and examples, see the [Amazon Bedrock AgentCore Gateway GitHub repository](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/02-AgentCore-gateway "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/02-AgentCore-gateway").
+In this quick start guide you’ll learn how to set up a gateway and integrate it into your agents using the AgentCore CLI. For more comprehensive guides and examples, see the [Amazon Bedrock AgentCore Gateway GitHub repository](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/07-centralize-and-govern-your-ai-infrastructure/01-gateway "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/07-centralize-and-govern-your-ai-infrastructure/01-gateway").
 
 ###### Note
 
@@ -91,7 +91,7 @@ Interactive
 
 ![Gateway wizard: select NONE authorizer](images/tui/gateway-add-auth-none.png) 4. Configure advanced options or accept the defaults:
 
-![Gateway wizard: advanced configuration](/images/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png) 5. Review the configuration and press **Enter** to confirm:
+![Gateway wizard: advanced configuration](images/tui/gateway-add-advanced.png) 5. Review the configuration and press **Enter** to confirm:
 
 ![Gateway wizard: review configuration](images/tui/gateway-add-confirm.png)
 

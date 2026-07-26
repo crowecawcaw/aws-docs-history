@@ -45,6 +45,29 @@ All `InvokeHarness` and `InvokeAgentRuntimeCommand` input is trusted. Any princi
 
 If you expose the harness to end users you do not fully trust (employees, external consumers, or third-party integrations), validate and sanitize messages in your application layer before passing them to `InvokeHarness`. This includes stripping content-block types or model configuration fields you do not want dispatched. This is the same pattern as any service that accepts payloads from authorized callers, such as Lambda, Amazon API Gateway, and Amazon SQS.
 
+When you pass [toolUse](../APIReference/API_HarnessToolUseBlock.md "../APIReference/API_HarnessToolUseBlock.md") blocks in `InvokeHarness` input for server-side tools that have no corresponding [toolResult](../APIReference/API_HarnessToolResultBlock.md "../APIReference/API_HarnessToolResultBlock.md") blocks, AgentCore harness invokes the indicated tools directly with the given input payloads. The following example invokes the built-in `shell` tool to print the current working directory:
+
+```
+response = client.invoke_harness(
+    harnessArn=HARNESS_ARN,
+    runtimeSessionId=SESSION_ID,
+    messages=[{
+      "role": "assistant",
+      "content": [
+        {
+          "toolUse": {
+            "toolUseId": TOOL_USE_ID,
+            "name": "shell",
+            "input": {
+              "command": "pwd",
+            }
+          }
+        }
+      ]
+    }],
+)
+```
+
 ### Model configuration parameters
 
 The `model` field in `InvokeHarness` accepts `additionalParams` for Bedrock, OpenAI, and LiteLLM configurations. These parameters are passed through to the underlying model provider unchanged. The harness does not validate, filter, or restrict these parameters.

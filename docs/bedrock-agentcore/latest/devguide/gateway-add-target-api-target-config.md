@@ -207,8 +207,8 @@ aws bedrock-agentcore-control create-gateway-target \
     --target-configuration '{
         "mcp": {
             "apiGateway": {
-                "restApiId": rest-api-id,
-                "stage": stage,
+                "restApiId": "your-rest-api-id",
+                "stage": "your-stage",
                 "apiGatewayToolConfiguration": {
                     "toolFilters": [
                         {
@@ -255,8 +255,8 @@ target = agentcore_client.create_gateway_target(
     targetConfiguration={
         "mcp": {
             "apiGateway": {
-                "restApiId": rest-api-id,
-                "stage": stage,
+                "restApiId": "your-rest-api-id",
+                "stage": "your-stage",
                 "apiGatewayToolConfiguration": {
                     "toolFilters": [
                         {

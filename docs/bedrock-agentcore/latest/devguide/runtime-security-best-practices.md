@@ -164,7 +164,7 @@ Secure network access to and from your AgentCore Runtime environments:
 
 Replace `region` with your AWS Region identifier (for example, `us-east-2`).
 
-- **Scope the S3 gateway endpoint policy for direct code deploy agents** — For zip-based deployments, restrict the policy to the internal service-owned code artifact bucket:
+- **Scope the S3 gateway endpoint policy for direct code deploy agents** — For zip-based deployments, restrict the policy to the internal service-owned code artifact bucket. Add an `aws:PrincipalServiceName` condition to ensure only the AgentCore service principal can access buckets through this endpoint policy:
 
 ```
 {
@@ -176,13 +176,18 @@ Replace `region` with your AWS Region identifier (for example, `us-east-2`).
       "Resource": [
         "arn:aws:s3:::acr-code-*-region-an",
         "arn:aws:s3:::acr-code-*-region-an/*"
-      ]
+      ],
+      "Condition": {
+        "StringEquals": {
+          "aws:PrincipalServiceName": "bedrock-agentcore.amazonaws.com"
+        }
+      }
     }
   ]
 }
 ```
 
-Replace `region` with your AWS Region identifier (for example, `us-west-2`). If you also use [persistent file systems](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md"), add the session storage bucket to this policy. For more information, see [Configure AgentCore Runtime for VPC](agentcore-vpc.md "agentcore-vpc.md").
+Replace `region` with your AWS Region identifier (for example, `us-west-2`). The AgentCore code artifact buckets are created in [Account regional namespace general purpose buckets](../../../AmazonS3/latest/userguide/gpbucketnamespaces.md#account-regional-gp-buckets "../../../AmazonS3/latest/userguide/gpbucketnamespaces.md#account-regional-gp-buckets"). Only AWS can own the actual bucket names used by the service. The `aws:PrincipalServiceName` condition ensures that only the AgentCore service principal can access buckets through this endpoint policy. If you also use [persistent file systems](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md"), add the session storage bucket to this policy. For more information, see [Configure AgentCore Runtime for VPC](agentcore-vpc.md "agentcore-vpc.md").
 
 - **Use private subnets with NAT gateways** — Public subnets do not provide internet access for AgentCore Runtime. Always place runtime ENIs in private subnets with a route to a NAT gateway for outbound internet access.
 - **Transport security** — All connections use TLS 1.2 or higher. WebSocket connections, including `InvokeAgentRuntimeCommandShell`, use WSS (WebSocket Secure) over HTTPS exclusively. Plaintext `ws://` connections are not supported.

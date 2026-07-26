@@ -34,7 +34,7 @@ The AgentCore CLI provides commands for creating and managing memory resources. 
 
 The AgentCore CLI helps you create and deploy memory resources. For the complete set of Amazon Bedrock AgentCore Memory operations, see the Boto3 documentation: [bedrock-agentcore-control](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html") and [bedrock-agentcore](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore.html").
 
-**Full example:** See the [Amazon Bedrock AgentCore samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials") that demonstrate steps 1-3.
+**Full example:** See the [Amazon Bedrock AgentCore samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/04-manage-context-of-your-agent/memory "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/04-manage-context-of-your-agent/memory") that demonstrate steps 1-3.
 
 ## Step 1: Create an AgentCore Memory
 

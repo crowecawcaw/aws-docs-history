@@ -465,13 +465,22 @@ When running Amazon Bedrock AgentCore Runtime in a VPC, we strongly recommend co
         "Resource": [
           "arn:aws:s3:::acr-code-*-region-an",
           "arn:aws:s3:::acr-code-*-region-an/*"
-        ]
+        ],
+        "Condition": {
+          "StringEquals": {
+            "aws:PrincipalServiceName": "bedrock-agentcore.amazonaws.com"
+          }
+        }
       }
     ]
   }
   ```
 
   Replace `region` with your AWS Region identifier (for example, `us-west-2`).
+
+  ###### Note
+
+  The AgentCore code artifact buckets are created in [Account regional namespace general purpose buckets](../../../AmazonS3/latest/userguide/gpbucketnamespaces.md#account-regional-gp-buckets "../../../AmazonS3/latest/userguide/gpbucketnamespaces.md#account-regional-gp-buckets"). Only AWS can own the actual bucket names used by the service. The `aws:PrincipalServiceName` condition ensures that only the AgentCore service principal can access buckets through this endpoint policy.
 
   ###### Note
 

@@ -20,7 +20,7 @@
 - [Log Registry API calls with AWS CloudTrail](registry-cloudtrail.md "registry-cloudtrail.md")
 - [IAM Permissions](registry-iam-permissions.md "registry-iam-permissions.md")
 - [Troubleshooting](registry-troubleshooting.md "registry-troubleshooting.md")
-- [Migration from public preview FAQ](registry-faq.md "registry-faq.md")
+- [Comprehensive registry migration guide](registry-faq.md "registry-faq.md")
 
 ## What is AWS Agent Registry?
 

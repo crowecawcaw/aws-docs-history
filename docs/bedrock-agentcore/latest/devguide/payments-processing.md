@@ -9,6 +9,7 @@ You can automate the steps on this page with the AgentCore Payments skill in the
 ###### Topics
 
 - [Create a payment instrument](payments-create-instrument.md "payments-create-instrument.md")
+- [Fund the wallet and grant agent permissions](payments-fund-wallet.md "payments-fund-wallet.md")
 - [Create a payment session](payments-create-session.md "payments-create-session.md")
 - [Coinbase Bazaar via AgentCore Gateway](payments-connect-bazaar.md "payments-connect-bazaar.md")
 - [Process a payment](payments-process-payment.md "payments-process-payment.md")

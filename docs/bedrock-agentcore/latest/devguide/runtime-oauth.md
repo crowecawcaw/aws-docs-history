@@ -437,7 +437,7 @@ If you fronted your runtime with a gateway in [Step 3](#runtime-front-with-gatew
 ###### Important
 
 
-**Important for existing users** : Agents created **before October 13, 2025** will continue to use the agent execution role for identity permissions and **require** the above policy to be attached to the agent’s execution role.
+**Important for existing users** : Agents created **before October 13, 2025** will continue to use the agent execution role for identity permissions and **require** the preceding policy to be attached to the agent’s execution role.
 
 
 **New agents** : For agents created **on or after October 13, 2025** , this policy is **not required** as permissions are handled automatically by the Service-Linked Role.
@@ -502,7 +502,7 @@ export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-east-1.amaz
 # export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://${GATEWAY_ID}.gateway.bedrock-agentcore.us-east-1.amazonaws.com/${TARGET_NAME}"
 
 export INVOKE_URL="${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT"
-# If you fronted the runtime with a gateway (Step 3), the above works but there is also a simpler alternative:
+# If you fronted the runtime with a gateway (Step 3), the preceding URL works but there is also a simpler alternative:
 # export INVOKE_URL="${BEDROCK_AGENT_CORE_ENDPOINT_URL}/invocations"
 
 curl -v -X POST "${INVOKE_URL}" \
@@ -613,7 +613,7 @@ You must pre-register your OAuth client in Cognito (via AWS Console or CLI) to o
 
 In this section, you’ll learn how to connect your agent code with AgentCore Credential Providers for secure access to external resources using OAuth2 authentication.
 
-The example below demonstrates how your agent running in Agent Runtime can request OAuth consent from users, enabling them to authenticate with their Google account and authorize the agent to access their Google Drive contents.
+The following example demonstrates how your agent running in Agent Runtime can request OAuth consent from users, enabling them to authenticate with their Google account and authorize the agent to access their Google Drive contents.
 
 For more information about setting up identity, see [Get started with AgentCore Identity](identity-getting-started.md "identity-getting-started.md").
 
@@ -643,13 +643,13 @@ echo "OAuth2 Callback URL: $OAUTH2_CALLBACK_URL"
 
 ###### Note
 
-Obtain the `callbackUrl` from the [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") response above and add the URI to your Google application’s redirect URI list. The callback URL should look like: https://bedrock-agentcore.us-east-1.amazonaws.com/identities/oauth2/callback/\*\*\*\*\*\*\*\*-\*\*\*\*-\*\*\*\*-\*\*\*\*-\*\*\*\*\*\*\*\*\*\*\*\*
+Obtain the `callbackUrl` from the [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") response and add the URI to your Google application’s redirect URI list. The callback URL should look like: https://bedrock-agentcore.us-east-1.amazonaws.com/identities/oauth2/callback/\*\*\*\*\*\*\*\*-\*\*\*\*-\*\*\*\*-\*\*\*\*-\*\*\*\*\*\*\*\*\*\*\*\*
 
 Make sure your invocation role has the necessary permissions for accessing the credential provider.
 
 ### Step 6.2: Enable agent to read Google Drive contents
 
-Create a tool with agent core SDK annotations as shown below to automatically initiate the three-legged OAuth process. When your agent invokes this tool, users will be prompted to open the authorization URL in their browser and grant consent for the agent to access their Google Drive.
+Create a tool with agent core SDK annotations as shown in the following example to automatically initiate the three-legged OAuth process. When your agent invokes this tool, users will be prompted to open the authorization URL in their browser and grant consent for the agent to access their Google Drive.
 
 ```
 import asyncio
@@ -674,7 +674,7 @@ asyncio.run(read_from_google_drive(access_token=""))
 
 ###### Note
 
-For a sample local callback server implementation to handle [session binding](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md") , refer to [https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound\_Auth\_3lo/oauth2\_callback\_server.py](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py")
+For a sample local callback server implementation to handle [session binding](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md") , refer to [oauth2\_callback\_server.py on GitHub](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-features/05-authenticate-and-authorize/02-outbound-auth/02-outbound-auth-3lo/oauth2_callback_server.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-features/05-authenticate-and-authorize/02-outbound-auth/02-outbound-auth-3lo/oauth2_callback_server.py")
 
 **What happens behind the scenes**
 

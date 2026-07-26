@@ -123,7 +123,7 @@ When creating a new harness interactively, the `agentcore add harness` wizard le
 
 ###### Note
 
-The `--type` flag uses underscore-separated names (e.g., `agentcore_browser`), which match the tool type identifiers in `harness.json`.
+The `--type` flag uses underscore-separated names (for example, `agentcore_browser`), which match the tool type identifiers in `harness.json`.
 
 ```
 # Add a remote MCP server

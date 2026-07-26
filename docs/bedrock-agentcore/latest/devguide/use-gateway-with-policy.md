@@ -2,6 +2,10 @@
 
 Follow the gateway authorization and authentication guide to obtain the credentials needed for gateway access.
 
+###### MCP tools only
+
+Policy evaluation applies only to MCP tools. Regardless of the policy evaluation mode, the gateway always allows MCP prompts (`prompts/list`, `prompts/get`) and resources (`resources/list`, `resources/read`, `resources/templates/list`).
+
 ###### Topics
 
 - [List AgentCore Gateway Tools with Policy in AgentCore](#list-gateway-tools "#list-gateway-tools")

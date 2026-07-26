@@ -792,7 +792,7 @@ WebSocket connections use standard close codes for error communication. Common c
 ### Additional getting started examples
 
 
-For additional examples using WebSocket bidirectional streaming with AgentCore Runtime, see the [WebSocket bidirectional streaming GitHub samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/06-bi-directional-streaming "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/06-bi-directional-streaming") :
+For additional examples using WebSocket bidirectional streaming with AgentCore Runtime, see the [WebSocket bidirectional streaming GitHub samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/02-host-your-agent/01-runtime/03-advanced/03-bidirectional-streaming "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/02-host-your-agent/01-runtime/03-advanced/03-bidirectional-streaming") :
 
 
 

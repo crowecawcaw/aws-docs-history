@@ -378,7 +378,3 @@ stripe_privy_provider = identity_client.create_payment_credential_provider(
     }
 )
 ```
-
-###### Note
-
-For Stripe Privy, the `authorizationPrivateKey` must be the raw base64 key content only. Strip the `wallet-auth:` prefix that Privy adds when generating the key. See [Prerequisites](payments-prerequisites.md "payments-prerequisites.md") for details.
