@@ -154,5 +154,5 @@ Usage notes:
 with the path to the certificate saved in the first step. 2. Ensure that the `aws_access_key_id`,
 `aws_secret_access_key`, and the `aws_session_token` match the
 `Access Key`, `Secret Access Key`, and `Session Token` you obtained using
-`boto3.session`. For more information, see [Credentials](../../../boto3/latest/guide/quickstart.htmlguide/credentials.md "../../../boto3/latest/guide/quickstart.htmlguide/credentials.md") in the
+`boto3.session`. For more information, see [Credentials](../../../boto3/latest/guide/credentials.md "../../../boto3/latest/guide/credentials.md") in the
 _AWS SDK for Python (Boto3)_. 3. For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md").
