@@ -21,4 +21,4 @@ credit card was approved or declined.
 The following figure shows an example of a sequential customer order workflow with four activities (Verify
 Order, Charge Credit Card, Ship Order, and Record Completion).
 
-![Customer Order Workflow](/images/amazonswf/latest/developerguide/images/swf-overview-workflow.png)
+![Customer Order Workflow](images/swf-overview-workflow.png)
