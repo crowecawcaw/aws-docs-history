@@ -24,6 +24,7 @@ needed. The services that require these extra permissions are noted as **Support
 permissions, see the sections after the table.
 
 - [![Amazon API Gateway logo](images/integration-icons/api-gateway.png)Amazon API Gateway](../../../apigateway/latest/developerguide/set-up-logging.md "../../../apigateway/latest/developerguide/set-up-logging.md")
+- [![Application Load Balancer logo](images/integration-icons/alb.png)Application Load Balancer](../../../elasticloadbalancing/latest/application/load-balancer-access-logs.md "../../../elasticloadbalancing/latest/application/load-balancer-access-logs.md")
 - [![AWS AppSync logo](images/integration-icons/appsync.png)AWS AppSync](../../../appsync/latest/devguide/monitoring.md "../../../appsync/latest/devguide/monitoring.md")
 - [![Amazon Aurora MySQL logo](images/integration-icons/aurora.png)Amazon Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.CloudWatch.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.CloudWatch.md")
 - [![Amazon Bedrock Knowledge Bases logo](images/integration-icons/bedrock.png)Amazon Bedrock Knowledge Bases](../../../bedrock/latest/userguide/knowledge-bases-logging.md "../../../bedrock/latest/userguide/knowledge-bases-logging.md")

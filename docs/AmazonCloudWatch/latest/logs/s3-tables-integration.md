@@ -4,7 +4,7 @@ The S3 Tables Integration with CloudWatch allows you to access log data ingested
 analytics engines such as Amazon Athena, Amazon Redshift, and third-party tools that support connection
 to Apache Iceberg-compatible stores. This integration enables you to perform comprehensive
 log analysis using tools of your preference and correlate data in CloudWatch Logs with non-CloudWatch
-data.
+data. **This feature is available at no additional cost.**
 
 ## Understanding S3 Tables Integration
 
@@ -18,7 +18,6 @@ based on data source name and type (that can be managed from the **Log
 Management > Data Sources** tab in CloudWatch Logs Console). Once associated, CloudWatch Logs
 data becomes accessible through Amazon S3 Tables using the Apache Iceberg format. This format
 provides a standardized way for various analytics engines to query the data efficiently.
-This feature is available at no additional cost.
 
 ### Core Components
 

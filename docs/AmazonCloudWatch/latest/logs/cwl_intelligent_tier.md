@@ -55,12 +55,19 @@ Access tier or Archive Instant Access tier back to the Standard tier. When any o
 these operations read log events in a lower-cost tier, those log events move back
 to the Standard tier for 30 days. The timer resets on each subsequent access.
 
-- **Egress with query** – Querying log
-  data with `StartQuery` (CloudWatch Logs Insights)
+###### Tier classification for log centralization
+
+Accessing replicated logs in a destination account through [cross-account
+cross-Region log centralization](CloudWatchLogs_Centralization.md "CloudWatchLogs_Centralization.md") only promotes the log data in
+destination account.
+
+- **Egress with query or alarm configuration**
+  – Use `StartQuery` or `CreateScheduledQuery`
+  to query log data with CloudWatch Logs Insights or to configure alarms on logs
 - **Filtering and retrieving log events**
-  – Using `FilterLogEvents` or
+  – Use `FilterLogEvents` or
   `GetLogEvents` to read log events
-- **Export** – Exporting log data to
+- **Export** – Export log data to
   Amazon S3 with `CreateExportTask`
 
 ## Enabling CloudWatch Logs Intelligent Tiering
@@ -184,3 +191,11 @@ tier.
 
 For more information about pricing, see
 [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
+
+To view per-tier storage costs, use Athena and filter by the
+`TimedStorage-ByteHrs` (Standard),
+`TimedStorage-IA-ByteHrs` (Infrequent Access), and
+`TimedStorage-AIA-ByteHrs` (Archive Instant Access) usage types. For more
+information about CloudWatch Logs usage types in your bill, see
+[Analyzing,
+optimizing, and reducing CloudWatch costs](../monitoring/cloudwatch_billing.md "../monitoring/cloudwatch_billing.md").
