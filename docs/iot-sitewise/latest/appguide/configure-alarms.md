@@ -23,7 +23,7 @@ notification settings.
 ![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png) 2. (Optional) Choose a project in the projects drop-down list to show only assets from a
 specific project.
 
-![The "Assets" page, with the projects drop-down list called out.](/images/iot-sitewise/latest/appguide/images/asset-library-choose-project-console.png) 3. Choose an asset in the **Assets** hierarchy.
+![The "Assets" page, with the projects drop-down list called out.](images/asset-library-choose-project-console.png) 3. Choose an asset in the **Assets** hierarchy.
 
 ###### Tip
 

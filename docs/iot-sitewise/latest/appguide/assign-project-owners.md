@@ -20,10 +20,10 @@ owners.
 **Add owners** if the project has no owners, or **Edit
 owners**.
 
-![The "Project owners" section of the project details page.](images/project-add-owners-console.png) 4. In the **Project owners** dialog box, select the check boxes for the
+![The "Project owners" section of the project details page.](/images/iot-sitewise/latest/appguide/images/project-add-owners-console.png) 4. In the **Project owners** dialog box, select the check boxes for the
 users to be owners for this project.
 
-![Shows the "Project owners" dialog.](/images/iot-sitewise/latest/appguide/images/project-choose-owners-console.png)
+![Shows the "Project owners" dialog.](images/project-choose-owners-console.png)
 
 ###### Note
 
