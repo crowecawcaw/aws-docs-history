@@ -231,6 +231,36 @@ This tool collects Amazon ECS cluster security configuration data for AI-powered
 
 - Response: The tool returns cluster configuration, service configurations, task definition settings, network security details, IAM role and policy data, and any collection warnings. Your AI assistant uses this data to generate a prioritized security findings report with remediation guidance.
 
+**fetch\_action\_logs**
+
+Use this tool to fetch Amazon ECS Action Logs and troubleshoot container lifecycle operations. With Action Logs, you gain visibility into service-side operations that Amazon ECS performs on your behalf, including ENI attachments, image pulls, load balancer registrations, throttling retries, and permission errors. Use this tool when tasks fail to start, deployments stall, or you need to understand what Amazon ECS did during an operation. The tool returns action log entries if Action Logs are enabled for the cluster, or a status message if Action Logs are not configured.
+
+- Required IAM actions:
+
+  - `ecs:DescribeClusters`
+  - `logs:DescribeDeliverySources`
+  - `logs:DescribeDeliveries`
+  - `logs:DescribeDeliveryDestinations`
+  - `logs:FilterLogEvents`
+
+- Required parameters:
+
+  - `cluster_name`: The name or ARN of the Amazon ECS cluster.
+
+- Optional parameters:
+
+  - `service_name`: The Amazon ECS service name to filter action logs by.
+  - `task_id`: The task ARN or ID to filter action logs by.
+  - `deployment_id`: The deployment ID to filter action logs by.
+  - `log_level`: The log level filter. Valid values are ERROR, WARN, or INFO.
+  - `time_window`: The time window in seconds. The default value is 3,600 seconds.
+  - `start_time`: The custom start time in ISO format.
+  - `end_time`: The custom end time in ISO format.
+
+- Response:
+
+The tool returns the action logs discovery status for the cluster. If Action Logs are enabled with a CloudWatch Logs destination, the tool also returns matching log entries. Each entry includes a timestamp, log level, event name, resource ARN, and event details. Results are limited to 1,000 entries. To retrieve more targeted data, use narrower time windows or additional filters.
+
 ### Knowledge tools
 
 These tools provide access to up-to-date AWS documentation. They are powered by the AWS Knowledge MCP Server and do not require any IAM permissions from the caller — the Amazon ECS MCP service connects to the knowledge endpoint on your behalf.
