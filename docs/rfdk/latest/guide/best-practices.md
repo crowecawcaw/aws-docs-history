@@ -1,10 +1,11 @@
 # Best practices while using the RFDK
 
-##
-
 ###### Important
 
 On November 7, 2025, AWS Thinkbox Deadline 10 will enter maintenance mode. We recommend exploring [AWS Deadline Cloud](https://aws.amazon.com/deadline-cloud/ "https://aws.amazon.com/deadline-cloud/") for render management. For questions, contact [support@awsthinkbox.zendesk.com](mailto:support@awsthinkbox.zendesk.com "mailto:support@awsthinkbox.zendesk.com") or refer to the [Maintenance Mode FAQ](https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html "https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html").
+
+Best practices are recommendations that can help you use the Render Farm Deployment Kit (RFDK) on AWS effectively and securely throughout its entire workflow. Learn
+how to plan and organize your stacks, how to upgrade/maintain your farm, and how to manage your resources.
 
 ## Organizing your stacks - Multi-tiered architecture
 
