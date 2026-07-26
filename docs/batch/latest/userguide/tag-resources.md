@@ -22,7 +22,7 @@ Tag support for AWS Batch resources| Resource | Supports tags | Supports tag pro
 | --- | --- | --- | --- |
 | AWS Batch compute environments | Yes | No. Compute environment tags do not propagate to any other resources. Tags for the resources are specified<br>in the tags member of the computeResources object passed in the [CreateComputeEnvironment](../APIReference/API_CreateComputeEnvironment.md "../APIReference/API_CreateComputeEnvironment.md") API<br>operation. | Yes |
 | AWS Batch jobs | Yes | Yes | Yes |
-| AWS Batch job definitions | Yes | No | Yes |
+| AWS Batch job definitions | Yes | Yes. Set `propagateTags` on [RegisterJobDefinition](../APIReference/API_RegisterJobDefinition.md "../APIReference/API_RegisterJobDefinition.md")<br>to propagate job definition tags to the corresponding Amazon ECS task.<br>`propagateTags` is not supported for jobs that run on Amazon EKS resources. If both a job and its job definition specify<br>the same tag, then the job's tag takes priority. | Yes |
 | AWS Batch job queues | Yes | No | Yes |
 | AWS Batch scheduling policies | Yes | No | Yes |
 | AWS Batch service environments | Yes | No | Yes |
