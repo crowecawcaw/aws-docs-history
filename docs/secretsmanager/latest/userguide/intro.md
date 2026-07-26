@@ -28,6 +28,8 @@ Other tasks you can do with secrets:
 - [Control access to your secrets](auth-and-access.md "auth-and-access.md")
 - [Get secrets](retrieving-secrets.md "retrieving-secrets.md")
 - [Rotate secrets](rotating-secrets.md "rotating-secrets.md")
+- [Secret event
+  notifications](secret-event-notifications.md "secret-event-notifications.md")
 - [Monitor secrets](monitoring.md "monitoring.md")
 - [Monitor secrets for compliance](configuring-awsconfig-rules.md "configuring-awsconfig-rules.md")
 - [Create secrets in AWS CloudFormation](cloudformation.md "cloudformation.md")
