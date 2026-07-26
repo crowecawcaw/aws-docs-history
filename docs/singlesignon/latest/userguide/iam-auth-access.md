@@ -35,5 +35,5 @@ The following sections describe how to manage permissions for IAM Identity Cente
 
 - [Overview of managing access permissions to your IAM Identity Center resources](iam-auth-access-overview.md "iam-auth-access-overview.md")
 - [Identity-based policy examples for IAM Identity Center](iam-auth-access-using-id-policies.md "iam-auth-access-using-id-policies.md")
-- [Resource-based policy example for IAM Identity Center IAM Identity Center](iam-auth-access-using-resource-based-policies.md "iam-auth-access-using-resource-based-policies.md")
+- [Resource-based policy example for IAM Identity Center](iam-auth-access-using-resource-based-policies.md "iam-auth-access-using-resource-based-policies.md")
 - [Using service-linked roles for IAM Identity Center](using-service-linked-roles.md "using-service-linked-roles.md")

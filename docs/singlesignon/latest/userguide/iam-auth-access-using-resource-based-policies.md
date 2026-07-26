@@ -1,4 +1,4 @@
-# Resource-based policy example for IAM Identity Center IAM Identity Center
+# Resource-based policy example for IAM Identity Center
 
 Every application that works with IAM Identity Center and uses [OAuth 2.0](customermanagedapps-saml2-oauth2.md#oidc-concept "customermanagedapps-saml2-oauth2.md#oidc-concept")
 requires a resource-based policy. The application can be customer managed or AWS managed. The required resource-based policy, called the

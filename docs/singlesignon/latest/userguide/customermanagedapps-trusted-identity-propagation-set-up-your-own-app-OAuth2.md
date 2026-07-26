@@ -134,7 +134,7 @@ be taken on specific resources under specific conditions, also known as
 least-privilege permissions.
 
 This policy requires the [`CreateTokenWithIAM`](../OIDCAPIReference/API_CreateTokenWithIAM.md "../OIDCAPIReference/API_CreateTokenWithIAM.md")
-API action. For more information about this policy, and an example that you can adapt as required for your environment, see [Resource-based policy example for IAM Identity Center IAM Identity Center](iam-auth-access-using-resource-based-policies.md "iam-auth-access-using-resource-based-policies.md").
+API action. For more information about this policy, and an example that you can adapt as required for your environment, see [Resource-based policy example for IAM Identity Center](iam-auth-access-using-resource-based-policies.md "iam-auth-access-using-resource-based-policies.md").
 
 1. On the **Specify application credentials** page,
    do either of the following:

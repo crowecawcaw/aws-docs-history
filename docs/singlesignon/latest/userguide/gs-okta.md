@@ -47,7 +47,7 @@ The following features are supported when connecting Okta to IAM Identity Center
 You can sign up for an Okta account ([free trial](https://www.okta.com/free-trial/ "https://www.okta.com/free-trial/")) that has
 Okta's
 [IAM Identity Center
-application](https://www.okta.com/integrations/aws-single-sign-on/ "https://www.okta.com/integrations/aws-single-sign-on/") installed. For paid Okta products, you might need
+application](https://www.okta.com/integrations/aws-iam-identity-center/ "https://www.okta.com/integrations/aws-iam-identity-center/") installed. For paid Okta products, you might need
 to confirm that your Okta license supports _lifecycle management_ or similar capabilities that enable outbound
 provisioning. These features might be necessary to configure SCIM from
 Okta to IAM Identity Center.
