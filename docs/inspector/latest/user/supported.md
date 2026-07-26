@@ -68,7 +68,6 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | AlmaLinux                           | 10              | Errata CVE                             | Yes                    | Yes                      |
 | Amazon Linux 2023 (AL2023)          | AL2023          | ALAS Errata CVE                        | Yes                    | Yes                      |
 | Bottlerocket                        | 1.7.0 and later | Errata CVE                             | Yes                    | Yes                      |
-| Chainguard                          | \*              | Chainguard                             |                        | Yes                      |
 | Debian Server (Bullseye)            | 11              | DSA CVE                                | Yes                    | Yes                      |
 | Debian Server (Bookworm)            | 12              | DSA CVE                                | Yes                    | Yes                      |
 | Debian Server (Trixie)              | 13              | DSA CVE                                | Yes                    | Yes                      |
@@ -147,7 +146,7 @@ It also specifies the vendor security advisory for each operating system.
 | Ubuntu (Jammy)                      | 22.04   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | Yes               |
 | Ubuntu (Noble)                      | 24.04   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | Yes               |
 | Ubuntu (Questing)                   | 25.10   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | Yes               |
-| Ubuntu (Resolute)                   | 26.04   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | No                |
+| Ubuntu (Resolute)                   | 26.04   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | Yes               |
 | Windows Server                      | 2019    | MSKB                                   | Yes            | No                |
 | Windows Server                      | 2022    | MSKB                                   | Yes            | No                |
 | Windows Server                      | 2025    | MSKB                                   | Yes            | No                |

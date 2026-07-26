@@ -8,13 +8,16 @@ By generating an SBOM, you can understand the composition of modern technology s
 
 The ecosystem collection extends SBOM generation beyond packages installed through OS package managers.
 This is done through the collection of applications deployed in alternative methods, such as manual installation.
+These application collectors run under the `extra-ecosystems` scanner group, which is applied by default for container and localhost scans. For other scan types, add a scanner with the `--additional-scanners` option. For more information, see [Using the Amazon Inspector SBOM Generator](sbom-generator.md#using-sbomgen "sbom-generator.md#using-sbomgen").
 The Amazon Inspector SBOM Generator supports scanning for the following ecosystems:
 
 | Ecosystems             | Applications                                                                                                                                                                                                                                                                                 |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 7-Zip                  | 7-Zip archiver (version 21.07 and higher)                                                                                                                                                                                                                                                    |
+| AI agent skills        | Claude<br>Cursor<br>Fast-Agent<br>OpenClaw<br>Cross-client                                                                                                                                                                                                                                   |
+| AI IDE extensions      | Continue<br>Cody<br>Cline                                                                                                                                                                                                                                                                    |
 | Amazon Q Developer     | Amazon Q Developer CLI<br>Amazon Q VS Code extension<br>Amazon Q JetBrains plugin                                                                                                                                                                                                            |
-| Anthropic              | Claude Code CLI                                                                                                                                                                                                                                                                              |
+| Anthropic              | Claude Code CLI<br>Claude Desktop                                                                                                                                                                                                                                                            |
 | Anysphere              | Cursor                                                                                                                                                                                                                                                                                       |
 | Apache                 | Apache Cassandra<br>Apache httpd<br>Apache Struts<br>Apache tomcat                                                                                                                                                                                                                           |
 | Atlassian              | Jira Core<br>Confluence<br>Jira Software<br>Jira Service Management                                                                                                                                                                                                                          |
@@ -27,9 +30,11 @@ The Amazon Inspector SBOM Generator supports scanning for the following ecosyste
 | GitHub                 | GitHub Copilot CLI<br>GitHub Copilot VS Code extension<br>GitHub Copilot JetBrains plugin                                                                                                                                                                                                    |
 | Google                 | Chrome                                                                                                                                                                                                                                                                                       |
 | HuggingFace            | HuggingFace CLI Models Cache                                                                                                                                                                                                                                                                 |
+| Jan                    | Jan                                                                                                                                                                                                                                                                                          |
 | Java                   | JDK<br>JRE<br>Amazon Corretto                                                                                                                                                                                                                                                                |
 | Jenkins                | Jenkins (version 2.400.\<br>• and higher)                                                                                                                                                                                                                                                    |
 | Kiro                   | Kiro CLI                                                                                                                                                                                                                                                                                     |
+| LM Studio              | LM Studio                                                                                                                                                                                                                                                                                    |
 | MariaDB and MySQL      | MariaDB Server (10.6+, 11.x, 12.x)<br>Oracle MySQL Server Server (8.0, 8.4, 9.4+)                                                                                                                                                                                                            |
 | Microsoft applications | PowerShell<br>NuGet CLI<br>Visual Studio Code<br>Microsoft Edge<br>SharePoint Server<br>Microsoft Defender<br>Exchange Server<br>Visual Studio<br>.NET Core Runtime<br>.NET Framework<br>ASP.NET Core Runtime<br>Microsoft Teams<br>Outlook for Windows<br>Microsoft Office<br>Microsoft 365 |
 | Microsoft SQL Server   | Microsoft SQL Server                                                                                                                                                                                                                                                                         |
@@ -37,12 +42,14 @@ The Amazon Inspector SBOM Generator supports scanning for the following ecosyste
 | Nginx                  | Nginx                                                                                                                                                                                                                                                                                        |
 | Node                   | Node                                                                                                                                                                                                                                                                                         |
 | Node.JS                | node                                                                                                                                                                                                                                                                                         |
+| Nomic AI               | GPT4All                                                                                                                                                                                                                                                                                      |
 | Ollama                 | Ollama<br>Ollama Model Collector                                                                                                                                                                                                                                                             |
 | OpenSSH                | OpenSSH (versions 9 and 10)                                                                                                                                                                                                                                                                  |
 | OpenSSL                | OpenSSL                                                                                                                                                                                                                                                                                      |
 | Oracle                 | Oracle Database Server                                                                                                                                                                                                                                                                       |
 | PHP                    | PHP (version 8.1 and higher)                                                                                                                                                                                                                                                                 |
 | Redis                  | Redis (version 7.2 and higher)                                                                                                                                                                                                                                                               |
+| TabbyML                | Tabby                                                                                                                                                                                                                                                                                        |
 | WordPress              | core<br>plugin<br>theme                                                                                                                                                                                                                                                                      |
 | Zed Industries         | Zed                                                                                                                                                                                                                                                                                          |
 
@@ -77,6 +84,95 @@ The following is an example package URL for 7-Zip.
 
 ```
 pkg:generic/7zip/7zip@25.01
+```
+
+## AI Agent Skills ecosystem collection
+
+###### Supported applications
+
+- Claude
+- OpenClaw
+- Cursor
+- Fast-Agent
+- Cross-client
+
+###### Key features
+
+- Detects `SKILL.md` files in default skill directories for supported AI agent skills.
+- Supports the cross-client standard path (`~/.agents/skills/`) and agent-specific paths (e.g., `~/.claude/skills/`).
+- Skills are not versioned. Each skill is identified by the SHA-256 hash of its `SKILL.md` file.
+
+###### Supported platforms
+
+For localhost scans, the Amazon Inspector SBOM Generator scans the following default paths. For container, directory, and archive scans, `SKILL.md` files are detected anywhere in the filesystem.
+
+###### Linux
+
+- `/home/<user>/.agents/skills/`
+- `/home/<user>/<agent>/skills/`
+
+###### macOS
+
+- `/Users/<user>/.agents/skills/`
+- `/Users/<user>/<agent>/skills/`
+
+###### Windows
+
+- `C:\Users\<user>\.agents\skills\`
+- `C:\Users\<user>\<agent>\skills\`
+
+###### Example PURL
+
+The following is an example package URL for an AI agent skill.
+
+```
+# Claude skill
+pkg:generic/agentskills/claude/web-design-guidelines
+
+# Cross-client skill
+pkg:generic/agentskills/cross-client/web-design-guidelines
+```
+
+## AI IDE extensions ecosystem collection
+
+The `ai-ide-extensions` collector is a single consolidated scanner that detects AI coding assistant extensions installed in Visual Studio Code and JetBrains IDEs. Detected extensions are reported as CycloneDX components with the `application` type and a `generic` Package URL type.
+
+###### Supported applications
+
+- Continue
+- Cody (by Sourcegraph)
+- Cline
+
+###### Key features
+
+- Detects the extension across both supported IDE families. For Visual Studio Code extensions, the version is read from the extension's `package.json` file. For JetBrains plugins, the version is read from the `plugin.xml` file.
+- Each supported extension is identified by its IDE extension ID (Visual Studio Code) or plugin directory (JetBrains):
+
+  - Continue – Visual Studio Code extension ID `continue.continue-*`, JetBrains plugin directory `continue`
+  - Cody – Visual Studio Code extension ID `sourcegraph.cody-ai-*`
+  - Cline – Visual Studio Code extension ID `saoudrizwan.claude-dev-*`
+
+###### Supported platforms
+
+Cross-platform. The Amazon Inspector SBOM Generator scans wherever the IDE stores its extensions.
+
+###### Scanner name
+
+`ai-ide-extensions`
+
+###### Example PURL
+
+The following are example package URLs for the supported AI IDE extensions.
+
+```
+# Continue
+pkg:generic/continue-dev/continue@<version>
+
+# Cody
+pkg:generic/sourcegraph/cody@<version>
+
+# Cline
+pkg:generic/cline/cline@<version>
 ```
 
 ## Amazon Q Developer ecosystem collection
@@ -1796,6 +1892,26 @@ The following is an example package URL for Redis.
 ```
 pkg:generic/redis/redis@7.2.6
 ```
+
+## Standalone AI applications ecosystem collection
+
+The Amazon Inspector SBOM Generator detects standalone AI desktop and local LLM applications that are installed outside a package manager. Detected applications are reported as CycloneDX components with the `application` type and a `generic` Package URL type. The version-extraction method differs per application, as described in the following table.
+
+| Application     | Scanner name                  | Version source                                                                                    | Example PURL                                     |
+| --------------- | ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| Tabby (TabbyML) | `tabby-installation`          | Binary constant section (OTEL `service.version`)                                                  | `pkg:generic/tabbyml/tabby@<version>`            |
+| Claude Desktop  | `claude-desktop-installation` | Windows PE `ProductVersion` (`StringFileInfo`)                                                    | `pkg:generic/anthropic/claude-desktop@<version>` |
+| LM Studio       | `lm-studio-installation`      | Electron `resources/app/package.json`                                                             | `pkg:generic/lmstudio/lm-studio@<version>`       |
+| Jan             | `jan-installation`            | Binary anchor `<version>jan.ai.app` (Tauri)                                                       | `pkg:generic/janhq/jan@<version>`                |
+| GPT4All         | `gpt4all-installation`        | Binary anchor: the application-name string `GPT4All` followed by a null byte and `<version>` (Qt) | `pkg:generic/nomic-ai/gpt4all@<version>`         |
+
+###### Supported platforms
+
+Windows and Linux (application-only scope).
+
+###### Note
+
+Installations in non-default install prefixes require the `--path` argument. A build that lacks the expected version anchor yields no component.
 
 ## Windsurf ecosystem collection
 

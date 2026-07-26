@@ -309,3 +309,47 @@ L:MPL-2.0 AND MIT
 T:
 o:ca-certificates
 ```
+
+## Docker Hardened Images package collection
+
+[Docker Hardened Images](https://docs.docker.com/dhi/ "https://docs.docker.com/dhi/") (DHI) are minimal, security-hardened container images. The Amazon Inspector SBOM Generator detects DHI images and namespaces their packages under `dhi` so that vulnerabilities are matched against the hardened distribution.
+
+### Detection
+
+DHI version 2 images report `ID=dhi` in the `/etc/os-release` file, with `ID_LIKE=alpine` or `ID_LIKE=debian` indicating the underlying base operating system. The Amazon Inspector SBOM Generator detects DHI images directly from this `ID` value and does not parse the `PRETTY_NAME` field.
+
+###### Example `/etc/os-release` file
+
+The following is an example of an `/etc/os-release` file for a Debian-based DHI image.
+
+```
+ID=dhi
+ID_LIKE=debian
+```
+
+### Package namespace
+
+Every package in a DHI image is namespaced under `dhi`, yielding a Package URL of the form `pkg:deb/dhi/<name>@<version>` or `pkg:apk/dhi/<name>@<version>`. The PURL type (`deb` or `apk`) reflects the underlying base operating system.
+
+###### Example PURL
+
+The following are example package URLs for packages in DHI images.
+
+```
+# Debian-based DHI image
+pkg:deb/dhi/<name>@<version>
+
+# Alpine-based DHI image
+pkg:apk/dhi/<name>@<version>
+```
+
+### Hardened-image markers
+
+When the Amazon Inspector SBOM Generator detects `ID=dhi`, it annotates the image with hardened-image markers:
+
+- The operating-system component name is annotated with `<base> (Docker Hardened Image)` – for example, `Debian GNU/Linux (Docker Hardened Image)`.
+- The container or operating-system component carries the `amazon:inspector:sbom_generator:hardened_image:vendor` property with a value of `Docker`.
+
+###### Note
+
+DHI detection applies to container, localhost, and volume scans.

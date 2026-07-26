@@ -335,6 +335,36 @@ The following example shows how to use the `--max-file-size` argument to increas
 
 Adjusting this setting helps control disk usage, memory consumption, and overall scan duration.
 
+### Detect scratch images with filesystem heuristics
+
+When Sbomgen can't identify a container image's operating system, you can use the `--enable-scratch-heuristics` argument to inspect the filesystem for signals that indicate a scratch image. If at least two signals are present, Sbomgen labels the operating-system component `scratch` instead of `unknown`. An identified operating system is never relabeled.
+
+###### Note
+
+This argument is experimental, applies to container scans only, and is disabled by default.
+
+Sbomgen evaluates the following signals and records each one it detects as an `amazon:inspector:sbom_generator:scratch:heuristic:*` property on the operating-system component:
+
+- `missing_lib_dir` – The `/lib` directory is absent.
+- `missing_bin_dir` – The `/bin` directory is absent.
+- `missing_var_dir` – The `/var` directory is absent.
+- `missing_shell` – No interactive shell is present (none of `sh`, `bash`, `ash`, `dash`, `zsh`, or `busybox` found under `/bin` or `/usr/bin`).
+
+###### Example
+
+The following example shows how to use the `--enable-scratch-heuristics` argument.
+
+```
+# enable scratch image detection heuristics
+./inspector-sbomgen container --image image:tag \
+--outfile /tmp/sbom.json \
+--enable-scratch-heuristics
+```
+
+###### Note
+
+This behavior is heuristic and may produce false positives. It only changes the operating-system component.
+
 ### Disable progress indicator
 
 Sbomgen displays a spinning progress indicator that can result in excessive slash characters in CI/CD environments.
