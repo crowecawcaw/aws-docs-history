@@ -10,7 +10,7 @@ storage costs by not duplicating data.
 
 AWS does not automatically back up the data stored on your EBS volumes. For data resiliency
 and disaster recovery, it is your responsibility to create EBS snapshots on a regular basis,
-or to set up automatic snapshot creation by using [Automate data backups with AWS Backup and Amazon Data Lifecycle Manager](snapshot-lifecycle.md "snapshot-lifecycle.md") or [AWS Backup](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md").
+or to set up automatic snapshot creation by using [Automate backups with Amazon Data Lifecycle Manager](snapshot-lifecycle.md "snapshot-lifecycle.md") or [AWS Backup](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md").
 
 Snapshots are stored in Amazon S3, in S3 buckets that you can't access directly. You can create
 and manage your snapshots using the Amazon EC2 console or the Amazon EC2 API. You can't access your snapshots

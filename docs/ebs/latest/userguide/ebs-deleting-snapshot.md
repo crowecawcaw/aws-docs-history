@@ -23,7 +23,7 @@ The following considerations apply to deleting snapshots:
   see [Deleting
   backups](../../../aws-backup/latest/devguide/deleting-backups.md "../../../aws-backup/latest/devguide/deleting-backups.md") in the _AWS Backup Developer Guide_.
 - You can create, retain, and delete snapshots manually, or you can use Amazon Data Lifecycle Manager to
-  manage your snapshots for you. For more information, see [Automated data backups](snapshot-lifecycle.md "snapshot-lifecycle.md").
+  manage your snapshots for you. For more information, see [Amazon Data Lifecycle Manager](snapshot-lifecycle.md "snapshot-lifecycle.md").
 - Although you can delete a snapshot that is still in progress, the snapshot must complete
   before the deletion takes effect. This might take a long time. If you are also at your
   concurrent snapshot limit, and you attempt to take an

@@ -1,4 +1,4 @@
-# AWS Backup
+# AWS Backup for Amazon Elastic Block Store
 
 AWS Backup is a fully managed service that centralizes and automates data protection
 across your entire AWS environment. Rather than managing snapshot schedules and retention

@@ -427,6 +427,7 @@ The following table provides an overview of the supported features.
 - Fast snapshot restore is not supported for snapshots created on an Outpost, or for snapshots
   copied to an Outpost.
 - Cross-account sharing is not supported for snapshots created on an Outpost.
+- Pre-scripts and post-scripts are not supported for snapshots created on an Outpost.
 
 For more information about creating a snapshot lifecycle that manages local snapshots, see
 [Automating snapshot lifecycles](snapshot-ami-policy.md "snapshot-ami-policy.md").

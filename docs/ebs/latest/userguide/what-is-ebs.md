@@ -69,7 +69,7 @@ Amazon EBS works with the following services:
 - **Amazon Data Lifecycle Manager** — A managed service that
   automates the creation, retention, and deletion of EBS snapshots and EBS-backed
   AMIs. You can use Amazon Data Lifecycle Manager to automate backups for your Amazon EBS volumes and Amazon EC2
-  instances. For more information, see [Automate data backups with AWS Backup and Amazon Data Lifecycle Manager](snapshot-lifecycle.md "snapshot-lifecycle.md").
+  instances. For more information, see [Automate backups with Amazon Data Lifecycle Manager](snapshot-lifecycle.md "snapshot-lifecycle.md").
 - **EBS direct APIs** — A service that enables you
   to create EBS snapshots, write data directly to your snapshots, read data from your
   snapshots, and identify the differences or changes between two snapshots. For more
