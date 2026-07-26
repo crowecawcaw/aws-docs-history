@@ -65,7 +65,7 @@ sudo apt-get update && sudo apt-get install java-common
 ###### Example
 
 ```
-sudo dpkg --install java-11-amazon-corretto-jdk_11.0.31.11-1_amd64.deb
+sudo dpkg --install java-11-amazon-corretto-jdk_11.0.32.9-1_amd64.deb
 ```
 
 ### Verify Your Installation
@@ -78,12 +78,12 @@ In the terminal, run the following command to verify the installation.
 java -version
 ```
 
-Expected output for 11.0.31:
+Expected output for 11.0.32:
 
 ```
-openjdk version "11.0.31" 2026-04-21 LTS
-OpenJDK Runtime Environment Corretto-11.0.31.11.1 (build 11.0.31+11-LTS)
-OpenJDK 64-Bit Server VM Corretto-11.0.31.11.1 (build 11.0.31+11-LTS, mixed mode)
+openjdk version "11.0.32" 2026-07-21 LTS
+OpenJDK Runtime Environment Corretto-11.0.32.9.1 (build 11.0.32+9-LTS)
+OpenJDK 64-Bit Server VM Corretto-11.0.32.9.1 (build 11.0.32+9-LTS, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`, run the
@@ -164,7 +164,7 @@ sudo zypper install java-11-amazon-corretto-devel
 ###### Example
 
 ```
-sudo yum localinstall java-11-amazon-corretto-devel-11.0.31.11-1.x86_64.rpm
+sudo yum localinstall java-11-amazon-corretto-devel-11.0.32.9-1.x86_64.rpm
 ```
 
 ### Verify Your Installation
@@ -177,12 +177,12 @@ In the terminal, run the following command to verify the installation.
 java -version
 ```
 
-Expected output for 11.0.31:
+Expected output for 11.0.32:
 
 ```
-openjdk version "11.0.31" 2026-04-21 LTS
-OpenJDK Runtime Environment Corretto-11.0.31.11.1 (build 11.0.31+11-LTS)
-OpenJDK 64-Bit Server VM Corretto-11.0.31.11.1 (build 11.0.31+11-LTS, mixed mode)
+openjdk version "11.0.32" 2026-07-21 LTS
+OpenJDK Runtime Environment Corretto-11.0.32.9.1 (build 11.0.32+9-LTS)
+OpenJDK 64-Bit Server VM Corretto-11.0.32.9.1 (build 11.0.32+9-LTS, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`,
