@@ -236,7 +236,7 @@ copy this dashboard JSON to use as a template to create similar dashboards.
 1. Sign in to the monitoring account.
 2. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-3. In the navigation pane, choose **Metrics**, and then choose **All metrics**.
+3. In the navigation pane, choose **Metrics**, and then choose **Classic metrics**.
 4. Select the account and Region
    that you want
    to add metrics

@@ -37,7 +37,7 @@ integrate their usage metrics with Service Quotas:
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, choose **Metrics**.
-3. On the **All metrics** tab, choose **Usage**, and
+3. On the **Browse** tab, choose **Usage**, and
    then choose **By AWS Resource**.
 
 The list of service quota usage metrics appears. 4. Select the check box next to one of the metrics.

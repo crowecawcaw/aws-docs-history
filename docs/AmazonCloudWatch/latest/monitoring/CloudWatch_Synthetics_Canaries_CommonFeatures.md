@@ -32,7 +32,7 @@ The following example script uses two environment variables. This script is for 
 canary that checks whether a webpage is available. It uses environment variables to
 parameterize both the URL that it checks and the CloudWatch Synthetics log level that it uses.
 
-The following snippets are part of the complete script shown below.
+The following snippets are part of the complete script that follows.
 
 The following function sets `LogLevel` to the value of the `LOG_LEVEL` environment variable.
 
@@ -97,30 +97,35 @@ To pass environment variables through the API or AWS CLI, use the `EnvironmentVa
 following is an example AWS CLI command that creates a canary that uses two environment
 variables with keys of `Environment` and `Region`.
 
+For the
+full schema of the `RunConfig` parameter including
+`EnvironmentVariables`, see [CanaryRunConfigInput](../../../AmazonSynthetics/latest/APIReference/API_CanaryRunConfigInput.md "../../../AmazonSynthetics/latest/APIReference/API_CanaryRunConfigInput.md")
+in the _Amazon CloudWatch Synthetics API Reference_.
+
 ```
 aws synthetics create-canary --cli-input-json '{
- "Name":"nameofCanary",
- "ExecutionRoleArn":"roleArn",
- "ArtifactS3Location":"s3://amzn-s3-demo-bucket-123456789012-us-west-2",
- "Schedule":{
-    "Expression":"rate(0 minute)",
-    "DurationInSeconds":604800
- },
- "Code":{
+  "Name": "nameofCanary",
+  "ExecutionRoleArn": "roleArn",
+  "ArtifactS3Location": "s3://amzn-s3-demo-bucket-123456789012-us-west-2",
+  "Schedule": {
+    "Expression": "rate(0 minute)",
+    "DurationInSeconds": 604800
+  },
+  "Code": {
     "S3Bucket": "canarycreation",
     "S3Key": "cwsyn-mycanaryheartbeat-12345678-d1bd-1234-abcd-123456789012-12345678-6a1f-47c3-b291-123456789012.zip",
-    "Handler":"pageLoadBlueprint.handler"
- },
- "RunConfig": {
-    "TimeoutInSeconds":60,
+    "Handler": "pageLoadBlueprint.handler"
+  },
+  "RunConfig": {
+    "TimeoutInSeconds": 60,
     "EnvironmentVariables": {
-       "Environment":"Production",
-       "Region": "us-west-1"
+      "Environment": "Production",
+      "Region": "us-west-1"
     }
- },
- "SuccessRetentionPeriodInDays":13,
- "FailureRetentionPeriodInDays":13,
- "RuntimeVersion":"syn-nodejs-2.0"
+  },
+  "SuccessRetentionPeriodInDays": 13,
+  "FailureRetentionPeriodInDays": 13,
+  "RuntimeVersion": "syn-nodejs-2.0"
 }'
 
 ```
@@ -167,13 +172,13 @@ string.
 
 ```
 {
-"Name": "my-canary-EXAMPLE",
-"KmsKeyArn": "arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-e5f6-7890-abcd-EXAMPLE11111",
-"RunConfig": {
-  "EnvironmentVariables": {
-    "SECRET_KEY": "my-secret-value-EXAMPLE"
+  "Name": "my-canary-EXAMPLE",
+  "KmsKeyArn": "arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-e5f6-7890-abcd-EXAMPLE11111",
+  "RunConfig": {
+    "EnvironmentVariables": {
+      "SECRET_KEY": "my-secret-value-EXAMPLE"
+    }
   }
-}
 }
 ```
 
@@ -231,14 +236,14 @@ The following is an example IAM policy to attach to the canary execution role:
 
 ```
 {
-"Version": "2012-10-17",
-"Statement": [
-  {
-    "Effect": "Allow",
-    "Action": "kms:Decrypt",
-    "Resource": "arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-e5f6-7890-abcd-EXAMPLE11111"
-  }
-]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "kms:Decrypt",
+      "Resource": "arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-e5f6-7890-abcd-EXAMPLE11111"
+    }
+  ]
 }
 ```
 
@@ -253,13 +258,13 @@ const { KMSClient, DecryptCommand } = require('@aws-sdk/client-kms');
 const client = new KMSClient({ region: process.env.AWS_REGION });
 
 async function decryptEnvVar(name) {
-const encrypted = process.env[name];
-const req = {
-  CiphertextBlob: Buffer.from(encrypted, 'base64'),
-};
-const command = new DecryptCommand(req);
-const response = await client.send(command);
-return new TextDecoder().decode(response.Plaintext);
+  const encrypted = process.env[name];
+  const req = {
+    CiphertextBlob: Buffer.from(encrypted, 'base64'),
+  };
+  const command = new DecryptCommand(req);
+  const response = await client.send(command);
+  return new TextDecoder().decode(response.Plaintext);
 }
 
 // Usage

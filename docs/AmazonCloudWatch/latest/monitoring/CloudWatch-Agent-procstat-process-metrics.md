@@ -251,7 +251,7 @@ a time series graph. For more information about setting alarms, see [Using Amazo
    the CloudWatch agent configuration file.
 4. Choose a metric dimension (for example, **Per-Instance
    Metrics**).
-5. The **All metrics** tab displays all metrics for that dimension
+5. The **Browse** tab displays all metrics for that dimension
    in the namespace. You can do the following:
 
    1. To graph a metric, select the check box next to the metric. To select all

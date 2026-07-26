@@ -18,7 +18,7 @@ Use these steps to use the AWS Management Console to create a CPU usage alarm.
    Alarms**.
 3. Choose **Create alarm**.
 4. Choose **Select metric**.
-5. In the **All metrics** tab, choose **EC2
+5. In the **Browse** tab, choose **EC2
    metrics**.
 6. Choose a metric category (for example, **Per-Instance
    Metrics**).

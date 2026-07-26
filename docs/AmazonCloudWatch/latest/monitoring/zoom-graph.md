@@ -18,7 +18,7 @@ New interface
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, choose **Metrics**, and then choose
-   **All metrics**.
+   **Classic metrics**.
 3. Choose **Browse**, and then select a metric or metrics to
    graph.
 4. Choose **Options**, and select **Line**
@@ -35,8 +35,8 @@ Original interface
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, choose **Metrics**, and then choose
-   **All metrics**. .
-3. Choose **All metrics**, and then select a metric to graph.
+   **Classic metrics**. .
+3. Choose **Classic metrics**, and then select a metric to graph.
 4. Choose **Graph options**. Under _**Widget
    type**_ select **Line**.
 5. Choose and drag on the area of the graph that you want to focus on, and then

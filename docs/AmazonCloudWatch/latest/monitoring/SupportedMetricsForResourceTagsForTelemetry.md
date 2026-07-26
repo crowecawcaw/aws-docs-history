@@ -232,38 +232,6 @@ The `AWS/Athena` namespace includes enriched metrics for the following resource 
 | `ServiceProcessingTime`    | • `QueryState`, `QueryType`, `WorkGroup`                  |
 | `TotalExecutionTime`       | • `QueryState`, `QueryType`, `WorkGroup`                  |
 
-## AWS/AutoScaling
-
-The `AWS/AutoScaling` namespace includes enriched metrics for the following resource types.
-
-- [AWS::AutoScaling::AutoScalingGroup](#supported-metrics-aws-autoscaling-aws-autoscaling-autoscalinggroup "#supported-metrics-aws-autoscaling-aws-autoscaling-autoscalinggroup")
-
-### AWS::AutoScaling::AutoScalingGroup
-
-| Metric                            | Dimensions               |
-| --------------------------------- | ------------------------ |
-| `GroupAndWarmPoolDesiredCapacity` | • `AutoScalingGroupName` |
-| `GroupAndWarmPoolTotalCapacity`   | • `AutoScalingGroupName` |
-| `GroupDesiredCapacity`            | • `AutoScalingGroupName` |
-| `GroupInServiceCapacity`          | • `AutoScalingGroupName` |
-| `GroupInServiceInstances`         | • `AutoScalingGroupName` |
-| `GroupMaxSize`                    | • `AutoScalingGroupName` |
-| `GroupMinSize`                    | • `AutoScalingGroupName` |
-| `GroupPendingCapacity`            | • `AutoScalingGroupName` |
-| `GroupPendingInstances`           | • `AutoScalingGroupName` |
-| `GroupStandbyCapacity`            | • `AutoScalingGroupName` |
-| `GroupStandbyInstances`           | • `AutoScalingGroupName` |
-| `GroupTerminatingCapacity`        | • `AutoScalingGroupName` |
-| `GroupTerminatingInstances`       | • `AutoScalingGroupName` |
-| `GroupTotalCapacity`              | • `AutoScalingGroupName` |
-| `GroupTotalInstances`             | • `AutoScalingGroupName` |
-| `WarmPoolDesiredCapacity`         | • `AutoScalingGroupName` |
-| `WarmPoolMinSize`                 | • `AutoScalingGroupName` |
-| `WarmPoolPendingCapacity`         | • `AutoScalingGroupName` |
-| `WarmPoolTerminatingCapacity`     | • `AutoScalingGroupName` |
-| `WarmPoolTotalCapacity`           | • `AutoScalingGroupName` |
-| `WarmPoolWarmedCapacity`          | • `AutoScalingGroupName` |
-
 ## AWS/Backup
 
 The `AWS/Backup` namespace includes enriched metrics for the following resource types.

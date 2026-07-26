@@ -106,7 +106,7 @@ to CloudWatch Metrics.
 ###### To find your evaluation metrics
 
 1. Open the CloudWatch console.
-2. In the navigation pane, choose **Metrics** > **All metrics**.
+2. In the navigation pane, choose **Metrics** > **Classic metrics**.
 3. Select the **Bedrock AgentCore/Evaluations** namespace.
 4. Browse available metrics by dimensions.
 

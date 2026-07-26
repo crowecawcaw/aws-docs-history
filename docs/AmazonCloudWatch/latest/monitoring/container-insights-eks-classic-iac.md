@@ -220,7 +220,7 @@ kubectl get pods -n amazon-cloudwatch -l app.kubernetes.io/name=cloudwatch-agent
 ```
 
 All pods must show `Running` status. 2. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 3. In the navigation pane, choose **Metrics**, and then choose
-**All metrics**. 4. Verify that metrics appear in the `ContainerInsights` namespace for your
+**Classic metrics**. 4. Verify that metrics appear in the `ContainerInsights` namespace for your
 cluster.
 
 Metrics typically appear in CloudWatch within 3 to 5 minutes after the deployment

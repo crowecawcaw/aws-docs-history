@@ -373,3 +373,23 @@ When enabling Bedrock Agentcore Workload Identity logging:
   specified
 - CloudWatch does not enable log deliveries for Bedrock Agentcore Workload Identity that
   already are ingesting logs to CloudWatch Logs
+
+**Elastic Load Balancing Application Load Balancer Logs**
+
+When enabling Application Load Balancer logging:
+
+- Supports the LOGS telemetry type with log types `ALB_ACCESS_LOGS`,
+  `ALB_CONNECTION_LOGS`, and `ALB_HEALTH_CHECK_LOGS`.
+- Supports only CloudWatch Logs as the destination type.
+- CloudWatch does not enable log deliveries for Application Load Balancers that already are
+  ingesting the specified log types to CloudWatch Logs
+
+**Amazon Bedrock Knowledge Base**
+
+When enabling Bedrock Knowledge Base telemetry:
+
+- Supports the LOGS telemetry type with log type `APPLICATION_LOGS`.
+- Supports the TRACES telemetry type.
+- For LOGS, supports only CloudWatch Logs as the destination type.
+- CloudWatch does not enable log deliveries for Bedrock Knowledge Bases that already are
+  ingesting the specified log types to CloudWatch Logs

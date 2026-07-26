@@ -13,7 +13,7 @@ that you want to merge in.
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. Open the graph that you want to merge into another graph. To do so, you can choose
-   **Metrics**, **All metrics**, and then choose a
+   **Metrics**, **Classic metrics**, and then choose a
    metric to graph. Or you can open a dashboard and then open one of the graphs on the
    dashboard by selecting the graph and choosing **Open in metrics** from
    the menu at the upper right of the graph.

@@ -342,3 +342,25 @@ JSON
 }`
 
 ```
+
+## Canary that uses a customer managed AWS KMS key to encrypt Lambda function environment variables
+
+If you configure a customer managed key for environment variable encryption at rest,
+you must have `kms:CreateGrant`, `kms:Encrypt`,
+`kms:Decrypt`, and `kms:DescribeKey` permissions on the key.
+The canary execution role must also have `kms:Decrypt` if you use encryption
+in transit. For more information, see [Encrypting environment variables at rest with a customer managed key](CloudWatch_Synthetics_Canaries_CommonFeatures.md#CloudWatch_Synthetics_function_encryption "CloudWatch_Synthetics_Canaries_CommonFeatures.md#CloudWatch_Synthetics_function_encryption").
+
+If you use encryption in transit, add the following statement to your canary's
+execution role policy:
+
+```
+{
+  "Effect": "Allow",
+  "Action": "kms:Decrypt",
+  "Resource": "arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-e5f6-7890-abcd-EXAMPLE11111"
+}
+```
+
+Add this statement to whichever base execution role policy you are already using
+(basic, VPC, or artifact KMS).

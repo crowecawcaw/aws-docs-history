@@ -17,7 +17,7 @@ values.
    metrics**.
 3. Select a metric namespace (for example, **EC2**) and then a metric
    dimension (for example, **Per-Instance Metrics**).
-4. The **All metrics** tab displays all metrics for that dimension in
+4. The **Browse** tab displays all metrics for that dimension in
    that namespace. To graph a metric, select the check box next to the metric.
 5. On the **Graph options** tab, specify the **Min**
    and **Max** values for **Left Y Axis**. The value of

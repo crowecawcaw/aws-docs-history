@@ -14,7 +14,7 @@ those services.
 
 Metrics that have not had any new data points in the past two weeks do not appear in the
 console. They also do not appear when you type their metric name or dimension names in the
-search box in the **All metrics** tab in the console, and they are not
+search box in the **Browse** tab in the console, and they are not
 returned in the results of a [list-metrics](../../../cli/latest/reference/cloudwatch/list-metrics.md "../../../cli/latest/reference/cloudwatch/list-metrics.md") command. The best way to retrieve these metrics is with the [get-metric-data](../../../cli/latest/reference/cloudwatch/get-metric-data.md "../../../cli/latest/reference/cloudwatch/get-metric-data.md") or [get-metric-statistics](../../../cli/latest/reference/cloudwatch/get-metric-statistics.md "../../../cli/latest/reference/cloudwatch/get-metric-statistics.md")
 commands in the AWS CLI.
 

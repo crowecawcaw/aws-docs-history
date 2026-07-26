@@ -38,7 +38,7 @@ source discovery and management](../logs/data-source-discovery-management.md "..
 ## Third-party data sources
 
 CloudWatch extends monitoring capabilities beyond AWS with direct integrations for
-34 third-party security, identity, and endpoint platforms. These integrations
+38 third-party security, identity, and endpoint platforms. These integrations
 consolidate security events, audit logs, and telemetry data from external sources
 into CloudWatch Logs for unified analysis.
 
@@ -77,6 +77,10 @@ Direct third-party integrations| Source | Integration pattern | Category |
 | ServiceNow CMDB | API | IT service management |
 | Tanium Endpoint Management | S3 Delivery | Endpoint security and management |
 | Tenable Vulnerability Management | API | Vulnerability management |
+| Wazuh Platform | API | Security monitoring and threat detection |
+| Box | API | Content management and file sharing |
+| Jamf Pro | API | Device management (Apple) |
+| Broadcom Carbon Black | S3 Delivery | Endpoint detection and response |
 | Wiz CNAPP | API | Cloud security |
 | Zeek | S3 Delivery | Network security monitoring |
 | Zscaler ZIA/ZPA | S3 Delivery | Network security |

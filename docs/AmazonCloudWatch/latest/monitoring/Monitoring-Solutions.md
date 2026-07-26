@@ -8,7 +8,9 @@ To get started with observability solutions, visit the [observability solutions 
 
 For open-source solutions that work with Amazon Managed Grafana, see [Amazon Managed Grafana solutions](../../../grafana/latest/userguide/AMG_solutions.md "../../../grafana/latest/userguide/AMG_solutions.md")
 
-Solutions that require CloudWatch agent are detailed below:
+The available solutions are detailed below. Some solutions use the CloudWatch agent, and others
+use a Amazon CloudWatch managed Prometheus collector to scrape Prometheus-compatible metrics and
+deliver them to CloudWatch.
 
 ###### Topics
 
@@ -18,6 +20,9 @@ Solutions that require CloudWatch agent are detailed below:
 - [CloudWatch solution: Kafka workload on Amazon EC2](Solution-Kafka-On-EC2.md "Solution-Kafka-On-EC2.md")
 - [CloudWatch solution: Tomcat workload on Amazon EC2](Solution-Tomcat-On-EC2.md "Solution-Tomcat-On-EC2.md")
 - [CloudWatch solution: Amazon EC2 health](Solution-EC2-Health.md "Solution-EC2-Health.md")
+- [Amazon CloudWatch solution: Prometheus metric collection on Amazon Amazon EC2](Solution-Prometheus-On-EC2.md "Solution-Prometheus-On-EC2.md")
+- [Amazon CloudWatch solution: Prometheus metric collection on Amazon ECS](Solution-Prometheus-On-ECS.md "Solution-Prometheus-On-ECS.md")
+- [Amazon CloudWatch solution: Amazon MSK insights](Solution-Prometheus-On-MSK.md "Solution-Prometheus-On-MSK.md")
 
 **How do solution dashboards work?**
 

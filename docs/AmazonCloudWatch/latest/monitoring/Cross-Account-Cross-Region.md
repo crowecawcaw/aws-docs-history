@@ -213,6 +213,7 @@ import { Role, ServicePrincipal, PolicyDocument, PolicyStatement, Effect } from 
 
 new Role(this, 'ServiceRoleForCloudWatchCrossAccountV2', {
   roleName: 'ServiceRoleForCloudWatchCrossAccountV2',
+  path: '/service-role/',
   assumedBy: new ServicePrincipal('cloudwatch-crossaccount.amazonaws.com'),
   description: 'Allows CloudWatch to assume the CloudWatch-CrossAccountSharingRole in sharing accounts.',
   inlinePolicies: {

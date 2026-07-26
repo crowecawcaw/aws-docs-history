@@ -29,7 +29,6 @@ For the specific metrics that CloudWatch enriches for each resource type, see [S
 | `AWS::AppSync::GraphQLApi`                  | Yes     | Yes  |
 | `AWS::Athena::CapacityReservation`          | Yes     | No   |
 | `AWS::Athena::WorkGroup`                    | Yes     | No   |
-| `AWS::AutoScaling::AutoScalingGroup`        | Yes     | No   |
 | `AWS::Backup::BackupVault`                  | Yes     | No   |
 | `AWS::CloudFront::Distribution`             | Yes     | Yes  |
 | `AWS::CloudFront::Function`                 | No      | Yes  |

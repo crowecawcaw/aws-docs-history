@@ -55,7 +55,7 @@ minutes.
 
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, choose **Metrics**, and then choose
-   **All metrics**.
+   **Classic metrics**.
 3. Choose the **ContainerInsights** namespace.
 4. Verify that metrics such as `pod_cpu_utilization` and
    `node_memory_utilization` appear for your cluster.

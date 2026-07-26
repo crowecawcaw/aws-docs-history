@@ -28,6 +28,8 @@ CloudWatch telemetry configuration gives you two core capabilities:
 - Amazon MSK Cluster Metrics
 - OpenTelemetry Enrichment Metrics
 - Amazon Bedrock Agentcore Workload Identity
+- Elastic Load Balancing Application Load Balancer Logs
+- Amazon Bedrock Knowledge Base Logs
   When you enable telemetry configuration, CloudWatch creates AWS Config
   service-linked configuration recorders that discover resources and their associated telemetry
   configuration metadata. For more information, see [Configuration

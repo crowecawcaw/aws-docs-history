@@ -78,7 +78,7 @@ You can access the exploring experience from entry points throughout the CloudWa
 console (and other AWS consoles), including:
 
 - **Metrics navigation** – When you choose
-  **Metrics** then **All metrics** from the CloudWatch
+  **Metrics** then **Classic metrics** from the CloudWatch
   console left hand menu, the tile for any supported service or metric source will
   show the compass icon that brings up related telemetry in the bottom right
   corner.

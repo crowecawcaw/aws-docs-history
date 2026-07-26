@@ -125,7 +125,7 @@ statistical graphs.
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the **Navigation** pane, choose **Metrics**.
-3. On the **All metrics** tab, in the search box, type
+3. On the **Browse** tab, in the search box, type
    **RequestLatency** and press Enter.
 4. Select the check box for the **RequestLatency** metric.
    A graph of the metric data is displayed in the upper pane.

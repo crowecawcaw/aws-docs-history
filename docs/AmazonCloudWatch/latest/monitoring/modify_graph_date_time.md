@@ -24,7 +24,7 @@ New interface
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, choose **Metrics**, and then
-   choose **All metrics**. In the upper right corner of the
+   choose **Classic metrics**. In the upper right corner of the
    screen, you can select one of the predefined time ranges, which span from 1 hour
    to 1 week (**1h**, **3h**,
    **12h**, **1d**, **3d**, or
@@ -44,7 +44,7 @@ Original interface
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, choose **Metrics**, and then
-   choose **All metrics**. In the upper right corner of the
+   choose **Classic metrics**. In the upper right corner of the
    screen, you can select one of the predefined time ranges, which span from 1 hour
    to 1 week (**1h**, **3h**,
    **12h**, **1d**, **3d**, or
@@ -65,7 +65,7 @@ New interface
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, choose **Metrics**, and then
-   choose **All metrics**. In the upper right corner of the
+   choose **Classic metrics**. In the upper right corner of the
    screen, you can select one of the predefined time ranges, which span from 1 hour
    to 1 week (**1h**, **3h**,
    **12h**, **1d**, **3d**, or
@@ -83,7 +83,7 @@ Original interface
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, choose **Metrics**, and then
-   choose **All metrics**. In the upper right corner of the
+   choose **Classic metrics**. In the upper right corner of the
    screen, you can select one of the predefined time ranges, which span from 1 hour
    to 1 week (**1h**, **3h**,
    **12h**, **1d**, **3d**, or
@@ -103,7 +103,7 @@ New interface
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, choose **Metrics**, and then
-   choose **All metrics**. In the upper right corner of the
+   choose **Classic metrics**. In the upper right corner of the
    screen, you can select one of the predefined time ranges, which span from 1 hour
    to 1 week (**1h**, **3h**,
    **12h**, **1d**, **3d**, or
@@ -121,7 +121,7 @@ Original interface
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, choose **Metrics**, and then
-   choose **All metrics**. In the upper right corner of the
+   choose **Classic metrics**. In the upper right corner of the
    screen, you can select one of the predefined time ranges, which span from 1 hour
    to 1 week (**1h**, **3h**,
    **12h**, **1d**, **3d**, or

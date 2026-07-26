@@ -1622,7 +1622,7 @@ concurrency can help with throughput.
         The CloudWatch agent wizard uses `-1` as the default value
         for this field when it is used to create the agent configuration
         file and you don't specify a value for log retention. This
-        `-1` value specifies set by the wizard specifies that
+        `-1` value set by the wizard specifies that
         the events in the log group don't expire. However, manually editing
         this value to `-1` has no effect.
         Valid values are 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365,

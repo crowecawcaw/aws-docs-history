@@ -356,7 +356,7 @@ JVM metrics being published to CloudWatch. You can check the CloudWatch console 
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. Choose **Metrics**, **All metrics**.
+2. Choose **Metrics**, **Classic metrics**.
 3. Make sure you've selected the Region where you deployed the solution, and choose **Custom namespaces**,
    **CWAgent**.
 4. Search for the metrics mentioned in [Agent configuration for JVM hosts](#Solution-JVM-Agent-Config "#Solution-JVM-Agent-Config"), such

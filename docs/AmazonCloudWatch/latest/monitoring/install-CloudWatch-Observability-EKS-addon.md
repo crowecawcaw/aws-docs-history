@@ -881,11 +881,11 @@ The following example shows the default agent configuration for the CloudWatch a
 ### Manage admission webhook TLS certificates
 
 
-The Amazon CloudWatch Observability EKS add-on and the Helm chart leverage Kubernetes  [admission webhooks](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/ "https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/") to validate and mutate `AmazonCloudWatchAgent`
+The Amazon CloudWatch Observability EKS add-on and the Helm chart use Kubernetes  [admission webhooks](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/ "https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/") to validate and mutate `AmazonCloudWatchAgent`
  and `Instrumentation` custom resource (CR) requests, and optionally
  Kubernetes pod requests on the cluster if CloudWatch Application Signals is enabled. In
  Kubernetes, webhooks require a TLS certificate that the API server is configured to
- trust in order to ensure secure communication.
+ trust to ensure secure communication.
 
 
 By default, the Amazon CloudWatch Observability EKS add-on and the Helm chart auto-generate a
@@ -924,7 +924,7 @@ For a more secure and feature-rich certificate authority solution, the add-on ha
  widely-adopted solution for TLS certificate management in Kubernetes that simplifies the
  process of obtaining, renewing, managing and using those certificates. It ensures that
  certificates are valid and up to date, and attempts to renew certificates at a
- configured time before expiry. cert-manager also facilitates issuing certificates from a
+ configured time before expiry. cert-manager also simplifies issuing certificates from a
  variety of supported sources, including [AWS Certificate Manager Private Certificate Authority](https://aws.amazon.com/private-ca/ "https://aws.amazon.com/private-ca/").
 
 

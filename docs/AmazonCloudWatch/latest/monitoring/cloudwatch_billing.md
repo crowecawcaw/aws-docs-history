@@ -102,7 +102,9 @@ CloudWatch features, sub-features, and UsageType strings| CloudWatch feature | _
 | | _Collect (data ingestion for Infrequent Access log<br>class)_ | `DataProcessingIA-Bytes` |
 | | _Analyze (query)_ | `DataScanned-Bytes` |
 | | _Analyze (Live Tail)_ | `Logs-LiveTail` |
-| | _Store (archive)_ | `TimedStorage-ByteHrs` |
+| | _Store (Standard)_ | `TimedStorage-ByteHrs` |
+| | _Store (Infrequent Access)_ | `TimedStorage-IA-ByteHrs` |
+| | _Store (Archive Instant Access)_ | `TimedStorage-AIA-ByteHrs` |
 | | _Detect and mask (data protection)_ | `DataProtection-Bytes` |
 | **CloudWatch vended logs** | _Delivery (Amazon CloudWatch Logs Standard log<br>class)_ | `VendedLog-Bytes` |
 | | _Delivery (CloudWatch Logs Infrequent Access log<br>class)_ | `VendedLogIA-Bytes` |
@@ -206,7 +208,9 @@ WHEN line_item_usage_type LIKE '%%DatabaseInsights%%' THEN 'Database Insights'
 WHEN line_item_usage_type LIKE '%%DataProcessing-Bytes%%' THEN 'Logs (Collect - Data Ingestion)'
 WHEN line_item_usage_type LIKE '%%DataProcessingIA-Bytes%%' THEN 'Infrequent Access Logs (Collect - Data Ingestion)'
 WHEN line_item_usage_type LIKE '%%DataProtection-Bytes%%' THEN 'Logs (Data Protection - Detect and Mask)'
-WHEN line_item_usage_type LIKE '%%TimedStorage-ByteHrs%%' THEN 'Logs (Storage - Archival)'
+WHEN line_item_usage_type LIKE '%%TimedStorage-ByteHrs%%' THEN 'Logs (Storage - Standard)'
+WHEN line_item_usage_type LIKE '%%TimedStorage-IA-ByteHrs%%' THEN 'Logs (Storage - Infrequent Access)'
+WHEN line_item_usage_type LIKE '%%TimedStorage-AIA-ByteHrs%%' THEN 'Logs (Storage - Archive Instant Access)'
 WHEN line_item_usage_type LIKE '%%DataScanned-Bytes%%' THEN 'Logs (Analyze - Logs Insights queries)'
 WHEN line_item_usage_type LIKE '%%Logs-LiveTail%%' THEN 'Logs (Analyze - Logs Live Tail)'
 -- Vended Logs
@@ -398,7 +402,9 @@ CloudWatch embedded metric format sub-features with UsageType and Operation stri
 | --- | --- | --- | --- |
 | _Custom metrics_ | `MetricMonitorUsage` | `MetricStorage:AWS/Logs-EMF` | Logs embedded metrics |
 | _Logs ingestion_ | `DataProcessing-Bytes` | `PutLogEvents` | Uploads a batch of log events to the specified log group or log<br>stream |
-| _Logs archival_ | `TimedStorage-ByteHrs` | `HourlyStorageMetering` | Stores logs per hour and logs per byte in CloudWatch Logs |
+| _Logs archival (Standard)_ | `TimedStorage-ByteHrs` | `HourlyStorageMetering` | Stores logs per hour and logs per byte in CloudWatch Logs |
+| _Logs archival (Infrequent Access)_ | `TimedStorage-IA-ByteHrs` | `HourlyStorageMetering` | Stores Infrequent Access tier logs per hour and per byte in CloudWatch Logs |
+| _Logs archival (Archive Instant Access)_ | `TimedStorage-AIA-ByteHrs` | `HourlyStorageMetering` | Stores Archive Instant Access tier logs per hour and per byte in CloudWatch Logs |
 
 To analyze costs, use AWS Cost and Usage Reports with Athena so that you can identify which metrics
 are generating costs and determine how the costs are generated.
@@ -792,7 +798,9 @@ CloudWatch Logs features and sub-features with UsageType and Operation strings| 
 | **Custom logs** | _Collect (data ingestion for Standard log<br>class)_ | `DataProcessing-Bytes` | `PutLogEvents` | Uploads a batch of logs to a specific log stream in a Standard class<br>log group. |
 | | _Collect (data ingestion for Infrequent Access log<br>class)_ | `DataProcessingIA-Bytes` | `PutLogEvents` | Uploads a batch of logs to a specific log stream in an Infrequent<br>Access class log group. |
 | | _Detect and mask (data protection_) | `DataProtection-Bytes` | `PutLogEvents` | Detects and masks protected data in log events. |
-| | _Store (archive_) | `TimedStorage-ByteHrs` | `HourlyStorageMetering` | Stores logs per hour and logs per byte in CloudWatch Logs. |
+| | _Store (Standard)_ | `TimedStorage-ByteHrs` | `HourlyStorageMetering` | Stores Standard tier logs per hour and per byte in CloudWatch Logs. |
+| | _Store (Infrequent Access)_ | `TimedStorage-IA-ByteHrs` | `HourlyStorageMetering` | Stores Infrequent Access tier logs per hour and per byte in CloudWatch Logs. |
+| | _Store (Archive Instant Access)_ | `TimedStorage-AIA-ByteHrs` | `HourlyStorageMetering` | Stores Archive Instant Access tier logs per hour and per byte in CloudWatch Logs. |
 | | _Analyze (Logs Insights queries)_ | `DataScanned-Bytes` | `StartQuery` | Logs data scanned by CloudWatch Logs Insights queries |
 | | _Analyze (Logs Live Tail)_ | `Logs-LiveTail` | `StartLiveTail` | Logs analyzed during a CloudWatch Logs Live Tail session |
 | **Vended logs** | _Delivery (CloudWatch Logs Standard log class)_ | `VendedLog-Bytes` | `PutLogEvents` | Uploads a batch of logs to a specific log stream in a log group in<br>the Standard log class. |

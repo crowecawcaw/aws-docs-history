@@ -20,7 +20,7 @@ This section describes how to view these metrics in the CloudWatch console and q
    a namespace, then select **aws-embedded-metrics**. This is the default namespace for
    embedded metrics generated using the client libraries.
 4. Select a metric dimension (for example, **ServiceName**).
-5. The **All metrics** tab displays all metrics for that dimension in the namespace.
+5. The **Browse** tab displays all metrics for that dimension in the namespace.
    You can do the following:
 
    1. To sort the table, use the column heading.

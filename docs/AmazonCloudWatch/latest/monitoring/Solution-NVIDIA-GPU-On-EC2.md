@@ -261,7 +261,7 @@ You can check the CloudWatch console to verify they are being published.
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. Choose **Metrics**, **All metrics**.
+2. Choose **Metrics**, **Classic metrics**.
 3. Make sure you've selected the Region where you deployed the solution, and choose **Custom namespaces**,
    **CWAgent**.
 4. Search for the metrics mentioned in [Agent configuration for this solution](#Solution-NVIDIA-GPU-Agent-Config "#Solution-NVIDIA-GPU-Agent-Config"), such as `nvidia_smi_utilization_gpu`.

@@ -296,7 +296,7 @@ If the CloudWatch agent is not installed and running, make sure you have set up 
 ###### To verify that EC2 health metrics are being published to CloudWatch
 
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. Choose **Metrics**, **All metrics**.
+2. Choose **Metrics**, **Classic metrics**.
 3. Make sure you've selected the Region where you deployed the solution, and choose **Custom namespaces**,
    **CWAgent**.
 4. Search for the metrics mentioned in the agent configuration section of this document, such as `mem_used_percent`.

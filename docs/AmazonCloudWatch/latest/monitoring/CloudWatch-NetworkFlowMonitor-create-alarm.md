@@ -21,7 +21,7 @@ on a threshold that you choose, and set up a notification or choose other option
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. Choose **Metrics**, and then choose **All metrics**.
+2. Choose **Metrics**, and then choose **Classic metrics**.
 3. Filter for Network Flow Monitor by choosing `AWS/NetworkFlowMonitor`.
 4. Choose **MeasurementSource, MonitorName**.
 5. In the list, select **Retransmissions**.

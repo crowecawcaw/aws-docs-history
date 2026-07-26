@@ -10,3 +10,4 @@ CloudWatch Pipelines to transform and route telemetry at scale.
 - [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md")
 - [Embedding metrics within logs](CloudWatch_Embedded_Metric_Format.md "CloudWatch_Embedded_Metric_Format.md")
 - [CloudWatch pipelines](cloudwatch-pipelines.md "cloudwatch-pipelines.md")
+- [Amazon CloudWatch managed Prometheus collectors](managed-prometheus-collectors.md "managed-prometheus-collectors.md")

@@ -173,7 +173,7 @@ service in the `AWS/Usage` namespace.
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, choose **Metrics**.
-3. On the **All metrics** tab, choose **Usage**, and
+3. On the **Browse** tab, choose **Usage**, and
    then choose **By AWS Resource**.
 4. In the search box near the list of metrics, enter the name of the service. The metrics are
    filtered by the service you entered.
