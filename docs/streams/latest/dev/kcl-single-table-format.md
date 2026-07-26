@@ -84,6 +84,54 @@ but does not delete the old tables. You must manually delete the old worker
 metrics and coordinator state tables after you confirm the migration is
 successful. KCL does not delete these tables automatically.
 
+## Migration metrics
+
+With KCL, you can monitor the progress and health of the single table
+migration using CloudWatch metrics. Use these metrics to confirm that workers have adopted
+the new code and to track the migration as it moves through its states. You can also
+detect DynamoDB read, write, or delete faults during the migration. The following tables
+group the metrics by the KCL operation (metric dimension) that emits them and
+by when each metric is emitted.
+
+The elected leader worker continuously emits the following metrics, regardless of
+whether a migration is in progress:
+
+Metrics emitted by the leader at all times| Operation | Metric | Unit | Description |
+| --- | --- | --- | --- |
+| `TableMigration` | `StatusOrdinal` | None | Ordinal of the current DynamoDB migration status:<br>`0` = UNKNOWN, `1` = INIT,<br>`2` = DEPLOYED, `3` = PENDING,<br>`4` = COMPLETE. |
+| `WorkerMetrics` | `FleetMinSupportCode` | None | Minimum support code across all lease-owning workers in the<br>fleet. |
+
+The elected leader worker emits the following metrics only while a migration is in
+progress:
+
+Metrics emitted by the leader during migration| Operation | Metric | Unit | Description |
+| --- | --- | --- | --- |
+| `TableMigration` | `Phase1Worker` | Count | Number of workers that support operating with a single DynamoDB<br>table but have not yet migrated to using the single table. |
+| `TableMigration` | `Phase2Worker` | Count | Number of workers that have migrated to writing to the single<br>table. These workers might still read from multiple tables until<br>the table migration completes. |
+| `TableMigration` | `PrePhase1Worker` | Count | Number of workers on a version prior to 3.5 that cannot support<br>operating on a single DynamoDB table. |
+| `TableMigration` | `WriteFault` | Count | `1` on a DynamoDB write failure, `0` on<br>success. |
+| `TableMigration` | `DeleteFault` | Count | `1` on a DynamoDB delete failure, `0` on<br>success. |
+| `TableMigration` | `CompletionFault` | Count | `1` when the transactional write of the<br>`COMPLETE` status fails, `0` on<br>success. |
+| `TableMigrationAsyncMove` | `Success` | Count | `1` on a successful transactional move of<br>CoordinatorState entries, `0` on failure. |
+| `TableMigrationAsyncMove` | `Time` | Milliseconds | Duration of the async move operation. |
+| `TableMigrationAsyncMove` | `BatchCount` | Count | Number of batches that were successfully moved. |
+
+All workers emit the following metrics while a migration is in progress:
+
+Metrics emitted by all workers during migration| Operation | Metric | Unit | Description |
+| --- | --- | --- | --- |
+| `TableMigration` | `ReadFault` | Count | `1` on failure to read the<br>`TableMigrationState` from DynamoDB, `0` on<br>success. |
+| `TableMigration` | `Time` | Milliseconds | Duration of the state machine run. |
+| `TableMigrationInitialize` | `Success` | Count | `1` on a successful initialize, `0` on<br>failure. |
+| `TableMigrationInitialize` | `Time` | Milliseconds | Duration of the initialize operation. |
+
+Use these metrics to decide when to advance the migration. When
+`StatusOrdinal` is consistently `2` (DEPLOYED) and
+`PrePhase1Worker` is `0`, all workers support the single table
+format, and you can move to phase 2 of the table migration deployment. After
+`StatusOrdinal` reaches `4` (COMPLETE), you can safely delete the
+legacy tables.
+
 ## Rollback considerations
 
 Rollback support depends on the current `TableMigrationStatus`:
