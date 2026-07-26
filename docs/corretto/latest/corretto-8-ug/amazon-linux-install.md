@@ -61,12 +61,12 @@ In the terminal, run the following command to verify the installation.
 java -version
 ```
 
-Expected output for 8u492:
+Expected output for 8u502:
 
 ```
-openjdk version "1.8.0_492"
-OpenJDK Runtime Environment Corretto-8.492.09.2 (build 1.8.0_492-b09)
-OpenJDK 64-Bit Server VM Corretto-8.492.09.2 (build 25.492-b09, mixed mode)
+openjdk version "1.8.0_502"
+OpenJDK Runtime Environment Corretto-8.502.07.1 (build 1.8.0_502-b07)
+OpenJDK 64-Bit Server VM Corretto-8.502.07.1 (build 25.502-b07, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`,

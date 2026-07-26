@@ -20,8 +20,8 @@ step. 4. Once the install wizard is finished, set the `JAVA_HOME` and
 
 Set `JAVA_HOME` to the installation location, noting that the
 directory contains the currently-installed version. For example, if the default
-directory is used for 8u492, then set `JAVA_HOME` as
-`C:\Program Files\Amazon Corretto\jdk1.8.0_492`.
+directory is used for 8u502, then set `JAVA_HOME` as
+`C:\Program Files\Amazon Corretto\jdk1.8.0_502`.
 
 Add `%JAVA_HOME%\bin` to the current `PATH`
 variable. 5. Verify the installation by running **java -version** in a command prompt.
@@ -30,9 +30,9 @@ You should see the following output.
 ###### Example
 
 ```
-openjdk version "1.8.0_492"
-OpenJDK Runtime Environment Corretto-8.492.09.2 (build 1.8.0_492-b09)
-OpenJDK 64-Bit Server VM Corretto-8.492.09.2 (build 25.492-b09, mixed mode)
+openjdk version "1.8.0_502"
+OpenJDK Runtime Environment Corretto-8.502.07.1 (build 1.8.0_502-b07)
+OpenJDK 64-Bit Server VM Corretto-8.502.07.1 (build 25.502-b07, mixed mode)
 ```
 
 ## Uninstall Amazon Corretto 8
