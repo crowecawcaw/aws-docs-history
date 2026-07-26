@@ -8,15 +8,15 @@ supported by AWS End User Messaging.
 
 # Next steps
 
-We hope that you use this tutorial as a starting point as you discover the additional
-capabilities of Amazon Pinpoint. For example:
+After completing this tutorial, you can explore additional Amazon Pinpoint features. For
+example:
 
 - You can improve the delivery of your email campaigns by making sure that your
   campaigns align with industry best practices. For more information, see [Email best practices](channels-email-best-practices.md "channels-email-best-practices.md").
 - You can verify an entire domain, which allows you to send email from any address
   on that domain. For more information about verifying domains, see [Verifying a domain](channels-email-manage-verify.md#channels-email-manage-verify-domain "channels-email-manage-verify.md#channels-email-manage-verify-domain").
 - You can obtain dedicated IP addresses for sending your email. Dedicated IP
-  addresses are a great option for sending email in certain use cases. For more
+  addresses are useful for sending email in certain use cases. For more
   information, see [Using dedicated IP addresses with Amazon Pinpoint](channels-email-dedicated-ips.md "channels-email-dedicated-ips.md").
 - You can use email deliverability features through [Amazon Simple Email Service Virtual Deliverability Manager](../../../ses/latest/dg/vdm-global-deliverability.md "../../../ses/latest/dg/vdm-global-deliverability.md"). Virtual Deliverability
   Manager helps you identify issues that could impact the delivery of your
