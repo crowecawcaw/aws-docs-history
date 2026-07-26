@@ -16,6 +16,7 @@ for your AWS account. For more information, see [AWS service quotas](aws_service
 | Asia Pacific (Jakarta)    | ap-southeast-3 | pcs.ap-southeast-3.amazonaws.com<br>pcs.ap-southeast-3.api.aws                                                                         |          |
 | Asia Pacific (Mumbai)     | ap-south-1     | pcs.ap-south-1.amazonaws.com<br>pcs.ap-south-1.api.aws                                                                                 |          |
 | Asia Pacific (Osaka)      | ap-northeast-3 | pcs.ap-northeast-3.amazonaws.com<br>pcs.ap-northeast-3.api.aws                                                                         |          |
+| Asia Pacific (Seoul)      | ap-northeast-2 | pcs.ap-northeast-2.amazonaws.com<br>pcs.ap-northeast-2.api.aws                                                                         |          |
 | Asia Pacific (Singapore)  | ap-southeast-1 | pcs.ap-southeast-1.amazonaws.com<br>pcs.ap-southeast-1.api.aws                                                                         |          |
 | Asia Pacific (Sydney)     | ap-southeast-2 | pcs.ap-southeast-2.amazonaws.com<br>pcs.ap-southeast-2.api.aws                                                                         |          |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | pcs.ap-northeast-1.amazonaws.com<br>pcs.ap-northeast-1.api.aws                                                                         |          |

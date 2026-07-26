@@ -46,7 +46,7 @@ following endpoints.
 | Asia Pacific (Malaysia)    | ap-southeast-5 | ssm.ap-southeast-5.amazonaws.com<br>ssm.ap-southeast-5.api.aws                                                                     | HTTPS<br>HTTPS                   |
 | Asia Pacific (Melbourne)   | ap-southeast-4 | ssm.ap-southeast-4.amazonaws.com<br>ssm.ap-southeast-4.api.aws                                                                     | HTTPS<br>HTTPS                   |
 | Asia Pacific (Mumbai)      | ap-south-1     | ssm.ap-south-1.amazonaws.com<br>ssm.ap-south-1.api.aws                                                                             | HTTPS<br>HTTPS                   |
-| Asia Pacific (New Zealand) | ap-southeast-6 | ssm.ap-southeast-6.amazonaws.com                                                                                                   | HTTPS                            |
+| Asia Pacific (New Zealand) | ap-southeast-6 | ssm.ap-southeast-6.amazonaws.com<br>ssm.ap-southeast-6.api.aws                                                                     | HTTPS<br>HTTPS                   |
 | Asia Pacific (Osaka)       | ap-northeast-3 | ssm.ap-northeast-3.amazonaws.com<br>ssm.ap-northeast-3.api.aws                                                                     | HTTPS<br>HTTPS                   |
 | Asia Pacific (Seoul)       | ap-northeast-2 | ssm.ap-northeast-2.amazonaws.com<br>ssm.ap-northeast-2.api.aws                                                                     | HTTPS<br>HTTPS                   |
 | Asia Pacific (Singapore)   | ap-southeast-1 | ssm.ap-southeast-1.amazonaws.com<br>ssm.ap-southeast-1.api.aws                                                                     | HTTPS<br>HTTPS                   |
