@@ -69,7 +69,7 @@ The price comparison between SSP mode and Developer mode assumes that the same A
 
 Comparing AMS Modes against business and IT objectives
 
-![Chart comparing AMS modes by time to operationalize and governance level.](/images/managedservices/latest/onboardingguide/images/ams-modes-choosing-dcm.png)
+![Chart comparing AMS modes by time to operationalize and governance level.](images/ams-modes-choosing-dcm.png)
 As shown, if you are looking for a highly controlled and standardized
 governance model for you applications, then AMS-managed Standard Change, AWS Service Catalog, or Direct Change modes are
 the best fit. If you require a bespoke governance model with a focus on application innovation without
