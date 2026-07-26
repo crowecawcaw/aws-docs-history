@@ -116,3 +116,46 @@ Moreover, you can attach either of these systems to a new cluster before you del
       - Make sure that your application works in the new cluster.
 
   4.  After your new cluster is fully tested and operational and you no longer need the existing cluster, delete it.
+
+## Best practices: GPU health checks
+
+### The built-in GPU health check
+
+The built-in GPU health check ([HealthChecks/Gpu/Enabled](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-HealthChecks-Gpu-Enabled "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-HealthChecks-Gpu-Enabled")) is off unless you enable it. When enabled, it runs an NVIDIA DCGM
+level-2 diagnostic on the node's GPUs as part of the Slurm prolog. Because the diagnostic runs in the prolog and a job can't start until the
+prolog completes, this design suits instance types where the diagnostic finishes quickly.
+
+The built-in check is reliable only with job-exclusive allocation (one job per node). On nodes shared by more than one job, it can interfere
+with running jobs and drain healthy nodes, so enable it only on queues with [JobExclusiveAllocation: true](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-JobExclusiveAllocation "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-JobExclusiveAllocation").
+
+In addition, on the P6 and P6e GPU instance families (for example, `p6-b200` and `p6-b300`) and later P-family GPU
+instance generations, the diagnostic takes long enough that it should not be run in the prolog: it typically exceeds the Slurm prolog's time
+limits and causes healthy nodes to be drained and jobs to be requeued. On these instance types, keep the GPU health check disabled
+(`HealthChecks/Gpu/Enabled: false`).
+
+### Options for running your own GPU health checks
+
+To run GPU health checks on these instances, choose from the following approaches, matching each check to when it runs — at node startup,
+before a job, or after a job. This follows NVIDIA's model for GPU health and diagnostics (see [NVIDIA DCGM health and
+diagnostics](https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/feature-overview.html#health-and-diagnostics "https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/feature-overview.html#health-and-diagnostics")); the `dcgmi diag` diagnostic grows in depth and duration by level (see [DCGM diagnostics](https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/dcgm-diagnostics.html#run-levels-and-tests "https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/dcgm-diagnostics.html#run-levels-and-tests")).
+
+###### Important
+
+On a node shared by more than one job, run any `dcgmi diag` diagnostic (from level-1 to level-4) only when no other job is
+using the node. Otherwise, it can fail and drain the node.
+
+- Check at node startup. Use this to validate a node once, when it joins the cluster, before it accepts work.
+  Because no job is running yet, it can run a deep `dcgmi diag`; note that it catches only faults present at startup, not degradation
+  that appears later. Install and invoke your check with an `OnNodeConfigured` custom action. See [Custom bootstrap actions](custom-bootstrap-actions-v3.md "custom-bootstrap-actions-v3.md").
+- Check in the prolog. Use this for a fast readiness gate before each job. Because the prolog runs on every
+  job and blocks the job from starting until it completes, keep the check to a few seconds. For example, `nvidia-smi` (optionally
+  with a kernel-log scan for [NVIDIA Xid errors](https://docs.nvidia.com/deploy/xid-errors/index.html "https://docs.nvidia.com/deploy/xid-errors/index.html")), or a level-1
+  `dcgmi diag`. See [Slurm prolog and epilog](slurm-prolog-epilog-v3.md "slurm-prolog-epilog-v3.md").
+- Check in the epilog. Use this to validate a node after a job completes. For example, to run a deeper check
+  when a job fails, or to catch a GPU that degraded during a run before the next job is scheduled. It can run a deeper `dcgmi diag`.
+  To avoid checking after every job, you might want to run a level-2 diagnostic only when the job fails. See [Slurm prolog and epilog](slurm-prolog-epilog-v3.md "slurm-prolog-epilog-v3.md").
+
+###### Note
+
+AWS ParallelCluster replaces drained or failed static nodes (and terminates dynamic ones), so draining a node with a confirmed fault
+results in it being replaced.

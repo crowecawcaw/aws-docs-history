@@ -814,8 +814,12 @@ AWS ParallelCluster doesn't support `HealthChecks` /
 `Gpu` in nodes that use `alinux2` ARM operating
 systems. These platforms don't support the [NVIDIA Data Center GPU Manager (DCGM)](https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/getting-started.html#supported-linux-distributions "https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/getting-started.html#supported-linux-distributions").
 
-Enabling GPU health checks when using instance types whose total GPU
-memory size is higher than 327680 MiB is discouraged.
+###### Important
+
+The built-in GPU health check runs an NVIDIA DCGM level-2 diagnostic
+in the Slurm prolog. Enable it only with job-exclusive allocation (one job
+per node; set `JobExclusiveAllocation: true`). Do not enable it
+on P6, P6e, or later P-family GPU instances. For details, see [Best practices: GPU health checks](best-practices-v3.md#best-practices-gpu-health-checks-v3 "best-practices-v3.md#best-practices-gpu-health-checks-v3").
 
 `Enabled` (**Optional**,
 `Boolean`)
