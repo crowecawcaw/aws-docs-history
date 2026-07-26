@@ -6,7 +6,7 @@ reports, or the Cost Explorer RI reports. You can also ask questions about your 
 using suggested prompts or the **Ask question** button to ask in your own words, and receive
 detailed insights in **Amazon Q Developer** while Cost Explorer automatically updates its charts,
 tables, and report parameters including filters, groupings, and dates to reflect the analysis.
-For a deeper dive, click **Analyze with Amazon Q** on any cost report to receive comprehensive explanations covering your cost trends, top drivers, and anomalies based on your exact filters and time period.
+For a deeper dive, choose **Analyze with Amazon Q** on any cost report to receive comprehensive explanations covering your cost trends, top drivers, and anomalies based on your exact filters and time period.
 You can view data for up to the last 13 months, forecast how much you're likely to spend for
 the next 18 months, and get recommendations for what Reserved Instances to purchase. You can
 use Cost Explorer to identify areas that need further inquiry and see trends that you can
