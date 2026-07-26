@@ -22,25 +22,7 @@ identities.
 
 This policy grants full access to AWS Well-Architected Tool.
 
-**Permissions details**
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement" : [
- {
- "Effect" : "Allow",
- "Action" : [
- "wellarchitected:*"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
+For more details about this policy, including the full JSON policy document, see [WellArchitectedConsoleFullAccess](../../../aws-managed-policy/latest/reference/WellArchitectedConsoleFullAccess.md "../../../aws-managed-policy/latest/reference/WellArchitectedConsoleFullAccess.md") in the _AWS Managed Policy Reference_.
 
 ## AWS managed policy: WellArchitectedConsoleReadOnlyAccess
 
@@ -49,27 +31,7 @@ identities.
 
 This policy grants read-only access to AWS Well-Architected Tool.
 
-**Permissions details**
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "wellarchitected:Get*",
- "wellarchitected:List*",
- "wellarchitected:ExportLens"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
+For more details about this policy, including the full JSON policy document, see [WellArchitectedConsoleReadOnlyAccess](../../../aws-managed-policy/latest/reference/WellArchitectedConsoleReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/WellArchitectedConsoleReadOnlyAccess.md") in the _AWS Managed Policy Reference_.
 
 ## AWS managed policy: AWSWellArchitectedOrganizationsServiceRolePolicy
 
@@ -93,30 +55,7 @@ This policy includes the following permissions.
 - `organizations:ListParents` – Allows principals to retrieve the list of immediate parents specified by the OU or account within an organization.
 - `organizations:ListRoots` – Allows principals to retrieve the list of all root nodes within an organization.
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "organizations:ListAWSServiceAccessForOrganization",
- "organizations:DescribeAccount",
- "organizations:DescribeOrganization",
- "organizations:ListAccounts",
- "organizations:ListAccountsForParent",
- "organizations:ListChildren",
- "organizations:ListParents",
- "organizations:ListRoots"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
+For more details about this policy, including the full JSON policy document, see [AWSWellArchitectedOrganizationsServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSWellArchitectedOrganizationsServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSWellArchitectedOrganizationsServiceRolePolicy.md") in the _AWS Managed Policy Reference_.
 
 ## AWS managed policy: AWSWellArchitectedDiscoveryServiceRolePolicy
 
@@ -156,70 +95,7 @@ This policy includes the following permissions.
 - `servicecatalog:DeleteAttributeGroup` – Deletes a
   service-managed attribute group when required.
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "trustedadvisor:DescribeChecks",
- "trustedadvisor:DescribeCheckItems"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "cloudformation:DescribeStacks",
- "cloudformation:ListStackResources",
- "resource-groups:ListGroupResources",
- "tag:GetResources"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "servicecatalog:ListAssociatedResources",
- "servicecatalog:GetApplication",
- "servicecatalog:CreateAttributeGroup"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "servicecatalog:AssociateAttributeGroup",
- "servicecatalog:DisassociateAttributeGroup"
- ],
- "Resource": [
- "arn:*:servicecatalog:*:*:/applications/*",
- "arn:*:servicecatalog:*:*:/attribute-groups/AWS_WellArchitected-*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "servicecatalog:UpdateAttributeGroup",
- "servicecatalog:DeleteAttributeGroup"
- ],
- "Resource": [
- "arn:*:servicecatalog:*:*:/attribute-groups/AWS_WellArchitected-*"
- ]
- }
- ]
-}`
-
-```
+For more details about this policy, including the full JSON policy document, see [AWSWellArchitectedDiscoveryServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSWellArchitectedDiscoveryServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSWellArchitectedDiscoveryServiceRolePolicy.md") in the _AWS Managed Policy Reference_.
 
 ## AWS WA Tool updates to AWS managed policies
 
