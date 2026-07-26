@@ -56,7 +56,7 @@ A bounding box is a box that tightly surrounds an object. For example, the follo
 bounding boxes around an Amazon Echo and an Amazon Echo Dot. Each bounding box has an assigned label
 (_Amazon Echo_ or _Amazon Echo Dot_).
 
-![Two Amazon smart speakers, one with green bounding box and one blue bounding box, on a wooden surface.](images/echos.png)
+![Two Amazon smart speakers, one with green bounding box and one blue bounding box, on a wooden surface.](/images/rekognition/latest/customlabels-dg/images/echos.png)
 
 To find object locations, your datasets needs at least one label. During model training, a further label
 is automatically created that represents the area outside of the bounding boxes on an image.

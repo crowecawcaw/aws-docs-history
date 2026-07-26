@@ -59,7 +59,7 @@ the object within the bounding box. For example,
 the following image shows bounding boxes around various parts of a circuit board,
 such as a _comparator_ or _pot resistor_.
 
-![Component image showing an IR LED, pot resistor, and comparator chip on a circuit board.](/images/rekognition/latest/customlabels-dg/images/localization-circuit-board.png)
+![Component image showing an IR LED, pot resistor, and comparator chip on a circuit board.](images/localization-circuit-board.png)
 
 The [Object localization](getting-started.md#gs-object-localization-example "getting-started.md#gs-object-localization-example")
 example project shows how Amazon Rekognition Custom Labels uses labeled bounding boxes to train a model that finds object locations.

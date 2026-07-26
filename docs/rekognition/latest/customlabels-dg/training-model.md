@@ -93,17 +93,17 @@ For more information, see
 8. On the **Train model** page, Choose **Train model**. The Amazon Resource Name (ARN) for your project should
 be in the **Choose project** edit box. If not, enter the ARN for your project.
 
-![Train model button to start training an AI model on the Amazon Rekognition Custom Labels service.](/images/rekognition/latest/customlabels-dg/images/tutorial-train-model-page-train-model.jpg) 9. In the **Do you want to train your model?** dialog box, choose
+![Train model button to start training an AI model on the Amazon Rekognition Custom Labels service.](images/tutorial-train-model-page-train-model.jpg) 9. In the **Do you want to train your model?** dialog box, choose
 **Train model**.
 
-![Train model configuration page showing Train Model button.](images/tutorial-dialog-train-model.jpg) 10. In the **Models** section of the project page, you can check the current
+![Train model configuration page showing Train Model button.](/images/rekognition/latest/customlabels-dg/images/tutorial-dialog-train-model.jpg) 10. In the **Models** section of the project page, you can check the current
 status in the `Model Status` column, where the training's in
 progress. Training a model takes a while to complete.
 
 ![Model status showing 'TRAINING_IN_PROGRESS' indicating the model is currently being trained.](images/tutorial-training-progress.jpg) 11. After training completes, choose the model name. Training is finished when the model status is **TRAINING\_COMPLETED**.
 If training fails, read [Debugging a failed model training](tm-debugging.md "tm-debugging.md").
 
-![Interface showing a trained model and status TRAINING_COMPLETED, indicating the model is ready to run.](images/get-started-choose-model.jpg) 12. Next step: Evaluate your model. For more information, [Improving a trained Amazon Rekognition Custom Labels model](improving-model.md "improving-model.md").
+![Interface showing a trained model and status TRAINING_COMPLETED, indicating the model is ready to run.](/images/rekognition/latest/customlabels-dg/images/get-started-choose-model.jpg) 12. Next step: Evaluate your model. For more information, [Improving a trained Amazon Rekognition Custom Labels model](improving-model.md "improving-model.md").
 
 ## Training a model (SDK)
 

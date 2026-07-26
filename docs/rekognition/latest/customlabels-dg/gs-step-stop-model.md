@@ -18,4 +18,4 @@ interface section has the option to start or stop a machine learning model. The
 model's status shows as "Stopped" with a "Start" button to start the model and a
 dropdown to select the number of inference units.
 
-![User interface section to start or stop a machine learning model, showing the model's status as "Stopped" with a "Start" button to start the model and a dropdown to select the number of inference units.](images/get-started-stopped-model.jpg)
+![User interface section to start or stop a machine learning model, showing the model's status as "Stopped" with a "Start" button to start the model and a dropdown to select the number of inference units.](/images/rekognition/latest/customlabels-dg/images/get-started-stopped-model.jpg)
