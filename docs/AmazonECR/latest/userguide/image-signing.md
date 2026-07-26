@@ -30,4 +30,6 @@ The following should be considered when using Amazon ECR image signing:
   the maximum number of images per repository. Each signature counts as 1 artifact against the images per repository quota. For more information, see [Amazon ECR service quotas](service-quotas.md "service-quotas.md").
 - When reference artifacts are present in a repository, Amazon ECR lifecycle
   policies will automatically clean up those artifacts within 24 hours of the
-  deletion of the subject image.
+  deletion of the subject image. The artifact must also remain in its
+  current storage class for at least 24 hours before Amazon ECR lifecycle
+  policies can clean it up.
