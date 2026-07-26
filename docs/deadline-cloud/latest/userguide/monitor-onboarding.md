@@ -25,7 +25,7 @@ Your monitor's infrastructure consists of the following components:
   is the physical location for a collection of AWS data centers. When you
   set up your monitor, the Region defaults to the closest
   location to you. We recommend changing the Region so it is
-  located closest to your users. This reduces lag and improves data transfer
+  located closest to your users. This placement reduces lag and improves data transfer
   speeds. By default, AWS IAM Identity Center must be enabled in the same AWS Region as Deadline Cloud,
   unless you have Multi-Region support enabled in IAM Identity Center. For more information, see
   [What is AWS IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md").
@@ -84,7 +84,7 @@ resources in your monitor.
 You can attach AWS Identity and Access Management (IAM) managed policies to the monitor user
 role. The policies give users permissions to perform certain actions, such
 as creating jobs in a specific Deadline Cloud application. Because applications
-depend on specific conditions in the managed policy, if you don’t use the
+depend on specific conditions in the managed policy, if you don't use the
 managed policies, the application might not perform as expected.
 
 You can change the monitor user role after you complete setup, at any

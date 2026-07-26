@@ -2,7 +2,7 @@
 
 The VFX Reference Platform is a common target platform for the VFX industry. To use the standard
 service-managed fleet Amazon EC2 instance running Amazon Linux 2023 with software that supports
-the VFX Reference Platform, you should keep in mind the following considerations when using a
+the VFX Reference Platform, review the following considerations when using a
 service-managed fleet.
 
 The VFX Reference Platform is updated annually. These considerations for using an AL2023 including

@@ -19,6 +19,7 @@ can manage users, assign projects to them, and grant permissions for job roles.
 - [Concepts and terminology for Deadline Cloud](concepts-terminology.md "concepts-terminology.md")
 - [Getting started with Deadline Cloud](#how-to-get-started-with-deadline-cloud "#how-to-get-started-with-deadline-cloud")
 - [Accessing Deadline Cloud](#accessing-deadline-cloud "#accessing-deadline-cloud")
+- [Deadline Cloud documentation](#deadline-cloud-guides "#deadline-cloud-guides")
 - [Related services](#related-services "#related-services")
 - [How Deadline Cloud works](how-it-works.md "how-it-works.md")
 - [Integrate Deadline Cloud into your pipeline](pipeline-integration.md "pipeline-integration.md")
@@ -37,7 +38,7 @@ workloads:
   roles.
 - Use tags to organize and quickly find project resources.
 - Manage project resource usage and estimated costs for your project.
-- Provide a wide range of compute management options to support rendering in the cloud or in
+- Provide flexible compute management options to support rendering in the cloud or in
   person.
 
 ## Getting started with Deadline Cloud
@@ -52,6 +53,9 @@ After you're familiar with Deadline Cloud [Concepts and
 terminology](concepts-terminology.md "concepts-terminology.md"), see [Getting started](getting-started.md "getting-started.md") for
 step-by-step instructions for creating your farm, adding users, and links to helpful
 information.
+
+For information about migrating from Deadline 10, including a concept mapping, see [Migrate from Deadline
+10 to AWS Deadline Cloud](../developerguide/migrate-from-deadline-10.md "../developerguide/migrate-from-deadline-10.md") in the _Deadline Cloud Developer Guide_.
 
 ## Accessing Deadline Cloud
 
@@ -68,6 +72,22 @@ You can access Deadline Cloud in any of the following ways:
   call the Deadline Cloud API operations from the command line on your local system. For more information,
   see [Set up a developer workstation](getting-started-dev.md "getting-started-dev.md").
 
+## Deadline Cloud documentation
+
+Deadline Cloud documentation is split across two guides:
+
+- **This user guide** is for artists who submit and monitor
+  jobs from their digital content creation (DCC) applications, and for studio administrators who
+  set up farms, queues, users, and budgets using the console and the Deadline Cloud monitor.
+- The [Deadline Cloud Developer
+  Guide](../developerguide/what-is-deadline-cloud.md "../developerguide/what-is-deadline-cloud.md") is for pipeline developers who build job bundles, submitters, and integrations
+  with the AWS Command Line Interface (AWS CLI) and API. It is also for infrastructure engineers who manage
+  customer-managed fleets, images, networking, and licensing.
+
+Each topic is documented once, in the guide for its audience. When a topic in one
+guide depends on a topic that the other guide owns, you will find a short summary and a link
+instead of a second copy.
+
 ## Related services
 
 Deadline Cloud works with the following AWS services:
@@ -79,12 +99,12 @@ Deadline Cloud works with the following AWS services:
   that run your applications in the cloud. You can configure your projects to use Amazon EC2 instances
   for your workloads. For more information, see [Amazon EC2 instances](../../../AWSEC2/latest/UserGuide/ec2-instances-and-amis.md "../../../AWSEC2/latest/UserGuide/ec2-instances-and-amis.md").
 - **Amazon EC2 Auto Scaling**– With Auto Scaling, you can automatically
-  increase or decrease the number of instances as the demand on your instances changes. Auto Scaling
-  helps to make sure that you're running your desired number of instances, even if an instance
-  fails. If you enable Auto Scaling with Deadline Cloud, instances that are launched by Auto Scaling are automatically
-  registered with the workload. Likewise, instances that are terminated by Auto Scaling are automatically
-  de-registered from the workload. For more information, see the [Amazon EC2 Auto Scaling User
-  Guide](../../../autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.md "../../../autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.md").
+  increase or decrease the number of Amazon EC2 instances in a customer-managed fleet. Deadline Cloud
+  publishes fleet size recommendations that you can use to scale your fleet based on the
+  work available in your queues. With service-managed fleets, you don't need to configure
+  scaling. For more information, see [Create fleet
+  infrastructure with an Amazon EC2 Auto Scaling group](../developerguide/create-auto-scaling.md "../developerguide/create-auto-scaling.md") in the _Deadline Cloud Developer
+  Guide_.
 - **AWS PrivateLink**– AWS PrivateLink provides private
   connectivity between virtual private clouds (VPCs), AWS services, and your on-premises
   networks, without exposing your traffic to the public internet. AWS PrivateLink makes it easy to

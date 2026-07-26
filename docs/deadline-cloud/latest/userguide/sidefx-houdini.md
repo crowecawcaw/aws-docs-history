@@ -8,7 +8,7 @@ Houdini is supported by the following components:
 
 - **Submitter**: Integrated render output node (ROP) for direct job submission from Houdini with automatic scene and asset detection.
 - **Conda packages**: Deadline Cloud for automatic installation on service-managed fleets.
-- **Adaptor**: Middleware for efficient rendering with sticky sessions and additional monitoring.
+- **Adaptor**: A program on worker hosts that keeps the application loaded between tasks for faster rendering and reports render progress.
 - **Cross-platform compatibility**: Submitter support for Windows, macOS, and Linux with worker support for Windows and Linux with automatic path mapping.
 
 ## Houdini version compatibility
@@ -228,12 +228,12 @@ The Houdini submitter does not directly support export workflows using Husk at t
 
 ### Using unsupported versions
 
-Deadline Cloud only supports and tests the workstation and worker software versions in the table above. When using the submitter, the worker will attempt to install the same version as used on the workstation. This may fail if the workstation version of Houdini does not appear in the version table above.
+Deadline Cloud only supports and tests the workstation and worker software versions in the table above. When using the submitter, the worker will attempt to install the same version as used on the workstation. This installation might fail if the workstation version of Houdini does not appear in the version table above.
 
 If you require an unsupported version of Houdini, you have the following options:
 
-- When submitting the job from Houdini, you may override the CondaPackages queue parameter to specify a supported version to use on the worker (for example, `houdini=21.0, houdini-openjd=*`). This may or may not work, depending on the features used by your scene and how Houdini works with scenes from your workstation version.
-- You may build a custom conda recipe and channel for your desired version to be installed on the worker. Use the conda recipe for a supported version linked below as a starting point, and package your desired version in a custom conda channel. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
+- When submitting the job from Houdini, you can override the CondaPackages queue parameter to specify a supported version to use on the worker (for example, `houdini=21.0, houdini-openjd=*`). This override might or might not work, depending on the features used by your scene and how Houdini works with scenes from your workstation version.
+- you can build a custom conda recipe and channel for your desired version to be installed on the worker. Use the conda recipe for a supported version linked below as a starting point, and package your desired version in a custom conda channel. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
 
 ## Houdini render engines
 
@@ -252,7 +252,7 @@ These render engines are automatically detected and configured by the Houdini in
 
 ## Open source resources
 
-The submitter and adaptor are open source and available on GitHub. Houdini Conda recipes are available on GitHub for supported versions.
+The submitter and adaptor are open source and available on GitHub. Houdini conda recipes are available on GitHub for supported versions.
 
 - [Houdini submitter source code on GitHub](https://github.com/aws-deadline/deadline-cloud-for-houdini "https://github.com/aws-deadline/deadline-cloud-for-houdini")
 - [Sample scenes and workflows on GitHub](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/houdini_husk_usd_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/houdini_husk_usd_render")

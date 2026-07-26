@@ -1,24 +1,26 @@
 # Monitoring Deadline Cloud jobs
 
-The AWS Deadline Cloud monitor provides you with an overall view of your jobs. Use it to:
+Use the AWS Deadline Cloud monitor to get an overall view of your jobs, including:
 
 - Monitor and manage jobs
 - View worker activity on fleets
 - Track budgets and usage
-- Download a job's results.
+- Download a job's results
   To monitor a specific job, select the farm and queue containing the job, then select the
   job from the list. You can use the search box to locate a specific job or jobs in the
   queue.
 
-Right click on a job, step, or task to see the options for the item. You can:
+Open the context menu for a job, step, or task. You can:
 
 - Change the status
 - Suspend and resume the item
 - Requeue the item
 - Download the output
-- For jobs: Modify job properties like the name, description, priority, or max worker count.
-- For tasks: View task and worker logs.
-  For more information, see [Using the Deadline Cloud monitor](working-with-deadline-monitor.md "working-with-deadline-monitor.md").
+- For jobs: Modify job properties like the name, description, priority, or max worker count
+- For tasks: View task and worker logs
+  For more information, see [Using the Deadline Cloud monitor](working-with-deadline-monitor.md "working-with-deadline-monitor.md"). To modify a job with the AWS Command Line Interface (AWS CLI)
+  or the Deadline Cloud API, see [Modify a job in
+  Deadline Cloud](../developerguide/build-jobs-modifying.md "../developerguide/build-jobs-modifying.md") in the _Deadline Cloud Developer Guide_.
 
 Each task in a job or step has a status. The status of a job or step depends on the status
 of its tasks. The status is determined by tasks that have these statuses, in order. Step
@@ -44,7 +46,7 @@ environment, if any, is set up.
 
 `STARTING`
 
-One or more workers is setting up the environment for running tasks.
+One or more workers are setting up the environment for running tasks.
 
 `SCHEDULED`
 
@@ -57,9 +59,9 @@ At least one task for the job is ready to be processed.
 
 `INTERRUPTING`
 
-At least one task in the job is being interrupted. Interruptions can happen when you
-manually update the job's status. It can also happen in response to an interruption due
-to Amazon Elastic Compute Cloud (Amazon EC2) Spot price changes.
+At least one task in the job is being interrupted. An interruption can happen when
+you manually update the job's status, or when Amazon Elastic Compute Cloud (Amazon EC2) reclaims a Spot
+Instance.
 
 `FAILED`
 

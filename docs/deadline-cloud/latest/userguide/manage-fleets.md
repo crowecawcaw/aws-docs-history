@@ -15,8 +15,11 @@ You can set up two types of Deadline Cloud fleets:
   When you associate a fleet with multiple queues, it divides its workers evenly among those
   queues.
 
+For more information about choosing between the two fleet types, see [Choose between service-managed and customer-managed fleets](fleet-types.md "fleet-types.md").
+
 ###### Topics
 
+- [Choose between service-managed and customer-managed fleets](fleet-types.md "fleet-types.md")
 - [Service-managed fleets](smf-manage.md "smf-manage.md")
 - [Customer-managed fleets](manage-cmf.md "manage-cmf.md")
 - [Auto scaling configuration](auto-scaling-configuration.md "auto-scaling-configuration.md")

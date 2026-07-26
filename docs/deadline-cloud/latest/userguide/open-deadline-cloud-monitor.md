@@ -56,7 +56,7 @@ Open the Deadline Cloud monitor - web from the monitor URL. 2. * On the Deadline
 
 3. Download the Deadline Cloud monitor - desktop. 4. After you download and install the monitor, open it on your computer.
 
-    * If this is your first time opening the Deadline Cloud monitor, you must provide the
+    * The first time you open the Deadline Cloud monitor, you must provide the
      monitor URL and create a profile name. Next you sign in to the monitor
      with your Deadline Cloud credentials.
     * After you create a profile, you open the monitor by selecting a

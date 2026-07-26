@@ -14,6 +14,15 @@ Nuke. With a submitter, artists can submit rendering jobs from a third-party
 interface to Deadline Cloud where project resources are managed and jobs are monitored, all in one
 location.
 
+Most DCC integrations also include an adaptor. An _adaptor_
+is a program installed on the worker hosts that runs the DCC application for a job. The adaptor
+keeps the application and scene loaded between tasks so that consecutive tasks don't repeat
+application startup and scene loading, reports render progress and status to the job's logs, and
+remaps file paths in the scene to their locations on the worker. The submitter and the adaptor
+are the two parts of a DCC integration: the submitter runs on the artist's workstation, and the
+adaptor runs on the worker hosts. For the list of applications with submitters and adaptors, see
+[Supported Software](supported-software.md "supported-software.md").
+
 With a Deadline Cloud farm, you can create queues and fleets, manage users, and manage project
 resource usage and costs. A _farm_ consists of queues and fleets. A
 _queue_ is where submitted jobs are located and

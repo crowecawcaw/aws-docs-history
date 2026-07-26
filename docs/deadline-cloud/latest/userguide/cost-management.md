@@ -76,7 +76,7 @@ for this key.
 
 You may choose to use a customer managed key to encrypt your data. When you use
 your own key, you are charged based on how your key is used. If you use an existing
-key, this will be an incremental cost for the additional use.
+key, the additional use is an incremental cost.
 
 ### Best practices for AWS PrivateLink
 

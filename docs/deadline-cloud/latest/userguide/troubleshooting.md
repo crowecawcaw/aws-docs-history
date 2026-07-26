@@ -63,7 +63,7 @@ For more information about managing user access to Deadline Cloud, see [Managing
 Sometimes when workers are created but do not complete initialization and do not start
 working on jobs, it's because the fleet role was not configured correctly.
 
-To verify this is what is happening, check your CloudTrail logs for any access denied
+To verify this cause, check your CloudTrail logs for any access denied
 errors. After you confirm the access denied issue, go to your fleet and update the role
 configuration to the correct permissions. For more information, see [CloudTrail
 logs](../developerguide/logging-using-cloudtrail.md "../developerguide/logging-using-cloudtrail.md") in the Deadline Cloud developer guide.
@@ -72,7 +72,7 @@ logs](../developerguide/logging-using-cloudtrail.md "../developerguide/logging-u
 
 ### Worker stuck exiting OpenJD environment
 
-Workers can get stuck in long-running `envExit` session actions. This might
+Workers can get stuck in long-running `envExit` session actions. This problem might
 happen if you use a job template that overrides the OpenJD template and sets the environment
 exit actions timeout to more than 5 minutes. The Deadline Cloud monitor provides some visibility into workers
 stuck in this situation, but it requires cross-referencing `RUNNING` workers against
@@ -139,6 +139,10 @@ extensions:
   - TASK_CHUNKING
 ```
 
+For more information, see [Add task
+chunking to a job template](../developerguide/build-job-bundle-chunking-add.md "../developerguide/build-job-bundle-chunking-add.md") in the _AWS Deadline Cloud Developer
+Guide_.
+
 ### Why is my job not compatible?
 
 Common reasons that jobs are not compatible with queues include the following:
@@ -150,6 +154,10 @@ Common reasons that jobs are not compatible with queues include the following:
   the queue. To check, compare the `hostRequirements` entry in the job template with
   the configuration of the fleets in your farm. Make sure that one of the fleets satisfies the
   host requirements. For more information about fleet compatibility, see [Determine fleet compatibility](../developerguide/build-jobs-scheduling.md#jobs-scheduling-compatibility "../developerguide/build-jobs-scheduling.md#jobs-scheduling-compatibility"). To view fleet configuration, see [View queue and fleet details in Deadline Cloud](view-queue-and-fleet.md "view-queue-and-fleet.md").
+
+Deadline Cloud checks compatibility when you submit the job. If you associate a compatible fleet
+with the queue later, existing `NOT_COMPATIBLE` jobs don't automatically restart. To
+run those jobs, requeue them. For more information, see [Requeue a job](view-a-job.md#view-jobs-steps-tasks-requeue "view-a-job.md#view-jobs-steps-tasks-requeue").
 
 ### Why is my job stuck in ready?
 

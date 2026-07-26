@@ -6,12 +6,12 @@ to.
 
 A _submitter_ is a plugin for your digital content creation (DCC)
 application that manages creating a job in the interface of your DCC application. After you
-create the job, you use the submitter send it to Deadline Cloud for processing.
+create the job, you use the submitter to send it to Deadline Cloud for processing.
 
 The submitter creates an [Open Job Specification
 (OpenJD)](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications") template that describes the job. At the same time it uploads your asset files
 to an Amazon Simple Storage Service (Amazon S3) bucket. To reduce upload time, the submitter only sends files that have
-changed since the last upload to Amazon S3
+changed since the last upload to Amazon S3.
 
 You can also create a job in the following ways.
 
@@ -31,9 +31,17 @@ A job consists of:
   order received.
 - _Steps_ – Defines the script to run on workers. Steps can
   have requirements such as minimum worker memory or other steps that need to complete first.
-  Each step has one or more tasks.
+  For example, a job can have one step that renders the frames of a scene, and a second step
+  that uploads thumbnails of the finished frames to your project tracker after the render
+  step completes. Each step has one or more tasks.
 - _Tasks_ – A unit of work sent to a worker to perform. A task
   is a combination of a step's script and parameters, such as a frame number, that are used in
   the script. The job is complete when all tasks are complete for all steps.
 - _Environment_ – Set up and tear down instructions shared by
   multiple steps or tasks.
+
+###### Topics
+
+- [Using a Deadline Cloud submitter](jobs-using-submitter.md "jobs-using-submitter.md")
+- [Processing Deadline Cloud jobs](jobs-processing.md "jobs-processing.md")
+- [Monitoring Deadline Cloud jobs](jobs-monitoring.md "jobs-monitoring.md")

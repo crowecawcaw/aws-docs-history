@@ -1,6 +1,6 @@
 # Persistent storage for service-managed fleets
 
-AWS Deadline Cloud (Deadline Cloud) persistent storage provides dedicated Amazon Elastic Block Store (Amazon EBS) volumes,
+AWS Deadline Cloud (Deadline Cloud) persistent storage provides dedicated Amazon Elastic Block Store (Amazon EBS) gp3 volumes,
 separate from the root boot volume, for service-managed fleet (SMF) workers. These volumes
 preserve data across worker lifecycle events. With persistent storage, conda package
 installations, application caches, and asset files remain available when workers are replaced
@@ -116,41 +116,65 @@ fleet, or be ready to create a new fleet.
 ### Configuring persistent storage (AWS CLI)
 
 To configure persistent storage using the AWS Command Line Interface (AWS CLI), include the
-`persistentVolumeConfiguration` parameter in your fleet configuration when
-you create or update a fleet.
+`persistentVolumeConfiguration` object in the
+`serviceManagedEc2FleetConfiguration` when you call
+`CreateFleet` or `UpdateFleet`.
 
-The following example creates a fleet with persistent storage enabled:
+The `persistentVolumeConfiguration` object accepts the following
+parameters. For valid ranges and default values, see [CreateFleet](../APIReference/API_CreateFleet.md "../APIReference/API_CreateFleet.md") in
+the _Deadline Cloud API Reference_.
+
+| Parameter          | Type    | Required | Description                                                                                                                                                            |
+| ------------------ | ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sizeGiB`          | Integer | No       | The size of the persistent volume in GiB.                                                                                                                              |
+| `iops`             | Integer | No       | The provisioned IOPS for the gp3 volume.                                                                                                                               |
+| `throughputMiB`    | Integer | No       | The provisioned throughput in MiB/s for the gp3 volume.                                                                                                                |
+| `mountPath`        | String  | Yes      | The mount location on the worker. For Linux, specify an absolute path<br>(for example, `/mnt/persistent`). For Windows, specify a drive<br>letter (for example, `D:`). |
+| `lastUsedTtlHours` | Integer | No       | The number of hours after a volume was last used before automatic<br>cleanup.                                                                                          |
+
+The following AWS CLI example creates a service-managed fleet with persistent storage
+enabled:
 
 ```
-{
-  "configuration": {
-    "serviceManagedEc2FleetConfiguration": {
-      "instanceCapabilities": {
-        "vCpuCount": {"min": 4, "max": 8},
-        "memoryMiB": {"min": 16384, "max": 32768},
-        "osFamily": "LINUX"
-      },
-      "instanceMarketOptions": {
-        "type": "spot"
-      },
-      "persistentVolumeConfiguration": {
-        "sizeGiB": 2048,
-        "iops": 16000,
-        "throughputMiB": 500,
-        "mountPath": "/mnt/persistent",
-        "lastUsedTtlHours": 168
+aws deadline create-fleet \
+    --farm-id `farm-0123456789abcdef0` \
+    --display-name "Rendering Fleet" \
+    --max-worker-count 20 \
+    --configuration '{
+      "serviceManagedEc2FleetConfiguration": {
+        "instanceCapabilities": {
+          "vCpuCount": {"min": 4, "max": 16},
+          "memoryMiB": {"min": 16384, "max": 65536},
+          "osFamily": "LINUX",
+          "rootEbsVolume": {"sizeGiB": 250}
+        },
+        "instanceMarketOptions": {"type": "spot"},
+        "persistentVolumeConfiguration": {
+          "sizeGiB": 2048,
+          "iops": 16000,
+          "throughputMiB": 500,
+          "mountPath": "/mnt/persistent",
+          "lastUsedTtlHours": 168
+        }
       }
-    }
-  }
-}
+    }'
 ```
+
+To add persistent storage to an existing fleet, include the same
+`persistentVolumeConfiguration` object in an `update-fleet` call.
+To disable persistent storage, omit the `persistentVolumeConfiguration`
+object from the fleet configuration in an `UpdateFleet` call. Deadline Cloud
+automatically cleans up existing volumes when they are no longer attached to a
+worker.
 
 ## Runtime integration
 
 When persistent storage is successfully mounted on a worker, Deadline Cloud sets the
 `DEADLINE_PERSISTENT_MOUNT` environment variable to the configured mount path.
-The following runtime consumers automatically use persistent storage when the environment
-variable is present:
+This environment variable is available to all job processes running on the worker,
+including host configuration scripts and job template actions. The following runtime
+consumers automatically use persistent storage when the environment variable is
+present:
 
 - **Conda queue environments** – Package
   installations are stored on the persistent volume, so subsequent workers reuse
@@ -159,9 +183,25 @@ variable is present:
   The VFS stores its immutable asset cache on the persistent volume, so previously
   downloaded assets are available without re-downloading from Amazon Simple Storage Service (Amazon S3).
 
-You can also use the `DEADLINE_PERSISTENT_MOUNT` environment variable in
-your own job templates and scripts to store data that should persist across worker
-lifecycle events.
+You can also reference the `DEADLINE_PERSISTENT_MOUNT` environment variable
+in your own Open Job Description job templates and scripts to store data that should persist across
+worker lifecycle events. The following example shows a step that writes output to
+persistent storage:
+
+```
+steps:
+  - name: ProcessAssets
+    script:
+      actions:
+        onRun:
+          command: bash
+          args:
+            - "-c"
+            - |
+              CACHE_DIR="${DEADLINE_PERSISTENT_MOUNT}/my-app-cache"
+              mkdir -p "$CACHE_DIR"
+              # Your processing logic here
+```
 
 ## Managing persistent volumes
 
@@ -177,19 +217,40 @@ AWS CLI, or API. The following operations are available:
   unattached persistent volume that is no longer needed. You cannot delete a volume that
   is currently attached to a worker.
 
+The following AWS CLI example retrieves the details of a persistent volume:
+
+```
+aws deadline get-volume \
+    --farm-id `farm-0123456789abcdef0` \
+    --fleet-id `fleet-0123456789abcdef0` \
+    --volume-id `volume-0123456789abcdef0`
+```
+
+The `state` field in the response indicates the current volume state.
+Possible values are:
+
+- `AVAILABLE` – The volume is detached and ready for
+  attachment.
+- `IN_USE` – The volume is currently attached to a
+  worker.
+- `PENDING_CREATION` – The volume is being created.
+- `PENDING_ATTACHMENT` – The volume is reserved for attachment
+  to a worker.
+- `PENDING_DELETION` – The volume is marked for
+  deletion.
+
 ## Updating persistent storage configuration
 
 You can update the persistent storage configuration on an existing fleet. The following
-changes are supported:
+table describes how configuration changes affect existing persistent volumes:
 
-- **IOPS and throughput** – Deadline Cloud applies the
-  changes the next time it attaches a volume to a worker.
-- **Volume size (increase only)** – Deadline Cloud
-  enlarges volumes before the next attachment. You cannot decrease the volume
-  size.
-- **Disable persistent storage** – Deadline Cloud
-  automatically cleans up existing volumes when they are no longer attached to a
-  worker.
+| Change                                  | Behavior                                                                                                                          |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Increase or decrease IOPS or throughput | Deadline Cloud applies changes before the next volume attachment.                                                                 |
+| Increase volume size                    | Deadline Cloud enlarges the volume before the next attachment and expands the file<br>system automatically during worker startup. |
+| Decrease volume size                    | Not supported. Amazon EBS volumes cannot be reduced in size.                                                                      |
+| Change mount path                       | Applies only to new workers. Existing workers retain their current mount<br>path.                                                 |
+| Remove persistent storage               | Deadline Cloud marks existing volumes for deletion and cleans them up when they<br>are no longer attached to a worker.            |
 
 ###### Important
 

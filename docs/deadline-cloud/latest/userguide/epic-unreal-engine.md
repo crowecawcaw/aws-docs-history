@@ -8,7 +8,7 @@ Unreal Engine is supported by the following components:
 
 - **Submitter**: Integrated submitter plugin for direct job submission from Unreal Engine with automatic scene and asset detection.
 - **Conda packages**: Deadline Cloud for automatic installation on service-managed fleets.
-- **Adaptor**: Middleware for efficient rendering with sticky sessions and additional monitoring.
+- **Adaptor**: A program on worker hosts that keeps the application loaded between tasks for faster rendering and reports render progress.
 - **Cross-platform compatibility**: Submitter and worker support for Windows only.
 - **Movie Render Queue Integration**: Support for Unreal's Movie Render Queue system.
 
@@ -67,7 +67,7 @@ Use the **release** branch for production environments to ensure stability.
 
 If you're setting up on a brand new Windows Amazon Elastic Compute Cloud (Amazon EC2) instance as your submitter, a g5.2xlarge instance with 200 GB of storage is a reasonable minimum:
 
-1. Launch an Amazon EC2 instance with a valid Instance Profile. This is required to download NVIDIA GRID drivers as instructed below.
+1. Launch an Amazon EC2 instance with a valid Instance Profile. The profile is required to download NVIDIA GRID drivers as instructed below.
 2. Download the Epic Installer and install a supported version of Unreal (5.4 - 5.7).
 
    - UE 5.5 has a known crash bug when running with the DirectX 11 plugin (see UE issue #UE-276282). If you need DirectX support on UE 5.5, use DirectX 12 or later.
@@ -219,7 +219,7 @@ Follow the [service-managed fleets user guide](smf-manage.md "smf-manage.md") to
 
 ###### Warning
 
-When associating your CMF to queues, remove the default conda queue environment if you do not use it. This will prevent the conda environment from being used and accidentally using the default SMF-specific variables for jobs submitted to your CMF. If you use conda in your CMF, remember to update `CondaPackages` and `CondaChannels` variables in **Parameter Definition Overrides** during job submission. 2. Follow [Worker host setup and configuration](../developerguide/worker-host.md "../developerguide/worker-host.md") to set up a worker host. 3. Follow [Manage access to Windows job user secrets](../developerguide/manage-access-windows-secrets.md "../developerguide/manage-access-windows-secrets.md") to set up the Windows job user secrets for your CMF worker. 4. Follow [Install and configure software required for jobs](../developerguide/install-software.md "../developerguide/install-software.md") to install the software required to run jobs. 5. Follow [Setting up a customer-managed fleet (CMF) worker](#unreal-engine-cmf-worker-setup "#unreal-engine-cmf-worker-setup") to set up your worker node to run Unreal Engine jobs.
+When associating your CMF to queues, remove the default conda queue environment if you do not use it. This removal prevents the conda environment from being used and accidentally using the default SMF-specific variables for jobs submitted to your CMF. If you use conda in your CMF, remember to update `CondaPackages` and `CondaChannels` variables in **Parameter Definition Overrides** during job submission. 2. Follow [Worker host setup and configuration](../developerguide/worker-host.md "../developerguide/worker-host.md") to set up a worker host. 3. Follow [Manage access to Windows job user secrets](../developerguide/manage-access-windows-secrets.md "../developerguide/manage-access-windows-secrets.md") to set up the Windows job user secrets for your CMF worker. 4. Follow [Install and configure software required for jobs](../developerguide/install-software.md "../developerguide/install-software.md") to install the software required to run jobs. 5. Follow [Setting up a customer-managed fleet (CMF) worker](#unreal-engine-cmf-worker-setup "#unreal-engine-cmf-worker-setup") to set up your worker node to run Unreal Engine jobs.
 
 ## Submitting a test render
 
@@ -633,7 +633,7 @@ This solution is only suitable for CMF where you can configure worker hosts dire
 
 Create a dedicated P4 user for render nodes with a non-expiring connection to eliminate the need to pass secret data such as usernames and passwords. In this case, a single dedicated P4 user can be used to connect to all P4 servers, including the Commit (Master) and Edge servers where the project depot is accessible.
 
-Therefore, you only need to pass the port to connect to, if the default is not configured on workers. This can be achieved by adding the following in job environment or queue environment similar to the steps documented above:
+Therefore, you only need to pass the port to connect to, if the default is not configured on workers. You can pass the port by adding the following in job environment or queue environment similar to the steps documented above:
 
 ```
 name: P4Sync
@@ -707,7 +707,7 @@ Environment variables appear in logs with the `openjd_env` prefix, but sensitive
 ![Pick Class For Data Asset Instance dialog filtered to "deadline", with Deadline Cloud Perforce Environment selected.](images/unreal-engine-p4-environment.png) 2. Name the data asset descriptively (for example, "ApplyP4SecretEnv"). 3. Select the `p4_apply_secrets_environment.yml` template from `Content/Python/openjd_templates/p4/`. 4. Configure the secret reference:
 
     * Enter your Perforce credential secret name in **AWS\_SECRET\_P4INFO**.
-    * This should match the secret name created in [Perforce credentials management](#unreal-engine-perforce-credentials "#unreal-engine-perforce-credentials").
+    * The value should match the secret name created in [Perforce credentials management](#unreal-engine-perforce-credentials "#unreal-engine-perforce-credentials").
 
 ![Apply Perforce credentials environment data asset properties: Name P4ApplySecrets, Path to Template p4_apply_secrets_environment.yml, and AWS_SECRET_P4INFO variable set to P4AccessSecretName.](images/unreal-engine-p4-apply-secrets-environment.png)
 

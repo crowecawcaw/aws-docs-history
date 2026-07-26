@@ -31,7 +31,7 @@ based on what you want to limit.
 
 The **maximum worker count** setting on a fleet limits
 how many workers can run simultaneously. When the fleet reaches this maximum, it stops
-starting new workers even if more jobs are waiting. This is the most direct replacement
+starting new workers even if more jobs are waiting. This setting is the most direct replacement
 for the natural concurrency limit of a fixed-size render farm.
 
 Use this setting when you want to cap your peak compute cost at the fleet level.
@@ -132,5 +132,5 @@ jobs.
 "I want a combination of cost control and fair sharing"
 
 Set a fleet maximum worker count, use per-job max worker counts for
-large jobs, and add a budget as a safety net. This gives you a peak
+large jobs, and add a budget as a safety net. This combination gives you a peak
 capacity limit, per-job fairness, and a dollar backstop.

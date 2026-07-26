@@ -74,7 +74,7 @@ with increased memory or disk space will help ensure successful task completion.
 - **Consistently at 100%**: Could indicate
   CPU bottlenecks that might slow down renders
 
-Keep in mind that some render tasks will naturally be more CPU-intensive than others,
+Some render tasks will naturally be more CPU-intensive than others,
 and 100% vCPU usage may not be an issue. Real-time visualization tasks might show more
 consistent CPU utilization, while tasks with changing computational requirements might
 have varying patterns.

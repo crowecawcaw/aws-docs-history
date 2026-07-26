@@ -112,7 +112,7 @@ Before you use the Deadline Cloud submitter for VRED, make sure that your farm h
 
 ### Shared job settings
 
-![The Submit to Deadline Cloud dialog showing the Shared job settings tab with Job Properties (Name, Description, Priority, Initial state, Maximum failed tasks count, Maximum retries per task, Maximum worker count), Deadline Cloud settings (Farm, Queue), the BYOL License Forwarding queue environment, and the Conda queue environment.](images/vred-submitter-main.png)
+![The Submit to Deadline Cloud dialog showing the Shared job settings tab with Job Properties (Name, Description, Priority, Initial state, Maximum failed tasks count, Maximum retries per task, Maximum worker count), Deadline Cloud settings (Farm, Queue), the BYOL License Forwarding queue environment, and the conda queue environment.](images/vred-submitter-main.png)
 
 These settings apply to the entire job:
 
@@ -186,9 +186,9 @@ For information about the other submitter tabs (Job attachments, Host requiremen
 
 ### Using unsupported versions
 
-Deadline Cloud only supports and tests the workstation and worker software versions in the table above. When using the submitter, the worker will attempt to install the same version as used on the workstation. This will fail if the workstation version of VRED does not appear in the version table above.
+Deadline Cloud only supports and tests the workstation and worker software versions in the table above. When using the submitter, the worker will attempt to install the same version as used on the workstation. This installation fails if the workstation version of VRED does not appear in the version table above.
 
-If you require an unsupported version of VRED, you may build a custom Conda recipe and channel for your desired version to be installed on the worker. Use the Conda recipe for a supported version linked below as a starting point and package your desired version in a custom conda channel. For more information about creating custom Conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
+If you require an unsupported version of VRED, you can build a custom conda recipe and channel for your desired version to be installed on the worker. Use the conda recipe for a supported version linked below as a starting point and package your desired version in a custom conda channel. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
 
 ## VRED render engines
 

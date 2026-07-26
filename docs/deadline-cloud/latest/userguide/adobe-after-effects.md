@@ -439,7 +439,7 @@ and [aftereffects\_redgiant\_persistent](https://github.com/aws-deadline/deadlin
 
 Deadline Cloud only supports and tests the workstation and worker software versions in the
 table above. When using the submitter, the worker will attempt to install the same
-version as used on the workstation. This will fail if the workstation version of
+version as used on the workstation. This installation fails if the workstation version of
 After Effects does not appear in the version table above.
 
 If you require an unsupported version of After Effects, you have the following
@@ -447,7 +447,7 @@ options:
 
 - When submitting the job from After Effects, you may override the
   CondaPackages queue parameter to specify a supported version to use on the
-  worker (for example, `aftereffects=2025`). This may or may not
+  worker (for example, `aftereffects=2025`). This override might or might not
   work, depending on the features used by your scene and how After Effects
   works with scenes from your workstation version.
 - You may build a custom conda recipe and channel for your desired version

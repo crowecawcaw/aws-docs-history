@@ -8,7 +8,7 @@ Nuke is supported by the following components:
 
 - **Submitter**: Integrated submitter plugin for direct job submission from Nuke with automatic scene and asset detection.
 - **Conda packages**: Packages to install nuke versions 15, 16, and 17 are available on the Deadline Cloud conda channel for service-managed fleets.
-- **Adaptor**: Middleware for efficient rendering with sticky sessions and additional monitoring.
+- **Adaptor**: A program on worker hosts that keeps the application loaded between tasks for faster rendering and reports render progress.
 - **Cross-platform compatibility**: Submitter support for Windows, macOS, and Linux with worker support for Linux only with automatic path mapping.
 
 ## Nuke version compatibility
@@ -47,7 +47,7 @@ To use Nuke with Deadline Cloud:
 
 ###### Note
 
-Support for Nuke is provided using the Conda environment for service-managed fleets. For more information, see [Default conda queue environment](create-queue-environment.md#conda-queue-environment "create-queue-environment.md#conda-queue-environment").
+Support for Nuke is provided using the conda environment for service-managed fleets. For more information, see [Default conda queue environment](create-queue-environment.md#conda-queue-environment "create-queue-environment.md#conda-queue-environment").
 
 1. Install the Deadline Cloud monitor and Nuke submitter on your artist workstation using the Deadline Cloud Submitter and monitor Installers. For more information, see [Set up your workstation](submitter.md "submitter.md").
 2. Open **Nuke**.
@@ -164,7 +164,7 @@ Deadline Cloud only supports and tests the workstation and worker software versi
 
 If you require an unsupported version of Nuke, you have the following options:
 
-- When submitting the job from Nuke, you can override the CondaPackages queue parameter to specify a supported version to use on the worker (for example, `nuke=17, nuke-openjd=*`). This might or might not work, depending on the features used by your composition and how Nuke works with compositions from your workstation version.
+- When submitting the job from Nuke, you can override the CondaPackages queue parameter to specify a supported version to use on the worker (for example, `nuke=17, nuke-openjd=*`). This override might or might not work, depending on the features used by your composition and how Nuke works with compositions from your workstation version.
 - You can build a custom conda recipe and channel for your desired version to be installed on the worker. Use the conda recipe for a supported version linked below as a starting point, and package your desired version in a custom conda channel. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
 
 ### Custom Nuke executable
@@ -195,7 +195,7 @@ Nuke's compositing engine provides comprehensive support for:
 | Frame Ranges     | Custom frame range specification   | Supports override and default ranges     |
 | Multiple Views   | Stereo and multi-view rendering    | Proper handling of view-specific outputs |
 | Color Management | OpenColorIO integration            | Automatic OCIO configuration detection   |
-| Path Mapping     | Cross-platform path translation    | Seamless Windows/Linux compatibility     |
+| Path Mapping     | Cross-platform path translation    | Windows/Linux compatibility              |
 | CopyCat          | ML-based paint and rotoscoping     | Requires Nuke 14.0 or later              |
 
 Compositing features are automatically detected and configured by the Nuke integrated submitter. The submitter maintains proper dependency handling and asset management for complex compositions.
@@ -205,4 +205,4 @@ Compositing features are automatically detected and configured by the Nuke integ
 The submitter and adaptor are open source and available on GitHub:
 
 - [Deadline Cloud for Nuke](https://github.com/aws-deadline/deadline-cloud-for-nuke "https://github.com/aws-deadline/deadline-cloud-for-nuke")
-- [Nuke Conda recipes](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes") are available on GitHub for supported versions.
+- [Nuke conda recipes](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes") are available on GitHub for supported versions.

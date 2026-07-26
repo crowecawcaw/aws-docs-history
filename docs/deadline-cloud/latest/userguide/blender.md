@@ -8,7 +8,7 @@ Blender is supported by the following components:
 
 - **Submitter**: Integrated submitter for direct job submission from Blender with automatic scene and asset detection.
 - **Conda packages**: Deadline Cloud for automatic installation on service-managed fleets.
-- **Adaptor**: Middleware for efficient rendering with sticky sessions and additional monitoring.
+- **Adaptor**: A program on worker hosts that keeps the application loaded between tasks for faster rendering and reports render progress.
 - **Cross-platform compatibility**: Submitter support for Windows, macOS, and Linux with worker support for Windows and Linux with automatic path mapping.
 
 ## Blender version compatibility
@@ -87,7 +87,7 @@ If the add-on is not available from the **Render** menu, you need to manually en
 
 ###### Note
 
-This is an experimental feature and is subject to change.
+This feature is experimental and subject to change.
 
 You can install and update the Blender submitter from within Blender using Blender's extension feature.
 
@@ -153,11 +153,11 @@ For information about the other submitter tabs, see the [Deadline Cloud guide fo
 
 ### Using unsupported versions
 
-Deadline Cloud only supports and tests the workstation and worker software versions in the table above. When using the submitter, the worker will attempt to install the same version as used on the workstation. This will fail if the workstation version of Blender does not appear in the version table above.
+Deadline Cloud only supports and tests the workstation and worker software versions in the table above. When using the submitter, the worker will attempt to install the same version as used on the workstation. This installation fails if the workstation version of Blender does not appear in the version table above.
 
 If you require an unsupported version of Blender, you have the following options:
 
-- When submitting the job from Blender, you may override the CondaPackages queue parameter to specify a supported version to use on the worker (for example, `blender=4.5, blender-openjd=*`). This may or may not work, depending on the features used by your scene and how Blender works with scenes from your workstation version.
+- When submitting the job from Blender, you can override the CondaPackages queue parameter to specify a supported version to use on the worker (for example, `blender=4.5, blender-openjd=*`). This override might or might not work, depending on the features used by your scene and how Blender works with scenes from your workstation version.
 - You may build a custom conda recipe and channel for your desired version to be installed on the worker. Use the conda recipe for a supported version linked below as a starting point, and package your desired version in a custom conda channel. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
 
 ## Blender add-ons
@@ -186,4 +186,4 @@ All render engines are automatically detected and configured by the Blender inte
 The submitter and adaptor are open source and available on GitHub:
 
 - [Deadline Cloud for Blender](https://github.com/aws-deadline/deadline-cloud-for-blender "https://github.com/aws-deadline/deadline-cloud-for-blender")
-- [Blender Conda recipes](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.5 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.5") are available on GitHub for supported versions.
+- [Blender conda recipes](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.5 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.5") are available on GitHub for supported versions.

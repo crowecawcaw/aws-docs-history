@@ -41,7 +41,7 @@ OpenSearch.
 
 Grants that enable Deadline Cloud to manage machines in a service-managed fleet include a Deadline Cloud
 account number and role in the `GranteePrincipal` instead of a service principal.
-While not typical, this is necessary to encrypt Amazon EBS volumes for workers in service-managed
+While not typical, the grant configuration is necessary to encrypt Amazon EBS volumes for workers in service-managed
 fleets using the customer managed KMS key specified for the farm.
 
 ## Customer managed key policy
@@ -188,6 +188,12 @@ JSON
 When you use an AWS KMS customer managed key with your Deadline Cloud farms, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track
 requests that Deadline Cloud sends to AWS KMS.
 
+Deadline Cloud generates a `CreateGrant` event when it sets up access to your key,
+and `Decrypt` and `GenerateDataKey` events when it uses the key. The
+events include an `encryptionContext` that identifies the farm. For more
+information about the events, see [Logging AWS KMS API calls
+with AWS CloudTrail](../../../kms/latest/developerguide/logging-using-cloudtrail.md "../../../kms/latest/developerguide/logging-using-cloudtrail.md") in the _AWS Key Management Service Developer Guide_.
+
 ### CloudTrail event for grants
 
 The following example CloudTrail event occurs when grants are created, typically when you
@@ -264,132 +270,6 @@ operation.
 }
 ```
 
-### CloudTrail event for decryption
-
-The following example CloudTrail event occurs when decrypting values using the customer
-managed KMS key.
-
-```
-{
-    "eventVersion": "1.08",
-    "userIdentity": {
-        "type": "AssumedRole",
-        "principalId": "`AROAIGDTESTANDEXAMPLE`:`SampleUser01`",
-        "arn": "arn:aws::sts::111122223333:assumed-role/`SampleRole`/`SampleUser01`",
-        "accountId": "111122223333",
-        "accessKeyId": "`AKIAIOSFODNN7EXAMPLE`",
-        "sessionContext": {
-            "sessionIssuer": {
-                "type": "Role",
-                "principalId": "`AROAIGDTESTANDEXAMPLE`",
-                "arn": "arn:aws::iam::`111122223333`:role/`SampleRole`",
-                "accountId": "`111122223333`",
-                "userName": "`SampleRole`"
-            },
-            "webIdFederationData": {},
-            "attributes": {
-                "creationDate": "2024-04-23T18:46:51Z",
-                "mfaAuthenticated": "false"
-            }
-        },
-        "invokedBy": "deadline.amazonaws.com"
-    },
-    "eventTime": "2024-04-23T18:51:44Z",
-    "eventSource": "kms.amazonaws.com",
-    "eventName": "Decrypt",
-    "awsRegion": "us-west-2",
-    "sourceIPAddress": "deadline.amazonaws.com",
-    "userAgent": "deadline.amazonaws.com",
-    "requestParameters": {
-        "encryptionContext": {
-            "aws:deadline:farmId": "farm-`abcdef12345678900987654321fedcba`",
-            "aws:deadline:accountId": "`111122223333`",
-            "aws-crypto-public-key": "`AotL+SAMPLEVALUEiOMEXAMPLEaaqNOTREALaGTESTONLY+p/5H+EuKd4Q==`"
-        },
-        "encryptionAlgorithm": "SYMMETRIC_DEFAULT",
-        "keyId": "arn:aws::kms:us-west-2:`111122223333`:key/`a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`"
-    },
-    "responseElements": null,
-    "requestID": "`aaaaaaaa-bbbb-cccc-dddd-eeeeeeffffff`",
-    "eventID": "`ffffffff-eeee-dddd-cccc-bbbbbbaaaaaa`",
-    "readOnly": true,
-    "resources": [
-        {
-            "accountId": "`111122223333`",
-            "type": "AWS::KMS::Key",
-            "ARN": "arn:aws::kms:us-west-2:`111122223333`:key/`a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`"
-        }
-    ],
-    "eventType": "AwsApiCall",
-    "managementEvent": true,
-    "recipientAccountId": "`111122223333`",
-    "eventCategory": "Management"
-}
-```
-
-### CloudTrail event for encryption
-
-The following example CloudTrail event occurs when encrypting values using the customer
-managed KMS key.
-
-```
-{
-    "eventVersion": "1.08",
-    "userIdentity": {
-        "type": "AssumedRole",
-        "principalId": "`AROAIGDTESTANDEXAMPLE`:`SampleUser01`",
-        "arn": "arn:aws::sts::`111122223333`:assumed-role/`SampleRole`/`SampleUser01`",
-        "accountId": "`111122223333`",
-        "accessKeyId": "`AKIAIOSFODNN7EXAMPLE`",
-        "sessionContext": {
-            "sessionIssuer": {
-                "type": "Role",
-                "principalId": "`AROAIGDTESTANDEXAMPLE`",
-                "arn": "arn:aws::iam::`111122223333`:role/`SampleRole`",
-                "accountId": "`111122223333`",
-                "userName": "SampleRole"
-            },
-            "webIdFederationData": {},
-            "attributes": {
-                "creationDate": "2024-04-23T18:46:51Z",
-                "mfaAuthenticated": "false"
-            }
-        },
-        "invokedBy": "deadline.amazonaws.com"
-    },
-    "eventTime": "2024-04-23T18:52:40Z",
-    "eventSource": "kms.amazonaws.com",
-    "eventName": "GenerateDataKey",
-    "awsRegion": "us-west-2",
-    "sourceIPAddress": "deadline.amazonaws.com",
-    "userAgent": "deadline.amazonaws.com",
-    "requestParameters": {
-        "numberOfBytes": 32,
-        "encryptionContext": {
-            "aws:deadline:farmId": "farm-`abcdef12345678900987654321fedcba`",
-            "aws:deadline:accountId": "`111122223333`",
-            "aws-crypto-public-key": "`AotL+SAMPLEVALUEiOMEXAMPLEaaqNOTREALaGTESTONLY+p/5H+EuKd4Q==`"
-        },
-        "keyId": "arn:aws::kms:us-west-2:`111122223333`:key/`abcdef12-3456-7890-0987-654321fedcba`"
-    },
-    "responseElements": null,
-    "requestID": "`a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`",
-    "eventID": "`a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`",
-    "readOnly": true,
-    "resources": [
-        {
-            "accountId": "`111122223333`",
-            "type": "AWS::KMS::Key",
-            "ARN": "arn:aws::kms:us-west-2:`111122223333`:key/`a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`"
-        }
-    ],
-    "eventType": "AwsApiCall",
-    "managementEvent": true,
-    "recipientAccountId": "`111122223333`",
-    "eventCategory": "Management"
-}
-```
-
 ## Deleting a customer managed KMS key
 
 Deleting a customer managed KMS key in AWS Key Management Service (AWS KMS) is destructive and
@@ -397,7 +277,7 @@ potentially dangerous. It irreversibly deletes the key material and all metadata
 with the key. After a customer managed KMS key is deleted, you can no longer decrypt the
 data that was encrypted by that key. Deleting the key means that the data becomes unrecoverable.
 
-This is why AWS KMS gives customers a waiting period of up to 30 days before deleting the
+For safety, AWS KMS gives customers a waiting period of up to 30 days before deleting the
 KMS key. The default waiting period is 30 days.
 
 ### About the waiting period
@@ -409,15 +289,15 @@ waiting period is 30 days.
 However, the actual waiting period might be up to 24 hours longer than the period you
 scheduled. To get the actual date and time when the key will be deleted, use the [DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") operation. You can also see the scheduled deletion
 date of a key in the [AWS KMS
-console](../../../kms/latest/developerguide/viewing-keys-console.md#viewing-details-navigate "../../../kms/latest/developerguide/viewing-keys-console.md#viewing-details-navigate") on the key’s detail page, in the **General
+console](../../../kms/latest/developerguide/viewing-keys-console.md#viewing-details-navigate "../../../kms/latest/developerguide/viewing-keys-console.md#viewing-details-navigate") on the key's detail page, in the **General
 configuration** section. Notice the time zone.
 
-During the waiting period, the customer managed key’s status and key state is
+During the waiting period, the customer managed key's status and key state is
 **Pending deletion**.
 
-- A customer managed KMS key that is pending deletion can’t be used in any [cryptographic
+- A customer managed KMS key that is pending deletion can't be used in any [cryptographic
   operations](../../../kms/latest/developerguide/concepts.md#cryptographic-operations "../../../kms/latest/developerguide/concepts.md#cryptographic-operations").
-- AWS KMS doesn’t [rotate the
+- AWS KMS doesn't [rotate the
   backing keys](../../../kms/latest/developerguide/rotate-keys.md#rotate-keys-how-it-works "../../../kms/latest/developerguide/rotate-keys.md#rotate-keys-how-it-works") of customer managed KMS keys that are pending
   deletion.
 

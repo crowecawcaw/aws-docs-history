@@ -20,7 +20,6 @@ Designer to help you get started with CloudFormation templates. For more informa
 Designer?](../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md") in the _AWS CloudFormation User Guide_.
 
 Deadline Cloud supports creating farms, queues, and fleets
-
 in CloudFormation. For more information, including examples of JSON and YAML templates for
 farms, queues, and fleets, see the [AWS Deadline Cloud](../../../AWSCloudFormation/latest/UserGuide/AWS_Deadline.md "../../../AWSCloudFormation/latest/UserGuide/AWS_Deadline.md") in the
 _AWS CloudFormation User Guide_.

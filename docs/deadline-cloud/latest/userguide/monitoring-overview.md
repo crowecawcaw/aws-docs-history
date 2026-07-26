@@ -23,7 +23,10 @@ answers to the following questions:
   instances and automatically launch new instances when needed. For more information, see the
   [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").
 
-Deadline Cloud has three CloudWatch metrics.
+Deadline Cloud publishes CloudWatch metrics for customer-managed fleet sizing, usage-based
+licensing, and resource limits. For the full list of metrics and recommended alarms, see
+[Monitoring with
+CloudWatch](../developerguide/monitoring-cloudwatch.md "../developerguide/monitoring-cloudwatch.md") in the _Deadline Cloud Developer Guide_.
 
 - _Amazon CloudWatch Logs_ enables you to monitor, store, and access your log files
   from Amazon EC2 instances, CloudTrail, and other sources. CloudWatch Logs can monitor information in the log

@@ -5,7 +5,7 @@ identity sources:
 
 IAM Identity Center directory
 
-This is the default identity source. Users are created and managed directly
+This option is the default identity source. Users are created and managed directly
 within IAM Identity Center. You can create users through the Deadline Cloud console or the IAM Identity Center console.
 Users receive email invitations to join your organization, and passwords are managed
 within IAM Identity Center.

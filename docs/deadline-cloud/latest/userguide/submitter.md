@@ -1,24 +1,26 @@
 # Set up your workstation
 
-This process is for administrators and artists who want to install, set up, and launch the
-AWS Deadline Cloud submitter. A Deadline Cloud _submitter_ is a digital
-content creation (DCC) plugin. Artists use it to submit jobs from a third-party DCC
-interface that they're familiar with.
+Set up a workstation so that you can submit jobs to AWS Deadline Cloud from your
+digital content creation (DCC) application. A Deadline Cloud _submitter_ is a DCC plugin. You use it to submit jobs from a
+third-party DCC interface that you're familiar with. You can follow these steps
+yourself, or an administrator can install the software in advance. You sign in
+with your own user account.
 
-###### Note
+Before you begin, you need the following:
 
-This process must be completed on all workstations that artists will use for
-submitting renders.
-
-Each workstation must have the DCC installed before installing the corresponding
-submitter. For example, if you want to download the Deadline Cloud submitter for Blender,
-you need to have Blender already installed on your workstation.
-
-We provide reasonable defaults for keeping workstations secure. For more information about
-securing your workstation, see
-[Security best practices
-
-- workstations](security-best-practices.md#workstations "security-best-practices.md#workstations").
+- The monitor URL for your farm, which looks like
+  `https://`MY-MONITOR`.deadlinecloud.amazonaws.com/`.
+  Your administrator shares it with you. If you're the administrator, see
+  [Share the Deadline Cloud monitor URL](share-monitor-url.md "share-monitor-url.md").
+- A user that can sign in to the monitor. If your organization uses single
+  sign-on, sign in with your existing company account. If your administrator
+  creates a user for you in AWS IAM Identity Center, accept the emailed invitation first.
+  If you're the administrator, see [Managing users in Deadline Cloud](managing-users.md "managing-users.md").
+- The DCC installed on the workstation. For example, if you want to download
+  the Deadline Cloud submitter for Blender, you need to have
+  Blender already installed on your workstation.
+  Complete this process on every workstation that you use to submit
+  renders.
 
 ###### Topics
 
@@ -28,36 +30,18 @@ securing your workstation, see
 
 ## Step 1: Install the Deadline Cloud submitter
 
-The following sections guide you through the steps to install the Deadline Cloud
-submitter.
-
-###### Note
-
-**Unreal Engine:** The Unreal Engine submitter is not included in the standard installer and requires a separate setup process.
-For installation instructions, see the
-[Unreal Engine Submitter Setup Guide](https://github.com/aws-deadline/deadline-cloud-for-unreal-engine "https://github.com/aws-deadline/deadline-cloud-for-unreal-engine").
-
-### Download the submitter installer
-
-Before you can install the Deadline Cloud submitter, you must download the submitter
-installer.
-
-1. Download the submitter installer for your operating system:
+Download the submitter installer for your operating system:
 
 |                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                   |                                                                                                                                                                                                                                                                       |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Download for Windows](https://downloads.deadlinecloud.amazonaws.com/submitters/latest/windows/DeadlineCloudSubmitter-windows-x64-installer.exe "https://downloads.deadlinecloud.amazonaws.com/submitters/latest/windows/DeadlineCloudSubmitter-windows-x64-installer.exe") | [Download for Linux](https://downloads.deadlinecloud.amazonaws.com/submitters/latest/linux/DeadlineCloudSubmitter-linux-x64-installer.run "https://downloads.deadlinecloud.amazonaws.com/submitters/latest/linux/DeadlineCloudSubmitter-linux-x64-installer.run") | [Download for MacOS (arm64)](https://downloads.deadlinecloud.amazonaws.com/submitters/latest/macos/DeadlineCloudSubmitter-osx-installer.app.zip "https://downloads.deadlinecloud.amazonaws.com/submitters/latest/macos/DeadlineCloudSubmitter-osx-installer.app.zip") |
-
-2. (Optional) [Verify the authenticity of downloaded software](security-best-practices.md#verify-installer "security-best-practices.md#verify-installer").
-
-### Install the Deadline Cloud submitter
 
 With the installer, you can install the following submitters:
 
 | Software                                                                 | Supported versions | Windows installer | Linux installer | MacOS (arm64) installer |
 | ------------------------------------------------------------------------ | ------------------ | ----------------- | --------------- | ----------------------- |
 | [Adobe After Effects](adobe-after-effects.md "adobe-after-effects.md")   | 2024<br>• 2026     | Included          | Not included    | Included                |
-| [Autodesk 3ds Max](autodesk-3ds-max.md "autodesk-3ds-max.md")            | 2024<br>• 2026     | Included          | Not included    | Not included            |
+| [Autodesk 3ds Max](autodesk-3ds-max.md "autodesk-3ds-max.md")            | 2024<br>• 2027     | Included          | Not included    | Not included            |
 | [Autodesk Arnold for Cinema 4D](maxon-cinema-4d.md "maxon-cinema-4d.md") | 4.8.4.1            | Included          | Not included    | Included                |
 | [Autodesk Arnold for Maya](autodesk-maya.md "autodesk-maya.md")          | 7.1<br>• 7.4       | Included          | Included        | Included                |
 | [Autodesk Maya](autodesk-maya.md "autodesk-maya.md")                     | 2023<br>• 2026     | Included          | Included        | Included                |
@@ -70,10 +54,10 @@ With the installer, you can install the following submitters:
 | [Maxon Redshift for Maya](autodesk-maya.md "autodesk-maya.md")           | 2025-2026          | Included          | Included        | Included                |
 | [SideFX Houdini](sidefx-houdini.md "sidefx-houdini.md")                  | 19.5<br>• 21.0     | Included          | Included        | Included                |
 
-###### Note
-
-**Unreal Engine:** The Unreal Engine submitter is not included in the standard installer and requires a separate setup process.
-For installation instructions, see the [Unreal Engine Submitter Setup Guide](https://github.com/aws-deadline/deadline-cloud-for-unreal-engine "https://github.com/aws-deadline/deadline-cloud-for-unreal-engine").
+The standard installer doesn't include the Unreal Engine
+submitter, which has a separate setup process. For installation
+instructions, see the [Unreal Engine Submitter Setup Guide](https://github.com/aws-deadline/deadline-cloud-for-unreal-engine "https://github.com/aws-deadline/deadline-cloud-for-unreal-engine") on the GitHub
+website.
 
 Windows
 
@@ -320,9 +304,9 @@ folder.
 
 After you complete the download, you can verify the authenticity of the downloaded
 software. You might want to do this to ensure no one has tampered with the files during
-or after the download process. See [Verify the authenticity of downloaded software](security-best-practices.md#verify-installer "security-best-practices.md#verify-installer") in Step 1.
+or after the download process. See [Verify the authenticity of downloaded software](verify-installer.md "verify-installer.md").
 
-After downloading Deadline Cloud monitor and verifying the authenticity, use the following procedure
+After downloading Deadline Cloud monitor, use the following procedure
 to set up the Deadline Cloud monitor.
 
 ###### To set up Deadline Cloud monitor
@@ -351,7 +335,7 @@ to set up the Deadline Cloud monitor.
    do the following:
 
    - Change the Deadline Cloud monitor profile to log in to a different monitor.
-   - Enable **Autologin** so you don’t have to enter your
+   - Enable **Autologin** so you don't have to enter your
      monitor URL on subsequent opens of Deadline Cloud monitor.
 
 5. Close the Deadline Cloud monitor window. It continues to run in the background and
@@ -367,28 +351,10 @@ to set up the Deadline Cloud monitor.
 
 ## Step 3: Launch the Deadline Cloud submitter
 
-The following example shows how to install the Blender submitter. You
-can install other submitters using similar steps.
+The steps to load and launch the submitter are unique to each DCC. For the
+instructions for your DCC, see [Supported Software](supported-software.md "supported-software.md").
 
-###### To launch the Deadline Cloud submitter in Blender
+If you want a free DCC to test your setup with, Blender is a
+good choice. See the Blender [Installation](blender.md#blender-installation "blender.md#blender-installation") instructions.
 
-###### Note
-
-Support for Blender is provided using the conda
-environment for service-managed fleets. For more information, see [Default conda queue environment](create-queue-environment.md#conda-queue-environment "create-queue-environment.md#conda-queue-environment").
-
-1. Open **Blender**.
-2. In the **Render** menu, choose **Submit to AWS Deadline Cloud**.
-
-   1. If you are not already authenticated in the Deadline Cloud submitter, the
-      **Credentials Status** shows as
-      **NEEDS\_LOGIN**.
-   2. Choose **Login**. You will be prompted to log in with your user
-      credentials in a browser.
-   3. You are now logged in and the
-      **Credentials Status** shows as
-      **AUTHENTICATED**.
-
-3. Choose **Submit**.
-
-Now your job is submitted to your Deadline Cloud farm and will be processed by a compatible fleet. For information on how to view job progress in the monitor, see [Using the Monitor](working-with-deadline-monitor.md "working-with-deadline-monitor.md").
+After you submit a job from your DCC, your Deadline Cloud farm receives it and a compatible fleet processes it. To verify your setup, open the monitor and confirm that your job appears and completes. For information on how to view job progress in the monitor, see [Using the Monitor](working-with-deadline-monitor.md "working-with-deadline-monitor.md").

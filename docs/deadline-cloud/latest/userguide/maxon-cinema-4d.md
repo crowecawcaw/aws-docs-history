@@ -15,7 +15,7 @@ Cinema 4D is supported by the following components:
 
 - **Submitter**: Integrated submitter for direct job submission from Cinema 4D with automatic scene and asset detection.
 - **Conda packages**: Automatic installation on service-managed fleets when using the submitter.
-- **Adaptor**: Middleware for more efficient rendering with sticky sessions and additional monitoring.
+- **Adaptor**: A program on worker hosts that keeps the application loaded between tasks for faster rendering and reports render progress.
 - **Cross-platform compatibility**: Submitter support for Windows and macOS with worker support for Windows and Linux with automatic path mapping.
 - **Usage-based Licensing**: Pay-as-you-go licensing for Cinema 4D, Redshift, and Red Giant licensing.
 
@@ -319,7 +319,7 @@ A: It depends on your scene. A 3x3 or 4x4 grid is a good starting point. More ti
 
 **Q: Why don't fonts work while submitting with macOS?**
 
-A: Font functionality is currently only supported on Windows due to technical limitations. This is a known behavior in mixed macOS/Windows environments, as confirmed by Maxon's official documentation. For more information, see [Maxon's official FAQ on resolving missing fonts in Team Render](https://support.maxon.net/hc/en-us/articles/1500006439721-How-to-resolve-missing-fonts-in-Team-Render-for-Cinema-4D-install-fonts-or-make-Text-editable "https://support.maxon.net/hc/en-us/articles/1500006439721-How-to-resolve-missing-fonts-in-Team-Render-for-Cinema-4D-install-fonts-or-make-Text-editable").
+A: Font functionality is currently only supported on Windows due to technical limitations. This limitation is a known behavior in mixed macOS/Windows environments, as confirmed by Maxon's official documentation. For more information, see [Maxon's official FAQ on resolving missing fonts in Team Render](https://support.maxon.net/hc/en-us/articles/1500006439721-How-to-resolve-missing-fonts-in-Team-Render-for-Cinema-4D-install-fonts-or-make-Text-editable "https://support.maxon.net/hc/en-us/articles/1500006439721-How-to-resolve-missing-fonts-in-Team-Render-for-Cinema-4D-install-fonts-or-make-Text-editable").
 
 ### Common issues
 
@@ -329,7 +329,7 @@ A: Make sure you've installed the extension correctly and restarted Cinema 4D. C
 
 **Q: My job completed successfully but I get "no outputs found" when trying to download outputs. Why?**
 
-A: This is most likely a version mismatch between the Cinema 4D submitter and Deadline Cloud monitor. Jobs submitted with `deadline-cloud-for-cinema-4d` 0.11.1 (or newer) are incompatible with Deadline Cloud monitor 1.1.7 and earlier, which causes output downloads to fail even though the render itself succeeded.
+A: The cause is most likely a version mismatch between the Cinema 4D submitter and Deadline Cloud monitor. Jobs submitted with `deadline-cloud-for-cinema-4d` 0.11.1 (or newer) are incompatible with Deadline Cloud monitor 1.1.7 and earlier, which causes output downloads to fail even though the render itself succeeded.
 
 **How to verify you're affected**:
 
@@ -342,13 +342,13 @@ If both conditions are true, you are hitting this issue.
 
 **Q: Why are some of my textures or assets missing in the rendered output?**
 
-A: This is typically a path mapping issue. Cinema 4D sometimes stores deep links (absolute paths) to assets in the scene file that cannot be edited. When the scene is submitted and rendered on the farm, it may still reference the original workstation paths even though the assets were uploaded.
+A: The cause is typically a path mapping issue. Cinema 4D sometimes stores deep links (absolute paths) to assets in the scene file that cannot be edited. When the scene is submitted and rendered on the farm, it might still reference the original workstation paths even though the assets were uploaded.
 
 **Workaround**: Enable "Save Cinema 4D Project with Assets" in the Job-Specific Settings tab of the submitter. This setting consolidates all assets into the project folder and fixes the paths before submission, ensuring they render correctly on the farm.
 
 **Q: Are nested Redshift proxy files detected when submitting Cinema 4D jobs to Deadline Cloud?**
 
-A: No, Redshift proxy files are not detected when submitting Cinema 4D jobs to Deadline Cloud. This is a limitation of the Redshift `*.rs` file format. When you export a Cinema 4D scene containing RS Proxy objects to `*.rs`, all referenced proxy data is flattened or inlined into a single file - no external references are preserved. The Cinema 4D SDK cannot read `*.rs` files to discover nested dependencies, and the Redshift Core doesn't expose this functionality either. For more information, see the [Maxon developer forum post](https://developers.maxon.net/forum/topic/16370/cinema-4d-redshift-nested-redshift-proxy-files-not-detected-by-project-asset-inspector/2 "https://developers.maxon.net/forum/topic/16370/cinema-4d-redshift-nested-redshift-proxy-files-not-detected-by-project-asset-inspector/2").
+A: No, Redshift proxy files are not detected when submitting Cinema 4D jobs to Deadline Cloud. This behavior is a limitation of the Redshift `*.rs` file format. When you export a Cinema 4D scene containing RS Proxy objects to `*.rs`, all referenced proxy data is flattened or inlined into a single file - no external references are preserved. The Cinema 4D SDK cannot read `*.rs` files to discover nested dependencies, and the Redshift Core doesn't expose this functionality either. For more information, see the [Maxon developer forum post](https://developers.maxon.net/forum/topic/16370/cinema-4d-redshift-nested-redshift-proxy-files-not-detected-by-project-asset-inspector/2 "https://developers.maxon.net/forum/topic/16370/cinema-4d-redshift-nested-redshift-proxy-files-not-detected-by-project-asset-inspector/2").
 
 **Q: I'm getting permission errors with a system-wide installation on Windows. How do I fix this?**
 
@@ -444,7 +444,7 @@ Use GitHub issues as your primary channel for Cinema 4D-specific problems:
 
    - Add a thumbs-up reaction to help us prioritize.
    - Comment with any additional details or reproduction steps you can provide.
-   - This helps us understand how many users are affected.
+   - This information helps us understand how many users are affected.
 
 If no existing issue matches, [create a new bug report](https://github.com/aws-deadline/deadline-cloud-for-cinema-4d/issues/new?template=bug.yml "https://github.com/aws-deadline/deadline-cloud-for-cinema-4d/issues/new?template=bug.yml") using the bug report template. The template will guide you through providing all the necessary information.
 
@@ -452,7 +452,7 @@ If no existing issue matches, [create a new bug report](https://github.com/aws-d
 
 **Before creating a new feature request**:
 
-1. [Search existing enhancements](https://github.com/aws-deadline/deadline-cloud-for-cinema-4d/issues?q=is%3Aopen+label%3Aenhancement "https://github.com/aws-deadline/deadline-cloud-for-cinema-4d/issues?q=is%3Aopen+label%3Aenhancement") to see if someone has already suggested your idea.
+1. [Search existing feature requests](https://github.com/aws-deadline/deadline-cloud-for-cinema-4d/issues?q=is%3Aopen+label%3Aenhancement "https://github.com/aws-deadline/deadline-cloud-for-cinema-4d/issues?q=is%3Aopen+label%3Aenhancement") to see if someone has already suggested your idea.
 2. If you find an existing request that matches:
 
    - Add a thumbs-up reaction to show your support.
@@ -505,15 +505,15 @@ A scene project file packages your Cinema 4D scene with all its assets:
 
 Remove confidential assets _before_ using "Save Project with Assets" - not after. Removing assets after saving can cause missing file errors that make it harder to diagnose your original issue.
 
-**Tip**: The best way to share a reproducible test case is with a publicly available scene or a simplified scene that demonstrates the issue without confidential material. If you can recreate the problem with non-proprietary assets, this makes it much easier for support to investigate.
+**Tip**: The best way to share a reproducible test case is with a publicly available scene or a simplified scene that demonstrates the issue without confidential material. If you can recreate the problem with non-proprietary assets, that makes it much easier for support to investigate.
 
 ## Advanced configurations
 
 ### Using unsupported versions
 
-Deadline Cloud only supports and tests the workstation and worker software versions in the table above. When using the submitter, the worker will attempt to install the same version as used on the workstation. This will fail if the workstation version of Cinema 4D does not appear in the version table above.
+Deadline Cloud only supports and tests the workstation and worker software versions in the table above. When using the submitter, the worker will attempt to install the same version as used on the workstation. This installation fails if the workstation version of Cinema 4D does not appear in the version table above.
 
-If you require an unsupported version of Cinema 4D, you may build a custom conda recipe and channel for your desired version to be installed on the worker. Use the conda recipe for a supported version linked in the Open Source Resources section below as a starting point, and package your desired version in a custom conda channel. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
+If you require an unsupported version of Cinema 4D, you can build a custom conda recipe and channel for your desired version to be installed on the worker. Use the conda recipe for a supported version linked in the Open Source Resources section below as a starting point, and package your desired version in a custom conda channel. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
 
 If you create a conda package for a different version of Cinema 4D, you should ensure it will acquire a license correctly. If the version is compatible with licensing for a supported version in the table above, then usage-based licensing will work automatically. You may also bring your own license to a service-managed fleet by following [Connect service-managed fleets to a custom license server](../developerguide/smf-byol.md "../developerguide/smf-byol.md").
 
@@ -542,7 +542,7 @@ Red Giant requires custom setup on service-managed fleets. A host configuration 
 
 ### V-Ray Plugin
 
-V-Ray is a 3D photorealistic ray-traced rendering plug-in. V-Ray for Cinema 4D is not currently fully supported in Service-managed fleets. A conda recipe is provided which you can use to create your own Conda channel for use in your Deadline Cloud farm. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md"). Once installed, V-Ray is supported by Deadline Cloud Usage-based Licensing and requires no further configuration to operate.
+V-Ray is a 3D photorealistic ray-traced rendering plug-in. V-Ray for Cinema 4D is not currently fully supported in Service-managed fleets. We provide a conda recipe that you can use to create your own conda channel for use in your Deadline Cloud farm. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md"). After installation, V-Ray is supported by Deadline Cloud Usage-based Licensing and requires no further configuration to operate.
 
 ### C4DToArnold
 
@@ -550,7 +550,7 @@ Autodesk Arnold software is an advanced Monte Carlo ray tracing renderer. For mo
 
 ### Insydium X-Particles
 
-X-Particles is a fully-featured advanced particle and VFX system for Maxon's Cinema 4D. For more information, see [X-Particles](https://insydium.ltd/products/x-particles/ "https://insydium.ltd/products/x-particles/"). Insydium X-Particles is not currently fully supported in Service-managed fleets. A conda recipe is provided which you can use to create your own Conda channel for use in your Deadline Cloud farm. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md"). When you create the conda package from your X-Particles package, it will include your purchased license. No additional configuration is necessary to operate on service-managed fleets.
+X-Particles is a fully-featured advanced particle and VFX system for Maxon's Cinema 4D. For more information, see [X-Particles](https://insydium.ltd/products/x-particles/ "https://insydium.ltd/products/x-particles/"). Insydium X-Particles is not currently fully supported in Service-managed fleets. We provide a conda recipe that you can use to create your own conda channel for use in your Deadline Cloud farm. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md"). When you create the conda package from your X-Particles package, it will include your purchased license. No additional configuration is necessary to operate on service-managed fleets.
 
 ## Open source resources
 

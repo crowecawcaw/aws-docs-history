@@ -12,7 +12,7 @@ Autodesk 3ds Max is a professional 3D computer graphics program for creating 3D 
 
 - **Submitter**: Integrated submitter for direct job submission from 3ds Max with automatic scene and asset detection.
 - **Host Configuration Script**: Example host configuration script to install 3ds Max.
-- **Adaptor**: Middleware for efficient rendering with sticky sessions and additional monitoring.
+- **Adaptor**: A program on worker hosts that keeps the application loaded between tasks for faster rendering and reports render progress.
 - **Cross-platform compatibility**: Submitter support for Windows with worker support for Windows and automatic path mapping.
 - **Usage-based Licensing**: Pay-as-you-go licensing for 3ds Max and Corona.
 
@@ -25,6 +25,7 @@ The following table shows current support levels for 3ds Max versions:
 | 2024          | Windows           | Windows                    |
 | 2025          | Windows           | Windows                    |
 | 2026          | Windows           | Windows                    |
+| 2027          | Windows           | Windows                    |
 
 ## 3ds Max differences from other digital content creation tools
 
@@ -55,14 +56,14 @@ For complete host configuration script examples, see [deadline-cloud-samples/hos
 
 ###### Note
 
-Although the examples install specific 3ds Max versions, the Deadline Cloud submitter supports 3ds Max 2025 and 2026 as well. The installation script should work equivalently for 3ds Max 2025 and 2026.
+Although the examples install specific 3ds Max versions, the Deadline Cloud submitter supports 3ds Max 2025, 2026, and 2027 as well. The installation script should work equivalently for 3ds Max 2025, 2026, and 2027.
 
 ## Installation
 
 To install the Deadline Cloud submitter for Autodesk 3ds Max, prepare the following environment:
 
 - Windows workstation.
-- Autodesk 3ds Max 2024, 2025, or 2026 installation.
+- Autodesk 3ds Max 2024, 2025, 2026, or 2027 installation.
 - Optional: V-Ray 6 or 7 for 3ds Max installation.
 - Access to an Deadline Cloud farm with either:
 
@@ -143,7 +144,7 @@ The following options modify the scene during submission:
 
 Render elements in 3ds Max are specialized output passes. They separate different aspects of the rendered image into individual components for advanced compositing and post-production workflows. These elements allow artists to isolate specific rendering components, such as diffuse color, specular highlights, shadows, reflections, and material properties. Artists can then precisely control and adjust these components in post-production without re-rendering the entire scene. Deadline Cloud for 3ds Max provides comprehensive render elements support with advanced path management, V-Ray integration, and automatic configuration during rendering.
 
-The submitter provides enhanced render elements support with the following options:
+The submitter provides render elements support with the following options:
 
 - **Modify Render Elements** - Enables any changes to render element settings for this scene. If selected, the following options are applied at render time.
 - **Output Render Elements** - Control enable/disable render elements output.

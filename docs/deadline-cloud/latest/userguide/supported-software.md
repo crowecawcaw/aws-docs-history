@@ -1,6 +1,6 @@
 # Supported Software
 
-Deadline Cloud supports a wide range of digital content creation applications for 3D rendering,
+Deadline Cloud supports many digital content creation applications for 3D rendering,
 animation, visual effects, and compositing. Supported applications always include integrated
 submitters but may also support conda packages, host configuration scripts, Usage-based
 licensing and more. The applications listed below receive official support from Deadline Cloud. For customization options

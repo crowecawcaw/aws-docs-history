@@ -8,7 +8,7 @@ Maya is supported by the following components:
 
 - **Submitter**: Integrated plug-in for direct job submission from Maya.
 - **Conda packages**: Automatic installation on service-managed fleets when using the submitter.
-- **Adaptor**: Middleware for efficient rendering with sticky sessions and additional monitoring.
+- **Adaptor**: A program on worker hosts that keeps the application loaded between tasks for faster rendering and reports render progress.
 - **Cross-platform compatibility**: Submitter support for Windows, macOS, and Linux with worker support for Windows and Linux.
 - **Usage-based Licensing**: Pay-as-you-go for Maya and renderer licensing.
 
@@ -133,11 +133,11 @@ For information about the submitter tabs, see the [Deadline Cloud guide for usin
 
 ### Using unsupported versions
 
-Deadline Cloud only supports and tests the workstation and worker software versions in the table above. When using the submitter, the worker will attempt to install the same version as used on the workstation. This will fail if the workstation version of Maya does not appear in the version table above.
+Deadline Cloud only supports and tests the workstation and worker software versions in the table above. When using the submitter, the worker will attempt to install the same version as used on the workstation. This installation fails if the workstation version of Maya does not appear in the version table above.
 
 If you require an unsupported version of Maya, you have the following options:
 
-- When submitting the job from Maya, you may override the CondaPackages queue parameter to specify a supported version to use on the worker (for example, `maya=2026, maya-openjd=*`). This may or may not work, depending on the features used by your scene and how Maya works with scenes from your workstation version.
+- When submitting the job from Maya, you can override the CondaPackages queue parameter to specify a supported version to use on the worker (for example, `maya=2026, maya-openjd=*`). This override might or might not work, depending on the features used by your scene and how Maya works with scenes from your workstation version.
 - You may build a custom conda recipe and channel for your desired version to be installed on the worker. Use the conda recipes for supported versions as a starting point:
 
   - [Maya conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026")

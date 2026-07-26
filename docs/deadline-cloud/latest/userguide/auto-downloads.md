@@ -195,7 +195,7 @@ PS C:\> Get-Command deadline
    deadline bundle submit .
    ```
 
-        1. If you don’t have the default deadline config setup, you might need to supply the following in the command line.
+        1. If you don't have the default deadline config setup, you might need to supply the following in the command line.
 
 
 
@@ -267,7 +267,7 @@ Open your crontab file for editing:
 $ crontab -e
 ```
 
-If this is your first time, you may be prompted to choose an editor (nano, vim, etc.). 6. **Add Cron Job Entry**
+The first time you run the command, you might be prompted to choose an editor (nano, vim, and so on). 6. **Add Cron Job Entry**
 
 Add the following line to run the job every 5 minutes (replace paths with actual values from steps 1 and 2):
 
@@ -370,7 +370,7 @@ Validate the XML syntax of your plist file:
 $ plutil -lint ~/Library/LaunchAgents/com.user.deadlinesync.plist
 ```
 
-This should return "OK" if the file is valid. 5. **Check for Existing Launch Agents or Launch Daemons**
+The command returns "OK" if the file is valid. 5. **Check for Existing Launch Agents or Launch Daemons**
 
 Check if a launch agent is already loaded:
 

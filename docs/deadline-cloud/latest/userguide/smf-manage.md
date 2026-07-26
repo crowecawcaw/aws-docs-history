@@ -5,7 +5,7 @@ Deadline Cloud. These default settings are designed to be efficient and cost-eff
 
 Some of the default settings limit the amount of time that workers and tasks can run. A
 worker can only run for seven days and a task can only run for five days. When the limit is
-reached, the task or worker stops. If this happens, you might lose work that worker or task
+reached, the task or worker stops. If this stop happens, you might lose work that worker or task
 was running. To avoid this, monitor your workers and tasks to ensure they don't exceed the
 maximum duration limits. To learn more about monitoring your workers, see [Using the Deadline Cloud monitor](working-with-deadline-monitor.md "working-with-deadline-monitor.md").
 
