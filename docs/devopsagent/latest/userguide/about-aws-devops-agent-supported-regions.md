@@ -46,12 +46,13 @@ AWS DevOps Agent is available in the following AWS Regions.
 
 Not all AWS DevOps Agent features are available in every Region. The following table shows which features are available in each supported Region.
 
-| Feature                                                                     | Available Regions                      |
-| --------------------------------------------------------------------------- | -------------------------------------- |
-| Production operations (investigations, recommendations, prevention)         | All supported Regions                  |
-| On-demand DevOps tasks                                                      | All supported Regions                  |
-| Custom agents                                                               | All supported Regions                  |
-| Release management (release readiness review and release testing) — preview | US East (N. Virginia) `us-east-1` only |
+| Feature                                                                     | Available Regions                                                                                                                    |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Production operations (investigations, recommendations, prevention)         | All supported Regions                                                                                                                |
+| On-demand DevOps tasks                                                      | All supported Regions                                                                                                                |
+| Custom agents                                                               | All supported Regions                                                                                                                |
+| Release management (release readiness review and release testing) — preview | US East (N. Virginia) `us-east-1` only                                                                                               |
+| Sandbox — preview                                                           | US East (N. Virginia) `us-east-1`, US West (Oregon) `us-west-2`, Asia Pacific (Tokyo) `ap-northeast-1`, Europe (Ireland) `eu-west-1` |
 
 ## Considerations
 

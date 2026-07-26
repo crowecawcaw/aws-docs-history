@@ -80,6 +80,12 @@ When you ask Chat to create or update content, Chat generates an artifact — ty
 
 **Edit** – Request changes to the artifact through Chat. For example, ask "Add a section on Lambda cold starts" or "Update the report to include last month's data". Chat creates a new version of the artifact with your requested changes.
 
+### Viewing and retrieving artifacts
+
+You can read and list the artifacts Chat has generated for you directly in the conversation, without leaving chat. For example, ask Chat "List the artifacts you've created in this conversation" or "Show me the health report you generated earlier." Chat displays the artifact or a list of all artifacts directly in the conversation.
+
+With this feature, you can find and reuse agent output at any point in the conversation. You do not need to remember where an artifact appeared or scroll back through chat history to find it.
+
 ## Sending file attachments
 
 You can attach files to your chat messages so Chat can read them along with your question. Use attachments to share what you are looking at — a screenshot of a dashboard or alarm, a configuration file, source code, an operational runbook — and ask the agent to reason about it directly.

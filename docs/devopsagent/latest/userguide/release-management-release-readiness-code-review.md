@@ -82,6 +82,14 @@ When automated PR/MR reviews are enabled, the agent reviews every new pull reque
 
 Findings appear as inline comments on the affected lines of code, with the overall assessment posted as a PR/MR comment. You can configure whether findings block merges (required status check) or are advisory only.
 
+#### Public repository limitation
+
+Automated PR/MR code review triggers are only available for private repositories. DevOps Agent does not automatically review pull requests or merge requests on public repositories.
+
+Because anyone can open a pull request against a public repository — including unknown external contributors — automatically triggering reviews on those PRs could consume resources without repository owner awareness or process untrusted content. Restricting automated triggers to private repositories ensures that only trusted collaborators initiate the review workflow.
+
+If you use a public repository, you can still run release readiness code reviews by requesting them through DevOps Agent chat or through coding agent integrations (Kiro Power, Claude Code plugin, or AWS Transform custom).
+
 ## Automated verification testing
 
 When a release readiness risk assessment is triggered, DevOps Agent creates an AWS-managed verification environment and clones your code into it. The environment runs on dedicated compute resources with network restrictions that limit access to trusted services for build, artifact storage, and retrieval.
@@ -116,6 +124,16 @@ The verification testing environment has outbound network access restricted to a
 | `.google.com`, `.googleapis.com`                                                      | Google APIs                     |
 | `.microsoft.com`, `.visualstudio.com`                                                 | Microsoft services              |
 | `.sourceforge.net`, `.bitbucket.org`                                                  | Source hosting                  |
+| `.prisma.sh`                                                                          | Prisma ORM                      |
+| `get.helm.sh`                                                                         | Helm package manager            |
+| `.terraform.io`                                                                       | Terraform registry              |
+| `buf.build`                                                                           | Buf (Protobuf)                  |
+| `.jitpack.io`                                                                         | JitPack (JVM packages)          |
+| `.scala-sbt.org`                                                                      | Scala SBT                       |
+| `.sheetjs.com`                                                                        | SheetJS                         |
+| `.confluent.io`                                                                       | Confluent (Kafka)               |
+| `.external-secrets.io`                                                                | External Secrets Operator       |
+| `registry.npmmirror.com`                                                              | npm mirror registry             |
 
 ###### Note
 
@@ -135,7 +153,7 @@ You can also ask follow-up questions in DevOps Agent chat: "Why did the review f
 
 To use release readiness code reviews in Kiro:
 
-1. Install the DevOps Agent Kiro Power from the Kiro Power marketplace
+1. Install the [DevOps Agent Kiro Power](https://kiro.dev/launch/powers/add?name=aws-devops-agent "https://kiro.dev/launch/powers/add?name=aws-devops-agent") from the Kiro Power marketplace
 2. The Power includes Skills that instruct the coding agent when to invoke release readiness reviews — after significant code changes and before creating a PR
 3. Findings surface directly in the IDE, and Kiro will offer to fix identified issues
 
@@ -145,7 +163,7 @@ From the Kiro CLI, you can also trigger reviews explicitly: the coding agent wil
 
 To use release readiness code reviews in Claude Code:
 
-1. Install the DevOps Agent Claude Code plugin
+1. Install the [DevOps Agent Claude Code plugin](https://claude.com/plugins/aws-agents-for-devsecops "https://claude.com/plugins/aws-agents-for-devsecops") from the Claude Code plugin marketplace
 2. The plugin connects Claude Code to your Agent Space and enables the coding agent to invoke release readiness reviews
 3. During development, Claude Code can request a review of in-progress changes and address findings before committing
 

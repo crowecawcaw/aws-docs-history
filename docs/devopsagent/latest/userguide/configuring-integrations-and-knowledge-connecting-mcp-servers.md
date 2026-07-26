@@ -144,7 +144,7 @@ AWS DevOps Agent will now be able to use the allowlisted tools from your MCP ser
 
 ## Managing MCP server connections
 
-**Updating authentication credentials** – If your authentication credentials need to be updated, you will need to re-register your MCP server. Navigate to the **Capability Providers** page in the AWS DevOps Agent console, locate your MCP server, remove any active associations, and choose **Deregister**. Next, **register** your MCP server with the new authentication credentials and re-create any necessary associations with your Agent Space.
+**Updating authentication credentials** – If your authentication credentials need to be updated, you need to re-register your MCP server. Navigate to the **Capability Providers** page in the AWS DevOps Agent console, locate your MCP server, remove any active associations, and choose **Deregister** from the **Actions** menu. Next, **register** your MCP server with the new authentication credentials and re-create any necessary associations with your Agent Space.
 
 **Viewing connected MCP servers** – To see all MCP servers connected to your Agent Space, select your Agent Space, go to the **Capabilities** tab, and check the **MCP Servers** section. You can also update selected tools here.
 

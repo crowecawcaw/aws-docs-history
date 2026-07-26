@@ -6,6 +6,10 @@ AWS DevOps Agent Skills are modular instruction sets that extend the agent's cap
 
 Skills are self-contained directories containing Markdown instructions that provide specialized capabilities to AWS DevOps Agent. AWS DevOps Agent supports a subset of the [Agent Skills specification](https://agentskills.io/ "https://agentskills.io/") —an open standard for packaging agent instructions and resources—supporting only non-executable documents: Markdown instructions, PDFs, images, and data files.
 
+###### Note
+
+When you enable Sandbox (preview), a skill can also include executable code that the agent runs in the sandbox environment. For more information, see [Set up a Sandbox](configuring-integrations-and-knowledge-sandbox.md "configuring-integrations-and-knowledge-sandbox.md").
+
 Every skill requires a SKILL.md file containing instructions you want to provide for your AWS DevOps Agent. In addition to the required SKILL.md file, skills can include:
 
 - **Investigation workflows** for specific scenarios or infrastructure types.
@@ -192,8 +196,8 @@ Skills created in the AWS DevOps Agent Operator Web App contain a name, descript
 **To create a skill in the UI:**
 
 - Navigate to the **Knowledge** page in your Agent Space Operator Web App and choose the **Skills** tab.
-- Click "Add skill".
-- Select "Create skill" from the modal.
+- Choose **Add skill**.
+- Select **Create skill** from the modal.
 - Fill out the skill form:
 
   - **Name** – Lowercase letters, numbers, and hyphens only (maximum 64 characters). Must not start or end with a hyphen. Example: `rds-throttling-investigation`
@@ -208,8 +212,8 @@ The system automatically generates a SKILL.md file with the proper frontmatter s
 
 **To edit a skill created in the UI:**
 
-- Navigate to the skill on the **Knowledge** page **Skills** tab and click the skill to open it.
-- Click **Edit**.
+- Navigate to the skill on the **Knowledge** page **Skills** tab and choose the skill to open it.
+- Choose **Edit**.
 - Modify the name, description, or instructions.
 - Choose **Save** to update the skill.
 
@@ -251,12 +255,12 @@ description: Comprehensive RDS performance investigation procedures
 
 **To create a skill via zip upload:**
 
-- Create a directory with your skill files following the structure above.
+- Create a directory with your skill files following the preceding structure.
 - Ensure SKILL.md includes proper frontmatter (name and description).
 - Compress the directory into a .zip file.
 - Navigate to the **Knowledge** page in your Agent Space Operator Web App and choose the **Skills** tab.
-- Click "Add skill".
-- Select "Upload skill" from the modal.
+- Choose **Add skill**.
+- Select **Upload skill** from the modal.
 - Drag and drop your .zip file or choose to browse (ZIP files only, maximum 6 MB).
 - Select one or more agent types that can use this skill (Generic is selected by default and applies to all agent types; deselect to target On-demand, Incident Triage, Incident RCA, Incident Mitigation, or Evaluation specifically).
 - Review the zip file requirements and validation results.
@@ -297,12 +301,12 @@ my-skill/
 **To import a skill from a repository:**
 
 - Navigate to the **Knowledge** page in your Agent Space Operator Web App and choose the **Skills** tab.
-- Click "Add skill".
-- Select "Import from repository" from the modal.
+- Choose **Add skill**.
+- Select **Import from repository** from the modal.
 - Enter the GitHub directory URL that contains your SKILL.md file. For example: `https://github.com/my-org/my-repo/tree/main/skills/rds-investigation`
 - Select one or more agent types that can use this skill.
 - Set the lifecycle status (Active or Inactive).
-- Click "Import skill".
+- Choose **Import skill**.
 
 AWS DevOps Agent fetches the directory contents, reads the SKILL.md frontmatter to extract the skill name and description, and imports all files into your Agent Space.
 
@@ -320,10 +324,10 @@ Imported skills appear in the Custom Skills list with a link to the source repos
 When you update the skill files in your repository, you can sync the imported skill to pull the latest changes:
 
 - Open the imported skill in the detail view.
-- Click the **Sync** button.
+- Choose **Sync**.
 - AWS DevOps Agent re-fetches the directory contents from the source repository and updates the skill content.
 
-You can also sync from the skills list view by clicking the Sync button on the imported skill row.
+You can also sync from the skills list view by choosing **Sync** on the imported skill row.
 
 **Constraints:**
 

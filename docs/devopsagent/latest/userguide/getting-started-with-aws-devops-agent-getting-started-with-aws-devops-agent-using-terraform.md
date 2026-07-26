@@ -19,17 +19,18 @@ Before you begin, make sure you have the following:
 
 ## What this guide covers
 
-This guide is divided into two parts:
+This guide is divided into three parts:
 
 - **Part 1** — Deploy an agent space with an operator app and an AWS association in your monitoring account. After completing this part, the agent can monitor issues in that account.
 - **Part 2 (Optional)** — Add a source AWS association for a service account and deploy a cross-account IAM role plus an echo Lambda into that account. This allows the agent space to monitor resources across accounts.
+- **Part 3 (Optional)** — Register third-party services (Dynatrace, ServiceNow, Splunk, New Relic, GitLab, PagerDuty) and associate them with the agent space.
 
 ## Resources created
 
 ### Part 1: Monitoring account
 
-- **IAM role** (`DevOpsAgentRole-AgentSpace-*`) — Assumed by the DevOps Agent service to monitor the account. Includes the `AIDevOpsAgentAccessPolicy` managed policy and an inline policy that allows creation of the Resource Explorer service-linked role.
-- **IAM role** (`DevOpsAgentRole-WebappAdmin-*`) — Operator app role with the `AIDevOpsOperatorAppAccessPolicy` managed policy for agent operations.
+- **IAM role** (`DevOpsAgentRole-AgentSpace-*`) — Assumed by the DevOps Agent service to monitor the account. Includes the `AIDevOpsAgentAccessPolicy` managed policy and an inline policy that allows creation of the Resource Explorer service-linked role. Created only when `existing_agentspace_role_arn` is not set.
+- **IAM role** (`DevOpsAgentRole-WebappAdmin-*`) — Operator app role with the `AIDevOpsOperatorAppAccessPolicy` managed policy for agent operations. Created only when `existing_operator_role_arn` is not set.
 - **Agent space** (configurable name) — The central agent space, created using the `awscc_devopsagent_agent_space` resource. Includes operator app configuration.
 - **Association** (AWS monitor) — Links the monitoring account to the agent space using the `awscc_devopsagent_association` resource.
 - **Association** (AWS source) — (Optional) Links the service account to the agent space for cross-account monitoring.
@@ -210,11 +211,125 @@ aws lambda invoke \
 cat response.json
 ```
 
+## Part 3 (Optional): Register third-party integrations
+
+In this section, you register external services (Dynatrace, ServiceNow, Splunk, New Relic, GitLab, PagerDuty) with the agent space. These integrations enable AWS DevOps Agent to access telemetry, incident data, and source control information during investigations.
+
+Unlike the AWS CDK sample — which requires a separate IntegrationsStack phase and manual wiring of the agent space ID — these resources reference the agent space directly and can be deployed in the same `terraform apply` as Part 1.
+
+### Supported integrations
+
+| Service    | Service type        | Authentication           |
+| ---------- | ------------------- | ------------------------ |
+| Dynatrace  | `dynatrace`         | OAuth client credentials |
+| ServiceNow | `servicenow`        | OAuth client credentials |
+| Splunk     | `mcpserversplunk`   | Bearer token             |
+| New Relic  | `mcpservernewrelic` | API key                  |
+| GitLab     | `gitlab`            | Access token             |
+| PagerDuty  | `pagerduty`         | OAuth client credentials |
+
+###### Note
+
+Datadog is not included in the Terraform configuration. Connecting Datadog requires interactive user OAuth authorization (browser login and consent) as described in [Connecting DataDog](connecting-telemetry-sources-connecting-datadog.md "connecting-telemetry-sources-connecting-datadog.md"), which Terraform cannot automate. Register Datadog manually through the Capability Providers page in the console.
+
+### Step 1: Configure integration credentials
+
+Add an `integrations` block to `terraform.tfvars`, populating only the services you want. The following example shows a Dynatrace integration:
+
+```
+integrations = {
+  dynatrace = {
+    account_urn   = "<DYNATRACE_ACCOUNT_URN>"
+    client_id     = "<DYNATRACE_CLIENT_ID>"
+    client_name   = "<DYNATRACE_CLIENT_NAME>"
+    client_secret = "<DYNATRACE_CLIENT_SECRET>"
+    env_id        = "<DYNATRACE_ENVIRONMENT_ID>"
+    resources     = ["<DYNATRACE_RESOURCE_1>"]
+  }
+}
+```
+
+For the complete shape of each integration, see `terraform.tfvars.example` in the sample repository.
+
+**ServiceNow requirement:** Always set `instance_id` explicitly to the short instance name (for example, `"ven04972"` — not the full `instance_url`). If `instance_id` is omitted, the association falls back to `instance_url`, which the DevOps Agent API rejects with a `400 GeneralServiceException: instanceId '<url>' does not match the registered ServiceNow instance`.
+
+**Security:** The `integrations` variable is marked `sensitive`, so its values are redacted from plan and apply output. Do not commit real credentials to `terraform.tfvars`. For production, source secrets from AWS Secrets Manager or AWS Systems Manager Parameter Store (for example, using `data` sources) rather than plaintext.
+
+### Step 2: Deploy
+
+Apply the configuration:
+
+```
+terraform apply
+```
+
+This creates a service registration and association for each enabled integration.
+
+### Step 3: Review the outputs
+
+After deployment completes, the integration outputs map each enabled service to its registered IDs:
+
+```
+integration_service_ids = {
+  "dynatrace" = "service-abc123"
+}
+integration_association_ids = {
+  "dynatrace" = "assoc-xyz789"
+}
+```
+
+For more information about configuring credentials for each service, see:
+
+- [Connecting Dynatrace](connecting-telemetry-sources-connecting-dynatrace.md "connecting-telemetry-sources-connecting-dynatrace.md")
+- [Connecting ServiceNow](connecting-to-ticketing-and-chat-connecting-servicenow.md "connecting-to-ticketing-and-chat-connecting-servicenow.md")
+- [Connecting Splunk](connecting-telemetry-sources-connecting-splunk.md "connecting-telemetry-sources-connecting-splunk.md")
+- [Connecting New Relic](connecting-telemetry-sources-connecting-new-relic.md "connecting-telemetry-sources-connecting-new-relic.md")
+- [Connecting GitLab](connecting-to-cicd-pipelines-connecting-gitlab.md "connecting-to-cicd-pipelines-connecting-gitlab.md")
+- [Connecting PagerDuty](connecting-to-ticketing-and-chat-connecting-pagerduty.md "connecting-to-ticketing-and-chat-connecting-pagerduty.md")
+
+## Using existing IAM roles (Optional)
+
+By default, the Terraform configuration creates new IAM roles for the agent space and operator app. If you already have IAM roles with the required policies, you can skip role creation and provide the existing role ARNs instead.
+
+### Requirements
+
+The existing roles must meet the following requirements:
+
+#### Agent space role
+
+- Trust policy allows `aidevops.amazonaws.com` to assume the role with `sts:AssumeRole`
+- Has the `AIDevOpsAgentAccessPolicy` managed policy attached
+- (Optional) Has an inline policy that allows creation of the Resource Explorer service-linked role
+
+#### Operator app role
+
+- Trust policy allows `aidevops.amazonaws.com` to assume the role with `sts:AssumeRole` and `sts:TagSession`
+- Has the `AIDevOpsOperatorAppAccessPolicy` managed policy attached
+
+### Configuration
+
+In `terraform.tfvars`, set one or both role ARNs:
+
+```
+existing_agentspace_role_arn = "arn:aws:iam::ACCOUNT_ID:role/YourAgentSpaceRole"
+existing_operator_role_arn   = "arn:aws:iam::ACCOUNT_ID:role/YourOperatorRole"
+```
+
+When these values are set, the corresponding role resources in `iam.tf` are skipped. This approach is fully backward compatible — existing configurations with empty values (the default) preserve the current role-creation behavior.
+
 ## Troubleshooting
 
 **IAM propagation delays**
 
 - The configuration includes a 30-second `time_sleep` between IAM role creation and Agent Space creation. The DevOps Agent service validates the operator role's trust policy during Agent Space creation, and this can fail if IAM hasn't fully propagated. If you still see trust policy errors, wait a minute and run `terraform apply` again — the IAM roles will already exist and the apply will pick up where it left off.
+
+**ServiceNow `instanceId does not match` error**
+
+- Set `instance_id` explicitly in the `service_now` integration block to the short instance name (for example, `"ven04972"`), not the full `instance_url`. See the note in Part 3 above.
+
+**Dynatrace association `status: invalid`**
+
+- If `terraform apply` succeeds but the resulting association reports `status = "invalid"` (visible using `aws devops-agent get-association` or the console), this indicates Dynatrace rejected the OAuth client credentials. Double-check `client_id`, `client_secret`, and `account_urn` against the Dynatrace account, rather than a Terraform configuration issue.
 
 **Permission errors**
 

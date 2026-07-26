@@ -38,7 +38,7 @@ AWS DevOps Agent will securely route your inference requests to available comput
 
 ### Global cross-Region inference for specific Regions
 
-For the following Regions, the geography-based routing described above does not apply. Instead, AWS DevOps Agent will automatically select the optimal region globally to process your inference requests.
+For the following Regions, the geography-based routing described previously does not apply. Instead, AWS DevOps Agent will automatically select the optimal region globally to process your inference requests.
 
 - Asia Pacific (Singapore) – `ap-southeast-1`
 - Asia Pacific (Mumbai) – `ap-south-1`
@@ -74,7 +74,7 @@ AWS DevOps Agent encrypts all customer data:
 
 ### Data storage and retention
 
-Data is stored in the region where your Agent Space is created, while inference processing may occur within your geography as described in the Amazon Bedrock usage section above.
+Data is stored in the region where your Agent Space is created, while inference processing may occur within your geography as described in the preceding Amazon Bedrock usage section.
 
 ### Personal identifiable information (PII)
 
@@ -100,6 +100,8 @@ All AWS DevOps Agent API calls are automatically captured by AWS CloudTrail with
 - Who made the request
 - When it was made
 
+For MCP and A2A remote server connections, you can review `AuthenticateAccessToken` events that AWS DevOps Agent records in CloudTrail each time it authenticates an access token, including failed authentications. For more information about event fields and correlating authentications with downstream actions, see [Traceability](accessing-devops-agent-connect-to-devops-agent-remote-servers.md "accessing-devops-agent-connect-to-devops-agent-remote-servers.md") in _Connect to DevOps Agent remote servers_.
+
 ## Prompt injection protection
 
 A prompt injection attack occurs when an attacker embeds malicious instructions into external data, such as a webpage or document, that a generative AI system will later process. AWS DevOps Agent natively consumes many data sources as part of its normal operations, including logs, resource tags, and other operational data. AWS DevOps Agent protects against prompt injection attacks through the safeguards below, but it is important to ensure all connected data sources and user access to those data sources are trusted. See [Shared responsibility model](aws-devops-agent-security.md "aws-devops-agent-security.md") section for more.
@@ -108,7 +110,7 @@ Prompt injection safeguards:
 
 - **Limited write capabilities** – The tools available to the agent are not able to mutate resources, with the exception of opening tickets and support cases. This prevents malicious instructions from modifying your infrastructure or applications.
 - **Account boundary enforcement** – AWS DevOps Agent only operates within the boundary permitted by the roles assigned to the agent in the primary and connected secondary AWS accounts. The agent cannot access or modify resources outside of its configured scope.
-- **AI safety protections** – AWS DevOps Agent uses models with AI Safety Level 3 (ASL-3) protections, which include built-in classifiers that detect and resist prompt injection attempts. The agent also leverages the [Amazon Bedrock Guardrails](../../../bedrock/latest/userguide/guardrails-prompt-attack.md "../../../bedrock/latest/userguide/guardrails-prompt-attack.md") prompt attack filter to detect and block prompt injection and jailbreak attempts before they can affect agent behavior.
+- **AI safety protections** – AWS DevOps Agent uses models with AI Safety Level 3 (ASL-3) protections, which include built-in classifiers that detect and resist prompt injection attempts. The agent also uses the [Amazon Bedrock Guardrails](../../../bedrock/latest/userguide/guardrails-prompt-attack.md "../../../bedrock/latest/userguide/guardrails-prompt-attack.md") prompt attack filter to detect and block prompt injection and jailbreak attempts before they can affect agent behavior.
 - **Immutable audit trail** – The agent journal logs every reasoning step and action taken. Journal entries cannot be modified by the agent once recorded, preventing prompt injection attacks from hiding malicious actions.
 
 While AWS DevOps Agent provides multiple layers of protection against prompt injection attacks, certain configurations can increase risk:

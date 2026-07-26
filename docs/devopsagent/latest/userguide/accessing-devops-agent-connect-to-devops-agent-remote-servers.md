@@ -251,7 +251,42 @@ Replace `{agentSpaceId}` and `{accessTokenId}` with the values from the previous
 
 ### Traceability
 
-When an access token is used, AWS DevOps Agent assumes a role on your behalf to perform actions. This `AssumeRole` call is logged in AWS CloudTrail with session tags that identify the token and caller:
+AWS DevOps Agent records remote server activity in AWS CloudTrail. Use these records to trace who invoked a remote server and what the agent did as a result. AWS DevOps Agent delivers CloudTrail events to the AWS account that hosts the Agent Space.
+
+#### Access token authentication events
+
+Each time AWS DevOps Agent authenticates an access token for an MCP or A2A endpoint, it emits an `AuthenticateAccessToken` event to CloudTrail. AWS DevOps Agent records both successful and failed authentications. Use these records to audit legitimate use and detect rejected attempts. Examples include expired or revoked tokens, and requests blocked by an IP allowlist.
+
+The event has the following characteristics:
+
+- **Event source** – `aidevops.amazonaws.com`
+- **Event name** – `AuthenticateAccessToken`
+- **Management event** – The event is a management event and is not read-only, so it remains visible when you filter out read-only events.
+
+The event includes the following key fields:
+
+| Field                                      | Description                                                                                                                                                                                            |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `userIdentity.principalId`                 | The ID of the access token that was presented.                                                                                                                                                         |
+| `userName`                                 | The name of the access token.                                                                                                                                                                          |
+| `requestParameters.agentSpaceId`           | The Agent Space the token authenticates against.                                                                                                                                                       |
+| `requestParameters.accessTokenId`          | The access token ID.                                                                                                                                                                                   |
+| `requestParameters.tokenName`              | The access token name.                                                                                                                                                                                 |
+| `requestParameters.protocol`               | The protocol that was used—`MCP` or `A2A`.                                                                                                                                                             |
+| `responseElements.AuthenticateAccessToken` | The outcome—`Success` or `Failure`.                                                                                                                                                                    |
+| `resources`                                | The Agent Space resource (`AWS::AIDevOps::AgentSpace`) the token authenticates against, identified by its ARN.                                                                                         |
+| `additionalEventData.roleSessionName`      | For successful authentications, the downstream role session name, in the format `token_{spaceId}_{timestamp}_{tokenName}`. Use it to correlate the authentication with the actions the agent performs. |
+| `sourceIPAddress`                          | The IP address of the client.                                                                                                                                                                          |
+| `userAgent`                                | The client User-Agent string, when available.                                                                                                                                                          |
+| `errorCode`, `errorMessage`                | For failed authentications, the reason the authentication was rejected.                                                                                                                                |
+
+###### Note
+
+AWS DevOps Agent never records the raw bearer token value. Only the opaque access token ID appears in the event.
+
+#### Downstream action events
+
+When you use an access token, AWS DevOps Agent assumes a role on your behalf to perform actions. AWS DevOps Agent logs this `AssumeRole` call in CloudTrail with session tags that identify the token and caller:
 
 - `AgentSpaceId` – Identifier of the Agent Space.
 - `UserId` – Identity of the token creator.
@@ -261,7 +296,11 @@ When an access token is used, AWS DevOps Agent assumes a role on your behalf to 
 - `SourceIp` – IP address of the client.
 - `UserAgent` – Client User-Agent string (when available).
 
-Direct MCP and A2A endpoint invocations are not logged in CloudTrail for either authentication method. Each invocation has a corresponding downstream AWS API call logged in CloudTrail, with an identifiable role session name in the format `token_{spaceId}_{timestamp}_{tokenName}`.
+Each action that the agent takes on your behalf has a corresponding downstream AWS API call that CloudTrail logs. The role session name uses the format `token_{spaceId}_{timestamp}_{tokenName}`. This session name matches the `roleSessionName` in the `AuthenticateAccessToken` event. Use it to trace from an authentication to the specific actions that followed it.
+
+#### SigV4 invocations
+
+Invocations that use AWS SigV4 authentication instead of an access token do not produce `AuthenticateAccessToken` events. AWS DevOps Agent attributes SigV4 requests to your AWS Identity and Access Management (IAM) identity. You can trace the actions the agent performs through the downstream AWS API calls they trigger.
 
 ### VPC endpoint policy limitation
 

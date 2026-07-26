@@ -24,6 +24,14 @@ Each registration connects to one Slack workspace. To connect multiple workspace
 7. Review the requested scopes and choose **Allow** to authorize the integration.
 8. After authorization, you'll return to the AWS DevOps Agent console.
 
+## Sharing a Slack workspace across multiple AWS accounts
+
+You can share a single Slack workspace across multiple AWS accounts. This works even when your Agent Space uses a customer managed key (CMK) for encryption. If you have multiple AWS accounts, you don't need a separate Slack workspace for each account.
+
+## Overlapping and duplicate workspace installations
+
+Your organization might have overlapping or duplicate Slack workspaces across Agent Spaces or AWS accounts. You can register the same Slack workspace with more than one Agent Space. Each registration is independent. Registering the same workspace in another Agent Space doesn't collide with or overwrite your existing registration.
+
 ## Associate Slack with your DevOps Agent Space(s)
 
 After registering Slack, you can associate one or more channels with your DevOps Agent Space(s). Repeat these steps for each channel you want to add:

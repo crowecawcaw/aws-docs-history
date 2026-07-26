@@ -20,6 +20,10 @@ Once you choose "Start Investigation" you'll be asked to provide some additional
 
 Review and adjust these fields as needed, then choose "Start investigating..." to begin. You will then be taken to the investigation details page where you can see your DevOps Agent in action!
 
+### Viewing authentication steps
+
+When AWS DevOps Agent authenticates to a downstream system during an investigation, you can see that step directly in the investigation timeline. For each authentication step, you can see its success or error status. If authentication fails, you can see the failure message and the underlying browser steps the agent took. This replaces a silent gap with actionable detail.
+
 ## Incident triage
 
 The triage phase is the first stage of AWS DevOps Agent's incident response system. When an external event triggers, such as an alarm from Datadog, an incident ticket from ServiceNow, or a problem from Dynatrace, AWS DevOps Agent automatically processes it within seconds to determine whether it should be investigated independently or linked to an existing investigation.

@@ -118,4 +118,4 @@ The telemetry source is connected at two levels at the agent space level and at 
 1. Go to the **Capability Providers** page (accessible from the side navigation)
 2. Scroll to the **Currently registered** section.
 3. Check the agent space count is zero (if not repeat Step 1 above in your other agent spaces)
-4. Press Deregister next to Dynatrace
+4. Select Dynatrace, then choose **Deregister** from the **Actions** menu.

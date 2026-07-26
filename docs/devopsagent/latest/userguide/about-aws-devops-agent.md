@@ -23,7 +23,7 @@ AWS DevOps Agent autonomously investigates issues the moment they occur:
 - **Actionable mitigation plans** – Provides specific actions to resolve incidents, validate success, and revert changes if needed. Also provides agent-ready instructions that can be implemented by another frontier agent, such as code improvements that can be implemented by Kiro.
 - **Proactive incident prevention** – Analyzes patterns across historical incidents to deliver targeted improvements across observability, infrastructure optimization, deployment pipelines, and application resilience, so the same problems don't recur.
 - **Automated incident coordination** – Routes observations, findings, and mitigation steps through your preferred communication channels like Slack, ServiceNow, and PagerDuty.
-- **On-demand SRE task handling** – Handles SRE tasks through natural language, leveraging its deep knowledge of your application topology and service dependencies. Query resource health, investigate incident patterns, track deployments, and explore recommendations without navigating between consoles.
+- **On-demand SRE task handling** – Handles SRE tasks through natural language, using its deep knowledge of your application topology and service dependencies. Query resource health, investigate incident patterns, track deployments, and explore recommendations without navigating between consoles.
 - **AWS Support integration** – Create AWS Support cases directly from an investigation with full context to speed resolution.
 
 ### Release management (preview)

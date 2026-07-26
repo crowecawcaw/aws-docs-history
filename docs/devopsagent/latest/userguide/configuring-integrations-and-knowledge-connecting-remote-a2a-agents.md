@@ -98,9 +98,9 @@ AWS DevOps Agent will now be able to delegate investigation subtasks to your rem
 
 **Viewing connected agents** – To see all remote agents connected to your Agent Space, select your Agent Space, go to the **Capabilities** tab, and check the **Remote Agents** section.
 
-**Removing remote agent connections** – To disconnect a remote agent from an Agent Space, select the agent in the **Remote Agents** section and click **Remove**. To completely delete a remote agent registration, remove it from all Agent Spaces first, then navigate to **Capability Providers** and click **Deregister**.
+**Removing remote agent connections** – To disconnect a remote agent from an Agent Space, select the agent in the **Remote Agents** section and choose **Remove**. To completely delete a remote agent registration, remove it from all Agent Spaces first, then navigate to **Capability Providers**, select the remote agent, and choose **Deregister** from the **Actions** menu.
 
-**Updating authentication credentials** – If your authentication credentials need to be updated, you will need to re-register your remote agent. Navigate to the **Capability Providers** page in the AWS DevOps Agent console, locate your remote agent, remove any active associations, and click **Deregister**. Next, register your remote agent with the new authentication credentials and re-create any necessary associations with your Agent Space.
+**Updating authentication credentials** – If your authentication credentials need to be updated, you need to re-register your remote agent. Navigate to the **Capability Providers** page in the AWS DevOps Agent console, locate your remote agent, remove any active associations, and choose **Deregister** from the **Actions** menu. Next, register your remote agent with the new authentication credentials and re-create any necessary associations with your Agent Space.
 
 ## Related topics
 
