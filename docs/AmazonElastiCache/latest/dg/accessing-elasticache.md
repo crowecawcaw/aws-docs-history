@@ -72,8 +72,15 @@ your ElastiCache cluster.
 Amazon ElastiCache is an AWS service that provides cloud-based in-memory key-value store.
 The service is designed to be accessed exclusively from within AWS.
 However, if the ElastiCache cluster is hosted inside a VPC,
-you can use a Network Address Translation (NAT) instance
+you can use an EC2 instance configured for Network Address Translation (NAT) with port forwarding
 to provide outside access.
+
+###### Important
+
+This approach should be used for testing and development purposes only.
+For production workloads requiring external access, consider using
+[AWS Site-to-Site VPN](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md") or
+[AWS Client VPN](../../../vpn/latest/clientvpn-admin/what-is.md "../../../vpn/latest/clientvpn-admin/what-is.md") instead.
 
 #### Requirements
 
@@ -83,10 +90,10 @@ ElastiCache resources from outside AWS:
 - The cluster must reside within a VPC and be accessed through a Network Address Translation
   (NAT) instance.
   There are no exceptions to this requirement.
-- The NAT instance must be launched in the same VPC as the cluster.
-- The NAT instance must be launched in a public subnet separate from the cluster.
-- An Elastic IP Address (EIP) must be associated with the NAT instance.
-  The port forwarding feature of iptables is used to forward a port on the NAT instance
+- The port-forwarding EC2 instance must be launched in the same VPC as the cluster.
+- The port-forwarding EC2 instance must be launched in a public subnet separate from the cluster.
+- An Elastic IP Address (EIP) must be associated with the EC2 instance.
+  The port forwarding feature of iptables is used to forward a port on the instance
   to the cache node port within the VPC.
 
 #### Considerations
@@ -151,12 +158,14 @@ sudo sysctl --system`
 
 ###### To connect to your ElastiCache resources using a NAT instance
 
-1. Create a NAT instance in the same VPC as your cluster but in a public subnet.
+1. Launch an EC2 instance in the same VPC as your cluster but in a public subnet.
+   This instance will act as your NAT/port-forwarding host.
 
-By default, the VPC wizard will launch a _cache.m1.small_ node type.
-You should select a node size based on your needs. You must use EC2 NAT AMI to be able to access ElastiCache from outside AWS.
+Use a current Amazon Linux 2023 AMI (or other Linux AMI of your choice).
+Select an instance size based on your expected traffic. The instance needs a public subnet,
+an Elastic IP address, and IP forwarding enabled.
 
-For information about creating a NAT instance, see [NAT Instances](../../../AmazonVPC/latest/UserGuide/VPC_NAT_Instance.md "../../../AmazonVPC/latest/UserGuide/VPC_NAT_Instance.md") in the AWS VPC User Guide. 2. Create security group rules for the cluster and NAT instance.
+For information about launching EC2 instances, see [Launch an instance](../../../AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.md "../../../AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.md") in the Amazon Elastic Compute Cloud User Guide. 2. Create security group rules for the cluster and NAT instance.
 
 The NAT instance security group and the cluster instance should have the following rules:
 
@@ -326,6 +335,5 @@ The following topics may be of additional interest.
 
 - [Access Patterns for Accessing an ElastiCache Cache in an Amazon VPC](elasticache-vpc-accessing.md "elasticache-vpc-accessing.md")
 - [Accessing an ElastiCache Cache from an Application Running in a Customer's Data Center](elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center "elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center")
-- [NAT Instances](../../../AmazonVPC/latest/UserGuide/VPC_NAT_Instance.md "../../../AmazonVPC/latest/UserGuide/VPC_NAT_Instance.md")
 - [Configuring ElastiCache Clients](ClientConfig.md "ClientConfig.md")
 - [NAT Gateways](../../../AmazonVPC/latest/UserGuide/vpc-nat-gateway.md "../../../AmazonVPC/latest/UserGuide/vpc-nat-gateway.md")

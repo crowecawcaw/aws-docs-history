@@ -54,6 +54,31 @@ $res = $client->blpop("list", 1); // will timeout after 1 second
 print "$res\n";                   // less than the 2 second socket timeout
 ```
 
+###### Timeout config sample 2b: PHPRedis with TLS
+
+When connecting to ElastiCache with in-transit encryption enabled (required for
+serverless), configure the TLS connection. In the following PHP code example,
+replace `HOST` with your cluster endpoint and `PORT`
+with your cluster's port number:
+
+```
+// Connect to Amazon ElastiCache with TLS enabled.
+$client = new Redis();
+$timeout = 2; // 2 second connection timeout.
+$read_timeout = 2; // 2 second read timeout.
+
+// TLS connection.
+if ($client->connect('tls://'.$HOST, $PORT, $timeout, NULL, 0, $read_timeout) != TRUE) {
+	return; // ERROR: connection failed.
+}
+
+$res = $client->set("key", "value");
+print "$res\n";
+
+$res = $client->get("key");
+print "$res\n";
+```
+
 **Timeout config sample 3: Lettuce**
 
 The following is a code example with Lettuce:

@@ -11,7 +11,10 @@ after a reboot.
 
 ## Rebooting Valkey or Redis OSS nodes (cluster mode disabled only)
 
-For Valkey or Redis OSS (cluster mode disabled) clusters, the parameters in parameter groups that are applied only after rebooting are:
+For Valkey or Redis OSS (cluster mode disabled) clusters, you can set the following parameters only when you
+create the cluster. After you associate a parameter group with a cluster, ElastiCache locks
+these parameters. To change them, you must create a new cluster with a parameter group
+that has the desired values:
 
 - activerehashing
 - databases

@@ -41,3 +41,20 @@ Use asynchronous writes when your application prioritizes write performance and 
 potential loss of up to 10 seconds of uncommitted data during a failure. This option is ideal for
 workloads such as application data caching, session stores, gaming leaderboards, and real-time
 analytics.
+
+###### Eviction policy consideration for durable clusters
+
+Durable clusters use the same default parameter group as non-durable clusters.
+This parameter group sets `maxmemory-policy` to
+`volatile-lru`. With this policy, Amazon ElastiCache might evict
+keys that have a time to live (TTL) set when memory is under pressure. This
+can happen even on a durable cluster.
+
+To prevent eviction of keys with a TTL, create a custom parameter
+group and set `maxmemory-policy` to `noeviction`. With
+`noeviction`, write commands return an error when memory is full
+rather than removing keys.
+
+Monitor `BytesUsedForCache` and
+`DatabaseMemoryUsagePercentage` to make sure your cluster has enough
+memory for your workload.

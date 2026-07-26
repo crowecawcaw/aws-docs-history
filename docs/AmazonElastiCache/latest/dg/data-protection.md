@@ -25,6 +25,13 @@ in the following ways:
   provide a URL to an external server, don't include credentials information in the URL to
   validate your request to that server.
 
+When you enable in-transit encryption on a cluster, ElastiCache provisions a TLS
+certificate for the cluster's endpoint that includes the cluster name. AWS Certificate Manager records
+publicly trusted TLS certificates in public Certificate Transparency logs,
+which are append-only and can't have entries removed. As a result, the names of clusters
+that have in-transit encryption enabled appear in public Certificate Transparency logs.
+Don't include confidential or sensitive information in cluster names.
+
 ###### Topics
 
 - [Data security in Amazon ElastiCache](encryption.md "encryption.md")

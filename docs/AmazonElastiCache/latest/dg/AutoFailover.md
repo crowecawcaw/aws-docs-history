@@ -428,7 +428,7 @@ For Linux, macOS, or Unix:
 ```
 aws elasticache test-failover \
    --replication-group-id `redis00` \
-   --node-group-id `redis00-0003`
+   --node-group-id `0003`
 ```
 
 For Windows:
@@ -436,7 +436,7 @@ For Windows:
 ```
 aws elasticache test-failover ^
    --replication-group-id `redis00` ^
-   --node-group-id `redis00-0003`
+   --node-group-id `0003`
 ```
 
 Output from the preceding command looks something like the following.
@@ -539,7 +539,7 @@ The following example tests automatic failover on the node group
 ```
 https://elasticache.us-west-2.amazonaws.com/
     ?Action=TestFailover
-    &NodeGroupId=redis00-0003
+    &NodeGroupId=0003
     &ReplicationGroupId=redis00
     &Version=2015-02-02
     &SignatureVersion=4

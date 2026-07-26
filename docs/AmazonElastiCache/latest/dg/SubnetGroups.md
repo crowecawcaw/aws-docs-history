@@ -22,4 +22,5 @@ see [Accessing your ElastiCache cluster or replication group](accessing-elastica
 - [Creating a subnet group](SubnetGroups.Creating.md "SubnetGroups.Creating.md")
 - [Assigning a subnet group to a cache](SubnetGroups.Assigning.md "SubnetGroups.Assigning.md")
 - [Modifying a subnet group](SubnetGroups.Modifying.md "SubnetGroups.Modifying.md")
+- [IP address capacity for scaling operations](SubnetGroups.IPCapacity.md "SubnetGroups.IPCapacity.md")
 - [Deleting a subnet group](SubnetGroups.Deleting.md "SubnetGroups.Deleting.md")

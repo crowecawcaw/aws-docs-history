@@ -56,6 +56,18 @@ ElastiCache in-transit encryption implements the following features:
 
 ElastiCache does not support mTLS (mutual TLS).
 
+###### Certificate Transparency logging
+
+ElastiCache provisions a TLS certificate that includes the cluster name for the
+endpoint of each cluster that has in-transit encryption enabled. AWS Certificate Manager records
+publicly trusted TLS certificates in public, append-only
+Certificate Transparency logs. As a result, the name of a cluster with in-transit
+encryption enabled appears in public Certificate Transparency logs. Don't
+include confidential or sensitive information in cluster names. For more information
+about Certificate Transparency logging, see [Certificate
+Transparency logging](../../../acm/latest/userguide/acm-concepts.md#concept-transparency "../../../acm/latest/userguide/acm-concepts.md#concept-transparency") in the _AWS Certificate Manager User
+Guide_.
+
 ## In-transit encryption conditions (Valkey and Redis OSS)
 
 The following constraints on Amazon ElastiCache in-transit encryption should be kept in mind
@@ -64,6 +76,9 @@ when you plan your node-based cluster implementation:
 - In-transit encryption is supported on replication groups running Valkey and Redis OSS.
 - Modifying the in-transit encryption setting, for an existing cluster, is
   supported on replication groups running Valkey 7.2 and later, and Redis OSS version 7 and later.
+
+If your cluster runs an engine version that doesn't support this modification, the in-transit encryption option appears disabled (greyed out) in the AWS Management Console when you attempt to modify the cluster. To enable in-transit encryption in this case, you must upgrade your engine version to Valkey 7.2 or later, or Redis OSS version 7 or later.
+
 - In-transit encryption is supported only for replication groups running in an Amazon VPC.
 - In-transit encryption is not supported for replication groups running the following node types: M1, M2.
 
@@ -107,6 +122,10 @@ For more information, see [Supported node types](CacheNodes.SupportedTypes.md "C
 - Because creating new connections can be expensive, you can reduce the
   performance impact of in-transit encryption by persisting your TLS
   connections.
+- Don't include confidential or sensitive information in cluster names. When
+  you enable in-transit encryption, the cluster's TLS certificate includes
+  the cluster name, and AWS Certificate Manager records that certificate in public
+  Certificate Transparency logs.
 
 ## Further Valkey and Redis OSS options
 

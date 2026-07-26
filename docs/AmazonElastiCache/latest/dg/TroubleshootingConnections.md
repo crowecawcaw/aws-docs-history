@@ -28,6 +28,8 @@ You can have a single security groups assigned at the same time to the client an
 
 For both cases, you need to allow the TCP outbound traffic on the ElastiCache port from the source and the inbound traffic on the same port to ElastiCache.
 The default port is 11211 for Memcached, and 6379 for Valkey or Redis OSS.
+For Amazon ElastiCache Serverless, you must allow both port 6379 and port 6380. Port 6379 is the primary endpoint for read and write operations, and port 6380 is the read-optimized endpoint.
+Many client libraries connect to both ports even if you don't actively use Read From Replica, so you must make both ports accessible.
 By default, security groups allow all outbound traffic. In this case, only the inbound rule in the target security group is required.
 
 For more information, see [Access patterns for accessing an ElastiCache cluster in an Amazon VPC](elasticache-vpc-accessing.md "elasticache-vpc-accessing.md").
@@ -55,7 +57,7 @@ Client side Network ACL:
 - Rule number: preferably lower than any deny rule;
 - Type: Custom TCP Rule;
 - Protocol: TCP
-- Port Range: 6379
+- Port Range: 6379 (or 6379–6380 for Amazon ElastiCache Serverless)
 - Source: 0.0.0.0/0 (or the ElastiCache cluster subnets. Keep in mind that using specific IPs may create issues in case of failover or scaling the cluster)
 - Allow/Deny: Allow
 
@@ -65,8 +67,8 @@ ElastiCache Network ACL:
 - Rule number: preferably lower than any deny rule;
 - Type: Custom TCP Rule;
 - Protocol: TCP
-- Port Range: 6379
-- Source: 0.0.0.0/0 (or create individial rules for the ElastiCache cluster subnets)
+- Port Range: 6379 (or 6379–6380 for Amazon ElastiCache Serverless)
+- Source: 0.0.0.0/0 (or create individual rules for the ElastiCache cluster subnets)
 - Allow/Deny: Allow
 
 - **Outbound Rules:**

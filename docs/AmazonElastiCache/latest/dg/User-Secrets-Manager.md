@@ -7,6 +7,12 @@ This enables you to replace long-term secrets with short-term ones, which helps 
 
 Using Secrets Manager, you can automatically rotate your ElastiCache for Redis OSS passwords (that is, secrets) using an AWS Lambda function that Secrets Manager provides.
 
+###### Valkey authentication requirement
+
+Valkey does not support the `no-password-required` authentication mode.
+When you use Valkey, create the initial user with a temporary password. Set the access string to
+`off` (disabled) instead of using the `--no-password` flag shown in Step 1 below.
+
 For more information about AWS Secrets Manager, see [What is AWS Secrets Manager?](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md")
 
 ## How ElastiCache uses secrets

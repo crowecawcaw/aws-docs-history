@@ -96,7 +96,7 @@ To calculate
 the discounted rate, each ElastiCache node and engine combination has a normalization factor that's
 measured in units. Reserved node units can be applied to any running node within the reserved node's
 instance family for a given engine. Redis OSS reserved nodes can additionally apply across engines
-to cover running Valkey nodes. Because Valkey is priced at a discount relative to Redis OSS and
+to cover running Valkey nodes. Valkey reserved nodes apply only to running Valkey nodes within the same instance family. Because Valkey is priced at a discount relative to Redis OSS and
 Memcached, its units for a given instance type are lower, which allows a Redis OSS reserved node to
 cover more Valkey nodes.
 

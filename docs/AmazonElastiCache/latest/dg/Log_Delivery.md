@@ -43,6 +43,10 @@ The Slow Log contains the following information:
 
 ## Contents of an engine log entry
 
+ElastiCache delivers a curated subset of engine log events, not the complete set of all internal engine logs. Only significant operational events — such as replication, snapshots, cluster health, and scripting — are included in the delivered logs.
+
+Engine logs are designed to exclude sensitive data. Private information such as IP addresses, process IDs, file paths, and script bodies is redacted before delivery. No user data, passwords, authentication tokens, key names, or values appear in any emitted log entry.
+
 The ElastiCache Engine Log contains the following information:
 
 - **CacheClusterId** – The ID of the cluster

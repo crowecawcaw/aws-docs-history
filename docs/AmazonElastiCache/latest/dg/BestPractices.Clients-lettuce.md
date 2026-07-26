@@ -46,20 +46,20 @@ _dynamicRefreshSources_ later in this topic.
 
 **SocketOption**
 
-Enable [KeepAlive](https://lettuce.io/core/release/api/io/lettuce/core/SocketOptions.KeepAliveOptions.html "https://lettuce.io/core/release/api/io/lettuce/core/SocketOptions.KeepAliveOptions.html"). Enabling this option reduces the need to handle failed
+Enable [KeepAlive](https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/SocketOptions.KeepAliveOptions.html "https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/SocketOptions.KeepAliveOptions.html"). Enabling this option reduces the need to handle failed
 connections during command runtime.
 
-Ensure that you set the [Connection timeout](https://lettuce.io/core/release/api/io/lettuce/core/SocketOptions.Builder.html#connectTimeout-java.time.Duration- "https://lettuce.io/core/release/api/io/lettuce/core/SocketOptions.Builder.html#connectTimeout-java.time.Duration-") based on your application requirements and workload.
+Ensure that you set the [Connection timeout](https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/SocketOptions.Builder.html#connectTimeout-java.time.Duration- "https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/SocketOptions.Builder.html#connectTimeout-java.time.Duration-") based on your application requirements and workload.
 For more information, see the Timeouts section later in this topic.
 
 **ClusterClientOption: Cluster Mode Enabled client options**
 
-Enable [AutoReconnect](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterClientOptions.Builder.html#autoReconnect-boolean- "https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterClientOptions.Builder.html#autoReconnect-boolean-") when connection is lost.
+Enable [AutoReconnect](https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterClientOptions.Builder.html#autoReconnect-boolean- "https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterClientOptions.Builder.html#autoReconnect-boolean-") when connection is lost.
 
-Set [CommandTimeout](https://lettuce.io/core/release/api/io/lettuPrce/core/RedisURI.html#getTimeout-- "https://lettuce.io/core/release/api/io/lettuPrce/core/RedisURI.html#getTimeout--").
+Set [CommandTimeout](https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/RedisURI.html#getTimeout-- "https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/RedisURI.html#getTimeout--").
 For more details, see the Timeouts section later in this topic.
 
-Set [nodeFilter](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterClientOptions.Builder.html#nodeFilter-java.util.function.Predicate- "https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterClientOptions.Builder.html#nodeFilter-java.util.function.Predicate-") to filter out failed nodes
+Set [nodeFilter](https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterClientOptions.Builder.html#nodeFilter-java.util.function.Predicate- "https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterClientOptions.Builder.html#nodeFilter-java.util.function.Predicate-") to filter out failed nodes
 from the topology. Lettuce saves all nodes
 that are found in the 'cluster nodes' output (including nodes with PFAIL/FAIL
 status) in the client's 'partitions' (also known as shards). During the process of
@@ -109,7 +109,7 @@ For more information on connecting to cluster mode disabled clusters, see [Findi
 
 If you wish to use Lettuce's dynamic topology discovery functionality, then you can create a cluster mode enabled cluster with the same shard configuration as your existing cluster. However, for cluster mode enabled clusters we recommend configuring at least 3 shards with at least one 1 replica to support fast failover.
 
-Enable [enablePeriodicRefresh](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#enablePeriodicRefresh-java.time.Duration- "https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#enablePeriodicRefresh-java.time.Duration-"). This enables periodic cluster topology updates
+Enable [enablePeriodicRefresh](https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#enablePeriodicRefresh-java.time.Duration- "https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#enablePeriodicRefresh-java.time.Duration-"). This enables periodic cluster topology updates
 so that the client updates the cluster topology in the intervals of the
 refreshPeriod (default: 60 seconds). When it's disabled, the client updates the
 cluster topology only when errors occur when it attempts to run commands against the
@@ -122,21 +122,21 @@ clusters with many nodes. This is because all nodes are being queried for their
 views to get the most updated cluster view. If you run a large cluster, you might
 want to increase the period.
 
-Enable [enableAllAdaptiveRefreshTriggers](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#enableAllAdaptiveRefreshTriggers-- "https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#enableAllAdaptiveRefreshTriggers--"). This enables adaptive topology
-refreshing that uses all [triggers](https://lettuce.io/core/6.1.6.RELEASE/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.RefreshTrigger.html "https://lettuce.io/core/6.1.6.RELEASE/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.RefreshTrigger.html"): MOVED\_REDIRECT, ASK\_REDIRECT, PERSISTENT\_RECONNECTS,
+Enable [enableAllAdaptiveRefreshTriggers](https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#enableAllAdaptiveRefreshTriggers-- "https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#enableAllAdaptiveRefreshTriggers--"). This enables adaptive topology
+refreshing that uses all [triggers](https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.RefreshTrigger.html "https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.RefreshTrigger.html"): MOVED\_REDIRECT, ASK\_REDIRECT, PERSISTENT\_RECONNECTS,
 UNCOVERED\_SLOT, UNKNOWN\_NODE. Adaptive refresh triggers initiate topology view
 updates based on events that happen during Valkey or Redis OSS cluster operations. Enabling this
 option leads to an immediate topology refresh when one of the preceding triggers
 occur. Adaptive triggered refreshes are rate-limited using a timeout because events
 can happen on a large scale (default timeout between updates: 30).
 
-Enable [closeStaleConnections](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#closeStaleConnections-boolean- "https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#closeStaleConnections-boolean-"). This enables closing stale connections when
-refreshing the cluster topology. It only comes into effect if [ClusterTopologyRefreshOptions.isPeriodicRefreshEnabled()](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.html#isPeriodicRefreshEnabled-- "https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.html#isPeriodicRefreshEnabled--") is true. When
+Enable [closeStaleConnections](https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#closeStaleConnections-boolean- "https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#closeStaleConnections-boolean-"). This enables closing stale connections when
+refreshing the cluster topology. It only comes into effect if [ClusterTopologyRefreshOptions.isPeriodicRefreshEnabled()](https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.html#isPeriodicRefreshEnabled-- "https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.html#isPeriodicRefreshEnabled--") is true. When
 it's enabled, the client can close stale connections and create new ones in the
 background. This reduces the need to handle failed connections during command
 runtime.
 
-Enable [dynamicRefreshSources](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#dynamicRefreshSources-boolean- "https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#dynamicRefreshSources-boolean-"). We recommend enabling dynamicRefreshSources
+Enable [dynamicRefreshSources](https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#dynamicRefreshSources-boolean- "https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/cluster/ClusterTopologyRefreshOptions.Builder.html#dynamicRefreshSources-boolean-"). We recommend enabling dynamicRefreshSources
 for small clusters, and disabling it for large clusters. dynamicRefreshSources
 enables discovering cluster nodes from the provided seed node (for example, cluster
 configuration endpoint). It uses all the discovered nodes as sources for refreshing
@@ -175,7 +175,7 @@ by default for non-blocking DNS resolution. You no longer need to configure a cu
 DNS resolver. If you are using Lettuce 6.6 or earlier, configure `DnsResolver` with
 `DirContextDnsResolver` to enable proper DNS-based node discovery.
 
-Configure [reconnectDelay](https://lettuce.io/core/release/api/io/lettuce/core/resource/DefaultClientResources.Builder.html#reconnectDelay-io.lettuce.core.resource.Delay- "https://lettuce.io/core/release/api/io/lettuce/core/resource/DefaultClientResources.Builder.html#reconnectDelay-io.lettuce.core.resource.Delay-") with exponential backoff and full jitter. Lettuce has
+Configure [reconnectDelay](https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/resource/DefaultClientResources.Builder.html#reconnectDelay-io.lettuce.core.resource.Delay- "https://javadoc.io/static/io.lettuce/lettuce-core/6.2.2.RELEASE/io/lettuce/core/resource/DefaultClientResources.Builder.html#reconnectDelay-io.lettuce.core.resource.Delay-") with exponential backoff and full jitter. Lettuce has
 built-in retry mechanisms based on the exponential backoff strategies.. For details,
 see [Exponential Backoff and Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter "https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter") on the AWS Architecture Blog. For more
 information about the importance of having a retry backoff strategy, see the backoff

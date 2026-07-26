@@ -1,6 +1,6 @@
 # Preparing your source and target for migration
 
-With these steps you can prepare to migrate your data from a self-hosted Valkey or Redis source on EC2 to ElastiCache, or from a Redis OSS cluster to an ElastiCache Valkey cluster.
+With these steps you can prepare to migrate your data from a self-hosted Valkey or Redis source on EC2 to ElastiCache.
 
 This refers to migration from a self-hosted instance to the ElastiCache service. For information on upgrading from Redis OSS to Valkey on ElastiCache see [Upgrading engine versions including cross engine upgrades](VersionManagement.HowTo.md "VersionManagement.HowTo.md").
 
