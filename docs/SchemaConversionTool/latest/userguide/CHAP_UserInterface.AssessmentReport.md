@@ -61,4 +61,4 @@ These files contain the following information:
     * A summary of conversion action items with an estimate of the effort required to convert an occurrence of the action item.
     * An executive summary with a number of action items categorized by the estimated time to convert.
 
-![Database migration assessment report](/images/SchemaConversionTool/latest/userguide/images/assessment_report.png)
+![Database migration assessment report](images/assessment_report.png)
