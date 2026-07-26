@@ -132,7 +132,7 @@ variables are mapped in the ADS template URL.
      time, and less than one day from now. The consumption window can overlap with the retrieval
      window.
    - In the [Avail matching criteria](variables.md "variables.md")
-     section, select **Add avail criteria** and add as many ad five avail
+     section, select **Add avail criteria** and add up to five avail
      matching criteria to your schedule. Then, under **Dynamic variable key**,
      add a dynamic variable key, such as `scte.event_id`. MediaTailor will place the
      prefetched ads into the ad break _only_ if it meets the
@@ -141,6 +141,19 @@ variables are mapped in the ADS template URL.
      specified matching criteria, MediaTailor skips the prefetch for that break. For information, see
      the [Single prefetch schedule consumption
      explanation](understanding-prefetching.md#avail-matching-criteria "understanding-prefetching.md#avail-matching-criteria").
+
+   ###### Important
+
+   You can specify a maximum of five avail matching criteria per prefetch schedule. If
+   you specify multiple criteria, MediaTailor combines them using a logical AND. To model logical
+   OR combinations, create multiple prefetch schedules.
+
+   Only use variables that change per ad break (such as `scte.event_id`,
+   `scte.segmentation_upid`, or `avail.index`) as avail matching
+   criteria. Don't use player variables (such as `player_params.*`) for avail
+   matching criteria because player variables remain constant for the entire session and
+   don't differentiate between ad breaks. MediaTailor automatically includes player variables in
+   prefetch ad requests if the variables are mapped in the ADS template URL.
 
 8. Select **Add avail criteria**.
    Prefetch schedules automatically expire after the consumption window's end time. For
@@ -207,7 +220,7 @@ To create a schedule that prefetches ads before each ad avail in an event.
    - For **Retrieved ad expiration**, indicate how long after retrieval
      ads are available for insertion.
    - In the [Avail matching criteria](variables.md "variables.md")
-     section, select **Add avail criteria** and add as many ad five avail
+     section, select **Add avail criteria** and add up to five avail
      matching criteria to your schedule. Then, under **Dynamic variable key**,
      add a dynamic variable key, such as `scte.event_id`. MediaTailor will place the
      prefetched ads into the ad break _only_ if it meets the
@@ -216,6 +229,19 @@ To create a schedule that prefetches ads before each ad avail in an event.
      specified matching criteria, MediaTailor skips the prefetch for that break. For information, see
      the [Recurring prefetch schedule consumption
      explanation](understanding-prefetching.md#avail-matching-criteria-recur "understanding-prefetching.md#avail-matching-criteria-recur").
+
+   ###### Important
+
+   You can specify a maximum of five avail matching criteria per prefetch schedule. If
+   you specify multiple criteria, MediaTailor combines them using a logical AND. To model logical
+   OR combinations, create multiple prefetch schedules.
+
+   Only use variables that change per ad break (such as `scte.event_id`,
+   `scte.segmentation_upid`, or `avail.index`) as avail matching
+   criteria. Don't use player variables (such as `player_params.*`) for avail
+   matching criteria because player variables remain constant for the entire session and
+   don't differentiate between ad breaks. MediaTailor automatically includes player variables in
+   prefetch ad requests if the variables are mapped in the ADS template URL.
 
 3. Select **Add avail criteria**.
    Prefetch schedules automatically expire after the consumption window's end time. For

@@ -19,6 +19,7 @@ For information about integrating Channel Assembly with a content delivery netwo
 
 ###### Topics
 
+- [Channel Assembly workflow types](channel-assembly-workflows.md "channel-assembly-workflows.md")
 - [Working with source locations](channel-assembly-source-locations.md "channel-assembly-source-locations.md")
 - [Working with channels](channel-assembly-channels.md "channel-assembly-channels.md")
 - [Adding a program to a channel's schedule](channel-assembly-programs.md "channel-assembly-programs.md")

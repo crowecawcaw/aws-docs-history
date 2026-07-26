@@ -40,3 +40,4 @@ types](https://support.google.com/admanager/answer/2805834?hl=en "https://suppor
 
 - [Server-side integration](gam-integration-ssl.md "gam-integration-ssl.md")
 - [Client-side integration](gam-integration-pal.md "gam-integration-pal.md")
+- [Optimizing ad fill rate](gam-integration-fill-rate.md "gam-integration-fill-rate.md")
