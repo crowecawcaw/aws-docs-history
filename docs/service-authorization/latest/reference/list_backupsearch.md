@@ -38,6 +38,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 | [backup-search:TagResource](#list_backupsearch-action-TagResource "#list_backupsearch-action-TagResource") |                                                                                                                                                         |               | Tagging, Write    |
 | StopSearchJob                                                                                              | [backup-search:StopSearchJob](#list_backupsearch-action-StopSearchJob "#list_backupsearch-action-StopSearchJob")                                        |               |                   | Write          |
 | TagResource                                                                                                | [backup-search:TagResource](#list_backupsearch-action-TagResource "#list_backupsearch-action-TagResource")                                              |               |                   | Tagging, Write |
+| UntagResource                                                                                              | [backup-search:UntagResource](#list_backupsearch-action-UntagResource "#list_backupsearch-action-UntagResource")                                        |               |                   | Tagging, Write |
 
 ## Actions defined by AWS Backup Search
 
