@@ -235,6 +235,8 @@ The following table lists the quotas for container associations.
 | Monitoring configurations per container association | 5             | No         |
 | Container association references per rule group     | 30            | No         |
 
+The limit of 5 IP set references per rule group does not apply to container association references.
+
 For the most current quota values, see [AWS Network Firewall quotas](quotas.md "quotas.md").
 
 ## Container association error reference
