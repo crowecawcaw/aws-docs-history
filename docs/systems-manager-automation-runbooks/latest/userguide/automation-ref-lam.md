@@ -13,3 +13,4 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 - [AWSSupport-RemediateLambdaS3Event](automation-awssupport-remediatelambdas3event.md "automation-awssupport-remediatelambdas3event.md")
 - [AWSSupport-TroubleshootLambdaInternetAccess](AWSSupport-TroubleshootLambdaInternetAccess.md "AWSSupport-TroubleshootLambdaInternetAccess.md")
 - [AWSSupport-TroubleshootLambdaS3Event](automation-aws-troubleshootlambdas3event.md "automation-aws-troubleshootlambdas3event.md")
+- [AWSSupport-TroubleshootLambdaVpcConnectivity](automation-awssupport-troubleshootlambdavpcconnectivity.md "automation-awssupport-troubleshootlambdavpcconnectivity.md")

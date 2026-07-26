@@ -12,3 +12,4 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 - [AWSSupport-TroubleshootECSContainerInstance](automation-aws-troubleshoot-ecs-container-instance.md "automation-aws-troubleshoot-ecs-container-instance.md")
 - [AWSSupport-TroubleshootECSTaskFailedToStart](automation-aws-troubleshootecstaskfailedtostart.md "automation-aws-troubleshootecstaskfailedtostart.md")
 - [AWS-UpdateAmazonECSAgent](automation-aws-update-ecs-agent.md "automation-aws-update-ecs-agent.md")
+- [AWSSupport-TroubleshootAWSECSHealthChecks](automation-awssupport-troubleshootawsecshealthchecks.md "automation-awssupport-troubleshootawsecshealthchecks.md")

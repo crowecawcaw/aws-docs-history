@@ -29,4 +29,3 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 - [AWSConfigRemediation-RemoveUnrestrictedSourceIngressRules](automation-aws-remove-unrestricted-source-ingress.md "automation-aws-remove-unrestricted-source-ingress.md")
 - [AWSConfigRemediation-RemoveVPCDefaultSecurityGroupRules](automation-aws-remove-default-secg-rules.md "automation-aws-remove-default-secg-rules.md")
 - [AWSSupport-SetupIPMonitoringFromVPC](automation-awssupport-setupipmonitoringfromvpc.md "automation-awssupport-setupipmonitoringfromvpc.md")
-- [AWSSupport-TerminateIPMonitoringFromVPC](automation-awssupport-terminateipmonitoringfromvpc.md "automation-awssupport-terminateipmonitoringfromvpc.md")

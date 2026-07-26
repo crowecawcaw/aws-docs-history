@@ -12,7 +12,6 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 - [AWSConfigRemediation-EnableCLBCrossZoneLoadBalancing](automation-aws-enable-clb-crosszone.md "automation-aws-enable-clb-crosszone.md")
 - [AWSConfigRemediation-EnableELBDeletionProtection](automation-aws-enable-elb-protection.md "automation-aws-enable-elb-protection.md")
 - [AWSConfigRemediation-EnableLoggingForALBAndCLB](automation-aws-enable-logging-alb-clb.md "automation-aws-enable-logging-alb-clb.md")
-- [AWSSupport-TroubleshootCLBConnectivity](automation-aws-troubleshootclbconnectivity.md "automation-aws-troubleshootclbconnectivity.md")
 - [AWSConfigRemediation-EnableNLBCrossZoneLoadBalancing](automation-aws-enable-nlb-crosszone.md "automation-aws-enable-nlb-crosszone.md")
 - [AWS-UpdateALBDesyncMitigationMode](AWS-UpdateALBDesyncMitigationMode.md "AWS-UpdateALBDesyncMitigationMode.md")
 - [AWS-UpdateCLBDesyncMitigationMode](AWS-UpdateCLBDesyncMitigationMode.md "AWS-UpdateCLBDesyncMitigationMode.md")
