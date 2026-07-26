@@ -17,8 +17,8 @@ step. 4. Once the install wizard is finished, set the `JAVA_HOME` and
 
 Set `JAVA_HOME` to the installation location, noting that the
 directory contains the currently-installed version. For example, if the default
-directory is used for 21.0.11, then set `JAVA_HOME` as
-`C:\Program Files\Amazon Corretto\jdk21.0.11_10`.
+directory is used for 21.0.12, then set `JAVA_HOME` as
+`C:\Program Files\Amazon Corretto\jdk21.0.12_8`.
 
 Add `%JAVA_HOME%\bin` to the current `PATH`
 variable. 5. Verify the installation by running **java -version** in a command prompt.
@@ -27,9 +27,9 @@ You should see the following output.
 ###### Example
 
 ```
-openjdk version "21.0.11" 2026-04-21 LTS
-OpenJDK Runtime Environment Corretto-21.0.11.10.1 (build 21.0.11+10-LTS)
-OpenJDK 64-Bit Server VM Corretto-21.0.11.10.1 (build 21.0.11+10-LTS, mixed mode, sharing)
+openjdk version "21.0.12" 2026-07-21 LTS
+OpenJDK Runtime Environment Corretto-21.0.12.8.1 (build 21.0.12+8-LTS)
+OpenJDK 64-Bit Server VM Corretto-21.0.12.8.1 (build 21.0.12+8-LTS, mixed mode, sharing)
 ```
 
 ## Uninstall Amazon Corretto 21

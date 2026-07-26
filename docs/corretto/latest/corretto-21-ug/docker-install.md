@@ -19,9 +19,9 @@ Output:
 ###### Example
 
 ```
-openjdk version "21.0.11" 2026-04-21 LTS
-OpenJDK Runtime Environment Corretto-21.0.11.10.1 (build 21.0.11+10-LTS)
-OpenJDK 64-Bit Server VM Corretto-21.0.11.10.1 (build 21.0.11+10-LTS, mixed mode, sharing)
+openjdk version "21.0.12" 2026-07-21 LTS
+OpenJDK Runtime Environment Corretto-21.0.12.8.1 (build 21.0.12+8-LTS)
+OpenJDK 64-Bit Server VM Corretto-21.0.12.8.1 (build 21.0.12+8-LTS, mixed mode, sharing)
 ```
 
 ## Using the Corretto ECR Instance
