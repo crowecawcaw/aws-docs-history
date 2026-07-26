@@ -8,6 +8,7 @@ configuration, IAM, and agent lifecycle. These errors occur on both Linux and Wi
 - [Error: Outdated agent installer version](#error-outdated-installer "#error-outdated-installer")
 - [Error: Account not initialized](#error-uninitialized-account "#error-uninitialized-account")
 - [Error: Failed to validate AWS credentials](#error-invalid-credentials "#error-invalid-credentials")
+- [Error: Request signature mismatch](#error-request-signature "#error-request-signature")
 - [Error: Missing agent installation policy](#error-missing-installer-policy "#error-missing-installer-policy")
 - [Error: Agent IAM role missing](#error-agent-role-missing "#error-agent-role-missing")
 - [Error: Server registered to different Region or account](#error-account-region-mismatch "#error-account-region-mismatch")
@@ -77,6 +78,30 @@ aws sts get-caller-identity --region `region`
    issues with secret keys.
 5. Ensure that the Region specified during installation matches the Region where
    AWS Elastic Disaster Recovery is initialized.
+
+## Error: Request signature mismatch
+
+**Error:**
+**`InvalidSignatureException... The request signature we calculated does not match the signature you provided`**
+
+**Cause:** The installer signed the request with a corrupted AWS Secret
+Access Key, so the computed signature does not match. This commonly occurs when a command shell interprets
+special characters in the key and alters it during entry. A significantly skewed system clock can also cause
+this error.
+
+**Resolution:**
+
+1. Re-enter the Secret Access Key and make sure you paste it exactly. On Windows, use PowerShell
+   instead of CMD, or enclose the key in double quotes.
+2. Make sure the system clock is accurate. For example, synchronize with Network Time Protocol
+   (NTP).
+3. Verify the credentials with the following command:
+
+```
+aws sts get-caller-identity
+```
+
+Then run the installer again.
 
 ## Error: Missing agent installation policy
 

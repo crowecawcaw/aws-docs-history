@@ -5,7 +5,6 @@ This page covers errors that you might encounter when you install the AWS Elasti
 ###### Topics
 
 - [Error: This app can't run on your PC](#error-app-cant-run "#error-app-cant-run")
-- [Error: Request signature mismatch](#error-request-signature "#error-request-signature")
 - [Error: Cannot open self or archive](#error-corrupted-installer "#error-corrupted-installer")
 - [Error: TLS connection error downloading installer](#error-tls-connection "#error-tls-connection")
 - [Error: The directory is not empty](#error-directory-not-empty "#error-directory-not-empty")
@@ -25,18 +24,6 @@ This page covers errors that you might encounter when you install the AWS Elasti
 2. If the value is `32-bit operating system, x64-based processor`, you are running 32-bit Windows on 64-bit hardware. Reinstall Windows as 64-bit.
 3. If the value is `32-bit operating system, x86-based processor`, the hardware does not support 64-bit. You cannot use AWS Elastic Disaster Recovery on this server.
 4. If the system is 64-bit but the error still appears, check for AppLocker policies, SmartScreen, or Windows Defender Application Control blocking the executable. Right-click `AwsReplicationWindowsInstaller.exe` and select **Run as administrator**.
-
-## Error: Request signature mismatch
-
-**Error message:** **`InvalidSignatureException... The request signature we calculated does not match the signature you provided`**
-
-**Cause:** When you run the installer in CMD (Command Prompt), special characters in base64-encoded AWS secret access keys (such as `^`, `&`, `|`, `<`, `>`) are interpreted as command operators instead of literal characters. This corrupts the credentials.
-
-**Resolution:**
-
-- Use PowerShell instead of CMD to run the installer. PowerShell does not interpret these special characters.
-- In PowerShell, paste the secret key when prompted.
-- Alternatively, if you must use CMD, enclose the secret key in double quotes when pasting.
 
 ## Error: Cannot open self or archive
 
