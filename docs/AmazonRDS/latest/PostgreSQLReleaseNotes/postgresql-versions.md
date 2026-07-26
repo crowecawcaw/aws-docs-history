@@ -145,6 +145,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 ###### Minor versions
 
 - [PostgreSQL version 18.4 on Amazon RDS](#postgresql-versions-version184 "#postgresql-versions-version184")
+- [PostgreSQL version 18.3-R2 on Amazon RDS](#postgresql-versions-version183R2 "#postgresql-versions-version183R2")
 - [PostgreSQL version 18.3 on Amazon RDS](#postgresql-versions-version183 "#postgresql-versions-version183")
 - [PostgreSQL version 18.2 on Amazon RDS](#postgresql-versions-version182 "#postgresql-versions-version182")
 - [PostgreSQL version 18.1 on Amazon RDS](#postgresql-versions-version181 "#postgresql-versions-version181")
@@ -179,6 +180,15 @@ This version also includes the following extension changes:
 - The `pgcollection` extension was updated to version 1.1.1.
 - The `pgvector` extension was updated to version 0.8.2.
 - The `pgtap` extension was updated to version 1.3.4.
+
+### PostgreSQL version 18.3-R2 on Amazon RDS
+
+PostgreSQL version 18.3-R2 is now available on Amazon RDS. This release contains several security fixes and improvements,
+including a fix for the pgvector vulnerability [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+This version also includes the following extension changes:
+
+- The `postgis` extension was updated to version 3.6.3.
 
 ### PostgreSQL version 18.3 on Amazon RDS
 
@@ -456,6 +466,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 ###### Minor versions
 
 - [PostgreSQL version 17.10 on Amazon RDS](#postgresql-versions-version1710 "#postgresql-versions-version1710")
+- [PostgreSQL version 17.9-R2 on Amazon RDS](#postgresql-versions-version179R2 "#postgresql-versions-version179R2")
 - [PostgreSQL version 17.9 on Amazon RDS](#postgresql-versions-version179 "#postgresql-versions-version179")
 - [PostgreSQL version 17.8 on Amazon RDS](#postgresql-versions-version178 "#postgresql-versions-version178")
 - [PostgreSQL version 17.7 on Amazon RDS](#postgresql-versions-version177 "#postgresql-versions-version177")
@@ -498,6 +509,15 @@ This version also includes the following extension changes:
 - The `pgcollection` extension was updated to version 1.1.1.
 - The `pgvector` extension was updated to version 0.8.2.
 - The `pgtap` extension was updated to version 1.3.4.
+
+### PostgreSQL version 17.9-R2 on Amazon RDS
+
+PostgreSQL version 17.9-R2 is now available on Amazon RDS. This release contains several security fixes and improvements,
+including a fix for the pgvector vulnerability [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+This version also includes the following extension changes:
+
+- The `postgis` extension was updated to version 3.5.6.
 
 ### PostgreSQL version 17.9 on Amazon RDS
 
@@ -901,6 +921,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 
 - [PostgreSQL version 16.14-R2 on Amazon RDS](#postgresql-versions-version1614R2 "#postgresql-versions-version1614R2")
 - [PostgreSQL version 16.14 on Amazon RDS](#postgresql-versions-version1614 "#postgresql-versions-version1614")
+- [PostgreSQL version 16.13-R2 on Amazon RDS](#postgresql-versions-version1613R2 "#postgresql-versions-version1613R2")
 - [PostgreSQL version 16.13 on Amazon RDS](#postgresql-versions-version1613 "#postgresql-versions-version1613")
 - [PostgreSQL version 16.12 on Amazon RDS](#postgresql-versions-version1612 "#postgresql-versions-version1612")
 - [PostgreSQL version 16.11 on Amazon RDS](#postgresql-versions-version1611 "#postgresql-versions-version1611")
@@ -963,6 +984,15 @@ This version also includes the following extension changes:
 - The `pgcollection` extension was updated to version 1.1.1.
 - The `pgvector` extension was updated to version 0.8.2.
 - The `pgtap` extension was updated to version 1.3.4.
+
+### PostgreSQL version 16.13-R2 on Amazon RDS
+
+PostgreSQL version 16.13-R2 is now available on Amazon RDS. This release contains several security fixes and improvements,
+including a fix for the pgvector vulnerability [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+This version also includes the following extension changes:
+
+- The `postgis` extension was updated to version 3.4.6.
 
 ### PostgreSQL version 16.13 on Amazon RDS
 
@@ -1523,6 +1553,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 
 - [PostgreSQL version 15.18-R2 on Amazon RDS](#postgresql-versions-version1518R2 "#postgresql-versions-version1518R2")
 - [PostgreSQL version 15.18 on Amazon RDS](#postgresql-versions-version1518 "#postgresql-versions-version1518")
+- [PostgreSQL version 15.17-R2 on Amazon RDS](#postgresql-versions-version1517R2 "#postgresql-versions-version1517R2")
 - [PostgreSQL version 15.17 on Amazon RDS](#postgresql-versions-version1517 "#postgresql-versions-version1517")
 - [PostgreSQL version 15.16 on Amazon RDS](#postgresql-versions-version1516 "#postgresql-versions-version1516")
 - [PostgreSQL version 15.15 on Amazon RDS](#postgresql-versions-version1515 "#postgresql-versions-version1515")
@@ -1591,6 +1622,15 @@ This version also includes the following extension changes:
 - The `pgcollection` extension was updated to version 1.1.1.
 - The `pgvector` extension was updated to version 0.8.2.
 - The `pgtap` extension was updated to version 1.3.4.
+
+### PostgreSQL version 15.17-R2 on Amazon RDS
+
+PostgreSQL version 15.17-R2 is now available on Amazon RDS. This release contains several security fixes and improvements,
+including a fix for the pgvector vulnerability [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+This version also includes the following extension changes:
+
+- The `postgis` extension was updated to version 3.4.6.
 
 ### PostgreSQL version 15.17 on Amazon RDS
 
@@ -2174,6 +2214,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 
 - [PostgreSQL version 14.23-R2 on Amazon RDS](#postgresql-versions-version1423R2 "#postgresql-versions-version1423R2")
 - [PostgreSQL version 14.23 on Amazon RDS](#postgresql-versions-version1423 "#postgresql-versions-version1423")
+- [PostgreSQL version 14.22-R2 on Amazon RDS](#postgresql-versions-version1422R2 "#postgresql-versions-version1422R2")
 - [PostgreSQL version 14.22 on Amazon RDS](#postgresql-versions-version1422 "#postgresql-versions-version1422")
 - [PostgreSQL version 14.21 on Amazon RDS](#postgresql-versions-version1421 "#postgresql-versions-version1421")
 - [PostgreSQL version 14.20-R2 on Amazon RDS](#postgresql-versions-version1420R2 "#postgresql-versions-version1420R2")
@@ -2247,6 +2288,15 @@ This version also includes the following extension changes:
 - The `pg_partman` extension was updated to version 5.4.3.
 - The `pgvector` extension was updated to version 0.8.2.
 - The `pgtap` extension was updated to version 1.3.4.
+
+### PostgreSQL version 14.22-R2 on Amazon RDS
+
+PostgreSQL version 14.22-R2 is now available on Amazon RDS. This release contains several security fixes and improvements,
+including a fix for the pgvector vulnerability [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+This version also includes the following extension changes:
+
+- The `postgis` extension was updated to version 3.4.6.
 
 ### PostgreSQL version 14.22 on Amazon RDS
 
