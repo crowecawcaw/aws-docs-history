@@ -28,6 +28,17 @@ The following pattern matches all failed assessments.
 }
 ```
 
+###### Select all new dependency discovered events
+
+The following pattern matches all new dependency events.
+
+```
+{
+  "source": ["aws.resiliencehub"],
+  "detail-type": ["New Dependency Discovered"]
+}
+```
+
 ###### Select all events from the next generation of Resilience Hub
 
 The following pattern matches all events regardless of type.

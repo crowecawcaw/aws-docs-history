@@ -2,7 +2,8 @@
 
 With Amazon EventBridge, you can monitor resources in the next generation of Resilience Hub using event-driven rules.
 These rules can trigger actions in other AWS services. For example, you can create a rule
-that signals an Amazon SNS topic whenever a failure mode assessment completes.
+that signals an Amazon SNS topic whenever a failure mode assessment completes or a new dependency
+is discovered.
 
 You can create rules in EventBridge to act on the following events from the next generation of Resilience Hub:
 
@@ -15,6 +16,8 @@ You can create rules in EventBridge to act on the following events from the next
   hours.
 - **Failure Mode Finding Resolved** – Emitted when a
   failure mode finding is marked as Resolved or Irrelevant.
+- **New Dependency Discovered** – Emitted when
+  dependency discovery identifies a new dependency for your service.
   To capture specific events from the next generation of Resilience Hub that you're interested in, define
   event-specific patterns that EventBridge can use to detect the events. Event patterns have the same
   structure as the events that they match. The pattern quotes the fields that you want to match

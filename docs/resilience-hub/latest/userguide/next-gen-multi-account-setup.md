@@ -18,6 +18,13 @@ In each account that contains resources for your service, create a role with:
   "Statement": [{
     "Effect": "Allow",
     "Principal": {
+      "Service": "resiliencehub.amazonaws.com"
+    },
+    "Action": "sts:AssumeRole"
+  },
+  {
+    "Effect": "Allow",
+    "Principal": {
       "AWS": "arn:aws:iam::123456789012:role/AWSResilienceHubAssessmentRole"
     },
     "Action": "sts:AssumeRole",
