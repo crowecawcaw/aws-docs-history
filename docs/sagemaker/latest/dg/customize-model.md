@@ -1,4 +1,4 @@
-# Customizing models with Amazon SageMaker AI
+# Serverless model customization
 
 Amazon SageMaker AI model customization is a capability that transforms the traditionally complex and
 time-consuming process of customizing AI models from a months-long endeavor into a

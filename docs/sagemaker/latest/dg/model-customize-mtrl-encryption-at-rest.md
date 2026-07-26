@@ -130,19 +130,58 @@ The `kms:ViaService` condition restricts use of the key to
 requests that come through Amazon S3, preventing the key from being used for
 other purposes.
 
+###### Agent runtime role permissions
+
+The agent runtime role that your Amazon Bedrock AgentCore agent or
+AWS Lambda forwarder assumes must have the following AWS KMS permissions.
+SageMaker AI checks that the caller has these permissions before using the
+KMS key during a multi-turn reinforcement learning (RL) job.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "KMSPermissionsForMTRLRuntime",
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey"
+            ],
+            "Resource": "arn:aws:kms:`region`:`account-id`:key/`key-id`",
+            "Condition": {
+                "StringLike": {
+                    "kms:ViaService": "sagemaker.*.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
+The `kms:ViaService` condition for the agent runtime role
+specifies `sagemaker.*.amazonaws.com` because the SageMaker AI
+runtime service performs the AWS KMS operations on behalf of the caller.
+In contrast, the execution role uses
+`s3.*.amazonaws.com` because it accesses
+the key through Amazon S3.
+
 ###### KMS key policy
 
 The default KMS key policy already allows IAM roles in the same
 account to use the key. Optionally, you can add the following statement
-to further scope down access to only allow the execution role to use
-the key through Amazon S3:
+to further restrict access to only the execution role and agent
+runtime role:
 
 ```
 {
     "Sid": "AllowMTRLJobEncryption",
     "Effect": "Allow",
     "Principal": {
-        "AWS": "arn:aws:iam::`account-id`:role/`SageMakerExecutionRole`"
+        "AWS": [
+            "arn:aws:iam::`account-id`:role/`SageMakerExecutionRole`",
+            "arn:aws:iam::`account-id`:role/`AgentRuntimeRole`"
+        ]
     },
     "Action": [
         "kms:Decrypt",
@@ -151,7 +190,10 @@ the key through Amazon S3:
     "Resource": "*",
     "Condition": {
         "StringLike": {
-            "kms:ViaService": "s3.*.amazonaws.com"
+            "kms:ViaService": [
+                "s3.*.amazonaws.com",
+                "sagemaker.*.amazonaws.com"
+            ]
         }
     }
 }

@@ -1,7 +1,7 @@
 # Model customization agent skills
 
-To accelerate model customization workflows, Amazon SageMaker AI provides a comprehensive set
-of agent Skills designed to work with AI coding assistants that support skills, such
+To accelerate model customization workflows, you can use a comprehensive set
+of Amazon SageMaker AI agent Skills designed to work with AI coding assistants that support skills, such
 as Kiro and Claude Code. These Skills direct coding assistants, in an IDE or at
 command line, to orchestrate model customization tasks, such as use case
 specification and planning, dataset transformation, customization technique
@@ -16,9 +16,11 @@ Agent Plugins GitHub repository, maintained by AWSLabs. By adhering to the stand
 SKILL.md format defined by the Agent Skills open standard, these skills remain
 portable across any compatible coding environment.
 
-**Getting Started**: Access the Amazon SageMaker AI agent skills
-on GitHub through the [AWSLabs Agent Plugins
-repository](https://github.com/awslabs/agent-plugins "https://github.com/awslabs/agent-plugins"). In Claude Code or Cursor install the
-`sagemaker-ai` plugin. For coding assistants that don't support agent
-plugins directly (for example, Kiro CLI or IDE as of Mar 2026), install the MCP
-server and Skills separately as detailed in the [read me file](https://github.com/awslabs/agent-plugins/tree/main/plugins/sagemaker-ai "https://github.com/awslabs/agent-plugins/tree/main/plugins/sagemaker-ai").
+## Getting started
+
+Access the Amazon SageMaker AI agent skills through the [AWSLabs Agent Plugins
+repository](https://github.com/awslabs/agent-plugins "https://github.com/awslabs/agent-plugins") on the GitHub website. In Claude
+Code or Cursor install the `sagemaker-ai` plugin.
+For coding assistants that don't support agent plugins directly (for example,
+Kiro CLI or IDE as of Mar 2026), install the MCP server and Skills
+separately as detailed in the [sagemaker-ai plugin README](https://github.com/awslabs/agent-plugins/tree/main/plugins/sagemaker-ai "https://github.com/awslabs/agent-plugins/tree/main/plugins/sagemaker-ai") on the GitHub website.

@@ -454,6 +454,23 @@ BedrockAgentCoreFullAccess**
           "aws:ResourceAccount": "${aws:PrincipalAccount}"
         }
       }
+    },
+    {
+      "Sid": "KMSPermissionsForMTRLRuntime",
+      "Effect": "Allow",
+      "Action": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource": "arn:aws:kms:*:*:key/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceAccount": "${aws:PrincipalAccount}"
+        },
+        "StringLike": {
+          "kms:ViaService": "sagemaker.*.amazonaws.com"
+        }
+      }
     }
   ]
 }
@@ -498,5 +515,6 @@ convention, add its ARN explicitly:
 ## Other Setup
 
 - If you use a customer-managed VPC, see [Configure a VPC for multi-turn RL jobs](model-customize-mtrl-vpc.md "model-customize-mtrl-vpc.md").
-- If you use a KMS key to encrypt job input and output, the execution role
-  and the caller role need additional permissions. See [Encryption at rest for multi-turn reinforcement learning](model-customize-mtrl-encryption-at-rest.md "model-customize-mtrl-encryption-at-rest.md").
+- If you use a customer-managed KMS key to encrypt job input and
+  output, the execution role, caller role, and agent runtime role must
+  have additional permissions. See [Encryption at rest for multi-turn reinforcement learning](model-customize-mtrl-encryption-at-rest.md "model-customize-mtrl-encryption-at-rest.md").

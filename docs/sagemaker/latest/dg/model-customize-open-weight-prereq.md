@@ -331,7 +331,8 @@ If you prefer to manage permissions manually, create an inline policy with the f
                 "kms:DescribeKey",
                 "kms:ListAliases",
                 "iam:ListRoles",
-                "ec2:DescribeVpcs"
+                "ec2:DescribeVpcs",
+                "servicequotas:ListServiceQuotas"
             ],
             "Resource": "*",
             "Condition": {
@@ -500,7 +501,10 @@ If you prefer to manage permissions manually, create an inline policy with the f
             "Action": [
                 "iam:PassRole"
             ],
-            "Resource": "arn:aws:iam::*:role/SageMakerForLambda*",
+            "Resource": [
+                "arn:aws:iam::*:role/SageMakerForLambda*",
+                "arn:aws:iam::*:role/service-role/SageMakerForLambda*"
+            ],
             "Condition": {
                 "StringEquals": {
                     "aws:ResourceAccount": "${aws:PrincipalAccount}",
@@ -517,7 +521,10 @@ If you prefer to manage permissions manually, create an inline policy with the f
             "Action": [
                 "iam:PassRole"
             ],
-            "Resource": "arn:aws:iam::*:role/SageMakerForBedrock*",
+            "Resource": [
+                "arn:aws:iam::*:role/SageMakerForBedrock*",
+                "arn:aws:iam::*:role/service-role/SageMakerForBedrock*"
+            ],
             "Condition": {
                 "StringEquals": {
                     "aws:ResourceAccount": "${aws:PrincipalAccount}",

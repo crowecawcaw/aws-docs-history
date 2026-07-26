@@ -5,6 +5,20 @@ training dataset to generating a final model and selecting the best performing m
 deployment. The following sections provide an overview of available SageMaker training features
 and resources with in-depth technical information for each.
 
+## SageMaker AI Training Jobs
+
+With Amazon SageMaker AI training jobs, a fully managed service, you can efficiently train
+a wide range of AI/ML models at scale. The core of SageMaker AI training jobs is the
+containerization of ML workloads and the capability of managing AWS compute
+resources. The SageMaker AI Training platform takes care of the heavy lifting associated with
+setting up and managing infrastructure for ML training workloads. With SageMaker AI training
+jobs, you can focus on developing, training, and fine-tuning your model. This page
+introduces three recommended ways to get started with training a model on SageMaker AI,
+followed by additional options you can consider.
+
+To customize foundation models using SageMaker AI Training Jobs, see
+[SageMaker AI Training Jobs](customizing-models-training-jobs.md "customizing-models-training-jobs.md").
+
 ## The basic architecture of SageMaker Training
 
 If you’re using SageMaker AI for the first time and want to find a quick ML solution to train

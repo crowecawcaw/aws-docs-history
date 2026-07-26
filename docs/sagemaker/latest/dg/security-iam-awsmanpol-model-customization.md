@@ -45,9 +45,11 @@ This AWS managed policy includes the following permissions.
   for SageMaker log groups (`/aws/sagemaker/*`).
 - `iam` – Allows principals to pass roles to SageMaker,
   Lambda, and Bedrock services. PassRole is scoped by role naming conventions
-  (`*SageMaker*` for SageMaker, `SageMakerForLambda*` for
-  Lambda, `SageMakerForBedrock*` for Bedrock) and
-  `iam:PassedToService` conditions. Also allows
+  (`*SageMaker*` for SageMaker,
+  `SageMakerForLambda*` for Lambda, and
+  `SageMakerForBedrock*` for Bedrock) and
+  `iam:PassedToService` conditions. Each service accepts both
+  regular role paths and `service-role/` paths. Also allows
   `ListRoles` for UI dropdowns.
 - `kms` – Allows principals to describe keys and list aliases
   for job configuration. Read-only.
@@ -536,7 +538,10 @@ This AWS managed policy includes the following permissions.
             "Action": [
                 "iam:PassRole"
             ],
-            "Resource": "arn:aws:iam::*:role/SageMakerForLambda*",
+            "Resource": [
+                "arn:aws:iam::*:role/SageMakerForLambda*",
+                "arn:aws:iam::*:role/service-role/SageMakerForLambda*"
+            ],
             "Condition": {
                 "StringEquals": {
                     "aws:ResourceAccount": "${aws:PrincipalAccount}",
@@ -553,7 +558,10 @@ This AWS managed policy includes the following permissions.
             "Action": [
                 "iam:PassRole"
             ],
-            "Resource": "arn:aws:iam::*:role/SageMakerForBedrock*",
+            "Resource": [
+                "arn:aws:iam::*:role/SageMakerForBedrock*",
+                "arn:aws:iam::*:role/service-role/SageMakerForBedrock*"
+            ],
             "Condition": {
                 "StringEquals": {
                     "aws:ResourceAccount": "${aws:PrincipalAccount}",
@@ -574,5 +582,6 @@ history page.](doc-history.md "doc-history.md")
 
 | Policy                                                                                                                                                                                                                        | Version | Change                                                                                                                                                                                                                                                                                                                                 | Date          |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| [AWS managed policy: AmazonSageMakerModelCustomizationCoreAccess](#security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess "#security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess") – Updated policy | 3       | Updated the `PassRoleForAWSLambda` and<br>`PassRoleForBedrock` statements to accept both<br>regular IAM role paths and `service-role/` paths.<br>This supports roles that the Amazon SageMaker AI console creates<br>under the `service-role/` path.                                                                                   | July 21, 2026 |
 | [AWS managed policy: AmazonSageMakerModelCustomizationCoreAccess](#security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess "#security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess") – Updated policy | 2       | Added `servicequotas:ListServiceQuotas` to the<br>`SageMakerJobAdvancedSettings` statement. This allows<br>the Amazon SageMaker AI Studio UI to look up instance-type-specific service<br>quota codes and provide direct links to the Service Quotas console<br>when a quota limit is reached during model customization<br>workflows. | June 30, 2026 |
 | AmazonSageMakerModelCustomizationCoreAccess<br>• New policy                                                                                                                                                                   | 1       | Initial policy                                                                                                                                                                                                                                                                                                                         | May 26, 2026  |

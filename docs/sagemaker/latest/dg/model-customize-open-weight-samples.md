@@ -33,7 +33,7 @@
     "chosen": "Here's a C++ program that prompts the user to enter the name of a country and checks if it borders the Mediterranean Sea:\n\n#include <iostream>\n#include <string>\n#include <set>\n#include <map>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n    // store countries and their bordering seas in a map\n    map<string, set<string>> countries;\n    countries[\"Algeria\"] = {\"Mediterranean Sea\", \"North African Coast\"};\n    countries[\"France\"] = {\"Mediterranean Sea\", \"English Channel\"};\n    countries[\"Italy\"] = {\"Mediterranean Sea\", \"Adriatic Sea\"};\n    countries[\"Malta\"] = {\"Mediterranean Sea\", \"North African Coast\"};\n    countries[\"Spain\"] = {\"Mediterranean Sea\", \"Atlantic Ocean\"};\n    countries[\"Tunisia\"] = {\"Mediterranean Sea\", \"North African Coast\"};\n\n    string country;\n    cout << \"Enter the name of a country: \";\n    cin >> country;\n\n    // check if country is in the map\n    if (countries.find(country)!= countries.end()) {\n        // check if country borders the Mediterranean Sea\n        set<string> borders = countries.at(country);\n        if (borders.find(\"Mediterranean Sea\")!= borders.end()) {\n            cout << country << \" borders the Mediterranean Sea.\" << endl;\n        } else {\n            cout << country << \" does not border the Mediterranean Sea.\" << endl;\n        }\n    } else {\n        cout << country << \" is not a recognized country.\" << endl;\n    }\n\n    return 0;\n}\n\nIn this program, we first define a map called countries that stores each country's name as a key and a set of its surrounding seas as the value. We use a set to store each sea name so that we can easily check if a country borders a certain sea.\n\nWe then present the user with a prompt to enter the name of a country. We use a while loop to ensure that the user enters a valid country name. We check if the country is in the map, and if so, we retrieve its bordering seas from the map.\n\nFinally, we check if the Mediterranean Sea is among the set of borders. If it is, we inform the user that the country borders the Mediterranean Sea. If not, we inform the user that the country does not border the Mediterranean Sea.",
     "chosen-rating": 5.0,
     "chosen-model": "starchat",
-    "rejected": "Sure, here is the program using the C++11 algorithm \"cds::algorithm::GreaterEqual\":\n#include <iostream>\n#include <string>\n#include <algorithm>\n#include <vector>\n#include <cctype>\n\nusing namespace std;\n\nint main() {\n    string country;\n    cout << \"Enter the name of a country: \";\n    cin >> country;\n    std::vector<string> vec;\n    vec.push_back(country);\n    size_t index = std::find_if(vec.begin(), vec.end(), [](const string& s) {\n        return std::any_of(s.begin(), s.end(), [](const char& c) {\n            return c == '}}';\n    });\n    if (index != vec.end()) {\n        if ((*index)[0] == 'M') {\n            cout << \"Country is bordered by the Mediterranean Sea.\" << endl;\n        } else {\n            cout << \"Country does not border the Mediterranean Sea.\" << endl;\n        }\n    } else {\n        cout << \"Country is not found.\" << endl;\n    }\n    return 0;\n}",
+    "rejected": "Sure, here is the program using the C++11 algorithm \"cds::algorithm::GreaterEqual\":\n#include <iostream>\n#include <string>\n#include <algorithm>\n#include <vector>\n#include <cctype>\n\nusing namespace std;\n\nint main() {\n    string country;\n    cout << \"Enter the name of a country: \";\n    cin >> country;\n    std::vector<string> vec;\n    vec.push_back(country);\n    size_t index = std::find_if(vec.begin(), vec.end(), [](const string& s) {\n        return std::any_of(s.begin(), s.end(), [](const char& c) {\n            return c == 'M';\n        });\n    });\n    if (index != vec.end()) {\n        if ((*index)[0] == 'M') {\n            cout << \"Country is bordered by the Mediterranean Sea.\" << endl;\n        } else {\n            cout << \"Country does not border the Mediterranean Sea.\" << endl;\n        }\n    } else {\n        cout << \"Country is not found.\" << endl;\n    }\n    return 0;\n}",
     "rejected-rating": 1.25,
     "rejected-model": "pythia-12b"
 }
@@ -116,7 +116,7 @@ Source Data: [https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/
 
 ```
 
-## RLAIF - Faithfulnesss
+## RLAIF - Faithfulness
 
 **Input Dataset**
 
@@ -376,6 +376,8 @@ Source: Cleaned gsm8k dataset [https://huggingface.co/datasets/thesven/gsm8k-rea
 
 **Sample**
 
+The following sample input is shown in OpenAI chat format. The reward function below is format-agnostic and also handles the verl, Hugging Face, and SageMaker AI Evaluation payloads. See [Sample Lambda Input Payload](model-customize-evaluation-preset-custom-scorers.md#model-customize-evaluation-custom-scorers-lambda-input "model-customize-evaluation-preset-custom-scorers.md#model-customize-evaluation-custom-scorers-lambda-input") for the shape of each format.
+
 ```
 [
   {
@@ -401,7 +403,6 @@ Source: Cleaned gsm8k dataset [https://huggingface.co/datasets/thesven/gsm8k-rea
 
 # lambda_grader.py
 import json
-import re
 import uuid
 from typing import Any, Dict, List
 
@@ -452,10 +453,32 @@ def _ok(body: Any, code: int = 200) -> Dict[str, Any]:
     }
 
 def _assistant_text(sample: Dict[str, Any]) -> str:
-    """Extract assistant text from sample messages."""
+    """Extract the model's generated answer, matching the dataset format SageMaker sent.
+
+    The payload mirrors your dataset format, so the model answer lives in a different
+    field per format:
+      - SageMaker Evaluation: "model_response"
+      - verl:                 "response"
+      - HuggingFace:          "completion"
+      - OpenAI:               last "assistant" message in "messages"
+    """
+    # SageMaker Evaluation format
+    if isinstance(sample.get("model_response"), str) and sample["model_response"]:
+        return sample["model_response"].strip()
+
+    # verl format
+    if isinstance(sample.get("response"), str) and sample["response"]:
+        return sample["response"].strip()
+
+    # HuggingFace Prompt-Completion / Preference formats
+    if isinstance(sample.get("completion"), str) and sample["completion"]:
+        return sample["completion"].strip()
+
+    # OpenAI Chat format: last assistant turn in messages
     for m in reversed(sample.get("messages", [])):
         if m.get("role") == "assistant":
             return (m.get("content") or "").strip()
+
     return ""
 
 def _sample_id(sample: Dict[str, Any]) -> str:
@@ -466,16 +489,26 @@ def _sample_id(sample: Dict[str, Any]) -> str:
     return str(uuid.uuid4())
 
 def _ground_truth(sample: Dict[str, Any]) -> str:
-    """Extract ground truth from sample or metadata if available"""
+    """Extract normalized ground truth.
 
+    SageMaker emits ground truth at reference_answer.text for every dataset format
+    (top-level for most; under extra_info for verl). It is "" when the dataset
+    provides no ground truth.
+    """
+    ref = sample.get("reference_answer")
+    if isinstance(ref, dict) and isinstance(ref.get("text"), str):
+        return ref["text"].strip()
+    # verl: reference_answer lives under extra_info
+    extra = sample.get("extra_info") or {}
+    ref = extra.get("reference_answer")
+    if isinstance(ref, dict) and isinstance(ref.get("text"), str):
+        return ref["text"].strip()
+    # Backward-compatible fallbacks
     if isinstance(sample.get("reference_answer"), str) and sample["reference_answer"]:
         return sample["reference_answer"].strip()
-
     md = sample.get("metadata") or {}
-    gt = md.get("reference_answer", None) or md.get("ground_truth", None)
-    if gt is None:
-        return ""
-    return str(gt).strip()
+    gt = md.get("reference_answer") or md.get("ground_truth")
+    return str(gt).strip() if gt is not None else ""
 
 
 def _score_and_metrics(sample: Dict[str, Any]) -> Dict[str, Any]:
@@ -538,12 +571,17 @@ def lambda_handler(event, context):
     except Exception as e:
         return _ok({"error": f"invalid JSON body: {e}"}, 400)
 
-    # Accept top-level list, {"batch":[...]}, or single sample object
-    if isinstance(body, dict) and isinstance(body.get("batch"), list):
+    # The container sends a top-level list containing one sample object per invocation.
+    # Also accept {"batch": [...]} and a single sample object for flexibility.
+    if isinstance(body, list):
+        samples = body
+    elif isinstance(body, dict) and isinstance(body.get("batch"), list):
         samples = body["batch"]
+    elif isinstance(body, dict):
+        samples = [body]
     else:
         return _ok({
-            "error": "Send a sample object, or {'batch':[...]} , or a top-level list of samples."
+            "error": "Send a top-level list of samples, {'batch':[...]}, or a single sample object."
         }, 400)
 
     try:
@@ -563,9 +601,8 @@ def lambda_handler(event, context):
 # lambda_grader.py
 
 import json
-import re
-import uuid from typing
-import Any, Dict, List
+import uuid
+from typing import Any, Dict, List
 
 def custom_reward(assistant_answer: str, ground_truth: str) -> float:
     """
@@ -614,10 +651,32 @@ def _ok(body: Any, code: int = 200) -> Dict[str, Any]:
     }
 
 def _assistant_text(sample: Dict[str, Any]) -> str:
-    """Extract assistant text from sample messages."""
+    """Extract the model's generated answer, matching the dataset format SageMaker sent.
+
+    The payload mirrors your dataset format, so the model answer lives in a different
+    field per format:
+      - SageMaker Evaluation: "model_response"
+      - verl:                 "response"
+      - HuggingFace:          "completion"
+      - OpenAI:               last "assistant" message in "messages"
+    """
+    # SageMaker Evaluation format
+    if isinstance(sample.get("model_response"), str) and sample["model_response"]:
+        return sample["model_response"].strip()
+
+    # verl format
+    if isinstance(sample.get("response"), str) and sample["response"]:
+        return sample["response"].strip()
+
+    # HuggingFace Prompt-Completion / Preference formats
+    if isinstance(sample.get("completion"), str) and sample["completion"]:
+        return sample["completion"].strip()
+
+    # OpenAI Chat format: last assistant turn in messages
     for m in reversed(sample.get("messages", [])):
         if m.get("role") == "assistant":
             return (m.get("content") or "").strip()
+
     return ""
 
 def _sample_id(sample: Dict[str, Any]) -> str:
@@ -628,16 +687,26 @@ def _sample_id(sample: Dict[str, Any]) -> str:
     return str(uuid.uuid4())
 
 def _ground_truth(sample: Dict[str, Any]) -> str:
-    """Extract ground truth from sample or metadata if available"""
+    """Extract normalized ground truth.
 
+    SageMaker emits ground truth at reference_answer.text for every dataset format
+    (top-level for most; under extra_info for verl). It is "" when the dataset
+    provides no ground truth.
+    """
+    ref = sample.get("reference_answer")
+    if isinstance(ref, dict) and isinstance(ref.get("text"), str):
+        return ref["text"].strip()
+    # verl: reference_answer lives under extra_info
+    extra = sample.get("extra_info") or {}
+    ref = extra.get("reference_answer")
+    if isinstance(ref, dict) and isinstance(ref.get("text"), str):
+        return ref["text"].strip()
+    # Backward-compatible fallbacks
     if isinstance(sample.get("reference_answer"), str) and sample["reference_answer"]:
         return sample["reference_answer"].strip()
-
     md = sample.get("metadata") or {}
-    gt = md.get("reference_answer", None) or md.get("ground_truth", None)
-    if gt is None:
-        return ""
-    return str(gt).strip()
+    gt = md.get("reference_answer") or md.get("ground_truth")
+    return str(gt).strip() if gt is not None else ""
 
 
 def _score_and_metrics(sample: Dict[str, Any]) -> Dict[str, Any]:
@@ -700,12 +769,17 @@ def lambda_handler(event, context):
     except Exception as e:
         return _ok({"error": f"invalid JSON body: {e}"}, 400)
 
-    # Accept top-level list, {"batch":[...]}, or single sample object
-    if isinstance(body, dict) and isinstance(body.get("batch"), list):
+    # The container sends a top-level list containing one sample object per invocation.
+    # Also accept {"batch": [...]} and a single sample object for flexibility.
+    if isinstance(body, list):
+        samples = body
+    elif isinstance(body, dict) and isinstance(body.get("batch"), list):
         samples = body["batch"]
+    elif isinstance(body, dict):
+        samples = [body]
     else:
         return _ok({
-            "error": "Send a sample object, or {'batch':[...]} , or a top-level list of samples."
+            "error": "Send a top-level list of samples, {'batch':[...]}, or a single sample object."
         }, 400)
 
     try:

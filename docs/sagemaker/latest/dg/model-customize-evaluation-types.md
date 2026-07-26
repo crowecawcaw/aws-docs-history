@@ -153,8 +153,8 @@ STRONG_REJECT_SUBTASKS = [
     "distractors_negated",
     "poems",
     "base64",
-    "base64_raw", "
-    base64_input_only",
+    "base64_raw",
+    "base64_input_only",
     "base64_output_only",
     "evil_confidant",
     "aim",

@@ -74,6 +74,7 @@ will will use all 17 instances in the first UltraServer and then use 3 from the 
 - [Getting started with SageMaker HyperPod](smcluster-getting-started-slurm.md "smcluster-getting-started-slurm.md")
 - [SageMaker HyperPod Slurm cluster operations](sagemaker-hyperpod-operate-slurm.md "sagemaker-hyperpod-operate-slurm.md")
 - [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md")
+- [User management on a SageMaker HyperPod Slurm cluster](sagemaker-hyperpod-slurm-user-management.md "sagemaker-hyperpod-slurm-user-management.md")
 - [SageMaker HyperPod multi-head node support](sagemaker-hyperpod-multihead-slurm.md "sagemaker-hyperpod-multihead-slurm.md")
 - [Jobs on SageMaker HyperPod clusters](sagemaker-hyperpod-run-jobs-slurm.md "sagemaker-hyperpod-run-jobs-slurm.md")
 - [SageMaker HyperPod cluster resources monitoring](sagemaker-hyperpod-cluster-observability-slurm.md "sagemaker-hyperpod-cluster-observability-slurm.md")

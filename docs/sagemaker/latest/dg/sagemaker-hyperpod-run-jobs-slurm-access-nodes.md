@@ -40,8 +40,7 @@ topics.
 ###### Topics
 
 - [Additional tips for accessing your SageMaker HyperPod cluster nodes](#sagemaker-hyperpod-run-jobs-slurm-access-nodes-tips "#sagemaker-hyperpod-run-jobs-slurm-access-nodes-tips")
-- [Set up a multi-user environment through the Amazon FSx shared space](#sagemaker-hyperpod-run-jobs-slurm-access-nodes-multi-user-with-fxs-shared-space "#sagemaker-hyperpod-run-jobs-slurm-access-nodes-multi-user-with-fxs-shared-space")
-- [Set up a multi-user environment by integrating HyperPod clusters with Active Directory](#sagemaker-hyperpod-run-jobs-slurm-access-nodes-multi-user-with-active-directory "#sagemaker-hyperpod-run-jobs-slurm-access-nodes-multi-user-with-active-directory")
+- [Setting up a multi-user environment](#sagemaker-hyperpod-run-jobs-slurm-access-nodes-multi-user "#sagemaker-hyperpod-run-jobs-slurm-access-nodes-multi-user")
 
 ## Additional tips for accessing your SageMaker HyperPod cluster nodes
 
@@ -167,122 +166,7 @@ Also, you can use the host for remote development from an IDE on your local
 device, such as [Visual
 Studio Code Remote - SSH](https://code.visualstudio.com/docs/remote/ssh "https://code.visualstudio.com/docs/remote/ssh").
 
-## Set up a multi-user environment through the Amazon FSx shared space
+## Setting up a multi-user environment
 
-You can use the Amazon FSx shared space to manage a multi-user environment in a Slurm
-cluster on SageMaker HyperPod. If you have configured your Slurm cluster with Amazon FSx during
-the HyperPod cluster creation, this is a good option for setting up
-workspace for your cluster users. Create a new user and setup the home directory for
-the user on the Amazon FSx shared file system.
-
-###### Tip
-
-To allow users to access your cluster through their user name and dedicated
-directories, you should also associate them with IAM roles or users by tagging
-them as guided in **Option 2** of step 5 under the
-procedure **To turn on Run As support for Linux and macOS
-managed nodes** provided at [Turn on Run As support for Linux and macOS managed nodes](../../../systems-manager/latest/userguide/session-preferences-run-as.md "../../../systems-manager/latest/userguide/session-preferences-run-as.md") in the
-AWS Systems Manager User Guide. See also [Setting up AWS Systems Manager and Run As for cluster user access control](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm").
-
-**To set up a multi-user environment while creating a Slurm
-cluster on SageMaker HyperPod**
-
-The SageMaker HyperPod service team provides a script [`add_users.sh`](https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config/add_users.sh "https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config/add_users.sh") as part of the base lifecycle script
-samples.
-
-1. Prepare a text file named `shared_users.txt` that you need to
-   create in the following format. The first column is for user names, the
-   second column is for unique user IDs, and the third column is for the user
-   directories in the Amazon FSx shared space.
-
-```
-username1,uid1,/fsx/username1
-username2,uid2,/fsx/username2
-...
-```
-
-2. Make sure that you upload the `shared_users.txt` and [`add_users.sh`](https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config/add_users.sh "https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config/add_users.sh") files to the S3 bucket for
-   HyperPod lifecycle scripts. While the cluster creation, cluster update, or
-   cluster software update is in progress, the [`add_users.sh`](https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config/add_users.sh "https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config/add_users.sh") reads in the
-   `shared_users.txt` and sets up the user directories
-   properly.
-
-**To create new users and add to an existing Slurm cluster
-running on SageMaker HyperPod**
-
-1. On the head node, run the following command to save a script that helps
-   create a user. Make sure that you run this with sudo permissions.
-
-```
-`$` `cat > create-user.sh` << EOL
-#!/bin/bash
-
-set -x
-
-# Prompt user to get the new user name.
-read -p "Enter the new user name, i.e. 'sean':
-" USER
-
-# create home directory as /fsx/<user>
-# Create the new user on the head node
-sudo useradd \$USER -m -d /fsx/\$USER --shell /bin/bash;
-user_id=\$(id -u \$USER)
-
-# add user to docker group
-sudo usermod -aG docker \${USER}
-
-# setup SSH Keypair
-sudo -u \$USER ssh-keygen -t rsa -q -f "/fsx/\$USER/.ssh/id_rsa" -N ""
-sudo -u \$USER cat /fsx/\$USER/.ssh/id_rsa.pub | sudo -u \$USER tee /fsx/\$USER/.ssh/authorized_keys
-
-# add user to compute nodes
-read -p "Number of compute nodes in your cluster, i.e. 8:
-" NUM_NODES
-srun -N \$NUM_NODES sudo useradd -u \$user_id \$USER -d /fsx/\$USER --shell /bin/bash;
-
-# add them as a sudoer
-read -p "Do you want this user to be a sudoer? (y/N):
-" SUDO
-if [ "\$SUDO" = "y" ]; then
-        sudo usermod -aG sudo \$USER
-        sudo srun -N \$NUM_NODES sudo usermod -aG sudo \$USER
-        echo -e "If you haven't already you'll need to run:\n\nsudo visudo /etc/sudoers\n\nChange the line:\n\n%sudo   ALL=(ALL:ALL) ALL\n\nTo\n\n%sudo   ALL=(ALL:ALL) NOPASSWD: ALL\n\nOn each node."
-fi
-EOL
-```
-
-2. Run the script with the following command. You'll be prompted for adding the
-   name of a user and the number of compute nodes that you want to allow the user to access.
-
-```
-`$` `bash create-user.sh`
-```
-
-3. Test the user by running the following commands.
-
-```
-`$` `sudo su - `<user>` && ssh $(srun hostname)`
-```
-
-4. Add the user information to the `shared_users.txt` file, so the
-   user will be created on any new compute nodes or new clusters.
-
-## Set up a multi-user environment by integrating HyperPod clusters with Active Directory
-
-In practical use cases, HyperPod clusters are typically used by multiple users:
-machine learning (ML) researchers, software engineers, data scientists, and cluster
-administrators. They edit their own files and run their own jobs without impacting
-each other's work. To set up a multi-user environment, use the Linux user and group
-mechanism to statically create multiple users on each instance through lifecycle
-scripts. However, the drawback to this approach is that you need to duplicate user
-and group settings across multiple instances in the cluster to keep a consistent
-configuration across all instances when you make updates such as adding, editing,
-and removing users.
-
-To solve this, you can use [Lightweight Directory Access Protocol (LDAP)](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol "https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol") and [LDAP
-over TLS/SSL (LDAPS)](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol "https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol") to integrate with a directory service such as
-[AWS Directory Service
-for Microsoft Active Directory](https://aws.amazon.com/directoryservice/ "https://aws.amazon.com/directoryservice/"). To learn more about setting up Active
-Directory and a multi-user environment in a HyperPod cluster, see the blog post
-[Integrate HyperPod clusters with Active Directory for seamless multi-user
-login](https://aws.amazon.com/blogs/machine-learning/integrate-hyperpod-clusters-with-active-directory-for-seamless-multi-user-login/ "https://aws.amazon.com/blogs/machine-learning/integrate-hyperpod-clusters-with-active-directory-for-seamless-multi-user-login/").
+To create and manage users for a multi-user environment (including mapping users
+to IAM principals and integrating with Active Directory), see [User management on a SageMaker HyperPod Slurm cluster](sagemaker-hyperpod-slurm-user-management.md "sagemaker-hyperpod-slurm-user-management.md").
