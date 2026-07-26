@@ -1,12 +1,12 @@
-# Using RAPIDS Accelerator for Apache Spark with Amazon EMR on EKS
+# Using cuDF Accelerator for Apache Spark with Amazon EMR on EKS
 
-With Amazon EMR on EKS, you can run jobs for the Nvidia RAPIDS Accelerator for Apache Spark. This
-tutorial covers how to run Spark jobs using RAPIDS on EC2 graphics processing unit (GPU)
+With Amazon EMR on EKS, you can run jobs for the NVIDIA cuDF Accelerator for Apache Spark. This
+tutorial covers how to run Spark jobs using cuDF on EC2 graphics processing unit (GPU)
 instance types. The tutorial uses the following versions:
 
 - Amazon EMR on EKS release version 6.9.0 and later
 - Apache Spark 3.x
-  You can accelerate Spark with Amazon EC2 GPU instance types by using the Nvidia [RAPIDS Accelerator for Apache
+  You can accelerate Spark with Amazon EC2 GPU instance types by using the NVIDIA [cuDF Accelerator for Apache
   Spark](https://docs.nvidia.com/spark-rapids/user-guide/latest/overview.html "https://docs.nvidia.com/spark-rapids/user-guide/latest/overview.html") plugin. When you use these technologies together, you accelerate your data
   science pipelines without having to make any code changes. This reduces the run time needed
   for data processing and model training. By getting more done in less time, you spend less on
@@ -32,7 +32,7 @@ procedure:
 
 1. Create a GPU-enabled node group with the following [create-nodegroup](../../../cli/latest/reference/eks/create-nodegroup.md "../../../cli/latest/reference/eks/create-nodegroup.md")
    command. Be sure to substitute the correct parameters for your Amazon EKS cluster. Use an
-   instance type that supports Spark RAPIDS, such as P4, P3, G5 or G4dn.
+   instance type that supports Spark cuDF, such as P4, P3, G5 or G4dn.
 
 ```
 aws eks create-nodegroup \
@@ -63,9 +63,9 @@ kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v0.9
 kubectl get nodes  "-o=custom-columns=NAME:.metadata.name,GPU:.status.allocatable.nvidia\.com/gpu"
 ```
 
-###### To run a Spark RAPIDS job
+###### To run a Spark cuDF job
 
-1. Submit a Spark RAPIDS job to your Amazon EMR on EKS cluster. The following code shows an
+1. Submit a Spark cuDF job to your Amazon EMR on EKS cluster. The following code shows an
    example of a command to start the job. The first time you run the job, it might take
    a few minutes to download the image and cache it on the node.
 
@@ -78,7 +78,7 @@ aws emr-containers start-job-run \
 ---configuration-overrides '{"applicationConfiguration": [{"classification": "spark-defaults","properties": {"spark.executor.instances": "2","spark.executor.memory": "2G"}}],"monitoringConfiguration": {"cloudWatchMonitoringConfiguration": {"logGroupName": "`LOG_GROUP _NAME`"},"s3MonitoringConfiguration": {"logUri": "`LOG_GROUP_STREAM`"}}}'
 ```
 
-2. To validate that the Spark RAPIDS Accelerator is enabled, check the Spark driver
+2. To validate that the Spark cuDF Accelerator is enabled, check the Spark driver
    logs. These logs are stored either in CloudWatch or in the S3 location you specify
    when you run the `start-job-run` command. The following example generally
    shows what the log lines look like:
