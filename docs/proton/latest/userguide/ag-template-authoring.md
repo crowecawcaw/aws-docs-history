@@ -52,7 +52,7 @@ The following diagram shows an example of steps that you can take to create a _t
 
 ![A diagram that describes a process of how to create a template bundle for a set of AWS Proton infrastructure resources.](images/bundles.png)
 
-![Number 1 icon.](/images/proton/latest/userguide/images/label-one.png)
+![Number 1 icon.](images/label-one.png)
 Identify [input parameters](parameters.md "parameters.md").
 
 ![Number 2 icon.](images/label-two.png)
