@@ -281,7 +281,7 @@ choose **Run** (or press Enter).
 
 The demo app screen should appear.
 
-![The PlanetsDemo application screen in insert mode.](images/ba-demo-app-screen.png) 5. Type a planet name in the corresponding field and press Enter.
+![The PlanetsDemo application screen in insert mode.](/images/m2/latest/userguide/images/ba-demo-app-screen.png) 5. Type a planet name in the corresponding field and press Enter.
 
 ![The PlanetsDemo application screen with Earth entered in the Planet name field.](images/ba-demo-with-data.png)
 
