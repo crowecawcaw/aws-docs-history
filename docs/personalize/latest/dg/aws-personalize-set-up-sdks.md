@@ -4,9 +4,9 @@ Download and install the AWS SDKs that you want to use. This guide provides exam
 SDK for JavaScript v3. For information about other AWS SDKs, see [Tools for Amazon Web
 Services](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/"). For information about setting up Amplify, see [Amplify documentation](https://docs.amplify.aws "https://docs.amplify.aws").
 
-- [AWS SDK for Python (Boto3)](../../../boto3/latest/guide/quickstart.htmlindex.md "../../../boto3/latest/guide/quickstart.htmlindex.md")
+- [AWS SDK for Python (Boto3)](../../../boto3/latest/index.md "../../../boto3/latest/index.md")
 
-To install the SDK for Python (Boto3), follow the [Quickstart](../../../boto3/latest/guide/quickstart.htmlguide/quickstart.md "../../../boto3/latest/guide/quickstart.htmlguide/quickstart.md")
+To install the SDK for Python (Boto3), follow the [Quickstart](../../../boto3/latest/guide/quickstart.md "../../../boto3/latest/guide/quickstart.md")
 instructions in the Boto3 documentation.
 
 - [SDK for Java 2.x](../../../sdk-for-java/latest/developer-guide.md "../../../sdk-for-java/latest/developer-guide.md")
