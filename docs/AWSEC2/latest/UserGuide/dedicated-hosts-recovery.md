@@ -19,9 +19,9 @@ require manual intervention to recover from.
 
 Host recovery is supported for the following instance families:
 
-- **General purpose:** A1 | M3 | M4 | M5 | M5n | M5zn | M6a | M6g | M6i | T3 | Mac1 | Mac2 | Mac2-m1ultra | Mac2-m2 | Mac2-m2pro
-- **Compute optimized:** C3 | C4 | C5 | C5n | C6a | C6g | C6i
-- **Memory optimized:** R3 | R4 | R5 | R5b | R5n | R6g | R6i | U-6tb1 | U-9tb1 | U-12tb1 | U-18tb1 | U-24tb1 | X1 | X1e | X2iezn
+- **General purpose:** A1 | M3 | M4 | M5 | M5n | M5zn | M6a | M6g | M6i | T3 | Mac1 | Mac2 | Mac2-m1ultra | Mac2-m2 | Mac2-m2pro | M6in | M7a | M7g | M7i | M8a | M8g | M8gb | M8gn | M8i | M8in | M8ib | M9g | Mac-m4 | Mac-m4pro | Mac-m4max | Mac-m3ultra
+- **Compute optimized:** C3 | C4 | C5 | C5n | C6a | C6g | C6i | C6gn | C6in | C7a | C7g | C7gn | C7i | C8a | C8g | C8gb | C8gn | C8i | C8in | C8ib | C9g
+- **Memory optimized:** R3 | R4 | R5 | R5b | R5n | R6g | R6i | U-6tb1 | U-9tb1 | U-12tb1 | U-18tb1 | U-24tb1 | X1 | X1e | X2iezn | R6a | R6in | R7a | R7g | R7i | R7iz | R8a | R8g | R8gb | R8gn | R8i | R8in | R8ib | X8g | X8i | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | U7in-32tb
 - **Accelerated computing:** Inf1 | G3 | G5g | P3
 
 To recover instances that are not supported, see [Manually recover instances that are not supported by Amazon EC2 Dedicated Host recovery](dedicated-hosts-recovery-unsupported.md "dedicated-hosts-recovery-unsupported.md").

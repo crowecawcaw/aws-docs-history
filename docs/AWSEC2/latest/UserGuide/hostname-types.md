@@ -81,10 +81,10 @@ To use public hostnames, you have to modify an existing network interface. This 
 
     - Where:
 
-      - ec2-52-54-55-66 is a hostname that is a base36 representation of the primary public IPv4 address of a network interface.
-      - ec2-52-54-55-66 resolves to the IPv4 address of 52.54.55.56. This is the public IPv4 address attached to the primary network interface.
+      - ec2-52-54-55-66 is a hostname derived from the primary public IPv4 address of the network interface, using the format ec2- followed by the IP address with dots replaced by hyphens.
+      - ec2-52-54-55-66 resolves to the IPv4 address of 52.54.55.66. This is the public IPv4 address attached to the primary network interface.
       - ap-southeast-2 is the Region of the subnet that the network interface is in.
-      - ip.aws is the domain provided by AWS.
+      - compute.amazonaws.com is the domain provided by AWS for IPv4-based public hostnames.
 
 ###### Important
 

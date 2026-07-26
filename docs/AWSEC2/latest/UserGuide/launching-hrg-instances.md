@@ -17,8 +17,16 @@ Groups](../../../license-manager/latest/userguide/host-resource-groups.md "../..
 
 ###### Requirements and limits
 
-- You must associate a core- or socket-based license configuration with the
-  AMI.
+- Creating license configurations (self-managed licenses) for host resource
+  groups is optional:
+
+  - If you required license configurations when creating the host
+    resource group, you can launch instances only from AMIs with a
+    matching core- or socket-based license configuration.
+  - If you created the host resource group to not require license
+    configurations, you do not need to set up self-managed licenses
+    or associate an AMI.
+
 - You can't use SQL Server, SUSE, or RHEL AMIs provided
   by Amazon EC2 with Dedicated Hosts.
 - You can't target a specific host by choosing a host ID, and you can't

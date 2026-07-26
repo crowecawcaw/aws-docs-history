@@ -27,7 +27,7 @@ called a zonal Reserved Instance.
 
 - The Reserved Instance discount applies to matching instance usage in that Availability
   Zone.
-- The attributes (tenancy, platform, Availability Zone, instance type, and
+- The attributes (tenancy, platform, Availability Zone, instance family, and
   instance size) of the running instances must match that of the Reserved Instances.
 
 For example, if you purchase two `c4.xlarge` default tenancy Linux/Unix

@@ -5,7 +5,8 @@
 troubleshooting, the following prerequisites must be met:
 
 - [AWS Regions](#sc-prereqs-regions "#sc-prereqs-regions")
-- [Wavelength Zones and AWS Outposts](#sc-prereqs-wavelength-zones-outposts "#sc-prereqs-wavelength-zones-outposts")
+- [Wavelength Zones](#sc-prereqs-wavelength-zones-outposts "#sc-prereqs-wavelength-zones-outposts")
+- [AWS Outposts](#sc-prereqs-outposts "#sc-prereqs-outposts")
 - [Local Zones](#sc-prereqs-local-zones "#sc-prereqs-local-zones")
 - [Instance types](#sc-prereqs-instance-types "#sc-prereqs-instance-types")
 - [Grant access](#sc-prereqs-configure-ec2-serial-console "#sc-prereqs-configure-ec2-serial-console")
@@ -18,9 +19,13 @@ troubleshooting, the following prerequisites must be met:
 
 Supported in all AWS Regions.
 
-## Wavelength Zones and AWS Outposts
+## Wavelength Zones
 
 Not supported.
+
+## AWS Outposts
+
+Supported on all AWS Outposts.
 
 ## Local Zones
 

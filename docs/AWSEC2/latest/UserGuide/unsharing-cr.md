@@ -4,9 +4,9 @@ The Capacity Reservation owner can stop sharing a Capacity Reservation at any ti
 apply:
 
 - Instances owned by consumers that were running in the shared capacity at
-  the time sharing stops continue to run normally outside of the reserved
-  capacity, and the capacity is restored to the Capacity Reservation subject to Amazon EC2 capacity
-  availability.
+  the time sharing stops continue to run in the reserved capacity. The
+  capacity is restored to the Capacity Reservation when consumers terminate the
+  instances.
 - Consumers with whom the Capacity Reservation was shared can no longer launch new instances
   into the reserved capacity.
   To stop sharing a Capacity Reservation that you own, you must remove it from the resource share.

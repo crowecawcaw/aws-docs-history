@@ -58,25 +58,20 @@ AWS CLI
 
 ###### To view Capacity Blocks
 
-By default, when you use the [describe-capacity-reservations](../../../cli/latest/reference/ec2/describe-capacity-reservations.md "../../../cli/latest/reference/ec2/describe-capacity-reservations.md") command both On-Demand Capacity Reservations
-and Capacity Block reservations are listed. To view only your Capacity Block
-reservations, filter for reservations of type `capacity-block`.
+Use the [describe-capacity-blocks](../../../cli/latest/reference/ec2/describe-capacity-blocks.md "../../../cli/latest/reference/ec2/describe-capacity-blocks.md") command to view details
+about your Capacity Block reservations.
 
 ```
-aws ec2 describe-capacity-reservations \
-    --filters Name=reservation-type,Values=capacity-block
+aws ec2 describe-capacity-blocks
 ```
 
 PowerShell
 
 ###### To view Capacity Blocks
 
-Use the [Get-EC2CapacityReservation](../../../powershell/latest/reference/items/Get-EC2CapacityReservation.md "../../../powershell/latest/reference/items/Get-EC2CapacityReservation.md")
-cmdlet. By default, both On-Demand Capacity Reservations and Capacity Block reservations are listed.
-To view only your Capacity Block reservations, filter for reservations of type
-`capacity-block`.
+Use the [Get-EC2CapacityBlock](../../../powershell/latest/reference/items/Get-EC2CapacityBlock.md "../../../powershell/latest/reference/items/Get-EC2CapacityBlock.md")
+cmdlet to view details about your Capacity Block reservations.
 
 ```
-Get-EC2CapacityReservation `
-    -Filter @{Name="reservation-type"; Values="capacity-block"}
+Get-EC2CapacityBlock
 ```
