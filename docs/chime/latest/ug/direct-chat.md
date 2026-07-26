@@ -21,7 +21,7 @@ section.
 3. (Optional) to add line breaks to a message, press Ctrl+Enter or Shift+Enter.
 4. (Optional) Choose **Attach a file** (
 
-![An icon showing a paperclip.](/images/chime/latest/ug/images/icon-attach-file.png)
+![An icon showing a paperclip.](images/icon-attach-file.png)
 
 ) to attach a file to the message. You can attach files of
 up to 50 MB. 5. (Optional) Choose **Pick an emoji** (
@@ -35,6 +35,6 @@ up to 50 MB. 5. (Optional) Choose **Pick an emoji** (
 You can also add emoji codes to a message, such as `:-)` or
 `:(`. The emojis appear after you send the message. 6. Choose send (
 
-![An arrow pointed to the right.](/images/chime/latest/ug/images/icon-send-msg.png)
+![An arrow pointed to the right.](images/icon-send-msg.png)
 
 ) or press **Enter**.
