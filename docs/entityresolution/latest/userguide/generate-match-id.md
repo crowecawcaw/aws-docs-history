@@ -5,15 +5,30 @@ applied to each matched record set after a matching workflow is run. This is par
 matching workflow metadata that is included in output.
 
 When you need to update records for an existing customer or add a new customer to your
-dataset, you can use the AWS Entity Resolution console or the `GenerateMatchID` API. Modifying an
-existing match ID helps maintain consistency when updating customer information, while
-generating a new match ID is necessary when adding previously unidentified customers to your
+dataset, you can use the AWS Entity Resolution console or the `GenerateMatchId` API. Modifying an
+existing match ID helps maintain consistency when you update customer information. Generating
+a new match ID is necessary when you add previously unidentified customers to your
 system.
 
 ###### Note
 
 Additional charges apply, whether you use the console or the API. The processing type
 you choose affects both the accuracy and response time of the operation.
+
+###### Real-time matching requirements
+
+To call the `GenerateMatchId` API on an **Advanced**
+rule-based matching workflow, set `enableRealTimeMatching` to
+`true`. For **Simple** matching workflows, real-time matching
+is always available and you don't need to set this flag.
+
+You can't enable real-time matching on workflows that use any of the following:
+
+- Fuzzy attributes: `Cosine`, `Soundex`, or
+  `Levenshtein`
+- `EmptyValues`=`Ignore`
+  If `enableRealTimeMatching` is set to `true`, the workflow can't
+  be used with the [StartMatchingJob](../apireference/API_StartMatchingJob.md "../apireference/API_StartMatchingJob.md") API to run workflow jobs.
 
 ###### Important
 
@@ -88,7 +103,7 @@ API
 To call this API successfully, you must have first successfully run a rule-based
 matching workflow using the [StartMatchingJob API](../apireference/API_StartMatchingJob.md "../apireference/API_StartMatchingJob.md").
 
-For a complete list of supported programming languages, see the [See Also](../apireference/API_GenerateMatchId.md#API_GenerateMatchId_SeeAlso "../apireference/API_GenerateMatchId.md#API_GenerateMatchId_SeeAlso") section of the [GenerateMatchID](../apireference/API_GenerateMatchId.md "../apireference/API_GenerateMatchId.md").
+For a complete list of supported programming languages, see the [See Also](../apireference/API_GenerateMatchId.md#API_GenerateMatchId_SeeAlso "../apireference/API_GenerateMatchId.md#API_GenerateMatchId_SeeAlso") section of the [GenerateMatchId](../apireference/API_GenerateMatchId.md "../apireference/API_GenerateMatchId.md").
 
 1. Open a terminal or command prompt to make the API request.
 2. Create a POST request to the following endpoint:
