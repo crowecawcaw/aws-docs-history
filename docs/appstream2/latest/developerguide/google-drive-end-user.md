@@ -74,4 +74,4 @@ dialog box.
      to download, choose the down arrow to the right of the file name,
      and choose **Download**.
 
-   ![File list showing My Example File.pdf with Download option selected from the menu.](/images/appstream2/latest/developerguide/images/GoogleDrive_FileUploadDownload.png)
+   ![File list showing My Example File.pdf with Download option selected from the menu.](images/GoogleDrive_FileUploadDownload.png)

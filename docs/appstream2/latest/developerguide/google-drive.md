@@ -28,8 +28,12 @@ Workspace domains only, but not for personal Gmail accounts.
 
 ###### Note
 
-You can enable Google Drive for Windows stacks, but not for Linux stacks or stacks
-associated with multi-session fleets.
+You can enable Google Drive for Windows stacks, but not for Linux stacks.
+
+To enable Google Drive for stacks associated with multi-session fleets, the image
+must use [WorkSpaces Applications Agent Release Notes](agent-software-versions.md "agent-software-versions.md")
+released on or after June 29, 2026 or your image is using [Update an Image by Using Managed WorkSpaces Applications Image Updates](keep-image-updated-managed-image-updates.md "keep-image-updated-managed-image-updates.md") released on or after
+June 29, 2026.
 
 ###### Contents
 

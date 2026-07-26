@@ -194,8 +194,9 @@ Before you can stream your applications, you need to set up a stack, choose an i
 
 ###### Note
 
-Google Drive and OneDrive options are currently not available for
-multi-session fleets.
+For multi-session fleets, Google Drive and OneDrive require an image that
+uses an WorkSpaces Applications agent released on or after June 29, 2026. Images using [Update an Image by Using Managed WorkSpaces Applications Image Updates](keep-image-updated-managed-image-updates.md "keep-image-updated-managed-image-updates.md") released on
+or after June 29, 2026 are also supported.
 
     * **Enable Home Folders** — By default, this setting is enabled. Keep the default setting. For information about requirements for enabling home
      folders, see [Enable Home Folders for Your WorkSpaces Applications Users](enable-home-folders.md "enable-home-folders.md").

@@ -84,7 +84,7 @@ machine.
 The blue boxes are WorkSpaces Applications-enabled monitors, and the gray boxes are
 other monitors.
 
-![Adjacent and nonadjacent monitor placement](images/monitors.PNG)
+![Adjacent and nonadjacent monitor placement](/images/appstream2/latest/developerguide/images/monitors.PNG)
 
 To enable this feature, complete the following steps:
 

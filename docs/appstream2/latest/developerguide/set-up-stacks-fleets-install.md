@@ -81,8 +81,12 @@ with a Linux fleet, please make sure these settings are disabled.
 
    ###### Note
 
-   Enabling Google Drive is not supported for Linux-based stacks or
-   stacks associated with multi-session fleets.
+   Enabling Google Drive is not supported for Linux-based
+   stacks.
+
+   For multi-session fleets, Google Drive requires an image that uses
+   an WorkSpaces Applications agent released on or after June 29, 2026. Images using [Update an Image by Using Managed WorkSpaces Applications Image Updates](keep-image-updated-managed-image-updates.md "keep-image-updated-managed-image-updates.md")
+   released on or after June 29, 2026 are also supported.
 
    ###### Note
 
@@ -101,8 +105,11 @@ with a Linux fleet, please make sure these settings are disabled.
 
    ###### Note
 
-   Enabling OneDrive is not supported for Linux-based stacks or
-   stacks associated with multi-session fleets..
+   Enabling OneDrive is not supported for Linux-based stacks.
+
+   For multi-session fleets, OneDrive requires an image that uses an
+   WorkSpaces Applications agent released on or after June 29, 2026. Images using [Update an Image by Using Managed WorkSpaces Applications Image Updates](keep-image-updated-managed-image-updates.md "keep-image-updated-managed-image-updates.md")
+   released on or after June 29, 2026 are also supported.
 
    ###### Note
 

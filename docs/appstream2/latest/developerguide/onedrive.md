@@ -28,8 +28,12 @@ Azure Active Directory environment, follow the step given in [Enable OneDrive fo
 
 ###### Note
 
-You can enable OneDrive for Business for Windows stacks, but not for Linux stacks
-or stacks associated with multi-session fleets.
+You can enable OneDrive for Business for Windows stacks, but not for Linux stacks.
+
+To enable OneDrive for Business for stacks associated with multi-session fleets, the image
+must use [WorkSpaces Applications Agent Release Notes](agent-software-versions.md "agent-software-versions.md")
+released on or after June 29, 2026 or your image is using [Update an Image by Using Managed WorkSpaces Applications Image Updates](keep-image-updated-managed-image-updates.md "keep-image-updated-managed-image-updates.md") released on or after
+June 29, 2026.
 
 ###### Contents
 

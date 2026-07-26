@@ -256,3 +256,25 @@ home folder mounting failures.
 issue, check your network configuration. If you continue to encounter
 this error, contact AWS Support. For more information, see
 [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
+
+**ONE\_DRIVE\_MOUNTING\_FAILURE**
+
+**Message**: X session(s) encountered
+OneDrive mounting failures.
+
+**Resolution**: To troubleshoot this
+issue, check your network configuration and ensure the user has valid
+Microsoft 365 credentials. If you continue to encounter this error,
+contact AWS Support. For more information, see
+[AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
+
+**GOOGLE\_DRIVE\_MOUNTING\_FAILURE**
+
+**Message**: X session(s) encountered
+Google Drive mounting failures.
+
+**Resolution**: To troubleshoot this
+issue, check your network configuration and ensure the user has valid
+Google Workspace credentials. If you continue to encounter this error,
+contact AWS Support. For more information, see
+[AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
