@@ -23,6 +23,9 @@ Tags vs fields, high-cardinality handling, and schema design best practices for 
 **Processing engine**
 Running Python plugins inside your cluster with write, schedule, and request triggers.
 
+**Custom plugins**
+Running your own Python plugins from public and private repositories: parameter group setup, repository access secrets, multi-repository configurations, and troubleshooting.
+
 **Storage and billing**
 Decoupled compute/storage architecture on Amazon S3, billing components, and automatic backups.
 
@@ -37,5 +40,6 @@ VPC deployment, AWS Identity and Access Management access control, and managed s
 - [Configuration and parameter groups](faq-configuration.md "faq-configuration.md")
 - [Schema design](faq-schema-design.md "faq-schema-design.md")
 - [Processing engine](faq-processing-engine.md "faq-processing-engine.md")
+- [Custom plugins](faq-custom-plugins.md "faq-custom-plugins.md")
 - [Storage and billing](faq-storage-billing.md "faq-storage-billing.md")
 - [Security and access](faq-security.md "faq-security.md")

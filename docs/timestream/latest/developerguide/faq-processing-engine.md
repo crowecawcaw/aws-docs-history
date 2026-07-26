@@ -12,3 +12,7 @@ The processing engine lets you run custom Python plugins directly inside your In
 **What types of plugins are supported?**
 
 InfluxDB 3 supports three plugin trigger types: write triggers (execute when data is written), schedule triggers (execute on a cron-like schedule), and request triggers (execute in response to HTTP requests). InfluxData also provides certified plugins for common use cases such as downsampling, anomaly detection, and forecasting. For the full plugin catalog, see the [InfluxDB 3 plugin library](https://docs.influxdata.com/influxdb3/enterprise/plugins/library/ "https://docs.influxdata.com/influxdb3/enterprise/plugins/library/").
+
+**Can I run my own custom plugins?**
+
+Yes. In addition to the InfluxData certified plugins, you can run your own Python plugins hosted in a plugin repository that you control—public or private. You configure the repository on a DB parameter group, apply it to your cluster, and reference plugins in triggers with the `gh:` prefix. Custom plugins run on both Core and Enterprise editions. For details, see [Use custom plugins with the processing engine](influxdb3-custom-plugins.md "influxdb3-custom-plugins.md").
