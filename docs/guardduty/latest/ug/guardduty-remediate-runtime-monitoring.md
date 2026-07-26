@@ -43,7 +43,7 @@ all traffic rule may help stop an attack that is already underway, by severing a
 connections to the task. 4. **Remediate the compromised task**
 
     1. Identify the vulnerability that compromised the task.
-    2. Implement the fix for that vulnerability and start new a replacement task.
+    2. Implement the fix for that vulnerability and start a new replacement task.
     3. Stop the vulnerable task.
 
 Container

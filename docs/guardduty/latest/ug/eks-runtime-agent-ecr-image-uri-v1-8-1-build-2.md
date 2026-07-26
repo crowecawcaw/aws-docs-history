@@ -1,11 +1,11 @@
-# ECR repository for EKS agent versions 1.15.0 - 1.8.1 (eks.build.2)
+# ECR repository for EKS agent versions 1.16.0 - 1.8.1 (eks.build.2)
 
 When you enable GuardDuty automated
 configuration for Runtime Monitoring for EKS, GuardDuty will deploy this agent version to your Amazon EKS clusters. For information about
 enabling automated agent, see [Managing security agent automatically for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md").
 
 The following table shows the Amazon ECR repository URIs where the GuardDuty security agent versions
-`1.15.0.eks.build.2`, `1.11.0.eks.build.2`, `1.10.0.eks.build.2`, `1.9.0.eks.build.2`,
+`1.16.0.eks.build.2`, `1.15.0.eks.build.2`, `1.11.0.eks.build.2`, `1.10.0.eks.build.2`, `1.9.0.eks.build.2`,
 and `1.8.0.eks.build.2` for Amazon EKS are hosted.
 
 | AWS Region                                          | Amazon ECR repository URI                           |

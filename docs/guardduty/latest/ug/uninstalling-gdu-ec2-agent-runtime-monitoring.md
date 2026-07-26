@@ -1,8 +1,8 @@
 # Uninstalling security agent manually for Amazon EC2 resources
 
 This section provides methods to uninstall the GuardDuty security agent from your Amazon EC2
-resources. When you manage the security agent manually, you're responsible to remove the agent
-from the resources. GuardDuty will not take any action on the resources that you manage.
+resources. When you manage the security agent manually, you're responsible for removing the agent
+from the resources. GuardDuty does not take any action on the resources that you manage.
 
 If you created an Amazon VPC endpoint manually, then after you uninstall the security agent on all the
 monitored resource types in your account, you can choose to delete the VPC endpoint. This is a separate step. For
@@ -50,7 +50,7 @@ to uninstall the agent:
 
 ###### To uninstall the GuardDuty security agent
 
-1. Connect to the your instance. For steps on how to do this, see [Connect to your Linux instance
+1. Connect to your instance. For steps on how to do this, see [Connect to your Linux instance
    using an SSH client](../../../AWSEC2/latest/UserGuide/connect-linux-inst-ssh.md "../../../AWSEC2/latest/UserGuide/connect-linux-inst-ssh.md") in the _Amazon EC2 User Guide_.
 2. ###### Command to uninstall
 

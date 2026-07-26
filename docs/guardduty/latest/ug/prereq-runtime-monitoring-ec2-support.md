@@ -34,24 +34,19 @@ instances:
 The following table shows the OS distribution that has been verified to support the GuardDuty
 security agent for Amazon EC2 instances.
 
-| OS distribution[2](#runtime-monitoring-ec2-os-support "#runtime-monitoring-ec2-os-support") | Kernel version[3](#runtime-monitoring-ec2-kernel-version-required-flag "#runtime-monitoring-ec2-kernel-version-required-flag")                                                                                                            |
-| ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon Linux 2                                                                              | 5.4[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.10[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.15                                                               |
-| Amazon Linux 2023                                                                           | 5.4[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.10[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.15, 6.1, 6.5, 6.8, 6.12                                          |
-| Ubuntu 20.04 and Ubuntu 22.04                                                               | 5.4[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.10[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.15, 6.1, 6.5, 6.8                                                |
-| Debian 11 and Debian 12                                                                     | 5.4[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.10[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.15, 6.1, 6.5, 6.8                                                |
-| Ubuntu 24.04                                                                                | 6.8<br>6.13[5](#runtime-monitoring-ec2-ubuntu-noble-agent-version "#runtime-monitoring-ec2-ubuntu-noble-agent-version"), 6.14[5](#runtime-monitoring-ec2-ubuntu-noble-agent-version "#runtime-monitoring-ec2-ubuntu-noble-agent-version") |
-| RedHat 9.4                                                                                  | 5.14                                                                                                                                                                                                                                      |
-| Fedora 34.0                                                                                 | 5.11, 5.17                                                                                                                                                                                                                                |
-| Fedora 40                                                                                   | 6.8                                                                                                                                                                                                                                       |
-| Fedora 41                                                                                   | 6.12                                                                                                                                                                                                                                      |
-| CentOS Stream 9                                                                             | 5.14                                                                                                                                                                                                                                      |
-| Oracle Linux 8.9                                                                            | 5.15                                                                                                                                                                                                                                      |
-| Oracle Linux 9.3                                                                            | 5.15                                                                                                                                                                                                                                      |
-| Rocky Linux 9.5                                                                             | 5.14                                                                                                                                                                                                                                      |
-| Alma Linux 9                                                                                | 5.14                                                                                                                                                                                                                                      |
-| Alma Linux 10                                                                               | 6.12                                                                                                                                                                                                                                      |
-| SUSE Linux Enterprise Server 16                                                             | 6.12                                                                                                                                                                                                                                      |
+| OS distribution[2](#runtime-monitoring-ec2-os-support "#runtime-monitoring-ec2-os-support") | Kernel version[3](#runtime-monitoring-ec2-kernel-version-required-flag "#runtime-monitoring-ec2-kernel-version-required-flag")                                                                              |
+| ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon Linux 2                                                                              | 5.4[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.10[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.15                                 |
+| Amazon Linux 2023                                                                           | 5.4[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.10[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.15, 6.1, 6.5, 6.8, 6.12            |
+| Ubuntu 20.04, 22.04, 24.04, 26.04                                                           | 5.4[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.10[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.15, 6.1, 6.5, 6.8, 6.13, 6.14, 7.0 |
+| Debian 11, 12, 13                                                                           | 5.4[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.10[4](#runtime-monitoring-ec2-kernel-5-10 "#runtime-monitoring-ec2-kernel-5-10"), 5.15, 6.1, 6.5, 6.8, 6.12            |
+| RedHat 9.4, 10.2                                                                            | 5.14, 6.12                                                                                                                                                                                                  |
+| Fedora 34, 40, 41, 43, 44                                                                   | 5.11, 5.17, 6.8, 6.12, 7.1                                                                                                                                                                                  |
+| CentOS Stream 9, 10                                                                         | 5.14, 6.12                                                                                                                                                                                                  |
+| Oracle Linux 8.9, 9.3                                                                       | 5.15                                                                                                                                                                                                        |
+| Rocky Linux 9.5, 10.1                                                                       | 5.14, 6.12                                                                                                                                                                                                  |
+| Alma Linux 9, 10                                                                            | 5.14, 6.12                                                                                                                                                                                                  |
+| SUSE Linux Enterprise Server 16                                                             | 6.12                                                                                                                                                                                                        |
 
     1. Runtime Monitoring for Amazon EC2 resources doesn't support the first generation Graviton
      instance such as A1 instance types.
@@ -66,7 +61,6 @@ security agent for Amazon EC2 instances.
      `RLIMIT_MEMLOCK` value is set too low, GuardDuty recommends setting both hard and
      soft limits to at least 32 MB. For information about verifying and modifying the default
      `RLIMIT_MEMLOCK` value, see [Viewing and updating RLIMIT\_MEMLOCK values](#runtime-monitoring-ec2-modify-rlimit-memlock "#runtime-monitoring-ec2-modify-rlimit-memlock").
-    5. For Ubuntu 24.04, the kernel versions 6.13 and 6.14 support EC2 agent versions only 1.15.0 and above.
 
 - Additional requirements - Only if you have Amazon ECS/Amazon EC2
 
@@ -114,10 +108,10 @@ This will display the maximum locked memory for running the GuardDuty security a
 
 If you have set up a service control policy (SCP) to manage permissions in your
 organization, validate that permissions boundary allows the
-`guardduty:SendSecurityTelemetry` action. It is required for GuardDuty to support
+`guardduty:SendSecurityTelemetry` action. GuardDuty requires this permission to support
 Runtime Monitoring across different resource types.
 
-If you are a member account, connect with the associated delegated administrator. For
+If your account is a member account, contact the associated delegated administrator. For
 information about managing SCPs for your organization, see [Service control policies
 (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md").
 
@@ -128,7 +122,7 @@ To [Use automated agent configuration
 following prerequisites:
 
 - When using inclusion tags with automated agent configuration, for GuardDuty to create an SSM
-  association for a new instance, ensure that the new instance is SSM managed and shows up under
+  association for a new instance, make sure that the new instance is SSM managed and shows up under
   **Fleet Manager** in the [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/") console.
 - When using exclusion tags with automated agent configuration:
 
@@ -149,9 +143,9 @@ following prerequisites:
 
 **CPU limit**
 
-The maximum CPU limit for the GuardDuty security agent associated with Amazon EC2 instances is 10
-percent of the total vCPU cores. For example, if your EC2 instance has 4 vCPU cores, then the
-security agent can use a maximum of 40 percent out of the total available 400 percent.
+GuardDuty limits the security agent to 10 percent of the total vCPU capacity on the
+instance. For example, on an instance with 4 vCPU cores, the agent can use at most
+0.4 vCPU.
 
 **Memory limit**
 
@@ -163,7 +157,7 @@ The following table shows the memory limit.
 | Memory of the Amazon EC2 instance | Maximum memory for GuardDuty agent |
 | --------------------------------- | ---------------------------------- |
 | Less than 8 GB                    | 128 MB                             |
-| Less than 32 GB                   | 256 MB                             |
+| 8 GB to less than 32 GB           | 256 MB                             |
 | More than or equal to 32 GB       | 1 GB                               |
 
 ## Next step

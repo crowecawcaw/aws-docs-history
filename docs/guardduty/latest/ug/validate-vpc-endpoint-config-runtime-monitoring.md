@@ -24,7 +24,7 @@ is set up correctly in the VPC owner account:
 6. A panel for endpoint details will appear. Under the **Security
    Groups** tab, select the associated **Group ID** link
    for more details.
-7. In the **Security Groups** table, select the row that with the
+7. In the **Security Groups** table, select the row with the
    associated **Security group ID** to view the details.
 8. Under the **Inbound rules** tab, ensure that there is an ingress
    policy with **Port range** as **443** and
@@ -39,5 +39,5 @@ If you don't already have a security group that has an in-bound port 443 enabled
 _Amazon EC2 User Guide_.
 
 If there is an issue while restricting the in-bound permissions to your VPC (or
-cluster), provide the support to in-bound 443 port from any IP address
+cluster), allow inbound traffic on port 443 from any IP address
 (0.0.0.0/0).

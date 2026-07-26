@@ -44,7 +44,7 @@ actions in your account:
   neither deletes the VPC endpoint nor the security group associated with the shared VPC
   resource.
 - For an Amazon EKS resource, GuardDuty deletes the security agent. This is independent of
-  whether it managed manually or through GuardDuty.
+  whether it was managed manually or through GuardDuty.
 
 For an Amazon ECS resource, because an ECS task is immutable, GuardDuty can't
 uninstall the security agent from that resource. This is independent of how you manage

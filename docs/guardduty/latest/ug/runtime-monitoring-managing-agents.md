@@ -11,6 +11,7 @@ agent.
 
 - [Enabling automated security agent for Amazon EC2 instance](managing-gdu-agent-ec2-automated.md "managing-gdu-agent-ec2-automated.md")
 - [Managing security agent manually for Amazon EC2 resource](managing-gdu-agent-ec2-manually.md "managing-gdu-agent-ec2-manually.md")
+- [Managing GuardDuty security agent on Bottlerocket (Amazon ECS on Amazon EC2)](managing-gdu-agent-bottlerocket-ecs-ec2.md "managing-gdu-agent-bottlerocket-ecs-ec2.md")
 - [Managing automated security agent for Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md")
 - [Managing security agent automatically for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md")
 - [Managing security agent manually for Amazon EKS cluster](managing-gdu-agent-eks-manually.md "managing-gdu-agent-eks-manually.md")

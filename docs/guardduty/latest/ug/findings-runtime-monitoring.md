@@ -149,10 +149,6 @@ by forwarding the client's possibly illicit traffic from one Tor relay to anothe
 
 The GuardDuty runtime agent monitors events from multiple resource types. To identify the
 potentially compromised resource, view **Resource type** in the findings panel
-in the GuardDuty console.
-
-The GuardDuty runtime agent monitors events from multiple resource types. To identify the
-potentially compromised resource, view **Resource type** in the findings panel
 in the GuardDuty console. Additional context, including process and process lineage information, is available
 in the finding for further investigation.
 
@@ -175,10 +171,6 @@ communication. Tor Guards and Authority nodes act as initial gateways into a Tor
 traffic can indicate that this EC2 instance or the container has been potentially compromised
 and is acting as a client on a Tor network. This finding may indicate unauthorized access to
 your AWS resources with the intent of hiding the attacker's true identity.
-
-The GuardDuty runtime agent monitors events from multiple resource types. To identify the
-potentially compromised resource, view **Resource type** in the findings panel
-in the GuardDuty console.
 
 The GuardDuty runtime agent monitors events from multiple resource types. To identify the
 potentially compromised resource, view **Resource type** in the findings panel
@@ -262,7 +254,7 @@ these is otherwise involved in blockchain activity, the
 CryptoCurrency:Runtime/BitcoinTool.B!DNS finding could be an expected activity
 for your environment. If this is the case in your AWS environment, we recommend that you set
 up a suppression rule for this finding. The suppression rule should consist of two filter
-criterion. The first criteria should use the **Finding type**
+criteria. The first criteria should use the **Finding type**
 attribute with a value of `CryptoCurrency:Runtime/BitcoinTool.B!DNS`. The second
 filter criteria should be the **Instance ID** of the instance or the
 **Container Image ID** of the container involved in cryptocurrency or
@@ -611,7 +603,7 @@ Some AWS customers intentionally map the metadata IP address to a domain name on
 authoritative DNS servers. If this is the case in your environment, we recommend that you set
 up a suppression rule for this finding. The suppression rule should consist of two filter
 criteria. The first filter criterion should use the **Finding type** attribute
-with a value of `UnauthorizedAccess:Runtime/MetaDataDNSRebind`. The second filter
+with a value of `UnauthorizedAccess:Runtime/MetadataDNSRebind`. The second filter
 criterion should be **DNS request domain** or the **Container Image
 ID** of the container. The **DNS request domain** value should match
 the domain you have mapped to the metadata IP address (`169.254.169.254`). For

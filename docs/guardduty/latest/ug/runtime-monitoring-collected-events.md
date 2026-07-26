@@ -290,10 +290,10 @@ Rename events provide information about the renaming of files and directories
 by processes running on the monitored resources. The following table includes the field names and descriptions of the
 rename events that Runtime Monitoring collects to detect potential threats.
 
-| Field name | Description                          |
-| ---------- | ------------------------------------ |
-| Filepath   | Path where the file that is renamed. |
-| Target     | The new path of the file.            |
+| Field name | Description                       |
+| ---------- | --------------------------------- |
+| Filepath   | Path of the file that is renamed. |
+| Target     | The new path of the file.         |
 
 ## Set user ID (UID) events
 

@@ -9,12 +9,12 @@ following list explains this two-step process:
 2. **Manage GuardDuty agent** for the individual resources for which you
    want to monitor the runtime behavior. Based on the resource type, you can choose to:
 
-   - Use automated agent configuration, where GuardDuty manages the agent deployment and automatically an Amazon Virtual Private Cloud (Amazon VPC)
+   - Use automated agent configuration, where GuardDuty manages the agent deployment and automatically creates a Amazon Virtual Private Cloud (Amazon VPC)
      endpoint.
    - Install agent manually, which requires you to create the VPC endpoint as a prerequisite.
-     The security agent uses VPC endpoint to deliver events to GuardDuty, ensuring that the data remains
+     The security agent uses a VPC endpoint to deliver events to GuardDuty, ensuring that the data remains
      within the AWS network. This approach enhances security and allows GuardDuty to monitor and analyze runtime behavior
-     across your resources (Amazon EKS, Amazon EC2, and AWS Fargate-Amazon ECS). GuardDuty uses [Instance identity roles](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md#ec2-instance-identity-roles "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md#ec2-instance-identity-roles") that authenticates the security agent for each resource type
+     across your resources (Amazon EKS, Amazon EC2, and AWS Fargate-Amazon ECS). GuardDuty uses [Instance identity roles](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md#ec2-instance-identity-roles "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md#ec2-instance-identity-roles") that authenticate the security agent for each resource type
      to send the associated runtime events to the VPC endpoint.
 
 ###### Note

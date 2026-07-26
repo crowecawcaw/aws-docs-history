@@ -64,6 +64,7 @@ GuardDuty security agent.
 
 | Amazon EKS add-on GuardDuty security agent version                               | Kubernetes version |
 | -------------------------------------------------------------------------------- | ------------------ |
+| v1.16.0 (latest<br>• v1.16.0-eksbuild.2)                                         | 1.28<br>• 1.36     |
 | v1.15.0 (latest<br>• v1.15.0-eksbuild.2)                                         | 1.28<br>• 1.36     |
 | v1.12.2 (latest<br>• v1.12.2-eksbuild.2)                                         | 1.28<br>• 1.36     |
 | v1.12.1 (latest<br>• v1.12.1-eksbuild.4)                                         | 1.28<br>• 1.35     |
@@ -102,9 +103,9 @@ set up and view the container insight metrics. For more information, see [Settin
 
 If you have set up a service control policy (SCP) to manage permissions in your
 organization, validate that permissions boundary is not restricting
-`guardduty:SendSecurityTelemetry`. It is required for GuardDuty to support Runtime Monitoring
+`guardduty:SendSecurityTelemetry`. GuardDuty requires this permission to support Runtime Monitoring
 across different resource types.
 
-If you are a member account, connect with the associated delegated administrator. For
+If your account is a member account, contact the associated delegated administrator. For
 information about managing SCPs for your organization, see [Service control policies
 (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md").

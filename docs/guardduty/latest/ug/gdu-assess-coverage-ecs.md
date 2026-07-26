@@ -35,11 +35,12 @@ _(Healthy clusters/All clusters)\*100_
   Fargate tasks include tasks that either are in running state or have recently finished
   running.
 - In the **ECS clusters runtime coverage** tab, the **Container
-  instances covered** field indicates the coverage status of the container instances
-  associated with your Amazon ECS cluster.
+  instances covered** field indicates the coverage status of the Amazon EC2 container
+  instances associated with your Amazon ECS cluster.
 
-If your Amazon ECS cluster contains only Fargate tasks, the count appears as
-**0/0**.
+If your Amazon ECS cluster runs only the Fargate launch type, this field displays a dash
+(-) to indicate that the count is not applicable. A Fargate-only cluster has no Amazon EC2
+container instances to cover.
 
 - If your Amazon ECS cluster is associated with an Amazon EC2 instance that doesn't have a security
   agent, the Amazon ECS cluster will also have an **Unhealthy** coverage

@@ -24,7 +24,7 @@ accounts that will use shared VPC.
 ## How it works
 
 The AWS accounts that belong to the same organization as the shared Amazon VPC owner
-account can also share the same Amazon VPC endpoint. Each of the accounts using the same Amazon VPC endpoint policy is called as the **participant AWS account** of the associated shared Amazon VPC.
+account can also share the same Amazon VPC endpoint. Each of the accounts that share the same Amazon VPC is called the **participant AWS account** of the associated shared Amazon VPC.
 
 The following example shows the default VPC endpoint policy of the shared VPC owner
 account and the participant account. The `aws:PrincipalOrgID` will show the

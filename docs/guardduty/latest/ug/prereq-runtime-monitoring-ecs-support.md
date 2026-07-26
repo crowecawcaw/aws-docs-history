@@ -120,7 +120,7 @@ organization, you must validate that it doesn't deny the
 [SCP
 evaluation](../../../organizations/latest/userguide/orgs_manage_policies_scps_evaluation.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_evaluation.md") in the _AWS Organizations User Guide_.
 
-If you are a member account, connect with the associated delegated administrator. For
+If your account is a member account, contact the associated delegated administrator. For
 information about managing SCPs for your organization, see [Service control policies
 (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") in the _AWS Organizations User Guide_.
 
@@ -168,7 +168,7 @@ control policy (SCP)](../../../organizations/latest/userguide/orgs_policies_upda
 ## Validating role permissions and policy permissions boundary
 
 Use the following steps to validate that the permissions boundaries associated with the
-role and its policy **doesn't** the restrict
+role and its policy **doesn't** restrict
 `guardduty:SendSecurityTelemetry` action.
 
 ###### To view permissions boundary for roles and its policy
@@ -219,6 +219,6 @@ the corresponding GuardDuty security agent maximum memory limit for the GuardDut
 | 16384 (16 vCPU)                            | Between 32 GB and 120 GB in 8 GB increments | 1 GB                                 |
 
 After you enable Runtime Monitoring and assess that the coverage status of your cluster is **Healthy**, you can set up and view the Container insight metrics. For more
-information, [Setting up monitoring on Amazon ECS cluster](runtime-monitoring-setting-cpu-mem-monitoring.md#ecs-runtime-cpu-memory-monitoring-agent "runtime-monitoring-setting-cpu-mem-monitoring.md#ecs-runtime-cpu-memory-monitoring-agent").
+information, see [Setting up monitoring on Amazon ECS cluster](runtime-monitoring-setting-cpu-mem-monitoring.md#ecs-runtime-cpu-memory-monitoring-agent "runtime-monitoring-setting-cpu-mem-monitoring.md#ecs-runtime-cpu-memory-monitoring-agent").
 
 The next step is to configure Runtime Monitoring and also configure the security agent.

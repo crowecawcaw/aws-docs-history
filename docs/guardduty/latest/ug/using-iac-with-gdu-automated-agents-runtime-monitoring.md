@@ -62,6 +62,13 @@ Error: deleting EC2 Subnet (subnet-`APKAEIBAERJR2EXAMPLE`): DependencyViolation:
 
 [Show moreShow less](# "#")
 
+###### Note
+
+The Terraform AWS provider version 6.43.0 and later resolves this issue
+automatically. The AWS provider detects and removes GuardDuty-managed VPC
+endpoints and security groups during `terraform destroy`.
+This fix applies to all resource types (Amazon EKS, Amazon EC2, and Amazon ECS-Fargate).
+
 ### Solution - Prevent resource deletion issue
 
 This section helps you manage the VPC endpoint and security group independent of

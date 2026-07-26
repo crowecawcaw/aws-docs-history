@@ -18,5 +18,6 @@ and troubleshoot the coverage issues for a specific resource type.
 ###### Contents
 
 - [Runtime coverage and troubleshooting for Amazon EC2 instance](gdu-assess-coverage-ec2.md "gdu-assess-coverage-ec2.md")
+- [Runtime coverage and troubleshooting for ECS-EC2 Bottlerocket](gdu-assess-coverage-bottlerocket-ecs-ec2.md "gdu-assess-coverage-bottlerocket-ecs-ec2.md")
 - [Runtime coverage and troubleshooting for Amazon ECS clusters](gdu-assess-coverage-ecs.md "gdu-assess-coverage-ecs.md")
 - [Runtime coverage and troubleshooting for Amazon EKS clusters](eks-runtime-monitoring-coverage.md "eks-runtime-monitoring-coverage.md")

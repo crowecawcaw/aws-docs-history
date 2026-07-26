@@ -3,11 +3,12 @@
 Your Amazon EC2 instances can run multiple types of applications and workloads in your AWS
 environment. When you enable Runtime Monitoring and manage the GuardDuty security agent, GuardDuty helps you
 detect threats in your existing Amazon EC2 instances and potentially new ones. This feature also
-supports Amazon ECS managed Amazon EC2 instances. For more see [Managed Instances support in Guardduty](guardduty_managed-instances.md "guardduty_managed-instances.md").
+supports Amazon ECS Managed EC2 Instances.
 
 ###### Note
 
-Runtime Monitoring doesn't support applications running on [Amazon ECS Managed Instances](../../../AmazonECS/latest/developerguide/ManagedInstances.md "../../../AmazonECS/latest/developerguide/ManagedInstances.md").
+Runtime Monitoring doesn't support applications running on [Amazon ECS
+Managed Instances](../../../AmazonECS/latest/developerguide/ManagedInstances.md "../../../AmazonECS/latest/developerguide/ManagedInstances.md").
 
 Enabling Runtime Monitoring makes GuardDuty ready to consume runtime events from currently running and
 new processes within Amazon EC2 instances. GuardDuty requires a security agent to send runtime events
