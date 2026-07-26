@@ -1474,7 +1474,7 @@ the WorkSpace at the start of the next session.
 
 #### Version requirements
 
-- Windows WorkSpaces: DCV host agent version 2.3.0.2365 or later
+- Windows WorkSpaces: DCV host agent version 2.2.0.2365 or later
 - Client versions:
 
   - Windows client: 5.33.0.5939 or later
