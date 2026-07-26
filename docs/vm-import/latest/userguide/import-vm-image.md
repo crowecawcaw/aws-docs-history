@@ -36,8 +36,8 @@ choice. For information about uploading objects through the Amazon S3 console, s
 ## Import the VM
 
 After you upload your VM image file to Amazon S3, you can use the AWS CLI to import the
-image. These tools accept either the S3 bucket and path to the file or a URL for a
-public Amazon S3 file. Private Amazon S3 files require a [presigned URL](../../../AmazonS3/latest/userguide/ShareObjectPreSignedURL.md "../../../AmazonS3/latest/userguide/ShareObjectPreSignedURL.md").
+image. These tools accept either the Amazon S3 bucket and path to the file, or a
+URL. Private Amazon S3 files provided through an `https://` URL require a [presigned URL](../../../AmazonS3/latest/userguide/ShareObjectPreSignedURL.md "../../../AmazonS3/latest/userguide/ShareObjectPreSignedURL.md").
 
 You can also use the _Import virtual machine images to AWS
 template_ in the [Migration Hub
