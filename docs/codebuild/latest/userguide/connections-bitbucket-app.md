@@ -14,6 +14,7 @@ created in opt-in regions, cannot be used in other regions. For more information
 - [Step 1: Create a connection to Bitbucket (console)](#connections-bitbucket-console "#connections-bitbucket-console")
 - [Step 2: Grant CodeBuild project IAM role access to use the connection](#connections-bitbucket-role-access "#connections-bitbucket-role-access")
 - [Step 3: Configure CodeBuild to use the new connection](#connections-bitbucket-account-credential "#connections-bitbucket-account-credential")
+- [Bitbucket OAuth rotating refresh tokens](#connections-bitbucket-migrate-from-oauth "#connections-bitbucket-migrate-from-oauth")
 
 ## Step 1: Create a connection to Bitbucket (console)
 
@@ -99,4 +100,59 @@ Use the following command:
 aws codebuild import-source-credentials --auth-type CODECONNECTIONS --server-type BITBUCKET --token `<connection-arn>`
 ```
 
-For more information on setting up multiple tokens in your CodeBuild project, see [Configure multiple tokens as source level credentials](multiple-access-tokens.md#asm-source-credential "multiple-access-tokens.md#asm-source-credential").
+For more information about setting up multiple tokens in your CodeBuild project, see [Configure multiple tokens as source level credentials](multiple-access-tokens.md#asm-source-credential "multiple-access-tokens.md#asm-source-credential").
+
+## Bitbucket OAuth rotating refresh tokens
+
+Atlassian now enforces single-use rotating refresh tokens for Bitbucket OAuth.
+Each time you use a refresh token, Bitbucket invalidates it and returns a new one.
+For more information, see
+[Bitbucket OAuth single-use refresh tokens (CHANGE-3052)](https://developer.atlassian.com/cloud/bitbucket/changelog/#CHANGE-3052 "https://developer.atlassian.com/cloud/bitbucket/changelog/#CHANGE-3052")
+on the Atlassian developer website.
+
+### Required action for Secrets Manager-stored credentials
+
+If you store Bitbucket OAuth credentials in Secrets Manager, add the
+`secretsmanager:PutSecretValue` permission to your CodeBuild service role.
+With this permission, CodeBuild can write the updated refresh token back to your secret
+after each token refresh. Without this permission, the next build after a token
+refresh fails.
+
+The following example IAM policy statement grants the required permission:
+
+```
+{
+    "Effect": "Allow",
+    "Action": "secretsmanager:PutSecretValue",
+    "Resource": "arn:aws:secretsmanager:*:*:secret:codebuild/*"
+}
+```
+
+If you use the CodeBuild-managed option, no changes are needed.
+CodeBuild handles token rotation automatically.
+
+### Migrate to AWS CodeConnections (recommended)
+
+We recommend migrating to AWS CodeConnections for Bitbucket integration.
+AWS CodeConnections uses a separate authorization mechanism that rotating refresh tokens
+do not affect. You don't need to manage tokens or add permissions.
+
+To migrate to AWS CodeConnections, complete the following steps:
+
+1. Open the Developer Tools console. Choose **Settings**,
+   **Connections**, then **Create connection**.
+   Select **Bitbucket** as the provider.
+2. Authorize the AWS CodeConnections app in your Bitbucket workspace.
+   This requires _Administer workspace_ permission in Bitbucket.
+3. Add the following permissions to your CodeBuild service role:
+   `codeconnections:GetConnectionToken` and
+   `codeconnections:GetConnection`.
+4. Set the connection as your default credential:
+
+```
+aws codebuild import-source-credentials --auth-type CODECONNECTIONS --server-type BITBUCKET --token `<connection-arn>`
+```
+
+5. All projects using the default credential switch automatically. Update
+   projects that use custom, per-project credentials individually. Use the
+   console or the `UpdateProject` API.

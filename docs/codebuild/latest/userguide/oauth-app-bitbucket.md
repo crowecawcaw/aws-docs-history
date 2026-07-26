@@ -1,5 +1,21 @@
 # Bitbucket OAuth app
 
+###### Required action for Bitbucket OAuth token rotation
+
+Atlassian now enforces single-use rotating refresh tokens for Bitbucket OAuth.
+We recommend migrating to
+[Bitbucket App connections](connections-bitbucket-app.md "connections-bitbucket-app.md"),
+which eliminates token management entirely. For instructions on migrating, see
+[Migrate to AWS CodeConnections (recommended)](connections-bitbucket-app.md#connections-bitbucket-migrate-to-codeconnections "connections-bitbucket-app.md#connections-bitbucket-migrate-to-codeconnections").
+
+If you prefer to continue using OAuth with Secrets Manager, add the
+`secretsmanager:PutSecretValue` permission to your CodeBuild service role.
+For more information, see
+[Required action for Secrets Manager-stored credentials](connections-bitbucket-app.md#connections-bitbucket-oauth-sm-action "connections-bitbucket-app.md#connections-bitbucket-oauth-sm-action").
+
+If you use the CodeBuild-managed option, no changes are needed.
+CodeBuild handles token rotation automatically.
+
 ## Connect Bitbucket using OAuth (console)
 
 To use the console to connect your project to Bitbucket using an OAuth app, do the
@@ -17,7 +33,7 @@ following when you create a project. For information, see [Create a build projec
    - If you chose to use account level credentials for **Service**, choose which service you'd like to use to store your token and do the following:
 
      1. If you choose to use **Secrets Manager**, you can choose to use an existing secret connection or create a new secret, and then choose **Save**.
-        For more information how to create a new secret, see [Create and store a token in a Secrets Manager secret](asm-create-secret.md "asm-create-secret.md").
+        For more information about creating a new secret, see [Create and store a token in a Secrets Manager secret](asm-create-secret.md "asm-create-secret.md").
      2. If you choose to use **CodeBuild** and then choose **Save**.
 
    - Select **Use override credentials for this project only** to use a custom source credential to override your account's credential settings.

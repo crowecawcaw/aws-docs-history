@@ -85,6 +85,15 @@ be used with GitHub push and pull request events and GitHub
 Enterprise Server push events. It cannot be used with GitHub
 Enterprise Server pull request events.
 
+###### Note
+
+The `FILE_PATH` filter is evaluated against the
+first 100 changed files in a push or pull request. To make sure
+the filter is applied as intended, keep the number of changed
+files within this limit. For pull request events, we also
+recommend using a pull request build policy to control which
+pull requests can start a build.
+
 `COMMIT_MESSAGE`
 
 A webhook triggers a build when the head commit message matches

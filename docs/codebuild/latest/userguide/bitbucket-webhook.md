@@ -86,6 +86,15 @@ object in the webhook payload.
 A webhook triggers a build when the path of a changed file matches
 the regular expression pattern.
 
+###### Note
+
+The `FILE_PATH` filter is evaluated against the
+first 3,000 changed files in a push or pull request. To make
+sure the filter is applied as intended, keep the number of
+changed files within this limit. For pull request events, we
+also recommend using a pull request build policy to control
+which pull requests can start a build.
+
 `COMMIT_MESSAGE`
 
 A webhook triggers a build when the head commit message matches

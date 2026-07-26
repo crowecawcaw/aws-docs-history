@@ -38,6 +38,7 @@ learn how to log and monitor CodeBuild builds to troubleshoot issues, see
 - [AccessDenied: The bucket owner for the report group does not match the owner of the S3 bucket...](#troubleshooting-bucket-owner "#troubleshooting-bucket-owner")
 - [Error: "Your credentials lack one or more required privilege scopes" when creating a CodeBuild project with CodeConnections](#troubleshooting-permission-bitbucket "#troubleshooting-permission-bitbucket")
 - [Error: "Sorry, no terminal at all requested - can't get input" when building with the Ubuntu install command](#troubleshooting-nvidia-container-toolkit "#troubleshooting-nvidia-container-toolkit")
+- [Bitbucket builds fail with authentication errors after using Secrets Manager OAuth](#troubleshooting-bitbucket-oauth-sm-rotation "#troubleshooting-bitbucket-oauth-sm-rotation")
 
 ## Apache Maven builds reference artifacts from the wrong repository
 
@@ -869,3 +870,20 @@ curl: (23) Failed writing body
 
 **Recommended solutions:** The `nvidia-container-toolkit` is
 already installed in the image. If you see this error, you can skip the install and restart docker process in your buildspec.
+
+## Bitbucket builds fail with authentication errors after using Secrets Manager OAuth
+
+**Issue:** Builds using Bitbucket as a source provider
+fail with a source credential error. The Bitbucket connection was configured using OAuth
+with AWS Secrets Manager as the storage service.
+
+**Possible cause:** Atlassian enforces single-use
+rotating refresh tokens for Bitbucket OAuth. Each time you use a refresh token,
+Bitbucket invalidates it and returns a new one. For more information, see
+[Bitbucket OAuth single-use refresh tokens (CHANGE-3052)](https://developer.atlassian.com/cloud/bitbucket/changelog/#CHANGE-3052 "https://developer.atlassian.com/cloud/bitbucket/changelog/#CHANGE-3052")
+on the Atlassian developer website.
+
+**Recommended solution:** Add the
+`secretsmanager:PutSecretValue` permission to your CodeBuild service role.
+For more information about the required IAM permission, see
+[Required action for Secrets Manager-stored credentials](connections-bitbucket-app.md#connections-bitbucket-oauth-sm-action "connections-bitbucket-app.md#connections-bitbucket-oauth-sm-action").

@@ -1,5 +1,12 @@
 # Bitbucket app password or access token
 
+###### Bitbucket OAuth token rotation
+
+If you use Bitbucket OAuth credentials, we recommend migrating to
+[Bitbucket App connections](connections-bitbucket-app.md "connections-bitbucket-app.md").
+For information about the required changes when you continue to use OAuth with Secrets Manager, see
+[Bitbucket OAuth app](oauth-app-bitbucket.md "oauth-app-bitbucket.md").
+
 ## Prerequisites
 
 Before you begin, you must add the proper permission scopes to your Bitbucket app
