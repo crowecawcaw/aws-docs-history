@@ -6,7 +6,7 @@ This also includes configuration information related to security groups, subnet 
 Infrastructure Composer visualizes resources in a VPC using a **VPC** tag. This tag is applied to cards on the canvas. The following is an example of a
 Lambda function with a VPC tag:
 
-![A VPC tag visualizing a Lambda function in Infrastructure Composer that is configured with a VPC.](images/aac_use_vpc_01.png)
+![A VPC tag visualizing a Lambda function in Infrastructure Composer that is configured with a VPC.](/images/infrastructure-composer/latest/dg/images/aac_use_vpc_01.png)
 VPC tags are applied to cards on the canvas when you do the following:
 
 - Configure a Lambda function with a VPC in Infrastructure Composer.
