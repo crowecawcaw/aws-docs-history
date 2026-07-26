@@ -67,7 +67,7 @@ After you submit, the FTR status on your solution updates to reflect the outcome
 
 The automated review evaluates your submitted report against the following controls. For the full
 list of FTR requirements, see the
-[Software FTR checklist](https://aws.amazon.com/partners/foundational-technical-review "https://aws.amazon.com/partners/foundational-technical-review").
+[Software FTR guide](https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Foundational-Technical-Review "https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Foundational-Technical-Review").
 
 **SOC 2 Type II reports:**
 
