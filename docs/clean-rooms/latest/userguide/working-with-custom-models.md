@@ -13,7 +13,6 @@ Here's how custom ML modeling works in Clean Rooms ML:
    - AWS Glue Data Catalog is used to organize and catalog
    - Data from multiple AWS accounts can be used within the same
      collaboration
-   - You can associate data stored in Amazon S3 (such as images, documents, audio, video, or other files) with a collaboration using configured dataset associations. For more information, see [Associating a dataset for use in AWS Clean Rooms ML](working-with-datasets.md "working-with-datasets.md").
 
 2. SQL Query and Data Processing
 

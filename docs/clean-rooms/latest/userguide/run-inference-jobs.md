@@ -8,20 +8,6 @@ container with.
 The member who will receive inference output must be granted the member ability
 `CAN_RECEIVE_INFERENCE_OUTPUT`.
 
-When starting an inference job, you choose a data source type:
-
-- **ML input channel** – Use a named
-  input source that uses a SQL query or an analysis template to generate
-  structured input data.
-- **Dataset** – Use a
-  dataset associated from Amazon S3. You can specify one dataset per inference job.
-  For more information, see [Associating a dataset for use in AWS Clean Rooms ML](working-with-datasets.md "working-with-datasets.md").
-
-###### Important
-
-ML input channels and datasets are mutually exclusive. An inference job uses
-one type or the other, not both.
-
 Console
 
 ###### To create a model inference job (console)
@@ -50,10 +36,6 @@ Enter the following information:
     * **ML input channel details** – The
      ML input channel that will provide the data for this
      inference job.
-    * **Dataset** – If you are
-     using a configured dataset association instead of an ML
-     input channel, choose the dataset that provides the
-     data for this inference job.
     * **Transform resources** – The
      compute instance that is used to perform the transform
      function of the inference job.

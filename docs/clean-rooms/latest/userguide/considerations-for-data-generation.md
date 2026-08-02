@@ -40,7 +40,7 @@ dataset and train a custom machine learning model:
   where maintaining correlations across sequential records is
   important.
 - Clean Rooms ML doesn't support generating synthetic data from text or
-  non-tabular data.
+  unstructured data.
 - The following data types are supported:
 
 | Data type name |

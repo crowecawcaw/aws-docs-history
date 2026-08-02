@@ -50,10 +50,6 @@ docker pull $ecr_registry_endpoint/$base_image`
   ENTRYPOINT ["/opt/ml/code/serve.py"]`
   ```
 
-- If you use a configured dataset association as the inference data
-  source, the data is provided to the container in the same way as with
-  an ML input channel. Your inference code processes the data through the
-  batch transform job.
 - After you have completed any model changes and you are ready to test it in
   the SageMaker AI environment, run the following commands in the order
   provided.

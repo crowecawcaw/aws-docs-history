@@ -18,23 +18,6 @@ You can create a trained model using the following procedure.
 Alternatively, you can use incremental training to improve an existing model with new
 data, or distributed training to train models across multiple compute instances.
 
-When creating a trained model, you choose a training data source type:
-
-- **ML input channel** – Use one or more
-  named input sources that use a SQL query or an analysis template to generate
-  structured, tabular input data.
-- **Dataset** – Use one or more
-  datasets from Amazon S3 (such as images, documents, audio, video, or other files)
-  associated from Amazon S3. You can add up to 20 datasets per training job (or 19
-  datasets and 1 incremental training channel). FastFile is the default input
-  mode for datasets. For more information about associating datasets, see
-  [Associating a dataset for use in AWS Clean Rooms ML](working-with-datasets.md "working-with-datasets.md").
-
-###### Important
-
-ML input channels and datasets are mutually exclusive. A training job uses one
-type or the other, not both.
-
 ###### Topics
 
 - [Using incremental training in AWS Clean Rooms ML](use-incremental-training.md "use-incremental-training.md")
@@ -115,33 +98,19 @@ Console
    key** enables distributed processing of
    large datasets.
 
-9. If you chose **Dataset** as your training
-   data source type, do the following:
-
-   1. For **Dataset**, choose a dataset
-      from the dropdown.
-   2. For **Channel name**, enter a name
-      for the data channel (up to 64 characters).
-   3. For **Amazon S3 data distribution
-      type**, choose the distribution type (default
-      is `Fully replicated`).
-   4. (Optional) To add more datasets, choose
-      **Add another dataset**. You can add
-      up to 19 more datasets.
-
-10. For **Maximum training duration**, choose the
-    maximum amount of time you want to train your model.
-11. For **Hyperparameters**, specify any
+9. For **Maximum training duration**, choose the
+   maximum amount of time you want to train your model.
+10. For **Hyperparameters**, specify any
     algorithm-specific parameters and their intended values.
     Hyperparameters are specific to the model being trained and are used
     to fine-tune model training.
-12. For **Environment variables**, specify any
+11. For **Environment variables**, specify any
     algorithm-specific variables and their intended values. Environment
     variables are set in the Docker container.
-13. For **Encryption**, to use a custom
+12. For **Encryption**, to use a custom
     AWS KMS key, select the **Encrypt secret with a custom
     KMS key** checkbox.
-14. For **EC2 Resource configuration**, specify
+13. For **EC2 Resource configuration**, specify
     information about the compute resources that are used for model
     training.
 
@@ -152,13 +121,13 @@ Console
     3. For **Volume size in GB**, enter the ML
        storage volume size.
 
-15. (Optional) For **Model training payer**, select the
+14. (Optional) For **Model training payer**, select the
     collaboration member who pays for model training costs.
 
 ###### Note
 
 If there is only one payer candidate for model training in
-the collaboration, it defaults to that payer. 16. Choose **Create trained model**.
+the collaboration, it defaults to that payer. 15. Choose **Create trained model**.
 
 API
 To create a trained model (API)
