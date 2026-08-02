@@ -1,4 +1,4 @@
-Amazon Kendra will no longer be open to new customers starting on July 30, 2026. If you would like to use the service, please sign up prior to July 30. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
 
 # Salesforce connector V2.0
 
@@ -40,7 +40,37 @@ features:
 Before you can use Amazon Kendra to index your Salesforce data source, make
 these changes in your Salesforce and AWS accounts.
 
+###### Note
+
+Salesforce is retiring the Username-Password Flow in the
+Winter 2027 release. We recommend using the Client Credentials Flow for
+new configurations to avoid future disruption to your data connection. For more information, see [Retirement of OAuth 2.0 Username-Password Flow for Connected Apps](https://help.salesforce.com/s/articleView?id=release-notes.rn_security_username_password_flow_retirement.htm&release=260&type=5 "https://help.salesforce.com/s/articleView?id=release-notes.rn_security_username_password_flow_retirement.htm&release=260&type=5") in the Salesforce
+documentation.
+
 **In Salesforce, make sure you have:**
+
+**For Client Credentials Flow (Recommended):**
+
+- Create an External Client App in Salesforce with OAuth enabled:
+
+  1.  In Setup, choose Apps, App Manager, and then choose New External Client App.
+  2.  Enable OAuth Scopes: **Manage user data via APIs (api)** and **Perform requests at any
+      time (refresh\_token, offline\_access)**.
+  3.  In the Auth Flows and External Client App Enhancements section, enable Client Credentials
+      Flow.
+  4.  Configure a **Run As** user for the execution context. For example: **Run As**
+      (Username).
+  5.  Note the **Consumer key** (client\_id) and **Consumer secret** (client\_secret).
+
+- Copy the My Domain URL of your Salesforce instance (for example,
+  `https://<orgDomain>.my.salesforce.com`). To find your
+  My Domain URL, from Setup, in the Quick Find box, enter **My Domain**,
+  and then select **My Domain**. For Client Credentials Flow,
+  `https://login.salesforce.com` and
+  `https://test.salesforce.com` are not supported.
+
+**For Username-Password Flow (Legacy—Deprecated in Winter
+2027):**
 
 - Created a Salesforce administrative account and have noted the user name and
   password you use to connect to Salesforce.
@@ -49,7 +79,7 @@ these changes in your Salesforce and AWS accounts.
 - Created a Salesforce Connected App account with OAuth activated and have copied
   the consumer key (client ID) and consumer secret (client secret) assigned to your
   Salesforce Connected App. The client ID and client secret are used as your
-  authentication credentials stored in an AWS Secrets Manager secret. See [Salesforce documentation on Connected Apps](https://help.salesforce.com/s/articleView?id=sf.connected_app_overview.htm&type=5 "https://help.salesforce.com/s/articleView?id=sf.connected_app_overview.htm&type=5") for more information.
+  authentication credentials stored in an AWS Secrets Manager secret. For more information, see [Salesforce documentation on Connected Apps](https://help.salesforce.com/s/articleView?id=sf.connected_app_overview.htm&type=5 "https://help.salesforce.com/s/articleView?id=sf.connected_app_overview.htm&type=5").
 
 ###### Note
 
@@ -66,6 +96,9 @@ credentials and secrets across data sources, and connector versions 1.0 and
   Salesforce by cloning the ReadOnly profile and then adding the View All Data and
   Manage Articles permissions. These credentials identify the user making the connection and the
   Salesforce connected app that Amazon Kendra connects to.
+
+**For both flows:**
+
 - Checked each document is unique in Salesforce and across other data sources you
   plan to use for the same index. Each data source that you want to use for an index must not
   contain the same document across the data sources. Document IDs are global to an index and
@@ -140,31 +173,63 @@ information:
      Secrets Manager secret window opens.
 
 
-    	1. **Authentication**—Enter following information in the
-    	 **Create an AWS
-    	 Secrets Manager secret window**:
+    	1. **Authentication**—Choose your authentication
+    	 type:
 
 
-    		1. **Secret name**—A name for your secret. The prefix
-    		 ‘AmazonKendra-Salesforce-’ is automatically added to your secret
-    		 name.
-    		2. For **User name**, **Password**,
-    		 **Security token**, **Consumer key**,
-    		 **Consumer secret**, and **Authentication
-    		 URL**—Enter the authentication credential values you generated and
-    		 downloaded from your Salesforce account.
+
+
+    		* **Client Credentials Flow
+    		 (Recommended)**—Uses only client\_id and client\_secret for
+    		 server-to-server integrations.
+    		* **Username-Password Flow
+    		 (Legacy)**—Uses username, password, security token, consumer key,
+    		 and consumer secret. Deprecated by Salesforce in Winter 2027.
+    	2. **Secret name**—A name for your secret. The prefix
+    	 'AmazonKendra-Salesforce-' is automatically added to your secret
+    	 name.
+    	3. **For Client Credentials Flow:**
+
+
+
+
+    		* **Consumer key**—The client ID from your
+    		 Salesforce External Client App
+    		* **Consumer secret**—The client secret from your
+    		 Salesforce External Client App
+    		* **Authentication URL**—Your My Domain URL (for
+    		 example, `https://<orgDomain>.my.salesforce.com/services/oauth2/token`).
+
 
 
     		###### Note
 
-    		If you use Salesforce Developer Edition, use
-    		 `https://login.salesforce.com/services/oauth2/token` or the My Domain
-    		 login URL (for example, `https://MyCompany.my.salesforce.com`) as the **Authentication
-    		 URL**. If you use Salesforce Sandbox Edition, use
-    		 `https://test.salesforce.com/services/oauth2/token`  or the My Domain
-    		 login URL (for example, `MyDomainName--SandboxName.sandbox.my.salesforce.com`) as the
-    		 **Authentication URL**.
-    		3. Choose **Save authentication**.
+    		`https://login.salesforce.com` and
+    		 `https://test.salesforce.com` are not supported for this
+    		 flow.
+    	4. **For Username-Password Flow:**
+
+
+
+
+    		* **User name**—Your Salesforce admin
+    		 username
+    		* **Password**—Your Salesforce admin
+    		 password
+    		* **Security token**—The security token for your
+    		 Salesforce account
+    		* **Consumer key**—The client ID from your
+    		 Salesforce Connected App
+    		* **Consumer secret**—The client secret from your
+    		 Salesforce Connected App
+    		* **Authentication URL**—For Salesforce
+    		 Developer Edition, use
+    		 `https://login.salesforce.com/services/oauth2/token` or your My Domain
+    		 login URL (for example, `https://MyCompany.my.salesforce.com`).
+    		 For Salesforce Sandbox
+    		 Edition, use `https://test.salesforce.com/services/oauth2/token` or
+    		 your My Domain login URL (for example, `MyDomainName--SandboxName.sandbox.my.salesforce.com`).
+    	5. Choose **Save authentication**.
     4. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
      so, you must add **Subnets** and **VPC security groups**.
     5. **Identity crawler**—Specify whether to turn on

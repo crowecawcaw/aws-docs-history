@@ -1,13 +1,13 @@
-Amazon Kendra will no longer be open to new customers starting on July 30, 2026. If you would like to use the service, please sign up prior to July 30. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
 
 # Amazon Kendra availability change
 
 ## Overview
 
 After careful consideration, we have made the decision to put Amazon Kendra into
-Maintenance Mode, effective June 30, 2026. As of this date, there will be no new feature
-or capability development for the service, and as of July 30, 2026, the service will
-stop accepting new customers.
+Maintenance Mode, effective June 30, 2026. As of this date, there is no new feature
+or capability development for the service, and as of July 30, 2026, the service is
+no longer open to new customers.
 
 During Maintenance Mode, the service remains fully supported and AWS will continue to
 provide bug fixes and security updates for existing customers, however new feature requests

@@ -1,4 +1,4 @@
-Amazon Kendra will no longer be open to new customers starting on July 30, 2026. If you would like to use the service, please sign up prior to July 30. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
 
 # Microsoft SharePoint
 
@@ -7,7 +7,7 @@ customize web content and create pages, sites, document libraries, and lists. Yo
 Amazon Kendra to index your SharePoint data source.
 
 Amazon Kendra currently supports SharePoint Online and SharePoint
-Server (versions 2013, 2016, 2019, and Subscription Edition).
+Server (versions 2013 and Subscription Edition).
 
 You can connect Amazon Kendra to your SharePoint data source using either the
 [Amazon Kendra console](https://console.aws.amazon.com/kendra/ "https://console.aws.amazon.com/kendra/"), the [TemplateConfiguration](../APIReference/API_TemplateConfiguration.md "../APIReference/API_TemplateConfiguration.md") API, or the [SharePointConfiguration](../APIReference/API_SharePointConfiguration.md "../APIReference/API_SharePointConfiguration.md") API.

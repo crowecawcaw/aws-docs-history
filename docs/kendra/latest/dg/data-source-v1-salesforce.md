@@ -1,4 +1,4 @@
-Amazon Kendra will no longer be open to new customers starting on July 30, 2026. If you would like to use the service, please sign up prior to July 30. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
 
 # Salesforce connector V1.0
 
@@ -46,7 +46,7 @@ these changes in your Salesforce and AWS accounts.
 - Created a Salesforce Connected App account with OAuth activated and have copied
   the consumer key (client ID) and consumer secret (client secret) assigned to your
   Salesforce Connected App. The client ID and client secret are used as your
-  authentication credentials stored in an AWS Secrets Manager secret. See [Salesforce documentation on Connected Apps](https://help.salesforce.com/s/articleView?id=sf.connected_app_overview.htm&type=5 "https://help.salesforce.com/s/articleView?id=sf.connected_app_overview.htm&type=5") for more information.
+  authentication credentials stored in an AWS Secrets Manager secret. For more information, see [Salesforce documentation on Connected Apps](https://help.salesforce.com/s/articleView?id=sf.connected_app_overview.htm&type=5 "https://help.salesforce.com/s/articleView?id=sf.connected_app_overview.htm&type=5").
 
 ###### Note
 

@@ -1,4 +1,4 @@
-Amazon Kendra will no longer be open to new customers starting on July 30, 2026. If you would like to use the service, please sign up prior to July 30. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
 
 # SharePoint connector V1.0
 
@@ -360,8 +360,8 @@ You must specify the following using [SharePointConfiguration](../APIReference/A
   Version**—Specify the SharePoint
   version you use when configuring SharePoint. This is
   the case no matter if you use SharePoint Server
-  2013, SharePoint Server 2016, SharePoint
-  Server 2019, or SharePoint Online.
+  2013, SharePoint Server Subscription Edition,
+  or SharePoint Online.
 - **Secret Amazon Resource Name
   (ARN)**—Provide the Amazon Resource Name
   (ARN) of a Secrets Manager secret that contains the

@@ -1,4 +1,4 @@
-Amazon Kendra will no longer be open to new customers starting on July 30, 2026. If you would like to use the service, please sign up prior to July 30. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
 
 # SharePoint connector V2.0
 
@@ -7,7 +7,7 @@ customize web content and create pages, sites, document libraries, and lists. Yo
 use Amazon Kendra to index your SharePoint data source.
 
 Amazon Kendra currently supports SharePoint Online and SharePoint
-Server (2013, 2016, 2019, and Subscription Edition).
+Server (2013 and Subscription Edition).
 
 ###### Note
 
@@ -537,9 +537,7 @@ page, enter the following information:
      Server**.
     2. **Choose SharePoint
      Version**—Choose either
-     **SharePoint 2013**,
-     **SharePoint 2016**,
-     **SharePoint 2019**, and
+     **SharePoint 2013** or
      **SharePoint (Subscription
      Edition)**.
     3. **Site URLs specific to your
@@ -592,7 +590,7 @@ page, enter the following information:
     	 Domain**—User ID is constructed
     	 using a Domain\User ID format. You need to provide
     	 a valid domain name. For example:
-    	 `"sharepoint2019"` to
+    	 `"sharepointuser"` to
     	 construct access control.
     8. For **Authentication**, choose
      either SharePoint App-Only authentication,
@@ -877,8 +875,7 @@ Identity crawler is available only when you set
   - Version (`version`) you use, whether
     `Server` or `Online`. If you
     use `Server` you can futher specify the
-    `onPremVersion` as `2013`,
-    `2016`, `2019`, or
+    `onPremVersion` as `2013` or
     `SubscriptionEdition`.
 
 - **Secret Amazon Resource Name
@@ -1070,7 +1067,7 @@ For a list of other important JSON keys to configure, see [SharePoint template s
 - For all SharePoint Server versions, the ACL token must be in lower
   case. For **Email with Domain from IDP** and
   **Email ID with Custom Domain** ACL, for example:
-  `user@sharepoint2019.com`. For
+  `user@sharepointuser.com`. For
   **Domain\User with Domain** ACL, for example:
   `sharepoint2013\user`.
 - When Access Control Lists (ACLs) are enabled, the "Sync only new or modified content" option is not available due to SharePoint API limitations. We recommend using "Full sync" or "New, modified, or deleted content sync" modes instead, or disable ACLs if you need to use this sync mode.
@@ -1083,12 +1080,11 @@ For a list of other important JSON keys to configure, see [SharePoint template s
   authentication activated for SharePoint Online.
 - The connector crawls the first section of a OneNote document using its
   default name only, even if the document is renamed.
-- The connector crawls links in SharePoint 2019, SharePoint
-  Online, and Subscription Edition, only if **Pages** and
+- The connector crawls links in SharePoint
+  Online and Subscription Edition only if **Pages** and
   **Files** are selected as entities to be crawled in
   addition to **Links**.
-- The connector crawls links in SharePoint 2013 and
-  SharePoint 2016 if **Links** is selected as an
+- The connector crawls links in SharePoint 2013 if **Links** is selected as an
   entity to be crawled.
 - The connector crawls list attachments and comments only when
   **List Data** is also selected as an entity to be
