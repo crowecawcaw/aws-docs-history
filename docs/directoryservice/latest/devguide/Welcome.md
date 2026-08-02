@@ -15,4 +15,4 @@ services. For more information about the AWS SDKs, including how to download and
 install them, see [Tools for Amazon Web
 Services](http://aws.amazon.com/tools/ "http://aws.amazon.com/tools/").
 
-This document was last published on July 24, 2026.
+This document was last published on July 31, 2026.

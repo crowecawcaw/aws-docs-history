@@ -2,7 +2,7 @@
 
 ###### Note
 
-Directory Service Simple AD will no longer be open to new customers starting July 30, 2026. If you would like to use the service, please sign up prior to July 30, 2026. Existing customers can continue to use the service as normal. For more information, see [Directory Service Simple AD availability change](../admin-guide/simple-ad-availability-change.md "../admin-guide/simple-ad-availability-change.md").
+Simple AD is no longer open to new customers. For capabilities similar to Simple AD, explore Directory Service Managed Microsoft AD or AD Connector. For more information, see [Simple AD availability changes](../admin-guide/simple-ad-availability-change.md "../admin-guide/simple-ad-availability-change.md").
 
 Creates a Simple AD directory. For more information, see [Simple Active Directory](../admin-guide/directory_simple_ad.md "../admin-guide/directory_simple_ad.md") in the _AWS Directory Service Admin Guide_.
 
