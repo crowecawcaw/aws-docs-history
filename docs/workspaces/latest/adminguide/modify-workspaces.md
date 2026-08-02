@@ -224,11 +224,11 @@ re-creating existing PCoIP WorkSpaces during the migration process.
 The console provides a guided experience to change the protocol of a WorkSpace from PCoIP to DCV.
 
 1. Open the [WorkSpaces console](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
-2. Select the WorkSpace (ensure that it's in the `AVAILABLE` state and its current Protocol is `PCOIP`).
+2. Select the WorkSpace (ensure that it's in the `AVAILABLE` or `STOPPED` state and its current Protocol is `PCOIP`).
 3. Choose Actions and then Modify Protocol.
 4. Confirm to proceed with the modification.
 5. It can take up to 40 minutes for the modification to complete. During the modification, the WorkSpace Status will show as _Modifying Protocol._
-6. To confirm completion, verify in the console that the WorkSpace Status is `AVAILABLE` and the current Protocol property has been changed to `DCV(WSP)`.
+6. To confirm completion, verify that the WorkSpace is not in the `UNHEALTHY` state and that the `Protocols` property shows the correct protocol.
 
 ###### Note
 
