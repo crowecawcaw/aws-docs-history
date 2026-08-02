@@ -184,7 +184,7 @@ The first statement grants users permission to view all VPC peering connections.
 permissions.
 
 The second statement grants users permission to create VPC peering connections, and
-access to all VPCs in the specified account in order to do so.
+access to all VPCs in the specified account to do so.
 
 The third statement uses a \* wildcard as part of the `Action` element to
 grant permission for all VPC peering connection actions. The condition keys ensure that the actions can

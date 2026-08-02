@@ -32,7 +32,7 @@ initiated. At each stage, there may be actions that you can take, and at the end
 lifecycle, the VPC peering connection remains visible in the Amazon VPC console and API or
 command line output for a period of time.
 
-![VPC peering connection lifecycle](images/peering-lifecycle-diagram.png)
+![VPC peering connection lifecycle.](images/peering-lifecycle-diagram.png)
 
 - **Initiating-request**: A request for a VPC peering
   connection has been initiated. At this stage, the peering connection can fail,
@@ -95,7 +95,7 @@ are not peered, and you cannot use VPC A as a transit point for peering between 
 and VPC C. If you want to enable routing of traffic between VPC B and VPC C, you must
 create a unique VPC peering connection between them.
 
-![One VPC peered with two VPCs](images/one-vpc-peered-to-two.png)
+![One VPC peered with two VPCs.](images/one-vpc-peered-to-two.png)
 
 ## VPC peering limitations
 
