@@ -22,8 +22,7 @@ Amazon WorkSpaces Core supports two provisioning options:
   types of Amazon EC2 instances managed by WorkSpaces Core. You can deliver both persistent and non-persistent desktops while maintaining
   direct control over your Amazon EC2 instances. This option allows you to leverage Amazon EC2 pricing models, including Reserved Instances
   and Savings Plans, for cost optimization. You are billed for an hourly service fee in addition to charges for any AWS resources
-  used (such as Amazon EC2 and Amazon EBS). For details about support instances,
-  see [Amazon WorkSpaces Core Managed Instances](../../../workspaces- 22 core/latest/pg/managed-instances.md "../../../workspaces- 22 core/latest/pg/managed-instances.md") .
+  used (such as Amazon EC2 and Amazon EBS). For details on supported instances, see [Amazon WorkSpaces Core Managed Instances pricing](https://aws.amazon.com/workspaces/vdi-partners/pricing/#Amazon_WorkSpaces_managed_instances_pricing "https://aws.amazon.com/workspaces/vdi-partners/pricing/#Amazon_WorkSpaces_managed_instances_pricing").
 
 ## Who should use Amazon WorkSpaces Core
 
