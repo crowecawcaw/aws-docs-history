@@ -23,8 +23,8 @@ When you backup a multi-Region cluster, consider the following items:
 The following supported continent groups are available:
 
     + **Americas**: US East (N. Virginia), US East (Ohio), US West (Oregon), Canada West (Calgary), Canada (Central)
-    + **Europe**: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)
-    + **Asia-Pacific**: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)
+    + **Europe**: Europe (Frankfurt), Europe (Stockholm), Europe (Spain), Europe (Ireland), Europe (London), Europe (Paris)
+    + **Asia-Pacific**: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Mumbai), Asia Pacific (Singapore)
 
 AWS Backup recommends that you add the backup copy rule to the backup plan. If you do not add
 the copy rule to the backup plan, you must manually copy the backup to the required Region

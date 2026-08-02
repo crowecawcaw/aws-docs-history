@@ -34,6 +34,12 @@ Replace `role-name` with the name of the EC2 instance profile role that will be 
 - During a restore, all Amazon EC2 quotas and configuration restrictions apply.
 - If the vault containing your Amazon EC2 recovery points has a vault lock, see [Additional security considerations](vault-lock.md#using-vault-lock-with-backup "vault-lock.md#using-vault-lock-with-backup")
   for more information.
+- AWS Backup does not automatically join restored EC2 instances to an Active Directory
+  domain. If the original instance was domain-joined, you must rejoin the restored
+  instance manually or by using automation. For example, you can trigger an AWS Lambda
+  function in response to the restore job completed event. For more information, see
+  [State: COMPLETED](eventbridge.md#restore-job-state-change-completed "eventbridge.md#restore-job-state-change-completed"). To join an instance
+  to a directory during launch, see [Seamlessly join an EC2 instance to your AD Connector directory](../../../directoryservice/latest/admin-guide/ad_connector_launching_instance.md "../../../directoryservice/latest/admin-guide/ad_connector_launching_instance.md").
 
 ## Use the AWS Backup console to restore Amazon EC2 recovery points
 

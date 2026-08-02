@@ -76,8 +76,8 @@ multi-Region clusters](../../../aurora-dsql/latest/userguide/configuring-multi-r
 The following continent groups are supported:
 
 - **Americas**: US East (N. Virginia), US East (Ohio), US West (Oregon), Canada West (Calgary), Canada (Central)
-- **Europe**: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)
-- **Asia-Pacific**: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)
+- **Europe**: Europe (Frankfurt), Europe (Stockholm), Europe (Spain), Europe (Ireland), Europe (London), Europe (Paris)
+- **Asia-Pacific**: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Mumbai), Asia Pacific (Singapore)
 
 To complete multi-Region restore, ensure you have the following permissions:
 
@@ -158,8 +158,8 @@ continent group. The operation will fail if the clusters are in Regions outside 
 continent group. Supported continent groups include:
 
 - **Americas**: US East (N. Virginia), US East (Ohio), US West (Oregon), Canada West (Calgary), Canada (Central)
-- **Europe**: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)
-- **Asia-Pacific**: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)
+- **Europe**: Europe (Frankfurt), Europe (Stockholm), Europe (Spain), Europe (Ireland), Europe (London), Europe (Paris)
+- **Asia-Pacific**: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Mumbai), Asia Pacific (Singapore)
 
 ###### Multi-Region restore through AWS CLI using orchestrated restore metadata
 

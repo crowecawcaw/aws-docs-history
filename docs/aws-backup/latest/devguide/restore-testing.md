@@ -320,21 +320,34 @@ AWS Backup evaluates cron expressions between 00:00 and 23:59. If you create a r
 
 **Recovery point determination**
 
-Each time a testing plan runs (according to the frequency and start time you specified),
-one eligible recovery point per protected resource in selection is restored by the restore
-test. If no recovery points for a resource meet the recovery point selection criteria, that
-resource will not be included in the test.
+Each time a restore testing plan runs, according to the frequency and start time you
+specified, AWS Backup first selects protected resources to test. Then, for each selected
+protected resource, AWS Backup restores at most one recovery point.
 
-A recovery point for a protected resource in a testing selection is eligible if meets
-the criteria for the specified time frame and included vaults in the restore testing
-plan.
+**Protected resource selection**
 
-A protected resource is selected if the resource testing selection includes the resource
-type and if either of the following conditions are true:
+AWS Backup includes a protected resource when the restore testing selection specifies its
+resource type and either of the following is true:
 
-- The resource ARN is specified in that selection; or,
+- The protected resource ARN is specified in that selection.
 - The tag conditions on that selection match the tags on the latest recovery point for
-  the resource
+  the protected resource.
+
+**Recovery point selection**
+
+For each selected protected resource, AWS Backup restores at most one eligible recovery point.
+A recovery point is eligible if it falls within the specified time frame and included vaults
+in the restore testing plan. From the eligible recovery points, AWS Backup chooses one using the
+latest-or-random algorithm in `RecoveryPointSelection`. If no recovery point for a
+protected resource is eligible, AWS Backup does not include that protected resource in the
+test.
+
+###### Tag conditions don't apply to recovery point selection
+
+Tag conditions apply only to protected resource selection, matched against the
+protected resource's latest recovery point. AWS Backup does not use them to choose which
+recovery point to restore. As a result, the restored recovery point might not match the
+tag conditions used for protected resource selection.
 
 ## Update a restore testing plan
 
