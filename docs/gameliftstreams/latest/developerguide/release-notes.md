@@ -2,6 +2,29 @@
 
 The following release notes are in reverse chronological order, with the latest updates listed first. Amazon GameLift Streams was first released in 2025.
 
+### Managed shader caching
+
+Amazon GameLift Streams now supports capturing shader caches from designated stream sessions.
+Captured shader caches are replicated to streaming locations of compatible stream
+groups and applied automatically in future sessions, reducing start-up times and
+in-game stuttering. Monitor cache status, storage usage, and stream group
+associations with the [ListApplicationShaderCaches](../apireference/API_ListApplicationShaderCaches.md "../apireference/API_ListApplicationShaderCaches.md") API or the Amazon GameLift Streams
+console. You are only charged for storage of the latest shader cache.
+
+###### Learn more:
+
+- [Shader Cache](shader-caches.md "shader-caches.md"), _Amazon GameLift Streams Developer Guide_
+
+### Stream URL
+
+Amazon GameLift Streams now offers stream URLs, which give end users temporary, unauthenticated
+access to a stream session in supported web browsers. No AWS credentials or
+client integration required.
+
+###### Learn more:
+
+- [Stream URL](stream-urls.md "stream-urls.md"), _Amazon GameLift Streams Developer Guide_
+
 ### Custom aspect ratio
 
 Amazon GameLift Streams now supports configuring a custom aspect ratio per stream session to
@@ -45,7 +68,7 @@ to change your application code.
 Amazon GameLift Streams now offers Stream Session Admin Shell, a secure terminal connection to
 the live runtime environment of a stream session. Inspect logs, query running
 processes, check GPU utilization, and examine application state in real time.
-Available at no additional cost in all AWS Regions where Amazon GameLift Streams is offered.
+This feature is available at no additional cost in all AWS Regions where Amazon GameLift Streams is offered.
 
 ###### Learn more:
 

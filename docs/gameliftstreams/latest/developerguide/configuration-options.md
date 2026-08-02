@@ -63,3 +63,13 @@ Amazon GameLift Streams supports streaming to IPv6-only clients only with Window
 | Microsoft Windows Server 2022 Base | Yes                 | Yes                 |
 | Ubuntu 22.04 LTS                   | Yes                 | No                  |
 | Proton runtimes                    | Yes                 | No                  |
+
+## GPU driver versions
+
+Amazon GameLift Streams supports the following GPU driver versions by runtime. Each stream group uses
+the same GPU driver version for its lifetime.
+
+| Runtime         | GPU driver version |
+| --------------- | ------------------ |
+| Windows         | 581.42             |
+| Linux or Proton | 580.95.05          |

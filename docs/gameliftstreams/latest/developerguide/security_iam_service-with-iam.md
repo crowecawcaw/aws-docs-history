@@ -104,6 +104,18 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
+Stream URL resource ARNs use the following format:
+
+```
+arn:aws:gameliftstreams:`region`:`account-id`:streamurl/`streamGroupId`/`streamUrlId`
+```
+
+A stream URL ARN is nested under the stream group it belongs to, and stream URL IDs use the `su-` prefix. This ARN
+identifies a stream URL in API responses, logs, and CloudTrail events. Amazon GameLift Streams does not use this ARN for IAM resource-level permissions: you
+cannot use a stream URL ARN in the `Resource` element of a policy to grant or deny access to an individual stream URL. Scope
+`CreateStreamUrl`, `GetStreamUrl`, and `RevokeStreamUrl` at the stream group level instead, and use
+`Resource` set to `"*"` for `ListStreamUrls`. For an example, see [Create and manage stream URLs](security_iam_id-based-policy-examples.md#create-and-manage-streamurls-iam "security_iam_id-based-policy-examples.md#create-and-manage-streamurls-iam").
+
 To view examples of Amazon GameLift Streams identity-based policies, see [Identity-based policy examples for Amazon GameLift Streams](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy condition keys for Amazon GameLift Streams
@@ -178,6 +190,9 @@ If a service supports all three condition keys for every resource type, then the
 
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
+
+Attribute-based access control (ABAC) applies only to applications and stream groups. Stream URLs cannot be tagged, so you cannot use
+tag-based conditions to control access to stream URL actions. Scope stream URL permissions at the stream group level as shown in [Create and manage stream URLs](security_iam_id-based-policy-examples.md#create-and-manage-streamurls-iam "security_iam_id-based-policy-examples.md#create-and-manage-streamurls-iam").
 
 ## Using temporary credentials with Amazon GameLift Streams
 

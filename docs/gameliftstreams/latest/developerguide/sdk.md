@@ -6,6 +6,10 @@ Then, end users connect to a stream through a web client. They can play your gam
 The Amazon GameLift Streams Web SDK includes a sample backend server and a sample web client, which you can use to get started on creating a backend
 service. You can also use these samples to test how Amazon GameLift Streams streams, without additional development. To get started, refer to [Setting up a web server and client with Amazon GameLift Streams](setting-up-web-sdk.md "setting-up-web-sdk.md").
 
+If you want to share a stream without building your own web client, you can use a stream URL instead. A stream URL opens your stream in a
+supported web browser for anyone you share it with, so you do not need the Amazon GameLift Streams Web SDK or a backend service to let end users stream. For more
+information, see [Share stream sessions with stream URLs](stream-urls.md "stream-urls.md").
+
 ###### Topics
 
 - [Amazon GameLift Streams compatible devices and browsers](compatible-devices-browsers.md "compatible-devices-browsers.md")

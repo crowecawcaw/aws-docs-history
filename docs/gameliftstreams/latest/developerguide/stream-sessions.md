@@ -3,7 +3,9 @@
 This section covers stream sessions, the actual instance of a stream where an end user or player can interact with your application or play
 your game. You'll learn about how to test your own stream session and understand the stream session lifecycle.
 
-For launching stream sessions to end users, you must integrate Amazon GameLift Streams into your own service. For more information, see [Amazon GameLift Streams backend service and web client](sdk.md "sdk.md").
+To launch stream sessions to end users, you can integrate Amazon GameLift Streams into your own service and client application; for more information, see
+[Amazon GameLift Streams backend service and web client](sdk.md "sdk.md"). You can also create a stream URL, which starts a stream session in a supported web browser without
+requiring the end user to have AWS credentials or a client integration; for more information, see [Share stream sessions with stream URLs](stream-urls.md "stream-urls.md").
 
 ## About stream sessions
 
@@ -139,3 +141,7 @@ If a client gets disconnected from a stream session without ending the session, 
 specified by `ConnectionTimeoutSeconds` when the stream session was started. To reconnect to a session, you need the stream
 session's ID. For details, see [CreateStreamSessionConnection](../apireference/API_CreateStreamSessionConnection.md "../apireference/API_CreateStreamSessionConnection.md") in the _Amazon GameLift Streams API Reference_. You can see an example of reconnecting to a stream
 session in the [React Starter Sample](https://github.com/aws-samples/sample-amazon-gamelift-streams-react-app "https://github.com/aws-samples/sample-amazon-gamelift-streams-react-app").
+
+Reconnection is not available for stream sessions that are started by activating a stream URL. Because there is no reconnection, opening
+the stream URL again starts a completely new session and consumes another use from its `UsageLimit`. For more information, see
+[Share stream sessions with stream URLs](stream-urls.md "stream-urls.md").

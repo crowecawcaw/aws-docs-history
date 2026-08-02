@@ -61,6 +61,11 @@ Amazon GameLift Streams handles service-specific data as follows:
   logs, and never returns them in API responses. When the session ends, Amazon GameLift Streams clears credentials from
   memory. Amazon GameLift Streams stores only the role ARN (a resource identifier, not a credential) in service
   databases, subject to the existing session record retention policies.
+- **Stream URLs** – A stream URL grants temporary, unauthenticated access to start a stream
+  session. The stream URL embeds a bearer token, so anyone who has the complete URL can start a session until the stream URL expires, is
+  revoked, or reaches its usage limit. Amazon GameLift Streams does not require the end user to present AWS credentials when activating a stream URL. Treat
+  the full stream URL as a credential: distribute it only over trusted channels, give it the shortest workable expiration and usage limit,
+  and revoke it when it is no longer needed. For more information, see [Security best practices for Amazon GameLift Streams](security-best-practices.md "security-best-practices.md") and [Share stream sessions with stream URLs](stream-urls.md "stream-urls.md").
 
 ###### Important
 
@@ -145,6 +150,12 @@ networks which are isolated from other stream groups and from other customers. I
 authenticated, service-brokered WebRTC stream connections. Your applications can connect out from these VPCs to other public addresses
 without restriction.
 
-Additionally, you cannot make a stream or your application data publicly accessible using service API calls or
-settings alone. All service interactions require AWS-authenticated API calls. To make a stream accessible to the
-public, you must create your own client web application that makes the authenticated calls to start and display a stream.
+By default, your application data is not publicly accessible. Management API calls require AWS-authenticated credentials, and you can
+integrate Amazon GameLift Streams into your own client web application that makes authenticated calls to start and display a stream.
+
+Amazon GameLift Streams also provides stream URLs, a deliberate mechanism for granting temporary, unauthenticated access to start a stream session. When
+you create a stream URL, you are intentionally allowing anyone who has the stream URL to start a session in a supported web browser, without
+AWS credentials and without building your own client. Because the stream URL itself is the credential, treat every stream URL as a bearer
+credential and control its distribution, expiration, and usage limit accordingly. Stream URLs are the only supported way to make a stream
+publicly reachable without your own authenticated client; all other service interactions continue to require AWS-authenticated API calls.
+For more information, see [Share stream sessions with stream URLs](stream-urls.md "stream-urls.md") and [Security best practices for Amazon GameLift Streams](security-best-practices.md "security-best-practices.md").

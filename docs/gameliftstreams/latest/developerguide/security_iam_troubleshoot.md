@@ -44,6 +44,9 @@ a role to an AWS service](../../../IAM/latest/UserGuide/id_roles_use_passrole.md
 
 ## I want to allow people outside of my AWS account to access my Amazon GameLift Streams resources
 
-This is not possible with Amazon GameLift Streams. All API access is restricted to the account which owns the resources. Instead, customers who
-wish to share content externally are responsible for using their account to initiate new stream sessions on behalf of other users using
-Amazon GameLift Streams APIs, and forwarding the appropriate connection information to those external users' web browsers.
+API access to your resources is always restricted to the AWS account that owns them, so people outside your account cannot call the
+service APIs against your resources. To let external users stream your content, use a stream URL. Because the stream URL is a bearer
+credential, set a short expiration and a low usage limit, and distribute it only over trusted channels. For more information, see [Share stream sessions with stream URLs](stream-urls.md "stream-urls.md") and [Security best practices for Amazon GameLift Streams](security-best-practices.md "security-best-practices.md").
+
+Building your own client web application that makes authenticated calls on behalf of other users remains an option if you need full
+control over the end-user experience, but it is no longer required for external sharing.

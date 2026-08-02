@@ -15,8 +15,10 @@ If it's your first time using Amazon GameLift Streams, then refer to [Starting y
 - [Manage streaming with an Amazon GameLift Streams stream group](stream-groups.md "stream-groups.md")
 - [Overview of multi-application stream groups](multi-apps.md "multi-apps.md")
 - [Start stream sessions with Amazon GameLift Streams](stream-sessions.md "stream-sessions.md")
+- [Share stream sessions with stream URLs](stream-urls.md "stream-urls.md")
 - [Custom stream resolution in Amazon GameLift Streams](custom-stream-resolution.md "custom-stream-resolution.md")
 - [Export stream session files](stream-sessions-export-files.md "stream-sessions-export-files.md")
+- [Shader cache](shader-caches.md "shader-caches.md")
 
 ## Key concepts
 

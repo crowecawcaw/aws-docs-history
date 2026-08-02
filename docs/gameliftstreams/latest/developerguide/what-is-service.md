@@ -28,6 +28,9 @@ Amazon GameLift Streams offers these key features:
 - Direct streaming of Windows and Linux-based games with little to no modification.
 - Amazon GameLift Streams SDK to help you integrate your existing identity services, storefront, and
   client applications.
+- Stream URLs to share a stream session, with no client integration required. A stream URL opens a stream session in a supported web
+  browser, so end users can start streaming without your own web client and without AWS credentials of their own. For more
+  information, see [Share stream sessions with stream URLs](stream-urls.md "stream-urls.md").
 
 ## How to get started with Amazon GameLift Streams
 

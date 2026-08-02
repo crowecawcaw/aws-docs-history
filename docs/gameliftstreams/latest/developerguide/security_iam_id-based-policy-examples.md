@@ -15,6 +15,7 @@ For details about actions and resource types defined by Amazon GameLift Streams,
 - [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
 - [Using the Amazon GameLift Streams console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
 - [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Create and manage stream URLs](#create-and-manage-streamurls-iam "#create-and-manage-streamurls-iam")
 
 ## Policy best practices
 
@@ -100,3 +101,66 @@ identity. This policy includes permissions to complete this action on the consol
     ]
 }
 ```
+
+## Create and manage stream URLs
+
+This example grants the least privilege required to create, monitor, and revoke stream URLs. `CreateStreamUrl`,
+`GetStreamUrl`, and `RevokeStreamUrl` are authorized against a stream group, so you scope them to stream group
+resource ARNs. A principal granted these permissions on a stream group can act on every stream URL in that stream group. You cannot scope
+these permissions to an individual stream URL. `ListStreamUrls` is account-scoped and returns stream URLs across your stream
+groups, so it takes `Resource` set to `"*"`. In addition, `CreateStreamUrl` requires
+`gameliftstreams:StartStreamSession` permission for the application the stream URL points to, because activating the stream URL
+starts a stream session that runs that application. Scope this permission to the application resource ARN.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ManageStreamUrls",
+      "Effect": "Allow",
+      "Action": [
+        "gameliftstreams:CreateStreamUrl",
+        "gameliftstreams:GetStreamUrl",
+        "gameliftstreams:RevokeStreamUrl"
+      ],
+      "Resource": "arn:aws:gameliftstreams:*:`111122223333`:streamgroup/*"
+    },
+    {
+      "Sid": "StartSessionsForStreamUrls",
+      "Effect": "Allow",
+      "Action": "gameliftstreams:StartStreamSession",
+      "Resource": "arn:aws:gameliftstreams:*:`111122223333`:application/*"
+    },
+    {
+      "Sid": "ListStreamUrlsInAccount",
+      "Effect": "Allow",
+      "Action": "gameliftstreams:ListStreamUrls",
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+If you pass an IAM role in `RoleArn` when you create a stream URL, also grant `iam:PassRole` for that role, scoped
+to Amazon GameLift Streams:
+
+```
+{
+  "Sid": "PassRoleToStreamUrlSessions",
+  "Effect": "Allow",
+  "Action": "iam:PassRole",
+  "Resource": "arn:aws:iam::`111122223333`:role/GameLiftStreams-`MyStreamRole`",
+  "Condition": {
+    "StringEquals": {
+      "iam:PassedToService": "gameliftstreams.amazonaws.com"
+    }
+  }
+}
+```
+
+###### Important
+
+Because `CreateStreamUrl` freezes the stream URL's configuration (including an optional IAM role passed in
+`RoleArn`) at creation time, grant this permission only to trusted principals. Anyone who can create a stream URL can hand
+out unauthenticated, temporary access to a stream session.
