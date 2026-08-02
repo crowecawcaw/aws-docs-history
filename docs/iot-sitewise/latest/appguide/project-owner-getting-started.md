@@ -58,7 +58,7 @@ dashboard is quick and easy.
 
 1. In the navigation bar, choose the **Projects** icon.
 
-![The "Projects" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project in which you want to
+![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project in which you want to
 create a dashboard.
 
 ![The "Projects" page as a project owner.](images/projects-portal-user-choose-project-console.png) 3. In the **Dashboards** section, choose **Create
@@ -92,7 +92,7 @@ You can drag multiple properties and alarms onto a single visualization.
 
 ![The dashboard editor with "Total average power" highlighted.](images/dashboard-add-visualization-console.png) 3. To change how your data displays, choose the visualization type.
 
-![A sample visualization with the visualization type icon highlighted.](images/dashboard-edit-visualization-type-console.png)
+![A sample visualization with the visualization type icon highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-type-console.png)
 
 For more information about the available visualization types, see [Choose visualization types](choose-visualization-types.md "choose-visualization-types.md"). To
 customize details of the visualization, see [Customize visualizations](customize-visualizations.md "customize-visualizations.md"). 4. To add thresholds to your property, choose the visualization configuration icon. If you
@@ -133,7 +133,7 @@ viewers**.
 ![The "Project viewers" section of a project page.](images/project-add-viewers-console.png) 4. In the **Project viewers** dialog box, select the check boxes for the
 users to be viewers for this project.
 
-![Shows the "Project viewers" dialog.](images/project-choose-viewers-console.png)
+![Shows the "Project viewers" dialog.](/images/iot-sitewise/latest/appguide/images/project-choose-viewers-console.png)
 
 ###### Note
 
