@@ -27,4 +27,5 @@ inefficient to perform using standard REST API calls. $ Operations can be invoke
 - [Removing Patient Compartment Resources with $purge](reference-fhir-operations-purge.md "reference-fhir-operations-purge.md")
 - [FHIR $questionnaire-package operation for HealthLake](reference-fhir-operations-questionnaire-package.md "reference-fhir-operations-questionnaire-package.md")
 - [FHIR $submit operation for HealthLake](reference-fhir-operations-submit.md "reference-fhir-operations-submit.md")
+- [Mapping Codes Between Terminologies with $translate](reference-fhir-operations-translate.md "reference-fhir-operations-translate.md")
 - [Validating FHIR Resources with $validate](reference-fhir-operations-validate.md "reference-fhir-operations-validate.md")
