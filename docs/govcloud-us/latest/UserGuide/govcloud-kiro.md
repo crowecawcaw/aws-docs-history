@@ -13,14 +13,21 @@ The following differences apply to Kiro in AWS GovCloud (US) Region:
 - Autonomous Agent is not available.
 - Social or BuilderID Login: Authentication through social providers and AWS Builder ID is not available.
 - Data Storage for Service Improvement: Content collection for service improvement (prompts, responses, generated code) is disabled.
-- User Activity Metrics and S3 Reporting: Collection of user activity metrics and generation of daily reports in Amazon S3 is not available. Enterprise administrators cannot enable telemetry or activity reporting.
 - Cross-Region Inference (CRIS): For customers in AWS GovCloud (US-East) (us-gov-east-1), inference requests are processed using Amazon Bedrock in AWS GovCloud (US-West) (us-gov-west-1). Your content remains stored in the region where your Kiro profile was created. All cross-region communication is encrypted in transit using TLS 1.2 or higher.
 - Auto: Automated model selection is disabled at launch. Claude Sonnet 4.5 is the default foundation model in AWS GovCloud (US).
+- Web Search is not available.
 
 ## Documentation
 
 - [Kiro Documentation](https://kiro.dev/docs/ "https://kiro.dev/docs/")
 - [Kiro VPC Endpoint Documentation](https://kiro.dev/docs/privacy-and-security/vpc-endpoints/ "https://kiro.dev/docs/privacy-and-security/vpc-endpoints/")
+
+## FedRAMP High/DoD IL4/5 model authorization
+
+Kiro in AWS GovCloud (US) leverages Amazon Bedrock as its model inference layer. The models available within Kiro that carry FedRAMP High and DoD IL-4/5 authorization are those that have received authorization within the Amazon Bedrock service scope in AWS GovCloud (US).
+For the most current list of FedRAMP and IL4/IL5 certified models, refer to [Amazon Bedrock models in scope for FedRAMP and DoD CSP SRG](https://aws.amazon.com/compliance/services-in-scope/FedRAMP/amazon-bedrock-models/ "https://aws.amazon.com/compliance/services-in-scope/FedRAMP/amazon-bedrock-models/").
+
+Note: Model availability in Kiro within AWS GovCloud (US) does not automatically imply FedRAMP certification or IL4/IL5 authorization. Only models explicitly listed on the AWS Services in Scope page carry this approval.
 
 ## Export-controlled content
 

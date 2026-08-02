@@ -11,9 +11,7 @@ This service is available in the following AWS GovCloud (US) Regions:
 
 ## How Amazon Elastic File System differs
 
-The following differences apply to Amazon Elastic File System:
-
-- Cross-account replication is not available.
+There are no differences for this service.
 
 ## Documentation
 

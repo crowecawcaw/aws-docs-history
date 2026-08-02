@@ -38,6 +38,8 @@ The following differences apply to AWS Organizations:
   - [Service control policies](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md")
   - [Resource control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md")
   - [Tag policies](../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md "../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md")
+  - [Declarative policies for EC2](../../../organizations/latest/userguide/orgs_manage_policies_ec2.md "../../../organizations/latest/userguide/orgs_manage_policies_ec2.md")
+  - [Declarative policies for S3](../../../organizations/latest/userguide/orgs_manage_policies_s3.md "../../../organizations/latest/userguide/orgs_manage_policies_s3.md")
 
   ###### Note
 

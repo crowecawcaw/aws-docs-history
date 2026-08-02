@@ -47,6 +47,9 @@ The following differences apply to Amazon Route 53:
   - 18.253.168.0/25
   - 18.253.167.0/25
 
+- All Amazon Route 53 API actions have a token bucket maximum capacity of 40 and a bucket refill rate of 5, at both the account level and the individual API level.
+- Change throughput limiting is not available.
+
 The control plane for Route 53 in the AWS GovCloud (US) is in the AWS GovCloud (US-West).
 
 ## Documentation

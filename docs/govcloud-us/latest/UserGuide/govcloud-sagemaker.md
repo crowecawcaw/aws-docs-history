@@ -33,6 +33,44 @@ The following differences apply to Amazon SageMaker AI:
     - AWS Glue interactive sessions is supported only in AWS GovCloud (US-West)
 
   - SageMaker Studio notebooks
+  - AWS Deep Learning Containers (DLC) - Images are published to private Amazon ECR registries. The registry account differs by Region and image type. Use the following information to authenticate to the applicable registry and construct image URIs:
+
+    - Registry accounts:
+
+      - Deep Learning Containers framework images (for example, `base` and vLLM):
+
+      AWS GovCloud (US-West) - `442386744353.dkr.ecr.us-gov-west-1.amazonaws.com`
+
+      AWS GovCloud (US-East) - `446045086412.dkr.ecr.us-gov-east-1.amazonaws.com`
+      - `sagemaker-scikit-learn` and `sagemaker-xgboost`:
+
+      AWS GovCloud (US-West) - `414596584902.dkr.ecr.us-gov-west-1.amazonaws.com`
+
+      AWS GovCloud (US-East) - `237065988967.dkr.ecr.us-gov-east-1.amazonaws.com`
+
+    - ECR login - authenticate to the applicable account from the preceding list. For example, for the framework account in AWS GovCloud (US-West):
+
+    ```
+    aws ecr get-login-password --region us-gov-west-1 | docker login --username AWS --password-stdin 442386744353.dkr.ecr.us-gov-west-1.amazonaws.com
+    ```
+    - Image URI format:
+
+    ```
+    <ACCOUNT>.dkr.ecr.<REGION>.amazonaws.com/<REPOSITORY>:<TAG>
+    ```
+
+    For example, the `sagemaker-xgboost` repository with the tag `3.0-5` in AWS GovCloud (US-West):
+
+    ```
+    414596584902.dkr.ecr.us-gov-west-1.amazonaws.com/sagemaker-xgboost:3.0-5
+    ```
+    - Available tags - only mutable tags are available in these Regions. A mutable tag can be repointed to a newer image when a version is patched or updated, so pulling the same tag at a later date may return different image content. Immutable tags, which pin to a fixed, unchanging build, are generally not published, apart from a few exceptions required by specific consumers (for example, the vLLM `-v1.x` SageMaker tags). To illustrate the mutable-tag scheme:
+
+      - Ubuntu-based vLLM - available tags: `0.25.1-gpu-py312-cu130-ubuntu22.04-ec2`, `0.25.1-gpu-py312-ec2`. Immutable tags such as `0.25.1-gpu-py312-cu130-ubuntu22.04-ec2-v1.2-2026-07-20-21-30-05` and `0.25-gpu-py312-cu130-ubuntu22.04-ec2-v1` are not available.
+      - AL2023-based vLLM - available tags: `server-cuda-v2.1`, `server-cuda-v2`, `server-cuda`. Immutable tags such as `server-cuda-v2.1.3` are not available.
+      - For the full, current list of tags in a repository, use the standard Amazon ECR CLI commands (`aws ecr list-images` / `aws ecr describe-images`) against the applicable Region.
+
+    - Not all framework versions are actively patched. Versions follow the standard DLC Support Policy - use a currently supported version to ensure you continue receiving security patches.
 
 ###### Note
 

@@ -15,6 +15,7 @@ The following differences apply to AWS Transit Gateway:
 
 - You can’t visualize your global network in geographic map view in Transit Gateway Network Manager console.
 - Inter-Region peering is only supported between AWS GovCloud (US-East) and AWS GovCloud (US-West). You can’t create an Inter-Region peering between a AWS GovCloud (US) Region and any other AWS Region.
+- Policy-Based Routing (PBR) for transit gateways is not available.
 
 ## Documentation
 
