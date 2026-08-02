@@ -55,7 +55,7 @@ a sentence spans multiple lines, the operation returns multiple lines.
 
 Consider the following image.
 
-![Coffee mug with smiley face and text "It's Monday but keep smiling", with bounding boxes and extracted text..](images/text.png)
+![Coffee mug with smiley face and text "It's Monday but keep smiling", with bounding boxes and extracted text..](/images/rekognition/latest/dg/images/text.png)
 The blue boxes represent information about the detected text and the location of the text
 that's returned by the `DetectText` operation. In this example, Amazon Rekognition detects
 "IT'S", "MONDAY", "but", "keep", and "Smiling" as words. Amazon Rekognition detects "IT'S", "MONDAY",
