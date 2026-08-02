@@ -6,7 +6,7 @@ Schedule a reservation at one of our physical Data Transfer Terminal facilities 
 
 ###### Note
 
-AWS Data Transfer Terminal is only available to AWS Enterprise customers at this time.
+AWS Data Transfer Terminal is available only to AWS Enterprise Support customers at this time. If you are not an Enterprise Support customer and would like access, contact [AWS Support](https://support.console.aws.amazon.com/support "https://support.console.aws.amazon.com/support").
 
 **To access Data Transfer Terminal**:
 

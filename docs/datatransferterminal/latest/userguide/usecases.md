@@ -1,6 +1,6 @@
 # Use cases
 
-While any AWS Enterprise customer can access the Data Transfer Terminal system, certain use case scenarios may find greater benefit from it.
+While any AWS Enterprise Support customer can access the Data Transfer Terminal system, certain use case scenarios may find greater benefit from it.
 
 **Autonomous Driving and Advanced Driver Assistance Systems (AD/ADAS)**: Automotive Original Equipment Manufacturers (OEM) and suppliers generate large data sets from their fleets of autonomous vehicles operating and collecting data in numerous metros within North America, Europe, and ASEAN. With Data Transfer Terminal, the data collected by these fleet vehicles can be uploaded to the AWS Cloud service and used to train AD/ADAS models.
 

@@ -24,7 +24,7 @@ The following instructions walk you through how to schedule your Data Transfer T
 
       Only facility descriptions will be provided while making a reservation. Additional location information will be provided in the reservation confirmation email. 2. **Data Transfer Terminal date and time**: Click into the **Search a date and time for your reservation** field to view the calendar and schedule your reservation.
 
-           * Reservations must be made a minimum of 24 hours in advance and no more than six (6) months out and can only be a maximum of six (6) hours long. A single reservation may span more than one day to account for overnight scenarios, if necessary.
+           * Reservations must be made a minimum of 24 hours in advance and no more than six (6) months out and can only be a maximum of 48 hours long. A single reservation may span more than one day to account for overnight scenarios, if necessary.
            * Time is indicated using a 24-hour clock and can only be reserved in whole hour increments.
            * To make consecutive reservations, you must create separate reservations with at least one hour between each data transfer session.
            * For more information, see [Scheduling considerations](scheduling.md "scheduling.md").

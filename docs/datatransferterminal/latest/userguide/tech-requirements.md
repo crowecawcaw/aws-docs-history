@@ -14,7 +14,7 @@ As a data security best practice, ensure that your data is encrypted and secured
 
 ## Network requirements
 
-Ensure your uploading device, server, or appliance (laptop) is prepared to connect to the network and that it supports DHCP. You should have the following for an optimal data upload experience:
+Ensure your uploading device, server, or appliance (laptop) is prepared to connect to the network and that it supports DHCP. You must have the following for data upload:
 
 - A 100G QSFP28 LR4 (100GBASE-LR4) optical QSFP transceiver, compatible with the NIC and LC connectors for the fiber cable connections provided in the Data Transfer Terminal facility.
 - IP address auto-configuration DHCP enabled. DNS servers are automatically assigned by DHCP.

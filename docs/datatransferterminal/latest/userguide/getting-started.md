@@ -1,6 +1,6 @@
 # Getting started
 
-Get started with making remote data transfers to your AWS Cloud services by making a reservation at one of the Data Transfer Terminal facilities. To begin, you’ll need equipment that is supported by the Data Transfer Terminal facility and an AWS Enterprise account.
+Get started with making remote data transfers to your AWS Cloud services by making a reservation at one of the Data Transfer Terminal facilities. To begin, you’ll need equipment that is supported by the Data Transfer Terminal facility and an AWS Enterprise Support account.
 
 Review the [Technical requirements for using Data Transfer Terminal](tech-requirements.md "tech-requirements.md") section of this guide before scheduling a Data Transfer Terminal reservation to ensure you have equipment with the optimal configurations for the data transfer. Not all data storage devices and network connection equipment is compatible with the fiber optic network connections available in the suites.
 
