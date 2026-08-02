@@ -18,6 +18,7 @@ For details about actions and resource types defined by Deadline Cloud, includin
 - [Policy to submit jobs to a queue](#security_iam_id-based-policy-examples-submit-jobs "#security_iam_id-based-policy-examples-submit-jobs")
 - [Policy to allow creating a license endpoint](#security_iam-id-based-policy-examples-create-endpoint "#security_iam-id-based-policy-examples-create-endpoint")
 - [Policy to allow monitoring a specific farm queue](#security_iam-id-based-policy-examples-monitor-queue "#security_iam-id-based-policy-examples-monitor-queue")
+- [Policy to manage queue–fleet associations for a specific fleet](#security_iam_id-based-policy-examples-qfa "#security_iam_id-based-policy-examples-qfa")
 
 ## Policy best practices
 
@@ -415,3 +416,47 @@ JSON
 }`
 
 ```
+
+## Policy to manage queue–fleet associations for a specific fleet
+
+The queue–fleet associations on a fleet determine which jobs can be scheduled to
+the fleet's workers. If you reserve a fleet for sensitive content, control the
+associations so that no one can attach the fleet to an unapproved queue.
+
+In this example, you create a scoped-down policy that grants permission to manage
+queue–fleet associations only between a specific fleet and a specific queue. The
+`CreateQueueFleetAssociation` operation authorizes against the farm, queue,
+and fleet resources, so a principal with this policy cannot associate the fleet with
+any other queue. In the following example, replace each
+`placeholder` with your resource-specific
+information.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "deadline:CreateQueueFleetAssociation",
+                "deadline:UpdateQueueFleetAssociation",
+                "deadline:DeleteQueueFleetAssociation",
+                "deadline:GetQueueFleetAssociation",
+                "deadline:ListQueueFleetAssociations"
+            ],
+            "Resource": [
+                "arn:aws:deadline:`REGION`:`ACCOUNT_ID`:farm/`FARM_ID`",
+                "arn:aws:deadline:`REGION`:`ACCOUNT_ID`:farm/`FARM_ID`/queue/`QUEUE_ID`",
+                "arn:aws:deadline:`REGION`:`ACCOUNT_ID`:farm/`FARM_ID`/fleet/`FLEET_ID`"
+            ]
+        }
+    ]
+}
+```
+
+The scoping is effective only if no other policy grants the association operations
+on the restricted fleet. Audit the policies attached to your farm administrators, and
+for a stronger guarantee add an explicit `Deny` statement for the
+restricted fleet's Amazon Resource Name (ARN) to the principals that must not change
+its associations. For more information about the security boundaries this protects,
+see [Isolate workloads with farms, fleets, and queues](farm-structure.md "farm-structure.md").

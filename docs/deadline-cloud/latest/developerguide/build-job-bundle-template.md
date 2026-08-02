@@ -43,6 +43,12 @@ The `userInterface` property defines the behavior of automatically generated
 user interfaces for both the command line using the `deadline bundle gui-submit`
 command and within the job submission plugins for applications like Autodesk Maya.
 
+The `gui-submit` command opens a submission dialog with a **Shared job
+settings** tab for the name, priority, and target queue of the job, and a
+**Job-specific settings** tab generated from the parameter definitions in
+the job template.
+
+![The job submission dialog showing the Shared job settings tab with job name, priority, and farm and queue fields.](images/bundle-gui-submit.png)
 In this example, the UI widget for inputting a value for the `BlenderSceneFile`
 parameter is a file-selection dialog that shows only `.blend` files.
 
@@ -73,6 +79,12 @@ In contrast, the definition of the `OutputDir` parameter has `objectType:
 The value of the `OutputDir` parameter is used by job attachments as the
 directory where the job writes output files.
 
+When you submit the bundle, the submission dialog's **Job attachments**
+tab lists the input files and directories it detected from these properties, along with the
+output directories the job writes to. Paths shown in italics were detected automatically; you
+can add others that the submitter didn't find.
+
+![The Job attachments tab of a submission dialog, listing detected input files, input directories, and the output directory.](images/bundle-gui-submit-job-attachments.png)
 For more information about the `objectType` and `dataFlow`
 properties, see [JobPathParameterDefinition](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#22-jobpathparameterdefinition "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#22-jobpathparameterdefinition") in the [Open Job Description
 specification](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications")

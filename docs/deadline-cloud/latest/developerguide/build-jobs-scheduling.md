@@ -217,6 +217,13 @@ steps:
       - linux
 ```
 
+Submitters set the same requirements through the **Host requirements**
+tab. Choose **Run on worker hosts that meet the following requirements** to
+set an operating system, CPU architecture, and hardware ranges without editing the
+template.
+
+![The Host requirements tab with custom requirements selected, showing OS, CPU architecture, and hardware ranges.](images/bundle-gui-submit-host-requirements.png)
+
 This job can be scheduled to a fleet with the following capabilities:
 
 ```
@@ -304,6 +311,56 @@ Names in the form `amount.worker.*` and `attr.worker.*` are
 reserved by the service for built-in capabilities. Use other prefixes for your custom
 capabilities.
 
+The following example routes steps that need a specific solver to the fleet that
+provides it. The fleet declares the solvers installed on all of its workers in a custom
+attribute. This fleet configuration is part of the [CreateFleet](../APIReference/API_CreateFleet.md "../APIReference/API_CreateFleet.md")
+request:
+
+```
+"workerCapabilities": {
+    "vCpuCount": {"min": 4},
+    "memoryMiB": {"min": 16384},
+    "osFamily": "linux",
+    "cpuArchitectureType": "x86_64",
+    "customAttributes": [
+        {
+            "name": "attr.sw.solvers",
+            "values": ["vray-6", "arnold-7"]
+        }
+    ]
+}
+```
+
+A step that requires one of the declared values states the requirement in its
+`hostRequirements` in the job template:
+
+```
+steps:
+- name: RenderWithVray
+  hostRequirements:
+    attributes:
+    - name: attr.sw.solvers
+      anyOf:
+      - vray-6
+  script:
+    actions:
+      onRun:
+        command: '{{Task.File.Render}}'
+```
+
+The requirement keeps the `RenderWithVray` step off fleets that do not
+declare `vray-6`. The reverse does not hold: a step with no
+`attr.sw.solvers` requirement is still compatible with this fleet and can be
+scheduled to it.
+
+###### Note
+
+Custom attributes and host requirements route work. They are not an access
+control. Host requirements are set in the job template by whoever submits the job,
+and a fleet that declares an attribute still accepts steps that do not mention it. To
+reserve workers for sensitive content, put them in their own fleet and associate that
+fleet only with approved queues. For more information, see [Access control and worker selection](#jobs-scheduling-access-control "#jobs-scheduling-access-control") and [Isolate workloads with farms, fleets, and queues](farm-structure.md "farm-structure.md").
+
 For more information about configuring custom capabilities when creating a fleet, see
 [Create a customer-managed fleet](create-a-cmf.md "create-a-cmf.md").
 
@@ -340,6 +397,25 @@ worker capabilities that are set through `UpdateWorker`.
 
 For more information, see [UpdateWorker](../APIReference/API_UpdateWorker.md "../APIReference/API_UpdateWorker.md") in
 the _Deadline Cloud API Reference_.
+
+### Access control and worker selection
+
+Deadline Cloud separates who can use a resource from where jobs run. IAM policies and
+AWS IAM Identity Center user and group memberships control who can view, submit to, and manage a
+farm, queue, or fleet. Queue–fleet associations and host requirements control
+which workers run each job.
+
+Group membership on a fleet grants people access to view and manage that fleet in
+the monitor. Membership does not route jobs to the fleet or keep jobs off it. To direct
+work to or away from a fleet, use queue–fleet associations.
+
+Host requirements are part of the job template, so whoever submits the job chooses
+them. They route work to capable fleets, and they are not an access control. The
+queue–fleet association is the enforcement point: the service schedules a step
+only to fleets associated with the job's queue, whatever the step's host requirements
+say. To keep unauthorized work off a restricted fleet, associate the fleet only with
+restricted queues and control who can submit to those queues. For more information
+about the security boundaries between queues and fleets that share workers, see [Isolate workloads with farms, fleets, and queues](farm-structure.md "farm-structure.md").
 
 ## Fleet scaling
 

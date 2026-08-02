@@ -33,6 +33,7 @@ deadline bundle gui-submit blender_render
 The job-specific settings panel are generated from the `userInterface` properties
 of the job parameters defined in the job template.
 
+![The job-specific settings tab, with a frame range field, a scene file picker, and an output directory picker.](images/bundle-gui-submit-job-specific-settings.png)
 To submit a job using the command line, you can use a command similar to the
 following
 

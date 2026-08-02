@@ -55,3 +55,7 @@ deadline bundle gui-submit gsplat_pipeline
 
 On the _Job-specific settings_ tab, select paths for
 both the input video file and the output `.ply` file.
+
+For a complete walkthrough that covers capturing a video, submitting
+and monitoring the job, and viewing the trained result, see
+[Train 3D Gaussian Splatting from your own video](tutorial-gsplat-pipeline.md "tutorial-gsplat-pipeline.md").

@@ -77,11 +77,15 @@ group. Deadline Cloud splits those responsibilities between two resources:
 
 To dedicate workers to sensitive work, such as content under a security or privacy
 restriction, create a separate fleet for those workers. Associate that fleet only with the
-queues that are allowed to use it. You don't need a separate queue for each worker
-partition—one queue can be associated with several fleets, and host requirements
-select between them.
+queues that are allowed to use it. The association is the enforcement point:
+AWS IAM Identity Center group memberships control who can view and manage a resource, and host
+requirements route work at the submitter's request, but neither keeps jobs off a
+fleet.
 
-For more information, see [Determine fleet compatibility](build-jobs-scheduling.md#jobs-scheduling-compatibility "build-jobs-scheduling.md#jobs-scheduling-compatibility").
+For more information about the scheduling mechanics and the access control distinction,
+see [Determine fleet compatibility](build-jobs-scheduling.md#jobs-scheduling-compatibility "build-jobs-scheduling.md#jobs-scheduling-compatibility"). For an end-to-end restricted fleet
+setup, see [Organize your
+farms, queues, and fleets](../userguide/organize-farms-queues-fleets.md "../userguide/organize-farms-queues-fleets.md") in the _Deadline Cloud User Guide_.
 
 ## Features without a direct equivalent
 

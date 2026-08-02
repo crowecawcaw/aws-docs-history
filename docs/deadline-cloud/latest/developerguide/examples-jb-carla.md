@@ -36,3 +36,8 @@ On the _Job-specific settings_ tab, set the
 Container Image URI to your Amazon ECR image and configure the scenario
 parameters (ego speeds, NPC speeds, NPC distances) and camera
 viewpoints.
+
+For a complete walkthrough that covers building the Docker image,
+submitting and monitoring the job, and reviewing the captured sensor
+output, see
+[Run an autonomous driving simulation sweep with CARLA](tutorial-carla-simulation.md "tutorial-carla-simulation.md").
