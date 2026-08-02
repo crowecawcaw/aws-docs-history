@@ -17,7 +17,7 @@ months, enabling you to analyze trends and patterns over time. You can use this 
 data for capacity planning, performance optimization, and understanding the long-term
 evolution of your NAT gateway usage.
 
-To leverage these powerful monitoring capabilities, you can create custom CloudWatch
+To use these powerful monitoring capabilities, you can create custom CloudWatch
 dashboards and alarms tailored to your specific needs. For example, you could set up alerts
 to notify you whenever your NAT gateway's outbound data transfer exceeds a certain
 threshold, allowing you to proactively address potential bandwidth constraints.

@@ -25,9 +25,9 @@ There might be a problem delivering the flow logs to the CloudWatch Logs log gro
 ###### Solution
 
 Check the **Flow logs** tab for the VPC, subnet, or network
-interface. Note that you can't describe flow logs for a VPC or subnet that was
-shared with you, but you can describe flow logs for a network interface that you
-create in a VPC or subnet that was shared with you. If there are any errors,
+interface. You can't describe flow logs for a VPC or subnet that was
+shared with you. However, you can describe flow logs for a network interface
+that you create in a VPC or subnet that was shared with you. If there are any errors,
 they appear in the **Status** column. Alternatively, use the
 [describe-flow-logs](../../../cli/latest/reference/ec2/describe-flow-logs.md "../../../cli/latest/reference/ec2/describe-flow-logs.md")
 command, and check the value that's returned in the `DeliverLogsErrorMessage`
@@ -35,10 +35,9 @@ field.
 
 The following are possible error values for the status:
 
-- `Rate limited`: This error can occur if CloudWatch Logs throttling has
-  been applied — when the number of flow log records for a network
-  interface is higher than the maximum number of records that can be published
-  within a specific timeframe. This error can also occur if you've reached the
+- `Rate limited`: This error can occur when the number of flow
+  log records for a network interface exceeds the maximum number that can be
+  published within a specific timeframe. This error can also occur if you've reached the
   quota for the number of CloudWatch Logs log groups that you can create. For more
   information, see [CloudWatch
   service quotas](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_limits.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_limits.md") in the
@@ -67,7 +66,7 @@ log files in your Amazon S3 bucket.
 
 ###### Possible causes
 
-- The flow log is still being created. In some cases, it can take ten
+- The flow log is still being created. In some cases, it can take 10
   minutes or more after you create the flow log for the log group to be
   created, and for data to be displayed.
 - There has been no traffic recorded for your network interfaces yet. The
@@ -89,8 +88,8 @@ flow log.
 ###### Possible causes
 
 - When creating a flow log that publishes data to an Amazon S3 bucket, this error
-  indicates that the specified S3 bucket could not be found or that the bucket
-  policy does not allow logs to be delivered to the bucket.
+  indicates that the specified S3 bucket could not be found. It can also mean
+  that the bucket policy does not allow logs to be delivered to the bucket.
 - When creating a flow log that publishes data to Amazon CloudWatch Logs, this error indicates
   that the IAM role does not allow logs to be delivered to the log group.
 

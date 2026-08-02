@@ -84,7 +84,7 @@ source ARN is the wildcard (\*) ARN of the logs service.
 
 Note that the log delivery service calls the `HeadBucket` Amazon S3 API
 action to verify the existence and location of the S3 bucket. You are not required
-to grant the log delivery service permission to call this action; it will still deliver
-VPC flow logs even if it can't confirm that the S3 bucket exists and its location.
+to grant the log delivery service permission to call this action. The service still delivers
+VPC flow logs even if it can't confirm that the S3 bucket exists.
 However, there will be an `AccessDenied` error for the call to
 `HeadBucket` in your CloudTrail logs.

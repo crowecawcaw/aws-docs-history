@@ -17,19 +17,19 @@ To create a flow log, you specify:
   accepted traffic for the network interface for one of the EC2 instances in a private subnet and publishes the flow log
   records to an Amazon S3 bucket.
 
-![Flow logs for an instance](images/flow-logs-diagram-s3.png)
+![Flow logs for an instance.](images/flow-logs-diagram-s3.png)
 In the following example, a flow log captures all traffic for
 a subnet and publishes the flow log records to Amazon CloudWatch Logs. The flow log captures traffic for all network interfaces in the subnet.
 
-![Flow logs for a subnet](images/flow-logs-diagram-cw.png)
+![Flow logs for a subnet.](images/flow-logs-diagram-cw.png)
 After you create a flow log, it can take several minutes to begin collecting and
 publishing data to the chosen destinations. Flow logs do not capture real-time log
 streams for your network interfaces. For more information, see [2. Create a flow log](working-with-flow-logs.md#create-flow-log "working-with-flow-logs.md#create-flow-log").
 
-If you launch an instance into your subnet after you create a flow log for your
+If you launch an instance into your subnet after creating a flow log for your
 subnet or VPC, we create a log stream (for CloudWatch Logs) or log file object (for Amazon S3)
-for the new network interface as soon as there is network traffic for the network
-interface.
+for the new network interface. The log stream or file object is created as soon as
+network traffic occurs on the interface.
 
 You can create flow logs for network interfaces that are created by other AWS
 services, such as:

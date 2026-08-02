@@ -9,7 +9,7 @@ create, modify, and delete their application resources in the subnets shared wit
 Participants cannot view, modify, or delete resources that belong to other participants or the
 VPC owner.
 
-You can share your VPC subnets to leverage the implicit routing within a VPC for
+You can share your VPC subnets to use the implicit routing within a VPC for
 applications that require a high degree of interconnectivity and are within the same trust
 boundaries. This reduces the number of VPCs that you create and manage, while using separate
 accounts for billing and access control. You can simplify network topologies by interconnecting

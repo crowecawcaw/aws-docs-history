@@ -5,7 +5,7 @@ redundancy in that zone. There is a quota on the number of NAT gateways that you
 create in each Availability Zone. For more information, see [Gateways](amazon-vpc-limits.md#vpc-limits-gateways "amazon-vpc-limits.md#vpc-limits-gateways").
 
 If you have resources in multiple Availability Zones and they share one NAT gateway, and
-if the NAT gateway’s Availability Zone is down, resources in the other Availability Zones lose
+if the NAT gateway's Availability Zone is down, resources in the other Availability Zones lose
 internet access. To improve resiliency, create a NAT gateway in each Availability Zone, and
 configure your routing to ensure that resources use the NAT gateway in the same Availability
 Zone.
@@ -21,7 +21,7 @@ The following characteristics and rules apply to NAT gateways:
   100 Gbps. If you require more bandwidth, you can split your resources into multiple
   subnets and create a NAT gateway in each subnet.
 - A NAT gateway can process one million packets per second and automatically scales up
-  to ten million packets per second. Beyond this limit, a NAT gateway will drop packets. To
+  to 10 million packets per second. Beyond this limit, a NAT gateway will drop packets. To
   prevent packet loss, split your resources into multiple subnets and create a separate NAT
   gateway for each subnet.
 - Each IPv4 address can support up to 55,000 simultaneous connections to each unique
@@ -74,6 +74,6 @@ Client → NAT → Peering → Destination
     exceed 1500 bytes. For more information about checking and setting the MTU on an
     instance, see [Network MTU for your
     EC2 instance](../../../AWSEC2/latest/UserGuide/network_mtu.md#set_mtu "../../../AWSEC2/latest/UserGuide/network_mtu.md#set_mtu") in the _Amazon EC2 User Guide_.
-  - NAT gateways support Path MTU Discovery (PMTUD) via FRAG\_NEEDED ICMPv4 packets and Packet Too Big (PTB) ICMPv6 packets.
+  - NAT gateways support Path MTU Discovery (PMTUD) through FRAG\_NEEDED ICMPv4 packets and Packet Too Big (PTB) ICMPv6 packets.
   - NAT gateways enforce Maximum Segment Size (MSS) clamping for all packets. For more
     information, see [RFC879](https://datatracker.ietf.org/doc/html/rfc879 "https://datatracker.ietf.org/doc/html/rfc879").

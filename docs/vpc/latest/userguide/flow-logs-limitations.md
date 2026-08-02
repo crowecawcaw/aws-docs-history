@@ -19,7 +19,16 @@ To use flow logs, you need to be aware of the following limitations:
   IPv4 address in the `dstaddr` field. To capture the original
   destination IP address, create a flow log with the `pkt-dstaddr`
   field.
-- If traffic is sent from a network interface and the source is not any of the network interface's IP addresses, when the log record is for an egress flow, the flow log displays the primary private IPv4 address in the `srcaddr` field. To capture the original source IP address, create a flow log with the `pkt-srcaddr` field. If the log record is for an ingress flow into the network interface, the primary private IP of the network interface will not be shown in the `srcaddr` field.
+- If traffic is sent from a network interface and the source is not any of the
+  network interface's IP addresses, the behavior depends on the flow direction.
+  For an egress flow, the flow log displays the primary private IPv4 address in
+  the `srcaddr` field. To capture the original source IP address,
+  create a flow log with the `pkt-srcaddr` field.
+
+If the log record is for an ingress flow into the network interface, the
+primary private IP of the network interface will not be shown in the
+`srcaddr` field.
+
 - When your network interface is attached to a [Nitro-based
   instance](../../../ec2/latest/instancetypes/ec2-nitro-instances.md "../../../ec2/latest/instancetypes/ec2-nitro-instances.md"), the aggregation interval is always 1 minute or less,
   regardless of the specified maximum aggregation interval.
@@ -57,12 +66,15 @@ To use flow logs, you need to be aware of the following limitations:
   Limitations specific to ECS fields available in version 7:
 
 - ECS fields are not computed if the underlying ECS tasks are not owned by the owner of the flow
-  log subscription. For example, if you share a subnet (`SubnetA`) with
-  another account (`AccountB`), and then you create a flow log
-  subscription for `SubnetA`, if `AccountB` launches ECS
-  tasks in the shared subnet, your subscription will receive traffic logs from ECS
-  tasks launched by `AccountB` but the ECS fields for these logs will
-  not be computed due to security concerns.
+  log subscription.
+
+For example, suppose you share a subnet (`SubnetA`) with
+another account (`AccountB`), and then you create a flow log
+subscription for `SubnetA`. If `AccountB` launches ECS
+tasks in the shared subnet, your subscription receives traffic logs from those
+tasks. However, the ECS fields for these logs are not computed due to security
+concerns.
+
 - If you create flow log subscriptions with ECS fields at the VPC/Subnet resource level, any
   traffic generated for non-ECS network interfaces will also be delivered for your
   subscriptions. The values for ECS fields will be '-' for non-ECS IP
@@ -85,14 +97,19 @@ To use flow logs, you need to be aware of the following limitations:
   still running, it may continue to appear in your log.
 - The ECS metadata and IP traffic logs are from two different sources. We start computing your
   ECS traffic as soon as we obtain all required information from upstream
-  dependencies. After you start a new task, we start computing your ECS fields 1)
-  when we receive IP traffic for the underlying network interface and 2) when we
-  receive the ECS event that contains the metadata for your ECS task to indicate
-  the task is now running. After you stop a task, we stop computing your ECS
-  fields 1) when we no longer receive IP traffic for the underlying network
-  interface or we receive IP traffic that is delayed for more than one day and 2)
-  when we receive the ECS event that contains the metadata for your ECS task to
-  indicate your task is no longer running.
+  dependencies.
+
+After you start a new task, we start computing your ECS fields when both
+of the following conditions are met: we receive IP traffic for the underlying
+network interface, and we receive the ECS event that contains the metadata for
+your ECS task to indicate the task is now running.
+
+After you stop a task, we stop computing your ECS
+fields when both of the following conditions are met: we no longer receive IP traffic for the underlying network
+interface (or we receive IP traffic that is delayed for more than one day), and
+we receive the ECS event that contains the metadata for your ECS task to
+indicate your task is no longer running.
+
 - Only ECS tasks launched in `awsvpc` [network mode](../../../AmazonECS/latest/developerguide/task-networking.md "../../../AmazonECS/latest/developerguide/task-networking.md") are supported.
   Limitations specific to `encryption-status` field:
 
@@ -108,11 +125,15 @@ To use flow logs, you need to be aware of the following limitations:
     Limitations specific to Flow Logs Amazon EC2 Tags fields available in version 11:
 
 - Tag fields are not computed if the tags on a resource are not owned by the owner of the flow
-  log subscription. For example, if you share a subnet (`SubnetA`) with
-  another account (`AccountB`), and then you create a flow log
-  subscription for `SubnetA` with a tag field on network-interfaces, if `AccountB` launches a tagged network-interface with the key you configured,
-  your subscription will receive traffic logs for the network-interface launched by `AccountB` but the tag fields configured by your subscription will
-  not be computed due to security concerns. You can choose to tag that network-interface launched by `AccountB` to display tags if desired.
+  log subscription.
+
+For example, suppose you share a subnet (`SubnetA`) with
+another account (`AccountB`), and then you create a flow log
+subscription for `SubnetA` with a tag field on network-interfaces.
+If `AccountB` launches a tagged network-interface with the key you configured,
+your subscription receives traffic logs for the network-interface launched by `AccountB`, but the tag fields configured by your subscription are
+not computed due to security concerns. You can tag that network-interface launched by `AccountB` to display tags if desired.
+
 - If you create flow log subscriptions with Tag fields at the VPC/Subnet resource level, any
   traffic generated for non-tagged network interfaces will also be delivered for your
   subscriptions. The values for Tag fields will be '-' for non-tagged resources.
@@ -135,4 +156,4 @@ To use flow logs, you need to be aware of the following limitations:
 - The next hop fields are not available if the next hop doesn't have a network interface(For example, traffic to internet gateway).
 - The next hop fields are not available for cross-region traffic.
 - The next hop fields are not available for ingress traffic from some network services(for example, transit gateway and Network Load Balancer).
-- If the traffic go through a middle-box(for example transit gateway, Network Load Balancer), the next hop network interface is the network interface associated with the middle box(such as the transit gateway attachment), not the final destination of the traffic
+- If traffic goes through a middlebox (for example, transit gateway or Network Load Balancer), the next hop network interface is the interface associated with the middlebox(such as the transit gateway attachment), not the final destination of the traffic

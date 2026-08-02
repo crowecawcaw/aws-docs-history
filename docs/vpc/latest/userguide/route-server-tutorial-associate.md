@@ -8,7 +8,7 @@ When you create a route server association:
 
 - It links the route server to a specific VPC.
 - It enables the route server to interact with route tables within the
-  VPC’s subnets.
+  VPC's subnets.
 - It allows the route server to receive and propagate routes within the
   associated VPC.
 - It establishes the scope of where the route server can operate.

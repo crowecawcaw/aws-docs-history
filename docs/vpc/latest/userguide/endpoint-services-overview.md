@@ -27,5 +27,5 @@ instances in a private subnet that have access to resources through five VPC end
 are three interface VPC endpoints, one resource VPC endpoint, and one service-network VPC
 endpoint.
 
-![Diagram of VPC endpoints, endpoint services in other accounts, and partner services](images/use-cases.png)
+![Diagram of VPC endpoints, endpoint services in other accounts, and partner services.](images/use-cases.png)
 For more information, see [AWS PrivateLink](../privatelink.md "../privatelink.md").

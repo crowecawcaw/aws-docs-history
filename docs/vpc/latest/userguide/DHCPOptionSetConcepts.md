@@ -62,7 +62,7 @@ DNS server, and (3) connect to other devices in the network through the router f
 VPC. The instances can interact with the Amazon DHCP server at any time to get their IP
 address lease and additional network settings.
 
-![Default DHCP option set](images/dhcp-default-update-new.png)
+![Default DHCP option set.](images/dhcp-default-update-new.png)
 
 ## Custom DHCP option set
 
@@ -96,7 +96,7 @@ as shown in the diagram: (1) use the network settings in the custom DHCP option 
 interact with the DNS, NTP, and NetBIOS servers specified in the custom DHCP option set,
 and (3) connect to other devices in the network through the router for your VPC.
 
-![Custom DHCP option set](images/dhcp-custom-update-new.png)
+![Custom DHCP option set.](images/dhcp-custom-update-new.png)
 
 ###### Related tasks
 

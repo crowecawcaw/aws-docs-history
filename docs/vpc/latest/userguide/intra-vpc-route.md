@@ -8,7 +8,7 @@ The following diagram shows a firewall appliance installed on an EC2 instance in
 The appliance inspects all traffic that travels from subnet A to subnet B (see 1) and from
 subnet B to subnet A (see 2).
 
-![Inspect subnet traffic](images/middlebox-intra-vpc_updated.png)
+![Inspect subnet traffic.](images/middlebox-intra-vpc_updated.png)
 You use the main route table for the VPC and the middlebox subnet. Subnets A and B each have
 a custom route table.
 

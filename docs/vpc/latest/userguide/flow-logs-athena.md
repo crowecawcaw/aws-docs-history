@@ -8,9 +8,9 @@ talkers or identify the IP addresses with the most rejected TCP connections.
 
 ###### Options
 
-- You can streamline and automate the integration of your VPC flow logs with Athena by
-  generating a CloudFormation template that creates the required AWS resources and
-  predefined queries that you can run to obtain insights about the traffic flowing through
+- You can streamline and automate the integration of your VPC flow logs with Athena.
+  Generate a CloudFormation template that creates the required AWS resources and
+  predefined queries to obtain insights about the traffic flowing through
   your VPC.
 - You can create your own queries using Athena. For more information, see [Query flow logs using Amazon Athena](../../../athena/latest/ug/vpc-flow-logs.md "../../../athena/latest/ug/vpc-flow-logs.md")
   in the _Amazon Athena User Guide_.

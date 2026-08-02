@@ -54,7 +54,7 @@ your VPC, such as EC2 instances:
   Therefore, you can implement special IAM policies for change control, making it easier
   to audit changes to security group rules or automated rule-verification scripts. Multiple
   network interfaces also provide additional options for controlling network traffic,
-  including the ability to create host-based routing policies or leverage different VPC
+  including the ability to create host-based routing policies or use different VPC
   subnet routing rules based on an network interfaces assigned to a subnet.
 - Use AWS Virtual Private Network or Direct Connect to establish private connections from your remote
   networks to your VPCs. For more information, see [Network-to-Amazon VPC connectivity options](../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md "../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md").
@@ -85,7 +85,7 @@ with the subnet control which traffic is allowed to the subnet. The rules of the
 group that is associated with an instance control which traffic is allowed to the
 instance.
 
-![Traffic is controlled using security groups and network ACLs](images/security-comparison.png)
+![Traffic is controlled using security groups and network ACLs.](images/security-comparison.png)
 
 You can secure your instances using only security groups. However, you can add network
 ACLs as an additional layer of defense. For more information, see [Example: Control access to instances in a subnet](nacl-examples.md "nacl-examples.md").

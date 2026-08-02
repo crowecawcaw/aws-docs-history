@@ -3,7 +3,7 @@
 An Elastic IP address is a static, public IPv4 address designed specifically for the
 dynamic nature of cloud computing. This feature allows you to associate an Elastic IP
 address with any instance or network interface within any Virtual Private Cloud (VPC) in
-your AWS account. By leveraging Elastic IP addresses, you can unlock a host of benefits that
+your AWS account. By using Elastic IP addresses, you can unlock a host of benefits that
 simplify the management and resilience of your cloud-based infrastructure.
 
 One of the primary advantages of Elastic IP addresses is their ability to mask the failure

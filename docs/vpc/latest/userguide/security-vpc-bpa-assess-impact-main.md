@@ -124,13 +124,13 @@ information about the regional availability of Reachability Analyzer, see [Consi
 AWS Management Console
 
 1. Open the AWS Network Insights console at [https://console.aws.amazon.com/networkinsights/home#ReachabilityAnalyzer](https://console.aws.amazon.com/networkinsights/home#ReachabilityAnalyzer "https://console.aws.amazon.com/networkinsights/home#ReachabilityAnalyzer").
-2. Click **Create and analyze path**.
+2. Choose **Create and analyze path**.
 3. For the **Source Type**, choose
    **Internet Gateways** and select the internet
    gateway you want to block traffic from the **Source
    dropdown**.
 4. For the **Destination Type**, choose **Instances** and select the instance you want to block traffic to from the **Destination** dropdown.
-5. Click **Create and analyze path**.
+5. Choose **Create and analyze path**.
 6. Wait for the analysis to complete. It could take a few minutes.
 7. Once complete, you should see that the **Reachability
    Status** is **Not reachable** and

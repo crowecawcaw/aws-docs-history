@@ -35,7 +35,7 @@ The middlebox routing wizard, automatically performs the following operations:
 If you do not use the middlebox routing wizard, you must manually configure, and then assign the
 route tables to the subnets and internet gateway.
 
-![Inbound routing to a VPC](images/ingress-routing-firewall-ipv6.png)
+![Inbound routing to a VPC.](images/ingress-routing-firewall-ipv6.png)
 
 ## Internet gateway route table
 

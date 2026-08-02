@@ -34,7 +34,7 @@ You can audit the encryption status of traffic flows inside the VPC using the `e
 
   - flows on TCP port 443 for interface endpoint to AWS service \*
   - flows on TCP port 443 for gateway endpoint \*
-  - flows to encrypted Redshift cluster via VPC endpoint \*\*
+  - flows to encrypted Redshift cluster through VPC endpoint \*\*
 
 - `3` = both nitro AND application encrypted
 - `(-)` = Encryption Status Unknown or VPC encryption controls is off
@@ -122,7 +122,7 @@ Network Load Balancers, Application Load Balancers, Fargate clusters, EKS Contro
 
 ### Resources requiring manual migration
 
-Certain VPC resources and services require that you select the underlying instance types. All modern EC2 instances support encryption in transit. You do not have to make any changes if your services already use modern EC2 instances. You can use console or the GetVpcResourcesBlockingEncryptionEnforcement command to identify if any of these services is using older instances. If you identify such resources, you must upgrade them to any of the modern EC2 instances that supports native encryption of the nitro system hardware. These services include EC2 Instances, Auto Scaling Groups, RDS (All Databases and Document-DB), Elasticache Provisioned, Amazon Redshift Provisioned Clusters, EKS, ECS-EC2, OpenSearch Provisioned and EMR.
+Certain VPC resources and services require that you select the underlying instance types. All modern EC2 instances support encryption in transit. You do not have to make any changes if your services already use modern EC2 instances. You can use console or the GetVpcResourcesBlockingEncryptionEnforcement command to identify if any of these services is using older instances. If you identify such resources, you must upgrade them to any of the modern EC2 instances that supports native encryption of the nitro system hardware. These services include EC2 instances, Auto Scaling Groups, RDS (All Databases and Document-DB), Elasticache Provisioned, Amazon Redshift Provisioned Clusters, EKS, ECS-EC2, OpenSearch Provisioned and EMR.
 
 ###### Compatible resources:
 
@@ -141,7 +141,7 @@ The following resources are compatible with VPC Encryption Controls:
 - Amazon OpenSearch Service
 - Amazon Elastic MapReduce (EMR)
 - Amazon Managed Streaming for Apache Kafka (Amazon MSK)
-- VPC Encryption controls enforce encryption on the application layer for all AWS services accessed via PrivateLink. Any traffic that is not encrypted at the application layer is dropped by PrivateLink endpoints hosted inside the VPC with Encryption controls in enforce mode
+- VPC Encryption controls enforce encryption on the application layer for all AWS services accessed through PrivateLink. Any traffic that is not encrypted at the application layer is dropped by PrivateLink endpoints hosted inside the VPC with Encryption controls in enforce mode
 
 ### Service-specific limitations
 
@@ -176,9 +176,9 @@ If two VPCs are in enforce mode and peering with each other, you cannot change t
 
 ### Transit Gateway encryption support
 
-You must enable encryption support on a Transit Gateway explicitly to encrypt traffic between your VPCs that have encryption controls turned on. Enabling encryption on existing Transit Gateway is non-disruptive to existing traffic flows and migration of VPC attachments to encrypted lanes will happen seamlessly and automatically. Traffic between two VPCs in enforce mode (without exclusions) via the Transit Gateway traverses 100% encrypted lanes. Encryption on Transit Gateway also allows you to connect two VPCs that are in different Encryption Controls modes as well. You should use it when you want to enforce encryption controls in a VPC that is connected to a non-encryption-enforced VPC. In such a scenario, all your traffic inside your encryption-enforced VPC, including the inter-VPC traffic is encrypted. The inter-VPC traffic is encrypted between the resources in the encryption-enforced VPC and the Transit Gateway. Beyond that, encryption depends on the resources to which the traffic is going to in the non-enforced VPC and is not guaranteed to be encrypted (since the VPC is not in enforce mode). All VPCs must be in the same region.(see details [here](../tgw/tgw-encryption-support.md "../tgw/tgw-encryption-support.md")).
+You must enable encryption support on a Transit Gateway explicitly to encrypt traffic between your VPCs that have encryption controls turned on. Enabling encryption on existing Transit Gateway is non-disruptive to existing traffic flows and migration of VPC attachments to encrypted lanes will happen seamlessly and automatically. Traffic between two VPCs in enforce mode (without exclusions) through the Transit Gateway traverses 100% encrypted lanes. Encryption on Transit Gateway also allows you to connect two VPCs that are in different Encryption Controls modes as well. You should use it when you want to enforce encryption controls in a VPC that is connected to a non-encryption-enforced VPC. In such a scenario, all your traffic inside your encryption-enforced VPC, including the inter-VPC traffic is encrypted. The inter-VPC traffic is encrypted between the resources in the encryption-enforced VPC and the Transit Gateway. Beyond that, encryption depends on the resources to which the traffic is going to in the non-enforced VPC and is not guaranteed to be encrypted (since the VPC is not in enforce mode). All VPCs must be in the same region.(see details [here](../tgw/tgw-encryption-support.md "../tgw/tgw-encryption-support.md")).
 
-![Traffic flow between VPCs with different encryption control status](images/vpc-enc-control-arch.png)
+![Traffic flow between VPCs with different encryption control status.](images/vpc-enc-control-arch.png)
 
 - In this diagram, VPC 1, VPC 2 and VPC3 have encryption controls in enforce mode and they are connected to VPC 4 which has Encryption Controls running in monitor mode.
 - All traffic between VPC1, VPC2 and VPC3 will be encrypted.

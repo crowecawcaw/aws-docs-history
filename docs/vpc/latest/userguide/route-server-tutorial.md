@@ -19,7 +19,7 @@ Estimated time to complete: 15-30 minutes
 
 ###### Steps
 
-- [Step 1: Configure required IAM Role permissions](route-server-iam.md "route-server-iam.md")
+- [Step 1: Configure required IAM role permissions](route-server-iam.md "route-server-iam.md")
 - [Step 2: Create a route server](route-server-tutorial-create.md "route-server-tutorial-create.md")
 - [Step 3: Associate route server with a VPC](route-server-tutorial-associate.md "route-server-tutorial-associate.md")
 - [Step 4: Create route server endpoints](route-server-tutorial-create-endpoints.md "route-server-tutorial-create-endpoints.md")

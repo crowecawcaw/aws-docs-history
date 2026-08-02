@@ -1,6 +1,6 @@
 # Security best practices for your VPC
 
-The following best practices are general guidelines and don’t represent a complete security
+The following best practices are general guidelines and don't represent a complete security
 solution. Because these best practices might not be appropriate or sufficient for your
 environment, treat them as helpful considerations rather than prescriptions.
 

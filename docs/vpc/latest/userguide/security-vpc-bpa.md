@@ -1,8 +1,8 @@
 # Block public access to VPCs and subnets
 
-VPC Block Public Access (BPA) is a centralized security feature that enables you
-to authoritatively prevent public internet access to VPC resources across an entire AWS
-account, ensuring compliance with security requirements while providing
+VPC Block Public Access (BPA) is a centralized security feature that authoritatively
+prevents public internet access to VPC resources across an entire AWS
+account. It ensures compliance with security requirements while providing
 flexibility for specific exceptions and audit capabilities.
 
 The VPC BPA feature has the following modes:

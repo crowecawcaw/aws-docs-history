@@ -63,7 +63,7 @@ In the following example, the VPC has both a primary and a secondary CIDR block.
 The CIDR blocks for Subnet A and Subnet B are from the primary VPC CIDR block.
 The CIDR block for Subnet C is from the secondary VPC CIDR block.
 
-![VPCs with single and multiple CIDR blocks](images/vpc-multiple-cidrs.png)
+![VPCs with single and multiple CIDR blocks.](images/vpc-multiple-cidrs.png)
 
 The following route table shows the local routes for the VPC.
 

@@ -15,7 +15,7 @@ within your VPC.
    **DNS hostnames** and **DNS resolution** are
    enabled.
 
-![The DNS Settings tab](images/dns-settings.png) 5. To update these settings, choose **Actions** and then choose
+![The DNS Settings tab.](images/dns-settings.png) 5. To update these settings, choose **Actions** and then choose
 **Edit VPC settings**. Select or clear **Enable** on
 the appropriate DNS attribute and choose **Save changes**.
 

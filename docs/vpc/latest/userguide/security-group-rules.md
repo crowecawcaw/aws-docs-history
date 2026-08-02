@@ -164,7 +164,7 @@ group rules to allow traffic.
   requests from the web servers. The source is the security group for the web
   servers.
 
-![Architecture with web and db servers, security groups, internet gateway, and load balancer](images/security-group-referencing.png)
+![Architecture with web and db servers, security groups, internet gateway, and load balancer.](images/security-group-referencing.png)
 
 ## Security group size
 
@@ -191,7 +191,7 @@ group and those that are associated with the referencing security group to commu
 each other. For more information, see [Update your security groups to reference peer security groups](../peering/vpc-peering-security-groups.md "../peering/vpc-peering-security-groups.md") in the
 _Amazon VPC Peering Guide_.
 
-If you have a security group rule that references a security group in a peer VPC or shared VPC
-and the security group in the shared VPC is deleted or the VPC peering connection is deleted,
-the security group rule is marked as stale. You can delete stale security group rules as you
+If you have a security group rule that references a security group in a peer VPC or shared VPC,
+the rule is marked as stale when the referenced security group is deleted or the VPC peering
+connection is deleted. You can delete stale security group rules as you
 would any other security group rule.

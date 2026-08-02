@@ -101,7 +101,9 @@ If you create a custom network ACL, be aware of how it might affect resources th
 With Elastic Load Balancing, if the subnet for your backend instances has a network ACL in which you've
 added a _deny_ rule for all traffic with a source of either
 `0.0.0.0/0` or the subnet's CIDR, your load balancer can't carry out health
-checks on the instances. For more information about the recommended network ACL rules for your
+checks on the instances.
+
+For more information about the recommended network ACL rules for your
 load balancers and backend instances, see the following:
 
 - [Network ACLs for your Application Load Balancer](../../../elasticloadbalancing/latest/application/load-balancer-troubleshooting.md "../../../elasticloadbalancing/latest/application/load-balancer-troubleshooting.md")

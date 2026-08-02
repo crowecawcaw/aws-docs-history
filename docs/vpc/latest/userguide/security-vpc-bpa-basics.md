@@ -79,7 +79,7 @@ services and resources, is not blocked or impacted by VPC BPA:
   even when VPC BPA is turned on because it does not pass through an
   internet gateway in your VPC. It is possible that these services may
   make requests to resources outside of the VPC on your behalf, for
-  example, in order to resolve a DNS query, and may expose information
+  example, to resolve a DNS query, and may expose information
   about the activity of resources within your VPC if not mitigated through
   other security controls.
 - If you have an internet-facing load balancer and
@@ -104,7 +104,7 @@ VPC BPA bidirectional mode blocks all traffic to and from internet gateways and 
 
 ###### Important
 
-We strongly recommend that you thoroughly review the workloads that require Internet access prior to enabling VPC BPA in your production accounts.
+We strongly recommend that you thoroughly review the workloads that require Internet access before enabling VPC BPA in your production accounts.
 
 ###### Note
 
@@ -179,7 +179,7 @@ aws ec2 --region `us-east-2` describe-vpc-block-public-access-options
 
 ## Create and delete exclusions
 
-A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s VPC BPA mode and will allow bidirectional or egress-only access. You can create VPC BPA exclusions for VPCs and subnets even when VPC BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on. An exclusion for a VPC automatically applies to all subnets in the VPC.
+A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account's VPC BPA mode and will allow bidirectional or egress-only access. You can create VPC BPA exclusions for VPCs and subnets even when VPC BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on. An exclusion for a VPC automatically applies to all subnets in the VPC.
 
 You can create a maximum of 50 exclusions. For information about requesting a limit
 increase, see _VPC BPA exclusions per account_ in [Amazon VPC quotas](amazon-vpc-limits.md "amazon-vpc-limits.md").

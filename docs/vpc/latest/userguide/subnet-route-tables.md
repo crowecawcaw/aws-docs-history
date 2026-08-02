@@ -152,7 +152,7 @@ subnets.
 The following diagram shows the routing for a VPC with an internet gateway, a
 virtual private gateway, a public subnet, and a VPN-only subnet.
 
-![Diagram of private subnet associated with main route table and public subnet with custom route table](images/subnet-association.png)
+![Diagram of private subnet associated with main route table and public subnet with custom route table.](images/subnet-association.png)
 
 Route table A is a custom route table that is explicitly associated with the
 public subnet. It has a route that sends all traffic to the internet gateway, which
@@ -199,7 +199,7 @@ has an explicit association with route table B. However, subnet A now has an
 implicit association with route table B, because route table B is the new main route
 table. Route table A is no longer associated with either subnet.
 
-![Diagram of Subnet A associated with main route table B and Subnet B associated with route table B](images/replace-route-table-step2.png)
+![Diagram of Subnet A associated with main route table B and Subnet B associated with route table B.](images/replace-route-table-step2.png)
 
 (Optional) If you disassociate subnet B from route table B, there is still an
 implicit association between subnet B and route table B. If you no longer need route

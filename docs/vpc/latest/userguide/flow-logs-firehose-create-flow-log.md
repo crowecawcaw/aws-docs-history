@@ -68,7 +68,7 @@ JSON
 6. For **Amazon Data Firehose** stream name, choose the
    delivery stream that you created.
 7. [Cross account delivery only] For **Service access**,
-   choose an existing [IAM service role for cross account delivery](firehose-cross-account-delivery.md "firehose-cross-account-delivery.md") that has permissions to publish logs or choose **Set up permissions** to open the IAM console and create a service role.
+   choose an existing [IAM service role for cross account delivery](firehose-cross-account-delivery.md "firehose-cross-account-delivery.md") that has permissions to publish logs. Alternatively, choose **Set up permissions** to open the IAM console and create a service role.
 8. For **Log record format**, specify the format for the
    flow log record.
 

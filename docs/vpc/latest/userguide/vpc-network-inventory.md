@@ -44,7 +44,7 @@ different locations, depending on your needs.
    check the resource count for **VPCs**, which includes
    the number of VPCs and the number of Regions. This includes both default
    VPCs that AWS creates on your behalf and nondefault VPCs that you create.
-   Click the underlined text to see how the VPC count is spread across Regions.
+   Choose the underlined text to see how the VPC count is spread across Regions.
    If a Region has only one VPC, it is most likely the default VPC for the Region.
 3. On the **Global search** tab, select the client filter
    **Resource type = Vpc**. You can filter the results
@@ -98,7 +98,7 @@ your VPC network.
    **Subnets** pane lists all subnets in the VPC
    and shows their IP address ranges. Hover over a subnet to highlight
    its associated route table and network connections. For more detail,
-   click the link to open the subnet detail page.
+   choose the link to open the subnet detail page.
 
 ###### To describe the subnets for a VPC using the AWS CLI
 
@@ -466,7 +466,7 @@ route tables for your VPC.
 4. Choose the **Resource map** tab.
 5. The **Route tables** pane lists all route tables for the VPC.
    Hover over a route table to highlight its associated subnets and network
-   connections. For more detail, click the link to open the route table detail page.
+   connections. For more detail, choose the link to open the route table detail page.
 
 ###### To describe your route tables
 

@@ -30,7 +30,7 @@ following:
     * For **Value**, enter the key value.
 
 [Remove a tag] Choose **Remove** to the right of the
-tag’s Key and Value. 5. Select the VPC in which to create the egress-only internet gateway. 6. Choose **Create**.
+tag's Key and Value. 5. Select the VPC in which to create the egress-only internet gateway. 6. Choose **Create**.
 
 ## 2. Create a custom route table
 

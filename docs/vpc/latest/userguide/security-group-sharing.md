@@ -32,7 +32,7 @@ Accounts B and C have running in the shared VPC subnet.
   principals have the required permissions to share and use shared security
   groups. If you use a custom IAM policy, the `c2:PutResourcePolicy` and
   `ec2:DeleteResourcePolicy` actions are required. These are permission-only IAM
-  actions. If an IAM principal doesn’t have these permissions granted, an error
+  actions. If an IAM principal doesn't have these permissions granted, an error
   will occur when attempting to share the security group using the AWS RAM.
   **Services that support this feature**
 
@@ -93,7 +93,7 @@ AWS Management Console
 3. Choose a security group to view the details.
 4. Choose the **Sharing** tab.
 5. Choose **Share security group**.
-6. Choose **Create resource share**. As a result, the AWS RAM console opens where you’ll create the resource share for the security group.
+6. Choose **Create resource share**. As a result, the AWS RAM console opens where you'll create the resource share for the security group.
 7. Enter a **Name** for the resource share.
 8. Under **Resources - optional**, choose **Security Groups**.
 9. Choose a security group. The security group cannot be a default security group and cannot be associated with the default VPC.
@@ -115,7 +115,7 @@ AWS Management Console
 17. Under **Shared resources**, wait to see the **Status** of `Associated`. If there is a security group association failure, it may be due to one of the limitations listed above. View the details of the security group and the **Sharing** tab on the details page to see any messages related to why a security group may not be shareable.
 18. Return to the VPC console security group list.
 19. Choose the security group you shared.
-20. Choose the **Sharing** tab. Your AWS RAM resource should be visible there. If it’s not, the resource share creation may have failed and you may need to recreate it.
+20. Choose the **Sharing** tab. Your AWS RAM resource should be visible there. If it's not, the resource share creation may have failed and you may need to recreate it.
 
 Command line
 

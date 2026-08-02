@@ -30,7 +30,7 @@ How Amazon VPC Route Server works:
 
 The following is an example diagram of VPC route server with route server endpoints configured for devices in two subnets.
 
-![Basic Amazon VPC Route Server setup](images/route-server-main.png)
+![Basic Amazon VPC Route Server setup.](images/route-server-main.png)
 
 Starting with the example above as a baseline, the example below shows a more detailed
 design, where both Device A and Device B advertise over BGP that they can accept any
@@ -44,8 +44,8 @@ Device A. Device A then processes the traffic and sends it onward. Traffic withi
 either subnet (10.0.0.0/24 or 10.0.1.0/24) that is bound for 192.0.0.0/24 will be
 routed to Device A eni-abcd (10.0.0.1) as the next hop.
 
-![Amazon VPC Route Server setup before device A failure](images/route-server-failover-part-1.png)
+![Amazon VPC Route Server setup before device A failure.](images/route-server-failover-part-1.png)
 
 This last example below shows how route server handles failover. While the higher MED attribute tells route server that Device B is less preferred than Device A, if Device A eni-abcd (10.0.0.1) goes down, route server updates the subnet route tables, and traffic to 192.0.0.0/24 is routed to Device B eni-efgh (10.0.1.1) as the next hop.
 
-![Amazon VPC Route Server failover to device B](images/route-server-failover-part-2.png)
+![Amazon VPC Route Server failover to device B.](images/route-server-failover-part-2.png)

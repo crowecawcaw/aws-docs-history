@@ -331,7 +331,7 @@ if it is not already installed.
 [Convert your private key
 using PuTTYgen](../../../AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.md#putty-private-key "../../../AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.md#putty-private-key").
 
-Start Pageant, right-click the **Pageant** icon on the taskbar (it
+Start Pageant, open the context menu for the **Pageant** icon on the taskbar (it
 might be hidden), and choose **Add Key**. Select the .ppk file that
 you created, enter the passphrase if required, and choose **Open**. 2. From your local computer, connect to your NAT instance.
 

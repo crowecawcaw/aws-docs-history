@@ -341,10 +341,10 @@ Complete this step to associate your BYOIP pool with the internet gateway route 
 **AWS console**
 
 1. In the VPC console navigation pane, choose **Route tables**, and select the internet gateway route table you created.
-2. Click on the **IPv4 pool associations** tab.
-3. Click on the **Edit associations** button.
+2. Choose the **IPv4 pool associations** tab.
+3. Choose the **Edit associations** button.
 4. Select your BYOIP pool (for example, `pool-12345678901234567`).
-5. Click on the **Save associations** button.
+5. Choose the **Save associations** button.
 
 **AWS CLI**
 
@@ -412,7 +412,7 @@ sudo ip addr add 203.0.113.10/32 dev eth0
 **Note**: Replace `203.0.113.10` with any IP address from your BYOIP range that you want to test. The interface name may be `eth0`, `ens5`, or similar depending on your instance type. 3. In the EC2 console, disable source/destination check:
 
     * Select your instance.
-    * Go to **Networking** tab, click on the network interface.
+    * Go to **Networking** tab, choose the network interface.
     * Choose **Actions**, **Change source/dest check**, **Disable**.
 
 **AWS CLI**
@@ -454,7 +454,7 @@ sudo ip addr add 203.0.113.10/32 dev ens5
 **Note**: Replace `203.0.113.10` with any IP address from your BYOIP range that you want to test. The interface name may be `eth0`, `ens5`, or similar depending on your instance type. 3. In the EC2 console, disable source/destination check:
 
     * Select your instance.
-    * Go to **Networking** tab, click on the network interface.
+    * Go to **Networking** tab, choose the network interface.
     * Choose **Actions**, **Change source/dest check**, **Disable**.
 
 **AWS CLI**

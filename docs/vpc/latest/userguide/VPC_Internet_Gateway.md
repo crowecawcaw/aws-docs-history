@@ -40,7 +40,7 @@ it's known as a _private subnet_.
 In your public subnet's route table, you can specify a route for the internet gateway to
 all destinations not explicitly known to the route table (0.0.0.0/0 for
 IPv4 or ::/0 for IPv6). Alternatively, you can scope the route to a
-narrower range of IP addresses; for example, the public IPv4 addresses of your company’s
+narrower range of IP addresses; for example, the public IPv4 addresses of your company's
 public endpoints outside of AWS, or the Elastic IP addresses of other Amazon EC2 instances
 outside your VPC.
 
@@ -55,7 +55,7 @@ route to the internet gateway. Because there is no route to the internet gateway
 in the private subnet can't communicate with the internet, even if they have public IP
 addresses.
 
-![A VPC with an internet gateway](images/internet-gateway-basics.png)
+![A VPC with an internet gateway.](images/internet-gateway-basics.png)
 
 ###### IP addresses and NAT
 

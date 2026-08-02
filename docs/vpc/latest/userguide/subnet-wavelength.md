@@ -84,4 +84,4 @@ The route table for VPC 2 has the following entry:
 | ----------- | --------------------- |
 | 10.0.0.0/24 | tgw-22222222222222222 |
 
-![Multiple Wavelength Zones](images/mult-wavelength-zones.png)
+![Multiple Wavelength Zones.](images/mult-wavelength-zones.png)

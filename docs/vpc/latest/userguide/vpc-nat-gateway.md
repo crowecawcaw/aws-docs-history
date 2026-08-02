@@ -25,8 +25,10 @@ When you create a NAT gateway, you specify one of the following connectivity typ
   A NAT gateway is for use with IPv4 or IPv6 traffic (using [DNS64 and NAT64](nat-gateway-nat64-dns64.md "nat-gateway-nat64-dns64.md")). Another option for enabling outbound-only internet
   communication over IPv6 is using an [egress-only internet gateway](egress-only-internet-gateway.md "egress-only-internet-gateway.md").
 
-Both private and public NAT gateways map the source private IPv4 address of the instances to the private IPv4 address of the NAT gateway, but in the case of a public NAT gateway, the internet gateway then maps the private IPv4 address of the public
-NAT gateway to the Elastic IP address associated with the NAT gateway. When sending response traffic to the instances, whether it's a
+Both private and public NAT gateways map the source private IPv4 address of the instances to the private IPv4 address of the NAT gateway. For a public NAT gateway, the internet gateway then maps the private IPv4 address of the public
+NAT gateway to the Elastic IP address associated with the NAT gateway.
+
+When sending response traffic to the instances, whether it's a
 public or private NAT gateway, the NAT gateway translates the address back to the original source IP address.
 
 ###### Considerations

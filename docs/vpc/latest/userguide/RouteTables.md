@@ -50,4 +50,4 @@ Custom route table 2 has a route to a peered VPC, and it is associated with the 
 subnet in Availability Zone B. Custom route table 3 has a route to a virtual private
 gateway, and it is associated with the VPN-only subnets in both Availability Zones.
 
-![VPC with subnets in 2 AZs, 3 route tables, internet gateway, and gateway endpoint](images/route-tables.png)
+![VPC with subnets in 2 AZs, 3 route tables, internet gateway, and gateway endpoint.](images/route-tables.png)

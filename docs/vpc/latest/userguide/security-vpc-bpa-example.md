@@ -6,7 +6,7 @@ before it, so it's important to complete the steps in order.
 
 ###### Important
 
-Do not go through this example in a production account. We strongly recommend that you thoroughly review the workloads that require Internet access prior to enabling VPC BPA in your production accounts.
+Do not go through this example in a production account. We strongly recommend that you thoroughly review the workloads that require Internet access before enabling VPC BPA in your production accounts.
 
 ###### Note
 
@@ -33,7 +33,7 @@ steps when you're done with this example.
 ## Deploy CloudFormation template (optional)
 
 To demonstrate how this feature works, you need a VPC, subnets, instances, and
-other resources. To make it easier to complete this demonstration, we’ve provided an
+other resources. To make it easier to complete this demonstration, we've provided an
 CloudFormation template below that you can use to quickly spin up the resources required for
 the scenarios in this demo. This step is optional and you may want to just view the
 diagrams in the Scenarios in this section.
@@ -1071,14 +1071,14 @@ Note that the ping fails and traffic is blocked.
 AWS Management Console
 
 1. Go to the Network Insights console at [https://console.aws.amazon.com/networkinsights/home#ReachabilityAnalyzer](https://console.aws.amazon.com/networkinsights/home#ReachabilityAnalyzer "https://console.aws.amazon.com/networkinsights/home#ReachabilityAnalyzer").
-2. Click **Create and analyze path**.
+2. Choose **Create and analyze path**.
 3. For the **Source Type**, choose **Internet Gateways** and
    select the internet gateway tagged **VPC BPA Internet Gateway**
    from the **Source** dropdown.
 4. For the **Destination Type**, choose **Instances** and select
    the instance tagged with **VPC BPA Instance A** from the
    **Destination** dropdown.
-5. Click **Create and analyze path**.
+5. Choose **Create and analyze path**.
 6. Wait for the analysis to complete. It could take a few minutes.
 7. Once complete, you should see that the **Reachability Status**is **Not reachable** and that the **Path details** shows that `VPC_BLOCK_PUBLIC_ACCESS_ENABLED` is the cause.
 
@@ -1306,7 +1306,7 @@ Note that the ping is successful and traffic is not blocked.
 ## Scenario 4 - Create an exclusion
 
 In this section, you'll create an exclusion. VPC BPA will then only block traffic
-on the subnets _without_ an exclusion. A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s VPC BPA mode and will allow bidirectional or egress-only access. You can create VPC BPA exclusions for VPCs and subnets even when VPC BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on.
+on the subnets _without_ an exclusion. A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account's VPC BPA mode and will allow bidirectional or egress-only access. You can create VPC BPA exclusions for VPCs and subnets even when VPC BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on.
 
 In this example, we'll create an exclusion for Subnet A to show how
 traffic to exclusions is impacted by VPC BPA.
@@ -1318,7 +1318,7 @@ Bidirectional mode turned on:
 
 ### 4.1 Create an exclusion for Subnet A
 
-Complete this section to create an exclusion. A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s VPC BPA mode and will allow bidirectional or egress-only access. You can create VPC BPA exclusions for VPCs and subnets even when VPC BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on.
+Complete this section to create an exclusion. A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account's VPC BPA mode and will allow bidirectional or egress-only access. You can create VPC BPA exclusions for VPCs and subnets even when VPC BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on.
 
 AWS Management Console
 
@@ -1504,7 +1504,7 @@ information about the regional availability of Reachability Analyzer, see [Consi
 
 AWS Management Console
 
-1. From the Network Path you created earlier in the Network Insights console, click **Re-run analysis**.
+1. From the Network Path you created earlier in the Network Insights console, choose **Re-run analysis**.
 2. Wait for the analysis to complete. It may take several minutes.
 3. Confirm that the path is now
    **Reachable**.
@@ -1534,9 +1534,9 @@ how it impacts VPC BPA.
 
 In this scenario, you'll change the exclusion mode to Egress-only. Note that when you do this,
 the Egress-only exclusion on Subnet A doesn't allow outbound traffic, which is
-counterintuitive because you’d expect it to permit outbound traffic. However,
+counterintuitive because you'd expect it to permit outbound traffic. However,
 since the account-level BPA is Ingress-only, Egress-only exclusions are ignored,
-and Subnet A’s routing to an internet gateway is restricted by VPC BPA, blocking
+and Subnet A's routing to an internet gateway is restricted by VPC BPA, blocking
 outbound traffic. To enable outbound traffic on Subnet A, you'd have to switch
 VPC BPA to Bidirectional mode.
 
@@ -1724,7 +1724,7 @@ egress-only internet gateway, traffic is blocked.
 Diagram of VPC BPA Bidirectional mode turned on and Subnet A exclusion with
 egress-only mode turned on:
 
-![Diagram showing VPC with VPC BPA in ingress-only mode, allowing outbound traffic through NAT gateway](images/vpc-bpa-6.png)
+![Diagram showing VPC with VPC BPA in ingress-only mode, allowing outbound traffic through NAT gateway.](images/vpc-bpa-6.png)
 
 ### 6.1 Change VPC BPA to bidirectional mode
 

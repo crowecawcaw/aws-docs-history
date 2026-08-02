@@ -27,7 +27,7 @@ The middlebox routing wizard automatically performs the following operations:
 If you do not use the middlebox routing wizard, you must manually configure, and then assign the
 route tables to the subnets and internet gateway.
 
-![Using a Gateway Load Balancer endpoint to access an endpoint service](images/vpc-endpoint-service-gwlbe.png)
+![Using a Gateway Load Balancer endpoint to access an endpoint service.](images/vpc-endpoint-service-gwlbe.png)
 
 ## Internet gateway route table
 

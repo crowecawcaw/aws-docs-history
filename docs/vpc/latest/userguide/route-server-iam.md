@@ -1,4 +1,4 @@
-# Step 1: Configure required IAM Role permissions
+# Step 1: Configure required IAM role permissions
 
 To use VPC Route Server, ensure that the IAM user or role you are using has the
 required IAM permissions. Below is a guide to which permissions are required for

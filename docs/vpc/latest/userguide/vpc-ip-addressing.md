@@ -124,8 +124,10 @@ better connectivity, performance, and security.
 
 Many AWS services, such as Amazon EC2, Amazon S3, and Amazon CloudFront, offer either
 dual-stack (IPv4 and IPv6) or IPv6-only support, allowing resources to be assigned IPv6
-addresses and accessed over the IPv6 protocol and simplifying network configuration and
-management for those customers adopting IPv6. Other services offer limited or partial
+addresses and accessed over the IPv6 protocol. This simplifies network configuration and
+management for customers adopting IPv6.
+
+Other services offer limited or partial
 dual-stack and IPv6-only support.
 
 For more information about services that support IPv6, see
@@ -186,7 +188,7 @@ must route traffic through a resource in another subnet with a public IPv6 addre
 There are two types of private IPv6 addresses:
 
 - **IPv6 ULA ranges**: IPv6 addresses as defined in [RFC4193](https://datatracker.ietf.org/doc/html/rfc4193 "https://datatracker.ietf.org/doc/html/rfc4193"). These address
-  ranges always start with “fc” or “fd”, which makes them easily identifiable. Valid IPv6
+  ranges always start with "fc" or "fd", which makes them easily identifiable. Valid IPv6
   ULA space is anything under fd00::/8 that does not overlap with the Amazon reserved
   range fd00::/16.
 - **IPv6 GUA ranges**: IPv6 addresses as defined in [RFC3587](https://datatracker.ietf.org/doc/html/rfc3587 "https://datatracker.ietf.org/doc/html/rfc3587"). The option to use

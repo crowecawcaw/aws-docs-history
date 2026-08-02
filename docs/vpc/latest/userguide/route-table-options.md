@@ -107,7 +107,7 @@ You can establish communication between subnets that are in the same VPC across 
 
 You can use this feature to build architectures similar to multi-Availability Zone (AZ) architectures for your on-premise applications running on Outposts racks by establishing connectivity between Outposts racks that are anchored to different AZs.
 
-![Traffic between subnets in the same VPC across Outposts using local gateways](images/outpost-intra-vpc-connection.png)
+![Traffic between subnets in the same VPC across Outposts using local gateways.](images/outpost-intra-vpc-connection.png)
 
 To enable this feature, add a route to your Outpost rack subnet route table that is more specific than the local route in that route table and has a target type of local gateway. The destination of the route must match the entire IPv4 block of the subnet in your VPC that is in another Outpost. Repeat this configuration for all the Outpost subnets that need to communicate.
 
@@ -123,14 +123,14 @@ To enable this feature, add a route to your Outpost rack subnet route table that
 
 ###### Example
 
-For a VPC with a CIDR of 10.0.0.0/16, an Outpost 1 subnet with a CIDR of 10.0.1.0/24, and an Outpost 2 subnet with a CIDR of 10.0.2.0/24, the entry for Outpost 1 subnet’s route table would be as follows:
+For a VPC with a CIDR of 10.0.0.0/16, an Outpost 1 subnet with a CIDR of 10.0.1.0/24, and an Outpost 2 subnet with a CIDR of 10.0.2.0/24, the entry for Outpost 1 subnet's route table would be as follows:
 
 | Destination | Target     |
 | ----------- | ---------- |
 | 10.0.0.0/16 | Local      |
 | 10.0.2.0/24 | `lgw-1-id` |
 
-The entry for Outpost 2 subnet’s route table would be as follows:
+The entry for Outpost 2 subnet's route table would be as follows:
 
 | Destination | Target     |
 | ----------- | ---------- |
@@ -171,8 +171,9 @@ The VPC B route table is configured as follows.
 | 10.0.0.0/16   | pcx-11223344556677889 |
 
 Your VPC peering connection can also support IPv6 communication between instances in the
-VPCs, if the VPCs and instances are enabled for IPv6 communication. To
-enable the routing of IPv6 traffic between VPCs, you must add a route to your route
+VPCs, if the VPCs and instances are enabled for IPv6 communication.
+
+To enable the routing of IPv6 traffic between VPCs, add a route to your route
 table that points to the VPC peering connection to access all or part of the IPv6
 CIDR block of the peer VPC.
 
@@ -290,7 +291,9 @@ subnet.
 
 If you enable route propagation for the destination subnet route table, be aware
 of route priority. We prioritize the most specific route, and if the routes match,
-we prioritize static routes over propagated routes. Review your routes to ensure
+we prioritize static routes over propagated routes.
+
+Review your routes to ensure
 that traffic is routed correctly and that there are no unintended consequences
 if you enable or disable route propagation (for example, route propagation is
 required for an Direct Connect connection that supports jumbo frames).
@@ -344,7 +347,7 @@ gateway or virtual private gateway, and specify the network interface of your ap
 target for VPC traffic. In the following example, the VPC has an internet gateway, an appliance,
 and a subnet with instances. Traffic from the internet is routed through an appliance.
 
-![Routing inbound traffic through an appliance](images/gateway-appliance-routing.png)
+![Routing inbound traffic through an appliance.](images/gateway-appliance-routing.png)
 
 Associate this route table with your internet gateway or virtual private gateway. The first
 entry is the local route. The second entry sends IPv4 traffic destined for the subnet to the
@@ -389,7 +392,7 @@ You can route traffic destined for a specific subnet to the network interface of
 In the following example, the VPC contains two subnets and an appliance. Traffic between the
 subnets is routed through an appliance.
 
-![Routing traffic between subnets through an appliance](images/inter-subnet-appliance-routing.png)
+![Routing traffic between subnets through an appliance.](images/inter-subnet-appliance-routing.png)
 
 ###### Security groups
 

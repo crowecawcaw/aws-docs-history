@@ -16,7 +16,7 @@ endpoint. Because we've selected the internet gateway, the visualization indicat
 traffic from the public subnets is routed to the internet because the corresponding route
 table sends the traffic to the internet gateway.
 
-![VPC with subnets in 2 AZs, 3 route tables, internet gateway, and gateway endpoint](images/vpc-resource-map-update.PNG)
+![VPC with subnets in 2 AZs, 3 route tables, internet gateway, and gateway endpoint.](images/vpc-resource-map-update.PNG)
 
 ###### Concepts
 

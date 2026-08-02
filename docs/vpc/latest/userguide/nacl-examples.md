@@ -1,18 +1,20 @@
 # Example: Control access to instances in a subnet
 
 In this example, instances in the subnet can communicate with each other, and are
-accessible from a trusted remote computer in order to perform administrative tasks.
+accessible from a trusted remote computer to perform administrative tasks.
 The remote computer might be a computer in your local network, as shown in the diagram,
 or it might be an instance in a different subnet or VPC. The network ACL rules for the
 subnet, and the security group rules for the instances, allow access from the IP address
 of your remote computer. All other traffic from the internet or other networks is denied.
 
-![Using a security group and an NACL](images/nacl-example-diagram.png)
+![Using a security group and an NACL.](images/nacl-example-diagram.png)
 Using a network ACL gives you the flexibility to change the security groups
 or security group rules for your instances while relying on the network ACL as a backup
-layer of defense. For example, if you accidentally update the security group to allow
-inbound SSH access from anywhere, but the network ACL allows access only from the IP
-address range of the remote computer, then the network ACL denies inbound SSH traffic
+layer of defense.
+
+For example, if you accidentally update the security group to allow
+inbound SSH access from anywhere, the network ACL still restricts access to only the IP
+address range of the remote computer. The network ACL denies inbound SSH traffic
 from any other IP addresses.
 
 ## Network ACL rules

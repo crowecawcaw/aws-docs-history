@@ -5,7 +5,7 @@ linked directly to VPC Flow Logs. Service-linked roles are predefined by VPC Flo
 include all the permissions that the service requires to call other AWS services on your
 behalf.
 
-A service-linked role makes setting up VPC Flow Logs easier because you don’t have to
+A service-linked role makes setting up VPC Flow Logs easier because you don't have to
 manually add the necessary permissions. VPC Flow Logs defines the permissions of its
 service-linked roles, and unless defined otherwise, only VPC Flow Logs can assume its roles. The
 defined permissions include the trust policy and the permissions policy, and that permissions
@@ -34,7 +34,7 @@ following actions on the specified resources:
 
 - Action: `autoscaling:DescribeTags` on EC2 Autoscaling Groups to validate tag values.
 
-Action: `tag:GetResources` on EC2 Instances and ElasticNetworkInterfaces to validate tag values.
+Action: `tag:GetResources` on EC2 instances and ElasticNetworkInterfaces to validate tag values.
 
 Action: `events:PutRule` on new Managed Rules from sources `aws.tag` and `aws.autoscaling` for detail-types related to tag change events.
 
@@ -84,7 +84,7 @@ a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.
 ## Deleting a service-linked role for VPC Flow Logs
 
 If you no longer need to use a feature or service that requires a service-linked role, we
-recommend that you delete that role. That way you don’t have an unused entity that is not
+recommend that you delete that role. That way you don't have an unused entity that is not
 actively monitored or maintained. However, you must clean up the resources for your
 service-linked role before you can manually delete it.
 

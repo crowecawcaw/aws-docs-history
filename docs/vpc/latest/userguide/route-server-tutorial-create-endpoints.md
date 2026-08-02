@@ -3,7 +3,7 @@
 Complete the steps in this section to create route server endpoints. Create two
 endpoints per subnet for redundancy.
 
-A route server endpoint is an AWS-managed component inside a subnet that facilitates [BGP (Border Gateway Protocol)](https://en.wikipedia.org/wiki/Border_Gateway_Protocol "https://en.wikipedia.org/wiki/Border_Gateway_Protocol") connections between your route server and your BGP peers.
+A route server endpoint is an AWS-managed component inside a subnet that helps [BGP (Border Gateway Protocol)](https://en.wikipedia.org/wiki/Border_Gateway_Protocol "https://en.wikipedia.org/wiki/Border_Gateway_Protocol") connections between your route server and your BGP peers.
 
 Route server endpoints are the "contact points" where your network devices establish BGP sessions with the route server. They're the components that actually handle the BGP connections, while the route server itself manages the routing decisions and route propagation.
 

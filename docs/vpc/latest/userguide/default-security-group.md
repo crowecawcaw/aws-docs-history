@@ -43,4 +43,4 @@ traffic, we recommend that you create a security group with the required rules a
 associate the new security group with the instances instead of the default security
 group.
 
-![VPC with 2 subnets, default security group, 2 EC2 instances, internet gateway, and NAT gateway](images/default-security-group.png)
+![VPC with 2 subnets, default security group, 2 EC2 instances, internet gateway, and NAT gateway.](images/default-security-group.png)

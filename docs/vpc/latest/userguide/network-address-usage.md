@@ -22,7 +22,7 @@ your VPC because the following VPC quotas limit the size of a VPC:
 
 - Before you create your virtual network, calculate the NAU units to help
   you decide if you should spread workloads across multiple VPCs.
-- After you’ve created your VPC, use Amazon CloudWatch to monitor the NAU usage of
+- After you've created your VPC, use Amazon CloudWatch to monitor the NAU usage of
   the VPC so that it doesn't grow beyond your NAU quotas. We recommend that
   you create Amazon CloudWatch alarms to monitor NAU quotas. For more information,
   see [CloudWatch metrics for your VPCs](vpc-cloudwatch.md "vpc-cloudwatch.md").

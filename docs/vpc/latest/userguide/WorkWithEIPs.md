@@ -74,7 +74,7 @@ following:
      value.
 
 [Remove a tag] Choose **Remove** to the right
-of the tag’s Key and Value. 7. Choose **Allocate**.
+of the tag's Key and Value. 7. Choose **Allocate**.
 
 ## 2. Associate an Elastic IP address
 
@@ -174,8 +174,8 @@ transfer:
   address pools that you bring to your AWS account – commonly
   referred to as Bring Your Own IP (BYOIP) address pools.
 - If you attempt to transfer an Elastic IP address that has a reverse
-  DNS record associated with it, you can begin the transfer process, but
-  the transfer account will not be able to accept the transfer until the
+  DNS record associated with it, you can begin the transfer process.
+  However, the transfer account cannot accept the transfer until the
   associated DNS record is removed.
 - If you have enabled and configured AWS Outposts, you might have allocated
   Elastic IP addresses from a customer-owned IP address pool
@@ -199,7 +199,7 @@ These steps must be completed by the source account.
 3. In the navigation pane, choose **Elastic IPs**.
 4. Select one or more Elastic IP address to enable for transfer and choose **Actions**,
    **Enable transfer**.
-5. If you are transferring multiple Elastic IP addresses, you’ll see the **Transfer
+5. If you are transferring multiple Elastic IP addresses, you'll see the **Transfer
    type** option. Choose one of the following options:
 
    - Choose **Single account** if you are transferring the Elastic IP addresses to
@@ -265,10 +265,10 @@ how to resolve them:
   _Amazon EC2 User Guide_ for instructions on increasing
   the limit.
 - **InvalidTransfer.AddressCustomPtrSet**:
-  If you or someone in your organization has configured the Elastic IP
-  address that you are attempting to transfer to use reverse DNS lookup,
-  the source account can enable transfer for the Elastic IP address, but
-  this exception occurs when the transfer account tries to accept the
+  The Elastic IP address that you are attempting to transfer is configured
+  to use reverse DNS lookup. The source account can enable transfer for
+  the Elastic IP address. However, this exception occurs when the transfer
+  account tries to accept the
   transfer. To resolve this issue, the source account must remove the DNS
   record for the Elastic IP address. For more information, see [Remove a reverse DNS record](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md#Using_Elastic_Addressing_Reverse_DNS "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md#Using_Elastic_Addressing_Reverse_DNS") in the
   _Amazon EC2 User Guide_.

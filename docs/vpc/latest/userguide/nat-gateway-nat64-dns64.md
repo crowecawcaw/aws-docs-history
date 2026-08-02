@@ -24,11 +24,12 @@ service you queried for and does one of the following:
   connection is established without any translation over IPv6.
 - If there is no IPv6 address associated with the destination in the DNS record, the
   Route 53 Resolver synthesizes one by prepending the well-known `/96` prefix,
-  defined in RFC6052 (`64:ff9b::/96`), to the IPv4 address in the record. Your
-  IPv6-only service sends network packets to the synthesized IPv6 address. You will then
-  need to route this traffic through the NAT gateway, which performs the necessary
-  translation on the traffic to allow IPv6 services in your subnet to access IPv4 services
-  outside that subnet.
+  defined in RFC6052 (`64:ff9b::/96`), to the IPv4 address in the record.
+
+Your IPv6-only service sends network packets to the synthesized IPv6 address. You then
+route this traffic through the NAT gateway, which performs the necessary
+translation on the traffic to allow IPv6 services in your subnet to access IPv4 services
+outside that subnet.
 
 You can enable or disable DNS64 on a subnet using the [modify-subnet-attribute](../../../cli/latest/reference/ec2/modify-subnet-attribute.md "../../../cli/latest/reference/ec2/modify-subnet-attribute.md") using
 the AWS CLI or with the VPC console by selecting a subnet and choosing
@@ -58,7 +59,7 @@ synthesized IPv6 address through the NAT gateway, the following happens:
 - The IPv4-only host sends back IPv4 response packets. After a connection is established, NAT gateway accepts the response IPv4 packets
   from the external hosts.
 - The response IPv4 packets are destined for NAT gateway, which receives the packets and de-NATs them by replacing its IP (destination IP) with
-  the host’s IPv6 address and prepending back `64:ff9b::/96` to the source IPv4 address. The packet then flows to the host following the local route.
+  the host's IPv6 address and prepending back `64:ff9b::/96` to the source IPv4 address. The packet then flows to the host following the local route.
 
 In this way, the NAT gateway enables your IPv6-only workloads in a subnet to communicate with IPv4-only services outside the subnet.
 
@@ -131,8 +132,8 @@ on-premises network and vice versa. You can do this by doing the following:
   that you want Route 53 Resolver to forward to your on-premises resolvers. You also
   specify the IPv4 addresses of the on-premises resolvers.
 - Now that you have set up a Route 53 Resolver outbound endpoint, you need to
-  enable DNS64 on the subnet containing your IPv6-only workloads and route any data
-  destined for your on-premises network through a NAT gateway.
+  enable DNS64 on the subnet containing your IPv6-only workloads. You also need to
+  route any data destined for your on-premises network through a NAT gateway.
 
 How DNS64 works for IPv4-only destinations in on-premises networks:
 
@@ -148,7 +149,7 @@ How DNS64 works for IPv4-only destinations in on-premises networks:
 5. Assuming the query was made from a DNS64-enabled subnet, Route 53 Resolver does two
    things:
 
-   1. Checks the content of the response packet. If there’s an IPv6 address in the
+   1. Checks the content of the response packet. If there's an IPv6 address in the
       record, it keeps the content as is, but if it contains only an IPv4 record. It
       synthesizes an IPv6 record as well by prepending `64:ff9b::/96` to the IPv4
       address.

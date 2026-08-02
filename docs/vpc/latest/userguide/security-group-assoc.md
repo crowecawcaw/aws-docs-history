@@ -64,7 +64,7 @@ Command line
 
 The VPC is now associated with the security group.
 
-Once you’ve associated the VPC with the security group, you can, for example, [launch an instance
+Once you've associated the VPC with the security group, you can, for example, [launch an instance
 into the VPC and choose this new security group](../../../AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.md "../../../AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.md") or [reference this security group in an
 existing security group rule](security-group-rules.md#security-group-referencing "security-group-rules.md#security-group-referencing").
 

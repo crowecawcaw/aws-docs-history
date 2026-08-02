@@ -1,12 +1,12 @@
 # Find the IP address ranges for AWS services
 
 The AWS IP address range JSON file provided by AWS can be a valuable resource for finding
-the IP addresses of various AWS services and leveraging that information to enhance your
+the IP addresses of various AWS services and using that information to enhance your
 network security and access control. By parsing the detailed data contained within this
 JSON file, you can precisely identify the IP address ranges associated with specific AWS services
 and Regions.
 
-For example, you can utilize the IP address ranges to configure robust network
+For example, you can use the IP address ranges to configure robust network
 security policies, setting up granular firewall rules to allow or deny access to certain
 AWS resources. This information can also be useful for a variety of AWS Network Firewall tasks. This level of control is crucial for protecting your applications and
 data, ensuring that only authorized traffic can reach the necessary AWS services.
@@ -17,13 +17,13 @@ reliability and performance.
 Beyond just firewall rules, the `ip-ranges.json` file can also be leveraged to
 configure sophisticated egress filtering on your network infrastructure. By
 understanding the destination IP address ranges for different AWS services, you can set
-up routing policies or leverage advanced network security solutions like to selectively permit or block outbound traffic based on its intended
+up routing policies or use advanced network security solutions like to selectively permit or block outbound traffic based on its intended
 destination. This egress control is essential for mitigating the risk of data leakage
 and unauthorized access.
 
 It's important to note that the `ip-ranges.json` file is regularly updated, so
 maintaining an up-to-date local copy is crucial to ensure you have the most accurate and
-current information. By continuously leveraging the contents of this file, you can
+current information. By continuously using the contents of this file, you can
 efficiently manage network access and security for your AWS-based applications,
 strengthening your overall cloud security posture.
 

@@ -1,7 +1,7 @@
 # Generate infrastructure-as-code from your VPC console actions with Console-to-Code
 
 The console provides a guided path for creating resources and testing prototypes. If you
-want to create the same resources at scale, you’ll need automation code. Console-to-Code is a feature
+want to create the same resources at scale, you'll need automation code. Console-to-Code is a feature
 of Amazon Q Developer that can help you get started with your automation code. Console-to-Code records your
 console actions, including default values and compatible parameters. It then uses generative
 AI to suggest code in your preferred infrastructure-as-code (IaC) format for the actions you

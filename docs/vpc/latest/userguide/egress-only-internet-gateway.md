@@ -41,7 +41,7 @@ internet gateway routes traffic.
 In the following diagram, the VPC has both IPv4 and IPv6 CIDR blocks, and the subnet
 both IPv4 and IPv6 CIDR blocks. The VPC has an egress-only internet gateway.
 
-![Using an egress-only internet gateway](images/egress-only-igw.png)
+![Using an egress-only internet gateway.](images/egress-only-igw.png)
 
 The following is an example of the route table associated with the subnet. There is a
 route that sends all internet-bound IPv6 traffic (::/0) to the egress-only internet gateway.

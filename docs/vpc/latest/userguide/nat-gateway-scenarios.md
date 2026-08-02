@@ -28,7 +28,9 @@ traffic is routed. In Availability Zone A, the instances in the public subnet ca
 the internet through a route to the internet gateway, while the instances in the private
 subnet have no route to the internet. In Availability Zone B, the public subnet contains a
 NAT gateway, and the instances in the private subnet can reach the internet through a
-route to the NAT gateway in the public subnet. Both private and public NAT gateways map the source private IPv4 address of the
+route to the NAT gateway in the public subnet.
+
+Both private and public NAT gateways map the source private IPv4 address of the
 instances to the private IPv4 address of the private NAT gateway, but in the case of a
 public NAT gateway, the internet gateway then maps the private IPv4 address of the public
 NAT gateway to the Elastic IP address associated with the NAT gateway. When sending
@@ -114,22 +116,21 @@ subnet can connect to the internet.
 
 1. Launch an instance in your public subnet (use this as a bastion host).
    In the launch wizard, ensure that you
-   select an Amazon Linux AMI, and assign a public IP address to your instance. Ensure that
-   your security group rules allow inbound SSH traffic from the range of IP addresses
-   for your local network, and outbound SSH traffic to the IP address range of your
-   private subnet (you can also use `0.0.0.0/0` for both inbound and
-   outbound SSH traffic for this test).
-2. Launch an instance in your private subnet. In the launch wizard, ensure that you
-   select an Amazon Linux AMI. Do not assign a public IP address to your instance.
-   Ensure that your security group rules allow inbound SSH traffic from the
-   private IP address of your instance that you launched in the public
-   subnet, and all outbound ICMP traffic. You must choose the same key pair
-   that you used to launch your instance in the public subnet.
-3. Configure SSH agent forwarding on your local computer, and connect to your bastion
-   host in the public subnet. For more information, see [To configure SSH agent forwarding for Linux or macOS](#ssh-forwarding-linux "#ssh-forwarding-linux") or [To configure SSH agent forwarding for Windows](#ssh-forwarding-windows "#ssh-forwarding-windows").
-4. From your bastion host, connect to your instance in the private subnet, and then
-   test the internet connection from your instance in the private subnet.
-   For more information, see [To test the internet connection](#test-internet-connection "#test-internet-connection").
+   select an Amazon Linux AMI, and assign a public IP address to your instance.
+
+Ensure that
+your security group rules allow inbound SSH traffic from the range of IP addresses
+for your local network, and outbound SSH traffic to the IP address range of your
+private subnet. You can also use `0.0.0.0/0` for both inbound and
+outbound SSH traffic for this test. 2. Launch an instance in your private subnet. In the launch wizard, ensure that you
+select an Amazon Linux AMI. Do not assign a public IP address to your instance.
+Ensure that your security group rules allow inbound SSH traffic from the
+private IP address of your instance that you launched in the public
+subnet, and all outbound ICMP traffic. You must choose the same key pair
+that you used to launch your instance in the public subnet. 3. Configure SSH agent forwarding on your local computer, and connect to your bastion
+host in the public subnet. For more information, see [To configure SSH agent forwarding for Linux or macOS](#ssh-forwarding-linux "#ssh-forwarding-linux") or [To configure SSH agent forwarding for Windows](#ssh-forwarding-windows "#ssh-forwarding-windows"). 4. From your bastion host, connect to your instance in the private subnet, and then
+test the internet connection from your instance in the private subnet.
+For more information, see [To test the internet connection](#test-internet-connection "#test-internet-connection").
 
 ###### To configure SSH agent forwarding for Linux or macOS
 
@@ -170,7 +171,7 @@ PuTTY
 1. Download and install Pageant from the [PuTTY download page](https://www.chiark.greenend.org.uk/~sgtatham/putty/ "https://www.chiark.greenend.org.uk/~sgtatham/putty/"), if not already installed.
 2. Convert your private key to .ppk format. For more information, see [Convert your
    private key using PuTTYgen](../../../AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.md#putty-private-key "../../../AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.md#putty-private-key") in the _Amazon EC2 User Guide_.
-3. Start Pageant, right-click the Pageant icon on the taskbar (it may be hidden), and
+3. Start Pageant, open the context menu for the Pageant icon on the taskbar (it may be hidden), and
    choose **Add Key**. Select the .ppk file that you created, enter the
    passphrase if necessary, and choose **Open**.
 4. Start a PuTTY session and connect to your instance in the public subnet using its
@@ -212,10 +213,11 @@ _Amazon EC2 User Guide_.
 ## Access your network using allow-listed IP addresses
 
 You can use a private NAT gateway to enable communication from your VPCs to your on-premises
-network using a pool of allow-listed addresses. Instead of assigning each instance a separate
-IP address from the allow-listed IP address range, you can route traffic from the subnet
-that is destined for the on-premises network through a private NAT gateway with an IP address
-from the allow-listed IP address range.
+network using a pool of allow-listed addresses.
+
+Instead of assigning each instance a separate
+IP address from the allow-listed range, you can route traffic from the subnet
+through a private NAT gateway with an IP address from the allow-listed range.
 
 ###### Contents
 
@@ -242,7 +244,7 @@ to the NAT gateway before being routed to the VPN connection. The on-premises
 network receives the traffic from the instances with the source IP address of the
 NAT gateway, which is from the allowed IP address range.
 
-![VPC subnet traffic routed through private NAT gateway](images/private-nat-allowed-range.png)
+![VPC subnet traffic routed through private NAT gateway.](images/private-nat-allowed-range.png)
 
 ### Resources
 
@@ -308,8 +310,10 @@ from its subnet. VPC B has a subnet from its routable range with an Application 
 its IP addresses from its subnets.
 
 Traffic from an instance in the non-routable subnet of VPC A that is destined for the
-instances in the non-routable subnet of VPC B is sent through the private NAT gateway and
-then routed to the transit gateway. The transit gateway sends the traffic to the Application Load Balancer,
+instances in the non-routable subnet of VPC B is sent through the private NAT gateway.
+It is then routed to the transit gateway.
+
+The transit gateway sends the traffic to the Application Load Balancer,
 which routes the traffic to one of the target instances in the non-routable subnet of VPC
 B. The traffic from the transit gateway to the Application Load Balancer has the source IP address of the
 private NAT gateway. Therefore, response traffic from the load balancer uses the address
@@ -317,7 +321,7 @@ of the private NAT gateway as its destination. The response traffic is sent to t
 gateway and then routed to the private NAT gateway, which translates the destination to
 the instance in the non-routable subnet of VPC A.
 
-![VPC with private NAT gateway and transit gateway for inter-VPC communication with overlapping CIDR](images/private-nat-overlapping-networks.png)
+![VPC with private NAT gateway and transit gateway for inter-VPC communication with overlapping CIDR.](images/private-nat-overlapping-networks.png)
 
 ### Resources
 

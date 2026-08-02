@@ -150,9 +150,9 @@ to the server on port 43418.
 3 vpc-abcdefab012345678 subnet-aaaaaaaa012345678 i-01234567890123456 eni-1235b8ca123456789 123456789010 IPv4 52.213.180.42 10.0.0.62 43418 5001 52.213.180.42 10.0.0.62 6 23294588 15774 1566848933 1566849113 ACCEPT 1 OK
 ```
 
-For short connections (for example, a few seconds) that are opened and closed
-within a single aggregation interval, the flags might be set on the same line in the
-flow log record for traffic flow in the same direction. In the following example,
+For short connections that open and close within a single aggregation interval,
+the flags might be set on the same line in the flow log record for traffic flow in
+the same direction. In the following example,
 the connection is established and finished within the same aggregation interval. In
 the first line, the TCP flag value is 3, which indicates that there was
 a SYN and a FIN message sent from the client to the server. In the second line, the
@@ -169,7 +169,7 @@ message sent from the server to the client.
 In this example, an instance in a private subnet accesses the internet through a
 zonal NAT gateway that's in a public subnet.
 
-![Accessing the internet through a zonal NAT gateway](images/flow-log-nat-gateway.png)
+![Accessing the internet through a zonal NAT gateway.](images/flow-log-nat-gateway.png)
 
 The following custom flow log for the zonal NAT gateway network interface captures the
 following fields in the following order.
@@ -216,8 +216,8 @@ internet.
 You create another custom flow log using the same set of fields as above. You
 create the flow log for the network interface for the instance in the private
 subnet. In this case, the instance-id field returns the ID of the
-instance that's associated with the network interface, and there is no difference
-between the dstaddr and pkt-dstaddr fields and the
+instance that's associated with the network interface. There is no difference
+between the dstaddr and pkt-dstaddr fields or the
 srcaddr and pkt-srcaddr fields. Unlike the network
 interface for the zonal NAT gateway, this network interface is not an intermediate network
 interface for traffic.
@@ -233,7 +233,7 @@ A regional NAT gateway can connect to multiple subnets across different Availabi
 two instances in private subnets from two different Availability Zones access the internet through the same
 regional NAT gateway. The following flow logs show traffic from one of the instances to the internet through the regional NAT gateway.
 
-![Accessing the internet through a regional NAT gateway](images/flow-log-regional-nat-gateway.png)
+![Accessing the internet through a regional NAT gateway.](images/flow-log-regional-nat-gateway.png)
 
 The following custom flow log for the regional NAT gateway captures the following fields in the following order.
 
@@ -243,7 +243,7 @@ resource-id instance-id interface-id subnet-id srcaddr dstaddr pkt-srcaddr pkt-d
 
 The flow log shows the flow of traffic from the instance IP address (10.0.1.5) through the regional
 NAT gateway to a host on the internet (203.0.113.5). instance-id, interface-id,
-and subnet-id don’t apply to the regional NAT gateway. Therefore, the flow log record
+and subnet-id don't apply to the regional NAT gateway. Therefore, the flow log record
 displays a '-' symbol for these fields. Instead, the resource-id field displays the ID
 of the regional NAT gateway. The dstaddr and pkt-dstaddr
 fields display the final destination IP address of the host on the internet.
@@ -253,7 +253,7 @@ nat-1234567890abcdef - - - 10.0.1.5 203.0.113.5 10.0.1.5 203.0.113.5
 ```
 
 The next two lines show the traffic from the regional NAT gateway (public IP address 107.22.182.139)
-to the target host on the internet, and the response traffic from the host to the regional NAT gateway.
+to the target host on the internet. They also show the response traffic from the host to the regional NAT gateway.
 
 ```
 nat-1234567890abcdef - - - 107.22.182.139 203.0.113.5 107.22.182.139 203.0.113.5
@@ -284,7 +284,7 @@ In this example, a client in VPC A connects to a web server in VPC B through a
 transit gateway. The client and server are in different Availability Zones. Traffic
 arrives at the server in VPC B using one elastic network interface ID (in this example, let's say the ID is eni-11111111111111111) and leaves VPC B using another (for example eni-22222222222222222).
 
-![Traffic through a transit gateway](images/flow-log-tgw.png)
+![Traffic through a transit gateway.](images/flow-log-tgw.png)
 
 You create a custom flow log for VPC B with the following format.
 

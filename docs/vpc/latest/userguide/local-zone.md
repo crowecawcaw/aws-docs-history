@@ -112,7 +112,7 @@ interface for the transit gateway attachment.
 Traffic destined for a subnet in a Local Zone that originates from a transit gateway will
 first traverse the parent Region.
 
-![Local Zone to transit gateway](images/lz-tgw.png)
+![Local Zone to transit gateway.](images/lz-tgw.png)
 
 Create the following resources for this scenario:
 
