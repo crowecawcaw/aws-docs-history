@@ -16,8 +16,9 @@ consistent ad delivery.
   integer values for EXT-X-CUE-OUT duration parameters instead of ISO 8601
   format
 - **Configure VOD optimization**: Set
-  maxConcurrentAdsRequests for VOD streams with multiple ad breaks to reduce
-  server load
+  the **Maximum concurrent ADS requests** setting for VOD
+  streams with multiple ad breaks to reduce server load. For more
+  information, see [Advanced settings](configurations-create.md#configurations-advanced-settings "configurations-create.md#configurations-advanced-settings")
 - **Optimize ADS performance**: Configure your
   ad decision server to respond quickly and handle peak traffic volumes
 
