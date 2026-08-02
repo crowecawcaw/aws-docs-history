@@ -51,7 +51,24 @@ the improvements in PostgreSQL 18.3, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 18.3.3, July 20, 2026](#aurorapostgresql-versions-version183x-1833 "#aurorapostgresql-versions-version183x-1833")
 - [Aurora PostgreSQL 18.3](#aurorapostgresql-versions-version183x-183 "#aurorapostgresql-versions-version183x-183")
+
+#### Aurora PostgreSQL 18.3.3, July 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that in rare cases could prevent failovers from completing to the intended failover target.
+- Fixed an issue that in rare cases could lead to database unavailability for read node clusters after a restart.
+- Fixed an issue with the multitransaction system that could cause database unavailability.
+- Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+- Fixed an issue that improves B-tree prefetch performance when index scans were not properly utilizing prefetch buffers.
+
+**General enhancements**
+
+- Fixed an issue where GRANT SET ON PARAMETER incorrectly allowed permissions to be granted for non-existent extension parameters.
+- Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with increased downtime.
+- Fixed an issue where go-sqlcmd v1.9.0 failed to return query results.
 
 #### Aurora PostgreSQL 18.3
 
@@ -154,8 +171,25 @@ the improvements in PostgreSQL 17.9, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 17.9.3, July 20, 2026](#aurorapostgresql-versions-version179x-1793 "#aurorapostgresql-versions-version179x-1793")
 - [Aurora PostgreSQL 17.9.2, June 1, 2026](#aurorapostgresql-versions-version179x-1792 "#aurorapostgresql-versions-version179x-1792")
 - [Aurora PostgreSQL 17.9, April 6, 2026](#aurorapostgresql-versions-version179x-179 "#aurorapostgresql-versions-version179x-179")
+
+#### Aurora PostgreSQL 17.9.3, July 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that in rare cases could prevent failovers from completing to the intended failover target.
+- Fixed an issue that in rare cases could lead to database unavailability for read node clusters after a restart.
+- Fixed an issue with the multitransaction system that could cause database unavailability.
+- Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+- Fixed an issue that improves B-tree prefetch performance when index scans were not properly utilizing prefetch buffers.
+
+**General enhancements**
+
+- Fixed an issue where GRANT SET ON PARAMETER incorrectly allowed permissions to be granted for non-existent extension parameters.
+- Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with increased downtime.
+- Fixed an issue where go-sqlcmd v1.9.0 failed to return query results.
 
 #### Aurora PostgreSQL 17.9.2, June 1, 2026
 
@@ -241,11 +275,26 @@ the improvements in PostgreSQL 17.7, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 17.7.5, July 20, 2026](#aurorapostgresql-versions-version177x-1775 "#aurorapostgresql-versions-version177x-1775")
 - [Aurora PostgreSQL 17.7.4, June 9, 2026](#aurorapostgresql-versions-version177x-1774 "#aurorapostgresql-versions-version177x-1774")
 - [Aurora PostgreSQL 17.7.3, May 29, 2026](#aurorapostgresql-versions-version177x-1773 "#aurorapostgresql-versions-version177x-1773")
 - [Aurora PostgreSQL 17.7.2, March 20, 2026](#aurorapostgresql-versions-version177x-1772 "#aurorapostgresql-versions-version177x-1772")
 - [Aurora PostgreSQL 17.7.1, January 16, 2026](#aurorapostgresql-versions-version1771x-1771 "#aurorapostgresql-versions-version1771x-1771")
 - [Aurora PostgreSQL 17.7, December, 18, 2025](#aurorapostgresql-versions-version177x-177 "#aurorapostgresql-versions-version177x-177")
+
+#### Aurora PostgreSQL 17.7.5, July 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that in rare cases could prevent failovers from completing to the intended failover target.
+- Fixed an issue that in rare cases could lead to database unavailability for read node clusters after a restart.
+- Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+- Fixed an issue that improves B-tree prefetch performance when index scans were not properly utilizing prefetch buffers.
+
+**General enhancements**
+
+- Fixed an issue where GRANT SET ON PARAMETER incorrectly allowed permissions to be granted for non-existent extension parameters.
+- Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with increased downtime.
 
 #### Aurora PostgreSQL 17.7.4, June 9, 2026
 
@@ -365,10 +414,22 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 17.6.5, July 20, 2026](#aurorapostgresql-versions-version176x-1765 "#aurorapostgresql-versions-version176x-1765")
 - [Aurora PostgreSQL 17.6.4, June 12, 2026](#aurorapostgresql-versions-version176x-1764 "#aurorapostgresql-versions-version176x-1764")
 - [Aurora PostgreSQL 17.6.2, April 22, 2026](#aurorapostgresql-versions-version176x-1762 "#aurorapostgresql-versions-version176x-1762")
 - [Aurora PostgreSQL 17.6.1, November 25, 2025](#aurorapostgresql-versions-version1761x-1761 "#aurorapostgresql-versions-version1761x-1761")
 - [Aurora PostgreSQL 17.6, November 25, 2025](#aurorapostgresql-versions-version176x-176 "#aurorapostgresql-versions-version176x-176")
+
+#### Aurora PostgreSQL 17.6.5, July 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+- Fixed an issue that improves B-tree prefetch performance when index scans were not properly utilizing prefetch buffers.
+
+**General enhancements**
+
+- Fixed an issue where GRANT SET ON PARAMETER incorrectly allowed permissions to be granted for non-existent extension parameters.
 
 #### Aurora PostgreSQL 17.6.4, June 12, 2026
 
@@ -1102,8 +1163,25 @@ the improvements in PostgreSQL 16.13, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 16.13.3, July 20, 2026](#aurorapostgresql-versions-version1613x-16133 "#aurorapostgresql-versions-version1613x-16133")
 - [Aurora PostgreSQL 16.13.2, June 1, 2026](#aurorapostgresql-versions-version1613x-16132 "#aurorapostgresql-versions-version1613x-16132")
 - [Aurora PostgreSQL 16.13, April 6, 2026](#aurorapostgresql-versions-version1613x-1613 "#aurorapostgresql-versions-version1613x-1613")
+
+#### Aurora PostgreSQL 16.13.3, July 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that in rare cases could prevent failovers from completing to the intended failover target.
+- Fixed an issue that in rare cases could lead to database unavailability for read node clusters after a restart.
+- Fixed an issue with the multitransaction system that could cause database unavailability.
+- Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+- Fixed an issue that improves B-tree prefetch performance when index scans were not properly utilizing prefetch buffers.
+
+**General enhancements**
+
+- Fixed an issue where GRANT SET ON PARAMETER incorrectly allowed permissions to be granted for non-existent extension parameters.
+- Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with increased downtime.
+- Fixed an issue where go-sqlcmd v1.9.0 failed to return query results.
 
 #### Aurora PostgreSQL 16.13.2, June 1, 2026
 
@@ -1189,11 +1267,26 @@ the improvements in PostgreSQL 16.11, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 16.11.5, July 20, 2026](#aurorapostgresql-versions-version1611x-16115 "#aurorapostgresql-versions-version1611x-16115")
 - [Aurora PostgreSQL 16.11.4, June 9, 2026](#aurorapostgresql-versions-version1611x-16114 "#aurorapostgresql-versions-version1611x-16114")
 - [Aurora PostgreSQL 16.11.3, May 29, 2026](#aurorapostgresql-versions-version1611x-16113 "#aurorapostgresql-versions-version1611x-16113")
 - [Aurora PostgreSQL 16.11.2, March 20, 2026](#aurorapostgresql-versions-version1611x-16112 "#aurorapostgresql-versions-version1611x-16112")
 - [Aurora PostgreSQL 16.11.1, January 16, 2026](#aurorapostgresql-versions-version16111x-16111 "#aurorapostgresql-versions-version16111x-16111")
 - [Aurora PostgreSQL 16.11, December, 18, 2025](#aurorapostgresql-versions-version1611x-1611 "#aurorapostgresql-versions-version1611x-1611")
+
+#### Aurora PostgreSQL 16.11.5, July 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that in rare cases could prevent failovers from completing to the intended failover target.
+- Fixed an issue that in rare cases could lead to database unavailability for read node clusters after a restart.
+- Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+- Fixed an issue that improves B-tree prefetch performance when index scans were not properly utilizing prefetch buffers.
+
+**General enhancements**
+
+- Fixed an issue where GRANT SET ON PARAMETER incorrectly allowed permissions to be granted for non-existent extension parameters.
+- Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with increased downtime.
 
 #### Aurora PostgreSQL 16.11.4, June 9, 2026
 
@@ -1313,10 +1406,22 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 16.10.5, July 20, 2026](#aurorapostgresql-versions-version1610x-16105 "#aurorapostgresql-versions-version1610x-16105")
 - [Aurora PostgreSQL 16.10.4, June 12, 2026](#aurorapostgresql-versions-version1610x-16104 "#aurorapostgresql-versions-version1610x-16104")
 - [Aurora PostgreSQL 16.10.2, April 22, 2026](#aurorapostgresql-versions-version1610x-16102 "#aurorapostgresql-versions-version1610x-16102")
 - [Aurora PostgreSQL 16.10.1, November 25, 2025](#aurorapostgresql-versions-version16101x-16101 "#aurorapostgresql-versions-version16101x-16101")
 - [Aurora PostgreSQL 16.10, November 25, 2025](#aurorapostgresql-versions-version1610x-1610 "#aurorapostgresql-versions-version1610x-1610")
+
+#### Aurora PostgreSQL 16.10.5, July 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+- Fixed an issue that improves B-tree prefetch performance when index scans were not properly utilizing prefetch buffers.
+
+**General enhancements**
+
+- Fixed an issue where GRANT SET ON PARAMETER incorrectly allowed permissions to be granted for non-existent extension parameters.
 
 #### Aurora PostgreSQL 16.10.4, June 12, 2026
 
@@ -2920,8 +3025,25 @@ the improvements in PostgreSQL 15.17, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 15.17.3, July 20, 2026](#aurorapostgresql-versions-version1517x-15173 "#aurorapostgresql-versions-version1517x-15173")
 - [Aurora PostgreSQL 15.17.2, June 1, 2026](#aurorapostgresql-versions-version1517x-15172 "#aurorapostgresql-versions-version1517x-15172")
 - [Aurora PostgreSQL 15.17, April 6, 2026](#aurorapostgresql-versions-version1517x-1517 "#aurorapostgresql-versions-version1517x-1517")
+
+#### Aurora PostgreSQL 15.17.3, July 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that in rare cases could prevent failovers from completing to the intended failover target.
+- Fixed an issue that in rare cases could lead to database unavailability for read node clusters after a restart.
+- Fixed an issue with the multitransaction system that could cause database unavailability.
+- Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+- Fixed an issue that improves B-tree prefetch performance when index scans were not properly utilizing prefetch buffers.
+
+**General enhancements**
+
+- Fixed an issue where GRANT SET ON PARAMETER incorrectly allowed permissions to be granted for non-existent extension parameters.
+- Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with increased downtime.
+- Fixed an issue where go-sqlcmd v1.9.0 failed to return query results.
 
 #### Aurora PostgreSQL 15.17.2, June 1, 2026
 
@@ -3007,11 +3129,26 @@ the improvements in PostgreSQL 15.15, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 15.15.5, July 20, 2026](#aurorapostgresql-versions-version1515x-15155 "#aurorapostgresql-versions-version1515x-15155")
 - [Aurora PostgreSQL 15.15.4, June 9, 2026](#aurorapostgresql-versions-version1515x-15154 "#aurorapostgresql-versions-version1515x-15154")
 - [Aurora PostgreSQL 15.15.3, May 29, 2026](#aurorapostgresql-versions-version1515x-15153 "#aurorapostgresql-versions-version1515x-15153")
 - [Aurora PostgreSQL 15.15.2, March 20, 2026](#aurorapostgresql-versions-version1515x-15152 "#aurorapostgresql-versions-version1515x-15152")
 - [Aurora PostgreSQL 15.15.1, January 16, 2026](#aurorapostgresql-versions-version15151x-15151 "#aurorapostgresql-versions-version15151x-15151")
 - [Aurora PostgreSQL 15.15, Decemeber, 18, 2025](#aurorapostgresql-versions-version1515x-1515 "#aurorapostgresql-versions-version1515x-1515")
+
+#### Aurora PostgreSQL 15.15.5, July 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that in rare cases could prevent failovers from completing to the intended failover target.
+- Fixed an issue that in rare cases could lead to database unavailability for read node clusters after a restart.
+- Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+- Fixed an issue that improves B-tree prefetch performance when index scans were not properly utilizing prefetch buffers.
+
+**General enhancements**
+
+- Fixed an issue where GRANT SET ON PARAMETER incorrectly allowed permissions to be granted for non-existent extension parameters.
+- Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with increased downtime.
 
 #### Aurora PostgreSQL 15.15.4, June 9, 2026
 
@@ -3127,10 +3264,22 @@ the improvements in PostgreSQL 15.14, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 15.14.5, July 20, 2026](#aurorapostgresql-versions-version1514x-15145 "#aurorapostgresql-versions-version1514x-15145")
 - [Aurora PostgreSQL 15.14.4, June 12, 2026](#aurorapostgresql-versions-version1514x-15144 "#aurorapostgresql-versions-version1514x-15144")
 - [Aurora PostgreSQL 15.14.2, April 22, 2026](#aurorapostgresql-versions-version1514x-15142 "#aurorapostgresql-versions-version1514x-15142")
 - [Aurora PostgreSQL 15.14.1, November 25, 2025](#aurorapostgresql-versions-version15141x-15141 "#aurorapostgresql-versions-version15141x-15141")
 - [Aurora PostgreSQL 15.14, November 25, 2025](#aurorapostgresql-versions-version1514x-1514 "#aurorapostgresql-versions-version1514x-1514")
+
+#### Aurora PostgreSQL 15.14.5, July 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+- Fixed an issue that improves B-tree prefetch performance when index scans were not properly utilizing prefetch buffers.
+
+**General enhancements**
+
+- Fixed an issue where GRANT SET ON PARAMETER incorrectly allowed permissions to be granted for non-existent extension parameters.
 
 #### Aurora PostgreSQL 15.14.4, June 12, 2026
 
@@ -5340,8 +5489,25 @@ the improvements in PostgreSQL 14.22, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 14.22.3, July 20, 2026](#aurorapostgresql-versions-version1422x-14223 "#aurorapostgresql-versions-version1422x-14223")
 - [Aurora PostgreSQL 14.22.2, June 1, 2026](#aurorapostgresql-versions-version1422x-14222 "#aurorapostgresql-versions-version1422x-14222")
 - [Aurora PostgreSQL 14.22, April 6, 2026](#aurorapostgresql-versions-version1422x-1422 "#aurorapostgresql-versions-version1422x-1422")
+
+#### Aurora PostgreSQL 14.22.3, July 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that in rare cases could prevent failovers from completing to the intended failover target.
+- Fixed an issue that in rare cases could lead to database unavailability for read node clusters after a restart.
+- Fixed an issue with the multitransaction system that could cause database unavailability.
+- Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+- Fixed an issue that improves B-tree prefetch performance when index scans were not properly utilizing prefetch buffers.
+
+**General enhancements**
+
+- Fixed an issue where GRANT SET ON PARAMETER incorrectly allowed permissions to be granted for non-existent extension parameters.
+- Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with increased downtime.
+- Fixed an issue where go-sqlcmd v1.9.0 failed to return query results.
 
 #### Aurora PostgreSQL 14.22.2, June 1, 2026
 
@@ -5428,11 +5594,26 @@ the improvements in PostgreSQL 14.20, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 14.20.5, July 20, 2026](#aurorapostgresql-versions-version1420x-14205 "#aurorapostgresql-versions-version1420x-14205")
 - [Aurora PostgreSQL 14.20.4, June 9, 2026](#aurorapostgresql-versions-version1420x-14204 "#aurorapostgresql-versions-version1420x-14204")
 - [Aurora PostgreSQL 14.20.3, May 29, 2026](#aurorapostgresql-versions-version1420x-14203 "#aurorapostgresql-versions-version1420x-14203")
 - [Aurora PostgreSQL 14.20.2, March 20, 2026](#aurorapostgresql-versions-version1420x-14202 "#aurorapostgresql-versions-version1420x-14202")
 - [Aurora PostgreSQL 14.20.1, January 16, 2026](#aurorapostgresql-versions-version14201x-14201 "#aurorapostgresql-versions-version14201x-14201")
 - [Aurora PostgreSQL 14.20, December, 18, 2025](#aurorapostgresql-versions-version1420x-1420 "#aurorapostgresql-versions-version1420x-1420")
+
+#### Aurora PostgreSQL 14.20.5, July 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that in rare cases could prevent failovers from completing to the intended failover target.
+- Fixed an issue that in rare cases could lead to database unavailability for read node clusters after a restart.
+- Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+- Fixed an issue that improves B-tree prefetch performance when index scans were not properly utilizing prefetch buffers.
+
+**General enhancements**
+
+- Fixed an issue where GRANT SET ON PARAMETER incorrectly allowed permissions to be granted for non-existent extension parameters.
+- Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with increased downtime.
 
 #### Aurora PostgreSQL 14.20.4, June 9, 2026
 
@@ -5548,10 +5729,22 @@ the improvements in PostgreSQL 14.19, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 14.19.5, July 20, 2026](#aurorapostgresql-versions-version1419x-14195 "#aurorapostgresql-versions-version1419x-14195")
 - [Aurora PostgreSQL 14.19.4, June 12, 2026](#aurorapostgresql-versions-version1419x-14194 "#aurorapostgresql-versions-version1419x-14194")
 - [Aurora PostgreSQL 14.19.2, April 22, 2026](#aurorapostgresql-versions-version1419x-14192 "#aurorapostgresql-versions-version1419x-14192")
 - [Aurora PostgreSQL 14.19.1, November 25, 2025](#aurorapostgresql-versions-version14191x-14191 "#aurorapostgresql-versions-version14191x-14191")
 - [Aurora PostgreSQL 14.19, November 25, 2025](#aurorapostgresql-versions-version1419x-1419 "#aurorapostgresql-versions-version1419x-1419")
+
+#### Aurora PostgreSQL 14.19.5, July 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+- Fixed an issue that improves B-tree prefetch performance when index scans were not properly utilizing prefetch buffers.
+
+**General enhancements**
+
+- Fixed an issue where GRANT SET ON PARAMETER incorrectly allowed permissions to be granted for non-existent extension parameters.
 
 #### Aurora PostgreSQL 14.19.4, June 12, 2026
 
@@ -8410,11 +8603,26 @@ the improvements in PostgreSQL 13.23, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 13.23.5, July 20, 2026](#aurorapostgresql-versions-version1323x-13235 "#aurorapostgresql-versions-version1323x-13235")
 - [Aurora PostgreSQL 13.23.4, June 9, 2026](#aurorapostgresql-versions-version1323x-13234 "#aurorapostgresql-versions-version1323x-13234")
 - [Aurora PostgreSQL 13.23.3, May 29, 2026](#aurorapostgresql-versions-version1323x-13233 "#aurorapostgresql-versions-version1323x-13233")
 - [Aurora PostgreSQL 13.23.2, March 20, 2026](#aurorapostgresql-versions-version1323x-13232 "#aurorapostgresql-versions-version1323x-13232")
 - [Aurora PostgreSQL 13.23.1, January 16, 2026](#aurorapostgresql-versions-version13231x-13231 "#aurorapostgresql-versions-version13231x-13231")
 - [Aurora PostgreSQL 13.23, December, 18, 2025](#aurorapostgresql-versions-version1323x-1323 "#aurorapostgresql-versions-version1323x-1323")
+
+#### Aurora PostgreSQL 13.23.5, July 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that in rare cases could prevent failovers from completing to the intended failover target.
+- Fixed an issue that in rare cases could lead to database unavailability for read node clusters after a restart.
+- Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+- Fixed an issue that improves B-tree prefetch performance when index scans were not properly utilizing prefetch buffers.
+
+**General enhancements**
+
+- Fixed an issue where GRANT SET ON PARAMETER incorrectly allowed permissions to be granted for non-existent extension parameters.
+- Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with increased downtime.
 
 #### Aurora PostgreSQL 13.23.4, June 9, 2026
 
