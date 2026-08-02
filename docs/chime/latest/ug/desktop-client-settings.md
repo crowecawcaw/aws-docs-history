@@ -128,7 +128,7 @@ When selected, a message appears at the end of each meeting and asks for your fe
 When selected, this setting prevents you and others from seeing an infinite number of Amazon Chime meeting windows if you select the meeting window while
 you share.
 
-![Repeated instances of the Amazon Chime meetings window, out to infinity.](/images/chime/latest/ug/images/infinity-mirror.png)
+![Repeated instances of the Amazon Chime meetings window, out to infinity.](images/infinity-mirror.png)
 
 **Show floating meeting control bar when in background**
 When selected, the meeting control bar remains visible when you switch to another program window.

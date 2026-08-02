@@ -24,7 +24,7 @@ set of controls, including a search box, appears to the right of list.
 1. In the sidebar, next to **Recent Messages**, choose the **Message a contact** icon
    (
 
-![Line drawing of a pen.](/images/chime/latest/ug/images/icon-message-contact.png)
+![Line drawing of a pen.](images/icon-message-contact.png)
 
 ). 2. In the **To** field, add up to 50 users. The first two names
 that you enter appear in the sidebar, along with this icon:

@@ -11,7 +11,7 @@ You can show or hide the **Chat** panel at any time during a meeting.
 - On the left control bar, choose the **Meeting chat panel** icon
   (
 
-![An icon of a rectangular message balloon in a blue circle.](/images/chime/latest/ug/images/left-control-3.png)
+![An icon of a rectangular message balloon in a blue circle.](images/left-control-3.png)
 
 ).
 You send chat messages during an Amazon Chime meeting from the **Chat** panel.
