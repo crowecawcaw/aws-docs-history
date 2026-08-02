@@ -18,18 +18,17 @@ to new customers starting August 31, 2026.
 
 ### Self-managed alternative for cloud-side metrics
 
-Detailed instructions and sample code will be available in GitHub by August 31, 2026. This open-source, serverless pipeline allows you to replicate similar
-functionality to the AWS IoT Device Defender detect feature for cloud-side metrics monitoring in your
-own AWS account. It is built on AWS serverless services including AWS IoT,
-Amazon Managed Service for Apache Flink, AWS Lambda, Amazon Kinesis, Amazon SageMaker AI, Amazon DynamoDB,
-Amazon API Gateway, Amazon Simple Notification Service, and Amazon CloudWatch. The GitHub project will include an AWS
-Serverless Application Model (SAM) template that allows you to deploy the pipeline in
-your account within minutes, a REST API for security profile management, and support
-for both rule-based thresholds and machine-learning-based (ML) anomaly detection. You
-can tune the metrics sliding-window interval to trade off detection latency against
-cost.
-
-Link to the sample code on GitHub will be posted here by August 31, 2026.
+Detailed instructions and sample code are available in the [IoT
+Device Anomaly Detection](https://github.com/aws-samples/sample-iot-device-anomaly-detection "https://github.com/aws-samples/sample-iot-device-anomaly-detection") GitHub project. This open-source, serverless
+pipeline allows you to replicate similar functionality to the AWS IoT Device Defender detect feature
+for cloud-side metrics monitoring in your own AWS account. It is built on AWS
+serverless services including AWS IoT, Amazon Managed Service for Apache Flink,
+AWS Lambda, Amazon Kinesis, Amazon SageMaker AI, Amazon DynamoDB, Amazon API Gateway, Amazon Simple Notification Service, and Amazon CloudWatch. The
+project includes an AWS Serverless Application Model (SAM) template that
+allows you to deploy the pipeline in your account within minutes, a REST API for
+security profile management, and support for both rule-based thresholds and
+machine-learning-based (ML) anomaly detection. You can tune the metrics
+sliding-window interval to trade off detection latency against cost.
 
 #### Key differences from AWS IoT Device Defender detect
 
@@ -47,19 +46,6 @@ Link to the sample code on GitHub will be posted here by August 31, 2026.
   topic.
 - Improvements over the AWS IoT Device Defender detect feature:
 
-  - **Improved ML model
-    granularity** – Unlike ML detect, which
-    trains a single ML model across all behaviors within a security
-    profile, the sample code trains a separate model per behavior.
-    This gives each model a more focused baseline for a single
-    metric's distribution and ensures that any failures in the model
-    for one behavior do not affect detection accuracy for
-    others.
-  - **Simplified monitoring**
-    – The sample code replaces per-security-profile CloudWatch
-    metrics with a single aggregated metric across the fleet for
-    simplified monitoring, while maintaining device-level behavioral
-    detection.
   - **Customizable** – The
     fully customizable pipeline allows you to add dimensions, adjust
     aggregation windows, or extend detection logic without service
@@ -69,7 +55,23 @@ Link to the sample code on GitHub will be posted here by August 31, 2026.
     metrics. The pipeline enables you to leverage existing rules and supports
     messages published to AWS IoT rules basic ingest topics or to the AWS IoT
     message broker. You can also control the sliding window interval for
-    metrics evaluation to trade off higher latency for lower costs.
+    metrics evaluation to trade off higher latency for lower costs. For ML
+    metrics, the pipeline is also more cost effective at scale than ML detect
+    because it runs on fixed infrastructure rather than incurring
+    per-datapoint costs.
+  - **Simplified monitoring**
+    – The sample code replaces per-security-profile CloudWatch
+    metrics with a single aggregated metric across the fleet for
+    simplified monitoring, while maintaining device-level behavioral
+    detection.
+  - **Improved ML model
+    granularity** – Unlike ML detect, which
+    trains a single ML model across all behaviors within a security
+    profile, the sample code trains a separate model per behavior.
+    This gives each model a more focused baseline for a single
+    metric's distribution and ensures that any failures in the model
+    for one behavior do not affect detection accuracy for
+    others.
 
 ### Open-source device agents for device-side metrics
 
@@ -78,9 +80,9 @@ TCP connections, destination IP addresses, and packet or byte counters), you can
 an open-source agent on your devices and publish the metrics to AWS IoT over MQTT.
 Options include the [AWS IoT Device Client](https://github.com/awslabs/aws-iot-device-client "https://github.com/awslabs/aws-iot-device-client"), [Telegraf](https://github.com/influxdata/telegraf "https://github.com/influxdata/telegraf") (using its MQTT
 output plugin), or [osquery](https://github.com/osquery/osquery "https://github.com/osquery/osquery")
-combined with an Eclipse Paho MQTT client. The GitHub project's README will also
-include instructions on how to ingest the device-published metrics through AWS IoT
-rules and extend the security profile schemas included in the sample code.
+combined with an Eclipse Paho MQTT client. The GitHub project's README also
+includes instructions on how to ingest the device-published metrics through AWS IoT
+rules and extend the security profile schemas provided in the sample code.
 
 ## Frequently asked questions
 
@@ -113,10 +115,9 @@ feature continues to be fully available.
 
 Can I migrate gradually?
 
-Yes. After the sample code is available in GitHub, you can deploy it in
-your account and run it alongside AWS IoT Device Defender detect. Both evaluate the same
-AWS IoT data, which allows you to compare results and migrate security
-profiles incrementally.
+Yes. You can deploy the sample code in your account and run it alongside
+AWS IoT Device Defender detect. Both evaluate the same AWS IoT data, which allows you to
+compare results and migrate security profiles incrementally.
 
 How can I get help if I have issues?
 
