@@ -281,7 +281,7 @@ You can deploy a Gateway Load Balancer (GWLB) and Gateway Load Balancer endpoint
 across VPC and accounts. The GWLBe is a VPC endpoint that provides private connectivity between
 VPC with the mirror sources and the monitoring appliances deployed behind the GWLB.
 
-The following diagram shows a deployment of a GWLB for traffic mirroring utilizing GWLBe
+The following diagram shows a deployment of a GWLB for traffic mirroring using GWLBe
 interfaces. The GWLB is deployed in a centralized Service VPC with multiple appliances as
 targets. The GWLB is set up for each Availability Zone that the customer wants to monitor
 traffic, and it can configure their GWLB with cross-zone load balancing as an option to protect
@@ -289,7 +289,7 @@ against single Availability Zone failures. In the spoke VPCs, GWLBe interfaces a
 each spoke VPC. These endpoints are connected to the GWLB to send traffic from the spoke VPC to
 the Service VPC.
 
-![Traffic Mirroring packet.](images/traffic-mirroring-example-gwlb.png)
+![Diagram showing a GWLB deployment for traffic mirroring with spoke VPCs and GWLBe interfaces connecting to a centralized Service VPC.](images/traffic-mirroring-example-gwlb.png)
 
 Consider the scenario where you want to mirror inbound TCP traffic on an instance and then
 send it to a Gateway Load Balancer using a Gateway Load Balancer endpoint. You need the following Traffic Mirroring entities for this example:
@@ -320,7 +320,7 @@ Gateway Load Balancer.
 
 ### Step 2: Create a traffic mirror target in Spoke VPC2
 
-Create a traffic mirror target (Target B) for the Gateway Load Balancer endpoint in Spoke VPC1. For more
+Create a traffic mirror target (Target B) for the Gateway Load Balancer endpoint in Spoke VPC2. For more
 information, see [Create or delete a traffic mirror target](create-traffic-mirroring-target.md "create-traffic-mirroring-target.md").
 
 The Gateway Load Balancer endpoint will be the target when the monitoring appliances are deployed behind a

@@ -1,8 +1,8 @@
 # Work with Traffic Mirroring to copy network traffic
 
-Traffic Mirroring allows you to create, manage, and share traffic mirror targets. These targets capture and forward a copy of your traffic to the destination of your choice. Whether you're a network administrator, security analyst, or DevOps engineer, Traffic Mirroring enables you to proactively identify and address network issues, ensure compliance, and optimize your overall network performance.
+Use Traffic Mirroring to create, manage, and share traffic mirror targets. These targets capture and forward a copy of your traffic to the destination of your choice. Whether you're a network administrator, security analyst, or DevOps engineer, with Traffic Mirroring you can proactively identify and address network issues, ensure compliance, and optimize your overall network performance.
 
-With Traffic Mirroring, you can create and delete traffic mirror targets, view and modify their configurations, and even share them with other AWS accounts. You can also construct custom traffic mirror filters to capture only the data you need, and set up, modify, or delete traffic mirror sessions to control the flow of mirrored data. By leveraging these powerful features, you can unlock new insights and make informed decisions about your infrastructure, ultimately enhancing your organization's overall network visibility and security.
+With Traffic Mirroring, you can create and delete traffic mirror targets, view and modify their configurations, and even share them with other AWS accounts. You can also construct custom traffic mirror filters to capture only the data you need, and set up, modify, or delete traffic mirror sessions to control the flow of mirrored data. By using these powerful features, you can unlock new insights and make informed decisions about your infrastructure, ultimately enhancing your organization's overall network visibility and security.
 
 By using Traffic Mirroring, you can gain visibility into your network, enabling you to make more informed decisions, improve security posture, and drive greater operational efficiency across your AWS environment.
 

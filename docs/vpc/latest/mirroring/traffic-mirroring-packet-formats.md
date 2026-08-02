@@ -4,7 +4,7 @@ Mirrored traffic is encapsulated with a VXLAN header. All appliances that receiv
 directly with this feature should be able parse a VXLAN-encapsulated packet, as shown in the
 following example:
 
-![Traffic Mirroring packet.](images/traffic-mirroring-packets.png)
+![Diagram of a VXLAN-encapsulated traffic mirror packet showing the VXLAN header, source IP, source port, destination IP, and destination port fields.](images/traffic-mirroring-packets.png)
 For more information about the VXLAN protocol, see [RFC 7348](https://tools.ietf.org/html/rfc7348 "https://tools.ietf.org/html/rfc7348").
 
 The following fields apply to Traffic Mirroring:
@@ -25,4 +25,4 @@ The following fields apply to Traffic Mirroring:
   GENEVE encapsulation (from Gateway Load Balancer) and an inner VXLAN encapsulation (from VPC Traffic Mirroring) to retrieve the
   original L3 packet. The following shows an example:
 
-![Traffic Mirroring packets include Gateway Load Balancer](images/traffic-mirroring-gwlb-packets.png)
+![Diagram of a traffic mirror packet routed through a Gateway Load Balancer, showing outer GENEVE encapsulation from the GLB and inner VXLAN encapsulation from VPC Traffic Mirroring.](images/traffic-mirroring-gwlb-packets.png)

@@ -18,7 +18,7 @@ or the subnet for the traffic mirror source.
    **Delete**.
 5. When prompted for confirmation, enter `delete`, and then choose
    **Delete**.
-6. To modify a session, select the radio button for the traffic mirror session.
+6. To modify a session, choose the traffic mirror session.
 7. Choose **Actions**, **Modify session**.
 8. To create a session, choose **Create traffic mirror session**.
 9. (Optional) For **Name tag**, enter a name for the traffic mirror
