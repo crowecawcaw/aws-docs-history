@@ -11,10 +11,7 @@ need flexible capacity reservations that you can modify as your requirements cha
 see [On-Demand
 Capacity Reservations](../../../AWSEC2/latest/UserGuide/ec2-capacity-reservations.md "../../../AWSEC2/latest/UserGuide/ec2-capacity-reservations.md") in the _Amazon Elastic Compute Cloud User Guide_.
 
-**Amazon EC2 Capacity Blocks for ML** let you reserve GPU-based accelerated
-computing instances for future use, up to 8 weeks in advance. You can reserve blocks of 1-64 instances
-for durations from 1 day to 6 months. Capacity Blocks are ideal for machine learning workloads that
-require guaranteed access to GPU capacity at specific times. For more information, see
+**Amazon EC2 Capacity Blocks for ML** allow you to reserve GPU-based accelerated computing instances on a future date to support your machine learning (ML) workloads. For more information, see
 [Capacity Blocks for ML](../../../AWSEC2/latest/UserGuide/ec2-capacity-blocks.md "../../../AWSEC2/latest/UserGuide/ec2-capacity-blocks.md")
 in the _Amazon Elastic Compute Cloud User Guide_.
 

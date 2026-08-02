@@ -2,6 +2,13 @@
 
 The following custom Slurm settings are supported at the queue level:
 
+###### Important
+
+QOS values referenced in `AllowQos`, `DenyQos`, or
+`QOS` settings must already exist in the Slurm accounting database.
+Otherwise, Slurm might fail to apply the configuration.
+For more information about Slurm accounting, see [Slurm accounting in AWS PCS](slurm-accounting.md "slurm-accounting.md").
+
 - [AllowAccounts](https://slurm.schedmd.com/slurm.conf.html#OPT_AllowAccounts "https://slurm.schedmd.com/slurm.conf.html#OPT_AllowAccounts")
 - [AllowQos](https://slurm.schedmd.com/slurm.conf.html#OPT_AllowQoS "https://slurm.schedmd.com/slurm.conf.html#OPT_AllowQoS")
 - [Default](https://slurm.schedmd.com/slurm.conf.html#OPT_Default "https://slurm.schedmd.com/slurm.conf.html#OPT_Default")

@@ -202,3 +202,9 @@ off-instance for post-mortem debugging.
 
 The Amazon CloudWatch agent must run as `root` to forward these logs. Only the
 `root` user can read `/var/log/amazon/pcs/lifecycle/actions`.
+
+###### Note
+
+The script writes its configuration to a dedicated fragment file. The Amazon CloudWatch
+agent combines this fragment with any existing configuration without overwriting it, so the
+script preserves your existing metrics and log group settings.

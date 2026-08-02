@@ -41,8 +41,6 @@ scripts finish. If a script must complete before any job runs:
 
 - Move it to the `nodeBootstrapped` stage, if it doesn't need Slurm
   commands.
-- Configure `slurmd` to start in a `DRAIN` state. Have the last script
-  call `scontrol update NodeName=$(hostname -s) State=RESUME`.
 - Use a Slurm prolog.
 
 ## How execution works
