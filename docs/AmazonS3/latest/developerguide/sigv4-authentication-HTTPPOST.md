@@ -34,7 +34,7 @@ To authenticate an HTTP POST request you do the following:
 
 The following diagram illustrates the signature calculation process.
 
-![AWS signature calculation process with StringToSign, SigningKey, and Signature steps.](/images/AmazonS3/latest/developerguide/images/sigV4-post.png)
+![AWS signature calculation process with StringToSign, SigningKey, and Signature steps.](images/sigV4-post.png)
 
 ###### To Calculate a signature
 
