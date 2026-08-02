@@ -175,7 +175,7 @@ Git connections enable you to check in and check out files, and manage your code
 repository. When you create an Amazon SageMaker unified domain, a default git connection to
 CodeCommit is provided for you to manage your code. You can also create and enable new 3P Git
 connections to GitHub, GitHub Enterprise Server, GitLab, and GitLab Self-Managed. For more
-information, see [Github connections](git-connections.md#git-connections-github "git-connections.md#git-connections-github").
+information, see [Creating a GitHub connection](git-connections.md#git-connections-github "git-connections.md#git-connections-github").
 
 When you enable a Git connection, all users who can sign in to any domain in the account
 have read and write access to all repositories on that connection. This access applies

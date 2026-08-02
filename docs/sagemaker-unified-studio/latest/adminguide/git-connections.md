@@ -1,255 +1,295 @@
-# Git connections in Amazon SageMaker Unified Studio
+# Git connections
 
-Git connections enable you to check in and check out files, and manage your code repository.
-When you create an Amazon SageMaker unified domain, a default git connection to CodeCommit is
-provided for you to manage your code. You can also create and enable new 3P Git connections to
-GitHub, GitHub Enterprise Server, GitLab, and GitLab Self-Managed.
+Git connections enable project members to use Git repositories for source control
+in Amazon SageMaker Unified Studio. You can create connections to GitHub, GitHub Enterprise Server, GitLab,
+GitLab Self-Managed, and Bitbucket through the AWS CodeConnections service.
 
 ###### Important
 
-When you enable a Git connection, all users who can sign in to any domain in the account
-have read and write access to all repositories on that connection. This access applies
-regardless of the user's project membership or permission level. To enforce isolation between
-repositories, use separate AWS accounts.
+Enabling a Git connection grants all users in the account read and write access to all
+repositories on that connection. For full details on access implications, see
+[Enabling a connection for project access](#git-connections-enable "#git-connections-enable").
 
-###### Note
+By default, all Git connections are initially disabled and cannot be accessed by
+project users. Enabling a Git connection makes it accessible in all domains that you own.
+Disabling a Git connection removes access to it in all domains that you own.
 
-You can't create new projects with AWS CodeCommit. Existing projects that were
-created using CodeCommit will continue to work.
+## Account requirements
 
-By default, all added Git connections are initially disabled and cannot be accessed by
-project users. Enabling a Git connection makes it accessible in all the domains that you own,
-and disabling a Git connection removes access to it in all the domains that you own.
+To create and manage Git connections, you must have the following:
 
-You can use the following procedures to create 3P Git connections.
+- An AWS account with permissions to manage Amazon SageMaker Unified Studio domains
+- An active account with the Git provider you want to connect (GitHub, GitLab,
+  or Bitbucket)
+- Administrator or owner permissions in your Git provider account to authorize
+  AWS application installations
 
-###### Topics
+## Creating a connection
 
-- [Github connections](#git-connections-github "#git-connections-github")
-- [Github Enterprise server connections](#git-connections-githubes "#git-connections-githubes")
-- [GitLab connections](#git-connections-gitlab "#git-connections-gitlab")
-- [GitLab self-managed connections](#git-connections-gitlabsm "#git-connections-gitlabsm")
-- [Bitbucket connections](#git-connections-bitbucket "#git-connections-bitbucket")
-- [Enable connections for project access](#git-connections-enable "#git-connections-enable")
+You can create Git connections from the **Connections** tab on your
+domain's details page in the Amazon SageMaker Unified Studio console, or from the admin portal if it is
+configured for your domain. Each provider has a specific setup workflow. For detailed
+procedures, see the following sections for each supported provider.
 
-## Github connections
+By default, all added Git connections are initially disabled and cannot be accessed
+by project members. Enabling a Git connection makes it accessible in all domains and
+projects in that account. Disabling a Git connection removes access in all domains and
+projects in that account.
 
-Complete the following procedure to create a 3P Git connection to GitHub:
+## Connection tagging
 
-1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
-   navigation bar to choose the appropriate AWS Region.
-2. Choose **View domains** and then choose the domain where you want to
-   add a 3P Git connection to GitHub.
+You can add AWS tags to your Git connections during creation. Tags are key-value
+pairs that help you organize and identify your connections. You can use tags to
+categorize connections by environment, team, or purpose.
+
+## Supported providers
+
+Amazon SageMaker Unified Studio supports Git connections to the following providers:
+
+- GitHub
+- GitHub Enterprise Server
+- GitLab
+- GitLab Self-Managed
+- Bitbucket
+
+## Creating a GitHub connection
+
+Complete the following procedure to create a Git connection to GitHub.
+
+###### To create a GitHub connection
+
+1. Open the Amazon SageMaker Unified Studio console and use the Region selector in the top navigation
+   bar to choose the appropriate AWS Region.
+2. Choose **View domains** and then choose the domain where you want
+   to add a Git connection to GitHub.
 3. On the domain's details page, choose the **Connections** tab.
-4. Expand the **Create Git connection** drop-down menu and then choose
-   **Github**.
-5. In the **Create a connection** window, in the **Connection
-   name** field, specify the name of the connection. (Optional - enter in any
-   AWS tags you want to add to the connection and then choose **Connect to
-   Github**.
-6. Enter in your GitHub credentials if you are prompted to provide them.
-7. Optional - for the app installation, either choose an AWS application to connect to
-   Amazon SageMaker Unified Studio that you previously installed, or install a new application.
+4. Expand the **Create Git connection** dropdown and then choose
+   **GitHub**.
+5. For **Connection name**, enter a name for the connection.
+   Optionally, add any AWS tags you want to associate with the connection. Choose
+   **Connect to GitHub**.
+6. Enter your GitHub credentials if you are prompted to provide them.
+7. For the app installation, either choose an existing AWS application or install
+   a new application:
 
-   - If you have installed an AWS application, search for and select that
+   - If you have an existing AWS application, search for and select that
      application.
    - If you do not have an AWS application, choose **Install a new
-     app**. A popup window appears.
-
-     - Select the account you want to install the application and establish a
-       connection to.
-     - Select whether you want the app to connect to **All
-       repositories** or **Only select repositories**.
-     - Choose **Install**.
+     app**. In the popup window, select the account you want to connect,
+     choose whether to connect to **All repositories** or
+     **Only select repositories**, and then choose
+     **Install**.
 
 8. Choose **Connect**.
-9. Close the popup window and refresh the **Connections** tab. The
-   connection appears in the list with a connection status of **Available**.
-   You then need to enable the connection for project access in the Amazon SageMaker Unified Studio.
 
-## Github Enterprise server connections
+Close the popup window and refresh the **Connections** tab. The
+connection appears in the list with a connection status of
+**Available**. You must then enable the connection for project
+access.
 
-Complete the following procedure to create a 3P Git connection to GitHub Enterprise
-Server:
+## Creating a GitHub Enterprise Server connection
 
-1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
-   navigation bar to choose the appropriate AWS Region.
-2. Choose **View domains** and then choose the domain where you want to
-   add a 3P Git connection to GitHub Enterprise Server.
+Complete the following procedure to create a Git connection to GitHub Enterprise
+Server.
+
+###### To create a GitHub Enterprise Server connection
+
+1. Open the Amazon SageMaker Unified Studio console and use the Region selector in the top navigation
+   bar to choose the appropriate AWS Region.
+2. Choose **View domains** and then choose the domain where you want
+   to add a Git connection to GitHub Enterprise Server.
 3. On the domain's details page, choose the **Connections** tab.
-4. Expand the **Create Git connection** drop-down menu and then choose
+4. Expand the **Create Git connection** dropdown and then choose
    **GitHub Enterprise**.
-5. In **Connection name**, provide a name for the connection.
-6. In **URL**, specify the URL of your GitHub Enterprise Server
+5. For **Connection name**, enter a name for the connection.
+6. For **URL**, enter the URL of your GitHub Enterprise Server
    instance.
 7. If your GitHub Enterprise Server instance is only available in a VPC, choose
    **Use a VPC** and then specify the VPC ID.
-8. (Optional) Under **TLS certificate**, specify your TLS certificate.
-9. (Optional) Specify any AWS tags you want to add to the connection.
-10. Choose **Connect to GitHub Enterprise Server**. This brings you to
-    the connection details page, and the status of the connection is
-    **Pending**. You then need to update the pending connection to make it
-    active.
 
-Complete the following procedure to update a pending 3P Git connection to GitHub
-Enterprise Server:
+(Optional) Under **TLS certificate**, specify your TLS certificate.
+Optionally, add any AWS tags. Choose **Connect to GitHub Enterprise
+Server**.
 
-1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
-   navigation bar to choose the appropriate AWS Region.
-2. Choose **View domains** and then choose the domain where you want to
-   add a 3P Git connection to GitHub.
-3. On the domain's details page, choose the **Connections** tab and then
-   choose the Git connection that you want to update.
-4. Choose **Update pending connection**. A new popup window appears
-   inviting you to enter information for your GitHub Enterprise Server.
-5. If you have installed an AWS application to connect to Amazon SageMaker Unified Studio, search for it and
-   select that application and choose **Connect**. If you do not have an
-   AWS application to connect to Amazon SageMaker Unified Studio, choose **Install a new
-   application**.
-6. In the pop up window, choose **Leave page**. This takes you to the
-   new application installation.
-7. Select the organization in which you want to install the application and establish a
-   connection.
-8. Select whether you want the app to connect to **All repositories** or
-   **Only select repositories**.
-9. Choose **Install**.
+This takes you to the connection details page with a status of
+**Pending**. Complete the following procedure to activate the pending
+connection.
 
-This brings you to the connection details page, and the status of the connection changes
-to **Available**. You then need to enable the connection for project access
-in the Amazon SageMaker Unified Studio.
+###### To update a pending GitHub Enterprise Server connection
 
-## GitLab connections
+1. Open the Amazon SageMaker Unified Studio console and use the Region selector in the top navigation
+   bar to choose the appropriate AWS Region.
+2. Choose **View domains** and then choose the domain with the
+   pending connection.
+3. On the domain's details page, choose the **Connections** tab and
+   then choose the Git connection that you want to update.
+4. Choose **Update pending connection**. A popup window appears.
+5. If you have an existing AWS application, search for and select it, then choose
+   **Connect**. If you do not have an AWS application, choose
+   **Install a new application**.
+6. In the popup window, choose **Leave page** to go to the new
+   application installation.
+7. Select the organization in which you want to install the application.
 
-Complete the following procedure to create a 3P Git connection to GitLab:
+Select whether you want the app to connect to **All repositories**
+or **Only select repositories**, and then choose
+**Install**. The connection status changes to
+**Available**. You must then enable the connection for project
+access.
 
-1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
-   navigation bar to choose the appropriate AWS Region.
-2. Choose **View domains** and then choose the domain where you want to
-   add a 3P Git connection to GitLab.
+## Creating a GitLab connection
+
+Complete the following procedure to create a Git connection to GitLab.
+
+###### To create a GitLab connection
+
+1. Open the Amazon SageMaker Unified Studio console and use the Region selector in the top navigation
+   bar to choose the appropriate AWS Region.
+2. Choose **View domains** and then choose the domain where you want
+   to add a Git connection to GitLab.
 3. On the domain's details page, choose the **Connections** tab.
-4. Expand the **Create Git connection** drop-down menu and then choose
+4. Expand the **Create Git connection** dropdown and then choose
    **GitLab**.
-5. In **Connection name**, provide a name for the connection,
-   optionally, enter in any AWS tags you want to add to the connection, and then choose
-   **Connect to GitLab**.
-6. Enter in your GitLab credentials when you are prompted to provide them. Once
-   authenticated, choose **Authorize AWS connector for GitLab**.
+5. For **Connection name**, enter a name for the connection.
+   Optionally, add any AWS tags. Choose **Connect to GitLab**.
+6. Enter your GitLab credentials when prompted. After authentication, choose
+   **Authorize AWS connector for GitLab**.
 7. On the **Connect to GitLab** page, choose
    **Connect**.
-8. Close the popup window and refresh the **Connections** tab. The new
-   GitLab connection appears in the list with a connection status of
-   **Available**. You must then enable this connection for project access
-   in the Amazon SageMaker Unified Studio.
 
-## GitLab self-managed connections
+Close the popup window and refresh the **Connections** tab. The
+new GitLab connection appears in the list with a connection status of
+**Available**. You must then enable this connection for project
+access.
 
-Complete the following procedure to create a 3P Git connection to GitLab
-Self-Managed:
+## Creating a GitLab self-managed connection
 
-1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
-   navigation bar to choose the appropriate AWS Region.
-2. Choose **View domains** and then choose the domain where you want to
-   add a 3P Git connection to GitLab self-managed.
+Complete the following procedure to create a Git connection to GitLab
+Self-Managed.
+
+###### To create a GitLab self-managed connection
+
+1. Open the Amazon SageMaker Unified Studio console and use the Region selector in the top navigation
+   bar to choose the appropriate AWS Region.
+2. Choose **View domains** and then choose the domain where you want
+   to add a Git connection to GitLab Self-Managed.
 3. On the domain's details page, choose the **Connections** tab.
-4. Expand the **Create Git connection** drop-down menu and then choose
+4. Expand the **Create Git connection** dropdown and then choose
    **GitLab self-managed**.
-5. On the **Connect to GitLab self-managed** page, in
-   **Connection name**, specify the name for the connection, and in the
-   **URL**, specify the endpoint of the server to connect to, and then
-   choose **Connect to GitLab self-managed**. This brings you to the
-   connection details page, and the status of the connection is **Pending**.
-   You then need to update the pending connection to make it active.
+5. For **Connection name**, enter a name for the connection. For
+   **URL**, enter the endpoint of the server to connect to. Choose
+   **Connect to GitLab self-managed**.
 
-Complete the following procedure to update a pending 3P Git connection to GitLab
-self-managed:
+This takes you to the connection details page with a status of
+**Pending**. Complete the following procedure to activate the pending
+connection.
 
-1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
-   navigation bar to choose the appropriate AWS Region.
-2. Choose **View domains** and then choose the domain where you want to
-   update your pending connection.
-3. On the domain's details page, choose the **Connections** tab and then
-   choose the Git connection that you want to update.
-4. Choose **Update pending connection**. A new popup window appears
-   inviting you to enter information for your GitLab self-managed.
-5. If you have installed an AWS application to connect to Amazon SageMaker Unified Studio, search for it and
-   select that application and choose **Connect**. If you do not have an
-   AWS application to connect to Amazon SageMaker Unified Studio, choose **Install a new
-   application**.
-6. In the pop up window, choose **Leave page**. This takes you to the
-   new application installation.
-7. Select the organization in which you want to install the application and establish a
-   connection.
-8. Select whether you want the app to connect to **All repositories** or
-   **Only select repositories**.
-9. Choose **Install**.
+###### To update a pending GitLab self-managed connection
 
-## Bitbucket connections
+1. Open the Amazon SageMaker Unified Studio console and use the Region selector in the top navigation
+   bar to choose the appropriate AWS Region.
+2. Choose **View domains** and then choose the domain with the
+   pending connection.
+3. On the domain's details page, choose the **Connections** tab and
+   then choose the Git connection that you want to update.
+4. Choose **Update pending connection**. A popup window appears.
+5. If you have an existing AWS application, search for and select it, then choose
+   **Connect**. If you do not have an AWS application, choose
+   **Install a new application**.
+6. In the popup window, choose **Leave page** to go to the new
+   application installation.
+7. Select the organization in which you want to install the application.
 
-Complete the following procedure to create a 3P Git connection to Bitbucket:
+Select whether you want the app to connect to **All repositories**
+or **Only select repositories**, and then choose
+**Install**. The connection status changes to
+**Available**. You must then enable the connection for project
+access.
+
+## Creating a Bitbucket connection
+
+Complete the following procedure to create a Git connection to Bitbucket.
 
 ###### Note
 
 You must have an existing Bitbucket workspace before you can complete this
-procedure.
+procedure. Amazon SageMaker Unified Studio only supports the Bitbucket Cloud hosting option. The Data
+Center hosting option is not supported. For more information, see
+[Bitbucket hosting options](https://bitbucket.org/product/guides/getting-started/overview#bitbucket-software-hosting-options "https://bitbucket.org/product/guides/getting-started/overview#bitbucket-software-hosting-options").
 
-Currently, Amazon SageMaker Unified Studio only supports the BitBucket Cloud hosting option. The Data Center
-hosting option is not supported in the currect release of Amazon SageMaker Unified Studio. For more information,
-see [Bitbucket hosting options](https://bitbucket.org/product/guides/getting-started/overview#bitbucket-software-hosting-options "https://bitbucket.org/product/guides/getting-started/overview#bitbucket-software-hosting-options").
+###### To create a Bitbucket connection
 
-1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
-   navigation bar to choose the appropriate AWS Region.
-2. Choose **View domains** and then choose the domain where you want to
-   add a 3P Git connection to Bitbucket.
+1. Open the Amazon SageMaker Unified Studio console and use the Region selector in the top navigation
+   bar to choose the appropriate AWS Region.
+2. Choose **View domains** and then choose the domain where you want
+   to add a Git connection to Bitbucket.
 3. On the domain's details page, choose the **Connections** tab.
-4. Expand the **Create Git connection** drop-down menu and then choose
+4. Expand the **Create Git connection** dropdown and then choose
    **Bitbucket**.
-5. On the **Create a connection** page, in **Connection
-   name**, specify the name for the connection, and then choose **Connect
-   to Bitbucket**.
-6. On the **Connect to Bitbucket** page, in **Bitbucket
-   apps**, specify an existing app or choose **Install a new
-   app** and then choose **Connect**. This redirects you to the
-   bitbucket website where you can choose your existing **Bitbucket
-   workspace** and grant Amazon SageMaker Unified Studio access to it by choosing **Grant
-   access**.
+5. For **Connection name**, enter a name for the connection. Choose
+   **Connect to Bitbucket**.
+6. For **Bitbucket apps**, specify an existing app or choose
+   **Install a new app**. Choose **Connect**. This
+   redirects you to the Bitbucket website where you can choose your existing Bitbucket
+   workspace and grant access by choosing **Grant access**.
 
-## Enable connections for project access
+## Enabling a connection for project access
 
-After a 3P Git connection is created and updated to become available, you can enable it
-for project members to use in your domain. Complete the following procedure to enable project
-access for a 3P Git connection:
+After a Git connection is created and updated to become available, you can enable it
+for project members to use in your domain. Complete the following procedure to enable
+project access for a Git connection.
 
-1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
-   navigation bar to choose the appropriate AWS Region.
-2. Choose **View domains** and then choose the domain where you want to
-   enable your connections for project members to use.
+###### To enable a Git connection
+
+1. Open the Amazon SageMaker Unified Studio console and use the Region selector in the top navigation
+   bar to choose the appropriate AWS Region.
+2. Choose **View domains** and then choose the domain where you want
+   to enable a connection.
 3. On the domain's details page, choose the **Connections** tab.
 4. Choose the connection that you want to enable, and then choose
-   **Enable**. A popup window appears so that you can confirm the
-   decision.
-5. Choose **Enable**. When you refresh the page, the connection then
-   appears as **Enabled**. This means that project members have access to
-   the connection and can use it in projects within that domain.
+   **Enable**. A confirmation window appears.
+5. Choose **Enable**. When you refresh the page, the connection
+   appears as **Enabled**.
 
 ###### Important
 
-When you enable a Git connection, all users who can sign in to any domain in the account
-have read and write access to all repositories on that connection. This access applies
-regardless of the user's project membership or permission level. There is no
+When you enable a Git connection, all users who can sign in to any domain in the
+account have read and write access to all repositories on that connection. This access
+applies regardless of the user's project membership or permission level. There is no
 repository-level isolation within a single account. To enforce isolation between
-repositories, use separate AWS accounts. Do not store sensitive information in connected
-repositories unless all users in the account are authorized to access that
+repositories, use separate AWS accounts. Do not store sensitive information in
+connected repositories unless all users in the account are authorized to access that
 information.
 
-The following note describes the behavior when a connection is later disabled or
-deleted.
+## Disabling or deleting a connection
+
+You can disable a Git connection to temporarily remove project access, or delete a
+connection to permanently remove it from your domain.
+
+###### To disable or delete a Git connection
+
+1. Open the Amazon SageMaker Unified Studio console and use the Region selector in the top navigation
+   bar to choose the appropriate AWS Region.
+2. Choose **View domains** and then choose the domain with the
+   connection you want to modify.
+3. On the domain's details page, choose the **Connections** tab.
+4. Choose the connection that you want to disable or delete.
+5. Choose **Disable** to remove project access, or choose
+   **Delete** to permanently remove the connection.
 
 ###### Note
 
-When you create and enable a connection for Git access and the user accesses this
-connection in the JupyterLab in SageMaker Unified Studio in Amazon SageMaker Unified Studio,
-the repository is cloned, in other words, a local copy of the repository is created in the
-Amazon SageMaker Unified Studio project. If the administrator later disables or deletes this
-Git connection, the local repository remains in the user's IDE, but users can no longer push
-or pull files to or from it. For more information about Git operations in Amazon SageMaker
-Unified Studio, see [Performing Git operations](../userguide/performing-git-operations.md "../userguide/performing-git-operations.md").
+If you disable or delete a connection, the local repository clone remains in the
+user's IDE. However, users can no longer push or pull changes to or from the remote
+repository.
+
+When you disable or delete a connection, projects that have repositories using that
+connection are affected as follows:
+
+- Existing local clones remain in the project. Project members can continue
+  viewing tracked artifacts.
+- Push, pull, and branch operations fail because the connection is no longer
+  available.
+- Project members cannot add new repositories using that connection.
+- If you re-enable the connection, repository operations resume without
+  requiring project members to re-add repositories.

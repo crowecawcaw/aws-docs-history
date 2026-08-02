@@ -23,6 +23,13 @@ required conditions:
   with AWS IAM Identity Center using the same Identity Center instance.
 - Your QuickSight account must exist in the same AWS Account where you are looking to
   enable the QuickSight blueprint.
+- The QuickSight blueprint is available only in [Identity Center-based domains](identity-center-based-domains.md "identity-center-based-domains.md").
+  [IAM-based domains and projects](iam-based-domains.md "iam-based-domains.md") do not display
+  the **Blueprints** tab.
+- If your QuickSight account uses QuickSight-managed users or IAM federation, you
+  cannot switch it to IAM Identity Center in place. You must sign up for a new QuickSight
+  subscription instead. For more information, see [Using IAM Identity Center](../../../quicksight/latest/user/sec-identity-management-identity-center.md "../../../quicksight/latest/user/sec-identity-management-identity-center.md") in the _Amazon QuickSight User
+  Guide_.
 
 ###### Enable the QuickSight blueprint
 

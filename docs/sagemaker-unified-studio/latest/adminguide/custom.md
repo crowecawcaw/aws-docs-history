@@ -57,7 +57,7 @@ from scratch with your own profile settings and a selection of blueprints.
 
    - Amazon S3
    - Git repository
-     For more information, see [Unified storage in Amazon SageMaker Unified Studio](smus-admin-storage-guide.md "smus-admin-storage-guide.md").
+     For more information, see [Source control and file storage in Amazon SageMaker Unified Studio](smus-admin-storage-guide.md "smus-admin-storage-guide.md").
 
 10. On the **Create project profile** page, in the
     **Authorization - optional** section, specify who can use this project

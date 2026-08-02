@@ -9,7 +9,21 @@ Amazon EMR on EKS and Amazon SageMaker Unified Studio require additional Amazon 
 Review your Amazon EKS cluster configuration and ensure all requirements are fulfilled:
 
 1. [Install and configure the Load Balancer Controller for your Amazon EKS cluster](../../../eks/latest/userguide/aws-load-balancer-controller.md "../../../eks/latest/userguide/aws-load-balancer-controller.md")
-2. [Enable Amazon EKS cluster access for Amazon EMR on EKS and Amazon SageMaker Unified Studio](enable-eks-cluster-access-for-emr-on-eks-and-sagemaker-unified-studio.md "enable-eks-cluster-access-for-emr-on-eks-and-sagemaker-unified-studio.md")
+2. Tag exactly one security group for each Amazon EC2 node ENI with
+   `kubernetes.io/cluster/`{eks-cluster-name}``.
+
+   1. Amazon EMR on EKS routes the connection from Amazon SageMaker Unified Studio notebooks to
+      [Apache Livy](../../../emr/latest/ReleaseGuide/emr-livy.md "../../../emr/latest/ReleaseGuide/emr-livy.md")
+      on your Amazon EKS cluster through a Network Load Balancer, and the AWS Load Balancer Controller
+      discovers the cluster security group by looking for a single security group that carries this
+      tag on each node ENI. If the same ENI has more than one security group with this tag, the
+      controller cannot reconcile the `TargetGroupBinding`, no targets register in the
+      load balancer target group, and notebook connections fail (for example, with
+      **`RemoteDisconnected`** errors). If you use Karpenter to provision nodes,
+      confirm that your `securityGroupSelectorTerms` configuration does not attach
+      multiple cluster-tagged security groups to a node ENI.
+
+3. [Enable Amazon EKS cluster access for Amazon EMR on EKS and Amazon SageMaker Unified Studio](enable-eks-cluster-access-for-emr-on-eks-and-sagemaker-unified-studio.md "enable-eks-cluster-access-for-emr-on-eks-and-sagemaker-unified-studio.md")
 
 Additionally, Amazon EKS clusters in a different account or Amazon VPC network than your Amazon SageMaker Unified Studio domain require additional configuration.
 Review your Amazon EKS cluster configuration and ensure all requirements are fulfilled:
