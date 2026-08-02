@@ -52,7 +52,7 @@ This table shows your products that are enabled with any of the Partner Revenue 
 
 ## Data availability and privacy
 
-- Revenue data is updated 45 days after the month end for the previous billing month.
+- Attributed revenue data is processed monthly and becomes available 17 days after the month ends for the previous month.
 - Partners have visibility to aggregated attributed revenue data at the product and AWS service level.
 
 For additional information regarding data sharing and privacy, please see the PRM [Frequently Asked Questions](https://partnercentral.awspartner.com/partnercentral2/s/article?category=Funding_Operations_and_Management&article=Partner-Revenue-Measurement-Overview "https://partnercentral.awspartner.com/partnercentral2/s/article?category=Funding_Operations_and_Management&article=Partner-Revenue-Measurement-Overview") in Partner Central (login required).
