@@ -4,6 +4,8 @@ To transfer data to or from your Amazon EFS file system, you must create an AWS 
 transfer _location_. DataSync can use this location as a
 source or destination for transferring data.
 
+You can use Amazon EFS locations with Basic mode and Enhanced mode tasks.
+
 ## Providing DataSync access to Amazon EFS file systems
 
 [Creating a location](#create-efs-location-how-to "#create-efs-location-how-to") involves

@@ -47,12 +47,16 @@ locations:
 - SMB
 - HDFS
 - Object storage (including other clouds)
-- Azure blob
+- Azure Blob
 
-Enhanced mode supports using an agent for transfers to or from Amazon S3 with the following locations:
+Enhanced mode supports using an agent for transfers to or from Amazon S3, Amazon EFS, or Amazon FSx for Lustre
+and the following locations:
 
 - NFS
 - SMB
+- HDFS
+- Object storage (including other clouds)
+- Azure Blob
 
 For more information, see [Choosing a task mode for your data transfer](choosing-task-mode.md "choosing-task-mode.md").
 

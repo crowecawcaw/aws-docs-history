@@ -9,14 +9,14 @@ With AWS DataSync, you can transfer data between Google Cloud Storage and the fo
 - Amazon FSx for OpenZFS
 - Amazon FSx for NetApp ONTAP
   To begin the transfer setup, create a location for your Google Cloud Storage. This
-  location can serve as either your transfer source or destination. A DataSync agent is required
-  only when you transfer data between Google Cloud Storage and Amazon EFS or Amazon FSx, or when using
-  **Basic mode** tasks. **Enhanced mode** data transfers between Google Cloud Storage and Amazon S3 don't
-  require an agent.
+  location can serve as either your transfer source or destination. Most transfers require a
+  DataSync agent. Transfers between Google Cloud Storage and Amazon S3 using
+  **Enhanced mode** do not require an agent. Use the
+  agent that corresponds to your task mode.
 
 ###### Note
 
-For private cloud connectivity between Google Cloud Storage and AWS, use Basic mode with agents.
+For private cloud connectivity between Google Cloud Storage and AWS, you need a DataSync agent.
 
 ## Overview
 
@@ -24,7 +24,7 @@ DataSync uses the [Google Cloud Storage XML API](https://cloud.google.com/storag
 compatible interface for reading and writing data with Google Cloud Storage
 buckets.
 
-When you use Basic mode for transfers, you can deploy the agent in Google Cloud Storage or your Amazon VPC.
+When you use an agent for transfers, you can deploy it in Google Cloud Storage or your Amazon VPC.
 
 Agent in Google Cloud
 
@@ -128,11 +128,9 @@ endpoint.
 
 ## Step 3: Create a DataSync agent (optional)
 
-A DataSync agent is only required when using **Basic** mode tasks. If
-you are using **Enhanced** mode to transfer between Google Cloud
-Storage (GCS) and Amazon S3, then no agent is required. If you want to use
-**Basic** mode, then you need a DataSync agent that can access your
-GCS bucket.
+Most transfers require a DataSync agent. Transfers between Google Cloud Storage (GCS) and Amazon S3 using
+**Enhanced** mode do not require an agent. Use the agent that corresponds to
+your task mode. If you use an agent, it needs access to your GCS bucket.
 
 In this scenario, the DataSync agent runs in your Google Cloud
 environment.
@@ -146,12 +144,17 @@ CLI](https://cloud.google.com/sdk/docs/install "https://cloud.google.com/sdk/doc
 2. In the left navigation pane, choose **Agents**, then
    choose **Create agent**.
 3. For **Hypervisor**, choose **VMware
-   ESXi**, then choose **Download the image**
-   to download a
-   `.zip`
-   file that contains the agent.
-4. Open a terminal. Unzip the image by running the following
-   command:
+   ESXi**, then choose **Download the
+   image**.
+
+   - The Enhanced mode agent downloads as an
+     `.ova` image file.
+   - The Basic mode agent downloads in a
+     `.zip` file that contains the
+     `.ova` image file.
+
+4. If you downloaded a Basic mode agent, open a terminal and unzip the
+   image by running the following command:
 
 ```
 unzip AWS-DataSync-Agent-VMWare.zip
@@ -244,13 +247,21 @@ AWS Command Line Interface (AWS CLI)](../../../cli/latest/userguide/cli-chap-get
    that's
    associated with your S3
    bucket.
-2. Copy the following command. Replace
-   `vpc-region` with the
+2. Copy one of the following commands, depending on your task mode.
+   Replace `vpc-region` with the
    AWS Region where your VPC resides (for example,
    `us-east-1`).
 
+Basic mode agents
+
 ```
 aws ssm get-parameter --name /aws/service/datasync/ami --region `vpc-region`
+```
+
+Enhanced mode agents
+
+```
+aws ssm get-parameter --name /aws/service/datasync/ami/v3 --region `vpc-region`
 ```
 
 3. Run the command. In the output, take note of the `"Value"`

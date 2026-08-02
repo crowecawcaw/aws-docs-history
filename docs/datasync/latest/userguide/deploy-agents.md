@@ -94,15 +94,15 @@ the [VM's local console](local-console-vm.md "local-console-vm.md").
 
 **Next step: [Choosing a service endpoint for your AWS DataSync agent](choose-service-endpoint.md "choose-service-endpoint.md")**
 
-## Deploying your Basic mode agent on Microsoft Hyper-V
+## Deploying your agent on Microsoft Hyper-V
 
-You can download a Basic mode agent from the DataSync console and deploy it in your Microsoft
+You can download an agent from the DataSync console and deploy it in your Microsoft
 Hyper-V environment.
 
 **Before you begin**: Make sure that your storage
 environment can support a DataSync agent. For more information, see [Virtual machine requirements](agent-requirements.md#hardware "agent-requirements.md#hardware").
 
-###### To deploy a Basic mode agent on Hyper-V
+###### To deploy an agent on Hyper-V
 
 1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/").
 2. In the left navigation pane, choose **Agents**, and then
@@ -111,8 +111,12 @@ environment can support a DataSync agent. For more information, see [Virtual mac
    Hyper-V**, and then choose **Download the
    image**.
 
-The agent downloads in a `.zip` file that contains a
-`.vhdx` image file. 4. To minimize network latency, deploy the agent as close as possible to the storage system that DataSync needs to access (the same local network if possible). For more information, see [Network requirements for on-premises, self-managed, and other cloud storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
+   - The Enhanced mode agent downloads as a `.vhdx`
+     image file.
+   - The Basic mode agent downloads in a `.zip` file
+     that contains the `.vhdx` image file.
+
+4. To minimize network latency, deploy the agent as close as possible to the storage system that DataSync needs to access (the same local network if possible). For more information, see [Network requirements for on-premises, self-managed, and other cloud storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
 
 If needed, see your hypervisor's documentation on how to deploy a
 `.vhdx` file in a Hyper-V host.
@@ -141,7 +145,7 @@ between:
 - A cloud storage provider (such as Microsoft Azure Blob
   Storage
   or Google Cloud Storage)
-  and an AWS storage service using Basic mode.
+  and an AWS storage service.
 - An S3 bucket in a commercial AWS Region and an S3 bucket in an
   AWS GovCloud (US) Region.
 - [Amazon S3 on AWS Outposts](#outposts-agent "#outposts-agent") and

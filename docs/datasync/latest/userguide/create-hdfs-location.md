@@ -1,23 +1,22 @@
 # Configuring AWS DataSync transfers with an HDFS cluster
 
 With AWS DataSync, you can transfer data between your Hadoop Distributed File System
-(HDFS) cluster and one of the following AWS storage services using Basic mode tasks:
+(HDFS) cluster and the following AWS storage services. The supported storage services
+depend on your task mode:
 
-- [Amazon S3](create-s3-location.md "create-s3-location.md")
-- [Amazon EFS](create-efs-location.md "create-efs-location.md")
-- [Amazon FSx for Windows File Server](create-fsx-location.md "create-fsx-location.md")
-- [Amazon FSx for Lustre](create-lustre-location.md "create-lustre-location.md")
-- [Amazon FSx for OpenZFS](create-openzfs-location.md "create-openzfs-location.md")
-- [Amazon FSx for NetApp ONTAP](create-ontap-location.md "create-ontap-location.md")
-  To set up this kind of transfer, you create a [location](how-datasync-transfer-works.md#sync-locations "how-datasync-transfer-works.md#sync-locations") for your HDFS cluster. You can use this location as a transfer
-  source or destination.
+| Basic mode                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Enhanced mode                                                                                                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • [Amazon S3](create-s3-location.md "create-s3-location.md")<br>• [Amazon EFS](create-efs-location.md "create-efs-location.md")<br>• [Amazon FSx for Windows File Server](create-fsx-location.md "create-fsx-location.md")<br>• [Amazon FSx for Lustre](create-lustre-location.md "create-lustre-location.md")<br>• [Amazon FSx for OpenZFS](create-openzfs-location.md "create-openzfs-location.md")<br>• [Amazon FSx for NetApp ONTAP](create-ontap-location.md "create-ontap-location.md") | • [Amazon S3](create-s3-location.md "create-s3-location.md")<br>• [Amazon EFS](create-efs-location.md "create-efs-location.md")<br>• [Amazon FSx for Lustre](create-lustre-location.md "create-lustre-location.md") |
+
+To set up this kind of transfer, you create a [location](how-datasync-transfer-works.md#sync-locations "how-datasync-transfer-works.md#sync-locations") for your HDFS cluster. You can use this location as a transfer
+source or destination.
 
 ## Providing DataSync access to HDFS clusters
 
-To connect to your HDFS cluster, DataSync uses a Basic mode agent [agent
-that you deploy](deploy-agents.md "deploy-agents.md") as close as possible to your HDFS cluster. The DataSync
-agent acts as an HDFS client and communicates with the NameNodes and DataNodes in
-your cluster.
+To connect to your HDFS cluster, DataSync uses an [agent
+that you deploy](deploy-agents.md "deploy-agents.md") as close as possible to your HDFS cluster. Use the agent that
+corresponds to your task mode. The DataSync agent acts as an HDFS client and communicates with the
+NameNodes and DataNodes in your cluster.
 
 When you start a transfer task, DataSync queries the NameNode for locations of files
 and folders on the cluster. If you configure your HDFS location as a source
@@ -60,22 +59,38 @@ Procedure Call (RPC) protection.
 - `camellia256-cts-cmac`
 
 You can also configure HDFS clusters for encryption at rest using Transparent
-Data Encryption (TDE). When using simple authentication, DataSync reads and writes
-to TDE-enabled clusters. If you're using DataSync to copy data to a TDE-enabled
-cluster, first configure the encryption zones on the HDFS cluster. DataSync doesn't
-create encryption zones.
+Data Encryption (TDE). DataSync reads and writes to TDE-enabled clusters when using simple
+authentication with Basic or Enhanced mode tasks, or Kerberos authentication with Enhanced mode
+tasks. If you're using DataSync to copy data to a TDE-enabled cluster, first configure the encryption
+zones on the HDFS cluster. DataSync doesn't create encryption zones.
+
+### High Availability
+
+DataSync supports HDFS clusters configured for High Availability (HA) with
+multiple NameNodes. HA support depends on your task mode:
+
+- **Enhanced mode** – You can
+  specify multiple NameNodes when creating or updating your HDFS location.
+  DataSync connects to the active NameNode for your transfer.
+- **Basic mode** – You can
+  specify only one NameNode.
 
 ## Unsupported HDFS features
 
-The following HDFS capabilities aren't currently supported by DataSync:
+The following HDFS capabilities aren't supported by DataSync with either task mode:
 
-- Transparent Data Encryption (TDE) when using Kerberos
-  authentication
-- Configuring multiple NameNodes
 - Hadoop HDFS over HTTP (HttpFS)
 - POSIX access control lists (ACLs)
 - HDFS extended attributes (xattrs)
 - HDFS clusters using Apache HBase
+
+The following HDFS capabilities aren't supported with Basic mode tasks but are
+supported with Enhanced mode tasks:
+
+- Transparent Data Encryption (TDE) when using Kerberos
+  authentication
+- Configuring multiple NameNodes (for clusters that use NameNode High
+  Availability)
 
 ## Creating your HDFS transfer location
 
@@ -101,7 +116,14 @@ to your HDFS cluster.
 
 You can choose more than one agent. For more information, see
 [Using multiple DataSync agents](do-i-need-datasync-agent.md#multiple-agents "do-i-need-datasync-agent.md#multiple-agents"). 5. For **NameNode**, provide the domain name or IP
-address of your HDFS cluster's primary NameNode. 6. For **Folder**, enter a folder on your HDFS
+address of your HDFS cluster's primary NameNode.
+
+###### Note
+
+With Enhanced mode tasks, you can specify more than one
+NameNode if your cluster is configured for NameNode High
+Availability. Basic mode tasks support only one
+NameNode. 6. For **Folder**, enter a folder on your HDFS
 cluster that you want DataSync to use for the data transfer.
 
 If your HDFS location is a source, DataSync copies the files in this
@@ -164,9 +186,15 @@ aws datasync create-location-hdfs --name-nodes [{"Hostname":"`host1`", "Port": `
 2. For the `--name-nodes` parameter, specify the hostname
    or IP address of your HDFS cluster's primary NameNode and the TCP
    port that the NameNode is listening on.
-3. For the `--authentication-type` parameter, specify the
-   type of authentication to use when connecting to the Hadoop cluster.
-   You can specify `SIMPLE` or `KERBEROS`.
+
+###### Note
+
+With Enhanced mode tasks, you can specify more than one
+NameNode if your cluster is configured for NameNode High
+Availability. Basic mode tasks support only one
+NameNode. 3. For the `--authentication-type` parameter, specify the
+type of authentication to use when connecting to the Hadoop cluster.
+You can specify `SIMPLE` or `KERBEROS`.
 
 If you use `SIMPLE` authentication, use the
 `--simple-user` parameter to specify the user name of

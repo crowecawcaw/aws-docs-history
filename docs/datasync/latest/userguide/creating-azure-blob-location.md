@@ -11,10 +11,9 @@ storage services:
 - [Amazon FSx for OpenZFS](create-openzfs-location.md "create-openzfs-location.md")
 - [Amazon FSx for NetApp ONTAP](create-ontap-location.md "create-ontap-location.md")
   To set up this kind of transfer, you create a [location](how-datasync-transfer-works.md#sync-locations "how-datasync-transfer-works.md#sync-locations") for your Azure Blob Storage. You can use this location
-  as a transfer source or destination. A DataSync agent is required only when transferring data
-  between Azure Blob and Amazon EFS or Amazon FSx, or when using **Basic** mode tasks.
-  You don't need an agent to transfer data between Azure Blob and Amazon S3 using
-  **Enhanced** mode.
+  as a transfer source or destination. Most transfers require a DataSync agent. Transfers between Azure Blob
+  and Amazon S3 using **Enhanced** mode do not require an agent. Use the agent that corresponds
+  to your task mode.
 
 ## Providing DataSync access to your Azure Blob Storage
 
@@ -271,10 +270,9 @@ Blob Storage:
 
 ## Creating your DataSync agent (optional)
 
-A DataSync agent is required only when transferring data between Azure Blob and Amazon EFS or
-Amazon FSx, or when using **Basic** mode tasks. You don't need an agent to
-transfer data between Azure Blob and Amazon S3 using **Enhanced** mode. This
-section describes how to deploy and activate an agent.
+Most transfers require a DataSync agent. Transfers between Azure Blob and Amazon S3 using
+**Enhanced** mode do not require an agent. Use the agent that corresponds to your
+task mode. This section describes how to deploy and activate an agent.
 
 ###### Tip
 
@@ -328,26 +326,29 @@ disk (VHD). For more information, see the [Azure documentation](https://learn.mi
    **Microsoft Hyper-V**, and
    then choose **Download the image**.
 
-The agent downloads in a `.zip` file that
-contains a `.vhdx` file. 4. Extract the `.vhdx` file on your local
-machine. 5. Open PowerShell and do the following:
+   - The Enhanced mode agent downloads as a
+     `.vhdx` image file.
+   - The Basic mode agent downloads in a
+     `.zip` file that contains the
+     `.vhdx` image file.
 
-    1. Copy the following `Convert-VHD` cmdlet:
+4. If you downloaded a Basic mode agent, extract the
+   `.vhdx` file on your local machine.
+5. Open PowerShell and do the following:
 
+   1. Copy the following `Convert-VHD` cmdlet:
 
-
-    ```
-    Convert-VHD -Path .\`local-path-to-vhdx-file`\aws-datasync-2.0.1686143940.1-x86_64.xfs.gpt.vhdx `
-    -DestinationPath .\`local-path-to-vhdx-file`\aws-datasync-2016861439401-x86_64.vhd -VHDType Fixed
-    ```
-    2. Replace each instance of
-     ``local-path-to-vhdx-file``
-     with the location of the `.vhdx` file on
-     your local machine.
-    3. Run the command.Your agent is now a fixed-size VHD (with a
-
-`.vhd` file format) and ready to deploy in
-Azure.
+   ```
+   Convert-VHD -Path .\`local-path-to-vhdx-file`\aws-datasync-2.0.1686143940.1-x86_64.xfs.gpt.vhdx `
+   -DestinationPath .\`local-path-to-vhdx-file`\aws-datasync-2016861439401-x86_64.vhd -VHDType Fixed
+   ```
+   2. Replace each instance of
+      `local-path-to-vhdx-file`
+      with the location of the `.vhdx` file on
+      your local machine.
+   3. Run the command.Your agent is now a fixed-size VHD (with a
+      `.vhd` file format) and ready to deploy in
+      Azure.
 
 #### Deploying your agent in Azure
 

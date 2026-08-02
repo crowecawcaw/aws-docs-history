@@ -17,10 +17,8 @@ With AWS DataSync, you can transfer data between [AWS storage services](transfer
 - [Alibaba Cloud Object Storage Service](https://www.alibabacloud.com/help/en/oss/product-overview/what-is-oss "https://www.alibabacloud.com/help/en/oss/product-overview/what-is-oss")
 - [IBM Cloud Object Storage](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage "https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage")
 - [Seagate Lyve Cloud](https://help.lyvecloud.seagate.com/en/product-features.html "https://help.lyvecloud.seagate.com/en/product-features.html")
-  A DataSync agent is required only when transferring data between storage systems in other
-  clouds and Amazon EFS or Amazon FSx, or when using **Basic** mode tasks. You don't
-  need an agent to transfer data between storage systems in other clouds and Amazon S3 using
-  **Enhanced** mode.
+  Most transfers require a DataSync agent. Transfers between object storage systems in other clouds and Amazon S3 using
+  **Enhanced** mode do not require an agent. Use the agent that corresponds to your task mode.
 
 Regardless of whether you use an agent, you must also create a transfer [location](how-datasync-transfer-works.md#sync-locations "how-datasync-transfer-works.md#sync-locations") for your cloud object storage (specifically an
 **Object storage** location). DataSync can use this location as a source
@@ -150,12 +148,10 @@ also can only copy object metadata up to 2 KB.
 
 ## Creating your DataSync agent
 
-A DataSync agent is required only when transferring data between storage systems in other
-clouds and Amazon EFS or Amazon FSx, or when using **Basic** mode tasks. You
-don't need an agent to transfer data between storage systems in other clouds and Amazon S3
-using **Enhanced** mode. This section desribes how to deploy and
-activate an agent on an Amazon EC2 instance in your virtual private cloud (VPC) in
-AWS.
+Most transfers require a DataSync agent. Transfers between object storage systems in other clouds and Amazon S3
+using **Enhanced** mode do not require an agent. Use the agent that corresponds to your
+task mode. This section describes how to deploy and activate an agent on an Amazon EC2 instance in your virtual
+private cloud (VPC) in AWS.
 
 ###### To create an Amazon EC2 agent
 

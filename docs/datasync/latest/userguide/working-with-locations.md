@@ -15,38 +15,42 @@ with the same AWS account.
 | Source                       | Destination                                 | Requires an agent?  | Supported task mode |
 | ---------------------------- | ------------------------------------------- | ------------------- | ------------------- |
 | • NFS<br>• SMB               | • Amazon S3                                 | Yes                 | Basic, Enhanced     |
-| • NFS<br>• SMB               | • Amazon EFS<br>• Amazon FSx                | Yes                 | Basic only          |
-| • HDFS<br>• Object Storage   | • Amazon S3<br>• Amazon EFS<br>• Amazon FSx | Yes                 | Basic only          |
+| • NFS<br>• SMB               | • Amazon EFS<br>• Amazon FSx                | Yes                 | Basic, Enhanced1    |
+| • HDFS<br>• Object Storage   | • Amazon S3<br>• Amazon EFS<br>• Amazon FSx | Yes                 | Basic, Enhanced1    |
 | • Other cloud storage        | • Amazon S3                                 | Only for Basic mode | Basic, Enhanced     |
-| • Other cloud storage        | • Amazon EFS<br>• Amazon FSx                | Yes                 | Basic only          |
+| • Other cloud storage        | • Amazon EFS<br>• Amazon FSx                | Yes                 | Basic, Enhanced1    |
 | • Amazon S3                  | • Amazon S3                                 | No                  | Basic, Enhanced     |
-| • Amazon S3                  | • Amazon EFS<br>• Amazon FSx                | No                  | Basic only          |
+| • Amazon S3                  | • Amazon EFS<br>• Amazon FSx                | No                  | Basic, Enhanced1    |
 | • Amazon S3                  | • NFS<br>• SMB                              | Yes                 | Basic, Enhanced     |
-| • Amazon S3                  | • HDFS<br>• Object Storage                  | Yes                 | Basic only          |
+| • Amazon S3                  | • HDFS<br>• Object Storage                  | Yes                 | Basic, Enhanced     |
 | • Amazon S3                  | • Other cloud storage                       | Only for Basic mode | Basic, Enhanced     |
-| • Amazon EFS<br>• Amazon FSx | • NFS<br>• SMB                              | Yes                 | Basic only          |
-| • Amazon EFS<br>• Amazon FSx | • HDFS<br>• Object Storage                  | Yes                 | Basic only          |
-| • Amazon EFS<br>• Amazon FSx | • Other cloud storage                       | Yes                 | Basic only          |
-| • Amazon EFS<br>• Amazon FSx | • Amazon S3                                 | No                  | Basic only          |
-| • Amazon EFS<br>• Amazon FSx | • Amazon EFS<br>• Amazon FSx                | No                  | Basic only          |
+| • Amazon EFS<br>• Amazon FSx | • NFS<br>• SMB                              | Yes                 | Basic, Enhanced1    |
+| • Amazon EFS<br>• Amazon FSx | • HDFS<br>• Object Storage                  | Yes                 | Basic, Enhanced1    |
+| • Amazon EFS<br>• Amazon FSx | • Other cloud storage                       | Yes                 | Basic, Enhanced1    |
+| • Amazon EFS<br>• Amazon FSx | • Amazon S3                                 | No                  | Basic, Enhanced1    |
+| • Amazon EFS<br>• Amazon FSx | • Amazon EFS<br>• Amazon FSx                | No                  | Basic, Enhanced1    |
 | • S3 on Outposts             | • S3 (in AWS Regions)                       | Yes                 | Basic only          |
 | • Amazon S3 (in AWS Regions) | • S3 on Outposts                            | Yes                 | Basic only          |
+
+1 Enhanced mode supports only Amazon FSx for Lustre locations of the Amazon FSx
+file system types. Other Amazon FSx file system types (such as Amazon FSx for Windows File Server, Amazon FSx for NetApp ONTAP, and
+Amazon FSx for OpenZFS) are not yet supported with Enhanced mode and require Basic mode.
 
 ## Supported transfers across AWS accounts
 
 DataSync supports some transfers between storage resources that are associated with
 different AWS accounts.
 
-| Source                                                                                                                | Destination                  | Requires an agent?                     | Supported task mode |
-| --------------------------------------------------------------------------------------------------------------------- | ---------------------------- | -------------------------------------- | ------------------- |
-| • NFS<br>• SMB                                                                                                        | • Amazon S3                  | Yes                                    | Basic, Enhanced     |
-| • HDFS<br>• Object Storage                                                                                            | • Amazon S3                  | Yes                                    | Basic only          |
-| • Amazon S3                                                                                                           | • Amazon S3                  | No                                     | Basic, Enhanced     |
-| • Amazon S3                                                                                                           | • Amazon EFS<br>• Amazon FSx | No                                     | Basic only          |
-| • Amazon S3                                                                                                           | • NFS<br>• SMB               | Yes                                    | Basic, Enhanced     |
-| • Amazon S3                                                                                                           | • HDFS<br>• Object Storage   | Yes                                    | Basic only          |
-| • Amazon EFS<br>• Amazon FSx                                                                                          | • Amazon S3                  | No                                     | Basic only          |
-| • Amazon EFS1<br>• Amazon FSx for OpenZFS1<br>• Amazon FSx for Windows File Server2<br>• Amazon FSx for NetApp ONTAP3 | • Amazon EFS<br>• Amazon FSx | Yes (when used as an NFS/SMB location) | Basic only          |
+| Source                                                                                                                | Destination                   | Requires an agent?                     | Supported task mode |
+| --------------------------------------------------------------------------------------------------------------------- | ----------------------------- | -------------------------------------- | ------------------- |
+| • NFS<br>• SMB                                                                                                        | • Amazon S3                   | Yes                                    | Basic, Enhanced     |
+| • HDFS<br>• Object Storage                                                                                            | • Amazon S3                   | Yes                                    | Basic, Enhanced     |
+| • Amazon S3                                                                                                           | • Amazon S3                   | No                                     | Basic, Enhanced     |
+| • Amazon S3                                                                                                           | • Amazon EFS<br>• Amazon FSx  | No                                     | Basic, Enhanced4    |
+| • Amazon S3                                                                                                           | • NFS<br>• SMB                | Yes                                    | Basic, Enhanced     |
+| • Amazon S3                                                                                                           | • HDFS<br>• Object Storage    | Yes                                    | Basic, Enhanced     |
+| • Amazon EFS<br>• Amazon FSx                                                                                          | • Amazon S3                   | No                                     | Basic, Enhanced4    |
+| • Amazon EFS1<br>• Amazon FSx for OpenZFS1<br>• Amazon FSx for Windows File Server2<br>• Amazon FSx for NetApp ONTAP3 | • Amazon EFS<br>• Amazon FSx4 | Yes (when used as an NFS/SMB location) | Basic, Enhanced4    |
 
 1 Configured as an [NFS
 location](create-nfs-location.md "create-nfs-location.md").
@@ -55,6 +59,10 @@ location](create-nfs-location.md "create-nfs-location.md").
 location](create-smb-location.md "create-smb-location.md").
 
 3 Configured as an NFS or SMB location.
+
+4 Enhanced mode supports only Amazon FSx for Lustre locations of the Amazon FSx
+file system types. Other Amazon FSx file system types (such as Amazon FSx for Windows File Server, Amazon FSx for NetApp ONTAP, and
+Amazon FSx for OpenZFS) are not yet supported with Enhanced mode and require Basic mode.
 
 ## Supported transfers in the same AWS Region
 

@@ -2,9 +2,9 @@
 
 When planning cross-cloud data transfers, consider the following:
 
-- **Using an agent:** An agent is only required to
-  access storage in other clouds when using Basic mode tasks. [Enhanced mode tasks](choosing-task-mode.md "choosing-task-mode.md") do not require an agent. If you decide to use an
-  agent, you can deploy it as an [Amazon EC2
+- **Using an agent:** Most transfers require a DataSync agent. Transfers
+  between storage in other clouds and Amazon S3 using [Enhanced mode tasks](choosing-task-mode.md "choosing-task-mode.md") do not require an agent. Use the agent that corresponds to your
+  task mode. If you decide to use an agent, you can deploy it as an [Amazon EC2
   instance](deploy-agents.md#ec2-deploy-agent "deploy-agents.md#ec2-deploy-agent") when transferring from a cloud providers' S3-compatible object
   storage, or as a Google Compute Engine or Azure Virtual Machine for transfers from
   those specific storage services, respectively. When transferring from filesystems in

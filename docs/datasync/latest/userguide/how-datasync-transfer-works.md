@@ -138,9 +138,10 @@ two.
 
 ###### Note
 
-If you configure your task to [transfer all data](configure-metadata.md#task-option-transfer-mode "configure-metadata.md#task-option-transfer-mode"), there's no preparation. When you start your task,
-DataSync immediately transfers everything from your source to your destination
-without comparing locations.
+If you configure your task to [transfer all data](configure-metadata.md#task-option-transfer-mode "configure-metadata.md#task-option-transfer-mode"), DataSync doesn't compare your source and
+destination locations. Your task execution still has a `PREPARING`
+status, though. During this time, DataSync scans your source location to determine
+what it's transferring and how to transfer it.
 
 How DataSync prepares your transfer also depends on your task mode:
 

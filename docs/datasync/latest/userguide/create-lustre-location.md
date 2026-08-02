@@ -4,6 +4,15 @@ To transfer data to or from your Amazon FSx for Lustre file system, you must cre
 AWS DataSync transfer _location_. DataSync can use this
 location as a source or destination for transferring data.
 
+You can use FSx for Lustre locations with Basic mode and Enhanced mode tasks.
+
+###### Note
+
+Enhanced mode tasks support FSx for Lustre file systems running Lustre version 2.12
+or later. If your file system runs Lustre version 2.10, use a Basic mode task or
+upgrade the file system. For more information, see [Managing Lustre
+versions](../../../fsx/latest/LustreGuide/managing-lustre-version.md "../../../fsx/latest/LustreGuide/managing-lustre-version.md") in the _Amazon FSx for Lustre User Guide_.
+
 ## Providing DataSync access to FSx for Lustre file systems
 
 DataSync accesses your FSx for Lustre file system using the Lustre client. DataSync

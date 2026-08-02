@@ -76,8 +76,18 @@ Remember the following when entering the IP address or domain name:
     * Don't include a protocol. For example, enter
      `mystorage.com` instead of
      `https://mystorage.com`.
-    * For HDFS, enter the IP address or domain name of the NameNode or
-     DataNode in the Hadoop cluster.
+    * For HDFS, the steps depend on your task mode:
+
+
+
+
+    	+ **Basic mode** – Enter
+    	 the IP address or domain name of the NameNode or DataNode in
+    	 the Hadoop cluster.
+    	+ **Enhanced mode** –
+    	 First select the endpoint type you want to test (NameNode,
+    	 DataNode, or KMS). Then enter the IP address or domain name
+    	 of that endpoint in your Hadoop cluster.
 
 5. If requested, enter the TCP port for connecting to the storage server (for
 example, `443`).

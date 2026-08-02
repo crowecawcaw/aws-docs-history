@@ -8,10 +8,6 @@ requirements.
 
 DataSync agents can be deployed on supported hypervisors to facilitate data transfer.
 
-###### Note
-
-Enhanced mode agents only support VMware ESXi, KVM, Nutanix AHV, and EC2.
-
 You can run a DataSync agent on the following hypervisors:
 
 - **VMware ESXi (version 7.0 or
@@ -31,7 +27,7 @@ running and you're already familiar with how KVM works.
 Running KVM on Amazon EC2 isn't supported and can't be used for DataSync
 agents.
 
-- **Microsoft Hyper-V (version 2012 R2, 2016, or 2019)**: Basic mode agents only. For this setup, you need a Microsoft Hyper-V Manager
+- **Microsoft Hyper-V (version 2012 R2, 2016, or 2019)**: For this setup, you need a Microsoft Hyper-V Manager
   on a Microsoft Windows client computer to connect to the host.
 
 The DataSync agent is a generation 1 virtual machine (VM). For more
