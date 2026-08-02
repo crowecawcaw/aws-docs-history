@@ -125,72 +125,86 @@ The segment settings fields hold general information about the segment.
    value that you enter is different from the input segment duration, MediaPackage
    rounds segments to the nearest multiple of the input segment
    duration.
-3. Select **Include IFrame-only stream** to include an
-   additional I-frame only stream along with the other tracks in the manifest.
-   MediaPackage generates an I-frame only stream from the first rendition in the
-   manifest. The service inserts `EXT-I-FRAMES-ONLY` tags in the
-   output manifest, and then generates and includes an I-frames only playlist
-   in the stream. This playlist enables player functionality like fast forward
-   and rewind.
-4. For TS containers only, select **Use audio rendition
-   group** to group all audio tracks into a single rendition
-   group. All other tracks in the stream can be used with any audio rendition
-   from the group. For more information about rendition groups, see [AWS Elemental MediaPackage rendition groups reference](rendition-groups.md "rendition-groups.md").
-5. For TS containers only, select **Include DVB subtitles**
-   to pass through digital video broadcasting (DVB) subtitles into the output.
-   By default, MediaPackage excludes all DVB subtitles from the output.
-6. Select **Enable SCTE support** to include SCTE
-   configuration options. If you select this, you can further define your SCTE
-   configuration in additional fields.
-7. For **SCTE filtering**, choose the SCTE-35 message types
-   that will be ad markers in the output. If you don't make a selection here,
-   by default, MediaPackage inserts all ad markers in the output manifest.
+3. (Optional) For non-epoch-locked CMAF channels, choose the
+   **Output timestamp mode** to control how presentation
+   timestamp (PTS) values appear in output segments:
 
-   - Splice insert
-   - Break
-   - Provider advertisement
-   - Distributor advertisement
-   - Provider placement opportunity
-   - Distributor placement opportunity
-   - Provider overlay placement opportunity
-   - Distributor overlay placement opportunity
-   - Program
-   - Chapter
-   - Unscheduled event
-   - Alternate content opportunity
-   - Network
-   - Provider promo
-   - Distributor promo
-   - Provider ad block
-   - Distributor ad block
+   - **Passthrough** (default) – Preserves
+     the raw PTS values from the input stream without
+     modification.
+   - **Rebased to channel start** – Rebases
+     output PTS values to start close to 0 relative to the first
+     input segment, producing smaller PTS values in output
+     segments.
 
-8. For **SCTE in segments**, choose whether to include
-   SCTE-35 messages in the segment files. Choose from the following
-   options:
+###### Important
 
-   - **None** – SCTE-35 messages are not included in
+You can't change the output timestamp mode after you create the
+origin endpoint. This setting is only available on non-epoch-locked
+CMAF channels.
+
+For more information about output timestamp modes, see [Output timestamp mode for non-epoch-locked channels](cmaf-ingest.md#output-timestamp-mode "cmaf-ingest.md#output-timestamp-mode"). 4. Select **Include IFrame-only stream** to include an
+additional I-frame only stream along with the other tracks in the manifest.
+MediaPackage generates an I-frame only stream from the first rendition in the
+manifest. The service inserts `EXT-I-FRAMES-ONLY` tags in the
+output manifest, and then generates and includes an I-frames only playlist
+in the stream. This playlist enables player functionality like fast forward
+and rewind. 5. For TS containers only, select **Use audio rendition
+group** to group all audio tracks into a single rendition
+group. All other tracks in the stream can be used with any audio rendition
+from the group. For more information about rendition groups, see [AWS Elemental MediaPackage rendition groups reference](rendition-groups.md "rendition-groups.md"). 6. For TS containers only, select **Include DVB subtitles**
+to pass through digital video broadcasting (DVB) subtitles into the output.
+By default, MediaPackage excludes all DVB subtitles from the output. 7. Select **Enable SCTE support** to include SCTE
+configuration options. If you select this, you can further define your SCTE
+configuration in additional fields. 8. For **SCTE filtering**, choose the SCTE-35 message types
+that will be ad markers in the output. If you don't make a selection here,
+by default, MediaPackage inserts all ad markers in the output manifest.
+
+    * Splice insert
+    * Break
+    * Provider advertisement
+    * Distributor advertisement
+    * Provider placement opportunity
+    * Distributor placement opportunity
+    * Provider overlay placement opportunity
+    * Distributor overlay placement opportunity
+    * Program
+    * Chapter
+    * Unscheduled event
+    * Alternate content opportunity
+    * Network
+    * Provider promo
+    * Distributor promo
+    * Provider ad block
+    * Distributor ad block
+
+9. For **SCTE in segments**, choose whether to include
+SCTE-35 messages in the segment files. Choose from the following
+options:
+
+    * **None** – SCTE-35 messages are not included in
      segment output. This is the default setting.
-   - **All** – All SCTE-35 messages are included in
+    * **All** – All SCTE-35 messages are included in
      the segment data. For DASH manifests, an
      `InbandEventStream` tag is added to signal the
      presence of SCTE messages.
-   - **Matches filter** – Only SCTE-35 messages from
+    * **Matches filter** – Only SCTE-35 messages from
      events whose type matches the configured SCTE filtering are included
      in the segment data. For DASH manifests, an
      `InbandEventStream` tag is added to signal the
      presence of SCTE messages.
 
-9. For **Custom ad types**, choose additional
-   SCTE-35 event types that you want MediaPackage to treat as advertisements. By
-   default, MediaPackage treats only splice insert and time signal placement
-   opportunity events as ads. Use this setting to designate other event types
-   as ads. Choose from the following values:
+10. For **Custom ad types**, choose additional
+SCTE-35 event types that you want MediaPackage to treat as advertisements. By
+default, MediaPackage treats only splice insert and time signal placement
+opportunity events as ads. Use this setting to designate other event types
+as ads. Choose from the following values:
 
-   - `PROGRAM`
-   - `CHAPTER`
-   - `UNSCHEDULED_EVENT`
-   - `ALTERNATE_CONTENT_OPPORTUNITY`
-   - `NETWORK`
+    * `PROGRAM`
+    * `CHAPTER`
+    * `UNSCHEDULED_EVENT`
+    * `ALTERNATE_CONTENT_OPPORTUNITY`
+    * `NETWORK`
 
 ## Encryption fields
 
@@ -671,25 +685,45 @@ must adhere to the following requirements:
  DIRECT`. This value will be set as the `@value`
     attribute for the `UTCTiming` element. For information
     about `@value`, see [DASH clock synchronization](https://dashif.org/dash.js/pages/usage/clock-sync.html "https://dashif.org/dash.js/pages/usage/clock-sync.html").
-12. For **DASH period triggers**, choose how
-    MediaPackage creates media presentation description (MPD) periods
-    in the DASH output manifest. For more information, see [Multi-period DASH in AWS Elemental MediaPackage](multi-period.md "multi-period.md"). Choose
-    from the following options:
+12. (Optional) For **Availability start
+    time**, enter a custom timestamp to use as the
+    `availabilityStartTime` attribute in the DASH MPD.
+    MediaPackage calculates the `Period@start` value
+    relative to this timestamp. You can use this setting to reduce
+    large `Period@start` values.
 
-    - **Avails** – Avails that pass the
-      `ScteFilter` will create new periods.
-    - **DRM key rotation** – Encryption
-      key rotation will create new periods.
-    - **Source changes** – Changes in
-      the stream set will create new periods.
-    - **Source disruptions** – Gaps in
-      all content streams will create new periods.
-    - **None** – MediaPackage formats
-      the manifest as a single period. It doesn't create
-      additional periods, unless DRM settings change.
+If you don't specify a value, MediaPackage uses the default
+availability start time of `2024-01-01T00:00:00Z`.
+You configure this setting for each manifest, so each DASH manifest
+on the endpoint can use a different value.
 
-13. Select **Configure subtitle TTML profile** to
-    optionally configure the profile that TTML subtitles use.
+The timestamp must meet the following requirements:
+
+    * Must have hourly granularity only (minutes, seconds,
+     and fractional seconds must be zero)
+    * Must be on or after
+     `2024-01-01T00:00:00Z`
+    * Must be at least 14 days in the past
+
+13. For **DASH period triggers**, choose how
+MediaPackage creates media presentation description (MPD) periods
+in the DASH output manifest. For more information, see [Multi-period DASH in AWS Elemental MediaPackage](multi-period.md "multi-period.md"). Choose
+from the following options:
+
+    * **Avails** – Avails that pass the
+     `ScteFilter` will create new periods.
+    * **DRM key rotation** – Encryption
+     key rotation will create new periods.
+    * **Source changes** – Changes in
+     the stream set will create new periods.
+    * **Source disruptions** – Gaps in
+     all content streams will create new periods.
+    * **None** – MediaPackage formats
+     the manifest as a single period. It doesn't create
+     additional periods, unless DRM settings change.
+
+14. Select **Configure subtitle TTML profile** to
+optionally configure the profile that TTML subtitles use.
 
 **Subtitle TTML profile**
 
@@ -700,7 +734,7 @@ subtitles that are compliant with the EBU-TT-D TTML
 profile. MediaPackage passes through subtitle styles to the
 manifest. For more information about EBU-TT-D subtitles,
 see [EBU-TT-D Subtitling Distribution
-Format](https://tech.ebu.ch/publications/tech3380 "https://tech.ebu.ch/publications/tech3380"). 14. Select **Configure program information** to
+Format](https://tech.ebu.ch/publications/tech3380 "https://tech.ebu.ch/publications/tech3380"). 15. Select **Configure program information** to
 optionally provide details about the content that you want MediaPackage to
 pass through in the manifest to the playback device. To read more
 about program information, see the _Program
@@ -726,7 +760,7 @@ The language code for this manifest.
 **More information URL**
 
 An absolute URL that contains more information about
-this content. 15. Select **Configure DASH base URLs** to optionally
+this content. 16. Select **Configure DASH base URLs** to optionally
 specify one or more locations for the segments. For more
 information, see the _Base URL
 section_ of the [ISO 23009-1 DASH
@@ -751,7 +785,7 @@ URL. Lower values are higher priority.
 **DVB weight**
 
 For endpoints that use the DVB-DASH profile only. The
-weighting for Base URLs with the same priority. 16. For endpoints that use the DVB-DASH profile, select
+weighting for Base URLs with the same priority. 17. For endpoints that use the DVB-DASH profile, select
 **Configure DVB-DASH settings** to optionally
 pass to the player information for downloading subtitle fonts and
 sending error reports to pass through in the manifest to the
@@ -793,7 +827,7 @@ reports.
 The number of playback devices per 1000 that will send
 error reports to the reporting URL. This integer
 represents the probability that the playback device will
-be a reporting player for this session. 17. For **Ad markers**, choose how ad markers are
+be a reporting player for this session. 18. For **Ad markers**, choose how ad markers are
 signaled in the output manifests. All the non-ad markers that you
 include in the content stream in your upstream encoders will also be
 present in the output manifests. Choose from the following
@@ -805,7 +839,7 @@ options:
     * **XML** – The SCTE marker is
      expressed fully in XML.
 
-18. For **SCTE in manifests**, choose
+19. For **SCTE in manifests**, choose
 which SCTE-35 events appear in the output manifests. Choose from the
 following options:
 
@@ -817,7 +851,7 @@ following options:
      least one SCTE filter value configured to use this
      option.
 
-19. For **URI path type**, choose how
+20. For **URI path type**, choose how
 MediaPackage generates child manifest and segment URIs. Choose from the
 following options:
 
@@ -826,7 +860,7 @@ following options:
     * **Root** – URIs are absolute paths rooted
      at the endpoint base egress URI.
 
-20. Select **Enable filter configuration** if you
+21. Select **Enable filter configuration** if you
 want to optionally add filters and settings to modify manifests.
 These filters apply to all manifests that originate from this
 endpoint.

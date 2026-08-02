@@ -92,3 +92,104 @@ These capabilities support:
 - Enhanced stream identification and presentation
 - Improved viewer experience through better stream organization
 - More control over how streams appear in player interfaces
+
+## Output locking mode for CMAF channels
+
+When you create a CMAF channel in AWS Elemental MediaPackage, you choose an output locking mode.
+Use this mode to control how segments are aligned and presented in output manifests.
+The output locking mode affects segment duration, media sequence numbering, and DRM key
+rotation behavior.
+
+### Understanding output locking modes
+
+MediaPackage supports two output locking modes for CMAF channels:
+
+Epoch locked (default)
+
+Epoch-locked mode synchronizes segment boundaries across channels
+relative to a fixed epoch reference point. Use this mode when you need
+cross-region synchronization or failover capabilities. This is the
+default behavior for CMAF channels.
+
+Non-epoch locked
+
+Non-epoch-locked mode decouples segment alignment from the epoch
+reference point. Use this mode for single-region workflows where you
+don't need cross-region synchronization and you want predictable
+segment durations and target duration values in output manifests.
+
+###### Important
+
+You can't change the output locking mode after you create a channel. To
+switch modes, you must create a new channel.
+
+### When to use each mode
+
+Consider the following factors to choose the output locking mode for your
+workflow:
+
+When to use epoch-locked mode
+
+- You need cross-region synchronization or failover.
+- You have redundant channels in multiple AWS Regions that
+  must produce identical manifests.
+- You want DRM key rotation at fixed intervals from a common
+  reference point.
+
+When to use non-epoch-locked mode
+
+- You have a single-region workflow that doesn't require
+  cross-region failover.
+- You want the HLS target duration to be the same as the
+  configured output segment duration.
+- You don't need to maintain epoch alignment, which can
+  create large segments for the service to maintain alignment
+  with epoch boundaries.
+- You want your upstream encoder to be able to change frame rate or input
+  segment duration during a session.
+- You want DRM key rotation based on the endpoint's last
+  modified time instead of a fixed epoch.
+
+### Behavior differences between modes
+
+The following table compares how each output locking mode affects manifest and
+segment behavior:
+
+Comparison of output locking modes| Behavior | Epoch locked | Non-epoch locked |
+| --- | --- | --- |
+| HLS EXT-X-TARGETDURATION | Inflates up to 2x the configured segment duration when<br>SCTE is enabled. | Equals the configured segment duration. |
+| HLS MediaSequenceNumber | The service derives this value from the epoch reference. | Starts at 0 and increases monotonically. |
+| Segment durations | Can produce large combined segments for epoch alignment. | Cluster around the configured segment duration value. |
+| DASH period start times | Aligned to epoch reference. | Uses actual start times. |
+| DRM key rotation interval | Fixed intervals from epoch 0. | Fixed intervals from endpoint or DRM configuration last<br>modified time. |
+| Encoder frame rate and input segment duration changes | Not supported during a session. | Supported during a session. |
+| Cross-region synchronization | Supported. | Not supported. |
+
+### Output timestamp mode for non-epoch-locked channels
+
+For non-epoch-locked CMAF channels, you can configure an output timestamp mode
+on the origin endpoint's segment configuration. Use this setting to control how
+presentation timestamp (PTS) values appear in output segments.
+
+MediaPackage supports the following output timestamp modes:
+
+Passthrough (default)
+
+Preserves the raw PTS values from the input stream without
+modification.
+
+Rebased to channel start
+
+Rebases output PTS values to start close to 0 relative to the
+first input segment. This produces smaller PTS values in output
+segments.
+
+###### Note
+
+The output timestamp mode is only available for non-epoch-locked CMAF
+channels. You can't change this setting after you create the origin
+endpoint.
+
+If you use the rebased-to-channel-start mode and the upstream encoder restarts,
+we recommend that you reset the origin endpoint. For more information about
+resetting, see [Resetting channel history in AWS Elemental MediaPackage](channel-reset.md "channel-reset.md").

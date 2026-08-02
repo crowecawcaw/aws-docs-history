@@ -7,6 +7,7 @@ MediaPackage ingest requests usually originate from a video encoder.
 - [AWS Elemental MediaLive](#ingest-medialive "#ingest-medialive")
 - [AWS Elemental Live](#ingest-elemental-live "#ingest-elemental-live")
 - [Third-party encoders](#ingest-third-party "#ingest-third-party")
+- [Clients that don't support AWS authorization](#ingest-no-aws "#ingest-no-aws")
 
 ## AWS Elemental MediaLive
 
@@ -83,3 +84,40 @@ username and password, providing authorization to AWS for the Elemental Live nod
 Third-party encoders that support AWS authorization operate similarly to Elemental Live, as described earlier.
 To grant access, create an IAM user and a MediaPackage channel resource policy that permits the user to call `PutObject`.
 On the encoder's side, use the IAM user access key ID and secret access key to sign the requests.
+
+## Clients that don't support AWS authorization
+
+Encoders that don't support AWS authorization can be granted ingest access by
+restricting access to specific IP ranges using the `aws:SourceIp` condition
+key. This is useful for third-party encoders that can't sign requests with IAM
+credentials. For information about condition keys, see [IAM JSON
+Policy Elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md").
+
+MediaPackage doesn't support anonymous access for `PutObject` API calls. You
+must scope a wildcard principal (`"Principal": "*"`) with an
+`aws:SourceIp` condition.
+
+### Restrict access by IP range
+
+Consider the following `Allow` policy. With this policy in effect, MediaPackage
+restricts ingest to IP addresses in the range `203.0.113.0` to
+`203.0.113.255` using the `aws:SourceIp` condition key.
+
+```
+{
+	"Version": "2012-10-17",
+	"Id": "IpRangePolicy",
+	"Statement": [
+		{
+			"Sid": "RestrictByIpRange",
+			"Effect": "Allow",
+			"Principal": "*",
+			"Action": "mediapackagev2:PutObject",
+			"Resource": "arn:aws:mediapackagev2:`Region`:`AccountID`:channelGroup/`ChannelGroupName`/channel/`ChannelName`",
+			"Condition": {
+				"IpAddress": { "aws:SourceIp": "203.0.113.0/24" }
+			}
+		}
+	]
+}
+```

@@ -78,7 +78,25 @@ Ingest if you can. 6. (Optional) If you're using CMAF inputs, make your selectio
 You can choose one, both, or none of the settings.
 
 For information about MQCS, including workflow set up requirements and how
-preferred input selection works, see [Leveraging media quality scores with AWS Elemental MediaPackage](mqcs.md "mqcs.md"). For information about CMSD headers, see [CMSD headers from AWS Elemental MediaPackage](cmsd.md "cmsd.md"). 7. Choose your channel's IAM policy settings from the following options:
+preferred input selection works, see [Leveraging media quality scores with AWS Elemental MediaPackage](mqcs.md "mqcs.md"). For information about CMSD headers, see [CMSD headers from AWS Elemental MediaPackage](cmsd.md "cmsd.md"). 7. (Optional) If you're using CMAF inputs, choose the **Output locking
+mode** for your channel:
+
+    * **Epoch locked** (default) – Synchronizes
+     segment boundaries across channels for cross-region failover. Use this
+     mode when you need redundant channels in multiple AWS Regions to
+     produce synchronized manifests.
+    * **Non-epoch locked** – Decouples segment
+     alignment from epoch references. Use this mode for single-region
+     workflows where you want the HLS target duration to be the same as
+     the configured output segment duration.
+
+###### Important
+
+You can't change the output locking mode after you create the channel.
+Non-epoch-locked channels don't support cross-region
+synchronization or failover.
+
+For more information about output locking modes, see [Output locking mode for CMAF channels](cmaf-ingest.md#output-locking-mode "cmaf-ingest.md#output-locking-mode"). 8. Choose your channel's IAM policy settings from the following options:
 
     * **Don't attach a policy** – Restrict access to
      only those who have access to this account's credentials.
@@ -97,7 +115,7 @@ preferred input selection works, see [Leveraging media quality scores with AWS E
     If you're not using MediaLive, choose this option and define your
      policy.
 
-For more information about policies, see [Resource-based policy examples](using-iam-policies.md "using-iam-policies.md"). 8. Choose **Create**.
+For more information about policies, see [Resource-based policy examples](using-iam-policies.md "using-iam-policies.md"). 9. Choose **Create**.
 
 MediaPackage displays the new channel's details page.
 
