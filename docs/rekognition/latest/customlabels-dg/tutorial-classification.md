@@ -69,7 +69,7 @@ aws s3 cp s3://custom-labels-console-`region`-`numbers`/assets/rooms_`version nu
 Make a list of the classes that you want your model to find.
 For example, if you're training a model to recognize rooms in a house, you can classify the following image as `living_room`.
 
-![Cozy living room with fireplace, plush sofa, armchair, overlooking outdoors.](/images/rekognition/latest/customlabels-dg/images/image-classification.jpg)
+![Cozy living room with fireplace, plush sofa, armchair, overlooking outdoors.](images/image-classification.jpg)
 
 Each class maps to an image-level label. Later you assign image-level labels to the images in your training and test datasets.
 
@@ -186,12 +186,12 @@ project** edit box.
 ![Train model configuration page showing Project ARN input field, empty Tags section, and Train Model button.](images/tutorial-train-model-page-train-model.jpg) 3. In the **Do you want to train your model?** dialog box, choose
 **Train model**.
 
-![Dialog box asking "Do you want to train your model?" with Cancel and Train model buttons.](/images/rekognition/latest/customlabels-dg/images/tutorial-dialog-train-model.jpg) 4. In the **Models** section of the project page, you can see that training is
+![Dialog box asking "Do you want to train your model?" with Cancel and Train model buttons.](images/tutorial-dialog-train-model.jpg) 4. In the **Models** section of the project page, you can see that training is
 in progress. You can check the current status by viewing the `Model
  Status` column for the model version. Training a model takes a while
 to complete.
 
-![Model status showing 'TRAINING_IN_PROGRESS' indicating the model is currently being trained.](/images/rekognition/latest/customlabels-dg/images/tutorial-training-progress.jpg) 5. After training completes, choose the model name. Training is finished when the model status is **TRAINING\_COMPLETED**.
+![Model status showing 'TRAINING_IN_PROGRESS' indicating the model is currently being trained.](images/tutorial-training-progress.jpg) 5. After training completes, choose the model name. Training is finished when the model status is **TRAINING\_COMPLETED**.
 
 ![Rooms 19 model info showing status TRAINING_COMPLETED indicating the model is ready.](images/get-started-choose-model.jpg) 6. Choose the **Evaluate** button to see the evaluation results.
 For information about evaluating a model, see [Improving a trained Amazon Rekognition Custom Labels model](improving-model.md "improving-model.md"). 7. Choose **View test results** to see the results for individual test images. For more information, see [Metrics for evaluating your model](im-metrics-use.md "im-metrics-use.md").
@@ -306,7 +306,7 @@ model is running. If you have finished using the model, you should stop it.
 ![Stop button to halt the currently running model and disable inference units.](images/get-started-stop-model.jpg) 2. In the **Stop model** dialog box, enter
 **stop** to confirm that you want to stop the model.
 
-![Input field with "stop" entered, and Stop button to confirm stopping a model.](/images/rekognition/latest/customlabels-dg/images/get-started-stop-model-dialog.jpg) 3. Choose **Stop** to stop your model. The model has stopped
+![Input field with "stop" entered, and Stop button to confirm stopping a model.](images/get-started-stop-model-dialog.jpg) 3. Choose **Stop** to stop your model. The model has stopped
 when the status in the **Start or stop model** section is
 **Stopped**.
 

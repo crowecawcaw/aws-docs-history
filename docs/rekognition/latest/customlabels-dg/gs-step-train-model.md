@@ -15,14 +15,14 @@ image belows shows the **Train model** button,
 notice that the Amazon Resource Name (ARN) for your project is in the
 **Choose project** edit box.
 
-![Train model page with project ARN input field and Train model button.](/images/rekognition/latest/customlabels-dg/images/tutorial-train-model-page-train-model.jpg) 3. In the **Do you want to train your model?** dialog box, shown in the
+![Train model page with project ARN input field and Train model button.](images/tutorial-train-model-page-train-model.jpg) 3. In the **Do you want to train your model?** dialog box, shown in the
 following image, choose **Train model**.
 
 ![Dialog box to start model training with Cancel and Train model buttons.](images/tutorial-dialog-train-model.jpg) 4. After training completes, choose the model name. Training is finished when the model status is
 **TRAINING\_COMPLETED**, as demonstrated in the following
 console screenshot.
 
-![Model training interface showing completed status for model named "rooms_19.2021-07-13T10:36:30" with performance score 0.902 and status "TRAINING_COMPLETED".](/images/rekognition/latest/customlabels-dg/images/get-started-choose-model.jpg) 5. Choose the **Evaluate** button to see the evaluation results.
+![Model training interface showing completed status for model named "rooms_19.2021-07-13T10:36:30" with performance score 0.902 and status "TRAINING_COMPLETED".](images/get-started-choose-model.jpg) 5. Choose the **Evaluate** button to see the evaluation results.
 For information about evaluating a model, see [Improving a trained Amazon Rekognition Custom Labels model](improving-model.md "improving-model.md"). 6. Choose **View test results** to see the results for individual test images.
 As seen in the following screenshot, the evaluation dashboard shows metrics such
 as F1 score, precision, and recall for each label along with number of test
