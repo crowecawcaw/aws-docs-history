@@ -91,7 +91,7 @@ operations are available in additional Regions, see the corresponding [table](ap
 | Total number of instances of IAM Identity Center per account                                          | 1             | No               |
 | Total number of trusted token issuers                                                                 | 10            | No               |
 | Total number of groups that can be assigned to a permission set per AWS account, or to an application | 100           | No               |
-| Total number of AWS Regions enabled for a single IAM Identity Center instance                         | 3             | Yes              |
+| Total number of AWS Regions enabled for a single IAM Identity Center instance                         | 6             | Yes              |
 
 \* This quota applies separately to AWS accounts and to applications. You can
 configure up to 7000 accounts and up to 7000 applications.

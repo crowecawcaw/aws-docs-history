@@ -13,5 +13,5 @@ Region in the list of Regions available for replications. For more information, 
 
 If no IAM Identity Center users can sign into AWS managed applications in an additional Region after
 you added the Region in IAM Identity Center, confirm that you configured the additional Region's Assertion
-Consumer Service (ACS) URL in the external identity provider as described in [Step 3: Update external IdP setup](replicate-to-additional-region.md#update-external-idp-setup "replicate-to-additional-region.md#update-external-idp-setup"). Also, confirm your users have connectivity to
+Consumer Service (ACS) URL in the external identity provider as described in [Step 3 (external identity providers only): Update external IdP setup](replicate-to-additional-region.md#update-external-idp-setup "replicate-to-additional-region.md#update-external-idp-setup"). Also, confirm your users have connectivity to
 the Region.

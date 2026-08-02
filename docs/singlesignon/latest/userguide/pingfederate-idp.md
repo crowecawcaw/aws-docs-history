@@ -55,7 +55,7 @@ You'll need the following before you can get started:
   provider
   configuration to enable access to AWS managed applications and AWS accounts from those
   Regions. For more details, see
-  [Step 3: Update external IdP setup](replicate-to-additional-region.md#update-external-idp-setup "replicate-to-additional-region.md#update-external-idp-setup"). See the
+  [Step 3 (external identity providers only): Update external IdP setup](replicate-to-additional-region.md#update-external-idp-setup "replicate-to-additional-region.md#update-external-idp-setup"). See the
   PingFederate documentation for additional details.
 
 ## Considerations

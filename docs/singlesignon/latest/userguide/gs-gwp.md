@@ -126,10 +126,15 @@ If you haven't enabled IAM Identity Center yet, see [Enable IAM Identity Center]
 
 6. After providing the Google metadata in the
    **Identity Provider metadata** section of the
-   **IAM Identity Center** console, copy the **IAM Identity
-   Assertion Consumer Service (ACS) URL** and **IAM Identity Center
-   issuer URL**. You will need to provide these URLs in the
-   Google Admin console in the next step.
+   **IAM Identity Center** console, under **Service provider
+   metadata**, choose **Default IPv4** or
+   **Dual-stack**. If you customized your AWS access portal
+   URL, choose **Default IPv4**. Copy the
+   **IAM Identity Assertion Consumer Service (ACS)
+   URL** and **IAM Identity Center issuer URL**. You need
+   these URLs to complete the Google Admin console
+   configuration in the next step. For more information about ACS
+   URLs, see [ACS endpoints in the primary and additional AWS Regions](multi-region-workforce-access.md#acs-endpoints "multi-region-workforce-access.md#acs-endpoints").
 7. Leave the page open with the IAM Identity Center console and return to the
    Google Admin console. You should be on the
    **Amazon Web Services - Service Provider details** page. Select

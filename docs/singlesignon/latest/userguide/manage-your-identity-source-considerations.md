@@ -56,6 +56,9 @@ groups in the Identity Center directory, and then make assignments.
   users with active sessions can continue to access integrated applications and
   accounts. For information about authentication session duration
   and user behavior, see [Understanding authentication sessions in IAM Identity Center](authconcept.md "authconcept.md").
+- Multi-Region support – If you have replicated IAM Identity Center to additional Regions or plan to do so,
+  you must use an external identity provider or the Identity Center directory as the identity source. Multi-Region support is not available for Active Directory. For more information including other prerequisites, see
+  [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
 
 For information about how IAM Identity Center provisions users and groups, see [Microsoft AD directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
 
@@ -126,10 +129,6 @@ and user behavior, see [Understanding authentication sessions in IAM Identity Ce
 You will not be able to revoke user sessions from the IAM Identity Center console after
 you've deleted the user.
 
-- Multi-Region support – If you have replicated IAM Identity Center to additional Regions or plan to do so,
-  you must use an external identity provider as the identity source. For more information including other prerequisites, see
-  [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
-
 For information about how IAM Identity Center provisions users and groups, see [Manage users in the Identity Center directory](manage-your-identity-source-sso.md "manage-your-identity-source-sso.md").
 
 ## Changing from one external IdP to another external IdP
@@ -189,7 +188,7 @@ Active Directory to an external IdP, consider the following:
   accounts. For information about authentication session duration
   and user behavior, see [Understanding authentication sessions in IAM Identity Center](authconcept.md "authconcept.md").
 - Multi-Region support – If you have replicated IAM Identity Center to additional Regions or plan to do so,
-  you must use an external identity provider as the identity source. For more information including other prerequisites, see
+  you must use an external identity provider or the Identity Center directory as the identity source. Multi-Region support is not available for Active Directory. For more information including other prerequisites, see
   [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
 
 For information about how IAM Identity Center provisions users and groups, see [Microsoft AD directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").

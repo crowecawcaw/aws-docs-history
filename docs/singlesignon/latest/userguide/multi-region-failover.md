@@ -8,9 +8,9 @@ If your IAM Identity Center instance experiences a disruption in the primary Reg
 your workforce can switch to an additional Region to continue accessing AWS accounts and unaffected
 applications. For more information, see [Workforce access through an additional Region](multi-region-workforce-access.md "multi-region-workforce-access.md").
 
-We recommend that you communicate the AWS access portal endpoints in additional Regions and
-the external IdP setup (such as bookmark apps for the additional Regions) to your workforce as
-soon as you complete the setup in [Replicate IAM Identity Center to an additional Region](replicate-to-additional-region.md "replicate-to-additional-region.md"). This will
+We recommend that you communicate the AWS access portal endpoints in additional Regions to your workforce as
+soon as you complete the setup in [Replicate IAM Identity Center to an additional Region](replicate-to-additional-region.md "replicate-to-additional-region.md"). If you use an
+external identity provider, also communicate the IdP setup (such as bookmark apps for the additional Regions). This will
 enable them to be ready for failover to an additional Region if needed.
 
 Similarly, we recommend that AWS CLI users create [AWS CLI
@@ -20,14 +20,20 @@ Region.
 
 ###### Note
 
-Continuity of access to AWS accounts also depends on the health of your external IdP
-and permissions such as permission set assignments and group memberships being provisioned
-and replicated before a service disruption. We recommend your organization also set up [AWS
+Continuity of access to AWS accounts depends on permissions such as permission set
+assignments and group memberships being provisioned and replicated before a service disruption.
+If you use an external identity provider, continuity also depends on the health of your external IdP.
+We recommend your organization also set up [AWS
 break-glass access](../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md "../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md") to maintain AWS access to a small group of privileged users
-when the external IdP has a service disruption. [Emergency access](emergency-access.md "emergency-access.md") is a
-similar option that avoids using IAM users, but it too depends on the external IdP.
+when the identity source has a service disruption. [Emergency access](emergency-access.md "emergency-access.md") is a
+similar option that requires an external IdP.
 
 ## AWS account access resiliency without multiple ACS URLs
+
+###### Note
+
+This section applies only to instances that use an external identity provider (IdP).
+If you use the Identity Center directory as your identity source, this limitation does not apply.
 
 Some external identity providers (IdPs) don't support multiple assertion consumer service
 (ACS) URLs in their IAM Identity Center application. Multiple ACS URLs are a SAML feature that is required for direct sign-in to a specific Region in a multi-Region IAM Identity Center.

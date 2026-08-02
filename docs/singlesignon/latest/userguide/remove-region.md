@@ -2,11 +2,12 @@
 
 To remove an additional Region from your IAM Identity Center instance, follow these steps:
 
-## Step 1: Update external IdP configuration
+## Step 1: Update external IdP configuration (if applicable)
 
-You can choose to remove the ACS URL for this Region from your external IdP or keep it in
+If you use an external identity provider, you can choose to remove the ACS URL for this Region from your external IdP or keep it in
 case you want to add this Region again later. We recommend that you remove or hide the
 bookmark app you might have created for the AWS access portal in this Region.
+If you use the Identity Center directory as your identity source, proceed to Step 2.
 
 ## Step 2: Remove the Region
 

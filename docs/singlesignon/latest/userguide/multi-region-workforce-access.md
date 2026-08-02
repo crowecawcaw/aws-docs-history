@@ -6,8 +6,9 @@ applications when you have enabled IAM Identity Center in multiple Regions.
 The AWS access portal in an additional Region displays the AWS accounts and applications
 your workforce has access to in the same way as in the primary Region. Your workforce can sign
 into the AWS access portal in an additional Region through a direct link to the regional portal
-endpoint (for example, `https://ssoins-111111h2222j33pp.eu-west-1.portal.amazonaws.com`)
-or through a [bookmark app](replicate-to-additional-region.md#update-external-idp-setup "replicate-to-additional-region.md#update-external-idp-setup") you set up in the
+endpoint (for example, `https://ssoins-111111h2222j33pp.eu-west-1.portal.amazonaws.com`).
+If you use an external identity provider, your workforce can also sign in through a
+[bookmark app](replicate-to-additional-region.md#update-external-idp-setup "replicate-to-additional-region.md#update-external-idp-setup") you set up in the
 external IdP.
 
 You can use the AWS access portal endpoint in an additional Region to authorize the AWS CLI for
@@ -56,6 +57,11 @@ don't have the trailing `/start` in the URL.
 
 ## Assertion Consumer Service (ACS) endpoints in the primary and additional AWS Regions
 
+###### Note
+
+This section applies only to instances that use an external identity provider (IdP).
+If you use the Identity Center directory as your identity source, ACS URL configuration is not required.
+
 If you need to look up the ACS URLs or download them as part of the SAML metadata, follow
 these steps:
 
@@ -91,6 +97,11 @@ it. IAM Identity Center does not use this endpoint for instances that were enabl
 February 2026 or later.
 
 ## Using AWS managed applications without multiple ACS URLs
+
+###### Note
+
+This section applies only to instances that use an external identity provider (IdP).
+If you use the Identity Center directory as your identity source, this limitation does not apply.
 
 Some external identity providers (IdPs) don't support multiple assertion consumer service
 (ACS) URLs in their IAM Identity Center application. Multiple ACS URLs are a SAML feature that is required for direct sign-in to a specific Region in a multi-Region IAM Identity Center.

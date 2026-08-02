@@ -45,7 +45,7 @@ You will need the following before you can get started:
   configuration to enable access to AWS managed applications and AWS accounts from
   those
   Regions. For more details, see
-  [Step 3: Update external IdP setup](replicate-to-additional-region.md#update-external-idp-setup "replicate-to-additional-region.md#update-external-idp-setup"). See the
+  [Step 3 (external identity providers only): Update external IdP setup](replicate-to-additional-region.md#update-external-idp-setup "replicate-to-additional-region.md#update-external-idp-setup"). See the
   JumpCloud documentation for additional details.
 - Associate the IAM Identity Center connector with the groups you want to allow access to
   AWS accounts.

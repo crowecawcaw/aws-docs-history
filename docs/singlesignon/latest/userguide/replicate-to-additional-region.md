@@ -74,7 +74,10 @@ The duration of the initial replication to an additional Region depends on the a
 data in your IAM Identity Center instance. Subsequent incremental changes are replicated within seconds
 in most cases.
 
-## Step 3: Update external IdP setup
+## Step 3 (external identity providers only): Update external IdP setup
+
+This step applies only if you use an external identity provider (IdP). If you use the
+Identity Center directory as your identity source, skip to Step 4.
 
 Follow the tutorial for your external IdP in [IAM Identity Center identity source tutorials](tutorials.md "tutorials.md") for the
 following steps:

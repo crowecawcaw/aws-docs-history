@@ -38,8 +38,8 @@ configured in IAM Identity Center.
 
 ###### Note
 
-If you replicated IAM Identity Center to additional Regions, you won’t be able to change your identity source type. You can only replace the current external IdP
-with another one. To change the identity source type, you will need to remove all additional Regions first. For more information,
+If you replicated IAM Identity Center to additional Regions and want to change your identity source to Active Directory, you must remove all additional Regions first.
+Multi-Region support is not available for instances that use Active Directory as the identity source. For more information,
 see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md")
 
 If you are switching to an external identity provider, we recommend that you follow the

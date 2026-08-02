@@ -71,5 +71,5 @@ use by external identity providers. For more information, see [Prompt users for 
 ###### Note
 
 If you plan to replicate IAM Identity Center to additional Regions, you will need to
-configure an external identity provider. For more details including the
+use an external identity provider or the Identity Center directory as your identity source. Multi-Region support is not available for Active Directory. For more details including the
 prerequisites, see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").

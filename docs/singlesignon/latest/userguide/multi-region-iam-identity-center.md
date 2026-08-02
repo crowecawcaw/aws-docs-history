@@ -33,8 +33,8 @@ Before you replicate your IAM Identity Center instance, ensure the following req
 - **Instance type** - Your IAM Identity Center instance must be an [organization instance](organization-instances-identity-center.md "organization-instances-identity-center.md").
   Multi-Region support is not available in [account instances](account-instances-identity-center.md "account-instances-identity-center.md").
 - **Identity source** - Your IAM Identity Center instance must be
-  connected to an external identity provider (IdP), such as [Okta](https://www.okta.com/ "https://www.okta.com/"). Multi-Region support is not available for
-  instances that use [Active Directory](gs-ad.md "gs-ad.md") or the [Identity Center directory](quick-start-default-idc.md "quick-start-default-idc.md") as the identity source.
+  connected to an external identity provider (IdP), such as [Okta](https://www.okta.com/ "https://www.okta.com/"), or use the [Identity Center directory](quick-start-default-idc.md "quick-start-default-idc.md") as the identity source. Multi-Region support is not available for
+  instances that use [Active Directory](gs-ad.md "gs-ad.md") as the identity source.
 - **AWS Regions** - Multi-Region support is available in [commercial
   Regions enabled by default](../../../accounts/latest/reference/manage-acct-regions.md#manage-acct-regions-considerations "../../../accounts/latest/reference/manage-acct-regions.md#manage-acct-regions-considerations") in your AWS account. Opt-in Regions are not currently
   supported.
@@ -52,13 +52,13 @@ Before you replicate your IAM Identity Center instance, ensure the following req
   - The AWS managed applications that you want to deploy in additional Regions must support
     this type of deployment.
 
-- **External IdP compatibility** - To fully take advantage
-  of multi-Region support, the external IdP must support multiple assertion consumer service
-  (ACS) URLs. This is a SAML feature that is supported by IdPs such as Okta, Microsoft Entra ID,
+- **External IdP compatibility (external identity providers only)** - If you use an external identity provider, the
+  IdP must support multiple assertion consumer service
+  (ACS) URLs to fully take advantage of multi-Region support. This is a SAML feature that is supported by IdPs such as Okta, Microsoft Entra ID,
   PingFederate, PingOne, and JumpCloud.
 
 If you use an IdP that doesn't support multiple ACS URLs, such as Google Workspace, we recommend
-that you work with your IdP vendor to enable this feature. For options that are available without multiple ACS URLs, see [Using AWS managed applications without multiple ACS URLs](multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls "multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls") and [AWS account access resiliency without multiple ACS URLs](multi-region-failover.md#account-access-resiliency-without-multiple-acs-url "multi-region-failover.md#account-access-resiliency-without-multiple-acs-url").
+that you work with your IdP vendor to enable this feature. This prerequisite does not apply when using the Identity Center directory as the identity source. For options that are available without multiple ACS URLs, see [Using AWS managed applications without multiple ACS URLs](multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls "multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls") and [AWS account access resiliency without multiple ACS URLs](multi-region-failover.md#account-access-resiliency-without-multiple-acs-url "multi-region-failover.md#account-access-resiliency-without-multiple-acs-url").
 
 ## Choosing an additional Region
 
