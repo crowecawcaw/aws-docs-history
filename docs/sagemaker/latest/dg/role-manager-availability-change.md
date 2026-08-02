@@ -1,12 +1,12 @@
 # Role Manager availability change
 
-## IAM Native Tools + IAM Identity Center + Infrastructure-as-Code
-
 ###### Note
 
-After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Role Manager, effective 7/30/26.
+Amazon SageMaker Role Manager is no longer open to new customers.
 Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Role Manager, but we do not plan to introduce new features. For more information, see [Role Manager availability change](role-manager-availability-change.md "role-manager-availability-change.md").
+Role Manager, but we do not plan to introduce new features.
+
+## IAM native tools, IAM Identity Center, and infrastructure-as-code
 
 The combination of AWS IAM native role creation, AWS IAM Identity Center, and
 Infrastructure-as-Code (CloudFormation, CDK) serves as a replacement for Amazon SageMaker Role Manager
@@ -39,7 +39,7 @@ Role manager > Create a role), or using the "Create role using the role creation
 option during domain, notebook, training job, or inference model creation, use an alternative
 path described in the Configuring Replacements section below.
 
-### No Cleanup Required for Existing Roles
+### No cleanup required for existing roles
 
 IAM roles previously created by Role Manager are standard IAM roles. They continue to
 function independently with no Role Manager-specific runtime dependency. These roles:
@@ -51,20 +51,20 @@ function independently with no Role Manager-specific runtime dependency. These r
 - Require no transformation, migration, or deletion as part of this
   transition
 
-### Replace CDK Role Manager Constructs (If Used)
+### Replace CDK Role Manager constructs (if used)
 
 If you used the `@aws-cdk/aws-sagemaker-alpha` Role Manager CDK constructs
 (the `Persona` and `Activity` classes), replace them with standard
 `aws-cdk-lib/aws-iam` constructs. See the Infrastructure-as-Code section below
 for replacement patterns.
 
-### Replacing the Studio Domain Creation Flow
+### Replacing the Studio domain creation flow
 
 When creating a SageMaker AI domain, Role Manager was offered as an option to create
 execution roles during the onboarding wizard ("Create role using the role creation wizard").
 Follow the alternative below:
 
-#### Custom Domain Setup with IAM Console Role Creation
+#### Custom domain setup with IAM console role creation
 
 During custom domain creation, you can create an execution role directly from the IAM
 console rather than using Role Manager.
@@ -98,12 +98,12 @@ console rather than using Role Manager.
 Refer to [How to use SageMaker AI execution
 roles](sagemaker-roles.md "sagemaker-roles.md") for detailed instructions.
 
-#### Use AWS Managed Policies Directly
+#### Use AWS managed policies directly
 
 AWS provides managed policies that cover common SageMaker activities. Attach these
 directly to your IAM execution role:
 
-| Use Case                                           | AWS Managed Policies to Attach                                                 |
+| Use case                                           | AWS managed policies to attach                                                 |
 | -------------------------------------------------- | ------------------------------------------------------------------------------ |
 | General ML development (Data Scientist equivalent) | `AmazonSageMakerFullAccess`                                                    |
 | Read-only access for monitoring/auditing           | `AmazonSageMakerReadOnly`                                                      |
@@ -116,7 +116,7 @@ directly to your IAM execution role:
 Refer to [AWS managed policies for Amazon
 SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md") for the complete list.
 
-#### Use IAM Access Analyzer Policy Generation (for Least-Privilege)
+#### Use IAM Access Analyzer policy generation (for least-privilege)
 
 Use IAM Access Analyzer to generate least-privilege policies based on actual
 CloudTrail access activity. This produces more accurate, usage-based policies than Role

@@ -1,12 +1,12 @@
 # Amazon SageMaker Model Monitor availability change
 
-## Open-Source SageMaker AI Monitoring Solutions + Amazon QuickSight + Amazon CloudWatch
-
 ###### Note
 
-After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Amazon SageMaker Model Monitor is no longer open to new customers.
 Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+Model Monitor, but we do not plan to introduce new features.
+
+## Open-source SageMaker AI monitoring solutions + Amazon QuickSight + Amazon CloudWatch
 
 The combination of the open-source Amazon SageMaker AI monitoring solutions, [Amazon QuickSight](../../../quick/latest/userguide/quick-sight-getting-started.md "../../../quick/latest/userguide/quick-sight-getting-started.md") governance dashboards, and [Amazon CloudWatch](../../../cloudwatch.md "../../../cloudwatch.md") serves as a
 replacement for Amazon SageMaker Model Monitor.
@@ -34,7 +34,7 @@ inference-level monitoring with enhanced metrics for SageMaker endpoints, includ
 latency, model errors, CPU/GPU utilization, and custom metrics with anomaly detection
 alarms.
 
-## Replacing Amazon SageMaker Model Monitor with Open-Source Solutions, QuickSight, and CloudWatch
+## Replacing Amazon SageMaker Model Monitor with open-source solutions, QuickSight, and CloudWatch
 
 This section guides you through replacing your existing Amazon SageMaker Model Monitor
 deployment using the open-source Amazon SageMaker AI monitoring solutions (SageMaker AI MLflow
@@ -45,7 +45,7 @@ performance monitoring for models deployed on Amazon SageMaker AI.
 
 ### Removing Model Monitor
 
-#### Discontinue Model Monitor for New Monitoring Schedules
+#### Discontinue Model Monitor for new monitoring schedules
 
 If your workflow includes creating monitoring schedules using the
 `DefaultModelMonitor`, `ModelQualityMonitor`,
@@ -53,7 +53,7 @@ If your workflow includes creating monitoring schedules using the
 SageMaker Python SDK, or the `CreateMonitoringSchedule` API, transition to the
 alternatives described in the Configuring Replacements section below.
 
-#### Delete Existing Monitoring Schedules
+#### Delete existing monitoring schedules
 
 Monitoring schedules spin up Processing Job instances (example:
 `ml.m5.xlarge`) on a recurring schedule. Deleting them helps eliminate ongoing
@@ -92,9 +92,9 @@ aws sagemaker delete-monitoring-schedule \
 Deleting a monitoring schedule also stops the schedule if it has not already been
 stopped. This does not delete the job execution history of the monitoring schedule.
 
-### Configuring Replacements
+### Configuring replacements
 
-#### Choosing a Monitoring Solution
+#### Choosing a monitoring solution
 
 The [open-source Amazon SageMaker AI monitoring solutions](https://github.com/aws-samples/sample-aiops-on-amazon-sagemakerai/tree/main/monitoring "https://github.com/aws-samples/sample-aiops-on-amazon-sagemakerai/tree/main/monitoring") repository provides seven
 production-ready monitoring solutions built on SageMaker AI MLflow Apps and Evidently AI.
@@ -112,7 +112,7 @@ datasets, models, and drift thresholds.
 | SageMaker Resource Observability with Grafana             | Real-time endpoint                | Single notebook (Amazon Managed Grafana)      | GPU/CPU/memory + cost                                        | Multi-model cost and capacity optimization                   |
 | LLM Quality Observability with Grafana                    | Real-time endpoint                | Notebook (Managed Grafana + CloudWatch)       | Safety, relevance, tone, composite quality                   | LLM output quality regression detection                      |
 
-#### Getting Started with the Monitoring Solutions
+#### Getting started with the monitoring solutions
 
 The recommended starting points for replacing Model Monitor's data and model quality
 monitoring are the **Predictive ML Batch Monitoring Pipeline**
@@ -186,7 +186,7 @@ fire when `drifted_columns_share` exceeds `DriftThreshold`
 (default `0.05`) or when configured `CriticalFeatures`
 drift.
 
-### Replacing Data Quality Monitoring
+### Replacing data quality monitoring
 
 Model Monitor's data quality monitoring detects statistical drift in input features by
 comparing live inference data against a training data baseline. It computes statistics
@@ -194,7 +194,7 @@ comparing live inference data against a training data baseline. It computes stat
 completeness, value ranges) using a Deequ-based engine running on scheduled Processing
 Jobs.
 
-#### Option 1: Open-Source Solutions with Evidently AI
+#### Option 1: Open-source solutions with Evidently AI
 
 The monitoring solutions use Evidently AI's `DataDriftPreset` to detect
 feature drift, computing PSI (Population Stability Index) and KS statistics for every
@@ -223,18 +223,18 @@ Refer to the [open-source Amazon SageMaker AI monitoring solutions](https://gith
 The QuickSight-based real-time solution is described in the Inference Meta-Monitoring
 section below.
 
-#### Option 2: Amazon CloudWatch Custom Metrics + Anomaly Detection
+#### Option 2: Amazon CloudWatch custom metrics + anomaly detection
 
 For lightweight data quality monitoring without the full monitoring pipeline, publish
 custom metrics to CloudWatch and use anomaly detection alarms. Refer to [Using CloudWatch anomaly detection](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.md") for detailed steps.
 
-### Replacing Model Quality Monitoring
+### Replacing model quality monitoring
 
 Model Monitor's model quality monitoring tracks prediction accuracy by merging ground
 truth labels from S3 with endpoint predictions and computing metrics (accuracy, precision,
 recall, F1, AUC, RMSE, MAE) on a schedule.
 
-#### Option 1: Open-Source Solutions with Evidently AI
+#### Option 1: Open-source solutions with Evidently AI
 
 The monitoring solutions use Evidently AI's `ClassificationPreset` to
 compute ROC-AUC, precision, recall, F1, and the confusion matrix whenever ground truth is
@@ -242,16 +242,16 @@ available. The solutions include a pattern for reconciling delayed ground truth 
 predictions by inference ID, which addresses the real-world label latency that makes model
 quality monitoring difficult.
 
-#### Option 2: CloudWatch Custom Metrics
+#### Option 2: CloudWatch custom metrics
 
 Publish model quality metrics to CloudWatch when ground truth becomes available.
 
-### Replacing Bias Drift Monitoring
+### Replacing bias drift monitoring
 
 Model Monitor's bias drift monitoring detects changes in fairness metrics over time by
 comparing live predictions against a bias baseline across protected attributes.
 
-#### Segment-Sliced Metrics with Evidently AI, logged to MLflow and QuickSight
+#### Segment-sliced metrics with Evidently AI, logged to MLflow and QuickSight
 
 Track bias by computing performance and outcome metrics per protected-attribute
 segment (for example, by `gender`, `age_band`, or
@@ -267,7 +267,7 @@ the threshold, using the same EventBridge + Lambda pattern as the data and model
 monitors. Because everything is open-source and runs in your account, you control which
 attributes are monitored and which fairness definitions apply.
 
-### Inference Meta-Monitoring with Amazon QuickSight (Real-Time and Predictive Monitoring)
+### Inference meta-monitoring with Amazon QuickSight (real-time and predictive monitoring)
 
 Predictive models can silently degrade in production. Fraud handlers start seeing
 false-positive spikes, loan officers see applications that should have been flagged, and

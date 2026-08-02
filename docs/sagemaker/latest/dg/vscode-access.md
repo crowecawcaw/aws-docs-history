@@ -1,4 +1,4 @@
-# Remote access to SageMaker Spaces
+# Remote access using SSH over SSM
 
 Remote access allows you to connect your local Visual Studio Code directly to
 development spaces running on your SageMaker HyperPod cluster. Remote connections use

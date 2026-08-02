@@ -9,11 +9,11 @@ frameworks are similar. The main difference is that TensorFlow requires
 
 If you are using **PyTorch v1.4 or later** or **MXNet 1.7.0 or later** and you have
 an Amazon SageMaker AI endpoint `InService`, you can make inference requests using the `predictor` package of the
-SageMaker AI SDK for Python.
+SageMaker Python SDK.
 
 ###### Note
 
-The API varies based on the SageMaker AI SDK for Python version:
+The API varies based on the SageMaker Python SDK version:
 
 - For version 1.x, use the [`RealTimePredictor`](https://sagemaker.readthedocs.io/en/v1.72.0/api/inference/predictors.html#sagemaker.predictor.RealTimePredictor "https://sagemaker.readthedocs.io/en/v1.72.0/api/inference/predictors.html#sagemaker.predictor.RealTimePredictor") and
   [`Predict`](https://sagemaker.readthedocs.io/en/v1.72.0/api/inference/predictors.html#sagemaker.predictor.RealTimePredictor.predict "https://sagemaker.readthedocs.io/en/v1.72.0/api/inference/predictors.html#sagemaker.predictor.RealTimePredictor.predict") API.

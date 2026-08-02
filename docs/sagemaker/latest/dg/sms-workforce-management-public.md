@@ -2,7 +2,7 @@
 
 ###### Note
 
-After careful consideration, we have made the decision to close new customer access to AWS Mechanical Turk, effective 7/30/26.
+Amazon SageMaker Mechanical Turk is no longer open to new customers.
 Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
 Mechanical Turk, but we do not plan to introduce new features.
 

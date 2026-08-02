@@ -67,7 +67,7 @@ You can search for and purchase a plan that will be accessible within 30 minutes
 ensure timely activation, the payment transaction must successfully complete at least 5
 minutes before the desired start time. For example, if you want a plan to start at 2:00
 PM, you can make a last-minute search as late as 1:30 PM and complete your purchase by
-1:55 PM to guarantee the plan is ready by 2:00 PM.
+1:55 PM to ensure the plan is ready by 2:00 PM.
 
 - **Reservation duration and instance quantity**:
   SageMaker training plans allow you to reserve instances with specific duration and quantity

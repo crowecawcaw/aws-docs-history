@@ -319,6 +319,36 @@ console. As part of improving the SageMaker Spaces experience, this role will no
 automatically created by the SageMaker Console during Spaces add-on installation,
 **requiring no customer action**.
 
+## Prerequisites for Direct SSH
+
+Direct SSH requires the following infrastructure prerequisites. If
+web browser access is already enabled on your cluster, these
+prerequisites are already in place. For more information about web
+browser access, see [Web browser access](browser-access.md "browser-access.md").
+
+- **ExternalDNS** — deployed
+  through EKS add-ons, with an IAM role that has Route 53
+  permissions. Configure ExternalDNS with
+  `--policy=sync` (not the default
+  `upsert-only`) so that ExternalDNS removes DNS records
+  when you delete a workspace.
+- **Amazon Route 53 Private Hosted Zone**
+  — a domain or subdomain that you own, registered in Route 53
+  and associated with the cluster VPC.
+- **VPC connectivity from client machines**
+  — VPN or AWS Direct Connect from client machines to the
+  cluster VPC. Because Direct SSH exposes the port on the pod's
+  private IP address inside the VPC, you can connect only if your
+  client machine has network connectivity to that VPC, through the
+  same VPC, VPC peering, a VPN, or Direct Connect.
+- **AWS Load Balancer Controller**
+  — required if you also use web browser access (ALB
+  ingress). For HyperPod-specific installation notes, see
+  [AWS Load Balancer Controller: HyperPod vpcId requirement](direct-ssh-access.md#direct-ssh-appendix-lbc "direct-ssh-access.md#direct-ssh-appendix-lbc").
+
+For detailed setup and verification instructions, see
+[(Optional) Setting up prerequisites](direct-ssh-access.md#direct-ssh-appendix "direct-ssh-access.md#direct-ssh-appendix").
+
 ## Permission setup for AWS Toolkit to Access SageMaker Spaces
 
 To allow the AWS VS Code Toolkit resource explorer side panel to discover and

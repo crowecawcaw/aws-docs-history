@@ -97,7 +97,7 @@ Key capabilities available through Studio include:
   type, storage, GPU, and vCPU allocations.
 - Start and stop spaces with a single click to manage compute costs.
 - Open spaces directly in the browser (JupyterLab or Code Editor) or connect through a
-  Remote IDE. For more information, see [Remote access to SageMaker Spaces](vscode-access.md "vscode-access.md").
+  Remote IDE. For more information, see [Remote access using SSH over SSM](vscode-access.md "vscode-access.md").
 - Delete spaces that are no longer needed.
 - Select namespaces to organize spaces by team with resource quotas and governance
   settings.
@@ -171,7 +171,7 @@ From the **Actions** column, you can:
 - Open the space in your browser to launch the JupyterLab or Code Editor web
   interface.
 - Connect using a Remote IDE. For more information, see
-  [Remote access to SageMaker Spaces](vscode-access.md "vscode-access.md").
+  [Remote access using SSH over SSM](vscode-access.md "vscode-access.md").
 
 #### Connecting to your space
 
@@ -191,7 +191,7 @@ Choose **Open in Remote IDE** from the spaces table to connect your
 local IDE to the space running on HyperPod. This provides a secure connection
 without requiring you to manage SSH keys or expose port 22. You get the full power of your
 local development environment while running code on HyperPod cluster compute. For
-more information, see [Remote access to SageMaker Spaces](vscode-access.md "vscode-access.md").
+more information, see [Remote access using SSH over SSM](vscode-access.md "vscode-access.md").
 
 ## Details
 

@@ -1,6 +1,6 @@
 # Using training plans for SageMaker inference endpoints
 
-You can use a SageMaker training plans to deploy inference endpoints with guaranteed GPU capacity.
+You can use a SageMaker training plans to deploy inference endpoints with predictable access to GPU capacity.
 When you create a training plan, set the target resource to "endpoint". This secures compute
 instances specifically for inference workloads.
 

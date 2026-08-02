@@ -1,12 +1,12 @@
 # Clarify availability change
 
-## AWS-Published Monitoring Solutions + Standardized Bias Metrics + SHAP + Amazon Bedrock Evaluations
-
 ###### Note
 
-After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Amazon SageMaker Clarify is no longer open to new customers.
 Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+Clarify, but we do not plan to introduce new features.
+
+## AWS-published monitoring solutions, standardized bias metrics, SHAP, and Amazon Bedrock Evaluations
 
 The combination of the AWS-published open-source SageMaker AI monitoring solutions,
 base computation of the standardized bias metrics Clarify reports, the SHAP library that
@@ -41,7 +41,7 @@ Clarify. This guidance provides the following:
 
 ## Removing Clarify
 
-### Discontinue Clarify Processing Jobs for New Analysis
+### Discontinue Clarify processing jobs for new analysis
 
 If your workflow includes running SageMaker Clarify Processing Jobs using the
 `SageMakerClarifyProcessor` class, the `clarify.BiasConfig` /
@@ -49,7 +49,7 @@ If your workflow includes running SageMaker Clarify Processing Jobs using the
 `run_explainability()` methods from the SageMaker Python SDK, transition to the
 alternatives described in the Configuring Replacements section below.
 
-### Delete or Retain Clarify Output Artifacts (Optional)
+### Delete or retain Clarify output artifacts (optional)
 
 Clarify Processing Jobs store output artifacts in Amazon S3:
 
@@ -68,7 +68,7 @@ If you need to retain these for compliance, regulatory audit trails, or historic
 reference, leave them in S3 or archive to S3 Glacier. If they are no longer needed, delete
 the S3 prefix.
 
-### Remove Clarify from SageMaker Pipelines (If Used)
+### Remove Clarify from SageMaker Pipelines (if used)
 
 If you have SageMaker Pipelines with `ClarifyCheckStep` or
 `ProcessingStep` steps that invoke Clarify, replace them with a
@@ -76,7 +76,7 @@ If you have SageMaker Pipelines with `ClarifyCheckStep` or
 following the same pattern the AWS-published reference solutions use inside SageMaker
 Pipelines (see Configuring Replacements below).
 
-## Configuring Replacements
+## Configuring replacements
 
 The replacement path computes the standardized bias metrics directly with pandas and
 scikit-learn, and computes feature attribution with SHAP (the same engine Clarify uses). You
@@ -84,7 +84,7 @@ run these inside the AWS-published reference solutions and SageMaker Pipelines, 
 results to a SageMaker AI MLflow App so your bias and explainability results carry the same
 lineage, versioning, and governance as your training runs.
 
-### Replacing Pre-Training and Post-Training Bias Detection
+### Replacing pre-training and post-training bias detection
 
 Clarify's pre-training metrics are published, standardized formulas based on label
 counts and class proportions. Computing them directly keeps the bias check simple, owned and
@@ -104,7 +104,7 @@ SageMaker AI MLflow App for governance and trend tracking.
 Refer to the [Clarify post-training
 bias metrics reference](clarify-measure-post-training-bias.md "clarify-measure-post-training-bias.md") for the exact formula behind each metric.
 
-### Replacing Model Explainability (SHAP Feature Attribution)
+### Replacing model explainability (SHAP feature attribution)
 
 The SHAP library is the same engine that powers SageMaker Clarify's explainability.
 Using it directly gives you more flexibility:
@@ -121,7 +121,7 @@ logging the results to a SageMaker AI MLflow App.
 Refer to [SHAP
 documentation](https://shap.readthedocs.io/en/latest/ "https://shap.readthedocs.io/en/latest/") for the API reference.
 
-### Replacing Bias Drift and Feature Attribution Drift Monitoring
+### Replacing bias drift and feature attribution drift monitoring
 
 This approach operationalizes the same standardized metrics (directly computed fairness
 metrics and SHAP feature importance) on a schedule, with governance, lineage, and alerting,
@@ -132,9 +132,9 @@ using the [Amazon SageMaker AI monitoring solutions](https://github.com/aws-samp
   become additional metrics in the same governance pipeline rather than a separate
   system.
 
-### Replacing Foundation Model (LLM) Evaluation
+### Replacing foundation model (LLM) evaluation
 
-#### Option 1: fmeval Library (Recommended for SageMaker-Hosted Models)
+#### Option 1: fmeval library (recommended for SageMaker-hosted models)
 
 The `fmeval` library is the same evaluation engine Clarify's foundation
 model evaluation is built on, and it can be used independently of Clarify Processing
@@ -155,7 +155,7 @@ Refer to [Use the
 fmeval library to run an automatic evaluation](clarify-foundation-model-evaluate-auto-lib.md "clarify-foundation-model-evaluate-auto-lib.md") and [Track LLM model evaluation using Amazon SageMaker managed MLflow and FMEval](https://aws.amazon.com/blogs/machine-learning/track-llm-model-evaluation-using-amazon-sagemaker-managed-mlflow-and-fmeval/ "https://aws.amazon.com/blogs/machine-learning/track-llm-model-evaluation-using-amazon-sagemaker-managed-mlflow-and-fmeval/")
 for detailed steps.
 
-#### Option 2: Amazon Bedrock Evaluations (Managed Service)
+#### Option 2: Amazon Bedrock Evaluations (managed service)
 
 Amazon Bedrock Evaluations provides a managed alternative for foundation model
 evaluation without requiring Clarify Processing Jobs:
@@ -184,7 +184,7 @@ Refer to [Evaluate
 the performance of Amazon Bedrock resources](../../../bedrock/latest/userguide/evaluation.md "../../../bedrock/latest/userguide/evaluation.md") and [Evaluate models or RAG systems using Amazon Bedrock Evaluations](https://aws.amazon.com/blogs/machine-learning/evaluate-models-or-rag-systems-using-amazon-bedrock-evaluations-now-generally-available/ "https://aws.amazon.com/blogs/machine-learning/evaluate-models-or-rag-systems-using-amazon-bedrock-evaluations-now-generally-available/") for detailed
 steps.
 
-#### Option 3: Amazon Bedrock Guardrails (Runtime Safety)
+#### Option 3: Amazon Bedrock Guardrails (runtime safety)
 
 For runtime content filtering (toxicity, PII, harmful content) that SageMaker Clarify
 evaluates at assessment time, Amazon Bedrock Guardrails provides continuous runtime

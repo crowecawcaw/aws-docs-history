@@ -128,7 +128,7 @@ containers[2]['Environment'].update({'SAGEMAKER_INFERENCE_OUTPUT': 'predicted_la
 ```
 
 The following collapsible sections provide code examples for AWS SDK for Python (Boto3) and for
-SageMaker SDK for Python. Each section shows how to select the content of the inference responses in
+SageMaker Python SDK. Each section shows how to select the content of the inference responses in
 HPO mode for the respective code example.
 
 ```
@@ -271,9 +271,9 @@ response = sm_client.create_transform_job(
 ```
 
 The following collapsible section provides a code example that is identical to the
-SageMaker SDK for Python example for HPO. It is included for your convenience.
+SageMaker Python SDK example for HPO. It is included for your convenience.
 
-The following HPO code example uses SageMaker SDK for Python.
+The following HPO code example uses SageMaker Python SDK.
 
 ```
 from sagemaker import AutoML

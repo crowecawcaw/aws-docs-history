@@ -35,6 +35,7 @@ following:
 - [SageMaker HyperPod cluster state change](#eventbridge-hyperpod-cluster-state "#eventbridge-hyperpod-cluster-state")
 - [SageMaker image state change](#eventbridge-image-state "#eventbridge-image-state")
 - [SageMaker image version state change](#eventbridge-image-version-state "#eventbridge-image-version-state")
+- [SageMaker job state change](#eventbridge-job-state "#eventbridge-job-state")
 - [SageMaker model card state change](#eventbridge-model-card-state "#eventbridge-model-card-state")
 - [SageMaker model package state change](#eventbridge-model-package "#eventbridge-model-package")
 - [SageMaker model state change](#eventbridge-model "#eventbridge-model")
@@ -547,6 +548,50 @@ Indicates a change in the status of a SageMaker image version.
     "Version": 1.0,
     "Tags": {}
   }
+}
+```
+
+## SageMaker job state change
+
+Indicates a change in the status of a SageMaker job. SageMaker AI emits this event for reinforcement
+fine-tuning (RFT) jobs. These jobs have a `JobCategory` of `AgentRFT`
+for training jobs or `AgentRFTEvaluation` for evaluation jobs. The resource ARN
+has the form
+`arn:aws:sagemaker:`region`:`account-id`:job/`category`/`job-name``.
+
+If the value of `JobStatus` is `Failed`, the event contains the
+`FailureReason` field, which provides a description of why the job failed.
+
+```
+{
+    "version": "0",
+    "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "detail-type": "SageMaker Job State Change",
+    "source": "aws.sagemaker",
+    "account": "111122223333",
+    "time": "2026-07-24T12:26:13Z",
+    "region": "us-east-1",
+    "resources": [
+        "arn:aws:sagemaker:us-east-1:111122223333:job/AgentRFT/example-rft-job"
+    ],
+    "detail": {
+        "JobName": "example-rft-job",
+        "JobArn": "arn:aws:sagemaker:us-east-1:111122223333:job/AgentRFT/example-rft-job",
+        "JobCategory": "AgentRFT",
+        "JobStatus": "InProgress",
+        "SecondaryStatus": "Starting",
+        "RoleArn": "arn:aws:iam::111122223333:role/SMRole",
+        "CreationTime": "2026-07-24T12:20:04Z",
+        "LastModifiedTime": "2026-07-24T12:26:13Z",
+        "SecondaryStatusTransitions": [
+            {
+                "Status": "Starting",
+                "StartTime": "2026-07-24T12:20:04Z",
+                "EndTime": "2026-07-24T12:26:13Z",
+                "StatusMessage": "Preparing the instances for training."
+            }
+        ]
+    }
 }
 ```
 

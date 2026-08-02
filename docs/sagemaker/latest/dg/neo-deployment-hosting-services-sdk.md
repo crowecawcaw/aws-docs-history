@@ -46,7 +46,7 @@ the `MMS_DEFAULT_RESPONSE_TIMEOUT` environment variable to
 `500`.
 
 The following example shows how to use these functions to deploy a compiled
-model using the SageMaker AI SDK for Python:
+model using the SageMaker Python SDK:
 
 ```
 from sagemaker.serve import ModelBuilder

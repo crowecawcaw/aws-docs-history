@@ -7,10 +7,10 @@ see [Supported
 Instances Types and Frameworks](neo-supported-cloud.md "neo-supported-cloud.md").
 
 You can compile your model in one of three ways: through the AWS CLI, the SageMaker AI Console, or
-the SageMaker AI SDK for Python. See, [Use Neo to
+the SageMaker Python SDK. See, [Use Neo to
 Compile a Model](neo-job-compilation.md "neo-job-compilation.md") for more information. Once compiled, your model artifacts
 are stored in the Amazon S3 bucket URI you specified during the compilation job. You can deploy
-your compiled model to cloud instances and AWS Inferentia instances using the SageMaker AI SDK for Python,
+your compiled model to cloud instances and AWS Inferentia instances using the SageMaker Python SDK,
 AWS SDK for Python (Boto3), AWS CLI, or the AWS console.
 
 If you deploy your model using AWS CLI, the console, or Boto3, you must select a Docker

@@ -1,12 +1,12 @@
 # Studio Lab availability change
 
-## Amazon SageMaker Studio
-
 ###### Note
 
-After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Studio Lab, effective 7/30/26.
+Amazon SageMaker Studio Lab is no longer open to new customers.
 Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Studio Lab, but we do not plan to introduce new features. For more information, see [Studio Lab availability change](studio-lab-availability-change.md "studio-lab-availability-change.md").
+Studio Lab, but we do not plan to introduce new features.
+
+## Amazon SageMaker Studio
 
 Amazon SageMaker Studio serves as a complete replacement for SageMaker Studio Lab by
 providing the same JupyterLab-based notebook environment with additional access to AWS
@@ -47,7 +47,7 @@ development on Amazon SageMaker AI.
    migration is confirmed, delete your Studio Lab project files to free up
    storage.
 
-### Configuring Replacements
+### Configuring replacements
 
 1. **Create an AWS Account.** If you do not already have
    an AWS account, create one at [aws.amazon.com/free](https://aws.amazon.com/free/ "https://aws.amazon.com/free/").

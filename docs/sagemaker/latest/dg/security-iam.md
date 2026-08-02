@@ -17,6 +17,7 @@ use with no additional charge.
 - [Amazon SageMaker Role Manager](role-manager.md "role-manager.md")
 - [Access control for notebooks](security-access-control.md "security-access-control.md")
 - [Amazon SageMaker AI API Permissions: Actions, Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md")
+- [Using service-linked roles for SageMaker AI Inference](using-service-linked-roles-inference.md "using-service-linked-roles-inference.md")
 - [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [Troubleshooting Amazon SageMaker AI Identity and Access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 

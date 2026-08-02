@@ -2,7 +2,7 @@
 
 ###### Note
 
-On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources.
 For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
 
 For all SageMaker training jobs, Amazon SageMaker Debugger runs the [ProfilerReport](debugger-built-in-profiler-rules.md#profiler-report "debugger-built-in-profiler-rules.md#profiler-report") rule and autogenerates a [SageMaker Debugger interactive report](debugger-profiling-report.md "debugger-profiling-report.md"). The

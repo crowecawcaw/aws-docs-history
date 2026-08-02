@@ -53,7 +53,7 @@ endpoint reaches `InService` status, you can invoke it for inference.
 
 ## Invoke the endpoint
 
-During the active reservation window, the endpoint operates normally with guaranteed
+During the active reservation window, the endpoint operates normally with predictable access to
 capacity.
 
 ```

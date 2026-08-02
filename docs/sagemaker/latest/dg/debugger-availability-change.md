@@ -1,12 +1,12 @@
 # Debugger availability change
 
-## Replacing Amazon SageMaker Debugger
-
 ###### Note
 
-After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Amazon SageMaker Debugger is no longer open to new customers.
 Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+Debugger, but we do not plan to introduce new features.
+
+## Replacing Amazon SageMaker Debugger
 
 Follow this guide to transition to alternative services.
 
@@ -66,7 +66,7 @@ If you defined custom rule containers:
 - Remove rule definition scripts or JSON configurations that are no longer
   needed
 
-### Delete CloudWatch Log Groups (optional)
+### Delete CloudWatch log groups (optional)
 
 Debugger created log groups under `/aws/sagemaker/TrainingJobs` for rule
 evaluation. Delete these if no longer needed to reduce log storage costs.

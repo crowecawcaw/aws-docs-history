@@ -35,7 +35,7 @@ their web browsers.
 
 - [Create and manage spaces](create-manage-spaces.md "create-manage-spaces.md")
 - [Web browser access](browser-access.md "browser-access.md")
-- [Remote access to SageMaker Spaces](vscode-access.md "vscode-access.md")
+- [Remote access methods for SageMaker Spaces](access-mechanism.md "access-mechanism.md")
 
 ## SageMaker Spaces Managed Instance Pricing
 
