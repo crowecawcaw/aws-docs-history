@@ -40,8 +40,8 @@ The warm ENIs still consume IP addresses from the CIDR of your VPC. IP addresses
 - `WARM_IP_TARGET`, Integer, Values greater than 0 indicate requirement Enabled
 
   - The number of Warm IP addresses to be maintained. A Warm IP is available on an actively attached ENI, but has not been assigned to a Pod. In other words, the number of Warm IPs available is the number of IPs that may be assigned to a Pod without requiring an additional ENI.
+  - Example: Consider an instance with 1 ENI, each ENI supporting 20 IP addresses. WARM\_IP\_TARGET is set to 5. WARM\_ENI\_TARGET is set to 0. Only 1 ENI will be attached until a 16th IP address is needed. Then, the CNI will attach a second ENI, consuming 20 possible addresses from the subnet CIDR.
 
-- Example: Consider an instance with 1 ENI, each ENI supporting 20 IP addresses. WARM\_IP\_TARGET is set to 5. WARM\_ENI\_TARGET is set to 0. Only 1 ENI will be attached until a 16th IP address is needed. Then, the CNI will attach a second ENI, consuming 20 possible addresses from the subnet CIDR.
 - `MINIMUM_IP_TARGET`, Integer, Values greater than 0 indicate requirement Enabled
 
   - The minimum number of IP addresses to be allocated at any time. This is commonly used to front-load the assignment of multiple ENIs at instance launch.

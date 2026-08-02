@@ -78,6 +78,7 @@ using a managed Kubernetes service like EKS:
 - Network Security
 - Multi-tenancy
 - Multi Account for Multi-tenancy
+- Service Control Policies (SCPs)
 - Detective Controls
 - Infrastructure Security
 - Data Encryption and Secrets Management

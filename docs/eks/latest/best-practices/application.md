@@ -700,7 +700,7 @@ If you’re unclear on which metrics you should monitor, you can take
 inspiration from these methods:
 
 - [RED
-  method](https://www.weave.works/blog/a-practical-guide-from-instrumenting-code-to-specifying-alerts-with-the-red-method "https://www.weave.works/blog/a-practical-guide-from-instrumenting-code-to-specifying-alerts-with-the-red-method"). Stands for requests, errors, and duration.
+  method](https://grafana.com/blog/2018/08/02/the-red-method-how-to-instrument-your-services/ "https://grafana.com/blog/2018/08/02/the-red-method-how-to-instrument-your-services/"). Stands for requests, errors, and duration.
 - [USE method](http://www.brendangregg.com/usemethod.html "http://www.brendangregg.com/usemethod.html"). Stands for
   utilization, saturation, and errors.
 

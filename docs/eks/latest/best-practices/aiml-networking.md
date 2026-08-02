@@ -8,28 +8,31 @@
 
 For distributed training workloads on Amazon EKS with high inter-node communication demands, consider selecting instances with higher network bandwidth or [Elastic Fabric Adapter](../userguide/node-efa.md "../userguide/node-efa.md") (EFA). Insufficient network performance can bottleneck data transfer, slowing down machine learning tasks like distributed multi-GPU training. Note that inference workloads don’t typically have high inter-node communication.
 
-**Example**
+Ensure your container image includes NCCL and the [aws-ofi-nccl plugin](https://github.com/aws/aws-ofi-nccl "https://github.com/aws/aws-ofi-nccl") (which enables NCCL to use EFA via libfabric). MPI may also be required depending on your training framework’s launcher.
 
-For example, using Karpenter:
+### Node provisioning considerations for EFA workloads
 
-```
-apiVersion: v1
-kind: Pod
-metadata:
-  name: ml-workload
-spec:
-  nodeSelector:
-    karpenter.k8s.aws/instance-network-bandwidth: "100000"  # 100 Gbps in Mbps
-    node.kubernetes.io/instance-type: p5.48xlarge  # EFA-enabled instance
-  containers:
-  - name: training-job
-    image: `763104351884.dkr.ecr.us-west-2.amazonaws.com/pytorch-inference:2.6.0-gpu-py312-cu124-ubuntu22.04-ec2-v1.6`
-    resources:
-      limits:
-        vpc.amazonaws.com/efa: 1  # Requires EFA device plugin
-```
+When provisioning EFA-capable nodes, the instances that need to communicate must be in the same Availability Zone (hard requirement). Additionally, AWS recommends launching all EFA-enabled instances in a [cluster placement group](../../../AWSEC2/latest/UserGuide/placement-groups.md "../../../AWSEC2/latest/UserGuide/placement-groups.md") to minimize the physical distance between them within that single AZ, which gives you the lowest possible latency. A placement group is not required for EFA to function, but is strongly recommended for optimal performance.
 
-Ensure tools like MPI and NCCL are installed in your container image to leverage EFA for training jobs.
+The following considerations apply to any EFA-based distributed training deployment on EKS. Below we refer to Karpenter annotations as an example, but the same considerations can be applied to both Managed and Self-managed Node Groups implementations as well.
+
+- **Pin to an AZ**. EFA requires all communicating nodes to be in the same AZ, so for example, nodes participating in the same distributed training job must not be spread across zones. You can enforce this by pinning the Pod to an AZ using a `nodeSelector` or pod affinity on `topology.kubernetes.io/zone`. Select the AZ where your target instance type has the best availability, or where your Capacity Block is reserved. Be aware that while same-AZ co-location improves inter-node latency, it also increases the blast radius of an AZ-level failure. For long-running training workloads, a single AZ outage or capacity event can wipe out hours of accumulated training progress — an expensive loss. Factor this into your checkpointing strategy and job duration planning.
+- **Configure the cluster placement group (recommended)**. Specify the placement group in the EC2NodeClass. Karpenter provisions into it automatically. This is recommended for optimal latency but not strictly required for EFA to function. For [Capacity Blocks for ML](../../../AWSEC2/latest/UserGuide/ec2-capacity-blocks.md "../../../AWSEC2/latest/UserGuide/ec2-capacity-blocks.md"), placement is handled automatically via UltraClusters — no manual placement group is needed. Note that, in this case, the AZ is already locked and therefore, additional Pod-level or NodePool-level AZ restrictions are not needed.
+- **Prevent disruption of multi-node training jobs**. Use PDBs or `karpenter.sh/do-not-disrupt: "true"` annotations on training pods. Without this, Karpenter’s consolidation may attempt to replace or move EFA workloads mid-job, disrupting the entire distributed training run. Set `consolidationPolicy: WhenEmpty` on the NodePool to prevent consolidation of occupied nodes. Review the interaction between these labels and `terminationGracePeriod` and `expireAfter`
+  [here](https://karpenter.sh/docs/concepts/disruption/ "https://karpenter.sh/docs/concepts/disruption/").
+- **Set appropriate expiration**. Configure `expireAfter` on the NodePool to a value longer than your longest training job, or disable it for training NodePools entirely. A node expiring mid-training terminates the job.
+- **Use the correct EFA device plugin version**. The [EFA device plugin](https://github.com/aws/eks-charts/tree/master/stable/aws-efa-k8s-device-plugin "https://github.com/aws/eks-charts/tree/master/stable/aws-efa-k8s-device-plugin") exposes `vpc.amazonaws.com/efa` as a schedulable resource.
+- **Configure security groups**. All EFA instances must be in the same security group with a self-referencing rule allowing ALL traffic to/from itself. Without this, EFA traffic fails silently.
+
+### Understand Spot instance risks with EFA co-location
+
+Amazon EC2 Spot Instances offer significant cost savings for training workloads (see [this section](aiml-compute.md#spot-gpus-karpenter "aiml-compute.md#spot-gpus-karpenter")
+for general Spot best practices with GPUs). However, EFA requires all communicating nodes to reside in the same Availability Zone, and AWS recommends
+placing them in a cluster placement group for optimal latency. This co-location introduces _correlated interruption risk_: instances share underlying physical infrastructure within the same AZ (and even more so within a placement group), so a single capacity reclamation event can affect multiple instances simultaneously — potentially interrupting your entire multi-node training job at once rather than a single node.
+
+This is fundamentally different from Spot usage without EFA constraints, where nodes can be spread across AZs and interruptions are statistically independent. With EFA’s same-AZ requirement, a single capacity event can cascade across your training cluster.
+
+If you are pursuing cost savings for GPU training workloads, ensure you have evaluated all available purchase options before committing to Spot. [Reserved Instances](../../../AWSEC2/latest/UserGuide/ec2-reserved-instances.md "../../../AWSEC2/latest/UserGuide/ec2-reserved-instances.md"), [On-Demand Capacity Reservations](../../../AWSEC2/latest/UserGuide/ec2-capacity-reservations.md "../../../AWSEC2/latest/UserGuide/ec2-capacity-reservations.md") (ODCRs), [Savings Plans](../../../savingsplans/latest/userguide/what-is-savings-plans.md "../../../savingsplans/latest/userguide/what-is-savings-plans.md"), and [Capacity Blocks for ML](../../../AWSEC2/latest/UserGuide/ec2-capacity-blocks.md "../../../AWSEC2/latest/UserGuide/ec2-capacity-blocks.md") can all provide significant discounts while guaranteeing capacity availability — avoiding the correlated interruption risk inherent to Spot with EFA co-location constraints.
 
 ## Planning for IP Address Consumption on Large GPU Instances
 

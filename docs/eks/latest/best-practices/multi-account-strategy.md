@@ -250,7 +250,7 @@ blueprints for various cluster capabilities — AI/ML cluster, Batch
 processing, General purpose, etc, — and vend the clusters based on the
 application team requirements. Both application and platform teams
 operate out of their respective
-[GitOps](https://www.weave.works/technologies/gitops/ "https://www.weave.works/technologies/gitops/") repositories to
+[GitOps](https://opengitops.dev/ "https://opengitops.dev/") repositories to
 manage the deployments to the workload clusters.
 
 ![De-centralized EKS Cluster Architecture](images/security/multi-account-eks-decentralized.png)
