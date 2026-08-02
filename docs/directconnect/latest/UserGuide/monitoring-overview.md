@@ -1,4 +1,4 @@
-# Monitor Direct Connect resources
+# Monitoring and visibility with Direct Connect
 
 Monitoring is an important part of maintaining the reliability, availability, and
 performance of your Direct Connect resources. You should collect monitoring data from all of the
@@ -25,6 +25,7 @@ Direct Connect connections.
 
 - [Monitoring tools](#monitoring-automated-manual "#monitoring-automated-manual")
 - [Monitor with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
+- [BGP route visibility](bgp-route-visibility.md "bgp-route-visibility.md")
 
 ## Monitoring tools
 

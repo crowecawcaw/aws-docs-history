@@ -4,7 +4,7 @@ You can view the current status of your connection using either the Direct Conne
 ID (for example, `dxcon-12nikabc`) and verify that it matches the connection
 ID on the LOA-CFA that you received or downloaded.
 
-For information on monitoring connections, see [Monitor Direct Connect resources](monitoring-overview.md "monitoring-overview.md").
+For information on monitoring connections, see [Monitoring and visibility with Direct Connect](monitoring-overview.md "monitoring-overview.md").
 
 ###### To view details about a connection
 

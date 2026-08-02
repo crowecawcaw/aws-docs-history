@@ -34,7 +34,7 @@ The AWS Direct Connect Resiliency Toolkit has the following benefits:
   AWS to bring down the BGP peering session in order to verify that traffic routes
   to one of your redundant virtual interfaces. For more information, see [Direct Connect Failover Test](resiliency_failover.md "resiliency_failover.md").
 - Provides Amazon CloudWatch metrics for connections and virtual interfaces. For more
-  information, see [Monitor Direct Connect resources](monitoring-overview.md "monitoring-overview.md").
+  information, see [Monitoring and visibility with Direct Connect](monitoring-overview.md "monitoring-overview.md").
   After you select the resiliency model, the AWS Direct Connect Resiliency Toolkit steps you through the following
   procedures:
 

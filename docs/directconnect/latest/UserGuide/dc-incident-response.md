@@ -17,4 +17,4 @@ Direct Connect and report when something is wrong:
   and [Working
   with CloudTrail Log Files](../../../awscloudtrail/latest/userguide/cloudtrail-working-with-log-files.md "../../../awscloudtrail/latest/userguide/cloudtrail-working-with-log-files.md") in the
   _AWS CloudTrail User Guide_.
-  For more information, see [Monitor Direct Connect resources](monitoring-overview.md "monitoring-overview.md").
+  For more information, see [Monitoring and visibility with Direct Connect](monitoring-overview.md "monitoring-overview.md").

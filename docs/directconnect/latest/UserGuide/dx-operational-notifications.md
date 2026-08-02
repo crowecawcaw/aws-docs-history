@@ -100,6 +100,6 @@ not covered by these notifications.
 ## Related resources
 
 - [Direct Connect maintenance](dx-maintenance.md "dx-maintenance.md")
-- [Monitor Direct Connect resources](monitoring-overview.md "monitoring-overview.md")
+- [Monitoring and visibility with Direct Connect](monitoring-overview.md "monitoring-overview.md")
 - [AWS Direct Connect Resiliency Toolkit](resiliency_toolkit.md "resiliency_toolkit.md")
 - [AWS Health User Guide](../../../health/latest/ug/what-is-aws-health.md "../../../health/latest/ug/what-is-aws-health.md")
