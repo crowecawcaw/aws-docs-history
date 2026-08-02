@@ -40,6 +40,15 @@ DynamicRules are only supported in AWS Glue ETL.
 
   - [Dynamic rules](dqdl.md#dqdl-dynamic-rules "dqdl.md#dqdl-dynamic-rules")
   - [Analyzers](dqdl.md#dqdl-analyzers "dqdl.md#dqdl-analyzers")
+
+    - [Distribution Analyzer](dqdl.md#dqdl-analyzers-distribution "dqdl.md#dqdl-analyzers-distribution")
+
+      - [Numeric and categorical behavior](dqdl.md#dqdl-analyzers-distribution-behavior "dqdl.md#dqdl-analyzers-distribution-behavior")
+      - [Output format](dqdl.md#dqdl-analyzers-distribution-output "dqdl.md#dqdl-analyzers-distribution-output")
+      - [Frozen bin edges](dqdl.md#dqdl-analyzers-distribution-frozen-edges "dqdl.md#dqdl-analyzers-distribution-frozen-edges")
+      - [Overflow observations](dqdl.md#dqdl-analyzers-distribution-overflow "dqdl.md#dqdl-analyzers-distribution-overflow")
+      - [Automatic rebinning](dqdl.md#dqdl-analyzers-distribution-rebinning "dqdl.md#dqdl-analyzers-distribution-rebinning")
+
   - [Comments](dqdl.md#dqdl-syntax-comments "dqdl.md#dqdl-syntax-comments")
 
 - [DQDL rule type reference](dqdl-rule-types.md "dqdl-rule-types.md")
@@ -57,6 +66,7 @@ DynamicRules are only supported in AWS Glue ETL.
   - [DataFreshness](dqdl-rule-types-DataFreshness.md "dqdl-rule-types-DataFreshness.md")
   - [DatasetMatch](dqdl-rule-types-DatasetMatch.md "dqdl-rule-types-DatasetMatch.md")
   - [DistinctValuesCount](dqdl-rule-types-DistinctValuesCount.md "dqdl-rule-types-DistinctValuesCount.md")
+  - [Distribution](dqdl-rule-types-Distribution.md "dqdl-rule-types-Distribution.md")
   - [Entropy](dqdl-rule-types-Entropy.md "dqdl-rule-types-Entropy.md")
   - [IsComplete](dqdl-rule-types-IsComplete.md "dqdl-rule-types-IsComplete.md")
   - [IsPrimaryKey](dqdl-rule-types-IsPrimaryKey.md "dqdl-rule-types-IsPrimaryKey.md")
@@ -695,23 +705,102 @@ Analyzers = [
 
 AWS Glue Data Quality supports the following analyzers.
 
-| Analyzer name         | Functionality                                                                                                                                                                                          |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `RowCount`            | Computes row counts for a dataset                                                                                                                                                                      |
-| `Completeness`        | Computes the completeness percentage of a column                                                                                                                                                       |
-| `Uniqueness`          | Computes the uniqueness percentage of a column                                                                                                                                                         |
-| `Mean`                | Computes mean of a numeric column                                                                                                                                                                      |
-| `Sum`                 | Computes sum of a numeric column                                                                                                                                                                       |
-| `StandardDeviation`   | Computes standard deviation of a numeric column                                                                                                                                                        |
-| `Entropy`             | Computes entropy of a numeric column                                                                                                                                                                   |
-| `DistinctValuesCount` | Computes the number of distinct values in a column                                                                                                                                                     |
-| `UniqueValueRatio`    | Computes the unique values ratio in a column                                                                                                                                                           |
-| `ColumnCount`         | Computes the number of columns in a dataset                                                                                                                                                            |
-| `ColumnLength`        | Computes the length of a column                                                                                                                                                                        |
-| `ColumnValues`        | Computes the minimum, maximum for numerical columns. Computes Minimum ColumnLength and Maximum ColumnLength for<br>non-numeric columns                                                                 |
-| `ColumnCorrelation`   | Computes column correlations for given columns                                                                                                                                                         |
-| `CustomSql`           | Computes statistics returned by the CustomSQL                                                                                                                                                          |
-| `AllStatistics`       | Computes the following statistics:<br>• RowCount, ColumnCount<br>• Every column: Completeness, uniqueness<br>• Numerical: Min, Max, Entropy, Mean, Standard Dev, Sum<br>• String: MinLength, MaxLength |
+| Analyzer name         | Functionality                                                                                                                                                                                                |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `RowCount`            | Computes row counts for a dataset                                                                                                                                                                            |
+| `Completeness`        | Computes the completeness percentage of a column                                                                                                                                                             |
+| `Uniqueness`          | Computes the uniqueness percentage of a column                                                                                                                                                               |
+| `Mean`                | Computes mean of a numeric column                                                                                                                                                                            |
+| `Sum`                 | Computes sum of a numeric column                                                                                                                                                                             |
+| `StandardDeviation`   | Computes standard deviation of a numeric column                                                                                                                                                              |
+| `Entropy`             | Computes entropy of a numeric column                                                                                                                                                                         |
+| `DistinctValuesCount` | Computes the number of distinct values in a column                                                                                                                                                           |
+| `Distribution`        | Computes the frequency distribution of a column. For numeric columns, produces<br>a binned histogram. For string and date columns, produces a value distribution sorted<br>in descending order by frequency. |
+| `UniqueValueRatio`    | Computes the unique values ratio in a column                                                                                                                                                                 |
+| `ColumnCount`         | Computes the number of columns in a dataset                                                                                                                                                                  |
+| `ColumnLength`        | Computes the length of a column                                                                                                                                                                              |
+| `ColumnValues`        | Computes the minimum, maximum for numerical columns. Computes Minimum ColumnLength and Maximum ColumnLength for<br>non-numeric columns                                                                       |
+| `ColumnCorrelation`   | Computes column correlations for given columns                                                                                                                                                               |
+| `CustomSql`           | Computes statistics returned by the CustomSQL                                                                                                                                                                |
+| `AllStatistics`       | Computes the following statistics:<br>• RowCount, ColumnCount<br>• Every column: Completeness, uniqueness<br>• Numerical: Min, Max, Entropy, Mean, Standard Dev, Sum<br>• String: MinLength, MaxLength       |
+
+#### Distribution Analyzer
+
+The `Distribution` Analyzer computes frequency distributions for columns
+in your dataset. Use the `Distribution` Analyzer to understand how your data
+is distributed over time and detect data range shifts across evaluation runs.
+
+For information about DQDL syntax and basic usage examples, see
+[Distribution](dqdl-rule-types-Distribution.md "dqdl-rule-types-Distribution.md").
+
+##### Numeric and categorical behavior
+
+- **Numeric columns** – The analyzer divides
+  the column's value range into equal-width intervals (bins). Each bin is defined by
+  a lower and upper boundary. The result counts how many values fall into each
+  bin.
+- **Categorical columns** (string, date, boolean)
+  – The analyzer counts the frequency of each distinct value and returns the
+  top 20 most frequent values sorted in descending order by frequency.
+
+The `Distribution` Analyzer excludes NULL values in the target column
+from the distribution calculation for both column types.
+
+##### Output format
+
+The `Distribution` statistic returns a structured
+`DistributionValue` object containing the following fields:
+
+- `BinEdges` – An array defining the bin boundaries (numeric)
+  or distinct values (categorical)
+- `Count` – An array of frequency counts corresponding to each
+  bin or value
+- `DataType` – The data type of the column (for example,
+  `LongType`, `StringType`)
+
+##### Frozen bin edges
+
+When you first run the `Distribution` Analyzer on a column, the
+analyzer computes the bin edges based on the column's current value range. On
+subsequent runs for the same statistic (same column, same bin count), the analyzer
+reuses the edges from the first run. This behavior is called _frozen edges_.
+
+Frozen edges enable meaningful comparisons across runs because bins remain
+consistent over time. Without frozen edges, bin boundaries would shift on every run as
+the data range changes.
+
+##### Overflow observations
+
+When data values fall outside the frozen bin boundaries, the analyzer counts them
+in the first or last bin (the overflow bins). If more than 2% of values land in the
+overflow bins, AWS Glue Data Quality generates an informational observation. If more than 5% of
+values overflow, AWS Glue Data Quality generates a stronger observation and tracks consecutive
+overflow runs. After 3 consecutive runs exceeding 5%, automatic rebinning is
+triggered.
+
+##### Automatic rebinning
+
+If 3 consecutive evaluation runs produce more than 5% overflow, AWS Glue Data Quality
+automatically recomputes the bin edges. The new edges are based on the current data
+range. After rebinning, the new edges become the frozen edges for subsequent
+runs.
+
+After automatic rebinning, your histograms adapt to sustained data range changes
+without manual intervention. Bin edges remain stable during transient
+fluctuations.
+
+You can opt out of automatic rebinning by setting the `rebin` parameter
+to `false` in your DQDL ruleset:
+
+```
+Analyzers = [
+    Distribution "Salary" with bins = 20, rebin = false
+]
+```
+
+When automatic rebinning is disabled, bin edges remain frozen indefinitely
+regardless of overflow frequency. AWS Glue Data Quality continues to generate overflow
+observations.
 
 ### Comments
 

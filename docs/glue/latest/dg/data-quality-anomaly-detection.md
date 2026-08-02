@@ -26,7 +26,9 @@ ability to spot anomalies with ease, enabling them to proactively detect data qu
 
 ###### Note
 
-Anomaly detection is only supported in AWS Glue ETL. This is not supported in Data Catalog-based data quality.
+Anomaly detection is supported in both AWS Glue ETL and the AWS Glue Data Catalog. You can enable
+anomaly detection for tables registered in the Data Catalog by running evaluation runs with
+anomaly detection enabled (`ObservationScope: ALL`).
 
 ![The screenshot shows the data quality anomaly detection process.](images/data-quality-anomaly-detection-process.png)
 
@@ -53,9 +55,9 @@ explicit rules. An example of configuring Analyzers is shown below:
 
 ```
 Analyzers = [
-AllStatistics "fare_amount",
-DistinctValuesCount "pulocationid",
-RowCount
+    AllStatistics "fare_amount",
+    DistinctValuesCount "pulocationid",
+    RowCount
 ]
 ```
 
@@ -120,7 +122,9 @@ Retraining the anomaly detection model is critical to detect the right anomalies
 the anomaly in the model as a normal value. To ensure the anomaly detection works accurately, it is important to provide
 feedback by acknowledging or rejecting the anomaly. AWS Glue Data Quality provides mechanisms both in AWS Glue Studio and APIs to provide feedback to
 the model. To know more, refer to the documentation on setting up
-[Anomaly Detection in AWS Glue ETL pipelines](data-quality-configuring-anomaly-detection-etl-jobs.md "data-quality-configuring-anomaly-detection-etl-jobs.md").
+[Anomaly Detection in AWS Glue ETL pipelines](data-quality-configuring-anomaly-detection-etl-jobs.md "data-quality-configuring-anomaly-detection-etl-jobs.md"). You can
+also enable anomaly detection for tables in the AWS Glue Data Catalog by running evaluation runs
+with `ObservationScope` set to `ALL`.
 
 ## Details of the Anomaly Detection algorithm
 

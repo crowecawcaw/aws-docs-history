@@ -12,5 +12,5 @@ The following are the minimum requirements:
 - If using OAuth2 Client Credentials, Authorization Code or JWT, configure the client app
   accordingly.
 
-If you meet these requirements, you’re ready to connect AWS Glue to your REST API-based data source.
+If you meet these requirements, you're ready to connect AWS Glue to your REST API-based data source.
 Typically, no further configurations are needed on the REST API side.

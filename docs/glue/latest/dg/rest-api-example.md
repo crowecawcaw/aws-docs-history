@@ -8,7 +8,7 @@ This API has the following properties (which can be retrieved from REST API docu
 - **Instance URL**: https://foo.cloud.com/rest/v1.
 - **Authentication type**: OAuth2 (Client Credentials).
 - **REST method**: GET.
-- **Pagination type**: Offset with properties “limit” and “offset”
+- **Pagination type**: Offset with properties "limit" and "offset"
   placed in query parameter of request.
 - **Supported entities**:
 
@@ -107,16 +107,16 @@ Once all the details are obtained, we can begin creating the AWS Glue connection
 
 You must create a secret per connection in AWS Glue 3. Create the AWS Glue connection by calling the CreateConnection API using the AWS API, CLI, or SDK.
 
-    1. Reference the REST connection type name from Step 1 as the “ConnectionType”.
+    1. Reference the REST connection type name from Step 1 as the "ConnectionType".
     2. Provide the InstanceUrl and any other ConnectionProperties that were defined during the
      AWS Glue ConnectionType registration process.
     3. Choose from the configured Authentication Types. The REST API Foo uses OAuth2 with the
      ClientCredentials grant type.
     4. Provide the **SecretArn** and other
-     **AuthenticationProperties** that are configured. For example,
-     we have configured `OAUTH2` as the AuthenticationType so we will set the
-     “OAuth2Properties” in the CreateConnectionInput. This will require properties like
-     “OAuth2GrantType”, “TokenUrl”, and “OAuth2ClientApplication”.
+     **AuthenticationProperties** that are configured. Because
+     this example uses `OAUTH2` as the AuthenticationType, set the
+     "OAuth2Properties" in the CreateConnectionInput. This requires properties such as
+     "OAuth2GrantType", "TokenUrl", and "OAuth2ClientApplication".
 
 4. Make the CreateConnection request which will create the AWS Glue connection.
 

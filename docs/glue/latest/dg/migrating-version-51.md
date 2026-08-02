@@ -148,7 +148,6 @@ Note the following changes:
 
 - Support Iceberg format version 3. The following features are supported:
 
-  - Multi-argument transforms for partitioning and sorting.
   - Row Lineage tracking.
   - Deletion vectors. Learn more in
     [blog post](https://aws.amazon.com/blogs/big-data/unlock-the-power-of-apache-iceberg-v3-deletion-vectors-on-amazon-emr/ "https://aws.amazon.com/blogs/big-data/unlock-the-power-of-apache-iceberg-v3-deletion-vectors-on-amazon-emr/")
