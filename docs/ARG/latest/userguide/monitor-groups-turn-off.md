@@ -2,8 +2,8 @@
 
 ###### Note
 
-AWS Group Lifecycle Events (GLE) feature of AWS Resource Groups will no longer be open to new customers starting July 30, 2026.
-If you would like to use the feature, sign up prior to July 30, 2026. Existing customers can continue to use the service as normal. For more information,
+AWS Group Lifecycle Events (GLE) feature of AWS Resource Groups is no longer open to new customers.
+For capabilities similar to Group Lifecycle Events (GLE), see the recommended EventBridge-based alternative. For more information,
 see [Group Lifecycle Events feature of AWS Resource Groups availability change](resource-groups-gle-availability-change.md "resource-groups-gle-availability-change.md").
 
 You can turn off group lifecycle events to stop AWS Resource Groups from emitting events to Amazon EventBridge. You can do
