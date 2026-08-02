@@ -22,7 +22,7 @@ The following key graphic shows input and output image width, height, cropping, 
 padding. In this key graphic, input dimensions (on the top and left) are in blue and
 output dimensions (on the right and bottom) are in red.
 
-![Aspect Ratio Key](/images/mediaconvert/latest/ug/images/key.png)
+![Aspect Ratio Key](images/key.png)
 The following table shows example image scaling behavior when your input and output
 resolutions differ. For details about to read the images, reference the previous key
 graphic.
