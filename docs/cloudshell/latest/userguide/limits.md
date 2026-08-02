@@ -23,8 +23,9 @@ your home directory persists between sessions.
 ###### Note
 
 CloudShell VPC environments do not have persistent storage. The $HOME directory
-is deleted when your VPC environment times out (after 20-30 minutes of inactivity), or
-when you delete your environment.
+is deleted when your VPC environment times out, or
+when you delete your environment. Environments time out after 20–30 minutes of inactivity.
+In AWS GovCloud (US) Regions, environments time out after 10 minutes of inactivity.
 
 If you stop using AWS CloudShell in an AWS Region, data is retained in the persistent
 storage of that Region for **120 days** after the end of your
@@ -93,6 +94,8 @@ AWS CloudShell](getting-started.md "getting-started.md").
 - **Inactive sessions**: AWS CloudShell is an interactive
   shell environment—if you don't interact with it using your keyboard or pointer
   for **20–30 minutes**, your shell session ends.
+  In AWS GovCloud (US) Regions, your shell session ends after **10 minutes**
+  of inactivity.
   Running processes don't count as interactions.
 
 If you want to perform terminal-based tasks using an AWS service with more

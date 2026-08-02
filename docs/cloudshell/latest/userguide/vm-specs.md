@@ -99,6 +99,7 @@ Development tools and shell utilities| Name | Description | Version information 
 | bash-completion | bash-completion is a collection of shell functions that allow the autocompletion of<br>partially typed commands or arguments by pressing the **Tab**<br>key. You can find the packages that bash-completion supports in<br>`/usr/share/bash-completion/completions`.<br>To set up autocomplete for a package's commands, the program file must be sourced. For<br>example, to set up autocomplete for Git commands, add the following line to<br>`.bashrc` so the feature is available whenever your AWS CloudShell session<br>starts:<br>`source /usr/share/bash-completion/completions/git`<br>If you want to use custom completion scripts, add them to your persistent home<br>directory (`$HOME`) and source them directly in<br>`.bashrc`.<br>For more information, see the project's [README](https://github.com/scop/bash-completion#readme "https://github.com/scop/bash-completion#readme") page on GitHub. | `dnf info bash-completion` |
 | cqlsh-expansion | `cqlsh-expansion` is a toolkit that includes cqlsh and helpers that are<br>preconfigured for Amazon Keyspaces while maintaining full compatibility with Apache Cassandra. For more<br>information, see [Using<br>cqlsh to connect to Amazon Keyspaces](../../../keyspaces/latest/devguide/programmatic.cqlsh.md "../../../keyspaces/latest/devguide/programmatic.cqlsh.md") in _Amazon Keyspaces<br>(for Apache Cassandra) Developer Guide_. | `cqlsh-expansion --version` |
 | Docker | [Docker](https://docs.docker.com/guides/workshop/ "https://docs.docker.com/guides/workshop/") is an open<br>platform for developing, shipping and running applications. Docker enables you to separate<br>your applications from your infrastructure so you can deliver software quickly. It enables<br>you to build Dockerfiles inside AWS CloudShell, and build Docker assets with CDK. For information<br>about which AWS Regions are supported with Docker, see [Supported AWS Regions for AWS CloudShell](supported-aws-regions.md "supported-aws-regions.md"). You should be<br>aware that Docker has limited space in the environment. If you have large individual<br>images, or too many pre-existing Docker images, it can cause issues. For more information<br>on Docker, see the [Docker<br>Documentation guide](https://docs.docker.com/get-started/overview/ "https://docs.docker.com/get-started/overview/"). | `docker --version` |
+| edit | The `edit` command opens a visual editor inside your shell session that<br>supports intuitive navigation, copy-paste, undo-redo, syntax highlighting, multi-line<br>selection, toggle block/line comments, code folding, and find-replace. | `edit --version` |
 | Git | Git is a distributed version control system that supports modern software development<br>practices through branch workflows and content staging. For more information, see the<br>[documentation page on Git's official site](https://git-scm.com/doc "https://git-scm.com/doc"). | `git --version` |
 | iputils | The iputils package contains utilities for Linux networking. For more information<br>about the utilities provided, see the [iputils repository on GitHub](https://github.com/iputils/iputils "https://github.com/iputils/iputils"). | Examples for an iputils tool: `arping -V` |
 | jq | The jq utility parses JSON-formatted data to produce output that's modified by command<br>line filters. For more information, see the [jq manual hosted on GitHub](https://stedolan.github.io/jq/manual/ "https://stedolan.github.io/jq/manual/"). | `jq --version` |
@@ -295,24 +296,25 @@ file, you can return AWS CloudShell to its default settings by [deleting your ho
 In the procedure, you'll modify the `.bashrc` script so that your shell
 environment switches automatically to running the Z shell.
 
-1. Open the `.bashrc` using a text editor (Vim, for example):
+1. Open the `.bashrc` file using either the `edit` command or
+   Vim:
 
-```
-vim .bashrc
-```
+   - `edit .bashrc`
+   - `vim .bashrc`
 
-2. In the editor interface, press the **I** key to start
-   editing, and then add the following:
+2. If you're using the `edit` command, add the following line to the file as you
+   would in a GUI editor. If you're using Vim, press the **I** key
+   to start editing, and then add the following:
 
 ```
 zsh
 ```
 
-3. To exit and save the edited `.bashrc` file, press
-   **Esc** to enter the Vim command mode and enter the following:
-
-`:wq` 4. Use the `source` command to reload the `.bashrc`
-file:
+3. Save the file. If you're using the `edit` command, use your operating system's
+   save shortcut and close the tab. If you're using Vim, press **Esc** and enter
+   `:wq` to save and exit.
+4. Use the `source` command to reload the `.bashrc`
+   file:
 
 ```
 source .bashrc

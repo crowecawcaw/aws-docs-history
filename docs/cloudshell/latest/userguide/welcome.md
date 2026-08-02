@@ -63,8 +63,9 @@ For more information about the retention of data in persistent storage, see [Per
 ###### Note
 
 CloudShell VPC environments do not have persistent storage. The $HOME directory is
-deleted when your VPC environment times out (after 20-30 minutes of inactivity), or when you
-delete or restart your environment.
+deleted when your VPC environment times out, or when you delete or restart your environment.
+Environments time out after 20–30 minutes of inactivity.
+In AWS GovCloud (US) Regions, environments time out after 10 minutes of inactivity.
 
 ### CloudShell VPC environments
 

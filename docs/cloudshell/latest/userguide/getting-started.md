@@ -462,15 +462,17 @@ use AWS CloudShell.
 
 ## Step 9: Edit your file's code and run it using the command line
 
-This step demonstrates how to use the pre-installed Vim editor to work
+This step demonstrates how to use the native `edit` command to work
 with a file. You then run that file as a program from the command line.
 
-1. To edit the file you uploaded in the previous step, enter the following command:
+1. To edit the file you uploaded in the previous step, enter the following
+   command:
 
-`vim add_prog.py`
+`edit add_prog.py`
 
-The shell interface refreshes to display the Vim editor. 2. To edit the file in Vim, press the **I** key. Now edit the
-contents so the program adds up three numbers instead of two.
+The shell interface displays the contents of the file with syntax highlighting
+enabled. 2. Edit the file as you would in a GUI editor. Edit the contents so the program
+adds up three numbers instead of two.
 
 ```
 import sys
@@ -487,18 +489,11 @@ If you paste the text into the editor and have the [Safe
 Paste feature](customizing-cshell.md#safe-paste-enable "customizing-cshell.md#safe-paste-enable") enabled, a warning is displayed. Multiline text that's
 copied can contain malicious scripts. With the Safe Paste feature, you can verify
 the complete text before it's pasted in. If you're satisfied that the text is
-safe, choose **Paste**. 3. After you edited the program, press **Esc** to enter the
-Vim command mode. Then, enter the `:wq` command to save
-the file and exit the editor.
-
-###### Note
-
-If you're new to the Vim command mode, you might initially find
-it challenging to switch between command mode and insert mode. Command mode is
-used when saving files and exiting the application. Insert mode is used when
-inserting new text. To enter insert mode, press **I**, and, to
-enter command mode, press **Esc**. For more information about
-Vim and other tools that are available in AWS CloudShell, see [Development tools and shell utilities](vm-specs.md#utilities-installed "vm-specs.md#utilities-installed"). 4. On the main command line interface, run the following program and specify three
+safe, choose **Paste**. 3. To save the file, you can either use the default keyboard shortcut for Save for
+your operating system (for example, Cmd+S for macOS or Ctrl+S for Windows) or choose
+the **Save** icon in the upper-right corner. Then, close the tab. If
+you don't save the file before closing the tab, AWS CloudShell displays a prompt asking if
+you want to save the file. 4. On the main command line interface, run the following program and specify three
 numbers for input. The syntax is as follows.
 
 `python3 add_prog.py 4 5 6`

@@ -19,7 +19,9 @@ solutions to resolve these errors.
 
 - [Denied access](#unable-to-launch-cloudshell "#unable-to-launch-cloudshell")
 - [Insufficient permissions](#no-access-cloudshell "#no-access-cloudshell")
+- [Shell session starts in recovery mode](#recovery-mode-cloudshell "#recovery-mode-cloudshell")
 - [Unable to access AWS CloudShell command line](#locked-out-cloudshell "#locked-out-cloudshell")
+- [Unable to connect to the environment](#too-many-sessions-cloudshell "#too-many-sessions-cloudshell")
 - [Unable to ping external IP addresses](#ping-cloudshell "#ping-cloudshell")
 - [There were some issues preparing your terminal](#old-browser-issue-cloudshell "#old-browser-issue-cloudshell")
 - [Arrow keys not working correctly in PowerShell](#pwsh-arrow-keys "#pwsh-arrow-keys")
@@ -74,6 +76,37 @@ more information, see [Managing AWS CloudShell access and usage with IAM policie
 
 ([back to top](troubleshooting.md "troubleshooting.md"))
 
+### Shell session starts in recovery mode
+
+**Issue:** When you start AWS CloudShell, you see a message
+indicating that AWS CloudShell failed to initialize your shell session and is running in
+recovery mode.
+
+**Cause:** Bash exited with an error during startup,
+typically due to an issue in your shell configuration files (such as
+`.bashrc`, `.bash_profile`, or
+`.profile`).
+
+**Solution:** From recovery mode, restore your default
+`~/.bashrc` by running:
+
+```
+mv ~/.bashrc ~/.bashrc.bak && cp /etc/skel/.bashrc ~/.bashrc
+```
+
+If the issue is in `~/.bash_profile` or
+`~/.profile`, back up the problematic file:
+
+```
+mv ~/.bash_profile ~/.bash_profile.bak
+mv ~/.profile ~/.profile.bak
+```
+
+Then restart AWS CloudShell. Review your backed up files to find and fix the issue,
+then restore them.
+
+([back to top](troubleshooting.md "troubleshooting.md"))
+
 ### Unable to access AWS CloudShell command line
 
 **Issue:** After modifying a file that the compute
@@ -83,6 +116,19 @@ environment uses, you can't access the command line in AWS CloudShell.
 modifying `.bashrc` or any other file, you can return AWS CloudShell to its
 default settings by [deleting your home
 directory](getting-started.md#delete-shell-session "getting-started.md#delete-shell-session").
+
+([back to top](troubleshooting.md "troubleshooting.md"))
+
+### Unable to connect to the environment
+
+**Issue:** You see the error "Unable to connect to the
+environment. You may have too many shell sessions running."
+
+**Cause:** This error occurs when you have too many
+AWS CloudShell tabs open or when there is a connectivity issue.
+
+**Solution:** Close any extra AWS CloudShell tabs and
+retry.
 
 ([back to top](troubleshooting.md "troubleshooting.md"))
 

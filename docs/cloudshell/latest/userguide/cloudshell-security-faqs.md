@@ -54,8 +54,9 @@ For Public environments, the infrastructure for storing data in your
 `$HOME` is provided by Amazon S3.
 
 For VPC environments, your `$HOME` directory is deleted when your VPC
-environment times out (after 20-30 minutes of inactivity), or when you delete or restart your
-environment.
+environment times out, or when you delete or restart your
+environment. Environments time out after 20–30 minutes of inactivity.
+In AWS GovCloud (US) Regions, environments time out after 10 minutes of inactivity.
 
 [Back to list of security FAQs](cloudshell-security-faqs.md "cloudshell-security-faqs.md")
 
@@ -78,8 +79,10 @@ directory. Support for this feature is under review.
 
 To restrict ingress or egress, we recommend that you use a CloudShell VPC environment.
 The `$HOME` directory of a VPC environment is deleted when your VPC
-environment times out (after 20-30 minutes of inactivity), or when you delete or restart your
-environment. In the **Actions** menu, the upload and download options are not
+environment times out, or when you delete or restart your
+environment. Environments time out after 20–30 minutes of inactivity.
+In AWS GovCloud (US) Regions, environments time out after 10 minutes of inactivity.
+In the **Actions** menu, the upload and download options are not
 available for VPC environments.
 
 [Back to list of security FAQs](cloudshell-security-faqs.md "cloudshell-security-faqs.md")
