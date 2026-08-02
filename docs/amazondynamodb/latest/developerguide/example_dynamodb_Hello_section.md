@@ -317,6 +317,26 @@ export const main = async () => {
 
 Python
 
+**SDK for Python**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/pythonv1/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/pythonv1/example_code/dynamodb#code-examples").
+
+```
+This is a test output. Examples for AWS SDK for Python
+for AWS DynamoDB will be available here soon.
+
+
+
+```
+
+- For API details, see
+  [ListTables](../../../sdk-for-python/v1/reference/index.md "../../../sdk-for-python/v1/reference/index.md")
+  in _AWS SDK for Python API Reference_.
+
 **SDK for Python (Boto3)**
 
 ###### Note

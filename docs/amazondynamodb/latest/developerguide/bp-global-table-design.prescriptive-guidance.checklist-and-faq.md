@@ -108,7 +108,7 @@ other participating Regions and automatically backfilled.
   delete operations.
 - Global tables that are configured for multi-Region eventual consistency (MREC
   tables) replicate changes by reading those changes from a DynamoDB stream on a replica
-  table and applying that change to all other replica tables. Therefore, DynamoDB is enabled
+  table and applying that change to all other replica tables. Therefore, DynamoDB Streams is enabled
   by default on all replicas in an MREC global table and cannot be disabled on those
   replicas. The MREC replication process can combine multiple changes in a short period of
   time into a single replicated write operation. As a result, each replica's stream might
