@@ -9,7 +9,13 @@ feature.
 1. Use `create-feed` to create a new feed.
 
 Include one output for each feature you want to implement. Set the status
-to `ENABLED` in each output. 2. The response includes the following information that you should make a
+to `ENABLED` in each output.
+
+(Optional) Specify an **access role**
+(`accessRoleArn`), the ARN of an IAM role that Elemental Inference assumes
+on your behalf to access the resources a feed needs. An access role is
+required when a smart crop output uses graphic composition, so that Elemental Inference
+can read your template images from Amazon S3. 2. The response includes the following information that you should make a
 note of:
 
     * `id`: The feed ID, which you will need for CLI commands

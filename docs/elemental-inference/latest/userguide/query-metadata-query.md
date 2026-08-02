@@ -150,6 +150,87 @@ Or if the output video is 1280 x 720, then the following applies:
   rounded up
 - The Y pixel position is 6250 x 720 / 10000= pixel 450
 
+### Metadata for graphic composition
+
+When you configure graphic composition on a smart crop output (see [Configuring smart crop](create-feed-outputs.md#create-feed-console-smart-crop "create-feed-outputs.md#create-feed-console-smart-crop")), the smart crop metadata
+includes a `graphics` list in addition to the crop
+`centerPoint`. The list contains one entry for each template group
+that Elemental Inference evaluated for the frame.
+
+Each graphic reports whether it is present in the frame. When
+`isPresent` is `true`, the entry also includes the
+bounding box that locates the graphic within the frame. When
+`isPresent` is `false`, Elemental Inference omits the position and
+size fields.
+
+The following table describes the fields in each graphic composition
+entry.
+
+| Field       | Always present | Description                                                                                                                                                                        |
+| ----------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`      | Yes            | The name of the template group. This matches the name you<br>configured, so that you can identify which graphic was<br>detected.                                                   |
+| `isPresent` | Yes            | Whether the graphic was detected in this frame. When this<br>value is `false`, the position and size fields are<br>omitted.                                                        |
+| `xPosition` | No             | The X position of the top-left corner of the bounding box,<br>measured from the top-left corner of the video frame and<br>normalized against `scale`. Always a positive<br>number. |
+| `yPosition` | No             | The Y position of the top-left corner of the bounding box,<br>measured from the top-left corner of the video frame and<br>normalized against `scale`. Always a positive<br>number. |
+| `width`     | No             | The width of the bounding box, as a fraction of the frame<br>width, normalized against `scale`.                                                                                    |
+| `height`    | No             | The height of the bounding box, as a fraction of the frame<br>height, normalized against `scale`.                                                                                  |
+| `scale`     | No             | The reference value used to normalize the position and size<br>fields, so that you can calculate them as a percentage of the<br>frame dimensions.                                  |
+
+The following example shows smart crop metadata in which Elemental Inference detected a
+scoreboard graphic:
+
+```
+{
+    "metadata": {
+        "smartCropping": {
+            "crop": {
+                "centerPoint": {
+                    "scale": 10000,
+                    "xPosition": 2176,
+                    "yPosition": 6250
+                }
+            },
+            "graphics": [
+                {
+                    "name": "scoreboard",
+                    "isPresent": true,
+                    "xPosition": 1602,
+                    "yPosition": 1201,
+                    "width": 2250,
+                    "height": 1264,
+                    "scale": 10000
+                }
+            ]
+        }
+    },
+    "pts": 0,
+    "timecode": null
+}
+```
+
+Use the returned `name` to identify the graphic and to look up the
+action that your downstream encoder or application must take for it. Use the
+bounding box to locate the graphic within the frame.
+
+`xPosition` and `yPosition` give the top-left corner of
+the bounding box. You calculate pixel values from the normalized values by
+multiplying by the output video dimension and dividing by `scale`.
+For an output video that is _W_ pixels wide and
+_H_ pixels high:
+
+- Left edge (pixels) = _xPosition_ x
+  _W_ /
+  _scale_
+- Top edge (pixels) = _yPosition_ x
+  _H_ /
+  _scale_
+- Width (pixels) = _width_ x
+  _W_ /
+  _scale_, and height (pixels) =
+  _height_ x
+  _H_ /
+  _scale_
+
 ## Metadata for smart subtitles
 
 For smart subtitles, Elemental Inference returns the metadata as a TTML (Timed Text Markup

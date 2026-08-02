@@ -18,6 +18,11 @@ feed.
      you want to use. Each feature becomes an output in the feed. See the
      sections after this procedure for information about specific
      configuration for a feature.
+   - In the **Access role** section, specify the IAM
+     role that Elemental Inference assumes on your behalf to access the resources a
+     feed needs. An access role is required when a smart crop output uses
+     graphic composition, so that Elemental Inference can read your template images
+     from Amazon S3.
    - Optionally, associate tags with the feed.
 
 4. Choose **Create feed**. The **Feeds**

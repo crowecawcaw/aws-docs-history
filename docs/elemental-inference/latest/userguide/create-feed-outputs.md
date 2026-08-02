@@ -14,7 +14,88 @@ example.
 
 ## Configuring smart crop
 
-There is no specific configuration for smart crop.
+Smart crop has no required configuration. Optionally, you can add
+**graphic composition** to a smart crop output to
+detect known graphics, such as scoreboards and advertisements, in your source
+media. You provide one or more reference images, called
+**templates**, and Elemental Inference reports, for each
+analyzed frame, whether each graphic is present and where it appears as a
+bounding box. Elemental Inference returns graphic composition results as part of the smart
+crop metadata. For more information, see [Metadata for graphic composition](query-metadata-query.md#query-metadata-smart-crop-graphics "query-metadata-query.md#query-metadata-smart-crop-graphics").
+
+You can configure one to four template groups of reference images, where each
+group represents a single graphic to detect. Configuring at least one group
+enables graphic composition in the output. Each group has the following
+settings:
+
+- **Name** (required) – A name for
+  the graphic. The name can be 1–128 characters, must start and end
+  with an alphanumeric character, and can contain letters, numbers,
+  hyphens (-), and underscores (\_). Elemental Inference returns this same name in the
+  metadata so that you can identify which graphic was detected.
+- **Template URIs** (required) – Up
+  to two Amazon S3 URIs of reference images for the graphic. Provide more than
+  one image when the same graphic can appear in more than one
+  variation.
+
+###### Note
+
+Store your reference images in an Amazon S3 bucket in the same account that
+creates the feed, and that Elemental Inference can read using the access role
+(`accessRoleArn`) associated with the feed.
+
+###### Template image recommendations
+
+For the best detection performance, follow these recommendations when you
+prepare your template images:
+
+- Provide each template as a PNG image with an alpha channel. Set the
+  alpha value to 0 for any regions that Elemental Inference should ignore when matching.
+  Elemental Inference uses only the non-transparent regions for detection. Make
+  transparent the parts of the graphic that change from frame to frame.
+  Leave the parts that stay the same fully opaque. For example, in a
+  scoreboard template, set the alpha to 0 over the score and clock digits
+  and over any animated or moving elements. Leave the parts that don't
+  change, such as the scoreboard outline and the team labels, fully
+  opaque.
+- Graphic detection runs at a resolution of 2560 x 1440. For the best
+  results, size each template to match how large the graphic appears in a
+  2560 x 1440 frame.
+
+###### CLI example
+
+The following example shows how to include a smart crop output that detects
+two graphics, a scoreboard and ads, when creating a feed using the
+CLI:
+
+```
+aws elemental-inference create-feed \
+  --name "my-feed" \
+  --access-role-arn "arn:aws:iam::111122223333:role/my-ei-access-role" \
+  --outputs '[{
+    "name": "crop",
+    "status": "ENABLED",
+    "outputConfig": {
+      "cropping": {
+        "templateGroups": [
+          {
+            "name": "scoreboard",
+            "templateUris": [
+              "s3://amzn-s3-demo-bucket/scoreboard-v1.png",
+              "s3://amzn-s3-demo-bucket/scoreboard-v2.png"
+            ]
+          },
+          {
+            "name": "ads",
+            "templateUris": [
+              "s3://amzn-s3-demo-bucket/ads.png"
+            ]
+          }
+        ]
+      }
+    }
+  }]'
+```
 
 ## Configuring smart subtitles
 
