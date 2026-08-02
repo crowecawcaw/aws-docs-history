@@ -19,7 +19,11 @@ The diagram shows the AWS high-level architecture for this section’s setup. Th
 
 ## Prerequisites
 
-- `kubectl` >= 1.35. For setup instructions, see [Set up kubectl and eksctl](install-kubectl.md "install-kubectl.md").
+###### Important
+
+The resources you create in this tutorial, including EKS clusters, GPU instances, Application Load Balancers, and Amazon Managed Service for Prometheus, incur charges. Delete resources when you finish to avoid ongoing charges.
+
+- `kubectl` >= 1.36. For setup instructions, see [Set up kubectl and eksctl](install-kubectl.md "install-kubectl.md").
 - AWS CLI >= 2.27. For setup instructions, see [Installing](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md").
 - Helm >= 3.14. For setup instructions, see [Setup Helm](helm.md "helm.md").
 - `jq`. For setup instructions, see [Download jq](https://jqlang.github.io/jq/download/ "https://jqlang.github.io/jq/download/").
@@ -94,7 +98,7 @@ eksctl create cluster \
   --name=$CLUSTER_NAME \
   --region=$AWS_REGION \
   --enable-auto-mode \
-  --version=1.35 \
+  --version=1.36 \
   --zones=$AZS
 ```
 
@@ -113,6 +117,29 @@ kube-system   metrics-server-55cf976ddd-wrjvv   1/1     Running   0          3m
 ```
 
 In EKS Auto Mode, the VPC CNI, kube-proxy, and CoreDNS run as managed components and do not appear as pods in `kube-system`.
+
+**Create the default StorageClass**
+
+GPU workloads often need persistent storage, for example to cache model weights so Kubernetes does not re-download them on every pod restart. EKS Auto Mode includes a built-in block storage capability, so you do not install the Amazon EBS CSI driver. Create a `StorageClass` that references the Auto Mode provisioner:
+
+```
+cat << EOF | kubectl apply -f -
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: gp3
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+provisioner: ebs.csi.eks.amazonaws.com
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  type: gp3
+  encrypted: "true"
+EOF
+```
+
+This command creates a `gp3`
+`StorageClass` and marks it as the cluster default with the `storageclass.kubernetes.io/is-default-class` annotation. Any `PersistentVolumeClaim` that omits `storageClassName` uses this `StorageClass`. The `volumeBindingMode: WaitForFirstConsumer` setting delays volume creation until Kubernetes schedules a pod, so the EBS volume lands in the same Availability Zone as the pod.
 
 Self-managed Karpenter
 
@@ -134,7 +161,7 @@ Expected output: `Login Succeeded`
 Store your Karpenter version in an environment variable for later use. For the latest Karpenter versions, see the [Karpenter releases](https://github.com/aws/karpenter-provider-aws/releases "https://github.com/aws/karpenter-provider-aws/releases") on GitHub.
 
 ```
-export KARPENTER_VERSION=1.12.0
+export KARPENTER_VERSION=1.14.0
 ```
 
 ###### Example Cluster config YAML
@@ -147,7 +174,7 @@ kind: ClusterConfig
 metadata:
   name: ${CLUSTER_NAME}
   region: ${AWS_REGION}
-  version: "1.35"
+  version: "1.36"
   tags:
     karpenter.sh/discovery: ${CLUSTER_NAME}
 
@@ -177,6 +204,7 @@ managedNodeGroups:
 addons:
   - name: eks-pod-identity-agent
   - name: eks-node-monitoring-agent
+  - name: aws-ebs-csi-driver
 EOF
 ```
 
@@ -190,7 +218,7 @@ eksctl create cluster -f /tmp/cluster-karpenter.yaml
 
 This command takes about 15 minutes. It creates an EKS cluster with a managed node group dedicated to hosting add-ons and the Karpenter controller. Karpenter is installed with the Spot interruption queue enabled so it can handle Spot interruption and rebalance recommendations. The `autoModeConfig.enabled: false` setting makes it explicit that this cluster does not use EKS Auto Mode, so the Karpenter components installed in this path are responsible for node management.
 
-The cluster also gets the [EKS Pod Identity Agent](pod-identities.md "pod-identities.md") and the [EKS node monitoring agent](node-health.md "node-health.md") installed as EKS add-ons. EKS Pod Identity is used later in the guide. The EKS node monitoring agent runs on every node and reads kernel logs to set node conditions such as `AcceleratedHardwareReady`, `KernelReady`, and `NetworkingReady`, which Karpenter automatic node repair uses to decide when to replace an unhealthy node.
+The cluster also gets the [EKS Pod Identity Agent](pod-identities.md "pod-identities.md"), the [EKS node monitoring agent](node-health.md "node-health.md"), and the Amazon EBS CSI driver installed as EKS add-ons. EKS Pod Identity is used later in the guide. The EKS node monitoring agent runs on every node and reads kernel logs to set node conditions such as `AcceleratedHardwareReady`, `KernelReady`, and `NetworkingReady`, which Karpenter automatic node repair uses to decide when to replace an unhealthy node.
 
 Verify the cluster is operational:
 
@@ -218,13 +246,13 @@ kube-system   metrics-server-5b966ff79c-hr58p   1/1     Running   0          9m2
 kube-system   metrics-server-5b966ff79c-szs2d   1/1     Running   0          9m22s
 ```
 
-**Enable automatic node repair**
+**Enable Karpenter feature gates**
 
-EKS Auto Mode enables automatic node repair by default. On self-managed Karpenter, automatic node repair is gated behind the `NodeRepair=true` feature gate and must be enabled explicitly. The following command patches the Karpenter deployment to add the `NodeRepair=true` feature gate. Updating the deployment env triggers a rollout of the Karpenter pods:
+EKS Auto Mode enables automatic node repair and static capacity by default. On self-managed Karpenter, you must explicitly enable the `NodeRepair` feature gate, and the `StaticCapacity` gate for static NodePools, which maintain a fixed node count through `spec.replicas` instead of scaling in response to pending pods. Both gates are Alpha and off by default in Karpenter. The following command patches the Karpenter deployment to enable both gates. Updating the deployment environment triggers a rollout of the Karpenter pods:
 
 ```
 kubectl set env deployment/karpenter -n karpenter \
-  FEATURE_GATES=NodeRepair=true
+  FEATURE_GATES=NodeRepair=true,StaticCapacity=true
 ```
 
 Expected output:
@@ -285,13 +313,210 @@ NAME                   DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE
 nvidia-device-plugin   0         0         0       0            0           amiFamily=al2023   2m5s
 ```
 
+Next, create a general-purpose NodePool. The `system` managed node group runs the add-ons and controllers. Add a general-purpose Karpenter `NodePool` so non-GPU workloads can scale on demand without landing on the `system` nodes. The GPU `NodePool` is created later in [Step 2](#cluster-setup-cli-create-gpu-nodepool "#cluster-setup-cli-create-gpu-nodepool").
+
+**General-purpose EC2NodeClass and NodePool YAML**
+
+```
+cat << EOF | kubectl apply -f -
+apiVersion: karpenter.k8s.aws/v1
+kind: EC2NodeClass
+metadata:
+  name: general-purpose
+spec:
+  role: "eksctl-KarpenterNodeRole-${CLUSTER_NAME}"
+  amiSelectorTerms:
+    - alias: al2023@latest
+  subnetSelectorTerms:
+    - tags:
+        karpenter.sh/discovery: ${CLUSTER_NAME}
+  securityGroupSelectorTerms:
+    - tags:
+        karpenter.sh/discovery: ${CLUSTER_NAME}
+  tags:
+    karpenter.sh/discovery: ${CLUSTER_NAME}
+---
+apiVersion: karpenter.sh/v1
+kind: NodePool
+metadata:
+  name: general-purpose
+spec:
+  template:
+    spec:
+      nodeClassRef:
+        group: karpenter.k8s.aws
+        kind: EC2NodeClass
+        name: general-purpose
+      requirements:
+        - key: karpenter.sh/capacity-type
+          operator: In
+          values: ["on-demand"]
+        - key: karpenter.k8s.aws/instance-category
+          operator: In
+          values: ["c", "m", "r"]
+        - key: karpenter.k8s.aws/instance-generation
+          operator: Gt
+          values: ["4"]
+        - key: kubernetes.io/arch
+          operator: In
+          values: ["amd64"]
+  limits:
+    cpu: 1000
+    memory: 1000Gi
+EOF
+```
+
+This NodePool has no taints, so any Pod that does not tolerate the GPU taint can schedule on it.
+
+**Create the default StorageClass**
+
+GPU workloads often need persistent storage, for example to cache model weights so Kubernetes does not re-download them on every pod restart. The Amazon EBS CSI driver is already installed by the `addons:` block in the cluster config earlier in this step, so you only need to create the `StorageClass`:
+
+```
+cat << EOF | kubectl apply -f -
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: gp3
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+provisioner: ebs.csi.aws.com
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  type: gp3
+  encrypted: "true"
+EOF
+```
+
+This command creates a `gp3`
+`StorageClass` and marks it as the cluster default with the `storageclass.kubernetes.io/is-default-class` annotation. Any `PersistentVolumeClaim` that omits `storageClassName` uses this `StorageClass`. The `volumeBindingMode: WaitForFirstConsumer` setting delays volume creation until Kubernetes schedules a pod, so the EBS volume lands in the same Availability Zone as the pod.
+
 ###### Warning
 
 For both the EKS Auto Mode and self-managed Karpenter paths, automatic node repair behaves the same way for nodes provisioned by NodePools. Automatic node repair in EKS Auto Mode and Karpenter is a _forceful_ disruption method that bypasses PodDisruptionBudgets, the `karpenter.sh/do-not-disrupt` annotation, and `terminationGracePeriod`. Automatic node repair waits 10 minutes before replacing a node with the `AcceleratedHardwareReady` condition set to `False` and 30 minutes for [other repair conditions](node-repair.md "node-repair.md").
 
+### Set up load balancing
+
+Later steps in this guide expose Grafana (and, in the inference walkthrough, a model endpoint) through an AWS Application Load Balancer (ALB). Set up the load balancing prerequisites now so those sections can create an `Ingress` without further setup.
+
+The ALB is placed in your VPC subnets based on AWS resource tags. Public subnets used for internet-facing load balancers must be tagged `kubernetes.io/role/elb` = `1`, and private subnets used for internal load balancers must be tagged `kubernetes.io/role/internal-elb` = `1`. Because you created this cluster with `eksctl`, those tags already exist on the subnets `eksctl` created. If you bring your own VPC or imported subnets, tag them manually. For details, see [Tag subnets for EKS Auto Mode](tag-subnets-auto.md "tag-subnets-auto.md").
+
+#### Create the load balancer IngressClass
+
+The rest of the setup differs by path. EKS Auto Mode includes a built-in ALB controller, so you create an `IngressClass` yourself. Self-managed Karpenter requires installing the AWS Load Balancer Controller with Helm, and the Helm chart creates the `IngressClass` for you.
+
+EKS Auto Mode
+EKS Auto Mode includes a built-in ALB controller, so you do not install any additional components. Create an `IngressClass` named `alb` that points at the built-in controller. Each `Ingress` you create later references this class by name and sets its own scheme and other options through annotations.
+
+```
+cat << EOF | kubectl apply -f -
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  name: alb
+spec:
+  controller: eks.amazonaws.com/alb
+EOF
+```
+
+Self-managed Karpenter
+The AWS Load Balancer Controller is not an EKS-managed add-on, so it cannot go in the `eksctl` cluster config `addons:` block the way the EBS CSI driver does. Install it with Helm.
+
+**Download the IAM policy**
+
+The controller needs IAM permissions to create and manage ALBs. Download the official IAM policy JSON:
+
+```
+curl -o iam_policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/install/iam_policy.json
+```
+
+Create the IAM policy:
+
+```
+aws iam create-policy \
+  --policy-name AWSLoadBalancerControllerIAMPolicy \
+  --policy-document file://iam_policy.json
+```
+
+**Create the Pod Identity association**
+
+The cluster already installs the `eks-pod-identity-agent` add-on in [Step 1](#cluster-setup-cli-create-cluster "#cluster-setup-cli-create-cluster"), so EKS Pod Identity is available. Create a Pod Identity association that binds the IAM policy to the controller’s service account:
+
+```
+eksctl create podidentityassociation \
+  --cluster ${CLUSTER_NAME} \
+  --region ${AWS_REGION} \
+  --namespace kube-system \
+  --service-account-name aws-load-balancer-controller \
+  --permission-policy-arns arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):policy/AWSLoadBalancerControllerIAMPolicy
+```
+
+**Install with Helm**
+
+Add the EKS charts Helm repository:
+
+```
+helm repo add eks https://aws.github.io/eks-charts
+helm repo update
+```
+
+Look up your cluster’s VPC ID. The Helm values need it so the controller can discover subnets:
+
+```
+VPC_ID=$(aws eks describe-cluster \
+  --name ${CLUSTER_NAME} \
+  --region ${AWS_REGION} \
+  --query 'cluster.resourcesVpcConfig.vpcId' \
+  --output text)
+```
+
+Install the controller. The `nodeSelector` and toleration place the controller on the `system` managed node group alongside cluster-critical infrastructure, rather than competing with GPU or general-purpose Karpenter-launched nodes for capacity:
+
+```
+helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
+  --namespace kube-system \
+  --version 3.4.2 \
+  --set clusterName=${CLUSTER_NAME} \
+  --set region=${AWS_REGION} \
+  --set vpcId=${VPC_ID} \
+  --set serviceAccount.create=true \
+  --set serviceAccount.name=aws-load-balancer-controller \
+  --set "nodeSelector.node-role=system" \
+  --set "tolerations[0].key=CriticalAddonsOnly" \
+  --set "tolerations[0].operator=Exists"
+```
+
+Verify the controller is running. It should report two available replicas:
+
+```
+kubectl get deployment aws-load-balancer-controller -n kube-system
+```
+
+**Verify the IngressClass**
+
+The Helm chart creates an `IngressClass` named `alb` as part of the controller install, pointing at the self-managed controller `ingress.k8s.aws/alb`. You do not need to create it manually. Confirm it exists:
+
+```
+kubectl get ingressclass alb
+```
+
+Expected output:
+
+```
+NAME   CONTROLLER            PARAMETERS   AGE
+alb    ingress.k8s.aws/alb   <none>       22s
+```
+
+Both paths now have an `alb`
+`IngressClass`. The Grafana and inference sections reference `ingressClassName: alb` and set the ALB scheme, source-IP allowlist, and other behavior through per-`Ingress` annotations.
+
 ## Step 2: Create dynamic GPU NodePool
 
-Define a NodePool that dynamically provisions G-family GPU instances with generation greater than 4, using Spot capacity with On-Demand as a fallback. The EKS Auto Mode and Karpenter paths both use the same NodePool API with the only difference being the NodeClass it points to. In EKS Auto Mode, the bundled `default` NodeClass already selects the right AMI and configures SOCI parallel pull, so the NodePool is the only object you create. In self-managed Karpenter, you also need a custom `EC2NodeClass` that pins the AMI and tunes SOCI.
+Define a NodePool that dynamically provisions G-family GPU instances with a generation greater than 4 and less than 7, using Spot capacity with On-Demand as a fallback. The EKS Auto Mode and Karpenter paths both use the same NodePool API with the only difference being the NodeClass it points to. In EKS Auto Mode, the bundled `default` NodeClass already selects the right AMI and configures SOCI parallel pull, so the NodePool is the only object you create. In self-managed Karpenter, you also need a custom `EC2NodeClass` that pins the AMI and tunes SOCI.
+
+###### Important
+
+The G7 EC2 instance type requires NVIDIA driver version 595 or later. The EKS-optimized accelerated AMIs currently include NVIDIA driver version 580, which does not support G7 instances. The NodePool in this step constrains the instance generation to less than 7 so that Karpenter does not select a G7 instance. To use G7 instances with Amazon EKS, you must build a custom AMI with NVIDIA driver version 595. For more information, see [Use EKS-optimized accelerated AMIs for GPU instances](ml-eks-optimized-ami.md "ml-eks-optimized-ami.md").
 
 EKS Auto Mode
 In EKS Auto Mode, the bundled `default` NodeClass automatically selects the Bottlerocket AMI for GPU instances, which includes pre-installed NVIDIA drivers, the NVIDIA device plugin, and SOCI parallel pull. You just need to apply a NodePool that references the `default` NodeClass:
@@ -325,6 +550,9 @@ spec:
         - key: eks.amazonaws.com/instance-generation
           operator: Gt
           values: ["4"]
+        - key: eks.amazonaws.com/instance-generation
+          operator: Lt
+          values: ["7"]
         - key: kubernetes.io/arch
           operator: In
           values: ["amd64"]
@@ -334,14 +562,14 @@ spec:
 EOF
 ```
 
-This NodePool provisions G-family GPU instances with generation greater than 4 ([G5](https://aws.amazon.com/ec2/instance-types/g5/ "https://aws.amazon.com/ec2/instance-types/g5/"), [G6e](https://aws.amazon.com/ec2/instance-types/g6e/ "https://aws.amazon.com/ec2/instance-types/g6e/"), [G7e](https://aws.amazon.com/ec2/instance-types/g7e/ "https://aws.amazon.com/ec2/instance-types/g7e/"), etc.).
+This NodePool provisions G-family GPU instances with a generation greater than 4 and less than 7 ([G5](https://aws.amazon.com/ec2/instance-types/g5/ "https://aws.amazon.com/ec2/instance-types/g5/"), [G6e](https://aws.amazon.com/ec2/instance-types/g6e/ "https://aws.amazon.com/ec2/instance-types/g6e/"), etc.). EKS Auto Mode chooses an instance type within these constraints.
 
 Self-managed Karpenter
 Self-managed Karpenter does not include a default NodeClass. You first create an `EC2NodeClass` that pins the EKS-optimized NVIDIA AL2023 AMI alias, enables SOCI via the `FastImagePull` feature gate, and configures `instanceStorePolicy: RAID0` to move the containerd image cache to local NVMe. Then you create the NodePool that references it.
 
 **Create the EC2NodeClass**
 
-###### Example EC2NodeClass YAML
+###### Example
 
 ```
 cat << EOF | kubectl apply -f -
@@ -389,7 +617,7 @@ Expected output: `READY True`. If `False`, run `kubectl describe ec2nodeclass gp
 
 **Create the GPU NodePool**
 
-###### Example NodePool YAML
+###### Example
 
 ```
 cat << EOF | kubectl apply -f -
@@ -418,12 +646,12 @@ spec:
         - key: karpenter.k8s.aws/instance-category
           operator: In
           values: ["g"]
-        - key: karpenter.k8s.aws/instance-family
-          operator: NotIn
-          values: ["g7"]
         - key: karpenter.k8s.aws/instance-generation
           operator: Gt
           values: ["4"]
+        - key: karpenter.k8s.aws/instance-generation
+          operator: Lt
+          values: ["7"]
         - key: kubernetes.io/arch
           operator: In
           values: ["amd64"]
@@ -433,7 +661,7 @@ spec:
 EOF
 ```
 
-The `amiFamily: al2023` label on the node template is what the NVIDIA device plugin DaemonSet uses to select these nodes. The `g7` instance family is excluded because it requires you to build a custom EKS AMI with NVIDIA driver version 595. The `nvidia.com/gpu:NoSchedule` taint ensures only GPU-eligible Pods are scheduled on these nodes.
+The `amiFamily: al2023` label on the node template is what the NVIDIA device plugin DaemonSet uses to select these nodes. Karpenter chooses an instance type within these constraints. The `nvidia.com/gpu:NoSchedule` taint ensures only GPU-eligible Pods are scheduled on these nodes.
 
 Validate the NodePool was created:
 
@@ -501,19 +729,19 @@ Expected output:
 
 ```
 +-----------------------------------------------------------------------------------------+
-| NVIDIA-SMI 580.126.09             Driver Version: 580.126.09     CUDA Version: 13.0     |
+| NVIDIA-SMI 580.159.03             Driver Version: 580.159.03     CUDA Version: 13.0     |
 +-----------------------------------------+------------------------+----------------------+
 | GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
 |                                         |                        |               MIG M. |
 |=========================================+========================+======================|
-|   0  NVIDIA RTX PRO 6000 Blac...    On  |   00000000:2B:00.0 Off |                    0 |
-| N/A   30C    P0             81W /  600W |       0MiB /  97887MiB |      0%      Default |
-|                                         |                        |             Disabled |
+|   0  NVIDIA L4                      On  |   00000000:35:00.0 Off |                    0 |
+| N/A   42C    P8             16W /   72W |       0MiB /  23034MiB |      0%      Default |
+|                                         |                        |                  N/A |
 +-----------------------------------------+------------------------+----------------------+
 ```
 
-The output shows the GPU model, driver version, CUDA version, and available memory. In this example, Karpenter provisioned a G7e instance which has an NVIDIA RTX PRO 6000 Blackwell GPU with 96 GB of memory. The 30C is the current GPU temperature and P0 means the GPU is in its highest performance state (idle but ready). The 81W / 600W shows current power draw vs max power capacity, and 0MiB / 97887MiB shows current GPU memory used vs total available. Since the Pod just ran nvidia-smi and exited, no workload is using the GPU so memory is at 0 and power is at idle. The NVIDIA GPU driver version (580.126.09) comes from the Bottlerocket AMI, while the CUDA version (13.0) comes from the container image. The GPU model and memory will vary depending on the instance type Karpenter selects. G5 instances have NVIDIA A10G GPUs (24 GB), G6e instances have NVIDIA L40S GPUs (48 GB), and G7e instances have NVIDIA RTX PRO 6000 GPUs (96 GB).
+The output shows the GPU model, driver version, CUDA version, and available memory. In this example, Karpenter provisioned a G6 instance which has an NVIDIA L4 GPU with 24 GB of memory. The 42C is the current GPU temperature and P8 is a low-power idle state, which is expected because no workload is using the GPU. The 16W / 72W shows current power draw compared to max power capacity, and 0MiB / 23034MiB shows current GPU memory used compared to total available. Since the Pod just ran nvidia-smi and exited, no workload is using the GPU so memory is at 0 and power is at idle. The NVIDIA GPU driver version (580.159.03) comes from the Bottlerocket AMI, while the CUDA version (13.0) comes from the container image. The GPU model and memory will vary depending on the instance type Karpenter selects. G5 instances have NVIDIA A10G GPUs (24 GB), G6 instances have NVIDIA L4 GPUs (24 GB), and G6e instances have NVIDIA L40S GPUs (48 GB).
 
 To understand how Karpenter and the Kubernetes scheduler coordinated to provision a node and place the Pod, check the Pod’s lifecycle events:
 
@@ -548,11 +776,11 @@ kubectl get nodeclaims
 Expected NodeClaim output:
 
 ```
-NAME            TYPE          CAPACITY    ZONE         NODE                  READY   AGE
-gpu-inf-xxxxx   g7e.2xlarge   spot        us-east-2a   i-0xxxxxxxxxxxx       True    2m
+NAME            TYPE         CAPACITY   ZONE         NODE                  READY   AGE
+gpu-inf-vxcnj   g6.4xlarge   spot       us-east-2c   i-0fb17a09bc4203164   True    51s
 ```
 
-The instance type and AZ will vary. Any G-family instance with generation > 4 is eligible.
+The instance type and AZ will vary. Any G-family instance with a generation greater than 4 and less than 7 is eligible.
 
 The `FailedCreatePodSandBox` warning in `kubectl describe pod nvidia-smi` is transient and expected. The VPC CNI initializes asynchronously after the node joins, and the kubelet retries automatically. If the Pod stays in `ContainerCreating`, check node events with `kubectl describe node <node-name>`.
 
@@ -672,6 +900,9 @@ spec:
         - key: eks.amazonaws.com/instance-generation
           operator: Gt
           values: ["4"]
+        - key: eks.amazonaws.com/instance-generation
+          operator: Lt
+          values: ["7"]
         - key: kubernetes.io/arch
           operator: In
           values: ["amd64"]
@@ -754,6 +985,9 @@ spec:
         - key: karpenter.k8s.aws/instance-generation
           operator: Gt
           values: ["4"]
+        - key: karpenter.k8s.aws/instance-generation
+          operator: Lt
+          values: ["7"]
         - key: kubernetes.io/arch
           operator: In
           values: ["amd64"]
@@ -829,7 +1063,7 @@ Expected output:
 ```
 NAME            TYPE          CAPACITY    ZONE         NODE                  READY   AGE
 gpu-inf-shg5w   g6e.xlarge    reserved    us-east-2a   i-0ea91fdeef65b8cb6   True    2m2s
-gpu-inf-ssnqf   g7e.2xlarge   spot        us-east-2b   i-00ccf7ce65cf3f6ca   True    112s
+gpu-inf-ssnqf   g6e.2xlarge   spot        us-east-2b   i-00ccf7ce65cf3f6ca   True    112s
 ```
 
 The reserved node launched first, followed by a Spot or On-Demand node once the reservation was full.
@@ -950,6 +1184,22 @@ helm repo update
 
 This values file omits a nodeSelector for Prometheus, Grafana, and the operator: the GPU nodes' `nvidia.com/gpu:NoSchedule` taint keeps them off GPU nodes, so they land on the system or general-purpose pool by default. Node-exporter uses a wildcard toleration so it runs on every node — including GPU nodes — to collect metrics fleet-wide.
 
+The values file also configures a Grafana `Ingress` so the chart provisions an internet-facing ALB for browser access, using the `alb`
+`IngressClass` you created in [Set up load balancing](#cluster-setup-cli-loadbalancing "#cluster-setup-cli-loadbalancing"). The `alb.ingress.kubernetes.io/inbound-cidrs` annotation restricts the load balancer to your own IP address, so set it before you install.
+
+###### Grafana is publicly accessible over HTTP with default credentials
+
+Grafana includes default admin credentials and provides full administrative access to your monitoring data. An internet-facing load balancer places this interface on the public internet over plain text HTTP. Automated scanners discover public load balancers within minutes. You **must** restrict access with the `alb.ingress.kubernetes.io/inbound-cidrs` annotation, and treat source-IP allowlisting as a minimum safeguard, not a complete one. Also change the default Grafana admin password. For a stronger posture, use an **internal** scheme (reachable only from within your VPC or a connected VPN) by setting the scheme to `internal`, and add a TLS certificate.
+
+Find your public IP address and store it as a `/32` CIDR. The values file reads this from the `MY_CIDR` environment variable:
+
+```
+export MY_CIDR="$(curl -s https://checkip.amazonaws.com)/32"
+echo $MY_CIDR
+```
+
+The result looks like `203.0.113.4/32`. If your network assigns addresses dynamically, your IP address might change over time, so consider setting a broader range such as `203.0.113.0/24`.
+
 Create the values file:
 
 ###### Example kube-prometheus-stack values file
@@ -988,8 +1238,6 @@ prometheus:
           maxSamplesPerSend: 1000
           maxShards: 200
           capacity: 2500
-    nodeSelector:
-      node-role: system
 
 prometheusOperator:
   resources:
@@ -998,12 +1246,6 @@ prometheusOperator:
       memory: 128Mi
     limits:
       memory: 256Mi
-  nodeSelector:
-    node-role: system
-  admissionWebhooks:
-    patch:
-      nodeSelector:
-        node-role: system
 
 kube-state-metrics:
   resources:
@@ -1012,11 +1254,20 @@ kube-state-metrics:
       memory: 128Mi
     limits:
       memory: 512Mi
-  nodeSelector:
-    node-role: system
 
 grafana:
   enabled: true
+  ingress:
+    enabled: true
+    ingressClassName: alb
+    labels:
+      guide: ai-eks-docs
+    annotations:
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/target-type: ip
+      alb.ingress.kubernetes.io/inbound-cidrs: ${MY_CIDR}
+      alb.ingress.kubernetes.io/load-balancer-name: grafana-ai-eks-docs
+      alb.ingress.kubernetes.io/healthcheck-path: /api/health
   serviceAccount:
     create: false
     name: grafana-sa
@@ -1026,8 +1277,6 @@ grafana:
       memory: 256Mi
     limits:
       memory: 1Gi
-  nodeSelector:
-    node-role: system
   grafana.ini:
     auth.sigv4:
       enabled: true
@@ -1138,13 +1387,20 @@ Alertmanager is disabled in this setup.
 
 ### Access Grafana
 
-Open a separate terminal and port-forward to access Grafana:
+You access Grafana through an internet-facing AWS Application Load Balancer (ALB). You do not create it here. The kube-prometheus-stack chart provisions it from the `grafana.ingress` configuration in the [values file](#cluster-setup-cli-install-kube-prometheus "#cluster-setup-cli-install-kube-prometheus"), using the `alb`
+`IngressClass` from [Set up load balancing](#cluster-setup-cli-loadbalancing "#cluster-setup-cli-loadbalancing"). The Grafana Helm chart has built-in `Ingress` support, so no separate manifest is needed. The ALB is named `grafana-ai-eks-docs`, carries the label `guide: ai-eks-docs`, and is restricted to the IP address you set in `MY_CIDR` at install time.
+
+###### Health check path is required for the Grafana ALB target group
+
+The `alb.ingress.kubernetes.io/healthcheck-path` annotation in the values file points the load balancer’s health checks at the Grafana `/api/health` endpoint, which returns `200`. Without it, the ALB health checks default to `/`, which Grafana answers with a `302` redirect to `/login`, causing the target group to report the endpoint as unhealthy.
+
+Print the load balancer URL. The load balancer is created asynchronously, so allow a minute or two:
 
 ```
-kubectl port-forward svc/kube-prometheus-stack-grafana 3000:80 -n monitoring
+echo "http://$(kubectl get ingress kube-prometheus-stack-grafana -n monitoring -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')"
 ```
 
-Open [http://localhost:3000](http://localhost:3000 "http://localhost:3000") in your browser. Log in with username `admin` and the password from the following command:
+Open the URL in your browser. Log in with username `admin` and the password from the following command:
 
 ```
 kubectl --namespace monitoring get secrets kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo

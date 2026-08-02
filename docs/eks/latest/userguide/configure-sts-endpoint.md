@@ -11,7 +11,12 @@ AWS recommends using the regional AWS STS endpoints instead of the global endpoi
 - An existing cluster. If you don’t have one, you can create one using one of the guides in [Get started with Amazon EKS](getting-started.md "getting-started.md").
 - An existing IAM OIDC provider for your cluster. For more information, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md").
 - An existing Kubernetes service account configured for use with the [Amazon EKS IAM for service accounts](iam-roles-for-service-accounts.md "iam-roles-for-service-accounts.md") feature.
-  The following examples all use the aws-node Kubernetes service account used by the [Amazon VPC CNI plugin](cni-iam-role.md "cni-iam-role.md"). You can replace the `example values` with your own service accounts, Pods, namespaces, and other resources.
+
+###### Note
+
+To make IRSA credential requests private in a VPC without internet egress, create an AWS STS interface endpoint (`com.amazonaws.region-code.sts`) and set the regional endpoint as described in this topic. The global endpoint (`sts.amazonaws.com`) bypasses the VPC endpoint. To also reach the cluster OIDC discovery/JWKS endpoint privately (for provider setup and token validators), create a separate VPC endpoint (`com.amazonaws.region-code.oidc-eks`). For more information, see [Access the cluster OIDC endpoint using AWS PrivateLink](vpc-interface-endpoints.md#oidc-vpc-interface-endpoints "vpc-interface-endpoints.md#oidc-vpc-interface-endpoints").
+
+The following examples all use the aws-node Kubernetes service account used by the [Amazon VPC CNI plugin](cni-iam-role.md "cni-iam-role.md"). You can replace the `example values` with your own service accounts, Pods, namespaces, and other resources.
 
 1. Select a Pod that uses a service account that you want to change the endpoint for. Determine which AWS Region that the Pod runs in. Replace `aws-node-6mfgv` with your Pod name and `kube-system` with your Pod’s namespace.
 

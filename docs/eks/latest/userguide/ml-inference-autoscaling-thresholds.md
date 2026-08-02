@@ -40,7 +40,9 @@ MODEL_BUCKET=$(aws s3api list-buckets \
 echo "Model bucket: ${MODEL_BUCKET}"
 ```
 
-**Confirm the monitoring stack is running.** The kube-prometheus-stack from the [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring "ml-cluster-setup-cli.md#cluster-setup-cli-monitoring") setup runs in the `monitoring` namespace.
+### Confirm the monitoring stack is running
+
+The kube-prometheus-stack from the [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring "ml-cluster-setup-cli.md#cluster-setup-cli-monitoring") setup runs in the `monitoring` namespace.
 
 ```
 kubectl get pods -n monitoring
@@ -57,7 +59,9 @@ prometheus-kube-prometheus-stack-prometheus-0     2/2     Running   0          3
 
 If these are missing, complete the [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring "ml-cluster-setup-cli.md#cluster-setup-cli-monitoring") setup before continuing.
 
-**Confirm the vLLM model is running.** The `vllm-inference-app` Deployment and `vllm-inference-svc` Service from [Load & Serve Models](ml-inference-load-serve-model.md "ml-inference-load-serve-model.md") run in the `default` namespace.
+### Confirm the vLLM model is running
+
+The `vllm-inference-app` Deployment and `vllm-inference-svc` Service from [Load & Serve Models](ml-inference-load-serve-model.md "ml-inference-load-serve-model.md") run in the `default` namespace.
 
 ```
 kubectl get deployment vllm-inference-app
@@ -72,19 +76,23 @@ vllm-inference-app   1/1     1            1           3h
 
 If the Deployment is missing or not ready, complete [Load & Serve Models](ml-inference-load-serve-model.md "ml-inference-load-serve-model.md") before continuing.
 
-**Port-forward Grafana.** You watch the load test in the pre-loaded vLLM dashboard, so keep Grafana reachable in a background port-forward:
+### Access Grafana
+
+You watch the load test in the pre-loaded vLLM dashboard, so make sure the Grafana load balancer you set up in the [Access Grafana](ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer "ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer") section is reachable. Print its URL:
 
 ```
-kubectl port-forward -n monitoring svc/kube-prometheus-stack-grafana 3000:80 &
+echo "http://$(kubectl get ingress kube-prometheus-stack-grafana -n monitoring -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')"
 ```
 
-Open [http://localhost:3000](http://localhost:3000 "http://localhost:3000") and log in with username `admin` and the password from the following command:
+Open the URL in your browser and log in with username `admin` and the password from the following command:
 
 ```
 kubectl --namespace monitoring get secrets kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
 ```
 
-**Confirm the vLLM ServiceMonitor exists.** The `vllm-inference-app` ServiceMonitor, created in the [Monitor vLLM](ml-inference-load-serve-model.md#ml-inference-load-serve-model-monitoring "ml-inference-load-serve-model.md#ml-inference-load-serve-model-monitoring") step, runs in the `default` namespace and tells Prometheus where to scrape vLLM metrics.
+### Confirm the vLLM ServiceMonitor exists
+
+The `vllm-inference-app` ServiceMonitor, created in the [Monitor vLLM](ml-inference-load-serve-model.md#ml-inference-load-serve-model-monitoring "ml-inference-load-serve-model.md#ml-inference-load-serve-model-monitoring") step, runs in the `default` namespace and tells Prometheus where to scrape vLLM metrics.
 
 ```
 kubectl get servicemonitor vllm-inference-app
@@ -172,7 +180,7 @@ Wait for the warm-up to finish (it takes a few minutes):
 kubectl wait --for=condition=complete job/vllm-warmup --timeout=600s
 ```
 
-Open Grafana (open [http://localhost:3000](http://localhost:3000 "http://localhost:3000")) and navigate to **Dashboards > GPU Monitoring > Performance Testing - vLLM Load Analysis**. The **vLLM Request Rate** panel shows the burst of warm-up traffic. The **vLLM Average Latency** panel shows that the first request is slower, which is the one-time GPU warm-up cost.
+Open Grafana (open the load balancer hostname; see [Access Grafana](ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer "ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer") for details) and navigate to **Dashboards > GPU Monitoring > Performance Testing - vLLM Load Analysis**. The **vLLM Request Rate** panel shows the burst of warm-up traffic. The **vLLM Average Latency** panel shows that the first request is slower, which is the one-time GPU warm-up cost.
 
 **vLLM dashboard showing the GPU warm-up effect on latency**
 
@@ -304,7 +312,7 @@ While the load runs, watch the two metrics that drive autoscaling:
 
 ### View the metrics in Grafana
 
-Open Grafana (port-forward to Grafana, open [http://localhost:3000](http://localhost:3000 "http://localhost:3000"), and log in as `admin`; see [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring "ml-cluster-setup-cli.md#cluster-setup-cli-monitoring") for details) and navigate to **Dashboards > GPU Monitoring > Performance Testing - vLLM Load Analysis**. This dashboard reads from Amazon Managed Service for Prometheus, so panels can lag the live state by up to a minute because metrics are remote-written in batches.
+Open Grafana (open the load balancer hostname and log in as `admin`; see [Access Grafana](ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer "ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer") for details) and navigate to **Dashboards > GPU Monitoring > Performance Testing - vLLM Load Analysis**. This dashboard reads from Amazon Managed Service for Prometheus, so panels can lag the live state by up to a minute because metrics are remote-written in batches.
 
 **Performance Testing - vLLM Load Analysis dashboard during the load test**
 

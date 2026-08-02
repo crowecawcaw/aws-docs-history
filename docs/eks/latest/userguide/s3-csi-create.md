@@ -230,12 +230,12 @@ The IAM policy `AmazonS3CSIDriverPolicy` was created in the previous section. 4.
     metadata:
       labels:
         app.kubernetes.io/name: aws-mountpoint-s3-csi-driver
-      name: mountpoint-s3-csi-controller-sa
+      name: s3-csi-driver-sa
       namespace: kube-system
       annotations:
         eks.amazonaws.com/role-arn: arn:aws:iam::111122223333:role/AmazonEKS_S3_CSI_DriverRole
     ```
-    2. Create the Kubernetes service account on your cluster. The Kubernetes service account (`mountpoint-s3-csi-controller-sa`) is annotated with the IAM role that you created named `AmazonEKS_S3_CSI_DriverRole`.
+    2. Create the Kubernetes service account on your cluster. The Kubernetes service account (`s3-csi-driver-sa`) is annotated with the IAM role that you created named `AmazonEKS_S3_CSI_DriverRole`.
 
 
 
@@ -255,7 +255,7 @@ You may install the Mountpoint for Amazon S3 CSI driver through the Amazon EKS a
 - [AWS Management Console](#console_s3_add_store_app_data "#console_s3_add_store_app_data")
 - [AWS CLI](#awscli_s3_add_store_app_data "#awscli_s3_add_store_app_data")
 
-Alternatively, you may install Mountpoint for Amazon S3 CSI driver as a self-managed installation. For instructions on doing a self-managed installation, see [Installation](https://github.com/awslabs/mountpoint-s3-csi-driver/blob/main/docs/install.md#deploy-driver "https://github.com/awslabs/mountpoint-s3-csi-driver/blob/main/docs/install.md#deploy-driver") on GitHub.
+Alternatively, you may install Mountpoint for Amazon S3 CSI driver as a self-managed installation. For instructions on doing a self-managed installation, see [Installation](https://github.com/awslabs/mountpoint-s3-csi-driver/blob/main/docs/INSTALL.md#deploy-mountpoint-for-amazon-s3-csi-driver "https://github.com/awslabs/mountpoint-s3-csi-driver/blob/main/docs/INSTALL.md#deploy-mountpoint-for-amazon-s3-csi-driver") on GitHub.
 
 Starting from `v1.8.0`, you can configure taints to tolerate for the CSI driver’s Pods. To do this, either specify a custom set of taints to tolerate with `node.tolerations` or tolerate all taints with `node.tolerateAllTaints`. For more information, see [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/ "https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/") in the Kubernetes documentation.
 

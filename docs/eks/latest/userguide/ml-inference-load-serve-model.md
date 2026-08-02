@@ -398,13 +398,13 @@ The `vllm:prompt_tokens_total` and `vllm:generation_tokens_total` metrics are mo
 
 The kube-prometheus-stack values file from the [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring "ml-cluster-setup-cli.md#cluster-setup-cli-monitoring") section already provisions the community [vLLM dashboard (gnetId 25263)](https://grafana.com/grafana/dashboards/25263-vllm-metrics/ "https://grafana.com/grafana/dashboards/25263-vllm-metrics/") under the **GPU Monitoring** folder, so no extra import is needed.
 
-To access Grafana, start a port-forward to the Grafana service:
+Access Grafana through the load balancer you set up in the [Access Grafana](ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer "ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer") section. Print its URL:
 
 ```
-kubectl port-forward svc/kube-prometheus-stack-grafana 3000:80 -n monitoring
+echo "http://$(kubectl get ingress kube-prometheus-stack-grafana -n monitoring -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')"
 ```
 
-Open [http://localhost:3000](http://localhost:3000 "http://localhost:3000") in your browser and log in with username `admin` and the password from the following command:
+Open the URL in your browser and log in with username `admin` and the password from the following command:
 
 ```
 kubectl --namespace monitoring get secrets kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
@@ -458,7 +458,7 @@ spec:
             memory: "500Mi"
           limits:
             cpu: "1000m"
-            memory: "1Gi"
+            memory: "2Gi"
         env:
         - name: OPENAI_API_BASE_URLS
           value: "http://vllm-inference-svc:8000/v1"
@@ -509,17 +509,69 @@ Expected output:
 pod/open-webui-6cbfc9867f-jf9w9 condition met
 ```
 
-To access the application, set up port forwarding:
+To access the application, expose Open WebUI through an internet-facing AWS Application Load Balancer (ALB) using the `alb`
+`IngressClass` you created in [Set up load balancing](ml-cluster-setup-cli.md#cluster-setup-cli-loadbalancing "ml-cluster-setup-cli.md#cluster-setup-cli-loadbalancing").
+
+###### Open WebUI is publicly accessible with no authentication
+
+Open WebUI runs with authentication disabled (`WEBUI_AUTH: "False"`), so anyone who reaches the load balancer gets an unauthenticated chat interface backed by your GPU inference endpoint and can consume GPU capacity. Automated scanners find public load balancers within minutes. You **must** restrict access with the `alb.ingress.kubernetes.io/inbound-cidrs` annotation and treat source-IP allowlisting as a minimum safeguard rather than a complete one. For a stronger posture, use an internal scheme, add a TLS certificate, and enable Open WebUI authentication.
+
+Find your public IP address and store it as a `/32` CIDR:
 
 ```
-kubectl port-forward svc/open-webui 8080:80
+export MY_CIDR="$(curl -s https://checkip.amazonaws.com)/32"
+echo $MY_CIDR
 ```
 
-Open [http://localhost:8080](http://localhost:8080 "http://localhost:8080") in your browser.
+The result looks like `203.0.113.4/32`. If your network assigns addresses dynamically, your IP address can change, in which case you might need a broader range such as `203.0.113.0/24`.
 
-The chat interface appears where you can interact with the Ministral model.
+Apply the following `Ingress` to create the ALB:
 
-When you finish testing, stop the port-forward with kbd:[Ctrl+C].
+```
+cat << EOF | kubectl apply -f -
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: open-webui
+  namespace: default
+  labels:
+    guide: ai-eks-docs
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: ai-eks-docs-chat-app
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/inbound-cidrs: ${MY_CIDR}
+    alb.ingress.kubernetes.io/healthcheck-path: /health
+spec:
+  ingressClassName: alb
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: open-webui
+            port:
+              number: 80
+EOF
+```
+
+###### Health check path
+
+The `healthcheck-path` annotation points the load balancer health checks at the Open WebUI `/health` endpoint, because the ALB default health check matcher expects a 200 response.
+
+The load balancer is created asynchronously and takes a minute or two. Print the URL:
+
+```
+echo "http://$(kubectl get ingress open-webui -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')"
+```
+
+Open the URL in your browser. The chat interface appears and you can interact with the Ministral model.
+
+###### Port-forwarding as an alternative
+
+Port-forwarding (`kubectl port-forward svc/open-webui 8080:80`) remains an option for local testing without provisioning a load balancer.
 
 ![Screenshot of Open WebUI chat interface showing a conversation with the Ministral model](images/ml-inference-load-serve-model-chatui.png)
 
@@ -528,6 +580,7 @@ When you finish testing, stop the port-forward with kbd:[Ctrl+C].
 To remove the workload resources that you created in this section, delete the Open WebUI application, the vLLM inference server, and the model-download Job:
 
 ```
+kubectl delete ingress open-webui
 kubectl delete deployment open-webui
 kubectl delete service open-webui
 kubectl delete deployment vllm-inference-app

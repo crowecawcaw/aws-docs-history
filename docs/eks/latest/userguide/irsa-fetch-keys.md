@@ -8,6 +8,10 @@ Kubernetes issues a `ProjectedServiceAccountToken` to each Kubernetes Service Ac
 
 To validate a `ProjectedServiceAccountToken`, you need to fetch the OIDC public signing keys, also called the JSON Web Key Set (JWKS). Use these keys in your application to validate the token. For example, you can use the [PyJWT Python library](https://pyjwt.readthedocs.io/en/latest/ "https://pyjwt.readthedocs.io/en/latest/") to validate tokens using these keys. For more information on the `ProjectedServiceAccountToken`, see [IAM, Kubernetes, and OpenID Connect (OIDC) background information](iam-roles-for-service-accounts.md#irsa-oidc-background "iam-roles-for-service-accounts.md#irsa-oidc-background").
 
+###### Note
+
+If your validator runs in a VPC without outbound internet access, you can fetch the discovery document and JWKS privately by creating an AWS PrivateLink interface endpoint for the cluster OIDC endpoint (`com.amazonaws.region-code.oidc-eks`). For more information, see [Access the cluster OIDC endpoint using AWS PrivateLink](vpc-interface-endpoints.md#oidc-vpc-interface-endpoints "vpc-interface-endpoints.md#oidc-vpc-interface-endpoints").
+
 ## Prerequisites
 
 - An existing AWS Identity and Access Management (IAM) OpenID Connect (OIDC) provider for your cluster. To determine whether you already have one, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md").

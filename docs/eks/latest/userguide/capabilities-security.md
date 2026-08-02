@@ -97,7 +97,7 @@ Secret read permissions are scoped to the namespaces you specify when associatin
 
 **kro arbitrary resource permissions**
 
-kro requires permissions to create and manage the resources defined in your ResourceGraphDefinitions. By default, kro can only watch and manage RGDs themselves.
+By default, kro can watch and manage ResourceGraphDefinitions (RGDs) and their instances. To manage composed resources such as Deployments, Services, or ConfigMaps, configure additional Kubernetes permissions.
 
 To grant kro permissions to create resources:
 

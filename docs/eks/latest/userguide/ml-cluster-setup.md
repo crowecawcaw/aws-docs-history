@@ -38,4 +38,4 @@ The guide provides two paths for setting up your cluster. Choose one and follow 
 
 ## Get started
 
-For step-by-step instructions using the AWS CLI, see [Set up Amazon EKS cluster for AI/ML workloads using CLIs](ml-cluster-setup-cli.md "ml-cluster-setup-cli.md").
+For step-by-step instructions using the AWS CLI, see [Set up Amazon EKS cluster for AI/ML workloads using CLIs](ml-cluster-setup-cli.md "ml-cluster-setup-cli.md"). For step-by-step instructions using Terraform, see [Set up Amazon EKS cluster for AI/ML workloads using Terraform](ml-cluster-setup-tf.md "ml-cluster-setup-tf.md").

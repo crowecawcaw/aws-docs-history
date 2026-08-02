@@ -44,13 +44,15 @@ eksctl utils associate-iam-oidc-provider --cluster $cluster_name --approve
 
 ###### Note
 
-If you enabled the EKS VPC endpoint, the EKS OIDC service endpoint couldn’t be accessed from inside that VPC. Consequently, your operations such as creating an OIDC provider with `eksctl` in the VPC will not work and will result in a timeout. An example error message follows:
+If your cluster’s VPC has no outbound internet access and you haven’t set up private access to the cluster OIDC endpoint, operations that reach that endpoint from inside the VPC, such as creating an OIDC provider with `eksctl`, can’t resolve the OIDC issuer hostname. An example error message follows:
 
 ```
 ** server cant find oidc.eks.<region-code>.amazonaws.com: NXDOMAIN
 ```
 
-To complete this step, you can run the command outside the VPC, for example in AWS CloudShell or on a computer connected to the internet. Alternatively, you can create a split-horizon conditional resolver in the VPC, such as Route 53 Resolver to use a different resolver for the OIDC Issuer URL and not use the VPC DNS for it. For an example of conditional forwarding in CoreDNS, see the [Amazon EKS feature request](https://github.com/aws/containers-roadmap/issues/2038 "https://github.com/aws/containers-roadmap/issues/2038") on GitHub.
+To reach the cluster OIDC endpoint privately from your VPC, create a VPC interface endpoint for it (`com.amazonaws.<region-code>.oidc-eks`) with private DNS enabled. For more information, see [Access the cluster OIDC endpoint using AWS PrivateLink](vpc-interface-endpoints.md#oidc-vpc-interface-endpoints "vpc-interface-endpoints.md#oidc-vpc-interface-endpoints").
+
+Alternatively, you can run the command outside the VPC (for example, in AWS CloudShell) or create a split-horizon conditional resolver. For an example, see the [Amazon EKS feature request](https://github.com/aws/containers-roadmap/issues/2038 "https://github.com/aws/containers-roadmap/issues/2038") on GitHub.
 
 ## Create OIDC provider (AWS Console)
 
