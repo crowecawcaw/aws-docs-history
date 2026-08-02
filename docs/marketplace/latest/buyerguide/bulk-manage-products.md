@@ -8,7 +8,7 @@ You can bulk approve or decline products in multiple experiences using the bulk 
 2. In the navigation pane, choose **Dashboard** under **Private Marketplace**.
 3. Choose **Bulk update products**.
 4. Choose the bulk update action **Approve** or **Deny**.
-5. Find products and select them from the **All products** table.
+5. Find products and select them from the **All products** table. You can add up to 50 products at a time.
 6. Choose **Next**.
 7. Choose experiences from the **Active experiences** table.
 8. Choose **Next**.

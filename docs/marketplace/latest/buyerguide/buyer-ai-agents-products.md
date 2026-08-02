@@ -49,6 +49,26 @@ Choose from multiple deployment options based on your security and integration r
 - **API-based deployment** - Access vendor-hosted agents through API endpoints
 - **Container deployment** - Run agents in your own AWS environment
 
+## Dynamic endpoints
+
+Some API-based AI agent products provide **dynamic endpoints**—personalized endpoint URLs that are automatically configured for you after subscription. Instead of a static URL that is the same for all buyers, a dynamic endpoint contains placeholder variables that resolve to values specific to your account. For example, a template like `https://{tenantId}.apps.example.com/mcp` resolves to a URL such as `https://acme-corp.apps.example.com/mcp` after you complete setup.
+
+To set up a product with a dynamic endpoint, complete the following steps:
+
+1. Subscribe to the product through AWS Marketplace.
+2. On the fulfillment page, view the endpoint template and choose **Setup Account**.
+3. Complete registration on the seller's site. The seller provisions your dedicated environment during this step.
+4. Return to the AWS Marketplace fulfillment page. The endpoint URL is automatically resolved with your personalized values.
+5. Copy the resolved URL for direct use, or choose **Add to AgentCore Gateway** to register the endpoint with Amazon Bedrock AgentCore Gateway.
+
+After the endpoint resolves, the seller delivers your credentials securely to your AWS Secrets Manager. The resolved URL works immediately with no manual editing required.
+
+If the endpoint does not resolve within a few minutes after you complete registration, choose **Refresh** on the fulfillment page. If the endpoint remains unresolved, contact the seller using the support information on the product detail page.
+
+###### Note
+
+The **Add to AgentCore Gateway** button activates only after the endpoint is fully resolved. For products with static endpoints, the URL is immediately available without additional setup.
+
 ## Model Context Protocol (MCP) support
 
 Many AI agents and tools support the AWS MCP Server, an open standard that enables seamless communication between AI systems. MCP-enabled solutions can be easily integrated into your existing agentic ecosystems, including:
