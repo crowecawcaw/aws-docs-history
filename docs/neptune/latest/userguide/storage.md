@@ -1,7 +1,7 @@
 # Storage
 
 Neptune supports dictionary garbage collection (GC) for property graph data, which can be enabled via the
-`neptune_lab_mode` [parameter](parameters.md "parameters.md") when `neptune_streams` is not active.
+`neptune_lab_mode` [parameter](parameters.md "parameters.md").
 When activated, this background job cleans up unused dictionary entries,
 potentially reducing the rate of data growth. The feature can run in two modes: soft\_delete (marking entries as
 deleted without explicit removal) and enabled (explicitly deleting entries). The GC process can impact system

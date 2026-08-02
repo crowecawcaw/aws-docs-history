@@ -1,43 +1,46 @@
-# Amazon Neptune Engine version 1.4.7.0 (2026-03-03)
+# Amazon Neptune Engine version 1.4.8.0 (2026-07-27)
 
-As of 2026-03-03, engine version 1.4.7.0 is being generally deployed. Please note
+As of 2026-07-27, engine version 1.4.8.0 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ## New Features in This Engine Release
 
-- openCypher read from S3 support for Parquet and CSV files via OC. See the
-  [neptune.read()](access-graph-opencypher-21-extensions-s3-read.md "access-graph-opencypher-21-extensions-s3-read.md") documentation.
-- openCypher geospatial query functions. This release includes 12 Spatial Types functions based
-  on the ISO/IEC 13249-3:2016 standard, a new Geometry property type for POINT stored in a new geopetric index
-  for fast retrival, and support for Well-Known Text (WKT) format.
-  See the [Spatial Data](access-graph-opencypher-22-spatial-data.md "access-graph-opencypher-22-spatial-data.md") and the
-  [Spatial Functions](access-graph-opencypher-22-spatial-functions.md "access-graph-opencypher-22-spatial-functions.md")
-  documentation.
+- Native RDF export. You can now export RDF data from your Neptune cluster
+  directly to Amazon Simple Storage Service (Amazon S3) using the export API. This feature also supports filtering exports
+  by named graph URIs using the `exportFilter` parameter.
+  See the [Native export for RDF data](neptune-native-export.md "neptune-native-export.md") documentation.
+- Property graph schema. You can now retrieve the schema of your property
+  graph data, including node labels, edge labels, and their associated properties.
+  See the [Property graph schema](access-graph-pg-schema.md "access-graph-pg-schema.md") documentation.
+- [Dictionary garbage collection](features-lab-mode.md#features-lab-mode-features-gc "features-lab-mode.md#features-lab-mode-features-gc")
+  now works on clusters with Neptune Streams enabled.
 
 ## Improvements in This Engine Release
 
-- Improved query performance for SPARQL subqueries that return small result sets, including those with small LIMIT values
-- Improved query performance in cases where variables are constrained by a very large number of constant values (for example, by a SPARQL VALUES clause, or an OpenCypher UNWIND clause)
-- Improvements for low latency insert queries via some optimizations to dictionary inserts
-- Added new Gremlin language steps into the DFE engine (see [Gremlin step coverage in DFE](gremlin-step-coverage-in-DFE.md "gremlin-step-coverage-in-DFE.md")).
+Gremlin improvements:
 
-  - Path and traversal steps: `order(local)`
-  - Aggregate and collection steps: `dedup(local)`
+- Reduced the chance that a Gremlin query will encounter an out-of-memory
+  condition when a serverless instance has scaled down to a low NCU value.
 
-- Performance improvement for OpenCypher queries including `COLLECT(DISTINCT ...)`.
-  The rewrite described in [Rewriting COLLECT(DISTINCT ...) queries](best-practices-content-11.md "best-practices-content-11.md")
-  is no longer needed when using engine version 1.4.7.0 or later.
+SPARQL improvements:
+
+- Improved performance of very large, multi-operation SPARQL Update requests.
+- Improved performance of SPARQL alternative property paths (for example,
+  `?s <a>|<b> ?o`).
 
 ## Defects Fixed in This Engine Release
 
 General fixes:
 
-- Fix for bulk load becoming unresponsive when loading a large number of edge files
-- Fix a global database cluster patching issue that affected secondary cluster updates from releases 1.4.0.0, 1.4.1.0, and 1.4.2.0.
+- Fixed a rare condition that could prevent the engine from starting
+  successfully under certain configurations.
+- Fixed an issue where rolled-back transactions could lead to gradual memory
+  growth over time.
+- Various stability and correctness fixes for the DFE query engine.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.4.7.0, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.4.8.0, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.7.1`
@@ -45,20 +48,22 @@ with these query-language versions:
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade paths to engine release 1.4.7.0
+## Upgrade paths to engine release 1.4.8.0
 
 You can upgrade to this release from [engine
 release 1.2.0.0](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md") or above.
 
 ###### Upgrading global database clusters to this release
 
-Minor version upgrades to engine version 1.4.7.0 are not supported for Neptune
-clusters that are part of a [global database](neptune-global-database.md "neptune-global-database.md").
-Non-global database clusters and major version upgrades are not affected.
+Minor version upgrades to engine version 1.4.8.0 from versions prior to 1.4.7.0
+are not supported for Neptune clusters that are part of a [global database](neptune-global-database.md "neptune-global-database.md"). Non-global database clusters
+and major version upgrades are not affected.
 
-To minor version upgrade a global database cluster to 1.4.7.0, you must first remove
-the secondary clusters from the global database (see [Removing a cluster](neptune-gdb-detaching.md "neptune-gdb-detaching.md")), upgrade the primary cluster to 1.4.7.0,
-and then create new secondary clusters in the global database.
+To minor version upgrade a global database cluster running a version prior to 1.4.7.0
+to 1.4.8.0, you must first remove the secondary clusters from the global database (see
+[Removing a cluster](neptune-gdb-detaching.md "neptune-gdb-detaching.md")),
+upgrade the primary cluster to 1.4.8.0, and then create new secondary clusters in the
+global database.
 
 ## Upgrading to This Release
 
@@ -72,7 +77,7 @@ For Linux, OS X, or Unix:
 ```
 aws neptune modify-db-cluster \
     --db-cluster-identifier `(your-neptune-cluster)` \
-    --engine-version 1.4.7.0 \
+    --engine-version 1.4.8.0 \
     --allow-major-version-upgrade \
     --apply-immediately
 ```
@@ -82,7 +87,7 @@ For Windows:
 ```
 aws neptune modify-db-cluster ^
     --db-cluster-identifier `(your-neptune-cluster)` ^
-    --engine-version 1.4.7.0 ^
+    --engine-version 1.4.8.0 ^
     --allow-major-version-upgrade ^
     --apply-immediately
 ```

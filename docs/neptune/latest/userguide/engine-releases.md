@@ -16,7 +16,8 @@ shown in the table below. The minor version number is the one that will be evalu
 
 | Version                                                            | Product version | Major version | Minor version | Patch version | Status   | Released   | End of life | Upgrade to: |
 | ------------------------------------------------------------------ | --------------- | ------------- | ------------- | ------------- | -------- | ---------- | ----------- | ----------- |
-| [1.4.7.0](engine-releases-1.4.7.0.md "engine-releases-1.4.7.0.md") | 1               | 4             | 7             | 0             | _active_ | 2026-03-03 | 2027-06-03  | N/A         |
+| [1.4.8.0](engine-releases-1.4.8.0.md "engine-releases-1.4.8.0.md") | 1               | 4             | 8             | 0             | _active_ | 2026-07-27 | 2027-10-27  | N/A         |
+| [1.4.7.0](engine-releases-1.4.7.0.md "engine-releases-1.4.7.0.md") | 1               | 4             | 7             | 0             | _active_ | 2026-03-03 | 2027-06-03  | 1.4.8.0     |
 | [1.4.6.3](engine-releases-1.4.6.3.md "engine-releases-1.4.6.3.md") | 1               | 4             | 6             | 3             | _active_ | 2025-12-18 | 2027-06-03  | 1.4.7.0     |
 | [1.4.6.2](engine-releases-1.4.6.2.md "engine-releases-1.4.6.2.md") | 1               | 4             | 6             | 2             | _active_ | 2025-11-18 | 2027-06-03  | 1.4.7.0     |
 | [1.4.6.1](engine-releases-1.4.6.1.md "engine-releases-1.4.6.1.md") | 1               | 4             | 6             | 1             | _active_ | 2025-09-18 | 2027-03-06  | 1.4.6.2     |

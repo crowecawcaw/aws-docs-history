@@ -1,8 +1,13 @@
-# Using `neptune-export`
+# External `neptune-export` tool
 
-You can use the open-source
+The open-source
 [`neptune-export`](https://github.com/aws/neptune-export "https://github.com/aws/neptune-export")
-tool in two different ways:
+tool is a separate application from Neptune. Unlike native export (which runs
+within the Neptune engine), `neptune-export` is external tooling that
+you deploy and operate yourself. Use it when you need output formats not yet
+supported by native export, such as CSV or property graph data.
+
+You can use `neptune-export` in two different ways:
 
 - **As the [Neptune-Export
   service](export-service.md "export-service.md")**.   When you export data from Neptune using the Neptune-Export
@@ -38,3 +43,11 @@ To make this easier, you can indicate that you want to clone the source
 DB cluster when you trigger an export job. If you do, the export process
 automatically creates the clone, uses it for the export, and then deletes
 it when the export is finished.
+
+###### Topics
+
+- [Using the Neptune-Export service to export Neptune data](export-service.md "export-service.md")
+- [Using the neptune-export command-line tool to export data from Neptune](export-utility.md "export-utility.md")
+- [Files exported by Neptune-Export and neptune-export](exported-files.md "exported-files.md")
+- [Parameters used to control the Neptune export process](export-parameters.md "export-parameters.md")
+- [Troubleshooting the Neptune export process](export-troubleshooting.md "export-troubleshooting.md")

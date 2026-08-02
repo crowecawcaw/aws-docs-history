@@ -317,3 +317,37 @@ _Required resources:_ database.
 _Action groups:_ read-write.
 
 _Required resources:_ database.
+
+## _Export data-access actions_
+
+## `neptune-db:StartExportJob`
+
+`StartExportJob` allows the user to start an export job.
+
+_Action groups:_ read-write.
+
+_Required resources:_ database.
+
+## `neptune-db:GetExportJobStatus`
+
+`GetExportJobStatus` allows the user to get the status of an export job.
+
+_Action groups:_ read-only, read-write.
+
+_Required resources:_ database.
+
+## `neptune-db:ListExportJobs`
+
+`ListExportJobs` allows the user to list all export jobs.
+
+_Action groups:_ list-only, read-only, read-write.
+
+_Required resources:_ database.
+
+## `neptune-db:CancelExportJob`
+
+`CancelExportJob` allows the user to cancel an export job.
+
+_Action groups:_ read-write.
+
+_Required resources:_ database.
