@@ -35,10 +35,17 @@ the AMS service knowledge management API (`amsskms)`, in a non-USA East Region, 
     + Asia Pacific (Tokyo)
 
 - Amazon machine images (AMIs): AMS provides security enhanced images (AMIs) based on the CIS Level 1 benchmark
-  for a subset of operating systems supported by AMS. To find operating systems that have a security enhanced image available,
-  see the _AMS Security User Guide_. To access this guide, in AWS Artifact, filter the **Reports** tab for AWS Managed Services.
-  To access AWS Artifact, contact your CSDM or see,
-  [Getting Started with AWS Artifact](https://aws.amazon.com/artifact/getting-started "https://aws.amazon.com/artifact/getting-started").
+  for a subset of operating systems supported by AMS. The following operating systems have a security enhanced AMI available:
+
+  - Amazon Linux 2
+  - Amazon Linux 2023
+  - Red Hat Enterprise Linux 8
+  - Red Hat Enterprise Linux 9
+  - Windows Server 2016
+  - Windows Server 2019
+  - Windows Server 2022
+  - Windows Server 2025
+
 - Supported operating systems:
 
 **Supported operating systems (x86-64)**
