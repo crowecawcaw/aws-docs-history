@@ -189,7 +189,7 @@ the workflow is running on a Linux platform.
 ```
 `if:
  - stringEquals: 'Linux'
- value: '$.imagebuilder.Platform'`
+ value: '$.imagebuilder.platform'`
 ```
 
 ###### Conditional statement: numberEquals

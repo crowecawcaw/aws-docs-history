@@ -28,4 +28,4 @@ in the _AWS CLI Command Reference_.
 - [Create and update AMI image pipelines](ami-image-pipelines.md "ami-image-pipelines.md")
 - [Create and update container image pipelines](container-image-pipelines.md "container-image-pipelines.md")
 - [Configure image pipeline workflows in Image Builder](pipeline-workflows.md "pipeline-workflows.md")
-- [Use EventBridge rules with Image Builder pipelines](ev-rules-for-pipeline.md "ev-rules-for-pipeline.md")
+- [Use EventBridge with Image Builder pipelines](ev-rules-for-pipeline.md "ev-rules-for-pipeline.md")

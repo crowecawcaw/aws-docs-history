@@ -1,6 +1,9 @@
 # Create a new version of a container recipe
 
-This section shows you how to create a new version of a container recipe.
+This section shows you how to create a container recipe or a new version of an existing
+recipe. A container recipe defines three key elements: the base image, the build components, and
+the target repository. Use this recipe to produce Docker container images that Image Builder stores in
+Amazon ECR.
 
 ###### Contents
 
@@ -21,7 +24,7 @@ new recipe and creating a new version of an existing recipe.
 - **Version** – Required. This detail isn't pre-filled
   with the current version or any kind of a sequence. Enter the version number
   that you want to create in the format _major.minor.patch_. If
-  the version already exists, you encounter an error.
+  the version already exists, Image Builder returns an error.
 
 ###### Base image
 
@@ -192,7 +195,11 @@ FROM
 
 **environments (required if components are specified)**
 
-This variable will resolves to a script that runs components.
+At build time, this variable resolves to the Dockerfile directives that
+stage your components in the build context. These directives copy the component
+scripts into the image and set the environment variables that those scripts use.
+It prepares the environment but doesn't run the components that you specify. Place this
+variable before the `components` variable.
 
 Example:
 
@@ -202,9 +209,11 @@ Example:
 
 **components (optional)**
 
-Image Builder resolves build and test component scripts for the components that
-the container recipe includes. This variable can be placed anywhere in the
-Dockerfile, after the environments variable.
+At build time, this variable resolves to the command that runs the build
+and test component scripts for the components that the container recipe
+includes, and then removes those scripts from the image. This is the
+variable that runs your components. Place it after the
+`environments` variable.
 
 Example:
 
@@ -221,13 +230,13 @@ Example:
 
 ###### To create a new container recipe version:
 
-1. At the top of the container recipe details page, choose **Create
-   new version**. You are taken to the **Create
+1. On the container recipe details page, choose **Create
+   new version** at the top of the page. The console opens the **Create
    recipe** page for container recipes.
 2. To create the new version, make your changes, and then choose
    **Create recipe**.
 
-For more information on how to create a container recipe when you create an image
+For more information about creating a container recipe when you create an image
 pipeline, see [Step 2: Choose recipe](start-build-container-pipeline.md#start-build-container-step2 "start-build-container-pipeline.md#start-build-container-step2") in the **Get
 started** section of this guide.
 
@@ -267,9 +276,12 @@ parameter names specified in the _AWS CLI Command Reference_.
 
 Here is a summary of the parameters in this example:
 
-    * components (array of objects, required)
+    * components (array of objects, optional)
      – Contains an array of `ComponentConfiguration`
-     objects. At least one build component must be specified:
+     objects. Components are optional for container recipes. You can customize the
+     output image with BUILD components, with instructions in your Dockerfile
+     template (for example, `RUN` or `COPY` statements), or
+     both. TEST components validate the image but don't modify it.
 
 
     ###### Note
@@ -321,8 +333,77 @@ Here is a summary of the parameters in this example:
      – The type of container to create. Valid values include
      `DOCKER`.
     * dockerfileTemplateData (string)
-     – The Dockerfile template that is used to build your image,
-     expressed as an inline data blob.
+     – The inline Dockerfile template for building your image. Inline
+     data is limited to 16,000 characters. You must specify either
+     `dockerfileTemplateData` or `dockerfileTemplateUri`,
+     but not both.
+
+
+    Your Dockerfile template can include contextual variables (placeholders that Image Builder
+     replaces with build information at runtime). Include at least the
+     `parentImage` variable. If your recipe includes components, also include the
+     `environments` variable and the `components` variable.
+
+
+
+
+    **parentImage (required)**
+
+    At build time, this variable resolves to the base image for your
+     recipe.
+
+
+    Example:
+
+
+
+    ```
+    FROM
+    {{{ imagebuilder:parentImage }}}
+    ```
+
+
+    **environments (required if components are specified)**
+
+    At build time, this variable resolves to the Dockerfile directives that
+     stage your components in the build context. These directives copy the component
+     scripts into the image and set the environment variables that those scripts use.
+     It prepares the environment but doesn't run the components that you specify. Place this
+     variable before the `components` variable.
+
+
+    Example:
+
+
+
+    ```
+    {{{ imagebuilder:environments }}}
+    ```
+
+
+    **components (optional)**
+
+    At build time, this variable resolves to the command that runs the build
+     and test component scripts for the components that the container recipe
+     includes, and then removes those scripts from the image. This is the
+     variable that runs your components. Place it after the
+     `environments` variable.
+
+
+    Example:
+
+
+
+    ```
+    {{{ imagebuilder:components }}}
+    ```
+
+
+
+    To store the template in Amazon S3 instead, use the
+     dockerfileTemplateUri parameter with a valid
+     Amazon S3 URI (for example,
+     `s3://`my-bucket`/templates/Dockerfile`).
     * name (string, required) – The
      name of the container recipe.
     * description (string) – The
@@ -338,8 +419,12 @@ Here is a summary of the parameters in this example:
     	+ Existing container images in Amazon ECR
     	+ Amazon-managed container images
     * platformOverride (string) –
-     Specifies the operating system platform when you use a custom base
-     image.
+     Specifies the operating system platform when you use a custom base image. We
+     recommend that you set this value when you use a Docker Hub or Amazon ECR image. If
+     you omit it, Image Builder attempts to detect the platform from the container manifest,
+     which might not always be available. You can't specify `platformOverride`
+     when your parent image is an Image Builder image ARN. Valid values are `Linux`
+     and `Windows`. Container recipes don't support the macOS platform.
     * semanticVersion (string, required)
      – The semantic version of the container recipe specified in the
      following format, with numeric values in each position to indicate a
@@ -404,10 +489,15 @@ Here is a summary of the parameters in this example:
     	 the output container image is stored. This name is prefixed by
     	 the repository location.
     	+ service (string, required)
-    	 – Specifies the service in which this image was
-    	 registered.
+    	 – Specifies the repository service that stores the output image. The
+    	 valid value is `ECR`. The target repository must already
+    	 exist.
     * workingDirectory (string) – The
      working directory for use during build and test workflows.
+
+The following example shows a complete container recipe input file that defines a Linux Docker container with build components. Save it as
+`create-container-recipe.json`, and use it in the
+**create-container-recipe** command.
 
 ```
 {
@@ -465,3 +555,48 @@ aws imagebuilder create-container-recipe --cli-input-json file://`create-contain
      convention for the base operating system where you are running
      the command. For example, Windows uses the backslash (\) to
      refer to the directory path, while Linux and macOS use the forward slash (/).
+
+The following example output shows the ARN of the newly created container recipe,
+along with the request ID and client token for the request.
+
+```
+{
+	"requestId": "`a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`",
+	"clientToken": "`a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`",
+	"containerRecipeArn": "arn:aws:imagebuilder:us-west-2:`123456789012`:container-recipe/`my-container-recipe`/1.0.2"
+}
+```
+
+### Container recipe constraints
+
+Review the following constraints before you create a container recipe:
+
+- You must specify a target Amazon ECR repository that already exists.
+- AWS Marketplace components aren't supported in container recipes.
+- Components are optional. You can customize the output image with BUILD
+  components, with instructions in your Dockerfile template (for example,
+  `RUN` or `COPY` statements), or both. TEST components
+  validate the image but don't modify it.
+- Container recipes don't support the macOS platform.
+- For the Dockerfile template, provide either inline data (up to 16,000
+  characters) or an Amazon S3 URI. You can't specify both.
+- The cumulative recipe size can't exceed 25 KB. If you receive a size error,
+  reduce the number of component parameters or shorten parameter values. This limit
+  is separate from the Dockerfile template size limits.
+- When you set `platformOverride` to `Windows`, you must also
+  specify `imageOsVersionOverride`. This applies to any non-Image Builder parent
+  image, such as an Amazon ECR image or a Docker Hub image.
+
+### Common errors and troubleshooting
+
+The following table lists common errors that you might encounter when you create a
+container recipe, along with how to resolve them.
+
+| Error                                                                                                                   | Cause                                                  | Resolution                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| "Container Recipes must not contain marketplace components"                                                             | A AWS Marketplace component in a container recipe.     | Use only non-AWS Marketplace components.                                                         |
+| "Container recipes don't currently support the macOS platform"                                                          | `platformOverride` is set to macOS.                    | Use `Linux` or `Windows`.                                                                        |
+| "You must specify either dockerfileTemplateData or a<br>dockerfileTemplateUri"                                          | You specified both or neither.                         | Provide exactly one.                                                                             |
+| "Invalid S3 URI"                                                                                                        | A malformed Amazon S3 path in `dockerfileTemplateUri`. | Use the format<br>`s3://`bucket`/`key``.                                                         |
+| "You cannot specify a platform override when using an Image Builder<br>Image as your parent"                            | `platformOverride` with an Image Builder image ARN.    | Remove `platformOverride`. Image Builder detects the platform from the<br>parent image metadata. |
+| "You must specify an image OsVersion override when using ECR Repositories<br>as your parent image for Windows Platform" | A Windows `platformOverride` without an OS version.    | Add the `imageOsVersionOverride` field.                                                          |

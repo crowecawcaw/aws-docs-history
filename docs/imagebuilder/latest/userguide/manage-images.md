@@ -13,7 +13,7 @@ in the AWS CLI, see the [Tag resources](tag-resources.md "tag-resources.md")
 section of this guide.
 
 This section covers how to list, view, and create images. For information
-about image workflows and how to manage them, see [Manage build and test workflows for Image Builder images](manage-image-workflows.md "manage-image-workflows.md").
+about image workflows and how to manage them, see [Manage build, test, and distribution workflows for Image Builder images](manage-image-workflows.md "manage-image-workflows.md").
 
 ###### Contents
 

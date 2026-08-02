@@ -40,6 +40,43 @@ recipes, using the AWS CLI.
 aws imagebuilder list-container-recipes
 ```
 
+The command returns a summary for each container recipe, shown in the following
+example output.
+
+```
+{
+    "requestId": "`a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`",
+    "containerRecipeSummaryList": [
+        {
+            "arn": "arn:aws:imagebuilder:us-west-2:`123456789012`:container-recipe/`my-container-recipe`/1.0.0",
+            "name": "`my-container-recipe`",
+            "containerType": "DOCKER",
+            "platform": "Linux",
+            "owner": "`123456789012`",
+            "dateCreated": "2024-01-15T10:30:00.000Z",
+            "tags": {}
+        }
+    ]
+}
+```
+
+You can filter the results by owner to control which recipes the command returns.
+Use `Self` to list the recipes that you own, or `Shared` to
+list recipes that other accounts have shared with you.
+
+```
+aws imagebuilder list-container-recipes --owner Self
+```
+
+To limit the number of results that the command returns on each page, use the
+`--max-results` parameter. If more results are available, the response
+includes a `nextToken` value that you pass to the next command to
+retrieve the following page.
+
+```
+aws imagebuilder list-container-recipes --max-results 10 --next-token "`eyJuZXh0VG9rZW4...`"
+```
+
 ## View container recipe details in the console
 
 To view details for a specific container recipe with the Image Builder console, select the
@@ -50,9 +87,9 @@ On the recipe detail page, you can do the following:
 - Delete the recipe. For more information on how to delete resources in Image Builder,
   see [Delete outdated or unused Image Builder resources](delete-resources.md "delete-resources.md").
 - Create a new version.
-- Create a pipeline from the recipe. After ou choose **Create pipeline
-  from this recipe**, you are taken to the pipeline wizard. For more
-  information on how to create an Image Builder pipeline using the pipeline wizard, see
+- Create a pipeline from the recipe. After you choose **Create pipeline
+  from this recipe**, the console opens the pipeline wizard. For more
+  information about creating an Image Builder pipeline using the pipeline wizard, see
   [Tutorial: Create an image pipeline with output AMI from the Image Builder console wizard](start-build-image-pipeline.md "start-build-image-pipeline.md")
 
 ###### Note
@@ -66,14 +103,49 @@ The following example shows how to use an **imagebuilder**
 CLI command to get the details of a container recipe by specifying its ARN.
 
 ```
-aws imagebuilder get-container-recipe --container-recipe-arn arn:aws:imagebuilder:us-west-`2:123456789012`:container-recipe/`my-example-recipe`/2020.12.03
+aws imagebuilder get-container-recipe --container-recipe-arn arn:aws:imagebuilder:us-west-`2:123456789012`:container-recipe/`my-container-recipe`/1.0.2
+```
+
+The command returns the full container recipe, shown in the following example
+output.
+
+```
+{
+    "requestId": "`a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`",
+    "containerRecipe": {
+        "arn": "arn:aws:imagebuilder:us-west-2:`123456789012`:container-recipe/`my-container-recipe`/1.0.2",
+        "containerType": "DOCKER",
+        "name": "`my-container-recipe`",
+        "description": "`My Linux Docker container image`",
+        "platform": "Linux",
+        "components": [
+            {
+                "componentArn": "arn:aws:imagebuilder:us-west-2:`123456789012`:component/`my-component`/1.0.0/1"
+            }
+        ],
+        "parentImage": "amazonlinux:latest",
+        "dockerfileTemplateData": "FROM {{{ imagebuilder:parentImage }}}\n{{{ imagebuilder:environments }}}\n{{{ imagebuilder:components }}}",
+        "targetRepository": {
+            "service": "ECR",
+            "repositoryName": "`my-repo`"
+        },
+        "dateCreated": "2024-01-15T10:30:00.000Z",
+        "owner": "`123456789012`"
+    }
+}
 ```
 
 ## Get container recipe policy details with the AWS CLI
 
+A recipe policy is a resource-based policy. It controls cross-account access to your
+recipe. When you share a recipe through AWS Resource Access Manager (AWS RAM), Image Builder creates the policy
+automatically. You can also set a custom policy with the `put-container-recipe-policy`
+command.
+
 The following example shows how to use an **imagebuilder** CLI command
-to get the details of a container recipe policy by specifying its ARN.
+to get the details of a container recipe policy by specifying its ARN. If no
+policy is attached to the recipe, the response is empty.
 
 ```
-aws imagebuilder get-container-recipe-policy --container-recipe-arn arn:aws:imagebuilder:us-west-`2:123456789012`:container-recipe/`my-example-recipe`/2020.12.03
+aws imagebuilder get-container-recipe-policy --container-recipe-arn arn:aws:imagebuilder:us-west-`2:123456789012`:container-recipe/`my-container-recipe`/1.0.2
 ```

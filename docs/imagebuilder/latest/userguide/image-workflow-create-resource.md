@@ -1,19 +1,21 @@
 # Create an image workflow
 
 When you create an image workflow, you have more control over your image creation
-process. You can specify what workflow runs when Image Builder builds your image, and what
-workflows run when it tests the image. You can also specify a customer managed key to
+process. You can specify the workflow that runs when Image Builder builds your image, the workflows
+that run when it tests the image, and the workflow that runs when it distributes the image.
+You can also specify a customer managed key to
 encrypt your workflow resources. To learn more about encryption for your workflow
 resources, see [Encryption and key management in Image Builder](data-protection.md#ib-encryption "data-protection.md#ib-encryption").
 
-For image creation, you can specify one build stage workflow, and one or more test
-stage workflows. You can even skip the build or test stage entirely, depending on your
+For image creation, you can specify one build stage workflow, one or more test
+stage workflows, and one distribution stage workflow. You can even skip a stage entirely,
+depending on your
 needs. You configure the actions that your workflow takes in the YAML definition document
 that your workflow uses. For more information about syntax for your YAML document,
 see [Create a YAML workflow document](image-workflow-create-document.md "image-workflow-create-document.md").
 
-For steps to create a new build or test workflow select the tab that matches the environment
-you'll use.
+To create a new build, test, or distribution workflow, select the tab that matches your
+environment.
 
 AWS Management Console
 You can use the following process to create a new workflow in the
@@ -27,18 +29,19 @@ Image Builder console.
 
 ###### Note
 
-You'll always see the Amazon managed workflow resources
-that Image Builder uses for its default workflows in your list. To
-view details for those workflows, you can select the
+The list always includes the Amazon managed workflow resources
+that Image Builder uses for its default workflows. To
+view details for those workflows, select the
 **Workflow** link. 3. To create a new workflow, choose **Create image
 workflow**. This displays the **Create
-image workflow** page. 4. Configure the details for your new workflow. To create a
-build workflow, select the **Build** option
-near the top of the form. To create a
-test workflow, select the **Test** option
-near the top of the form. Image Builder populates the
+image workflow** page. 4. Configure the details for your new workflow. Select the workflow
+type near the top of the form: choose **Build** to create a
+build workflow, **Test** to create a test workflow, or
+**Distribution** to create a distribution workflow. The workflow
+type maps to the `Type` value in the API
+(`BUILD`, `TEST`, or `DISTRIBUTION`). Image Builder populates the
 **Templates** list based on this option.
-All other steps are the same for build and test workflows.
+All other steps are the same for build, test, and distribution workflows.
 
 ###### General
 
@@ -112,7 +115,7 @@ that contains the build configuration for the workflow you create.
 The following example shows how to create a test workflow with the
 [create-workflow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-workflow.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-workflow.html")
 AWS CLI command. The `--data` parameter refers to a YAML document
-that contains the build configuration for the workflow you create.
+that contains the test configuration for the workflow you create.
 
 **Example: Create test workflow**
 
@@ -125,6 +128,26 @@ that contains the build configuration for the workflow you create.
 ```
 `{
  "workflowBuildVersionArn": "arn:aws:imagebuilder:`us-west-2`:`111122223333`:workflow/test/example-test-workflow/`1.0.0`/1",
+ "clientToken": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+}`
+```
+
+The following example shows how to create a distribution workflow with the
+[create-workflow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-workflow.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-workflow.html")
+AWS CLI command. The `--data` parameter refers to a YAML document
+that contains the distribution configuration for the workflow you create.
+
+**Example: Create distribution workflow**
+
+```
+`aws imagebuilder create-workflow --name `example-distribution-workflow` --semantic-version `1.0.0` --type DISTRIBUTION --data `file://example-distribution-workflow.yml``
+```
+
+**Output:**
+
+```
+`{
+ "workflowBuildVersionArn": "arn:aws:imagebuilder:`us-west-2`:`111122223333`:workflow/distribution/example-distribution-workflow/`1.0.0`/1",
  "clientToken": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
 }`
 ```

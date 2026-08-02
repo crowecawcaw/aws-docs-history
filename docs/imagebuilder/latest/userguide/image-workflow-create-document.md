@@ -1,14 +1,15 @@
 # Create a YAML workflow document
 
 The YAML format definition document configures input, output, and workflow steps for the
-build and test stages of the image build process. You can start from templates that include
+build, test, and distribution stages of the image creation process. The same document format
+applies to all three workflow types. You can start from templates that include
 standardized steps, or you can start from scratch to define your own workflow. Whether you
 use a template or start from scratch, you can customize the workflow to fit your needs.
 
 ## Structure of a YAML workflow document
 
-The YAML workflow document that Image Builder uses to perform image build and test actions is structured
-as follows.
+The following sections describe the structure of the YAML workflow document that Image Builder uses
+to perform image build, test, and distribution actions.
 
 - [Workflow document identification](#wfdoc-struct-ident "#wfdoc-struct-ident")
 - [Workflow document input parameters](#wfdoc-struct-param "#wfdoc-struct-param")
@@ -37,8 +38,14 @@ schemaVersion: 1.0`
 ### Workflow document input parameters
 
 This part of the workflow document defines input parameters that the caller can specify.
-If you don't have any parameters, you can leave this section out. If you do specify
+If you do not have any parameters, you can leave this section out. If you do specify
 parameters, each parameter can include the following attributes.
+
+You can define up to 25 parameters in a workflow document. Each parameter value can
+contain up to 1,024 characters. A parameter must use one of four supported data types:
+`string`, `integer`, `boolean`, or `stringList`.
+If you do not specify a `default` value for a parameter, you must provide the
+parameter value at runtime.
 
 | Field       | Description                                                                                                                                                                      | Type                             | Required | Constraints                                                                                                                |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -88,6 +95,14 @@ Even though the step itself doesn't have an output attribute, any
 output from a step action is included in `stepOutput` for
 the step.
 
+###### Note
+
+If you set `waitSeconds` for a step, the value must be less than
+`timeoutSeconds`. Each step action also defines a maximum
+`timeoutSeconds` value. If you set `timeoutSeconds` higher
+than the maximum for the action, validation fails. For the per-action maximums,
+see [Supported step actions for your workflow document](wfdoc-step-actions.md "wfdoc-step-actions.md").
+
 Each step can include the following attributes.
 
 | Field                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Type    | Required | Default value                                                      | Constraints                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -134,9 +149,21 @@ Each step can include the following attributes.
 ### Workflow document outputs
 
 Defines outputs for the workflow. Each output is a key value pair
-that specificies the name of the output and the value. You can use
+that specifies the name of the output and the value. You can use
 outputs to export data at runtime that subsequent workflows can use.
 This section is optional.
+
+You can define up to 25 outputs in a workflow document. Each output name must be
+unique across all of the workflows that you include in your pipeline. A later workflow
+can then reference an output by name with `$.workflowOutputs.`name``.
+
+###### Note
+
+You reference the output of a step in the _same_ workflow with
+`$.stepOutputs.`stepName`.`field``,
+ but you reference the output of an *earlier* workflow with only the
+ output name (`$.workflowOutputs.`name``) and no step
+name.
 
 Each output that you define includes the following attributes.
 

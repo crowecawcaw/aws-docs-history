@@ -81,8 +81,8 @@ list to streamline results. The default is to show all owners in the list.
 
 - _AWS account_ – The account that owns
   the workflow resource.
-- _Amazon_ – Workflow resources that
-  Amazon owns and manages.
+- _Amazon_ – The AWS managed build, test, and
+  distribution workflow resources that Amazon owns and manages.
 
 AWS CLI
 When you run the
@@ -159,3 +159,21 @@ _AWS CLI Command Reference_.
  ]
 }`
 ```
+
+###### Get workflow details
+
+To get the details for a specific image workflow version, run the
+[get-workflow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/get-workflow.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/get-workflow.html")
+command in the AWS CLI. For the API action, see [GetWorkflow](../APIReference/API_GetWorkflow.md "../APIReference/API_GetWorkflow.md") in the
+_EC2 Image Builder API Reference_.
+
+**Example: get workflow details**
+
+```
+`aws imagebuilder get-workflow \
+ --workflow-build-version-arn arn:aws:imagebuilder:`us-west-2`:`111122223333`:workflow/build/`example-build-workflow`/`1.0.0`/`1``
+```
+
+The response includes the workflow `type`, `state`,
+`data` (the YAML workflow document), `parameters`,
+`owner`, and `kmsKeyId`.

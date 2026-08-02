@@ -1,48 +1,86 @@
 # Manage Image Builder infrastructure configuration
 
-You can use infrastructure configurations to specify the Amazon EC2 infrastructure that Image Builder uses
-to build and test your EC2 Image Builder image. Infrastructure settings include:
+An infrastructure configuration is a reusable Image Builder resource that defines the
+Amazon EC2 environment where Image Builder builds and tests your image. When you create an
+image pipeline, you attach one infrastructure configuration to it. Image Builder then
+uses those settings every time the pipeline runs a build.
 
-- Instance types for your build and test infrastructure. We recommend that you specify more than one instance type because
+Because the infrastructure configuration is a separate resource, you can
+reuse the same build environment across many pipelines. You can also update the
+environment in one place without modifying individual pipelines. When you update
+an infrastructure configuration, your changes take effect on the
+_next_ build. Your changes don't affect builds that are
+already in progress or images that Image Builder already created.
+
+###### Note
+
+An infrastructure configuration is independent from the images it helps
+create. Deleting or editing an infrastructure configuration doesn't change
+images that Image Builder already built. If a pipeline references an infrastructure
+configuration, you can't delete that configuration until you remove the
+reference.
+
+Use an infrastructure configuration to specify the following settings for your
+build and test environment. For API field
+names, required settings, and constraints, see [CreateInfrastructureConfiguration](../APIReference/API_CreateInfrastructureConfiguration.md "../APIReference/API_CreateInfrastructureConfiguration.md") in the
+_EC2 Image Builder API Reference_.
+
+- **Instance types** for your build and
+  test instances. We recommend that you specify more than one instance type because
   this allows Image Builder to launch an instance from a pool with sufficient capacity. This
-  can reduce your transient build failures.
+  can reduce your transient build failures. If you specify more than one
+  type, Image Builder launches an instance from the first type that has available
+  capacity. If none of your instance types are available in the ,
+  the build fails.
 
-For Mac images, you might want to choose instance types that natively support the
-macOS operating system. For more information, see [Amazon EC2 Mac instances](../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md "../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md")
-in the _Amazon EC2 User Guide_.
+For Mac images, choose instance types that natively support macOS.
+For more information, see [Amazon EC2 Mac
+instances](../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md "../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md") in the _Amazon EC2 User Guide_.
 
-- Instance placement settings where you can specify the host, host placement group,
-  or Availability Zone where the instances that launch from your image should go.
-- An instance profile that provides your build and test instances with the permissions
-  that are required to perform customization activities. For example, if you have a component that retrieves
+- **An instance profile** that gives your
+  build and test instances the permissions to run your
+  components. For example, if you have a component that retrieves
   resources from Amazon S3, the instance profile requires permissions to access those files.
   The instance profile also requires a minimal set of permissions for EC2 Image Builder to
   successfully communicate with the instance. For more information, see
   [Get set up to build custom images with Image Builder](set-up-ib-env.md "set-up-ib-env.md").
-- The VPC, subnet, and security groups for your pipeline's build and test instances.
-- The Amazon S3 location where Image Builder stores application logs from your build and testing. If you
-  configure logging, the instance profile specified in your infrastructure configuration must
-  have `s3:PutObject` permissions for the target bucket
-  (`arn:aws:s3:::`BucketName`/*`).
-- An Amazon EC2 key pair that allows you to log on to your instance to troubleshoot
-  if your build fails and you set `terminateInstanceOnFailure` to
-  `false`.
-- An SNS topic where Image Builder sends event notifications. For more information about how Image Builder
-  integrates with Amazon SNS, see [Amazon SNS integration in Image Builder](integ-sns.md "integ-sns.md").
+- **Instance placement settings** that
+  control the Availability Zone, tenancy, and Dedicated Host where Image Builder
+  launches your instances.
+- **Networking** – the VPC subnet
+  and security groups for your build and test instances. If you specify a
+  subnet, you must also specify at least one security group.
+- **Logging** – the Amazon S3 location
+  where Image Builder stores AWSTOE application logs from your build and test phases. To
+  use Amazon S3 logging, the instance profile must have
+  `s3:PutObject` permissions for the target bucket
+  (`arn:aws:s3:::`BucketName`/*`). If you
+  don't configure Amazon S3 logging, Image Builder keeps the AWSTOE application logs on the
+  build and test instances only.
+- **Troubleshooting settings** – an
+  Amazon EC2 key pair and the `terminateInstanceOnFailure` setting.
+  With these settings, you can keep a failed build instance running and connect
+  to it to investigate.
+- **Instance metadata options** that
+  control whether instances require IMDSv2 tokens, and the metadata
+  response hop limit.
+- **An SNS topic** where Image Builder publishes
+  messages about your image build status, such as when an image becomes
+  available or a build fails. For more information, see [Amazon SNS integration in Image Builder](integ-sns.md "integ-sns.md").
 
 ###### Note
 
 If your SNS topic is encrypted, the key that encrypts this topic must reside in the
 account where the Image Builder service runs. Image Builder can't send notifications to SNS topics that
 are encrypted with keys from other accounts.
-You can create and manage infrastructure configurations using the Image Builder console,
-through the Image Builder API, or with **imagebuilder** commands in the AWS CLI.
 
 ###### Contents
 
+- [Instance placement and tenancy](infra-config-placement.md "infra-config-placement.md")
 - [List and view infrastructure configuration details](infra-config-details.md "infra-config-details.md")
 - [Create an infrastructure configuration](create-infra-config.md "create-infra-config.md")
 - [Update an infrastructure configuration](update-infra-config.md "update-infra-config.md")
+- [Delete an infrastructure configuration](delete-infra-config.md "delete-infra-config.md")
 - [Image Builder and AWS PrivateLink interface VPC endpoints](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 
 ###### Tip

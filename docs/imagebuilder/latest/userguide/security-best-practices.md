@@ -62,6 +62,31 @@ that creates an empty file named
 `perform_cleanup`. Image Builder detects this file and
 runs the clean-up script prior to creating the new image.
 
+After the file clean up completes, Image Builder appends steps to the script that
+uninstall the Systems Manager agent and remove the `cronie` package.
+Image Builder tracks what it installed during the build in the
+`/tmp/imagebuilder_service` service working directory.
+Image Builder uses those markers to decide what to remove:
+
+- **Systems Manager agent** – Whether Image Builder uninstalls the agent
+  depends on the
+  `systemsManagerAgent.uninstallAfterBuild` setting in
+  your image recipe and whether Image Builder installed the agent. For more
+  information, see the `uninstallAfterBuild` setting in
+  [Create an image recipe with the AWS CLI](create-image-recipes.md#create-image-recipe-cli "create-image-recipes.md#create-image-recipe-cli").
+- **`cronie` package** – This
+  step applies to Amazon Linux 1, Amazon Linux 2, and Amazon Linux 2023.
+  If Image Builder installed a crontab during the build, it records a
+  `crontab_installed` marker in the service working
+  directory. Image Builder then removes the `cronie` package as part of
+  clean up. To keep `cronie` in your final image, delete
+  the marker file before clean up runs by adding the following command
+  to a component or to your user data:
+
+```
+rm -f /tmp/imagebuilder_service/crontab_installed
+```
+
 ```
 #!/bin/bash
 if [[ ! -f {{workingDirectory}}/perform_cleanup ]]; then
@@ -98,14 +123,16 @@ if [[ -f {{workingDirectory}}/skip_cleanup_cloudinit_files ]]; then
 else
     echo "Cleaning up cloud init files"
     cleanup "${CLOUD_INIT_FILES[@]}"
-    if [[ $( sudo find /var/lib/cloud -type f | sudo wc -l ) -gt 0 ]]; then
-        echo "Deleting files within /var/lib/cloud/*"
-        sudo find /var/lib/cloud -type f -exec shred -zuf {} \;
-    fi;
+    if [[ -d "/var/lib/cloud" ]]; then
+        if [[ $( sudo find /var/lib/cloud -type f | sudo wc -l ) -gt 0 ]]; then
+            echo "Deleting files within /var/lib/cloud/*"
+            sudo find /var/lib/cloud -type f -exec shred -zuf {} \;
+        fi;
 
-    if [[ $( sudo ls /var/lib/cloud | sudo wc -l ) -gt 0 ]]; then
-        echo "Deleting /var/lib/cloud/*"
-        sudo rm -rf /var/lib/cloud/* || true
+        if [[ $( sudo ls /var/lib/cloud | sudo wc -l ) -gt 0 ]]; then
+            echo "Deleting /var/lib/cloud/*"
+            sudo rm -rf /var/lib/cloud/* || true
+        fi;
     fi;
 fi;
 
@@ -177,21 +204,32 @@ if [[ -f {{workingDirectory}}/skip_cleanup_toe_files ]]; then
     echo "Skipping cleanup of TOE files"
 else
     echo "Cleaning TOE files"
-    if [[ $( sudo find {{workingDirectory}}/TOE_* -type f | sudo wc -l) -gt 0 ]]; then
-        echo "Deleting files within {{workingDirectory}}/TOE_*"
-        sudo find {{workingDirectory}}/TOE_* -type f -exec shred -zuf {} \;
-    fi
-    if [[ $( sudo find {{workingDirectory}}/TOE_* -type f | sudo wc -l) -gt 0 ]]; then
-        echo "Failed to delete {{workingDirectory}}/TOE_*"
-        exit 1
-    fi
-    if [[ $( sudo find {{workingDirectory}}/TOE_* -type d | sudo wc -l) -gt 0 ]]; then
-        echo "Deleting {{workingDirectory}}/TOE_*"
-        sudo rm -rf {{workingDirectory}}/TOE_*
-    fi
-    if [[ $( sudo find {{workingDirectory}}/TOE_* -type d | sudo wc -l) -gt 0 ]]; then
-        echo "Failed to delete {{workingDirectory}}/TOE_*"
-        exit 1
+    shopt -s nullglob
+    TOE_MATCHES=({{workingDirectory}}/TOE_*)
+    shopt -u nullglob
+    if [[ ${#TOE_MATCHES[@]} -gt 0 ]]; then
+        if [[ $( sudo find "${TOE_MATCHES[@]}" -type f | sudo wc -l) -gt 0 ]]; then
+            echo "Deleting files within {{workingDirectory}}/TOE_*"
+            sudo find "${TOE_MATCHES[@]}" -type f -exec shred -zuf {} \;
+        fi
+        shopt -s nullglob
+        TOE_REMAINING=({{workingDirectory}}/TOE_*)
+        shopt -u nullglob
+        if [[ ${#TOE_REMAINING[@]} -gt 0 ]]; then
+            if [[ $( sudo find "${TOE_REMAINING[@]}" -type f | sudo wc -l) -gt 0 ]]; then
+                echo "Failed to delete {{workingDirectory}}/TOE_*"
+                exit 1
+            fi
+            echo "Deleting {{workingDirectory}}/TOE_*"
+            sudo rm -rf "${TOE_REMAINING[@]}"
+        fi
+        shopt -s nullglob
+        TOE_FINAL=({{workingDirectory}}/TOE_*)
+        shopt -u nullglob
+        if [[ ${#TOE_FINAL[@]} -gt 0 ]]; then
+            echo "Failed to delete {{workingDirectory}}/TOE_*"
+            exit 1
+        fi
     fi
 fi
 
@@ -200,77 +238,257 @@ if [[ -f {{workingDirectory}}/skip_cleanup_ssm_log_files ]]; then
     echo "Skipping cleanup of ssm log files"
 else
     echo "Cleaning up ssm log files"
-    if [[ $( sudo find /var/log/amazon/ssm -type f | sudo wc -l) -gt 0 ]]; then
-        echo "Deleting files within /var/log/amazon/ssm/*"
-        sudo find /var/log/amazon/ssm -type f -exec shred -zuf {} \;
-    fi
-    if [[ $( sudo find /var/log/amazon/ssm -type f | sudo wc -l) -gt 0 ]]; then
-        echo "Failed to delete /var/log/amazon/ssm"
-        exit 1
-    fi
     if [[ -d "/var/log/amazon/ssm" ]]; then
+        if [[ $( sudo find /var/log/amazon/ssm -type f | sudo wc -l) -gt 0 ]]; then
+            echo "Deleting files within /var/log/amazon/ssm/*"
+            sudo find /var/log/amazon/ssm -type f -exec shred -zuf {} \;
+        fi
+        if [[ $( sudo find /var/log/amazon/ssm -type f | sudo wc -l) -gt 0 ]]; then
+            echo "Failed to delete /var/log/amazon/ssm"
+            exit 1
+        fi
         echo "Deleting /var/log/amazon/ssm/*"
         sudo rm -rf /var/log/amazon/ssm
+        if [[ -d "/var/log/amazon/ssm" ]]; then
+            echo "Failed to delete /var/log/amazon/ssm"
+            exit 1
+        fi
     fi
-    if [[ -d "/var/log/amazon/ssm" ]]; then
-        echo "Failed to delete /var/log/amazon/ssm"
+fi
+
+
+shopt -s nullglob
+SA_MATCHES=(/var/log/sa/sa*)
+shopt -u nullglob
+if [[ ${#SA_MATCHES[@]} -gt 0 ]]; then
+    echo "Deleting /var/log/sa/sa*"
+    sudo shred -zuf "${SA_MATCHES[@]}"
+    shopt -s nullglob
+    SA_REMAINING=(/var/log/sa/sa*)
+    shopt -u nullglob
+    if [[ ${#SA_REMAINING[@]} -gt 0 ]]; then
+        echo "Failed to delete /var/log/sa/sa*"
         exit 1
     fi
 fi
 
-
-if [[ $( sudo find /var/log/sa/sa* -type f | sudo wc -l ) -gt 0 ]]; then
-    echo "Deleting /var/log/sa/sa*"
-    sudo shred -zuf /var/log/sa/sa*
-fi
-if [[ $( sudo find /var/log/sa/sa* -type f | sudo wc -l ) -gt 0 ]]; then
-    echo "Failed to delete /var/log/sa/sa*"
-    exit 1
-fi
-
-if [[ $( sudo find /var/lib/dhclient/dhclient*.lease -type f | sudo wc -l ) -gt 0 ]]; then
-        echo "Deleting /var/lib/dhclient/dhclient*.lease"
-        sudo shred -zuf /var/lib/dhclient/dhclient*.lease
-fi
-if [[ $( sudo find /var/lib/dhclient/dhclient*.lease -type f | sudo wc -l ) -gt 0 ]]; then
+shopt -s nullglob
+DHCLIENT_MATCHES=(/var/lib/dhclient/dhclient*.lease)
+shopt -u nullglob
+if [[ ${#DHCLIENT_MATCHES[@]} -gt 0 ]]; then
+    echo "Deleting /var/lib/dhclient/dhclient*.lease"
+    sudo shred -zuf "${DHCLIENT_MATCHES[@]}"
+    shopt -s nullglob
+    DHCLIENT_REMAINING=(/var/lib/dhclient/dhclient*.lease)
+    shopt -u nullglob
+    if [[ ${#DHCLIENT_REMAINING[@]} -gt 0 ]]; then
         echo "Failed to delete /var/lib/dhclient/dhclient*.lease"
         exit 1
+    fi
 fi
 
 if [[ $( sudo find /var/tmp -type f | sudo wc -l) -gt 0 ]]; then
-        echo "Deleting files within /var/tmp/*"
-        sudo find /var/tmp -type f -exec shred -zuf {} \;
+    echo "Deleting files within /var/tmp/*"
+    sudo find /var/tmp -type f -exec shred -zuf {} \;
 fi
 if [[ $( sudo find /var/tmp -type f | sudo wc -l) -gt 0 ]]; then
-        echo "Failed to delete /var/tmp"
-        exit 1
+    echo "Failed to delete /var/tmp"
+    exit 1
 fi
 if [[ $( sudo ls /var/tmp | sudo wc -l ) -gt 0 ]]; then
-        echo "Deleting /var/tmp/*"
-        sudo rm -rf /var/tmp/*
+    echo "Deleting /var/tmp/*"
+    sudo rm -rf /var/tmp/*
 fi
 
 if [[ -f "/var/lib/systemd/random-seed" ]]; then
-        echo "Deleting /var/lib/systemd/random-seed"
-        sudo shred -zuf /var/lib/systemd/random-seed
-        sudo rm -f /var/lib/systemd/random-seed
+    echo "Deleting /var/lib/systemd/random-seed"
+    sudo shred -zuf /var/lib/systemd/random-seed
+    sudo rm -f /var/lib/systemd/random-seed
 fi
 
 # Shredding is not guaranteed to work well on rolling logs
 
 if [[ -f "/var/lib/rsyslog/imjournal.state" ]]; then
-        echo "Deleting /var/lib/rsyslog/imjournal.state"
-        sudo shred -zuf /var/lib/rsyslog/imjournal.state
-        sudo rm -f /var/lib/rsyslog/imjournal.state
+    echo "Deleting /var/lib/rsyslog/imjournal.state"
+    sudo shred -zuf /var/lib/rsyslog/imjournal.state
+    sudo rm -f /var/lib/rsyslog/imjournal.state
 fi
 
-if [[ $( sudo ls /var/log/journal/ | sudo wc -l ) -gt 0 ]]; then
-        echo "Deleting /var/log/journal/*"
-        sudo find /var/log/journal/ -type f -exec shred -zuf {} \;
-        sudo rm -rf /var/log/journal/*
+if [[ -d "/var/log/journal" ]] && [[ $( sudo ls /var/log/journal/ | sudo wc -l ) -gt 0 ]]; then
+    echo "Deleting /var/log/journal/*"
+    sudo find /var/log/journal/ -type f -exec shred -zuf {} \;
+    sudo rm -rf /var/log/journal/*
+fi
+
+if [[ -f "/etc/machine-id" ]]; then
+    echo "Truncating /etc/machine-id"
+    sudo truncate -s 0 /etc/machine-id
+fi
+
+if [[ -f "/var/lib/dbus/machine-id" ]]; then
+    echo "Truncating /var/lib/dbus/machine-id"
+    sudo truncate -s 0 /var/lib/dbus/machine-id
 fi
 
 sudo touch /etc/machine-id
+
+# Flush all pending writes to disk before instance shutdown and snapshot
+sync
+
+echo "Sanitize OK"
+
+
+###############################################################################
+# Image Builder appends the following steps to the clean up script to uninstall
+# the Systems Manager (SSM) agent and, on Amazon Linux 1, Amazon Linux 2, and
+# Amazon Linux 2023, to remove the cronie package when Image Builder installed a
+# crontab during the build. Image Builder uses the /tmp/imagebuilder_service
+# working directory to track what it installed.
+###############################################################################
+
+SERVICE_ROOT_WORKING_DIR="/tmp/imagebuilder_service"
+
+# SSM_UNINSTALL_CONDITION reflects the systemsManagerAgent.uninstallAfterBuild
+# recipe setting and how the SSM agent was installed:
+#   SSM_INSTALLED_BY_CUSTOMER      - always uninstall the SSM agent
+#   SSM_INSTALLED_BY_IMAGE_BUILDER - uninstall only if Image Builder installed it
+#   (any other value)              - leave the SSM agent in the final image
+SSM_UNINSTALL_CONDITION="<uninstallAfterBuild condition>"
+
+function error_exit {
+  echo "$1" 1>&2
+  exit 1
+}
+
+function ssm_exists() {
+  eval "$1"  > /dev/null 2>&1
+  echo $?
+}
+
+function cleanup_image() {
+  rm -rf "${SERVICE_ROOT_WORKING_DIR}"
+}
+
+function uninstall_ssm_agent() {
+
+  uninstall_package="$1"
+  uninstall_all=""
+  uninstall_success="false"
+
+  if [ "${uninstall_package}" == "" ]; then
+    uninstall_all="true"
+  fi
+
+  yum="sudo yum search amazon-ssm-agent | grep amazon-ssm-agent"
+  snap="sudo snap list amazon-ssm-agent"
+  rpm="sudo rpm -qa amazon-ssm-agent | grep amazon-ssm-agent"
+  dpkg="sudo dpkg --get-selections | grep amazon-ssm-agent"
+  pkg="su -m root -c \"pkg info -l amazon-ssm-agent | grep amazon-ssm-agent\""
+
+
+  if [[ ("${uninstall_all}" == "true" || "${uninstall_package}" == "snap") && $(ssm_exists "${snap}") -eq 0 ]]; then
+    echo "Package found in Snap.... Uninstalling"
+    (sleep 30 ; sudo snap remove amazon-ssm-agent) &>/dev/null &
+    uninstall_success="true"
+  fi
+
+  if [[ ("${uninstall_all}" == "true" || "${uninstall_package}" == "yum") && $(ssm_exists "${yum}") -eq 0 ]]; then
+    echo "Package found in Yum.... Uninstalling"
+    (sleep 30 ; sudo yum remove -y amazon-ssm-agent) &>/dev/null &
+    uninstall_success="true"
+  fi
+
+  if [[ ("${uninstall_all}" == "true" || "${uninstall_package}" == "rpm") && $(ssm_exists "${rpm}") -eq 0 ]]; then
+    echo "Package found in Rpm.... Uninstalling"
+    (sleep 30 ; sudo rpm -e amazon-ssm-agent) &>/dev/null &
+    uninstall_success="true"
+  fi
+
+  if [[ ("${uninstall_all}" == "true" || "${uninstall_package}" == "dpkg") && $(ssm_exists "${dpkg}") -eq 0 ]]; then
+    echo "Package found in Dpkg.... Uninstalling"
+    (sleep 30 ; sudo dpkg -r --force-all amazon-ssm-agent) &>/dev/null &
+    uninstall_success="true"
+  fi
+
+  if [[ ("${uninstall_all}" == "true" || "${uninstall_package}" == "pkg") && $(ssm_exists "${pkg}") -eq 0 ]]; then
+    echo "Package found in FreeBSD.... Uninstalling"
+    (sleep 30 ; su -m root -c "pkg remove -y amazon-ssm-agent") &> /dev/null &
+    uninstall_success="true"
+  fi
+
+  if [ "${uninstall_success}" == "false" ] ; then
+    error_exit "Unable to uninstall an SSM agent"
+  fi
+}
+
+# Amazon Linux releases where Image Builder installs cronie to provide a crontab:
+# Amazon Linux AMI (AL1), AL2, and AL2023.
+function is_cronie_supported_amazon_linux() {
+    if [ "$(get_os_type)" != "amzn" ]; then
+        return 1
+    fi
+    case "$(get_os_version)" in
+        2|2023) return 0 ;;
+        # AL1 releases use date-based versions from 2010 through 2018.
+        201[0-8].[0-9][0-9]) return 0 ;;
+        *) return 1 ;;
+    esac
+}
+
+function uninstall_crontab() {
+    if is_cronie_supported_amazon_linux ; then
+        echo "Uninstalling cronie package"
+        sudo yum remove -y cronie
+    fi
+}
+
+function get_os_type() {
+    FILE=/etc/os-release
+    if [ -e $FILE ]; then
+        . $FILE
+        echo $ID
+    else
+        echo ""
+    fi
+}
+
+function get_os_version() {
+    FILE=/etc/os-release
+    if [ -e $FILE ]; then
+        . $FILE
+        echo $VERSION_ID
+    else
+        echo ""
+    fi
+}
+
+if [ "${SSM_UNINSTALL_CONDITION}" == "SSM_INSTALLED_BY_CUSTOMER" ] ; then
+  echo "Uninstall after build set to true. Uninstalling SSM agent."
+  uninstall_ssm_agent
+
+elif [ "${SSM_UNINSTALL_CONDITION}" == "SSM_INSTALLED_BY_IMAGE_BUILDER" ] ; then
+  echo "Checking if the SSM agent was installed by Image Builder"
+  if [[ -f ${SERVICE_ROOT_WORKING_DIR}/ssm_installed ]] ; then
+    package_manager="$(cat ${SERVICE_ROOT_WORKING_DIR}/ssm_installed)"
+    echo "Uninstalling the SSM agent installed by Image Builder using ${package_manager}"
+    uninstall_ssm_agent "${package_manager}"
+  fi
+else
+  echo "Uninstall after build set to false. Skipping SSM agent uninstall."
+fi
+
+# When Image Builder installs a crontab during the build (on Amazon Linux 1,
+# Amazon Linux 2, or Amazon Linux 2023), it records a crontab_installed marker
+# and removes the cronie package here. To keep cronie in your final image,
+# delete the marker before clean up runs:
+#   rm -f /tmp/imagebuilder_service/crontab_installed
+if [[ -f ${SERVICE_ROOT_WORKING_DIR}/crontab_installed ]] ; then
+  echo "Uninstalling crontab installed by Image Builder"
+  uninstall_crontab
+fi
+
+cleanup_image
+
 ```
 
 Windows
@@ -508,12 +726,28 @@ the skip file.
 
 Input| Clean up section | Files removed | Skip section file name |
 | --- | --- | --- |
-| `CLOUD_INIT_FILES` | `/etc/sudoers.d/90-cloud-init-users`<br>`/etc/locale.conf`<br>`/var/log/cloud-init.log`<br>`/var/log/cloud-init-output.log` | `skip_cleanup_cloudinit_files` |
+| `CLOUD_INIT_FILES` | `/etc/sudoers.d/90-cloud-init-users`<br>`/etc/locale.conf`<br>`/var/log/cloud-init.log`<br>`/var/log/cloud-init-output.log`<br>All files under `/var/lib/cloud/` | `skip_cleanup_cloudinit_files` |
 | `INSTANCE_FILES` | `/etc/.updated`<br>`/etc/aliases.db`<br>`/etc/hostname`<br>`/var/lib/misc/postfix.aliasesdb-stamp`<br>`/var/lib/postfix/master.lock`<br>`/var/spool/postfix/pid/master.pid`<br>`/var/.updated`<br>`/var/cache/yum/x86_64/2/.gpgkeyschecked.yum` | `skip_cleanup_instance_files` |
-| `SSH_FILES` | `/etc/ssh/ssh_host_rsa_key`<br>`/etc/ssh/ssh_host_rsa_key.pub`<br>`/etc/ssh/ssh_host_ecdsa_key`<br>`/etc/ssh/ssh_host_ecdsa_key.pub`<br>`/etc/ssh/ssh_host_ed25519_key`<br>`/etc/ssh/ssh_host_ed25519_key.pub`<br>`/root/.ssh/authorized_keys`<br>`/home/<all users>/.ssh/authorized_keys;` | `skip_cleanup_ssh_files` |
+| `SSH_FILES` | `/etc/ssh/ssh_host_rsa_key`<br>`/etc/ssh/ssh_host_rsa_key.pub`<br>`/etc/ssh/ssh_host_ecdsa_key`<br>`/etc/ssh/ssh_host_ecdsa_key.pub`<br>`/etc/ssh/ssh_host_ed25519_key`<br>`/etc/ssh/ssh_host_ed25519_key.pub`<br>`/root/.ssh/authorized_keys`<br>`/home/<all users>/.ssh/authorized_keys` | `skip_cleanup_ssh_files` |
 | `INSTANCE_LOG_FILES` | `/var/log/audit/audit.log`<br>`/var/log/boot.log`<br>`/var/log/dmesg`<br>`/var/log/cron` | `skip_cleanup_instance_log_files` |
 | `TOE_FILES` | `{{workingDirectory}}/TOE_*` | `skip_cleanup_toe_files` |
 | `SSM_LOG_FILES` | `/var/log/amazon/ssm/*` | `skip_cleanup_ssm_log_files` |
+
+###### Clean up steps that always run
+
+The sections in the preceding table are the only parts of the clean up script
+that you can skip. After the script processes those sections, it also removes the
+following items, and you can't skip these steps:
+
+- `/var/log/sa/sa*`
+- `/var/lib/dhclient/dhclient*.lease`
+- All files under `/var/tmp/`
+- `/var/lib/systemd/random-seed`
+- `/var/lib/rsyslog/imjournal.state`
+- All files under `/var/log/journal/`
+  The script also truncates the machine ID files `/etc/machine-id`
+  and `/var/lib/dbus/machine-id`. This ensures that each instance launched from
+  the image generates a unique machine ID.
 
 ## Override the macOS clean up script
 

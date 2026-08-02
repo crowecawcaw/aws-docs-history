@@ -56,7 +56,7 @@ section are editable only on their respective detail tabs.
   **Event Bus**, shows EventBridge rules that target the current pipeline.
   Includes **Create event bus** and **Create rule**
   actions that link to the EventBridge console. For more information about this tab, see
-  [Use EventBridge rules](ev-rules-for-pipeline.md "ev-rules-for-pipeline.md").
+  [Use EventBridge](ev-rules-for-pipeline.md "ev-rules-for-pipeline.md").
 
 ## Edit infrastructure configuration for your pipeline
 

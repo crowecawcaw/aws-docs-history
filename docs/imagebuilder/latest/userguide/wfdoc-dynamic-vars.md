@@ -102,7 +102,9 @@ JSONPath variables and literal text content.
 ## Use Image Builder system variables
 
 Image Builder provides the following system variables that you can use in your
-workflow document:
+workflow document. These are read-only values that Image Builder populates at runtime.
+You reference a system variable with the `imagebuilder` document
+structure node, for example `$.imagebuilder.platform`.
 
 | Variable name              | Description                                                                                                                      | Type          | Example value                                                                 |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------------------- |

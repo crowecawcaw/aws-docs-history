@@ -1,6 +1,9 @@
 # Create a new version of an image recipe
 
-This section describes how to create a new version of an image recipe.
+This section shows you how to create an image recipe or a new version of an existing recipe.
+An image recipe defines the base AMI, the build components, and the configuration. Use this recipe
+to create Amazon Machine Images (AMIs) with Image Builder. You can create image recipes from the Image Builder
+console or with the AWS CLI.
 
 ###### Contents
 
@@ -84,10 +87,10 @@ The SSM Agent must be pre-installed in the selected AMI.
   but you can edit them.
 
   - **Systems Manager agent** – You can select or clear this check
-    box to control installation of the Systems Manager agent on the new image. The
-    check box is cleared by default to include the Systems Manager agent in your new
-    image. To remove the Systems Manager agent from the final image, select the check
-    box so that the agent isn't included in your AMI.
+    box to control installation of the Systems Manager agent on the new image. By
+    default, this check box stays clear, and Image Builder keeps the Systems Manager agent in your
+    final AMI. To remove the Systems Manager agent from the final image, select the check
+    box.
   - **User data** – You can use this area to provide
     commands, or a command script to run, when you launch your build
     instance. However, this value replaces any commands that Image Builder might have
@@ -187,19 +190,37 @@ If you use encryption for your volumes, you must select the key for each
 volume separately, even if the key is the same one that's used for the root
 volume.
 
+###### Note
+
+If you don't have an existing recipe, use the Image Builder pipeline wizard, or choose
+**Image recipes** from the navigation pane and then choose
+**Create image recipe**. The fields described in this section apply
+to both new recipes and new versions.
+
 ###### To create a new image recipe version:
 
 1. At the top of the recipe details page, choose **Create new
-   version**. This takes you to the **Create image
+   version**. This opens the **Create image
    recipe** page.
 2. To create the new version, make your changes, and then choose
    **Create recipe**.
 
-Your final image can contain up to four product codes from AWS Marketplace image products and
-components. If your selected base image and components contain more than four product
-codes, Image Builder returns an error when you try to create the recipe.
+Your final image can contain up to nine product codes from AWS Marketplace image products and
+components. Image Builder returns an error during recipe creation if your base image and
+components exceed this limit.
 
-For more information on how to create an image recipe when you create an image
+Review the following constraints before you create an image recipe:
+
+- Your final image can contain at most nine AWS Marketplace product codes, combined from
+  the base image and components. A product code is an identifier that AWS Marketplace attaches
+  to a paid or supported AMI for billing and licensing.
+- You can include up to 20 components (build and test combined). This is the
+  default limit, which you can request to increase through AWS Support.
+- The same component can't appear more than once in a recipe.
+- All components must match the platform (Linux, Windows, or macOS) of your base
+  image. Components must also support the OS version when that metadata is available.
+
+For more information about creating an image recipe when you create an image
 pipeline, see [Step 2: Choose recipe](start-build-image-pipeline.md#start-build-image-step2 "start-build-image-pipeline.md#start-build-image-step2") in the **Get
 started** section of this guide.
 
@@ -249,14 +270,33 @@ Here is a summary of the parameters that these examples specify:
 
 
 
-    	+ AMI ID
-    	+ Image Builder image resource ARN
-    	+ AWS Systems Manager (SSM) Parameter Store parameter, prefixed by `ssm:`,
-    	 followed by the parameter name or ARN.
-    	+ AWS Marketplace product ID
+    	+ **AMI ID** – Use when you have a
+    	 specific AMI (for example, `ami-1234567890abcdef1`) that you want to
+    	 customize. Because an AMI ID is static, we recommend an Image Builder image ARN or an SSM
+    	 parameter instead when you want your recipe to pick up newer base images
+    	 automatically.
+    	+ **Image Builder image resource ARN** – Use when
+    	 you want to build on top of an Image Builder image. This includes Amazon-managed images
+    	 that Image Builder provides for the most popular operating systems, as well as images that
+    	 you previously created. Specify the image ARN with a semantic version, or use a
+    	 version wildcard to always get the latest version.
+    	+ **AWS Systems Manager (SSM) Parameter Store parameter**
+    	 – Use when you want your recipe to automatically pick up new AMI IDs
+    	 without creating a new recipe version. Prefix the parameter with
+    	 `ssm:`, followed by the parameter name or ARN. This is ideal for
+    	 pipelines that should always use the latest Amazon Linux or Windows base
+    	 image.
+    	+ **AWS Marketplace product ID** – Use when you
+    	 subscribe to an AMI product in AWS Marketplace and want to customize it further.
     ###### Note
 
-    The Linux and macOS examples use an Image Builder AMI, and the Windows example uses an ARN.
+
+
+    	+ When you use an AMI ID or an SSM parameter that resolves to an AMI, you
+    	 must have access to that AMI in your account. The AMI must also exist in the
+    	 same Region where Image Builder runs the build.
+    	+ The Linux and macOS examples specify an AMI ID, and the Windows example uses
+    	 an Image Builder image ARN.
     * semanticVersion (string, required) – Enter the version number that you want to create
      in the format *<major>.<minor>.<patch>*. Image Builder supports automatic version incrementing for
      recipes, allowing you to use wildcard patterns in your recipe versions. When you create a recipe with
@@ -330,6 +370,13 @@ Here is a summary of the parameters that these examples specify:
 
     	+ systemsManagerAgent (object) –
     	 Contains settings for the Systems Manager agent on your build instance.
+
+
+    	###### Note
+
+    	Windows recipes don't support the `systemsManagerAgent`
+    	 configuration. If you include it with a Windows parent image, the request
+    	 fails.
 
 
 
@@ -496,14 +543,102 @@ aws imagebuilder create-image-recipe --cli-input-json file://`create-image-recip
      the command. For example, Windows uses the backslash (\) to
      refer to the directory path, while Linux and macOS use the forward slash (/).
 
-Your final image can contain up to four product codes from AWS Marketplace image products and
-components. If your selected base image and components contain more than four product
-codes, Image Builder returns an error when run the `create-image-recipe` command.
+Your final image can contain up to nine product codes from AWS Marketplace image products and
+components. Image Builder returns an error during recipe creation if your base image and
+components exceed this limit when you run the `create-image-recipe` command.
+
+The command returns the ARN of the new image recipe, as shown in the following
+example output.
+
+```
+{
+	"requestId": "`a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`",
+	"clientToken": "`a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`",
+	"imageRecipeArn": "arn:aws:imagebuilder:us-west-2:`123456789012`:image-recipe/`my-recipe`/1.0.1"
+}
+```
+
+3. ###### Verify your recipe
+
+To confirm that Image Builder created your recipe as expected, run the
+**get-image-recipe** command with the ARN that the previous step
+returned.
+
+```
+aws imagebuilder get-image-recipe --image-recipe-arn arn:aws:imagebuilder:us-west-2:`123456789012`:image-recipe/`my-recipe`/1.0.1
+```
+
+### Working directory
+
+The working directory specifies the filesystem path on the build instance where Image Builder
+runs build and test operations. Image Builder passes this path to AWS Systems Manager as the working
+directory for command execution.
+
+If you don't specify a working directory, Image Builder uses the following defaults:
+
+- Linux: `/tmp`
+- macOS: `/tmp`
+- Windows: `C:/`
+
+For Windows, the path can't contain the double-quote (`"`)
+character.
+
+###### Tip
+
+Set the working directory to a path on a larger attached volume when your
+components need more temporary disk space during installation than the default
+directory provides.
+
+### AMI tags
+
+You can apply tags to the AMI that Image Builder creates during the build phase, before image
+distribution. Image Builder applies these tags to the AMI, separate from the resource tags
+on the recipe itself. Specify AMI tags with the `amiTags` parameter in
+your JSON input file.
+
+###### Note
+
+You can't use the reserved tag keys `CreatedBy` or
+`Ec2ImageBuilderArn`. Image Builder manages these keys automatically.
+
+```
+{
+	"name": "`tagged-recipe`",
+	"semanticVersion": "1.0.0",
+	"parentImage": "arn:aws:imagebuilder:us-west-2:aws:image/`amazon-linux-2023-x86`/x.x.x",
+	"components": [
+		{
+			"componentArn": "arn:aws:imagebuilder:us-west-2:aws:component/`update-linux`/x.x.x"
+		}
+	],
+	"amiTags": {
+		"Environment": "Production",
+		"Team": "Platform",
+		"CostCenter": "12345"
+	}
+}
+```
+
+### Common errors and troubleshooting
+
+The following table lists common errors that you might encounter when you create an
+image recipe, along with how to resolve them.
+
+| Error                                                                                         | Cause                                                               | Resolution                                                                                        |
+| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| "A component may be specified in an image recipe at most once"                                | A duplicate component (even with a different version).              | Remove the duplicate. Use only one version of each component.                                     |
+| "Component ARN does not match the Parent Image Platform"                                      | A platform mismatch.                                                | Verify your base image platform. Use Linux components with Linux AMIs,<br>and so on.              |
+| "Component ARN does not support the Parent Image OS Version"                                  | An OS version incompatibility.                                      | Check the component's supported OS versions. Use a compatible component<br>version.               |
+| "Image Builder does not support configuring the SSM Agent on<br>Windows"                      | You specified `systemsManagerAgent` with a Windows parent<br>image. | Remove the<br>`additionalInstanceConfiguration.systemsManagerAgent`<br>block.                     |
+| "You've exceeded the maximum cumulative component size of 25 KB"                              | Too many or too-large parameters.                                   | Reduce the parameter count or shorten parameter values.                                           |
+| "Recipe can contain at most 9 marketplace products"                                           | Too many AWS Marketplace product codes.                             | Reduce the number of AWS Marketplace components, or use a base image with fewer<br>product codes. |
+| "The supplied semantic version does not follow the required<br>format"                        | An invalid version string.                                          | Use the *major.minor.patch<br>• format with one optional<br>`x` wildcard.                         |
+| "Component ARN ... is deprecated and cannot be included in new<br>recipes" (or "is disabled") | A referenced component has a `DEPRECATED` or<br>`DISABLED` status.  | Update to a current component version.                                                            |
 
 ## Import a VM as your base image in the console
 
-In this section, we focus on how to import a virtual machine (VM) as the base image for
-your image recipe. We don't cover other steps involved with creating a recipe or
+This section shows you how to import a virtual machine (VM) as the base image for
+your image recipe. It doesn't cover other steps involved with creating a recipe or
 recipe version here. For additional steps to create a new image recipe with the
 pipeline creation wizard in the Image Builder console, see [Pipeline wizard: Create AMI](start-build-image-pipeline.md "start-build-image-pipeline.md"). For additional steps to
 create a new image recipe or recipe version, see [Create a new version of an image recipe](create-image-recipes.md "create-image-recipes.md").
@@ -587,7 +722,8 @@ platform, the license types are as follows:
 
 To attach license configurations created with AWS License Manager to your base image, select from
 the **License configuration name** list. For more information about License Manager,
-see Working with AWS License Manager
+see [Working with license
+configurations](../../../license-manager/latest/userguide/license-configurations.md "../../../license-manager/latest/userguide/license-configurations.md") in the _License Manager User Guide_.
 
 ###### Note
 

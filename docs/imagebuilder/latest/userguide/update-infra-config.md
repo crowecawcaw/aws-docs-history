@@ -2,7 +2,7 @@
 
 This section covers how you can use the Image Builder console or **imagebuilder**
 commands in the AWS CLI to update an infrastructure configuration resource. To track your
-resources, you can apply tags as follows. Tags are entered as key value pairs.
+resources, you can apply tags as follows. Enter tags as key-value pairs.
 
 - _Resource tags_ assign metadata tags to the Amazon EC2 instance that Image Builder launches during
   the build process.
@@ -55,13 +55,21 @@ the AWS CLI.
 
 1. ###### Create a CLI input JSON file
 
-This infrastructure configuration example uses the same settings as the create
-example, except that we've updated the
-`terminateInstanceOnFailure` setting to
-`false`. After we run the
-**update-infrastructure-configuration** command,
-pipelines that use this infrastructure configuration terminate the
-build and test instances when the build fails.
+In this example, the settings match the create example, except that
+`terminateInstanceOnFailure` is set to `true`. After you run the
+**update-infrastructure-configuration** command, pipelines that
+use this infrastructure configuration terminate the build and test instances
+when a build fails.
+
+The following example sets common infrastructure fields. To require IMDSv2
+tokens on the build and test instances, add an
+`instanceMetadataOptions` block with
+`httpTokens` set to `required`.
+
+###### Note
+
+We recommend that you configure all EC2 instances that Image Builder launches from a pipeline
+build to use IMDSv2 so that instance metadata retrieval requests require a signed token header.
 
 Use a file editing tool to create a JSON file with keys shown in the following
 example, plus values that are valid for your environment. This
@@ -70,16 +78,16 @@ example uses a file named
 
 ```
 {
-"infrastructureConfigurationArn": "arn:aws:imagebuilder:us-west-`2:123456789012`:infrastructure-configuration/`my-example-infrastructure-configuration`",
+"infrastructureConfigurationArn": "arn:aws:imagebuilder:`us-west-2`:`123456789012`:infrastructure-configuration/`my-example-infrastructure-configuration`",
 "description": "`An example that will terminate instances of failed builds`",
 "instanceTypes": [
-    "m5.large", "m5.2xlarge"
+    "m7i.large", "m7i.2xlarge"
 ],
 "instanceProfileName": "`myIAMInstanceProfileName`",
 "securityGroupIds": [
     "`sg-12345678`"
 ],
-"subnetId": "sub-12345678",
+"subnetId": "subnet-`12345678`",
 "logging": {
     "s3Logs": {
         "s3BucketName": "`my-logging-bucket`",
@@ -87,7 +95,7 @@ example uses a file named
     }
 },
 "terminateInstanceOnFailure": true,
-"snsTopicArn": "arn:aws:sns:us-west-``2:123456789012``:`MyTopic`"
+"snsTopicArn": "arn:aws:sns:`us-west-2`:`123456789012`:`MyTopic`"
 }
 ```
 

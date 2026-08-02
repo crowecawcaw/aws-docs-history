@@ -29,7 +29,7 @@ from the Image Builder console:
   **Discover products** page without leaving the Image Builder console.
 
 The output AMI that Image Builder creates includes the product codes from AWS Marketplace image products
-and components. You can have up to four product codes for your final customized image.
+and components. You can have up to nine product codes for your final customized image.
 
 ## AWS Marketplace subscriptions in Image Builder
 
@@ -185,6 +185,6 @@ components, you can select them from the **Build components** list.
 Select `AWS Marketplace` from the component owner type list to see them, or select
 `Third party managed` for the CIS component. 7. Choose **Create recipe**.
 
-Your final image can contain up to four product codes from AWS Marketplace image products and
-components. If your selected base image and components contain more than four product
+Your final image can contain up to nine product codes from AWS Marketplace image products and
+components. If your selected base image and components contain more than nine product
 codes, Image Builder returns an error when you try to create the recipe.

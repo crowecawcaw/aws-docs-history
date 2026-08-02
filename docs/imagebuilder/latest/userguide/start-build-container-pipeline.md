@@ -166,7 +166,11 @@ FROM
 
 **environments (required if components are specified)**
 
-This variable will resolves to a script that runs components.
+At build time, this variable resolves to the Dockerfile directives that
+stage your components in the build context. These directives copy the component
+scripts into the image and set the environment variables that those scripts use.
+It prepares the environment but doesn't run the components that you specify. Place this
+variable before the `components` variable.
 
 Example:
 
@@ -176,9 +180,11 @@ Example:
 
 **components (optional)**
 
-Image Builder resolves build and test component scripts for the components that
-the container recipe includes. This variable can be placed anywhere in the
-Dockerfile, after the environments variable.
+At build time, this variable resolves to the command that runs the build
+and test component scripts for the components that the container recipe
+includes, and then removes those scripts from the image. This is the
+variable that runs your components. Place it after the
+`environments` variable.
 
 Example:
 

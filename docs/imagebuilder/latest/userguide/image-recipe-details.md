@@ -40,6 +40,51 @@ recipes, using the AWS CLI.
 aws imagebuilder list-image-recipes
 ```
 
+The command returns a summary for each image recipe, shown in the following
+example output.
+
+```
+{
+    "requestId": "`a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`",
+    "imageRecipeSummaryList": [
+        {
+            "arn": "arn:aws:imagebuilder:us-west-2:`123456789012`:image-recipe/`my-recipe`/1.0.0",
+            "name": "`my-recipe`",
+            "platform": "Linux",
+            "owner": "`123456789012`",
+            "parentImage": "arn:aws:imagebuilder:us-west-2:aws:image/`amazon-linux-2023-x86`/x.x.x",
+            "dateCreated": "2024-01-15T10:30:00.000Z",
+            "tags": {
+                "Environment": "Production"
+            }
+        }
+    ]
+}
+```
+
+You can filter the results by owner to control which recipes the command
+returns.
+
+```
+aws imagebuilder list-image-recipes --owner Self
+```
+
+Use `Self` to list the recipes that you own, or `Shared`
+to list recipes that other accounts have shared with you.
+
+```
+aws imagebuilder list-image-recipes --owner Shared
+```
+
+To limit the number of results that the command returns on each page, use the
+`--max-results` parameter. If more results are available, the response
+includes a `nextToken` value that you pass to the next command to
+retrieve the following page.
+
+```
+aws imagebuilder list-image-recipes --max-results 10 --next-token "`eyJuZXh0VG9rZW4...`"
+```
+
 ## View image recipe details from the console
 
 To view details for a specific image recipe using the Image Builder
@@ -69,14 +114,51 @@ command to get the details of an image recipe by specifying its Amazon Resource 
 (ARN).
 
 ```
-aws imagebuilder get-image-recipe --image-recipe-arn arn:aws:imagebuilder:us-west-`2:123456789012`:image-recipe/`my-example-recipe`/2020.12.03
+aws imagebuilder get-image-recipe --image-recipe-arn arn:aws:imagebuilder:us-west-`2:123456789012`:image-recipe/`my-recipe`/1.0.0
+```
+
+The command returns the full image recipe, shown in the following example
+output.
+
+```
+{
+    "requestId": "`a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`",
+    "imageRecipe": {
+        "arn": "arn:aws:imagebuilder:us-west-2:`123456789012`:image-recipe/`my-recipe`/1.0.0",
+        "name": "`my-recipe`",
+        "description": "`My Linux image recipe`",
+        "platform": "Linux",
+        "version": "1.0.0",
+        "components": [
+            {
+                "componentArn": "arn:aws:imagebuilder:us-west-2:`123456789012`:component/`my-component`/1.0.0/1"
+            }
+        ],
+        "parentImage": "arn:aws:imagebuilder:us-west-2:aws:image/`amazon-linux-2023-x86`/x.x.x",
+        "dateCreated": "2024-01-15T10:30:00.000Z",
+        "tags": {},
+        "owner": "`123456789012`"
+    }
+}
 ```
 
 ## Get image recipe policy details from the AWS CLI
 
+A recipe policy is a resource-based policy. It controls cross-account access to your
+recipe. When you share a recipe through AWS Resource Access Manager (AWS RAM), Image Builder creates the policy
+automatically. You can also set a custom policy with the `put-image-recipe-policy`
+command.
+
+###### Note
+
+If you set the resource policy directly with `put-image-recipe-policy`,
+you must then promote the resource to a AWS RAM resource share so that it's visible to
+the principals you share it with. For more information, see [Option 2: Apply a resource policy and promote to an existing resource share](manage-shared-resources-share.md#share-opt2-promote-resource-share "manage-shared-resources-share.md#share-opt2-promote-resource-share").
+
 The following example shows how to use an **imagebuilder**
-CLI command to get the details of an image recipe policy by specifying its ARN.
+CLI command to get the details of an image recipe policy by specifying its ARN. If no
+policy is attached to the recipe, the response is empty.
 
 ```
-aws imagebuilder get-image-recipe-policy --image-recipe-arn arn:aws:imagebuilder:us-west-`2:123456789012`:image-recipe/`my-example-recipe`/2020.12.03
+aws imagebuilder get-image-recipe-policy --image-recipe-arn arn:aws:imagebuilder:us-west-`2:123456789012`:image-recipe/`my-recipe`/1.0.0
 ```
