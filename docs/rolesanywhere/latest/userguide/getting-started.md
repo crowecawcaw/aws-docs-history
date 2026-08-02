@@ -145,4 +145,6 @@ information, see [Tagging AWS resources](../../../general/latest/gr/aws_tagging.
 
 ## Next steps
 
-You can now authenticate with IAM Roles Anywhere. Follow the instructions in [Get temporary security credentials](credential-helper.md "credential-helper.md"). Also consider [Monitoring with IAM Roles Anywhere subjects](monitoring-subjects.md "monitoring-subjects.md").
+You can now authenticate with IAM Roles Anywhere. Follow the instructions in [Get temporary security credentials](credential-helper.md "credential-helper.md"), or, for Java
+applications on the AWS SDK for Java v2, use the
+[IAM Roles Anywhere Java plugin](java-plugin.md "java-plugin.md"). Also consider [Monitoring with IAM Roles Anywhere subjects](monitoring-subjects.md "monitoring-subjects.md").

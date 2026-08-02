@@ -14,6 +14,11 @@ See
 [Temporary security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md")
 for more information on session credentials.
 
+For Java applications on the AWS SDK for Java v2, you can alternatively
+resolve IAM Roles Anywhere credentials in process using the
+[IAM Roles Anywhere Java plugin](java-plugin.md "java-plugin.md")
+instead of the credential helper.
+
 To download the credential helper tool, use the following links. Releases for Darwin and Windows on or after version 1.1.1 are signed.
 
 | Platform | Architecture | Download URL                                                                                                                                                                                                                                                                                                        | SHA256 checksum                                                  |
