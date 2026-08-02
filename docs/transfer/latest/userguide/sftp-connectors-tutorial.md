@@ -408,7 +408,7 @@ Test a connector using the console ###### To test an SFTP connector
    select a connector.
 3. From the **Actions** menu, choose **Test connection**.
 
-![The Transfer Family console, showing an SFTP connector selected, and the Test connectionTest connection action highlighted.](images/connector-test-choose.png)
+![The Transfer Family console, showing an SFTP connector selected, and the Test connectionTest connection action highlighted.](/images/transfer/latest/userguide/images/connector-test-choose.png)
 
 The system returns a message, indicating whether the test passes or fails. If the test fails, the system provides an error message based on the reason the test failed.
 
