@@ -441,7 +441,7 @@ The `wlm_json_configuration` parameter requires a specific format
 when you use the AWS CLI. The format that you use depends on your client operating
 system. Operating systems have different ways to enclose the JSON structure so
 it's passed correctly from the command line. For details on how to
-construct the appropriate command in the Linux, Mac OS X, and Windows operating
+construct the appropriate command in the Linux, macOS, and Windows operating
 systems, see the sections following. For more information about the differences
 in enclosing JSON data structures in the AWS CLI in general, see [Quoting
 strings](../../../cli/latest/userguide/cli-using-param.md#quoting-strings "../../../cli/latest/userguide/cli-using-param.md#quoting-strings") in the _AWS Command Line Interface User Guide_.
@@ -660,7 +660,7 @@ the content of the `modify_pg.json` JSON file.
 
 ```
 
-#### Rules for configuring WLM by using the AWS CLI in the command line on the Linux and macOS X operating systems
+#### Rules for configuring WLM by using the AWS CLI in the command line on the Linux and macOS operating systems
 
 Follow these rules to run an AWS CLI command with parameters on one
 line:

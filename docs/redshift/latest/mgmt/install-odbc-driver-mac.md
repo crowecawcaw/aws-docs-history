@@ -3,7 +3,7 @@ We will start enforcing it in phases. For more information on the details of Pyt
 and migration options, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
 
-# Using an Amazon Redshift ODBC driver on macOS X
+# Using an Amazon Redshift ODBC driver on macOS
 
 You install the driver on client computers accessing an Amazon Redshift data
 warehouse. Each computer where you install the driver must meet a list of

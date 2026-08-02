@@ -70,7 +70,7 @@ To see versions of a notebook, navigate to your saved notebooks and open
 **Duplicate** – To create a copy of the notebook and
 open it in a new notebook tab.
 
-- ![Shortcuts](images/qev2-key-command.png)
+- ![Shortcuts](/images/redshift/latest/mgmt/images/qev2-key-command.png)
 
 **Shortcuts** – To display the shortcuts available when
 authoring a notebook.

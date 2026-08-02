@@ -5,14 +5,14 @@ and migration options, see the
 
 # Use an ODBC driver manager to configure the driver
 
-On macOS X operating systems, you use an ODBC driver manager to
+On macOS operating systems, you use an ODBC driver manager to
 configure the ODBC connection settings. ODBC driver managers use configuration
 files to define and configure ODBC data sources and drivers. The ODBC driver
-manager that you use depends on the operating system that you use. For a macOS X operation system, it's the iODBC driver manager.
+manager that you use depends on the operating system that you use. For a macOS operation system, it's the iODBC driver manager.
 
 For more information about the supported ODBC driver managers to configure the
 Amazon Redshift ODBC drivers, see
-[Using an Amazon Redshift ODBC driver on macOS X](install-odbc-driver-mac.md "install-odbc-driver-mac.md") for macOS X operating systems.
+[Using an Amazon Redshift ODBC driver on macOS](install-odbc-driver-mac.md "install-odbc-driver-mac.md") for macOS operating systems.
 Also, see "Specifying ODBC Driver Managers on Non- Windows Machines" in the
 [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
 
@@ -24,7 +24,7 @@ If you installed to the default location, the
 `amazon.redshiftodbc.ini` configuration file is located in `/opt/amazon/redshift/lib`.
 
 Additionally, under
-`/opt/amazon/redshift/Setup` on macOS X, there are sample `odbc.ini`
+`/opt/amazon/redshift/Setup` on macOS, there are sample `odbc.ini`
 and `odbcinst.ini` files. You can use these files as examples for
 configuring the Amazon Redshift ODBC driver and the data source name (DSN).
 
@@ -42,7 +42,7 @@ to make it a hidden file.
 
 For the `odbc.ini` and `odbcinst.ini` files, either use
 the configuration files in the user's home directory or create new
-versions in another directory. By default, your macOS X operating system
+versions in another directory. By default, your macOS operating system
 should have an `odbc.ini` file and an `odbcinst.ini`
 file in the user's home directory (`/home/$USER` or
 `~/`.). These default files are hidden files, which is
@@ -77,7 +77,7 @@ For information about how to configure the `odbc.ini` file, see
 "Creating a Data Source Name on a Non-Windows Machine" in the
 [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf")
 
-Use the following format on macOS X operating systems.
+Use the following format on macOS operating systems.
 
 ```
 [ODBC Data Sources]
@@ -94,13 +94,13 @@ locale=`locale`
 ```
 
 The following example shows the configuration for `odbc.ini`
-on macOS X operating systems.
+on macOS operating systems.
 
 ```
 [ODBC Data Sources]
-Amazon_Redshift_dylib=Amazon Redshift DSN for macOS X
+Amazon_Redshift_dylib=Amazon Redshift DSN for macOS
 
-[Amazon Redshift DSN for macOS X]
+[Amazon Redshift DSN for macOS]
 Driver=/opt/amazon/redshift/lib/amazonredshiftodbc.dylib
 Host=examplecluster.abc123xyz789.us-west-2.redshift.amazonaws.com
 Port=5932
@@ -108,7 +108,7 @@ Database=dev
 locale=en-US
 ```
 
-## Configuring a connection without a DSN on macOS X operating systems
+## Configuring a connection without a DSN on macOS operating systems
 
 To connect to your data store through a connection that doesn't have
 a DSN, define the driver in the `odbcinst.ini` file. Then provide
@@ -118,7 +118,7 @@ For information about how to configure the `odbcinst.ini` file
 in this case, see "Configuring a DSN-less Connection on a Non-Windows
 Machine" in the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf"). .
 
-Use the following format on macOS X operating systems.
+Use the following format on macOS operating systems.
 
 ```
 [ODBC Drivers]
@@ -133,7 +133,7 @@ Driver=`path`/lib/amazonredshiftodbc.dylib
 ```
 
 The following example shows the `odbcinst.ini` configuration
-for the driver installed in the default directory on macOS X operating
+for the driver installed in the default directory on macOS operating
 systems.
 
 ```
@@ -141,7 +141,7 @@ systems.
 Amazon RedshiftODBC DSN=Installed
 
 [Amazon RedshiftODBC DSN]
-Description=Amazon Redshift ODBC Driver for macOS X
+Description=Amazon Redshift ODBC Driver for macOS
 Driver=/opt/amazon/redshift/lib/amazonredshiftodbc.dylib
 ```
 

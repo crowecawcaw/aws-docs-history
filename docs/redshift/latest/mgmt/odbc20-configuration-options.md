@@ -32,6 +32,7 @@ version 2.x driver:
 - [AuthProfile](#odbc20-authprofile-option "#odbc20-authprofile-option")
 - [AuthType](#odbc20-authtype-option "#odbc20-authtype-option")
 - [AutoCreate](#odbc20-autocreate-option "#odbc20-autocreate-option")
+- [BoolsAsChar](#odbc20-boolsaschar-option "#odbc20-boolsaschar-option")
 - [CaFile](#odbc20-cafile-option "#odbc20-cafile-option")
 - [client\_id](#odbc20-client-id-option "#odbc20-client-id-option")
 - [client\_ secret](#odbc20-client-secret-option "#odbc20-client-secret-option")
@@ -42,6 +43,7 @@ version 2.x driver:
 - [dbgroups\_filter](#odbc20-dbgroups-filter-option "#odbc20-dbgroups-filter-option")
 - [Driver](#odbc20-driver-option "#odbc20-driver-option")
 - [DSN](#odbc20-dsn-option "#odbc20-dsn-option")
+- [EnableTableTypes](#odbc20-enabletabletypes-option "#odbc20-enabletabletypes-option")
 - [EndpointUrl](#odbc20-endpointurl-option "#odbc20-endpointurl-option")
 - [ForceLowercase](#odbc20-forcelowercase-option "#odbc20-forcelowercase-option")
 - [group\_federation](#odbc20-group-federation-option "#odbc20-group-federation-option")
@@ -200,6 +202,25 @@ does not exist.
 
 This parameter is optional.
 
+## BoolsAsChar
+
+- Default Value – 0
+- Data Type – Boolean
+
+Specifies whether the driver reports BOOLEAN columns as
+character type instead of bit type.
+
+- 1 | TRUE: The driver reports BOOLEAN columns as SQL\_VARCHAR
+  with a column size of 1. The driver returns Boolean values as
+  the character strings "0" and "1".
+- 0 | FALSE: The driver reports BOOLEAN columns as SQL\_BIT.
+  This is the default behavior.
+
+Use this option if your
+application relies on BOOLEAN columns being returned as character data.
+
+This parameter is optional. This option is available in driver versions 2.2.1 and later.
+
 ## CaFile
 
 - Default Value – None
@@ -314,6 +335,23 @@ The name of the driver data source name. The application specifies the DSN in th
 SQLDriverConnect API.
 
 This parameter is required if you do not set **Driver.**.
+
+## EnableTableTypes
+
+- Default Value – 1
+- Data Type – Boolean
+
+Specifies whether the driver recognizes detailed table type information from the
+data source when an application calls the SQLTables catalog function. By default,
+the driver recognizes detailed table types.
+
+- 1 | TRUE: The driver recognizes the following table types: TABLE, VIEW,
+  SYSTEM TABLE, SYSTEM VIEW, EXTERNAL TABLE, and LOCAL TEMPORARY.
+- 0 | FALSE: The driver normalizes the detailed table type information into
+  the generic TABLE and VIEW table types.
+
+This parameter is optional. It is available in driver versions 2.2.1 and
+later.
 
 ## EndpointUrl
 

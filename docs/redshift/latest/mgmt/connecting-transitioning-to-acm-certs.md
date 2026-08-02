@@ -126,7 +126,7 @@ following:
 2. Place the certificates from the bundle in your `root.crt`
    file.
 
-   - On Linux and macOS X operating systems, the file is
+   - On Linux and macOS operating systems, the file is
      `~/.postgresql/root.crt`.
    - On Microsoft Windows, the file is
      `%APPDATA%\postgresql\root.crt`.

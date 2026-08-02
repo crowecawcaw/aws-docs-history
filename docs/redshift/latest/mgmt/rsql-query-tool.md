@@ -33,7 +33,7 @@ an additional set of capabilities specific to Amazon Redshift. These include the
   BTEQ scripts. Using RSQL helps you to avoid manually reimplementing scripts in a
   procedural language.
 
-Amazon Redshift RSQL is available for Linux, Windows, and macOS X operating systems.
+Amazon Redshift RSQL is available for Linux, Windows, and macOS operating systems.
 
 To report issues for Amazon Redshift RSQL, write to
 `<redshift-rsql-support@amazon.com>`.

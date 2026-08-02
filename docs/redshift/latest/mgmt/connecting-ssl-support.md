@@ -82,7 +82,7 @@ connect to your clusters using SSL. For more information, see [SSL](#connect-usi
 
 You can verify that the certificate that you downloaded matches the expected MD5
 checksum number. To do this, you can use the Md5sum program on Linux operating
-systems, or another tool on Windows and macOS X operating systems.
+systems, or another tool on Windows and macOS operating systems.
 
 ODBC DSNs contain an `sslmode` setting that determines how to handle
 encryption for client connections and server certificate verification. Amazon Redshift

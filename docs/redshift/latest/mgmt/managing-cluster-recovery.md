@@ -46,7 +46,7 @@ port for a provisioned cluster, use the Amazon Redshift console, AWS CLI, or Ama
 serverless workgroup, use the AWS CLI or the Amazon Redshift Serverless API.
 
 If you turn on relocation and you currently use the leader node IP address to access your
-your cluster or Enhanced VPC Routing, make sure to change that access. Instead, use the IP address associated with the
+cluster or Enhanced VPC Routing, make sure to change that access. Instead, use the IP address associated with the
 cluster's virtual private cloud (VPC) endpoint. To find this cluster IP address, find
 and use the VPC endpoint in the **Network and security** section of the
 cluster details page. To get more details on the VPC endpoint, sign in to the Amazon VPC console.

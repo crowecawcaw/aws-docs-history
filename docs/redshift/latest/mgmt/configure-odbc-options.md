@@ -14,7 +14,7 @@ when you connect programmatically, or by adding or changing registry keys in
 `HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\`your_DSN``.
 For more information about configuring a DSN, see [Using an Amazon Redshift ODBC driver on Microsoft Windows](install-odbc-driver-windows.md "install-odbc-driver-windows.md").
 
-In macOS X, you set driver configuration options in your
+In macOS, you set driver configuration options in your
 `odbc.ini` and `amazon.redshiftodbc.ini` files, as
 described in [Use an ODBC driver manager to configure the driver](odbc-driver-configure-mac.md "odbc-driver-configure-mac.md"). Configuration options set
 in an `amazon.redshiftodbc.ini` file apply to all connections. In

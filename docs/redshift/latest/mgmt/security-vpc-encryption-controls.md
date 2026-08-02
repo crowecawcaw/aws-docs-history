@@ -30,7 +30,7 @@ Amazon Redshift requires Nitro-based instances to support VPC encryption control
 
 When VPC encryption controls is enabled in enforce mode, the require\_ssl parameter must be set to true and cannot be disabled. This ensures that all client connections use encrypted TLS connections.
 
-## Migrating to VPC ecncryption controls
+## Migrating to VPC encryption controls
 
 **For existing clusters and workgroups**
 

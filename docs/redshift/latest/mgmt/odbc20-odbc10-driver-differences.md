@@ -35,7 +35,17 @@ only a subset of these.
   `SQLTables` type filters.** In ODBC 2.x, both
   Amazon Redshift Spectrum tables and datashare tables are reported as `EXTERNAL
  TABLE`. If you filter `SQLTables` by type, add
-  `EXTERNAL TABLE` to keep seeing these objects.
+  `EXTERNAL TABLE` to keep seeing these objects. Alternatively,
+  set the `EnableTableTypes` option to 0 to normalize the detailed
+  table type information into the generic TABLE and VIEW table types, as
+  described in the following item.
+- **Detailed table types are enabled by
+  default.** ODBC 2.x enables the `EnableTableTypes`
+  option by default. The 1.x driver disabled this option by default. With
+  the 2.x default, `SQLTables` reports detailed types such as SYSTEM
+  TABLE, SYSTEM VIEW, EXTERNAL TABLE, and LOCAL TEMPORARY. To report every
+  table as the generic type TABLE and every view as VIEW, set
+  `EnableTableTypes` to 0.
 - **Cast `INTERVAL` to
   `VARCHAR` for applications that do not support the interval
   data type.** Some clients do not support ODBC interval types.
@@ -78,15 +88,11 @@ optional but recommended to avoid confusion.
   certificate store. The 2.x driver validates against a CA certificate file: it
   uses the bundled Amazon Redshift root certificate by default, or the file you specify in
   `TrustStore` or `CaFile`.
-- `BoolsAsChar` – if your application relied on BOOLEAN columns
-  being returned as `"0"` and `"1"`
-  strings (`SQL_VARCHAR`), cast the column to `VARCHAR` in
-  your query, for example `SELECT col::VARCHAR FROM ...`.
 - `TextAsLongVarchar`, `CheckCertRevocation`,
   `EnableAwsSdkLogs`, `UseLogPrefix`,
   `Locale`, `UseDeclareFetch`,
-  `UseMultipleStatements`, `EnforceSingleStatement`,
-  `EnableTableTypes` – no equivalent in the current
+  `UseMultipleStatements`, `EnforceSingleStatement`
+  – no equivalent in the current
   release. The Amazon Redshift team is evaluating equivalents or alternatives for these
   options in future releases.
 
@@ -117,17 +123,17 @@ default buffer size.
 The following table describes common issues you might encounter after migrating and how
 to resolve them.
 
-| Symptom                                                     | Cause                                                                                                                                                                                                                  | What to do                                                                                                                    |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| External tables not visible in schema browser               | Spectrum and datashare tables are reported as `EXTERNAL<br>TABLE`                                                                                                                                                      | Include `EXTERNAL TABLE` in `SQLTables` type<br>filter.                                                                       |
-| pyodbc errors on interval columns                           | pyodbc does not support ODBC interval types                                                                                                                                                                            | Cast intervals to `VARCHAR` in queries.                                                                                       |
-| Character data displays as unexpected characters (mojibake) | `UseUnicode` default changed to `false`.<br>Applications expecting wide-character (UTF-16) data might misinterpret<br>narrow-character bytes as wide pairs, producing garbled output. The data<br>itself is unchanged. | Set `UseUnicode=true` in your DSN, or update your<br>application to bind columns as `SQL_C_CHAR` instead of<br>`SQL_C_WCHAR`. |
-| Long-running queries return timeout errors                  | `SQL_ATTR_QUERY_TIMEOUT` is now enforced. ODBC 1.x<br>silently ignored this setting.                                                                                                                                   | Increase or remove `QueryTimeout` from your DSN, or set<br>`SQL_ATTR_QUERY_TIMEOUT` to 0 in your<br>application.              |
-| Setting `SQL_ATTR_CURRENT_CATALOG` returns<br>`HY011`       | The attribute cannot be set on an open connection. Switching databases<br>on an open connection is not supported.                                                                                                      | Set the attribute before connecting, or close and reopen the<br>connection on the target database.                            |
-| Connection hangs in dual-stack environments                 | Limitation in versions <= 2.1.16                                                                                                                                                                                       | Upgrade to 2.1.17 or later.                                                                                                   |
-| Error message parsing returns unexpected results            | Message format changed; SQLSTATE codes unchanged                                                                                                                                                                       | Parse SQLSTATE codes instead of message text.                                                                                 |
-| Data-at-execution parameter binding behaves differently     | `SQL_NEED_LONG_DATA_LEN` changed from FALSE to TRUE;<br>applications using `SQL_DATA_AT_EXEC` must now provide the<br>total data length up front                                                                       | Set the length value in `StrLen_or_IndPtr` when binding<br>`SQL_DATA_AT_EXEC` parameters.                                     |
-| Driver logs are not generated                               | `LogLevel` and `LogPath` must be in the<br>`[ODBC]` global section of `odbc.ini`, not in<br>individual DSN sections                                                                                                    | Move logging settings from your DSN to the `[ODBC]`<br>section.                                                               |
+| Symptom                                                     | Cause                                                                                                                                                                                                                  | What to do                                                                                                                                                                  |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| External tables not visible in schema browser               | Spectrum and datashare tables are reported as `EXTERNAL<br>TABLE`                                                                                                                                                      | Include `EXTERNAL TABLE` in your `SQLTables`<br>type filter, or set `EnableTableTypes` to 0 to normalize the<br>detailed table types into the generic TABLE and VIEW types. |
+| pyodbc errors on interval columns                           | pyodbc does not support ODBC interval types                                                                                                                                                                            | Cast intervals to `VARCHAR` in queries.                                                                                                                                     |
+| Character data displays as unexpected characters (mojibake) | `UseUnicode` default changed to `false`.<br>Applications expecting wide-character (UTF-16) data might misinterpret<br>narrow-character bytes as wide pairs, producing garbled output. The data<br>itself is unchanged. | Set `UseUnicode=true` in your DSN, or update your<br>application to bind columns as `SQL_C_CHAR` instead of<br>`SQL_C_WCHAR`.                                               |
+| Long-running queries return timeout errors                  | `SQL_ATTR_QUERY_TIMEOUT` is now enforced. ODBC 1.x<br>silently ignored this setting.                                                                                                                                   | Increase or remove `QueryTimeout` from your DSN, or set<br>`SQL_ATTR_QUERY_TIMEOUT` to 0 in your<br>application.                                                            |
+| Setting `SQL_ATTR_CURRENT_CATALOG` returns<br>`HY011`       | The attribute cannot be set on an open connection. Switching databases<br>on an open connection is not supported.                                                                                                      | Set the attribute before connecting, or close and reopen the<br>connection on the target database.                                                                          |
+| Connection hangs in dual-stack environments                 | Limitation in versions <= 2.1.16                                                                                                                                                                                       | Upgrade to 2.1.17 or later.                                                                                                                                                 |
+| Error message parsing returns unexpected results            | Message format changed; SQLSTATE codes unchanged                                                                                                                                                                       | Parse SQLSTATE codes instead of message text.                                                                                                                               |
+| Data-at-execution parameter binding behaves differently     | `SQL_NEED_LONG_DATA_LEN` changed from FALSE to TRUE;<br>applications using `SQL_DATA_AT_EXEC` must now provide the<br>total data length up front                                                                       | Set the length value in `StrLen_or_IndPtr` when binding<br>`SQL_DATA_AT_EXEC` parameters.                                                                                   |
+| Driver logs are not generated                               | `LogLevel` and `LogPath` must be in the<br>`[ODBC]` global section of `odbc.ini`, not in<br>individual DSN sections                                                                                                    | Move logging settings from your DSN to the `[ODBC]`<br>section.                                                                                                             |
 
 ## Upgrading from an older ODBC 2.x version
 

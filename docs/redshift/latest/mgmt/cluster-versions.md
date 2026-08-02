@@ -67,6 +67,8 @@ and avoid potential disruptions to your workloads, see
 
 Cluster versions in this patch:
 
+- 1.0.377293 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released July 25, 2026
 - 1.0.365190 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
   workgroup version – Released July 21, 2026
 - 1.0.347559 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
@@ -79,6 +81,7 @@ Cluster versions in this patch:
 - Added account lockout support including ALTER USER NOLOGIN or LOGIN to disable or re-enable login access, and SHOW USER LOCKOUT to display lockout status.
 - Enhanced zero-ETL integration observability by adding granular success status for checkpoints, enabling finer-grained monitoring of replication progress in system tables.
 - Introduced graceful handling of unsupported UTF-8 characters in source table schemas and DDL metadata within zero-ETL integrations, preventing integration failures.
+- Amazon Redshift now supports concurrency scaling for refreshes of Amazon Kinesis Data Streams (KDS)-connected streaming materialized views (MV).
 - Starting with Patch 203, existing Python UDFs will gradually reach end of life across all AWS Regions. We recommend that you migrate from Python UDFs to ensure continued functionality. For more information about migration guidance, see [Amazon Redshift Python user-defined functions will reach end of support after June 30, 2026](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/"), and [Best practices for Amazon Redshift Lambda user-defined functions](https://aws.amazon.com/blogs/big-data/best-practices-for-amazon-redshift-lambda-user-defined-functions/ "https://aws.amazon.com/blogs/big-data/best-practices-for-amazon-redshift-lambda-user-defined-functions/") on the AWS Big Data Blog.
 - Tables loaded with COPY from Amazon Redshift Spectrum, with explicit column encodings, or into non-empty tables are now eligible for automatic DISTKEY assignment when the table has a primary key, improving query performance for joins on the primary key.
 - Updated the ALTER TABLE … ALTER DISTKEY error message on data sharing tables to display the customer-facing table name.
@@ -114,6 +117,12 @@ Cluster versions in this patch:
 
 Cluster versions in this patch:
 
+- 1.0.369760 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released July 29, 2026
+- 1.0.377292 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released July 25, 2026
+- 1.0.377292 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released July 25, 2026
 - 1.0.358853 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
   workgroup version – Released July 21, 2026
 - 1.0.358853 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
@@ -131,7 +140,7 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
-- Added support for RG node types (rg.large and rg.12xlarge multi-node). This is the minimum required cluster version to migrate to rg.large and rg.12xlarge. Available on the CURRENT maintenance track only.
+- Added support for RG node types (rg.large and rg.12xlarge multi-node). This is the minimum required cluster version to migrate to rg.large and rg.12xlarge.
 - Added support for superusers to drop IAM Identity Center identity providers that are in a disabled state of Lakehouse type
 - Surfaced internal maintenance queries labeled "JIT ANALYZE" in the STL\_QUERY and STL\_QUERYTEXT system tables. These queries are automatically executed by Amazon Redshift to collect external table statistics and keep query plans optimized. No customer action is required.
 - We have optimized Kinesis stream identity validation to reduce `DescribeStreamSummary` API calls. This will avoid hitting Kinesis API quotas for Redshift customers with many Kinesis stream MVs. See the Redshift Streaming documentation section for details.
