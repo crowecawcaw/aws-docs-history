@@ -268,6 +268,12 @@ complete the job.
 File paths must not contain `..`, `//`, or leading or trailing
 spaces — files that violate these constraints are not visible to agents.
 
+###### Deleting bucket contents can cause job failures
+
+Deleting `job_objective` will cause job failures for active jobs or if the
+session is restored. For all other files, deleting them may result in unexpected agent
+behavior or job failures.
+
 ###### Important
 
 If your bucket uses SSE-KMS, include the following headers on every direct upload:

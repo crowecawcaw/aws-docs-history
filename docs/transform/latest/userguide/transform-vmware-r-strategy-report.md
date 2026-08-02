@@ -1,8 +1,8 @@
 # Migration strategy (7Rs) recommendations
 
 During migration planning, AWS Transform can analyze your discovered inventory and
-recommend a migration strategy—one of the industry-standard
-_7Rs_—for every server and application. Each
+recommend a migration strategy, one of the industry-standard
+_7Rs_, for every server and application. Each
 recommendation includes a suggested AWS target service, a confidence score, and
 the reasoning behind it. This gives you a defensible starting point for your wave
 plan and surfaces modernization opportunities that you might otherwise miss.
@@ -11,8 +11,8 @@ The seven strategies are _rehost_,
 _replatform_, _refactor_,
 _repurchase_, _retire_,
 _retain_, and _relocate_. AWS Transform reads
-signals in your data—such as operating system, utilization, and workload
-type—to make explainable recommendations. For example, it can recommend
+signals in your data, such as operating system, utilization, and workload
+type, to make explainable recommendations. For example, it can recommend
 retiring idle or end-of-life servers, moving SQL Server or open-source databases to
 Amazon RDS, shifting email and collaboration workloads to Microsoft 365, retaining
 specialized legacy systems, and rehosting the remaining workloads on Amazon EC2.
@@ -27,7 +27,7 @@ To generate a migration strategy (7Rs) report:
    AWS Transform can provide per-server and per-application
    recommendations.
 2. In the migration planning chat, ask AWS Transform for a migration
-   strategy (7Rs) report—for example,
+   strategy (7Rs) report. For example,
    _Generate an R-strategy report_. After application
    grouping completes, AWS Transform also offers to generate the report for
    you.
@@ -35,7 +35,7 @@ To generate a migration strategy (7Rs) report:
    generates the report. You can provide details such as your organization
    name and any filters to scope the analysis.
 4. Review the recommendations. To adjust a recommendation, tell
-   AWS Transform in the chat—change a single server or application, or apply
+   AWS Transform in the chat. You can change a single server or application, or apply
    a change in bulk (for example, by operating system, environment, wave, or
    priority). AWS Transform updates the report with your
    changes.

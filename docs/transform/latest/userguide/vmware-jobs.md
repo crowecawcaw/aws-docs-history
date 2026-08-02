@@ -1,36 +1,37 @@
 # Migration jobs
 
-To use AWS Transform for migrations, you first need a workspace, which is a logical
-container in which you can create one or more transformation jobs. The sections in this
-topic describe how to get a workspace and how to create and start a migration job
-in it.
+To start migrating, create a workspace and launch a migration job. A workspace is
+a logical container for one or more migration jobs, giving you a single place to
+manage your entire migration.
 
 ## Getting a workspace
 
-For information about getting a workspace, see [Getting started](getting-started.md "getting-started.md").
+For information about creating a workspace, see [Getting started](getting-started.md "getting-started.md").
 
-The workspace that you use determines the AWS Region where you can create
-transformation jobs. That is the AWS Region where your jobs will reside. Your
-discovery data and AWS Transform recommendations will also reside in this AWS Region.
-To create workspaces and jobs in a different AWS Region, ask your administrator to
-create a different workspace for you. For information about supported AWS Regions,
-see [Supported Regions for AWS Transform](regions.md "regions.md").
+Your workspace determines the AWS Region where your jobs, discovery data, and
+AWS Transform recommendations reside. To work in a different AWS Region, ask your
+administrator to create a workspace in that Region. For information about supported
+AWS Regions, see [Supported Regions for AWS Transform](regions.md "regions.md").
 
-Even though the AWS Region where you can create jobs and store discovery data
-and recommendations is determined by your AWS Transform administrator, you can specify a
-different AWS Region as your target for the migration. In other words, you can run
-discovery and receive AWS Transform recommendations in one AWS Region, but then create
-your target environment in a different AWS Region. If you do that, you will be
-transferring your data across AWS Regions. For more information, see [Connect target AWS accounts and regions](transform-vmware-connect-target-account.md "transform-vmware-connect-target-account.md").
+You can specify a different AWS Region as your migration target. This means you
+can run discovery in one Region but deploy your target environment in another. If
+you do that, some of your data will be transferred across AWS Regions. Server
+replication data is not transferred across Regions and goes directly from your
+source environment into your target account and Region. For more information, see
+[Connect target AWS accounts and regions](transform-vmware-connect-target-account.md "transform-vmware-connect-target-account.md").
 
 ## Job types
 
+Whether you need an end-to-end migration or want to tackle a specific phase,
 AWS Transform offers the following types of migration jobs that you can choose
 from depending on your migration needs. In addition to these preset options, you can
 dynamically add or remove any step from your job at any time to customize your
 migration workflow.
 
 ### End-to-end migration
+
+Best for complete migrations where you want AWS Transform to handle everything
+from discovery through rehost.
 
 1. Perform discovery
 2. Build migration plan
@@ -41,20 +42,32 @@ migration workflow.
 
 ### Discovery and migration planning
 
+Use this when you want to assess your environment and build a wave plan
+before committing to execution.
+
 1. Perform discovery
 2. Build migration plan
 
 ### Network migration
+
+Use this when your landing zone and accounts are already set up and you
+need to migrate your network configuration to AWS.
 
 1. Connect target accounts
 2. Migrate network
 
 ### Landing zone
 
+Use this when you need to set up your multi-account AWS foundation
+before migrating workloads.
+
 1. Connect target accounts
 2. Build landing zone
 
 ### Landing zone, network, and server migration
+
+Use this when you already have discovery and planning complete and want
+AWS Transform to handle infrastructure setup and execution.
 
 1. Connect target accounts
 2. Build landing zone
@@ -63,7 +76,8 @@ migration workflow.
 
 ### Migration planning and server migration
 
-Includes discovery, wave plan, and rehost.
+Use this when your network is already in place and you want to go from
+discovery straight to rehost.
 
 1. Perform discovery
 2. Build migration plan
@@ -72,10 +86,8 @@ Includes discovery, wave plan, and rehost.
 
 ## Creating and starting a job
 
-The first step of a migration project is to create an AWS Transform job. For
-migration projects, you can choose different job types, depending on your
-goals. The following procedure describes how to create and start a new migration
-job of any type. For information about the different job types, see [Job types](#vmware-job-types "#vmware-job-types").
+To create a migration job, complete the following steps. For information about
+the different job types, see [Job types](#vmware-job-types "#vmware-job-types").
 
 ###### To create and start a new migration job
 
@@ -90,14 +102,20 @@ job of any type. For information about the different job types, see [Job types](
 
 You can generate a workspace summary report as a downloadable PDF at any time
 during your migration. The report provides a consolidated view across all migration
-jobs in your workspace, including job statuses and current workflow steps, user
-actions and approvals, wave planning details, network migration topology, landing
-zone configuration, rehost progress, containerization decisions, and key artifacts
-produced. To generate a report, ask the agent in the chat for a workspace
-summary — for example, "Give me a workspace summary of my migration progress
-across all jobs." The agent compiles data from all jobs and delivers the PDF
-directly in the chat as a downloadable file. You can use this report to track
-overall migration progress or share status with stakeholders.
+jobs in your workspace, including:
+
+- Job statuses and current workflow steps
+- User actions and approvals
+- Wave planning details
+- Network migration topology
+- Landing zone configuration
+- Rehost progress
+- Containerization decisions
+- Key artifacts produced
+
+To generate a report, ask the agent in the chat. For example, “Give
+me a workspace summary of my migration progress across all jobs.” The agent
+compiles data from all jobs and delivers the PDF directly in chat.
 
 ## Limitations
 
@@ -108,6 +126,6 @@ AWS Transform has the following limitations:
   made in the job. However, artifacts created in the job before restarting it will
   still be available.
 - You can specify one target AWS Region per migration job. To migrate applications to different target Regions, create multiple migration jobs.
-- Multi-account migration – Single region only – You can migrate to multiple accounts within a single AWS Region. For multi-region migrations, you must create separate projects for each target region.
+- Multi-account migration – Single region only – You can migrate to multiple accounts within a single AWS Region. For multi-Region migrations, you must create separate projects for each target region.
 - Multi-account migration – One account per wave – Each migration wave can target only one account. Applications requiring different target accounts must be placed in separate waves.
 - Multi-account migration – AWS Organizations required – All target accounts must be part of an AWS Organization.

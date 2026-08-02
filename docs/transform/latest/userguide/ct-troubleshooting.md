@@ -1,8 +1,8 @@
 # Troubleshooting
 
-Connection refused or server not running
-The continuous modernization CLI requires a running server. Start it with
-`atx ct server &` and verify with
+Checking system health
+You no longer need to start a local server; the `atx ct server`
+command is deprecated. Verify the system is reachable with
 `atx ct status --health`.
 
 Discovery scan returns zero repositories
@@ -40,6 +40,41 @@ Verify your IAM user or role has the required AWS CloudFormation, IAM, and Amazo
 permissions listed in the Security agent setup section of
 [How AWS Transform continuous modernization works](continuous-modernization.md#ct-how-it-works "continuous-modernization.md#ct-how-it-works"). Check the status with
 `atx ct setup security-agent --status`.
+
+Security analysis or security agent setup unavailable in a Region
+The `security` analysis type is not available in Canada (Central)
+(`ca-central-1`), Europe (London) (`eu-west-2`), or Asia Pacific
+(Seoul) (`ap-northeast-2`). Run `security` analyses and
+`atx ct setup security-agent` from a supported Region. The other analysis types
+are unaffected. See the Security agent setup section of
+[How AWS Transform continuous modernization works](continuous-modernization.md#ct-how-it-works "continuous-modernization.md#ct-how-it-works").
+
+Remote provisioning fails with a permissions error
+Provisioning, updating, and tearing down remote infrastructure
+(`atx ct remote provision`, `update`, `teardown`) creates
+and modifies AWS CloudFormation stacks and IAM roles, and requires administrator permissions. To run
+analyses and remediations on already-provisioned infrastructure with least privilege, attach
+`AWSTransformInfrastructureExecutorAccessEC2` or
+`AWSTransformInfrastructureExecutorAccessBatch`. For details, see the compute
+options in
+[How AWS Transform continuous modernization works](continuous-modernization.md#ct-how-it-works "continuous-modernization.md#ct-how-it-works").
+
+Remote network discovery returns no subnets
+Remote compute must run in private subnets, and
+`atx ct remote network discover` excludes public subnets. If no private subnets
+exist, create networking with `atx ct remote network create`.
+
+Remote run cannot clone repositories
+Remote containers use tokens stored in AWS Secrets Manager. Register a
+token for each source with
+`atx ct remote credentials --source `name`--token`token``
+before running remote analysis or remediation.
+
+Schedule fails to run
+Schedules run on remote infrastructure. Provision an Amazon EC2 or Batch stack
+with `atx ct remote provision` before creating a schedule, and confirm the
+schedule is enabled with
+`atx ct schedule get `name``.
 
 Continuous modernization not visible in the web application
 If continuous modernization does not appear after you sign in to the AWS Transform web

@@ -1,14 +1,23 @@
 # Migrate servers
 
-AWS Transform uses AWS Transform MGN (MGN) to rehost your servers to Amazon EC2. The
-migrate servers workflow guides you through setting up each migration wave,
-validating your server inventory, deploying replication agents, monitoring data
-replication, testing migrated instances, and performing final cutover. To read more
-about it, see [What is
+AWS Transform automates the rehosting of your servers to Amazon EC2 at scale. The
+AI-powered agent guides you through each migration wave, from inventory validation
+and replication agent deployment through testing and final cutover. AWS Transform
+handles the orchestration across hundreds of servers while you maintain control
+over configuration and approval decisions. Under the hood, AWS Transform uses
+AWS Transform MGN (MGN) for data replication. For more information about MGN, see
+[What is
 AWS Transform MGN?](../../../mgn/latest/ug/what-is-mgn.md "../../../mgn/latest/ug/what-is-mgn.md") in the _MGN User Guide_.
 
+You can migrate servers from virtually any source environment, including
+on-premises data centers, other cloud providers, or other AWS Regions. AWS Transform
+supports both physical servers and virtual servers running on VMware, Hyper-V, KVM,
+or other virtualization platforms. The source infrastructure and hypervisor are not
+important as long as the source operating system is supported.
+
 Server migration is organized by waves. Each wave represents a group of servers
-that are migrated together. For each wave, you complete the following phases:
+that are migrated together. For each wave, the agent walks you through the
+following phases:
 
 For waves with a _containerize_ migration strategy, AWS Transform
 runs the source code containerization workflow instead of the rehost steps described
@@ -17,35 +26,38 @@ generating Docker artifacts, publishing container images, and deploying to Amazo
 or Amazon Elastic Kubernetes Service. For the full containerization workflow, see
 [Source code containerization](transform-containers.md "transform-containers.md").
 
-1. Prerequisites and Configure Migration Defaults
-2. Step 1: Set up migration wave
-3. Step 2: Validate and confirm inventory
-4. Step 3: Deploy replication agents
-5. Step 4: Data replication
-6. Step 5: Testing
-7. Step 6: Cutover
+1. **Prerequisites and Configure Migration Defaults**.
+   Set up your target accounts and configure how instances are launched. AWS Transform
+   provides intelligent defaults so you can get started quickly.
+2. **Step 1: Set up migration wave**.
+   The agent configures your target account, validates permissions, and sets up
+   resource tagging automatically.
+3. **Step 2: Validate and confirm inventory**.
+   Review your server configurations, instance type recommendations, and network
+   assignments before migration begins.
+4. **Step 3: Deploy replication agents**.
+   The agent can deploy agents across all servers in a wave without requiring
+   manual access to each server individually.
+5. **Step 4: Data replication**.
+   Continuous block-level replication keeps your target environment synchronized
+   with source servers until you are ready for cutover.
+6. **Step 5: Testing**.
+   Launch test instances to validate your migrated servers before committing to
+   the final cutover.
+7. **Step 6: Cutover**.
+   Complete the migration with minimal downtime. The agent coordinates the final
+   switchover and verifies success.
 
 ## Prerequisites and Configure Migration Defaults
 
 ### Prerequisites
 
-Before starting rehost migration, ensure you have the following in
-place:
-
-###### Note
-
 If you completed all the steps of an end-to-end migration job in
-AWS Transform, your target accounts and inventory file are already prepared —
-the inventory file will have been generated for you during the migration
-planning step. Network infrastructure set up through AWS Transform network
-migration is also ready. If you did not build your network infrastructure
-through AWS Transform, ensure it is set up in advance before starting rehost
-migration.
+AWS Transform, your target accounts, inventory file, and network infrastructure
+are already prepared. You can proceed to Configure Migration Defaults.
 
-Before starting rehost migration, verify that you have the networking
-resources and infrastructure in place to host your servers. You can use
-AWS Transform landing zone and network migration capabilities or any other tools
-for that.
+If you are starting server migration independently, ensure you have the
+following in place:
 
 - **Supported operating systems** –
   Source servers must run a supported operating system. For the full
@@ -67,18 +79,19 @@ for that.
 
 ### Configure Migration Defaults
 
-Before starting your multi-account migration execution, you should configure
-default settings that apply to all your target accounts. These defaults define
-how your Amazon EC2 instances are launched and how the general migration is
-configured. You can override these defaults at the wave level during wave
+AWS Transform provides intelligent defaults for your migration configuration,
+including how Amazon EC2 instances are launched and how replication is set up. You
+can accept these defaults and start migrating immediately, or customize them
+through the chat interface or a visual review. Defaults apply across all your
+target accounts and can be overridden at the wave level during wave
 setup.
 
 #### Amazon EC2 recommendation preferences
 
-AWS Transform provides Amazon EC2 instance type recommendations based on the
-utilization specification of your source VMs. You can configure your Amazon EC2
-recommendation preferences to control how instance types are selected for
-your migrated servers.
+AWS Transform analyzes your source server utilization and recommends
+optimally-sized Amazon EC2 instances, helping you avoid overprovisioning from
+day one. You can configure your Amazon EC2 recommendation preferences to
+control how instance types are selected for your migrated servers.
 
 For more information about generating Amazon EC2 recommendations, see [Generating Amazon EC2 recommendations in AWS Migration Hub](../../../migrationhub/latest/ug/generating-ec2-recommendations.md "../../../migrationhub/latest/ug/generating-ec2-recommendations.md").
 
@@ -91,9 +104,10 @@ AWS Transform assessment job.
 
 #### Migration initialization
 
-To start migration, AWS Transform initializes MGN for every AWS Region
-in which you plan to migrate, as well as all target accounts the service
-will be used in. During the initialization process:
+AWS Transform automatically sets up the required migration infrastructure in
+your target accounts before migration begins. This includes initializing
+MGN for every AWS Region in which you plan to migrate, as well as all
+target accounts. During the initialization process:
 
 - The required IAM roles and policies are created.
 - The required default templates are configured.
@@ -139,14 +153,139 @@ the template ID for each target account. This option is available inside
 the wave setup. AWS Transform guides you through it and provides the
 appropriate link.
 
-## Step 1: Set up migration wave
+#### Post-launch actions
+
+Post-launch actions automate modernization and validation tasks that run
+on each source server immediately after it launches as a test or cutover
+instance in AWS. AWS Transform Rehost takes the post-launch actions available
+in MGN and provides these capabilities so that the agent can recommend,
+configure, and run them on your behalf as part of the migration
+workflow. Actions are run through AWS Systems Manager (Systems Manager), and can be either one
+of the predefined actions available in MGN or a custom action created
+from an existing Systems Manager document.
+
+Post-launch actions can be defined at the account level and are then
+applied to each source server automatically each time you add a source
+server to MGN. The post-launch action defaults defined in this section
+can be applied to all your target accounts automatically.
+
+AWS Transform first presents the list of available post-launch actions across
+your target accounts. It then offers to define a new post-launch action and
+apply it across your target account migration. AWS Transform also provides
+AI-powered recommendations based on the operating system and best practices
+for your inventory. You can choose to continue with the defaults or
+configure your own actions.
+
+You can also choose a post-launch action that is already defined in
+MGN. Prompt the agent to show the list of predefined post-launch actions
+available. For more information about this list, see [Predefined
+post-launch actions](../../../mgn/latest/ug/source-post-launch-settings.md "../../../mgn/latest/ug/source-post-launch-settings.md") in the _MGN User
+Guide_.
+
+##### Creating a new post-launch action
+
+If you choose to create a new post-launch action, the agent prompts
+you to provide the Systems Manager document name or Systems Manager ARN to build the
+post-launch action with. The Systems Manager document should be created in
+advance through the AWS Systems Manager console. For more information about
+creating a Systems Manager document, see [Creating
+Systems Manager documents](../../../systems-manager/latest/userguide/create-ssm-doc.md "../../../systems-manager/latest/userguide/create-ssm-doc.md") in the _AWS Systems Manager User
+Guide_.
+
+The agent then generates a human-in-the-loop (HITL) interface where
+you provide the required fields:
+
+- **Post-launch action name** –
+  The agent provides a default name, which you can change.
+- **Post-launch action order** –
+  The default order value is 1001, unless the account already has
+  post-launch actions defined, in which case the new action is
+  placed last in the run order. You can change the order. For more
+  information about post-launch action order, see [Post-launch
+  settings](../../../mgn/latest/ug/source-post-launch-settings.md "../../../mgn/latest/ug/source-post-launch-settings.md") in the _MGN User
+  Guide_.
+- **Required Systems Manager parameter
+  values** – Provide the values for any parameters
+  required by the Systems Manager document.
+
+You can also make modifications directly through the chat interface
+for any parameters you wish.
+
+Source servers are created with the account post-launch action
+settings. Once source servers are created with these default settings,
+you can change them at the source server level. You can change source
+server settings on any action using the chat interface, or for bulk
+operations using the inventory Excel file during [Step 2: Validate and confirm inventory](#transform-vmware-ms-validate-inventory "#transform-vmware-ms-validate-inventory").
+
+##### Post-launch actions in the inventory file
+
+The Rehost agent extends the inventory file with a post-launch action
+template defined for each source server. This allows customers to
+update or add post-launch actions per source server during the rehost
+to MGN import process. To delete specific post-launch actions from a
+source server, use the `active` column to indicate
+`FALSE`. Post-launch actions in the inventory file use the
+following naming convention:
+
+`mgn:launch:post-actions:<ACTION_NAME>:<FIELD_NAME>`
+
+A global toggle controls whether post-launch actions run:
+
+`mgn:launch:post-actions:enabled` (`TRUE`/`FALSE`)
+
+**Fields per action**
+
+- `ssmDocumentName` (String, required) – The Systems Manager
+  document to execute.
+- `order` (Integer, required) – Execution order;
+  must be between 1000 and 10000. Actions execute in ascending
+  order — lower values run first.
+- `active` (`TRUE`/`FALSE`,
+  optional) – Whether the action is active.
+- `mustSucceedForCutover`
+  (`TRUE`/`FALSE`, optional) – Whether the
+  action must succeed before cutover.
+- `timeoutSeconds` (Integer, optional) – Timeout in
+  seconds.
+- `description` (String, optional) – Human-readable
+  description.
+- `parameters` (JSON, optional) – Systems Manager document
+  parameters.
+
+**Parameters JSON structure**
+
+The `parameters` field is provided as a JSON
+structure:
+
+```
+{
+  "parameters": {
+    "Operation": [
+      {"value": "Scan", "type": "String"}
+    ]
+  },
+  "externalParameters": {
+    "InstanceId": "ec2.InstanceId"
+  }
+}
+```
+
+- `parameters` – Maps document parameter names to a
+  list of value references (each with a `value` and an
+  optional `type`, which defaults to
+  `String`).
+- `externalParameters` – Maps document parameter
+  names to dynamic path strings (no Systems Manager parameter is
+  created).
+
+### Step 1: Set up migration wave
 
 In this phase, AWS Transform prepares the migration wave by configuring the target
 account, verifying service permissions, setting up resource tags, adding
 networking data to your inventory, and configuring replication and launch
 settings.
 
-### Migration mode and account configuration
+#### Migration mode and account configuration
 
 AWS Transform supports two migration modes:
 
@@ -181,7 +320,7 @@ during the initialization step:
 `AWSTransformRehostSharingRole_<management-or-delegated-admin-account-id>`.
 This role is deployed across all migration target accounts.
 
-### Resource tagging verification
+#### Resource tagging verification
 
 After service permissions are confirmed, AWS Transform verifies that all
 required resources are properly tagged for the migration to be operated by
@@ -224,16 +363,16 @@ missing tags before continuing. The following tags are required:
   considerations](../../../mgn/latest/ug/detailed-considerations.md "../../../mgn/latest/ug/detailed-considerations.md") in the _MGN User
   Guide_.
 
-### Add networking data to inventory
+#### Add networking data to inventory
 
 AWS Transform adds networking information from your network migration to the
 inventory file. This step maps your servers to the appropriate target
 subnets and security groups based on the network configuration generated
 during the migrate network phase.
 
-### Replication and launch settings
+#### Replication and launch settings
 
-#### Replication settings configuration
+##### Replication settings configuration
 
 Replication settings determine how data is replicated from your
 source servers to AWS. Configure the replication settings in the
@@ -247,7 +386,7 @@ For more details about the replication settings parameters, see
 settings template](../../../mgn/latest/ug/replication-settings-template.md "../../../mgn/latest/ug/replication-settings-template.md") in the
 _MGN User Guide_.
 
-#### Launch template settings
+##### Launch template settings
 
 The launch template allows you to control the way AWS Transform MGN
 launches instances in AWS. The default configuration defined in the
@@ -267,7 +406,7 @@ follow the instructions in [Launch
 template](../../../mgn/latest/ug/launch-template.md "../../../mgn/latest/ug/launch-template.md") in the _MGN User
 Guide_.
 
-### IP assignment strategy
+#### IP assignment strategy
 
 You choose how IP addresses are assigned to your migrated servers:
 
@@ -282,7 +421,7 @@ You choose how IP addresses are assigned to your migrated servers:
 
 If you selected the MAP security groups mapping strategy during network migration, only static IP assignment is available. For more details, see [Security groups mapping](transform-vmware-migrate-network.md#transform-vmware-security-group-association "transform-vmware-migrate-network.md#transform-vmware-security-group-association").
 
-## Step 2: Validate and confirm inventory
+### Step 2: Validate and confirm inventory
 
 Before loading your server data into MGN, AWS Transform prepares the inventory
 file for your review. You can download the file in CSV or XLSX format, review
@@ -331,7 +470,7 @@ columns `mgn:launch:placement:operating-system-licensing` and
 `mgn:launch:placement:tenancy`. For more information, see [Import
 parameters](../../../mgn/latest/ug/import-main.md#import-parameters "../../../mgn/latest/ug/import-main.md#import-parameters") in the _MGN User Guide_.
 
-## Step 3: Deploy replication agents
+### Step 3: Deploy replication agents
 
 To begin replicating data from your source servers to AWS, you install the
 AWS Replication Agent on each source server. AWS Transform offers three
@@ -375,16 +514,17 @@ ID in the AWS Transform web app URL:
   to each server but gives you full control over the installation
   process.
 
-### AWS Transform MGN connector setup
+#### AWS Transform MGN connector setup
 
-The AWS Transform MGN connector automates the deployment of replication agents to
-your source servers. The connector is a lightweight client deployed on a
+The AWS Transform MGN connector automates the deployment of replication agents
+across your source servers, eliminating the need to log into each server
+individually. The connector is a lightweight client deployed on a
 dedicated Linux machine in your on-premises environment. It connects to
 source servers over SSH (Linux) or WinRM (Windows) to install and configure
 replication agents, eliminating the need to manually coordinate across
 multiple AWS services.
 
-#### How the connector works
+##### How the connector works
 
 The connector operates through the following components:
 
@@ -406,7 +546,7 @@ source server, validates that the source server meets prerequisites,
 installs and configures the replication agent, and verifies successful
 installation.
 
-#### Connector machine requirements
+##### Connector machine requirements
 
 | Requirement           | Details                                                                                                                                                                                                                              |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -421,7 +561,7 @@ installation.
 The connector must be installed on a Linux machine, but it can
 deploy agents to both Linux and Windows source servers.
 
-#### Setup process
+##### Setup process
 
 AWS Transform guides you through the following steps to set up the
 connector:
@@ -525,7 +665,7 @@ Guide_:
 }
 ```
 
-#### Agent deployment
+##### Agent deployment
 
 Once credentials are configured and verified, AWS Transform deploys
 replication agents to your source servers. You can deploy to all servers
@@ -553,7 +693,7 @@ the failure reason and offers retry options per server. Successfully
 deployed servers can proceed independently while failed servers are
 retried.
 
-#### Connector reuse and lifecycle
+##### Connector reuse and lifecycle
 
 When deploying agents for subsequent waves, you can reuse an existing
 connector or create a new one. AWS Transform lists all connectors configured
@@ -577,7 +717,7 @@ If you need to install the connector on a new machine after the
 activation has expired, you need to create a new connector through the
 setup process.
 
-### Manual agent installation
+#### Manual agent installation
 
 For manual installation, you first generate AWS credentials (temporary
 or permanent) and then install the agent on each source server.
@@ -651,7 +791,7 @@ servers whose lifecycle state is `DISCONNECTED`.
 For quotas related to replication, see [MGN service quota
 limits](../../../mgn/latest/ug/MGN-service-limits.md "../../../mgn/latest/ug/MGN-service-limits.md") in the _MGN User Guide_.
 
-## Step 4: Data replication
+### Step 4: Data replication
 
 After the replication agents are installed, data replication begins
 automatically. AWS Transform uses continuous block-level replication to synchronize
@@ -702,7 +842,7 @@ time:
   replication. Stopped replication can be restarted, but it begins from
   the initial sync.
 
-## Step 5: Testing
+### Step 5: Testing
 
 After data replication is complete, you can launch test instances to validate
 your migrated servers before performing the final cutover. To read more about
@@ -724,7 +864,7 @@ testing, you can:
 - Launch new test instances to retest.
 - Terminate test instances and address any issues before retesting.
 
-## Step 5b: Mark applications as ready for cutover
+### Step 5b: Mark applications as ready for cutover
 
 After testing is complete and you are satisfied with the results, mark your
 applications as ready for cutover. AWS Transform reviews the replication status of
@@ -732,7 +872,7 @@ each application and resolves any replication alerts before allowing you to
 proceed. Only applications with a clean replication status can be marked for
 cutover.
 
-## Step 6: Cutover
+### Step 6: Cutover
 
 Cutover is the final migration step where your production workloads are moved
 to AWS. To read more about it, see [Launch cutover
@@ -774,7 +914,7 @@ you have verified your cutover instances before finalizing.
 Downtime occurs between source shutdown and cutover instance availability.
 Plan your cutover window accordingly.
 
-## Server lifecycle states
+### Server lifecycle states
 
 During migration, each server progresses through the following lifecycle
 states. To read more about it, see [Source server
@@ -812,10 +952,11 @@ test phase but one failed, you can allow AWS Transform to continue moving the 9
 servers into the next phase while re-running the test on the failed
 server.
 
-## Deployment approvals
+### Deployment approvals
 
-Some migration operations require explicit approval before execution. When an
-operation requires approval, AWS Transform routes the request to authorized
-approvers through the Approvals tab. Only users with the Admin role in AWS Transform
-can approve deployment requests. Deployments proceed only after receiving
+AWS Transform includes built-in approval workflows to ensure production changes
+go through your organization's review process. When an operation requires
+approval, AWS Transform routes the request to authorized approvers through the
+Approvals tab. Only users with the Admin role in AWS Transform can approve
+deployment requests. Deployments proceed only after receiving
 confirmation.

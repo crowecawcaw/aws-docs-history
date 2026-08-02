@@ -1,8 +1,8 @@
 # Migrate your network to AWS
 
-With AWS Transform, you can migrate your network to AWS. AWS Transform translates your source environment configuration into AWS-equivalent network resources — VPCs, subnets, security groups, NAT gateways, transit gateways, elastic IPs, routes, and route tables as needed. You can review and modify the generated network configuration before deployment. You can deploy the configuration with AWS Transform and analyze network connectivity. Alternatively, you can choose self-deployment and receive Infrastructure as Code (IaC) in your preferred format: AWS Cloud Development Kit (AWS CDK), Landing Zone Accelerator (LZA), or HashiCorp Terraform.
+With AWS Transform, you can migrate your network to AWS in a fraction of the time it takes to design and deploy manually. AWS Transform uses an AI-powered agent to translate your source environment configuration into production-ready AWS network resources, including VPCs, subnets, security groups, NAT gateways, transit gateways, elastic IPs, routes, and route tables. You review and modify the generated network configuration through a conversational interface before deployment. You can deploy directly with AWS Transform or choose self-deployment and receive Infrastructure as Code (IaC) in your preferred format: AWS Cloud Development Kit (AWS CDK), Landing Zone Accelerator (LZA), or HashiCorp Terraform.
 
-To migrate your network, follow these steps:
+The AWS Transform agent guides you through the following steps, handling the analysis and generation while you make the decisions:
 
 1. Upload your source network file.
 2. Upload additional configuration files (optional, for RVTools environments).
@@ -19,13 +19,20 @@ For multi-account deployments, you must configure cross-account IAM roles and tr
 
 ## Step 1: Source network mapping
 
-The network mapping process requires that you upload a configuration file from your source environment. The tool you choose depends on your source network type:
+AWS Transform generates target network infrastructure from a wide variety of source
+network configuration files. Upload one or more configuration files from your source
+environment, and AWS Transform uses the information to generate target networks including
+Amazon VPCs, subnets, and security groups. While AWS Transform does not generate firewall
+or load balancer resources, configuration from these network elements can be used as
+input to generate target networks.
+
+AWS Transform accepts configuration files from the following source types:
 
 - **Software Defined Networks (SDN):** Import/Export for VMware NSX network virtualization or Cisco ACI config for Cisco Application Centric Infrastructure.
 - **VMware vSphere networks:** [RVTools](https://www.dell.com/en-us/shop/vmware/sl/rvtools "https://www.dell.com/en-us/shop/vmware/sl/rvtools"). When you use RVTools files, AWS Transform generates Amazon VPC configurations only. Security group configurations require additional input from firewall or software-defined network files. For more information about security group generation from additional files, see [Additional configuration files](#transform-vmware-firewall-and-sdn-config-files "#transform-vmware-firewall-and-sdn-config-files").
 - **Networks based on firewall configuration data:** Export files from Palo Alto Networks Firewall, Fortinet FortiGate Firewall, or Cisco ACI. For more information about supported versions and extraction instructions, see [Configuration file extraction](#transform-vmware-config-file-extraction "#transform-vmware-config-file-extraction").
 - **Hybrid networks that run both VMware and non-VMware workloads:** [AWS Transform discovery tool](discovery-tool.md "discovery-tool.md") or modelizeIT.
-- **Other file types:** If your configuration file is not one of the supported formats listed above, the file is converted automatically to a supported format. This conversion can take up to two hours based on the file size and complexity.
+- **Other file types:** AWS Transform also accepts other network configuration files, such as Checkpoint and F5 configurations. If your configuration file is not one of the formats listed above, AWS Transform converts it automatically and uses it to generate target networks. This conversion can take up to two hours based on the file size and complexity.
 
 ###### Note
 
@@ -72,15 +79,15 @@ AWS Transform creates the following resources:
 
 #### Complete your setup
 
-AWS Transform deploys the network infrastructure but leaves internet access and inter-VPC connectivity to you, so you can choose the configuration that meets your organization's requirements.
+AWS Transform deploys the core network infrastructure for you. You complete the final connectivity and security configuration to match your organization's requirements.
 
 To enable internet access for an Isolated VPC, complete the following steps:
 
 1. Create an [internet gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") and attach it to the VPC.
 2. Create public subnets in each Availability Zone where you need internet access. Add a route for `0.0.0.0/0` pointing to the internet gateway. For more information about subnet configuration, see [Subnets for your VPC](../../../vpc/latest/userguide/configure-subnets.md "../../../vpc/latest/userguide/configure-subnets.md").
 3. Create [NAT gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") in the public subnets (one per AZ for high availability). Allocate an Elastic IP for each NAT gateway.
-4. Update your private subnet [route tables](../../../vpc/latest/userguide/VPC_Route_Tables.md "../../../vpc/latest/userguide/VPC_Route_Tables.md") — add a route for `0.0.0.0/0` pointing to the NAT gateway in the same AZ.
-5. Review your [security group rules](../../../vpc/latest/userguide/security-group-rules.md "../../../vpc/latest/userguide/security-group-rules.md") — ensure outbound rules allow the traffic your workloads need (HTTPS, DNS, etc.).
+4. Update your private subnet [route tables](../../../vpc/latest/userguide/VPC_Route_Tables.md "../../../vpc/latest/userguide/VPC_Route_Tables.md"). Add a route for `0.0.0.0/0` pointing to the NAT gateway in the same AZ.
+5. Review your [security group rules](../../../vpc/latest/userguide/security-group-rules.md "../../../vpc/latest/userguide/security-group-rules.md"). Ensure outbound rules allow the traffic your workloads need (HTTPS, DNS, etc.).
 
 For VPC-to-VPC communication, set up [VPC peering](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md") or a [Transit Gateway](../../../vpc/latest/tgw/what-is-transit-gateway.md "../../../vpc/latest/tgw/what-is-transit-gateway.md") and update route tables in each VPC to route traffic to the peering connection or TGW attachment.
 
@@ -96,7 +103,7 @@ AWS Transform creates the following resources:
 - **Inspection VPC:** Hosts your firewall appliance for traffic inspection. All cross-VPC traffic is routed through this VPC. The Transit Gateway attachment uses [appliance mode](../../../vpc/latest/tgw/transit-gateway-appliance-scenario.md "../../../vpc/latest/tgw/transit-gateway-appliance-scenario.md"), a setting that ensures traffic flows symmetrically through the same appliance for both directions of a connection.
 - **Inbound VPC:** Handles traffic entering your network from the public internet (north-south inbound). Includes an [internet gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") and public subnets across multiple Availability Zones.
 - **Outbound VPC:** Handles traffic leaving your network to the public internet (north-south outbound). Includes an internet gateway, [NAT gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") with [elastic IP addresses](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md") in each Availability Zone for high availability, and private subnets for the Transit Gateway attachment.
-- **Transit Gateway route tables:** Two route tables steer traffic through the Inspection VPC. The _Uninspected_ table is associated with spoke VPCs, Inbound VPC, and Outbound VPC — it routes all traffic (0.0.0.0/0) to the Inspection VPC attachment and is the default association route table. The _Inspected_ table is associated with the Inspection VPC — it contains propagated routes from all spoke VPCs and is the default propagation route table.
+- **Transit Gateway route tables:** Two route tables steer traffic through the Inspection VPC. The _Uninspected_ table is associated with spoke VPCs, Inbound VPC, and Outbound VPC. It routes all traffic (0.0.0.0/0) to the Inspection VPC attachment and is the default association route table. The _Inspected_ table is associated with the Inspection VPC. It contains propagated routes from all spoke VPCs and is the default propagation route table.
 
 For multi-account deployments, the Transit Gateway is shared across accounts through [AWS Resource Access Manager (RAM)](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md").
 
@@ -115,7 +122,7 @@ Inbound internet traffic enters through the Inbound VPC's internet gateway and f
 
 #### Complete your setup
 
-AWS Transform deploys the network infrastructure but leaves firewall configuration and inbound service setup to you, so you can choose the security appliances and policies that meet your organization's requirements.
+AWS Transform deploys the core network infrastructure for you, including the Transit Gateway, spoke VPCs, and traffic routing. You complete the firewall configuration and inbound service setup to match your organization's security requirements.
 
 ###### Note
 
@@ -141,7 +148,7 @@ AWS Transform creates security groups on a best-effort basis to match your sourc
 
 When security groups are generated, AWS Transform uses security group referencing where supported. Security group referencing sets security rules based on another security group ID rather than specific IP address ranges (CIDR blocks). This approach provides more flexible and maintainable security configurations.
 
-Your security group rules can only reference other security groups within the same VPC, or in a VPC that is connected within the same Region. Cross-account references are also supported. You cannot reference a security group in a non-connected VPC or across Regions. For connected VPCs, only inbound rules support cross-VPC security group references — outbound rules must use CIDR-based rules. How AWS Transform creates security group rules depends on your chosen network topology:
+Your security group rules can only reference other security groups within the same VPC, or in a VPC that is connected within the same Region. Cross-account references are also supported. You cannot reference a security group in a non-connected VPC or across Regions. For connected VPCs, only inbound rules support cross-VPC security group references. Outbound rules must use CIDR-based rules. How AWS Transform creates security group rules depends on your chosen network topology:
 
 - **Hub and Spoke:** Transit Gateway provides network connectivity between VPCs. AWS Transform uses referencing for both within-VPC and cross-VPC/cross-account ingress rules. Cross-VPC/cross-account egress (outbound) rules use CIDR-based rules.
 - **Isolated VPCs:** Your VPCs have no network connectivity between them. AWS Transform uses referencing for within-VPC rules only. All cross-VPC and cross-account rules use CIDR-based rules.
@@ -151,7 +158,7 @@ CIDR-based rules are also used when source configurations are not symmetric.
 Choose one of the following security group mapping strategies:
 
 - **MAP:** Translates security rules from your source environment to AWS security groups and rules. Use this option for migrations using static IP addressing.
-- **MAP\_DHCP (Translate with DHCP support):** Translates security rules from your source environment with DHCP compatibility. DHCP assigns IP addresses dynamically from the subnet's CIDR range. As a result, cross-VPC egress rules are widened to match the full destination subnet CIDR. A narrower CIDR would block DHCP-assigned IPs that fall outside that range — review these rules post-migration.
+- **MAP\_DHCP (Translate with DHCP support):** Translates security rules from your source environment with DHCP compatibility. DHCP assigns IP addresses dynamically from the subnet's CIDR range. As a result, cross-VPC egress rules are widened to match the full destination subnet CIDR. A narrower CIDR would block DHCP-assigned IPs that fall outside that range. Review these rules post-migration.
 
 Use this option for DHCP support with cross-VPC Transit Gateway communication. Also works with static IPs, but might produce broader rules than MAP.
 
@@ -183,17 +190,17 @@ The IP address assignment strategy is set at the wave level. You can assign diff
 
 ## Step 5: Review and optimize your network
 
-After AWS Transform generates your target network configuration, you can review the on-premises network segments converged to AWS infrastructure. Use the visual interface to review your network, and the chat interface to make changes and receive guided recommendations. AWS Transform performs cascading impact analysis and implements the required changes to maintain network consistency and compliance with best practices. You can also ask AWS Transform to analyze your network and suggest optimizations — see [Guided recommendations](#transform-vmware-guided-recommendations "#transform-vmware-guided-recommendations").
+After AWS Transform generates your target network configuration, you can review the on-premises network segments converged to AWS infrastructure. Use the visual interface to review your network, and the chat interface to make changes and receive guided recommendations. AWS Transform performs cascading impact analysis and implements the required changes to maintain network consistency and compliance with best practices. You can also ask AWS Transform to analyze your network and suggest optimizations. For more information, see [Guided recommendations](#transform-vmware-guided-recommendations "#transform-vmware-guided-recommendations").
 
 ### Existing VPCs in your target account
 
-If your target account already contains VPCs — from previous migration phases or parallel infrastructure projects — AWS Transform automatically detects them and displays them alongside your mapped VPCs during the review process. For multi-account migrations, AWS Transform detects existing VPCs across all accounts in your AWS Organization.
+If your target account already contains VPCs, from previous migration phases or parallel infrastructure projects, AWS Transform automatically detects them and displays them alongside your mapped VPCs during the review process. For multi-account migrations, AWS Transform detects existing VPCs across all accounts in your AWS Organization.
 
 This visibility helps you understand how your planned network relates to your existing infrastructure, identify potential CIDR conflicts, and make informed decisions before deployment.
 
 ###### Note
 
-AWS Transform detects existing VPCs only (not subnets or other resources). Detection is read-only — AWS Transform does not modify your existing VPCs.
+AWS Transform detects existing VPCs only (not subnets or other resources). Detection is read-only. AWS Transform does not modify your existing VPCs.
 
 ### Optimize your network
 
@@ -218,14 +225,14 @@ Merge requirements:
 
 - **Change IP address:** Change the base IP address of a VPC CIDR while keeping the same prefix length. AWS Transform automatically translates all subnet CIDRs by the same offset. For example, changing a VPC from `10.0.0.0/16` to `10.20.0.0/16` shifts a subnet from `10.0.1.0/24` to `10.20.1.0/24`.
 
-Security group rules that exactly match the old VPC CIDR are updated automatically. Rules that partially overlap or don't match the old CIDR are not changed — review these rules after the change.
+Security group rules that exactly match the old VPC CIDR are updated automatically. Rules that partially overlap or don't match the old CIDR are not changed. Review these rules after the change.
 
 - **Rename:** Change the name of a VPC to align with your organization's naming conventions for cost allocation, compliance tracking, and operational standards.
 - **Resize:** Change the prefix length of a VPC CIDR to expand or reduce the IP address range.
 
   - **Prefix length decrease** (more IPs, for example /20 to /16): Subnets still fit within the larger range. No subnet changes needed.
   - **Prefix length increase** (fewer IPs, for example /16 to /20): Subnets that fall outside the new range must be resized first using the subnet resize operation.
-    Security group rules that exactly match the old VPC CIDR are updated automatically. Rules that partially overlap or don't match the old CIDR are not changed — review these rules after resizing.
+    Security group rules that exactly match the old VPC CIDR are updated automatically. Rules that partially overlap or don't match the old CIDR are not changed. Review these rules after resizing.
 
 Resize requirements:
 
@@ -233,7 +240,7 @@ Resize requirements:
     + The new CIDR must not overlap with other VPCs in the network (Hub and Spoke topology).
     + When reducing the CIDR, all existing subnets must fit within the new CIDR. Resize subnets first if needed.
 
-- **Split:** Divide a VPC into two VPCs based on CIDR boundaries you provide. Subnets are assigned to the new VPC whose CIDR contains them. Security groups are cloned to both new VPCs, but security group rule CIDRs are not automatically updated — review your rules after splitting to ensure cross-VPC communication works as expected. The original VPC is replaced by the two new VPCs.
+- **Split:** Divide a VPC into two VPCs based on CIDR boundaries you provide. Subnets are assigned to the new VPC whose CIDR contains them. Security groups are cloned to both new VPCs, but security group rule CIDRs are not automatically updated. Review your rules after splitting to ensure cross-VPC communication works as expected. The original VPC is replaced by the two new VPCs.
 
 Split requirements:
 
@@ -258,7 +265,7 @@ After each operation, AWS Transform re-evaluates security group referencing, whi
 
 ### Guided network recommendations
 
-AWS Transform analyzes your mapped network and provides prioritized recommendations through the chat interface. Recommendations are based on your network data and require your confirmation before any changes are applied.
+AWS Transform automatically analyzes your mapped network and surfaces prioritized recommendations through the chat interface, identifying optimizations that would typically require manual review by network architects. Recommendations are based on your network data and require your confirmation before any changes are applied.
 
 AWS Transform might recommend the following optimizations:
 
@@ -321,7 +328,7 @@ AWS Transform applies these tags when it generates the Infrastructure as Code te
 
 ### AWS Migration Acceleration Program
 
-If your migration is part of the **AWS Migration Acceleration Program (MAP 2.0)**, AWS Transform applies a MAP tag to your resources. If you provided your MPE ID earlier in the migration process, the tag is applied automatically. Otherwise, after you finish reviewing the generated VPC configurations, AWS Transform asks whether you have a MAP agreement and prompts you to provide your MPE ID — a 10-character code using uppercase letters and digits (for example, ABCDE12345). The applied tag uses the format:
+If your migration is part of the **AWS Migration Acceleration Program (MAP 2.0)**, AWS Transform applies a MAP tag to your resources. If you provided your MPE ID earlier in the migration process, the tag is applied automatically. Otherwise, after you finish reviewing the generated VPC configurations, AWS Transform asks whether you have a MAP agreement and prompts you to provide your MPE ID. The MPE ID is a 10-character code using uppercase letters and digits (for example, ABCDE12345). The applied tag uses the format:
 
 - **Key:** `map-migrated` **Value:** `mig`MPE_ID``
 

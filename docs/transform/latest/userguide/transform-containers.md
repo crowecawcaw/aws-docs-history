@@ -9,6 +9,29 @@ images, publish to Amazon Elastic Container Registry (Amazon ECR), and deploy to
 This brings containerization into the same workflow you use to plan and execute
 rehost migrations.
 
+## Capabilities and key features
+
+AWS Transform offers the following capabilities for containerizing your
+applications.
+
+- **AI-driven source code analysis**.
+  Analyzes your application source code and automatically generates
+  Docker artifacts, including Dockerfiles and related configuration files. No
+  Docker expertise required.
+- **Container image building and publishing**.
+  Builds and tests container images automatically, and
+  publishes them to Amazon Elastic Container Registry with automated vulnerability scanning.
+- **Infrastructure as Code generation**.
+  Generates production-ready deployment infrastructure for either Amazon Elastic Kubernetes Service
+  (Helm charts) or Amazon Elastic Container Service (Terraform modules), with automated validation
+  and security scanning. No need to write IaC from scratch.
+- **Private dependency support**.
+  You can optionally configure AWS CodeArtifact repositories (Maven, PyPI, npm) and
+  private Amazon ECR base images as dependency sources for your builds.
+- **Iterative test and cutover deployment**.
+  Deploys test infrastructure for validation, then deploys finalized
+  infrastructure for production cutover.
+
 ###### Note
 
 Source code containerization is designed for applications that are not yet
@@ -16,39 +39,19 @@ containerized. It requires access to your application source code and does not
 support migrating existing containerized workloads. To migrate existing containers
 to AWS, use standard deployment methods for Amazon Elastic Container Service or Amazon Elastic Kubernetes Service.
 
-## Capabilities and key features
-
-AWS Transform offers the following capabilities for containerizing your
-applications.
-
-- **AI-driven source code analysis** —
-  Analyzes your application source code and automatically generates
-  Docker artifacts, including Dockerfiles and related configuration files.
-- **Container image building and publishing** —
-  Builds and tests container images using AI-driven Docker builds, and
-  publishes them to Amazon Elastic Container Registry with automated vulnerability scanning.
-- **Infrastructure as Code generation** —
-  Generates deployment infrastructure for either Amazon Elastic Kubernetes Service (Helm charts) or
-  Amazon Elastic Container Service (Terraform modules), with automated validation and security
-  scanning.
-- **Private dependency support** —
-  You can optionally configure AWS CodeArtifact repositories (Maven, PyPI, npm) and
-  private Amazon ECR base images as dependency sources for your builds.
-- **Iterative test and cutover deployment** —
-  Deploys test infrastructure for validation, then deploys finalized
-  infrastructure for production cutover.
-
 ## How containerization works
 
 AWS Transform uses an AI-powered agent to guide you through the containerization process
-in a chat-based workflow. AWS Transform coordinates specialized tasks such as source code
-analysis, Docker image generation, and infrastructure creation. At key points in the
-workflow, you review and approve the output before proceeding.
+in a chat-based workflow. The agent handles the entire process from code analysis to
+deployed container, reducing days of manual Dockerfile authoring and infrastructure
+setup to hours. AWS Transform coordinates specialized tasks
+such as source code analysis, Docker image generation, and infrastructure creation. At
+key points in the workflow, you review and approve the output before proceeding.
 
-You access source code containerization by creating a VMware migration job. Within
+You access source code containerization by creating a migration job. Within
 the job, you can run containerization as a standalone workflow, or as part of an
 end-to-end migration when a wave's migration strategy is set to
-_containerize_. For more information about VMware migration, see
+_containerize_. For more information, see
 [Migrations (including VMware)](transform-app-vmware.md "transform-app-vmware.md").
 
 ## Prerequisites
@@ -75,23 +78,23 @@ Before you begin, ensure that you have the following:
 The containerization workflow consists of the following steps. The AWS Transform agent
 guides you through each step in the chat interface.
 
-1. [Step 1: Review security disclaimer](transform-containers-step-disclaimer.md "transform-containers-step-disclaimer.md") — Review
+1. [Step 1: Review security disclaimer](transform-containers-step-disclaimer.md "transform-containers-step-disclaimer.md"). Review
    and accept the security disclaimer.
-2. [Step 2: Clone source code](transform-containers-step-clone.md "transform-containers-step-clone.md") — Provide your
+2. [Step 2: Clone source code](transform-containers-step-clone.md "transform-containers-step-clone.md"). Provide your
    application source code.
-3. [Step 3: Containerize](transform-containers-step-containerize.md "transform-containers-step-containerize.md") — AI agent
+3. [Step 3: Containerize](transform-containers-step-containerize.md "transform-containers-step-containerize.md"). AI agent
    analyzes your code and generates Docker artifacts.
-4. [Step 4: Review Docker artifacts and code changes](transform-containers-step-review.md "transform-containers-step-review.md") — Review generated
+4. [Step 4: Review Docker artifacts and code changes](transform-containers-step-review.md "transform-containers-step-review.md"). Review generated
    artifacts and approve code changes.
-5. [Step 5: Publish images](transform-containers-step-publish.md "transform-containers-step-publish.md") — Publish
+5. [Step 5: Publish images](transform-containers-step-publish.md "transform-containers-step-publish.md"). Publish
    container images to Amazon ECR.
-6. [Step 6: Generate Infrastructure as Code](transform-containers-step-iac.md "transform-containers-step-iac.md") — Generate Amazon EKS or
+6. [Step 6: Generate Infrastructure as Code](transform-containers-step-iac.md "transform-containers-step-iac.md"). Generate Amazon EKS or
    Amazon ECS deployment templates.
-7. [Step 7: Deploy test infrastructure](transform-containers-step-test-deploy.md "transform-containers-step-test-deploy.md") — Deploy and
+7. [Step 7: Deploy test infrastructure](transform-containers-step-test-deploy.md "transform-containers-step-test-deploy.md"). Deploy and
    validate test infrastructure.
-8. [Step 8: Clean up test infrastructure](transform-containers-step-cleanup.md "transform-containers-step-cleanup.md") — Tear down test
+8. [Step 8: Clean up test infrastructure](transform-containers-step-cleanup.md "transform-containers-step-cleanup.md"). Tear down test
    resources.
-9. [Step 9: Deploy cutover infrastructure](transform-containers-step-cutover.md "transform-containers-step-cutover.md") — Deploy
+9. [Step 9: Deploy cutover infrastructure](transform-containers-step-cutover.md "transform-containers-step-cutover.md"). Deploy
    production infrastructure.
 
 ## Starting a containerization job

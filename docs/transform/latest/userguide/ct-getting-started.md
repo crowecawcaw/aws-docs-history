@@ -20,15 +20,20 @@ curl -fsSL https://transform-cli.awsstatic.com/install.sh | bash
 - The AWS managed policy `AWSTransformCustomFullAccess` attached
   to your IAM user or role
 
+###### Note
+
+Running analyses and remediations on remote infrastructure or with the security agent
+requires additional managed policies. See the compute options and security agent setup in
+[How AWS Transform continuous modernization works](continuous-modernization.md#ct-how-it-works "continuous-modernization.md#ct-how-it-works").
+
 ## Quick start
 
-1. Start the continuous modernization server:
+###### Note
 
-```
-atx ct server &
-```
+You no longer need to start a local server. The `atx ct server` command is
+deprecated.
 
-2. Add a source:
+1. Add a source:
 
 ```
 atx ct source add --name `name` --provider `provider` --org `org-or-group` --token `token`
@@ -38,25 +43,25 @@ Where `name` is a descriptive identifier for your source,
 `provider` is the platform (`github`,
 `gitlab`, `bitbucket`, or `local`),
 `org-or-group` is your organization or group name, and
-`token` is your authentication token. 3. Discover repositories:
+`token` is your authentication token. 2. Discover repositories:
 
 ```
 atx ct discovery scan --source `name`
 ```
 
-4. Run an analysis:
+3. Run an analysis:
 
 ```
 atx ct analysis run --type `type` --source `name` --wait
 ```
 
-5. Explore findings:
+4. Explore findings:
 
 ```
 atx ct findings list --json
 ```
 
-6. Remediate findings:
+5. Remediate findings:
 
 ```
 atx ct remediation create --ids `id1`,`id2` --name "`remediation-name`"

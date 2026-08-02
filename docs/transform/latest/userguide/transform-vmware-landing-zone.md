@@ -6,9 +6,11 @@ serves as the foundation for your workloads with organizational boundaries,
 governance controls, and account structure in place before any workloads arrive.
 AWS Transform analyzes your migration inventory and business requirements to recommend an
 Organizational Unit (OU) and account structure, apply recommended Service Control
-Policies (SCPs), and generate and/or deploy the infrastructure as code (IaC).
+Policies (SCPs), and generate and/or deploy the infrastructure as code (IaC). What
+typically takes weeks of manual planning and configuration, AWS Transform can complete
+in a single conversation.
 
-The landing zone agent walks you through two phases:
+The landing zone agent automates two phases:
 
 - **Foundation setup** – Establish the core
   landing zone structure: AWS Control Tower, foundational OUs, and core
@@ -19,13 +21,14 @@ The landing zone agent walks you through two phases:
   AWS Transform supports both greenfield environments (no existing landing zone) and
   brownfield environments (existing OUs and accounts already deployed). In brownfield
   scenarios, AWS Transform detects your existing organization structure and recommends only
-  the changes needed to fill gaps against AWS best practices.
+  the changes needed to fill gaps against AWS best practices, without requiring you
+  to start from scratch or perform a manual gap analysis.
 
 ## Connector setup
 
-The landing zone agent requires a target AWS account connector to provision
-resources in your organization management account. The connector has permissions
-to:
+Before the agent can provision resources, you connect it to your organization
+management account. The landing zone agent requires a target AWS account
+connector with permissions to:
 
 - Set up [AWS Control Tower](../../../controltower/latest/userguide/what-is-control-tower.md "../../../controltower/latest/userguide/what-is-control-tower.md")
 - Create [organizational units and accounts](../../../organizations/latest/userguide/orgs_manage_ous.md "../../../organizations/latest/userguide/orgs_manage_ous.md")

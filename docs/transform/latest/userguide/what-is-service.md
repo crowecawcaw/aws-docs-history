@@ -7,7 +7,23 @@ tools to streamline modernization and migration efforts across various workloads
 With AWS Transform, you can:
 
 - Modernize and migrate IBM z/OS and Fujitsu GS21 to AWS
-- Migrate VMware workloads to Amazon EC2
+- Migrate virtual and bare metal server environments to Amazon EC2, including VMware,
+  Hyper-V, and other platforms:
+
+  - **Discovery**. Collect and analyze your on-premises
+    server inventory from multiple sources to understand your environment before planning.
+  - **Migration planning**. Group applications, identify
+    dependencies, and build prioritized migration waves.
+  - **Landing zone creation**. Design and deploy a
+    multi-account AWS foundation with organizational structure, governance controls, and
+    account setup.
+  - **Network migration**. Translate your source network
+    configuration into production-ready AWS VPC architecture and deploy it.
+  - **Server rehost**. Rehost your servers to run natively
+    on Amazon EC2 with guided replication, testing, and cutover workflows.
+  - **Source code containerization**. Containerize
+    applications from source code and deploy to Amazon Elastic Container Service or Amazon Elastic Kubernetes Service.
+
 - Modernize .NET applications to Linux-ready cross-platform .NET
 - Assess workloads for migration readiness
   AWS Transform helps you offload labor-intensive, complex transformation tasks across the

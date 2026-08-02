@@ -3,7 +3,7 @@
 During migration planning, AWS Transform turns your discovered inventory and
 planning results into visual _diagrams_ and analytical
 _reports_. You generate them conversationally in the planning
-chat—for example, "Show me a network topology diagram" or "Generate a risk
+chat. For example, "Show me a network topology diagram" or "Generate a risk
 report." AWS Transform builds them from the data you have already provided, with no
 setup required.
 

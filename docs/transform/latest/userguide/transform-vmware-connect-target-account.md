@@ -1,31 +1,30 @@
 # Connect target AWS accounts and regions
 
-Configure your target AWS account connector for network migration, landing zone
-build, and server migration.
-This involves three steps: select your migration type, provide your MAP
-agreement details (if applicable), and set up the connector. These settings
-apply across all migration stages — network migration, landing zone, and server
-rehost.
+Connect AWS Transform to your target AWS environment so the agent can deploy
+infrastructure, migrate networks, and rehost servers on your behalf. This involves
+three steps: select your migration type, provide your MAP agreement details (if
+applicable), and set up the connector. These settings apply across all migration
+stages, including network migration, landing zone, and server rehost.
 
 ## Step 1: Migration type selection
 
-Choose whether you are performing a single-account or multi-account
-migration:
+AWS Transform supports both single-account and multi-account migrations. Choose
+the option that matches your target environment:
 
 - **Single-account migration** – All
   workloads migrate to one target AWS account. The connector target
   account and the target account are the same.
-- **Multi-account migration** – Workloads
-  migrate to different target accounts. The connector must be connected to
-  the organization management account or a Delegated Administrator (DA)
-  account registered for both AWS Transform MGN
-  and CloudFormation StackSets.
+- **Multi-account migration** – Migrate
+  workloads across multiple accounts in your organization from a single
+  workspace. The connector must be connected to the organization
+  management account or a Delegated Administrator (DA) account registered
+  for both AWS Transform MGN and CloudFormation StackSets.
 
 ## Step 2: MAP agreement
 
 If your migration is part of the **AWS Migration
 Acceleration Program (MAP 2.0)**, provide your Migration
-Portfolio Experience (MPE) ID — a 10-character code using uppercase letters
+Portfolio Experience (MPE) ID. This is a 10-character code using uppercase letters
 and digits (for example, ABCDE12345). When you provide your MPE ID, the MAP
 tag is applied to all resources created across network migration, landing
 zone, and server rehost stages. The tag format is:

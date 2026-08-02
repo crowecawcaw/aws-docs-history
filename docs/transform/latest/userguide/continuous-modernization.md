@@ -130,9 +130,10 @@ workflow:
    Continuous modernization automatically creates branches and opens pull/merge requests with
    the fixes. Track remediation status and retry failures.
 6. **Set Up Continuous Analysis** — Schedule recurring
-   analyses using Amazon EventBridge Scheduler. Configure analysis cadence (daily, weekly,
-   or custom cron) to continuously monitor your portfolio for new issues. Combine with
-   automated remediation to maintain code health over time.
+   analyses with the `atx ct schedule` commands, which use Amazon EventBridge
+   Scheduler. Configure analysis cadence (daily, weekly, or monthly) to continuously monitor
+   your portfolio for new issues. Combine with automated remediation to maintain code health
+   over time.
 
 ### Compute options
 
@@ -151,13 +152,40 @@ By default, analyses run on your local machine. This option requires no addition
 infrastructure. The server runs locally and executes analyses using local compute resources.
 Good for trying out the tool, small repositories, or individual use.
 
+#### AWS Batch (Fargate) (recommended)
+
+For most portfolios, you can run analyses on AWS Batch with Fargate, which is the
+recommended compute option. Each analysis runs as an isolated job in its own container with
+serverless compute, so there is no persistent infrastructure to manage, and jobs scale out
+for parallel analysis of multiple sources or analysis types.
+
+Provisioning deploys the required infrastructure including:
+
+- AWS Batch job queue and compute environment
+- Job definition with the continuous modernization container
+  image
+- IAM roles for batch job execution
+- A Lambda function for job submission
+
+Provisioning infrastructure requires administrator permissions. To run analyses and
+remediations on an already-provisioned Batch stack with least privilege, attach the AWS
+managed policy `AWSTransformInfrastructureExecutorAccessBatch`.
+
+To set up Batch execution, use the `atx ct remote` commands directly (see
+[Remote execution](ct-working-with.md#ct-remote-execution "ct-working-with.md#ct-remote-execution")), or install the
+Kiro Power or agent plugin (see
+[Developer tools](ct-developer-tools.md "ct-developer-tools.md")) and ask the agent:
+_"Run my analysis on Fargate"_ or _"Set up Batch execution for
+continuous modernization"_. The agent deploys the stack, stores your source
+credentials in Secrets Manager, and submits analysis jobs to AWS Batch.
+
 #### Amazon Amazon EC2
 
 Run analyses on a persistent Amazon EC2 instance in your AWS account. This option offloads
 compute from your local machine, supports larger analyses, and enables recurring scheduled
 analysis. The instance stays running between submissions.
 
-The agent skill provisions a AWS CloudFormation stack that includes:
+Provisioning deploys a AWS CloudFormation stack that includes:
 
 - An Amazon EC2 instance (Amazon Linux 2023) with Docker and the continuous
   modernization container
@@ -167,36 +195,19 @@ The agent skill provisions a AWS CloudFormation stack that includes:
   key pair or inbound ports required)
 - A security group with no inbound rules
 
-Your IAM user or role needs permissions for Amazon EC2 lifecycle management, AWS CloudFormation stack
-operations, IAM role creation, Amazon S3 bucket operations, Secrets Manager secret management,
-and SSM commands.
+Provisioning infrastructure requires administrator permissions for Amazon EC2 lifecycle
+management, AWS CloudFormation stack operations, IAM role creation, Amazon S3 bucket operations, Secrets
+Manager secret management, and SSM commands. To run analyses and remediations on an
+already-provisioned Amazon EC2 stack with least privilege, attach the AWS managed policy
+`AWSTransformInfrastructureExecutorAccessEC2`.
 
-To set up EC2 execution, install the Kiro Power or agent plugin (see
-[Developer tools](ct-developer-tools.md "ct-developer-tools.md")), then ask the
-agent: _"Set up an EC2 instance for continuous modernization analysis"_.
-The agent provisions the infrastructure, verifies the container is healthy, and submits your
+To set up Amazon EC2 execution, use the `atx ct remote` commands directly (see
+[Remote execution](ct-working-with.md#ct-remote-execution "ct-working-with.md#ct-remote-execution")), or install the
+Kiro Power or agent plugin (see
+[Developer tools](ct-developer-tools.md "ct-developer-tools.md")) and ask the agent:
+_"Set up an EC2 instance for continuous modernization analysis"_. The
+agent provisions the infrastructure, verifies the container is healthy, and submits your
 analyses via SSM — no SSH required.
-
-#### AWS Batch (Fargate)
-
-Run analyses as isolated jobs on AWS Batch with Fargate for serverless compute. Each
-analysis runs in its own container without managing persistent infrastructure. Good for
-parallel analysis of multiple sources or analysis types.
-
-This option reuses the AWS Transform CDK infrastructure stack. The agent skill deploys the
-required infrastructure including:
-
-- AWS Batch job queue and compute environment
-- Job definition with the continuous modernization container
-  image
-- IAM roles for batch job execution
-- A Lambda function for job submission
-
-To set up Batch execution, install the Kiro Power or agent plugin (see
-[Developer tools](ct-developer-tools.md "ct-developer-tools.md")), then ask the
-agent: _"Run my analysis on Fargate"_ or _"Set up Batch
-execution for continuous modernization"_. The agent deploys the CDK stack, stores
-your source credentials in Secrets Manager, and submits analysis jobs to AWS Batch.
 
 ### Security agent setup
 
@@ -204,11 +215,20 @@ The `security` analysis type uses the AWS Security Agent service for
 vulnerability and CVE detection. Unlike other analysis types, it requires one-time
 infrastructure setup in your AWS account.
 
+###### Note
+
+The `security` analysis type is not available in the following Regions:
+Canada (Central) (`ca-central-1`), Europe (London) (`eu-west-2`), and
+Asia Pacific (Seoul) (`ap-northeast-2`). The other analysis types are unaffected.
+
 The setup command provisions a AWS CloudFormation stack that includes:
 
 - An Amazon S3 bucket for source code upload
 - An IAM role assumed by `securityagent.amazonaws.com`
 - A managed policy for the security agent role
+
+To run security analyses with least privilege after setup, attach the AWS managed
+policy `AWSTransformSecurityAgentExecutorAccess` to your IAM user or role.
 
 Your IAM user or role must have the following additional permissions to run the
 setup:

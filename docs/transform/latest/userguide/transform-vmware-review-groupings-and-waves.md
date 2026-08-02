@@ -1,18 +1,26 @@
 # Build migration plan
 
-The Migration planning job step within AWS Transform for VMware is a collaborative chat-based experience for
+The Migration planning job step within AWS Transform for migrations is a collaborative chat-based experience for
 planning large migrations. AWS Transform agents apply AWS Prescriptive Guidance to guide customers from analysis of on-premises data to finalized migration wave plans.
 
 After the Discover on-premises data job completes successfully, AWS Transform uses the discovery data to group applications into migration waves. AWS Transform guides
-you through steps to analyze and scope your servers, group them into applications, generate move groups, and build migration waves. When analyzing your on-premises environment, you can ask questions to better understand how
-AWS Transform analyzed your installed software, for example, server dependencies and network architecture.
+you through steps to analyze and scope your servers, group them into applications, generate move groups, and build migration waves.
 
-AWS Transform supports scope adjustments within application groups and waves. You can re-upload discovery data at any time,
-and AWS Transform will automatically process, de-duplicate, and merge new records with existing data.
-When changes are detected—such as newly discovered dependencies or infrastructure additions, AWS Transform will flag impacted dependency groups and provide recommendations for wave plan adjustments.
-Migration planning can also make use of unstructured text data to enrich the planning process.
+AWS Transform supports iterative planning throughout the process:
 
-There are four migration planning stages:
+- You can ask questions to better understand how AWS Transform analyzed your
+  installed software, for example, server dependencies and network
+  architecture.
+- You can adjust scope within application groups and waves at any
+  time.
+- You can re-upload discovery data, and AWS Transform will automatically
+  process, de-duplicate, and merge new records with existing data.
+- When changes are detected, such as newly discovered dependencies or
+  infrastructure additions, AWS Transform flags impacted dependency groups and provides
+  recommendations for wave plan adjustments.
+- Migration planning can also make use of unstructured text data to
+  enrich the planning process.
+  There are four migration planning stages:
 
 - In **Scope and analyze**, you can review your discovery data,
   ask questions about your software and network environment and determine the resources in
@@ -30,27 +38,38 @@ There are four migration planning stages:
   you can migrate. You can select move groups for inclusion in a wave based on
   factors such as priority score, move group size, user counts, and
   application complexity.
-  **Migration Planning Terminology:**
 
-- _Migration waves_ are logical groups that are migrated
-  together. Migration waves are comprised of one or more move groups.
-- A _move group_ is a set of co-dependent applications that
-  must be moved together. They may have technical dependencies such as a
-  shared database or they have business dependencies such as supporting a
-  shared business function.
-- A _dependency_ is a relationship between systems. There are
-  several types of dependencies including:
+## Migration planning terminology
 
-  - Critical or hard dependencies, where systems cannot operate without the dependency. Common
-    examples of this are applications that depend on databases, other
-    applications, or services.
-  - Soft dependencies, which are not critical for the operation of the system. Common examples of
-    this include latency insensitive dependencies that can be migrated
-    independently.
-  - Non-technical dependencies include business, organizational, operational and compliance
-    dependencies. These are dependencies related to your organization
-    and its priorities. Examples of this include shared business
-    function and organizational ownership.
+Migration wave
+
+A logical group of applications that are migrated together. Migration
+waves are comprised of one or more move groups.
+
+Move group
+
+A set of co-dependent applications that must be moved together. They
+may have technical dependencies such as a shared database or business
+dependencies such as supporting a shared business function.
+
+Dependency
+
+A relationship between systems. There are several types of
+dependencies:
+
+- **Critical or hard
+  dependencies**. Systems cannot operate without the
+  dependency. Common examples include applications that depend on
+  databases, other applications, or services.
+- **Soft dependencies**.
+  Not critical for the operation of the system. Common examples
+  include latency-insensitive dependencies that can be migrated
+  independently.
+- **Non-technical
+  dependencies**. Business, organizational, operational,
+  and compliance dependencies related to your organization and its
+  priorities. Examples include shared business function and
+  organizational ownership.
 
 ## Workflow
 

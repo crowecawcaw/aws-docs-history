@@ -5,6 +5,30 @@ For supported AWS Transform regions, see [Supported Regions](regions.md "regions
 regions, see the [account
 connector setup page](transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions "transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions").
 
+For a list of changes across the full AWS Transform service, see the [changelog](change-log.md "change-log.md").
+
+## July 2026
+
+- AWS Transform for migrations now supports migrating virtual and bare metal server environments
+  from virtually any source, including VMware, Hyper-V, and other platforms. Migration
+  capabilities, including discovery, migration planning, landing zone creation, network
+  migration, and server rehost, are available regardless of your source infrastructure. The
+  web application workflow has been renamed from "VMware Migrations" to "Migrations (including
+  VMware)". [Learn more about
+  migrations](transform-app-vmware.md "transform-app-vmware.md").
+- AWS Transform now lets you generate a workspace summary report as a downloadable PDF. The
+  report consolidates data from all migration jobs in your workspace, including job statuses,
+  workflow step progress, wave planning, network migration, landing zone configuration, rehost
+  progress, and artifacts produced. [Learn
+  more about workspace summary reports](vmware-jobs.md#transform-app-vmware-workspace-summary-report "vmware-jobs.md#transform-app-vmware-workspace-summary-report").
+- The AWS Transform discovery tool now collects detailed Oracle metadata directly from your
+  databases across VMware, Hyper-V, and bare metal servers. You can discover Oracle instances
+  through direct SQL connections. The tool collects Container Database/Pluggable Database
+  (CDB/PDB) enumeration, component inventory, and datafile sizing. [Learn more about Oracle Database
+  discovery](discovery-tool.md "discovery-tool.md").
+- AWS Transform for migrations now provides enhanced capabilities for post-launch actions. You can now define post-launch actions at the account level and apply them to all source servers automatically, or customize them per source server during inventory validation. Post-launch actions automate modernization and validation tasks on each source server immediately after it launches as a test or cutover instance. [Learn
+  more about post-launch actions](transform-vmware-migrate-servers.md#transform-vmware-ms-post-launch-actions "transform-vmware-migrate-servers.md#transform-vmware-ms-post-launch-actions").
+
 ## June 2026
 
 - AWS Transform for migrations now supports localization. You can change the display
@@ -21,6 +45,10 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
 - AWS Transform for migrations now supports all AWS commercial regions as migration
   targets, excluding Middle East (Bahrain) and Middle East (UAE). [Learn
   more about supported target regions](transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions "transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions").
+- You can now use the AWS Transform discovery tool as a source for network migration alongside
+  modelizeIT, enabling hybrid network migrations for environments running both VMware and
+  non-VMware workloads. [Learn more about
+  network migration input sources](transform-vmware-migrate-network.md "transform-vmware-migrate-network.md").
 
 ## May 2026
 
@@ -31,6 +59,11 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
 - AWS Transform supports replatforming source code repositories to containers during migration
   to AWS. [Learn more about
   containerization](transform-containers.md "transform-containers.md").
+- AWS Transform can now analyze your discovered inventory and provide a migration strategy
+  recommendation for every server and application. Recommendations follow the
+  industry-standard seven migration strategies (7Rs). Each recommendation includes a
+  suggested AWS target service, a confidence score, and the reasoning behind it. [Learn more about
+  7Rs recommendations](transform-vmware-r-strategy-report.md "transform-vmware-r-strategy-report.md").
 
 ## April 2026
 
@@ -41,6 +74,12 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
   zone creation](transform-vmware-landing-zone.md "transform-vmware-landing-zone.md").
 - Added support for DHCP with security group mapping during network migration. [Learn
   more about security group creation](transform-vmware-migrate-network.md#transform-vmware-security-group-association "transform-vmware-migrate-network.md#transform-vmware-security-group-association").
+- You can now generate interactive diagrams and analytical reports during migration planning.
+  Diagram types include network topology maps, application dependency graphs, wave Gantt
+  charts, and general charts. Report types include risk assessments, 7Rs recommendations, and
+  custom analytical reports. Outputs are available as interactive HTML, PDF, or Microsoft
+  PowerPoint (.pptx) files. [Learn more about
+  migration-planning diagrams and reports](transform-vmware-diagrams-and-reports.md "transform-vmware-diagrams-and-reports.md").
 
 ## March 2026
 
