@@ -44,3 +44,4 @@ rule criteria.
 - [Using forwarded IP addresses in AWS WAF](waf-rule-statement-forwarded-ip-address.md "waf-rule-statement-forwarded-ip-address.md")
 - [Inspecting HTTP/2 pseudo headers in AWS WAF](waf-rule-statement-request-components-for-http2-pseudo-headers.md "waf-rule-statement-request-components-for-http2-pseudo-headers.md")
 - [Using text transformations in AWS WAF](waf-rule-statement-transformation.md "waf-rule-statement-transformation.md")
+- [Using pre-parse text transformations in AWS WAF](waf-rule-statement-preparse-transformation.md "waf-rule-statement-preparse-transformation.md")

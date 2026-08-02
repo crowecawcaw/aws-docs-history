@@ -66,7 +66,7 @@ application scenarios, see [Choosing and configuring Bot Control for your use ca
 
 ## Web bot authentication for AI agents
 
-AWS WAF Bot Control now supports Web Bot Authentication (WBA) as a cryptographic verification method for bots and AI agents accessing your CloudFront distributions.
+AWS WAF Bot Control now supports Web Bot Authentication (WBA) as a cryptographic verification method for bots and AI agents. WBA applies to your CloudFront distributions and Regional resources in the commercial AWS Regions.
 This feature enables legitimate AI crawlers and agents to prove their identity without requiring traditional challenge-response mechanisms.
 
 Version requirement: `AWSManagedRulesBotControlRuleSet` Version\_4.0 or later. (The static version must be explicitly selected.)

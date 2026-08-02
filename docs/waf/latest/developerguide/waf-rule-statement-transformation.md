@@ -62,6 +62,44 @@ Use this option to perform the following transformations:
 - Convert uppercase letters, `A-Z`, to lowercase,
   `a-z`
 
+Command line Unix – `CMD_LINE_UNIX`
+
+This option mitigates situations where attackers might be
+injecting a Unix or Linux operating system command-line command and are using
+unusual formatting to disguise some or all of the command.
+
+Use this option to perform the following transformations:
+
+- Delete the following characters: `\ " '`
+- Replace the following characters with a space: tab `\t` (ASCII 9),
+  newline `\n` (ASCII 10), carriage return `\r` (ASCII 13),
+  vertical tab `\v` (ASCII 11), and formfeed `\f` (ASCII 12)
+- Replace multiple spaces with one space
+- Remove leading and trailing spaces
+- Convert uppercase letters, `A-Z`, to lowercase,
+  `a-z`
+
+Command line Windows – `CMD_LINE_WIN`
+
+This option mitigates situations where attackers might be
+injecting a Windows operating system command-line or PowerShell command and are using
+unusual formatting to disguise some or all of the command.
+
+Use this option to perform the following transformations:
+
+- Delete the following characters: `" ' ^ ``
+- Delete caret line-continuation sequences, a caret followed by a newline `\n`
+  or by a carriage return and newline `\r\n`, as a single unit
+- Replace the following characters with a space: tab `\t` (ASCII 9),
+  newline `\n` (ASCII 10), carriage return `\r` (ASCII 13),
+  vertical tab `\v` (ASCII 11), and formfeed `\f` (ASCII 12)
+- Replace multiple spaces with one space
+- Remove leading and trailing spaces
+- Convert uppercase letters, `A-Z`, to lowercase,
+  `a-z`
+- Replace consecutive backslashes with a single backslash. Single backslashes are preserved,
+  so Windows paths such as `c:\windows\system32\cmd.exe` and UNC paths remain intact.
+
 Compress whitespace – `COMPRESS_WHITE_SPACE`
 
 AWS WAF compresses white space by replacing multiple spaces with one space and replacing the
@@ -151,6 +189,22 @@ and adjust the lower byte. If not, only the lower byte is used and
 the higher byte is zeroed, causing a possible loss of
 information.
 
+JS decode extended – `JS_DECODE_EXT`
+
+AWS WAF decodes JavaScript escape sequences like `JS_DECODE`, but uses a forgiving
+implementation so that Microsoft Windows file paths aren't altered.
+`JS_DECODE_EXT` differs from `JS_DECODE` as follows:
+
+- Decode the escapes `\\`, `\/`, `\'`, and
+  `\"` by removing the backslash and keeping the subsequent character.
+- Preserve the single-character escapes `\a`, `\b`,
+  `\f`, `\n`, `\r`, `\t`, and
+  `\v` by keeping both the backslash and the subsequent character.
+- Preserve any other unrecognized `\C` escape sequence (for example
+  `\d` or `\w`) by keeping both the backslash and the subsequent
+  character, so that Windows file paths such as `\default` and
+  `\windows` aren't altered.
+
 Lowercase – `LOWERCASE`
 
 AWS WAF converts uppercase letters (A-Z) to lowercase (a-z).
@@ -175,9 +229,19 @@ Normalize path Windows – `NORMALIZE_PATH_WIN`
 AWS WAF converts backslash characters to forward slashes and then processes the resulting
 string using the `NORMALIZE_PATH` transformation.
 
+Remove comments characters – `REMOVE_COMMENTS_CHAR`
+
+AWS WAF removes common comment characters from the input: /\*,
+\*/, --, and #.
+
 Remove nulls – `REMOVE_NULLS`
 
 AWS WAF removes all `NULL` bytes from the input.
+
+Remove whitespace – `REMOVE_WHITESPACE`
+
+AWS WAF removes all whitespace characters from the
+input.
 
 Replace comments – `REPLACE_COMMENTS`
 
@@ -190,10 +254,35 @@ Replace nulls – `REPLACE_NULLS`
 AWS WAF replaces each `NULL` byte in the input with the space
 character (ASCII 0x20).
 
+SHA256 – `SHA256`
+
+AWS WAF calculates a SHA-256 hash from the data in the input.
+The computed hash is in a raw binary form.
+
 SQL hex decode – `SQL_HEX_DECODE`
 
 AWS WAF decodes SQL hex data. For example, AWS WAF decodes (`0x414243`)
 to (`ABC`).
+
+Trim – `TRIM`
+
+AWS WAF removes whitespace from both the left and right sides of
+the input.
+
+Trim left – `TRIM_LEFT`
+
+AWS WAF removes whitespace from the left side of the
+input.
+
+Trim right – `TRIM_RIGHT`
+
+AWS WAF removes whitespace from the right side of the
+input.
+
+Uppercase – `UPPERCASE`
+
+AWS WAF converts all lowercase letters (a-z) to uppercase
+(A-Z).
 
 URL decode – `URL_DECODE`
 
