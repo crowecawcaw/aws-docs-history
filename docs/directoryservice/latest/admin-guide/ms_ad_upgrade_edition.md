@@ -14,8 +14,25 @@ outlines the differences between Standard and Enterprise editions:
   objects depending on the size of your objects and the behavior and performance needs of your
   applications.
 
-To upgrade your Standard edition AWS Managed Microsoft AD to Enterprise edition, use [UpdateDirectorySetup](../devguide/API_UpdateDirectorySetup.md "../devguide/API_UpdateDirectorySetup.md") from the API, [update-directory-setup](../../../cli/latest/reference/ds/update-directory-setup.md "../../../cli/latest/reference/ds/update-directory-setup.md")
-from the AWS CLI, or [Update-DSDirectorySetup](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md") from AWS Tools for PowerShell.
+To upgrade your Standard edition AWS Managed Microsoft AD to Enterprise edition, use the AWS Management Console, the
+[UpdateDirectorySetup](../devguide/API_UpdateDirectorySetup.md "../devguide/API_UpdateDirectorySetup.md") API, the [update-directory-setup](../../../cli/latest/reference/ds/update-directory-setup.md "../../../cli/latest/reference/ds/update-directory-setup.md")
+AWS CLI command, or [Update-DSDirectorySetup](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md") from AWS Tools for PowerShell.
+
+AWS Management Console
+To upgrade your Standard edition AWS Managed Microsoft AD to Enterprise edition using the
+AWS Management Console:
+
+1. Sign in to the AWS Management Console and open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
+2. In the navigation pane, choose **Directories**.
+3. Choose the directory ID link for the AWS Managed Microsoft AD directory you want to
+   upgrade to open its **Directory details**
+   page.
+4. Choose **Actions**, and then choose **Upgrade
+   edition**.
+5. Select **Enterprise edition**, and review the
+   limitations that occur with an upgrade.
+6. Type `confirm` in the field to acknowledge the limitations,
+   and then choose **Upgrade**.
 
 API
 To upgrade your Standard edition AWS Managed Microsoft AD to Enterprise

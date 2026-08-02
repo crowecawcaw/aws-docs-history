@@ -67,7 +67,7 @@ For the new rule, enter the following values:
 
 6. Select **Save Rule**.
 
-![In the Amazon VPC Console, edit the outbound rules for the directory controller security groups.](images/editing-and-saving-rule.png)
+![In the Amazon VPC Console, edit the outbound rules for the directory controller security groups.](/images/directoryservice/latest/admin-guide/images/editing-and-saving-rule.png)
 
 ## Ensure that Kerberos pre-authentication is enabled
 
