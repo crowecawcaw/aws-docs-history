@@ -21,6 +21,7 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Hong Kong)  | ap-east-1      | vpc-lattice.ap-east-1.amazonaws.com      | HTTPS    |
 | Asia Pacific (Hyderabad)  | ap-south-2     | vpc-lattice.ap-south-2.amazonaws.com     | HTTPS    |
 | Asia Pacific (Jakarta)    | ap-southeast-3 | vpc-lattice.ap-southeast-3.amazonaws.com | HTTPS    |
+| Asia Pacific (Malaysia)   | ap-southeast-5 | vpc-lattice.ap-southeast-5.amazonaws.com | HTTPS    |
 | Asia Pacific (Melbourne)  | ap-southeast-4 | vpc-lattice.ap-southeast-4.amazonaws.com | HTTPS    |
 | Asia Pacific (Mumbai)     | ap-south-1     | vpc-lattice.ap-south-1.amazonaws.com     | HTTPS    |
 | Asia Pacific (Osaka)      | ap-northeast-3 | vpc-lattice.ap-northeast-3.amazonaws.com | HTTPS    |
