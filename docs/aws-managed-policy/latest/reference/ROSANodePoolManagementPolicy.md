@@ -12,13 +12,13 @@ You can attach `ROSANodePoolManagementPolicy` to your users, groups, and roles.
 
 - **Type**: Service role policy
 - **Creation time**: June 08, 2023, 20:48 UTC
-- **Edited time:** February 12, 2026, 17:59 UTC
+- **Edited time:** July 29, 2026, 16:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/ROSANodePoolManagementPolicy`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -31,11 +31,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Statement" : [
     {
       "Sid" : "ReadPermissions",
-      "Effect" : "Allow",
       "Action" : [
         "ec2:DescribeDhcpOptions",
         "ec2:DescribeImages",
         "ec2:DescribeInstances",
+        "ec2:DescribeInstanceTypes",
         "ec2:DescribeInternetGateways",
         "ec2:DescribeNetworkInterfaces",
         "ec2:DescribeNetworkInterfaceAttribute",
@@ -44,16 +44,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeSubnets",
         "ec2:DescribeVpcs"
       ],
+      "Effect" : "Allow",
       "Resource" : [
         "*"
       ]
     },
     {
       "Sid" : "CreateServiceLinkedRole",
-      "Effect" : "Allow",
       "Action" : [
         "iam:CreateServiceLinkedRole"
       ],
+      "Effect" : "Allow",
       "Resource" : [
         "arn:*:iam::*:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing"
       ],
@@ -65,10 +66,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
     },
     {
       "Sid" : "PassWorkerRole",
-      "Effect" : "Allow",
       "Action" : [
         "iam:PassRole"
       ],
+      "Effect" : "Allow",
       "Resource" : [
         "arn:*:iam::*:role/*-ROSA-Worker-Role"
       ],
@@ -246,6 +247,22 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "531415883065",
             "251351625822"
           ]
+        }
+      }
+    },
+    {
+      "Sid" : "NodePoolSQSActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "sqs:DeleteMessage",
+        "sqs:ReceiveMessage"
+      ],
+      "Resource" : [
+        "arn:aws:sqs:*:*:*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/red-hat" : "true"
         }
       }
     },

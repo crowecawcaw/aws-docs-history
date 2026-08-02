@@ -12,13 +12,13 @@ You can attach `AWSTransformInfrastructureExecutorAccessBatch` to your users, gr
 
 - **Type**: AWS managed policy
 - **Creation time**: July 20, 2026, 20:12 UTC
-- **Edited time:** July 20, 2026, 20:12 UTC
+- **Edited time:** July 28, 2026, 15:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSTransformInfrastructureExecutorAccessBatch`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -36,7 +36,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "lambda:InvokeFunction",
         "lambda:GetFunctionConfiguration"
       ],
-      "Resource" : "arn:aws:lambda:*:*:function:atx-*",
+      "Resource" : [
+        "arn:aws:lambda:*:*:function:atx-trigger-job-*",
+        "arn:aws:lambda:*:*:function:atx-trigger-batch-jobs-*",
+        "arn:aws:lambda:*:*:function:atx-get-job-status-*",
+        "arn:aws:lambda:*:*:function:atx-get-batch-status-*",
+        "arn:aws:lambda:*:*:function:atx-list-jobs-*",
+        "arn:aws:lambda:*:*:function:atx-list-batches-*"
+      ],
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
@@ -82,6 +89,22 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
+      "Sid" : "S3WriteBatchSidecar",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:PutObject",
+        "s3:AbortMultipartUpload"
+      ],
+      "Resource" : [
+        "arn:aws:s3:::atx-custom-output-*/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
       "Sid" : "KMSEncryptDecrypt",
       "Effect" : "Allow",
       "Action" : [
@@ -94,8 +117,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
-        "ForAnyValue:StringEquals" : {
-          "kms:ResourceAliases" : "alias/atx-encryption-key"
+        "ForAnyValue:StringLike" : {
+          "kms:ResourceAliases" : [
+            "alias/atx-encryption-key",
+            "alias/atx-encryption-key-*"
+          ]
         }
       }
     },
@@ -126,7 +152,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "cloudwatch:GetDashboard",
         "cloudwatch:ListDashboards"
       ],
-      "Resource" : "arn:aws:cloudwatch::*:dashboard/ATX-Transform-CLI-Dashboard",
+      "Resource" : [
+        "arn:aws:cloudwatch::*:dashboard/ATX-Transform-CLI-Dashboard",
+        "arn:aws:cloudwatch::*:dashboard/ATX-Transform-CLI-Dashboard-*"
+      ],
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
@@ -154,7 +183,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "CheckInfrastructureStatus",
       "Effect" : "Allow",
       "Action" : "cloudformation:DescribeStacks",
-      "Resource" : "arn:aws:cloudformation:*:*:stack/AtxInfrastructureStack/*",
+      "Resource" : [
+        "arn:aws:cloudformation:*:*:stack/AtxInfrastructureStack/*",
+        "arn:aws:cloudformation:*:*:stack/AtxInfrastructureStack-*/*",
+        "arn:aws:cloudformation:*:*:stack/atx-*",
+        "arn:aws:cloudformation:*:*:stack/atx-*/*",
+        "arn:aws:cloudformation:*:*:stack/AtxSecurityAgentStack-*/*"
+      ],
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
@@ -188,7 +223,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : [
         "arn:aws:scheduler:*:*:schedule-group/atx-ct",
-        "arn:aws:scheduler:*:*:schedule/atx-ct/*"
+        "arn:aws:scheduler:*:*:schedule-group/atx-ct-*",
+        "arn:aws:scheduler:*:*:schedule/atx-ct/*",
+        "arn:aws:scheduler:*:*:schedule/atx-ct-*/*"
       ],
       "Condition" : {
         "StringEquals" : {
@@ -200,7 +237,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "PassSchedulerRole",
       "Effect" : "Allow",
       "Action" : "iam:PassRole",
-      "Resource" : "arn:aws:iam::*:role/AtxSchedulerInvocationRole",
+      "Resource" : [
+        "arn:aws:iam::*:role/AtxSchedulerInvocationRole",
+        "arn:aws:iam::*:role/AtxSchedulerInvocationRole-*"
+      ],
       "Condition" : {
         "StringEquals" : {
           "iam:PassedToService" : "scheduler.amazonaws.com",

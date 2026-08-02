@@ -12,13 +12,13 @@ You can attach `AWSApplicationMigrationNetworkMigrationMultiAccount` to your use
 
 - **Type**: AWS managed policy
 - **Creation time**: November 10, 2025, 09:04 UTC
-- **Edited time:** June 29, 2026, 08:57 UTC
+- **Edited time:** July 30, 2026, 07:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSApplicationMigrationNetworkMigrationMultiAccount`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -176,6 +176,23 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "StringEquals" : {
           "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService",
           "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
+        }
+      }
+    },
+    {
+      "Sid" : "CFNTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : "arn:aws:cloudformation:*:*:stack/Nmd*",
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack",
+            "UpdateStack"
+          ]
         }
       }
     },
@@ -683,10 +700,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "ssm:DeleteParameter",
-        "ssm:PutResourcePolicy",
         "ssm:DeleteResourcePolicy",
-        "ssm:ListTagsForResource",
-        "ssm:GetResourcePolicies"
+        "ssm:ListTagsForResource"
       ],
       "Resource" : [
         "arn:aws:ssm:*:*:parameter/network-migration/*"
@@ -703,7 +718,25 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ramTAgReource",
+      "Sid" : "ramResourceSharing",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:PutResourcePolicy",
+        "ssm:GetResourcePolicies"
+      ],
+      "Resource" : [
+        "arn:aws:ssm:*:*:parameter/network-migration/*"
+      ],
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "cloudformation.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "ramTagResource",
       "Effect" : "Allow",
       "Action" : [
         "ram:TagResource"

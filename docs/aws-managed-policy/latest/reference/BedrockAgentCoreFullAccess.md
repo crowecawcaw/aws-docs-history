@@ -12,13 +12,13 @@ You can attach `BedrockAgentCoreFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: July 16, 2025, 13:37 UTC
-- **Edited time:** April 21, 2026, 17:42 UTC
+- **Edited time:** July 28, 2026, 16:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/BedrockAgentCoreFullAccess`
 
 ## Policy version
 
-**Policy version:** v17 (default)
+**Policy version:** v18 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -429,6 +429,23 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "lambda:GetFunction"
       ],
       "Resource" : "arn:aws:lambda:*:*:function:*"
+    },
+    {
+      "Sid" : "AgentCoreEvaluationBedrockMantleInference",
+      "Effect" : "Allow",
+      "Action" : "bedrock-mantle:CreateInference",
+      "Resource" : "arn:aws:bedrock-mantle:*:*:project/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AgentCoreEvaluationBedrockMantleCallWithBearerToken",
+      "Effect" : "Allow",
+      "Action" : "bedrock-mantle:CallWithBearerToken",
+      "Resource" : "*"
     }
   ]
 }

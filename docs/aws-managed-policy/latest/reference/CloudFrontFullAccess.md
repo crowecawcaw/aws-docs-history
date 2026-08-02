@@ -12,13 +12,13 @@ You can attach `CloudFrontFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:39 UTC
-- **Edited time:** February 12, 2026, 17:59 UTC
+- **Edited time:** July 30, 2026, 16:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/CloudFrontFullAccess`
 
 ## Policy version
 
-**Policy version:** v14 (default)
+**Policy version:** v15 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -58,7 +58,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeIpamPools",
         "ec2:GetIpamPoolCidrs",
         "pricingplanmanager:ListSubscriptions",
-        "pricingplanmanager:CreateSubscription"
+        "pricingplanmanager:CreateSubscription",
+        "cloudwatch:GetMetricData",
+        "freetier:GetAccountPlanState",
+        "shield:ListProtections"
       ],
       "Resource" : "*"
     },
@@ -95,6 +98,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "ppmFullAccess",
       "Effect" : "Allow",
       "Action" : [
+        "pricingplanmanager:ApprovePaidSubscription",
         "pricingplanmanager:AssociateResourcesToSubscription",
         "pricingplanmanager:CancelSubscription",
         "pricingplanmanager:CancelSubscriptionChange",

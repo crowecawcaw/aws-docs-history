@@ -12,13 +12,13 @@ You can attach `AWSBillingReadOnlyAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: August 27, 2020, 20:08 UTC
-- **Edited time:** April 08, 2026, 17:12 UTC
+- **Edited time:** July 30, 2026, 22:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSBillingReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v27 (default)
+**Policy version:** v28 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -82,6 +82,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "invoicing:ListProcurementPortalPreferences",
         "invoicing:ListTagsForResource",
         "invoicing:ListInvoiceCorrections",
+        "invoicing:ListProcurementPortals",
+        "invoicing:ListProcurementPortalSuppliers",
         "mapcredits:ListQuarterSpend",
         "mapcredits:ListAssociatedPrograms",
         "mapcredits:ListQuarterCredits",

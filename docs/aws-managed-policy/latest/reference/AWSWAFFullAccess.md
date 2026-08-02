@@ -12,13 +12,13 @@ You can attach `AWSWAFFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: October 06, 2015, 20:44 UTC
-- **Edited time:** June 30, 2026, 22:42 UTC
+- **Edited time:** July 28, 2026, 21:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSWAFFullAccess`
 
 ## Policy version
 
-**Policy version:** v16 (default)
+**Policy version:** v17 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -249,7 +249,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "logs:PutResourcePolicy"
       ],
-      "Resource" : "*",
+      "Resource" : "arn:aws:logs:*:*:log-group:*",
       "Condition" : {
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [

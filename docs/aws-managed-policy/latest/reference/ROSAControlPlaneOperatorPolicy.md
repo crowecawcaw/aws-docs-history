@@ -12,13 +12,13 @@ You can attach `ROSAControlPlaneOperatorPolicy` to your users, groups, and roles
 
 - **Type**: Service role policy
 - **Creation time**: April 24, 2023, 23:02 UTC
-- **Edited time:** April 10, 2026, 16:12 UTC
+- **Edited time:** July 28, 2026, 23:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/ROSAControlPlaneOperatorPolicy`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -36,6 +36,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeVpcEndpoints",
         "ec2:DescribeVpcs",
         "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
         "route53:ListHostedZones"
       ],
       "Resource" : "*"
@@ -214,15 +215,26 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AddTagsToRedHatManagedSecurityGroups",
+      "Sid" : "AddDeleteTagsRedHatManagedSecurityGroups",
       "Effect" : "Allow",
       "Action" : [
-        "ec2:CreateTags"
+        "ec2:CreateTags",
+        "ec2:DeleteTags"
       ],
-      "Resource" : "arn:aws:ec2:*:*:security-group/*",
+      "Resource" : [
+        "arn:aws:ec2:*:*:security-group/*"
+      ],
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceTag/red-hat-managed" : "true"
+        },
+        "ForAllValues:StringNotEquals" : {
+          "aws:TagKeys" : [
+            "red-hat-managed"
+          ]
+        },
+        "Null" : {
+          "aws:TagKeys" : "false"
         }
       }
     }

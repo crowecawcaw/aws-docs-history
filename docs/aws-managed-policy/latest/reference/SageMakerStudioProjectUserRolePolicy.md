@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectUserRolePolicy` to your users, groups, and
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:59 UTC
-- **Edited time:** July 14, 2026, 19:12 UTC
+- **Edited time:** July 29, 2026, 21:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePolicy`
 
 ## Policy version
 
-**Policy version:** v72 (default)
+**Policy version:** v73 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -1611,7 +1611,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "AllowGetSecretForRedShift",
       "Effect" : "Allow",
       "Action" : [
-        "secretsmanager:GetSecretValue"
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:PutSecretValue"
       ],
       "Resource" : "arn:aws:secretsmanager:*:*:secret:*",
       "Condition" : {
@@ -2449,6 +2450,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "secretsmanager:GetSecretValue",
+        "secretsmanager:PutSecretValue",
         "glue:GetConnections"
       ],
       "Resource" : "*",
