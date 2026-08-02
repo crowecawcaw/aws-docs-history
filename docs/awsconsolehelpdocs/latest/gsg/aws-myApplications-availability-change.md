@@ -1,16 +1,10 @@
 # myApplications availability change
 
-###### Note
-
-Effective July 30, 2026, myApplications will no longer allow creation of new
-applications. For resource grouping capabilities, explore AWS Resource Groups.
-[Learn more](aws-myApplications-availability-change.md "aws-myApplications-availability-change.md").
-
-Effective July 30, 2026, myApplications will no longer allow creation of new
-applications or updates of existing applications. Existing users may continue to access
-and view their previously created applications. AWS will continue to address critical
-security patches and operational issues. No new features, integrations, or regional
-expansions will be released.
+myApplications no longer allows creation of new applications
+or updates of existing applications. Existing users may continue to access and view their
+previously created applications. AWS will continue to address critical security patches and
+operational issues. No new features, integrations, or regional expansions will be
+released.
 
 ## Alternative solutions
 
