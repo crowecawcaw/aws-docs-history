@@ -297,7 +297,7 @@ management
 
 **Parameters:**
 
-- `supportedPlatformIdentifierVersions`: `notebook-al2-v3`
+- `supportedPlatformIdentifierVersions`: `notebook-al2023-v1`
   (not customizable)
 
 This control checks whether an Amazon SageMaker AI notebook instance is configured to run on a
