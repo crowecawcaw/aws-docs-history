@@ -237,7 +237,7 @@ The buttons only appear on the product detail pages in your private offers after
 
 The buttons only appear on the product detail page after you save your changes.
 
-After you enable the buttons, you can hide public pricing on your listing so that buyers contact you through the **Request for private offer** button instead of purchasing through a public offer. For more information, see [Update pricing visibility](update-pricing-visibility.md "update-pricing-visibility.md").
+After you enable the buttons, you can remove public pricing from your listing so that buyers contact you through the **Request for private offer** button instead of purchasing through a public offer. For more information, see [Update pricing visibility](update-pricing-visibility.md "update-pricing-visibility.md").
 
 ## Sending a private offer to a buyer
 

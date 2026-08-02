@@ -84,6 +84,82 @@ Learn more about QuickLaunch fulfillment in these resources:
   [AWS Marketplace Deployment API](../APIReference/API_Operations_AWS_Marketplace_Deployment_Service.md "../APIReference/API_Operations_AWS_Marketplace_Deployment_Service.md")
 - Find customer onboarding instructions in [Onboarding customers to your SaaS product through AWS Marketplace](saas-product-customer-setup.md "saas-product-customer-setup.md")
 
+#### Delivering dynamic endpoint parameters
+
+For products with dynamic endpoints, you must deliver endpoint parameter
+values through the `PutDeploymentParameter` API in addition to
+authentication credentials. These parameters allow AWS Marketplace to resolve
+placeholder values in your endpoint URL and display the fully constructed URL
+to the buyer.
+
+You call `PutDeploymentParameter` once per endpoint with a JSON
+`secretString` that contains all parameter values for that endpoint.
+For example, if your endpoint URL template is
+`https://{region}.apps.example.com/{version}/agents/{tenantId}/mcp`, you provide
+the corresponding values in the JSON payload.
+
+The following steps describe how a buyer onboards to your dynamic
+endpoint product:
+
+1. The buyer subscribes to your product and chooses
+   **Setup Account**.
+2. AWS Marketplace redirects the buyer to your registration page.
+3. You call `ResolveCustomer` to identify the buyer.
+   This call must complete successfully before you call
+   `PutDeploymentParameter`, because you need the
+   buyer's account ID and product code from the response.
+4. You provision the buyer's environment in your system.
+5. You call `PutDeploymentParameter` to deliver the
+   endpoint parameter values (for example, tenant ID and region).
+6. You call `PutDeploymentParameter` separately to deliver
+   authentication credentials (API key or OAuth credentials).
+7. The buyer returns to AWS Marketplace. The fulfillment page reads the
+   parameters, substitutes `{paramName}` placeholders in the
+   endpoint URL, and displays the resolved URL to the buyer.
+
+The following example shows the JSON `secretString` format
+for delivering endpoint parameters through
+`PutDeploymentParameter`:
+
+```
+{
+  "parameters": {
+    "tenantId": "wkf10640",
+    "version": "v1",
+    "region": "us-east-1"
+  }
+}
+```
+
+Each key in the `parameters` object must match a
+`{paramName}` placeholder in your endpoint URL. For more
+information about the `PutDeploymentParameter` API, see
+[PutDeploymentParameter](../APIReference/API_marketplace-deployment_PutDeploymentParameter.md "../APIReference/API_marketplace-deployment_PutDeploymentParameter.md")
+in the _AWS Marketplace API Reference_.
+
+###### Note
+
+Deliver authentication credentials (API keys or OAuth tokens) in a
+separate `PutDeploymentParameter` call with an expiration date
+that reflects your credential rotation policy. Do not combine endpoint
+parameters and credentials in the same call.
+
+###### Best practices for dynamic endpoint parameters
+
+- Set `expirationDate` to
+  `9999-12-31T23:59:59Z` for stable endpoint parameters such
+  as tenant IDs and Regions that do not rotate. Do not use this value
+  for authentication credentials. Set credential expiration to match
+  your rotation policy (for example, 90 days or 1 year).
+- For public listings, if you add new parameters to an existing
+  endpoint after launch, provide a default value for each
+  new parameter. This ensures existing buyers receive a working URL
+  without requiring re-registration.
+- To update a parameter value for an existing buyer (for example,
+  during a tenant migration), call `PutDeploymentParameter`
+  again with the updated JSON payload. The fulfillment page picks up the
+  new value on the next page load.
+
 ### Accessing AWS Marketplace APIs
 
 This following section outlines the process of integrating with the AWS Marketplace Metering Service or AWS Marketplace Entitlement Service, used to ensure that your billing and reporting for customer usage of your products is accurate.

@@ -11,6 +11,8 @@ This FAQ answers commonly asked questions about VAT on AWS Marketplace Deemed Su
 - [How do I identify which AWS EMEA branch I need to invoice?](#faq-identify-branch "#faq-identify-branch")
 - [For which countries can I submit a request for VAT on Deemed Supply?](#faq-countries-branches "#faq-countries-branches")
 - [What if I sell to Buyers in the UK, Norway and multiple EU countries?](#faq-multiple-countries "#faq-multiple-countries")
+- **Access and Permissions**
+- [Why can't I see the Deemed VAT section in my AWS Marketplace Management portal?](#faq-iam-permissions "#faq-iam-permissions")
 - **Invoice Submission Process**
 - [How do I submit a VAT invoice for VAT payment?](#faq-how-to-submit "#faq-how-to-submit")
 - [Can I submit a VAT invoice for a Deemed Supply before the Buyer has paid AWS?](#faq-submit-before-buyer-paid "#faq-submit-before-buyer-paid")
@@ -36,10 +38,10 @@ This FAQ answers commonly asked questions about VAT on AWS Marketplace Deemed Su
 - **Errors, Duplicates, and Corrections**
 - [What happens if my invoice is rejected?](#faq-invoice-rejected "#faq-invoice-rejected")
 - [Can I submit more than one invoice for the same transaction?](#faq-duplicate-invoice "#faq-duplicate-invoice")
-- **Support**
-- [Where can I get additional help with VAT on Deemed Supplies?](#faq-additional-help "#faq-additional-help")
 - **Deemed VAT Supply vs Tax Portal**
 - [How do Deemed VAT Supply Invoicing and the Tax Portal differ?](#faq-deemed-vs-tax-portal "#faq-deemed-vs-tax-portal")
+- **Support**
+- [Where can I get additional help with VAT on Deemed Supplies?](#faq-additional-help "#faq-additional-help")
 
 ## What is a "Deemed Supply" on AWS Marketplace?
 
@@ -202,6 +204,43 @@ Legal Basis: UK VAT Act 1994, s.47(4)
 
 If you sell to Buyers with AWS accounts in multiple countries from multiple Seller accounts, you must issue separate invoices to each relevant AWS EMEA branch facilitating the transaction. Each branch has its own name, address, and VAT identification number.
 
+## Why can't I see the Deemed VAT section in my AWS Marketplace Management portal?
+
+Your AWS Identity and Access Management (IAM) user or role might lack the required permissions. Attach the following IAM policy to the user or role that you use to sign in.
+
+This policy grants access to the Deemed VAT feature:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "SellerSettings",
+            "Effect": "Allow",
+            "Action": [
+                "aws-marketplace:StartInvoiceSubmissionTask",
+                "aws-marketplace:GetInvoiceSubmissionTask",
+                "aws-marketplace:ListInvoiceSubmissionTasks",
+                "aws-marketplace:ListPayables"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "MarketplaceEphemeralWriteS3Access",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::aws-partner-central-marketplace-ephemeral-writeonly-files/${aws:PrincipalAccount}/*"
+            ]
+        }
+    ]
+}
+```
+
+Without these permissions, the Deemed VAT section does not appear in the portal. Contact your administrator if AWS has not yet enabled your account.
+
 ## How do I submit a VAT invoice for VAT payment?
 
 You can submit a VAT invoice through the AMMP Portal. Navigate to the Tax Information tab in AWS Partner Central. Then:
@@ -353,12 +392,6 @@ You can correct the issue and re-upload the invoice through the AMMP portal.
 
 No. The automated validation system includes controls to prevent duplicate invoicing.
 
-## Where can I get additional help with VAT on Deemed Supplies?
-
-For questions about the VAT on Deemed Supplies invoicing process, invoice submission, or disbursement status, please Contact Us through the AMMP portal.
-
-For tax-specific questions regarding the Deemed Supply treatment, applicable VAT rates, or legal references, please consult your tax advisor. AWS is unable to provide tax advice on the VAT treatment of your individual transactions.
-
 ## How do Deemed VAT Supply Invoicing and the Tax Portal differ?
 
 AWS Marketplace has launched the following capabilities accessible through AWS Partner Central:
@@ -375,3 +408,9 @@ The following table summarizes the key differences:
 | Key action        | Submit, track, and receive VAT disbursements              | View, search, filter, and download Listing Fee invoices and India customer invoices only |
 | Validation        | Automated field validation; disbursement on buyer payment | Sellers can download and reconcile invoices                                              |
 | Use case          | VAT compliance under deemed supply arrangements           | Listing fee invoice download and financial reconciliation                                |
+
+## Where can I get additional help with VAT on Deemed Supplies?
+
+For questions about the VAT on Deemed Supplies invoicing process, invoice submission, or disbursement status, please Contact Us through the AMMP portal.
+
+For tax-specific questions regarding the Deemed Supply treatment, applicable VAT rates, or legal references, please consult your tax advisor. AWS is unable to provide tax advice on the VAT treatment of your individual transactions.

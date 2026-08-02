@@ -60,7 +60,7 @@ In addition to [general policies](#general-policies "#general-policies"), AMIs p
 - SSH on AMIs must be accessible to AWS Marketplace internal vetting procedures.
 
   - The SSH service must listen on the TCP port specified for AMI scanning. For more information, see [Add a new version](single-ami-versions.md#single-ami-adding-version "single-ami-versions.md#single-ami-adding-version").
-  - SSH must be accessible from subnets `10.0.0.0/16` and `10.2.0.0/16` on the IP address assigned by Amazon Elastic Compute Cloud (Amazon EC2) at instance launch.
+  - SSH must be accessible from subnets `10.0.0.0/16`, `10.2.0.0/16` and `10.17.0.0/16` on the IP address assigned by Amazon Elastic Compute Cloud (Amazon EC2) at instance launch.
 
 ### Policies for AMIs based on Linux and other Unix-like operating systems
 
@@ -85,13 +85,13 @@ In addition to [general policies](#general-policies "#general-policies"), Window
 
   - (Recommended option) SSM agent is installed and have administrative permissions and outbound network access.
   - [Windows Remote Management (WinRM) service](https://learn.microsoft.com/en-us/windows/win32/winrm/portal "https://learn.microsoft.com/en-us/windows/win32/winrm/portal") is enabled, listens on TCP port
-    `5985`, and is accessible from subnets `10.0.0.0/16` and
-    `10.2.0.0/16` on the IP address assigned by Amazon Elastic Compute Cloud (Amazon EC2) at
+    `5985`, and is accessible from subnets `10.0.0.0/16`,
+    `10.2.0.0/16` and `10.17.0.0/16` on the IP address assigned by Amazon Elastic Compute Cloud (Amazon EC2) at
     instance launch.
   - [Microsoft Server Message Block (SMB) Protocol and Common Internet File System
     (CIFS) Protocol service](https://learn.microsoft.com/en-us/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview "https://learn.microsoft.com/en-us/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview") is enabled, listens on TCP ports `139`
-    and `445` and is accessible from subnets `10.0.0.0/16` and
-    `10.2.0.0/16` on the IP address assigned by Amazon Elastic Compute Cloud (Amazon EC2) at
+    and `445` and is accessible from subnets `10.0.0.0/16`,
+    `10.2.0.0/16` and `10.17.0.0/16` on the IP address assigned by Amazon Elastic Compute Cloud (Amazon EC2) at
     instance launch.
 
 ## Architecture policies

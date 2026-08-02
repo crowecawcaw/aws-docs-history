@@ -41,9 +41,11 @@ AWS Marketplace:
 
 **Channel partner private offer (CPPO) listing fees**
 
-CPPO products have a .5% uplift on the listing fee, regardless of the offer type or
+CPPO products have a 0.5% uplift on the listing fee, regardless of the offer type or
 deployment method. For example, if the product is a SaaS private offer with a total contract
-value of less than $1M, the listing fee would be 3.5%.
+value of less than USD $1M, the listing fee would be 3.5%. AWS Marketplace deducts this listing fee
+from the amount disbursed to the ISV. The listing fee is based on the discounted price
+offered by the ISV to the channel partner.
 
 **Professional services listing fees**
 

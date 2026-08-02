@@ -64,7 +64,9 @@ You determine the wholesale cost in one of the following ways:
 
 In both cases, after the buyer pays for the private offer, AWS Marketplace uses the standard
 process to distribute the funds to the AWS Marketplace Channel Partner and the ISV based on the agreed-to
-pricing.
+pricing. Listing fees are deducted from the amount disbursed to the ISV. Listing fee is
+calculated based on the discounted price offered by ISV to Channel Partner. For listing fee
+tiers, see [Understanding listing fees for AWS Marketplace sellers](listing-fees.md "listing-fees.md").
 
 ###### Tip
 

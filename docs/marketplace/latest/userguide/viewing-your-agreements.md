@@ -4,13 +4,11 @@ You view and manage agreements from the **Agreements** page in the [AWS Marketpl
 table shows the contracts for products you sell in AWS Marketplace. In the **Agreements** table, an agreement can have one of the following statuses:
 
 - **Active –** The terms of the agreement are active.
-- **Expiring –** The contract will expire in less than 90 days.
 - **Expired –** The agreement ended on the defined contract end date.
 - **Renewed –** The agreement was renewed, creating a new agreement with updated terms.
 - **Cancelled –** The acceptor ended the agreement early.
 - **Replaced –** The agreement was replaced using an agreement replacement offer.
 - **Terminated –** The agreement was terminated by AWS before the original contract end date for a reason such as a payment failure.
-- **Archived –** The agreement ended without a specified reason.
 
 ## Finding agreements
 

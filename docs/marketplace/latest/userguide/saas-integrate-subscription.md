@@ -28,9 +28,11 @@ software-as-a-service (SaaS) product in AWS Marketplace. For more information, s
 
 ## Scenario: Your service validates new customers
 
-When a customer subscribes to your product, they are redirected to your registration
-URL which is an HTTP POST request with a temporary `x-amzn-marketplace-token`
-token. Respond to this request in the following ways:
+When a customer subscribes to your product, they choose
+**Set up your account** on the AWS Marketplace product page. The
+customer is then redirected to your registration URL, which is an HTTP POST request with
+a temporary `x-amzn-marketplace-token` token. Respond to this request in the
+following ways:
 
 1. Exchange the token for a `CustomerIdentifier`,
    `CustomerAWSAccountId`, `LicenseArn`, and `ProductCode` by calling
@@ -113,10 +115,11 @@ scenarios for new customers.
 
 1. Use an allowed account to test the customer experience by subscribing to your
    product.
-2. After you've subscribed with the allowed account, ensure that the account is
+2. After you've subscribed with the allowed account, choose
+   **Set up your account**. Make sure that the account is
    redirected to the registration URL, and that the redirect is a POST request that
-   includes a temporary token. Make sure that your application persists the
-   customer ID for future calls. This tests part of [Scenario: Your service validates new customers](#saas-subscription-validate-customer "#saas-subscription-validate-customer").
+   includes a temporary token. Make sure that your application persists the customer
+   ID for future calls. This tests part of [Scenario: Your service validates new customers](#saas-subscription-validate-customer "#saas-subscription-validate-customer").
 3. After verifying the test account in the previous step, onboard the account
    into your application. For example, you can have the test customer fill out a
    form to create a new user. Or, provide them with other next steps to get access

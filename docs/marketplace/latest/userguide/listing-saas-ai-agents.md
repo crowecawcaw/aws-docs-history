@@ -107,7 +107,54 @@ account. 3. Choose your AI agent or tool details:
     	+ **Other** - Additional tools that enhance AI agent capabilities.
 
 4. Enter the endpoint URL. This is the URL where your API receives requests. For
-MCP servers, list the MCP endpoint. 5. Add usage instructions:
+MCP servers, list the MCP endpoint.
+
+    * **Static endpoint** – Enter a fixed URL
+     with no parameters. For example:
+     `https://api.example.com/v1/mcp`.
+    * **Dynamic endpoint** – Enter a URL that
+     contains one or more placeholder parameters using
+     `{paramName}` syntax. For example:
+     `https://{tenantId}.apps.example.com/v1/mcp`.
+
+
+    Dynamic endpoints resolve to buyer-specific URLs after subscription.
+     When you choose this option, you must use the **Quick Launch** fulfillment method.
+
+
+    Configure your endpoint URL parameters:
+
+
+
+
+    	+ **Name** (required) – A machine
+    	 identifier that matches a `{paramName}` placeholder
+    	 in your URL. Names must start with a letter and contain only
+    	 letters, digits, and underscores. Maximum length is 64
+    	 characters.
+    	+ **Description** (optional) –
+    	 Help text displayed to buyers that explains the purpose of the
+    	 parameter.
+    	+ **Default value** (optional) – A
+    	 fallback value used when a buyer-specific value has not yet been
+    	 delivered. Values can contain letters, numbers, hyphens, periods,
+    	 underscores, and tildes. Maximum length is 256
+    	 characters.
+    ###### Note
+
+    You can define up to 5 parameters per endpoint. Every
+     `{paramName}` placeholder in the URL must have a matching
+     parameter entry, and every parameter entry must correspond to a
+     placeholder in the URL.
+
+
+    After a buyer subscribes, call the
+     `PutDeploymentParameter` API operation to deliver
+     buyer-specific parameter values. The Fulfillment Widget resolves the
+     final URL automatically using the delivered values. For more information,
+     see [Delivering dynamic endpoint parameters](integrating-api-ai-agents-tools.md#dynamic-endpoint-parameter-delivery "integrating-api-ai-agents-tools.md#dynamic-endpoint-parameter-delivery").
+
+5. Add usage instructions:
 
     * Provide detailed instructions for buyers to use your API such as API schema, rate limits, and usage examples.
     * You can also provide additional links to your documentation.

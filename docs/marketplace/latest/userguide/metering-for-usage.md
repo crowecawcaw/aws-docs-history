@@ -116,9 +116,8 @@ of the next month. After this grace period, we don't accept those records.
   records to send in a `BatchMeterUsage` request so that you don't exceed the
   size of the payload.
 - The AWS Marketplace Metering Service is available in the AWS Regions listed in [AWS Marketplace endpoints and
-  quotas](../../../general/latest/gr/aws-marketplace.md "../../../general/latest/gr/aws-marketplace.md") in the _AWS General Reference_. By
-  default, the US East (N. Virginia) Region is enabled for SaaS metering products when you
-  request your product. If you intend to use other Regions, contact the [**AWS Marketplace Seller Operations**](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") team. For more information, see [BatchMeterUsage](../../../marketplacemetering/latest/APIReference/API_BatchMeterUsage.md "../../../marketplacemetering/latest/APIReference/API_BatchMeterUsage.md").
+  quotas](../../../general/latest/gr/aws-marketplace.md "../../../general/latest/gr/aws-marketplace.md") in the _AWS General Reference_. For
+  more information, see [BatchMeterUsage](../../../marketplacemetering/latest/APIReference/API_BatchMeterUsage.md "../../../marketplacemetering/latest/APIReference/API_BatchMeterUsage.md").
 - Concurrent agreements: A single customer may have multiple active agreements for
   your product. Each agreement has a unique `LicenseArn` and usage is tracked
   separately per license. Review the new integration for Concurrent Agreements [here](https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements "https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements"). For new implementations, each `UsageRecord` must include a
@@ -197,7 +196,7 @@ In the following diagram, **Resource 1** has a unique set of
 `Operations`. As a result, they're combined into a single
 `UsageAllocations` entry in the **Metering Record**.
 
-![Diagram showing how vendor metering tags combine usage data. Three resources (Resource 1, 2, and 3) with different AccountIds and BusinessUnits are consolidated into a single Metering Record with UsageAllocations grouped by AccountId and BusinessUnit before being sent to the AWS Marketplace Metering Service.](/images/marketplace/latest/userguide/images/seller-vendor-meter-tag.png)
+![Diagram showing how vendor metering tags combine usage data. Three resources (Resource 1, 2, and 3) with different AccountIds and BusinessUnits are consolidated into a single Metering Record with UsageAllocations grouped by AccountId and BusinessUnit before being sent to the AWS Marketplace Metering Service.](images/seller-vendor-meter-tag.png)
 
 Sellers can also combine resources without tags into a single
 `UsageAllocation` and send it as one of the entries in
