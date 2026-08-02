@@ -17,7 +17,7 @@ To limit access to Apache ZooKeeper nodes, you can assign a separate security gr
    in the table to those interfaces that are associated with your cluster.
 6. Select the check box at the beginning of the row that corresponds to the first
    network interface in the list.
-7. In the details pane at the bottom of the page, look for the **Primary
+7. In the details pane, look for the **Primary
    private IPv4 IP**. If this IP address matches one of the IP addresses
    you obtained in the first step of this procedure, this means that this network
    interface is assigned to an Apache ZooKeeper node that is part of your cluster.
@@ -27,7 +27,7 @@ To limit access to Apache ZooKeeper nodes, you can assign a separate security gr
    on all network interfaces that are assigned to Apache ZooKeeper nodes, one by
    one.
 8. When you select a network interface that corresponds to an Apache ZooKeeper node,
-   choose the **Actions** menu at the top of the page, then choose
+   from the **Actions** menu, choose
    **Change Security Groups**. Assign a new security group to this
    network interface. For information about creating security groups, see [Creating a Security Group](../../../vpc/latest/userguide/VPC_SecurityGroups.md#CreatingSecurityGroups "../../../vpc/latest/userguide/VPC_SecurityGroups.md#CreatingSecurityGroups") in the Amazon VPC documentation.
 9. Repeat the previous step to assign the same new security group to all the network

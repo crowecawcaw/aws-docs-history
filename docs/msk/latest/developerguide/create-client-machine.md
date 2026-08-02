@@ -19,7 +19,7 @@ To create a new key pair, do the following:
     3. For **Key pair type** and **Private key file format**, keep the default selections.
     4. Choose **Create key pair**.Alternatively, you can use an existing key pair.
 
-7. Scroll down the page and expand the **Advanced details** section, then do the following:
+7. Expand the **Advanced details** section, then do the following:
 
     1. For **IAM instance profile**, choose an IAM role that you want the client machine to assume.
 

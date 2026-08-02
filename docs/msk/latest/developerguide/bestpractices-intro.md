@@ -7,3 +7,4 @@ This section describes best practices to follow for Standard brokers and Express
 - [Best practices for Standard brokers](bestpractices.md "bestpractices.md")
 - [Best practices for Express brokers](bestpractices-express.md "bestpractices-express.md")
 - [Best practices for Apache Kafka clients](bestpractices-kafka-client.md "bestpractices-kafka-client.md")
+- [Analyze best practices with the managing-amazon-msk skill](bestpractices-msk-skill.md "bestpractices-msk-skill.md")

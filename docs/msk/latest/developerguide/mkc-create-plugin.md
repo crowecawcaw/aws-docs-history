@@ -24,8 +24,7 @@ configurations.
 9. Enter `mkc-tutorial-plugin` for the custom plugin name, then choose
    **Create custom plugin**.
    It might take AWS a few minutes to finish creating the custom plugin. When the
-   creation process is complete, you see the following message in a banner at the top of
-   the browser window.
+   creation process is complete, you see the following message in a banner.
 
 ```
 **Custom plugin mkc-tutorial-plugin was successfully created**

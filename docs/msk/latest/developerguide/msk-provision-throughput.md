@@ -32,8 +32,8 @@ This process shows an example of how you can use the AWS Management Console to c
 6. Choose a value for storage throughput per broker.
 7. Choose a VPC, zones and subnets, and a security group.
 8. Choose **Next**.
-9. At the bottom of the **Security** step, choose **Next**.
-10. At the bottom of the **Monitoring and tags** step, choose **Next**.
+9. On the **Security** step, choose **Next**.
+10. On the **Monitoring and tags** step, choose **Next**.
 11. Review the cluster settings, then choose **Create cluster**.
 
 ## Provision Amazon MSK cluster storage throughput using the AWS CLI

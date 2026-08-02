@@ -37,7 +37,7 @@ You then use this instance to create a topic on the cluster.
 3. In the bottom half of the screen, choose the **Inbound
    rules** tab.
 4. Choose **Edit inbound rules**.
-5. In the bottom left of the screen, choose **Add rule**.
+5. Choose **Add rule**.
 6. In the new rule, choose **All traffic** in the
    **Type** column. In the field to the right of the
    **Source** column, enter the ID of the security group of
@@ -51,7 +51,7 @@ You then use this instance to create a topic on the cluster.
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the table of instances choose `mkc-tutorial-client`.
-3. Near the top of the screen, choose **Connect**, then follow
+3. Choose **Connect**, then follow
    the instructions to connect to the instance.
 4. Install Java on the client instance by running the following command:
 

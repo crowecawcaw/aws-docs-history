@@ -18,7 +18,7 @@ scenario:
 2. Choose **Create bucket**.
 3. For the name of the bucket, enter a descriptive name such as
    `amzn-s3-demo-bucket-mkc-tutorial`.
-4. Scroll down and choose **Create bucket**.
+4. Choose **Create bucket**.
 5. In the list of buckets, choose the newly created bucket.
 6. Choose **Create folder**.
 7. Enter `tutorial` for the name of the folder, then scroll

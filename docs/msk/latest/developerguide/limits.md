@@ -10,6 +10,7 @@ Your AWS account has default quotas for Amazon MSK. Unless otherwise stated, eac
 - [MSK Replicator quotas](#msk-replicator-quotas "#msk-replicator-quotas")
 - [MSK Serverless quota](#serverless-quota "#serverless-quota")
 - [MSK Connect quota](#mkc-quota "#mkc-quota")
+- [Amazon MSK Data Delivery quotas](#msk-data-delivery-quota "#msk-data-delivery-quota")
 
 ## Requesting a quota increase in Amazon MSK
 
@@ -20,7 +21,7 @@ Support could approve, deny, or partially approve your quota increase requests. 
 ###### To request an increase using the Service Quotas console
 
 1. Open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
-2. From the navigation bar, at the top of the screen, select a Region.
+2. From the navigation bar, select a Region.
 3. In the left navigation pane, choose **AWS services**.
 4. In the Find services box, type `msk`, and then choose **Amazon Managed Streaming for Apache Kafka (MSK)**.
 5. In **Service quotas**, choose the **Quota name** for which you want to request an increase. For example, `Number of brokers per account`.
@@ -145,3 +146,26 @@ If you experience any issue with service quota limits, create a support case wit
 - Up to 10 workers per connector.
 
 To request higher quota for MSK Connect, go to the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/kafka/quotas "https://console.aws.amazon.com/servicequotas/home/services/kafka/quotas").
+
+## Amazon MSK Data Delivery quotas
+
+The following quotas apply to Amazon MSK Data Delivery Channels.
+
+| Resource                                              | Default quota                                                 | Adjustable |
+| ----------------------------------------------------- | ------------------------------------------------------------- | ---------- |
+| Channels per Amazon MSK cluster                       | 50                                                            | Yes        |
+| Channels per Kafka topic                              | 10                                                            | Yes        |
+| Maximum data freshness interval                       | 15 minutes                                                    | No         |
+| Minimum data freshness interval                       | 5 minutes                                                     | No         |
+| Minimum throughput for 5-minute freshness (S3 Tables) | 2.4 MB/s per Channel                                          | No         |
+| Maximum throughput per Channel                        | Up to 10 GB/s                                                 | No         |
+| Maximum partitions per table (S3 Tables)              | 100                                                           | No         |
+| Supported input formats (S3 Tables)                   | JSON, JSON\_SCHEMA\_GSR                                       | No         |
+| Supported input formats (S3 bucket)                   | JSON, ByteArray, String                                       | No         |
+| Output format (S3 Tables)                             | Apache Iceberg; Parquet files with ZSTD or Snappy compression | No         |
+| Output compression (S3 bucket)                        | NONE, GZIP, or ZSTD                                           | No         |
+| Schema evolution                                      | Not supported                                                 | No         |
+| Maximum topic name length                             | 249 characters                                                | No         |
+| Maximum table name length                             | 255 characters                                                | No         |
+
+To request an increase for an adjustable quota, use the procedure in [Requesting a quota increase in Amazon MSK](#request-msk-quota-increase "#request-msk-quota-increase").

@@ -10,11 +10,11 @@ set of users or to limit access to the cluster. For information about security g
    interfaces (ENIs) that are associated with the brokers.
 2. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-3. Using the dropdown list near the top-right corner of the screen, select the Region in which the cluster is deployed.
+3. From the **Region** selector, select the Region in which the cluster is deployed.
 4. In the left pane, under **Network & Security**, choose **Network
    Interfaces**.
-5. Select the first ENI that you obtained in the first step. Choose the
-   **Actions** menu at the top of the screen, then choose
+5. Select the first ENI that you obtained in the first step. From the
+   **Actions** menu, choose
    **Change Security Groups**. Assign the new security group to
    this ENI. Repeat this step for each of the ENIs that you obtained in the first
    step.
