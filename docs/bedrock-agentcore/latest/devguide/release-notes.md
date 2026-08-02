@@ -4,6 +4,18 @@ We recommend subscribing to the RSS feed so updates to these notes are delivered
 
 ## July 2026
 
+### Gateway: Web Search connector version 1.2.0 adds request-level filters and target-level include list
+
+The AgentCore Gateway Web Search Tool connector adds version `1.2.0`. At the target level, users can now configure a domain include list to restrict searches to a chosen set of domains, in addition to the existing exclude list. Both target-level lists now support up to 100 domains, expanded from the previous limit of 20 on the exclude list. At the request level, agents can pass an optional `filters` object on each `tools/call` request: `domainFilter.include` and `domainFilter.exclude` (up to 100 domains per list), and a `publishedDateFilter` with `from` and `to` bounds (ISO-8601 UTC, inclusive). Request-level filters compose with the target-level exclude and include lists, which remain enforced on every request. See [Web Search Tool](gateway-target-connector-web-search-tool.md "gateway-target-connector-web-search-tool.md").
+
+### Identity: Private Key JWT client authentication
+
+With Amazon Bedrock AgentCore Identity, your agents can now use Private Key JWT client authentication. Instead of a shared OAuth 2.0 client secret, your agents authenticate to a downstream identity provider’s token endpoint using a signed JSON Web Token (JWT) client assertion.
+
+You register a public key with your identity provider while the corresponding private key stays in AWS Key Management Service (KMS). AgentCore Identity calls AWS KMS to sign each assertion, so the private key never leaves KMS and every signing operation is recorded in AWS CloudTrail.
+
+Private Key JWT authentication works across all three grant flows—machine-to-machine (M2M), on-behalf-of (OBO), and user-delegated access—and supports the RS256, PS256, and ES256 signing algorithms. To get started, choose Private Key JWT as the client authentication method when you add an OAuth client in the Amazon Bedrock AgentCore console. See [Private Key JWT client authentication](private-key-jwt.md "private-key-jwt.md").
+
 ### Amazon Bedrock AgentCore Harness: InvokeHarness now streams MCP tool result metadata
 
 Amazon Bedrock AgentCore harness now surfaces metadata attached to MCP tool results, streaming it in the InvokeHarness response. Previously, Amazon Bedrock AgentCore harness dropped metadata that was included on a tool result before it reached the client. When an MCP tool result includes metadata, you receive it on a dedicated toolResultMetadata delta channel in the InvokeHarness response stream. Amazon Bedrock AgentCore harness automatically splits large metadata into ordered fragments so it streams reliably regardless of size. To consume the metadata, concatenate the toolResultMetadata fragments in the order received and parse the combined result as JSON to recover the original metadata object.

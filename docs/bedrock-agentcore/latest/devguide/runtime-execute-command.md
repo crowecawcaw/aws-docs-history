@@ -370,6 +370,10 @@ Occurs when you don’t have the necessary permissions. Ensure that your IAM pol
 
 Occurs when you exceed the request rate limit of 25 TPS. Implement exponential backoff and retry logic in your application.
 
+**RetryableConflictException**
+
+Occurs (HTTP 409) when an `InvokeAgentRuntimeCommand` operation targets a session that the service is provisioning or tearing down. The message is `Session operation in progress, please retry`. This condition is transient and retryable. Retry with short exponential backoff instead of treating it as terminal. The AWS SDKs auto-retry this exception when default retries are enabled. If you disabled retries or call the API directly without an AWS SDK, retry it yourself.
+
 A command that completes with a non-zero exit code is not an API error. Check the `exitCode` in the `contentStop` event to determine if the command itself succeeded. A `status` of `TIMED_OUT` indicates the command exceeded the specified timeout.
 
 ## Best practices

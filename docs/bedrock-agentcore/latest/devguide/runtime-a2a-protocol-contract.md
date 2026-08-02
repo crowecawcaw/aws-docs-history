@@ -11,7 +11,7 @@ For example code, see [Deploy A2A servers in AgentCore Runtime](runtime-a2a.md "
 - [Path requirements](#path-requirements "#path-requirements")
 - [Authentication requirements](#authentication-requirements "#authentication-requirements")
 - [Error handling](#error-handling "#error-handling")
-- [OAuth Authentication Responses](#a2a-oauth-authentication-responses "#a2a-oauth-authentication-responses")
+- [OAuth authentication responses](#a2a-oauth-authentication-responses "#a2a-oauth-authentication-responses")
 
 ## Protocol implementation requirements
 
@@ -187,15 +187,25 @@ Standard AWS SigV4 authentication is also supported for programmatic access.
 
 ## Error handling
 
-A2A servers return errors as standard JSON-RPC 2.0 error responses with HTTP 200 status codes to maintain protocol compliance:
+A2A servers return errors as standard JSON-RPC 2.0 error responses. The following table maps each runtime exception to its JSON-RPC error code, HTTP status code, and message. Some exceptions share a JSON-RPC error code but return different messages, so they are listed as separate rows.
 
-| JSON-RPC Error Code | Runtime Exception         | HTTP Error Code | JSON-RPC Error Message                                                           |
-| ------------------- | ------------------------- | --------------- | -------------------------------------------------------------------------------- |
-| -32501              | ResourceNotFoundException | 404             | Resource not found<br>• Requested resource does not exist                        |
-| -32052              | ValidationException       | 400             | Validation error<br>• Invalid request data                                       |
-| -32053              | ThrottlingException       | 429             | Rate limit exceeded<br>• Too many requests                                       |
-| -32054              | ResourceConflictException | 409             | Resource conflict<br>• Resource already exists                                   |
-| -32055              | RuntimeClientError        | 424             | Runtime client error<br>• Please check your CloudWatch logs for more information |
+| JSON-RPC Error Code | Runtime Exception             | HTTP Error Code | JSON-RPC Error Message                                                           |
+| ------------------- | ----------------------------- | --------------- | -------------------------------------------------------------------------------- |
+| Not applicable      | AccessDeniedException         | 403             | Access denied (returned as a standard HTTP error, not a JSON-RPC error)          |
+| -32051              | ResourceNotFoundException     | 404             | Resource not found<br>• Requested resource does not exist                        |
+| -32052              | ValidationException           | 400             | Validation error<br>• Invalid request data                                       |
+| -32053              | ThrottlingException           | 429             | Rate limit exceeded<br>• Too many requests                                       |
+| -32053              | ServiceQuotaExceededException | 429             | Rate limit exceeded<br>• Too many requests                                       |
+| -32054              | ConflictException             | 409             | Resource conflict<br>• Resource already exists                                   |
+| -32054              | RetryableConflictException    | 409             | Session operation in progress, please retry                                      |
+| -32055              | RuntimeClientError            | 424             | Runtime client error<br>• Please check your CloudWatch logs for more information |
+| -32603              | Any other exception           | 500             | Internal error<br>• An unexpected error occurred while processing the request    |
+
+`ConflictException` and `RetryableConflictException` both use JSON-RPC error code `-32054` (HTTP 409). Their messages distinguish them. The service returns `RetryableConflictException` (`Session operation in progress, please retry`) when a second operation targets a session that the service is provisioning or tearing down. This condition is transient and retryable. The caller must retry with short exponential backoff, because A2A clients do not auto-retry it.
+
+###### Note
+
+Unlike the A2A specification’s convention of delivering JSON-RPC errors over an HTTP 200 response, AgentCore Runtime returns the real HTTP status code (for example, 409 or 404). Parse the JSON-RPC `error` body even on non-2xx responses, so your client does not miss the error code (such as `-32054`) or the `Session operation in progress, please retry` message it needs to drive a retry.
 
 Example error response:
 
@@ -210,7 +220,7 @@ Example error response:
 }
 ```
 
-## OAuth Authentication Responses
+## OAuth authentication responses
 
 OAuth-configured agents follow [RFC 6749 (OAuth 2.0)](https://datatracker.ietf.org/doc/html/rfc6749 "https://datatracker.ietf.org/doc/html/rfc6749") authentication standards. When authentication is missing, the service returns a 401 Unauthorized response with a WWW-Authenticate header (per [RFC 7235](https://datatracker.ietf.org/doc/html/rfc7235 "https://datatracker.ietf.org/doc/html/rfc7235") ), enabling clients to discover the authorization server endpoints through the GetRuntimeProtectedResourceMetadata API.
 

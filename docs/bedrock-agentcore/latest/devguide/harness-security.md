@@ -15,13 +15,14 @@ The harness gives you the same security primitives as the rest of AgentCore, wir
 
 ## Shared responsibility model
 
-The harness is built on AgentCore Runtime. The security boundary is the same: IAM or JWT authentication combined with microVM isolation. The harness does not add a security layer between the caller and the microVM.
+The harness is built on AgentCore Runtime and the security boundary is the same: IAM or JWT authentication combined with microVM isolation. Any principal that passes that gate reaches the tools and capabilities configured on the harness, which makes caller authorization and input validation a customer responsibility.
 
 ###### AWS responsibilities:
 
 - Secure infrastructure and microVM isolation at the hardware level
 - OS kernel patching
 - Language runtime patching for direct code deployments
+- Managed harness runtime code, including validation of the request structure `InvokeHarness` accepts
 - Network infrastructure security
 - Service availability and resilience
 
@@ -41,11 +42,13 @@ For the full AgentCore Runtime shared responsibility model, see [Security best p
 
 ### Trust boundary and input validation
 
-All `InvokeHarness` and `InvokeAgentRuntimeCommand` input is trusted. Any principal that passes the IAM or JWT authentication and authorization gate has access to the full microVM session, including the tools and capabilities configured on the harness. The harness does not sanitize input, filter content blocks, or enforce behavioral constraints.
+Any principal that passes the IAM or JWT authentication and authorization gate has access to the full microVM session, including the tools and capabilities configured on the harness. The harness validates the structure of the request it accepts, but it does not inspect the meaning of prompts, screen content, or enforce behavioral constraints on the agent.
 
 If you expose the harness to end users you do not fully trust (employees, external consumers, or third-party integrations), validate and sanitize messages in your application layer before passing them to `InvokeHarness`. This includes stripping content-block types or model configuration fields you do not want dispatched. This is the same pattern as any service that accepts payloads from authorized callers, such as Lambda, Amazon API Gateway, and Amazon SQS.
 
-When you pass [toolUse](../APIReference/API_HarnessToolUseBlock.md "../APIReference/API_HarnessToolUseBlock.md") blocks in `InvokeHarness` input for server-side tools that have no corresponding [toolResult](../APIReference/API_HarnessToolResultBlock.md "../APIReference/API_HarnessToolResultBlock.md") blocks, AgentCore harness invokes the indicated tools directly with the given input payloads. The following example invokes the built-in `shell` tool to print the current working directory:
+Tools run only as a result of model reasoning. The harness does not accept a [toolUse](../APIReference/API_HarnessToolUseBlock.md "../APIReference/API_HarnessToolUseBlock.md") block in the final message of an `InvokeHarness` request, so a caller cannot name a tool and have it dispatched directly.
+
+The following example shows a request that the harness is configured to reject. The final message contains a `toolUse` block naming the built-in `shell` tool:
 
 ```
 response = client.invoke_harness(
@@ -67,6 +70,10 @@ response = client.invoke_harness(
     }],
 )
 ```
+
+The harness does not evaluate which tool the block names, so this applies to built-in server-side tools and to inline functions supplied on the call.
+
+Returning a tool result is still supported. The harness accepts a [toolResult](../APIReference/API_HarnessToolResultBlock.md "../APIReference/API_HarnessToolResultBlock.md") block in the final message, and the model resumes reasoning over that result. This is how [inline function tools](harness-tools.md "harness-tools.md") work: the assistant `toolUse` message is followed by the `toolResult` in the same request, so the `toolUse` block is not in the final message.
 
 ### Model configuration parameters
 
@@ -132,7 +139,7 @@ agentcore deploy
 
 ###### Important
 
-The harness pulls its application container from Amazon ECR Public at the start of each session. When running in VPC mode, your VPC must allow outbound access to `public.ecr.aws`. Amazon ECR Public does not support VPC endpoints, so your VPC must have a NAT gateway with a route to an internet gateway. If this connectivity is not available, sessions will fail to start due to image pull timeouts.
+In VPC mode, the harness pulls its managed application container from a private Amazon ECR repository in the harness Region at the start of each session. Your VPC does not need a NAT gateway or internet access for this pull. Instead, create interface VPC endpoints for `com.amazonaws.<region>.ecr.dkr` and `com.amazonaws.<region>.ecr.api`, and a gateway VPC endpoint for `com.amazonaws.<region>.s3`, so the image and its layers resolve inside your VPC. If your agent calls Amazon Bedrock for inference, also create an interface endpoint for `com.amazonaws.<region>.bedrock-runtime`. Without the required endpoints, sessions fail to start due to image pull timeouts. The execution role must allow pulling from the private repository. See the [execution role policy](#harness-execution-role-policy "#harness-execution-role-policy").
 
 For additional network configuration guidance, see [Configure AgentCore Runtime and built-in tools VPC configuration](agentcore-vpc.md "agentcore-vpc.md"). For inbound API connectivity via PrivateLink, see [VPC interface endpoints](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 
@@ -274,6 +281,8 @@ The `GetHarnessEndpoint`, `UpdateHarnessEndpoint`, and `DeleteHarnessEndpoint` a
 
 ### Sample execution role policy
 
+The following sample covers a harness on the public network, which pulls its managed container image from Amazon ECR Public. A harness in VPC mode pulls the managed image from a private Amazon ECR repository in the harness Region, so its execution role also needs private ECR pull permissions. Add the statements in [VPC mode: managed image pull from private ECR](#harness-vpc-managed-ecr "#harness-vpc-managed-ecr") to the execution role for a VPC-mode harness.
+
 ```
 {
   "Version": "2012-10-17",
@@ -344,6 +353,14 @@ The `GetHarnessEndpoint`, `UpdateHarnessEndpoint`, and `DeleteHarnessEndpoint` a
       "Resource": "arn:aws:logs:<region>:<accountId>:log-group:/aws/bedrock-agentcore/runtimes/*:log-stream:*"
     },
     {
+      "Sid": "CloudWatchLogsPutResourcePolicy",
+      "Effect": "Allow",
+      "Action": [
+        "logs:PutResourcePolicy"
+      ],
+      "Resource": "*"
+    },
+    {
       "Sid": "CloudWatchMetricsPublish",
       "Effect": "Allow",
       "Resource": "*",
@@ -391,6 +408,18 @@ The `GetHarnessEndpoint`, `UpdateHarnessEndpoint`, and `DeleteHarnessEndpoint` a
         "bedrock-agentcore:InvokeCodeInterpreter"
       ],
       "Resource": "arn:aws:bedrock-agentcore:<region>:aws:code-interpreter/*"
+    },
+    {
+      "Sid": "AgentCoreMemory",
+      "Effect": "Allow",
+      "Action": [
+        "bedrock-agentcore:CreateEvent",
+        "bedrock-agentcore:DeleteEvent",
+        "bedrock-agentcore:GetEvent",
+        "bedrock-agentcore:ListEvents",
+        "bedrock-agentcore:RetrieveMemoryRecords"
+      ],
+      "Resource": "arn:aws:bedrock-agentcore:<region>:<accountId>:memory/harness_<agentNameAbbrv>_*"
     }
   ]
 }
@@ -434,6 +463,38 @@ Add this policy when your harness uses a private ECR image for a custom containe
   ]
 }
 ```
+
+#### VPC mode: managed image pull from private ECR
+
+Add this policy when your harness runs in VPC mode. In VPC mode, the harness pulls its managed application container from a private Amazon ECR repository in the harness Region (named `harness-<region>`). This pull uses private ECR instead of Amazon ECR Public, so the execution role needs private ECR pull permissions. This policy is separate from the [custom container image permissions](#harness-custom-container-ecr "#harness-custom-container-ecr")—it applies to the AWS managed image even when you do not supply your own container.
+
+The repository is owned by an AWS service account, so the account in the repository ARN is wildcarded. The pull permissions are scoped to the harness Region.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "EcrManagedImagePull",
+      "Effect": "Allow",
+      "Action": [
+        "ecr:BatchGetImage",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:BatchCheckLayerAvailability"
+      ],
+      "Resource": "arn:aws:ecr:<region>:*:repository/harness-*"
+    },
+    {
+      "Sid": "EcrManagedImageToken",
+      "Effect": "Allow",
+      "Action": "ecr:GetAuthorizationToken",
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+Make sure the required VPC endpoints exist in your VPC (see [Network configuration](#harness-network-config "#harness-network-config")): interface endpoints for `com.amazonaws.<region>.ecr.dkr` and `com.amazonaws.<region>.ecr.api`, and a gateway endpoint for `com.amazonaws.<region>.s3`.
 
 #### AgentCore Memory
 
@@ -625,21 +686,22 @@ Add this policy when your harness uses an OAuth2 credential provider for OAuth-p
 
 Replace the following placeholders in the policies above with values specific to your environment:
 
-| Placeholder                 | Description                                            |
-| --------------------------- | ------------------------------------------------------ |
-| `<region>`                  | The AWS Region where your resource is deployed.        |
-| `<accountId>`               | Your AWS account ID.                                   |
-| `<agentName>`               | The name of your harness agent.                        |
-| `<memoryId>`                | The ID of your AgentCore memory resource.              |
-| `<browserCustomId>`         | The ID of your custom browser resource.                |
-| `<codeInterpreterCustomId>` | The ID of your custom code interpreter resource.       |
-| `<gatewayId>`               | The ID of your AgentCore Gateway resource.             |
-| `<apiKeyName>`              | The name of your API key credential provider.          |
-| `<skillBucket>`             | The name of the S3 bucket that holds your skill files. |
-| `<oauthProviderName>`       | The name of your OAuth2 credential provider.           |
-| `<ecrRegion>`               | The region where your ECR repository is hosted.        |
-| `<ecrAccountId>`            | The AWS account ID that owns the ECR repository.       |
-| `<ecrRepoName>`             | The name of your ECR repository.                       |
+| Placeholder                 | Description                                                                                      |
+| --------------------------- | ------------------------------------------------------------------------------------------------ |
+| `<region>`                  | The AWS Region where your resource is deployed.                                                  |
+| `<accountId>`               | Your AWS account ID.                                                                             |
+| `<agentName>`               | The name of your harness agent.                                                                  |
+| `<agentNameAbbrv>`          | The abbreviated form of your harness agent name used in default AgentCore Memory resource names. |
+| `<memoryId>`                | The ID of your AgentCore memory resource.                                                        |
+| `<browserCustomId>`         | The ID of your custom browser resource.                                                          |
+| `<codeInterpreterCustomId>` | The ID of your custom code interpreter resource.                                                 |
+| `<gatewayId>`               | The ID of your AgentCore Gateway resource.                                                       |
+| `<apiKeyName>`              | The name of your API key credential provider.                                                    |
+| `<skillBucket>`             | The name of the S3 bucket that holds your skill files.                                           |
+| `<oauthProviderName>`       | The name of your OAuth2 credential provider.                                                     |
+| `<ecrRegion>`               | The region where your ECR repository is hosted.                                                  |
+| `<ecrAccountId>`            | The AWS account ID that owns the ECR repository.                                                 |
+| `<ecrRepoName>`             | The name of your ECR repository.                                                                 |
 
 ###### Note
 

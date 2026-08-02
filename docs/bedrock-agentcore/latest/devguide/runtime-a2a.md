@@ -414,16 +414,18 @@ Make sure your request uses the same authentication method (OAuth or SigV4) that
 
 A2A specifications for Error handling: [https://a2a-protocol.org/latest/specification/#81-standard-json-rpc-errors](https://a2a-protocol.org/latest/specification/#81-standard-json-rpc-errors "https://a2a-protocol.org/latest/specification/#81-standard-json-rpc-errors")
 
-A2A servers return errors as standard JSON-RPC error responses with HTTP 200 status codes. Internal Runtime errors are automatically translated to JSON-RPC internal errors to maintain protocol compliance.
+A2A servers return most errors as standard JSON-RPC error responses. The service returns authentication and authorization failures (for example, `AccessDeniedException`) as native HTTP errors with their own status codes, as shown in the following table. The service automatically translates internal runtime errors to JSON-RPC internal errors to maintain protocol compliance.
 
-The service now provides proper A2A-compliant error responses with standardized JSON-RPC error codes:
+The service provides A2A-compliant error responses with standardized JSON-RPC error codes:
 
-| JSON-RPC Error Code | Runtime Exception               | HTTP Error Code | JSON-RPC Error Message                                                  |
-| ------------------- | ------------------------------- | --------------- | ----------------------------------------------------------------------- |
-| N/A                 | `AccessDeniedException`         | 403             | N/A                                                                     |
-| -32501              | `ResourceNotFoundException`     | 404             | Resource not found – Requested resource does not exist                  |
-| -32502              | `ValidationException`           | 400             | Validation error – Invalid request data                                 |
-| -32503              | `ThrottlingException`           | 429             | Rate limit exceeded – Too many requests                                 |
-| -32503              | `ServiceQuotaExceededException` | 429             | Rate limit exceeded – Too many requests                                 |
-| -32504              | `ResourceConflictException`     | 409             | Resource conflict – Resource already exists                             |
-| -32505              | `RuntimeClientError`            | 424             | Runtime client error – Check your CloudWatch logs for more information. |
+| JSON-RPC Error Code | Runtime Exception               | HTTP Error Code | JSON-RPC Error Message                                                        |
+| ------------------- | ------------------------------- | --------------- | ----------------------------------------------------------------------------- |
+| Not applicable      | `AccessDeniedException`         | 403             | Access denied (returned as a standard HTTP error, not a JSON-RPC error)       |
+| -32051              | `ResourceNotFoundException`     | 404             | Resource not found – Requested resource does not exist                        |
+| -32052              | `ValidationException`           | 400             | Validation error – Invalid request data                                       |
+| -32053              | `ThrottlingException`           | 429             | Rate limit exceeded – Too many requests                                       |
+| -32053              | `ServiceQuotaExceededException` | 429             | Rate limit exceeded – Too many requests                                       |
+| -32054              | `ConflictException`             | 409             | Resource conflict – Resource already exists                                   |
+| -32054              | `RetryableConflictException`    | 409             | Session operation in progress, please retry                                   |
+| -32055              | `RuntimeClientError`            | 424             | Runtime client error – Check your CloudWatch logs for more information.       |
+| -32603              | `Any other exception`           | 500             | Internal error<br>• An unexpected error occurred while processing the request |

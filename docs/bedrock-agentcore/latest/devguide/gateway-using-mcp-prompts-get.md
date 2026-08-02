@@ -2,20 +2,48 @@
 
 To get a specific prompt, make a POST request to the gateway’s MCP endpoint and specify `prompts/get` as the method in the request body, name of the prompt, and the arguments:
 
+###### Example
+
+2025-11-25 and earlier
+
 ```
 POST /mcp HTTP/1.1
 Host: ${GatewayEndpoint}
+Accept: application/json, text/event-stream
 Content-Type: application/json
 Authorization: ${Authorization header}
+MCP-Protocol-Version: ${McpProtocolVersion}
 
 ${RequestBody}
 ```
+
+2026-07-28
+On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` and `Mcp-Name` request-metadata headers, and the `_meta` version fields in the body.
+
+```
+POST /mcp HTTP/1.1
+Host: ${GatewayEndpoint}
+Accept: application/json, text/event-stream
+Content-Type: application/json
+Authorization: ${Authorization header}
+MCP-Protocol-Version: 2026-07-28
+Mcp-Method: prompts/get
+Mcp-Name: ${PromptName}
+
+${RequestBody}
+```
+
+###### Note
+
+The gateway accepts only the MCP protocol versions listed in the `supportedVersions` field of its `protocolConfiguration.mcp` configuration. To use version `2026-07-28`, make sure that your gateway’s `supportedVersions` includes it. You can change the supported versions with the [UpdateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md") API.
 
 Replace the following values:
 
 - `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") API.
 - `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
-- `${RequestBody}` – The JSON payload of the request body, as specified in [Getting a prompt](https://modelcontextprotocol.io/specification/2025-06-18/server/prompts#getting-a-prompt "https://modelcontextprotocol.io/specification/2025-06-18/server/prompts#getting-a-prompt") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") . Include `prompts/get` as the `method` and include the `name` of the prompt and its `arguments`.
+- `${McpProtocolVersion}` – The MCP protocol version for the request, such as `2025-11-25`. The version must be one that your gateway supports.
+- `${PromptName}` – The name of the prompt, matching the `name` in the request body.
+- `${RequestBody}` – The JSON payload of the request body, as specified in [Getting a prompt](https://modelcontextprotocol.io/specification/2025-06-18/server/prompts#getting-a-prompt "https://modelcontextprotocol.io/specification/2025-06-18/server/prompts#getting-a-prompt") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") . Include `prompts/get` as the `method` and include the `name` of the prompt and its `arguments`. On version `2026-07-28`, also include the `_meta` version fields in `params`.
   The response returns the rendered prompt as an array of messages, each with a role and content.
 
 ###### Note
@@ -28,15 +56,16 @@ To see examples of getting a prompt from the gateway, select one of the followin
 
 ###### Example
 
-curl
-
-1. The following curl request shows an example request to get a prompt called `myTarget___code_review` through a gateway with the ID `mygateway-abcdefghij`.
+curl (2025-11-25 and earlier)
+The following curl request shows an example request to get a prompt called `myTarget___code_review` through a gateway with the ID `mygateway-abcdefghij`. Set the `MCP-Protocol-Version` header to a version that your gateway supports.
 
 ```
 curl -X POST \
   https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
+  -H "Accept: application/json, text/event-stream" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "MCP-Protocol-Version: 2025-11-25" \
   -d '{
     "jsonrpc": "2.0",
     "id": "get-prompt-request",
@@ -51,20 +80,53 @@ curl -X POST \
 }'
 ```
 
-Python requests package
+curl (2026-07-28)
+On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.
 
-1. ```
+```
+curl -X POST \
+  https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
+  -H "Accept: application/json, text/event-stream" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "MCP-Protocol-Version: 2026-07-28" \
+  -H "Mcp-Method: prompts/get" \
+  -H "Mcp-Name: myTarget___code_review" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": "get-prompt-request",
+    "method": "prompts/get",
+    "params": {
+      "name": "myTarget___code_review",
+      "arguments": {
+        "language": "python",
+        "code": "print(\"hello\")"
+      },
+      "_meta": {
+        "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+        "io.modelcontextprotocol/clientInfo": {
+          "name": "my-agent",
+          "version": "1.0.0"
+        },
+        "io.modelcontextprotocol/clientCapabilities": {}
+      }
+    }
+}'
+```
 
-   ```
+Python requests package (2025-11-25 and earlier)
+Set the `MCP-Protocol-Version` header to a version that your gateway supports.
 
+```
 import requests
 import json
 
 def get_prompt(gateway_url, access_token, prompt_name, arguments):
-headers = {
-"Content-Type": "application/json",
-"Authorization": f"Bearer {access_token}"
-}
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {access_token}",
+        "MCP-Protocol-Version": "2025-11-25"
+    }
 
     payload = {
         "jsonrpc": "2.0",
@@ -80,23 +142,66 @@ headers = {
     return response.json()
 
 # Example usage
-
 gateway_url = "https://${GatewayEndpoint}/mcp" # Replace with your actual gateway endpoint
 access_token = "${AccessToken}" # Replace with your actual access token
 result = get_prompt(
-gateway_url,
-access_token,
-"myTarget___code_review", # Replace with {targetName}___{promptName}
-{"language": "python", "code": "print('hello')"}
+    gateway_url,
+    access_token,
+    "myTarget___code_review",  # Replace with {targetName}___{promptName}
+    {"language": "python", "code": "print('hello')"}
 )
 print(json.dumps(result, indent=2))
+```
 
-````
+Python requests package (2026-07-28)
+On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.
 
+```
+import requests
+import json
+
+def get_prompt(gateway_url, access_token, prompt_name, arguments):
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {access_token}",
+        "MCP-Protocol-Version": "2026-07-28",
+        "Mcp-Method": "prompts/get",
+        "Mcp-Name": prompt_name
+    }
+
+    payload = {
+        "jsonrpc": "2.0",
+        "id": "get-prompt-request",
+        "method": "prompts/get",
+        "params": {
+            "name": prompt_name,
+            "arguments": arguments,
+            "_meta": {
+                "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+                "io.modelcontextprotocol/clientInfo": {"name": "my-agent", "version": "1.0.0"},
+                "io.modelcontextprotocol/clientCapabilities": {}
+            }
+        }
+    }
+
+    response = requests.post(gateway_url, headers=headers, json=payload)
+    return response.json()
+
+# Example usage
+gateway_url = "https://${GatewayEndpoint}/mcp" # Replace with your actual gateway endpoint
+access_token = "${AccessToken}" # Replace with your actual access token
+result = get_prompt(
+    gateway_url,
+    access_token,
+    "myTarget___code_review",  # Replace with {targetName}___{promptName}
+    {"language": "python", "code": "print('hello')"}
+)
+print(json.dumps(result, indent=2))
+```
 
 MCP Client
 
-1. ```
+```
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 import asyncio
@@ -154,11 +259,10 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-````
+```
 
 LangGraph MCP Client
-
-1. NOTE: LangGraph MCP adapter prompt support may vary. Use the MCP Client approach above for the most reliable `prompts/get` implementation.
+NOTE: LangGraph MCP adapter prompt support might vary. Use the MCP Client approach shown previously for the most reliable `prompts/get` implementation.
 
 ```
 import asyncio

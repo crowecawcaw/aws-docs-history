@@ -29,6 +29,7 @@ The following sections walk through the key capabilities, the architecture of th
 - **Up-to-date information access** — Retrieve current web results with titles, URLs, snippets, and publication dates to ground agent responses in up-to-date information.
 - **Zero infrastructure management** — No third-party search APIs to provision or scaling to configure. The Gateway exposes web search as a standard MCP tool automatically.
 - **Framework agnostic** — Works with Strands Agents, LangChain, LangGraph, CrewAI, or any MCP-compatible client through the standard Model Context Protocol.
+- **Domain and date filtering** — Restrict searches with a target-level domain exclude list. In connector version `1.2.0` and later, targets also support a domain include list, and agents can pass per-request domain include and exclude lists and published-date bounds.
 - **Purpose-built web index** — Backed by an Amazon-operated web index spanning tens of billions of documents.
 - **Knowledge graph for high-confidence facts** — Grounds entities and their relationships to provide factual answers rather than leaving the model to infer them from extracted page text.
 - **Semantic snippet extraction** — Pulls semantically relevant passages from each web page, optimized for a model’s context window, rather than returning raw HTML or full pages.
@@ -67,7 +68,7 @@ The Web Search Tool is a built-in **connector**. The Gateway handles schema mana
 
 1. **Gateway setup** — Create a Gateway and add a Web Search Tool target using `connectorId: "web-search"`. The Gateway snapshots the tool schema and provisions the integration.
 2. **Tool discovery** — Your agent calls `tools/list` on the Gateway endpoint and discovers the `WebSearch` tool with its input schema.
-3. **Search invocation** — Your agent calls `tools/call` with a natural language query (up to 200 characters). The Gateway authenticates to the backend and routes the request internally within AWS.
+3. **Search invocation** — Your agent calls `tools/call` with a natural language query (up to 200 characters) and, in connector version `1.2.0` and later, optional request-level filters for domains and published dates. The Gateway authenticates to the backend and routes the request internally within AWS.
 4. **Structured results** — The tool returns results with semantically relevant text snippets, URLs, titles, and publication dates in both text and structured JSON formats.
 5. **Grounded response** — Your agent uses the results to compose a response with cited sources.
 
@@ -88,7 +89,22 @@ To give an [AgentCore harness](harness.md "harness.md") web search capability, a
 
 ## Configure domain filtering
 
-You can restrict which domains the Web Search Tool is allowed to query by configuring a domain denylist. For configuration examples and details, see [Configure domain filtering](gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-domain-filtering "gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-domain-filtering") in the target configuration guide.
+Web Search Tool supports two layers of filtering that compose on every request:
+
+- **Target-level domain exclude list and include list.** When setting up the target, the administrator configures lists of domains that the target excludes from or restricts every search to. Both lists are hidden from the calling agent and applied to every request that flows through the target.
+- **Request-level filters (connector version `1.2.0` and later).** The calling agent can pass an optional `filters` object with each `tools/call` request:
+
+  - `domainFilter` — `include` and `exclude` lists, up to 100 domains per list. Web Search Tool returns results only from domains on the `include` list and drops any result whose domain appears on the `exclude` list.
+  - `publishedDateFilter` — `from` and `to` bounds, inclusive, ISO-8601 UTC. Web Search Tool returns only results with a published date that falls on or between the `from` and `to` dates.
+
+Request-level filters compose with the target-level exclude list and include list:
+
+- A domain is dropped from results if it appears on either the target-level exclude list or the request-level exclude list.
+- A domain is returned only if it appears on every include list that is set. If only the target-level include list or only the request-level include list is set, that list is honored. If both are set, only domains present in both are returned. If the two share no domains, no results are returned.
+
+Request-level filters cannot override the target-level exclude list or expand results beyond the target-level include list.
+
+For configuration examples and details, see [Configure domain filtering](gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-domain-filtering "gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-domain-filtering") in the target configuration guide.
 
 ## Configure the Gateway Service Role
 
@@ -96,7 +112,7 @@ The Gateway needs a service role that allows the AgentCore service to perform ac
 
 ## Input schema
 
-The Web Search Tool accepts the following input schema when invoked via `tools/call`:
+The Web Search Tool accepts the following input schema when invoked through `tools/call`. The `filters` field is available only when the target is pinned to connector version `1.2.0` or later. On earlier versions, the schema exposes only `query` and `maxResults`.
 
 ```
 {
@@ -110,6 +126,42 @@ The Web Search Tool accepts the following input schema when invoked via `tools/c
       "maxResults": {
         "description": "Maximum number of results to return. Valid range: 1-25. Defaults to 10.",
         "type": "integer"
+      },
+      "filters": {
+        "description": "Optional request-level filters (connector version 1.2.0+). Applied on top of the target-level exclude list and include list.",
+        "type": "object",
+        "properties": {
+          "domainFilter": {
+            "description": "Per-call domain filter. Include and exclude lists each hold up to 100 domains. Root domain matches subdomains.",
+            "type": "object",
+            "properties": {
+              "include": {
+                "description": "Restrict results to these domains.",
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "exclude": {
+                "description": "Drop results from these domains.",
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            }
+          },
+          "publishedDateFilter": {
+            "description": "Per-call published-date filter. Bounds inclusive, ISO-8601 UTC. Applies to web results only.",
+            "type": "object",
+            "properties": {
+              "from": {
+                "description": "Earliest publication date (ISO-8601 UTC).",
+                "type": "string"
+              },
+              "to": {
+                "description": "Latest publication date (ISO-8601 UTC).",
+                "type": "string"
+              }
+            }
+          }
+        }
       }
     },
     "required": ["query"]
@@ -117,10 +169,15 @@ The Web Search Tool accepts the following input schema when invoked via `tools/c
 }
 ```
 
-| Field        | Type    | Required | Description                                                             |
-| ------------ | ------- | -------- | ----------------------------------------------------------------------- |
-| `query`      | string  | Yes      | The search query string. Must be 200 characters or fewer.               |
-| `maxResults` | integer | No       | Maximum number of results to return. Valid range: 1-25. Defaults to 10. |
+| Field                              | Type             | Required | Description                                                                       |
+| ---------------------------------- | ---------------- | -------- | --------------------------------------------------------------------------------- |
+| `query`                            | string           | Yes      | The search query string. Must be 200 characters or fewer.                         |
+| `maxResults`                       | integer          | No       | Maximum number of results to return. Valid range: 1-25. Defaults to 10.           |
+| `filters`                          | object           | No       | Optional request-level filters. Available in connector version `1.2.0` and later. |
+| `filters.domainFilter.include`     | array of strings | No       | Domains to include. Up to 100 entries.                                            |
+| `filters.domainFilter.exclude`     | array of strings | No       | Domains to exclude. Up to 100 entries.                                            |
+| `filters.publishedDateFilter.from` | string           | No       | Earliest publication date, ISO-8601 UTC.                                          |
+| `filters.publishedDateFilter.to`   | string           | No       | Latest publication date, ISO-8601 UTC.                                            |
 
 ## Response format
 
@@ -153,4 +210,4 @@ Because Amazon operates the full search stack, improvements to freshness, covera
 
 ## Acceptable use
 
-If you use Web Search Tool, you are responsible for your use, and any use by your end users, of content retrieved from Web Search Tool (“Search Results”). You must retain and display the source citations and links provided with each Search Result in any output you surface to your end users that uses the Search Result. You may not use Web Search Tool to (a) extract, store, or reproduce content from Search Results in bulk, or (b) build or populate a competing index or database.
+If you use Web Search Tool, you are responsible for your use, and any use by your end users, of content retrieved from Web Search Tool ("Search Results"). You must retain and display the source citations and links provided with each Search Result in any output you surface to your end users that uses the Search Result. You may not use Web Search Tool to (a) extract, store, or reproduce content from Search Results in bulk, or (b) build or populate a competing index or database.

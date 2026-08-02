@@ -13,12 +13,4 @@ When configuring the execution role permissions, use careful consideration since
 - Follow the principle of least privilege when setting up the execution role. Especially when using these tools with LLMs, that can generate arbitrary code, it’s crucial to limit permissions to only what you intend.
 - Avoid privilege escalation by ensuring that the execution role associated with your resource has equal or fewer privileges than the users who can invoke it.
 
-The following shows an example of properly scoped permissions:
-
-```
-{
-  "Effect": "Allow",
-  "Action": ["s3:GetObject", "s3:PutObject"],
-  "Resource": "arn:aws:s3:::<your-specific-bucket>/*"
-}
-```
+Each AgentCore service requires its own execution role permissions. Scope the role to the service the resource uses, and consult that service’s security documentation for the permissions it requires. For example, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md "runtime-security-best-practices.md") and [Security and access controls](harness-security.md "harness-security.md") for the harness.

@@ -47,6 +47,10 @@ Session state is determined by the compute lifecycle and can be one of the follo
 - **Idle** : When not processing any requests or background tasks. The session has completed processing but remains available for future invocations.
 - **Stopped** : The compute (microVM) provisioned for the session has been terminated and the session is stopped. This can occur due to inactivity (default 15 minutes), reaching max compute lifetime (default 8 hours), an explicit stop by invoking the [StopRuntimeSession](../APIReference/API_StopRuntimeSession.md "../APIReference/API_StopRuntimeSession.md") API, or if the compute is deemed unhealthy based on health checks. The session transitions back to Active on the next invocation and a new compute is provisioned, with the same lifecycle configuration (i.e. idleRuntimeSessionTimeout and maxLifetime that can be up to another 8 hours). The session itself remains valid until the AgentCore Runtime ARN is deleted. If the runtime is configured with session storage, filesystem data at the configured mount path persists across stop/resume cycles. See [File system configurations for AgentCore Runtime](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md").
 
+###### Note
+
+While the service provisions or tears down a session, a second operation targeting that same session returns a retryable HTTP 409 `RetryableConflictException` (`Session operation in progress, please retry`). This window is brief. Already-running sessions are not affected. Retry with short exponential backoff.
+
 ## How to use sessions
 
 To use sessions effectively:

@@ -12,6 +12,10 @@ The harness automatically persists conversation state in [AgentCore Memory](memo
 
 By default, the harness provisions an [AgentCore Memory](memory.md "memory.md") instance automatically with sensible defaults (semantic + summarization strategies, 30-day event expiry). You don’t need to create or configure anything - memory just works.
 
+###### Memory charges
+
+There is no additional charge for the harness itself. Managed Memory incurs standard AgentCore Memory charges for short-term events, stored long-term memory records, and retrieval requests. To avoid persistent Memory charges, disable Memory when you create the harness. For more information, see [Understand harness costs](harness-operations.md#harness-costs "harness-operations.md#harness-costs") and [Amazon Bedrock AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/ "https://aws.amazon.com/bedrock/agentcore/pricing/").
+
 To customize the managed memory at create time:
 
 ###### Example

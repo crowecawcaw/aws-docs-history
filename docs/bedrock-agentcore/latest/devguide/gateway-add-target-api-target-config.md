@@ -1009,6 +1009,8 @@ For more information about the Web Search Tool connector, see [Web Search Tool](
 
 ### Set up Web Search Tool
 
+You can optionally pin the target to a specific connector version by including `version` in the `source` field. If you omit `version`, the target uses the connector’s current default version. For more information about connector versions, see [Connector versions](gateway-target-connector-versions.md "gateway-target-connector-versions.md").
+
 ###### Example
 
 Boto3
@@ -1026,7 +1028,7 @@ gateway_client.create_gateway_target(
     targetConfiguration={
         "mcp": {
             "connector": {
-                "source": {"connectorId": "web-search"},
+                "source": {"connectorId": "web-search", "version": "1.1.0"},
                 "configurations": [{"name": "WebSearch", "parameterValues": {}}],
             }
         }
@@ -1049,7 +1051,8 @@ aws bedrock-agentcore-control create-gateway-target \
     "mcp": {
       "connector": {
         "source": {
-          "connectorId": "web-search"
+          "connectorId": "web-search",
+          "version": "1.1.0"
         },
         "configurations": [
           {
@@ -1087,11 +1090,14 @@ The wizard prompts you for a target name, the gateway to attach to, and an optio
 
 ### Configure domain filtering
 
-You can restrict which domains the Web Search Tool is allowed to query by configuring a domain denylist. This is useful for administrators who want to prevent agents from returning results from specific websites.
+You can restrict which domains the Web Search Tool is allowed to query by configuring a domain include or an exclude list. This is useful for administrators who want to prevent agents from returning results from specific websites.
 
-Domain filtering is configured at the tool level using the `parameterValues.domainFilter.exclude` field when creating or updating a Gateway Target. The denylist is enforced server-side and is hidden from the LLM — the agent is unaware of the restriction and simply receives no results from excluded domains.
+- **Target-level domain exclude list** — A list of domains excluded from all searches on a target, set at target creation using `parameterValues.domainFilter.exclude`. The exclude list is enforced server-side and hidden from the calling agent.
+- **Target-level domain include list (connector version `1.2.0` and later)** — In addition to the exclude list, you can configure `parameterValues.domainFilter.include` to restrict searches to a specific set of domains.
 
-The following examples create a Web Search Tool target with domain filtering that excludes results from `blocked-website-1.com` and `blocked-website-2.com`:
+Request-level filters (domain include/exclude and published-date range) are available to the calling agent in connector version `1.2.0` and later. Request-level filters compose with the target-level exclude and include lists: the target-level exclusions and inclusions always apply, and the agent cannot relax them.
+
+The following examples create a Web Search Tool target pinned to version `1.2.0` with both domain include and exclude lists:
 
 ###### Example
 
@@ -1110,12 +1116,13 @@ gateway_client.create_gateway_target(
     targetConfiguration={
         "mcp": {
             "connector": {
-                "source": {"connectorId": "web-search"},
+                "source": {"connectorId": "web-search", "version": "1.2.0"},
                 "configurations": [
                     {
                         "name": "WebSearch",
                         "parameterValues": {
                             "domainFilter": {
+                                "include": ["allowed-website-1.com", "allowed-website-2.com"],
                                 "exclude": ["blocked-website-1.com", "blocked-website-2.com"]
                             }
                         },
@@ -1142,13 +1149,15 @@ aws bedrock-agentcore-control create-gateway-target \
     "mcp": {
       "connector": {
         "source": {
-          "connectorId": "web-search"
+          "connectorId": "web-search",
+          "version": "1.2.0"
         },
         "configurations": [
           {
             "name": "WebSearch",
             "parameterValues": {
               "domainFilter": {
+                "include": ["allowed-website-1.com", "allowed-website-2.com"],
                 "exclude": ["blocked-website-1.com", "blocked-website-2.com"]
               }
             }

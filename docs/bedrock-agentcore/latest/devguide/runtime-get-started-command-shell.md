@@ -338,6 +338,10 @@ Occurs when you exceed the API rate limit. Implement exponential backoff and ret
 
 Another connection is claiming the same `shellId` simultaneously. Retry after 1 second. This is a narrow race condition (not a persistent state) and resolves immediately on retry.
 
+**RetryableConflictException (409)**
+
+Occurs when you open a shell session connection while the service is provisioning or tearing down the target session. The message is `Session operation in progress, please retry`. This condition is transient and retryable. The window is brief and already-running sessions are not affected. Retry with short exponential backoff. Because `InvokeAgentRuntimeCommandShell` is a WebSocket API, the AWS SDKs do not auto-retry it. Retry it yourself.
+
 Once connected, the following close codes indicate why a connection was terminated:
 
 | Code   | Meaning                                                                                                                  | Client Action                                                                                         |

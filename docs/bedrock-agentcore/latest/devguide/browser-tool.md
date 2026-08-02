@@ -41,4 +41,5 @@ The Browser Tool includes several security features to help protect your environ
 - [Fundamentals](browser-resource-session-management.md "browser-resource-session-management.md")
 - [Observability](browser-observability.md "browser-observability.md")
 - [Features](browser-features.md "browser-features.md")
+- [File system configurations for AgentCore Browser](browser-filesystem-configurations.md "browser-filesystem-configurations.md")
 - [Troubleshoot AgentCore Browser](browser-tool-troubleshooting.md "browser-tool-troubleshooting.md")

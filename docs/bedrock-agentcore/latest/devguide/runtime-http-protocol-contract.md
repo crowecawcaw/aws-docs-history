@@ -12,7 +12,8 @@ For example code, see [Get started with the AgentCore CLI](runtime-get-started-c
 
 - [Container requirements](#container-requirements-http "#container-requirements-http")
 - [Path requirements](#path-requirements-http "#path-requirements-http")
-- [OAuth Authentication Responses](#http-oauth-authentication-responses "#http-oauth-authentication-responses")
+- [Error handling](#http-error-handling "#http-error-handling")
+- [OAuth authentication responses](#http-oauth-authentication-responses "#http-oauth-authentication-responses")
 
 ## Container requirements
 
@@ -284,7 +285,30 @@ Unix timestamp (in seconds) of when the `status` last changed. Set it only on an
 
 Do not set `time_of_last_update` to the current time on every ping. A timestamp that advances on every ping signals a continuous status change, which prevents the idle session timeout from ever firing — sessions then persist until `MaxLifetime` and can exhaust your session quota. If you omit the field, the platform tracks status changes on its own. If you use the Bedrock AgentCore SDK, the ping response is handled for you.
 
-## OAuth Authentication Responses
+## Error handling
+
+Unlike the A2A, MCP, and AG-UI protocols, the HTTP protocol does not wrap errors in a protocol-specific envelope. The service returns errors directly as native HTTP responses: the HTTP status code reflects the exception, and the `x-amzn-ErrorType` response header carries the exception name. The following table lists the exceptions you can receive.
+
+| HTTP Error Code | Runtime Exception (`x-amzn-ErrorType`) | Description                                                                        |
+| --------------- | -------------------------------------- | ---------------------------------------------------------------------------------- |
+| 400             | ValidationException                    | Invalid request data or parameters                                                 |
+| 401             | UnauthorizedException                  | Authentication required or invalid credentials (OAuth-configured agents)           |
+| 402             | ServiceQuotaExceededException          | Request would exceed a service quota                                               |
+| 403             | AccessDeniedException                  | Insufficient permissions for the requested operation                               |
+| 404             | ResourceNotFoundException              | Requested resource does not exist                                                  |
+| 409             | ConflictException                      | Resource conflict<br>• Resource already exists                                     |
+| 409             | RetryableConflictException             | Session operation in progress, please retry                                        |
+| 424             | RuntimeClientError                     | Your agent’s container returned a 4xx or 5xx error<br>• check your CloudWatch logs |
+| 429             | ThrottlingException                    | Too many requests<br>• the request rate limit was exceeded                         |
+| 500             | InternalServerException                | An unexpected error occurred while processing the request                          |
+
+`ConflictException` and `RetryableConflictException` both return HTTP 409. The `x-amzn-ErrorType` header and message distinguish them. The service returns `RetryableConflictException` (`Session operation in progress, please retry`) when a second operation targets a session that the service is provisioning or tearing down. This condition is transient and retryable. Retry with short exponential backoff. The AWS SDKs auto-retry this exception when default retries are enabled. If you call the API directly without an AWS SDK, you must retry it yourself.
+
+###### Note
+
+`ServiceQuotaExceededException` returns HTTP 402 on this native HTTP surface. On the A2A protocol it returns HTTP 429, the same HTTP status as throttling. On the MCP protocol it shares the throttling JSON-RPC error code (`-32003`) but returns HTTP 200. On AG-UI it uses a distinct `SERVICE_QUOTA_EXCEEDED` SSE code and returns HTTP 429.
+
+## OAuth authentication responses
 
 OAuth-configured agents follow [RFC 6749 (OAuth 2.0)](https://datatracker.ietf.org/doc/html/rfc6749 "https://datatracker.ietf.org/doc/html/rfc6749") authentication standards. When authentication is missing, the service returns a 401 Unauthorized response with a WWW-Authenticate header (per [RFC 7235](https://datatracker.ietf.org/doc/html/rfc7235 "https://datatracker.ietf.org/doc/html/rfc7235") ), enabling clients to discover the authorization server endpoints through the GetRuntimeProtectedResourceMetadata API.
 

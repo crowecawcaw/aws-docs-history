@@ -8,7 +8,7 @@ To receive logging messages from your gateway:
 
 - **Response streaming enabled** — Log messages are delivered as SSE chunks during an open connection. Set `streamingConfiguration.enableResponseStreaming` to `true` in your gateway’s `protocolConfiguration.mcp`.
 - **MCP server target type** — Log messages originate from MCP server targets.
-- **Client sends `Accept: text/event-stream` header** — The client must request an SSE response to receive streaming events.
+- **Client sends the `Accept` header** — The client must send `Accept: application/json, text/event-stream` so that the gateway can return a streaming (SSE) response.
 
 ## Log levels
 
@@ -39,16 +39,16 @@ Log messages are informational and do not require a response from the client. Th
 
 ###### Example
 
-curl
-
-1. Call a tool and receive log messages in the SSE stream:
+curl (2025-11-25 and earlier)
+Call a tool and receive log messages in the SSE stream. Set the `MCP-Protocol-Version` header to a version that your gateway supports.
 
 ```
 curl -N -X POST \
   https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
   -H "Content-Type: application/json" \
-  -H "Accept: text/event-stream" \
+  -H "Accept: application/json, text/event-stream" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "MCP-Protocol-Version: 2025-11-25" \
   -d '{
     "jsonrpc": "2.0",
     "id": "tool-call-1",
@@ -82,53 +82,149 @@ event: message
 data: {"jsonrpc":"2.0","id":"tool-call-1","result":{"content":[{"type":"text","text":"Successfully deployed my-api to staging environment."}]}}
 ```
 
-Python requests package
+curl (2026-07-28)
+On version `2026-07-28`, the client opts into log messages for each request by setting `io.modelcontextprotocol/logLevel` in `_meta` (the `logging/setLevel` operation is retired in this version). The server sends `notifications/message` only at or above the requested level. Also include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.
 
-1. ```
+```
+curl -N -X POST \
+  https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "MCP-Protocol-Version: 2026-07-28" \
+  -H "Mcp-Method: tools/call" \
+  -H "Mcp-Name: deployService" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": "tool-call-1",
+    "method": "tools/call",
+    "params": {
+      "name": "deployService",
+      "arguments": {
+        "serviceName": "my-api",
+        "environment": "staging"
+      },
+      "_meta": {
+        "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+        "io.modelcontextprotocol/clientInfo": {
+          "name": "my-agent",
+          "version": "1.0.0"
+        },
+        "io.modelcontextprotocol/clientCapabilities": {},
+        "io.modelcontextprotocol/logLevel": "info"
+      }
+    }
+}'
+```
 
-   ```
+The gateway returns an SSE stream with log messages followed by the final result:
 
+```
+event: message
+data: {"jsonrpc":"2.0","method":"notifications/message","params":{"level":"info","logger":"deploy-service","data":"Starting deployment of my-api to staging"}}
+
+event: message
+data: {"jsonrpc":"2.0","method":"notifications/message","params":{"level":"info","logger":"deploy-service","data":"Building container image..."}}
+
+event: message
+data: {"jsonrpc":"2.0","method":"notifications/message","params":{"level":"warning","logger":"deploy-service","data":"Deprecated configuration detected in service manifest"}}
+
+event: message
+data: {"jsonrpc":"2.0","method":"notifications/message","params":{"level":"info","logger":"deploy-service","data":"Deployment complete"}}
+
+event: message
+data: {"jsonrpc":"2.0","id":"tool-call-1","result":{"content":[{"type":"text","text":"Successfully deployed my-api to staging environment."}]}}
+```
+
+Python requests package (2025-11-25 and earlier)
+Set the `MCP-Protocol-Version` header to a version that your gateway supports.
+
+```
 import requests
 import json
 import sseclient
 
 gateway_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
 headers = {
-"Content-Type": "application/json",
-"Accept": "text/event-stream",
-"Authorization": "Bearer YOUR_ACCESS_TOKEN"
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+    "Authorization": "Bearer YOUR_ACCESS_TOKEN",
+    "MCP-Protocol-Version": "2025-11-25"
 }
 
 # Call tool (streaming response)
-
 response = requests.post(gateway_url, headers=headers, json={
-"jsonrpc": "2.0",
-"id": "tool-call-1",
-"method": "tools/call",
-"params": {
-"name": "deployService",
-"arguments": {"serviceName": "my-api", "environment": "staging"}
-}
+    "jsonrpc": "2.0",
+    "id": "tool-call-1",
+    "method": "tools/call",
+    "params": {
+        "name": "deployService",
+        "arguments": {"serviceName": "my-api", "environment": "staging"}
+    }
 }, stream=True)
 
 # Process SSE events
-
 client = sseclient.SSEClient(response)
 for event in client.events():
-data = json.loads(event.data)
-if data.get("method") == "notifications/message":
-params = data["params"]
-print(f"[{params['level'].upper()}] {params.get('logger', '')}: {params['data']}")
-elif "result" in data:
-print(f"Tool result: {data['result']}")
-break
+    data = json.loads(event.data)
+    if data.get("method") == "notifications/message":
+        params = data["params"]
+        print(f"[{params['level'].upper()}] {params.get('logger', '')}: {params['data']}")
+    elif "result" in data:
+        print(f"Tool result: {data['result']}")
+        break
+```
 
-````
+Python requests package (2026-07-28)
+On version `2026-07-28`, opt into log messages by setting `io.modelcontextprotocol/logLevel` in `_meta` (the `logging/setLevel` operation is retired in this version). Also add the `MCP-Protocol-Version`, `Mcp-Method`, and `Mcp-Name` headers and the `_meta` version fields. Your gateway’s `supportedVersions` must include `2026-07-28`.
 
+```
+import requests
+import json
+import sseclient
+
+gateway_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
+headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+    "Authorization": "Bearer YOUR_ACCESS_TOKEN",
+    "MCP-Protocol-Version": "2026-07-28",
+    "Mcp-Method": "tools/call",
+    "Mcp-Name": "deployService"
+}
+
+# Call tool (streaming response)
+response = requests.post(gateway_url, headers=headers, json={
+    "jsonrpc": "2.0",
+    "id": "tool-call-1",
+    "method": "tools/call",
+    "params": {
+        "name": "deployService",
+        "arguments": {"serviceName": "my-api", "environment": "staging"},
+        "_meta": {
+            "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+            "io.modelcontextprotocol/clientInfo": {"name": "my-agent", "version": "1.0.0"},
+            "io.modelcontextprotocol/clientCapabilities": {},
+            "io.modelcontextprotocol/logLevel": "info"
+        }
+    }
+}, stream=True)
+
+# Process SSE events
+client = sseclient.SSEClient(response)
+for event in client.events():
+    data = json.loads(event.data)
+    if data.get("method") == "notifications/message":
+        params = data["params"]
+        print(f"[{params['level'].upper()}] {params.get('logger', '')}: {params['data']}")
+    elif "result" in data:
+        print(f"Tool result: {data['result']}")
+        break
+```
 
 MCP Client
 
-1. ```
+```
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 import asyncio
@@ -161,14 +257,11 @@ asyncio.run(use_logging(
     url="https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp",
     token="YOUR_ACCESS_TOKEN"
 ))
-````
+```
 
 Strands MCP Client
 
-1. ```
-
-   ```
-
+```
 from mcp.client.streamable_http import streamablehttp_client
 from strands import Agent
 from strands.tools.mcp import MCPClient
@@ -177,18 +270,14 @@ mcp_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amaz
 access_token = "YOUR_ACCESS_TOKEN"
 
 mcp_client = MCPClient(
-lambda: streamablehttp_client(
-mcp_url, headers={"Authorization": f"Bearer {access_token}"}
-)
+    lambda: streamablehttp_client(
+        mcp_url, headers={"Authorization": f"Bearer {access_token}"}
+    )
 )
 
 # Strands handles streaming and log messages automatically
-
 with mcp_client:
-agent = Agent(tools=mcp_client.list_tools_sync())
-response = agent("Deploy my-api to staging")
-print(response)
-
-```
-
+    agent = Agent(tools=mcp_client.list_tools_sync())
+    response = agent("Deploy my-api to staging")
+    print(response)
 ```

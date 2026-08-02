@@ -392,8 +392,7 @@ The following fields are renamed:
     "custom"?: {
       "data": "string"
     }
-  },
-  "metadata": Document
+  }
   ...
 }
 ```

@@ -44,6 +44,41 @@ All harness CloudTrail events use `resources.type` = `AWS::BedrockAgentCore::Run
 
 Data plane operations appear as `InvokeAgentRuntime` and `InvokeAgentRuntimeCommand` in CloudTrail, matching the underlying Runtime API. The `resources.ARN` field contains the harness ARN for control plane events and the runtime ARN for data plane events.
 
+## Understand harness costs
+
+There is no additional charge for the harness itself. You pay standard rates for the underlying capabilities that the harness uses. For current rates, see [Amazon Bedrock AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/ "https://aws.amazon.com/bedrock/agentcore/pricing/") and the pricing page for your model provider.
+
+The following table describes the capabilities that can incur charges when you use the harness.
+
+| Capability                             | When charges apply                                                                                                                                       | What determines usage                                                                                                                                                                                                                                                                              |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AgentCore Runtime                      | AgentCore Runtime starts a microVM for every harness session.                                                                                            | AgentCore Runtime bills for actual CPU consumed and peak memory consumed each second from microVM startup through termination, including system overhead. CPU charges don’t apply during model or tool I/O wait if no background process uses CPU. Memory remains billable while the session runs. |
+| Model inference                        | The model provider bills each time the agent calls the configured model. One harness invocation can make multiple model calls.                           | The provider calculates charges from input and output tokens. Input includes the system prompt, conversation history, retrieved memory, skill instructions, and definitions for allowed tools. For tool-definition overhead, see [Tools](harness-tools.md "harness-tools.md").                     |
+| AgentCore Memory                       | AgentCore Memory bills when the harness writes events or retrieves records. Managed Memory is enabled by default; charges also apply to attached Memory. | AgentCore Memory meters new short-term events, stored long-term memory records, and long-term memory retrieval requests.                                                                                                                                                                           |
+| AgentCore Browser and Code Interpreter | Browser and Code Interpreter bill when the agent uses these configured tools.                                                                            | Each service meters active CPU and memory consumption for its sessions. Their tool definitions can still add model input tokens when allowed, even if the agent doesn’t call them.                                                                                                                 |
+| AgentCore Gateway and Web Search       | Gateway bills when the harness discovers or invokes tools, performs searches, or uses indexed tools. Web Search bills when the harness submits a query.  | Gateway meters API operations, search queries, and indexed tools, as applicable. Web Search meters its queries separately.                                                                                                                                                                         |
+| Observability                          | CloudWatch bills for the traces, logs, and metrics that every invocation emits.                                                                          | CloudWatch meters ingestion, storage, and query usage.                                                                                                                                                                                                                                             |
+| Storage and network                    | Storage and network services bill when you use a custom container, persistent filesystems, or data transfer.                                             | Amazon ECR meters image storage. Amazon S3 and EFS meter resource usage. Standard data transfer rates apply to network traffic.                                                                                                                                                                    |
+
+### Estimate Runtime cost
+
+Runtime billing uses per-second active consumption rather than provisioned instance time:
+
+```
+CPU cost = consumed vCPU-seconds / 3,600 * vCPU-hour rate
+Memory cost = sum of peak GB consumed in each second / 3,600 * GB-hour rate
+```
+
+Don’t estimate CPU cost from wall-clock invocation or session duration alone. Model and tool I/O waits don’t incur CPU charges when no other process uses CPU. However, memory consumption remains billable. A shorter `idleRuntimeSessionTimeout` can reduce how long memory remains billable after the last invocation, at the cost of more frequent cold starts.
+
+### Measure and attribute usage
+
+- Read `metadata` events in the invocation stream for model token usage.
+- Use AgentCore Observability traces and `agentcore logs --harness <name>` to identify model calls, tool calls, memory operations, and their duration. Observability explains activity but is not a billing report.
+- Use AWS Cost Explorer or the AWS Cost and Usage Report for billed usage. Activate your harness tags as cost allocation tags to filter supported charges.
+
+Harness tags propagate to the managed Runtime, Runtime endpoint, and managed Memory created for the harness. Tag separately created resources, such as Gateway, EFS, S3, or a bring-your-own Memory resource, independently.
+
 ## Control cost with limits
 
 Set hard caps so a runaway agent can’t burn through resources:
@@ -119,7 +154,7 @@ Set tags in `harness.json`:
 
 Run `agentcore deploy` to apply.
 
-Tags flow through to deployed CloudFormation resources.
+Harness tags propagate to the managed Runtime, Runtime endpoint, and managed Memory created for the harness. Separately created resources retain their own tags.
 
 ### Related topics
 

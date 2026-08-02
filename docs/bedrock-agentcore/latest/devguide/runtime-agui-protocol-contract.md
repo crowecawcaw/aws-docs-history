@@ -146,27 +146,45 @@ Standard AWS SigV4 authentication is also supported for programmatic access.
 
 ## Error handling
 
-Errors are classified into two categories based on when they occur:
+AG-UI serializes every error as an SSE `RUN_ERROR` event (`Content-Type: text/event-stream`), whether the error occurs before or during streaming. The categories differ only in the HTTP status code that accompanies the event:
 
-- **Connection-level errors** : Occur before the request reaches your container (authentication, validation, throttling). These return standard HTTP status codes.
-- **Runtime errors** : Occur during agent execution after the stream has started. These surface as `RUN_ERROR` events in the SSE stream rather than HTTP status codes.
+- **Connection-level errors** : Occur before the request reaches your container (authentication, authorization, validation, throttling, session conflicts). The `RUN_ERROR` event is returned with the error’s real HTTP status code (for example, 401, 403, or 409).
+- **Runtime errors** : Occur during agent execution after the stream has started. Only `AGENT_ERROR` falls into this category. Its `RUN_ERROR` event returns HTTP 200 because the stream has already begun.
 
-| AG-UI Error Code      | HTTP Status | Description                                                     |
-| --------------------- | ----------- | --------------------------------------------------------------- |
-| `UNAUTHORIZED`        | 401         | Authentication required or invalid credentials                  |
-| `ACCESS_DENIED`       | 403         | Insufficient permissions for requested operation                |
-| `VALIDATION_ERROR`    | 400         | Invalid request data or parameters                              |
-| `RATE_LIMIT_EXCEEDED` | 429         | Too many requests from client                                   |
-| `AGENT_ERROR`         | 200         | Agent code failed during execution – check your CloudWatch logs |
+The following table maps each runtime exception to its AG-UI SSE error code, HTTP status code, and message. Some exceptions share an SSE error code but return different messages, so they are listed as separate rows.
+
+| SSE Error Code           | Runtime Exception             | HTTP Error Code | Error Message                                                   |
+| ------------------------ | ----------------------------- | --------------- | --------------------------------------------------------------- |
+| `UNAUTHORIZED`           | UnauthorizedException         | 401             | Authentication required or invalid credentials                  |
+| `ACCESS_DENIED`          | AccessDeniedException         | 403             | Insufficient permissions for requested operation                |
+| `VALIDATION_ERROR`       | ValidationException           | 400             | Invalid request data or parameters                              |
+| `RATE_LIMIT_EXCEEDED`    | ThrottlingException           | 429             | Too many requests from client                                   |
+| `SESSION_BUSY`           | ConflictException             | 409             | Resource conflict<br>• Resource already exists                  |
+| `SESSION_BUSY`           | RetryableConflictException    | 409             | Session operation in progress, please retry                     |
+| `SERVICE_QUOTA_EXCEEDED` | ServiceQuotaExceededException | 429             | Service quota exceeded                                          |
+| `AGENT_ERROR`            | RuntimeClientError            | 200             | Agent code failed during execution – check your CloudWatch logs |
+| `INTERNAL_ERROR`         | Any other exception           | 500             | An internal error occurred while processing the request         |
+
+`ConflictException` and `RetryableConflictException` both use the `SESSION_BUSY` SSE error code (HTTP 409) but are distinguished by their message. The service returns `RetryableConflictException` (`Session operation in progress, please retry`) when a second operation reaches a session while the service is provisioning or tearing down that session. It is transient and retryable — retry with short exponential backoff, because AG-UI clients do not auto-retry it.
 
 Example runtime error (agent failure):
 
 ```
 HTTP/1.1 200 OK
 Content-Type: text/event-stream
-x-amzn-requestid: 8bg30e9c-7e26-6bge-dc4b-75h368cc10cf
+x-amzn-requestid: 12345678-1234-1234-1234-123456789012
 
 data: {"type":"RUN_ERROR","code":"AGENT_ERROR","message":"Agent execution failed"}
+```
+
+Example session-busy error (retryable conflict):
+
+```
+HTTP/1.1 409 Conflict
+Content-Type: text/event-stream
+x-amzn-requestid: 12345678-1234-1234-1234-123456789012
+
+data: {"type":"RUN_ERROR","code":"SESSION_BUSY","message":"Session operation in progress, please retry"}
 ```
 
 ## OAuth authentication responses
@@ -179,7 +197,7 @@ Example OAuth authentication error:
 HTTP/1.1 401 Unauthorized
 Content-Type: text/event-stream
 WWW-Authenticate: Bearer resource_metadata="https://bedrock-agentcore.{region}.amazonaws.com/runtimes/{ESCAPED_ARN}/invocations/.well-known/oauth-protected-resource?qualifier={QUALIFIER}"
-x-amzn-requestid: 8bg30e9c-7e26-6bge-dc4b-75h368cc10cf
+x-amzn-requestid: 12345678-1234-1234-1234-123456789012
 
 data: {"type":"RUN_ERROR","code":"UNAUTHORIZED","message":"Authentication required"}
 ```

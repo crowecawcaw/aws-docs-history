@@ -312,6 +312,14 @@ Authentication or authorization issues.
 
 Check your bearer token or IAM permissions.
 
+**409 RetryableConflictException**
+
+A second operation reached a session while it was still being provisioned or torn down. You see the message `Session operation in progress, please retry`.
+
+**What it means:** This is a transient, retryable conflict — not a terminal error. The window is brief. Already-running sessions are not affected.
+
+**How to fix:** Retry the operation with short exponential backoff. For HTTP-based APIs (such as `InvokeAgentRuntime`, `InvokeAgentRuntimeCommand`, and `StopRuntimeSession`), the AWS SDKs auto-retry this when default retries are enabled. If you disabled retries or call the API directly without an AWS SDK, add the retry yourself. For WebSocket-based APIs (such as `InvokeAgentRuntimeWithWebSocketStream` and `InvokeAgentRuntimeCommandShell`), the AWS SDKs do not auto-retry. Always retry these yourself.
+
 **500 Internal Server Error**
 
 Runtime exceptions in your agent code.

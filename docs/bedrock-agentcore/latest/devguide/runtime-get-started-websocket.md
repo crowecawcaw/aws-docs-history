@@ -760,7 +760,44 @@ Ensure your agent container implements the `/ping` endpoint as specified in [HTT
 #### Error handling
 
 
-WebSocket connections use standard close codes for error communication. Common close codes include:
+WebSocket errors surface in two phases, depending on when they occur.
+
+
+
+**Connection establishment (before the WebSocket upgrade)**
+
+
+
+Opening the connection is a standard HTTP request. The HTTP status code reflects the exception, and the `x-amzn-ErrorType` response header carries the exception name. The service can return any of the following errors before it establishes the WebSocket connection.
+
+
+
+
+| HTTP Error Code | Runtime Exception (`x-amzn-ErrorType`) | Description |
+| --- | --- | --- |
+| 400 | ValidationException | Invalid request data or parameters |
+| 401 | UnauthorizedException | Authentication required or invalid credentials (OAuth-configured agents) |
+| 402 | ServiceQuotaExceededException | Request would exceed a service quota |
+| 403 | AccessDeniedException | Insufficient permissions for the requested operation |
+| 404 | ResourceNotFoundException | Requested resource does not exist |
+| 409 | ConflictException | Resource conflict<br>• Resource already exists |
+| 409 | RetryableConflictException | Session operation in progress, please retry |
+| 424 | RuntimeClientError | Your agent’s container returned a 4xx or 5xx error<br>• check your CloudWatch logs |
+| 429 | ThrottlingException | Too many requests<br>• the request rate limit was exceeded |
+| 500 | InternalServerException | An unexpected error occurred while processing the request |
+
+
+###### Note
+
+The service returns `RetryableConflictException` (HTTP 409, `Session operation in progress, please retry`) when you open a WebSocket connection to a session that the service is provisioning or tearing down. This condition is transient and retryable. Retry with short exponential backoff. This applies to concurrent invokes targeting the same session. Already-running sessions are not affected.
+
+
+
+**Active connection (after the WebSocket upgrade)**
+
+
+
+Once the WebSocket is established, errors are communicated with standard WebSocket close codes rather than HTTP status codes. Common close codes include:
 
 
 

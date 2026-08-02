@@ -17,6 +17,7 @@ Developers can customize environments with session properties and network modes 
 - [Write files to a session](code-interpreter-file-operations.md "code-interpreter-file-operations.md")
 - [Using Terminal Commands with an execution role](code-interpreter-s3-integration.md "code-interpreter-s3-integration.md")
 - [Resource and session management](code-interpreter-resource-session-management.md "code-interpreter-resource-session-management.md")
+- [File system configurations for AgentCore Code Interpreter](code-interpreter-filesystem-configurations.md "code-interpreter-filesystem-configurations.md")
 - [Code Interpreter API Reference Examples](code-interpreter-api-reference-examples.md "code-interpreter-api-reference-examples.md")
 - [Observability](code-interpreter-observability.md "code-interpreter-observability.md")
 - [Configure Root Certificate Authority for Amazon Bedrock AgentCore Code Interpreter](code-interpreter-root-ca-certificates.md "code-interpreter-root-ca-certificates.md")

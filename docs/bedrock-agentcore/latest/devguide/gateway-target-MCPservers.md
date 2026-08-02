@@ -63,12 +63,16 @@ The following AWS services natively support IAM authentication and are compatibl
 The following must be configured.
 
 1. The MCP server must have tool capabilities. Prompts and resources capabilities are optional and are synced automatically when the server advertises them.
-2. Supported MCP protocol versions are - **2025-06-18** , **2025-03-26** , and **2025-11-25**.
+2. Supported MCP protocol versions are - **2026-07-28** , **2025-11-25** , **2025-06-18** , and **2025-03-26**.
 3. For the provided URL/endpoint of the server, the URL should be encoded. The Gateway will use the same URL to invoke the server.
+
+###### Note
+
+For accounts that are enabled for MCP version updates, you can modify the gateway’s supported protocol versions with the `UpdateGateway` operation. Otherwise, the supported versions are fixed when you create the gateway.
 
 ###### Tip
 
-If your MCP server is hosted on AgentCore Runtime, enable [MCP sessions](gateway-sessions.md "gateway-sessions.md") on your gateway or add `Mcp-Session-Id` as an allowed request and response header in the target’s `metadataConfiguration`. This avoids repeated initialization with the MCP server on each request and results in lower latency for subsequent tool calls.
+If your MCP server is hosted on AgentCore Runtime, you can avoid repeated initialization with the MCP server on each request. Enable [MCP sessions](gateway-sessions.md "gateway-sessions.md") on your gateway, or add `Mcp-Session-Id` as an allowed request and response header in the target’s `metadataConfiguration`. This results in lower latency for subsequent tool calls. This guidance applies to version `2025-11-25` and earlier. Version `2026-07-28` is stateless and does not use the `Mcp-Session-Id` header.
 
 ## Connecting to an OAuth-protected MCP server using Authorization Code flow
 

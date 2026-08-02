@@ -11,6 +11,10 @@ Tools are declarative. You list what the agent can call; AgentCore handles invoc
 
 The `allowedTools` parameter controls which tools the agent can use. If omitted, all tools are allowed.
 
+###### Token overhead from tool definitions
+
+Tool definitions count toward model input tokens even when the agent doesn’t call the tools. Together, the default `shell` and `file_operations` definitions add approximately 900 input tokens to each model request. The exact count varies by model and can change as tool definitions evolve. Because an invocation can make multiple model requests, this overhead can occur more than once per invocation. Use `allowedTools` to expose only the tools needed for a request and reduce token usage.
+
 Supported patterns:
 
 | Pattern         | Example             | Matches                        |

@@ -118,12 +118,15 @@ Expected response format for successful `StopRuntimeSession` operations.
 
 Common error responses:
 
-| Status Code | Error                     | Description                             |
-| ----------- | ------------------------- | --------------------------------------- |
-| 404         | ResourceNotFoundException | Session not found or already terminated |
-| 403         | AccessDeniedException     | Insufficient permissions                |
-| 400         | ValidationException       | Invalid parameters                      |
-| 500         | InternalServerException   | Service error                           |
+| Status Code | Error                      | Description                                 |
+| ----------- | -------------------------- | ------------------------------------------- |
+| 404         | ResourceNotFoundException  | Session not found or already terminated     |
+| 403         | AccessDeniedException      | Insufficient permissions                    |
+| 400         | ValidationException        | Invalid parameters                          |
+| 409         | RetryableConflictException | Session operation in progress, please retry |
+| 500         | InternalServerException    | Service error                               |
+
+The service returns `RetryableConflictException` (HTTP 409) when your `StopRuntimeSession` call arrives while the service is still provisioning or tearing down the session. This condition is transient and retryable. Retry with short exponential backoff instead of treating it as a terminal failure. The AWS SDKs auto-retry this exception when default retries are enabled. If you disabled retries or call the API directly without an AWS SDK (for example, the HTTPS request shown earlier), retry it yourself.
 
 ## Best practices
 

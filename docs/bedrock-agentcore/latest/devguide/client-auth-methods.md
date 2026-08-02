@@ -17,6 +17,12 @@ AgentCore Identity supports the following values for client authentication metho
    1. Outbound web identity federation must be enabled on your account. Enable it with [iam:EnableOutboundWebIdentityFederation](../../../IAM/latest/APIReference/API_EnableOutboundWebIdentityFederation.md "../../../IAM/latest/APIReference/API_EnableOutboundWebIdentityFederation.md").
    2. The calling AWS IAM identity must have permission to call [sts:GetWebIdentityToken](../../../STS/latest/APIReference/API_GetWebIdentityToken.md "../../../STS/latest/APIReference/API_GetWebIdentityToken.md").
 
+4. **`PRIVATE_KEY_JWT`** Authenticates to the authorization server’s token endpoint by sending a short-lived JWT client assertion. AgentCore Identity builds and signs the assertion with a customer-managed AWS KMS asymmetric key via `kms:Sign`, per RFC 7523, Section 2.2. The private key never leaves KMS. The authorization server validates the assertion against the public key you registered. When you select this method, no client secret is required. A client ID is required for all flows. To use `PRIVATE_KEY_JWT` as the client authentication method, satisfy the following prerequisites:
+
+   1. An asymmetric signing key in AWS KMS with key usage `SIGN_VERIFY`, with an appropriate key policy and a key spec compatible with your chosen signing algorithm (see [Private Key JWT](private-key-jwt.md "private-key-jwt.md") for the algorithm-to-key-spec table).
+   2. The AgentCore Identity execution role (or calling identity) must have `kms:DescribeKey` and `kms:Sign` permissions on the KMS key.
+   3. The identity provider’s authorization server must support Private Key JWT client authentication, and the corresponding public key must be registered with their authorization server.
+
 ## How to configure client authentication method
 
 Configuring client authentication method for CustomOauth2
@@ -61,6 +67,35 @@ aws bedrock-agentcore-control create-oauth2-credential-provider \
     }
   }'
 ```
+
+### CLI example: Using `PRIVATE_KEY_JWT` as client authentication method
+
+```
+aws bedrock-agentcore-control create-oauth2-credential-provider \
+  --cli-input-json '{
+    "name": "sample-private-key-jwt",
+    "credentialProviderVendor": "CustomOauth2",
+    "oauth2ProviderConfigInput": {
+      "customOauth2ProviderConfig": {
+        "oauthDiscovery": {
+          "discoveryUrl": "https://your-idp.example.com/.well-known/openid-configuration"
+        },
+        "clientId": "your-client-id",
+        "clientAuthenticationMethod": "PRIVATE_KEY_JWT",
+        "privateKeyJwtConfig": {
+          "privateKeySource": {
+            "kmsKeySource": {
+              "kmsKeyArn": "arn:aws:kms:us-east-1:111122223333:key/your-key-id"
+            }
+          },
+          "signingAlgorithm": "RS256"
+        }
+      }
+    }
+  }'
+```
+
+For more information about the full configuration reference, including KMS key setup, cross-account support, and signing algorithm options, see [Private Key JWT](private-key-jwt.md "private-key-jwt.md").
 
 ## Notice
 

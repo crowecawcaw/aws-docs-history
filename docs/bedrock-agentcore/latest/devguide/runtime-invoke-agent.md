@@ -119,6 +119,10 @@ Occurs when you don’t have the necessary permissions. Ensure that your IAM pol
 
 Occurs when you exceed the request rate limits. Implement exponential backoff and retry logic in your application.
 
+**RetryableConflictException**
+
+Occurs (HTTP 409) when a second operation targets a session while the service is provisioning or tearing down that session. The message is `Session operation in progress, please retry`. This condition is transient and retryable. The window is brief and already-running sessions are not affected. Retry with short exponential backoff. The AWS SDKs auto-retry this exception when default retries are enabled. If you disabled retries or call the API directly, retry it yourself.
+
 Implement proper error handling in your application to provide a better user experience and to troubleshoot issues effectively.
 
 ## Best practices

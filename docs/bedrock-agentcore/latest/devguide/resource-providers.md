@@ -59,6 +59,8 @@ github_provider = identity_client.create_oauth2_credential_provider({
 
 To configure on-behalf-of (OBO) token exchange on an OAuth 2.0 credential provider, add an `onBehalfOfTokenExchangeConfig` to the provider configuration. For supported modes, parameters, and examples, see [On-behalf-of token exchange](on-behalf-of-token-exchange.md "on-behalf-of-token-exchange.md").
 
+To authenticate to a downstream token endpoint using a signed JWT client assertion backed by an AWS KMS key instead of a client secret, configure `PRIVATE_KEY_JWT` as the client authentication method. For setup instructions, signing algorithm options, and KMS key requirements, see [Private Key JWT](private-key-jwt.md "private-key-jwt.md").
+
 ## Creating an API key credential provider
 
 For services that use API keys for authentication rather than OAuth, AgentCore Identity will securely store and retrieve keys for your agents. For information about API key credential provider limits, see [AgentCore Identity Service Quotas](bedrock-agentcore-limits.md#identity-service-limits "bedrock-agentcore-limits.md#identity-service-limits").

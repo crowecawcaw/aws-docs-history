@@ -6,14 +6,18 @@ Sampling is an MCP feature that allows an MCP server to request an LLM completio
 
 To use sampling with your gateway:
 
-- **Sessions enabled** — Sampling requires session support. See [Use MCP sessions with your gateway](gateway-sessions.md "gateway-sessions.md").
-- **Response streaming enabled** — Sampling requests are sent as SSE chunks during an open connection. Set `streamingConfiguration.enableResponseStreaming` to `true` in your gateway’s `protocolConfiguration.mcp`.
+- **Sessions enabled (version 2025-11-25 and earlier)** — Sampling requires session support. See [Use MCP sessions with your gateway](gateway-sessions.md "gateway-sessions.md"). For version `2026-07-28` and later, you do not need to add `sessionConfiguration` to your gateway, because these versions are stateless.
+- **Response streaming enabled (version 2025-11-25 and earlier)** — Sampling requests are sent as SSE chunks during an open connection. Set `streamingConfiguration.enableResponseStreaming` to `true` in your gateway’s `protocolConfiguration.mcp`. For version `2026-07-28` and later, you do not need to enable response streaming. These versions deliver sampling through the multi round-trip requests (MRTR) pattern instead of a server-initiated request on the response stream. For more information, see [Multi round-trip requests](https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr") in the Model Context Protocol documentation.
 - **MCP server target type** — Sampling requests originate from MCP server targets.
-- **Client declares sampling capability** — The client must declare support for sampling during the `initialize` request. The gateway only forwards sampling requests to clients that declared this capability.
+- **Client declares sampling capability** — The client must declare support for sampling for the gateway to forward sampling requests. For version `2025-11-25` and earlier, the client declares this support in the `initialize` request. For version `2026-07-28` and later, the client declares it for each request in the `_meta` field (`io.modelcontextprotocol/clientCapabilities`).
 
 ## How sampling works
 
 When an MCP server target needs an LLM completion during tool execution, it sends a `sampling/createMessage` request. The gateway forwards this request to the client as an SSE event, replacing the request `id`. The client invokes its language model and sends the result back to the gateway, which forwards it to the target.
+
+###### Note
+
+The flow described here applies to version `2025-11-25` and earlier, where the server sends `sampling/createMessage` as a server-initiated request on the open SSE stream. For version `2026-07-28` and later, sampling instead uses the multi round-trip requests (MRTR) pattern. The server returns an interim result with `resultType` set to `input_required`. The client then provides the completion on a retry of the original request. For more information, see [Multi round-trip requests](https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr") in the Model Context Protocol documentation.
 
 The sampling request includes:
 
@@ -64,7 +68,7 @@ Servers should implement a fallback path (such as using a built-in model or skip
 
 **Error: "Error calling tool 'sample\_tool': Method not found: sampling/createMessage"**
 
-This error occurs when an MCP server target sends a sampling request but the gateway’s client did not declare sampling capability during `initialize`. The gateway returns a `-32601` (Method not found) error to the target, and the target may return this as a tool execution error to the client.
+This error occurs when an MCP server target sends a sampling request but the gateway’s client did not declare sampling capability. For version `2025-11-25` and earlier, the client declares this capability during `initialize`. For version `2026-07-28` and later, the client declares it for each request in the `_meta` field. The gateway returns a `-32601` (Method not found) error to the target. The target might return this as a tool execution error to the client.
 
 To resolve:
 
@@ -87,7 +91,7 @@ except Exception as e:
     result = fallback_summarization(document)
 ```
 
-- **If you are the gateway client developer**: Ensure your client declares sampling capability during `initialize`:
+- **If you are the gateway client developer**: For version `2025-11-25` and earlier, ensure your client declares sampling capability during `initialize`. For version `2026-07-28` and later, declare it for each request in the `_meta` field (`io.modelcontextprotocol/clientCapabilities`). The following example shows the `initialize` declaration:
 
 ```
 {
@@ -105,58 +109,54 @@ The LangGraph MCP Client (`langchain-mcp-adapters`) and Strands MCP Client do no
 
 ###### Example
 
-Python requests package
+Python requests package (2025-11-25 and earlier)
+On these versions, the client declares the sampling capability during `initialize`, and the sampling request arrives as a `sampling/createMessage` request on the open SSE stream. Set the `MCP-Protocol-Version` header to a version that your gateway supports.
 
-1. ```
-
-   ```
-
+```
 import requests
 import json
 import sseclient
 
 gateway_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
 headers = {
-"Content-Type": "application/json",
-"Accept": "text/event-stream",
-"Authorization": "Bearer YOUR_ACCESS_TOKEN"
+    "Content-Type": "application/json",
+    "Accept": "text/event-stream",
+    "Authorization": "Bearer YOUR_ACCESS_TOKEN"
 }
 
 # Step 1: Initialize with sampling capability
-
 init_response = requests.post(gateway_url, headers=headers, json={
-"jsonrpc": "2.0",
-"id": "init-request",
-"method": "initialize",
-"params": {
-"protocolVersion": "2025-06-18",
-"capabilities": {"sampling": {}},
-"clientInfo": {"name": "my-agent", "version": "1.0.0"}
-}
+    "jsonrpc": "2.0",
+    "id": "init-request",
+    "method": "initialize",
+    "params": {
+        "protocolVersion": "2025-06-18",
+        "capabilities": {"sampling": {}},
+        "clientInfo": {"name": "my-agent", "version": "1.0.0"}
+    }
 })
 session_id = init_response.headers["Mcp-Session-Id"]
 headers["Mcp-Session-Id"] = session_id
+headers["MCP-Protocol-Version"] = "2025-06-18"
 
 # Step 2: Call tool (streaming response)
-
 response = requests.post(gateway_url, headers=headers, json={
-"jsonrpc": "2.0",
-"id": "tool-call-1",
-"method": "tools/call",
-"params": {
-"name": "summarizeDocument",
-"arguments": {"documentId": "doc-789"}
-}
+    "jsonrpc": "2.0",
+    "id": "tool-call-1",
+    "method": "tools/call",
+    "params": {
+        "name": "summarizeDocument",
+        "arguments": {"documentId": "doc-789"}
+    }
 }, stream=True)
 
 # Step 3: Process SSE events
-
 client = sseclient.SSEClient(response)
 for event in client.events():
-data = json.loads(event.data)
-if data.get("method") == "sampling/createMessage":
-sampling_id = data["id"]
-print(f"Sampling request: {data['params']['messages']}")
+    data = json.loads(event.data)
+    if data.get("method") == "sampling/createMessage":
+        sampling_id = data["id"]
+        print(f"Sampling request: {data['params']['messages']}")
 
         # Step 4: Invoke your LLM and send result
         llm_result = invoke_your_model(data["params"])  # Your LLM invocation
@@ -172,13 +172,73 @@ print(f"Sampling request: {data['params']['messages']}")
     elif "result" in data:
         print(f"Tool result: {data['result']}")
         break
+```
 
-````
+Python requests package (2026-07-28)
+On version `2026-07-28`, sampling uses the multi round-trip requests pattern instead of a server-initiated request on the SSE stream. The client declares the sampling capability in `_meta` on each request. If the tool needs a completion, the response is an `input_required` result containing a `sampling/createMessage` request in `inputRequests` and an opaque `requestState`. The client invokes its model and retries the original request with a new `id`, the `inputResponses`, and the unmodified `requestState`. Sessions and the `initialize` handshake are not used. Your gateway’s `supportedVersions` must include `2026-07-28`.
 
+```
+import requests
+
+gateway_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
+
+META = {
+    "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+    "io.modelcontextprotocol/clientInfo": {"name": "my-agent", "version": "1.0.0"},
+    "io.modelcontextprotocol/clientCapabilities": {"sampling": {}}
+}
+headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+    "Authorization": "Bearer YOUR_ACCESS_TOKEN",
+    "MCP-Protocol-Version": "2026-07-28",
+    "Mcp-Method": "tools/call",
+    "Mcp-Name": "summarizeDocument"
+}
+arguments = {"documentId": "doc-789"}
+
+# Step 1: Call the tool, declaring the sampling capability in _meta
+response = requests.post(gateway_url, headers=headers, json={
+    "jsonrpc": "2.0",
+    "id": "tool-call-1",
+    "method": "tools/call",
+    "params": {"name": "summarizeDocument", "arguments": arguments, "_meta": META}
+}).json()
+
+result = response["result"]
+if result.get("resultType") == "input_required":
+    # Step 2: Fulfill each sampling request by invoking your model
+    input_responses = {}
+    for key, input_request in result.get("inputRequests", {}).items():
+        params = input_request["params"]
+        print(f"Sampling request: {params['messages']}")
+        llm_result = invoke_your_model(params)  # Your LLM invocation
+        input_responses[key] = {
+            "model": "claude-sonnet-4-20250514",
+            "role": "assistant",
+            "content": {"type": "text", "text": llm_result}
+        }
+
+    # Step 3: Retry the tool call with a new id, the input responses,
+    # and the requestState echoed back unmodified
+    retry_params = {"name": "summarizeDocument", "arguments": arguments, "_meta": META,
+                    "inputResponses": input_responses}
+    if "requestState" in result:
+        retry_params["requestState"] = result["requestState"]
+    response = requests.post(gateway_url, headers=headers, json={
+        "jsonrpc": "2.0",
+        "id": "tool-call-2",
+        "method": "tools/call",
+        "params": retry_params
+    }).json()
+    result = response["result"]
+
+print(f"Tool result: {result}")
+```
 
 MCP Client
 
-1. ```
+```
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 import asyncio
@@ -215,4 +275,4 @@ asyncio.run(use_sampling(
     url="https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp",
     token="YOUR_ACCESS_TOKEN"
 ))
-````
+```

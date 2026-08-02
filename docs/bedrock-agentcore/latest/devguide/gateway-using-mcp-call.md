@@ -1,38 +1,66 @@
 # Call a tool in a AgentCore gateway
 
-To call a specific tool, make a POST request to the gateway’s MCP endpoint and specify `tools/call` as the method in the request body, name of the tool, and the arguments:
+To call a specific tool, make a POST request to the gateway’s MCP endpoint. Specify `tools/call` as the method in the request body, along with the name of the tool and its arguments. The request format depends on the MCP protocol version:
+
+###### Example
+
+2025-11-25 and earlier
 
 ```
 POST /mcp HTTP/1.1
 Host: ${GatewayEndpoint}
+Accept: application/json, text/event-stream
 Content-Type: application/json
 Authorization: ${Authorization header}
+MCP-Protocol-Version: ${McpProtocolVersion}
 
 ${RequestBody}
 ```
+
+2026-07-28
+On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` and `Mcp-Name` request-metadata headers, and the `_meta` version fields in the body.
+
+```
+POST /mcp HTTP/1.1
+Host: ${GatewayEndpoint}
+Accept: application/json, text/event-stream
+Content-Type: application/json
+Authorization: ${Authorization header}
+MCP-Protocol-Version: 2026-07-28
+Mcp-Method: tools/call
+Mcp-Name: ${ToolName}
+
+${RequestBody}
+```
+
+###### Note
+
+The gateway accepts only the MCP protocol versions listed in the `supportedVersions` field of its `protocolConfiguration.mcp` configuration. To use version `2026-07-28`, make sure that your gateway’s `supportedVersions` includes it. You can change the supported versions with the [UpdateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md") API.
 
 Replace the following values:
 
 - `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") API.
 - `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
+- `${McpProtocolVersion}` – The MCP protocol version for the request, such as `2025-11-25`. The version must be one that your gateway supports.
 - `${RequestBody}` – The JSON payload of the request body, as specified in [Calling tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#calling-tools "https://modelcontextprotocol.io/specification/2025-06-18/server/tools#calling-tools") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") . Include `tools/call` as the `method` and include the `name` of the tool and its `arguments`.
   The response returns the content returned by the tool and associated metadata.
 
 ## Code samples for calling tools
 
-To see examples of listing available tools in the gateway, select one of the following methods:
+To see examples of calling tools in the gateway, select one of the following methods:
 
 ###### Example
 
-curl
-
-1. The following curl request shows an example request to call a tool called `searchProducts` through a gateway with the ID `mygateway-abcdefghij`.
+curl (2025-11-25 and earlier)
+The following curl request shows an example request to call a tool called `searchProducts` through a gateway with the ID `mygateway-abcdefghij`. Set the `MCP-Protocol-Version` header to a version that your gateway supports.
 
 ```
 curl -X POST \
   https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
+  -H "Accept: application/json, text/event-stream" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "MCP-Protocol-Version: 2025-11-25" \
   -d '{
     "jsonrpc": "2.0",
     "id": "invoke-tool-request",
@@ -52,20 +80,59 @@ curl -X POST \
 }'
 ```
 
-Python requests package
+curl (2026-07-28)
+On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.
 
-1. ```
+```
+curl -X POST \
+  https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
+  -H "Accept: application/json, text/event-stream" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "MCP-Protocol-Version: 2026-07-28" \
+  -H "Mcp-Method: tools/call" \
+  -H "Mcp-Name: searchProducts" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": "invoke-tool-request",
+    "method": "tools/call",
+    "params": {
+      "name": "searchProducts",
+      "arguments": {
+        "query": "wireless headphones",
+        "category": "Electronics",
+        "maxResults": 2,
+        "priceRange": {
+          "min": 50.00,
+          "max": 200.00
+        }
+      },
+      "_meta": {
+        "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+        "io.modelcontextprotocol/clientInfo": {
+          "name": "my-agent",
+          "version": "1.0.0"
+        },
+        "io.modelcontextprotocol/clientCapabilities": {}
+      }
+    }
+}'
+```
 
-   ```
+Python requests package (2025-11-25 and earlier)
+Set the `MCP-Protocol-Version` header to a version that your gateway supports.
 
+```
 import requests
 import json
 
 def call_tool(gateway_url, access_token, tool_name, arguments):
-headers = {
-"Content-Type": "application/json",
-"Authorization": f"Bearer {access_token}"
-}
+    headers = {
+        "Accept": "application/json, text/event-stream",
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {access_token}",
+        "MCP-Protocol-Version": "2025-11-25"
+    }
 
     payload = {
         "jsonrpc": "2.0",
@@ -81,23 +148,67 @@ headers = {
     return response.json()
 
 # Example usage
-
 gateway_url = "https://${GatewayEndpoint}/mcp" # Replace with your actual gateway endpoint
 access_token = "${AccessToken}" # Replace with your actual access token
 result = call_tool(
-gateway_url,
-access_token,
-"openapi-target-1___get_orders_byId", # Replace with <{TargetId}__{ToolName}>
-{"orderId": "ORD-12345-67890", "customerId": "CUST-98765"}
+    gateway_url,
+    access_token,
+    "openapi-target-1___get_orders_byId",  # Replace with <{TargetId}__{ToolName}>
+    {"orderId": "ORD-12345-67890", "customerId": "CUST-98765"}
 )
 print(json.dumps(result, indent=2))
+```
 
-````
+Python requests package (2026-07-28)
+On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.
 
+```
+import requests
+import json
+
+def call_tool(gateway_url, access_token, tool_name, arguments):
+    headers = {
+        "Accept": "application/json, text/event-stream",
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {access_token}",
+        "MCP-Protocol-Version": "2026-07-28",
+        "Mcp-Method": "tools/call",
+        "Mcp-Name": tool_name
+    }
+
+    payload = {
+        "jsonrpc": "2.0",
+        "id": "call-tool-request",
+        "method": "tools/call",
+        "params": {
+            "name": tool_name,
+            "arguments": arguments,
+            "_meta": {
+                "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+                "io.modelcontextprotocol/clientInfo": {"name": "my-agent", "version": "1.0.0"},
+                "io.modelcontextprotocol/clientCapabilities": {}
+            }
+        }
+    }
+
+    response = requests.post(gateway_url, headers=headers, json=payload)
+    return response.json()
+
+# Example usage
+gateway_url = "https://${GatewayEndpoint}/mcp" # Replace with your actual gateway endpoint
+access_token = "${AccessToken}" # Replace with your actual access token
+result = call_tool(
+    gateway_url,
+    access_token,
+    "openapi-target-1___get_orders_byId",  # Replace with <{TargetId}__{ToolName}>
+    {"orderId": "ORD-12345-67890", "customerId": "CUST-98765"}
+)
+print(json.dumps(result, indent=2))
+```
 
 MCP Client
 
-1. ```
+```
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 import asyncio
@@ -154,11 +265,10 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-````
+```
 
 Strands MCP Client
-
-1. NOTE: This is for invoking agent
+NOTE: This is for invoking an agent.
 
 ```
 from strands.tools.mcp.mcp_client import MCPClient
@@ -184,8 +294,7 @@ run_agent(url, token)
 ```
 
 LangGraph MCP Client
-
-1. NOTE: This is for invoking agent
+NOTE: This is for invoking an agent.
 
 ```
 import asyncio

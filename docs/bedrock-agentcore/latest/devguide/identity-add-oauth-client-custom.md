@@ -15,7 +15,7 @@ Custom providers enable you to connect to any OAuth2-compatible resource server 
       1. For **Client authentication method**, choose the client authentication method used to authenticate with identity provider token endpoint. For more information, see [Client authentication methods](client-auth-methods.md "client-auth-methods.md").
       2. For **Discovery URL**, enter the URL where your provider publishes its OpenID Connect configuration. Discovery URLs must end with `.well-known/openid-configuration` . For example, https:// `example.com` /.well-known/openid-configuration.
       3. For **Client ID**, enter the unique identifier you received when registering your application with the identity provider.
-      4. For **Client secret selection method**, choose one of the following options:
+      4. If **Client authentication method** is `PRIVATE_KEY_JWT`, no client secret is required. For other methods, choose one of the following options for **Client secret selection method**:
 
          1. **Provide Client secret** – Enter the client secret value directly.
 
@@ -34,7 +34,7 @@ Custom providers enable you to connect to any OAuth2-compatible resource server 
       4. For **Token endpoint**, enter the URL where your agent exchanges authorization codes for access tokens. This endpoint handles the credential exchange process.
       5. (Optional) In the **Response types** section, configure how your OAuth client receives authentication responses by choosing **Add response type** and selecting the token formats your provider should return. Common types include `code` for authorization code flow or `token` for implicit flow.
       6. For **Client ID**, enter the unique identifier you received when registering your application with the identity provider.
-      7. For **Client secret selection method**, choose one of the following options:
+      7. If **Client authentication method** is `PRIVATE_KEY_JWT`, no client secret is required. For other methods, choose one of the following options for **Client secret selection method**:
 
          1. **Provide Client secret** – Enter the client secret value directly.
 

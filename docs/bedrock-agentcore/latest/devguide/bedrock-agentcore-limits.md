@@ -125,7 +125,7 @@ The following table describes the lifetime session lifecycle parameters for Agen
 | Maximum number of memory strategies per AgentCore Memory resource                          | 6       | No         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Maximum memory strategies per account                                                      | 900     | Yes        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Maximum CreateMemory requests                                                              | 3       | Yes        | The maximum number of `CreateMemory` requests per second that you can perform in this AWS account in the current AWS Region.                                                                                                                                                                                                                                                                                                                                                                                            |
-| Maximum GetMemory requests                                                                 | 5       | Yes        | The maximum number of `GetMemory` requests per second that you can perform in this AWS account in the current AWS Region.                                                                                                                                                                                                                                                                                                                                                                                               |
+| Maximum GetMemory requests                                                                 | 50      | Yes        | The maximum number of `GetMemory` requests per second that you can perform in this AWS account in the current AWS Region.                                                                                                                                                                                                                                                                                                                                                                                               |
 | Maximum DeleteMemory requests                                                              | 3       | Yes        | The maximum number of `DeleteMemory` requests per second that you can perform in this AWS account in the current AWS Region.                                                                                                                                                                                                                                                                                                                                                                                            |
 | Maximum ListMemories requests                                                              | 5       | Yes        | The maximum number of `ListMemories` requests per second that you can perform in this AWS account in the current AWS Region.                                                                                                                                                                                                                                                                                                                                                                                            |
 | Maximum UpdateMemory requests                                                              | 3       | Yes        | The maximum number of `UpdateMemory` requests per second that you can perform in this AWS account in the current AWS Region.                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -379,18 +379,18 @@ The following table describes the rate limits for the Code Interpreter tool APIs
 
 The following table describes the service quotas for AgentCore Evaluations:
 
-| Limit                                               | Default Value | Adjustable | Notes |
-| --------------------------------------------------- | ------------- | ---------- | ----- |
-| Input tokens per minute for built-in evaluators     | 200,000       | No         |       |
-| Evaluations per minute for built-in evaluators      | 100           | No         |       |
-| Spans per on-demand evaluation                      | 1000          | No         |       |
-| On-demand evaluation payload size (in MB)           | 15            | No         |       |
-| Evaluators per on-demand evaluation                 | 1             | No         |       |
-| Input tokens per evaluation                         | 200,000       | No         |       |
-| Spans evaluated per sampled session                 | 1000          | No         |       |
-| Size of all spans in a sampled session (in MB)      | 15            | No         |       |
-| Active online evaluation configurations per account | 100           | No         |       |
-| Evaluators per online evaluation configuration      | 10            | No         |       |
+| Limit                                           | Default Value | Adjustable | Notes |
+| ----------------------------------------------- | ------------- | ---------- | ----- |
+| Input tokens per minute for built-in evaluators | 200,000       | No         |       |
+| Evaluations per minute for built-in evaluators  | 100           | No         |       |
+| Spans per on-demand evaluation                  | 1000          | No         |       |
+| On-demand evaluation payload size (in MB)       | 15            | No         |       |
+| Evaluators per on-demand evaluation             | 1             | No         |       |
+| Input tokens per evaluation                     | 200,000       | No         |       |
+| Spans evaluated per sampled session             | 1000          | No         |       |
+| Size of all spans in a sampled session (in MB)  | 15            | No         |       |
+| Online evaluation configurations per account    | 1,000         | No         |       |
+| Evaluators per online evaluation configuration  | 10            | No         |       |
 
 ## AgentCore Batch Evaluation Service Quotas
 

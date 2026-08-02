@@ -2,20 +2,48 @@
 
 To read a specific resource, make a POST request to the gateway’s MCP endpoint and specify `resources/read` as the method in the request body and the URI of the resource:
 
+###### Example
+
+2025-11-25 and earlier
+
 ```
 POST /mcp HTTP/1.1
 Host: ${GatewayEndpoint}
+Accept: application/json, text/event-stream
 Content-Type: application/json
 Authorization: ${Authorization header}
+MCP-Protocol-Version: ${McpProtocolVersion}
 
 ${RequestBody}
 ```
+
+2026-07-28
+On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` and `Mcp-Name` request-metadata headers, and the `_meta` version fields in the body. For `resources/read`, `Mcp-Name` is the resource `uri`.
+
+```
+POST /mcp HTTP/1.1
+Host: ${GatewayEndpoint}
+Accept: application/json, text/event-stream
+Content-Type: application/json
+Authorization: ${Authorization header}
+MCP-Protocol-Version: 2026-07-28
+Mcp-Method: resources/read
+Mcp-Name: ${ResourceUri}
+
+${RequestBody}
+```
+
+###### Note
+
+The gateway accepts only the MCP protocol versions listed in the `supportedVersions` field of its `protocolConfiguration.mcp` configuration. To use version `2026-07-28`, make sure that your gateway’s `supportedVersions` includes it. You can change the supported versions with the [UpdateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md") API.
 
 Replace the following values:
 
 - `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") API.
 - `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
-- `${RequestBody}` – The JSON payload of the request body, as specified in [Reading resources](https://modelcontextprotocol.io/specification/2025-06-18/server/resources#reading-resources "https://modelcontextprotocol.io/specification/2025-06-18/server/resources#reading-resources") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") . Include `resources/read` as the `method` and include the `uri` of the resource.
+- `${McpProtocolVersion}` – The MCP protocol version for the request, such as `2025-11-25`. The version must be one that your gateway supports.
+- `${ResourceUri}` – The URI of the resource, matching the `uri` in the request body.
+- `${RequestBody}` – The JSON payload of the request body, as specified in [Reading resources](https://modelcontextprotocol.io/specification/2025-06-18/server/resources#reading-resources "https://modelcontextprotocol.io/specification/2025-06-18/server/resources#reading-resources") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") . Include `resources/read` as the `method` and include the `uri` of the resource. On version `2026-07-28`, also include the `_meta` version fields in `params`.
   The response returns a `contents` array where each entry includes the `uri`, `mimeType`, and either `text` (for text content) or `blob` (base64-encoded binary content).
 
 ###### Note
@@ -36,15 +64,16 @@ To see examples of reading a resource from the gateway, select one of the follow
 
 ###### Example
 
-curl
-
-1. The following curl request shows an example request to read a resource with URI `config://app-settings` through a gateway with the ID `mygateway-abcdefghij`.
+curl (2025-11-25 and earlier)
+The following curl request shows an example request to read a resource with URI `config://app-settings` through a gateway with the ID `mygateway-abcdefghij`. Set the `MCP-Protocol-Version` header to a version that your gateway supports.
 
 ```
 curl -X POST \
   https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
+  -H "Accept: application/json, text/event-stream" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "MCP-Protocol-Version: 2025-11-25" \
   -d '{
     "jsonrpc": "2.0",
     "id": "read-resource-request",
@@ -55,20 +84,49 @@ curl -X POST \
 }'
 ```
 
-Python requests package
+curl (2026-07-28)
+On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. For `resources/read`, `Mcp-Name` is the resource `uri`, and the `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.
 
-1. ```
+```
+curl -X POST \
+  https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
+  -H "Accept: application/json, text/event-stream" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "MCP-Protocol-Version: 2026-07-28" \
+  -H "Mcp-Method: resources/read" \
+  -H "Mcp-Name: config://app-settings" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": "read-resource-request",
+    "method": "resources/read",
+    "params": {
+      "uri": "config://app-settings",
+      "_meta": {
+        "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+        "io.modelcontextprotocol/clientInfo": {
+          "name": "my-agent",
+          "version": "1.0.0"
+        },
+        "io.modelcontextprotocol/clientCapabilities": {}
+      }
+    }
+}'
+```
 
-   ```
+Python requests package (2025-11-25 and earlier)
+Set the `MCP-Protocol-Version` header to a version that your gateway supports.
 
+```
 import requests
 import json
 
 def read_resource(gateway_url, access_token, resource_uri):
-headers = {
-"Content-Type": "application/json",
-"Authorization": f"Bearer {access_token}"
-}
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {access_token}",
+        "MCP-Protocol-Version": "2025-11-25"
+    }
 
     payload = {
         "jsonrpc": "2.0",
@@ -83,22 +141,63 @@ headers = {
     return response.json()
 
 # Example usage
-
 gateway_url = "https://${GatewayEndpoint}/mcp" # Replace with your actual gateway endpoint
 access_token = "${AccessToken}" # Replace with your actual access token
 result = read_resource(
-gateway_url,
-access_token,
-"config://app-settings" # Replace with the resource URI from resources/list
+    gateway_url,
+    access_token,
+    "config://app-settings"  # Replace with the resource URI from resources/list
 )
 print(json.dumps(result, indent=2))
+```
 
-````
+Python requests package (2026-07-28)
+On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. For `resources/read`, `Mcp-Name` is the resource `uri`, and the `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.
 
+```
+import requests
+import json
+
+def read_resource(gateway_url, access_token, resource_uri):
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {access_token}",
+        "MCP-Protocol-Version": "2026-07-28",
+        "Mcp-Method": "resources/read",
+        "Mcp-Name": resource_uri
+    }
+
+    payload = {
+        "jsonrpc": "2.0",
+        "id": "read-resource-request",
+        "method": "resources/read",
+        "params": {
+            "uri": resource_uri,
+            "_meta": {
+                "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+                "io.modelcontextprotocol/clientInfo": {"name": "my-agent", "version": "1.0.0"},
+                "io.modelcontextprotocol/clientCapabilities": {}
+            }
+        }
+    }
+
+    response = requests.post(gateway_url, headers=headers, json=payload)
+    return response.json()
+
+# Example usage
+gateway_url = "https://${GatewayEndpoint}/mcp" # Replace with your actual gateway endpoint
+access_token = "${AccessToken}" # Replace with your actual access token
+result = read_resource(
+    gateway_url,
+    access_token,
+    "config://app-settings"  # Replace with the resource URI from resources/list
+)
+print(json.dumps(result, indent=2))
+```
 
 MCP Client
 
-1. ```
+```
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 from pydantic import AnyUrl
@@ -153,11 +252,10 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-````
+```
 
 Strands MCP Client
-
-1. NOTE: Strands SDK resource support may vary. Use the MCP Client approach above for the most reliable `resources/read` implementation.
+NOTE: Strands SDK resource support might vary. Use the MCP Client approach shown previously for the most reliable `resources/read` implementation.
 
 ```
 from strands.tools.mcp.mcp_client import MCPClient
@@ -177,8 +275,7 @@ run_agent(<MCP URL>, <Access token>)
 ```
 
 LangGraph MCP Client
-
-1. NOTE: LangGraph MCP adapter resource support may vary. Use the MCP Client approach above for the most reliable `resources/read` implementation.
+NOTE: LangGraph MCP adapter resource support might vary. Use the MCP Client approach shown previously for the most reliable `resources/read` implementation.
 
 ```
 import asyncio

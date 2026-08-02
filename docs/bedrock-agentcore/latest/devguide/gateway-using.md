@@ -4,7 +4,9 @@ After [setting up your gateway with targets](gateway-building.md "gateway-buildi
 
 ###### Note
 
-AgentCore Gateway supports the following MCP versions: \* 2025-06-18 \* 2025-03-26 \* 2025-11-25
+AgentCore Gateway supports the following MCP versions: 2026-07-28, 2025-11-25, 2025-06-18, and 2025-03-26.
+
+Version `2026-07-28` is a stateless protocol revision. Clients do not perform an `initialize` handshake. Each request carries its protocol version in the `MCP-Protocol-Version` header and in the `_meta` field (`io.modelcontextprotocol/protocolVersion`). The gateway discovers capabilities through `server/discover`. Version `2025-11-25` and earlier continue to use the `initialize` handshake.
 
 You can use the following MCP operations with an AgentCore gateway:
 
@@ -21,6 +23,12 @@ You can use the following MCP operations with an AgentCore gateway:
 | sampling/createMessage   | Requests an LLM completion from the client during a tool call (server-initiated) |
 | notifications/progress   | Reports progress on long-running tool calls (server-initiated)                   |
 | notifications/message    | Sends log messages from the server during tool execution (server-initiated)      |
+
+On version `2026-07-28`, server-initiated interactions (`elicitation/create` and `sampling/createMessage`) use the multi round-trip requests (MRTR) pattern:
+
+1. The server returns an interim result with `resultType` set to `input_required`.
+2. The client provides the requested input on a retry of the original request.
+   The gateway delivers notifications (`notifications/progress` and `notifications/message`) only for requests that opt in to them. On version `2025-11-25` and earlier, the gateway delivers these interactions as server-initiated messages on the open stream.
 
 The following topics describe how to invoke your AgentCore gateway:
 

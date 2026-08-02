@@ -16,7 +16,7 @@ arn:aws:bedrock-agentcore:region:account:evaluator/my-evaluator-id (for custom e
 
 Built-in evaluators are public and accessible to all users. Custom evaluation resources are private and can only be accessed by users who are explicitly granted access. To grant access, you can use IAM resource-based policies for evaluators and evaluation configurations, and IAM identity-based policies for users and roles.
 
-By default, you can create up to 1,000 evaluation configurations per AWS Region in an AWS account, with up to 100 active at any point in time. The service supports up to 1 million input and output tokens per minute per account for large regions.
+By default, you can create up to 1,000 evaluation configurations per AWS Region in an AWS account. The service supports up to 1 million input and output tokens per minute per account for large regions.
 
 ###### Topics
 

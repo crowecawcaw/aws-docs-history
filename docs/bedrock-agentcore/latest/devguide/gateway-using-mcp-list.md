@@ -2,20 +2,46 @@
 
 To list all available tools that an AgentCore gateway provides, make a POST request to the gateway’s MCP endpoint and specify `tools/list` as the method in the request body:
 
+###### Example
+
+2025-11-25 and earlier
+
 ```
 POST /mcp HTTP/1.1
 Host: ${GatewayEndpoint}
+Accept: application/json, text/event-stream
 Content-Type: application/json
 Authorization: ${Authorization header}
+MCP-Protocol-Version: ${McpProtocolVersion}
 
 ${RequestBody}
 ```
+
+2026-07-28
+On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` request-metadata header, and the `_meta` version fields in the body.
+
+```
+POST /mcp HTTP/1.1
+Host: ${GatewayEndpoint}
+Accept: application/json, text/event-stream
+Content-Type: application/json
+Authorization: ${Authorization header}
+MCP-Protocol-Version: 2026-07-28
+Mcp-Method: tools/list
+
+${RequestBody}
+```
+
+###### Note
+
+The gateway accepts only the MCP protocol versions listed in the `supportedVersions` field of its `protocolConfiguration.mcp` configuration. To use version `2026-07-28`, make sure that your gateway’s `supportedVersions` includes it. You can change the supported versions with the [UpdateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md") API.
 
 Replace the following values:
 
 - `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") API.
 - `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
-- `${RequestBody}` – The JSON payload of the request body, as specified in [Listing tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#listing-tools "https://modelcontextprotocol.io/specification/2025-06-18/server/tools#listing-tools") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") . Include `tools/list` as the `method`.
+- `${McpProtocolVersion}` – The MCP protocol version for the request, such as `2025-11-25`. The version must be one that your gateway supports.
+- `${RequestBody}` – The JSON payload of the request body, as specified in [Listing tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#listing-tools "https://modelcontextprotocol.io/specification/2025-06-18/server/tools#listing-tools") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") . Include `tools/list` as the `method`. On version `2026-07-28`, also include the `_meta` version fields in `params`.
 
 ###### Note
 
@@ -29,20 +55,19 @@ To see examples of listing available tools in the gateway, select one of the fol
 
 ###### Example
 
-Python requests package
+Python requests package (2025-11-25 and earlier)
+Set the `MCP-Protocol-Version` header to a version that your gateway supports.
 
-1. ```
-
-   ```
-
+```
 import requests
 import json
 
 def list_tools(gateway_url, access_token):
-headers = {
-"Content-Type": "application/json",
-"Authorization": f"Bearer {access_token}"
-}
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {access_token}",
+        "MCP-Protocol-Version": "2025-11-25"
+    }
 
     payload = {
         "jsonrpc": "2.0",
@@ -54,18 +79,53 @@ headers = {
     return response.json()
 
 # Example usage
-
 gateway_url = "https://${GatewayEndpoint}/mcp" # Replace with your actual gateway endpoint
 access_token = "${AccessToken}" # Replace with your actual access token
 tools = list_tools(gateway_url, access_token)
 print(json.dumps(tools, indent=2))
+```
 
-````
+Python requests package (2026-07-28)
+On version `2026-07-28`, add the `MCP-Protocol-Version` and `Mcp-Method` headers, and include the `_meta` version fields in the request body. Your gateway’s `supportedVersions` must include `2026-07-28`.
 
+```
+import requests
+import json
+
+def list_tools(gateway_url, access_token):
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {access_token}",
+        "MCP-Protocol-Version": "2026-07-28",
+        "Mcp-Method": "tools/list"
+    }
+
+    payload = {
+        "jsonrpc": "2.0",
+        "id": "list-tools-request",
+        "method": "tools/list",
+        "params": {
+            "_meta": {
+                "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+                "io.modelcontextprotocol/clientInfo": {"name": "my-agent", "version": "1.0.0"},
+                "io.modelcontextprotocol/clientCapabilities": {}
+            }
+        }
+    }
+
+    response = requests.post(gateway_url, headers=headers, json=payload)
+    return response.json()
+
+# Example usage
+gateway_url = "https://${GatewayEndpoint}/mcp" # Replace with your actual gateway endpoint
+access_token = "${AccessToken}" # Replace with your actual access token
+tools = list_tools(gateway_url, access_token)
+print(json.dumps(tools, indent=2))
+```
 
 MCP Client
 
-1. ```
+```
 import asyncio
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
@@ -134,53 +194,48 @@ async def main():
 # Run the async function
 if __name__ == "__main__":
     asyncio.run(main())
-````
+```
 
 Strands MCP Client
 
-1. ```
-
-   ```
-
+```
 from strands.tools.mcp.mcp_client import MCPClient
 from mcp.client.streamable_http import streamablehttp_client
 import os
 
 def create_streamable_http_transport(mcp_url: str, access_token: str):
-return streamablehttp_client(mcp_url, headers={"Authorization": f"Bearer {access_token}"})
+       return streamablehttp_client(mcp_url, headers={"Authorization": f"Bearer {access_token}"})
 
 def get_full_tools_list(client):
-"""
-List tools w/ support for pagination
-"""
-more_tools = True
-tools = []
-pagination_token = None
-while more_tools:
-tmp_tools = client.list_tools_sync(pagination_token=pagination_token)
-tools.extend(tmp_tools)
-if tmp_tools.pagination_token is None:
-more_tools = False
-else:
-more_tools = True
-pagination_token = tmp_tools.pagination_token
-return tools
+    """
+    List tools w/ support for pagination
+    """
+    more_tools = True
+    tools = []
+    pagination_token = None
+    while more_tools:
+        tmp_tools = client.list_tools_sync(pagination_token=pagination_token)
+        tools.extend(tmp_tools)
+        if tmp_tools.pagination_token is None:
+            more_tools = False
+        else:
+            more_tools = True
+            pagination_token = tmp_tools.pagination_token
+    return tools
 
 def run_agent(mcp_url: str, access_token: str):
-mcp_client = MCPClient(lambda: create_streamable_http_transport(mcp_url, access_token))
+    mcp_client = MCPClient(lambda: create_streamable_http_transport(mcp_url, access_token))
 
     with mcp_client:
         tools = get_full_tools_list(mcp_client)
         print(f"Found the following tools: {[tool.tool_name for tool in tools]}")
 
 run_agent(<MCP URL>, <Access token>)
-
-````
-
+```
 
 LangGraph MCP Client
 
-1. ```
+```
 import asyncio
 
 from langchain_mcp_adapters.client import MultiServerMCPClient
@@ -218,7 +273,7 @@ def list_tools(
         f"Langchain: List of tool names - \n{tool_names_string}\n"
         f"Langchain: Details of tools - \n{tool_details_string}\n"
     )
-````
+```
 
 ###### Note
 
