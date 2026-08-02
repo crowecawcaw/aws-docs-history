@@ -26,6 +26,15 @@ Content-type: application/json
 
 {
    "FailureReason": "***string***",
+   "HomeRegion": "***string***",
+   "RegionStatuses": [
+      {
+         "FailureReason": "***string***",
+         "Region": "***string***",
+         "RuleArn": "***string***",
+         "Status": "***string***"
+      }
+   ],
    "Status": "***string***"
 }
 ```
@@ -42,6 +51,24 @@ Describes the reason for the failure status. The field will only be populated if
 `Status` is `FAILED_START` or `FAILED_STOP`.
 
 Type: String
+
+**[HomeRegion](#API_GetTelemetryEvaluationStatus_ResponseSyntax "#API_GetTelemetryEvaluationStatus_ResponseSyntax")**
+
+The AWS Region that is designated as the home region for multi-region telemetry
+evaluation. The home region is the single management point for all multi-region operations on
+this account. This field is only present when multi-region telemetry evaluation is active.
+
+Type: String
+
+Length Constraints: Minimum length of 1.
+
+**[RegionStatuses](#API_GetTelemetryEvaluationStatus_ResponseSyntax "#API_GetTelemetryEvaluationStatus_ResponseSyntax")**
+
+A list of per-region telemetry evaluation statuses. Each entry indicates the evaluation
+status for a specific spoke region included in the multi-region configuration. This field is
+only present when multi-region telemetry evaluation is active.
+
+Type: Array of [RegionStatus](API_RegionStatus.md "API_RegionStatus.md") objects
 
 **[Status](#API_GetTelemetryEvaluationStatus_ResponseSyntax "#API_GetTelemetryEvaluationStatus_ResponseSyntax")**
 

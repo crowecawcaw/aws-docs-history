@@ -12,6 +12,8 @@ Content-type: application/json
 
 {
    "Rule": {
+      "AllowFieldUpdates": `boolean`,
+      "AllRegions": `boolean`,
       "DestinationConfiguration": {
          "CloudtrailParameters": {
             "AdvancedEventSelectors": [
@@ -39,6 +41,9 @@ Content-type: application/json
          },
          "LogDeliveryParameters": {
             "LogTypes": [ "`string`" ]
+         },
+         "MskMonitoringParameters": {
+            "EnhancedMonitoring": "`string`"
          },
          "RetentionInDays": `number`,
          "VPCFlowLogParameters": {
@@ -79,6 +84,7 @@ Content-type: application/json
             ]
          }
       },
+      "Regions": [ "`string`" ],
       "ResourceType": "`string`",
       "Scope": "`string`",
       "SelectionCriteria": "`string`",

@@ -43,10 +43,18 @@ Required: No
 
 **LogDeliveryParameters**
 
-Configuration parameters specific to Amazon Bedrock AgentCore logging when Amazon Bedrock AgentCore is the resource
-type.
+The configuration parameters for log delivery when the resource type supports configurable
+log types, such as Amazon Bedrock Knowledge Bases or Elastic Load Balancing Application Load Balancers.
 
 Type: [LogDeliveryParameters](API_LogDeliveryParameters.md "API_LogDeliveryParameters.md") object
+
+Required: No
+
+**MskMonitoringParameters**
+
+Configuration parameters specific to MSK monitoring when MSK is the resource type.
+
+Type: [MskMonitoringParameters](API_MskMonitoringParameters.md "API_MskMonitoringParameters.md") object
 
 Required: No
 

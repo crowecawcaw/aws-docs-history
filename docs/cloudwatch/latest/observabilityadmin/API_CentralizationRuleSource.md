@@ -35,6 +35,14 @@ Type: [SourceLogsConfiguration](API_SourceLogsConfiguration.md "API_SourceLogsCo
 
 Required: No
 
+**SourceMetricsConfiguration**
+
+Metric specific configuration for centralization source metrics.
+
+Type: [SourceMetricsConfiguration](API_SourceMetricsConfiguration.md "API_SourceMetricsConfiguration.md") object
+
+Required: No
+
 ## See Also
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:

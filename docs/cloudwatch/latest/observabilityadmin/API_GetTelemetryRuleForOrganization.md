@@ -40,10 +40,22 @@ Content-type: application/json
 
 {
    "CreatedTimeStamp": ***number***,
+   "HomeRegion": "***string***",
+   "IsReplicated": ***boolean***,
    "LastUpdateTimeStamp": ***number***,
+   "RegionStatuses": [
+      {
+         "FailureReason": "***string***",
+         "Region": "***string***",
+         "RuleArn": "***string***",
+         "Status": "***string***"
+      }
+   ],
    "RuleArn": "***string***",
    "RuleName": "***string***",
    "TelemetryRule": {
+      "AllowFieldUpdates": ***boolean***,
+      "AllRegions": ***boolean***,
       "DestinationConfiguration": {
          "CloudtrailParameters": {
             "AdvancedEventSelectors": [
@@ -71,6 +83,9 @@ Content-type: application/json
          },
          "LogDeliveryParameters": {
             "LogTypes": [ "***string***" ]
+         },
+         "MskMonitoringParameters": {
+            "EnhancedMonitoring": "***string***"
          },
          "RetentionInDays": ***number***,
          "VPCFlowLogParameters": {
@@ -111,6 +126,7 @@ Content-type: application/json
             ]
          }
       },
+      "Regions": [ "***string***" ],
       "ResourceType": "***string***",
       "Scope": "***string***",
       "SelectionCriteria": "***string***",
@@ -132,11 +148,38 @@ The timestamp when the organization telemetry rule was created.
 
 Type: Long
 
+**[HomeRegion](#API_GetTelemetryRuleForOrganization_ResponseSyntax "#API_GetTelemetryRuleForOrganization_ResponseSyntax")**
+
+The AWS Region where the organization telemetry rule was originally created. For
+replicated rules in spoke regions, this indicates the region that manages the rule. For rules
+created without multi-region scope, this field is not present.
+
+Type: String
+
+Length Constraints: Minimum length of 1.
+
+**[IsReplicated](#API_GetTelemetryRuleForOrganization_ResponseSyntax "#API_GetTelemetryRuleForOrganization_ResponseSyntax")**
+
+Indicates whether this organization telemetry rule is a replica that was created in this
+region through multi-region fan-out from the home region. Replicated rules cannot be directly
+updated or deleted in the spoke region. To modify a replicated rule, make changes in the home
+region.
+
+Type: Boolean
+
 **[LastUpdateTimeStamp](#API_GetTelemetryRuleForOrganization_ResponseSyntax "#API_GetTelemetryRuleForOrganization_ResponseSyntax")**
 
 The timestamp when the organization telemetry rule was last updated.
 
 Type: Long
+
+**[RegionStatuses](#API_GetTelemetryRuleForOrganization_ResponseSyntax "#API_GetTelemetryRuleForOrganization_ResponseSyntax")**
+
+A list of per-region replication statuses for the organization telemetry rule. Each entry
+indicates the replication status of the rule in a specific spoke region. This field is only
+present for rules created with multi-region scope.
+
+Type: Array of [RegionStatus](API_RegionStatus.md "API_RegionStatus.md") objects
 
 **[RuleArn](#API_GetTelemetryRuleForOrganization_ResponseSyntax "#API_GetTelemetryRuleForOrganization_ResponseSyntax")**
 

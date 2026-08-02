@@ -7,7 +7,12 @@ config feature.
 
 ```
 POST /StartTelemetryEvaluationForOrganization HTTP/1.1
+Content-type: application/json
 
+{
+   "AllRegions": `boolean`,
+   "Regions": [ "`string`" ]
+}
 ```
 
 ## URI Request Parameters
@@ -16,7 +21,36 @@ The request does not use any URI parameters.
 
 ## Request Body
 
-The request does not have a request body.
+The request accepts the following data in JSON format.
+
+**[AllRegions](#API_StartTelemetryEvaluationForOrganization_RequestSyntax "#API_StartTelemetryEvaluationForOrganization_RequestSyntax")**
+
+If set to `true`, telemetry evaluation for the organization starts in all
+AWS Regions where Amazon CloudWatch Observability Admin is available in the current partition. The
+current region becomes the home region for managing multi-region evaluation for the
+organization. When new regions become available, evaluation automatically expands to include
+them. Mutually exclusive with `Regions`.
+
+Type: Boolean
+
+Required: No
+
+**[Regions](#API_StartTelemetryEvaluationForOrganization_RequestSyntax "#API_StartTelemetryEvaluationForOrganization_RequestSyntax")**
+
+An optional list of AWS Regions to include in multi-region telemetry evaluation for the
+organization. The current region is always implicitly included and must not be specified in
+this list. When provided, telemetry evaluation starts in the current region and propagates to
+all specified regions for the organization. Mutually exclusive with `AllRegions`.
+If neither `Regions` nor `AllRegions` is provided, the operation
+applies only to the current region.
+
+Type: Array of strings
+
+Array Members: Minimum number of 1 item.
+
+Length Constraints: Minimum length of 1.
+
+Required: No
 
 ## Response Syntax
 

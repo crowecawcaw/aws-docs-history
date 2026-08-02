@@ -18,7 +18,8 @@ Content-type: application/json
          "Data": "`string`",
          "Type": "`string`"
       }
-   ]
+   ],
+   "SignalType": "`string`"
 }
 ```
 
@@ -46,6 +47,16 @@ purposes.
 Type: Array of [Record](API_Record.md "API_Record.md") objects
 
 Required: Yes
+
+**[SignalType](#API_TestTelemetryPipeline_RequestSyntax "#API_TestTelemetryPipeline_RequestSyntax")**
+
+The type of telemetry signal to test. If not specified, defaults to log processing.
+
+Type: String
+
+Valid Values: `LOG | METRIC`
+
+Required: No
 
 ## Response Syntax
 

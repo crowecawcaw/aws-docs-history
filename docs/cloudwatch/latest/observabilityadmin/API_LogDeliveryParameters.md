@@ -1,17 +1,18 @@
 # LogDeliveryParameters
 
-Configuration parameters for Amazon Bedrock AgentCore logging, including `logType`
-settings.
+The configuration parameters for log delivery, including `logType` settings.
+Applies to resource types that support configurable log delivery, such as Amazon Bedrock
+Knowledge Bases and Elastic Load Balancing Application Load Balancers.
 
 ## Contents
 
 **LogTypes**
 
-The type of log that the source is sending.
+The types of logs to collect from the resource.
 
 Type: Array of strings
 
-Valid Values: `APPLICATION_LOGS | USAGE_LOGS`
+Valid Values: `APPLICATION_LOGS | USAGE_LOGS | SECURITY_FINDING_LOGS | ACCESS_LOGS | CONNECTION_LOGS | S3_SERVER_ACCESS_LOGS | ALB_ACCESS_LOGS | ALB_CONNECTION_LOGS | ALB_HEALTH_CHECK_LOGS`
 
 Required: No
 

@@ -240,6 +240,31 @@ pipeline:
         log_group: "my-log-group"
 ```
 
+### Using CloudWatch Metrics as a pipeline source
+
+The following is an example of a `Body` property value for the `Configuration` object.
+
+```
+pipeline:
+  source:
+    cloudwatch_metrics:
+      format: otlp
+      selection_criteria:
+        - match_all:
+            - 'resource.attributes["service.name"] == "my-service"'
+            - 'metric.name == "http.server.request.duration"'
+  processor:
+    - add_attributes:
+        attributes:
+          - key: 'resource.attributes["team"]'
+            value: "platform-engineering"
+    - delete_attributes:
+        with_keys:
+          - 'resource.attributes["host.id"]'
+  sink:
+    - cloudwatch_metrics:
+```
+
 ## See Also
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:

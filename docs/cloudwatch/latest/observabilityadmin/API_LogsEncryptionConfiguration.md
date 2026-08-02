@@ -1,8 +1,9 @@
 # LogsEncryptionConfiguration
 
-Configuration for encrypting centralized log groups. This configuration is only applied to
-destination log groups for which the corresponding source log groups are encrypted using
-Customer Managed KMS Keys.
+Configuration for encrypting centralized destination log groups. By default, this
+configuration applies only to destination log groups whose corresponding source log groups are
+encrypted using customer managed KMS keys. To encrypt all destination log groups created by
+the rule, set `EncryptionScope` to `NEW_DESTINATION_LOG_GROUPS`.
 
 ## Contents
 
@@ -28,6 +29,30 @@ group.
 Type: String
 
 Valid Values: `ALLOW | SKIP`
+
+Required: No
+
+**EncryptionScope**
+
+Determines which newly created destination log groups are encrypted with the configured
+`KmsKeyArn` when `EncryptionStrategy` is
+`CUSTOMER_MANAGED`.
+
+If you set this to `ENCRYPTED_SOURCE_ONLY` (the default), only destination log
+groups whose source log group is encrypted with a customer managed KMS key use the configured
+`KmsKeyArn`. Destination log groups derived from AWS owned encrypted source log
+groups remain AWS owned encrypted.
+
+If you set this to `NEW_DESTINATION_LOG_GROUPS`, every new destination log
+group created by this rule uses the configured `KmsKeyArn`, regardless of the
+source log group's encryption posture.
+
+This field is not valid when `EncryptionStrategy` is
+`AWS_OWNED`.
+
+Type: String
+
+Valid Values: `ENCRYPTED_SOURCE_ONLY | NEW_DESTINATION_LOG_GROUPS`
 
 Required: No
 

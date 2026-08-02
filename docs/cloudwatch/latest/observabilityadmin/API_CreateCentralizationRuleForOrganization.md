@@ -24,8 +24,14 @@ Content-type: application/json
             },
             "LogsEncryptionConfiguration": {
                "EncryptionConflictResolutionStrategy": "`string`",
+               "EncryptionScope": "`string`",
                "EncryptionStrategy": "`string`",
                "KmsKeyArn": "`string`"
+            }
+         },
+         "DestinationMetricsConfiguration": {
+            "BackupConfiguration": {
+               "Region": "`string`"
             }
          },
          "Region": "`string`"
@@ -37,6 +43,9 @@ Content-type: application/json
             "DataSourceSelectionCriteria": "`string`",
             "EncryptedLogGroupStrategy": "`string`",
             "LogGroupSelectionCriteria": "`string`"
+         },
+         "SourceMetricsConfiguration": {
+            "MetricsSelectionCriteria": "`string`"
          }
       }
    },

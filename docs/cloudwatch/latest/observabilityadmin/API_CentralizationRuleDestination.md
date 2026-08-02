@@ -35,6 +35,14 @@ Type: [DestinationLogsConfiguration](API_DestinationLogsConfiguration.md "API_De
 
 Required: No
 
+**DestinationMetricsConfiguration**
+
+Metric specific configuration for centralization destination metrics.
+
+Type: [DestinationMetricsConfiguration](API_DestinationMetricsConfiguration.md "API_DestinationMetricsConfiguration.md") object
+
+Required: No
+
 ## See Also
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
