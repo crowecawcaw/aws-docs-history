@@ -96,7 +96,7 @@ JSON
 
 ```
 
-Replace `repository-arn` with the ARN of the repository that you would like to delete. 2. In the AWS CodeArtifact console, choose **Repositories** and delete your chosen repository. 3. After you've deleted the repository, you can change the policy back to prevent acccidental delections.
+Replace `repository-arn` with the ARN of the repository that you would like to delete. 2. In the AWS CodeArtifact console, choose **Repositories** and delete your chosen repository. 3. After you've deleted the repository, you can change the policy back to prevent accidental deletions.
 
 JSON
 
@@ -118,5 +118,5 @@ JSON
 
 ```
 
-Alternatively, you can include the same deny statement in a repository policy. This allow you to have more flexibility
+Alternatively, you can include the same deny statement in a repository policy. With this approach, you have more flexibility
 to protect high-value repositories from deletion.

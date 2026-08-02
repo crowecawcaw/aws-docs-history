@@ -18,7 +18,7 @@ Root users cannot call `GetAuthorizationToken`.
 - `aws codeartifact login`: This command makes it easy to
   configure common package managers to use CodeArtifact in a single step. Calling `login` fetches a
   token with `GetAuthorizationToken` and configures your package manager with the token
-  and correct CodeArtifact repository endpoint. The support package managers are as follows:
+  and correct CodeArtifact repository endpoint. The supported package managers are as follows:
 
   - dotnet
   - npm
@@ -29,7 +29,7 @@ Root users cannot call `GetAuthorizationToken`.
 
 - `aws codeartifact get-authorization-token`: For package managers not supported by
   `login`, you can call `get-authorization-token` directly and then configure your
-  package manager with the token as required, for example, by adding it to a configuration file or storing it an
+  package manager with the token as required, for example, by adding it to a configuration file or storing it in an
   environment variable.
   CodeArtifact authorization tokens are valid for a default period of 12 hours. Tokens can be configured with a lifetime
   between 15 minutes and 12 hours. When the lifetime expires,

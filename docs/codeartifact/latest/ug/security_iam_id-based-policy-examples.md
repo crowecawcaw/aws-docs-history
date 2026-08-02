@@ -238,7 +238,7 @@ JSON
 ## Allow a user to get information about specific domains
 
 The following shows an example of a permissions policy that allows a user to list
-domains only in the `us-east-2` region for account
+domains only in the `us-east-2` Region for account
 `123456789012` for any domain that starts with the name
 `my`.
 

@@ -103,7 +103,7 @@ CodeArtifact will return a **400 (Bad Request)** in response to the
 client to stop uploading files for that package version. If this occurs, and the
 `maven-metadata.xml` file is not uploaded, any assets of the
 package version already uploaded cannot be downloaded. This is because the package
-version’s status is not set to `Published` and remains
+version's status is not set to `Published` and remains
 `Unfinished`.
 
 CodeArtifact allows adding further assets to a Maven package version even after

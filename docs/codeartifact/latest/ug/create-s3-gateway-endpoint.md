@@ -28,7 +28,7 @@ the minimum Amazon S3 bucket permissions for CodeArtifact, restrict access to th
 create the IAM policy document for the endpoint.
 
 The following table describes the Amazon S3 buckets you should reference in your policies to allow access
-to CodeArtifact in each region.
+to CodeArtifact in each Region.
 
 | Region         | Amazon S3 Bucket ARN                            |
 | -------------- | ----------------------------------------------- |
@@ -73,8 +73,8 @@ aws codeartifact describe-domain --domain `mydomain`
 
 ### Example
 
-The following example illustrates how to provide access to the Amazon S3 buckets required for CodeArtifact operations in the `us-east-1` region.
-For other regions, update the `Resource` entry with the correct permission ARN for your region based on the table above.
+The following example illustrates how to provide access to the Amazon S3 buckets required for CodeArtifact operations in the `us-east-1` Region.
+For other Regions, update the `Resource` entry with the correct permission ARN for your Region based on the table above.
 
 ```
 {

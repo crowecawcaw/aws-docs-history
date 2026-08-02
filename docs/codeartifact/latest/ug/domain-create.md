@@ -108,7 +108,7 @@ they can use it.
 
 The following example key policy statement allows AWS CodeArtifact to create grants and view key details on
 behalf of authorized users. This policy statement limits the permission to CodeArtifact acting on the specified account
-ID’s behalf by using the `kms:ViaService` and `kms:CallerAccount` condition keys. It also
+ID's behalf by using the `kms:ViaService` and `kms:CallerAccount` condition keys. It also
 grants all AWS KMS permissions to the IAM root user, so the key can be managed after it is created.
 
 JSON

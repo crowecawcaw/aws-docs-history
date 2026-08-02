@@ -4,7 +4,7 @@ When importing a Python package version from [pypi.org](https://pypi.org/ "https
 package version. While most Python packages contain a small number of assets, some contain over 100 assets, typically to support
 multiple hardware architectures and Python interpreters.
 
-It’s common for new assets to be published to pypi.org for an existing package version. For example, some projects publish new
+It's common for new assets to be published to pypi.org for an existing package version. For example, some projects publish new
 assets when new versions of Python are released. When a Python package is installed from CodeArtifact with `pip install`,
 package versions retained in the CodeArtifact repository are updated to reflect the latest set of assets from pypi.org.
 
@@ -45,9 +45,9 @@ CodeArtifact does not support setting yanked metadata for packages published dir
 Normally, CodeArtifact ensures that when a Python package version is fetched from a
 CodeArtifact repository, the yanked metadata is up-to-date with the latest value on [pypi.org](https://pypi.org/ "https://pypi.org/").
 Additionally, the list of assets in the package version are also kept updated with the latest set on pypi.org and any upstream CodeArtifact repositories.
-This is true whether you’re installing the package version for the first time and CodeArtifact imports
+This is true whether you're installing the package version for the first time and CodeArtifact imports
 it from pypi.org into your CodeArtifact repository, or if you've installed the package before.
-However, there are cases when the package manager client, such as pip, won’t pull the latest yanked metadata
+However, there are cases when the package manager client, such as pip, won't pull the latest yanked metadata
 from pypi.org or upstream repositories. Instead, CodeArtifact will return the data that is already stored in your repository.
 This section describes the three ways this can occur:
 
@@ -55,7 +55,7 @@ This section describes the three ways this can occur:
 repository or its upstreams using
 [disassociate-external-connection](external-connection.md#removing-an-external-connection "external-connection.md#removing-an-external-connection"), yanked metadata will no
 longer be refreshed from pypi.org. Similarly, if you remove an upstream repository, assets from the removed
-repository and the removed repository’s upstreams will no longer be available to the current repository.
+repository and the removed repository's upstreams will no longer be available to the current repository.
 The same is true if you use CodeArtifact [package origin controls](package-origin-controls.md "package-origin-controls.md")
 to prevent new versions of a specific package from being pulled—
 setting `upstream=BLOCK` will block yanked metadata from being refreshed.
@@ -63,7 +63,7 @@ setting `upstream=BLOCK` will block yanked metadata from being refreshed.
 **Package version status:** If you set the status of a package version to anything except
 `Published` or `Unlisted`, yanked metadata and assets of the package version will not be refreshed. Similarly, if you are fetching a
 specific package version (say `torch 2.0.1`) and the same package version is present
-in an upstream repository with a status that isn’t `Published` or `Unlisted`, this will also block
+in an upstream repository with a status that isn't `Published` or `Unlisted`, this also blocks
 yanked metadata and asset propagation from the upstream repository to the current repository. This is
 because other package version statuses are an indication that the versions are not meant to be consumed anymore in any repository.
 

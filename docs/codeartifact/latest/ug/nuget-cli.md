@@ -165,7 +165,7 @@ Example output:
 
 ```
 
-3. Create the full repository endpoint URL by appending `/v3/index.json` to the URL returned by `get-repository-endpoint` in step 3.
+3. Create the full repository endpoint URL by appending `/v3/index.json` to the URL returned by `get-repository-endpoint` in step 1.
 4. Configure nuget or dotnet to use the repository endpoint from Step 1 and
    authorization token from Step 2.
 

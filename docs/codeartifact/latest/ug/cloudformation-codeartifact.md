@@ -27,12 +27,12 @@ more information, including examples of JSON and YAML templates, see the followi
 
 ## Preventing deletion of CodeArtifact resources
 
-CodeArtifact repositories contain critical aplication dependencies that may not be easy to recreate
-if lost. To protect CodeArtifact resources against accidential deletion when managing CodeArtifact resources with CloudFormation,
-include the `DeletionPolicy` and `UpdateRetainPolicy` attributes with a value of `Retain` on
+CodeArtifact repositories contain critical application dependencies that may not be easy to recreate
+if lost. To protect CodeArtifact resources against accidental deletion when managing CodeArtifact resources with CloudFormation,
+include the `DeletionPolicy` and `UpdateReplacePolicy` attributes with a value of `Retain` on
 all domains and
-respositories. This will prevent deletion if the resource is removed from the stack template, or the entire stack is
-accidentially deleted. The following YAML snippet shows a basic domain and repository with these attributes:
+repositories. This prevents deletion if the resource is removed from the stack template, or the entire stack is
+accidentally deleted. The following YAML snippet shows a basic domain and repository with these attributes:
 
 ```
 Resources:

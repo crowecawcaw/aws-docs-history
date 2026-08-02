@@ -80,8 +80,8 @@ logical groups and help avoid name collisions. For example, npm supports scopes.
 more information, see the [npm
 scopes documentation](https://docs.npmjs.com/cli/v7/using-npm/scope "https://docs.npmjs.com/cli/v7/using-npm/scope"). The npm package `@types/node` has a scope of
 `@types` and a name of `node`. There are many other package
-names in the `@types` scope. In CodeArtifact, the scope (“types”) is referred to as
-the package namespace and the name (“node”) is referred to as the package name. For
+names in the `@types` scope. In CodeArtifact, the scope ("types") is referred to as
+the package namespace and the name ("node") is referred to as the package name. For
 Maven packages, the package namespace corresponds to the Maven groupID. The Maven
 package `org.apache.logging.log4j:log4j` has a groupID (package namespace) of
 `org.apache.logging.log4j` and the artifactID (package name)

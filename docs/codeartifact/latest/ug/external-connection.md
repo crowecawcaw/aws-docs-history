@@ -1,6 +1,6 @@
 # Connect a CodeArtifact repository to a public repository
 
-You can add a external connection between a CodeArtifact repository and an external, public repository
+You can add an external connection between a CodeArtifact repository and an external, public repository
 such as [https://npmjs.com](https://npmjs.com "https://npmjs.com") or the [Maven Central
 repository](https://repo.maven.apache.org/maven2/ "https://repo.maven.apache.org/maven2/"). Then, when
 you request a package from the CodeArtifact repository that's not already present in the

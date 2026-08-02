@@ -28,15 +28,20 @@ You can [request a service quota increase](https://console.aws.amazon.com/suppor
 
 ###### Note
 
-In general, each read request made to CodeArtifact counts as one request counted against a quota. However, for the Ruby package format, a
-single read request to the `/api/v1/dependencies` operation can request data about multiple packages.
+In general, each read request made to CodeArtifact counts as one request counted against a quota. However, for the Ruby
+package format, several read operations request data about multiple gems and are weighted accordingly:
 
-For example, the request can look like `https://${CODEARTIFACT_REPO_ENDPOINT}/api/v1/dependencies?gems=gem1,gem2.gem3`.
-In this example, the request counts as three requests against the quota.
-
-Note that the multiple requests only applies to service quotas, not billing. In the example,
-you will be billed only for one request, although it counts as three requests towards the service quota.
-For CI/CD environments running multiple concurrent `bundle install` operations,
-the effective request rate can be significantly higher than the HTTP request count. If you
-experience throttling during Ruby gem resolution, request a quota increase for
-_Read requests per second from a single AWS account_.
+- A single request to the `/api/v1/dependencies` operation can include multiple gem names.
+  Each gem name in the request counts as a separate request against the quota. For example,
+  `https://${CODEARTIFACT_REPO_ENDPOINT}/api/v1/dependencies?gems=gem1,gem2,gem3` counts as three
+  requests against the quota.
+- The Compact Index endpoints `/versions` and `/names` each return data for every
+  gem in the repository. Each gem returned counts as a separate request against the quota. For example, a
+  single `GET /versions` call against a repository containing 1,000 gems counts as 1,000
+  requests against the quota. These endpoints support repositories that contain up to 5,000 gems.
+  Requests against repositories that contain more than 5,000 gems return an HTTP 400 error.
+  Per-gem weighting applies only to service quotas, not billing. You are billed for one request per HTTP call,
+  regardless of how many gems it touches. For CI/CD environments running multiple concurrent
+  `bundle install` or `gem install` operations, the effective request rate can be
+  significantly higher than the HTTP request count. If you experience throttling during Ruby gem resolution,
+  request a quota increase for _Read requests per second from a single AWS account_.

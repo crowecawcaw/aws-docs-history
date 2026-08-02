@@ -253,7 +253,7 @@ The output in this scenario will be similar to the following.
 ```
 
 Version 0.2.1 is marked as `SKIPPED` because it was not copied to the
-destination repository. Is was not copied because the copy of version 0.3.2 failed because
+destination repository. It was not copied because the copy of version 0.3.2 failed because
 it was already present in the destination repository, but not identical in the source and destination repositories.
 
 ## Specifying a package version revision

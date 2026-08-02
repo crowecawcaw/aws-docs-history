@@ -25,7 +25,7 @@ Maven snapshot to any CodeArtifact repository.
 AWS CodeArtifact supports the request patterns that clients, such as `mvn`, use
 when publishing snapshots. Because of this, you can follow the documentation for your
 build tool or package manager without having a detailed understanding of how Maven
-snapshots are published. If you’re doing something more complex, this section describes
+snapshots are published. If you're doing something more complex, this section describes
 in detail how CodeArtifact handles snapshots.
 
 When a Maven snapshot is published to a CodeArtifact repository, its previous version is preserved in a new version called a build. Each time a Maven snapshot is published, a new build version is created. All previous versions of a snapshot are maintained in its build versions. When a Maven snapshot is published, its package version status is set to `Published` and the status of the build that contains the previous version is set to `Unlisted`. This behavior applies only to Maven package versions where the package version has `-SNAPSHOT` as a suffix.
@@ -146,7 +146,7 @@ repository product, you may want to republish them to AWS CodeArtifact. Because 
 supports Maven snapshots (see [Snapshot publishing in CodeArtifact](#maven-snapshot-publishing "#maven-snapshot-publishing")), publishing snapshots with a generic
 HTTP client such as `curl` is more complex than publishing Maven release
 versions as described in [Publishing with curl](maven-curl.md "maven-curl.md"). Note
-that this section isn’t relevant if you’re building and deploying snapshot versions with
+that this section isn't relevant if you're building and deploying snapshot versions with
 a Maven client such as `mvn` or `gradle`. You need to follow the
 documentation for that client.
 
@@ -155,14 +155,14 @@ version. In CodeArtifact, if there are _n_ builds of a snapshot version,
 there will be _n + 1_ CodeArtifact versions: _n_ build
 versions all with a status of `Unlisted`, and one snapshot version (the
 latest published build) with a status of `Published`. The snapshot version
-(that is, the version with a version string that contains “-SNAPSHOT”) contains an
+(that is, the version with a version string that contains "-SNAPSHOT") contains an
 identical set of assets to the latest published build. The simplest way to create this
 structure using `curl` is as follows:
 
 1. Publish all assets of all builds using `curl`.
 2. Publish the `maven-metadata.xml` file of the last build (that is,
    the build with the most-recent date-time stamp) with `curl`. This
-   will create a version with “`-SNAPSHOT`” in the version string and
+   creates a version with "`-SNAPSHOT`" in the version string and
    with the correct set of assets.
 3. Use the [UpdatePackageVersionsStatus](../APIReference/API_UpdatePackageVersionsStatus.md "../APIReference/API_UpdatePackageVersionsStatus.md") API to set the status of all the non-latest build versions to `Unlisted`.
 
@@ -278,6 +278,6 @@ from `U`. This can be unexpected since the latest version is now in `R`, not
 1. Don't publish builds of a snapshot version such as `1.0-SNAPSHOT` in
    `R`, if `1.0-SNAPSHOT` exists in `U`.
 2. Use CodeArtifact package origin controls to disable upstreams on that package in `R`.
-   The latter will allow you to publish builds of`1.0-SNAPSHOT` in `R`, but
+   With the latter setting, you can publish builds of `1.0-SNAPSHOT` in `R`, but
    it will also prevent `R` from getting any other versions of that package from
    `U` that aren't already retained.

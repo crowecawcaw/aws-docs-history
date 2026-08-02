@@ -101,7 +101,7 @@ more information about package groups and package group origin controls, see [Wo
 If a package is associated with a package group with restriction settings of `ALLOW` for every restriction type, the default package origin
 controls for a package will be based on how the first version of that package is added to the repository.
 
-- If the first package version is published direcly by a package manager, the settings will be **Publish: ALLOW** and **Upstream: BLOCK**.
+- If the first package version is published directly by a package manager, the settings will be **Publish: ALLOW** and **Upstream: BLOCK**.
 - If the first package version is ingested from a public source, the settings will be **Publish: BLOCK** and **Upstream: ALLOW**.
 
 ###### Note
@@ -129,7 +129,7 @@ lists some example configurations and their effective origin control settings.
 | PUBLISH: BLOCKUPSTREAM: ALLOW  | PUBLISH: ALLOWUPSTREAM: ALLOW        | PUBLISH: BLOCKUPSTREAM: ALLOW    |
 | PUBLISH: ALLOWUPSTREAM: ALLOW  | PUBLISH: ALLOWUPSTREAM: BLOCK        | PUBLISH: ALLOWUPSTREAM: BLOCK    |
 
-What this means is that a package with origin settings of **Publish: ALLOW** and **Upstream: ALLOW**, then it
+What this means is that if a package has origin settings of **Publish: ALLOW** and **Upstream: ALLOW**, then it
 is effectively deferring to the associated package group's origin control settings.
 
 ## Editing package origin controls

@@ -174,7 +174,7 @@ The following example shows how to delete the package
 
 ## Best practices for deleting packages or package versions
 
-If you do need to a delete a package version, as a best practice it's recommended that you create a repository to
+If you do need to delete a package version, as a best practice we recommend creating a repository to
 store a backup copy of the package version you'd like to delete. You can do this by first calling `copy-package-versions`
 to the backup repository:
 

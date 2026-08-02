@@ -5,7 +5,7 @@ The following information might help you troubleshoot common issues with Maven a
 ## Disable parallel puts to fix error 429: Too Many Requests
 
 Starting with version 3.9.0, Maven uploads package artifacts in parallel (up to 5 files at a time).
-This can cause CodeArtifact to occassionally respond with an error response code 429 (Too Many Requests). If you
+This can cause CodeArtifact to occasionally respond with an error response code 429 (Too Many Requests). If you
 encounter this error, you can disable parallel puts to fix it.
 
 To disable parallel puts, set the `aether.connector.basic.parallelPut` property to `false`

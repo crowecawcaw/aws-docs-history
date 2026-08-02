@@ -205,7 +205,7 @@ If there are no tags added to this domain, the console will read **Add domain ta
 
 ### Edit tags for a domain (console)
 
-You can use the console to edit tags that have been added to domain.
+You can use the console to edit tags that have been added to a domain.
 
 1. Open the AWS CodeArtifact console at [https://console.aws.amazon.com/codesuite/codeartifact/home](https://console.aws.amazon.com/codesuite/codeartifact/home "https://console.aws.amazon.com/codesuite/codeartifact/home").
 2. On the **Domains** page, choose the domain where you

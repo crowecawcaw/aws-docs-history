@@ -204,7 +204,7 @@ The following are possible values for package version status:
   it is still present in the repository, but you can change the package version's
   status back to **Unlisted** or **Published** with the [UpdatePackageVersionsStatus API](../APIReference/API_UpdatePackageVersionsStatus.md "../APIReference/API_UpdatePackageVersionsStatus.md").
 - **Disposed** – The package version doesn't
-  appear in listings and the assets cannot be downloaded from the repository. They
+  appear in listings and the assets cannot be downloaded from the repository. The
   key difference between **Disposed** and **Archived** is that with a status of **Disposed**, the assets of the package version will be
   permanently deleted by CodeArtifact. For this reason, you cannot move a package version
   from **Disposed** to **Archived**, **Unlisted**, or

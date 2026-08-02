@@ -14,7 +14,7 @@ In each of the `curl` commands in this procedure, replace the following placehol
 
     * Replace `my_domain` with your CodeArtifact domain name.
     * Replace `111122223333` with the ID of the owner of your CodeArtifact domain.
-    * Replace `us-west-2` with the region in which your CodeArtifact domain is located.
+    * Replace `us-west-2` with the Region in which your CodeArtifact domain is located.
     * Replace `my_repo` with your CodeArtifact repository name.
 
 ```

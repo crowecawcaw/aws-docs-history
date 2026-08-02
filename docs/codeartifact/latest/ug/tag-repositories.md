@@ -203,7 +203,7 @@ If there are no tags added to this repository, the console will read **Add repos
 
 ### Edit tags for a repository (console)
 
-You can use the console to edit tags that have been added to repository.
+You can use the console to edit tags that have been added to a repository.
 
 1. Open the AWS CodeArtifact console at [https://console.aws.amazon.com/codesuite/codeartifact/home](https://console.aws.amazon.com/codesuite/codeartifact/home "https://console.aws.amazon.com/codesuite/codeartifact/home").
 2. On the **Repositories** page, choose the repository where you

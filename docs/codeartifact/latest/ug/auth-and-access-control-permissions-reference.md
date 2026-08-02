@@ -131,8 +131,8 @@ CodeArtifact API operations and required permissions for actions| AWS CodeArtifa
 
 ###### Note
 
-This section about how package group ARNs and pattern encoding is informational. It is recommended to copy ARNs
-from the console, or fetch ARNs using the `DescribePackageGroup` API instead of encoding patterns and constructing ARNs.
+This section about package group ARNs and pattern encoding is informational. We recommend copying ARNs
+from the console, or fetching ARNs using the `DescribePackageGroup` API instead of encoding patterns and constructing ARNs.
 
 IAM policies use the wildcard character, `*`, to match multiple IAM actions or multiple resources. Package group patterns
 also use the `*` character. In order to more easily write IAM policies that match a
@@ -158,5 +158,5 @@ For example, the ARN for a root package group of a domain, (`/*`), would be:
 arn:aws:codeartifact:`us-east-1`:`111122223333`:package-group/`my_domain`/%2a
 ```
 
-Note that characters not included in the list can not be encoded, and ARNs are case-sensitive, so `*` must
+Note that characters not included in the list cannot be encoded, and ARNs are case-sensitive, so `*` must
 be encoded as `%2a` and not `%2A`.

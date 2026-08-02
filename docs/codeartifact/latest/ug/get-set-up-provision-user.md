@@ -2,7 +2,7 @@
 
 Follow these instructions to prepare an IAM user to use CodeArtifact.
 
-###### To provision anIAM user
+###### To provision an IAM user
 
 1. Create an IAM user, or use one that is associated with your AWS account. For
    more information, see [Creating an

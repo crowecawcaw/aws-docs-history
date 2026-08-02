@@ -126,7 +126,7 @@ current revision of the package version matches the value specified.
 
 ###### Note
 
-The `—-versions` parameter must also be defined
+The `--versions` parameter must also be defined
 when using the `--version-revisions` parameter.
 
 ```
@@ -219,7 +219,7 @@ versions cannot have their status changed, all other versions will be skipped. T
 are updated successfully or no versions are updated. This behavior is not guaranteed in the API contract;
 in the future, some versions might succeed while other versions fail in a single call to `update-package-versions-status`.
 
-The following example command includes an version status update failure caused by a package version revision mismatch.
+The following example command includes a version status update failure caused by a package version revision mismatch.
 That update failure causes another version status update call to be skipped.
 
 ```
@@ -250,13 +250,13 @@ Sample output:
 
 ## Disposing of package versions
 
-The `Disposed` package status has similar behavior to `Archived`, except that the package assets
-will be permanently deleted by CodeArtifact so that the domain owner’s account will no longer
-be billed for the asset storage. For more information about each package version status, see
+The `Disposed` package status has similar behavior to `Archived`, except that CodeArtifact
+permanently deletes the package assets so that the domain owner's account is no longer
+billed for the asset storage. For more information about each package version status, see
 [Package version status](packages-overview.md#package-version-status "packages-overview.md#package-version-status"). To change the status of a package version to `Disposed`, use the
 `dispose-package-versions` command. This capability is separate from `update-package-versions-status`
 because disposing of a package version is not reversible. Because the package assets will be deleted,
-the version’s status cannot be changed back to `Archived`, `Unlisted`, or `Published`. The only action
+the version's status cannot be changed back to `Archived`, `Unlisted`, or `Published`. The only action
 that can be taken on a package version that has been disposed is for it to be deleted using the
 `delete-package-versions` command.
 
@@ -271,7 +271,7 @@ and `--expected-status` options that are described in the
 attempts to dispose a package version but fails due to a mismatched expected status.
 
 ```
-aws codeartifact dispose-package-versions —domain `my_domain` --domain-owner `111122223333`
+aws codeartifact dispose-package-versions --domain `my_domain` --domain-owner `111122223333`
 --repository `my_repo` --format `npm` --package `chalk` --versions `4.0.0`
 --expected-status `Unlisted`
 ```
@@ -293,7 +293,7 @@ Sample output:
 If the same command is run again with an `--expected-status` of `Published`, the disposal will succeed.
 
 ```
-aws codeartifact dispose-package-versions —domain `my_domain` --domain-owner `111122223333`
+aws codeartifact dispose-package-versions --domain `my_domain` --domain-owner `111122223333`
 --repository `my_repo` --format `npm` --package `chalk` --versions `4.0.0`
 --expected-status `Published`
 ```

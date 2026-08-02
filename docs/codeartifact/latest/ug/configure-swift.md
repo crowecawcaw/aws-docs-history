@@ -75,7 +75,7 @@ In the following procedure, you will use the AWS CLI to do the following:
 3. In the `~/.swiftpm/configuration/registries.json` configuration file, add an entry
    with your repository endpoint URL and authentication type.
 
-###### To configure the Swift without the login command
+###### To configure Swift without the login command
 
 1. In a command line, use the following command to fetch a CodeArtifact authorization token and store it in an environment variable.
 

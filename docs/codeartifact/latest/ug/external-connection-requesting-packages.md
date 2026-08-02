@@ -88,7 +88,7 @@ When fetching a package from a public repository using an external connection, t
 is a delay from when the package is fetched from the public repository and when it is
 stored in your CodeArtifact repository. For example, say you have installed version
 1.2.5 of the npm package "lodash" as described in [Fetch packages from an external connection](#fetching-packages-from-a-public-repository "#fetching-packages-from-a-public-repository"). Although the `npm
- install lodash` lodash command completed successfully, the package version
+ install lodash` command completed successfully, the package version
 might not appear in your CodeArtifact repository yet. It typically takes around 3 minutes for
 the package version to appear in your repository, although occasionally it can take
 longer.

@@ -12,7 +12,7 @@ This guide contains information about CodeArtifact's compatibility with differen
 AWS CodeArtifact supports NuGet 4.8 and higher.
 
 AWS CodeArtifact only supports V3 of the NuGet HTTP protocol. This means that some CLI commands that
-rely V2 of the protocol are not supported. See the
+rely on V2 of the protocol are not supported. See the
 [nuget.exe command support](#nuget-command-support "#nuget-command-support") section for more information.
 
 AWS CodeArtifact does not support PowerShellGet 2.x.

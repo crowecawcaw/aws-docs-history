@@ -65,27 +65,27 @@ format, the normalized package namespace will be used. For more information abou
 
 ## Package group hierarchy and pattern specificity
 
-The packages that are “in” or “associated with” a package group are packages with a package path that matches the group’s pattern
-but do not match a more specific group’s pattern. For example, given the package groups `/npm/*` and `/npm/space/*`,
+The packages that are "in" or "associated with" a package group are packages with a package path that matches the group's pattern
+but do not match a more specific group's pattern. For example, given the package groups `/npm/*` and `/npm/space/*`,
 the package path _/npm//react_ is associated with the first group (`/npm/*`) while _/npm/space/aui.components_
 and _/npm/space/amplify-ui-core_ are associated with the
 second group (`/npm/space/*`). Even though a package may match multiple groups, each package is only associated with a single group, the most specific
-match, and only that one group’s configuration applies to the package.
+match, and only that one group's configuration applies to the package.
 
-When a package path matches multiple patterns, the “more specific” pattern can be thought of as the longest matching pattern.
+When a package path matches multiple patterns, the "more specific" pattern can be thought of as the longest matching pattern.
 Alternatively, the more specific pattern is the one that matches a proper subset of the packages that match
 the less specific pattern. From our earlier example, every package that matches `/npm/space/*` also matches `/npm/*`, but the reverse is not true,
 which makes `/npm/space/*` the more specific pattern because it is a proper subset of `/npm/*`. Because one group is a subset of another
 group, it creates a hierarchy, in which `/npm/space/*` is a subgroup of the parent group, `/npm/*`.
 
-Though only the most specific package group’s configuration applies to a package, that group may be configured to inherit
-from its parent group’s configuration.
+Though only the most specific package group's configuration applies to a package, that group may be configured to inherit
+from its parent group's configuration.
 
 ## Words, word boundaries, and prefix matching
 
 Before discussing prefix matching, let's define some key terms:
 
-- A _word_ a letter or number followed by zero or more letters, numbers, or
+- A _word_ is a letter or number followed by zero or more letters, numbers, or
   mark characters (such as accents, umlauts, etc.).
 - A _word boundary_ is at the end of a word, when a non-word character is reached. Non-word
   characters are punctuation characters such as `.`, `-`, and `_`.
@@ -101,7 +101,7 @@ represents zero or more letters, numbers, or mark characters and a word boundary
 
 ###### Note
 
-Word boundary matching is based on this definition of a “word”. It is not based on words defined in a dictionary, or CameCase. For example,
+Word boundary matching is based on this definition of a "word". It is not based on words defined in a dictionary, or CamelCase. For example,
 there is no word boundary in `oneword` or `OneWord`.
 
 Now that word and word boundary are defined, we can use them to describe prefix matching in CodeArtifact. To indicate a
@@ -135,9 +135,9 @@ are case sensitive, and then goes on to explain they are case insensitive.
 This is because package group definitions in CodeArtifact have a concept of strong match (or exact match) and a weak match (or variation match).
 A strong match is when the package matches the pattern exactly, without any variation. A weak match is
 when the package matches a variation of the pattern, such as different letter case. Weak match behavior
-prevents packages that are variations of a package group’s pattern from rolling up to a more general package
-group. When a package is a variation (weak match) of the most specific matching group’s pattern, then the
-package is associated with the group but the package is blocked instead of applying the group’s origin control
+prevents packages that are variations of a package group's pattern from rolling up to a more general package
+group. When a package is a variation (weak match) of the most specific matching group's pattern, then the
+package is associated with the group but the package is blocked instead of applying the group's origin control
 configuration, preventing any new versions of the package from being pulled from upstreams or published.
 This behavior reduces the risk of supply chain attacks resulting from dependency confusion of packages with nearly
 identical names.
@@ -160,9 +160,9 @@ and normalizes confusable characters.
 
 Weak matching treats dashes, dots, and underscores as equivalent but does not completely ignore them. This means that _foo-bar_,
 _foo.bar_, _foo..bar_, and _foo\_bar_ are all weak match equivalents, but
-_foobar_ is not. Although several public repositories implement steps to prevent these types of varations, the
+_foobar_ is not. Although several public repositories implement steps to prevent these types of variations, the
 protection provided by public repositories does not make this feature of package groups unnecessary. For example,
-public repositories such as the npm Public Registry registry will only prevent new variations of the package named
+public repositories such as the npm Public Registry will only prevent new variations of the package named
 _my-package_ if _my-package_ is already published to it. If _my-package_ is an
 internal package and package group `/npm//my-package$` is created that allows publish and blocks ingestion, you likely don't want to
 publish _my-package_ to the npm Public Registry in order to prevent a variant such as _my.package_ from being allowed.

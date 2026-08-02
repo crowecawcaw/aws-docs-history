@@ -303,7 +303,7 @@ JSON
 CodeArtifact supports resource policies on domains and repositories. Resource policies are optional. Each
 domain may have one policy and each repository in the domain may have its own repository policy. If both a domain
 policy and a repository policy are present, then both are evaluated when determining whether a request to a CodeArtifact
-repository is allowed or denied. Domain and repository policies are evaluating using the following rules:
+repository is allowed or denied. Domain and repository policies are evaluated using the following rules:
 
 - No resource policies are evaluated when performing account-level operations such as
   [ListDomains](../APIReference/API_ListDomains.md "../APIReference/API_ListDomains.md")
@@ -320,12 +320,12 @@ repository is allowed or denied. Domain and repository policies are evaluating u
 - An explicit deny in any policy overrides an allow in another policy.
 - An explicit allow is only required in one resource policy. Omitting an action from a repository policy will not result in an implicit deny if the
   domain policy allows the action.
-- When no resource policy allows an action, the result is an implicit deny unless the calling principal’s account is the domain owner or repository administrator
+- When no resource policy allows an action, the result is an implicit deny unless the calling principal's account is the domain owner or repository administrator
   account and an identity-based policy allows the action.
 
 Resource policies are optional when used to grant access in a single account scenario, where the caller account used to access a repository
 is the same as the domain owner and repository administrator account. Resource policies are required to grant access in a cross-account scenario where
-the caller’s account is not the same as the domain owner or repository administrator account. Cross-account access in CodeArtifact follows the general IAM
+the caller's account is not the same as the domain owner or repository administrator account. Cross-account access in CodeArtifact follows the general IAM
 rules for cross-account access as described in
 [Determining whether a
 cross-account request is allowed](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic-cross-account.md#policy-eval-cross-account "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic-cross-account.md#policy-eval-cross-account") in the _IAM User Guide_.

@@ -13,7 +13,7 @@ _of_ the cloud and security _in_ the cloud:
   Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
 - **Security in the cloud** – Your responsibility is
   determined by the AWS service that you use. You are also responsible for other factors
-  including the sensitivity of your data, your company’s requirements, and applicable laws and
+  including the sensitivity of your data, your company's requirements, and applicable laws and
   regulations.
   This documentation helps you understand how to apply the shared responsibility model when
   using CodeArtifact. The following topics show you how to configure CodeArtifact to meet your
@@ -29,4 +29,5 @@ _of_ the cloud and security _in_ the cloud:
 - [Resilience in AWS CodeArtifact](codeartifact-disaster-recovery-resiliency.md "codeartifact-disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS CodeArtifact](infrastructure-security.md "infrastructure-security.md")
 - [Dependency substitution attacks](dependency-substitution-attacks.md "dependency-substitution-attacks.md")
+- [Gating packages on version age](package-version-age-gating.md "package-version-age-gating.md")
 - [Identity and Access Management for AWS CodeArtifact](security-iam.md "security-iam.md")

@@ -7,8 +7,8 @@ describes how to configure Cargo to authenticate with and use a CodeArtifact rep
 ## Configure Cargo with CodeArtifact
 
 To use Cargo to install and publish crates from AWS CodeArtifact,
-you'll first need to configure them with your CodeArtifact repository information. Follow
-the steps in one of the following procedure to configure Cargo with your CodeArtifact repository endpoint information and credentials.
+you need to configure it with your CodeArtifact repository information. Follow
+the steps in one of the following procedures to configure Cargo with your CodeArtifact repository endpoint information and credentials.
 
 ### Configure Cargo using the console instructions
 
@@ -141,7 +141,7 @@ To use a dualstack endpoint, use the `codeartifact.`region`.on.aws` endpoint.
 
 - `credential-provider` specifies the credential provider for the given registry. If `credential-provider` isn't set,
   the providers in `registry.global-credential-providers` will be used. By setting `credential-provider` to
-  `cargo:token-from-stdout`, the Cargo client will fetch new authorization token automatically when
+  `cargo:token-from-stdout`, the Cargo client fetches a new authorization token automatically when
   publishing or downloading from your CodeArtifact repository, therefore you don't need to manually refresh the authorization token every 12 hours.
 
 The `[registry]` section defines the default registry used.

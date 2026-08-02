@@ -187,7 +187,7 @@ aws codeartifact put-domain-permissions-policy --domain `my_domain` --domain-own
  --policy-document `file://</PATH/TO/policy.json>`
 ```
 
-When you call `put-domains-permissions-policy`, the resource policy on the domain is ignored when evaluting permissions. This ensures
+When you call `put-domains-permissions-policy`, CodeArtifact ignores the resource policy on the domain when evaluating permissions. This ensures
 that the owner of a domain cannot lock themselves out of the domain, which would prevent them from being able to update the resource policy.
 
 ###### Note

@@ -57,7 +57,7 @@ To use a dualstack endpoint, use the `codeartifact.`region`.on.aws` endpoint.
 ## Publish artifacts
 
 1. Update your Maven settings and `deps.edn` to include CodeArtifact as a maven-recognized server (see [Fetch dependencies](#fetching-dependencies-deps "#fetching-dependencies-deps")). You can use a tool such as [deps-deploy](https://github.com/slipset/deps-deploy "https://github.com/slipset/deps-deploy") to upload artifacts to CodeArtifact.
-2. In your `build.clj`, add a `deploy` task to upload required artifacts to the previously setup `codeartifact` repository.
+2. In your `build.clj`, add a `deploy` task to upload required artifacts to the previously set up `codeartifact` repository.
 
 ```
 (ns build

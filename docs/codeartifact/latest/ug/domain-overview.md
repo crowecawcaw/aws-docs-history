@@ -39,7 +39,7 @@ testing changes to the production domain configuration.
 
 ## Cross-account domains
 
-Domain names only need to be unique within an account, which means there could be multiple domains within a region that have the same name.
+Domain names only need to be unique within an account, which means there could be multiple domains within a Region that have the same name.
 Because of this, if you want to access a domain that is owned by an account you are not authenticated to, you must provide the domain owner ID
 along with the domain name in both the CLI and the console. See the following CLI examples.
 

@@ -6,8 +6,8 @@ describes how to configure the package managers to authenticate with and use a C
 ## Configure RubyGems (`gem`) and Bundler (`bundle`) with CodeArtifact
 
 To use RubyGems (`gem`) or Bundler (`bundle`) to publish gems to or consume gems from AWS CodeArtifact,
-you'll first need to configure them with your CodeArtifact repository information, including credentials to access it. Follow
-the steps in one of the following procedure to configure the `gem` and `bundle` CLI tools with your
+you need to first configure it with your CodeArtifact repository information, including credentials to access it. Follow
+the steps in one of the following procedures to configure the `gem` and `bundle` CLI tools with your
 CodeArtifact repository endpoint information and credentials.
 
 ### Configure RubyGems and Bundler using the console instructions
@@ -57,7 +57,7 @@ Windows
     $env:CODEARTIFACT_AUTH_TOKEN = aws codeartifact get-authorization-token --domain `my_domain` --domain-owner `111122223333` --query authorizationToken --output text
     ```
 
-2. To publish Ruby gems to your repository, use the following command to fetch your CodeArtifact repository's endpoint and storing it in the
+2. To publish Ruby gems to your repository, use the following command to fetch your CodeArtifact repository's endpoint and store it in the
 `RUBYGEMS_HOST` environment variable. The `gem` CLI uses this environment variable to determine where gems are published.
 
 ###### Note
