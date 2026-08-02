@@ -61,7 +61,7 @@ Grants in AWS KMS are used to give Amazon DocumentDB elastic clusters access to 
 
 Amazon DocumentDB elastic clusters require the grant to use your customer managed key for the following internal operations:
 
-- Send `DescribeKey` requests to AWS KMS to verify that the symmetric customer managed KMS key ID, entered when creating a tracker or geofence collection, is valid.
+- Send `DescribeKey` requests to AWS KMS to verify that the symmetric customer managed key ID, entered when creating an elastic cluster, is valid.
 - Send `GenerateDataKey` requests to AWS KMS to generate data keys encrypted by your customer managed key.
 - Send `Decrypt` requests to AWS KMS to decrypt the encrypted data keys so that they can be used to encrypt your data.
 - You can revoke access to the grant, or remove the service's access to the customer managed key at any time.
@@ -73,7 +73,7 @@ You can create a symmetric customer managed key by using the AWS Management Cons
 
 **Symmetric customer managed key creation**
 
-Follow the steps for [Creating symmetric customer managed key](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the _AWS Key Management Service Developer Guide_.
+Follow the steps for [Creating a symmetric customer managed key](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the _AWS Key Management Service Developer Guide_.
 
 **Key policy**
 
@@ -85,11 +85,11 @@ For more information, see the KMS key access information located in the [AWS Key
 To use your customer managed key with Amazon DocumentDB elastic cluster resources, the following API operations must be permitted in the key policy:
 
 - [`kms:CreateGrant`](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") – Adds a grant to a customer managed key.
-  Grants control access to a specified KMS key, which allows access to grant operations Amazon Location Service requires.
+  Grants control access to a specified KMS key, which allows access to the grant operations that Amazon DocumentDB elastic clusters require.
   For more information about using grants, see [Grants in AWS KMS](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in the _AWS Key Management Service Developer Guide_.
-- [`kms:DescribeKey`](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") – Provides the customer managed key details to allow Docdb Elastic to validate the key.
-- [`kms:Decrypt`](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") – Allows Docdb Elastic to use the stored encrypted data key to access encrypted data.
-- [`kms:GenerateDataKey`](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") – Allows Docdb Elastic to generate an encrypted data key and store it because the data key isn't immediately used to encrypt.
+- [`kms:DescribeKey`](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") – Provides the customer managed key details to allow Amazon DocumentDB elastic clusters to validate the key.
+- [`kms:Decrypt`](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") – Allows Amazon DocumentDB elastic clusters to use the stored encrypted data key to access encrypted data.
+- [`kms:GenerateDataKey`](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") – Allows Amazon DocumentDB elastic clusters to generate an encrypted data key and store it because the data key isn't immediately used to encrypt.
 
 For more information, see [Permissions for AWS services in key policies](../../../kms/latest/developerguide/key-policy-services.md "../../../kms/latest/developerguide/key-policy-services.md") and [Troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md") in the _AWS Key Management Service Developer Guide_.
 
@@ -104,7 +104,7 @@ For more information, see [Allowing users in other accounts to use a KMS key](..
 
 ## Monitoring your encryption keys for Amazon DocumentDB elastic clusters
 
-When you use an AWS KMS key customer managed key with your Docdb Elastic resources, you can use AWS CloudTrail or Amazon CloudWatch Logs to track requests that Docdb Elastic sends to AWS KMS.
+When you use a customer managed key with your Amazon DocumentDB elastic cluster resources, you can use AWS CloudTrail or Amazon CloudWatch Logs to track requests that Amazon DocumentDB elastic clusters send to AWS KMS.
 
 The following examples are AWS CloudTrail events for `CreateGrant`, `GenerateDataKeyWithoutPlainText`, `Decrypt`, and `DescribeKey` to monitor AWS KMS key operations called by Amazon DocumentDB elastic clusters to access data encrypted by your customer managed key:
 

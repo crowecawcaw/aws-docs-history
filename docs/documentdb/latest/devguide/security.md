@@ -11,7 +11,7 @@ The [shared responsibility model](https://aws.amazon.com/compliance/shared-respo
   To learn about the compliance programs that apply to Amazon DocumentDB (with MongoDB compatibility), see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
 - **Security in the cloud** — Your responsibility is determined by the AWS service that you use.
   You are also responsible for other factors including the sensitivity of your data, your organization’s requirements, and applicable laws and regulations.
-  Amazon DocumentDB is authorized under Federal Risk and Authorization Management Program (FedRAMP). It has FedRAMP High authorization for AWS GovCloud (US) regions and FedRAMP Moderate authorization for AWS US East/West Regions.
+  Amazon DocumentDB is authorized under Federal Risk and Authorization Management Program (FedRAMP). It has FedRAMP High authorization for AWS GovCloud (US) Regions and FedRAMP Moderate authorization for AWS US East/West Regions.
   For details about AWS and compliance efforts, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/FedRAMP/ "https://aws.amazon.com/compliance/services-in-scope/FedRAMP/").
 
 ###### Note

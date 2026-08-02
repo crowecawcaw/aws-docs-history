@@ -3,14 +3,14 @@
 ## What is a global cluster?
 
 A global cluster consists of one primary Region and up to 10 read-only secondary
-regions. You issue write operations directly to the primary cluster in the primary Region
+Regions. You issue write operations directly to the primary cluster in the primary Region
 and Amazon DocumentDB automatically replicates the data to the secondary Regions using
 dedicated infrastructure. Latency is typically under a second.
 
 ## How are global clusters useful?
 
-- **Recovery from region-wide outages** — In the
-  event of a region-wide outage, you can promote one of the secondary clusters to a
+- **Recovery from Region-wide outages** — In the
+  event of a Region-wide outage, you can promote one of the secondary clusters to a
   primary cluster within minutes, with a typical Recovery Time Objective (RTO) of under
   a minute. The Recovery Point Objective (RPO) is typically measured in seconds, but
   this depends on the lag across the network at the time of the failure.

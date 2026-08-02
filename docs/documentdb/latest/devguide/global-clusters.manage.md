@@ -138,11 +138,11 @@ aws docdb --region primary_region delete-global-cluster ^
 
 Although an Amazon DocumentDB global cluster requires at least one secondary cluster in a different AWS Region than the primary, you can use a headless configuration for the secondary cluster. A headless secondary Amazon DocumentDB cluster is one without an instance. This type of configuration can lower expenses for a global cluster. In an Amazon DocumentDB cluster, compute and storage are decoupled. Without the instance, you're not charged for compute, only for storage. If it's set up correctly, a headless secondary's storage volume is kept in sync with the primary cluster.
 
-You add the secondary cluster as you normally do when creating an Amazon DocumentDB global cluster. However, after the primary cluster begins replication to the secondary, you delete the read-only instance from the secondary cluster. This secondary cluster is now considered "headless" because it no longer has a Instance. Yet, the storage volume is kept in sync with the primary Amazon DocumentDB cluster.
+You add the secondary cluster as you normally do when creating an Amazon DocumentDB global cluster. However, after the primary cluster begins replication to the secondary, you delete the read-only instance from the secondary cluster. This secondary cluster is now considered "headless" because it no longer has an instance. Yet, the storage volume is kept in sync with the primary Amazon DocumentDB cluster.
 
 ###### Important
 
-We only recommend headless clusters for customers who can tolerate region-wide failures for 15+ minutes. This is because recovering from a region-wide failure with a headless secondary cluster will require the user to create a new instance after failing over. A new instance can take ~10-15 minutes to become available.
+Use headless clusters only if you can tolerate Region-wide failures for 15 minutes or more. Recovering from a Region-wide failure with a headless secondary cluster requires you to create a new instance after failing over. A new instance can take 10–15 minutes to become available.
 
 ### How to add a headless secondary cluster to your global cluster
 
@@ -154,7 +154,7 @@ We only recommend headless clusters for customers who can tolerate region-wide f
 
 ###### Note
 
-You can't choose a region that already has a secondary cluster for the same global cluster. Also, it can't be the same Region as the primary cluster. 6. Complete the remaining fields for the secondary cluster in the new Region. These are the same configuration options as for any cluster instance. 7. Add a region. After you finish adding the region to your global cluster, you will see it in the list of `Clusters` in the AWS Management Console. 8. Check the status of the secondary cluster and its reader instance before continuing, by using the AWS Management Console or the AWS CLI. Here is a sample command if you use the AWS CLI:
+You can't choose a Region that already has a secondary cluster for the same global cluster. Also, it can't be the same Region as the primary cluster. 6. Complete the remaining fields for the secondary cluster in the new Region. These are the same configuration options as for any cluster instance. 7. Add a Region. After you finish adding the Region to your global cluster, it appears in the list of `Clusters` in the AWS Management Console. 8. Check the status of the secondary cluster and its reader instance before continuing, by using the AWS Management Console or the AWS CLI. Here is a sample command if you use the AWS CLI:
 
 ```
 $ aws docdb describe-db-clusters --db-cluster-identifier secondary-cluster-id --query '*[].[Status]' --output text

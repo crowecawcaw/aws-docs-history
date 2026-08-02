@@ -399,7 +399,7 @@ MongoDB and Amazon DocumentDB can both serve as migration sources, depending on 
 
 - **MongoDB as source** — Common when migrating from an on-premises or a self-managed MongoDB to an Amazon DocumentDB or other AWS database services.
   Requires running in replica set mode with an adequately sized oplog (make sure it is sized to hold all operations during Full Load) to support change data capture during migration.
-- **Amazon DocumentDB as source** — Typically used for cross-region replication, version upgrades, or migrating to other database services like MongoDB Atlas.
+- **Amazon DocumentDB as source** — Typically used for cross-Region replication, version upgrades, or migrating to other database services like MongoDB Atlas.
   Requires [Enabling change streams](change_streams.md#change_streams-enabling "change_streams.md#change_streams-enabling") by setting the `change_stream_log_retention_duration` parameter in the cluster parameter group to capture ongoing changes during migration.
   Make sure your `change_stream_log_retention_duration` setting is large enough to cover the time needed to complete the Full Load.
 

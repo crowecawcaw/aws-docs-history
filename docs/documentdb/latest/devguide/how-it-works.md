@@ -391,7 +391,7 @@ AWS Region.
    your default Region, in the upper-right corner of the
    screen, choose the AWS Region that you want to search.
 
-![The North Virginia Region in the region selector.](images/db-cluster-console-region.png) 3. In the navigation pane, choose the type of billable
+![The US East (N. Virginia) Region in the Region selector.](images/db-cluster-console-region.png) 3. In the navigation pane, choose the type of billable
 resource that you're interested in:
 **Clusters**, **Instances**,
 or **Snapshots**.

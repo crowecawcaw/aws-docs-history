@@ -22,19 +22,19 @@ The initial configuration of client-side FLE in Amazon DocumentDB is a four-step
 
 ### Step 1: Create the encryption keys
 
-Using AWS Key Management Service, create a symmetric key that is used for encrypting and decrypting the sensitive data field and provide it the necessary IAM usage permissions.
-AWS KMS stores the Customer Key (CK) which is used to encrypt Data Keys (DKs).
-Store the Customer Key in KMS to strengthen your security posture.
-The Data Key is the secondary key which is stored in an Amazon DocumentDB collection and is required to encrypt sensitive fields before storing the document in Amazon DocumentDB.
-The Customer Key encrypts the Data Key which in turn encrypts and decrypts your data.
-If you are using a global cluster, you can create a multi-region key that can be used by different service roles in different Regions.
+Using AWS Key Management Service, create a symmetric customer managed key that encrypts and decrypts the sensitive data field, and grant it the necessary IAM usage permissions.
+AWS KMS stores the customer managed key, which is used to encrypt data keys.
+Storing the customer managed key in AWS KMS strengthens your security posture.
+The data key is the secondary key, which is stored in an Amazon DocumentDB collection and is required to encrypt sensitive fields before storing the document in Amazon DocumentDB.
+The customer managed key encrypts the data key, which in turn encrypts and decrypts your data.
+If you use a global cluster, you can create a multi-Region key that different service roles can use in different Regions.
 
 For more information about the AWS Key Management Service, including how to create a key, see [AWS Key Management Service concepts](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") in the _AWS Key Management Service Developer Guide_.
 
 ### Step 2: Associate a role with the application
 
 Create an IAM policy with appropriate AWS KMS permissions.
-This policy allows IAM identities to which it is attached to encrypt and decrypt the KMS key specified in resource field.
+This policy allows the IAM identities to which it is attached to encrypt and decrypt the KMS key specified in the resource field.
 Your application assumes this IAM role to authenticate with AWS KMS.
 
 The policy should look similar to this:
@@ -48,7 +48,7 @@ The policy should look similar to this:
 
 ### Step 3: Configure the application
 
-By now you defined a Customer Key in AWS KMS and created an IAM role and provided it the right IAM permissions to access the Customer Key.
+You have defined a customer managed key in AWS KMS and created an IAM role with the necessary permissions to access it.
 Import the required packages.
 
 ```
@@ -68,7 +68,7 @@ my_session = boto3.session.Session()
 current_credentials = my_session.get_credentials().get_frozen_credentials()
 ```
 
-1. Specify ‘aws’ as KMS provider type and enter your account credentials which were retrieved in the previous step.
+1. Specify `aws` as the AWS KMS provider type and enter the account credentials that you retrieved in the previous step.
 
 ```
 provider = "aws"
@@ -80,7 +80,7 @@ kms_providers = {
 }
 ```
 
-2. Specify the customer key which is used to encrypt the data key:
+2. Specify the customer managed key to encrypt the data key:
 
 ```
 customer_key = {
@@ -109,7 +109,7 @@ client_encryption = ClientEncryption(
 )
 ```
 
-4. Generate your Data Key:
+4. Generate your data key:
 
 ```
 data_key_id = client_encryption.create_data_key(provider,
@@ -117,7 +117,7 @@ data_key_id = client_encryption.create_data_key(provider,
     key_alt_name = [key_alt_name])
 ```
 
-5. Retrieve your existing Data Key:
+5. Retrieve your existing data key:
 
 ```
 data_key = DataKey("aws",

@@ -15,7 +15,7 @@
 - **Recovery point objective (RPO)** — The amount of data
   that can be lost (measured in time). For a global cluster, RPO is typically measured
   in seconds.
-- To recover from an unplanned outage, you can perform a cross-region failover to
+- To recover from an unplanned outage, you can perform a cross-Region failover to
   one of the secondaries in your global cluster. When your global cluster has multiple
   secondary Regions, make sure that you detach all the secondary Regions that you wish to promote as primaries.
   Then, you promote one of those secondary Regions to be the new primary AWS Region.

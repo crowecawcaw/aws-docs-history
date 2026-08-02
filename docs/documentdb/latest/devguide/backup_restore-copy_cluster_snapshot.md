@@ -45,10 +45,10 @@ The following are some limitations when you copy snapshots:
 - You can have up to five snapshot copy requests in progress
   to a single destination Region per account.
 - Depending on the AWS Regions involved and the amount of data to
-  be copied, a cross-region snapshot copy can take hours to complete.
-  In some cases, there might be a large number of cross-region
+  be copied, a cross-Region snapshot copy can take hours to complete.
+  In some cases, there might be a large number of cross-Region
   snapshot copy requests from a given source AWS Region. In these
-  cases, Amazon DocumentDB might put new cross-region copy requests from that
+  cases, Amazon DocumentDB might put new cross-Region copy requests from that
   source AWS Region into a queue until some in-progress copies
   complete. No progress information is displayed about copy requests
   while they are in the queue. Progress information is displayed when

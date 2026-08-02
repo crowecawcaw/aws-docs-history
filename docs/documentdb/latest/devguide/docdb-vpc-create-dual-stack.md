@@ -210,7 +210,7 @@ In this step, you create a DB cluster that runs in dual-stack mode. **!!! Note: 
 5. On the **Create Amazon DocumentDB cluster** page, make sure that the **Instance-based cluster** option is chosen.
 6. In the **Connectivity** section, under **Network type**, choose **Dual-stack mode**.
 
-![Network type section in the console with Dual-stack mode selected.](/images/documentdb/latest/devguide/images/nw-type-dual-stack.png) 7. At the bottom of the page, switch on **Show advanced settings**. 8. In the **Network settings** section, set these values:
+![Network type section in the console with Dual-stack mode selected.](images/nw-type-dual-stack.png) 7. At the bottom of the page, switch on **Show advanced settings**. 8. In the **Network settings** section, set these values:
 
     * **Virtual private cloud (VPC)** — Choose an existing VPC with both public and private subnets, such as **vpc-example-dual-stack** (vpc-*identifier*) created in [Step 1: Create a VPC with private and public subnets](#ds-vpc-private-public-subnets "#ds-vpc-private-public-subnets").
 

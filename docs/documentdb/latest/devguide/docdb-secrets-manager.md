@@ -30,7 +30,7 @@ You can specify that Amazon DocumentDB manages the primary user password in Secr
 
 When you specify that Amazon DocumentDB manages the primary user password in Secrets Manager, Amazon DocumentDB generates the password and stores it in Secrets Manager.
 You can interact directly with the secret to retrieve the credentials for the primary user.
-You can also specify a customer managed key to encrypt the secret, or use the KMS key that is provided by Secrets Manager.
+You can also specify a customer managed key to encrypt the secret, or use the KMS key that Secrets Manager provides.
 
 Amazon DocumentDB manages the settings for the secret and rotates the secret every seven days by default.
 You can modify some of the settings, such as the rotation schedule.
