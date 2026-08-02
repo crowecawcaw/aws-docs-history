@@ -23,14 +23,15 @@ message, its cause, and the resolution.
 - [Error: Agent driver compilation failed](#error-driver-compile-failed "#error-driver-compile-failed")
 - [Error: SUSE kernel headers package not found](#error-suse-kernel-headers "#error-suse-kernel-headers")
 - [Error: Oracle ASM Filter Driver conflict](#error-oracle-asmfd "#error-oracle-asmfd")
+- [Error: Invalid driver state location](#error-driver-state-location "#error-driver-state-location")
 
 ## Error: Root privileges required
 
 **Error message:**
-**`You need to have root privileges to run this script`**
+**`You do not have enough privileges to run this application installer. Run the installer again, using root privileges.`**
 
 **Cause:** You ran the installer without root or
-sudo privileges.
+sudo privileges. The installer exits immediately without making any changes.
 
 **Resolution:** Run the installer with
 `sudo`:
@@ -264,36 +265,75 @@ components to the allow list.
 ## Error: Failed to create system user
 
 **Error message:**
-**`Failed to set system user permissions: "getpwnam(): name not found: aws-replication"`**
+**`Failed to set system user permissions:`** followed by one of several
+messages, for example: **`"getpwnam(): name not found: aws-replication"`**,
+**`Unable to change permissions of /var/lib/aws-replication-agent`**, or
+**`sudoers file failed verification ...`**
 
-**Cause:** The agent cannot create the
-`aws-replication` user because `/etc/passwd`,
-`/etc/group`, or `/etc/shadow` have the immutable
-attribute set.
+**Cause:** The installer cannot create or configure the
+`aws-replication` system user because of a file-level restriction.
 
-**Resolution:** Remove the immutable attribute, install
-the agent, then re-apply the attribute.
+**Resolution:** Identify which restriction is blocking
+user creation and apply the corresponding fix.
 
-1. Check for the immutable attribute:
+**Immutable user database files**
+
+Check for the immutable attribute:
 
 ```
 `$` lsattr /etc/passwd /etc/group /etc/shadow
 ```
 
-2. Remove the immutable attribute:
+Remove the immutable attribute:
 
 ```
 `$` sudo chattr -i /etc/passwd /etc/group /etc/shadow
 ```
 
-3. Run the agent installer.
-4. Re-apply the immutable attribute after the installation completes.
+Run the agent installer. Re-apply the immutable attribute after installation
+completes.
 
 ###### Important
 
-The immutable attribute might be intentional security hardening. Consult your
-system administrator before removing it. Re-apply the attribute after
+The immutable attribute might be intentional security hardening. Consult
+your system administrator before removing it. Re-apply the attribute after
 installation.
+
+**Installation directory not writable or immutable**
+
+Check whether the file system is mounted read-only:
+
+```
+`$` findmnt -T /var/lib/aws-replication-agent
+```
+
+If the `OPTIONS` column includes `ro`, remount the
+file system with write permissions and run the installer again.
+
+Check whether the directory has the immutable attribute:
+
+```
+`$` lsattr -d /var/lib/aws-replication-agent
+```
+
+If the output includes `i`, remove the immutable attribute:
+
+```
+`$` sudo chattr -i /var/lib/aws-replication-agent
+```
+
+Run the installer again after removing the attribute.
+
+**Invalid sudoers file**
+
+Validate the existing `/etc/sudoers` file:
+
+```
+`$` sudo visudo -c
+```
+
+Correct any reported syntax errors, then run the installer again. Your
+existing `/etc/sudoers` file remains unchanged.
 
 ## Error: Failed to map segment from shared object
 
@@ -504,3 +544,22 @@ active.
 ###### Important
 
 Consult your DBA before disabling ASMFD.
+
+## Error: Invalid driver state location
+
+**Error message:**
+**`The value "`location`" provided for parameter "--driver-state-location" has a value for which the location does not exist, or is not on a supported file system type.`**
+
+**Cause:** The path that you provided for the
+`--driver-state-location` parameter does not exist. Alternatively, the agent
+cannot write to that file system early in the boot process. For example, the agent cannot
+write to a Btrfs subvolume at that stage.
+
+**Resolution:** Use one of the following options:
+
+- Provide an existing directory on a supported file system, such as ext4 or
+  xfs.
+- Do not point the `--driver-state-location` parameter at a Btrfs
+  subvolume.
+- Omit the `--driver-state-location` parameter so that the installer
+  chooses the location automatically.

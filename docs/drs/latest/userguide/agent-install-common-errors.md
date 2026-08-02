@@ -16,6 +16,9 @@ configuration, IAM, and agent lifecycle. These errors occur on both Linux and Wi
 - [Error: Volume exceeds size limit](#error-volume-too-large "#error-volume-too-large")
 - [Error: Source server already exists](#error-source-server-exists "#error-source-server-exists")
 - [Error: Missing marketplace license permissions](#error-marketplace-permissions "#error-marketplace-permissions")
+- [Error: Secure connection failed while downloading installation files](#error-download-ssl-failure "#error-download-ssl-failure")
+- [Error: Operating system is not supported](#error-unsupported-os "#error-unsupported-os")
+- [Error: Invalid endpoint](#error-invalid-endpoint "#error-invalid-endpoint")
 
 ## Error: Outdated agent installer version
 
@@ -233,3 +236,56 @@ replicating Amazon EC2 instances that use Marketplace AMIs.
    role.
 2. This permission is needed to retrieve Marketplace product codes from the source
    instance for license compliance.
+
+## Error: Secure connection failed while downloading installation files
+
+**Error:**
+**`Failed to establish a secure connection while downloading the AWS Replication Agent installation files.`**
+
+**Cause:** The installer could not complete a TLS
+handshake when it downloaded the agent installation files from Amazon S3. An
+intercepting proxy or a TLS-inspecting firewall might present a certificate that the
+installer does not trust. The certificate authority (CA) trust store on the source
+server might also be missing or outdated.
+
+**Resolution:** Complete the following steps:
+
+1. Allow direct HTTPS egress from the source server to the Amazon S3 endpoints
+   in your target Region, without TLS inspection.
+2. If you use a proxy, verify that the operating system trust store on the
+   source server trusts the proxy CA certificate.
+3. Verify that the system time on the source server is correct. Clock skew
+   invalidates certificates that are otherwise valid.
+
+## Error: Operating system is not supported
+
+**Error:**
+**`The operating system is not supported by the AWS Replication Agent.`**
+
+**Cause:** The operating system of the source server is
+not on the AWS Elastic Disaster Recovery supported list. Elastic Disaster Recovery checks the operating system during
+installation.
+
+**Resolution:** Verify that Elastic Disaster Recovery supports the
+operating system of the source server, then run the installer again. For the supported versions,
+see [Supported Linux operating
+systems](Supported-Operating-Systems-Linux.md "Supported-Operating-Systems-Linux.md") or [Supported Windows
+operating systems](Supported-Operating-Systems-Windows.md "Supported-Operating-Systems-Windows.md").
+
+## Error: Invalid endpoint
+
+**Error:** The AWS SDK returns this error:
+**`Invalid endpoint: `value``**
+
+**Cause:** The value that you provided for the
+`--endpoint` parameter, or a malformed `--region` value, is not a
+well-formed endpoint URL.
+
+**Resolution:** Use one of the following options:
+
+- Omit the `--endpoint` parameter so that the installer uses the
+  default Regional endpoint.
+- If you must set the `--endpoint` parameter, provide a valid HTTPS
+  URL.
+- Verify that the `--region` value is a valid AWS Region code, for
+  example `us-east-1`.
