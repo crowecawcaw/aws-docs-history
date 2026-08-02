@@ -18,7 +18,7 @@ At the moment, EKS managed nodegroups only support the following AMI Families wh
 
 When setting `--node-ami` to an ID string, `eksctl` will assume that a custom AMI has been requested.
 For AmazonLinux2 and Ubuntu nodes, both EKS managed and self-managed, this will mean that `overrideBootstrapCommand` is required.
-For AmazonLinux2023, since it stops using the `/etc/eks/bootstrap.sh` script for node bootstrapping, in favour of a nodeadm initialization process (for more information, please refer to [node bootstrapping docs](https://github.com/eksctl-io/eksctl/blob/main/pkg/nodebootstrap/README.md "https://github.com/eksctl-io/eksctl/blob/main/pkg/nodebootstrap/README.md")), `overrideBootstrapCommand` is not supported.
+For AmazonLinux2023, you can omit `overrideBootstrapCommand` when using a custom AMI, because eksctl automatically generates the required minimal NodeConfig. For more information about node bootstrapping, see [Node bootstrapping](https://github.com/eksctl-io/eksctl/blob/main/pkg/nodebootstrap/README.md "https://github.com/eksctl-io/eksctl/blob/main/pkg/nodebootstrap/README.md") on GitHub.
 
 CLI flag examples:
 

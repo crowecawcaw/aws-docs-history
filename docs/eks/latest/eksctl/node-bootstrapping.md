@@ -8,7 +8,7 @@ AL2023 introduced a new node initialization process [nodeadm](https://awslabs.gi
 
 With Kubernetes versions 1.30 and above, Amazon Linux 2023 is the default OS.
 
-### Default settings for AL2
+### Default settings for AL2023
 
 For self-managed nodes and EKS-managed nodes based on custom AMIs, `eksctl` creates a default, minimal, `NodeConfig` and automatically injects it into the nodegroups’s launch template userdata. i.e.
 
