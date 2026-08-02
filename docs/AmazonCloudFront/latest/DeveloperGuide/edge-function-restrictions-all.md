@@ -94,6 +94,9 @@ viewer.
 - `X-Edge-*`
 - `X-Forwarded-Proto`
 - `X-Real-IP`
+- `CloudFront-Viewer-Cert-PEM`
+- `Client-Cert`
+- `Client-Cert-Chain`
 
 ### Read-only headers
 

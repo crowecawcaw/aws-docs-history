@@ -353,8 +353,14 @@ designated CloudFront distribution using VPC Origins](private-content-vpc-origin
 
 ## Manage your flat-rate pricing plans
 
-Follow these procedures in the CloudFront console to subscribe, upgrade, downgrade, or
-cancel a pricing plan for your distributions.
+You can manage your CloudFront flat-rate pricing plans using the CloudFront console, or
+programmatically using the AWS Command Line Interface (AWS CLI) or the PricingPlanManager API. This
+section describes how to subscribe distributions to pricing plans, change plan tiers,
+and cancel subscriptions using the CloudFront console.
+
+For information about managing pricing plans programmatically, see
+[Getting started
+with the PricingPlanManager API](../../../PricingPlanManager/latest/UserGuide/plan-management.md "../../../PricingPlanManager/latest/UserGuide/plan-management.md").
 
 ### Subscribe a new distribution to a pricing plan
 
