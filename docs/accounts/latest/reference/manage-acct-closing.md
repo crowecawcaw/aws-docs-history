@@ -84,6 +84,19 @@ accounts**
   within 30 days or release the domain to its registrar. For more information,
   see [My AWS account is closed or permanently closed, and my domain is
   registered with Route 53](../../../Route53/latest/DeveloperGuide/troubleshooting-account-closed.md "../../../Route53/latest/DeveloperGuide/troubleshooting-account-closed.md").
+
+If the email address for this account's root user uses a domain
+registered through Route 53 in this same account, do not close this account
+until you complete one of the following actions: transfer the domain to
+a different AWS account, or update the root user email address to use
+a domain that is not registered in this account. Otherwise, closing the
+account suspends the domain, which breaks email delivery to your root
+user address. Without email, you cannot recover the account, and without
+the account, you cannot reinstate the domain. After 30 days, Route 53
+permanently deletes the domain. This also applies to member accounts
+whose root user email addresses use domains registered in this
+account.
+
 - AWS CloudTrail is a foundational security service. This means that trails
   created by users can continue to exist and deliver events even after an
   AWS account is closed, unless a user explicitly deletes the trails in
