@@ -40,7 +40,7 @@ Before you can create an Aurora PostgreSQL DB cluster with express configuration
 
 ## Supported Regions
 
-You can create an Aurora PostgreSQL serverless cluster with express configuration in all AWS Regions except the AWS China, AWS GovCloud (US), Middle East (UAE), and Middle East (Bahrain) Regions.
+You can create an Aurora PostgreSQL serverless cluster with express configuration in all AWS Regions except the AWS GovCloud (US), Middle East (UAE), and Middle East (Bahrain) Regions.
 
 ## Internet access gateway
 

@@ -125,7 +125,7 @@ given AWS Region. When creating a DB cluster in a VPC, you
 choose a DB subnet group for it. From the DB subnet group, Amazon Aurora chooses a subnet and an IP address within that subnet to
 associate with the primary DB instance in your DB cluster. The DB uses the Availability
 Zone that contains the subnet. Aurora
-always assigns an IP address from a
+assigns an IP address from a
 subnet that has free IP address space.
 
 The subnets in a DB subnet group are either public or private. The subnets are

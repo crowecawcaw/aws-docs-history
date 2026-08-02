@@ -20,10 +20,14 @@ database.
 - [mysql.rds\_set\_external\_source (Aurora MySQL version 3)](#mysql_rds_set_external_source "#mysql_rds_set_external_source")
 - [mysql.rds\_set\_external\_master\_with\_auto\_position (Aurora MySQL version 2)](#mysql_rds_set_external_master_with_auto_position "#mysql_rds_set_external_master_with_auto_position")
 - [mysql.rds\_set\_external\_source\_with\_auto\_position (Aurora MySQL version 3)](#mysql_rds_set_external_source_with_auto_position "#mysql_rds_set_external_source_with_auto_position")
+- [mysql.rds\_set\_external\_source\_with\_delay (Aurora MySQL version 8.4.8 and higher)](#mysql_rds_set_external_source_with_delay "#mysql_rds_set_external_source_with_delay")
+- [mysql.rds\_set\_external\_source\_with\_delay\_for\_channel (Aurora MySQL version 8.4.8 and higher)](#mysql_rds_set_external_source_with_delay_for_channel "#mysql_rds_set_external_source_with_delay_for_channel")
 - [mysql.rds\_set\_master\_auto\_position (Aurora MySQL version 2)](#mysql_rds_set_master_auto_position "#mysql_rds_set_master_auto_position")
 - [mysql.rds\_set\_read\_only (Aurora MySQL version 3)](#mysql_rds_set_read_only "#mysql_rds_set_read_only")
 - [mysql.rds\_set\_session\_binlog\_format (Aurora MySQL version 2)](#mysql_rds_set_session_binlog_format "#mysql_rds_set_session_binlog_format")
 - [mysql.rds\_set\_source\_auto\_position (Aurora MySQL version 3)](#mysql_rds_set_source_auto_position "#mysql_rds_set_source_auto_position")
+- [mysql.rds\_set\_source\_delay (Aurora MySQL version 8.4.8 and higher)](#mysql_rds_set_source_delay "#mysql_rds_set_source_delay")
+- [mysql.rds\_set\_source\_delay\_for\_channel (Aurora MySQL version 8.4.8 and higher)](#mysql_rds_set_source_delay_for_channel "#mysql_rds_set_source_delay_for_channel")
 - [mysql.rds\_skip\_repl\_error](#mysql_rds_skip_repl_error "#mysql_rds_skip_repl_error")
 - [mysql.rds\_start\_replication](#mysql_rds_start_replication "#mysql_rds_start_replication")
 - [mysql.rds\_start\_replication\_until(Aurora MySQL version 3)](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until")
@@ -1070,6 +1074,298 @@ call mysql.rds_set_external_source_with_auto_position(
 
 ```
 
+## mysql.rds\_set\_external\_source\_with\_delay (Aurora MySQL version 8.4.8 and higher)
+
+Configures an Aurora MySQL DB cluster to be a read replica of an instance of MySQL
+running external to Amazon RDS and configures delayed replication.
+
+###### Important
+
+To run this procedure, `autocommit` must be enabled. To enable it, set
+the `autocommit` parameter to `1`. For information about
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
+
+### Syntax
+
+```
+CALL mysql.rds_set_external_source_with_delay (
+  `host_name`
+  , `host_port`
+  , `replication_user_name`
+  , `replication_user_password`
+  , `mysql_binary_log_file_name`
+  , `mysql_binary_log_file_location`
+  , `ssl_encryption`
+  , `delay`
+);
+```
+
+### Parameters
+
+`host_name`
+
+The host name or IP address of the MySQL instance running external to
+Amazon RDS that will become the source database instance.
+
+`host_port`
+
+The port used by the MySQL instance running external to Amazon RDS to be
+configured as the source database instance. If your network
+configuration includes SSH port replication that converts the port
+number, specify the port number that is exposed by SSH.
+
+`replication_user_name`
+
+The ID of a user with `REPLICATION CLIENT` and
+`REPLICATION SLAVE` permissions on the MySQL instance
+running external to Amazon RDS. We recommend that you provide an account that
+is used solely for replication with the external instance.
+
+`replication_user_password`
+
+The password of the user ID specified in
+`replication_user_name`.
+
+`mysql_binary_log_file_name`
+
+The name of the binary log on the source database instance contains
+the replication information.
+
+`mysql_binary_log_file_location`
+
+The location in the `mysql_binary_log_file_name` binary log
+at which replication will start reading the replication
+information.
+
+You can determine the binlog file name and location by running
+`SHOW MASTER STATUS` on the source database
+instance.
+
+`ssl_encryption`
+
+A value that specifies whether Secure Socket Layer (SSL) encryption is
+used on the replication connection. 1 specifies to use SSL encryption, 0
+specifies to not use encryption. The default is 0.
+
+`delay`
+
+The minimum number of seconds to delay replication from source
+database instance.
+
+The limit for this parameter is one day (86400 seconds).
+
+### Usage notes
+
+The administrative user must run the
+`mysql.rds_set_external_source_with_delay` procedure. This procedure
+must be run on the MySQL DB instance to be configured as the read replica of a MySQL
+instance running external to Amazon RDS.
+
+Before you run `mysql.rds_set_external_source_with_delay`, you must
+configure the instance of MySQL running external to Amazon RDS to be a source database
+instance. To connect to the MySQL instance running external to Amazon RDS, you must
+specify values for `replication_user_name` and
+`replication_user_password`. These values must indicate a replication
+user that has `REPLICATION CLIENT` and `REPLICATION SLAVE`
+permissions on the external instance of MySQL.
+
+###### To configure an external instance of MySQL as a source database instance
+
+1. Using the MySQL client of your choice, connect to the external instance of
+   MySQL and create a user account to be used for replication. The following is
+   an example.
+
+```
+CREATE USER 'repl_user'@'mydomain.com' IDENTIFIED BY 'SomePassW0rd'
+```
+
+2. On the external instance of MySQL, grant `REPLICATION CLIENT`
+   and `REPLICATION SLAVE` privileges to your replication user. The
+   following example grants `REPLICATION CLIENT` and
+   `REPLICATION SLAVE` privileges on all databases for the
+   `'repl_user'` user for your domain.
+
+```
+GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'mydomain.com'
+IDENTIFIED BY 'SomePassW0rd'
+```
+
+After calling `mysql.rds_set_external_source_with_delay` to configure
+an Amazon RDS DB instance as a read replica, you can call [mysql.rds\_start\_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica to start the
+replication process. You can call [mysql.rds\_reset\_external\_source (Aurora MySQL version 3)](#mysql_rds_reset_external_source "#mysql_rds_reset_external_source") to remove the read replica
+configuration.
+
+When you call `mysql.rds_set_external_source_with_delay`, Amazon RDS records
+the time, the user, and an action of `set master` in the
+`mysql.rds_history` and `mysql.rds_replication_status`
+tables.
+
+For disaster recovery, you can use this procedure with the [mysql.rds\_start\_replication\_until(Aurora MySQL version 3)](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or [mysql.rds\_start\_replication\_until\_gtid(Aurora MySQL version 3)](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure. To
+roll forward changes to a delayed read replica to the time just before a disaster,
+you can run the `mysql.rds_set_external_source_with_delay` procedure.
+After the [mysql.rds\_start\_replication\_until(Aurora MySQL version 3)](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") procedure stops
+replication, you can promote the read replica to be the new primary DB
+instance.
+
+To use the [mysql.rds\_start\_replication\_until\_gtid(Aurora MySQL version 3)](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") procedure,
+GTID-based replication must be enabled. To skip a specific GTID-based transaction
+that is known to cause disaster, you can use the [mysql.rds\_skip\_transaction\_with\_gtid(Aurora MySQL version 2 and 3)](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For
+more information about working with GTID-based replication, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md").
+
+### Examples
+
+When run on a Aurora MySQL DB instance, the following example configures
+the DB instance to be a read replica of an instance of MySQL running external to
+Amazon RDS. It sets the minimum replication delay to one hour (3,600 seconds) on the
+Aurora MySQL DB instance. A change from the MySQL source
+database instance running external to Amazon RDS isn't applied on the Aurora MySQL read replica for at least one hour.
+
+```
+call mysql.rds_set_external_source_with_delay(
+  'Externaldb.example.com',
+  3306,
+  'repl_user',
+  'SomePassW0rd',
+  'mysql-bin-changelog.000777',
+  120,
+  1,
+  3600);
+
+```
+
+## mysql.rds\_set\_external\_source\_with\_delay\_for\_channel (Aurora MySQL version 8.4.8 and higher)
+
+Configures an Aurora MySQL DB cluster to be a read replica of an instance of MySQL
+running external to Amazon RDS and configures delayed replication for a specific replication channel.
+Use this procedure for multi-source replication configurations.
+
+###### Important
+
+To run this procedure, `autocommit` must be enabled. To enable it, set
+the `autocommit` parameter to `1`.
+
+### Syntax
+
+```
+CALL mysql.rds_set_external_source_with_delay_for_channel (
+  `host_name`,
+  `host_port`,
+  `replication_user_name`,
+  `replication_user_password`,
+  `mysql_binary_log_file_name`,
+  `mysql_binary_log_file_location`,
+  `ssl_encryption`,
+  `delay`,
+  `channel`
+);
+```
+
+### Parameters
+
+`host_name`
+
+The host name or IP address of the MySQL instance running external to Amazon RDS
+that will become the source database instance.
+
+`host_port`
+
+The port used by the MySQL instance running external to Amazon RDS to be configured
+as the source database instance.
+
+`replication_user_name`
+
+The ID of a user with `REPLICATION CLIENT` and
+`REPLICATION REPLICA` permissions on the external MySQL instance.
+
+`replication_user_password`
+
+The password of the user ID specified in
+`replication_user_name`.
+
+`mysql_binary_log_file_name`
+
+The name of the binary log on the source database instance that contains
+the replication information.
+
+`mysql_binary_log_file_location`
+
+The binary log file position where replication starts. You can determine
+this by running `SHOW BINARY LOG STATUS` on the source database
+instance.
+
+`ssl_encryption`
+
+A value that specifies whether SSL encryption is used on the replication
+connection. `1` specifies to use SSL encryption, `0`
+specifies to not use encryption. The default is `0`.
+
+`delay`
+
+The minimum number of seconds to delay replication from the source database
+instance. The limit for this parameter is 259,200 seconds (72 hours).
+
+`channel`
+
+The name of the replication channel. Use an empty string (`''`)
+for the default channel.
+
+### Usage notes
+
+The admin user must run the
+`mysql.rds_set_external_source_with_delay_for_channel` procedure.
+
+Stop replication on the specified channel before calling this procedure. If replication is
+running, you receive an error that asks you to call
+`mysql.rds_stop_replication_for_channel` first.
+
+###### Constraints
+
+- Aurora MySQL supports a maximum of 15 replication channels.
+- Each channel must replicate from a different source (host:port combination).
+  Attempting to configure two channels with the same source results in an error.
+- The delay must be between 0 and 259,200 seconds (72 hours).
+
+After calling this procedure, you can call
+`mysql.rds_start_replication_for_channel` on the read replica to start the
+replication process.
+
+When you call this procedure, Amazon RDS records the time, the user, and an action of
+`set channel source` in the `mysql.rds_history` and
+`mysql.rds_replication_status` tables.
+
+### Examples
+
+The following example configures a channel named 'channel\_1' to replicate from an external MySQL
+instance with a minimum delay of one hour (3,600 seconds) and SSL encryption disabled:
+
+```
+CALL mysql.rds_set_external_source_with_delay_for_channel(
+  'Externaldb.example.com',
+  3306,
+  'repl_user',
+  'SomePassW0rd',
+  'mysql-bin-changelog.000777',
+  120,
+  0,
+  3600,
+  'channel_1');
+```
+
+To configure a second channel 'channel\_2' from a different source with a 2-hour delay:
+
+```
+CALL mysql.rds_set_external_source_with_delay_for_channel(
+  'Externaldb2.example.com',
+  3306,
+  'repl_user2',
+  'AnotherPassW0rd',
+  'mysql-bin-changelog.000001',
+  4,
+  1,
+  7200,
+  'channel_2');
+```
+
 ## mysql.rds\_set\_master\_auto\_position (Aurora MySQL version 2)
 
 Sets the replication mode to be based on either binary log file positions or on global
@@ -1204,6 +1500,122 @@ while connected to the primary instance.
 
 The administrative user must run the
 `mysql.rds_set_source_auto_position` procedure.
+
+## mysql.rds\_set\_source\_delay (Aurora MySQL version 8.4.8 and higher)
+
+Sets the minimum number of seconds to delay replication from source database instance
+to the current read replica. Use this procedure when you are connected to a read replica
+to delay replication from its source database instance.
+
+### Syntax
+
+```
+CALL mysql.rds_set_source_delay(
+`delay`
+);
+```
+
+### Parameters
+
+`delay`
+
+The minimum number of seconds to delay replication from the source
+database instance.
+
+The limit for this parameter is 259,200 seconds (72 hours).
+
+### Usage notes
+
+The admin user must run the `mysql.rds_set_source_delay`
+procedure.
+
+This is a wrapper that calls
+[mysql.rds\_set\_source\_delay\_for\_channel (Aurora MySQL version 8.4.8 and higher)](#mysql_rds_set_source_delay_for_channel "#mysql_rds_set_source_delay_for_channel") with an empty channel name
+(default channel).
+
+Replication must be stopped before calling this procedure. If
+replication is running, you will receive an error:
+`You can't set replication delay because replication is running. First call
+ mysql.rds_stop_replication.`
+
+For disaster recovery, you can use this procedure with the [mysql.rds\_start\_replication\_until(Aurora MySQL version 3)](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") stored procedure or the [mysql.rds\_start\_replication\_until\_gtid(Aurora MySQL version 3)](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure. To roll
+forward changes to a delayed read replica to the time just before a disaster, you
+can run the `mysql.rds_set_source_delay` procedure. After the
+[mysql.rds\_start\_replication\_until(Aurora MySQL version 3)](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or
+[mysql.rds\_start\_replication\_until\_gtid(Aurora MySQL version 3)](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") procedure stops replication,
+you can promote the read replica to be the new primary
+DB
+cluster by using the instructions in [Promoting a read replica to a DB cluster for Aurora MySQL](AuroraMySQL.Replication.CrossRegion.Promote.md "AuroraMySQL.Replication.CrossRegion.Promote.md").
+
+To use the [mysql.rds\_start\_replication\_until\_gtid(Aurora MySQL version 3)](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") procedure,
+GTID-based replication must be enabled. To skip a specific GTID-based transaction
+that is known to cause disaster, you can use the [mysql.rds\_skip\_transaction\_with\_gtid(Aurora MySQL version 2 and 3)](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure.
+
+### Examples
+
+To delay replication from source database instance to the current read replica for
+at least one hour (3,600 seconds):
+
+```
+CALL mysql.rds_set_source_delay(3600);
+```
+
+## mysql.rds\_set\_source\_delay\_for\_channel (Aurora MySQL version 8.4.8 and higher)
+
+Sets the minimum number of seconds to delay replication from the source database instance
+to the current read replica for a specific replication channel. Use this procedure for
+multi-source replication configurations.
+
+### Syntax
+
+```
+CALL mysql.rds_set_source_delay_for_channel(
+  `delay`,
+  '`channel`'
+);
+```
+
+### Parameters
+
+`delay`
+
+The minimum number of seconds to delay replication from the source database
+instance. The value must be between 0 and 259,200 seconds (72 hours).
+
+`channel`
+
+The name of the replication channel. Use an empty string (`''`)
+for the default channel.
+
+### Usage notes
+
+The admin user must run the `mysql.rds_set_source_delay_for_channel` procedure.
+
+Stop replication on the specified channel before calling this procedure. If replication is
+running, you receive an error that asks you to call
+`mysql.rds_stop_replication_for_channel` first.
+
+If the specified channel does not exist, you receive an error:
+`The given channel does not exist. Run SHOW REPLICA STATUS\G to find all existing
+ channel names.`
+
+If the replica is not configured (default channel), you receive an error:
+`You can't set replication delay because the replica isn't configured. First call
+ mysql.rds_set_external_source.`
+
+### Examples
+
+To delay replication on channel 'channel\_1' for at least one hour (3,600 seconds):
+
+```
+CALL mysql.rds_set_source_delay_for_channel(3600, 'channel_1');
+```
+
+To delay replication on the default channel for 30 minutes (1,800 seconds):
+
+```
+CALL mysql.rds_set_source_delay_for_channel(1800, '');
+```
 
 ## mysql.rds\_skip\_repl\_error
 

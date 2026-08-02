@@ -21,6 +21,7 @@ for best availability and performance.
 - [Replicating Amazon Aurora MySQL DB clusters across AWS Regions](AuroraMySQL.Replication.CrossRegion.md "AuroraMySQL.Replication.CrossRegion.md")
 - [Replication between Aurora and MySQL or between Aurora and another Aurora DB cluster (binary log replication)](AuroraMySQL.Replication.MySQL.md "AuroraMySQL.Replication.MySQL.md")
 - [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md")
+- [Configure delayed replication with Amazon Aurora MySQL](AuroraMySQL.Replication.Delayed.md "AuroraMySQL.Replication.Delayed.md")
 
 ## Using Aurora Replicas
 
