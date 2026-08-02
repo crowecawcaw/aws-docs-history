@@ -21,7 +21,7 @@ more information about using Mistral AI models, see the [Mistral AI documentatio
 
 ## Supported models
 
-You can use following Mistral AI models with the code examples on this page..
+You can use the following Mistral AI models with the code examples on this page.
 
 - Mistral Large 2 (24.07)
 

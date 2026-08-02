@@ -275,7 +275,7 @@ is `"entertainment"` by adding the following filter:
 ) next to the group. To remove a filter, choose the
 delete icon (
 
-![Close or cancel icon represented by an "X" symbol.](images/icons/close.png)
+![Close or cancel icon represented by an "X" symbol.](/images/bedrock/latest/userguide/images/icons/close.png)
 
 ) next to the filter.
 

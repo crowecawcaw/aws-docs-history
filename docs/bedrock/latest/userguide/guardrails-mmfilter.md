@@ -15,6 +15,7 @@ Amazon Bedrock Guardrails can help block inappropriate or harmful images while c
 - Users can upload images with sizes up to a maximum of 4 MB, with a maximum of 20 images for a single request.
 - Default limit of 25 images per second. This value is not configurable.
 - Only PNG and JPEG formats are supported for image content.
+- For images that contain text, the content filter evaluates only the first 100 words of that text.
   **Overview**
 
 The detection and blocking of harmful images are supported for only images or images with text in them. While creating a guardrail,

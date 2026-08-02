@@ -2,7 +2,7 @@
 
 ###### Note
 
-Amazon Bedrock Agents (launched November 2023) is now 'Amazon Bedrock Agents Classic' and will no longer be open to new customers starting on July 30, 2026. For capabilities similar to Bedrock Agents Classic, explore [Amazon Bedrock AgentCore](../../../bedrock-agentcore/latest/devguide/agentcore-get-started-cli.md "../../../bedrock-agentcore/latest/devguide/agentcore-get-started-cli.md"). If you would like to use Bedrock Agents Classic, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon Bedrock Agents Classic maintenance mode](agents-classic-maintenance-mode.md "agents-classic-maintenance-mode.md").
+Amazon Bedrock Agents (now Amazon Bedrock Agents Classic) is no longer open to new customers. For capabilities similar to Bedrock Agents Classic, explore [Amazon Bedrock AgentCore](../../../bedrock-agentcore/latest/devguide/agentcore-get-started-cli.md "../../../bedrock-agentcore/latest/devguide/agentcore-get-started-cli.md"). Existing customers can continue to use the service as normal. For more information, see [Amazon Bedrock Agents Classic maintenance mode](agents-classic-maintenance-mode.md "agents-classic-maintenance-mode.md").
 
 The code interpretation enables your agent to generate, run, and troubleshoot your application code in a secure test environment. With code interpretation
 you can use the agent’s foundation model to generate code for implementing basic capabilities while you focus on building generative AI applications.

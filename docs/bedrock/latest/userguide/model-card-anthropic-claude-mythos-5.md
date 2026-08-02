@@ -53,9 +53,9 @@ For pricing, please refer to the [Amazon Bedrock Pricing](https://aws.amazon.com
 
 Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
 
-| **Endpoint**     | **Model ID**                | **In-Region endpoint URL**                                      | **Global** |
-| ---------------- | --------------------------- | --------------------------------------------------------------- | ---------- |
-| `bedrock-mantle` | `anthropic.claude-mythos-5` | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | N/A        |
+| **Endpoint**     | **Model ID**                | **In-Region endpoint URL**                                      | **Geo inference ID** | **Global inference ID** |
+| ---------------- | --------------------------- | --------------------------------------------------------------- | -------------------- | ----------------------- |
+| `bedrock-mantle` | `anthropic.claude-mythos-5` | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | N/A                  | N/A                     |
 
 ## Service Tiers
 

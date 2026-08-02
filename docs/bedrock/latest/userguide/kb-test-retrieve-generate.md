@@ -67,7 +67,7 @@ Console
 - Switch to retrieving source chunks directly by clearing **Generate responses**. If you change the setting, the text in the chat window will be completely cleared.
 - To clear the chat window, select the broom icon (
 
-![Broom icon representing cleaning or clearing functionality.](images/icons/broom.png)
+![Broom icon representing cleaning or clearing functionality.](/images/bedrock/latest/userguide/images/icons/broom.png)
 
 ).
 

@@ -66,7 +66,7 @@ Use the following model IDs and endpoint URLs to access this model programmatica
 
 | **Endpoint**      | **Model ID**                | **In-Region endpoint URL**                                      | **Geo inference ID**                                                                       | **Global inference ID**            |
 | ----------------- | --------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------- |
-| `bedrock-runtime` | `anthropic.claude-sonnet-5` | `https://bedrock-runtime.{region}.amazonaws.com`                | `us.anthropic.claude-sonnet-5``eu.anthropic.claude-sonnet-5``au.anthropic.claude-sonnet-5` | `global.anthropic.claude-sonnet-5` |
+| `bedrock-runtime` | `anthropic.claude-sonnet-5` | N/A                                                             | `us.anthropic.claude-sonnet-5``eu.anthropic.claude-sonnet-5``au.anthropic.claude-sonnet-5` | `global.anthropic.claude-sonnet-5` |
 | `bedrock-mantle`  | `anthropic.claude-sonnet-5` | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | N/A                                                                                        | N/A                                |
 
 _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages"._

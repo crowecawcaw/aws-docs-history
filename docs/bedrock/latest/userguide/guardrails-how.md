@@ -3,6 +3,15 @@
 Amazon Bedrock Guardrails helps keep your generative AI applications safe by evaluating both user inputs
 and model responses.
 
+###### Note
+
+Amazon Bedrock Guardrails offers a range of safeguards (also referred to as filters or policies)
+that are powered by underlying models. AWS periodically updates these models
+to extend functionality, address new attack vectors, and strengthen safety
+posture. Updates apply automatically and require no action on your
+part. We recommend that you continue to test and validate your guardrails to
+confirm that they meet your requirements.
+
 You can configure guardrails for your applications based on the following
 considerations:
 

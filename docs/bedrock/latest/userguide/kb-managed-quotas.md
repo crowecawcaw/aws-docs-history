@@ -16,7 +16,8 @@ Managed knowledge base quotas| Quota | Default value |
 | Maximum concurrent ingestion jobs per knowledge base | 50 |
 | Maximum raw data storage per knowledge base | 10 TB |
 | Maximum query input characters per `Retrieve` or<br>`AgenticRetrieveStream` request (English text) | 10,000 |
-| Maximum `Retrieve` or<br>`AgenticRetrieveStream` requests per minute | 300 |
+| Maximum `Retrieve` requests per minute, per knowledge base | 600 |
+| Maximum `AgenticRetrieveStream` requests per minute, per account | 60 |
 
 To request adjustable quota increases, follow the steps at [Requesting a
 quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md"), or contact your AWS account team.
