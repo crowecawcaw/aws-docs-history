@@ -18,7 +18,7 @@ Secrets Manager generates a CloudTrail log entry when you restore a secret. For 
 
 If deleted secrets don't appear in your list of secrets, choose
 **Preferences** (
-![Gear icon representing settings or configuration options.](/images/secretsmanager/latest/userguide/images/preferences-gear.png)
+![Gear icon representing settings or configuration options.](images/preferences-gear.png)
 ). In the Preferences dialog box, select **Show secrets scheduled for deletion**, and then choose **Save**. 3. On the **Secret details** page, choose **Cancel
 deletion**. 4. In the **Cancel secret deletion** dialog box, choose **Cancel
 deletion**.
