@@ -172,7 +172,7 @@ a repository, see [Working with repository associations](working-with-repositori
       - If CodeGuru Reviewer used your file in the code review, then **Success** appears
         under **Analysis configuration file**.
 
-      ![The Details section of a code review. Success appears under Analysis configuration file.](images/code-review-config-file-success.png)
+      ![The Details section of a code review. Success appears under Analysis configuration file.](/images/codeguru/latest/reviewer-ug/images/code-review-config-file-success.png)
       - If CodeGuru Reviewer found errors in your file, then **Error** appears under **Analysis configuration file** and a message
         indicating the errors appears at the top of the page.
 
@@ -183,7 +183,7 @@ a repository, see [Working with repository associations](working-with-repositori
       error messages and then initiate a new full repository analysis. For more
       information, see [Error handling for the aws-codeguru-reviewer.yml file](#error-handling-yml "#error-handling-yml").
 
-      ![The Details section of a code review. List of errors in your YAML file appears in top banner.](/images/codeguru/latest/reviewer-ug/images/code-review-config-file-error.png)
+      ![The Details section of a code review. List of errors in your YAML file appears in top banner.](images/code-review-config-file-error.png)
       - If CodeGuru Reviewer did not recognize your file name or find the file at the root directory of your repository, then **No file detected** appears under **Analysis configuration file**. Your file must be named
         `aws-codeguru-reviewer.yml` and must exist in the root directory of your repository. Otherwise CodeGuru Reviewer cannot recognize that the file exists, use it in code reviews,
         or return error messages about problems with the file.
