@@ -84,7 +84,7 @@ following steps to make the application aware of the new static IP address.
 ![Public or static IP address of a Lightsail instance](images/quick-start-public-static-ip.png) 2. On the instance management page, under the **Connect** tab,
 choose **Connect using SSH**.
 
-![Connect to your instance using SSH](/images/lightsail/latest/userguide/images/quick-start-connect-using-ssh.png) 3. After you're connected, enter the following command. Replace
+![Connect to your instance using SSH](images/quick-start-connect-using-ssh.png) 3. After you're connected, enter the following command. Replace
 `<StaticIP>` with the new static IP address
 of your instance.
 

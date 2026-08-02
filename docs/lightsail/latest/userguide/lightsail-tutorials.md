@@ -19,6 +19,7 @@ This section covers the following topics related to Amazon Lightsail:
 - [Create HAR files to troubleshoot Lightsail issues](amazon-lightsail-create-har-file.md "amazon-lightsail-create-har-file.md")
 - [Monitor system resources and apps with Prometheus on Lightsail](amazon-lightsail-install-prometheus.md "amazon-lightsail-install-prometheus.md")
 - [Transfer files between Linux instances on Lightsail using scp](amazon-lightsail-transfer-files-between-linux-instances.md "amazon-lightsail-transfer-files-between-linux-instances.md")
+- [Connect a Lightsail container service to a Lightsail database](amazon-lightsail-connecting-container-service-to-database.md "amazon-lightsail-connecting-container-service-to-database.md")
 - [Integrate Lightsail with other AWS services with VPC peering](using-lightsail-with-other-aws-services.md "using-lightsail-with-other-aws-services.md")
 - [Create Lightsail resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")
 - [Explore Lightsail resources for app deployment](amazon-lightsail-additional-resources.md "amazon-lightsail-additional-resources.md")

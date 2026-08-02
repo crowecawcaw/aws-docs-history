@@ -65,4 +65,4 @@ instance despite certificate errors.
 After you’re connected to the instance, you should see a screen similar to the
 following example:
 
-![The desktop background for a Lightsail Windows instance in the Microsoft Remote Desktop application.](images/connect-using-remote-desktop-mac-08.png)
+![The desktop background for a Lightsail Windows instance in the Microsoft Remote Desktop application.](/images/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-08.png)

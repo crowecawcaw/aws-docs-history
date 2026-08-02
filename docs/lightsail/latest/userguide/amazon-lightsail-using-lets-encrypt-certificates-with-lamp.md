@@ -332,7 +332,7 @@ sudo /opt/bitnami/ctlscript.sh stop
 
 You should see a response similar to the following:
 
-![Instance services stopped.](/images/lightsail/latest/userguide/images/amazon-lightsail-ssh-stop-services.png) 2. Enter the following commands individually to rename your existing certificate files as
+![Instance services stopped.](images/amazon-lightsail-ssh-stop-services.png) 2. Enter the following commands individually to rename your existing certificate files as
 backups. Refer to the **Important** block at the beginning of
 this tutorial for information about the different distributions and file
 structures.
