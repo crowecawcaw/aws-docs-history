@@ -14,7 +14,7 @@ an API that you use to upload your policies. For example, you use the Amazon SQS
 `SetQueueAttributes` action to upload a policy for a particular
 Amazon SQS queue.
 
-![Figure three in the previous diagram.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-3-red.png)
+![Figure three in the previous diagram.](images/number-3-red.png)
 Someone sends a request to use your Amazon SQS queue.
 
 ![Figure four in the previous diagram.](images/number-4-red.png)
