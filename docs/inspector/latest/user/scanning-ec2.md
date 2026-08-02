@@ -20,6 +20,10 @@ This section provides information about Amazon EC2 scanning.
 
 Enhanced EC2 Scanning is performed using the [Amazon Inspector VM Scanner](inspector-vm-scanner.md "inspector-vm-scanner.md"). This scanner is installed and updated using SSM associations. Customers can opt in by going to their Amazon Inspector console and visiting the **Settings** > **Scan Settings** page. Choose **Start Upgrade** to begin Enhanced EC2 Scanning.
 
+###### Recommendation
+
+We recommend that you upgrade to Enhanced EC2 Scanning. The Amazon Inspector VM Scanner uses the same scanning mechanism across operating systems and across other Amazon Inspector supported resources, which produces more consistent findings than the Amazon Inspector SSM plugin. On Windows in particular, it avoids the per‐query timeouts that can cause the Amazon Inspector SSM plugin to report findings inconsistently.
+
 1. Amazon Inspector creates SSM associations in your account to collect inventory from
    your instances. These associations install plugins on individual instances to collect inventory.
 2. Using system tools like Systemd and Scheduled Tasks, Inspector VM Scanner extracts package inventory from an instance and communicates that information to Amazon Inspector.

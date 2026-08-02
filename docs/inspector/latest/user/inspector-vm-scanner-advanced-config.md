@@ -61,12 +61,16 @@ The default values for `--cpu-limit` and `--process-priority` are identical to I
 Inspector VM Scanner leverages Inspector SBOM Generator for inventory collection.
 As a result, many of Inspector VM Scanner's scan coverage options are taken directly from SBOM Generator.
 
-By default, Inspector VM Scanner uses SBOM Generator's `localhost` scanner group, as well as `certificate` and `windows-kb` scanners.
+By default, Inspector VM Scanner does not scan your entire filesystem. It collects operating system packages, and on Windows it uses Windows Update (Knowledge Base) data to identify system software that needs updating. It also inspects common installation locations for popular programming language packages and their dependencies.
+
+Software installed in a custom or non-standard location – such as a database or application server on a non-system drive – is scanned only if you add it. To cover such software, add it as a custom path in your Amazon EC2 scan settings. Under Enhanced EC2 Scanning, custom paths apply to Linux, Windows, and macOS instances, and are scanned in addition to the default locations. For more information, see [Custom paths for Amazon Inspector deep inspection](scanning-resources.md#deep-inspection-paths "scanning-resources.md#deep-inspection-paths").
+
+You can also add directories per instance during VM Scanner invocation with the advanced options in this section. Directories that you add with `--target-directory` are scanned in addition to the defaults.
 
 Inspector VM Scanner provides the following options to configure scan targets:
 
-- `--max-scan-depth` configures the maximum number of directories that scans traverse.
-- `--target-directories` configures additional directories to scan outside of defaults.
+- `--max-scan-depth` configures the maximum number of directory levels that a scan traverses from each scan location.
+- `--target-directory` adds one or more directories to scan in addition to the defaults. In a configuration file, specify it under `[sbom]` as an array, for example `target-directory = ["D:\\oracle"]`.
 - `--override-scanners` configures exact filescanners, overriding Inspector VM Scanner defaults.
 - `--additional-scanners` configures filescanners to use in addition to Inspector VM Scanner defaults.
 
@@ -107,29 +111,45 @@ journalctl -u inspector-vm-scanner --since "1 hour ago"
 systemctl cat inspector-vm-scanner.timer
 ```
 
-**Update timer interval**
+#### Change the scan interval
 
-To change the scan frequency, edit the timer unit file:
+###### Important
+
+Do not edit the unit files in `/usr/lib/systemd/system/` directly.
+Package updates overwrite those files. Use `systemctl edit` instead,
+which creates a persistent override that survives updates.
+
+The default interval is every 3 hours. To change it, run:
 
 ```
-# Edit the timer unit file
-systemctl edit inspector-vm-scanner.timer
+sudo systemctl edit inspector-vm-scanner.timer
+```
 
-# Add override configuration:
+In the editor that opens, add the following (this example sets the interval to 6 hours):
+
+```
 [Timer]
-OnCalendar=
-OnCalendar=daily
-
-# Reload and restart
-systemctl daemon-reload
-systemctl restart inspector-vm-scanner.timer
+OnBootSec=
+OnUnitActiveSec=
+OnBootSec=0
+OnUnitActiveSec=21600s
 ```
 
-**Enable or disable automatic execution**
+The empty assignments clear the defaults before your values take effect. After saving, restart the timer:
 
 ```
-systemctl enable inspector-vm-scanner.timer   # Enable automatic runs
-systemctl disable inspector-vm-scanner.timer  # Disable automatic runs
+sudo systemctl daemon-reload
+sudo systemctl restart inspector-vm-scanner.timer
+```
+
+To verify that the override took effect, run `systemctl cat inspector-vm-scanner.timer`.
+To revert to defaults, run `sudo systemctl revert inspector-vm-scanner.timer`.
+
+#### Enable or disable automatic execution
+
+```
+sudo systemctl enable inspector-vm-scanner.timer   # Enable automatic runs.
+sudo systemctl disable inspector-vm-scanner.timer  # Disable automatic runs.
 ```
 
 ### Windows (Task Scheduler)

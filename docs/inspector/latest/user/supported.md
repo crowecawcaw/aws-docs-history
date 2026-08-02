@@ -73,6 +73,7 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | Debian Server (Trixie)              | 13              | DSA CVE                                | Yes                    | Yes                      |
 | Fedora                              | 43              | Errata CVE                             | Yes                    | Yes                      |
 | Fedora                              | 44              | Errata CVE                             | Yes                    | Yes                      |
+| Hummingbird OS                      | –               | Errata CVE                             | Yes                    | No                       |
 | Oracle Linux                        | 8               | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux                        | 9               | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux                        | 10              | Errata CVE                             | Yes                    | Yes                      |
@@ -88,7 +89,6 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | Ubuntu (Focal)                      | 20.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Jammy)                      | 22.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Noble)                      | 24.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
-| Ubuntu (Questing)                   | 25.10           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Resolute)                   | 26.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Windows Server                      | 2016            | MSKB                                   | Yes                    | Yes                      |
 | Windows Server                      | 2019            | MSKB                                   | Yes                    | Yes                      |
@@ -145,7 +145,6 @@ It also specifies the vendor security advisory for each operating system.
 | Ubuntu (Focal)                      | 20.04   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | Yes               |
 | Ubuntu (Jammy)                      | 22.04   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | Yes               |
 | Ubuntu (Noble)                      | 24.04   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | Yes               |
-| Ubuntu (Questing)                   | 25.10   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | Yes               |
 | Ubuntu (Resolute)                   | 26.04   | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes            | Yes               |
 | Windows Server                      | 2019    | MSKB                                   | Yes            | No                |
 | Windows Server                      | 2022    | MSKB                                   | Yes            | No                |
@@ -205,6 +204,7 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 | Echo                                | 2       |
 | Fedora                              | 43      |
 | Fedora                              | 44      |
+| Hummingbird OS                      | –       |
 | macOS                               | 11+     |
 | MinimOS                             | –       |
 | Oracle Linux                        | 8       |
@@ -224,7 +224,6 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 | Ubuntu (Focal)                      | 20.04   |
 | Ubuntu (Jammy)                      | 22.04   |
 | Ubuntu (Noble)                      | 24.04   |
-| Ubuntu (Questing)                   | 25.10   |
 | Ubuntu (Resolute)                   | 26.04   |
 | Wolfi                               | –       |
 | Windows Server                      | 2016    |
@@ -317,6 +316,7 @@ As a result, Amazon Inspector will stop generating findings for discontinued ope
 | Ubuntu (Mantic)                     | 23.10   | July 11, 2024     |
 | Ubuntu (Oracular)                   | 24.10   | July 10, 2025     |
 | Ubuntu (Plucky)                     | 25.04   | January 15, 2026  |
+| Ubuntu (Questing)                   | 25.10   | July 9, 2026      |
 | Windows Server                      | 2012    | October 10, 2023  |
 | Windows Server                      | 2012 R2 | October 10, 2023  |
 
@@ -353,6 +353,8 @@ For the list of supported languages, see [Supported programming languages: Amazo
 Amazon Inspector currently supports the following programming languages when performing deep inspection scans on Amazon EC2 Linux instances using the Amazon Inspector SSM plugin.
 Deep inspection through the Amazon Inspector SSM plugin supports a subset of the programming languages supported by the Amazon Inspector VM Scanner.
 For more information, see [Amazon Inspector deep inspection for Linux-based Amazon EC2 instances](deep-inspection.md "deep-inspection.md").
+
+The languages listed here apply to deep inspection through the Amazon Inspector SSM plugin on Linux instances. For deep inspection with Enhanced EC2 Scanning (the Amazon Inspector VM Scanner), which supports Linux, Windows, and macOS instances, see [Amazon Inspector VM Scanner](inspector-vm-scanner.md "inspector-vm-scanner.md").
 
 - Java (.ear, .jar, .par, and .war archive formats)
 - JavaScript

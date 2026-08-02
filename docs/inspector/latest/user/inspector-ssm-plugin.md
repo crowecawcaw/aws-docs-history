@@ -2,6 +2,12 @@
 
 This topic describes the Amazon Inspector SSM plugin for Linux and Windows instances.
 
+###### We recommend Enhanced EC2 Scanning
+
+The Amazon Inspector SSM plugin is the legacy scanner. We recommend that you upgrade to [Enhanced EC2 Scanning](scanning-ec2.md#agent-based-upgraded "scanning-ec2.md#agent-based-upgraded") with the [Amazon Inspector VM Scanner](inspector-vm-scanner.md "inspector-vm-scanner.md").
+The VM Scanner uses the same scan mechanism across all supported operating systems and produces more consistent findings.
+On Windows in particular, it avoids the per‐query timeouts that can cause the Amazon Inspector SSM plugin to report findings inconsistently.
+
 ## The Amazon Inspector SSM plugin for Linux
 
 If you have not enabled Enhanced EC2 Scanning with the Amazon Inspector VM Scanner, Amazon Inspector uses the Amazon Inspector SSM plugin to perform deep inspection scans on Linux instances.

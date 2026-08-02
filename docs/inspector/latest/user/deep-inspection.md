@@ -19,9 +19,10 @@ To perform deep inspection scans for your Linux-based Amazon EC2 instances, Amaz
 To manage the Amazon Inspector SSM plugin and perform deep inspection for Linux, Amazon Inspector automatically creates the SSM association `InvokeInspectorLinuxSsmPlugin-do-not-delete` in your account.
 Amazon Inspector collects updated application inventory from your Linux-based Amazon EC2 instances every 6 hours.
 
-###### Note
+###### Deep inspection on Windows and macOS
 
-Deep inspection is not supported for Windows or Mac instances.
+Deep inspection is not supported for Windows or Mac instances unless you use Enhanced EC2 Scanning.
+With Enhanced EC2 Scanning, deep inspection is performed by the [Amazon Inspector VM Scanner](inspector-vm-scanner.md "inspector-vm-scanner.md"), which supports Linux, Windows, and macOS instances.
 
 This section describes how to manage Amazon Inspector deep inspection for Amazon EC2 instances, including how to set custom paths for Amazon Inspector to scan.
 
@@ -56,18 +57,27 @@ Instead, the member account must be deactivated by their delegated administrator
 
 ## Custom paths for Amazon Inspector deep inspection
 
-You can set custom paths for Amazon Inspector to scan during deep inspection of your Linux Amazon EC2 instances.
-When you set a custom path, Amazon Inspector scans packages in that directory and all of the sub-directories in it.
+You can set custom paths for Amazon Inspector to scan during deep inspection of your Amazon EC2 instances.
+When you set a custom path, Amazon Inspector scans packages in that directory and all of the sub-directories in it, in addition to the locations Amazon Inspector scans by default.
+
+###### Important
+
+Custom paths are supported for Linux, Windows, and macOS instances when you use [Enhanced EC2 Scanning](inspector-vm-scanner.md "inspector-vm-scanner.md") (the Amazon Inspector VM Scanner).
+If you use the legacy Amazon Inspector SSM plugin instead of Enhanced EC2 Scanning, deep inspection and custom paths are available only for Linux instances.
 
 All accounts can define up to 5 custom paths.
 The delegated administrator for an organization can define 10 custom paths.
 
-Amazon Inspector scans all custom paths in addition to the following default paths, which Amazon Inspector scans for all accounts:
+Amazon Inspector scans all custom paths in addition to the locations that Amazon Inspector scans by default for all accounts.
+On Linux instances, the default locations include the following:
 
 - `/usr/lib`
 - `/usr/lib64`
 - `/usr/local/lib`
 - `/usr/local/lib64`
+
+On Windows instances, Amazon Inspector scans standard operating system and programming language package locations on the system drive by default.
+Software installed in a custom or non-standard location – for example, a database or application server on a non-system drive such as `D:\` – is scanned only if you add it as a custom path.
 
 ###### Note
 
