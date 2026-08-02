@@ -8,3 +8,4 @@ Before you begin, ensure that you have the following:
   governance.
 - (Optional) AWS resources deployed via AWS CloudFormation, Terraform, resource tags, or
   Amazon Elastic Kubernetes Service that you want to assess.
+- (Optional) An IAM execution role for resilience testing. For details, see [IAM execution roles for resilience testing](next-gen-resilience-testing-iam.md "next-gen-resilience-testing-iam.md").

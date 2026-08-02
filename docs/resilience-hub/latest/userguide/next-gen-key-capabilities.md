@@ -15,6 +15,9 @@ Next generation Resilience Hub provides the following key capabilities:
 - **Failure mode assessments (GenAI-powered)** – Analyzes
   your services against resilience policies and AWS Well-Architected best practices to identify
   potential failure modes and recommend improvements.
+- **Resilience tests** – Tests your services to verify
+  recovery objectives are met and dependencies behave as expected, such as Availability Zone
+  impairment, Regional impairment, and dependency failure.
 - **Resilience policies** – Modular, composable
   requirements for availability SLO, Multi-Region disaster recovery, Multi-AZ disaster recovery,
   and data recovery objective.

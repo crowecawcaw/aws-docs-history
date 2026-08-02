@@ -4,14 +4,15 @@ If you're an existing AWS Resilience Hub (v1) customer, this guide helps you und
 with the next generation of Resilience Hub and how to migrate your applications. The following table summarizes key
 changes between the two versions.
 
-| Area                      | AWS Resilience Hub v1                 | Next generation Resilience Hub                                   |
-| ------------------------- | ------------------------------------- | ---------------------------------------------------------------- |
-| **Core primitive**        | Application                           | System + Services                                                |
-| **Assessment engine**     | Static rule-based checks              | GenAI-powered failure mode analysis                              |
-| **Dependency visibility** | None                                  | Dependency discovery                                             |
-| **Multi-account**         | Limited                               | Full AWS Organizations integration                               |
-| **Policies**              | Single RTO/RPO policy per application | Modular, composable policies (DR + Availability + Data recovery) |
-| **API version**           | /v1                                   | /v2                                                              |
+| Area                      | AWS Resilience Hub v1                       | Next generation Resilience Hub                                          |
+| ------------------------- | ------------------------------------------- | ----------------------------------------------------------------------- |
+| **Core primitive**        | Application                                 | System + Services                                                       |
+| **Assessment engine**     | Static rule-based checks                    | GenAI-powered failure mode analysis                                     |
+| **Dependency visibility** | None                                        | Dependency discovery                                                    |
+| **Multi-account**         | Limited                                     | Full AWS Organizations integration                                      |
+| **Policies**              | Single RTO/RPO policy per application       | Modular, composable policies (DR + Availability + Data recovery)        |
+| **Testing**               | AWS FIS experiment templates (manual setup) | Recommended resilience tests (pre-configured, auto-targeted, pass/fail) |
+| **API version**           | /v1                                         | /v2                                                                     |
 
 ###### Topics
 

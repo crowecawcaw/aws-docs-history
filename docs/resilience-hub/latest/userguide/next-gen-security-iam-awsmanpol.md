@@ -18,6 +18,7 @@ services.
 ###### Topics
 
 - [AWSResilienceHubV2AssessmentExecutionPolicy](#next-gen-security_iam_aws-v2-assessment-policy "#next-gen-security_iam_aws-v2-assessment-policy")
+- [AWSResilienceHubResilienceTestingPolicy](#next-gen-security_iam_aws-resilience-testing-policy "#next-gen-security_iam_aws-resilience-testing-policy")
 - [AWSResilienceHubServiceRolePolicy](#next-gen-security-iam-awsmanpol-slr "#next-gen-security-iam-awsmanpol-slr")
 - [Next generation Resilience Hub updates to AWS managed policies](#next-gen-security-iam-awsmanpol-updates "#next-gen-security-iam-awsmanpol-updates")
 
@@ -380,6 +381,159 @@ AWS services while running assessments.
 }
 ```
 
+## AWSResilienceHubResilienceTestingPolicy
+
+You can attach the `AWSResilienceHubResilienceTestingPolicy` to your IAM
+identities. This policy grants Resilience Hub the AWS Fault Injection Service (AWS FIS) permissions needed to start
+and manage experiments on your behalf during resilience testing. Experiments started by
+Resilience Hub are tagged with `managedBy: resiliencehub`.
+
+### Permission details
+
+This policy includes the following permissions:
+
+- AWS Fault Injection Service (AWS FIS) – Provides permissions to author and manage the experiment
+  templates and experiments that Resilience Hub runs on your behalf: creating and deleting
+  experiment templates, starting and stopping experiments, monitoring experiment state,
+  listing the customer resources targeted by an experiment, tagging resources on create, and
+  configuring multi-account targets. These actions are scoped to resources tagged with
+  `managedBy: resiliencehub`.
+- IAM – Provides `iam:PassRole` to pass the test execution role to
+  AWS FIS, and `iam:CreateServiceLinkedRole` to allow AWS FIS to create the
+  service-linked role it needs to run experiments.
+- AWS Application Recovery Controller (ARC) Region switch – Provides
+  `List` and `Get` permissions to monitor Region switch plan executions
+  that run as part of an experiment.
+- Amazon CloudWatch (CloudWatch) – Provides `DescribeAlarmHistory` to evaluate customer
+  alarms as part of the post-experiment workflow during resilience testing.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AWSResilienceHubFISActionStatement",
+      "Effect": "Allow",
+      "Action": "fis:CreateExperimentTemplate",
+      "Resource": "arn:aws:fis:*:*:action/*"
+    },
+    {
+      "Sid": "AWSResilienceHubFISCreateExperimentTemplateStatement",
+      "Effect": "Allow",
+      "Action": "fis:CreateExperimentTemplate",
+      "Resource": "arn:aws:fis:*:*:experiment-template/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestTag/managedBy": "resiliencehub"
+        }
+      }
+    },
+    {
+      "Sid": "AWSResilienceHubFISStartExperimentFromTemplateStatement",
+      "Effect": "Allow",
+      "Action": "fis:StartExperiment",
+      "Resource": "arn:aws:fis:*:*:experiment-template/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceTag/managedBy": "resiliencehub"
+        }
+      }
+    },
+    {
+      "Sid": "AWSResilienceHubFISStartExperimentStatement",
+      "Effect": "Allow",
+      "Action": "fis:StartExperiment",
+      "Resource": "arn:aws:fis:*:*:experiment/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestTag/managedBy": "resiliencehub"
+        }
+      }
+    },
+    {
+      "Sid": "AWSResilienceHubFISExperimentStatement",
+      "Effect": "Allow",
+      "Action": [
+        "fis:GetExperiment",
+        "fis:StopExperiment",
+        "fis:ListExperimentResolvedTargets"
+      ],
+      "Resource": "arn:aws:fis:*:*:experiment/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceTag/managedBy": "resiliencehub"
+        }
+      }
+    },
+    {
+      "Sid": "AWSResilienceHubFISExperimentTemplateStatement",
+      "Effect": "Allow",
+      "Action": [
+        "fis:CreateTargetAccountConfiguration",
+        "fis:DeleteExperimentTemplate"
+      ],
+      "Resource": "arn:aws:fis:*:*:experiment-template/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceTag/managedBy": "resiliencehub"
+        }
+      }
+    },
+    {
+      "Sid": "AWSResilienceHubFISPassRoleStatement",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "arn:aws:iam::*:role/*",
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "fis.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid": "AWSResilienceHubFISTagResourceStatement",
+      "Effect": "Allow",
+      "Action": "fis:TagResource",
+      "Resource": [
+        "arn:aws:fis:*:*:experiment-template/*",
+        "arn:aws:fis:*:*:experiment/*"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestTag/managedBy": "resiliencehub"
+        }
+      }
+    },
+    {
+      "Sid": "AWSResilienceHubRegionSwitchStatement",
+      "Effect": "Allow",
+      "Action": [
+        "arc-region-switch:ListPlanExecutions",
+        "arc-region-switch:GetPlanExecution"
+      ],
+      "Resource": "arn:aws:arc-region-switch::*:plan/*:*"
+    },
+    {
+      "Sid": "AWSResilienceHubFISCreateSLRStatement",
+      "Effect": "Allow",
+      "Action": "iam:CreateServiceLinkedRole",
+      "Resource": "arn:aws:iam::*:role/*",
+      "Condition": {
+        "StringEquals": {
+          "iam:AWSServiceName": "fis.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid": "AWSResilienceHubCloudWatchAlarmStatement",
+      "Effect": "Allow",
+      "Action": "cloudwatch:DescribeAlarmHistory",
+      "Resource": "*"
+    }
+  ]
+}
+```
+
 ## AWSResilienceHubServiceRolePolicy
 
 The `AWSResilienceHubServiceRolePolicy` is a service-linked role (SLR) policy.
@@ -440,6 +594,7 @@ RSS feed on the Next generation Resilience Hub Document history page.
 
 | Change                                                                                                                                                                                                                 | Description                                                                                                                                                                                                                                                                                                               | Date          |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| [AWSResilienceHubResilienceTestingPolicy](#next-gen-security_iam_aws-resilience-testing-policy "#next-gen-security_iam_aws-resilience-testing-policy") – New<br>policy                                                 | AWS added a new policy for the next generation of Resilience Hub to grant the AWS Fault Injection Service (AWS FIS) permissions<br>needed to start and manage experiments on your behalf during resilience testing.                                                                                                       | July 31, 2026 |
 | [AWSResilienceHubServiceRolePolicy](next-gen-security-iam-awsmanpol.md#next-gen-security-iam-awsmanpol-slr "next-gen-security-iam-awsmanpol.md#next-gen-security-iam-awsmanpol-slr") – Update to an existing<br>policy | Next generation Resilience Hub added read-only AWS Organizations permissions to the<br>`AWSResilienceHubServiceRolePolicy`. These permissions support multi-account<br>resilience management, including discovering organization structure, identifying delegated<br>administrators, and verifying trusted access status. | July 7, 2026  |
 | [AWSResilienceHubV2AssessmentExecutionPolicy](#next-gen-security_iam_aws-v2-assessment-policy "#next-gen-security_iam_aws-v2-assessment-policy") – New policy                                                          | Next generation Resilience Hub added a new policy to grant read-only access permissions to other AWS<br>services for resilience discovery, assessment, and management.                                                                                                                                                    | June 18, 2026 |
 | Next generation Resilience Hub started tracking changes                                                                                                                                                                | Next generation Resilience Hub started tracking changes for its AWS managed policies.                                                                                                                                                                                                                                     | June 18, 2026 |

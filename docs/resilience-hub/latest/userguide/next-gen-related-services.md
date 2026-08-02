@@ -2,6 +2,10 @@
 
 The following AWS services integrate with or complement the next generation of Resilience Hub:
 
+- **AWS Fault Injection Service (AWS FIS)** – Resilience tests use AWS FIS
+  to inject controlled faults into your service, to help you validate it operates and recovers
+  as expected. For more information, see
+  [Resilience testing](next-gen-resilience-testing.md "next-gen-resilience-testing.md").
 - **AWS Application Recovery Controller (ARC)** –
   Provides readiness checks, routing controls, and zonal shift capabilities that complement
   the next generation of Resilience Hub.

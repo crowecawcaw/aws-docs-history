@@ -11,3 +11,5 @@ provides:
   severity
 - **Dependencies** – Newly discovered or
   unclassified dependencies
+- **Test results** – Pass/fail status of resilience
+  tests across your services

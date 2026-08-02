@@ -1,8 +1,8 @@
 # Next generation Resilience Hub
 
 Next generation Resilience Hub is a resilience management service that uses GenAI-powered failure mode
-assessments, automatic dependency discovery, and composable resilience policies to help you
-proactively assess and improve the resilience posture of your AWS applications.
+assessments, automatic dependency discovery, resilience testing, and composable resilience policies to help you
+proactively assess, test, and improve the resilience posture of your AWS applications.
 
 ###### Topics
 
@@ -12,6 +12,7 @@ proactively assess and improve the resilience posture of your AWS applications.
 - [Systems, user journeys, and services](next-gen-application-modeling.md "next-gen-application-modeling.md")
 - [Resilience policies](next-gen-resilience-policies.md "next-gen-resilience-policies.md")
 - [Assessment](next-gen-assessment.md "next-gen-assessment.md")
+- [Resilience testing](next-gen-resilience-testing.md "next-gen-resilience-testing.md")
 - [Dashboard and reporting](next-gen-dashboard-reporting.md "next-gen-dashboard-reporting.md")
 - [AWS Organizations integration](next-gen-organizations.md "next-gen-organizations.md")
 - [Migrating from AWS Resilience Hub](next-gen-migrating.md "next-gen-migrating.md")

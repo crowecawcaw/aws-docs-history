@@ -10,4 +10,5 @@ the next generation of Resilience Hub.
 - [IAM and permissions errors](next-gen-troubleshoot-iam.md "next-gen-troubleshoot-iam.md")
 - [AWS Organizations configuration issues](next-gen-troubleshoot-organizations.md "next-gen-troubleshoot-organizations.md")
 - [Resource discovery issues](next-gen-troubleshoot-resource-discovery.md "next-gen-troubleshoot-resource-discovery.md")
+- [Resilience testing issues](next-gen-troubleshoot-testing.md "next-gen-troubleshoot-testing.md")
 - [Known issues and workarounds](next-gen-known-issues.md "next-gen-known-issues.md")

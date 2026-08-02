@@ -54,8 +54,13 @@ To generate a report after running an assessment:
 1. Navigate to your service.
 2. Choose the **Assessment** tab.
 3. Choose **Generate report**.
-   **Viewing reports**
+   **Test run reports**
+
+Test reports are auto-generated after each test run completes if a report destination is
+configured. No additional steps are needed. For details on what's included, see [Test runs and report](next-gen-resilience-testing-runs-and-report.md "next-gen-resilience-testing-runs-and-report.md").
+
+**Viewing reports**
 
 In the left-hand navigation, choose **Reports**. The reports
-page shows all generated failure mode assessment reports that you have access to. You can view,
-download, or share reports from this page.
+page shows all generated reports (failure mode assessments and test runs) that you have access
+to.
