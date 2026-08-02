@@ -31,7 +31,7 @@ name**, verify the name of your connection.
 Under **Bitbucket apps**, choose an app installation, or choose
 **Install a new app** to create one.
 
-![Console screenshot showing the Connect to Bitbucket dialog box, with the install new app button.](/images/dtconsole/latest/userguide/images/newreview-source-wizard-bitbucket.png) 6. On the app installation page, a message shows that the AWS CodeStar app is trying to
+![Console screenshot showing the Connect to Bitbucket dialog box, with the install new app button.](images/newreview-source-wizard-bitbucket.png) 6. On the app installation page, a message shows that the AWS CodeStar app is trying to
 connect to your Bitbucket account. Choose **Grant access**.
 
 ![Console screenshot showing AWS CodeStar requests access.](images/bitbucket-access-popup.png) 7. The connection ID for your new installation is displayed. Choose
