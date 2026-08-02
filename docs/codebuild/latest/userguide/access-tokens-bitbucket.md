@@ -1,4 +1,14 @@
-# Bitbucket app password or access token
+# Bitbucket app password, API token, or access token
+
+###### Bitbucket app passwords are deprecated
+
+Atlassian has deprecated Bitbucket app passwords in favor of API tokens.
+To continue using basic authentication with CodeBuild, create an API token in your
+Atlassian account settings. When you connect it to CodeBuild, use the email address
+associated with your Atlassian account as the username. CodeBuild automatically uses
+the correct credentials for Git operations and Bitbucket API calls.
+
+For more information, see [Using API tokens](https://support.atlassian.com/bitbucket-cloud/docs/using-api-tokens/ "https://support.atlassian.com/bitbucket-cloud/docs/using-api-tokens/") on the Atlassian website.
 
 ###### Bitbucket OAuth token rotation
 
@@ -10,9 +20,9 @@ For information about the required changes when you continue to use OAuth with S
 ## Prerequisites
 
 Before you begin, you must add the proper permission scopes to your Bitbucket app
-password or access token.
+password, API token, or access token.
 
-For Bitbucket, your app password or access token must have the following scopes.
+For Bitbucket, your app password, API token, or access token must have the following scopes.
 
 - **repository:read**: Grants read access to
   all the repositories to which the authorizing user has access.
@@ -26,10 +36,15 @@ For Bitbucket, your app password or access token must have the following scopes.
 
 For more information, see [Scopes for Bitbucket Cloud REST API](https://developer.atlassian.com/cloud/bitbucket/bitbucket-cloud-rest-api-scopes/ "https://developer.atlassian.com/cloud/bitbucket/bitbucket-cloud-rest-api-scopes/") and [OAuth on Bitbucket Cloud](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html "https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html") on the Bitbucket website.
 
-## Connect Bitbucket with an app password (console)
+## Connect Bitbucket with an app password or API token (console)
 
-To use the console to connect your project to Bitbucket using an app password, do
-the following when you create a project. For information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console").
+To use the console to connect your project to Bitbucket using an app password or
+API token, do the following when you create a project. For information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console").
+
+###### Note
+
+If you use an API token, enter the email address associated with your
+Atlassian account as the username.
 
 1. For **Source provider**, choose
    **Bitbucket**.
@@ -38,18 +53,19 @@ the following when you create a project. For information, see [Create a build pr
    - Choose to use account credentials to apply your account's default source credential to all projects.
 
      1. If you aren't connected to Bitbucket, choose **Manage account credential**.
-     2. For **Credential type**, choose **App password**.
+     2. For **Credential type**, choose **API token** (previously shown as **App password**).
 
    - If you chose to use account level credentials for **Service**, choose which service you'd like to use to store your token and do the following:
 
      1. If you choose to use **Secrets Manager**, you can choose to use an existing secret connection or create a new secret, and then choose **Save**.
         For more information how to create a new secret, see [Create and store a token in a Secrets Manager secret](asm-create-secret.md "asm-create-secret.md").
      2. If you choose to use **CodeBuild**, enter your Bitbucket username and app password, and then choose **Save**.
+        For a Bitbucket API token, enter your Atlassian account email address and API token instead.
 
    - Select **Use override credentials for this project only** to use a custom source credential to override your account's credential settings.
 
-     1. From the populated credential list, choose one of the options under **App password**.
-     2. You can also create new App password token by selecting **create a new app password connection** in the description.
+     1. From the populated credential list, choose one of the options under **App password** or **API token**.
+     2. You can also create a new app password or API token connection by selecting the create connection link in the description.
 
 ## Connect Bitbucket with an access token (console)
 
@@ -112,21 +128,23 @@ Replace the following:
      authentication used to connect to a repository. Valid values are OAUTH,
      BASIC\_AUTH, PERSONAL\_ACCESS\_TOKEN, CODECONNECTIONS, and SECRETS\_MANAGER.
      For GitHub, only PERSONAL\_ACCESS\_TOKEN is allowed. BASIC\_AUTH is only
-     allowed with Bitbucket app password.
+     allowed with Bitbucket app password or API token.
     * `should-overwrite`: Optional value. Set
      to `false` to prevent overwriting the repository source
      credentials. Set to `true` to overwrite the repository
      source credentials. The default value is `true`.
     * `token`: Required value. For GitHub or
      GitHub Enterprise Server, this is the personal access token. For
-     Bitbucket, this is the personal access token or app password. For the
+     Bitbucket, this is the personal access token, app password, or API token. For the
      auth-type CODECONNECTIONS, this is the connection ARN. For the auth-type
      SECRETS\_MANAGER, this is the secret ARN.
     * `username`: Optional value. This
      parameter is ignored for GitHub and GitHub Enterprise Server source
-     providers.
+     providers. For a Bitbucket app password, this is your Bitbucket
+     username. For a Bitbucket API token, this is the email address
+     associated with your Atlassian account.
 
-2. To connect your account with an app password or an access token, switch to the directory that
+2. To connect your account with an app password, API token, or access token, switch to the directory that
 contains the `import-source-credentials.json` file you
 saved in step 1 and run the
 **import-source-credentials** command again.
@@ -150,7 +168,7 @@ If you run the **import-source-credentials**
 command with the same server type and auth type a second time, the
 stored access token is updated.
 
-After your account is connected with an app password, you can use
+After your account is connected with an app password or API token, you can use
 `create-project` to create your CodeBuild project. For more
 information, see [Create a build project (AWS CLI)](create-project.md#create-project-cli "create-project.md#create-project-cli"). 3. To view the connected app passwords or access tokens, run the
 **list-source-credentials** command.

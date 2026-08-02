@@ -101,19 +101,21 @@ Replace the following:
      authentication used to connect to a repository. Valid values are OAUTH,
      BASIC\_AUTH, PERSONAL\_ACCESS\_TOKEN, CODECONNECTIONS, and SECRETS\_MANAGER.
      For GitHub, only PERSONAL\_ACCESS\_TOKEN is allowed. BASIC\_AUTH is only
-     allowed with Bitbucket app password.
+     allowed with Bitbucket app password or API token.
     * `should-overwrite`: Optional value. Set
      to `false` to prevent overwriting the repository source
      credentials. Set to `true` to overwrite the repository
      source credentials. The default value is `true`.
     * `token`: Required value. For GitHub or
      GitHub Enterprise Server, this is the personal access token. For
-     Bitbucket, this is the personal access token or app password. For the
+     Bitbucket, this is the personal access token, app password, or API token. For the
      auth-type CODECONNECTIONS, this is the connection ARN. For the auth-type
      SECRETS\_MANAGER, this is the secret ARN.
     * `username`: Optional value. This
      parameter is ignored for GitHub and GitHub Enterprise Server source
-     providers.
+     providers. For a Bitbucket app password, this is your Bitbucket
+     username. For a Bitbucket API token, this is the email address
+     associated with your Atlassian account.
 
 2. To connect your account with an access token, switch to the directory that
 contains the `import-source-credentials.json` file you

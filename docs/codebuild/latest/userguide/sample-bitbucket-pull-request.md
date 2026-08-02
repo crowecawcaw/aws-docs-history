@@ -64,6 +64,7 @@ account**.
 If you have not previously connected to your Bitbucket
 account, enter your Bitbucket username and app password, and
 select **Save Bitbucket credentials**.
+For a Bitbucket API token, enter your Atlassian account email address and API token instead.
 
 **Bitbucket repository**
 

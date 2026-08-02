@@ -21,7 +21,8 @@ AWS Management Console
      4. In **Secret name**, enter the name of your secret.
      5. In **Secret description - optional**, enter a description for your secret.
      6. Depending on the source provider you chose, enter your
-        token or username and app password and choose **Save**.
+        token or username and app password, and choose **Save**.
+        For a Bitbucket API token, enter your Atlassian account email address and API token instead.
 
    - Choose **Custom source credential** to use
      a custom source credential to override your account's default settings.
@@ -32,6 +33,7 @@ AWS Management Console
      4. In **Secret description - optional**, enter a description for your secret.
      5. Depending on the source provider you chose, enter your
         token or username and app password, and choose **Create**.
+        For a Bitbucket API token, enter your Atlassian account email address and API token instead.
 
 AWS CLI
 
@@ -61,16 +63,16 @@ The Secrets Manager secrets that CodeBuild accept must be in the same account an
             "ServerType": ServerType,
             "AuthType: AuthType,
             "Token": string,
-            "Username": string // Optional and is only used for Bitbucket app password
+            "Username": string // Optional and is only used for Bitbucket app password or API token
         }
 ```
 
-| Field      | Valid values                              | Description                                                                                                                                                      |
-| ---------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ServerType | GITHUB<br>GITHUB\_ENTERPRISE<br>BITBUCKET | The third party source provider for your Secrets Manager secret.                                                                                                 |
-| AuthType   | PERSONAL\_ACCESS\_TOKEN<br>BASIC\_AUTH    | The type of access token used by the credentials.<br>For GitHub, only PERSONAL\_ACCESS\_TOKEN is valid.<br>BASIC\_AUTH is only valid for Bitbucket app password. |
-| Token      | `string`                                  | For GitHub or GitHub Enterprise, this is the personal access token.<br>For Bitbucket, this is either the access token or the Bitbucket app password.             |
-| Username   | `string`                                  | The Bitbucket username when the AuthType is BASIC\_AUTH.<br>This parameter is not valid for other types of source providers.                                     |
+| Field      | Valid values                              | Description                                                                                                                                                                                                                            |
+| ---------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ServerType | GITHUB<br>GITHUB\_ENTERPRISE<br>BITBUCKET | The third party source provider for your Secrets Manager secret.                                                                                                                                                                       |
+| AuthType   | PERSONAL\_ACCESS\_TOKEN<br>BASIC\_AUTH    | The type of access token used by the credentials.<br>For GitHub, only PERSONAL\_ACCESS\_TOKEN is valid.<br>BASIC\_AUTH is only valid for Bitbucket app password or API token.                                                          |
+| Token      | `string`                                  | For GitHub or GitHub Enterprise, this is the personal access token.<br>For Bitbucket, this is the access token, the Bitbucket app password, or the Bitbucket API token.                                                                |
+| Username   | `string`                                  | The Bitbucket username when the AuthType is BASIC\_AUTH.<br>If you use a Bitbucket API token, this is the email address<br>associated with your Atlassian account.<br>This parameter is not valid for other types of source providers. |
 
 Additionally, CodeBuild uses the following resource tags on the secret to ensure the secrets are easily selectable when creating or editing projects.
 

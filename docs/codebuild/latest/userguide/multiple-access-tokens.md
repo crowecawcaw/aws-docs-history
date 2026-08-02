@@ -143,6 +143,7 @@ AWS Management Console
             secret connection or create a new secret and choose **Save**. For more information how to create a new secret, see [Create and store a token in a Secrets Manager secret](asm-create-secret.md "asm-create-secret.md").
            + If you chose to use **CodeBuild**, enter your
             token or your username and app password, and choose **Save**.
+            For a Bitbucket API token, enter your Atlassian account email address and API token instead.
 
    - Choose **Custom source credential** to use
      a custom source credential to override your account's default settings.
