@@ -477,38 +477,35 @@ You can replace `amzn-s3-demo-bucket` with your bucket name,
 `optional-prefix` with an optional prefix for the bucket, and
 `organization-id` with your organization ID.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "PolicyGenerationBucketPolicy",
- "Effect": "Allow",
- "Principal": {
- "AWS": "*"
- },
- "Action": [
- "s3:GetObject",
- "s3:ListBucket"
- ],
- "Resource": [
- "arn:aws:s3:::`amzn-s3-demo-bucket`",
- "arn:aws:s3:::`amzn-s3-demo-bucket`/`optional-prefix`/AWSLogs/`organization-id`/${aws:PrincipalAccount}/*"
- ],
- "Condition": {
- "StringEquals": {
- "aws:PrincipalOrgID": "`organization-id`"
- },
- "ArnLike": {
- "aws:PrincipalArn": "arn:aws:iam:::${aws:PrincipalAccount}:role/service-role/AccessAnalyzerMonitorServiceRole*"
- }
- }
- }
- ]
-}`
-
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PolicyGenerationBucketPolicy",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::`amzn-s3-demo-bucket`",
+        "arn:aws:s3:::`amzn-s3-demo-bucket`/`optional-prefix`/AWSLogs/`organization-id`/${aws:PrincipalAccount}/*"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "aws:PrincipalOrgID": "`organization-id`"
+        },
+        "ArnLike": {
+          "aws:PrincipalArn": "arn:aws:iam::${aws:PrincipalAccount}:role/service-role/AccessAnalyzerMonitorServiceRole*"
+        }
+      }
+    }
+  ]
+}
 ```
 
 5. If you encrypt your logs using AWS KMS, update your AWS KMS key policy in the
@@ -517,38 +514,35 @@ JSON
    `CROSS_ACCOUNT_ORG_TRAIL_FULL_ARN` with the ARN for your trail
    and `organization-id` with your organization ID.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "AWS": "*"
- },
- "Action": "kms:Decrypt",
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "kms:EncryptionContext:aws:cloudtrail:arn": "`CROSS_ACCOUNT_ORG_TRAIL_FULL_ARN`",
- "aws:PrincipalOrgID": "`organization-id`"
- },
- "StringLike": {
- "kms:ViaService": [
- "access-analyzer.*.amazonaws.com",
- "s3.*.amazonaws.com"
- ]
- },
- "ArnLike": {
- "aws:PrincipalArn": "arn:aws:iam:::${aws:PrincipalAccount}:role/service-role/AccessAnalyzerMonitorServiceRole*"
- }
- }
- }
- ]
-}`
-
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": "kms:Decrypt",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "kms:EncryptionContext:aws:cloudtrail:arn": "`CROSS_ACCOUNT_ORG_TRAIL_FULL_ARN`",
+          "aws:PrincipalOrgID": "`organization-id`"
+        },
+        "StringLike": {
+          "kms:ViaService": [
+            "access-analyzer.*.amazonaws.com",
+            "s3.*.amazonaws.com"
+            ]
+        },
+        "ArnLike": {
+          "aws:PrincipalArn": "arn:aws:iam::${aws:PrincipalAccount}:role/service-role/AccessAnalyzerMonitorServiceRole*"
+        }
+      }
+     }
+    ]
+}
 ```
 
 ## Generate a policy based on CloudTrail activity (AWS CLI)

@@ -287,7 +287,7 @@ request matches one of the values in the policy statement.
 - [AWS Payments (payments)](list_payments.md "list_payments.md")
 - [AWS Performance Insights (pi)](list_pi.md "list_pi.md")
 - [AWS Price List (pricing)](list_pricing.md "list_pricing.md")
-- [AWS PricingPlanManager Service (pricingplanmanager)](list_pricingplanmanager.md "list_pricingplanmanager.md")
+- [AWS PricingPlanManager Service (pricingplanmanager)](list_pricing-plan-manager.md "list_pricing-plan-manager.md")
 - [AWS Private CA Connector for Active Directory (pca-connector-ad)](list_pca-connector-ad.md "list_pca-connector-ad.md")
 - [AWS Private CA Connector for SCEP (pca-connector-scep)](list_pca-connector-scep.md "list_pca-connector-scep.md")
 - [AWS Private Certificate Authority (acm-pca)](list_acm-pca.md "list_acm-pca.md")

@@ -638,7 +638,7 @@ main "$@"
   - [DeleteNamespace](../../../goto/aws-cli/servicediscovery-2017-03-14/DeleteNamespace.md "../../../goto/aws-cli/servicediscovery-2017-03-14/DeleteNamespace.md")
   - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
   - [DeleteSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DeleteService](../../../goto/aws-cli/servicediscovery-2017-03-14/DeleteService.md "../../../goto/aws-cli/servicediscovery-2017-03-14/DeleteService.md")
+  - [DeleteService](../../../goto/aws-cli/ecs-2014-11-13/DeleteService.md "../../../goto/aws-cli/ecs-2014-11-13/DeleteService.md")
   - [DeregisterTaskDefinition](../../../goto/aws-cli/ecs-2014-11-13/DeregisterTaskDefinition.md "../../../goto/aws-cli/ecs-2014-11-13/DeregisterTaskDefinition.md")
   - [DescribeClusters](../../../goto/aws-cli/ecs-2014-11-13/DescribeClusters.md "../../../goto/aws-cli/ecs-2014-11-13/DescribeClusters.md")
   - [DescribeServices](../../../goto/aws-cli/ecs-2014-11-13/DescribeServices.md "../../../goto/aws-cli/ecs-2014-11-13/DescribeServices.md")

@@ -2,7 +2,9 @@
 
 A Regional endpoint is the URL of the entry point within a particular region for an AWS
 web service. AWS recommends using Regional AWS Security Token Service (AWS STS) endpoints instead of the global
-endpoint to reduce latency, build in redundancy, and increase session token validity. Although
+endpoint to reduce latency, build in redundancy, and increase session token validity.
+
+Although
 the global (legacy) AWS STS endpoint `https://sts.amazonaws.com` is highly available,
 it’s hosted in a single AWS Region, US East (N. Virginia), and like other endpoints, it
 doesn’t provide automatic failover to endpoints in other Regions.
@@ -44,10 +46,14 @@ endpoints. For more information, see [AWS STS global endpoint changes](id_creden
 
 When you activate AWS STS endpoints for a Region, AWS STS can issue temporary credentials to
 users and roles in your account that make an AWS STS request. Those credentials can then be
-used in any Region that is enabled by default or is manually enabled. For Regions that are
+used in any Region that is enabled by default or is manually enabled.
+
+For Regions that are
 enabled by default, you must activate the Regional AWS STS endpoint in the account where the
 temporary credentials are generated. It does not matter whether a user is signed into the
-same account or a different account when they make the request. When requesting temporary
+same account or a different account when they make the request.
+
+When requesting temporary
 credentials for a role in another AWS account using a Region that is manually enabled,
 the target account (the account containing the role) must enable that Region for AWS STS
 operations. This ensures that the temporary security credentials can be generated
@@ -126,7 +132,9 @@ Regions are automatically activated for use with AWS STS. Some Regions, such as 
 (Hong Kong), must be manually enabled. To learn more about enabling and disabling
 AWS Regions, see [Specify which AWS Regions
 your account can use](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md") in the _AWS Account Management Reference
-Guide_. When you enable these AWS Regions, they are automatically activated
+Guide_.
+
+When you enable these AWS Regions, they are automatically activated
 for use with AWS STS. You cannot activate the AWS STS endpoint for a Region that is disabled.
 Session tokens that are valid in all AWS Regions include more characters than tokens that
 are valid in Regions that are enabled by default. Changing this setting might affect

@@ -2,22 +2,23 @@
 
 You can use FIDO2 device-bound passkeys, also known as security keys, as a multi-factor
 authentication (MFA) method with IAM using currently supported configurations. These
-include FIDO2 devices supported by IAM and browsers that support FIDO2. Before you
-register your FIDO2 device, check that you’re using the latest browser and operating system
-(OS) version. Features may behave differently across different browsers, authenticators, and
-OS clients. If your device registration fails on one browser, you can try to register with
-another browser.
+include FIDO2 devices supported by IAM and browsers that support FIDO2.
+
+Before you register your FIDO2 device, check that you're using the latest browser and
+operating system (OS) version. Features might behave differently across different browsers,
+authenticators, and OS clients. If your device registration fails on one browser, you can
+try to register with another browser.
 
 FIDO2 is an open authentication standard and an extension of FIDO U2F, offering the same
 high level of security based on public key cryptography. FIDO2 consists of the W3C Web
 Authentication specification (WebAuthn API) and the FIDO Alliance Client-to-Authenticator
 Protocol (CTAP), an application layer protocol. CTAP enables communication between client or
-platform, like a browser or operating system, with an external authenticator. When you
-enable a FIDO Certified authenticator in AWS, the security key creates a new key pair for
-use with only AWS. First, you enter your credentials. When prompted, you tap the security
-key, which responds to the authentication challenge issued by AWS. To learn more about the
-FIDO2 standard, see the [FIDO2
-Project](https://en.wikipedia.org/wiki/FIDO2_Project "https://en.wikipedia.org/wiki/FIDO2_Project").
+platform, like a browser or operating system, with an external authenticator.
+
+When you enable a FIDO Certified authenticator in AWS, the security key creates a new
+key pair for use with only AWS. First, you enter your credentials. When prompted, you tap
+the security key, which responds to the authentication challenge issued by AWS. To learn
+more about the FIDO2 standard, see the [FIDO2 Project](https://en.wikipedia.org/wiki/FIDO2_Project "https://en.wikipedia.org/wiki/FIDO2_Project").
 
 ## FIDO2 devices supported by AWS
 
@@ -55,8 +56,8 @@ the use of security keys:
 Most Firefox versions that currently support FIDO2 don't enable support by
 default. For instructions on enabling FIDO2 support in Firefox, see [Troubleshoot Passkeys and FIDO Security Keys](troubleshoot_mfa-fido.md "troubleshoot_mfa-fido.md").
 
-Firefox on macOS may not fully support cross-device authentication workflows for
-passkeys. You may get a prompt to touch a security key instead of proceeding with
+Firefox on macOS might not fully support cross-device authentication workflows for
+passkeys. You might get a prompt to touch a security key instead of proceeding with
 cross-device authentication. We recommend using a different browser, such as Chrome
 or Safari, for signing in with passkeys on macOS.
 
@@ -79,17 +80,17 @@ For information on disabling browser plugins and other troubleshooting tips, see
 We capture and assign device-related certifications, such as FIPS validation and FIDO
 certification level, only during the registration of a security key. Your device
 certification is retrieved from the [FIDO
-Alliance Metadata Service (MDS)](https://fidoalliance.org/metadata/ "https://fidoalliance.org/metadata/"). If the certification status or level of
-your security key changes, it will not be reflected in the device tags automatically. To
-update the certification information of a device, register the device again to fetch the
-updated certification information.
+Alliance Metadata Service (MDS)](https://fidoalliance.org/metadata/ "https://fidoalliance.org/metadata/").
+
+If the certification status or level of your security key changes, it will not be
+reflected in the device tags automatically. To update the certification information of a
+device, register the device again to fetch the updated certification information.
 
 AWS
 provides the following certification types as condition keys during device registration,
 obtained from the FIDO MDS: FIPS-140-2, FIPS-140-3, and FIDO certification levels. You
-have the ability to specify the registration of specific authenticators in their IAM
-policies, based on your preferred certification type and level. For more information,
-see the policies below.
+can restrict authenticator registration in IAM policies based on certification type
+and level. For more information, see the policies below.
 
 ### Example policies for device certifications
 

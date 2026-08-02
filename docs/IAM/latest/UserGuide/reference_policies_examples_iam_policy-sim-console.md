@@ -1,9 +1,7 @@
 # IAM: Access the policy simulator console
 
 This example shows how you might create an identity-based policy that allows using the policy simulator console for policies attached to a
-user, group, or role in the current AWS account. This policy grants the permissions necessary to complete this action programmatically from the AWS API or AWS CLI.
-
-You can access the IAM Policy Simulator console at: [https://policysim.aws.amazon.com/](https://policysim.aws.amazon.com/ "https://policysim.aws.amazon.com/")
+user, group, or role in the current AWS account.
 
 JSON
 
@@ -13,9 +11,9 @@ JSON
  "Statement": [
  {
  "Action": [
- "iam:GetGroup",
+ "access-analyzer:ValidatePolicy",
+ "iam:GetContextKeysForCustomPolicy",
  "iam:GetGroupPolicy",
- "iam:GetPolicy",
  "iam:GetPolicyVersion",
  "iam:GetRole",
  "iam:GetRolePolicy",
@@ -27,10 +25,13 @@ JSON
  "iam:ListGroups",
  "iam:ListGroupPolicies",
  "iam:ListGroupsForUser",
+ "iam:ListPolicies",
  "iam:ListRolePolicies",
  "iam:ListRoles",
  "iam:ListUserPolicies",
- "iam:ListUsers"
+ "iam:ListUsers",
+ "iam:SimulateCustomPolicy",
+ "iam:SimulatePrincipalPolicy"
  ],
  "Effect": "Allow",
  "Resource": "*"

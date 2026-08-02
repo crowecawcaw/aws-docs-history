@@ -3064,36 +3064,6 @@ actions only if the request is sent using TLS.
 - **Data type** – [Boolean](reference_policies_elements_condition_operators.md#Conditions_Boolean "reference_policies_elements_condition_operators.md#Conditions_Boolean")
 - **Value type** – Single-valued
 
-###### Note
-
-When AWS services make calls to other AWS services on your behalf
-(service-to-service calls), certain network-specific authorization context is
-redacted. If your policy uses this condition key with `Deny`
-statements, AWS service principals might be unintentionally blocked. To allow
-AWS services to work properly while maintaining your security requirements,
-exclude service principals from your `Deny` statements by adding the
-`aws:PrincipalIsAWSService` condition key with a value of
-`false`. For example:
-
-```
-{
-  "Effect": "Deny",
-  "Action": "s3:*",
-  "Resource": "*",
-  "Condition": {
-    "Bool": {
-      "aws:SecureTransport": "false",
-      "aws:PrincipalIsAWSService": "false"
-    }
-  }
-}
-```
-
-This policy denies access to Amazon S3 operations when HTTPS is not used
-(`aws:SecureTransport` is false), but only for non-AWS service
-principals. This ensures your conditional restrictions apply to all principals
-except AWS service principals.
-
 ### aws:SourceAccount
 
 Use this key to compare the account ID of the resource making a service-to-service

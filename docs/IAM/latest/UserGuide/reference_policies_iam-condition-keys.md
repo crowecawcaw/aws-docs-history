@@ -589,7 +589,7 @@ policy template from a specific partner domain.
             "Resource": "*",
             "Condition": {
                 "ArnLike": {
-                    "iam:TemplateArn": "arn:aws:iam:::delegation-template/partner_*"
+                    "iam:TemplateArn": "arn:aws:iam::*:delegation-template/partner_*"
                 }
             }
         }
@@ -2117,6 +2117,71 @@ JSON
  }
 }`
 
+```
+
+**sts:RoleAuthorizedByIdp**
+
+Works with [Boolean operators](reference_policies_elements_condition_operators.md#Conditions_Boolean "reference_policies_elements_condition_operators.md#Conditions_Boolean").
+
+Use this key to verify that the identity provider (IdP) explicitly authorized
+the requested role through the `https://aws.amazon.com/roles` claim in
+the OIDC token. The roles claim contains the
+IAM role ARNs that the token is allowed to assume. AWS STS supports two formats
+for the claim value:
+
+**JSON array (recommended):**
+
+```
+"https://aws.amazon.com/roles": [
+  "arn:aws:iam::111122223333:role/RoleA",
+  "arn:aws:iam::111122223333:role/RoleB"
+]
+```
+
+**Semicolon-delimited string:**
+
+```
+"https://aws.amazon.com/roles": "arn:aws:iam::111122223333:role/RoleA;arn:aws:iam::111122223333:role/RoleB"
+```
+
+**Availability** – This key is present in
+requests that use the `AssumeRoleWithWebIdentity` operation. The value
+is `true` when the token includes the
+`https://aws.amazon.com/roles` claim and the requested role ARN
+matches a value in the claim. The value is `false` when the token does
+not include the claim. Because the key is always present in
+`AssumeRoleWithWebIdentity` requests, use the `Bool`
+condition operator rather than `BoolIfExists`.
+
+When the token includes the claim but the requested role ARN does not match a
+value in the claim, the `AssumeRoleWithWebIdentity` call returns an
+`InvalidIdentityToken` error.
+
+You can use this condition key in role trust policies, resource control
+policies (RCPs), and VPC endpoint policies to require that an IdP authorize the
+role before it can be assumed.
+
+The following role trust policy allows
+`AssumeRoleWithWebIdentity` only when the IdP authorized the
+requested role in the token.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::111122223333:oidc-provider/idp.example.com"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringEquals": { "idp.example.com:aud": "my-app-id" },
+                "Bool": { "sts:RoleAuthorizedByIdp": "true" }
+            }
+        }
+    ]
+}
 ```
 
 **sts:RoleSessionName**
