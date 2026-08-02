@@ -234,3 +234,26 @@ won't track that link. However, if the URL uses an encoded space character inste
 (such as "%20" in the following example:
 *http://www.example.com/path/to/page?name=John%20Doe*), Amazon SES
 tracks it as expected.
+
+### Q8. Can I customize the URL path in a click-tracking link?
+
+Yes. Use the `ses:custom-path` attribute on an anchor tag to add a
+fixed path segment to the click-tracking URL:
+
+```
+<a href="https://example.com/product" ses:custom-path="myapp">Shop now</a>
+```
+
+The value must contain only letters (A–Z, a–z), digits (0–9),
+hyphens (-), periods (.), or underscores (\_). It must be 1–32 characters long
+and is case-sensitive. SES removes this attribute from the email before
+delivery. If the value is invalid, the link falls back to the default format.
+
+If `ses:no-track` is also present on the same link, click tracking is
+disabled and `ses:custom-path` has no effect.
+
+###### Note
+
+For instructions on using this attribute for iOS Universal Links or Android
+App Links, see [Custom path
+segments for Universal Links and App Links](configure-custom-open-click-domains.md#configure-custom-open-click-domain-universal-links "configure-custom-open-click-domains.md#configure-custom-open-click-domain-universal-links").

@@ -241,3 +241,102 @@ operation.
 
 - While creating or modifying an event destination, use [Open and click tracking](event-destinations-manage.md#select-event-types-step "event-destinations-manage.md#select-event-types-step") in Step 6
   of [Creating an event destination](event-destinations-manage.md#event-destination-add "event-destinations-manage.md#event-destination-add") to specify the event types.
+
+## Part 4 (Optional): Configuring custom path segments for Universal Links and App Links
+
+This section is optional. Complete it only if you have a mobile app and want iOS
+Universal Links or Android App Links to open your app directly when recipients click
+tracking links. Complete the subsection for each mobile platform your
+app supports—iOS, Android, or both. Before you begin, complete Part 1 to set up a
+custom redirect domain and Part 2 to configure your configuration set to use that
+domain.
+
+If you use iOS Universal Links or Android App Links, the operating system checks a
+verification file hosted on the click-tracking domain to decide which app should open
+the link. If the app is installed, the link opens directly in the app. If the app is
+not installed, the link falls back to the web browser. Because these verification files
+use path-prefix matching, you need control over the path segment in your tracking
+URLs.
+
+Use the `ses:custom-path` attribute on individual `<a>`
+tags in your email HTML to add a fixed path segment to the tracking URL:
+
+```
+<a href="https://example.com/product/123" ses:custom-path="myapp">View product</a>
+```
+
+The following examples show the difference between a tracking URL without and with
+`ses:custom-path`:
+
+- Without `ses:custom-path` (default):
+  `https://{your-custom-redirect-domain}/CL0/{encodedUrl}/{index}/{messageId}/{hmac}`
+- With `ses:custom-path="myapp"`:
+  `https://{your-custom-redirect-domain}/CL1/myapp/{encodedUrl}/{index}/{messageId}/{hmac}`
+
+The `ses:custom-path` value must meet the following requirements:
+
+- Letters (A–Z, a–z), digits (0–9), hyphens (-), periods
+  (.), or underscores (\_) only
+- 1–32 characters, case-sensitive
+- SES removes this attribute from the email before delivery
+- Falls back to the default format if the value is invalid (same as omitting
+  `ses:custom-path`)
+
+The `ses:custom-path` value does not appear in click event data. To
+identify which link was clicked in events, use `ses:tags`.
+
+### iOS Universal Links
+
+To authorize your iOS app to handle Universal Links on your custom redirect
+domain, host the following file at
+`https://{your-custom-redirect-domain}/.well-known/apple-app-site-association`:
+
+```
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "`TEAMID`.`com.example.myapp`",
+        "paths": ["/CL1/`myapp`/*"]
+      }
+    ]
+  }
+}
+```
+
+Replace `TEAMID`.`com.example.myapp`
+with your Apple Team ID and app bundle identifier, and
+`myapp` with the value you specify in
+`ses:custom-path`.
+
+### Android App Links
+
+To authorize your Android app to handle App Links on your custom redirect domain,
+host the following file at
+`https://{your-custom-redirect-domain}/.well-known/assetlinks.json`:
+
+```
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "`com.example.myapp`",
+    "sha256_cert_fingerprints": ["`certificate-fingerprint`"]
+  }
+}]
+```
+
+Replace `com.example.myapp` with your app's package name
+and `certificate-fingerprint` with your app's signing
+certificate fingerprint.
+
+###### Note
+
+Android handles path-prefix matching differently from iOS. Instead of defining
+path prefixes in the `assetlinks.json` file, configure an intent
+filter in your app's `AndroidManifest.xml` with
+`android:pathPrefix="/CL1/`myapp`/"`,
+where `myapp` is the value you specify in
+`ses:custom-path`. For more information, see the [Android App Links
+documentation on the Android Developers website](https://developer.android.com/training/app-links "https://developer.android.com/training/app-links").
