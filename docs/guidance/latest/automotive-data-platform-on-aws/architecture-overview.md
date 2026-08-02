@@ -5,7 +5,7 @@ architecture — its foundation topology, data product catalog, governance layer
 two-stage rollout model. For deploy topology detail, see [Platform foundation](platform-foundation.md "platform-foundation.md"). For the
 full data product catalog, see [Data products](data-products.md "data-products.md").
 
-![Automotive Data Platform Architecture Overview](/images/guidance/latest/automotive-data-platform-on-aws/images/mesh.png)
+![Automotive Data Platform Architecture Overview](images/mesh.png)
 
 ###### Note
 
