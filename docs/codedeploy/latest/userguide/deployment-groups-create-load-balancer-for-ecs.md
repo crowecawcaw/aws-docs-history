@@ -22,7 +22,7 @@ network load balancers](../../../elasticloadbalancing/latest/network/load-balanc
 ## Verify your default VPC, public subnets, and security group
 
 This topic shows how to create an Amazon EC2 Application Load Balancer, two target groups, and two ports
-that can be used during an Amazon ECS deloyment. One of the ports is optional and needed
+that can be used during an Amazon ECS deployment. One of the ports is optional and needed
 only if you direct traffic to a test port for validation tests during your
 deployment.
 

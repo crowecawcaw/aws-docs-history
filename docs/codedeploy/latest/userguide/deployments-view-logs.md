@@ -46,6 +46,13 @@ log file:
 less /var/log/aws/codedeploy-agent/codedeploy-agent.log
 ```
 
+For version 2.0.x and later, the agent log rotates daily or when the file reaches
+64 MB (configurable). Rotated archives are named
+`codedeploy-agent.YYYYMMDD.log` (with a numeric suffix for same-day
+rotations) and are pruned after seven days. The scripts log
+(`scripts.log`) is size-rotated at 64 MB with up to 8 archived files
+(configurable).
+
 Type the following commands to browse the log file for error messages:
 
 | Command                                                                                                                                                                                                                                    | Result                                                                                                 |
@@ -83,17 +90,30 @@ Type the following commands to browse the log file for error messages:
 **CodeDeploy agent log file**: On Windows Server instances, the
 CodeDeploy agent log file is stored at the following location:
 
+For version 2.0.x and later:
+
+`C:\ProgramData\Amazon\CodeDeploy\log\codedeploy-agent.log`
+
+For version 1.8.x and earlier:
+
 `C:\ProgramData\Amazon\CodeDeploy\log\codedeploy-agent-log.txt`
 
 To view or analyze the CodeDeploy agent log file on a Windows Server instance, sign in to the
 instance, and then type the following command to open the file:
 
+For version 2.0.x and later:
+
+```
+notepad C:\ProgramData\Amazon\CodeDeploy\log\codedeploy-agent.log
+```
+
+For version 1.8.x and earlier:
+
 ```
 notepad C:\ProgramData\Amazon\CodeDeploy\log\codedeploy-agent-log.txt
 ```
 
-To browse the log file for error messages, press CTRL+F, type `ERROR
- [`, and then press Enter to find the first error.
+To browse the log file for error messages, press CTRL+F, type `ERROR`, and then press Enter to find the first error.
 
 **CodeDeploy scripts log files**: On Windows Server instances,
 deployment logs are stored at the following location:
@@ -112,6 +132,10 @@ Type the following command to open a CodeDeploy scripts log file:
 ```
 notepad C:\ProgramData\Amazon\CodeDeploy\`deployment-group-ID`\`deployment-ID`\logs\scripts.log
 ```
+
+For version 2.0.x and later, the agent log rotates daily or when the file reaches
+64 MB (configurable). The scripts log is size-rotated at 64 MB with up to 8
+archived files (configurable).
 
 To browse the log file for error messages, press CTRL+F, type
 `stderr`, and then press Enter to find the first error.

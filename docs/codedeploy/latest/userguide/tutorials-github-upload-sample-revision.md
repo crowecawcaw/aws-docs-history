@@ -62,28 +62,28 @@ Where `(Amazon S3 copy command)` is one of the following:
 
 - `aws s3 cp
  s3://aws-codedeploy-us-east-2/samples/latest/SampleApp_Linux.zip
- . --region us-east-2` for the US East (Ohio) region
+ . --region us-east-2` for the US East (Ohio) Region
 - `aws s3 cp
  s3://aws-codedeploy-us-east-1/samples/latest/SampleApp_Linux.zip
- . --region us-east-1` for the US East (N. Virginia) region
+ . --region us-east-1` for the US East (N. Virginia) Region
 - `aws s3 cp
  s3://aws-codedeploy-us-west-1/samples/latest/SampleApp_Linux.zip
  . --region us-west-1` for the US West (N. California) Region
 - `aws s3 cp
  s3://aws-codedeploy-us-west-2/samples/latest/SampleApp_Linux.zip
- . --region us-west-2` for the US West (Oregon) region
+ . --region us-west-2` for the US West (Oregon) Region
 - `aws s3 cp
  s3://aws-codedeploy-ca-central-1/samples/latest/SampleApp_Linux.zip
  . --region ca-central-1` for the Canada (Central) Region
 - `aws s3 cp
  s3://aws-codedeploy-eu-west-1/samples/latest/SampleApp_Linux.zip
- . --region eu-west-1` for the Europe (Ireland) region
+ . --region eu-west-1` for the Europe (Ireland) Region
 - `aws s3 cp
  s3://aws-codedeploy-eu-west-2/samples/latest/SampleApp_Linux.zip
- . --region eu-west-2` for the Europe (London) region
+ . --region eu-west-2` for the Europe (London) Region
 - `aws s3 cp
  s3://aws-codedeploy-eu-west-3/samples/latest/SampleApp_Linux.zip
- . --region eu-west-3` for the Europe (Paris) region
+ . --region eu-west-3` for the Europe (Paris) Region
 - `aws s3 cp
  s3://aws-codedeploy-eu-central-1/samples/latest/SampleApp_Linux.zip
  . --region eu-central-1` for the Europe (Frankfurt) Region
@@ -92,25 +92,25 @@ Where `(Amazon S3 copy command)` is one of the following:
  . --region il-central-1` for the Israel (Tel Aviv) Region
 - `aws s3 cp
  s3://aws-codedeploy-ap-east-1/samples/latest/SampleApp_Linux.zip
- . --region ap-east-1` for the Asia Pacific (Hong Kong) region
+ . --region ap-east-1` for the Asia Pacific (Hong Kong) Region
 - `aws s3 cp
  s3://aws-codedeploy-ap-northeast-1/samples/latest/SampleApp_Linux.zip
- . --region ap-northeast-1` for the Asia Pacific (Tokyo) region
+ . --region ap-northeast-1` for the Asia Pacific (Tokyo) Region
 - `aws s3 cp
  s3://aws-codedeploy-ap-northeast-2/samples/latest/SampleApp_Linux.zip
- . --region ap-northeast-2` for the Asia Pacific (Seoul) region
+ . --region ap-northeast-2` for the Asia Pacific (Seoul) Region
 - `aws s3 cp
  s3://aws-codedeploy-ap-southeast-1/samples/latest/SampleApp_Linux.zip
  . --region ap-southeast-1` for the Asia Pacific (Singapore) Region
 - `aws s3 cp
  s3://aws-codedeploy-ap-southeast-2/samples/latest/SampleApp_Linux.zip
- . --region ap-southeast-2` for the Asia Pacific (Sydney) region
+ . --region ap-southeast-2` for the Asia Pacific (Sydney) Region
 - `aws s3 cp
  s3://aws-codedeploy-ap-southeast-4/samples/latest/SampleApp_Linux.zip
- . --region ap-southeast-4` for the Asia Pacific (Melbourne) region
+ . --region ap-southeast-4` for the Asia Pacific (Melbourne) Region
 - `aws s3 cp
  s3://aws-codedeploy-ap-south-1/samples/latest/SampleApp_Linux.zip
- . --region ap-south-1` for the Asia Pacific (Mumbai) region
+ . --region ap-south-1` for the Asia Pacific (Mumbai) Region
 - `aws s3 cp
  s3://aws-codedeploy-sa-east-1/samples/latest/SampleApp_Linux.zip
  . --region sa-east-1` for the South America (São Paulo) Region
@@ -118,7 +118,7 @@ Where `(Amazon S3 copy command)` is one of the following:
 ## Push a sample revision from a local Windows machine
 
 With your command prompt still open in, for example, the
-`c:\temp\CodeDeployGitHubDemo` location , run the following
+`c:\temp\CodeDeployGitHubDemo` location, run the following
 commands one at a time:
 
 ###### Note
@@ -151,28 +151,28 @@ Where `(Amazon S3 copy command)` is one of the following:
 
 - `aws s3 cp
  s3://aws-codedeploy-us-east-2/samples/latest/SampleApp_Windows.zip
- . --region us-east-2` for the US East (Ohio) region
+ . --region us-east-2` for the US East (Ohio) Region
 - `aws s3 cp
  s3://aws-codedeploy-us-east-1/samples/latest/SampleApp_Windows.zip
- . --region us-east-1` for the US East (N. Virginia) region
+ . --region us-east-1` for the US East (N. Virginia) Region
 - `aws s3 cp
  s3://aws-codedeploy-us-west-1/samples/latest/SampleApp_Windows.zip
  . --region us-west-1` for the US West (N. California) Region
 - `aws s3 cp
  s3://aws-codedeploy-us-west-2/samples/latest/SampleApp_Windows.zip
- . --region us-west-2` for the US West (Oregon) region
+ . --region us-west-2` for the US West (Oregon) Region
 - `aws s3 cp
  s3://aws-codedeploy-ca-central-1/samples/latest/SampleApp_Windows.zip
  . --region ca-central-1` for the Canada (Central) Region
 - `aws s3 cp
  s3://aws-codedeploy-eu-west-1/samples/latest/SampleApp_Windows.zip
- . --region eu-west-1` for the Europe (Ireland) region
+ . --region eu-west-1` for the Europe (Ireland) Region
 - `aws s3 cp
  s3://aws-codedeploy-eu-west-2/samples/latest/SampleApp_Windows.zip
- . --region eu-west-2` for the Europe (London) region
+ . --region eu-west-2` for the Europe (London) Region
 - `aws s3 cp
  s3://aws-codedeploy-eu-west-3/samples/latest/SampleApp_Windows.zip
- . --region eu-west-3` for the Europe (Paris) region
+ . --region eu-west-3` for the Europe (Paris) Region
 - `aws s3 cp
  s3://aws-codedeploy-eu-central-1/samples/latest/SampleApp_Windows.zip
  . --region eu-central-1` for the Europe (Frankfurt) Region
@@ -181,25 +181,25 @@ Where `(Amazon S3 copy command)` is one of the following:
  . --region il-central-1` for the Israel (Tel Aviv) Region
 - `aws s3 cp
  s3://aws-codedeploy-ap-east-1/samples/latest/SampleApp_Windows.zip
- . --region ap-east-1` for the Asia Pacific (Hong Kong) region
+ . --region ap-east-1` for the Asia Pacific (Hong Kong) Region
 - `aws s3 cp
  s3://aws-codedeploy-ap-northeast-1/samples/latest/SampleApp_Windows.zip
- . --region ap-northeast-1` for the Asia Pacific (Tokyo) region
+ . --region ap-northeast-1` for the Asia Pacific (Tokyo) Region
 - `aws s3 cp
  s3://aws-codedeploy-ap-northeast-2/samples/latest/SampleApp_Windows.zip
- . --region ap-northeast-2` for the Asia Pacific (Seoul) region
+ . --region ap-northeast-2` for the Asia Pacific (Seoul) Region
 - `aws s3 cp
  s3://aws-codedeploy-ap-southeast-1/samples/latest/SampleApp_Windows.zip
  . --region ap-southeast-1` for the Asia Pacific (Singapore) Region
 - `aws s3 cp
  s3://aws-codedeploy-ap-southeast-2/samples/latest/SampleApp_Windows.zip
- . --region ap-southeast-2` for the Asia Pacific (Sydney) region
+ . --region ap-southeast-2` for the Asia Pacific (Sydney) Region
 - `aws s3 cp
  s3://aws-codedeploy-ap-southeast-4/samples/latest/SampleApp_Windows.zip
- . --region ap-southeast-4` for the Asia Pacific (Melbourne) region
+ . --region ap-southeast-4` for the Asia Pacific (Melbourne) Region
 - `aws s3 cp
  s3://aws-codedeploy-ap-south-1/samples/latest/SampleApp_Windows.zip
- . --region ap-south-1` for the Asia Pacific (Mumbai) region
+ . --region ap-south-1` for the Asia Pacific (Mumbai) Region
 - `aws s3 cp
  s3://aws-codedeploy-sa-east-1/samples/latest/SampleApp_Windows.zip
  . --region sa-east-1` for the South America (São Paulo) Region

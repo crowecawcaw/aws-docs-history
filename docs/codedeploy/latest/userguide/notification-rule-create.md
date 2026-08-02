@@ -67,7 +67,7 @@ You can name the file anything you want. In this example, the file is named
 `rule.json`. 2. Open the JSON file in a plain-text editor and edit it to include the resource, event types,
 and Amazon SNS target you want for the rule. The following example shows a notification rule named
 `MyNotificationRule` for an application named
-`MyDeploymentApplication` in an AWS acccount with the ID
+`MyDeploymentApplication` in an AWS account with the ID
 `123456789012`. Notifications are sent with the full detail
 type to an Amazon SNS topic named
 `codestar-notifications-MyNotificationTopic` when deployments are

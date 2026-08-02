@@ -34,7 +34,7 @@ associated with the deployment group you want to change.
 If no entries are displayed, make sure the correct region is selected. On the
 navigation bar, in the region selector, choose one of the regions listed in [Region and Endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region") in the
 _AWS General Reference_. CodeDeploy is supported in these regions only. 4. Choose the **Deployment groups** tab, and then choose the
-name of the deployment group you want to change. 5. On the **Depoyment group** page, choose
+name of the deployment group you want to change. 5. On the **Deployment group** page, choose
 **Edit**. 6. Edit the deployment group options as needed.
 
 For information about deployment group components, see [Create a deployment group with CodeDeploy](deployment-groups-create.md "deployment-groups-create.md"). 7. Choose **Save changes**.

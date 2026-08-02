@@ -35,7 +35,7 @@ initials or some other unique identifier. Then be sure to substitute your bucket
 `amzn-s3-demo-bucket` wherever you see it throughout this
 tutorial.
 
-The Amazon S3 bucket must be created in the same AWS region in which your target Amazon EC2
+The Amazon S3 bucket must be created in the same AWS Region in which your target Amazon EC2
 instances are launched. For example, if you create the bucket in the US East (N. Virginia) Region, then
 your target Amazon EC2 instances must be launched in the US East (N. Virginia) Region.
 
@@ -60,7 +60,7 @@ aws s3 mb s3://amzn-s3-demo-bucket --region `region`
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. In the Amazon S3 console, choose **Create bucket**.
 3. In the **Bucket name** box, type a name for the bucket.
-4. In the **Region** list, choose the target region, and then choose
+4. In the **Region** list, choose the target Region, and then choose
    **Create**.
 
 ### Give permissions to the Amazon S3 bucket and your AWS account

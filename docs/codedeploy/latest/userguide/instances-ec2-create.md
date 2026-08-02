@@ -4,7 +4,7 @@ These instructions show you how to launch a new Amazon EC2 instance that is conf
 CodeDeploy deployments.
 
 You can use our CloudFormation template to launch an Amazon EC2 instance running Amazon Linux or Windows Server that is
-already configured for use in CodeDeploy deployments. We do not provide an CloudFormation template for Amazon EC2
+already configured for use in CodeDeploy deployments. We do not provide a CloudFormation template for Amazon EC2
 instances running Ubuntu Server or Red Hat Enterprise Linux (RHEL). For alternatives to the use of the
 template, see [Working with instances for CodeDeploy](instances.md "instances.md").
 
@@ -142,7 +142,7 @@ Before you call this command, you need to collect the following:
      (`instance-type`) you create, such as
      `t1.micro`. For a list, see [Amazon EC2 instance types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
     * The name of an IAM instance profile with permission to access the Amazon S3 bucket
-     where the CodeDeploy agent installation files for your region are stored.
+     where the CodeDeploy agent installation files for your Region are stored.
 
 
     For information about creating an IAM instance profile, see [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md").
@@ -164,7 +164,7 @@ Before you call this command, you need to collect the following:
 
     To generate a key pair, see [Creating
      your key pair using Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair"). Be sure you create the key pair in one of the
-     regions listed in [Region and
+     Regions listed in [Region and
      endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region") in *AWS General Reference*. Otherwise, you won't be
      able to use the Amazon EC2 instance key pair with CodeDeploy.
 

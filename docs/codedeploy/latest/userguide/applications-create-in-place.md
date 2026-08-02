@@ -26,8 +26,8 @@ Do not follow these steps if:
 ###### Note
 
 Sign in with the same user that you set up in [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md"). 2. In the navigation pane, expand **Deploy**, and then choose
-**Getting started**. 3. Choose **Create application**. 4. In **Application name**, enter the name of your application
-. 5. From **Compute Platform**, choose
+**Getting started**. 3. Choose **Create application**. 4. In **Application name**, enter the name of your
+application. 5. From **Compute Platform**, choose
 **EC2/On-premises**. 6. Choose **Create application**. 7. On your application page, from the **Deployment groups** tab,
 choose **Create deployment group**. 8. In **Deployment group name**, enter a name that describes the
 deployment group.
@@ -75,7 +75,7 @@ following:
 
 
     If you want to refine the criteria for the deployed-to instances,
-     choose **Add tag group** to create an tag group. You
+     choose **Add tag group** to create a tag group. You
      can create up to three tag groups with up to ten key-value pairs each.
      When you use multiple tag groups in a deployment group, only instances
      that are identified by all the tag groups are included in the deployment

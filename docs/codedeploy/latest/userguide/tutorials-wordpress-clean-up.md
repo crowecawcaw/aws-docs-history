@@ -82,7 +82,7 @@ stack.
 CloudFormation deletes the stack, terminates all accompanying Amazon EC2 instances, and deletes all
 accompanying IAM roles.
 
-To terminate Amazon EC2 instances you created outside of an CloudFormation stack:
+To terminate Amazon EC2 instances you created outside of a CloudFormation stack:
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").

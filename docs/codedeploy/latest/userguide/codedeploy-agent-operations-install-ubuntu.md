@@ -1,10 +1,5 @@
 # Install the CodeDeploy agent for Ubuntu Server
 
-###### Note
-
-We recommend installing the CodeDeploy agent with AWS Systems Manager to be able to configure
-scheduled updates of the agent. For more information, see [Install the CodeDeploy agent using AWS Systems Manager](codedeploy-agent-operations-install-ssm.md "codedeploy-agent-operations-install-ssm.md").
-
 ###### To install the CodeDeploy agent on Ubuntu Server
 
 1. Sign in to the instance.
@@ -14,12 +9,16 @@ scheduled updates of the agent. For more information, see [Install the CodeDeplo
 sudo apt update
 ```
 
-```
-sudo apt install ruby-full
-```
+For version 2.0.x and later:
 
 ```
 sudo apt install wget
+```
+
+For version 1.8.x and earlier:
+
+```
+sudo apt install ruby-full wget
 ```
 
 3. Enter the following command:
@@ -30,7 +29,17 @@ cd `/home/ubuntu`
 
 `/home/ubuntu` represents the default user name for an
 Ubuntu Server instance. If your instance was created using a custom AMI, the AMI owner
-might have specified a different default user name. 4. Enter the following command:
+might have specified a different default user name. 4. Enter the following command. The `latestv2/` prefix serves the version
+2.0.x installer, and the `latest/` prefix serves the version 1.8.x
+installer.
+
+For version 2.0.x and later:
+
+```
+wget https://`bucket-name`.s3.`region-identifier`.amazonaws.com/latestv2/install
+```
+
+For version 1.8.x and earlier:
 
 ```
 wget https://`bucket-name`.s3.`region-identifier`.amazonaws.com/latest/install
@@ -40,7 +49,11 @@ wget https://`bucket-name`.s3.`region-identifier`.amazonaws.com/latest/install
 bucket that contains the CodeDeploy Resource Kit files for your region, and `region-identifier` is the identifier for
 your region.
 
-For example:
+For example, for version 2.0.x and later:
+
+`https://aws-codedeploy-us-east-2.s3.us-east-2.amazonaws.com/latestv2/install`
+
+For version 1.8.x and earlier:
 
 `https://aws-codedeploy-us-east-2.s3.us-east-2.amazonaws.com/latest/install`
 
@@ -52,63 +65,37 @@ chmod +x ./install
 
 6. Do one of the following:
 
-   - To install the latest version of the CodeDeploy agent on any supported version of
-     Ubuntu Server _except_ 20.04:
+   - To install the latest version of the CodeDeploy agent:
 
    ```
    sudo ./install auto
    ```
-   - To install the latest version of the CodeDeploy agent on Ubuntu Server 20.04:
+   - To install a specific version of the CodeDeploy agent:
 
-   ###### Note
-
-   Writing the output to a temporary log file is a workaround that should be
-   used while we address a known bug with the `install` script on
-   Ubuntu Server 20.04.
-
-   ```
-   sudo ./install auto > /tmp/logfile
-   ```
-   - To install a specific version of the CodeDeploy agent on any supported version of
-     Ubuntu Server _except_ 20.04:
-
-     - List the available versions in your region:
+     - List the available versions in your Region:
 
      ```
      aws s3 ls s3://aws-codedeploy-`region-identifier`/releases/ --region `region-identifier` | grep '\.deb$'
      ```
      - Install one of the versions:
 
-     ```
-     sudo ./install auto -v releases/codedeploy-agent-`###`.deb
-     ```
-
-     ###### Note
-
-     AWS supports the latest minor version of the CodeDeploy agent. Currently the latest minor version is 1.7.x.
-
-   - To install a specific version of the CodeDeploy agent on Ubuntu Server 20.04:
-
-     - List the available versions in your region:
+     For version 2.0.x and later, packages are architecture-specific:
 
      ```
-     aws s3 ls s3://aws-codedeploy-`region-identifier`/releases/ --region `region-identifier` | grep '\.deb$'
-     ```
-     - Install one of the versions:
-
-     ```
-     sudo ./install auto -v releases/codedeploy-agent-`###`.deb > /tmp/logfile
+     sudo ./install auto -v releases/codedeploy-agent_`version`_`arch`.deb
      ```
 
-     ###### Note
+     Where `arch` is `amd64` or
+     `arm64` depending on your instance architecture.
 
-     Writing the output to a temporary log file is a workaround that should
-     be used while we address a known bug with the `install` script on
-     Ubuntu Server 20.04.
+     For version 1.8.x and earlier, packages use a different naming
+     convention:
 
-     ###### Note
+     ```
+     sudo ./install auto -v releases/codedeploy-agent_`version`_all.deb
+     ```
 
-     AWS supports the latest minor version of the CodeDeploy agent. Currently the latest minor version is 1.7.x.
+     For the latest released version, see [Version history of the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-version-history "codedeploy-agent.md#codedeploy-agent-version-history").
 
 ###### To check that the service is running
 
@@ -118,10 +105,11 @@ chmod +x ./install
 systemctl status codedeploy-agent
 ```
 
-If the CodeDeploy agent is installed and running, you should see a message like
-`The AWS CodeDeploy agent is running`. 2. If you see a message like `error: No AWS CodeDeploy agent
- running`, start the service and run the following two commands, one at a
-time:
+If the CodeDeploy agent is installed and running:
+
+For version 2.0.x and later, you should see: `The AWS CodeDeploy agent is running.`
+
+For version 1.8.x and earlier, you should see: `The AWS CodeDeploy agent is running.` 2. If the agent is not running, start the service and check the status:
 
 ```
 systemctl start codedeploy-agent

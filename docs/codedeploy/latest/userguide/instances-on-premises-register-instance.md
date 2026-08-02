@@ -203,11 +203,11 @@ instances that are stuck in a perpetual pending state.
   (for example, `Key=Name,Value=Beta Key=Name,Value=WestRegion`). If this option
   is not specified, no tags will be registered. To register tags later, call the
   [add-tags-to-on-premises-instances](../../../cli/latest/reference/deploy/add-tags-to-on-premises-instances.md "../../../cli/latest/reference/deploy/add-tags-to-on-premises-instances.md") command.
-- Optionally, the AWS region where the on-premises instance will be registered with
-  CodeDeploy (with the `--region` option). This must be one of the supported regions
+- Optionally, the AWS Region where the on-premises instance will be registered with
+  CodeDeploy (with the `--region` option). This must be one of the supported Regions
   listed in [Region and endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region")
   in _AWS General Reference_ (for example, `us-west-2`). If this
-  option is not specified, the default AWS region associated with the calling IAM user
+  option is not specified, the default AWS Region associated with the calling IAM user
   will be used.
 
 For example:
@@ -242,11 +242,11 @@ specifying:
 - Optionally, whether to replace the configuration file that already exists on the
   on-premises instance (with the `--override-config` option). If not specified,
   the existing configuration file will not be replaced.
-- Optionally, the AWS region where the on-premises instance will be registered with
-  CodeDeploy (with the `--region` option). This must be one of the supported regions
+- Optionally, the AWS Region where the on-premises instance will be registered with
+  CodeDeploy (with the `--region` option). This must be one of the supported Regions
   listed in [Region and endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region")
   in _AWS General Reference_ (for example, `us-west-2`). If this
-  option is not specified, the default AWS region associated with the calling IAM user
+  option is not specified, the default AWS Region associated with the calling IAM user
   will be used.
 - Optionally, a custom location from which to install the CodeDeploy agent (with the
   `--agent-installer` option). This option is useful for installing a custom

@@ -9,12 +9,16 @@ all of your packages.
 sudo yum update
 ```
 
-```
-sudo yum install ruby
-```
+For version 2.0.x and later:
 
 ```
 sudo yum install wget
+```
+
+For version 1.8.x and earlier:
+
+```
+sudo yum install ruby wget
 ```
 
 (Optional) To clean the AMI of any previous agent caching information, run the
@@ -39,7 +43,17 @@ In the previous command, `/home/ec2-user` represents the default user
 name for an Amazon Linux or RHEL Amazon EC2 instance. If your instance was created using a custom
 AMI, the AMI owner might have specified a different default user name.
 
-Download the CodeDeploy agent installer:
+Download the CodeDeploy agent installer. The `latestv2/` prefix serves the
+version 2.0.x installer, and the `latest/` prefix serves the version 1.8.x
+installer.
+
+For version 2.0.x and later:
+
+```
+wget https://`bucket-name`.s3.`region-identifier`.amazonaws.com/latestv2/install
+```
+
+For version 1.8.x and earlier:
 
 ```
 wget https://`bucket-name`.s3.`region-identifier`.amazonaws.com/latest/install
@@ -49,7 +63,11 @@ wget https://`bucket-name`.s3.`region-identifier`.amazonaws.com/latest/install
 bucket that contains the CodeDeploy Resource Kit files for your region, and `region-identifier` is the identifier for
 your region.
 
-For example:
+For example, for version 2.0.x and later:
+
+`https://aws-codedeploy-us-east-2.s3.us-east-2.amazonaws.com/latestv2/install`
+
+For version 1.8.x and earlier:
 
 `https://aws-codedeploy-us-east-2.s3.us-east-2.amazonaws.com/latest/install`
 
@@ -73,7 +91,7 @@ sudo ./install auto
 To install a specific version of the CodeDeploy agent:
 
 
-* List the available versions in your region:
+* List the available versions in your Region:
 
 
 
@@ -85,6 +103,23 @@ aws s3 ls s3://aws-codedeploy-`region-identifier`/releases/ --region `region-ide
 * Install one of the versions:
 
 
+For version 2.0.x and later, packages are architecture-specific:
+
+
+
+```
+
+sudo ./install auto -v releases/codedeploy-agent-`version`.`arch`.rpm
+
+```
+
+Where `arch` is `x86_64` or
+ `aarch64` depending on your instance architecture.
+
+
+For version 1.8.x and earlier, packages use `noarch`:
+
+
 
 ```
 
@@ -92,9 +127,7 @@ sudo ./install auto -v releases/codedeploy-agent-`version`.noarch.rpm
 
 ```
 
-###### Note
-
-AWS supports the latest minor version of the CodeDeploy agent. Currently the latest minor version is 1.7.x.
+For the latest released version, see [Version history of the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-version-history "codedeploy-agent.md#codedeploy-agent-version-history").
 To check that the service is running, run the following command:
 
 
@@ -103,12 +136,13 @@ To check that the service is running, run the following command:
 systemctl status codedeploy-agent
 
 ```
-If the CodeDeploy agent is installed and running, you should see a message like `The
- AWS CodeDeploy agent is running`.
+For version 2.0.x and later, if the agent is running, you should see a message like
+ `The AWS CodeDeploy agent is running.`
 
-If you see a message like `error: No AWS CodeDeploy agent
- running`, start the service and run the following two commands, one at a
- time:
+For version 1.8.x and earlier, if the agent is running, you should see a message like
+ `The AWS CodeDeploy agent is running.`
+
+If the agent is not running, start the service and check the status:
 
 
 ```

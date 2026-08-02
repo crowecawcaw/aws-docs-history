@@ -130,7 +130,7 @@ Tag group 3| Key | Value |
 | --- | --- |
 | Type | t2.medium |
 
-You might have instances in many regions and of various instance types tagged with
+You might have instances in many Regions and of various instance types tagged with
 `Name=AppVersion-ABC`. In this example, only the instances also tagged with
 `Region=North` and `Type=t2.medium` are part of the deployment group.
 

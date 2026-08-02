@@ -2,8 +2,8 @@
 
 To use the AWS CLI to create an application, call the [create-application](../../../cli/latest/reference/deploy/create-application.md "../../../cli/latest/reference/deploy/create-application.md")
 command, specifying a name that uniquely represents the application. (In an AWS
-account, a CodeDeploy application name can be used only once per region. You can reuse an
-application name in different regions.)
+account, a CodeDeploy application name can be used only once per Region. You can reuse an
+application name in different Regions.)
 
 After you use the AWS CLI to create an application, the next step is to create a
 deployment group that specifies the instances to which to deploy revisions. For

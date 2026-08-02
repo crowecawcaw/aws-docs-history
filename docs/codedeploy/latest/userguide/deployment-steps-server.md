@@ -55,7 +55,7 @@ In all cases, the instances must be configured to be used in a deployment (that 
 they must be tagged or belong to an Amazon EC2 Auto Scaling group) and have the CodeDeploy agent installed
 and running.
 
-We provide you with an CloudFormation template that you can use to quickly set up an Amazon EC2
+You can use a CloudFormation template to quickly set up an Amazon EC2
 instance based on Amazon Linux or Windows Server. We also provide you with the standalone CodeDeploy agent
 so that you can install it on Amazon Linux, Ubuntu Server, Red Hat Enterprise Linux (RHEL), or Windows Server
 instances. For more information, see [Create a deployment group with CodeDeploy](deployment-groups-create.md "deployment-groups-create.md").

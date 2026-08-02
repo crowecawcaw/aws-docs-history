@@ -53,8 +53,14 @@ editing a configuration file.
    `1`.
 7. Specify the CodeDeploy agent updater logs, as follows:
 
-   1. For `Log file path` enter the path for the CodeDeploy updater log file, for
-      example: `/tmp/codedeploy-agent.update.log`.
+   1. For `Log file path`, enter the path for the CodeDeploy updater log file.
+      The path depends on your agent version:
+
+      - For version 2.0.x and later, use
+        `/var/log/aws/codedeploy-agent/codedeploy-agent-updater.log`.
+      - For version 1.8.x and earlier, use
+        `/tmp/codedeploy-agent.update.log`.
+
    2. For `Log group name` enter a log group name, for example:
       `codedeploy-agent-updater-log`.
    3. For `Log stream name` enter a log stream name, for example:
@@ -67,9 +73,14 @@ editing a configuration file.
  files?` enter `1`.
 3. Specify the CodeDeploy log file, as follows:
 
-   1. For `Log file path` enter the path r the CodeDeploy agent log file, for
-      example:
-      `C:\ProgramData\Amazon\CodeDeploy\log\codedeploy-agent-log.txt`.
+   1. For `Log file path`, enter the path for the CodeDeploy agent log file.
+      The path depends on your agent version:
+
+      - For version 2.0.x and later, use
+        `C:\ProgramData\Amazon\CodeDeploy\log\codedeploy-agent.log`.
+      - For version 1.8.x and earlier, use
+        `C:\ProgramData\Amazon\CodeDeploy\log\codedeploy-agent-log.txt`.
+
    2. For `Log group name` enter a log group name, for example:
       `codedeploy-agent-log`.
    3. For `Log stream name` enter a log stream name, for example:
@@ -79,7 +90,7 @@ editing a configuration file.
    `1`.
 5. Specify the CodeDeploy agent deployment logs, as follows:
 
-   1. For `Log file path` enter the path the CodeDeploy deployment log file, for example:
+   1. For `Log file path`, enter the path for the CodeDeploy deployment log file:
       `C:\ProgramData\Amazon\CodeDeploy\deployment-logs\codedeploy-agent-deployments.log`.
    2. For `Log group name` enter a log group name, for example:
       `codedeploy-agent-deployment-log`.
@@ -92,6 +103,10 @@ editing a configuration file.
 2. Make sure that the file is called
    `/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json`
    and that it contains the following code:
+
+The updater log path differs by version. For version 2.0.x and later, use
+`/var/log/aws/codedeploy-agent/codedeploy-agent-updater.log`. For version
+1.8.x and earlier, use `/tmp/codedeploy-agent.update.log`.
 
 ```
 ...
@@ -110,7 +125,7 @@ editing a configuration file.
                     "log_stream_name": "{instance_id}-codedeploy-agent-deployment-log"
                 },
                 {
-                    "file_path": "/tmp/codedeploy-agent.update.log",
+                    "file_path": "/var/log/aws/codedeploy-agent/codedeploy-agent-updater.log",
                     "log_group_name": "codedeploy-agent-updater-log",
                     "log_stream_name": "{instance_id}-codedeploy-agent-updater-log"
                 }
@@ -128,6 +143,11 @@ editing a configuration file.
    `C:\ProgramData\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent.json`
    and that it contains the following code:
 
+For version 2.0.x and later, the agent log filename is
+`codedeploy-agent.log`. For version 1.8.x and earlier, the
+agent log filename is `codedeploy-agent-log.txt`. The deployment log path
+is the same for both versions.
+
 ```
 ...
 "logs": {
@@ -135,7 +155,7 @@ editing a configuration file.
             "files": {
                 "collect_list": [
                     {
-                        "file_path": "C:\\ProgramData\\Amazon\\CodeDeploy\\log\\codedeploy-agent-log.txt",
+                        "file_path": "C:\\ProgramData\\Amazon\\CodeDeploy\\log\\codedeploy-agent.log",
                         "log_group_name": "codedeploy-agent-log",
                         "log_stream_name": "{instance_id}-codedeploy-agent-log"
                     },

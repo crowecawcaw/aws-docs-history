@@ -66,7 +66,7 @@ To use the AWS CLI to deploy a revision to the EC2/On-Premises compute platform:
    - `--file-exists-behavior`: (Optional) As part of the
      deployment process, the CodeDeploy agent removes from each instance all
      the files installed by the most recent deployment. Choose what happens
-     when files that weren’t part of a previous deployment appear in target
+     when files that weren't part of a previous deployment appear in target
      deployment locations.
    - `--target-instances`: For blue/green deployments,
      information about the instances that belong to the replacement
@@ -98,8 +98,8 @@ To track the status of your deployment, see [View CodeDeploy deployment details]
 
 ## create-deployment command reference
 
-Below is the command structure and options for the `create-deployment`
-command. For more information, see the [create-deployment](../../../cli/latest/reference/deploy/create-deployment.md "../../../cli/latest/reference/deploy/create-deployment.md") reference in the _AWS CLI Command
+The following command structure and options are available for the
+`create-deployment` command. For more information, see the [create-deployment](../../../cli/latest/reference/deploy/create-deployment.md "../../../cli/latest/reference/deploy/create-deployment.md") reference in the _AWS CLI Command
 Reference_.
 
 ```

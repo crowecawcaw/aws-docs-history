@@ -80,7 +80,7 @@ through CodeDeploy using CloudFormation](../../../AWSCloudFormation/latest/UserG
 
 Managing Amazon ECS blue/green deployments with CloudFormation is not
 available in the Europe (Milan), Africa (Cape Town), and Asia Pacific (Osaka)
-regions.
+Regions.
 
 ## Deployment configurations on an AWS Lambda compute platform
 

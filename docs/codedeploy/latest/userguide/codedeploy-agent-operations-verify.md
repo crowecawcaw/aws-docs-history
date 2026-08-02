@@ -22,10 +22,10 @@ If the command returns an error, the CodeDeploy agent is not installed. Install 
 described in [Install the CodeDeploy agent for Amazon Linux or RHEL](codedeploy-agent-operations-install-linux.md "codedeploy-agent-operations-install-linux.md").
 
 If the CodeDeploy agent is installed and running, you should see a message like `The AWS
- CodeDeploy agent is running`.
+ CodeDeploy agent is running.` (exit code 0).
 
-If you see a message like `error: No AWS CodeDeploy agent
- running`, start the service and run the following two commands, one at a
+If you see a message like `The AWS CodeDeploy agent is not running.`
+(exit code 3), start the service and run the following two commands, one at a
 time:
 
 ```
@@ -35,6 +35,11 @@ systemctl start codedeploy-agent
 ```
 systemctl status codedeploy-agent
 ```
+
+For version 2.0.x and later, the `codedeploy-agent status` command returns
+LSB-compatible exit codes: `0` (running), `3` (not running),
+`4` (unknown). When using `systemctl status`, the unit state is
+displayed (for example, `Active: active (running)`).
 
 ## Verify the CodeDeploy agent for Ubuntu Server is running
 
@@ -49,10 +54,10 @@ If the command returns an error, the CodeDeploy agent is not installed. Install 
 described in [Install the CodeDeploy agent for Ubuntu Server](codedeploy-agent-operations-install-ubuntu.md "codedeploy-agent-operations-install-ubuntu.md").
 
 If the CodeDeploy agent is installed and running, you should see a message like `The AWS
- CodeDeploy agent is running`.
+ CodeDeploy agent is running.` (exit code 0).
 
-If you see a message like `error: No AWS CodeDeploy agent
- running`, start the service and run the following two commands, one at a
+If you see a message like `The AWS CodeDeploy agent is not running.`
+(exit code 3), start the service and run the following two commands, one at a
 time:
 
 ```

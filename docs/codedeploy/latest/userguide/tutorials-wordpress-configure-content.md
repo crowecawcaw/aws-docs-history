@@ -42,7 +42,7 @@ wget https://github.com/WordPress/WordPress/archive/master.zip
 2. Call the **unzip**, **mkdir**, **cp**,
    and **rm** commands to:
 
-   - Unpack the `master` .zip file into the
+   - Unpack the `master.zip` file into the
      `/tmp/WordPress_Temp` directory (folder).
    - Copy its unzipped contents to the `/tmp/WordPress`
      destination folder.

@@ -31,8 +31,8 @@ Do not follow these steps if:
 ###### Note
 
 Sign in with the same user that you set up in [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md"). 2. In the navigation pane, expand **Deploy**, and then choose
-**Getting started**. 3. In **Application name**, enter the name of your application
-. 4. From **Compute platform**, choose
+**Getting started**. 3. In **Application name**, enter the name of your
+application. 4. From **Compute platform**, choose
 **EC2/On-Premises**. 5. Choose **Create application**. 6. On your application page, from the **Deployment groups** tab,
 choose **Create deployment group**. 7. In **Deployment group name**, enter a name that describes the
 deployment group.

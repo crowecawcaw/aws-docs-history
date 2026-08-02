@@ -29,14 +29,14 @@ Use the AWS CLI to call the [deregister](../../../cli/latest/reference/deploy/de
 - The name that uniquely identifies the on-premises instance to CodeDeploy (with the
   `--instance-name` option).
 - Optionally, whether to delete the IAM user associated with the on-premises
-  instance. The default behaviour is to delete the IAM user. If you do not want to delete
+  instance. The default behavior is to delete the IAM user. If you do not want to delete
   the IAM user associated with the on-premises instance, specify the
   `--no-delete-iam-user` option in the command.
-- Optionally, the AWS region where the on-premises instance was registered with CodeDeploy
-  (with the `--region` option). This must be one of the supported regions listed
+- Optionally, the AWS Region where the on-premises instance was registered with CodeDeploy
+  (with the `--region` option). This must be one of the supported Regions listed
   in [Region and endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region") in the
   _AWS General Reference_ (for example, `us-west-2`). If this
-  option is not specified, the default AWS region associated with the calling IAM user
+  option is not specified, the default AWS Region associated with the calling IAM user
   will be used.
   An example that degisters an instance and deletes the user:
 

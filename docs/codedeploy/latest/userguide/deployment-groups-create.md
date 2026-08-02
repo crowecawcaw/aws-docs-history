@@ -1,7 +1,7 @@
 # Create a deployment group with CodeDeploy
 
-You can use the CodeDeploy console, the AWS CLI, the CodeDeploy APIs, or an CloudFormation template to create
-deployment groups. For information about using an CloudFormation template to create a deployment
+You can use the CodeDeploy console, the AWS CLI, the CodeDeploy APIs, or a CloudFormation template to create
+deployment groups. For information about using a CloudFormation template to create a deployment
 group, see [CloudFormation templates for CodeDeploy reference](reference-cloudformation-templates.md "reference-cloudformation-templates.md").
 
 When you use the CodeDeploy console to create an application, you configure its first

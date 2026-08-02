@@ -3,18 +3,20 @@
 You can determine the version of the CodeDeploy agent running on your instance in two
 ways.
 
-First, starting with version 1.0.1.854 of the CodeDeploy agent, you can view the version number
-in a `.version` file on the instance. The following table shows the location and
-sample version string for each of the supported operating systems.
+First, for version 2.0.x and later, use the `codedeploy-agent --version`
+command on all platforms.
 
-| Operating system                                 | File location                               | Sample agent\_version string |
-| ------------------------------------------------ | ------------------------------------------- | ---------------------------- |
-| Amazon Linux and Red Hat Enterprise Linux (RHEL) | `/opt/codedeploy-agent/.version`            | OFFICIAL\_1.0.1.854\_rpm     |
-| Ubuntu Server                                    | `/opt/codedeploy-agent/.version`            | OFFICIAL\_1.0.1.854\_deb     |
-| Windows Server                                   | `C:\ProgramData\Amazon\CodeDeploy\.version` | OFFICIAL\_1.0.1.854\_msi     |
+Second, you can view the version in a `.version` file on the instance. On
+Amazon Linux, RHEL, and Ubuntu Server the file is located at
+`/opt/codedeploy-agent/.version`, and on Windows Server at
+`C:\ProgramData\Amazon\CodeDeploy\.version`. The contents of the file differ by
+version:
 
-Second, you can run a command on an instance to determine the version of the CodeDeploy
-agent.
+- For version 2.0.x and later, the file contains the bare version number, in the format
+  `agent_version: 2.0.0`. This value matches the version that the agent
+  reports to the CodeDeploy service.
+- For version 1.8.x and earlier, the version string uses the format
+  `OFFICIAL_1.0.1.854_rpm` (or `_deb`, `_msi`).
 
 ###### Topics
 
@@ -27,12 +29,24 @@ agent.
 Sign in to the instance and run the following command:
 
 ```
+sudo /opt/codedeploy-agent/bin/codedeploy-agent --version
+```
+
+For versions earlier than 2.0.0, you can also use:
+
+```
 sudo yum info codedeploy-agent
 ```
 
 ## Determine the version on Ubuntu Server
 
 Sign in to the instance and run the following command:
+
+```
+sudo /opt/codedeploy-agent/bin/codedeploy-agent --version
+```
+
+For versions earlier than 2.0.0, you can also use:
 
 ```
 sudo dpkg -s codedeploy-agent
@@ -43,5 +57,5 @@ sudo dpkg -s codedeploy-agent
 Sign in to the instance and run the following command:
 
 ```
-sc qdescription codedeployagent
+& 'C:\ProgramData\Amazon\CodeDeploy\bin\codedeploy-agent.exe' --version
 ```

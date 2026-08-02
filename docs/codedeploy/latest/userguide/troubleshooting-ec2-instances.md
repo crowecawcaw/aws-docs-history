@@ -7,7 +7,7 @@
 - [Deployments do not fail for up to an hour when an instance is terminated during a deployment](#troubleshooting-one-hour-timeout "#troubleshooting-one-hour-timeout")
 - [Analyzing log files to investigate deployment failures on instances](#troubleshooting-deploy-failures "#troubleshooting-deploy-failures")
 - [Create a new CodeDeploy log file if it was accidentally deleted](#troubleshooting-create-new-log-file "#troubleshooting-create-new-log-file")
-- [Troubleshooting “InvalidSignatureException – Signature expired: [time] is now earlier than [time]” deployment errors](#troubleshooting-instance-time-failures "#troubleshooting-instance-time-failures")
+- [Troubleshooting "InvalidSignatureException – Signature expired: [time] is now earlier than [time]" deployment errors](#troubleshooting-instance-time-failures "#troubleshooting-instance-time-failures")
 
 ## Tags must be set correctly
 
@@ -73,7 +73,7 @@ systemctl start codedeploy-agent
 powershell.exe -Command Restart-Service -Name codedeployagent
 ```
 
-## Troubleshooting “InvalidSignatureException – Signature expired: [time] is now earlier than [time]” deployment errors
+## Troubleshooting "InvalidSignatureException – Signature expired: [time] is now earlier than [time]" deployment errors
 
 CodeDeploy requires accurate time references to perform its operations. If the date and time
 on your instance are not set correctly, they might not match the signature date of your

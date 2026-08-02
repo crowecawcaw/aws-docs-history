@@ -3,7 +3,7 @@
 ###### Topics
 
 - [General troubleshooting checklist](#troubleshooting-checklist "#troubleshooting-checklist")
-- [CodeDeploy deployment resources are supported in only in some AWS Regions](#troubleshooting-supported-regions "#troubleshooting-supported-regions")
+- [CodeDeploy deployment resources are supported in only some AWS Regions](#troubleshooting-supported-regions "#troubleshooting-supported-regions")
 - [Procedures in this guide do not match the CodeDeploy console](#troubleshooting-old-console "#troubleshooting-old-console")
 - [Required IAM roles are not available](#troubleshooting-iam-cloudformation "#troubleshooting-iam-cloudformation")
 - [Using some text editors to create AppSpec files and shell scripts can cause deployments to fail](#troubleshooting-text-editors "#troubleshooting-text-editors")
@@ -61,7 +61,7 @@ You can use the following checklist to troubleshoot a failed deployment.
 If you are still unable to troubleshoot your failed deployment, review the other issues
 in this topic.
 
-## CodeDeploy deployment resources are supported in only in some AWS Regions
+## CodeDeploy deployment resources are supported in only some AWS Regions
 
 If you do not see or cannot access applications, deployment groups, instances, or other
 deployment resources from the AWS CLI or the CodeDeploy console, make sure you're referencing one
@@ -74,7 +74,7 @@ launched and created in one of these AWS Regions.
 If you're using the AWS CLI, run the **aws configure** command from the
 AWS CLI. Then you can view and set your default AWS Region.
 
-If you're using the CodeDeploy console, on the navigation bar, from the region selector,
+If you're using the CodeDeploy console, on the navigation bar, from the Region selector,
 choose one of the supported AWS Regions.
 
 ###### Important

@@ -17,12 +17,12 @@ described later.
 Be sure you have an Amazon S3 bucket. Follow the instructions in [Create a bucket](../../../AmazonS3/latest/userguide/CreatingABucket.md "../../../AmazonS3/latest/userguide/CreatingABucket.md").
 
 If your deployment is to Amazon EC2 instances, then the target Amazon S3 bucket must be created or
-exist in the same region as the target instances. For example, if you want to deploy a revision
+exist in the same Region as the target instances. For example, if you want to deploy a revision
 to some instances in the US East (N. Virginia) Region and other instances in the US West (Oregon) Region, then you must
 have one bucket in the US East (N. Virginia) Region with one copy of the revision and another bucket in the
 US West (Oregon) Region with another copy of the same revision. In this scenario, you would then need to
 create two separate deployments, one in the US East (N. Virginia) Region and another in the US West (Oregon) Region,
-even though the revision is the same in both regions and buckets.
+even though the revision is the same in both Regions and buckets.
 
 You must have permissions to upload to the Amazon S3 bucket. You can specify these permissions
 through an Amazon S3 bucket policy. For example, in the following Amazon S3 bucket policy, using the

@@ -64,12 +64,6 @@ are two methods for refreshing the credentials:
   but you can re-use the same IAM user and credentials across your fleet of on-premises
   instances.
 
-###### Note
-
-Regardless of whether you're using method 1 or 2, you must set up a process to restart
-the CodeDeploy agent after the temporary session credentials are updated so that the new
-credentials take effect.
-
 For information about creating and working with AWS STS credentials, see [AWS Security Token Service API Reference](../../../STS/latest/APIReference.md "../../../STS/latest/APIReference.md") and [Using temporary security
 credentials to request access to AWS resources](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md").
 
@@ -183,7 +177,7 @@ The aws-codedeploy-session-helper tool generates AWS STS credentials and writes 
 a file you place on the instance. This tool is best suited to method 2 for refreshing
 temporary credentials described in [IAM session ARN registration prerequisites](#register-on-premises-instance-iam-session-arn-prerequisites "#register-on-premises-instance-iam-session-arn-prerequisites"). In this
 method, the aws-codedeploy-session-helper tool is placed on each instance and executes the
-command using an IAM user’s permissions. Each instance uses the same IAM user’s
+command using an IAM user's permissions. Each instance uses the same IAM user's
 credentials in conjunction with this tool.
 
 For more information, see the [aws-codedeploy-session-helper](https://github.com/awslabs/aws-codedeploy-samples/tree/master/utilities/aws-codedeploy-session-helper "https://github.com/awslabs/aws-codedeploy-samples/tree/master/utilities/aws-codedeploy-session-helper") GitHub repository.
@@ -203,9 +197,9 @@ credentials" in [IAM session ARN registration prerequisites](#register-on-premis
 
 Add a configuration file to the on-premises instance, using root or administrator
 permissions. This configuration file is used to declare the IAM credentials and the target
-AWS region to be used for CodeDeploy. The file must be added to a specific location on the
+AWS Region to be used for CodeDeploy. The file must be added to a specific location on the
 on-premises instance. The file must include the IAM temporary session ARN, its secret key ID
-and secret access key, and the target AWS region.
+and secret access key, and the target AWS Region.
 
 ###### To add a configuration file
 
@@ -235,7 +229,7 @@ Where:
      [Step 2: Generate temporary credentials for an individual instance using AWS STS](#register-on-premises-instance-iam-session-arn-2 "#register-on-premises-instance-iam-session-arn-2").
     * `credentials-file` is the location of the credentials
      file for the temporary session ARN, as noted in [Step 2: Generate temporary credentials for an individual instance using AWS STS](#register-on-premises-instance-iam-session-arn-2 "#register-on-premises-instance-iam-session-arn-2").
-    * `supported-region` is one of the regions that CodeDeploy
+    * `supported-region` is one of the Regions that CodeDeploy
      supports, as listed in [Region and
      endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region") in *AWS General Reference*.
 
@@ -271,9 +265,9 @@ and go directly to "Install the CodeDeploy agent ."
 Install the CodeDeploy agent on an Ubuntu Server or RHEL on-premises instance and enable
 instance to update the CodeDeploy agent whenever a new version becomes available. You do this by
 setting the `AWS_REGION` environment variable on the instance
-to the identifier of one of the regions supported by CodeDeploy. We recommend that you set the
-value to the region where your CodeDeploy applications, deployment groups, and application
-revisions are located (for example, `us-west-2`). For a list of regions, see [Region and endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region") in the
+to the identifier of one of the Regions supported by CodeDeploy. We recommend that you set the
+value to the Region where your CodeDeploy applications, deployment groups, and application
+revisions are located (for example, `us-west-2`). For a list of Regions, see [Region and endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region") in the
 _AWS General Reference_.
 
 To set the environment variable, call the following from the terminal:
@@ -282,7 +276,7 @@ To set the environment variable, call the following from the terminal:
 export AWS_REGION=`supported-region`
 ```
 
-Where `supported-region` is the region identifier (for example,
+Where `supported-region` is the Region identifier (for example,
 `us-west-2`).
 
 **Install the CodeDeploy agent**

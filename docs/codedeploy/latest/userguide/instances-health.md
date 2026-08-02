@@ -6,7 +6,7 @@ instances that have been specified for the deployment group during a deployment.
 85% of instances must remain healthy during a deployment, and the deployment group contains 10
 instances, the overall deployment will fail if deployment to even a single instance fails. This
 is because when an instance is taken offline so the latest application revision can be
-installed, the available healthy instance counts already drops to 90%. A failed instance plus
+installed, the available healthy instance count already drops to 90%. A failed instance plus
 another offline instance would mean that only 80% of instances are healthy and available. CodeDeploy
 will fail the overall deployment.
 
@@ -110,7 +110,7 @@ the following operations:
 - As `minimum-healthy-hosts` when you use the
   [create-deployment-config](../../../cli/latest/reference/deploy/create-deployment-config.md "../../../cli/latest/reference/deploy/create-deployment-config.md") command in the AWS CLI.
 - As `Value` in the [MinimumHealthyHosts](../APIReference/API_MinimumHealthyHosts.md "../APIReference/API_MinimumHealthyHosts.md") data type in the CodeDeploy API.
-- As `MinimumHealthyHosts` when you use [AWS::CodeDeploy::DeploymentConfig](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.md") in an CloudFormation template.
+- As `MinimumHealthyHosts` when you use [AWS::CodeDeploy::DeploymentConfig](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.md") in a CloudFormation template.
 
 CodeDeploy allows you to specify a minimum number of healthy instances for the deployment for
 two main purposes:

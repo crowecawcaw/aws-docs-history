@@ -89,7 +89,7 @@ Systems Manager, see [What is Systems Manager?](../../../systems-manager/latest/
      created in your replacement environment.
     * If you chose **Manually provision instances**: Select
      **Amazon EC2 Auto Scaling groups**, **Amazon EC2 Auto Scaling
-     intances**, or both to specify instances to add to this
+     instances**, or both to specify instances to add to this
      deployment group. Enter Amazon EC2 Auto Scaling tag values or Amazon EC2 Auto Scaling group names to
      identify the instances in your original environment (that is, the
      instances you want to replace or that are running the current

@@ -16,7 +16,7 @@ in your production account without a full set of credentials there or without ha
 out of the development account and in to the production account.
 
 After following the cross-account configuration steps, you can initiate deployments that
-belong to another of your organization’s accounts without needing a full set of credentials
+belong to another of your organization's accounts without needing a full set of credentials
 for that other account. You do this, in part, by using a capability provided by the
 AWS Security Token Service (AWS STS) that grants you temporary access to that account.
 

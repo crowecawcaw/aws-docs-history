@@ -34,9 +34,9 @@ You can have CloudTrail publish Amazon SNS notifications when new log files are 
 information, see [Configuring
 Amazon SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md").
 
-You can also aggregate CodeDeploy log files from multiple AWS regions and multiple AWS
+You can also aggregate CodeDeploy log files from multiple AWS Regions and multiple AWS
 accounts into a single Amazon S3 bucket. For more information, see [Receiving CloudTrail log files from multiple
-regions](../../../awscloudtrail/latest/userguide/aggregating_logs_top_level.md "../../../awscloudtrail/latest/userguide/aggregating_logs_top_level.md").
+Regions](../../../awscloudtrail/latest/userguide/aggregating_logs_top_level.md "../../../awscloudtrail/latest/userguide/aggregating_logs_top_level.md").
 
 ## Understanding CodeDeploy log file entries
 

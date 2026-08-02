@@ -80,7 +80,7 @@ access to your target instance. 7. In **Deployment type**, choose
 
 
     If you want to refine the criteria for the deployed-to instances,
-     choose **Add tag group** to create an tag group. You
+     choose **Add tag group** to create a tag group. You
      can create up to three tag groups with up to 10 key-value pairs each.
      When you use multiple tag groups in a deployment group, only instances
      that are identified by all the tag groups are included in the deployment

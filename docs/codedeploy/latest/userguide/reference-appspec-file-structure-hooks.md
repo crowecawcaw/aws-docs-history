@@ -553,7 +553,7 @@ configuration settings, see [CodeDeploy agent configuration reference](reference
 | Windows Server                        | `%ProgramData%\Amazon\CodeDeploy`       |
 
 From your hook scripts, you could access the current deployment archive using the
-the root directory path and the `DEPLOYMENT_ID` and
+root directory path and the `DEPLOYMENT_ID` and
 `DEPLOYMENT_GROUP_ID` environment variables. For more information about
 variables you can use, see [Environment variable availability for hooks](#reference-appspec-file-structure-environment-variable-availability "#reference-appspec-file-structure-environment-variable-availability").
 

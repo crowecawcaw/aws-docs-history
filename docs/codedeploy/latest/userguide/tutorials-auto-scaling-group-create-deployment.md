@@ -174,7 +174,7 @@ groups**, and then choose
 **CodeDeployDefault.OneAtATime**. 15. Clear **Enable load balancing**. 16. Choose **Create deployment group**. 17. In the deployment group page, choose **Create
 deployment**. 18. In **Revision type**, choose **My application is
 stored in Amazon S3**. 19. In **Revision location**, enter the location of the
-sample application for your operating system and region.
+sample application for your operating system and Region.
 
 **For Amazon Linux and RHEL Amazon EC2
 instances**

@@ -106,7 +106,7 @@ subsequent deployments. You can add logic to `c.bat` and
 ## Rollback behavior with existing content
 
 As part of the deployment process, the CodeDeploy agent removes from each instance all the
-files installed by the most recent deployment. If files that weren’t part of a previous
+files that the most recent deployment installed. If files that weren't part of a previous
 deployment appear in target deployment locations, you can choose what CodeDeploy does with them
 during the next deployment:
 
@@ -123,7 +123,7 @@ console, see [Create an EC2/On-Premises Compute Platform deployment (console)](d
 
 You might choose to retain files that you want to be part of the next deployment without
 having to add them to the application revision package. For example, you might upload files
-directly to the instance that are required for the deployment but weren’t added to the
+directly to the instance that are required for the deployment but weren't added to the
 application revision bundle. Or you might upload files to the instance if your applications
 are already in your production environment but you want to use CodeDeploy for the first time to
 deploy them.

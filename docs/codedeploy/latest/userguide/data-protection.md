@@ -50,7 +50,7 @@ connection to your corporate network, or direct connect.
 
 The CodeDeploy agent supports HTTP proxies.
 
-Amazon VPC endpoints, powered by AWS PrivateLink, are available for CodeDeploy in certain regions. For
+Amazon VPC endpoints, powered by AWS PrivateLink, are available for CodeDeploy in certain Regions. For
 details, see [Use CodeDeploy with Amazon Virtual Private Cloud](vpc-endpoints.md "vpc-endpoints.md").
 
 ###### Note

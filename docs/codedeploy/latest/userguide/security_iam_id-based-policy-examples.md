@@ -67,7 +67,7 @@ JSON
 In this section, you can find example policies that grant permissions for various
 CodeDeploy actions. These policies work when you are using the CodeDeploy API,
 AWS SDKs, or the AWS CLI. You must grant additional permissions for actions you
-perform in the console. To learn more about granting console permissions, see [Using the CodeDeploy console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console") .
+perform in the console. To learn more about granting console permissions, see [Using the CodeDeploy console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console").
 
 ###### Note
 

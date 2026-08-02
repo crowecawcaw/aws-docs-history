@@ -94,13 +94,13 @@ template also specifies the AMI ID, the name of the instance profile
 associated with the IAM role to pass to instances at launch, and the Amazon EC2
 key pair to use when connecting to instances. 2. Call the **create-auto-scaling-group** command to create
 an Auto Scaling group. You will need the name of one of the Availability Zones in
-one of the regions listed in [Region and endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region")
+one of the Regions listed in [Region and endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region")
 in the _AWS General Reference_, represented by the placeholder
 `availability-zone`.
 
 ###### Note
 
-To view a list of Availability Zones in a region, call:
+To view a list of Availability Zones in a Region, call:
 
 ```
 aws ec2 describe-availability-zones --region `region-name`
@@ -113,7 +113,7 @@ US West (Oregon) Region, call:
 aws ec2 describe-availability-zones --region us-west-2
 ```
 
-For a list of region name identifiers, see [Resource kit bucket names by Region](resource-kit.md#resource-kit-bucket-names "resource-kit.md#resource-kit-bucket-names").
+For a list of Region name identifiers, see [Resource kit bucket names by Region](resource-kit.md#resource-kit-bucket-names "resource-kit.md#resource-kit-bucket-names").
 
 On local Linux, macOS, or Unix machines:
 
@@ -174,11 +174,11 @@ AWS Systems Manager](../../../systems-manager/latest/userguide/what-is-systems-m
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the global navigation bar, make sure one of the regions listed in
+2. In the global navigation bar, make sure one of the Regions listed in
    [Region and
    endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region") in the _AWS General Reference_ is selected.
-   Amazon EC2 Auto Scaling resources are tied to the region you specify, and CodeDeploy is
-   supported in select regions only.
+   Amazon EC2 Auto Scaling resources are tied to the Region you specify, and CodeDeploy is
+   supported in select Regions only.
 3. In the navigation bar, under **Instances**, choose
    **Launch Templates**.
 4. Choose **Create launch template**.

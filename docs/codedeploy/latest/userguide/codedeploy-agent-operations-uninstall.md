@@ -28,14 +28,19 @@ commands, one at a time:
 
 ```
 wmic
-```
-
-```
 product where name="CodeDeploy Host Agent" call uninstall /nointeractive
+exit
 ```
 
+###### Note
+
+On Windows Server 2025 and later, `wmic` is deprecated. Use the following
+PowerShell command instead:
+
 ```
-exit
+Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*' |
+  Where-Object DisplayName -eq 'CodeDeploy Host Agent' |
+  ForEach-Object { Start-Process msiexec.exe -ArgumentList "/x $($_.PSChildName) /quiet" -Wait }
 ```
 
 You can also sign in to the instance, and in **Control Panel**, open

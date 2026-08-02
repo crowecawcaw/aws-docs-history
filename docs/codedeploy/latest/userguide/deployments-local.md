@@ -6,9 +6,9 @@ you intend to use in a deployment and the content you intend to deploy.
 
 You do not need to create an application and deployment group. If you want to deploy
 content stored on the local instance, you do not even need an AWS account. For the
-simplest testing, you can run the **codedeploy-local** command, without
-specifying any options, in a directory that contains the AppSpec file and the content to
-be deployed. There are options for other test cases in the tool.
+simplest testing, you can run the **codedeploy-agent deploy-local** command,
+without specifying any options, in a directory that contains the AppSpec file and the
+content to be deployed. There are options for other test cases in the tool.
 
 By validating a deployment package on a local machine you can:
 
@@ -25,12 +25,15 @@ Before you start a local deployment, complete the following steps:
 
 - Create or use an instance type supported by the CodeDeploy agent. For information,
   see [Operating systems supported by the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-supported-operating-systems "codedeploy-agent.md#codedeploy-agent-supported-operating-systems").
-- Install version 1.0.1.1352 or later of the CodeDeploy agent. For information, see
-  [Install the CodeDeploy agent](codedeploy-agent-operations-install.md "codedeploy-agent-operations-install.md").
+- Install version 2.0.0 or later of the CodeDeploy agent. The
+  `deploy-local` subcommand requires version 2.0.0 or later. For
+  version 1.8.x and earlier, use the standalone `codedeploy-local`
+  command instead. For version information, see [Version history of the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-version-history "codedeploy-agent.md#codedeploy-agent-version-history"). For installation
+  information, see [Install the CodeDeploy agent](codedeploy-agent-operations-install.md "codedeploy-agent-operations-install.md").
 - If you are deploying your content from an Amazon S3 bucket or GitHub repository,
   provision a user to use with CodeDeploy. For information, see [Step 1: Setting up](getting-started-setting-up.md "getting-started-setting-up.md").
 - If you are deploying your application revision from an Amazon S3 bucket, create an
-  Amazon S3 bucket in the region you are working in and apply an Amazon S3 bucket policy to
+  Amazon S3 bucket in the Region you are working in and apply an Amazon S3 bucket policy to
   the bucket. This policy grants your instances the permissions required to
   download the application revision.
 
@@ -131,27 +134,38 @@ commands.
 
 ###### Note
 
-The **codedeploy-local** command is installed in the following
-locations:
+The **codedeploy-agent deploy-local** command uses the
+`codedeploy-agent` binary in the following locations:
 
 - On Amazon Linux, RHEL, or Ubuntu Server:
-  `/opt/codedeploy-agent/bin`.
-- On Windows Server: `C:\ProgramData\Amazon\CodeDeploy\bin`.
+  `/opt/codedeploy-agent/bin/codedeploy-agent`.
+- On Windows Server: `C:\ProgramData\Amazon\CodeDeploy\bin\codedeploy-agent.exe`.
+  For backward compatibility, the **codedeploy-local** command is
+  also available in the same locations:
+
+- On Amazon Linux, RHEL, or Ubuntu Server, the command is located at
+  `/opt/codedeploy-agent/bin/codedeploy-local`.
+- On Windows Server, the command is located at
+  `C:\ProgramData\Amazon\CodeDeploy\bin\codedeploy-local.exe`.
+  The **codedeploy-local [options]** syntax continues to work and
+  accepts the same options as **codedeploy-agent deploy-local**.
 
 **Basic Command Syntax**
 
 ```
-codedeploy-local [options]
+codedeploy-agent deploy-local [options]
 ```
 
 **Synopsis**
 
 ```
-codedeploy-local
+codedeploy-agent deploy-local
 [--bundle-location <value>]
 [--type <value>]
 [--file-exists-behavior <value>]
 [--deployment-group <value>]
+[--deployment-group-name <value>]
+[--application-name <value>]
 [--events <comma-separated values>]
 [--agent-configuration-file <value>]
 [--appspec-filename <value>]
@@ -194,7 +208,19 @@ The path to the folder that is the target location for the content to be deploye
 do not specify a folder, the tool creates one named
 _default-local-deployment-group_ inside your deployment root
 directory. For each local deployment you create, the tool creates a subdirectory inside this
-folder with names such as _d-98761234-local_.
+folder with names such as _local-1234_ (where the number
+is the process ID).
+
+**-d**, **--deployment-group-name**
+
+The deployment group name exposed to lifecycle-hook scripts as the
+`DEPLOYMENT_GROUP_NAME` environment variable. Defaults to
+`LocalFleet`.
+
+**-a**, **--application-name**
+
+The application name exposed to lifecycle-hook scripts as the
+`APPLICATION_NAME` environment variable. Defaults to the bundle location.
 
 **-e**, **--events**
 
@@ -243,68 +269,68 @@ Displays the tool's version number.
 The following are examples of valid command formats.
 
 ```
-codedeploy-local
+codedeploy-agent deploy-local
 ```
 
 ```
-codedeploy-local --bundle-location /path/to/local/bundle/directory
+codedeploy-agent deploy-local --bundle-location /path/to/local/bundle/directory
 ```
 
 ```
-codedeploy-local --bundle-location C:/path/to/local/bundle.zip --type zip --deployment-group my-deployment-group
+codedeploy-agent deploy-local --bundle-location C:/path/to/local/bundle.zip --type zip --deployment-group my-deployment-group
 ```
 
 ```
-codedeploy-local --bundle-location /path/to/local/directory --type directory --deployment-group my-deployment-group
+codedeploy-agent deploy-local --bundle-location /path/to/local/directory --type directory --deployment-group my-deployment-group
 ```
 
 Deploy a bundle from Amazon S3:
 
 ```
-codedeploy-local --bundle-location s3://amzn-s3-demo-bucket/bundle.tgz --type tgz
+codedeploy-agent deploy-local --bundle-location s3://amzn-s3-demo-bucket/bundle.tgz --type tgz
 ```
 
 ```
-codedeploy-local --bundle-location s3://amzn-s3-demo-bucket/bundle.zip?versionId=1234&etag=47e8 --type zip --deployment-group my-deployment-group
+codedeploy-agent deploy-local --bundle-location s3://amzn-s3-demo-bucket/bundle.zip?versionId=1234&etag=47e8 --type zip --deployment-group my-deployment-group
 ```
 
 Deploy a bundle from a public GitHub repository:
 
 ```
-codedeploy-local --bundle-location https://github.com/awslabs/aws-codedeploy-sample-tomcat --type zip
+codedeploy-agent deploy-local --bundle-location https://github.com/awslabs/aws-codedeploy-sample-tomcat --type zip
 ```
 
 ```
-codedeploy-local --bundle-location https://api.github.com/repos/awslabs/aws-codedeploy-sample-tomcat/zipball/master --type zip
+codedeploy-agent deploy-local --bundle-location https://api.github.com/repos/awslabs/aws-codedeploy-sample-tomcat/zipball/master --type zip
 ```
 
 ```
-codedeploy-local --bundle-location https://api.github.com/repos/awslabs/aws-codedeploy-sample-tomcat/zipball/HEAD --type zip
+codedeploy-agent deploy-local --bundle-location https://api.github.com/repos/awslabs/aws-codedeploy-sample-tomcat/zipball/HEAD --type zip
 ```
 
 ```
-codedeploy-local --bundle-location https://api.github.com/repos/awslabs/aws-codedeploy-sample-tomcat/zipball/1a2b3c4d --type zip
+codedeploy-agent deploy-local --bundle-location https://api.github.com/repos/awslabs/aws-codedeploy-sample-tomcat/zipball/1a2b3c4d --type zip
 ```
 
 Deploy a bundle specifying multiple lifecycle events:
 
 ```
-codedeploy-local --bundle-location /path/to/local/bundle.tar --type tar --application-folder my-deployment --events DownloadBundle,Install,ApplicationStart,HealthCheck
+codedeploy-agent deploy-local --bundle-location /path/to/local/bundle.tar --type tar --deployment-group my-deployment-group --events DownloadBundle,Install,ApplicationStart,HealthCheck
 ```
 
 Stop a previously deployed application using the ApplicationStop lifecycle
 event:
 
 ```
-codedeploy-local --bundle-location /path/to/local/bundle.tgz --type tgz --deployment-group --events ApplicationStop
+codedeploy-agent deploy-local --bundle-location /path/to/local/bundle.tgz --type tgz --deployment-group my-deployment-group --events ApplicationStop
 ```
 
 Deploy using a specific deployment group ID:
 
 ```
-codedeploy-local --bundle-location C:/path/to/local/bundle/directory --deployment-group 1234abcd-5dd1-4774-89c6-30b107ac5dca
+codedeploy-agent deploy-local --bundle-location C:/path/to/local/bundle/directory --deployment-group 1234abcd-5dd1-4774-89c6-30b107ac5dca
 ```
 
 ```
-codedeploy-local --bundle-location C:/path/to/local/bundle.zip --type zip --deployment-group 1234abcd-5dd1-4774-89c6-30b107ac5dca
+codedeploy-agent deploy-local --bundle-location C:/path/to/local/bundle.zip --type zip --deployment-group 1234abcd-5dd1-4774-89c6-30b107ac5dca
 ```

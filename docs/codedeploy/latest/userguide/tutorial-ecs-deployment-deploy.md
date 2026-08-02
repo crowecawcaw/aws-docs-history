@@ -36,7 +36,7 @@ need the following items:
 5. From **Load balancers**, choose the name of the load balancer that
    serves traffic to your Amazon ECS service.
 6. From **Production listener port**, choose the port and protocol for
-   the listener that serves production traﬃc to your Amazon ECS service (for example,
+   the listener that serves production traffic to your Amazon ECS service (for example,
    **HTTP: 80**). This tutorial does not include an optional test
    listener, so do not choose a port from **Test listener port**.
 7. From **Target group 1 name** and **Target group 2

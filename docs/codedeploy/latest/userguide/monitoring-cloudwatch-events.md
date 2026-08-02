@@ -11,7 +11,7 @@ select the following types of targets when using CloudWatch Events as part of yo
 - Kinesis streams
 - Amazon SQS queues
 - Built-in targets (`EC2 CreateSnapshot API call`, `EC2 RebootInstances
- API call`, `EC2 StopInstances API call` , and `EC2
+ API call`, `EC2 StopInstances API call`, and `EC2
  TerminateInstances API call`)
 - Amazon SNS topics
   The following are some use cases:
@@ -86,5 +86,5 @@ select the following types of targets when using CloudWatch Events as part of yo
     type.
 11. Choose **Configure details**.
 12. On the **Configure rule details** page, type a name and description for
-    the rule, and then choose the **State** box to enable to rule now.
+    the rule, and then choose the **State** box to enable the rule now.
 13. If you're satisfied with the rule, choose **Create rule**.

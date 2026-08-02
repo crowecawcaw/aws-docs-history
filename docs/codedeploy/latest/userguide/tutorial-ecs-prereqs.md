@@ -19,7 +19,7 @@ To complete this tutorial, you must first:
   tutorial:
 
   - The name of your Amazon ECS cluster.
-  - The ARN of the the task definition used by your Amazon ECS service.
-  - The name of the the container used by your Amazon ECS service.
+  - The ARN of the task definition used by your Amazon ECS service.
+  - The name of the container used by your Amazon ECS service.
 
 - Create an Amazon S3 bucket for your AppSpec file.

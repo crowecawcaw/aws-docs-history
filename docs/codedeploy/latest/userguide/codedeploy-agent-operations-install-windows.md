@@ -10,9 +10,11 @@ CodeDeploy agent:
 
 ###### Note
 
-The folder that the CodeDeploy agent is installed to is `C:\Program
- Data\Amazon\CodeDeploy`. Make sure there are no directory junctions or
-symlinks on this path.
+The folder that the CodeDeploy agent is installed to is
+`C:\ProgramData\Amazon\CodeDeploy`. Do not place directory
+junctions or symlinks on this path. For version 2.0.x and later, the agent enforces
+this requirement and refuses to start if the service binary is not under
+`C:\ProgramData\Amazon\CodeDeploy\`.
 
 ###### Topics
 
@@ -60,7 +62,7 @@ New-Item -Path "c:\temp" -ItemType "directory" -Force
 
 ###### Note
 
-AWS supports the latest minor version of the CodeDeploy agent. Currently the latest minor version is 1.7.x.
+For the latest released version, see [Version history of the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-version-history "codedeploy-agent.md#codedeploy-agent-version-history").
 
 To install the latest version of the CodeDeploy
 agent:

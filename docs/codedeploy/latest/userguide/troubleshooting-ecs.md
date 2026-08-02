@@ -223,16 +223,16 @@ down.
 **Possible cause**: This issue might occur if you performed a
 CodeDeploy all-at-once deployment, and your replacement (green) task set contains bad code that is
 causing the Elastic Load Balancing health checks to fail. With the all-at-once deployment configuration, the
-load balancer’s health checks start running on the replacement task set
+load balancer's health checks start running on the replacement task set
 _after_ traffic has been shifted to it (that is,
-_after_ CodeDeploy’s `AllowTraffic` lifecycle event occurs). That’s
+_after_ CodeDeploy's `AllowTraffic` lifecycle event occurs). That's
 why you will see health checks failing on the replacement task set after traffic has shifted,
 but not before. For information about the lifecycle events that CodeDeploy generates, see [What happens during an Amazon ECS deployment](deployment-steps-ecs.md#deployment-steps-what-happens "deployment-steps-ecs.md#deployment-steps-what-happens").
 
 **Possible fixes**:
 
 - Change your deployment configuration from all-at-once to canary or linear. In a canary
-  or linear configuration, the load balancer’s health checks start running on the
+  or linear configuration, the load balancer's health checks start running on the
   replacement task set while CodeDeploy installs your application in the replacement environment,
   and _before_ traffic is shifted (that is, during the
   `Install` lifecycle event, and _before_ the

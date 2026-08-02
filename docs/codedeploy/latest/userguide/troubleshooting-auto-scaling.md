@@ -67,7 +67,7 @@ permissions. These are in addition to the permissions granted by the
 - `EC2:CreateTags`
 - `iam:PassRole`
 
-You might received this error if you are missing these permissions. For more
+You might receive this error if you are missing these permissions. For more
 information, see [Tutorial: Use CodeDeploy to deploy an application to an Auto Scaling group](tutorials-auto-scaling-group.md "tutorials-auto-scaling-group.md"), [Creating a launch template for
 an Auto Scaling group](../../../autoscaling/ec2/userguide/create-launch-template.md "../../../autoscaling/ec2/userguide/create-launch-template.md"), and [Permissions](../../../autoscaling/ec2/userguide/launch-templates.md#launch-templates-permissions "../../../autoscaling/ec2/userguide/launch-templates.md#launch-templates-permissions") in the _Amazon EC2 Auto Scaling User Guide_.
 
@@ -186,7 +186,7 @@ Therefore, as a best practice, you should delete all deployment groups associate
 with an application before you delete the application. You can use the command output to
 identify the lifecycle hooks that must be deleted manually.
 
-If you receive a “Heartbeat Timeout” error message, you can determine if leftover
+If you receive a "Heartbeat Timeout" error message, you can determine if leftover
 lifecycle hooks are the cause and resolve the problem by doing the following:
 
 1. Do one of the following:
@@ -358,10 +358,10 @@ Possible causes for this error are:
    3. If you understand why the deployment failed (for example, CloudWatch alarms were
       occurring) and you can fix the problem without changing the revision, then do so
       now.
-   4. If, after investigation, you determine that CodeDeploy’s _last successful
+   4. If, after investigation, you determine that CodeDeploy's _last successful
       revision_ is no longer healthy, and there are zero healthy instances in
       your Auto Scaling group, you are in a deployment deadlock scenario. To solve this issue, you
-      must fix the bad CodeDeploy revision by temporarily removing CodeDeploy’s lifecycle hook from
+      must fix the bad CodeDeploy revision by temporarily removing CodeDeploy's lifecycle hook from
       the Auto Scaling group, and then reinstalling the hook and redeploying a new (good)
       revision. For instructions, see:
 
@@ -371,7 +371,7 @@ Possible causes for this error are:
 ###### To fix the deployment deadlock issue (CLI)
 
 1. (Optional) Block your CI/CD pipelines that are causing the CodeDeploy error so that
-   unexpected deployments do not occur while you’re fixing this problem.
+   unexpected deployments do not occur while you're fixing this problem.
 2. Take note of your current Auto Scaling **DesiredCapacity** setting:
 
 `aws autoscaling describe-auto-scaling-groups --auto-scaling-group-name
@@ -468,7 +468,7 @@ capacity, if you previously scaled it in:
 ###### To fix the deployment deadlock issue (console)
 
 1. (Optional) Block your CI/CD pipelines that are causing the CodeDeploy error so that
-   unexpected deployments do not occur while you’re fixing this problem.
+   unexpected deployments do not occur while you're fixing this problem.
 2. Go to the Amazon EC2 console, and take note of your Auto Scaling **Desired
    capacity** setting. You may need to scale back to this number at the end of
    this procedure. For information on finding this setting, see [Setting capacity limits on

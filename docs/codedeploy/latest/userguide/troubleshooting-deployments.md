@@ -3,7 +3,7 @@
 ###### Topics
 
 - [CodeDeploy plugin CommandPoller missing credentials error](#troubleshooting-agent-commandpoller-error "#troubleshooting-agent-commandpoller-error")
-- [Deployment fails with the message “Validation of PKCS7 signed message failed”](#troubleshooting-deployments-agent-SHA-256 "#troubleshooting-deployments-agent-SHA-256")
+- [Deployment fails with the message "Validation of PKCS7 signed message failed"](#troubleshooting-deployments-agent-SHA-256 "#troubleshooting-deployments-agent-SHA-256")
 - [Deployment or redeployment of the same files to the same instance locations fail with the error "The deployment failed because a specified file already exists at this location"](#troubleshooting-same-files-different-app-name "#troubleshooting-same-files-different-app-name")
 - [Long file paths cause "No such file or directory" errors](#troubleshooting-long-file-paths "#troubleshooting-long-file-paths")
 - [Long-running processes can cause deployments to fail](#troubleshooting-long-running-processes "#troubleshooting-long-running-processes")
@@ -42,7 +42,7 @@ An IAM instance profile grants the CodeDeploy agent permission to communicate wi
 and to download your revision from Amazon S3. For EC2 instances, see [Identity and access management for AWS CodeDeploy](security-iam.md "security-iam.md"). For on-premises instances, see
 [Working with On-Premises Instances](instances-on-premises.md "instances-on-premises.md").
 
-## Deployment fails with the message “Validation of PKCS7 signed message failed”
+## Deployment fails with the message "Validation of PKCS7 signed message failed"
 
 This error message indicates the instance is running a version of the CodeDeploy agent that
 supports only the SHA-1 hash algorithm. Support for the SHA-2 hash algorithm was introduced
@@ -58,7 +58,7 @@ exists in the specified target location, the deployment to that instance may fai
 receive the error message "The deployment failed because a specified file already exists at
 this location: `location-name`." This is because, during each
 deployment, CodeDeploy first deletes all files from the previous deployment, which are listed in
-a cleanup log file. If there are files in the target installation folders that aren’t listed
+a cleanup log file. If there are files in the target installation folders that aren't listed
 in this cleanup file, the CodeDeploy agent by default interprets this as an error and fails the
 deployment.
 
@@ -123,7 +123,7 @@ can fail for these reasons:
   to another deployment group to the same instances. There is at least one file with the
   same name and in the same location that the second deployment group tries to deploy.
   The second deployment fails because CodeDeploy does not remove the existing file before the
-  second deployment starts. Both deployments >reference different deployment group
+  second deployment starts. Both deployments reference different deployment group
   IDs.
 - You deployed a revision in CodeDeploy, but there is at least one file with the same
   name and in the same location. The deployment fails because, by default, CodeDeploy does
@@ -156,7 +156,7 @@ an error similar to the following:
  C:\`your-long-file-path``
 
 This error occurs because Windows by default does not allow file paths greater than 260
-characters, as detailed in [Microsoft’s documentation](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=powershell#enable-long-paths-in-windows-10-version-1607-and-later "https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=powershell#enable-long-paths-in-windows-10-version-1607-and-later").
+characters, as detailed in [Microsoft's documentation](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=powershell#enable-long-paths-in-windows-10-version-1607-and-later "https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=powershell#enable-long-paths-in-windows-10-version-1607-and-later").
 
 For CodeDeploy agent versions 1.4.0 or later, you can enable long file paths in two ways,
 depending on the agent installation process:
@@ -422,7 +422,7 @@ port 443. Try one of the following:
   time signature of your deployment request. Look for an error similar to `Cannot
  reach InstanceService: Aws::CodeDeployCommand::Errors::InvalidSignatureException -
  Signature expired` in your CodeDeploy agent log file. If you see this error, follow
-  the steps in [Troubleshooting “InvalidSignatureException – Signature expired: [time] is now earlier than [time]” deployment errors](troubleshooting-ec2-instances.md#troubleshooting-instance-time-failures "troubleshooting-ec2-instances.md#troubleshooting-instance-time-failures"). For more information, see
+  the steps in [Troubleshooting "InvalidSignatureException – Signature expired: [time] is now earlier than [time]" deployment errors](troubleshooting-ec2-instances.md#troubleshooting-instance-time-failures "troubleshooting-ec2-instances.md#troubleshooting-instance-time-failures"). For more information, see
   [View log data for CodeDeploy EC2/On-Premises deployments](deployments-view-logs.md "deployments-view-logs.md").
 - The CodeDeploy agent might stop running because an instance is running low on memory or
   hard disk space. Try to lower the number of archived deployments on your instance by

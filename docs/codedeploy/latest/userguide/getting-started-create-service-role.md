@@ -212,8 +212,8 @@ Do one of the following:
         ]
     }
     ```
-    * To grant access to only some supported regions, type the following content into
-     the file, and remove the lines for the regions to which you want to exclude
+    * To grant access to only some supported Regions, type the following content into
+     the file, and remove the lines for the Regions to which you want to exclude
      access:
 
 

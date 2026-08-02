@@ -2,7 +2,7 @@
 
 An _application_ is simply a name or container used by CodeDeploy to ensure
 that the correct revision, deployment configuration, and deployment group are referenced
-during a deployment. You can use the CodeDeploy console, the AWS CLI, the CodeDeploy APIs, or an CloudFormation
+during a deployment. You can use the CodeDeploy console, the AWS CLI, the CodeDeploy APIs, or a CloudFormation
 template to create applications.
 
 Your code, or application revision, is installed to instances through a process called a
@@ -40,7 +40,7 @@ deployment. CodeDeploy supports two types of deployments:
     create its first deployment group in a separate step.
 
 To view a list of applications already registered to your AWS account, see [View application details with CodeDeploy](applications-view-details.md "applications-view-details.md"). For
-information about using an CloudFormation template to create an application, see [CloudFormation templates for CodeDeploy reference](reference-cloudformation-templates.md "reference-cloudformation-templates.md").
+information about using a CloudFormation template to create an application, see [CloudFormation templates for CodeDeploy reference](reference-cloudformation-templates.md "reference-cloudformation-templates.md").
 
 Both deployment types do not apply to all destinations. The following table lists which
 deployment types work with deployments to the three types of deployment destinations.

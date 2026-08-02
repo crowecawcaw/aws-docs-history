@@ -359,10 +359,10 @@ Here's how it works:
 
 #### Blue/Green deployment through CloudFormation
 
-You can manage CodeDeploy blue/green deployments by modeling your resources with an CloudFormation
+You can manage CodeDeploy blue/green deployments by modeling your resources with a CloudFormation
 template.
 
-When you model your blue/green resources using an CloudFormation template, you create a stack
+When you model your blue/green resources using a CloudFormation template, you create a stack
 update in CloudFormation that updates your task set. Production traffic shifts from your service's
 original task set to a replacement task set either all at once, with linear deployments
 and bake times, or with canary deployments. The stack update initiates a deployment in

@@ -319,4 +319,4 @@ information, see [Create an Amazon ECS blue/green deployment through CloudFormat
 ###### Note
 
 Managing Amazon ECS blue/green deployments with CloudFormation is not available in the
-Asia Pacific (Osaka) region.
+Asia Pacific (Osaka) Region.

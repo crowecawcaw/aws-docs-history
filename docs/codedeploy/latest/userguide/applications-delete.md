@@ -26,7 +26,7 @@ To use the CodeDeploy console to delete an application:
 
 ###### Note
 
-Sign in with the same user that you set up in [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md"). 2. In the navigation pane, expand **Deploy**, then choose **Applications**. 3. In the list of applications, choose the the application you want to
+Sign in with the same user that you set up in [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md"). 2. In the navigation pane, expand **Deploy**, then choose **Applications**. 3. In the list of applications, choose the application you want to
 delete.
 
 A page appears containing details about the application. 4. Choose **Delete application** on the top-right. 5. When prompted, enter `delete` to confirm you want to

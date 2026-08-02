@@ -221,8 +221,8 @@ For information about lifecycle events to use in the Hooks section, see [AppSpec
 ## Add an AppSpec file for an EC2/On-Premises deployment
 
 Without an AppSpec file, CodeDeploy cannot map the source files in your application revision
-to their destinations or run scripts for your deployment to an EC2/On-Premises compute platform,
-.
+to their destinations or run scripts for your deployment to an
+EC2/On-Premises compute platform.
 
 Each revision must contain only one AppSpec file.
 

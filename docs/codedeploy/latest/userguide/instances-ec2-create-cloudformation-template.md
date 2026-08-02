@@ -10,7 +10,7 @@ template. In addition to launching the instance, the template does the following
 - Installs and runs the CodeDeploy agent on the instance.
   You don't have to use our CloudFormation to set up an Amazon EC2 instance. For alternatives, see [Working with instances for CodeDeploy](instances.md "instances.md").
 
-We do not provide an CloudFormation template for Amazon EC2 instances running Ubuntu Server or Red Hat Enterprise Linux
+We do not provide a CloudFormation template for Amazon EC2 instances running Ubuntu Server or Red Hat Enterprise Linux
 (RHEL).
 
 ###### Topics
@@ -48,7 +48,7 @@ under **Network & Security**, choose **Key Pairs**,
 and note the key pair name in the list.
 
 To generate a new key pair, see [Creating your key
-pair using Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair"). Be sure the key pair is created in one of the regions listed
+pair using Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair"). Be sure the key pair is created in one of the Regions listed
 in [Region and endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region") in
 _AWS General Reference_. Otherwise, you can't use the instance key pair with
 CodeDeploy.
@@ -61,9 +61,9 @@ CodeDeploy.
 ###### Important
 
 Sign in to the AWS Management Console with the same account you used in [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md"). On
-the navigation bar, in the region selector, choose one of the regions listed in [Region and endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region") in
-_AWS General Reference_. CodeDeploy supports these regions only. 2. Choose **Create Stack**. 3. In **Choose a template**, choose **Specify an Amazon S3 template
-URL**. In the box, type the location of the CloudFormation template for your region, and
+the navigation bar, in the Region selector, choose one of the Regions listed in [Region and endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region") in
+_AWS General Reference_. CodeDeploy supports these Regions only. 2. Choose **Create Stack**. 3. In **Choose a template**, choose **Specify an Amazon S3 template
+URL**. In the box, type the location of the CloudFormation template for your Region, and
 then choose **Next**.
 
 | Region                           | Location of CloudFormation template                                                                                        |
@@ -165,7 +165,7 @@ aws cloudformation create-stack --stack-name CodeDeployDemoStack --template-url 
 name only, not the key pair file extension.
 
 `template-url` is the location of the CloudFormation template for your
-region:
+Region:
 
 | Region                           | Location of CloudFormation template                                                                                        |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -188,7 +188,7 @@ region:
 | Asia Pacific (Mumbai) Region     | `http://s3-ap-south-1.amazonaws.com/aws-codedeploy-ap-south-1/templates/latest/CodeDeploy_SampleCF_Template.json`          |
 | South America (São Paulo) Region | `aws-codedeploy-ap-northeast-1.s3.sa-east-1.amazonaws.com/templates/latest/CodeDeploy_SampleCF_Template.json`              |
 
-This command creates an CloudFormation stack named
+This command creates a CloudFormation stack named
 `CodeDeployDemoStack`, using the CloudFormation template in the
 specified Amazon S3 bucket. The Amazon EC2 instance is based on the t1.micro instance type, but you
 can use any type. It is tagged with the value

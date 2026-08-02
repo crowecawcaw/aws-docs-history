@@ -310,9 +310,9 @@ secret access key, you will need to generate a new one by following the steps in
 
 Add a configuration file to the on-premises instance, using root or administrator
 permissions. This configuration file will be used to declare the IAM user credentials and
-the target AWS region to be used for CodeDeploy. The file must be added to a specific location on
+the target AWS Region to be used for CodeDeploy. The file must be added to a specific location on
 the on-premises instance. The file must include the IAM user's ARN, secret key ID, secret
-access key, and the target AWS region. The file must follow a specific format.
+access key, and the target AWS Region. The file must follow a specific format.
 
 1. Create a file named `codedeploy.onpremises.yml` (for an
    Ubuntu Server or RHEL on-premises instance) or
@@ -342,9 +342,9 @@ Where:
      secret access key you noted in [Step 1: Create an IAM user for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1") or [Step 3: Get the IAM user credentials](#register-on-premises-instance-iam-user-arn-3 "#register-on-premises-instance-iam-user-arn-3").
     * `iam-user-arn` is the IAM user's ARN you noted earlier in
      [Step 1: Create an IAM user for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1").
-    * `supported-region` is the identifier of a region
+    * `supported-region` is the identifier of a Region
      supported by CodeDeploy where your CodeDeploy applications, deployment groups, and application
-     revisions are located (for example, `us-west-2`). For a list of regions,
+     revisions are located (for example, `us-west-2`). For a list of Regions,
      see [Region and endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region") in
      the *AWS General Reference*.
 
@@ -451,9 +451,9 @@ and go directly to [Step 7: Install the CodeDeploy agent](#register-on-premises-
 Install the CodeDeploy agent on an Ubuntu Server or RHEL on-premises instance and enable the
 instance to update the CodeDeploy agent whenever a new version becomes available. You do this by
 setting the `AWS_REGION` environment variable on the instance
-to the identifier of one of the regions supported by CodeDeploy. We recommend that you set the
-value to the region where your CodeDeploy applications, deployment groups, and application
-revisions are located (for example, `us-west-2`). For a list of regions, see [Region and endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region") in the
+to the identifier of one of the Regions supported by CodeDeploy. We recommend that you set the
+value to the Region where your CodeDeploy applications, deployment groups, and application
+revisions are located (for example, `us-west-2`). For a list of Regions, see [Region and endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region") in the
 _AWS General Reference_.
 
 To set the environment variable, call the following from the terminal:
@@ -462,7 +462,7 @@ To set the environment variable, call the following from the terminal:
 export AWS_REGION=`supported-region`
 ```
 
-Where `supported-region` is the region identifier (for example,
+Where `supported-region` is the Region identifier (for example,
 `us-west-2`).
 
 ## Step 7: Install the CodeDeploy agent
