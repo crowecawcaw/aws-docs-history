@@ -6,9 +6,20 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## July 16, 2026 – present
+## July 29, 2026 – present
 
-The following Elastic Beanstalk platform versions for PHP have been current since July 16, 2026:
+The following Elastic Beanstalk platform versions for PHP have been current since July 29, 2026:
+
+| Platform Version and _Solution Stack Name_                                             | AMI              | Language   | Package Manager            | Proxy Server                          |
+| -------------------------------------------------------------------------------------- | ---------------- | ---------- | -------------------------- | ------------------------------------- |
+| **PHP 8.5 AL2023 version 4.13.5**<br>_64bit Amazon Linux 2023 v4.13.5 running PHP 8.5_ | 2023.12.20260727 | PHP 8.5.8  | Composer 2.10.2, PIE 1.4.9 | nginx 1.30.3 (default), Apache 2.4.68 |
+| **PHP 8.4 AL2023 version 4.13.5**<br>_64bit Amazon Linux 2023 v4.13.5 running PHP 8.4_ | 2023.12.20260727 | PHP 8.4.23 | Composer 2.10.2, PIE 1.4.9 | nginx 1.30.3 (default), Apache 2.4.68 |
+| **PHP 8.3 AL2023 version 4.13.5**<br>_64bit Amazon Linux 2023 v4.13.5 running PHP 8.3_ | 2023.12.20260727 | PHP 8.3.32 | Composer 2.10.2, PIE 1.4.9 | nginx 1.30.3 (default), Apache 2.4.68 |
+| **PHP 8.2 AL2023 version 4.13.5**<br>_64bit Amazon Linux 2023 v4.13.5 running PHP 8.2_ | 2023.12.20260727 | PHP 8.2.32 | Composer 2.10.2, PIE 1.4.9 | nginx 1.30.3 (default), Apache 2.4.68 |
+
+## July 16, 2026 – July 28, 2026
+
+The following Elastic Beanstalk platform versions for PHP were current between July 16, 2026 and July 28, 2026:
 
 | Platform Version and _Solution Stack Name_                                             | AMI              | Language   | Package Manager            | Proxy Server                          |
 | -------------------------------------------------------------------------------------- | ---------------- | ---------- | -------------------------- | ------------------------------------- |
