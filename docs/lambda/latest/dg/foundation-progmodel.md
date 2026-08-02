@@ -13,7 +13,7 @@ and request ID.
 - Checkpointing capabilities through step()
 - Wait state management through wait() and waitForCallback()
 - Automatic state persistence between invocations
-  When the handler finishes processing the first event, the runtime sends it another. For Durable Functions, the handler can pause execution between steps, and Lambda will automatically save and restore state when the function resumes. The function's class stays
+  When the handler finishes processing the first event, the runtime sends it another. For Durable Functions, the handler can pause execution between steps, and Lambda automatically saves and restores state when the function resumes. The function's class stays
   in memory, so clients and variables that are declared outside of the handler method in _initialization
   code_ can be reused. To save processing time on subsequent events, create reusable resources like
   AWS SDK clients during initialization. Once initialized, each instance of your function can process thousands of

@@ -12,7 +12,7 @@ which response types are enabled for your function. You can configure this list 
 
 ###### Note
 
-Even when your function code returns partial batch failure responses, these responses will not be processed by Lambda unless the
+Even when your function code returns partial batch failure responses, these responses are not processed by Lambda unless the
 `ReportBatchItemFailures` feature is explicitly turned on for your event source mapping.
 
 ## Report syntax
@@ -63,7 +63,7 @@ When a partial batch success response is received and both `BisectBatchOnFunctio
 `ReportBatchItemFailures` are turned on, the batch is bisected at the returned sequence number and
 Lambda retries only the remaining records.
 
-To simplify the implementation of partial batch response logic, consider using the [Batch Processor utility](https://docs.powertools.aws.dev/lambda/python/latest/utilities/batch/ "https://docs.powertools.aws.dev/lambda/python/latest/utilities/batch/")
+To simplify the implementation of partial batch response logic, consider using the [Batch Processor utility](../../../powertools/python/latest/utilities/batch.md "../../../powertools/python/latest/utilities/batch.md")
 from Powertools for AWS Lambda, which automatically handles these complexities for you.
 
 Here are some examples of function code that return the list of failed message IDs in the batch:
@@ -615,7 +615,7 @@ implementing batch failure reporting. Here are examples using the batch processo
 
 ###### Note
 
-For complete examples and setup instructions, see the [batch processor documentation](https://docs.powertools.aws.dev/lambda/python/latest/utilities/batch/ "https://docs.powertools.aws.dev/lambda/python/latest/utilities/batch/").
+For complete examples and setup instructions, see the [batch processor documentation](../../../powertools/python/latest/utilities/batch.md "../../../powertools/python/latest/utilities/batch.md").
 
 Processing Kinesis Data Streams stream records with AWS Lambda batch processor.
 
@@ -677,7 +677,7 @@ export const handler = async (event: KinesisEvent, context: Context) => {
 
 ###### Note
 
-For complete examples and setup instructions, see the [batch processor documentation](https://docs.powertools.aws.dev/lambda/java/latest/utilities/batch/ "https://docs.powertools.aws.dev/lambda/java/latest/utilities/batch/").
+For complete examples and setup instructions, see the [batch processor documentation](../../../powertools/java/latest/utilities/batch.md "../../../powertools/java/latest/utilities/batch.md").
 
 Processing Kinesis Data Streams stream records with AWS Lambda batch processor.
 

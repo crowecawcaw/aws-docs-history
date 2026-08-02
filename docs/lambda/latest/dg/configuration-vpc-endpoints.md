@@ -4,7 +4,7 @@ If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources,
 Lambda. You can use this connection to invoke your Lambda function without crossing the public internet.
 
 To establish a private connection between your VPC and Lambda, create an [interface VPC endpoint](../../../vpc/latest/privatelink/vpce-interface.md "../../../vpc/latest/privatelink/vpce-interface.md"). Interface endpoints are powered
-by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), which enables you to privately access Lambda APIs
+by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"). With AWS PrivateLink, you can privately access Lambda APIs
 without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC don't
 need public IP addresses to communicate with Lambda APIs. Traffic between your VPC and Lambda does not leave the AWS
 network.
@@ -96,7 +96,7 @@ resource in the _AWS CloudFormation User Guide_.
 
 ###### To create an interface endpoint for Lambda (AWS CLI)
 
-Use the [create-vpc-endpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc-endpoint.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc-endpoint.html") command and specify the VPC ID, VPC endpoint type (interface), service name, subnets that will use the endpoint, and security groups to associate with the endpoint's network interfaces. For example:
+Use the [create-vpc-endpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc-endpoint.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc-endpoint.html") command and specify the VPC ID, VPC endpoint type (interface), service name, subnets that use the endpoint, and security groups to associate with the endpoint's network interfaces. For example:
 
 ```
 aws ec2 create-vpc-endpoint

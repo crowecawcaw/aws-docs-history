@@ -2,6 +2,8 @@
 
 Go is implemented differently than other managed runtimes. Because Go compiles natively to an executable binary, it doesn't require a dedicated language runtime. Use an [OS-only runtime](runtimes-provided.md "runtimes-provided.md") (the `provided` runtime family) to deploy Go functions to Lambda.
 
+For information about using layers with Go, see [Working with layers for Go Lambda functions](golang-layers.md "golang-layers.md").
+
 ###### Topics
 
 - [Go runtime support](#golang-al1 "#golang-al1")
@@ -23,7 +25,6 @@ No code changes are required for this migration. The only required changes relat
 | Name            | Identifier        | Operating system  | Deprecation date | Block function create | Block function update |
 | --------------- | ----------------- | ----------------- | ---------------- | --------------------- | --------------------- |
 | OS-only Runtime | `provided.al2023` | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
-| OS-only Runtime | `provided.al2`    | Amazon Linux 2    | Jul 31, 2026     | Feb 1, 2027           | Mar 3, 2027           |
 
 ## Tools and libraries
 

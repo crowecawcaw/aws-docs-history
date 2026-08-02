@@ -15,9 +15,9 @@ To enable concurrent request handling, add the `concurrency-tokio` feature flag 
 lambda_runtime = { version = "1", features = ["concurrency-tokio"] }
 ```
 
-The `lambda_runtime::run_concurrent(…)` entry point must be called from within a Tokio runtime, typically provided by the `#[tokio::main]` attribute on your main function. Your handler closure must implement [`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html "https://doc.rust-lang.org/std/clone/trait.Clone.html") + [`Send`](https://doc.rust-lang.org/std/marker/trait.Send.html "https://doc.rust-lang.org/std/marker/trait.Send.html"). This allows the framework to share your handler across multiple async tasks safely. If those bounds are not met, your code will not compile.
+The `lambda_runtime::run_concurrent(…)` entry point must be called from within a Tokio runtime, typically provided by the `#[tokio::main]` attribute on your main function. Your handler closure must implement [Clone](https://doc.rust-lang.org/std/clone/trait.Clone.html "https://doc.rust-lang.org/std/clone/trait.Clone.html") + [Send](https://doc.rust-lang.org/std/marker/trait.Send.html "https://doc.rust-lang.org/std/marker/trait.Send.html"). This allows the framework to share your handler across multiple async tasks safely. If those bounds are not met, your code will not compile.
 
-When you need shared state across invocations (a database pool, a config struct), wrap it in [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html "https://doc.rust-lang.org/std/sync/struct.Arc.html") and clone the `Arc` into each invocation.
+When you need shared state across invocations (a database pool, a config struct), wrap it in [Arc](https://doc.rust-lang.org/std/sync/struct.Arc.html "https://doc.rust-lang.org/std/sync/struct.Arc.html") and clone the `Arc` into each invocation.
 
 All AWS SDK for Rust clients are concurrency-safe and require no special handling.
 
@@ -46,7 +46,7 @@ run_concurrent(service_fn(move |event: LambdaEvent<Request>| {
 
 ### Example: Database connection pools
 
-When your handler needs access to shared state such as a client and configuration, wrap it in [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html "https://doc.rust-lang.org/std/sync/struct.Arc.html") and clone the `Arc` into each invocation:
+When your handler needs access to shared state such as a client and configuration, wrap it in [Arc](https://doc.rust-lang.org/std/sync/struct.Arc.html "https://doc.rust-lang.org/std/sync/struct.Arc.html") and clone the `Arc` into each invocation:
 
 ```
 #[derive(Debug)]
@@ -90,7 +90,7 @@ Use `event.context.deadline` to detect timeouts — it contains the invocation d
 
 Function initialization occurs once per execution environment. Objects created during initialization are shared across requests.
 
-For Lambda functions with extensions, the execution environment emits a SIGTERM signal during shut down. This signal is used by extensions to trigger clean up tasks, such as flushing buffers. `lambda_runtime` offers a helper to simplify configuring graceful shutdown signal handling, [`spawn_graceful_shutdown_handler()`](https://docs.rs/lambda_runtime/latest/lambda_runtime/fn.spawn_graceful_shutdown_handler.html "https://docs.rs/lambda_runtime/latest/lambda_runtime/fn.spawn_graceful_shutdown_handler.html"). To learn more about the execution environment lifecycle, see [Understanding the Lambda execution environment lifecycle](lambda-runtime-environment.md "lambda-runtime-environment.md").
+For Lambda functions with extensions, the execution environment emits a SIGTERM signal during shut down. This signal is used by extensions to trigger clean up tasks, such as flushing buffers. `lambda_runtime` offers a helper to simplify configuring graceful shutdown signal handling, [spawn\_graceful\_shutdown\_handler()](https://docs.rs/lambda_runtime/latest/lambda_runtime/fn.spawn_graceful_shutdown_handler.html "https://docs.rs/lambda_runtime/latest/lambda_runtime/fn.spawn_graceful_shutdown_handler.html"). To learn more about the execution environment lifecycle, see [Understanding the Lambda execution environment lifecycle](lambda-runtime-environment.md "lambda-runtime-environment.md").
 
 ## Dependency versions
 

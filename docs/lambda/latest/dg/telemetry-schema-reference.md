@@ -254,7 +254,7 @@ A `platform.runtimeDone` event indicates that the function invocation phase has 
 ###### Lambda Managed Instances
 
 The `platform.runtimeDone` event is not supported for Lambda Managed Instances. Extensions
-running on Managed Instances will not receive this event because extensions cannot subscribe to the
+running on Managed Instances do not receive this event because extensions cannot subscribe to the
 `INVOKE` event on Managed Instances. Due to the concurrent execution model where multiple
 invocations can be processed simultaneously, extensions cannot perform post-invoke processing for individual
 invocations as they traditionally do on Lambda (default) functions.

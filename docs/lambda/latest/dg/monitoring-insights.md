@@ -39,7 +39,7 @@ You can use Lambda Insights with any of the runtimes that support [Lambda extens
 
 ## Enabling Lambda Insights in the Lambda console
 
-You can enable Lambda Insights enhanced monitoring on new and existing Lambda functions. When you enable Lambda Insights on a function in the Lambda console for a supported runtime, Lambda adds the Lambda Insights [extension](lambda-extensions.md "lambda-extensions.md") as a layer to your function, and verifies or attempts to attach the [`CloudWatchLambdaInsightsExecutionRolePolicy`](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy$jsonEditor") policy to your function's [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md").
+You can enable Lambda Insights enhanced monitoring on new and existing Lambda functions. When you enable Lambda Insights on a function in the Lambda console for a supported runtime, Lambda adds the Lambda Insights [extension](lambda-extensions.md "lambda-extensions.md") as a layer to your function, and verifies or attempts to attach the [CloudWatchLambdaInsightsExecutionRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy$jsonEditor") policy to your function's [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md").
 
 ###### To enable Lambda Insights in the Lambda console
 
@@ -53,7 +53,7 @@ You can enable Lambda Insights enhanced monitoring on new and existing Lambda fu
 
 ## Enabling Lambda Insights programmatically
 
-You can also enable Lambda Insights using the AWS Command Line Interface (AWS CLI), AWS Serverless Application Model (SAM) CLI, CloudFormation, or the AWS Cloud Development Kit (AWS CDK). When you enable Lambda Insights programmatically on a function for a supported runtime, CloudWatch attaches the [`CloudWatchLambdaInsightsExecutionRolePolicy`](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy$jsonEditor") policy to your function's [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md").
+You can also enable Lambda Insights using the AWS Command Line Interface (AWS CLI), AWS Serverless Application Model (SAM) CLI, CloudFormation, or the AWS Cloud Development Kit (AWS CDK). When you enable Lambda Insights programmatically on a function for a supported runtime, CloudWatch attaches the [CloudWatchLambdaInsightsExecutionRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy$jsonEditor") policy to your function's [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md").
 
 For more information, see [Getting started with Lambda Insights](../../../AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started.md "../../../AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started.md") in the _Amazon CloudWatch User Guide_.
 

@@ -10,7 +10,7 @@
 
 ## Instance type selection
 
-**Let Lambda choose instance types.** By default, Lambda chooses the best instance types for your workload. We recommend letting Lambda Managed Instances choose instance types for you, as restricting the number of possible instance types may result in lower availability.
+**Let Lambda choose instance types.** By default, Lambda chooses the best instance types for your workload. We recommend letting Lambda Managed Instances choose instance types for you, as restricting the number of possible instance types might result in lower availability.
 
 **Specify instance types for specific requirements.** If you have specific hardware requirements, set allowed instance types to a list of compatible instances. For example:
 
@@ -30,7 +30,7 @@
 - Increase maximum concurrency (up to 64 per vCPU) if your function invocations use very little CPU
 - Decrease maximum concurrency if your application consumes a large amount of memory and very little CPU
 
-Note that execution environments with very low concurrency may experience throttles and difficulty scaling.
+Note that execution environments with very low concurrency might experience throttles and difficulty scaling.
 
 ## Scaling configuration
 
@@ -39,7 +39,7 @@ Note that execution environments with very low concurrency may experience thrott
 - For very steady workloads or applications not sensitive to throttles, set the target to a high level to achieve higher utilization and lower costs
 - For workloads with potential traffic bursts, set resource targets to a low level to maintain additional headroom
 
-**Plan for traffic growth.** If your traffic more than doubles within 5 minutes, you may see throttles as Lambda scales up instances and execution environments. Design your application to handle potential throttling during rapid scale-up periods.
+**Plan for traffic growth.** If your traffic more than doubles within 5 minutes, you might see throttles as Lambda scales up instances and execution environments. Design your application to handle potential throttling during rapid scale-up periods.
 
 ## Security
 
@@ -53,7 +53,7 @@ Note that execution environments with very low concurrency may experience thrott
 
 **Use EC2 pricing options.** Take advantage of EC2 Savings Plans and Reserved Instances to reduce costs. These pricing options apply to the underlying EC2 compute (the 15% management fee is not discounted).
 
-**Optimize for steady-state workloads.** Lambda Managed Instances are best suited for steady-state functions with predictable high-volume traffic. For bursty traffic patterns, Lambda (default) may be more cost-effective.
+**Optimize for steady-state workloads.** Lambda Managed Instances are best suited for steady-state functions with predictable high-volume traffic. For bursty traffic patterns, Lambda (default) might be more cost-effective.
 
 **Monitor resource utilization.** Track CloudWatch metrics to understand CPU and memory utilization. Adjust function memory allocation and instance type selection based on actual usage patterns to optimize costs.
 

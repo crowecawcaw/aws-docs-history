@@ -76,7 +76,7 @@ captured and `log.Print(lc.Identity.CognitoIdentityPoolID)` prints that informat
 CognitoIdentityPoolID.
 
 The following example introduces how to use the context object to monitor how long your Lambda function
-takes to complete. This allows you to analyze performance expectations and adjust your function code accordingly, if
+takes to complete. This way, you can analyze performance expectations and adjust your function code accordingly, if
 needed.
 
 ```

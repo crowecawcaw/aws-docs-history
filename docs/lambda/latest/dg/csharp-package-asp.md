@@ -107,7 +107,7 @@ The default class used when you create your `LambdaEntryPoint.cs` file using the
 `APIGatewayProxyFunction`. The base class you use in your function depends on which API layer sits in front of your Lambda
 function.
 
-Each of the three base classes contains a public method named `FunctionHandlerAsync`. The name of this method will form part
+Each of the three base classes contains a public method named `FunctionHandlerAsync`. The name of this method forms part
 of the [handler string](csharp-handler.md#csharp-class-library-handlers "csharp-handler.md#csharp-class-library-handlers") Lambda uses to invoke your function. The
 `FunctionHandlerAsync` method transforms the inbound event payload into the correct ASP.NET format and the ASP.NET response back
 to a Lambda response payload. For the example `AspNetOnLambda` project shown, the handler string would be as follows.
@@ -182,7 +182,7 @@ app.MapGet("/", () => "Welcome to running ASP.NET Core Minimal API on AWS Lambda
 app.Run();
 ```
 
-To configure your minimal API to run on Lambda, you may need to edit this code so that requests and responses between Lambda and
+To configure your minimal API to run on Lambda, you might need to edit this code so that requests and responses between Lambda and
 ASP.NET Core are properly translated. By default, the function is configured for a REST API event source. For an HTTP API or application
 load balancer, replace `(LambdaEventSource.RestApi)` with one of the following options:
 

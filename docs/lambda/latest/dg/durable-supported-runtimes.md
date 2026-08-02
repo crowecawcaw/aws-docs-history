@@ -187,8 +187,8 @@ For more information about using container images with Lambda, see [Creating Lam
 
 **SDK version management:** To maintain full control over your dependencies and to avoid possible version misalignment issues, we recommend you add all of your function's dependencies to your deployment package, even if versions of them are included in the Lambda runtime by default. This includes the durable execution SDK. Lock the durable execution SDK to a major version in your dependency file. A new major version can introduce changes that may result in failures of in-flight executions. Use numbered versions or aliases for production durable functions rather than `$LATEST` to ensure SDK version changes do not affect in-flight executions.
 
-**Runtime updates:** AWS updates managed runtimes to include security patches and bug fixes. These updates may include new SDK versions. To avoid unexpected behavior, include the SDK in your deployment package and test thoroughly before deploying to production.
+**Runtime updates:** AWS updates managed runtimes to include security patches and bug fixes. These updates might include new SDK versions. To avoid unexpected behavior, include the SDK in your deployment package and test thoroughly before deploying to production.
 
 **Container image size:** Container images have a maximum uncompressed size of 10 GB. The durable execution SDK adds minimal size to your image. Optimize your container by using multi-stage builds and removing unnecessary dependencies.
 
-**Cold start performance:** Container images may have longer cold start times than managed runtimes. The durable execution SDK has minimal impact on cold start performance. Use provisioned concurrency if cold start latency is critical for your application.
+**Cold start performance:** Container images might have longer cold start times than managed runtimes. The durable execution SDK has minimal impact on cold start performance. Use provisioned concurrency if cold start latency is critical for your application.

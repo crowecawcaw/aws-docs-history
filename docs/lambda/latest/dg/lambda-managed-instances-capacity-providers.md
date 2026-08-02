@@ -1,10 +1,10 @@
 # Capacity providers
 
-A capacity provider is the foundation for running Lambda Managed Instances. It acts as the security boundary for your functions and defines the compute resources that Lambda will provision and manage on your behalf.
+A capacity provider is the foundation for running Lambda Managed Instances. It acts as the security boundary for your functions and defines the compute resources that Lambda provisions and manages on your behalf.
 
 When you create a capacity provider, you specify:
 
-- **VPC configuration** - The subnets and security groups where instances will run
+- **VPC configuration** - The subnets and security groups where instances run
 - **Permissions** - IAM roles for Lambda to manage EC2 resources
 - **Instance requirements** (optional) - Architecture and [instance type](https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High "https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High") preferences
 - **Scaling configuration** (optional) - How Lambda scales your instances
@@ -60,7 +60,7 @@ Specify the architecture and [instance types](https://aws.amazon.com/lambda/pric
 - **AllowedInstanceTypes**: Specify allowed instance types. Example: `m5.8xlarge`
 - **ExcludedInstanceTypes**: Specify excluded instance types using wildcards. You can specify only one of AllowedInstanceTypes or ExcludedInstanceTypes
 
-By default, Lambda chooses optimal instance types for your workload. We recommend letting Lambda Managed Instances choose instance types for you, as restricting the number of possible instance types may result in lower availability.
+By default, Lambda chooses optimal instance types for your workload. We recommend letting Lambda Managed Instances choose instance types for you, as restricting the number of possible instance types might result in lower availability.
 
 **CapacityProviderScalingConfig**
 
@@ -133,7 +133,7 @@ A capacity provider can be in one of the following states:
 ## Best practices
 
 1. **Separate by trust level**: Create different capacity providers for workloads with different security requirements
-2. **Use descriptive names**: Name capacity providers to clearly indicate their intended use and trust level (e.g., `production-trusted`, `dev-sandbox`)
+2. **Use descriptive names**: Name capacity providers to clearly indicate their intended use and trust level (for example, `production-trusted`, `dev-sandbox`).
 3. **Use multiple Availability Zones**: Specify subnets across multiple AZs for high availability
 4. **Let Lambda choose instance types**: Unless you have specific hardware requirements, allow Lambda to select optimal instance types for availability
 5. **Monitor usage**: Use AWS CloudTrail to monitor capacity provider assignments and access patterns

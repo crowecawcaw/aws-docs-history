@@ -4,20 +4,22 @@ Lambda functions can natively stream response payloads back to clients through [
 streaming can benefit latency sensitive applications by improving time to first byte (TTFB)
 performance. This is because you can send partial responses back to the client as they become
 available. Additionally, response streaming functions can return payloads up to 200 MB, compared to the 6 MB maximum for
-buffered responses. Streaming a response also means that your function doesn't need to fit the entire
+buffered responses.
+
+Streaming a response also means that your function doesn't need to fit the entire
 response in memory. For very large responses, this can reduce the amount of memory you need to
 configure for your function. To help choose between function URLs and API Gateway for your use case, see
 [Select a method to invoke your Lambda function using an HTTP request](furls-http-invoke-decision.md "furls-http-invoke-decision.md").
 
 ###### Note
 
-Lambda response streaming is not yet available in all AWS Regions. Please refer to Builder Center's [AWS Capabilities by Region](https://builder.aws.com/build/capabilities "https://builder.aws.com/build/capabilities") for feature availability by Region.
+Lambda response streaming is not yet available in all AWS Regions. For feature availability by Region, see Builder Center's [AWS Capabilities by Region](https://builder.aws.com/build/capabilities "https://builder.aws.com/build/capabilities").
 
 The speed at which Lambda streams your responses depends on the response size. The streaming rate for
 the first 6 MB of your function's response is uncapped. For responses larger than 6 MB, the remainder of the response
 is subject to a bandwidth cap. For more information on streaming bandwidth, see [Bandwidth limits for response streaming](#config-rs-bandwidth-cap "#config-rs-bandwidth-cap").
 
-Streaming responses incur cost and streamed responses are not interrupted or stopped when the invoking client connection is broken. Customers will be billed for the full function duration, so customers should exercise caution when configuring long function timeouts.
+Streaming responses incur cost and streamed responses are not interrupted or stopped when the invoking client connection is broken. Customers are billed for the full function duration, so customers should exercise caution when configuring long function timeouts.
 
 Lambda supports response streaming on Node.js managed runtimes. For other languages, including Python, you can [use a
 custom runtime with a custom Runtime API integration](runtimes-custom.md#runtimes-custom-response-streaming "runtimes-custom.md#runtimes-custom-response-streaming") to stream responses or use the [Lambda Web Adapter](https://github.com/awslabs/aws-lambda-web-adapter "https://github.com/awslabs/aws-lambda-web-adapter").
@@ -25,6 +27,10 @@ custom runtime with a custom Runtime API integration](runtimes-custom.md#runtime
 ###### Note
 
 When testing your function through the Lambda console, you'll always see responses as buffered.
+
+To learn how to write streaming functions, see [Writing response streaming-enabled Lambda functions](config-rs-write-functions.md "config-rs-write-functions.md").
+To invoke streaming functions through function URLs, see [Invoking a response streaming enabled function using Lambda function URLs](config-rs-invoke-furls.md "config-rs-invoke-furls.md").
+For a step-by-step walkthrough, see [Tutorial: Creating a response streaming Lambda function with a function URL](response-streaming-tutorial.md "response-streaming-tutorial.md").
 
 ###### Topics
 

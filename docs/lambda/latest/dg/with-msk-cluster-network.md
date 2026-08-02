@@ -32,7 +32,7 @@ The network configuration requirements for your event source mapping depends on 
 [provisioned mode](invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode "invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode") or on-demand mode,
 as shown in the following diagram:
 
-![Comparison of network calls for on-demand versus provisioned mode Kafka ESMs](images/MSK-esm-network-overview.png)
+![Comparison of network calls for on-demand versus provisioned mode Kafka ESMs.](images/MSK-esm-network-overview.png)
 
 The way that the Lambda event source mapping polls your MSK cluster for new messages is the same in both
 modes. To establish a connection between your event source mapping and your MSK cluster, Lambda creates a
@@ -45,7 +45,7 @@ After polling the message from the cluster, the way Lambda invokes your function
 - In provisioned mode, Lambda automatically handles the connection between the event source mapping
   VPC and the function VPC. So, you don't need any additional networking components to successfully
   invoke your function.
-- In on-demand mode, your Lambda event source mapping invokes your function via a path through your
+- In on-demand mode, your Lambda event source mapping invokes your function by using a path through your
   customer-managed VPC. Because of this, you need to configure either a
   [NAT gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") in
   the public subnet of your VPC, or [AWS PrivateLink](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md") endpoints in the private
@@ -90,7 +90,7 @@ Ensure that you have the following security group rules configured:
 ## Configuring a NAT gateway for an MSK event source
 
 You can configure a NAT gateway to allow your event source mapping to poll messages from your cluster, and
-invoke the function via a path through your VPC. This is required only if your event source mapping uses on-demand
+invoke the function by using a path through your VPC. This is required only if your event source mapping uses on-demand
 mode, and your cluster resides within a private subnet of your VPC. If your cluster resides in a public subnet of
 your VPC, or your event source mapping uses provisioned mode, you don't need to configure a NAT gateway.
 
@@ -99,7 +99,7 @@ in a private subnet to access the public internet. If you need private connectiv
 [Configuring AWS PrivateLink endpoints for an MSK event source](#msk-vpc-privatelink "#msk-vpc-privatelink") instead.
 
 After you configure your NAT gateway, you must configure the appropriate route tables. This allows traffic from
-your private subnet to route to the public internet via the NAT gateway.
+your private subnet to route to the public internet through the NAT gateway.
 
 ![Diagram of a customer-managed VPC using a NAT Gateway to route traffic from the private subnet to the public internet.](images/MSK-NAT-Gateway.png)
 
@@ -141,7 +141,7 @@ necessary for each Availability Zone (AZ).
 
 ## Configuring AWS PrivateLink endpoints for an MSK event source
 
-You can configure AWS PrivateLink endpoints to poll messages from your cluster, and invoke the function via a path
+You can configure AWS PrivateLink endpoints to poll messages from your cluster, and invoke the function by using a path
 through your VPC. These endpoints should allow your MSK cluster to access the following:
 
 - The Lambda service

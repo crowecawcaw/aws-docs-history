@@ -28,9 +28,11 @@ for each metric is 1 minute.
   `UnreservedConcurrentExecutions` plus the amount of allocated concurrency
   (i.e. the total reserved concurrency plus total provisioned concurrency). If
   `ClaimedAccountConcurrency` exceeds your account concurrency limit, you can
-  [request a higher account concurrency limit](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-concurrency-limit-increase/ "https://aws.amazon.com/premiumsupport/knowledge-center/lambda-concurrency-limit-increase/"). View this metric using
-  **MAX**. For more information, see
-  [Working with the ClaimedAccountConcurrency metric](#claimed-account-concurrency "#claimed-account-concurrency").
+  [request a higher account concurrency limit](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-concurrency-limit-increase/ "https://aws.amazon.com/premiumsupport/knowledge-center/lambda-concurrency-limit-increase/").
+
+View this metric using
+**MAX**. For more information, see
+[Working with the ClaimedAccountConcurrency metric](#claimed-account-concurrency "#claimed-account-concurrency").
 
 ## Provisioned concurrency metrics
 
@@ -112,12 +114,12 @@ is 60, and the value of
 is 0.6.
 
 A high value for `ProvisionedConcurrencySpilloverInvocations`
-may indicate that you need to allocate additional provisioned concurrency for your
+might indicate that you need to allocate additional provisioned concurrency for your
 function. Alternatively, you can [configure Application Auto Scaling to handle automatic scaling of provisioned concurrency](provisioned-concurrency.md#managing-provisioned-concurency "provisioned-concurrency.md#managing-provisioned-concurency")
 based on pre-defined thresholds.
 
 Conversely, consistently low values for `ProvisionedConcurrencyUtilization`
-may indicate that you over-allocated provisioned concurrency for your function.
+might indicate that you over-allocated provisioned concurrency for your function.
 
 ## Working with the `ClaimedAccountConcurrency` metric
 
@@ -200,7 +202,7 @@ The following screenshot illustrates how you can graph this formula in CloudWatc
 The green `claim_utilization` line represents the concurrency
 utilization in this account, which is at around 40%:
 
-![A screenshot showing how you can use the ClaimedAccountConcurrency metric in CloudWatch.](images/claimed-account-concurrency-cloudwatch-graph.png)
+![Using the ClaimedAccountConcurrency metric in CloudWatch.](images/claimed-account-concurrency-cloudwatch-graph.png)
 
 The previous screenshot also includes a CloudWatch alarm that goes into
 `ALARM` state when the concurrency utilization exceeds 70%. You can

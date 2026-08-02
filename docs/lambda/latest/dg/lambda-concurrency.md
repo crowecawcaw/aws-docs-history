@@ -54,7 +54,7 @@ In the previous diagram, Lambda reuses the execution environment to handle the s
 (represented by the yellow circle with label `2`).
 
 So far, we've focused on just a single instance of your execution environment (that is, a concurrency of 1).
-In practice, Lambda may need to provision multiple execution environment instances in parallel to handle all
+In practice, Lambda might need to provision multiple execution environment instances in parallel to handle all
 incoming requests. When your function receives a new request, one of two things can happen:
 
 - If a pre-initialized execution environment instance is available, Lambda uses it to process the request.
@@ -62,7 +62,7 @@ incoming requests. When your function receives a new request, one of two things 
 
 For example, let's explore what happens when your function receives 10 requests:
 
-![A Lambda function provisioning multiple environments to handle 10 requests](images/concurrency-3-ten-requests.png)
+![A Lambda function provisioning multiple environments to handle 10 requests.](images/concurrency-3-ten-requests.png)
 
 In the previous diagram, each horizontal plane represents a single execution environment instance (labeled
 from `A` through `F`). Here's how Lambda handles each request:
@@ -212,7 +212,7 @@ The diagram has five points of interest:
   unreserved concurrency.
 - At `t3`, `function-orange` hits the max concurrency of 400. Although there is
   unused concurrency elsewhere in your account, `function-orange` cannot access it. The red line
-  indicates that `function-orange` is experiencing throttling, and Lambda may drop requests.
+  indicates that `function-orange` is experiencing throttling, and Lambda might drop requests.
 - At `t4`, `function-orange` starts to receive fewer requests and is no longer
   throttling. However, your other functions experience a spike in traffic and begin throttling. Although
   there is unused concurrency elsewhere in your account, these other functions cannot access it. The red
@@ -232,7 +232,7 @@ From this example, notice that reserving concurrency has the following effects:
   and upper bound - it reserves the specified capacity exclusively for your function while also preventing
   it from scaling beyond that limit. You can reserve concurrency to prevent your function
   from using all the available concurrency in your account, or from overloading downstream resources.
-- **You may not be able to use all of your account's available concurrency.**
+- **You might not be able to use all of your account's available concurrency.**
   Reserving concurrency counts towards your account concurrency limit, but this also means that other
   functions cannot use that chunk of reserved concurrency. If your function doesn't use up all of the
   concurrency that you reserve for it, you're effectively wasting that concurrency. This isn't an issue unless
@@ -243,7 +243,7 @@ To learn how to manage reserved concurrency settings for your functions, see [Co
 ### Provisioned concurrency
 
 You use reserved concurrency to define the maximum number of execution environments reserved for a Lambda function.
-However, none of these environments come pre-initialized. As a result, your function invocations may take longer
+However, none of these environments come pre-initialized. As a result, your function invocations might take longer
 because Lambda must first initialize the new environment before being able to use it to invoke your function.
 When Lambda has to initialize a new environment to carry out an invocation, this is known as a
 [cold start](lambda-runtime-environment.md#cold-start-latency "lambda-runtime-environment.md#cold-start-latency").
@@ -267,11 +267,11 @@ any given time, Lambda always ensures that the number of pre-initialized environ
 function's provisioned concurrency setting. Importantly, even if you're using provisioned concurrency, you can
 still experience a cold start delay if Lambda has to reset the execution environment.
 
-In contrast, when using reserved concurrency, Lambda may completely terminate an environment after a period of
+In contrast, when using reserved concurrency, Lambda might completely terminate an environment after a period of
 inactivity. The following diagram illustrates this by comparing the lifecycle of a single execution environment
 when you configure your function using reserved concurrency compared to provisioned concurrency.
 
-![Comparison of reserved concurrency and provisioned concurrency behavior](images/concurrency-7-reserved-vs-provisioned.png)
+![Comparison of reserved concurrency and provisioned concurrency behavior.](images/concurrency-7-reserved-vs-provisioned.png)
 
 The diagram has four points of interest:
 
@@ -297,7 +297,7 @@ The diagram has five points of interest:
 - At `t2`, `function-orange` reaches 400 concurrent requests. As a result,
   `function-orange` runs out of provisioned concurrency. However, since there's still unreserved
   concurrency available, Lambda can use this to handle additional requests to `function-orange`
-  (there's no throttling). Lambda must create new instances to serve these requests, and your function may
+  (there's no throttling). Lambda must create new instances to serve these requests, and your function might
   experience cold start latencies.
 - At `t3`, `function-orange` returns to 400 concurrent requests after a brief spike
   in traffic. Lambda is again able to handle all requests without cold start latencies.
@@ -326,7 +326,7 @@ This diagram has five points of interest:
   immediate invocation.
 - At `t2`, `function-orange` uses up all its provisioned concurrency.
   `function-orange` can continue serving requests using reserved concurrency, but these
-  requests may experience cold start latencies.
+  requests might experience cold start latencies.
 - At `t3`, `function-orange` reaches 400 concurrent requests. As a result,
   `function-orange` uses up all its reserved concurrency. Since `function-orange`
   cannot use unreserved concurrency, requests begin to throttle.

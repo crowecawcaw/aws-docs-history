@@ -1,6 +1,6 @@
 # Lambda Managed Instances
 
-Lambda Managed Instances enables you to run Lambda functions on your current-generation Amazon EC2 instances, including Graviton4, network-optimized instances, and other specialized compute options, without managing instance lifecycles, operating system and language runtime patching, routing, load balancing, or scaling policies. With Lambda Managed Instances, you benefit from EC2 pricing advantages, including EC2 Savings Plans and Reserved Instances.
+With Lambda Managed Instances, you can run Lambda functions on your current-generation Amazon EC2 instances, including Graviton4, network-optimized instances, and other specialized compute options, without managing instance lifecycles, operating system and language runtime patching, routing, load balancing, or scaling policies. With Lambda Managed Instances, you benefit from EC2 pricing advantages, including EC2 Savings Plans and Reserved Instances.
 
 For a list of supported instance types, go to the [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High "https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High") page and select your AWS Region.
 
@@ -30,7 +30,7 @@ Lambda Managed Instances uses capacity providers as the foundation for running y
 2. **Create your function** - Create Lambda functions as usual and attach them to a capacity provider
 3. **Publish a function version** - Function versions become active on capacity provider instances once published
 
-When you publish a function version with a capacity provider, Lambda launches Managed Instances in your account. It launches three instances by default for AZ resiliency and starts three execution environments before marking your function version ACTIVE. If you attach a function to an existing capacity provider that is already running other functions, Lambda may not spin up new instances if the available instances already have capacity to accommodate the new function's execution environments.
+When you publish a function version with a capacity provider, Lambda launches Managed Instances in your account. It launches three instances by default for AZ resiliency and starts three execution environments before marking your function version ACTIVE. If you attach a function to an existing capacity provider that is already running other functions, Lambda might not spin up new instances if the available instances already have capacity to accommodate the new function's execution environments.
 
 ## Concurrency model
 
@@ -47,7 +47,7 @@ Lambda Managed Instances functions run on [EC2 managed instances](../../../AWSEC
 - The presence of the `Operator` field in EC2 `DescribeInstances` output
 - The `aws:lambda:capacity-provider` tag on the instance
 
-You cannot perform standard EC2 operations directly on these instances, such as terminating them manually. To destroy managed instances, delete the associated capacity provider. Lambda will then terminate the instances as part of the capacity provider deletion process.
+You cannot perform standard EC2 operations directly on these instances, such as terminating them manually. To destroy managed instances, delete the associated capacity provider. Lambda then terminates the instances as part of the capacity provider deletion process.
 
 Managed instances are hidden from your EC2 console views and API list operations by default. You can adjust the visibility using the [managed resource visibility setting](../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md#managed-resource-visibility-settings "../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md#managed-resource-visibility-settings"). Managed instances remain fully operational and billable in your AWS account.
 
@@ -75,8 +75,13 @@ Lambda Managed Instances changes how Lambda processes requests compared to Lambd
 
 ## Next steps
 
+- Learn about [core concepts for Lambda Managed Instances](lambda-managed-instances-core-concepts.md "lambda-managed-instances-core-concepts.md")
+- [Get started with Lambda Managed Instances](lambda-managed-instances-getting-started.md "lambda-managed-instances-getting-started.md")
 - Learn about [capacity providers for Lambda Managed Instances](lambda-managed-instances-capacity-providers.md "lambda-managed-instances-capacity-providers.md")
 - Understand [scaling for Lambda Managed Instances](lambda-managed-instances-scaling.md "lambda-managed-instances-scaling.md")
+- Review [supported runtimes](lambda-managed-instances-runtimes.md "lambda-managed-instances-runtimes.md")
 - Review runtime-specific guides for [Java](lambda-managed-instances-java-runtime.md "lambda-managed-instances-java-runtime.md"), [Node.js](lambda-managed-instances-nodejs-runtime.md "lambda-managed-instances-nodejs-runtime.md"), and [Python](lambda-managed-instances-python-runtime.md "lambda-managed-instances-python-runtime.md")
 - Configure [VPC connectivity for your capacity providers](lambda-managed-instances-networking.md "lambda-managed-instances-networking.md")
 - Understand [security and permissions for Lambda Managed Instances](lambda-managed-instances-security.md "lambda-managed-instances-security.md")
+- Review [quotas and limits](lambda-managed-instances-quotas.md "lambda-managed-instances-quotas.md")
+- [Troubleshoot Lambda Managed Instances](lambda-managed-instances-troubleshooting.md "lambda-managed-instances-troubleshooting.md")

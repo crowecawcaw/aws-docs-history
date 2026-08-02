@@ -120,6 +120,6 @@ metric. See [Using CloudWatch metrics with Lambda](monitoring-metrics.md "monito
 for more details.
 
 You should also be familiar with your upstream and downstream throughput constraints.
-While Lambda functions scale seamlessly with load, upstream and downstream dependencies may not have the
+While Lambda functions scale seamlessly with load, upstream and downstream dependencies might not have the
 same throughput capabilities. If you need to limit how high your function can scale, configure reserved
 concurrency on your function.

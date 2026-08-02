@@ -6,7 +6,7 @@ and help you select the right database service for your serverless application.
 
 To learn more about the other database services offered by AWS, and to understand their use cases and tradeoffs more generally, see
 [Choosing an AWS database service](../../../decision-guides/latest/databases-on-aws-how-to-choose/databases-on-aws-how-to-choose.md "../../../decision-guides/latest/databases-on-aws-how-to-choose/databases-on-aws-how-to-choose.md"). All of the
-AWS database services are compatible with Lambda, but not all of them may be suited to your particular use case.
+AWS database services are compatible with Lambda, but not all of them might be suited to your particular use case.
 
 ## What are your choices when selecting a database service with Lambda?
 
@@ -58,7 +58,7 @@ By understanding these factors, you can select the option that best meets the ne
 
 - DynamoDB scales automatically with your workload. It can handle sudden spikes in traffic from Lambda functions without pre-provisioning. You can use on-demand capacity mode to
   pay only for what you use, perfectly matching Lambda's scaling model.
-- Amazon RDS has fixed capacity based on the instance size you choose. If multiple Lambda functions try to connect simultaneously, you may exceed your connection quota.
+- Amazon RDS has fixed capacity based on the instance size you choose. If multiple Lambda functions try to connect simultaneously, you might exceed your connection quota.
   You need to carefully manage connection pools and potentially implement retry logic.
 
 - DynamoDB's pricing aligns well with serverless applications. With on-demand capacity, you pay only for the actual reads and writes performed by your Lambda functions. There are no charges for idle time.

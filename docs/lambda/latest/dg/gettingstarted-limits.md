@@ -19,7 +19,7 @@ To see the quotas that apply to your account, navigate to the
 your service quotas, request a quota increase, and view current utilization. From here, you can drill down to a
 specific AWS service, such as Lambda:
 
-![The Service Quotas console showing Lambda quotas with current utilization](images/application-design-figure-1.png)
+![The Service Quotas console showing Lambda quotas with current utilization.](images/application-design-figure-1.png)
 The following sections list default quotas and limits in Lambda by category.
 
 ###### Topics
@@ -162,6 +162,6 @@ second, whereas Lambda has a default concurrency limit of 1,000. Because of this
 to have more incoming requests from API Gateway that Lambda can handle. You can resolve this by requesting
 a Lambda concurrency limit increase to match the expected level of traffic.
 
-Load testing your application allows you to monitor the performance of your application end-to-end
+Load testing your application helps you monitor the performance of your application end-to-end
 before deploying to production. During a load test, you can identify any quotas that may act as a
 limiting factor for the traffic levels you expect and take action accordingly.

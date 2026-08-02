@@ -20,7 +20,7 @@ low latency:
 
 ### Provisioned mode configuration
 
-In provisioned mode for Kafka event source mapping, Lambda allows you to fine-tune
+In provisioned mode for Kafka event source mapping, you can fine-tune
 the throughput of your event source mapping by configuring a minimum and maximum
 number of resources called **event pollers**. An event
 poller (or **a poller**) represents a compute resource
@@ -57,10 +57,10 @@ Some of the additional considerations include:
   [SnapStart](snapstart.md "snapstart.md") on your event source
   mapping's target function. Additionally, optimize your function's memory
   allocation to ensure consistent and optimal executions.
-- When `MaximumBatchingWindowInSeconds` is set to 0, Lambda will
-  immediately process any available records without waiting to fill the
+- When `MaximumBatchingWindowInSeconds` is set to 0, Lambda
+  immediately processes any available records without waiting to fill the
   complete batch size. For example, if your batch size is set to 1,000 records
-  but only 100 records are available, Lambda will process those 100 records
+  but only 100 records are available, Lambda processes those 100 records
   immediately rather than waiting for the full 1,000 records to
   accumulate.
 

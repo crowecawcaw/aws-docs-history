@@ -10,9 +10,9 @@ When an invocation fails, Lambda attempts to retry the invocation while implemen
 The backoff strategy differs slightly depending on whether Lambda encountered the failure due to an error in
 your function code, or due to throttling.
 
-- If your **function code** caused the error, Lambda will stop processing and retrying the invocation.
+- If your **function code** caused the error, Lambda stops processing and retrying the invocation.
   In the meantime, Lambda gradually backs off, reducing the amount of concurrency allocated to your Amazon SQS event source mapping.
-  After your queue's visibility timeout runs out, the message will again reappear in the queue.
+  After your queue's visibility timeout runs out, the message reappears in the queue.
 - If the invocation fails due to **throttling**, Lambda gradually backs off
   retries by reducing the amount of concurrency allocated to your Amazon SQS event source mapping. Lambda continues
   to retry the message until the message's timestamp exceeds your queue's visibility timeout, at which point
@@ -28,12 +28,12 @@ To avoid reprocessing successfully processed messages in a failed batch, you can
 source mapping to make only the failed messages visible again. This is called a partial batch response.
 To turn on partial batch responses, specify `ReportBatchItemFailures` for the
 [FunctionResponseTypes](../api/API_UpdateEventSourceMapping.md#lambda-UpdateEventSourceMapping-request-FunctionResponseTypes "../api/API_UpdateEventSourceMapping.md#lambda-UpdateEventSourceMapping-request-FunctionResponseTypes")
-action when configuring your event source mapping. This lets your function
-return a partial success, which can help reduce the number of unnecessary retries on records.
+action when configuring your event source mapping. With this setting, your function
+can return a partial success, which can help reduce the number of unnecessary retries on records.
 
 ###### Note
 
-The [Batch Processor utility](https://docs.powertools.aws.dev/lambda/python/latest/utilities/batch/ "https://docs.powertools.aws.dev/lambda/python/latest/utilities/batch/") from Powertools for AWS Lambda handles all
+The [Batch Processor utility](../../../powertools/python/latest/utilities/batch.md "../../../powertools/python/latest/utilities/batch.md") from Powertools for AWS Lambda handles all
 of the partial batch response logic automatically. This utility simplifies implementing batch processing patterns and reduces the custom code needed to handle batch item failures correctly.
 It is available for Python, Java, Typescript, and .NET.
 
@@ -517,7 +517,7 @@ implementing batch failure reporting. Here are examples using the batch processo
 
 ###### Note
 
-For complete examples and setup instructions, see the [batch processor documentation](https://docs.powertools.aws.dev/lambda/python/latest/utilities/batch/ "https://docs.powertools.aws.dev/lambda/python/latest/utilities/batch/").
+For complete examples and setup instructions, see the [batch processor documentation](../../../powertools/python/latest/utilities/batch.md "../../../powertools/python/latest/utilities/batch.md").
 
 Processing Amazon SQS messages with AWS Lambda batch processor.
 

@@ -82,7 +82,7 @@ aws cloudformation deploy \
 
 ### AWS CDK
 
-AWS CDK lets you define infrastructure using programming languages. The following examples show how to create a durable function using TypeScript and Python.
+With AWS CDK, you can define infrastructure using programming languages. The following examples show how to create a durable function using TypeScript and Python.
 
 TypeScript
 
@@ -306,7 +306,7 @@ You can also create Durable functions based off of container images. For instruc
 
 ### AWS CDK
 
-AWS CDK lets you define infrastructure using programming languages. The following examples show how to create a durable function using TypeScript from a container image.
+With AWS CDK, you can define infrastructure using programming languages. The following examples show how to create a durable function using TypeScript from a container image.
 
 ```
 import * as cdk from 'aws-cdk-lib';

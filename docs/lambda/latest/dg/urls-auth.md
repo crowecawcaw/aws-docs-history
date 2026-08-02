@@ -232,8 +232,8 @@ If you delete a function URL with auth type `NONE`, Lambda doesn't automatically
 delete the associated resource-based policy. If you want to delete this policy, you must manually do so.
 
 If a function's resource-based policy doesn't grant `lambda:invokeFunctionUrl`
-and `lambda:InvokeFunction` permissions, users will get a 403 Forbidden error code
-when they try to invoke your function URL. This will occur even if the function URL uses the
+and `lambda:InvokeFunction` permissions, users get a 403 Forbidden error code
+when they try to invoke your function URL. This occurs even if the function URL uses the
 `NONE` auth type.
 
 ## Governance and access control

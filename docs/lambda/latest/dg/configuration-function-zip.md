@@ -135,7 +135,7 @@ When updating function code from an Amazon S3 bucket using the AWS CLI, you can 
 
 ## Changing the runtime
 
-If you update the function configuration to use a new runtime, you may need to update the function
+If you update the function configuration to use a new runtime, you might need to update the function
 code to be compatible with the new runtime. If you update the function configuration to use a different runtime,
 you **must** provide new function code that is compatible with the runtime and
 architecture. For instructions on how to create a deployment package for the function code, see the handler page
@@ -163,7 +163,7 @@ Compute Blog.
 Before you can change the instruction set architecture, you need to ensure that your function's code is
 compatible with the target architecture.
 
-If you use Node.js, Python, or Ruby and you edit your function code in the embedded editor, the existing code may run without modification.
+If you use Node.js, Python, or Ruby and you edit your function code in the embedded editor, the existing code might run without modification.
 
 However, if you provide your function code using a .zip file archive deployment package, you must prepare a
 new .zip file archive that is compiled and built correctly for the target runtime and instruction-set

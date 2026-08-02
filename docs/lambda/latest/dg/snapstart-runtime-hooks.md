@@ -7,7 +7,8 @@ from a snapshot. Runtime hooks are useful for a variety of purposes, such as:
 - **Dynamic configuration:** You can use runtime hooks to dynamically update configuration or other metadata before a snapshot is created or after it is restored. This can be useful if your function needs to adapt to changes in the runtime environment.
 - **External integrations:** You can use runtime hooks to integrate with external services or systems, such as sending notifications or updating external state, as part of the checkpointing and restoration process.
 - **Performance tuning:** You can use runtime hooks to fine-tune your function's startup sequence, such as by preloading dependencies. For more information, see [Performance tuning](snapstart-best-practices.md#snapstart-tuning "snapstart-best-practices.md#snapstart-tuning").
-  The following pages explain how to implement runtime hooks for your preferred runtime.
+  The following pages explain how to implement runtime hooks for your preferred runtime. For Java-specific
+  instructions, see [Lambda SnapStart runtime hooks for Java](snapstart-runtime-hooks-java.md "snapstart-runtime-hooks-java.md").
 
 ###### Topics
 

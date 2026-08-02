@@ -72,7 +72,7 @@ archive, the total unzipped size of the function and all extensions cannot excee
 size limit of 250 MB.
 
 Extensions can impact the performance of your function because they share function resources such as CPU,
-memory, and storage. For example, if an extension performs compute-intensive operations, you may see your
+memory, and storage. For example, if an extension performs compute-intensive operations, you might see your
 function's execution duration increase.
 
 Each extension must complete its initialization before Lambda invokes the function. Therefore, an extension

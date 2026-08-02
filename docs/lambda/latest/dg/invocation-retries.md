@@ -24,7 +24,7 @@ more information, see [How Lambda processes records from stream and queue-based 
 - **AWS services** – AWS services can invoke your function [synchronously](invocation-sync.md "invocation-sync.md") or asynchronously. For synchronous invocation, the service
   decides whether to retry. For example, Amazon S3 batch operations retries the operation if the Lambda function
   returns a `TemporaryFailure` response code. Services that proxy requests from an upstream user or
-  client may have a retry strategy or may relay the error response back to the requester. For example, API Gateway
+  client might have a retry strategy or might relay the error response back to the requester. For example, API Gateway
   always relays the error response back to the requester.
 
 For asynchronous invocation, the retry logic is the same regardless of the invocation source. By default, Lambda retries a failed asynchronous invocation up to two times. For more information, see [How Lambda handles errors and retries with asynchronous invocation](invocation-async-error-handling.md "invocation-async-error-handling.md").

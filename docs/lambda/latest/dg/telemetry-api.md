@@ -28,7 +28,7 @@ of these APIs, any attempt to subscribe using the other API returns an error.
 Lambda Managed Instances support only the `2025-01-29` schema version of the Telemetry API.
 When subscribing to telemetry streams for Managed Instance functions, you **must**
 use `"schemaVersion": "2025-01-29"` in your subscription request. Using previous schema versions
-will result in events being rejected by Lambda.
+results in events being rejected by Lambda.
 
 The `2025-01-29` schema version is backward compatible and can be used with both Lambda
 Managed Instances and Lambda (default) functions. We recommend using this version for all new extensions to
@@ -84,7 +84,7 @@ Here is each step in more detail:
    listener to send telemetry data to your extension. For more information, see [Creating a telemetry listener](#telemetry-api-listener "#telemetry-api-listener").
 3. Using the Subscribe API in the Telemetry API, subscribe your extension to the desired telemetry streams.
    You'll need the URI of your telemetry listener for this step. For more information, see [Sending a subscription request to the Telemetry API](#telemetry-api-subscription "#telemetry-api-subscription").
-4. Get telemetry data from Lambda via the telemetry listener. You can do any custom processing of this data,
+4. Get telemetry data from Lambda through the telemetry listener. You can do any custom processing of this data,
    such as dispatching the data to Amazon S3 or to an external observability service.
 
 ###### Note
@@ -306,7 +306,7 @@ HTTP/1.1 200 OK
 ## Inbound Telemetry API messages
 
 After subscribing using the Telemetry API, an extension automatically starts to receive telemetry from Lambda
-via POST requests. Each POST request body contains an array of `Event` objects. Each `Event`
+through POST requests. Each POST request body contains an array of `Event` objects. Each `Event`
 has the following schema:
 
 ```

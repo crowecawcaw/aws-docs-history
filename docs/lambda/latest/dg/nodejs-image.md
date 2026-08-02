@@ -334,16 +334,19 @@ exports.handler = async (event) => {
    image instead of an [AWS base image](images-create.md#runtimes-images-lp "images-create.md#runtimes-images-lp"). The
    Dockerfile includes the [runtime
    interface client](https://www.npmjs.com/package/aws-lambda-ric "https://www.npmjs.com/package/aws-lambda-ric"), which makes the image compatible with Lambda. The
-   Dockerfile uses a [multi-stage build](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds"). The first stage creates a build image, which is a
-   standard Node.js environment where the function's dependencies are installed. The
-   second stage creates a slimmer image which includes the function code and its
-   dependencies. This reduces the final image size.
+   Dockerfile uses a [multi-stage build](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds").
 
-   - Set the `FROM` property to the base image identifier.
-   - Use the `COPY` command to copy the function code and runtime dependencies.
-   - Set the `ENTRYPOINT` to the module that you want the Docker container to run when it starts. In this case, the module is the runtime interface client.
-   - Set the `CMD` argument to the Lambda function handler.
-     Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user "https://docs.docker.com/reference/dockerfile/#user"). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.
+The first stage creates a build image, which is a
+standard Node.js environment where the function's dependencies are installed. The
+second stage creates a slimmer image which includes the function code and its
+dependencies. This reduces the final image size.
+
+    * Set the `FROM` property to the base image identifier.
+    * Use the `COPY` command to copy the function code and runtime dependencies.
+    * Set the `ENTRYPOINT` to the module that you want the Docker container to run when it starts. In this case, the module is the runtime interface client.
+    * Set the `CMD` argument to the Lambda function handler.
+
+Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user "https://docs.docker.com/reference/dockerfile/#user"). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.
 
 ###### Example Dockerfile
 

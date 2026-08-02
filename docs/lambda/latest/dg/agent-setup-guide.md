@@ -134,11 +134,11 @@ Add the following to `~/.kiro/settings/mcp.json` under `"mcpServers"`. Replace
 Install the following Kiro powers that provide specialized contexts and tools to
 the Kiro agents on-demand:
 
-- **Serverless Application Model (SAM)** — install via
+- **Serverless Application Model (SAM)** — install through
   [Kiro powers link](https://kiro.dev/launch/powers/add/?name=aws-sam "https://kiro.dev/launch/powers/add/?name=aws-sam").
-- **Lambda Managed Instances** — install via
+- **Lambda Managed Instances** — install through
   [Kiro powers link](https://kiro.dev/launch/powers/add/?name=aws-lambda-managed-instances "https://kiro.dev/launch/powers/add/?name=aws-lambda-managed-instances").
-- **Lambda Durable Functions** — install via
+- **Lambda Durable Functions** — install through
   [Kiro powers link](https://kiro.dev/launch/powers/add/?name=aws-lambda-durable-functions "https://kiro.dev/launch/powers/add/?name=aws-lambda-durable-functions").
 
 ## GitHub Copilot
@@ -259,7 +259,7 @@ The Agent Toolkit for AWS includes specialized serverless skills that give your 
 npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/aws-lambda-microvms --yes --global
 ```
 
-2. **Lambda Managed Instances skill** — Lambda Managed Instances lets you run Lambda functions on your Amazon EC2 instances while maintaining Lambda's operational simplicity, giving you access to specialized compute configurations and cost efficiency through Amazon EC2 pricing advantages without managing infrastructure.
+2. **Lambda Managed Instances skill** — With Lambda Managed Instances, you can run Lambda functions on your Amazon EC2 instances while maintaining Lambda's operational simplicity, giving you access to specialized compute configurations and cost efficiency through Amazon EC2 pricing advantages without managing infrastructure.
 
 ```
 npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/aws-lambda-managed-instances --yes --global

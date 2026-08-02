@@ -6,7 +6,7 @@
 
 **Problem:** You experience throttling errors (HTTP 429) during normal operations.
 
-**Cause:** Lambda Managed Instances may reject new invokes to protect invokes that are already in flight. If your execution environments have consistently high utilization, new invocations may be throttled.
+**Cause:** Lambda Managed Instances might reject new invokes to protect invokes that are already in flight. If your execution environments have consistently high utilization, new invocations might be throttled.
 
 **Solution:**
 
@@ -36,7 +36,7 @@ aws lambda update-function \
 
 **Problem:** You experience throttling errors (HTTP 429) when traffic increases rapidly.
 
-**Cause:** Lambda Managed Instances scale asynchronously based on CPU resource utilization and multi-concurrency saturation. If your traffic more than doubles within 5 minutes, you may see throttles as Lambda scales up instances and execution environments to meet demand.
+**Cause:** Lambda Managed Instances scale asynchronously based on CPU resource utilization and multi-concurrency saturation. If your traffic more than doubles within 5 minutes, you might see throttles as Lambda scales up instances and execution environments to meet demand.
 
 **Solutions:**
 
@@ -84,7 +84,7 @@ This is expected behavior. Lambda scales down instances conservatively to ensure
 
 **Problem:** Your functions experience throttling despite having available capacity.
 
-**Cause:** Execution environments with very low maximum concurrency may have difficulty scaling effectively. Lambda Managed Instances are designed for multi-concurrent applications.
+**Cause:** Execution environments with very low maximum concurrency might have difficulty scaling effectively. Lambda Managed Instances are designed for multi-concurrent applications.
 
 **Solutions:**
 
@@ -167,7 +167,7 @@ For detailed guidance, see the [Python runtime for Lambda Managed Instances](lam
 
 **Problem:** Function performance varies significantly between invocations.
 
-**Cause:** Lambda may select different instance types based on availability, or functions may be running on instances with varying resource availability.
+**Cause:** Lambda might select different instance types based on availability, or functions might be running on instances with varying resource availability.
 
 **Solution:**
 
@@ -216,7 +216,7 @@ Wait for Lambda to complete the initialization process. Lambda launches three in
 
 **Problem:** You don't see expected metrics in CloudWatch for your capacity provider or functions.
 
-**Cause:** Metrics are published at 5-minute intervals. New capacity providers or functions may not have metrics available immediately.
+**Cause:** Metrics are published at 5-minute intervals. New capacity providers or functions might not have metrics available immediately.
 
 **Solution:**
 

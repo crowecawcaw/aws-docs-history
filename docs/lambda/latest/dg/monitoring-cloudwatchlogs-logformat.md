@@ -61,7 +61,7 @@ always JSON and cannot be changed.
 
 If you're already using logging libraries like Powertools for AWS Lambda to generate your function logs in JSON structured format, you
 don't need to change your code if you select JSON log formatting. Lambda doesn't double-encode any logs that are already JSON encoded, so
-your function's application logs will continue to be captured as before.
+your function's application logs continue to be captured as before.
 
 ## JSON format for system logs
 
@@ -115,8 +115,8 @@ captured as a JSON object that contains key value pairs with the following keys.
 - `"requestId"` (Python, .NET, and Node.js) or `"AWSrequestId"` (Java) - the unique request ID for the function
   invocation
 
-Depending on the runtime and logging method that your function uses, this JSON object may also contain additional key pairs. For example,
-in Node.js, if your function uses `console` methods to log error objects using multiple arguments, The JSON object will contain extra
+Depending on the runtime and logging method that your function uses, this JSON object might also contain additional key pairs. For example,
+in Node.js, if your function uses `console` methods to log error objects using multiple arguments, The JSON object contains extra
 key value pairs with the keys `errorMessage`, `errorType`, and `stackTrace`. To learn more about JSON formatted
 logs in different Lambda runtimes, see [Log and monitor Python Lambda functions](python-logging.md "python-logging.md"), [Log and monitor Node.js Lambda functions](nodejs-logging.md "nodejs-logging.md"), and [Log and monitor Java Lambda functions](java-logging.md "java-logging.md").
 
@@ -153,7 +153,7 @@ commands, the AWS Serverless Application Model (AWS SAM) [AWS::Serverless::Funct
 resource, and the CloudFormation [AWS::Lambda::Function](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md")
 resource.
 
-Changing your function's log format doesn't affect existing logs stored in CloudWatch Logs. Only new logs will use the updated format.
+Changing your function's log format doesn't affect existing logs stored in CloudWatch Logs. Only new logs use the updated format.
 
 If you change your function's log format to JSON and do not set log level, then Lambda automatically sets your function's application log
 level and system log level to INFO.
@@ -203,7 +203,7 @@ compatibility with your function's embedded metrics. For further advice about no
 - To configure log format when you create a new function, use the `--logging-config` option in the [create-function](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html")
   command. Set `LogFormat` to either `JSON` or `Text`. The following example command creates a Node.js function that outputs logs in structured JSON.
 
-If you don't specify a log format when you create a function, Lambda will use the default log format for the runtime version you
+If you don't specify a log format when you create a function, Lambda uses the default log format for the runtime version you
 select. For information about default logging formats, see [Default log formats](#monitoring-cloudwatchlogs-format-default "#monitoring-cloudwatchlogs-format-default").
 
 ```

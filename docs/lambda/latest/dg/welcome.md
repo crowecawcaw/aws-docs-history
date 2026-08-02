@@ -1,6 +1,6 @@
 # What is AWS Lambda?
 
-AWS Lambda is a serverless compute service that lets you run code without
+AWS Lambda is a serverless compute service. With Lambda, you can run code without
 provisioning or managing servers. Lambda automatically manages the underlying
 infrastructure – including server maintenance, capacity provisioning,
 scaling, and patching – so you can focus on your application
@@ -52,7 +52,7 @@ cases:
 | **Runtime environment** | Service-provided language runtimes; support for<br>customer-provided runtimes                               | Customer-provided MicroVM images                                                              |
 | **Inbound Networking**  | Direct invocations or event-source integrations with AWS<br>services; support for response streaming        | Inbound access to any port using OSI Layer 7<br>protocols                                     |
 | **Concurrency**         | One request per execution environment at a time                                                             | Multiple concurrent connections per MicroVM                                                   |
-| **Environment State**   | Execution environments may be reused (warm starts), but state<br>may not persist across invocations         | Memory and disk state preserved on suspend; restored on<br>resume                             |
+| **Environment State**   | Execution environments can be reused (warm starts), but state<br>might not persist across invocations       | Memory and disk state preserved on suspend; restored on<br>resume                             |
 | **Scaling**             | Automatic – Lambda creates and destroys execution<br>environments in response to traffic                    | Developer-controlled – you create, suspend, resume, and<br>terminate MicroVMs through the API |
 | **Lifecycle**           | Fully managed by Lambda                                                                                     | Developer-controlled; optional idle policies for automatic<br>suspend-resume                  |
 | **Pricing**             | Per-request + GB-seconds of execution time                                                                  | Per-second of compute while running + snapshot storage while<br>suspended                     |

@@ -93,7 +93,7 @@ python/              *# Required top-level directory*
 
 ###### Note
 
-If you use a Python virtual environment (venv) to install packages, your directory structure will be different (for example, `python/lib/python3.`x`/site-packages`). As long as your .zip file includes the `python` directory at the root level, Lambda can locate and import your packages.
+If you use a Python virtual environment (venv) to install packages, your directory structure is different (for example, `python/lib/python3.`x`/site-packages`). As long as your .zip file includes the `python` directory at the root level, Lambda can locate and import your packages.
 
 ###### To create a layer using your own code
 

@@ -7,7 +7,9 @@ function. This invocation causes the function to write another message to the qu
 Unintentional recursive loops can result in unexpected charges being billed to your AWS account. Loops can
 also cause Lambda to [scale](lambda-concurrency.md "lambda-concurrency.md") and use all of your account's available
 concurrency. To help reduce the impact of unintentional loops, Lambda detects certain types of recursive loops
-shortly after they occur. By default, when Lambda detects a recursive loop, it stops your function being invoked and notifies
+shortly after they occur.
+
+By default, when Lambda detects a recursive loop, it stops your function being invoked and notifies
 you. If your design intentionally uses recursive patterns, you can a change a function's default configuration to allow it to be
 invoked recursively. See [Allowing a Lambda function to run in a recursive loop](#invocation-recursion-disable "#invocation-recursion-disable") for more information.
 
@@ -58,8 +60,8 @@ value on the message. Lambda continues to retry the message, and continues to bl
 If you have an [on-failure destination](invocation-async-retain-records.md#invocation-async-destinations "invocation-async-retain-records.md#invocation-async-destinations") or [dead-letter queue](invocation-async-retain-records.md#invocation-dlq "invocation-async-retain-records.md#invocation-dlq") configured for your function, then Lambda also sends the event from the stopped
 invocation to your destination or dead-letter queue. When configuring a destination or dead-letter queue for your function,
 be sure not to use an event trigger or event source mapping that your function also uses. If you send events to the same
-resource that invokes your function, then you can create another recursive loop and this loop will also be terminated.
-If you opt out of recursion loop detection, this loop will not be terminated.
+resource that invokes your function, then you can create another recursive loop and this loop is also terminated.
+If you opt out of recursion loop detection, this loop is not terminated.
 
 ## Supported AWS services and SDKs
 
@@ -69,7 +71,7 @@ detected, your function must also use one of the supported AWS SDKs.
 ### Supported AWS services
 
 Lambda currently detects recursive loops between your functions, Amazon SQS, Amazon S3, and Amazon SNS. Lambda also detects loops comprised only
-of Lambda functions, which may invoke each other synchronously or asynchronously. The following diagrams show some examples of loops that Lambda can detect:
+of Lambda functions, which might invoke each other synchronously or asynchronously. The following diagrams show some examples of loops that Lambda can detect:
 
 ![Diagrams of recursive loops between a Lambda function, Amazon SNS, Amazon S3, and an Amazon SQS queue.](images/RunawayWorkloadDetected_v3.png)
 

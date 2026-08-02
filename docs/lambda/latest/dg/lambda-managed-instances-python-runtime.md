@@ -8,7 +8,7 @@ The maximum number of concurrent requests which Lambda sends to each execution e
 
 ###### Important
 
-Using process-based concurrency means each runtime worker process performs its own initialization. Total memory usage equals the per-process memory multiplied by the number of concurrent processes. If you are loading large libraries or data sets and have high concurrency, you will have a large memory footprint. According to your workload, you may need to tune your CPU-to-memory ratio or use a lower concurrency setting to avoid exceeding the available memory. You can use the `MemoryUtilization` metric in CloudWatch to track memory consumption.
+Using process-based concurrency means each runtime worker process performs its own initialization. Total memory usage equals the per-process memory multiplied by the number of concurrent processes. If you are loading large libraries or data sets and have high concurrency, you have a large memory footprint. According to your workload, you might need to tune your CPU-to-memory ratio or use a lower concurrency setting to avoid exceeding the available memory. You can use the `MemoryUtilization` metric in CloudWatch to track memory consumption.
 
 ## Building functions for multi-concurrency
 
@@ -65,7 +65,7 @@ def handler(event, context):
 
 ## Initialization and shutdown
 
-Function initialization occurs once per process. You may see repeat log entries if your function emits logs during initialization.
+Function initialization occurs once per process. You might see repeat log entries if your function emits logs during initialization.
 
 For Lambda functions with extensions, the execution environment emits a SIGTERM signal during shut down. This signal is used by extensions to trigger clean up tasks, such as flushing buffers. You can subscribe to SIGTERM events to trigger function clean-up tasks, such as closing database connections. To learn more about the execution environment lifecycle, see [Understanding the Lambda execution environment lifecycle](lambda-runtime-environment.md "lambda-runtime-environment.md").
 

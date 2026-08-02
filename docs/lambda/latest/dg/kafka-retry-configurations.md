@@ -88,7 +88,7 @@ Use the `update-event-source-mapping` command to modify retry configurations for
 
 Partial batch response, also known as ReportBatchItemFailures, is a key feature for error handling in Lambda's integration with Kafka sources. Without this feature, when an error occurs in one of the items in a batch, it results in reprocessing all messages in that batch. With partial batch response enabled and implemented, the handler returns identifiers only for the failed messages, allowing Lambda to retry just those specific items. This provides greater control over how batches containing failed messages are processed.
 
-To report batch errors, you will use this JSON schema:
+To report batch errors, use this JSON schema:
 
 ```
 {
@@ -106,7 +106,7 @@ To report batch errors, you will use this JSON schema:
 
 ###### Important
 
-If you return an empty valid JSON or null, the event source mapping will consider a batch as successfully processed. Any invalid topic-partition\_number or offset returned that was not present in the invoked event will be treated as failure and entire batch will be retried.
+If you return an empty valid JSON or null, the event source mapping considers a batch as successfully processed. Any invalid topic-partition\_number or offset returned that was not present in the invoked event is treated as failure and the entire batch is retried.
 
 The following code examples show how to implement partial batch response for Lambda functions that receive events from Kafka sources. The function reports the batch item failures in the response, signaling to Lambda to retry those messages later.
 

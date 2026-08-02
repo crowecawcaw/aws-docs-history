@@ -1,7 +1,7 @@
 # Using the Lambda metadata endpoint
 
-The Lambda metadata endpoint lets your functions discover which Availability Zone (AZ) they are running in,
-enabling you to optimize latency by routing to same-AZ resources like Amazon ElastiCache and Amazon RDS endpoints,
+With the Lambda metadata endpoint, your functions can discover which Availability Zone (AZ) they are running in.
+You can use this to optimize latency by routing to same-AZ resources like Amazon ElastiCache and Amazon RDS endpoints,
 and to implement AZ-aware resilience patterns.
 
 The endpoint returns metadata in a simple JSON format through a localhost HTTP API within the execution
@@ -144,7 +144,7 @@ echo "Function is running in AZ ID: $AZ_ID"
 ## Understanding Availability Zone IDs
 
 AZ IDs (for example, `use1-az1`) always refer to the same physical location across all AWS accounts,
-while AZ names (for example, `us-east-1a`) may map to different physical infrastructure in each AWS
+while AZ names (for example, `us-east-1a`) might map to different physical infrastructure in each AWS
 account in certain regions. For more information, see
 [AZ IDs for cross-account consistency](../../../global-infrastructure/latest/regions/az-ids.md "../../../global-infrastructure/latest/regions/az-ids.md").
 
@@ -190,7 +190,7 @@ Lambda automatically sets the following environment variables in every execution
 
 The response is immutable within an execution environment. Clients should cache the response and respect
 the `Cache-Control` TTL. For SnapStart functions, the TTL is reduced during initialization so that
-clients refresh metadata after restore when the execution environment may be in a different AZ. If you use
+clients refresh metadata after restore when the execution environment might be in a different AZ. If you use
 Powertools, caching and SnapStart invalidation are handled automatically.
 
 **Body:**
@@ -206,7 +206,7 @@ where the execution environment is running.
 
 ###### Note
 
-Additional fields may be added to the response in future updates. Clients should ignore unknown
+Additional fields might be added to the response in future updates. Clients should ignore unknown
 fields and not fail if new fields appear.
 
 ### Error responses

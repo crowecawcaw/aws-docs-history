@@ -36,7 +36,7 @@ There are two ways to use secrets for cross-account Amazon MSK event source mapp
 
 - Create a secret in the Lambda function account and sync it with the cluster secret.
   [Create a rotation](../../../secretsmanager/latest/userguide/rotating-secrets.md "../../../secretsmanager/latest/userguide/rotating-secrets.md")
-  to keep the two secrets in sync. This option allows you to control the secret from the function account.
+  to keep the two secrets in sync. This option gives you control over the secret from the function account.
 - Use the secret that's associated with the MSK cluster. This secret must allow cross-account
   access to the Lambda function account. For more information, see [Permissions to AWS Secrets Manager
   secrets for users in a different account](../../../secretsmanager/latest/userguide/auth-and-access_examples_cross.md "../../../secretsmanager/latest/userguide/auth-and-access_examples_cross.md").

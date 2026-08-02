@@ -179,7 +179,7 @@ JSON
 5. Create a second Lambda function and add a different tag, such as `environment`. This operation should fail because the ABAC policy that you created in [Step 1: Require tags on new functions](#require-tag-on-create "#require-tag-on-create") only allows the principal to create functions with the `project` tag.
 6. Create a third function without tags. This operation should fail because the ABAC policy that you created in [Step 1: Require tags on new functions](#require-tag-on-create "#require-tag-on-create") doesn't allow the principal to create functions without tags.
 
-This authorization strategy allows you to control access without creating new policies for each new user. To grant access to new users, simply give them permission to assume the role that corresponds to their assigned project.
+With this authorization strategy, you can control access without creating new policies for each new user. To grant access to new users, simply give them permission to assume the role that corresponds to their assigned project.
 
 ## Step 8: Clean up your resources
 

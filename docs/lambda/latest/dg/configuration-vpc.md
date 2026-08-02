@@ -318,7 +318,7 @@ transitions to the Active state only when the Hyperplane ENI is ready, which can
 additional operations that target the function, such as creating versions or updating the function's code, but you can continue to invoke previous
 versions of the function.
 
-As part of managing the ENI lifecycle, Lambda may delete and recreate ENIs to load balance network traffic across ENIs or to address issues found
+As part of managing the ENI lifecycle, Lambda might delete and recreate ENIs to load balance network traffic across ENIs or to address issues found
 in ENI health-checks. Additionally, if a Lambda function remains idle for 14 days, Lambda reclaims any unused Hyperplane ENIs and sets the function state to `Inactive`. The next invocation attempt will fail, and the function re-enters the Pending state until Lambda completes the creation or allocation of a Hyperplane ENI. We recommend that your design doesn't rely on the persistence of ENIs.
 
 When you update a function to remove its VPC configuration, Lambda requires up to 20 minutes to delete the

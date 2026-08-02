@@ -41,7 +41,7 @@ In the Lambda console, you can send function logs directly to Firehose after cre
 
 ###### Note
 
-If the IAM role provided in the console doesn't have the required permission, then the destination setup will fail. To fix this, refer to Required permissions for Firehose log destination to provide the required permissions.
+If the IAM role provided in the console doesn't have the required permission, then the destination setup fails. To fix this, refer to Required permissions for Firehose log destination to provide the required permissions.
 
 ## Cross-Account Logging
 

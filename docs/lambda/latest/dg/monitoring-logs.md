@@ -15,10 +15,10 @@ function and sends them to Amazon CloudWatch Logs, which is the default destinat
 
 Consider the following key factors when choosing a service a destination for function logs:
 
-- **Cost management varies by service.** Amazon S3 typically provides the most economical option for long-term storage, while CloudWatch Logs allows you to view logs, process logs,
+- **Cost management varies by service.** Amazon S3 typically provides the most economical option for long-term storage, while CloudWatch Logs provides the ability to view logs, process logs,
   and set up alerts in real time. Firehose costs include both the streaming service and cost associated with what you configure it to stream to.
 - **Analysis capabilities differ across services.** CloudWatch Logs excels at real-time monitoring and integrates natively with other CloudWatch features, such as Logs Insights and Live Tail. Amazon S3 works well
-  with analysis tools like Athena and can integrate with various services, though it may require additional setup. Firehose simplifies direct streaming to specific AWS services
+  with analysis tools like Athena and can integrate with various services, though it might require additional setup. Firehose simplifies direct streaming to specific AWS services
   (like OpenSearch Service and Redshift Data API) and supported third-party platforms (such as Datadog and Splunk) by providing pre-built integrations, potentially reducing configuration work.
 - **Setup and ease of use vary by service.** CloudWatch Logs is the default log destination - it works immediately with no additional configuration and provides
   straightforward log viewing and analysis through the CloudWatch console. If you need logs sent to Amazon S3, you'll need to do some initial setup in the Lambda console and configure bucket permissions.

@@ -21,7 +21,7 @@ see [AWS Regional Services](https://builder.aws.com/build/capabilities/explore?t
 and filter by `Feature Name = Function URLs`.
 
 Function URLs are dual stack-enabled, supporting IPv4 and IPv6. After configuring your function URL, you can
-invoke your function through its HTTP(S) endpoint via a web browser, curl, Postman, or any HTTP client. To invoke a
+invoke your function through its HTTP(S) endpoint by using a web browser, curl, Postman, or any HTTP client. To invoke a
 function URL, you must have `lambda:InvokeFunctionUrl` and `lambda:InvokeFunction` permissions. For more information, see [Access control](urls-auth.md "urls-auth.md").
 
 ###### Topics

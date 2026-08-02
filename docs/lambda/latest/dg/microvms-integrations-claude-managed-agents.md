@@ -59,7 +59,7 @@ runtime.
 
 ## Deploying the reference implementation
 
-![Architecture diagram showing the Claude Self-Hosted Sandboxes on Lambda MicroVMs reference implementation](images/microvms-claude-managed-agents-architecture.png)
+![Architecture diagram showing the Claude Self-Hosted Sandboxes on Lambda MicroVMs reference implementation.](images/microvms-claude-managed-agents-architecture.png)
 
 The [Claude
 Managed Agents Self-Hosted Sandboxes on Lambda MicroVMs](https://github.com/aws-samples/sample-lambda-microvm-claude-managed-agents "https://github.com/aws-samples/sample-lambda-microvm-claude-managed-agents")

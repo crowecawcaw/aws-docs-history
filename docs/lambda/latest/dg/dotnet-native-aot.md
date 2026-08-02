@@ -191,8 +191,8 @@ compared to previous versions of .NET. Support has been added to the [Lambda run
 [AWS .NET SDK](https://github.com/aws/aws-sdk-net/pulls?q=is%3Apr+trimming "https://github.com/aws/aws-sdk-net/pulls?q=is%3Apr+trimming"), [.NET Lambda Annotations](https://github.com/aws/aws-lambda-dotnet/pull/1610 "https://github.com/aws/aws-lambda-dotnet/pull/1610"),
 and .NET 8 itself.
 
-These improvements offer the potential to eliminate build-time trimming warnings, but .NET will never be completely trim safe.
-This means that parts of libraries that your function relies on may be trimmed out as part of the compilation step.
+These improvements offer the potential to eliminate build-time trimming warnings, but .NET is never completely trim safe.
+This means that parts of libraries that your function relies on might be trimmed out as part of the compilation step.
 You can manage this by defining `TrimmerRootAssemblies` as part of your `.csproj` file as shown in the following example.
 
 ```

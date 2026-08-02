@@ -170,7 +170,7 @@ If you already have a VPC but you need to configure public internet access for a
 
 ![VPC console list of VPCs.](images/vpc-id.png) 3. Scroll down to the **Resource map** section. Note the route table mappings. Open each route table that is mapped to a subnet.
 
-![VPC console resource map section](images/route-table-associations.png) 4. Scroll down to the **Routes** tab. Review the routes to determine if your VPC has both of the following route tables. Each of these requirements must be satisfied by a separate route table.
+![VPC console resource map section.](images/route-table-associations.png) 4. Scroll down to the **Routes** tab. Review the routes to determine if your VPC has both of the following route tables. Each of these requirements must be satisfied by a separate route table.
 
     * Internet-bound traffic (`0.0.0.0/0` for IPv4, `::/0` for IPv6) is routed to an internet gateway (`igw-xxxxxxxxxx`). This means that the subnet associated with the route table is a public subnet.
 
@@ -183,7 +183,7 @@ If you already have a VPC but you need to configure public internet access for a
     ###### Example public subnet route table
 
 
-    ![Public subnet route table with route to internet gateway](images/routes-public.png)
+    ![Public subnet route table with route to internet gateway.](images/routes-public.png)
     * Internet-bound traffic for IPv4 (`0.0.0.0/0`) is routed to a NAT gateway (`nat-xxxxxxxxxx`) that is associated with a public subnet. This means that the subnet is a private subnet that can access the internet through the NAT gateway.
 
 
@@ -195,7 +195,7 @@ If you already have a VPC but you need to configure public internet access for a
     ###### Example private subnet route table
 
 
-    ![Private subnet route table with route to NAT gateway](images/routes-private.png)
+    ![Private subnet route table with route to NAT gateway.](images/routes-private.png)
 
 5. Repeat the previous step until you have reviewed each route table associated with a subnet in your VPC and confirmed that you have a route table with an internet gateway and a route table with a NAT gateway.
 
@@ -218,7 +218,7 @@ Follow these steps to create a route table and associate it with a subnet.
 8. On the **Subnet associations** tab, choose **Edit
    subnet associations**.
 
-![Attach internet gateway to VPC](images/route-table-subnet.png) 9. Select the check box for the subnet to associate with the route table. 10. Choose **Save associations**.
+![Attach internet gateway to VPC.](images/route-table-subnet.png) 9. Select the check box for the subnet to associate with the route table. 10. Choose **Save associations**.
 Follow these steps to create an internet gateway, attach it to your VPC, and add it to your public subnet's route table.
 
 ###### To create an internet gateway
@@ -233,23 +233,23 @@ Follow these steps to create an internet gateway, attach it to your VPC, and add
 7. Choose **Attach to a VPC** from the banner at the top of the screen, select an
    available VPC, and then choose **Attach internet gateway**.
 
-![Attach internet gateway to VPC](images/igw-attach-vpc.png) 8. Choose the **VPC ID**.
+![Attach internet gateway to VPC.](images/igw-attach-vpc.png) 8. Choose the **VPC ID**.
 
-![Internet gateway details page](images/igw-subnet-1.png) 9. Choose the **VPC ID** again to open the VPC details page.
+![Internet gateway details page.](images/igw-subnet-1.png) 9. Choose the **VPC ID** again to open the VPC details page.
 
-![Filtered VPC list in Amazon VPC Console](images/igw-your-vpcs.png) 10. Scroll down to the **Resource map** section and then choose a subnet. The subnet details are displayed in a new tab.
+![Filtered VPC list in Amazon VPC Console.](images/igw-your-vpcs.png) 10. Scroll down to the **Resource map** section and then choose a subnet. The subnet details are displayed in a new tab.
 
 ![VPC console Resource map with list of subnets.](images/vpc-subnets.png) 11. Choose the link under **Route table**.
 
-![Link to route table on subnet details page](images/subnet-route-table.png) 12. Choose the **Route table ID** to open the route table details page.
+![Link to route table on subnet details page.](images/subnet-route-table.png) 12. Choose the **Route table ID** to open the route table details page.
 
-![Filtered route table list](images/route-table-id.png) 13. Under **Routes**, choose **Edit routes**.
+![Filtered route table list.](images/route-table-id.png) 13. Under **Routes**, choose **Edit routes**.
 
-![Routes list with Edit routes button](images/edit-routes.png) 14. Choose **Add route**, and then enter `0.0.0.0/0` in the **Destination** box.
+![Routes list with Edit routes button.](images/edit-routes.png) 14. Choose **Add route**, and then enter `0.0.0.0/0` in the **Destination** box.
 
-![Add destination for new route](images/create-route-1.png) 15. For **Target**, select **Internet gateway**, and then choose the internet gateway that you created earlier. If your subnet has an IPv6 CIDR block, you must also add a route for `::/0` to the same internet gateway.
+![Add destination for new route.](images/create-route-1.png) 15. For **Target**, select **Internet gateway**, and then choose the internet gateway that you created earlier. If your subnet has an IPv6 CIDR block, you must also add a route for `::/0` to the same internet gateway.
 
-![Add target for new route](images/create-route-2.png) 16. Choose **Save changes**.
+![Add target for new route.](images/create-route-2.png) 16. Choose **Save changes**.
 Follow these steps to create a NAT gateway, associate it with a public subnet, and then add it to your private subnet's route table.
 
 ###### To create a NAT gateway and associate it with a public subnet
@@ -269,15 +269,15 @@ NAT gateways are associated with a public subnet, but the route table entry is i
 2. Select a private subnet in your VPC. (A private subnet is a subnet that doesn't have a route to an internet gateway in its route table.)
 3. Choose the link under **Route table**.
 
-![Link to route table on subnet details page](images/subnet-route-table.png) 4. Choose the **Route table ID** to open the route table details page.
+![Link to route table on subnet details page.](images/subnet-route-table.png) 4. Choose the **Route table ID** to open the route table details page.
 
-![Filtered route table list](images/route-table-id.png) 5. Scroll down and choose the **Routes** tab, then choose **Edit routes**
+![Filtered route table list.](images/route-table-id.png) 5. Scroll down and choose the **Routes** tab, then choose **Edit routes**
 
-![Routes tab on route table details page](images/route-table-edit-routes.png) 6. Choose **Add route**, and then enter `0.0.0.0/0` in the **Destination** box.
+![Routes tab on route table details page.](images/route-table-edit-routes.png) 6. Choose **Add route**, and then enter `0.0.0.0/0` in the **Destination** box.
 
-![Add destination for new route](images/create-route-1.png) 7. For **Target**, select **NAT gateway**, and then choose the NAT gateway that you created earlier.
+![Add destination for new route.](images/create-route-1.png) 7. For **Target**, select **NAT gateway**, and then choose the NAT gateway that you created earlier.
 
-![Add target for new route](images/create-route-nat.png) 8. Choose **Save changes**.
+![Add target for new route.](images/create-route-nat.png) 8. Choose **Save changes**.
 Follow these steps to create an egress-only internet gateway and add it to your private subnet's route table.
 
 ###### To create an egress-only internet gateway
@@ -289,19 +289,19 @@ Follow these steps to create an egress-only internet gateway and add it to your 
 5. Choose **Create egress only internet gateway**.
 6. Choose the link under **Attached VPC ID**.
 
-![Egress-only internet gateway details page](images/eigw-details.png) 7. Choose the link under **VPC ID** to open the VPC details page. 8. Scroll down to the **Resource map** section and then choose a private subnet. (A private subnet is a subnet that doesn't have a route to an internet gateway in its route table.) The subnet details are displayed in a new tab.
+![Egress-only internet gateway details page.](images/eigw-details.png) 7. Choose the link under **VPC ID** to open the VPC details page. 8. Scroll down to the **Resource map** section and then choose a private subnet. (A private subnet is a subnet that doesn't have a route to an internet gateway in its route table.) The subnet details are displayed in a new tab.
 
 ![VPC console Resource map with list of subnets.](images/vpc-subnet-private.png) 9. Choose the link under **Route table**.
 
-![Link to route table on subnet details page](images/private-subnet-route-table.png) 10. Choose the **Route table ID** to open the route table details page.
+![Link to route table on subnet details page.](images/private-subnet-route-table.png) 10. Choose the **Route table ID** to open the route table details page.
 
-![Filtered route table list](images/route-table-id.png) 11. Under **Routes**, choose **Edit routes**.
+![Filtered route table list.](images/route-table-id.png) 11. Under **Routes**, choose **Edit routes**.
 
-![Routes list with Edit routes button](images/edit-routes.png) 12. Choose **Add route**, and then enter `::/0` in the **Destination** box.
+![Routes list with Edit routes button.](images/edit-routes.png) 12. Choose **Add route**, and then enter `::/0` in the **Destination** box.
 
-![Add destination for new route](images/create-route-1.png) 13. For **Target**, select **Egress Only Internet Gateway**, and then choose the gateway that you created earlier.
+![Add destination for new route.](images/create-route-1.png) 13. For **Target**, select **Egress Only Internet Gateway**, and then choose the gateway that you created earlier.
 
-![Add target for new route](images/eigw-route.png) 14. Choose **Save changes**.
+![Add target for new route.](images/eigw-route.png) 14. Choose **Save changes**.
 
 ### Configure the Lambda function
 

@@ -17,7 +17,7 @@ This page describes how and when to update the timeout setting for a Lambda func
 ## Determining the appropriate timeout value for a Lambda function
 
 If the timeout value is close to the average duration of a function, there is a higher
-risk that the function will time out unexpectedly. The duration of a function can vary
+risk that the function times out unexpectedly. The duration of a function can vary
 based on the amount of data transfer and processing, and the latency of any services the
 function interacts with. Some common causes of timeout include:
 

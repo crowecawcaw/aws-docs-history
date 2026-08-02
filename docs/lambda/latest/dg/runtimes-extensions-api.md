@@ -13,7 +13,9 @@ the [Runtime Logs API](runtimes-logs-api.md "runtimes-logs-api.md") to receive a
 
 An extension runs as an independent process in the execution environment and can continue to run after the
 function invocation is fully processed. Because extensions run as processes, you can write them in a different
-language than the function. We recommend that you implement extensions using a compiled language. In this case, the
+language than the function. We recommend that you implement extensions using a compiled language.
+
+In this case, the
 extension is a self-contained binary that is compatible with supported runtimes. All [Lambda runtimes](lambda-runtimes.md "lambda-runtimes.md") support extensions. If you use a non-compiled language, ensure that you include
 a compatible runtime in the extension.
 
@@ -60,7 +62,7 @@ Each phase starts with an event from Lambda to the runtime and to all registered
 each extension signal completion by sending a `Next` API request. Lambda freezes the execution
 environment when each process has completed and there are no pending events.
 
-![Lambda execution environment lifecycle for extensions](images/Overview-Full-Sequence.png)
+![Lambda execution environment lifecycle for extensions.](images/Overview-Full-Sequence.png)
 
 ###### Topics
 
@@ -94,7 +96,7 @@ indicate completion by sending a `Next` API request.
 Extensions can complete their initialization at any point in the `Init`
 phase.
 
-![Sequence of events in the Lambda Init phase](images/Init-Phase.png)
+![Sequence of events in the Lambda Init phase.](images/Init-Phase.png)
 
 ### Invoke phase
 
@@ -107,7 +109,7 @@ for the `Invoke` event.
 **Lambda Managed Instances:** Extensions for Lambda Managed Instances functions cannot register for the `Invoke` event. Because Lambda Managed Instances supports concurrent invocations within a single execution environment, the `Invoke` event is not supported. Extensions can only register for the `Shutdown` event. If you need to track when invocations start and finish, use the `platform.report` platform event through the [Telemetry API](telemetry-api.md "telemetry-api.md").
 
 During the invocation, external extensions run in parallel with the function. They also continue running
-after the function has completed. This enables you to capture diagnostic information or to send logs, metrics,
+after the function has completed. You can use this to capture diagnostic information or to send logs, metrics,
 and traces to a location of your choice.
 
 After receiving the function response from the runtime, Lambda returns the response to the client, even if
@@ -116,7 +118,7 @@ extensions are still running.
 The `Invoke` phase ends after the runtime and all extensions signal that they
 are done by sending a `Next` API request.
 
-![Sequence of events in the Lambda Invoke phase](images/Invoke-Phase.png)
+![Sequence of events in the Lambda Invoke phase.](images/Invoke-Phase.png)
 
 **Event payload**: The event sent to the runtime (and the
 Lambda function) carries the entire request, headers (such as `RequestId`), and
@@ -192,7 +194,7 @@ Extensions can use this time for final cleanup tasks. The
 If the runtime or an extension does not respond to the `Shutdown` event within the limit, Lambda
 ends the process using a `SIGKILL` signal.
 
-![Sequence of events in the Lambda Shutdown phase](images/Shutdown-Phase.png)
+![Sequence of events in the Lambda Shutdown phase.](images/Shutdown-Phase.png)
 
 **Event payload**: The `Shutdown` event contains
 the reason for the shutdown and the time remaining in milliseconds.
@@ -271,7 +273,7 @@ If there is a failure (such as a function timeout or runtime error) during
 reason for the shutdown. If this environment is used for a new invocation, the extension and
 runtime are re-initialized as part of the next invocation.
 
-![Execution environment example: Init, Invoke, Invoke with Error, Invoke, Shutdown](images/Overview-Invoke-with-Error.png)
+![Execution environment example: Init, Invoke, Invoke with Error, Invoke, Shutdown.](images/Overview-Invoke-with-Error.png)
 
 For a more detailed explanation of the previous diagram, see
 [Failures during the invoke phase](lambda-runtime-environment.md#runtimes-lifecycle-invoke-with-errors "lambda-runtime-environment.md#runtimes-lifecycle-invoke-with-errors").
@@ -332,7 +334,7 @@ permitted to register for the `Shutdown` event.
   Features available to specify using this setting:
 
   - `accountId` – If specified, the Extension registration
-    response will contain the account ID associated with the Lambda function that
+    response contains the account ID associated with the Lambda function that
     you're registering the Extension for.
 
 ###### Request body parameters
@@ -342,7 +344,7 @@ permitted to register for the `Shutdown` event.
 
 ###### Note
 
-**Lambda Managed Instances:** Extensions for Lambda Managed Instances functions can only register for the `SHUTDOWN` event. Attempting to register for the `INVOKE` event will result in an error. This is because Lambda Managed Instances supports concurrent invocations within a single execution environment.
+**Lambda Managed Instances:** Extensions for Lambda Managed Instances functions can only register for the `SHUTDOWN` event. Attempting to register for the `INVOKE` event results in an error. This is because Lambda Managed Instances supports concurrent invocations within a single execution environment.
 
 ###### Response headers
 

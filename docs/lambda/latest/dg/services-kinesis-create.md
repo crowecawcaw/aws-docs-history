@@ -29,7 +29,7 @@ includes these permissions. Add this managed policy to your function as describe
 
 - You don't need the `kinesis:ListStreams` permission to create and manage
   event source mappings for Kinesis. However, if you create an event source mapping in the console and you don't have this permission, you won't be able to select a Kinesis
-  stream from a dropdown list and the console will display an error. To create the event source mapping, you'll need to manually enter the Amazon Resource Name (ARN) of your stream.
+  stream from a dropdown list and the console displays an error. To create the event source mapping, you'll need to manually enter the Amazon Resource Name (ARN) of your stream.
 - Lambda makes `kinesis:GetRecords` and `kinesis:GetShardIterator` API calls when retrying failed invocations.
 
 AWS Management Console

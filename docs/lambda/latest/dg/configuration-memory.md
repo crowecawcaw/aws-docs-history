@@ -18,7 +18,9 @@ This page describes how and when to update the memory setting for a Lambda funct
 Memory is the principal lever for controlling the performance of a function. The default
 setting, 128 MB, is the lowest possible setting. We recommend that you only use 128 MB for
 simple Lambda functions, such as those that transform and route events to other AWS
-services. A higher memory allocation can improve performance for functions that use imported
+services.
+
+A higher memory allocation can improve performance for functions that use imported
 libraries, [Lambda layers](chapter-layers.md "chapter-layers.md"), Amazon Simple Storage Service (Amazon S3) or Amazon Elastic File System
 (Amazon EFS). Adding more memory proportionally increases the amount of CPU, increasing the overall
 computational power available. If a function is CPU, network or memory-bound, then increasing

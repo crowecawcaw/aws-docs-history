@@ -6,6 +6,11 @@ Multi-tenant applications have strict isolation requirements when running code o
 
 When a function using tenant isolation mode receives an invoke with a tenant identifier, Lambda first attempts to locate an available execution environment associated with that tenant identifier. If no execution environments exist, Lambda creates and assigns a new execution environment to that tenant. As function invocations with the specified tenant identifier scale up, Lambda locates or creates new execution environments as necessary.
 
+To learn how to use tenant isolation, see [Enabling tenant isolation for Lambda functions](tenant-isolation-configure.md "tenant-isolation-configure.md").
+For information about accessing tenant context in your code, see [Accessing tenant identifier in Lambda function code](tenant-isolation-context.md "tenant-isolation-context.md").
+To monitor tenant-isolated functions, see [Monitoring Lambda functions with tenant isolation](tenant-isolation-monitor.md "tenant-isolation-monitor.md").
+For help resolving issues, see [Troubleshooting tenant isolation for Lambda functions](tenant-isolation-troubleshooting.md "tenant-isolation-troubleshooting.md").
+
 ###### Topics
 
 - [When to use tenant isolation mode](#tenant-isolation-use "#tenant-isolation-use")
@@ -24,7 +29,7 @@ When a function using tenant isolation mode receives an invoke with a tenant ide
 
 Use tenant isolation mode when you need to serve multiple end-users or tenants using a single Lambda function, while ensuring that the execution environments used to process invocations for individual tenants remain isolated from one another. This strict isolation of execution environments is required for multi-tenant applications that:
 
-- **Execute end-user supplied code**: Maintaining separate execution environments for individual tenants can limit the impact of executing user-supplied code that may be incorrect or malicious.
+- **Execute end-user supplied code**: Maintaining separate execution environments for individual tenants can limit the impact of executing user-supplied code that might be incorrect or malicious.
 - **Process tenant-specific data**: Maintaining separate execution environments for individual tenants can prevent exposure of sensitive tenant-specific data to other tenants.
 
 Multiple invocation requests from the same tenant can re-use the same function execution environment, reducing cold-starts and improving response times for latency sensitive applications.
@@ -42,7 +47,7 @@ Tenant isolation mode is supported in all [commercial Regions](../../../general/
 When using tenant isolation with your Lambda functions, keep the following in mind:
 
 - **Immutable configuration**: Tenant isolation is an immutable function property. It can only be enabled when creating a function.
-- **Required tenant-id parameter**: Functions using tenant isolation mode must be invoked with a `tenant-id` parameter. Omitting this parameter will cause function invocations to fail.
+- **Required tenant-id parameter**: Functions using tenant isolation mode must be invoked with a `tenant-id` parameter. Omitting this parameter causes function invocations to fail.
 - **Execution role applies to all tenants**: Invocations from all tenants use the permissions defined in your Lambda function's [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md").
 - **Concurrency**: There are no changes to your function's [concurrency](lambda-concurrency.md "lambda-concurrency.md") or [scaling behavior](scaling-behavior.md "scaling-behavior.md") when using tenant isolation. Lambda imposes a limit of 2,500 tenant-isolated execution environments (active or idle) for every 1,000 [concurrent executions](gettingstarted-limits.md#compute-and-storage "gettingstarted-limits.md#compute-and-storage") configured for your Lambda function.
 
@@ -55,10 +60,10 @@ You are charged when Lambda creates a new tenant-isolated execution environment.
 The following table outlines differences between Lambda functions with and without
 tenant isolation.
 
-| Feature           | With tenant isolation                                               | Without tenant isolation                                                          |
-| ----------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| Isolation type    | Tenant-level isolation                                              | Function-level isolation                                                          |
-| Environment reuse | Execution environments are never reused across different<br>tenants | Execution environments might be reused across invocations of the<br>same function |
-| Data isolation    | Data from other tenants is not accessible                           | Data from previous invocations of the same function version may<br>be accessible  |
-| Cold starts       | More cold starts due to tenant-specific environments                | Fewer cold starts due to environment reuse                                        |
-| Pricing           | Additional charge besides the standard Lambda pricing               | Standard Lambda pricing                                                           |
+| Feature           | With tenant isolation                                               | Without tenant isolation                                                           |
+| ----------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Isolation type    | Tenant-level isolation                                              | Function-level isolation                                                           |
+| Environment reuse | Execution environments are never reused across different<br>tenants | Execution environments might be reused across invocations of the<br>same function  |
+| Data isolation    | Data from other tenants is not accessible                           | Data from previous invocations of the same function version might<br>be accessible |
+| Cold starts       | More cold starts due to tenant-specific environments                | Fewer cold starts due to environment reuse                                         |
+| Pricing           | Additional charge besides the standard Lambda pricing               | Standard Lambda pricing                                                            |

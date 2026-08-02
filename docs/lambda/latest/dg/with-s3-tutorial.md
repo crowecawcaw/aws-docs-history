@@ -4,7 +4,7 @@ In this tutorial, you create and configure a Lambda function that resizes images
 file to your bucket, Amazon S3 invokes your Lambda function. The function then creates a thumbnail version of the image and outputs it to a different
 Amazon S3 bucket.
 
-![Data flow between an S3 bucket, a Lambda function, and another S3 bucket](images/services-s3-tutorial/s3thumb_tut_resources.png)
+![Data flow between an S3 bucket, a Lambda function, and another S3 bucket.](images/services-s3-tutorial/s3thumb_tut_resources.png)
 To complete this tutorial, you carry out the following steps:
 
 1. Create source and destination Amazon S3 buckets and upload a sample image.
@@ -49,9 +49,9 @@ To get a Windows-integrated version of Ubuntu and Bash, [install the Windows Sub
 
 ## Create two Amazon S3 buckets
 
-![First step: Create S3 buckets](images/services-s3-tutorial/s3thumb_tut_steps1.png)
+![First step: Create S3 buckets.](images/services-s3-tutorial/s3thumb_tut_steps1.png)
 
-First create two Amazon S3 buckets. The first bucket is the source bucket you will upload your images to. The second bucket is used by
+First create two Amazon S3 buckets. The first bucket is the source bucket you upload your images to. The second bucket is used by
 Lambda to save the resized thumbnail when you invoke your function.
 
 AWS Management Console
@@ -62,7 +62,7 @@ AWS Management Console
 2. Select the AWS Region closest to your geographical location. You can change your region using the drop-down list at the top of the screen.
    Later in the tutorial, you must create your Lambda function in the same Region.
 
-![Image showing drop down region menu in S3 console](images/console_region_select.png) 3. Choose **Create bucket**. 4. Under **General configuration**, do the following:
+![Image showing drop down region menu in S3 console.](images/console_region_select.png) 3. Choose **Create bucket**. 4. Under **General configuration**, do the following:
 
     1. For **Bucket type**, ensure **General purpose** is selected.
     2. For **Bucket name**, enter a globally unique name that meets the Amazon S3 [Bucket naming rules](../../../AmazonS3/latest/userguide/bucketnamingrules.md "../../../AmazonS3/latest/userguide/bucketnamingrules.md").
@@ -98,7 +98,7 @@ and `LocationConstraint`, choose the same AWS Region you used to create your sou
 
 ## Upload a test image to your source bucket
 
-![Next step: Upload a test object](images/services-s3-tutorial/s3thumb_tut_steps2.png)
+![Next step: Upload a test object.](images/services-s3-tutorial/s3thumb_tut_steps2.png)
 
 Later in the tutorial, you'll test your Lambda function by invoking it using the AWS CLI or the Lambda console. To confirm that your function
 is operating correctly, your source bucket needs to contain a test image. This image can be any JPG or PNG file you choose.
@@ -127,7 +127,7 @@ AWS CLI
 
 ## Create a permissions policy
 
-![Next step: Create a permissions policy](images/services-s3-tutorial/s3thumb_tut_steps3.png)
+![Next step: Create a permissions policy.](images/services-s3-tutorial/s3thumb_tut_steps3.png)
 
 The first step in creating your Lambda function is to create a permissions policy. This policy gives your function the permissions it needs
 to access other AWS resources. For this tutorial, the policy gives Lambda read and write permissions for Amazon S3 buckets and allows it to write
@@ -223,7 +223,7 @@ AWS CLI
 
 ## Create an execution role
 
-![Next step: Create an execution role](images/services-s3-tutorial/s3thumb_tut_steps4.png)
+![Next step: Create an execution role.](images/services-s3-tutorial/s3thumb_tut_steps4.png)
 
 An execution role is an IAM role that grants a Lambda function permission to access AWS services and resources. To give your function
 read and write access to an Amazon S3 bucket, you attach the permissions policy you created in the previous step.
@@ -285,7 +285,7 @@ AWS CLI
 
 ## Create the function deployment package
 
-![Next step: Create the deployment package](images/services-s3-tutorial/s3thumb_tut_steps5.png)
+![Next step: Create the deployment package.](images/services-s3-tutorial/s3thumb_tut_steps5.png)
 
 To create your function, you create a _deployment package_ containing your function code and its dependencies. For this
 `CreateThumbnail` function, your function code uses a separate library for the image resizing. Follow the instructions for your
@@ -493,8 +493,8 @@ pillow boto3`
 ```
 
 The Pillow library contains C/C++ code. By using the `--platform manylinux_2014_x86_64` and `--only-binary=:all:`
-options, pip will download and install a version of Pillow that contains pre-compiled binaries compatible with the Amazon Linux 2 operating
-system. This ensures that your deployment package will work in the Lambda execution environment, regardless of the operating system and
+options, pip downloads and installs a version of Pillow that contains pre-compiled binaries compatible with the Amazon Linux 2 operating
+system. This ensures that your deployment package works in the Lambda execution environment, regardless of the operating system and
 architecture of your local build machine. 3. Create a .zip file containing your application code and the Pillow and Boto3 libraries. In Linux or MacOS, run the following commands from your
 command line interface.
 
@@ -512,7 +512,7 @@ You can also create your deployment package using a Python virtual environment. 
 
 ## Create the Lambda function
 
-![Next step: Create the function](images/services-s3-tutorial/s3thumb_tut_steps6.png)
+![Next step: Create the function.](images/services-s3-tutorial/s3thumb_tut_steps6.png)
 
 You can create your Lambda function using either the AWS CLI or the Lambda console. Follow the instructions for your chosen language to create
 the function.
@@ -528,7 +528,7 @@ replace this code with your own function code by uploading the.zip or JAR file y
 2. Make sure you're working in the same AWS Region you created your Amazon S3 bucket in. You can change your region using the drop-down
    list at the top of the screen.
 
-![Image showing drop down region menu in Lambda console](images/console_region_select.png) 3. Choose **Create function**. 4. Choose **Author from scratch**. 5. Under **Basic information**, do the following:
+![Image showing drop down region menu in Lambda console.](images/console_region_select.png) 3. Choose **Create function**. 4. Choose **Author from scratch**. 5. Under **Basic information**, do the following:
 
     1. For **Function name**, enter ``CreateThumbnail``.
     2. For **Runtime**, choose either **Node.js 22.x** or **Python 3.12** according to the language you chose for your function.
@@ -578,7 +578,7 @@ AWS CLI
 
 ## Configure Amazon S3 to invoke the function
 
-![Next step: Create the Amazon S3 trigger](images/services-s3-tutorial/s3thumb_tut_steps7.png)
+![Next step: Create the Amazon S3 trigger.](images/services-s3-tutorial/s3thumb_tut_steps7.png)
 
 For your Lambda function to run when you upload an image to your source bucket, you need to configure a trigger for your function. You can
 configure the Amazon S3 trigger using either the console or the AWS CLI.
@@ -661,7 +661,7 @@ in the _AWS CLI Command Reference_.
 
 ## Test your Lambda function with a dummy event
 
-![Next step: Create a dummy event](images/services-s3-tutorial/s3thumb_tut_steps8.png)
+![Next step: Create a dummy event.](images/services-s3-tutorial/s3thumb_tut_steps8.png)
 
 Before you test your whole setup by adding an image file to your Amazon S3 source bucket, you test that your Lambda function is working
 correctly by invoking it with a dummy event. An event in Lambda is a JSON-formatted document that contains data for your function to process.
@@ -824,7 +824,7 @@ You should see output similar to the following. The `Key` parameter shows the fi
 
 ## Test your function using the Amazon S3 trigger
 
-![Next step: Test the function](images/services-s3-tutorial/s3thumb_tut_steps9.png)
+![Next step: Test the function.](images/services-s3-tutorial/s3thumb_tut_steps9.png)
 
 Now that you've confirmed your Lambda function is operating correctly, you're ready to test your complete setup by adding an image file to
 your Amazon S3 source bucket. When you add your image to the source bucket, your Lambda function should be automatically invoked. Your function

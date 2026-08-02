@@ -43,8 +43,8 @@ Resources:
 
 **Configuration parameters:**
 
-- `ExecutionTimeout` – The maximum time in seconds that a durable execution can run before Lambda stops the execution. This timeout applies to the entire durable execution, not individual function invocations. Valid range: 1–31622400.
-- `RetentionPeriodInDays` – The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the `GetDurableExecutionHistory` API. Valid range: 1–90.
+- `ExecutionTimeout` – Required. The maximum time in seconds that a durable execution can run before Lambda stops the execution. This timeout applies to the entire durable execution, not individual function invocations. You must specify `ExecutionTimeout` whenever you provide `DurableConfig`; creating a function with a durable configuration but no execution timeout fails with an `InvalidParameterValueException`. Valid range: 1–31622400.
+- `RetentionPeriodInDays` – Optional. The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the `GetDurableExecutionHistory` API. Valid range: 1–90. Default: 14.
 - `KMSKeyArn` – Optional. The ARN of a customer managed key to encrypt durable execution data. For more information, see [Encrypting Lambda durable execution data](durable-encryption.md "durable-encryption.md").
 
 For the full API reference, see [DurableConfig](../api/API_DurableConfig.md "../api/API_DurableConfig.md") in the Lambda API Reference.

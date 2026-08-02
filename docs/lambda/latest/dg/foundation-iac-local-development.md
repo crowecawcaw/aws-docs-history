@@ -1,6 +1,6 @@
 # Developing Lambda functions locally
 
-You can move your Lambda functions from the Lambda console to your preferred IDE, which provides a full development environment and allows you to use other local development
+You can move your Lambda functions from the Lambda console to your preferred IDE, which provides a full development environment where you can use other local development
 options like AWS SAM and AWS CDK. The Lambda console supports opening functions directly in Visual Studio Code, Kiro, or Cursor.
 
 ## Key benefits of local development
@@ -80,9 +80,9 @@ For more information, see [Create an IAM user in your AWS account](../../../IAM/
 
 ### Configure AWS credentials using the AWS Toolkit
 
-The following table summarizes the credential setup process you will complete in the following procedure.
+The following table summarizes the credential setup process you complete in the following procedure.
 
-| What to Do                                               | Why?                                         |
+| What to do                                               | Why?                                         |
 | -------------------------------------------------------- | -------------------------------------------- |
 | Open Sign In panel                                       | Start authentication                         |
 | Use Command Palette, search for AWS Add a New Connection | Access the sign-in UI                        |
@@ -102,7 +102,7 @@ To start the authentication process, select the AWS icon in the left navigation 
 
 ###### Note
 
-To proceed, you will need to allow AWS IDE Extensions to access your data. 3. Enter your profile name, access key ID, and secret access key, then select **Continue**. 4. Verify the connection by checking the AWS Explorer in your IDE for your AWS services and resources.
+To proceed, you need to allow AWS IDE Extensions to access your data. 3. Enter your profile name, access key ID, and secret access key, then select **Continue**. 4. Verify the connection by checking the AWS Explorer in your IDE for your AWS services and resources.
 
 For information on setting up authentication with long-term credentials, see [Using long-term credentials to authenticate AWS SDKs and tools](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md").
 
@@ -123,7 +123,7 @@ To move a Lambda function from the Lambda console to a local IDE, complete the f
 
 ###### Note
 
-Your IDE selection is persisted. Once you choose an IDE, subsequent visits will show that IDE as the primary button. 5. When prompted, allow your browser to open the selected IDE.
+Your IDE selection is persisted. Once you choose an IDE, subsequent visits show that IDE as the primary button. 5. When prompted, allow your browser to open the selected IDE.
 
 When you open your function in your IDE, Lambda creates a local project with your function code in a temporary location that's designed for quick testing and deployment.
 This includes the function code, dependencies, and a basic project structure that you can use for local development.
@@ -141,11 +141,11 @@ After opening your function in your preferred IDE, follow these steps to access 
 
 1. Select the AWS icon in the sidebar to open the AWS Explorer:
 
-![AWS Toolkit icon in VS Code sidebar](images/console-to-ide-awsIcon.png) 2. In the AWS Explorer, select the region with your Lambda function:
+![AWS Toolkit icon in VS Code sidebar.](images/console-to-ide-awsIcon.png) 2. In the AWS Explorer, select the region with your Lambda function:
 
-![AWS Explorer showing region selection](images/console-to-ide-lambdaTreeView.png) 3. Under your selected region, expand the Lambda section to view and manage your functions:
+![AWS Explorer showing region selection.](images/console-to-ide-lambdaTreeView.png) 3. Under your selected region, expand the Lambda section to view and manage your functions:
 
-![Lambda functions with action icons for deploy, invoke, and more](images/console-to-ide-lambdaActions.png)
+![Lambda functions with action icons for deploy, invoke, and more.](images/console-to-ide-lambdaActions.png)
 
 With your function opened in your IDE, you can:
 
@@ -158,7 +158,7 @@ With your function opened in your IDE, you can:
 ## Convert your function to an AWS SAM template and use IaC tools
 
 In all supported IDEs (VS Code, Kiro, and Cursor), you can convert your Lambda function to an AWS SAM template by choosing the **Convert to AWS SAM Application** icon next to your Lambda function.
-You will be prompted to select an AWS SAM project location. Once selected, your Lambda function will be converted to a `template.yaml` file that is saved in your new AWS SAM project.
+You are prompted to select an AWS SAM project location. Once selected, your Lambda function is converted to a `template.yaml` file that is saved in your new AWS SAM project.
 
 With your function converted to an AWS SAM template, you can:
 

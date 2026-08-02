@@ -14,6 +14,8 @@ startup latency.
 If your applications depend on uniqueness of state, you must evaluate your function code and verify that it is
 resilient to snapshot operations. For more information, see [Handling uniqueness with Lambda SnapStart](snapstart-uniqueness.md "snapstart-uniqueness.md").
 
+If you encounter issues, see [Troubleshooting SnapStart errors for Lambda functions](snapstart-troubleshooting.md "snapstart-troubleshooting.md").
+
 ###### Topics
 
 - [When to use SnapStart](#snapstart-use-cases "#snapstart-use-cases")
@@ -93,7 +95,10 @@ the time that it takes your code to run, and the memory configured for your func
 
 The cost of using SnapStart includes the following:
 
-- **Caching:** For every function version that you publish with SnapStart enabled, you pay for the cost of caching and maintaining the snapshot. The price depends on the amount of [memory](configuration-memory.md "configuration-memory.md") that you allocate to your function. You're charged for a minimum of 3 hours. You will continue to be charged as long as your function remains [active](snapstart-activate.md#snapstart-active "snapstart-activate.md#snapstart-active"). Use the [ListVersionsByFunction](../api/API_ListVersionsByFunction.md "../api/API_ListVersionsByFunction.md") API action to identify function versions, and then use [DeleteFunction](../api/API_DeleteFunction.md "../api/API_DeleteFunction.md") to delete unused versions. To automatically delete unused function versions, see the [Lambda Version Cleanup](https://serverlessland.com/workflows/step-functions-lambda-version-cleanup "https://serverlessland.com/workflows/step-functions-lambda-version-cleanup") pattern on Serverless Land.
+- **Caching:** For every function version that you publish with SnapStart enabled, you pay for the cost of caching and maintaining the snapshot. The price depends on the amount of [memory](configuration-memory.md "configuration-memory.md") that you allocate to your function. You're charged for a minimum of 3 hours.
+
+You continue to be charged as long as your function remains [active](snapstart-activate.md#snapstart-active "snapstart-activate.md#snapstart-active"). Use the [ListVersionsByFunction](../api/API_ListVersionsByFunction.md "../api/API_ListVersionsByFunction.md") API action to identify function versions, and then use [DeleteFunction](../api/API_DeleteFunction.md "../api/API_DeleteFunction.md") to delete unused versions. To automatically delete unused function versions, see the [Lambda Version Cleanup](https://serverlessland.com/workflows/step-functions-lambda-version-cleanup "https://serverlessland.com/workflows/step-functions-lambda-version-cleanup") pattern on Serverless Land.
+
 - **Restoration:** Each time a function instance is restored from a snapshot, you pay a restoration charge. The price depends on the amount of memory you allocate to your function.
 
 As with all Lambda functions, duration charges apply to code that runs in the function handler. For SnapStart functions, duration charges also apply to initialization code that's declared outside of the handler, the time it takes for the runtime to load, and any code that runs in a [runtime hook](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md"). Duration is calculated from the time that your code begins running until it returns or otherwise ends, rounded up to the nearest 1 ms. Lambda maintains cached copies of your snapshot for resiliency and automatically applies software updates, such as runtime upgrades and security patches to them. Charges apply each time that Lambda re-runs your initialization code to apply software updates.

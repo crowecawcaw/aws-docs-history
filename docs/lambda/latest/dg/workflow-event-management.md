@@ -66,7 +66,7 @@ To get started with using Lambda with Step Functions, see [Orchestrating Lambda 
 ## Managing events with EventBridge and EventBridge Scheduler
 
 Amazon EventBridge is an event bus service that helps you build event-driven architectures. It routes events between AWS services, integrated applications, and software as a service (SaaS) applications.
-EventBridge Scheduler is a serverless scheduler that enables you to create, run, and manage tasks from one central service, allowing you to invoke Lambda functions on a schedule using cron and rate expressions, or configure one-time invocations.
+EventBridge Scheduler is a serverless scheduler. With EventBridge Scheduler, you can create, run, and manage tasks from one central service, invoke Lambda functions on a schedule using cron and rate expressions, or configure one-time invocations.
 
 Amazon EventBridge and EventBridge Scheduler help you build event-driven architectures with Lambda.
 EventBridge routes events between AWS services, integrated applications, and SaaS applications, while EventBridge Scheduler provides specific scheduling capabilities for invoking Lambda functions on a recurring or one-time basis.

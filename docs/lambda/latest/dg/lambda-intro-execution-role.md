@@ -57,7 +57,7 @@ To create an execution role with the AWS Command Line Interface (AWS CLI), use t
 command. When using this command, you can specify the trust policy inline.
 A role's trust policy gives the specified principals permission to assume the role. In the
 following example, you grant the Lambda service principal permission to assume your role. Note that
-requirements for escaping quotes in the JSON string may vary depending on your shell.
+requirements for escaping quotes in the JSON string might vary depending on your shell.
 
 ```
 `aws iam create-role \

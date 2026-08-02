@@ -9,7 +9,7 @@ stream](../../../amazondynamodb/latest/developerguide/Streams.md "../../../amazo
 updated.
 
 When processing DynamoDB streams, you need to implement partial batch response logic to prevent successfully processed
-records from being retried when some records in a batch fail. The [Batch Processor utility](https://docs.powertools.aws.dev/lambda/python/latest/utilities/batch/ "https://docs.powertools.aws.dev/lambda/python/latest/utilities/batch/")
+records from being retried when some records in a batch fail. The [Batch Processor utility](../../../powertools/python/latest/utilities/batch.md "../../../powertools/python/latest/utilities/batch.md")
 from Powertools for AWS Lambda is available in Python, TypeScript, .NET, and Java and simplifies this implementation by automatically handling partial batch response logic, reducing development time and improving reliability.
 
 ###### Topics
@@ -57,7 +57,7 @@ than the number of shards. This can be true even for Lambda functions without ex
 Configure the [ParallelizationFactor](../api/API_CreateEventSourceMapping.md#lambda-CreateEventSourceMapping-request-ParallelizationFactor "../api/API_CreateEventSourceMapping.md#lambda-CreateEventSourceMapping-request-ParallelizationFactor") setting to process one shard of a DynamoDB stream with more than one Lambda invocation simultaneously.
 You can specify the number of concurrent batches that Lambda polls from a shard by using a parallelization factor from 1
 (default) to 10. For example, when you set `ParallelizationFactor` to 2, you can have 200 concurrent
-Lambda invocations at maximum to process 100 DynamoDB stream shards (though in practice, you may see different values
+Lambda invocations at maximum to process 100 DynamoDB stream shards (though in practice, you might see different values
 for the `ConcurrentExecutions` metric). This helps scale up the processing throughput when the data volume
 is volatile and the [IteratorAge](monitoring-metrics-types.md#performance-metrics "monitoring-metrics-types.md#performance-metrics") is high. When you increase the number of concurrent batches per shard,
 Lambda still ensures in-order processing at the item (partition and sort key) level.

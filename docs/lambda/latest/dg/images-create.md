@@ -103,7 +103,6 @@ To build a container image using an AWS base image, choose the instructions for 
 | Tags   | Runtime         | Operating system  | Dockerfile                                                                                                                                                                                                                                   | Deprecation  |
 | ------ | --------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
 | al2023 | OS-only Runtime | Amazon Linux 2023 | [Dockerfile<br>for OS-only Runtime on GitHub](https://github.com/aws/aws-lambda-base-images/blob/provided.al2023/Dockerfile.provided.al2023 "https://github.com/aws/aws-lambda-base-images/blob/provided.al2023/Dockerfile.provided.al2023") | Jun 30, 2029 |
-| al2    | OS-only Runtime | Amazon Linux 2    | [Dockerfile<br>for OS-only Runtime on GitHub](https://github.com/aws/aws-lambda-base-images/blob/provided.al2/Dockerfile.provided.al2 "https://github.com/aws/aws-lambda-base-images/blob/provided.al2/Dockerfile.provided.al2")             | Jul 31, 2026 |
 
 Amazon Elastic Container Registry Public Gallery: [gallery.ecr.aws/lambda/provided](https://gallery.ecr.aws/lambda/provided "https://gallery.ecr.aws/lambda/provided")
 
@@ -216,7 +215,7 @@ grant access to account number 123456789012.
 
 - **CrossAccountPermission** – Allows account 123456789012 to create and update Lambda
   functions that use images from this ECR repository.
-- **LambdaECRImageCrossAccountRetrievalPolicy** – Lambda will eventually set a
+- **LambdaECRImageCrossAccountRetrievalPolicy** – Lambda eventually sets a
   function's state to inactive if it is not invoked for an extended period. This statement is required so that
   Lambda can retrieve the container image for optimization and caching on behalf of the function owned by 123456789012.
 

@@ -251,7 +251,7 @@ SDK configuration using the context object as follows:
     cfg, err := config.LoadDefaultConfig(ctx)
 ```
 
-SDK calls themselves may require the context object as an input. For example, the
+SDK calls themselves might require the context object as an input. For example, the
 `s3Client.PutObject` call accepts the context object as its first argument:
 
 ```
@@ -270,9 +270,9 @@ You have several options when building a Lambda function handler in Go, but you 
 rules:
 
 - The handler must be a function.
-- The handler may take between 0 and 2 arguments. If there are two arguments, the first argument must
+- The handler can take between 0 and 2 arguments. If there are two arguments, the first argument must
   implement `context.Context`.
-- The handler may return between 0 and 2 arguments. If there is a single return value, it must implement
+- The handler can return between 0 and 2 arguments. If there is a single return value, it must implement
   `error`. If there are two return values, the second value must implement `error`.
 
 The following lists valid handler signatures. `TIn` and `TOut` represent types
@@ -450,7 +450,7 @@ return fmt.Errorf("missing required environment variable RECEIPT_BUCKET")
 
 To avoid creating new resources every time you invoke your function, you can declare and modify
  global variables outside of your Lambda function's handler code. You define these global variables in
- a `var` block or statement. In addition, your handler may declare an `init()`
+ a `var` block or statement. In addition, your handler can declare an `init()`
  function that is executed during the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib "lambda-runtime-environment.md#runtimes-lifecycle-ib").
  The `init` method behaves the same in AWS Lambda as it does in standard Go programs.
 
@@ -462,12 +462,12 @@ Adhere to the guidelines in the following list to use best coding practices when
 
 
 
-* **Separate the Lambda handler from your core logic.** This allows you to make
+* **Separate the Lambda handler from your core logic.** With this approach, you can make
  a more unit-testable function.
 * **Minimize the complexity of your dependencies.** Prefer simpler frameworks
  that load quickly on [execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md") startup.
 * **Minimize your deployment package size to its runtime necessities.** This
- will reduce the amount of time that it takes for your deployment package to be downloaded and unpacked ahead
+ reduces the amount of time that it takes for your deployment package to be downloaded and unpacked ahead
  of invocation.
 
 **Take advantage of execution environment reuse to improve the performance of your

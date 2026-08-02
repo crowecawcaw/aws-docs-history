@@ -49,7 +49,7 @@ see [Remote debugging Lambda functions](../../../toolkit-for-vscode/latest/userg
 **Issue:**
 _Function execution takes too long._
 
-If your code takes much longer to run in Lambda than on your local machine, it may be constrained by the memory
+If your code takes much longer to run in Lambda than on your local machine, it might be constrained by the memory
 or processing power available to the function. [Configure the function with
 additional memory](configuration-memory.md "configuration-memory.md") to increase both memory and CPU.
 
@@ -59,7 +59,7 @@ additional memory](configuration-memory.md "configuration-memory.md") to increas
 _Function errors related to malformed JSON or inadequate data validation._
 
 All Lambda functions receive an event payload in the first parameter of the handler. The event payload is a
-JSON structure that may contain arrays and nested elements.
+JSON structure that might contain arrays and nested elements.
 
 Malformed JSON can occur when provided by upstream services that do not use a robust process for checking
 JSON structures. This occurs when services concatenate text strings or embed user input that has not been sanitized.
@@ -84,7 +84,7 @@ fails to check if the attributes are present. It also fails to check data types,
 ensuring that the tax percentage is between 0 and 1. As a result, values outside of these bounds produce
 nonsensical results. An incorrect type or missing attribute causes a runtime error.
 
-Create tests to ensure that your function handles larger payload sizes. The maximum size for a Lambda event payload is 1 MB. Depending upon the content, larger payloads may mean more items passed to the function or more binary data embedded in a JSON attribute. In both cases, this can result in more processing for a Lambda function.
+Create tests to ensure that your function handles larger payload sizes. The maximum size for a Lambda event payload is 1 MB. Depending upon the content, larger payloads might mean more items passed to the function or more binary data embedded in a JSON attribute. In both cases, this can result in more processing for a Lambda function.
 
 Larger payloads can also cause timeouts. For example, a Lambda function processes one record per 100 ms and has a timeout of 3 seconds. Processing is successful for 0-29 items in the payload. However, once the payload contains more than 30 items, the function times out and throws an error. To avoid this, ensure that timeouts are set to handle the additional processing time for the maximum number of items expected.
 
@@ -97,8 +97,10 @@ Larger payloads can cause timeouts and errors. We recommend creating tests to en
 handles your largest expected payloads, and ensuring the function timeout is properly set.
 
 In addition, certain event payloads can contain pointers to other resources. For example, a Lambda function with
-128 MB of memory may perform image processing on a JPG file stored as an object in S3. The function works as expected
-with smaller image files. However, when a larger JPG file is provided as input, the Lambda function throws an error due
+128 MB of memory might perform image processing on a JPG file stored as an object in S3. The function works as expected
+with smaller image files.
+
+However, when a larger JPG file is provided as input, the Lambda function throws an error due
 to running out of memory. To avoid this, the test cases should include examples from the upper bounds of expected
 data sizes. The code should also validate payload sizes.
 
@@ -153,7 +155,7 @@ to stop and be replaced.
 
 ###### Note
 
-It may take 5 to 10 minutes for logs to show up after a function invocation.
+It might take 5 to 10 minutes for logs to show up after a function invocation.
 
 ## Lambda: Not all of my function's logs appear
 
@@ -161,7 +163,7 @@ It may take 5 to 10 minutes for logs to show up after a function invocation.
 _Function logs are missing in CloudWatch Logs, even though my permissions are correct_
 
 If your AWS account reaches its [CloudWatch Logs quota limits](../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md "../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md"),
-CloudWatch throttles function logging. When this happens, some of the logs output by your functions may not appear in CloudWatch Logs.
+CloudWatch throttles function logging. When this happens, some of the logs output by your functions might not appear in CloudWatch Logs.
 
 If your function outputs logs at too high a rate for Lambda to process them, this can also cause log outputs
 not to appear in CloudWatch Logs. When Lambda can't send logs to CloudWatch at the rate your function produces them, it drops logs
@@ -252,7 +254,7 @@ _Downstream services that your Lambda function relies on are unavailable_
 
 For Lambda functions that call out to third-party endpoints or other downstream resources, ensure that they can
 handle service errors and timeouts. These downstream resources can have variable response times, or become
-unavailable due to service disruptions. Depending upon the implementation, these downstream errors may appear
+unavailable due to service disruptions. Depending upon the implementation, these downstream errors might appear
 as Lambda timeouts or exceptions if the service's error response is not handled within the function code.
 
 Anytime a function depends on a downstream service, such as an API call, implement appropriate error
@@ -260,7 +262,7 @@ handling and retry logic. For critical services, the Lambda function should publ
 For example, if a third-party payment API becomes unavailable, your Lambda function can log this information.
 You can then set up CloudWatch alarms to send notifications related to these errors.
 
-Since Lambda can scale quickly, non-serverless downstream services may struggle to handle spikes in traffic.
+Since Lambda can scale quickly, non-serverless downstream services might struggle to handle spikes in traffic.
 There are three common approaches to handling this:
 
 - **Caching** – Consider caching the result of values returned by
@@ -350,4 +352,4 @@ Common configuration errors:
 - **Infinite retries with bisect batch** – You cannot enable `BisectBatchOnFunctionError` when `MaximumRetryAttempts` is set to -1 (infinite). Set a finite retry limit or disable bisect batch.
 - **Same topic recursion** – The Kafka on-failure destination topic cannot be the same as any of your source topics. Choose a different topic name for your dead letter topic.
 - **Invalid Kafka destination format** – Use the `kafka://<topic-name>` format when specifying a Kafka topic as an on-failure destination.
-- **kafka:WriteData permission issues** – Ensure your execution role has `kafka-cluster:WriteData` permissions for the destination topic. Topic doesn't exist timeout exceptions or write API throttling issues may require increasing the account limits.
+- **kafka:WriteData permission issues** – Ensure your execution role has `kafka-cluster:WriteData` permissions for the destination topic. Topic doesn't exist timeout exceptions or write API throttling issues might require increasing the account limits.

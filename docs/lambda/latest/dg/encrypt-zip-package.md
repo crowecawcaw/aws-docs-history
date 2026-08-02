@@ -129,7 +129,7 @@ To remove customer managed key encryption, or to use a different key, you must u
 3. In the **Code source** pane, choose **Upload from**.
 4. Choose **.zip file** or **Amazon S3 location**.
 
-![Upload .zip file from code source pane](images/upload-zip.png) 5. Upload the file or enter the Amazon S3 location. 6. Choose **Enable encryption with an AWS KMS customer managed key**. 7. Choose a customer managed key. 8. Choose **Save**.
+![Upload .zip file from code source pane.](images/upload-zip.png) 5. Upload the file or enter the Amazon S3 location. 6. Choose **Enable encryption with an AWS KMS customer managed key**. 7. Choose a customer managed key. 8. Choose **Save**.
 
 AWS CLI
 **To add customer managed key encryption when you create a function**

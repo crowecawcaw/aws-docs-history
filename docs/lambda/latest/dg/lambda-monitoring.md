@@ -4,7 +4,10 @@ AWS Lambda integrates with other AWS services to help you monitor and troublesho
 
 You can use other AWS services to troubleshoot your Lambda functions. This section describes how to use these
 AWS services to monitor, trace, debug, and troubleshoot your Lambda functions and applications. For details about
-function logging and errors in each runtime, see individual runtime sections.
+function logging and errors in each runtime, see individual runtime sections. Topics include
+[application monitoring](applications-console-monitoring.md "applications-console-monitoring.md"),
+[Application Signals](monitoring-application-signals.md "monitoring-application-signals.md"), and
+[logging Lambda API calls with CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 ###### Sections
 

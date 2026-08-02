@@ -87,7 +87,7 @@ invocation. The report line provides the following details.
 
 You can use the Lambda console to view log output after you invoke a Lambda function.
 
-If your code can be tested from the embedded **Code** editor, you will find logs in the **execution results**. When you use the console test feature to invoke a function, you'll find **Log output** in the **Details** section.
+If your code can be tested from the embedded **Code** editor, you find logs in the **execution results**. When you use the console test feature to invoke a function, you find **Log output** in the **Details** section.
 
 ## Viewing logs in the CloudWatch console
 
@@ -103,7 +103,7 @@ Each log stream corresponds to an [instance of your function](lambda-runtime-env
 
 ## Viewing logs using the AWS Command Line Interface (AWS CLI)
 
-The AWS CLI is an open-source tool that enables you to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+The AWS CLI is an open-source tool that you can use to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 
 You can use the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") to retrieve logs for an invocation using the `--log-type` command option. The response contains a `LogResult` field that contains up to 4 KB of base64-encoded logs from the invocation.
 
@@ -165,7 +165,7 @@ aws logs get-log-events --log-group-name /aws/lambda/`my-function` --log-stream-
 
 ###### Example macOS and Linux (only)
 
-In the same command prompt, macOS and Linux users may need to run the following command to ensure the script is executable.
+In the same command prompt, macOS and Linux users might need to run the following command to ensure the script is executable.
 
 ```
 `chmod -R 755 get-logs.sh`

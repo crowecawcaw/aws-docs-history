@@ -8,7 +8,7 @@ in CloudWatch Logs.
 To implement this example, first create a DynamoDB table and populate it with some test data for your function to query. Then, create a Python Lambda function with
 an EventBridge Scheduler trigger and an IAM execution role that gives the function permission to read, and delete, items from your table.
 
-![Diagram showing flow of data between an EventBridge Scheduler schedule, a Lambda function and a DynamoDB table](images/ExampleApps/cron_app.png)
+![Diagram showing flow of data between an EventBridge Scheduler schedule, a Lambda function and a DynamoDB table.](images/ExampleApps/cron_app.png)
 
 ###### Tip
 
@@ -442,7 +442,7 @@ Console
    4. Leave **Table settings** set to **Default settings** and choose **Create table**.
 
 4. When your table has finished creating and its **Status** shows as **Active**, create a global secondary index (GSI) by doing the
-   following. Your app will use this GSI to search for items directly by date to determine what to delete.
+   following. Your app uses this GSI to search for items directly by date to determine what to delete.
 
    1. Choose **MyOrderTable** from the list of tables.
    2. Choose the **Indexes** tab.
@@ -472,7 +472,7 @@ location to deploy them. 3. To create the DynamoDB resource specified in the `te
 `sam deploy --guided`
 ```
 
-Using the `--guided` flag means that AWS SAM will show you prompts to guide you through the deployment process. For this deployment,
+Using the `--guided` flag means that AWS SAM shows you prompts to guide you through the deployment process. For this deployment,
 enter a `Stack name` of `cron-app-test-db`, and accept the defaults for all other options by using Enter.
 
 When AWS SAM has finished creating the DynamoDB resource, you should see the following message.
@@ -640,7 +640,7 @@ AWS SAM
 1. Navigate to the folder you saved the `template.yaml` file for the app in. Note that this example uses two `template.yaml` files.
    Make sure they are saved in separate sub-folders and that you are in the correct folder containing the template to create the app.
 2. Copy the `lambda_function.py` and `requirements.txt` files you downloaded earlier to the same folder. The code location specified in the
-   AWS SAM template is `./`, meaning the current location. AWS SAM will search in this folder for the Lambda function code when you try to deploy the app.
+   AWS SAM template is `./`, meaning the current location. AWS SAM searches in this folder for the Lambda function code when you try to deploy the app.
 3. Run the following command.
 
 ```
@@ -655,7 +655,7 @@ We use it here so you don't need to have Python 3.12 installed on your local mac
 `sam deploy --guided`
 ```
 
-Using the `--guided` flag means that AWS SAM will show you prompts to guide you through the deployment process. For this deployment,
+Using the `--guided` flag means that AWS SAM shows you prompts to guide you through the deployment process. For this deployment,
 enter a `Stack name` of `cron-maintenance-app`, and accept the defaults for all other options by using Enter.
 
 When AWS SAM has finished creating the Lambda and EventBridge Scheduler resources, you should see the following message.
@@ -694,7 +694,7 @@ from the DynamoDB table.
 `python test_app.py`
 ```
 
-If successful, you will see the following output.
+If successful, you see the following output.
 
 ```
 Total number of old records: 0

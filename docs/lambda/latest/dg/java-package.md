@@ -9,7 +9,7 @@ deployment package to deploy your function code to AWS Lambda using the AWS Comm
 
 ###### Important
 
-Java 25 introduced support for Ahead-of-Time (AOT) caches. We strongly recommend not using AOT caches when deploying your functions as .zip or JAR file archives, since the caches may cause unexpected behavior when Lambda updates the managed runtime. For further information, see [Ahead-of-Time (AOT) and CDS caches](java-customization.md#aot-cds-caches "java-customization.md#aot-cds-caches").
+Java 25 introduced support for Ahead-of-Time (AOT) caches. We strongly recommend not using AOT caches when deploying your functions as .zip or JAR file archives, since the caches might cause unexpected behavior when Lambda updates the managed runtime. For further information, see [Ahead-of-Time (AOT) and CDS caches](java-customization.md#aot-cds-caches "java-customization.md#aot-cds-caches").
 
 ###### Sections
 
@@ -24,7 +24,7 @@ Java 25 introduced support for Ahead-of-Time (AOT) caches. We strongly recommend
 
 ## Prerequisites
 
-The AWS CLI is an open-source tool that enables you to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+The AWS CLI is an open-source tool that you can use to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 
 ## Tools and libraries
 
@@ -205,7 +205,7 @@ This command generates a JAR file in the `target` directory.
 
 If you're working with a [multi-release JAR (MRJAR)](https://openjdk.org/jeps/238 "https://openjdk.org/jeps/238"),
 you must include the MRJAR (i.e. the shaded JAR produced by the Maven Shade plugin) in the `lib`
-directory and zip it before uploading your deployment package to Lambda. Otherwise, Lambda may not properly
+directory and zip it before uploading your deployment package to Lambda. Otherwise, Lambda might not properly
 unpack your JAR file, causing your `MANIFEST.MF` file to be ignored.
 
 If you use the appender library (`aws-lambda-java-log4j2`), you must also configure a transformer

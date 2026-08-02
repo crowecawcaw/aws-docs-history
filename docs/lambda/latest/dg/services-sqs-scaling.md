@@ -6,7 +6,7 @@ These are mutually exclusive options.
 By default, Lambda automatically scales event pollers based on message volume.
 When you enable provisioned mode, you allocate a minimum and maximum number of
 dedicated polling resources that remain ready to handle expected traffic patterns.
-This allows you to optimize your event source mapping's performance in two ways:
+You can optimize your event source mapping's performance in two ways:
 
 - Standard mode (Default): Lambda automatically manages scaling, starting with a small number of pollers and scaling up
   or down based on workload.
@@ -21,14 +21,16 @@ This allows you to optimize your event source mapping's performance in two ways:
 For FIFO queues, Lambda sends messages to your function in the order that it receives them. When you send a
 message to a FIFO queue, you specify a [message group
 ID](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.md"). Amazon SQS ensures that messages in the same group are delivered to Lambda in order. When Lambda reads
-your messages into batches, each batch may contain messages from more than one message group, but the order
+your messages into batches, each batch might contain messages from more than one message group, but the order
 of the messages is maintained. If your function returns an error, the function attempts all retries on the
 affected messages before Lambda receives additional messages from the same
 group.
 
 When using provisioned mode, each event poller can handle up to 1 MB/sec of throughput, up to 10 concurrent invokes, or up to 10 Amazon SQS polling API calls per second.
 Lambda scales the number of event pollers between your configured minimum and maximum, quickly adding up to 1,000 concurrency
-per minute to provide consistent, low-latency processing of your Amazon SQS events. Using provisioned mode incurs additional costs. For detailed pricing, see [AWS Lambda pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/"). Each event poller uses [long polling](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.md") to your SQS queue with up to 10 polls per second, which incur SQS API requests cost. See [Amazon SQS pricing](https://aws.amazon.com/sqs/pricing/ "https://aws.amazon.com/sqs/pricing/ ") for details. You control scaling and concurrency through these minimum and maximum event poller settings, rather than using the maximum concurrency setting, as these options cannot be used together.
+per minute to provide consistent, low-latency processing of your Amazon SQS events. Using provisioned mode incurs additional costs. For detailed pricing, see [AWS Lambda pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/").
+
+Each event poller uses [long polling](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.md") to your SQS queue with up to 10 polls per second, which incur SQS API requests cost. See [Amazon SQS pricing](https://aws.amazon.com/sqs/pricing/ "https://aws.amazon.com/sqs/pricing/") for details. You control scaling and concurrency through these minimum and maximum event poller settings, rather than using the maximum concurrency setting, as these options cannot be used together.
 
 ###### Note
 
@@ -41,6 +43,7 @@ You can use the maximum concurrency setting to control scaling behavior for your
 The maximum concurrency setting limits the number of concurrent instances of the function that an Amazon SQS
 event source can invoke. Maximum concurrency is an event source-level setting. If you have multiple Amazon SQS
 event sources mapped to one function, each event source can have a separate maximum concurrency setting.
+
 You can use maximum concurrency to prevent one queue from using all of the function's
 [reserved concurrency](configuration-concurrency.md "configuration-concurrency.md") or the rest of the
 [account's concurrency quota](gettingstarted-limits.md "gettingstarted-limits.md"). There is no charge for
@@ -49,12 +52,12 @@ configuring maximum concurrency on an Amazon SQS event source.
 Importantly, maximum concurrency and reserved concurrency are two independent settings. Don't set
 maximum concurrency higher than the function's reserved concurrency. If you configure maximum concurrency,
 make sure that your function's reserved concurrency is greater than or equal to the total maximum
-concurrency for all Amazon SQS event sources on the function. Otherwise, Lambda may throttle your messages.
+concurrency for all Amazon SQS event sources on the function. Otherwise, Lambda might throttle your messages.
 
 When your account's concurrency quota is set to the default value of 1,000, an Amazon SQS event source mapping can scale
 to invoke function instances up to this value, unless you specify a maximum concurrency.
 
-If you receive an increase to your account's default concurrency quota, Lambda may not be able to invoke concurrent functions
+If you receive an increase to your account's default concurrency quota, Lambda might not be able to invoke concurrent functions
 instances up to your new quota. By default, Lambda can scale to invoke up to 1,250 concurrent function instances
 for an Amazon SQS event source mapping. If this is insufficient for your use case, contact AWS support to
 discuss an increase to your account's Amazon SQS event source mapping concurrency.

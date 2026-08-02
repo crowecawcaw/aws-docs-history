@@ -600,7 +600,7 @@ deleting the event source mapping.
 
 This creates a mapping between the specified DynamoDB stream and the Lambda function. You can associate a DynamoDB
 stream with multiple Lambda functions, and associate the same Lambda function with multiple streams. However, the
-Lambda functions will share the read throughput for the stream they share.
+Lambda functions share the read throughput for the stream they share.
 
 You can get the list of event source mappings by running the following command.
 
@@ -637,7 +637,7 @@ by passing events to the function.
 ## Next steps
 
 This tutorial showed you the basics of processing DynamoDB stream events with Lambda. For production workloads, consider implementing partial batch response logic to handle individual record failures more efficiently.
-The [batch processor utility](https://docs.powertools.aws.dev/lambda/python/latest/utilities/batch/ "https://docs.powertools.aws.dev/lambda/python/latest/utilities/batch/") from Powertools for AWS Lambda is available in Python, TypeScript, .NET, and Java and provides a robust solution for this, automatically handling the
+The [batch processor utility](../../../powertools/python/latest/utilities/batch.md "../../../powertools/python/latest/utilities/batch.md") from Powertools for AWS Lambda is available in Python, TypeScript, .NET, and Java and provides a robust solution for this, automatically handling the
 complexity of partial batch responses and reducing the number of retries for successfully processed records.
 
 ## Clean up your resources

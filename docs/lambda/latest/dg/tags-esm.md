@@ -32,7 +32,7 @@ event source mappings by tag, including those configured in Provisioned Mode for
 
 When you add a trigger for supported stream and queue-based services using the Lambda console, Lambda
 automatically creates an event source mapping. For more information about these event sources, see [How Lambda processes records from stream and queue-based event sources](invocation-eventsourcemapping.md "invocation-eventsourcemapping.md"). To create an event source mapping in the console,
-you will need the following prerequisites:
+you need the following prerequisites:
 
 - A function.
 - An event source from an affected service.
@@ -78,7 +78,7 @@ The search box also supports searching for tag keys. Enter the name of a key to 
 ## Using tags with the AWS CLI
 
 You can add and remove tags on existing Lambda resources, including event source mappings, with the Lambda
-API. You can also add tags when creating an event source mapping, which allows you to keep a resource tagged
+API. You can also add tags when creating an event source mapping to keep a resource tagged
 through its entire lifecycle.
 
 ### Updating tags with the Lambda tag APIs

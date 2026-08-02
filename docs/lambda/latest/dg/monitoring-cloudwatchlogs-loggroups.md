@@ -56,7 +56,7 @@ Lambda won't be able to create the log group. As a result of this, your function
 ## Execution role permissions
 
 For your function to send logs to CloudWatch Logs, it must have the [logs:PutLogEvents](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.md") permission.
-When you configure your function's log group using the Lambda console, Lambda will add this permission to the role under the following conditions:
+When you configure your function's log group using the Lambda console, Lambda adds this permission to the role under the following conditions:
 
 - The service destination is set to CloudWatch Logs
 - Your function's execution role doesn't have permissions to upload logs to CloudWatch Logs (the default destination)
@@ -89,7 +89,7 @@ you must ensure that these AWS APIs are routable from your VPC. You have several
 - **NAT Gateway**: Configure a NAT gateway to allow outbound internet access from your private subnets.
 - **Internet Gateway**: For public subnets, ensure your VPC has an internet gateway configured.
 
-If CloudWatch Logs or X-Ray APIs are not routable from your VPC, your function logs and traces will not be delivered.
+If CloudWatch Logs or X-Ray APIs are not routable from your VPC, your function logs and traces are not delivered.
 
 ### Concurrent invocations and log attribution
 

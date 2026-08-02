@@ -15,7 +15,9 @@ After you deploy your Lambda function, you can invoke it in several ways:
   invoke your function.
   All of these methods are _direct_ ways to invoke your function.
   In Lambda, a common use case is to invoke your function based on an event that occurs
-  elsewhere in your application. Some services can invoke a Lambda function with each new event. This is called a [trigger](lambda-services.md "lambda-services.md"). For stream and queue-based services, Lambda invokes the function with batches of records. This is called an [event source mapping](invocation-eventsourcemapping.md "invocation-eventsourcemapping.md").
+  elsewhere in your application. Some services can invoke a Lambda function with each new event.
+
+This is called a [trigger](lambda-services.md "lambda-services.md"). For stream and queue-based services, Lambda invokes the function with batches of records. This is called an [event source mapping](invocation-eventsourcemapping.md "invocation-eventsourcemapping.md").
 
 When you invoke a function, you can choose to invoke it synchronously or
 asynchronously. With [synchronous invocation](invocation-sync.md "invocation-sync.md"),

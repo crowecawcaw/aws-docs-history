@@ -3,6 +3,8 @@
 The following sections explain how common programming patterns and core concepts apply when you author Lambda
 function code in PowerShell.
 
+For information about the PowerShell context object, see [Using the Lambda context object to retrieve PowerShell function information](powershell-context.md "powershell-context.md").
+
 Lambda provides the following sample applications for PowerShell:
 
 - [blank-powershell](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-powershell "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-powershell") – A PowerShell function that shows the use of logging, environment variables, and the AWS SDK.

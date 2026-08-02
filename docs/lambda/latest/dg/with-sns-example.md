@@ -4,15 +4,15 @@ In this tutorial, you use a Lambda function in one AWS account to subscribe to a
 you publish messages to your Amazon SNS topic, your Lambda function reads the contents of the message and outputs it to Amazon CloudWatch Logs. To complete this
 tutorial, you use the AWS Command Line Interface (AWS CLI).
 
-![An Amazon SNS topic connected to a Lambda function connected to a CloudWatch Logs log group](images/services-sns-tutorial/sns_tut_resources.png)
+![An Amazon SNS topic connected to a Lambda function connected to a CloudWatch Logs log group.](images/services-sns-tutorial/sns_tut_resources.png)
 To complete this tutorial, you perform the following steps:
 
 - In **account A**, create an Amazon SNS topic.
-- In **account B**, create a Lambda function that will read messages from the topic.
+- In **account B**, create a Lambda function that reads messages from the topic.
 - In **account B**, create a subscription to the topic.
 - Publish messages to the Amazon SNS topic in **account A** and confirm that the Lambda function in
   **account B** outputs them to CloudWatch Logs.
-  By completing these steps, you will learn how to configure an Amazon SNS topic to invoke a Lambda function. You will also learn how to create an
+  By completing these steps, you learn how to configure an Amazon SNS topic to invoke a Lambda function. You also learn how to create an
   AWS Identity and Access Management (IAM) policy that gives permission for a resource in another AWS account to invoke Lambda.
 
 In the tutorial, you use two separate AWS accounts. The AWS CLI commands illustrate this by using two named profiles called `accountA`
@@ -37,7 +37,7 @@ To get a Windows-integrated version of Ubuntu and Bash, [install the Windows Sub
 
 ## Create an Amazon SNS topic (account A)
 
-![First step: Create the Amazon SNS topic](images/services-sns-tutorial/sns_tut_steps_1.png)
+![First step: Create the Amazon SNS topic.](images/services-sns-tutorial/sns_tut_steps_1.png)
 
 ###### To create the topic
 
@@ -60,7 +60,7 @@ Lambda function to subscribe to the topic.
 
 ## Create a function execution role (account B)
 
-![Next step: Create the execution role](images/services-sns-tutorial/sns_tut_steps_2.png)
+![Next step: Create the execution role.](images/services-sns-tutorial/sns_tut_steps_2.png)
 
 An execution role is an IAM role that grants a Lambda function permission to access AWS services and resources. Before you create your
 function in **account B**, you create a role that gives the function basic permissions to write logs to
@@ -86,7 +86,7 @@ CloudWatch Logs. We'll add the permissions to read from your Amazon SNS topic in
 
 ## Create a Lambda function (account B)
 
-![Next step: Create the function](images/services-sns-tutorial/sns_tut_steps_3.png)
+![Next step: Create the function.](images/services-sns-tutorial/sns_tut_steps_3.png)
 
 Create a Lambda function that processes your Amazon SNS messages. The function code logs the message
 contents of each record to Amazon CloudWatch Logs.
@@ -540,7 +540,7 @@ You should see output similar to the following.
 
 ## Add permissions to function (account B)
 
-![Next step: Add permissions to function](images/services-sns-tutorial/sns_tut_steps_4.png)
+![Next step: Add permissions to function.](images/services-sns-tutorial/sns_tut_steps_4.png)
 
 For Amazon SNS to invoke your function, you need to grant it permission in a statement on a [resource-based policy](access-control-resource-based.md "access-control-resource-based.md").
 You add this statement using the AWS CLI `add-permission` command.
@@ -577,7 +577,7 @@ you need to specify `sns.ap-east-1.amazonaws.com` instead of `sns.amazonaws.com`
 
 ## Grant cross-account permission for Amazon SNS subscription (account A)
 
-![Next step: Grant cross-account permission](images/services-sns-tutorial/sns_tut_steps_5.png)
+![Next step: Grant cross-account permission.](images/services-sns-tutorial/sns_tut_steps_5.png)
 
 For your Lambda function in **account B** to subscribe to the Amazon SNS topic you created in **account A**,
 you need to grant permission for **account B** to subscribe to your topic. You grant this permission using the
@@ -595,7 +595,7 @@ AWS CLI `add-permission` command.
 
 ## Create a subscription (account B)
 
-![Next step: Create a subscription](images/services-sns-tutorial/sns_tut_steps_6.png)
+![Next step: Create a subscription.](images/services-sns-tutorial/sns_tut_steps_6.png)
 
 In **account B**, you now subscribe your Lambda function to the Amazon SNS topic you created at the beginning of the
 tutorial in **account A**. When a message is sent to this topic (`sns-topic-for-lambda`), Amazon SNS invokes
@@ -624,7 +624,7 @@ You should see output similar to the following.
 
 ## Publish messages to topic (account A and account B)
 
-![Next step: Publish messages](images/services-sns-tutorial/sns_tut_steps_7.png)
+![Next step: Publish messages.](images/services-sns-tutorial/sns_tut_steps_7.png)
 
 Now that your Lambda function in **account B** is subscribed to your Amazon SNS topic in **account A**,
 it's time to test your setup by publishing messages to your topic. To confirm that Amazon SNS has invoked your Lambda function, you use CloudWatch Logs to view
@@ -642,7 +642,7 @@ your function's output.
  --profile accountA`
 ```
 
-This will return a message ID with a unique identifier, indicating that Amazon SNS has accepted the message. Amazon SNS then attempts to deliver
+This returns a message ID with a unique identifier, indicating that Amazon SNS has accepted the message. Amazon SNS then attempts to deliver
 the message to the topic's subscribers. To confirm that Amazon SNS has invoked your Lambda function, use CloudWatch Logs to view your function's output: 3. In **account B**, open the [Log groups](https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups "https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups") page of the Amazon CloudWatch console. 4. Choose the log group for your function (`/aws/lambda/Function-With-SNS`). 5. Choose the most recent log stream. 6. If your function was correctly invoked, you'll see output similar to the following showing the contents of the message you published to
 your topic.
 

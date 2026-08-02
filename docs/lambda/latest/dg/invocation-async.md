@@ -10,7 +10,7 @@ components of your application.
 The following diagram shows clients invoking a Lambda function asynchronously. Lambda queues the events before
 sending them to the function.
 
-![Clients invoke a function asynchronously. Lambda queues events before sending them to the function](images/features-async.png)
+![Clients invoke a function asynchronously. Lambda queues events before sending them to the function.](images/features-async.png)
 For asynchronous invocation, Lambda places the event in a queue and returns a success response without
 additional information. A separate process reads events from the queue and sends them to your function.
 

@@ -8,7 +8,9 @@ trace summaries.
 Lambda supports two tracing modes for X-Ray: `Active` and
 `PassThrough`. With `Active` tracing, Lambda automatically creates trace
 segments for function invocations and sends them to X-Ray. `PassThrough` mode, on
-the other hand, simply propagates the tracing context to downstream services. If you've enabled
+the other hand, simply propagates the tracing context to downstream services.
+
+If you've enabled
 `Active` tracing for your function, Lambda automatically sends traces to X-Ray for
 sampled requests. Typically, an upstream service, such as Amazon API Gateway or an application hosted on
 Amazon EC2 that is instrumented with the X-Ray SDK, decides whether incoming requests should be
@@ -71,7 +73,7 @@ AWS Regions except the China and GovCloud regions will transition to use the new
 
 The old-style X-Ray structure for the `AWS::Lambda` segment looks like the following:
 
-![Diagram showing the structure of an old-style X-Ray trace containing invocation segment](images/V2_sandbox_images/v1_XRay_structure.png)
+![Diagram showing the structure of an old-style X-Ray trace containing invocation segment.](images/V2_sandbox_images/v1_XRay_structure.png)
 
 In this format, the function segment has subsegments for `Initialization`, `Invocation`, and
 `Overhead`. For [SnapStart](snapstart.md "snapstart.md") only, there is also a `Restore` subsegment
@@ -101,7 +103,7 @@ For more information about Lambda execution environment phases, see [Understandi
 
 An example trace using the old-style X-Ray structure is shown in the following diagram.
 
-![Diagram showing an example old-style X-Ray trace containing invocation segment](images/V2_sandbox_images/my-function-2-v1.png)
+![Diagram showing an example old-style X-Ray trace containing invocation segment.](images/V2_sandbox_images/my-function-2-v1.png)
 
 Note the two segments in the example. Both are named **my-function**, but one has an origin of `AWS::Lambda`
 and the other has an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service
@@ -109,10 +111,10 @@ had an issue. If the `AWS::Lambda::Function` segment shows an error, your functi
 
 ###### Note
 
-Occasionally, you may notice a large gap between the function initialization and invocation phases
+Occasionally, you might notice a large gap between the function initialization and invocation phases
 in your X-Ray traces. For functions using [provisioned concurrency](provisioned-concurrency.md "provisioned-concurrency.md"),
 this is because Lambda initializes your function instances well in advance of invocation. For functions using
-[unreserved (on-demand) concurrency](lambda-concurrency.md "lambda-concurrency.md"), Lambda may proactively initialize
+[unreserved (on-demand) concurrency](lambda-concurrency.md "lambda-concurrency.md"), Lambda might proactively initialize
 a function instance, even if there's no invocation. Visually, both of these cases show up as a time gap between
 the initialization and invocation phases.
 
@@ -120,7 +122,7 @@ the initialization and invocation phases.
 
 The new-style X-Ray structure for the `AWS::Lambda` segment looks like the following:
 
-![Diagram showing the structure of an new-style X-Ray trace without invocation segment](images/V2_sandbox_images/v2_XRay_structure.png)
+![Diagram showing the structure of an new-style X-Ray trace without invocation segment.](images/V2_sandbox_images/v2_XRay_structure.png)
 
 In this new format, The `Init` subsegment represents the init phase of the Lambda execution
 environment lifecycle as before.
@@ -135,7 +137,7 @@ There is no invocation segment in the new format. Instead, customer subsegments 
 
 An example trace using the new-style X-Ray structure is shown in the following diagram.
 
-![Diagram showing an example new-style X-Ray trace without the invocation segment](images/V2_sandbox_images/my-function-2-v2.png)
+![Diagram showing an example new-style X-Ray trace without the invocation segment.](images/V2_sandbox_images/my-function-2-v2.png)
 
 Note the two segments in the example. Both are named **my-function**, but one has an origin of `AWS::Lambda`
 and the other has an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service

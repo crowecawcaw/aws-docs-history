@@ -22,12 +22,14 @@ while processing a previous batch.
 ###### Note
 
 Your function's timeout must be less than or equal to the queue's visibility timeout.
-Lambda validates this requirement when you create or update an event source mapping and will
-return an error if the function timeout exceeds the queue's visibility timeout.
+Lambda validates this requirement when you create or update an event source mapping and
+returns an error if the function timeout exceeds the queue's visibility timeout.
 
 By default, if Lambda encounters an error at any point while processing a batch, all
 messages in that batch return to the queue. After the [visibility timeout](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.md"), the messages become visible to Lambda again. You can
-configure your event source mapping to use [partial batch responses](services-sqs-errorhandling.md#services-sqs-batchfailurereporting "services-sqs-errorhandling.md#services-sqs-batchfailurereporting") to return only the failed messages back to the queue. In
+configure your event source mapping to use [partial batch responses](services-sqs-errorhandling.md#services-sqs-batchfailurereporting "services-sqs-errorhandling.md#services-sqs-batchfailurereporting") to return only the failed messages back to the queue.
+
+In
 addition, if your function fails to process a message multiple times, Amazon SQS can send it to a
 [dead-letter queue](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.md"). We recommend setting the `maxReceiveCount` on your
 source queue's [redrive policy](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.md#policies-for-dead-letter-queues "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.md#policies-for-dead-letter-queues") to at least 5. This gives Lambda a few chances to retry before
@@ -118,7 +120,9 @@ batch of events and to retry in the event of a throttling error.
 When messages become available, Lambda starts processing messages in batches. Lambda starts
 processing five batches at a time with five concurrent invocations of your function. If messages
 are still available, Lambda adds up to 300 concurrent invokes of your function a minute, up to a
-maximum of 1,250 concurrent invokes. When using provisioned mode, each event poller can handle up to 1 MB/s of throughput, up to 10 concurrent invokes, or up to 10 Amazon SQS polling API calls per second. Lambda scales the number of event pollers between your configured minimum and maximum, quickly adding up to 1,000 concurrent invokes per minute to provide low-latency processing of your Amazon SQS events. You control scaling and concurrency through these minimum and maximum event poller settings. To learn more about function scaling and concurrency, see [Understanding Lambda function scaling](lambda-concurrency.md "lambda-concurrency.md").
+maximum of 1,250 concurrent invokes.
+
+When using provisioned mode, each event poller can handle up to 1 MB/s of throughput, up to 10 concurrent invokes, or up to 10 Amazon SQS polling API calls per second. Lambda scales the number of event pollers between your configured minimum and maximum, quickly adding up to 1,000 concurrent invokes per minute to provide low-latency processing of your Amazon SQS events. You control scaling and concurrency through these minimum and maximum event poller settings. To learn more about function scaling and concurrency, see [Understanding Lambda function scaling](lambda-concurrency.md "lambda-concurrency.md").
 
 To process more messages, you can optimize your Lambda function for higher throughput.
 For more information, see [Understanding how AWS Lambda scales with Amazon SQS standard queues](https://aws.amazon.com/blogs/compute/understanding-how-aws-lambda-scales-when-subscribed-to-amazon-sqs-queues/#:~:text=If there are more messages,messages from the SQS queue. "https://aws.amazon.com/blogs/compute/understanding-how-aws-lambda-scales-when-subscribed-to-amazon-sqs-queues/#:~:text=If there are more messages,messages from the SQS queue.").

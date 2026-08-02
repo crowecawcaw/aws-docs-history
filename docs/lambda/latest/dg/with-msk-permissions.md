@@ -9,7 +9,7 @@ contains the minimum required permissions for Amazon MSK Lambda event source map
 
 - Attach the [AWSLambdaMSKExecutionRole](../../../aws-managed-policy/latest/reference/AWSLambdaMSKExecutionRole.md "../../../aws-managed-policy/latest/reference/AWSLambdaMSKExecutionRole.md") managed policy
   to your execution role.
-- Let the Lambda console generate the permissions for you. When you [create an Amazon MSK event source mapping in the console](msk-esm-create.md#msk-console "msk-esm-create.md#msk-console"), Lambda evaluates your execution role and alerts you if any permissions are missing. Choose **Generate permissions** to automatically update your execution role. This doesn't work if you manually created or modified your execution role policies, or if the policies are attached to multiple roles. Note that additional permissions may still be required in your execution role when using advanced features such as [On-Failure Destination](kafka-on-failure.md "kafka-on-failure.md") or [AWS Glue Schema Registry](services-consume-kafka-events.md "services-consume-kafka-events.md").
+- Let the Lambda console generate the permissions for you. When you [create an Amazon MSK event source mapping in the console](msk-esm-create.md#msk-console "msk-esm-create.md#msk-console"), Lambda evaluates your execution role and alerts you if any permissions are missing. Choose **Generate permissions** to automatically update your execution role. This doesn't work if you manually created or modified your execution role policies, or if the policies are attached to multiple roles. Note that additional permissions might still be required in your execution role when using advanced features such as [On-Failure Destination](kafka-on-failure.md "kafka-on-failure.md") or [AWS Glue Schema Registry](services-consume-kafka-events.md "services-consume-kafka-events.md").
 
 ###### Topics
 
@@ -54,15 +54,15 @@ The following permissions allow Lambda to create and manage network interfaces w
 Your Lambda function might also need permissions to:
 
 - Access cross-account Amazon MSK clusters. For cross-account event source mappings, you need [kafka:DescribeVpcConnection](../../../msk/1.0/apireference/vpc-connection-arn.md "../../../msk/1.0/apireference/vpc-connection-arn.md") in the execution role. An IAM principal creating a cross-account event source mapping needs [kafka:ListVpcConnections](../../../msk/1.0/apireference/vpc-connections.md "../../../msk/1.0/apireference/vpc-connections.md").
-- Access your SCRAM secret, if you're using [SASL/SCRAM authentication](msk-cluster-auth.md#msk-sasl-scram "msk-cluster-auth.md#msk-sasl-scram"). This lets your function use a username and password to connect to Kafka.
-- Describe your Secrets Manager secret, if you're using SASL/SCRAM or [mTLS authentication](msk-cluster-auth.md#msk-mtls "msk-cluster-auth.md#msk-mtls"). This allows your function to retrieve the credentials or certificates needed for secure connections.
+- Access your SCRAM secret, if you're using [SASL/SCRAM authentication](msk-cluster-auth.md#msk-sasl-scram "msk-cluster-auth.md#msk-sasl-scram"). With this, your function can use a username and password to connect to Kafka.
+- Describe your Secrets Manager secret, if you're using SASL/SCRAM or [mTLS authentication](msk-cluster-auth.md#msk-mtls "msk-cluster-auth.md#msk-mtls"). With this permission, your function can retrieve the credentials or certificates needed for secure connections.
 - Access your AWS KMS customer managed key, if your AWS Secrets Manager secret is encrypted with an AWS KMS customer managed key.
 - Access your schema registry secrets, if you're using a schema registry with authentication:
 
   - For AWS Glue Schema Registry: Your function needs `glue:GetRegistry` and `glue:GetSchemaVersion` permissions. These allow your function to look up and use the message format rules stored in AWS Glue.
   - For [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/security/index.html "https://docs.confluent.io/platform/current/schema-registry/security/index.html") with `BASIC_AUTH` or `CLIENT_CERTIFICATE_TLS_AUTH`: Your function needs
     `secretsmanager:GetSecretValue` permission for the secret containing the authentication credentials. This lets your function retrieve the username/password or certificates needed to access the Confluent Schema Registry.
-  - For private CA certificates: Your function needs secretsmanager:GetSecretValue permission for the secret containing the certificate. This allows your function to verify the identity of schema registries that use custom certificates.
+  - For private CA certificates: Your function needs secretsmanager:GetSecretValue permission for the secret containing the certificate. With this permission, your function can verify the identity of schema registries that use custom certificates.
 
 - Access Kafka cluster consumer groups and poll messages from the topic, if you're using IAM authentication for the event source mapping.
 

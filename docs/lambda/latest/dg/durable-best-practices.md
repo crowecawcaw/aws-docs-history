@@ -14,7 +14,7 @@ Enable structured logging with execution IDs and step names. Set up CloudWatch a
 
 ## Error handling
 
-In addition to configuring retry strategies for transient failures, configure a dead-letter queue (DLQ) on your durable function to capture events from permanently failed executions. When a durable execution reaches a terminal state (FAILED, STOPPED, or TIMED\_OUT) after an asynchronous invocation, Lambda sends the original triggering event to the DLQ. This allows you to inspect, debug, and optionally reprocess failed events without losing them.
+In addition to configuring retry strategies for transient failures, configure a dead-letter queue (DLQ) on your durable function to capture events from permanently failed executions. When a durable execution reaches a terminal state (FAILED, STOPPED, or TIMED\_OUT) after an asynchronous invocation, Lambda sends the original triggering event to the DLQ. This way, you can inspect, debug, and optionally reprocess failed events without losing them.
 
 To configure a DLQ, set the `DeadLetterConfig` property on your function to an Amazon SQS queue or Amazon SNS topic ARN. For more information, see [Dead-letter queues](invocation-async-retain-records.md#invocation-dlq "invocation-async-retain-records.md#invocation-dlq").
 

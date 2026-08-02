@@ -119,7 +119,7 @@ To use the log format and log level options with your Java Lambda functions, see
 
 ### Using structured JSON log format with Java
 
-If you select JSON for your function's log format, Lambda will send logs output using the `LambdaLogger` class as
+If you select JSON for your function's log format, Lambda sends logs output using the `LambdaLogger` class as
 structured JSON. Each JSON log object contains at least four key value pairs with the following keys:
 
 - `"timestamp"` - the time the log message was generated
@@ -152,7 +152,7 @@ This log output by this example code would be captured in CloudWatch Logs as fol
 }
 ```
 
-If you don't assign a level to your log output, Lambda will automatically assign it the level INFO.
+If you don't assign a level to your log output, Lambda automatically assigns it the level INFO.
 
 If your code already uses another logging library to produce JSON structured logs, you don't need to make any changes. Lambda doesn't
 double-encode any logs that are already JSON encoded. Even if you configure your function to use the JSON log format, your logging outputs
@@ -185,9 +185,9 @@ want Lambda to send to CloudWatch Logs:
 
 For Lambda to filter your function's logs, you must also include a `"timestamp"` key value pair in your JSON log
 output. The time must be specified in valid [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt "https://www.ietf.org/rfc/rfc3339.txt")
-timestamp format. If you don't supply a valid timestamp, Lambda will assign the log the level INFO and add a timestamp for you.
+timestamp format. If you don't supply a valid timestamp, Lambda assigns the log the level INFO and adds a timestamp for you.
 
-Lambda sends logs of the selected level and lower to CloudWatch. For example, if you configure a log level of WARN, Lambda will send logs
+Lambda sends logs of the selected level and lower to CloudWatch. For example, if you configure a log level of WARN, Lambda sends logs
 corresponding to the WARN, ERROR, and FATAL levels.
 
 ## Implementing advanced logging with Log4j2 and SLF4J
@@ -199,7 +199,7 @@ These are therefore not affected by the issues described in CVE-2021-44228, CVE-
 
 For cases where a customer function includes an impacted Log4j2 version, we have applied a change to the Lambda Java [managed runtimes](lambda-runtimes.md "lambda-runtimes.md") and [base container images](java-image.md "java-image.md") that helps to mitigate the issues in CVE-2021-44228, CVE-2021-45046, and CVE-2021-45105.
 As a result of this change, customers using Log4J2 may see an additional log entry, similar to "`Transforming org/apache/logging/log4j/core/lookup/JndiLookup (java.net.URLClassLoader@...)`".
-Any log strings that reference the jndi mapper in the Log4J2 output will be replaced with "`Patched JndiLookup::lookup()`".
+Any log strings that reference the jndi mapper in the Log4J2 output are replaced with "`Patched JndiLookup::lookup()`".
 
 Independent of this change, we strongly encourage all customers whose functions include Log4j2 to update to the latest version.
 Specifically, customers using the aws-lambda-java-log4j2 library in their functions should update to version 1.5.0 (or later), and redeploy their functions.
@@ -208,8 +208,8 @@ This version updates the underlying Log4j2 utility dependencies to version 2.17.
 Lastly, take note that any libraries related to **aws-lambda-java-log4j (v1.0.0 or 1.0.1)** should **not** be used under **any** circumstance. These libraries are related to version 1.x of log4j which went end of life in 2015. The libraries are not supported, not maintained, not patched, and have known security vulnerabilities.
 
 To customize log output, support logging during unit tests, and log AWS SDK calls, use Apache Log4j2 with
-SLF4J. Log4j is a logging library for Java programs that enables you to configure log levels and use appender
-libraries. SLF4J is a facade library that lets you change which library you use without changing your function
+SLF4J. Log4j is a logging library for Java programs that you can use to configure log levels and use appender
+libraries. SLF4J is a facade library that you can use to change which library you use without changing your function
 code.
 
 To add the request ID to your function's logs, use the appender in the [aws-lambda-java-log4j2](java-package.md "java-package.md") library.
@@ -486,7 +486,7 @@ Resources:
 
 You can use the Lambda console to view log output after you invoke a Lambda function.
 
-If your code can be tested from the embedded **Code** editor, you will find logs in the **execution results**. When you use the console test feature to invoke a function, you'll find **Log output** in the **Details** section.
+If your code can be tested from the embedded **Code** editor, you find logs in the **execution results**. When you use the console test feature to invoke a function, you find **Log output** in the **Details** section.
 
 ## Viewing logs in the CloudWatch console
 
@@ -502,7 +502,7 @@ Each log stream corresponds to an [instance of your function](lambda-runtime-env
 
 ## Viewing logs using the AWS Command Line Interface (AWS CLI)
 
-The AWS CLI is an open-source tool that enables you to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+The AWS CLI is an open-source tool that you can use to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 
 You can use the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") to retrieve logs for an invocation using the `--log-type` command option. The response contains a `LogResult` field that contains up to 4 KB of base64-encoded logs from the invocation.
 
@@ -564,7 +564,7 @@ aws logs get-log-events --log-group-name /aws/lambda/`my-function` --log-stream-
 
 ###### Example macOS and Linux (only)
 
-In the same command prompt, macOS and Linux users may need to run the following command to ensure the script is executable.
+In the same command prompt, macOS and Linux users might need to run the following command to ensure the script is executable.
 
 ```
 `chmod -R 755 get-logs.sh`

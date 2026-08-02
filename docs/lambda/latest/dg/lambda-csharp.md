@@ -3,6 +3,9 @@
 You can run your .NET application in Lambda using the managed .NET 8 runtime, a custom runtime, or a container image. After your application
 code is compiled, you can deploy it to Lambda either as a .zip file or a container image. Lambda provides the following runtimes for .NET languages:
 
+For information about using .NET layers, see [Working with layers for .NET Lambda functions](dotnet-layers.md "dotnet-layers.md").
+For guidance on testing your C# functions, see [AWS Lambda function testing in C#](dotnet-csharp-testing.md "dotnet-csharp-testing.md").
+
 | Name                    | Identifier | Operating system  | Deprecation date | Block function create | Block function update |
 | ----------------------- | ---------- | ----------------- | ---------------- | --------------------- | --------------------- |
 | .NET 10                 | `dotnet10` | Amazon Linux 2023 | Nov 14, 2028     | Dec 14, 2028          | Jan 15, 2029          |

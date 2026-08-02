@@ -4,7 +4,7 @@
 
 See the [Testing functions](testing-guide.md "testing-guide.md") chapter for a complete introduction to techniques and best practices for testing serverless solutions.
 
-Testing serverless functions uses traditional test types and techniques, but you must also consider testing serverless applications as a whole. Cloud-based tests will provide the **most accurate** measure of quality of both your functions and serverless applications.
+Testing serverless functions uses traditional test types and techniques, but you must also consider testing serverless applications as a whole. Cloud-based tests provide the **most accurate** measure of quality of both your functions and serverless applications.
 
 A serverless application architecture includes managed services that provide critical application functionality through API calls. For this reason, your development cycle should include automated tests that verify functionality when your function and services interact.
 
@@ -12,9 +12,9 @@ If you do not create cloud-based tests, you could encounter issues due to differ
 
 Continue reading this short guide to learn about testing strategies for serverless applications, or visit the [Serverless Test Samples repository](https://github.com/aws-samples/serverless-test-samples "https://github.com/aws-samples/serverless-test-samples") to dive in with practical examples, specific to your chosen language and runtime.
 
-![illustration showing the relationship between types of tests](images/test-type-illustration2.png)
+![Illustration showing the relationship between types of tests.](images/test-type-illustration2.png)
 
-For serverless testing, you will still write _unit_, _integration_ and _end-to-end_ tests.
+For serverless testing, you still write _unit_, _integration_ and _end-to-end_ tests.
 
 - **Unit tests** - Tests that run against an isolated block of code. For example, verifying the business logic to calculate the delivery charge given a particular item and destination.
 - **Integration tests** - Tests involving two or more components or services that interact, typically in a cloud environment. For example, verifying a function processes events from a queue.
@@ -22,7 +22,7 @@ For serverless testing, you will still write _unit_, _integration_ and _end-to-e
 
 ## Testing your serverless applications
 
-You will generally use a mix of approaches to test your serverless application code, including testing in the cloud, testing with mocks, and occasionally testing with emulators.
+You generally use a mix of approaches to test your serverless application code, including testing in the cloud, testing with mocks, and occasionally testing with emulators.
 
 ### Testing in the cloud
 

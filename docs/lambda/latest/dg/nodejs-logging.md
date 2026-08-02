@@ -101,7 +101,7 @@ To use the log format and log level options with your Node.js Lambda functions, 
 
 ### Using structured JSON logs with Node.js
 
-If you select JSON for your function's log format, Lambda will send logs output using the console methods of `console.trace`,
+If you select JSON for your function's log format, Lambda sends logs output using the console methods of `console.trace`,
 `console.debug`, `console.log`, `console.info`, `console.error`, and `console.warn` to
 CloudWatch as structured JSON. Each JSON log object contains at least four key value pairs with the following keys:
 
@@ -115,7 +115,7 @@ if your function uses `console` methods to log error objects using multiple argu
 key value pairs with the keys `errorMessage`, `errorType`, and `stackTrace`.
 
 If your code already uses another logging library, such as Powertools for AWS Lambda, to produce JSON structured logs, you don't need to
-make any changes. Lambda doesn't double-encode any logs that are already JSON encoded, so your function's application logs will continue to be
+make any changes. Lambda doesn't double-encode any logs that are already JSON encoded, so your function's application logs continue to be
 captured as before.
 
 For more information about using the Powertools for AWS Lambda logging package to create JSON structured logs in the Node.js runtime, see
@@ -257,10 +257,10 @@ are extracted from the first error type supplied to the `console` method.
 ### Using embedded metric format (EMF) client libraries with structured JSON logs
 
 AWS provides open-sourced client libraries for Node.js which you can use to create [embedded metric format](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Libraries.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Libraries.md")
-(EMF) logs. If you have existing functions that use these libraries and you change your function's log format to JSON, CloudWatch may no longer recognize
+(EMF) logs. If you have existing functions that use these libraries and you change your function's log format to JSON, CloudWatch might no longer recognize
 the metrics emitted by your code.
 
-If your code currently emits EMF logs directly using `console.log` or by using Powertools for AWS Lambda (TypeScript), CloudWatch will also be
+If your code currently emits EMF logs directly using `console.log` or by using Powertools for AWS Lambda (TypeScript), CloudWatch is also
 unable to parse these if you change your function's log format to JSON.
 
 ###### Important
@@ -309,28 +309,28 @@ this in two ways:
 
 For Lambda to filter your function's logs, you must also include a `"timestamp"` key value pair in your JSON log
 output. The time must be specified in valid [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt "https://www.ietf.org/rfc/rfc3339.txt")
-timestamp format. If you don't supply a valid timestamp, Lambda will assign the log the level INFO and add a timestamp for you.
+timestamp format. If you don't supply a valid timestamp, Lambda assigns the log the level INFO and adds a timestamp for you.
 
 When you configure your function to use log-level filtering, you select the level of logs you want AWS Lambda to send to CloudWatch Logs from the
 following options:
 
-| Log level            | Standard usage                                                                      |
-| -------------------- | ----------------------------------------------------------------------------------- |
-| TRACE (most detail)  | The most fine-grained information used to trace the path of your code's execution   |
-| DEBUG                | Detailed information for system debugging                                           |
-| INFO                 | Messages that record the normal operation of your function                          |
-| WARN                 | Messages about potential errors that may lead to unexpected behavior if unaddressed |
-| ERROR                | Messages about problems that prevent the code from performing as expected           |
-| FATAL (least detail) | Messages about serious errors that cause the application to stop functioning        |
+| Log level            | Standard usage                                                                        |
+| -------------------- | ------------------------------------------------------------------------------------- |
+| TRACE (most detail)  | The most fine-grained information used to trace the path of your code's execution     |
+| DEBUG                | Detailed information for system debugging                                             |
+| INFO                 | Messages that record the normal operation of your function                            |
+| WARN                 | Messages about potential errors that might lead to unexpected behavior if unaddressed |
+| ERROR                | Messages about problems that prevent the code from performing as expected             |
+| FATAL (least detail) | Messages about serious errors that cause the application to stop functioning          |
 
-Lambda sends logs of the selected level and lower to CloudWatch. For example, if you configure a log level of WARN, Lambda will send logs
+Lambda sends logs of the selected level and lower to CloudWatch. For example, if you configure a log level of WARN, Lambda sends logs
 corresponding to the WARN, ERROR, and FATAL levels.
 
 ## Viewing logs in the Lambda console
 
 You can use the Lambda console to view log output after you invoke a Lambda function.
 
-If your code can be tested from the embedded **Code** editor, you will find logs in the **execution results**. When you use the console test feature to invoke a function, you'll find **Log output** in the **Details** section.
+If your code can be tested from the embedded **Code** editor, you find logs in the **execution results**. When you use the console test feature to invoke a function, you find **Log output** in the **Details** section.
 
 ## Viewing logs in the CloudWatch console
 
@@ -346,7 +346,7 @@ Each log stream corresponds to an [instance of your function](lambda-runtime-env
 
 ## Viewing logs using the AWS Command Line Interface (AWS CLI)
 
-The AWS CLI is an open-source tool that enables you to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+The AWS CLI is an open-source tool that you can use to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 
 You can use the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") to retrieve logs for an invocation using the `--log-type` command option. The response contains a `LogResult` field that contains up to 4 KB of base64-encoded logs from the invocation.
 
@@ -408,7 +408,7 @@ aws logs get-log-events --log-group-name /aws/lambda/`my-function` --log-stream-
 
 ###### Example macOS and Linux (only)
 
-In the same command prompt, macOS and Linux users may need to run the following command to ensure the script is executable.
+In the same command prompt, macOS and Linux users might need to run the following command to ensure the script is executable.
 
 ```
 `chmod -R 755 get-logs.sh`

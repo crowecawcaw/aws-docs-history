@@ -77,7 +77,7 @@ For language-specific code best practices, refer to the following sections:
 you pick the optimum memory size configuration. Any increase in memory size triggers an equivalent increase in
 CPU available to your function. The memory usage for your function is determined per-invoke and can be viewed
 in [Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatchLogs.md"). On each invoke a
-`REPORT:` entry will be made, as shown below:
+`REPORT:` entry is made, as shown below:
 
 ```
 REPORT RequestId: 3604209a-e9a3-11e6-939a-754dd98c7be3	Duration: 12.34 ms	Billed Duration: 100 ms Memory Size: 128 MB	Max Memory Used: 18 MB
@@ -91,15 +91,15 @@ using the open source AWS Lambda Power Tuning project. For more information, see
 [AWS Lambda Power Tuning](https://github.com/alexcasalboni/aws-lambda-power-tuning "https://github.com/alexcasalboni/aws-lambda-power-tuning") on GitHub.
 
 To optimize function performance, we also recommend deploying libraries that can use
-Advanced Vector Extensions 2 (AVX2). This allows you to process demanding workloads, including
+Advanced Vector Extensions 2 (AVX2). With this, you can process demanding workloads, including
 machine learning inferencing, media processing, high performance computing (HPC), scientific
 simulations, and financial modeling. For more information, see
 [Creating faster AWS Lambda functions with AVX2](https://aws.amazon.com/blogs/compute/creating-faster-aws-lambda-functions-with-avx2/ "https://aws.amazon.com/blogs/compute/creating-faster-aws-lambda-functions-with-avx2/").
 
 **Load test your Lambda function** to determine an optimum timeout value. It
 is important to analyze how long your function runs so that you can better determine any problems with a
-dependency service that may increase the concurrency of the function beyond what you expect. This is
-especially important when your Lambda function makes network calls to resources that may not handle Lambda's
+dependency service that might increase the concurrency of the function beyond what you expect. This is
+especially important when your Lambda function makes network calls to resources that might not handle Lambda's
 scaling. For more information about load testing your application, see
 [Distributed Load Testing on AWS](https://aws.amazon.com/solutions/implementations/distributed-load-testing-on-aws/ "https://aws.amazon.com/solutions/implementations/distributed-load-testing-on-aws/").
 
@@ -117,7 +117,7 @@ unused functions won't needlessly count against your deployment package size lim
 function's expected invocation time does not exceed the [Visibility Timeout](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.md") value on the queue. This applies both to [CreateFunction](../api/API_CreateFunction.md "../api/API_CreateFunction.md") and
 [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md").
 
-- In the case of **CreateFunction**, AWS Lambda will fail the function
+- In the case of **CreateFunction**, AWS Lambda fails the function
   creation process.
 - In the case of **UpdateFunctionConfiguration**, it could result in
   duplicate invocations of the function.
@@ -125,7 +125,7 @@ function's expected invocation time does not exceed the [Visibility Timeout](../
 ## Function scalability
 
 **Be familiar with your upstream and downstream throughput constraints.**
-While Lambda functions scale seamlessly with load, upstream and downstream dependencies may not have the
+While Lambda functions scale seamlessly with load, upstream and downstream dependencies might not have the
 same throughput capabilities. If you need to limit how high your function can scale, you can
 [configure reserved concurrency](configuration-concurrency.md "configuration-concurrency.md") on your function.
 
@@ -154,7 +154,9 @@ any bottlenecks or latencies attributable to your function code.
 
 **Emit custom metrics asynchronously using Embedded Metric Format (EMF).**
 Instead of making synchronous API calls to CloudWatch, use EMF to emit metrics through your function's logs.
-This approach reduces latency and improves performance. The Metrics utility in Powertools for AWS Lambda
+This approach reduces latency and improves performance.
+
+The Metrics utility in Powertools for AWS Lambda
 handles EMF formatting automatically. For more information, see
 [Python](../../../powertools/python/latest/core/metrics.md "../../../powertools/python/latest/core/metrics.md"),
 [TypeScript](../../../powertools/typescript/latest/features/metrics.md "../../../powertools/typescript/latest/features/metrics.md"),
@@ -173,10 +175,11 @@ the Logger utility from Powertools for AWS Lambda to automatically format logs i
 Logger utilities in the Powertools for AWS Lambda documentation.
 
 **Use your logging library and [AWS Lambda Metrics and Dimensions](../../../AmazonCloudWatch/latest/monitoring/lam-metricscollected.md "../../../AmazonCloudWatch/latest/monitoring/lam-metricscollected.md")** to catch
-app errors (e.g. ERR, ERROR, WARNING, etc.)
+app errors (such as ERR, ERROR, and WARNING).
 
 **Use [AWS Cost Anomaly Detection](../../../cost-management/latest/userguide/manage-ad.md "../../../cost-management/latest/userguide/manage-ad.md")** to detect unusual activity on your account.
 Cost Anomaly Detection uses machine learning to continuously monitor your cost and usage while minimizing false positive alerts. Cost Anomaly Detection uses data from AWS Cost Explorer, which has a delay of up to 24 hours.
+
 As a result, it can take up to 24 hours to detect an anomaly after usage occurs. To get started with Cost Anomaly Detection, you must first [sign up for Cost Explorer](../../../cost-management/latest/userguide/ce-enable.md "../../../cost-management/latest/userguide/ce-enable.md").
 Then, [access Cost Anomaly Detection](../../../cost-management/latest/userguide/settingup-ad.md#access-ad "../../../cost-management/latest/userguide/settingup-ad.md#access-ad").
 
@@ -218,7 +221,9 @@ You can use Powertools for AWS Lambda for batch processing. For more information
 
 **Increase Kinesis stream processing throughput by adding shards.** A
 Kinesis stream is composed of one or more shards. The rate at which Lambda can read data from Kinesis
-scales linearly with the number of shards. Increasing the number of shards will directly increase
+scales linearly with the number of shards.
+
+Increasing the number of shards directly increases
 the number of maximum concurrent Lambda function invocations and can increase your Kinesis stream
 processing throughput. For more information about the relationship between shards and function
 invocations, see [Polling and batching streams](with-kinesis.md#kinesis-polling-and-batching "with-kinesis.md#kinesis-polling-and-batching"). If you are increasing the number of

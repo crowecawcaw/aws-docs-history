@@ -84,14 +84,14 @@ _Client.OperationNotPermitted_
 **Error message:**
 _The security group can not be modified for this type of interface_
 
-You will receive this error if you attempt to modify an elastic network interface (ENI) that is managed by Lambda. The `ModifyNetworkInterfaceAttribute` is not included in the Lambda API for update operations on elastic network interfaces created by Lambda.
+You receive this error if you attempt to modify an elastic network interface (ENI) that is managed by Lambda. The `ModifyNetworkInterfaceAttribute` is not included in the Lambda API for update operations on elastic network interfaces created by Lambda.
 
 ## DNS: Fail to connect to hosts with UNKNOWNHOSTEXCEPTION
 
 **Error Message:**
 _UNKNOWNHOSTEXCEPTION_
 
-Lambda functions support a maximum of 20 concurrent TCP connections for DNS resolution. Your function may be
+Lambda functions support a maximum of 20 concurrent TCP connections for DNS resolution. Your function might be
 exhausting that limit. Most common DNS requests are done over UDP. If your function is only making UDP DNS
 connections, this is unlikely to be your issue. This error is commonly thrown due to misconfiguration or degraded
 infrastructure, so before examining your DNS traffic in depth, confirm that your DNS infrastructure is properly
@@ -100,4 +100,4 @@ configured and healthy and that your Lambda function is referring to a host spec
 If you diagnose your issue as related to the TCP connection maximum, note that you cannot request an increase
 to this limit. If your Lambda function is falling back to TCP DNS because of large DNS payloads, confirm that your
 solution is using libraries that support EDNS. For more information about EDNS, see [the RFC 6891 standard](https://datatracker.ietf.org/doc/html/rfc6891 "https://datatracker.ietf.org/doc/html/rfc6891"). If your DNS payloads
-consistently exceed EDNS max sizes, your solution may still exhaust the TCP DNS limit.
+consistently exceed EDNS max sizes, your solution might still exhaust the TCP DNS limit.

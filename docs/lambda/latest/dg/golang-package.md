@@ -7,7 +7,7 @@ container images and .zip file archives.
 This page describes how to create a .zip file as your deployment package for the Go runtime, and then use the .zip file to
 deploy your function code to AWS Lambda using the AWS Management Console, AWS Command Line Interface (AWS CLI), and AWS Serverless Application Model (AWS SAM).
 
-Note that Lambda uses POSIX file permissions, so you may need to [set permissions for the deployment package folder](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-deployment-package-errors/ "https://aws.amazon.com/premiumsupport/knowledge-center/lambda-deployment-package-errors/") before you create the .zip file archive.
+Note that Lambda uses POSIX file permissions, so you might need to [set permissions for the deployment package folder](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-deployment-package-errors/ "https://aws.amazon.com/premiumsupport/knowledge-center/lambda-deployment-package-errors/") before you create the .zip file archive.
 
 ###### Sections
 

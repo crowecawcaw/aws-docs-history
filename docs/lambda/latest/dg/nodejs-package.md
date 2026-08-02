@@ -149,7 +149,7 @@ You can also include it in a [Lambda layer](chapter-layers.md "chapter-layers.md
 When you use an `import` or `require` statement in your code, the Node.js runtime searches the directories in the `NODE_PATH`
 path until it finds the module. By default, the first location the runtime searches is the directory into which your .zip deployment package is
 decompressed and mounted (`/var/task`). If you include a version of a runtime-included library in your deployment package, this
-version will take precedence over the version included in the runtime. Dependencies in your deployment package also have precedence over
+version takes precedence over the version included in the runtime. Dependencies in your deployment package also have precedence over
 dependencies in layers.
 
 When you add a dependency to a layer, Lambda extracts this to `/opt/nodejs/nodexx/node_modules` where `nodexx`

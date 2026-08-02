@@ -11,9 +11,9 @@ three options to choose from:
   by a timestamp, in Unix time seconds. Use the [StartingPositionTimestamp parameter](../api/API_CreateEventSourceMapping.md#lambda-CreateEventSourceMapping-request-StartingPositionTimestamp "../api/API_CreateEventSourceMapping.md#lambda-CreateEventSourceMapping-request-StartingPositionTimestamp") to specify the timestamp.
   Stream polling during an event source mapping create or update is eventually consistent:
 
-- During event source mapping creation, it may take several minutes to start polling events
+- During event source mapping creation, it might take several minutes to start polling events
   from the stream.
-- During event source mapping updates, it may take up to 90 seconds to stop and restart polling
+- During event source mapping updates, it might take up to 90 seconds to stop and restart polling
   events from the stream.
   This behavior means that if you specify `LATEST` as the starting position for the stream, the event
   source mapping could miss events during a create or update. To ensure that no events are missed, specify either

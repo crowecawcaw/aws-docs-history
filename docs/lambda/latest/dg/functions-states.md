@@ -15,7 +15,7 @@ with the Lambda service. You can also store data in
 Function states include:
 
 - `Pending` – After Lambda creates the function, it sets the state to pending. While in pending state, Lambda attempts to create or configure resources for the function, such as VPC or EFS resources.
-  Lambda does not invoke a function during pending state. Any invocations or other API actions that operate on the function will fail.
+  Lambda does not invoke a function during pending state. Any invocations or other API actions that operate on the function fail.
 - `Active` – Your function transitions to active state after Lambda completes resource configuration and provisioning.
   Functions can only be successfully invoked while active.
 - `Failed` – Indicates that resource configuration or provisioning encountered an error.

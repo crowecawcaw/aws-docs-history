@@ -37,6 +37,7 @@ contain additional code and other content. To learn more about using Lambda laye
 
 The Ruby runtime includes the AWS SDK for Ruby. If your function uses the SDK, you don't need to bundle it with your code.
 However, to maintain full control of your dependencies, or to use a specific version of the SDK, you can add it to your function's deployment package.
+
 You can either include the SDK in your .zip file, or add it using a Lambda layer. Dependencies in your .zip file or in Lambda layers take precedence over
 versions included in the runtime. To find out which version of the SDK for Ruby is included in your runtime version, see [Runtime-included SDK versions](lambda-ruby.md#ruby-sdk-included "lambda-ruby.md#ruby-sdk-included").
 
@@ -178,7 +179,7 @@ host platform. Ignore this warning.
 Windows PowerShell
 
 ```
-`docker run --rm -it -v ${pwd}:var/task -w /var/task awsruby32`
+`docker run --rm -it -v ${pwd}:/var/task -w /var/task awsruby32`
 ```
 
 When your container starts, you should see a bash prompt.

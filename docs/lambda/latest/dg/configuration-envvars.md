@@ -50,11 +50,11 @@ your environment variables while you code.
 1. Choose the **Code** tab.
 2. Scroll down to the **ENVIRONMENT VARIABLES** section of the code editor. Existing environment variables are listed here:
 
-![ENVIRONMENT VARIABLES section of the Lambda console code editor](images/env-var.png) 3. To create new environment variables, choose the choose the plus sign (
-![plus sign](images/add-plus.png)
+![Environment variables section of the Lambda console code editor.](images/env-var.png) 3. To create new environment variables, choose the choose the plus sign (
+![Plus sign.](images/add-plus.png)
 ):
 
-![Add environment variables in the Lambda console code editor](images/create-env-var.png)
+![Add environment variables in the Lambda console code editor.](images/create-env-var.png)
 
 Environment variables remain encrypted when listed in the console code editor. If you enabled encryption helpers for encryption in transit, then those settings remain unchanged. For more information, see [Securing Lambda environment variables](configuration-envvars-encryption.md "configuration-envvars-encryption.md").
 
@@ -241,7 +241,7 @@ import os
 
 ###### Note
 
-In some cases, you may need to use the following format:
+In some cases, you might need to use the following format:
 
 ```
 region = os.environ.get('AWS_REGION')

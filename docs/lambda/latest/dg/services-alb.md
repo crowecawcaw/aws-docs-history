@@ -84,7 +84,7 @@ _User Guide for Application Load Balancers_.
 ## Event Handler from Powertools for AWS Lambda
 
 The event handler from the Powertools for AWS Lambda toolkit provides routing, middleware, CORS configuration, OpenAPI spec generation, request validation, error handling, and other useful features when writing Lambda functions invoked by an Application Load Balancer.
-The Event Handler utility is available for Python. For more information, see [Event Handler REST API](https://docs.powertools.aws.dev/lambda/python/latest/core/event_handler/api_gateway/ "https://docs.powertools.aws.dev/lambda/python/latest/core/event_handler/api_gateway/") in the _Powertools for AWS Lambda (Python) documentation_.
+The Event Handler utility is available for Python. For more information, see [Event Handler REST API](../../../powertools/python/latest/core/event_handler/api_gateway.md "../../../powertools/python/latest/core/event_handler/api_gateway.md") in the _Powertools for AWS Lambda (Python) documentation_.
 
 ### Python
 

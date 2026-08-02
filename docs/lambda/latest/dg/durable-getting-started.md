@@ -3,6 +3,9 @@
 To get started with Lambda durable functions, use the Lambda console to create a durable function. In a few minutes, you can create and deploy a
 durable function that uses steps and waits to demonstrate checkpoint-based execution.
 
+You can also create durable functions using the [AWS CLI](durable-getting-started-cli.md "durable-getting-started-cli.md") or
+[infrastructure as code (IaC)](durable-getting-started-iac.md "durable-getting-started-iac.md").
+
 As you carry out the tutorial, you'll learn fundamental durable function concepts, like how to use the `DurableContext` object,
 create checkpoints with steps, and pause execution with waits. You'll also learn how replay works when your function resumes after a wait.
 
@@ -54,7 +57,7 @@ In the console's built-in code editor, you should see the function code that Lam
 created. If you don't see the **index.mjs** tab in the code editor, select **index.mjs** in the
 file explorer as shown on the following diagram.
 
-![Diagram showing the console code editor and the index.mjs file in the file explorer](images/durable-nodejs.png) 2. Paste the following code into the **index.mjs** tab, replacing the code that Lambda created.
+![Diagram showing the console code editor and the index.mjs file in the file explorer.](images/durable-nodejs.png) 2. Paste the following code into the **index.mjs** tab, replacing the code that Lambda created.
 
 ```
 import {
@@ -138,7 +141,7 @@ In the console's built-in code editor, you should see the function code that Lam
 created. If you don't see the **lambda\_function.py** tab in the code editor, select **lambda\_function.py**
 in the file explorer as shown on the following diagram.
 
-![Diagram showing the console code editor and the lambda_function.py file in the file explorer](images/durable-python.png) 2. Paste the following code into the **lambda\_function.py** tab, replacing the code that Lambda created.
+![Diagram showing the console code editor and the lambda_function.py file in the file explorer.](images/durable-python.png) 2. Paste the following code into the **lambda\_function.py** tab, replacing the code that Lambda created.
 
 ```
 from aws_durable_execution_sdk_python import (
@@ -256,7 +259,7 @@ Now create a test event to send to your function. The event is a JSON formatted 
 
 In the **TEST EVENTS** section of the console code editor, choose the run icon next to your test event:
 
-![Run test event button in the Lambda console code editor](images/getting-started-tutorial/run-test-event.png)
+![Run test event button in the Lambda console code editor.](images/getting-started-tutorial/run-test-event.png)
 
 Your durable function starts executing. Because it includes a 10-second wait, the initial invocation completes quickly, and the function
 resumes after the wait period. You can view the execution progress in the **Durable executions** tab.

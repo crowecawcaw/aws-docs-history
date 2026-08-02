@@ -1,7 +1,7 @@
 # Tutorial: Using AWS Lambda with Amazon DocumentDB Streams
 
 In this tutorial, you create a basic Lambda function that consumes events from an Amazon DocumentDB (with MongoDB compatibility) change stream.
-To complete this tutorial, you will go through the following stages:
+To complete this tutorial, you go through the following stages:
 
 - Set up your Amazon DocumentDB cluster, connect to it, and activate change streams on it.
 - Create your Lambda function, and configure your Amazon DocumentDB cluster as an event source for your function.
@@ -792,7 +792,7 @@ After you create this event source mapping, AWS Lambda immediately starts pollin
    - **Batch size**: 1
    - **Starting position**: Latest
    - **Authentication**: BASIC\_AUTH
-   - **Secrets Manager key**: Choose the secret for your Amazon DocumentDB cluster. It will be called something like `rds!cluster-12345678-a6f0-52c0-b290-db4aga89274f`.
+   - **Secrets Manager key**: Choose the secret for your Amazon DocumentDB cluster. It is called something like `rds!cluster-12345678-a6f0-52c0-b290-db4aga89274f`.
    - **Batch window**: 1
    - **Full document configuration**: UpdateLookup
 
@@ -817,7 +817,7 @@ db.products.insertOne({"name":"Pencil", "price": 1.00})
 
 Verify that your function successfully processed this event by [checking CloudWatch Logs](monitoring-cloudwatchlogs-view.md#monitoring-cloudwatchlogs-console "monitoring-cloudwatchlogs-view.md#monitoring-cloudwatchlogs-console"). You should see a log entry like this:
 
-![CloudWatch log stream for database record insertion](images/documentdb-insert-log.png)
+![CloudWatch log stream for database record insertion.](images/documentdb-insert-log.png)
 Update the record you just inserted with the following command:
 
 ```
@@ -829,7 +829,7 @@ db.products.updateOne(
 
 Verify that your function successfully processed this event by [checking CloudWatch Logs](monitoring-cloudwatchlogs-view.md#monitoring-cloudwatchlogs-console "monitoring-cloudwatchlogs-view.md#monitoring-cloudwatchlogs-console"). You should see a log entry like this:
 
-![CloudWatch log stream for database record update](images/documentdb-update-log.png)
+![CloudWatch log stream for database record update.](images/documentdb-update-log.png)
 Delete the record that you just updated with the following command:
 
 ```
@@ -838,7 +838,7 @@ db.products.deleteOne( { "name": "Pencil" } )
 
 Verify that your function successfully processed this event by [checking CloudWatch Logs](monitoring-cloudwatchlogs-view.md#monitoring-cloudwatchlogs-console "monitoring-cloudwatchlogs-view.md#monitoring-cloudwatchlogs-console"). You should see a log entry like this:
 
-![CloudWatch log stream for database record deletion](images/documentdb-delete-log.png)
+![CloudWatch log stream for database record deletion.](images/documentdb-delete-log.png)
 
 ## Troubleshooting
 
@@ -849,10 +849,10 @@ If you don't see any database events in your function's CloudWatch logs, check t
 
   - Make sure that the **Database name** in the event source mapping is set to `docdbdemo`.
 
-  ![Lambda event source mapping details](images/documentdb-trigger.png)
+  ![Lambda event source mapping details.](images/documentdb-trigger.png)
   - Check the event source mapping **Last processing result** field for the following message "PROBLEM: Connection error. Your VPC must be able to connect to Lambda and STS, as well as Secrets Manager if authentication is required." If you see this error, make sure that you [created the Lambda and Secrets Manager VPC interface endpoints](#docdb-create-interface-vpc-endpoints "#docdb-create-interface-vpc-endpoints"), and that the endpoints use the same VPC and subnets that your Amazon DocumentDB cluster uses.
 
-  ![Lambda event source mapping details](images/documentdb-lastprocessingresult.png)
+  ![Lambda event source mapping details.](images/documentdb-lastprocessingresult.png)
 
 ## Clean up your resources
 

@@ -6,7 +6,7 @@ The AWS Durable Execution SDK is the foundation for building durable functions, 
 
 A **durable execution** represents the complete lifecycle of a Lambda durable function, using a checkpoint and replay mechanism to track business logic progress, suspend execution, and recover from failures. When functions resume after suspension or interruptions, previously completed checkpoints are replayed and the function continues execution.
 
-The lifecycle may include multiple invocations of a Lambda function to complete the execution, particularly after suspensions or failure recovery. This approach enables your function to run for extended periods (up to one year) while maintaining reliable progress despite interruptions.
+The lifecycle might include multiple invocations of a Lambda function to complete the execution, particularly after suspensions or failure recovery. This approach enables your function to run for extended periods (up to one year) while maintaining reliable progress despite interruptions.
 
 ###### How replay works
 
@@ -88,7 +88,7 @@ A durable execution can span multiple Lambda function invocations as it progress
 
 ###### Understanding the difference
 
-The Lambda function timeout (maximum 15 minutes) limits each individual invocation of your function. The durable execution timeout (maximum 1 year) limits the total time from when the execution starts until it completes, fails, or times out. During this period, your function may be invoked multiple times as it processes steps, waits, and recovers from failures.
+The Lambda function timeout (maximum 15 minutes) limits each individual invocation of your function. The durable execution timeout (maximum 1 year) limits the total time from when the execution starts until it completes, fails, or times out. During this period, your function might be invoked multiple times as it processes steps, waits, and recovers from failures.
 
 For example, if you set a durable execution timeout of 24 hours and a Lambda function timeout of 5 minutes:
 

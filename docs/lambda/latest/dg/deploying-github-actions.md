@@ -43,7 +43,7 @@ This workflow runs when you push changes to the `main` branch. It checks out you
 configures AWS credentials using OpenID Connect (OIDC), and deploys your function using the code in the
 `./dist` directory.
 
-For additional examples including updating function configuration, deploying via S3 buckets, and dry run validation, see the
+For additional examples including updating function configuration, deploying through S3 buckets, and dry run validation, see the
 [Deploy Lambda Function README](https://github.com/aws-actions/aws-lambda-deploy "https://github.com/aws-actions/aws-lambda-deploy").
 
 ## Additional resources

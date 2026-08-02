@@ -151,7 +151,7 @@ after you have exported your function to Infrastructure Composer. For more infor
 
 ###### To design your serverless application in Infrastructure Composer
 
-After activating local sync, changes you make in Infrastructure Composer will be reflected in the AWS SAM template saved on your local build machine. You
+After activating local sync, changes you make in Infrastructure Composer are reflected in the AWS SAM template saved on your local build machine. You
 can now drag and drop additional AWS resources onto the Infrastructure Composer canvas to build out your application. In this example, you add an Amazon SQS
 simple queue as a trigger for your Lambda function and a DynamoDB table for the function to write data to.
 

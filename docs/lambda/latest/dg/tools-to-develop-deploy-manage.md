@@ -4,7 +4,7 @@ You have access to a variety of tools that increase productivity and ease-of-use
 
 - **Local development**—Write and test Lambda functions faster in your preferred development environment. The AWS Toolkit for VS Code enables local function development, debugging, and testing with direct deployment capabilities to Lambda.
 - **Infrastructure as Code (IaC)**—Deploy and manage serverless applications consistently from local testing to production. AWS SAM, AWS CDK, and CloudFormation let you define and manage your serverless infrastructure through code for consistent, version-controlled deployments.
-- **GitHub Actions**—Automate Lambda deployments directly from your code repository. GitHub Actions allows you to set up workflows that automatically deploy your Lambda functions whenever you push code or configuration changes, simplifying your CI/CD pipeline.
+- **GitHub Actions**—Automate Lambda deployments directly from your code repository. With GitHub Actions, you can set up workflows that automatically deploy your Lambda functions whenever you push code or configuration changes, simplifying your CI/CD pipeline.
 - **Powertools for AWS Lambda**—Build production-ready serverless applications with less custom code. Powertools for AWS Lambda (also referred to as Powertools for AWS) is an open-source developer toolkit that simplifies implementing serverless best practices such as observability, parameter retrieval, and idempotency across Python, TypeScript, Java, and .NET.
 - **Workflows and events**—Coordinate Lambda functions with AWS services, APIs, and external systems. Lambda provides two orchestration options: [Lambda durable functions](durable-functions.md "durable-functions.md") for application-centric orchestration using standard programming languages within Lambda, and [AWS Step Functions](with-step-functions.md "with-step-functions.md") for workflow-centric orchestration with visual design across multiple services. Amazon EventBridge provides event management capabilities for event-driven architectures. For help choosing an orchestration approach, see [Durable functions or Step Functions](durable-step-functions.md "durable-step-functions.md").
 
@@ -25,7 +25,7 @@ For more information, see [Developing Lambda functions locally](foundation-iac-l
 
 ## Infrastructure as Code (IaC) tools
 
-With Infrastructure as Code (IaC) tools, you can define and manage your serverless architecture using code. This approach helps maintain consistency across environments, lets you control your infrastructure versions, and helps DevOps practices. IaC is especially valuable for automating deployments, ensuring consistent environments, and managing multi-region deployments.
+With Infrastructure as Code (IaC) tools, you can define and manage your serverless architecture using code. This approach helps maintain consistency across environments, gives you control over your infrastructure versions, and supports DevOps practices. IaC is especially valuable for automating deployments, ensuring consistent environments, and managing multi-region deployments.
 
 Key IaC tools and concepts for Lambda include frameworks for template creation, deployment management, and best practices for serverless infrastructure:
 

@@ -47,7 +47,9 @@ Error handling in Lambda Managed Instances function execution environments diffe
 
 ### Invoke timeouts
 
-When an individual invocation times out, Lambda returns a `Task timed out after <timeout> seconds` error with a status of function error to the caller. However, Lambda Managed Instances does not forcibly terminate your code—it continues running in the execution environment. As a function developer, you are responsible for detecting and handling the timeout. The context object exposes the remaining time for the invocation. A zero or negative value indicates the invocation has timed out. Other concurrent invocations in the execution environment continue processing normally.
+When an individual invocation times out, Lambda returns a `Task timed out after <timeout> seconds` error with a status of function error to the caller. However, Lambda Managed Instances does not forcibly terminate your code—it continues running in the execution environment. As a function developer, you are responsible for detecting and handling the timeout.
+
+The context object exposes the remaining time for the invocation. A zero or negative value indicates the invocation has timed out. Other concurrent invocations in the execution environment continue processing normally.
 
 #### Retry behavior
 
@@ -63,7 +65,9 @@ If your code does not check the remaining time and stop execution:
 
 - **The invocation is already marked as failed.** Lambda has already returned a timeout error to the caller—any work your code completes after the timeout is effectively lost from the caller's perspective.
 - **Resources remain consumed.** Your code continues occupying a runtime worker slot, reducing the concurrency available for new invocations on that instance.
-- **Nondeterministic behavior.** Your code does not stop when the timeout fires—it keeps running in the background. This means side effects can still happen after Lambda has already told the caller the invocation failed. For example, your handler writes a record to DynamoDB, then the timeout fires and Lambda returns a timeout error to the caller, but your code is still running and proceeds to send an SNS notification. The caller retries the invocation, which writes the record again and sends the notification again. You now have duplicate data and duplicate notifications—and no easy way to tell which ones came from the "failed" invocation that was still running in the background.
+- **Nondeterministic behavior.** Your code does not stop when the timeout fires—it keeps running in the background. This means side effects can still happen after Lambda has already told the caller the invocation failed.
+
+For example, your handler writes a record to DynamoDB, then the timeout fires and Lambda returns a timeout error to the caller, but your code is still running and proceeds to send an SNS notification. The caller retries the invocation, which writes the record again and sends the notification again. You now have duplicate data and duplicate notifications—and no easy way to tell which ones came from the "failed" invocation that was still running in the background.
 
 #### Handling timeouts in your code
 

@@ -1,11 +1,11 @@
 # Tutorial: Using an Amazon MSK event source mapping to invoke a Lambda function
 
-In this tutorial, you will perform the following:
+In this tutorial, you perform the following:
 
 - Create a Lambda function in the same AWS account as an existing Amazon MSK cluster.
 - Configure networking and authentication for Lambda to communicate with Amazon MSK.
 - Set up a Lambda Amazon MSK event source mapping, which runs your Lambda function when events show up in the topic.
-  After you are finished with these steps, when events are sent to Amazon MSK, you will be able to set up a Lambda
+  After you are finished with these steps, when events are sent to Amazon MSK, you can set up a Lambda
   function to process those events automatically with your own custom Lambda code.
 
 **What can you do with this feature?**
@@ -17,8 +17,8 @@ Consider the following scenario: Your company hosts a web application where
 your customers can view information about live events, such as sports games. Information updates from the game
 are provided to your team through a Kafka topic on Amazon MSK. You want to design a solution that consumes updates
 from the MSK topic to provide an updated view of the live event to customers inside an application you develop.
-You have decided on the following design approach: Your client applications will communicate with a serverless
-backend hosted in AWS. Clients will connect over websocket sessions using the Amazon API Gateway WebSocket API.
+You have decided on the following design approach: Your client applications communicate with a serverless
+backend hosted in AWS. Clients connect over websocket sessions using the Amazon API Gateway WebSocket API.
 
 In this solution, you need a component that reads MSK events, performs some custom logic to prepare those
 events for the application layer and then forwards that information to the API Gateway API. You can implement this
@@ -801,7 +801,7 @@ You can now verify whether or not your Lambda is being invoked by the event sour
 1. Use your Kafka admin host to generate Kafka events using the
    `kafka-console-producer` CLI. For more information, see [Write some events into the topic](https://kafka.apache.org/documentation/#quickstart_send "https://kafka.apache.org/documentation/#quickstart_send") in the Kafka
    documentation. Send enough events to fill up the batch defined by batch size for your event source mapping
-   defined in the previous step, or Lambda will wait for more information to invoke.
+   defined in the previous step, or Lambda waits for more information to invoke.
 2. If your function runs, Lambda writes what happened to CloudWatch. In the console, navigate to your
    Lambda function's detail page.
 3. Select the **Configuration** tab.

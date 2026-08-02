@@ -17,7 +17,7 @@ To output logs from your function code, you can use methods on the [console obje
 
 ## Using logging tools and libraries
 
-[Powertools for AWS Lambda (TypeScript)](../../../powertools/typescript.md "../../../powertools/typescript.md") is a developer toolkit to implement Serverless best practices and increase developer velocity. The [Logger utility](https://docs.powertools.aws.dev/lambda/typescript/latest/features/logger/ "https://docs.powertools.aws.dev/lambda/typescript/latest/features/logger/") provides a Lambda optimized logger which includes additional information about function context across all your functions with output structured as JSON. Use this utility to do the following:
+[Powertools for AWS Lambda (TypeScript)](../../../powertools/typescript.md "../../../powertools/typescript.md") is a developer toolkit to implement Serverless best practices and increase developer velocity. The [Logger utility](../../../powertools/typescript/latest/features/logger.md "../../../powertools/typescript/latest/features/logger.md") provides a Lambda optimized logger which includes additional information about function context across all your functions with output structured as JSON. Use this utility to do the following:
 
 - Capture key fields from the Lambda context, cold start and structures logging output as JSON
 - Log Lambda invocation events when instructed (disabled by default)
@@ -27,7 +27,7 @@ To output logs from your function code, you can use methods on the [console obje
 
 ## Using Powertools for AWS Lambda (TypeScript) and AWS SAM for structured logging
 
-Follow the steps below to download, build, and deploy a sample Hello World TypeScript application with integrated [Powertools for AWS Lambda (TypeScript)](https://docs.powertools.aws.dev/lambda-typescript "https://docs.powertools.aws.dev/lambda-typescript") modules using the AWS SAM. This application implements a
+Follow the steps below to download, build, and deploy a sample Hello World TypeScript application with integrated [Powertools for AWS Lambda (TypeScript)](../../../powertools/typescript.md "../../../powertools/typescript.md") modules using the AWS SAM. This application implements a
 basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function.
 When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and
 sends traces to AWS X-Ray. The function returns a `hello world` message.
@@ -127,7 +127,7 @@ Resources:
 
 ## Using Powertools for AWS Lambda (TypeScript) and the AWS CDK for structured logging
 
-Follow the steps below to download, build, and deploy a sample Hello World TypeScript application with integrated [Powertools for AWS Lambda (TypeScript)](https://docs.powertools.aws.dev/lambda-typescript "https://docs.powertools.aws.dev/lambda-typescript") modules using the AWS CDK. This application implements a
+Follow the steps below to download, build, and deploy a sample Hello World TypeScript application with integrated [Powertools for AWS Lambda (TypeScript)](../../../powertools/typescript.md "../../../powertools/typescript.md") modules using the AWS CDK. This application implements a
 basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function.
 When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and
 sends traces to AWS X-Ray. The function returns a `hello world` message.
@@ -293,7 +293,7 @@ cdk destroy
 
 You can use the Lambda console to view log output after you invoke a Lambda function.
 
-If your code can be tested from the embedded **Code** editor, you will find logs in the **execution results**. When you use the console test feature to invoke a function, you'll find **Log output** in the **Details** section.
+If your code can be tested from the embedded **Code** editor, you find logs in the **execution results**. When you use the console test feature to invoke a function, you find **Log output** in the **Details** section.
 
 ## Viewing logs in the CloudWatch console
 

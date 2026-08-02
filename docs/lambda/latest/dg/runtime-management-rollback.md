@@ -10,7 +10,7 @@ However, we strongly recommend updating to the latest runtime version as soon as
 benefit from the latest security patches, performance improvements, and features. Lambda
 provides the option to roll back to an earlier runtime version only as a temporary mitigation
 in the rare event of a runtime update compatibility issue. Functions using an earlier runtime
-version for an extended period may eventually experience degraded performance or issues, such
+version for an extended period might eventually experience degraded performance or issues, such
 as a certificate expiry, which can cause them to stop working properly.
 
 You can roll back a runtime version in the following ways:
@@ -49,7 +49,9 @@ create a static snapshot of the function code, configuration, and runtime versio
 **Function update** mode with function versions, you can synchronize
 runtime updates with your deployments. You can also coordinate rollback of code,
 configuration, and runtime versions by redirecting traffic to an earlier published function
-version. You can integrate this approach into your continuous integration and continuous
+version.
+
+You can integrate this approach into your continuous integration and continuous
 delivery (CI/CD) for fully automatic rollback in the rare event of runtime update
 incompatibility. When using this approach, you must update your function regularly and
 publish new function versions to pick up the latest runtime updates. For more information,

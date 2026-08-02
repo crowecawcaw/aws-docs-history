@@ -269,9 +269,9 @@ the Amazon S3 bucket should contain a receipt file.
 
 ###### Note
 
-This function may require additional configuration settings to run successfully without
+This function might require additional configuration settings to run successfully without
 timing out. We recommend configuring 256 MB of memory, and a 10 second timeout. The first
-invocation may take extra time due to a [cold start](lambda-runtime-environment.md#cold-start-latency "lambda-runtime-environment.md#cold-start-latency").
+invocation might take extra time due to a [cold start](lambda-runtime-environment.md#cold-start-latency "lambda-runtime-environment.md#cold-start-latency").
 Subsequent invocations should run much faster due to reuse of the execution environment.
 
 ## Valid class definitions for Java handlers
@@ -308,7 +308,7 @@ using the Java 21 runtime, see
 If you're working only with basic and generic types (i.e. `String`, `Integer`,
 `List`, or `Map`) in your Java function , you don't need to implement an interface.
 For example, if your function takes in a `Map<String, String>` input and returns a
-`String`, your class definition and handler signature may look like the following:
+`String`, your class definition and handler signature might look like the following:
 
 ```
 public class ExampleHandler {
@@ -320,7 +320,7 @@ public class ExampleHandler {
 
 In addition, when you don't implement an interface, the
 [context](java-context.md "java-context.md") object is optional. For example, your class definition
-and handler signature may look like the following:
+and handler signature might look like the following:
 
 ```
 public class NoContextHandler {
@@ -386,14 +386,14 @@ use a class to represent event data. In such cases, you can use a library like
 
 There are many possible input events for Lambda functions in Java:
 
-- `Integer`, `Long`, `Double`, etc. – The event is a
+- `Integer`, `Long`, `Double`, and other numeric types – The event is a
   number with no additional formatting—for example, `3.5`. The Java runtime converts
   the value into an object of the specified type.
 - `String` – The event is a JSON string, including quotes—for example,
   `"My string"`. The runtime converts the value into a `String` object
   without quotes.
 - `List<Integer>`, `List<String>`,
-  `List<Object>`, etc. – The event is a JSON array. The runtime
+  `List<Object>`, and similar types – The event is a JSON array. The runtime
   deserializes it into an object of the specified type or interface.
 - `InputStream` – The event is any JSON type. The runtime passes a
   byte stream of the document to the handler without modification. You deserialize the input
@@ -466,7 +466,7 @@ In Maven, add the following lines in the `<dependencies>` section of your
 
 ###### Note
 
-This may not be the most recent version of the SDK. Choose the appropriate version of
+This might not be the most recent version of the SDK. Choose the appropriate version of
 the SDK for your application.
 
 Then, import the dependencies directly in your Java class:
@@ -522,12 +522,12 @@ In the example code, the S3 client initialization code is outside the main handl
 
 Adhere to the guidelines in the following list to use best coding practices when building your Lambda functions:
 
-- **Separate the Lambda handler from your core logic.** This allows you to make
+- **Separate the Lambda handler from your core logic.** With this approach, you can make
   a more unit-testable function.
 - **Control the dependencies in your function's deployment package.** The
   AWS Lambda execution environment contains a number of libraries.
-  To enable the latest set of features and security updates, Lambda will periodically update these libraries.
-  These updates may introduce subtle changes to the behavior of your Lambda function. To have full control of the
+  To enable the latest set of features and security updates, Lambda periodically updates these libraries.
+  These updates might introduce subtle changes to the behavior of your Lambda function. To have full control of the
   dependencies your function uses, package all of your dependencies with your deployment package.
 - **Minimize the complexity of your dependencies.** Prefer simpler frameworks
   that load quickly on [execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md") startup. For example, prefer
@@ -535,11 +535,11 @@ Adhere to the guidelines in the following list to use best coding practices when
   [Guice](https://github.com/google/guice "https://github.com/google/guice"), over more complex ones like
   [Spring Framework](https://github.com/spring-projects/spring-framework "https://github.com/spring-projects/spring-framework").
 - **Minimize your deployment package size to its runtime necessities.** This
-  will reduce the amount of time that it takes for your deployment package to be downloaded and unpacked ahead
+  reduces the amount of time that it takes for your deployment package to be downloaded and unpacked ahead
   of invocation. For functions authored in Java, avoid uploading the entire AWS SDK library as part
   of your deployment package. Instead, selectively depend on the modules which pick up components of the SDK you
-  need (e.g. DynamoDB, Amazon S3 SDK modules and [Lambda core
-  libraries](https://github.com/aws/aws-lambda-java-libs "https://github.com/aws/aws-lambda-java-libs")).
+  need (for example, DynamoDB, Amazon S3 SDK modules and [Lambda core
+  libraries](https://github.com/aws/aws-lambda-java-libs "https://github.com/aws/aws-lambda-java-libs") on the GitHub website).
 
 **Take advantage of execution environment reuse to improve the performance of your
 function.** Initialize SDK clients and database connections outside of the function handler, and

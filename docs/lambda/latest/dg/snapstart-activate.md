@@ -168,7 +168,7 @@ The following function states can occur when you use SnapStart.
 
 Lambda is initializing your code and taking a snapshot of
 the initialized execution environment. Any invocations or other API actions that operate
-on the function version will fail.
+on the function version fail.
 
 **Active**
 

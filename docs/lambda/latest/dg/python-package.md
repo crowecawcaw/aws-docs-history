@@ -124,7 +124,7 @@ my_deployment_package.zip
 |- lambda_function.py
 ```
 
-If the .py file containing your function's handler code is not at the root of your .zip file, Lambda will not be able to run your code.
+If the .py file containing your function's handler code is not at the root of your .zip file, Lambda cannot run your code.
 
 ###### To create the deployment package (virtual environment)
 
@@ -148,7 +148,7 @@ If the .py file containing your function's handler code is not at the root of yo
 (my_virtual_env) ~/my_function$ `pip show <package_name>`
 ```
 
-The folder in which pip installs your libraries may be named `site-packages` or `dist-packages`. This folder may
+The folder in which pip installs your libraries might be named `site-packages` or `dist-packages`. This folder might
 be located in either the `lib/python3.x` or `lib64/python3.x` directory (where python3.x represents the version of
 Python you are using). 4. Deactivate the virtual environment
 
@@ -176,7 +176,7 @@ Python you are using). 4. Deactivate the virtual environment
 
 When you use an `import` statement in your code, the Python runtime searches the directories in its search path until it finds the
 module or package. By default, the first location the runtime searches is the directory into which your .zip deployment package is decompressed
-and mounted (`/var/task`). If you include a version of a runtime-included library in your deployment package, your version will take precedence over the version that's included in the runtime. Dependencies in your deployment package also have precedence over dependencies in layers.
+and mounted (`/var/task`). If you include a version of a runtime-included library in your deployment package, your version takes precedence over the version that's included in the runtime. Dependencies in your deployment package also have precedence over dependencies in layers.
 
 When you add a dependency to a layer, Lambda extracts this to
 `/opt/python/lib/python3.x/site-packages` (where `python3.x` represents the version of the

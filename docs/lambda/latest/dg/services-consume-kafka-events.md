@@ -2,13 +2,13 @@
 
 Schema registries help you define and manage data stream schemas. A schema defines the structure and format of a data record. In the context of Kafka event source mappings,
 you can configure a schema registry to validate the structure and format of Kafka messages against predefined schemas before they reach your Lambda function.
-This adds a layer of data governance to your application and allows you to efficiently manage data formats, ensure schema compliance, and optimize costs through event filtering.
+This adds a layer of data governance to your application and you can efficiently manage data formats, ensure schema compliance, and optimize costs through event filtering.
 
 This feature works with all programming languages, but consider these important points:
 
 - Powertools for Lambda provides specific support for Java, Python, and TypeScript, maintaining consistency with existing Kafka development patterns and allowing direct access to business objects without custom deserialization code
 - This feature is only available for event source mappings using provisioned mode. Schema registry doesn't support event source mappings in on-demand mode. If you're using provisioned mode and you have a schema registry configured, you can't change to on-demand mode unless you remove your schema registry configuration first. For more information, see [Provisioned mode](invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode "invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode")
-- You can configure only one schema registry per event source mapping (ESM). Using a schema registry with your Kafka event source may increase your Lambda Event Poller Unit (EPU) usage, which is a pricing dimension for Provisioned mode.
+- You can configure only one schema registry per event source mapping (ESM). Using a schema registry with your Kafka event source might increase your Lambda Event Poller Unit (EPU) usage, which is a pricing dimension for Provisioned mode.
 
 ###### Topics
 
@@ -339,7 +339,7 @@ The JSON format is recommended for languages that aren't strongly typed, such as
 If you choose `SOURCE` as the `EventRecordFormat`, Lambda still validates the record against the schema registry, but delivers the original binary data to your function without deserialization.
 This binary data is delivered as a Base64 encoded string of the original byte data, with producer-appended metadata removed.
 As a result, you can directly convert the raw binary data into Avro and Protobuf objects within your function code.
-We recommend using Powertools for AWS Lambda, which will deserialize the raw binary data and give you Avro and Protobuf objects directly.
+We recommend using Powertools for AWS Lambda, which deserializes the raw binary data and gives you Avro and Protobuf objects directly.
 
 For example, if you configure Lambda to validate both the `key` and `value` attributes but use the `SOURCE` format, your function receives a payload like this:
 
@@ -403,10 +403,10 @@ Powertools for AWS Lambda helps you deserialize Kafka records in your function c
 
 To use Powertools for AWS Lambda in your function, you need to add Powertools for AWS Lambda either as a layer or include it as a dependency when building your Lambda function. For setup instructions and more information, see the Powertools for AWS Lambda documentation for your preferred language:
 
-- [Powertools for AWS Lambda (Java)](https://docs.powertools.aws.dev/lambda/java/latest/utilities/kafka/ "https://docs.powertools.aws.dev/lambda/java/latest/utilities/kafka/")
-- [Powertools for AWS Lambda (Python)](https://docs.powertools.aws.dev/lambda/python/latest/utilities/kafka/ "https://docs.powertools.aws.dev/lambda/python/latest/utilities/kafka/")
-- [Powertools for AWS Lambda (TypeScript)](https://docs.powertools.aws.dev/lambda/typescript/latest/features/kafka/ "https://docs.powertools.aws.dev/lambda/typescript/latest/features/kafka/")
-- [Powertools for AWS Lambda (.NET)](https://docs.powertools.aws.dev/lambda/dotnet/utilities/kafka/ "https://docs.powertools.aws.dev/lambda/dotnet/utilities/kafka/")
+- [Powertools for AWS Lambda (Java)](../../../powertools/java/latest/utilities/kafka.md "../../../powertools/java/latest/utilities/kafka.md")
+- [Powertools for AWS Lambda (Python)](../../../powertools/python/latest/utilities/kafka.md "../../../powertools/python/latest/utilities/kafka.md")
+- [Powertools for AWS Lambda (TypeScript)](../../../powertools/typescript/latest/features/kafka.md "../../../powertools/typescript/latest/features/kafka.md")
+- [Powertools for AWS Lambda (.NET)](../../../powertools/dotnet/utilities/kafka.md "../../../powertools/dotnet/utilities/kafka.md")
 
 ###### Note
 
@@ -876,7 +876,7 @@ JSON
 
 ###### Note
 
-For AWS Glue schema registries, if you provide `AccessConfigs` for a AWS Glue registry, Lambda will return a validation exception.
+For AWS Glue schema registries, if you provide `AccessConfigs` for a AWS Glue registry, Lambda returns a validation exception.
 
 If you're working with a Confluent schema registry, you can choose one of three supported authentication methods for the `Type` parameter of your [KafkaSchemaRegistryAccessConfig](../api/API_KafkaSchemaRegistryAccessConfig.md "../api/API_KafkaSchemaRegistryAccessConfig.md") object:
 
@@ -894,7 +894,7 @@ The authentication configuration for your schema registry is separate from any a
 
 ## Error handling and troubleshooting for schema registry issues
 
-When using a schema registry with your Amazon MSK event source, you may encounter various errors. This section provides guidance on common issues and how to resolve them.
+When using a schema registry with your Amazon MSK event source, you might encounter various errors. This section provides guidance on common issues and how to resolve them.
 
 ### Configuration errors
 

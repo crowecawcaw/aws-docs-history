@@ -1,6 +1,6 @@
 # Running code with Lambda
 
-When you write a Lambda function, you are creating code that will run in a unique serverless environment. Understanding how Lambda actually runs your code involves two key aspects: the programming model that defines how your code interacts with Lambda, and the execution environment lifecycle that determines how Lambda manages your code's runtime environment.
+When you write a Lambda function, you are creating code that runs in a unique serverless environment. Understanding how Lambda actually runs your code involves two key aspects: the [programming model](foundation-progmodel.md "foundation-progmodel.md") that defines how your code interacts with Lambda, and the execution environment lifecycle that determines how Lambda manages your code's runtime environment.
 
 ## The Lambda programming model
 

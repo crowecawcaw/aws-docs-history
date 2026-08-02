@@ -70,7 +70,7 @@ For example,
   the Amazon Cognito identity provider.
 
 Do not set a timeout on the `GET` request as the response may be delayed. Between when Lambda bootstraps the runtime and
-when the runtime has an event to return, the runtime process may be frozen for several seconds.
+when the runtime has an event to return, the runtime process might be frozen for several seconds.
 
 The request ID tracks the invocation within Lambda. Use it to specify the invocation when you send the
 response.

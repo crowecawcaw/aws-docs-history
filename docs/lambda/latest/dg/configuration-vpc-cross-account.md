@@ -1,7 +1,7 @@
 # Giving Lambda functions access to a resource in an Amazon VPC in another account
 
 You can give your AWS Lambda function access to a resource in a Amazon VPC in Amazon Virtual Private Cloud managed by another account,
-without exposing either VPC to the internet. This access pattern allows you to share data with other organizations
+without exposing either VPC to the internet. With this access pattern, you can share data with other organizations
 using AWS. Using this access pattern, you can share data between VPCs with a greater level of security and
 performance than over the internet. Configure your Lambda function to use a Amazon VPC peering connection to access these
 resources.
@@ -9,7 +9,7 @@ resources.
 ###### Warning
 
 When you allow access between accounts or VPCs, check that your plan meets the security requirements of the
-respective organizations that manage these accounts. Following the instructions in this document will affect the
+respective organizations that manage these accounts. Following the instructions in this document affects the
 security posture of your resources.
 
 In this tutorial, you connect two accounts together with a peering connection using IPv4. You configure a Lambda
@@ -92,7 +92,7 @@ Create a VPC peering connection request from your function's VPC (the requester 
 ## Prepare your resource's account
 
 To create your peering connection and prepare your resource's VPC to use the connection, log in to your
-resource's account with a role that holds the permissions listed in the prerequisites. The steps to log in may be
+resource's account with a role that holds the permissions listed in the prerequisites. The steps to log in might be
 different based on how the account is secured. For more information about how to sign in to an AWS account, see the
 [AWS Sign-in User Guide](../../../signin/latest/userguide/what-is-sign-in.md "../../../signin/latest/userguide/what-is-sign-in.md"). In your resource's account, perform the following procedures.
 
@@ -153,7 +153,7 @@ Log in to your function's account, then update the VPC configuration.
 8. For **Target**, select your VPC peering connection.
 9. Choose **Save changes**.
 
-For more information about considerations you may encounter while updating your route tables, consult [Update your route tables for a VPC peering
+For more information about considerations you might encounter while updating your route tables, consult [Update your route tables for a VPC peering
 connection](../../../vpc/latest/peering/vpc-peering-routing.md "../../../vpc/latest/peering/vpc-peering-routing.md").
 
 ###### To update the security group for your Lambda function

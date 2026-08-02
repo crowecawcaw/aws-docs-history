@@ -58,10 +58,11 @@ following three criteria is met:
     configure a batching window, the next window begins as soon as the previous batch is
     completed. In non-provisioned Kafka event source mappings, when you configure a batching window, the
     next window begins as soon as the previous function invocation completes.
-    To minimize latency when using Kafka event source mappings in provisioned mode, set `MaximumBatchingWindowInSeconds` to 0.
-    This setting ensures that Lambda will start processing the next batch
-    immediately after completing the current function invocation. For additional information on low
-    latency processing, see [Low latency Apache Kafka](with-kafka-low-latency.md "with-kafka-low-latency.md").
+
+  To minimize latency when using Kafka event source mappings in provisioned mode, set `MaximumBatchingWindowInSeconds` to 0.
+  This setting ensures that Lambda starts processing the next batch
+  immediately after completing the current function invocation. For additional information on low
+  latency processing, see [Low latency Apache Kafka](with-kafka-low-latency.md "with-kafka-low-latency.md").
   - **For Amazon MQ and Amazon DocumentDB event sources:** The default
     batching window is 500 ms. You can configure
     `MaximumBatchingWindowInSeconds` to any value from 0 seconds to 300
@@ -86,7 +87,7 @@ accumulating 5 records. In the second scenario, the batch size reaches 10 before
 so the batching window ends early. In the third scenario, the maximum payload size is reached before the batching
 window expires, so the batching window ends early.
 
-![Batching window expires when max time reached, batch size met, or payload hits 6 MB](images/batching-window.png)
+![Batching window expires when max time reached, batch size met, or payload hits 6 MB.](images/batching-window.png)
 
 We recommend that you test with different batch and record sizes so that the polling frequency
 of each event source is tuned to how quickly your function is able to complete its task. The
@@ -142,7 +143,7 @@ Each event poller supports different throughput capacity:
 - For Amazon MSK and self-managed Apache Kafka: up to 5 MB/sec of throughput or up to 5 concurrent invokes
 - For Amazon SQS: up to 1 MB/sec of throughput or up to 10 concurrent invokes or up to 10 SQS polling API calls per second.
 
-For Amazon SQS event source mappings, you can set the minimum number of pollers between 2 and 200 with a default of 2, and the maximum number between 2 and 2,000 with a default of 200. Lambda scales the number of event pollers between your configured minimum and maximum, quickly adding up to 1,000 concurrency per minute to provide consistent, low-latency processing of your events.
+For Amazon SQS event source mappings, you can set the minimum number of pollers between 2 and 200 with a default of 2, and the maximum number between 2 and 10,000 with a default of 200. Lambda scales the number of event pollers between your configured minimum and maximum, quickly adding up to 1,000 concurrency per minute to provide consistent, low-latency processing of your events.
 
 For Kafka event source mappings, you can set the minimum number of pollers between 1 and 200 with a default of 1, and the maximum number between 1 and 2,000 with a default of 200. Lambda scales the number of event pollers between your configured minimum and maximum based on your event backlog in your topic to provide low-latency processing of your events.
 
@@ -158,7 +159,7 @@ For details about configuring provisioned mode, see the following sections:
 - [Using provisioned mode with Amazon SQS event source mappings](with-sqs.md#sqs-provisioned-mode "with-sqs.md#sqs-provisioned-mode")
 
 To minimize latency in provisioned mode, set `MaximumBatchingWindowInSeconds` to 0.
-This setting ensures that Lambda will start processing the next batch
+This setting ensures that Lambda starts processing the next batch
 immediately after completing the current function invocation. For additional information on low
 latency processing, see [Low latency Apache Kafka](with-kafka-low-latency.md "with-kafka-low-latency.md").
 

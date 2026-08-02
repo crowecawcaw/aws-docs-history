@@ -21,10 +21,10 @@ Each language implementation provides core features like structured logging, tra
 These implementations are complemented by specialized components for AWS service integration, supporting parameter retrieval, batch processing, and API handling, along with best practices like correlation ID propagation,
 error handling, and idempotency patterns. Together, these features enable developers to build robust, maintainable serverless applications while reducing custom code overhead.
 
-- [Powertools for AWS Lambda (Python)](https://docs.powertools.aws.dev/lambda/python/latest/ "https://docs.powertools.aws.dev/lambda/python/latest/")
-- [Powertools for AWS Lambda (TypeScript)](https://docs.powertools.aws.dev/lambda/typescript/latest/ "https://docs.powertools.aws.dev/lambda/typescript/latest/")
-- [Powertools for AWS Lambda (Java)](https://docs.powertools.aws.dev/lambda/java/latest/ "https://docs.powertools.aws.dev/lambda/java/latest/")
-- [Powertools for AWS Lambda (.NET)](https://docs.powertools.aws.dev/lambda/dotnet/ "https://docs.powertools.aws.dev/lambda/dotnet/")
+- [Powertools for AWS Lambda (Python)](../../../powertools/python/latest.md "../../../powertools/python/latest.md")
+- [Powertools for AWS Lambda (TypeScript)](../../../powertools/typescript/latest.md "../../../powertools/typescript/latest.md")
+- [Powertools for AWS Lambda (Java)](../../../powertools/java/latest.md "../../../powertools/java/latest.md")
+- [Powertools for AWS Lambda (.NET)](../../../powertools/dotnet.md "../../../powertools/dotnet.md")
 
 ## Next steps
 

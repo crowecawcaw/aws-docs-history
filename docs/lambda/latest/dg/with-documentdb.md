@@ -289,7 +289,7 @@ Lambda supports the following options for Amazon DocumentDB event sources:
 
   - **Latest** – Process only new records that are added to the stream. Your
     function starts processing records only after Lambda finishes creating your event source. This means that
-    some records may be dropped until your event source is created successfully.
+    some records might be dropped until your event source is created successfully.
   - **Trim horizon** – Process all records in the stream. Lambda uses the log
     retention duration of your cluster to determine where to start reading events from. Specifically, Lambda
     starts reading from `current_time - log_retention_duration`. Your change stream must already be
@@ -399,7 +399,7 @@ You should see this output that looks like this:
 }
 ```
 
-Lambda updates settings asynchronously, so you may not see these changes in the output until the process
+Lambda updates settings asynchronously, so you might not see these changes in the output until the process
 completes. To view the current settings of your event source mapping, use the [`get-event-source-mapping`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-event-source-mapping.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-event-source-mapping.html") command.
 
 ```
@@ -450,13 +450,15 @@ or `AT_TIMESTAMP`.
 To help you monitor your Amazon DocumentDB event source, Lambda emits the `IteratorAge` metric when your
 function finishes processing a batch of records. _Iterator age_ is the difference between the
 timestamp of the most recent event and the current timestamp. Essentially, the `IteratorAge` metric
-indicates how old the last processed record in the batch is. If your function is currently processing new events,
+indicates how old the last processed record in the batch is.
+
+If your function is currently processing new events,
 then you can use the iterator age to estimate the latency between when a record is added and when your function
 processes it. An increasing trend in `IteratorAge` can indicate issues with your function.
 For more information, see [Using CloudWatch metrics with Lambda](monitoring-metrics.md "monitoring-metrics.md").
 
 Amazon DocumentDB change streams aren't optimized to handle large time gaps between events. If your Amazon DocumentDB event source doesn't
-receive any events for an extended period of time, Lambda may disable the event source mapping. The length of
+receive any events for an extended period of time, Lambda might disable the event source mapping. The length of
 this time period can vary from a few weeks to a few months depending on cluster size and other workloads.
 
 Lambda supports payloads of up to 6 MB. However, Amazon DocumentDB change stream events can be up to 16 MB in size. If

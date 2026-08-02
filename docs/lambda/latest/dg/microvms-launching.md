@@ -68,7 +68,7 @@ a suitable idle duration.
 
 ### Runtime payloads
 
-The `runHookPayload` parameter lets you pass per-MicroVM
+With the `runHookPayload` parameter, you can pass per-MicroVM
 configuration data (max 16 KB string) at run time. Lambda delivers this
 payload as part of the request body to the `/run` lifecycle
 hook. Lambda also injects the `microvmId` into the request

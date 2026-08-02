@@ -10,4 +10,6 @@ Lambda Managed Instances introduces several core concepts that differ from tradi
 
 **Multi-concurrent execution** is a key characteristic of Managed Instances. Each execution environment can handle multiple invocations simultaneously, maximizing resource utilization for IO-heavy applications. This differs from traditional Lambda where each environment processes one request at a time. This execution model requires attention to thread safety, state management, and context isolation depending on your runtime.
 
+For details about publishing function versions to your capacity provider, see [$LATEST.PUBLISHED version in Lambda Managed Instances](lambda-managed-instances-version-publishing.md "lambda-managed-instances-version-publishing.md").
+
 The following sections provide detailed information about each core concept.

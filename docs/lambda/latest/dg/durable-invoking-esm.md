@@ -17,12 +17,12 @@ This 15-minute limit is separate from the Lambda function timeout (also 15 minut
 **Example scenarios:**
 
 - **Valid:** A durable function processes an Amazon SQS message with three steps, each taking 2 minutes, then waits 5 minutes before completing a final step. Total execution time: 11 minutes. This works because the total is under 15 minutes.
-- **Invalid:** A durable function processes an Amazon SQS message, completes initial processing in 2 minutes, then waits 20 minutes for an external callback before completing. Total execution time: 22 minutes. This exceeds the 15-minute limit and will fail.
+- **Invalid:** A durable function processes an Amazon SQS message, completes initial processing in 2 minutes, then waits 20 minutes for an external callback before completing. Total execution time: 22 minutes. This exceeds the 15-minute limit and fails.
 - **Invalid:** A durable function processes a Kinesis record with multiple wait operations totaling 30 minutes between steps. Even though each individual invocation completes quickly, the total execution time exceeds 15 minutes.
 
 ###### Important
 
-Configure your durable execution timeout to 15 minutes or less when using event source mappings, otherwise creation of the event source mapping will fail. If your workflow requires longer execution times, use the intermediary function pattern described below.
+Configure your durable execution timeout to 15 minutes or less when using event source mappings, otherwise creation of the event source mapping fails. If your workflow requires longer execution times, use the intermediary function pattern described below.
 
 ## Configuring event source mappings
 

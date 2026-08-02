@@ -5,6 +5,8 @@ transpile your TypeScript code into JavaScript. Then, use the JavaScript files t
 environment that includes the AWS SDK for JavaScript, with credentials from an AWS Identity and Access Management (IAM) role that you manage. To learn more
 about the SDK versions included with the Node.js runtimes, see [Runtime-included SDK versions](lambda-nodejs.md#nodejs-sdk-included "lambda-nodejs.md#nodejs-sdk-included").
 
+For information about tracing TypeScript functions with , see [Tracing TypeScript code in AWS Lambda](typescript-tracing.md "typescript-tracing.md").
+
 Lambda supports the following Node.js runtimes.
 
 | Name       | Identifier   | Operating system  | Deprecation date | Block function create | Block function update |

@@ -133,7 +133,9 @@ This typically occurs when your function manages resources in the same AWS servi
 example, it's possible to create a function that stores an object in an Amazon Simple Storage Service (Amazon S3) bucket that's configured
 with a [notification that invokes the function again](with-s3.md "with-s3.md"). To stop the function from
 running, reduce the available [concurrency](lambda-concurrency.md "lambda-concurrency.md") to zero, which throttles all future
-invocations. Then, identify the code path or configuration error that caused the recursive
+invocations.
+
+Then, identify the code path or configuration error that caused the recursive
 invocation. Lambda automatically detects and stops recursive loops for some AWS services and SDKs. For more information, see
 [Use Lambda recursive loop detection to prevent infinite loops](invocation-recursion.md "invocation-recursion.md").
 

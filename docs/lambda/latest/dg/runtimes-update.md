@@ -20,7 +20,8 @@ Runtime version numbers use a numbering scheme that Lambda defines, independent 
 numbers that the programming language uses. Runtime version numbers are not always sequential. For example, version 42 might be followed by version 45. The runtime version ARN is a unique identifier for
 each runtime version. You can view the ARN of your function's current runtime version in the
 Lambda console, or the [INIT\_START
-line of your function logs](runtime-management-identify.md "runtime-management-identify.md").
+line of your function logs](runtime-management-identify.md "runtime-management-identify.md"). For information about managing runtime updates in
+health-critical applications, see [Controlling Lambda runtime update permissions for high-compliance applications](runtime-management-hc-applications.md "runtime-management-hc-applications.md").
 
 Runtime versions should not be confused with runtime identifiers. Each runtime has a unique
 **runtime identifier**, such as `python3.14` or
@@ -62,7 +63,7 @@ To maintain compatibility with future runtime updates, follow these best practic
 
 - **When possible, package all dependencies:** Include all required libraries, including the AWS SDK and its dependencies, in your deployment package. This ensures a stable, compatible set of components.
 - **Use runtime-provided SDKs sparingly:** Only rely on the runtime-provided SDK when you can't include additional packages (for example, when using the Lambda console code editor or inline code in an AWS CloudFormation template).
-- **Avoid overriding system libraries:** Don't deploy custom operating system libraries that may conflict with future runtime updates.
+- **Avoid overriding system libraries:** Don't deploy custom operating system libraries that might conflict with future runtime updates.
 
 ## Runtime update modes
 
@@ -84,12 +85,14 @@ the following runtime update modes:
   runtime update incompatibilities early. When using this mode, you must regularly update
   your functions to keep their runtime up to date.
 - Manual – Manually update your runtime version. You specify a runtime version in your function
-  configuration. The function uses this runtime version indefinitely. In the rare case in
-  which a new runtime version is incompatible with an existing function, you can use this
-  mode to roll back your function to an earlier runtime version. We recommend against using
-  **Manual** mode to try to achieve runtime consistency across
-  deployments. For more information, see
-  [Rolling back a Lambda runtime version](runtime-management-rollback.md "runtime-management-rollback.md").
+  configuration. The function uses this runtime version indefinitely.
+
+In the rare case in
+which a new runtime version is incompatible with an existing function, you can use this
+mode to roll back your function to an earlier runtime version. We recommend against using
+**Manual** mode to try to achieve runtime consistency across
+deployments. For more information, see
+[Rolling back a Lambda runtime version](runtime-management-rollback.md "runtime-management-rollback.md").
 
 Responsibility for applying runtime updates to your functions varies according to which runtime update mode you choose. For more information, see
 [Understanding the shared responsibility model for Lambda runtime management](runtime-management-shared.md "runtime-management-shared.md").
@@ -108,10 +111,10 @@ The overall duration of the rollout process varies
 according to multiple factors, including the severity of any security patches included in the
 runtime update.
 
-If you're actively developing and deploying your functions, you will most likely pick up
+If you're actively developing and deploying your functions, you most likely pick up
 new runtime versions during the first phase. This synchronizes runtime updates with function
 updates. In the rare event that the latest runtime version negatively impacts your
-application, this approach lets you take prompt corrective action. Functions that aren't
+application, this approach gives you the opportunity to take prompt corrective action. Functions that aren't
 in active development still receive the operational benefit of automatic runtime updates
 during the second phase.
 
@@ -123,7 +126,7 @@ receive the latest runtime updates only when you create or update them. Function
 Lambda publishes new runtime versions in a gradual, rolling fashion across AWS Regions.
 If your functions are set to **Auto** or **Function update**
 modes, it's possible that functions deployed at the same time to different Regions, or at
-different times in the same Region, will pick up different runtime versions. Customers who
+different times in the same Region, pick up different runtime versions. Customers who
 require guaranteed runtime version consistency across their environments should [use container images to deploy their Lambda functions](images-create.md "images-create.md").
 The **Manual** mode is designed as a temporary mitigation to enable runtime version
 rollback in the rare event that a runtime version is incompatible with your function.

@@ -211,6 +211,6 @@ This isolation ensures that checkpoint data remains secure within the function's
 
 ## Inherited Lambda security features
 
-Durable functions inherit all security, governance, and compliance features from Lambda, including VPC connectivity, environment variable encryption, dead letter queues, reserved concurrency, function URLs, code signing, and compliance certifications (SOC, PCI DSS, HIPAA, etc.).
+Durable functions inherit all security, governance, and compliance features from Lambda. These include VPC connectivity, environment variable encryption, dead letter queues, reserved concurrency, function URLs, code signing, and compliance certifications such as SOC, PCI DSS, and HIPAA.
 
 For detailed information about Lambda security features, see [Security in AWS Lambda](lambda-security.md "lambda-security.md") in the Lambda Developer Guide. The only additional security considerations for durable functions are the IAM permissions documented in this guide.

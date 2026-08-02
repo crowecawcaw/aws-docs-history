@@ -79,7 +79,7 @@ or enter the name of a key to find it in the list.
 ## Using tags with the AWS CLI
 
 You can add and remove tags on existing Lambda resources, including functions, with the Lambda API. You can also
-add tags when creating a function, which allows you to keep a
+add tags when creating a function, to keep a
 resource tagged through its entire lifecycle.
 
 ### Updating tags with the Lambda tag APIs
@@ -106,7 +106,9 @@ command. This example removes the tag with the key `Department`.
 ### Adding tags when creating a function
 
 To create a new Lambda function with tags, use the [CreateFunction](../api/API_CreateFunction.md "../api/API_CreateFunction.md") API operation. Specify the `Tags` parameter. You can call
-this operation with the `create-function` CLI command and the --tags option. Before using the tags
+this operation with the `create-function` CLI command and the --tags option.
+
+Before using the tags
 parameter with `CreateFunction`, ensure that your role has permission to tag resources alongside the
 usual permissions needed for this operation. For more information about permissions for tagging, see [Permissions required for working with tags](#fxn-tags-required-permissions "#fxn-tags-required-permissions"). This example adds two tags, one with the key
 `Department` and one with the key `CostCenter`.

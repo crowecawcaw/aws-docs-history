@@ -6,7 +6,12 @@ Join Serverless experts for free hands-on workshops to learn how to build Server
 applications with best practices. [Sign up for free serverless workshops](https://aws-experience.com/amer/smb/events/series/Get-Hands-On-With-Serverless?trk=188abe3e-9f94-4e84-aefb-398d944ad567%26sc_channel%3del "https://aws-experience.com/amer/smb/events/series/Get-Hands-On-With-Serverless?trk=188abe3e-9f94-4e84-aefb-398d944ad567%26sc_channel%3del") on the AWS Experience website.
 
 AWS Lambda is a compute service that runs code without the need to manage servers. Your code runs, scaling up and down automatically, with pay-per-use pricing.
-To get started, see [Create your first function](getting-started.md "getting-started.md").
+To get started, see [Create your first function](getting-started.md "getting-started.md"). For information about
+[best practices](best-practices.md "best-practices.md"),
+[programming languages](lambda-programming-languages.md "lambda-programming-languages.md"),
+[tenant isolation](tenant-isolation.md "tenant-isolation.md"), and
+[tools for development and deployment](tools-to-develop-deploy-manage.md "tools-to-develop-deploy-manage.md"),
+see the related topics below.
 
 You can use Lambda for:
 
@@ -95,7 +100,12 @@ _of_ the cloud and security _in_ the cloud:
 
 This documentation helps you understand how to apply the shared responsibility model when using Lambda. The
 following topics show you how to configure Lambda to meet your security and compliance objectives. You also learn how
-to use other AWS services that help you to monitor and secure your Lambda resources.
+to use other AWS services that help you to monitor and secure your Lambda resources. Topics include
+[compliance validation](security-compliance.md "security-compliance.md"),
+[data protection](security-dataprotection.md "security-dataprotection.md"),
+[identity and access management](security-iam.md "security-iam.md"),
+[interface VPC endpoints](security-public-endpoints.md "security-public-endpoints.md"), and
+[resilience](security-resilience.md "security-resilience.md").
 
 For more information about applying security principles to Lambda applications, see
 [Security](https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/security-ops "https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/security-ops")

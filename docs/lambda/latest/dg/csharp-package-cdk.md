@@ -50,7 +50,7 @@ The command creates the following files and directories in your project director
     └── HelloWorld.sln
 ```
 
-3. Open the `src` directory and create a new Lambda function using the .NET CLI. This is the function you will deploy
+3. Open the `src` directory and create a new Lambda function using the .NET CLI. This is the function you deploy
    using the AWS CDK. In this example, you create a Hello world function named `HelloWorldLambda`using the
    `lambda.EmptyFunction` template.
 

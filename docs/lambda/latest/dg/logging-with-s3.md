@@ -63,7 +63,7 @@ The following is example output:
        }
    }
    ```
-   2. Use the create-role command to create the IAM role, specifying the trust policy file. Note of the returned Role.Arn value, as you will need it in a later step:
+   2. Use the create-role command to create the IAM role, specifying the trust policy file. Note of the returned Role.Arn value, as you need it in a later step:
 
    ```
    aws iam create-role \
@@ -149,13 +149,13 @@ In the Lambda console, you can send function logs directly to Amazon S3 after cr
 
    ###### Note
 
-   If choosing an existing log group for an Amazon S3 destination, ensure the log group you choose is a `Delivery` log group type. 3. Choose an Amazon S3 bucket to be the destination for your function logs. 4. The CloudWatch `Delivery` log group will appear.
+   If choosing an existing log group for an Amazon S3 destination, ensure the log group you choose is a `Delivery` log group type. 3. Choose an Amazon S3 bucket to be the destination for your function logs. 4. The CloudWatch `Delivery` log group appears.
 
 8. Choose **Save**.
 
 ###### Note
 
-If the IAM role provided in the console doesn't have the required permissions, then the destination setup will fail. To fix this, refer to [Required permissions for Amazon S3 log destination](#logging-s3-permissions "#logging-s3-permissions").
+If the IAM role provided in the console doesn't have the required permissions, then the destination setup fails. To fix this, refer to [Required permissions for Amazon S3 log destination](#logging-s3-permissions "#logging-s3-permissions").
 
 ## Cross-Account Logging
 

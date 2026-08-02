@@ -18,11 +18,11 @@ The event source mapping will have its own log stream, with date and event sourc
 
 For event source mapping system logs, you can choose between the following log levels.
 
-| Log level           | Usage                                                                          |
-| ------------------- | ------------------------------------------------------------------------------ |
-| DEBUG (most detail) | Detailed information for event source processing progress                      |
-| INFO                | Messages about the normal operation of your event source mapping               |
-| WARN (least detail) | Messages about potential warns and errors that may lead to unexpected behavior |
+| Log level           | Usage                                                                            |
+| ------------------- | -------------------------------------------------------------------------------- |
+| DEBUG (most detail) | Detailed information for event source processing progress                        |
+| INFO                | Messages about the normal operation of your event source mapping                 |
+| WARN (least detail) | Messages about potential warns and errors that might lead to unexpected behavior |
 
 When you select a log level, Lambda event poller sends logs at that level and lower. For example, if you set the event source mapping system log level to INFO,
 event poller doesn't send log outputs at the DEBUG level.

@@ -39,7 +39,7 @@ Distro for Open Telemetry and X-Ray SDKs](../../../xray/latest/devguide/xray-ins
 
 ## Using Powertools for AWS Lambda (Java) and AWS SAM for tracing
 
-Follow the steps below to download, build, and deploy a sample Hello World Java application with integrated [Powertools for AWS Lambda (Java)](https://docs.powertools.aws.dev/lambda-java "https://docs.powertools.aws.dev/lambda-java") modules using the AWS SAM. This application implements a
+Follow the steps below to download, build, and deploy a sample Hello World Java application with integrated [Powertools for AWS Lambda (Java)](../../../powertools/java.md "../../../powertools/java.md") modules using the AWS SAM. This application implements a
 basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function.
 When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and
 sends traces to AWS X-Ray. The function returns a `hello world` message.
@@ -139,7 +139,7 @@ sam delete
 
 ## Using Powertools for AWS Lambda (Java) and the AWS CDK for tracing
 
-Follow the steps below to download, build, and deploy a sample Hello World Java application with integrated [Powertools for AWS Lambda (Java)](https://docs.powertools.aws.dev/lambda-java "https://docs.powertools.aws.dev/lambda-java") modules using the AWS CDK. This application implements a
+Follow the steps below to download, build, and deploy a sample Hello World Java application with integrated [Powertools for AWS Lambda (Java)](../../../powertools/java.md "../../../powertools/java.md") modules using the AWS CDK. This application implements a
 basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function.
 When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and
 sends traces to AWS X-Ray. The function returns a hello world message.
@@ -648,7 +648,7 @@ For Java runtimes, you can choose between two layers to consume:
   the OTel SDK. For detailed instructions on how to consume this layer, see [AWS Distro for OpenTelemetry
   Lambda Support for Java](https://aws-otel.github.io/docs/getting-started/lambda/lambda-java "https://aws-otel.github.io/docs/getting-started/lambda/lambda-java") in the ADOT documentation.
 
-To learn how to convert Lambda Telemetry API events to OpenTelemetry spans, see [Converting Lambda Telemetry API Event objects to OpenTelemetry Spans](telemetry-otel-spans.md "telemetry-otel-spans.md").
+For instructions on converting Lambda Telemetry API events to OpenTelemetry spans, see [Converting Lambda Telemetry API Event objects to OpenTelemetry Spans](telemetry-otel-spans.md "telemetry-otel-spans.md").
 
 ## Using the X-Ray SDK to instrument your Java functions
 

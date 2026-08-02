@@ -256,7 +256,7 @@ invoking the function, testing the API, and cleanup.
 ## The event handler from Powertools for AWS Lambda
 
 The event handler from the Powertools for AWS Lambda toolkit provides routing, middleware, CORS configuration, OpenAPI spec generation, request validation, error handling, and other useful features when writing Lambda functions invoked by an API Gateway endpoint (HTTP or REST).
-The event handler utility is available for Python and TypeScript/JavaScript. For more information, see [Event Handler REST API](https://docs.powertools.aws.dev/lambda/python/latest/core/event_handler/api_gateway/ "https://docs.powertools.aws.dev/lambda/python/latest/core/event_handler/api_gateway/")
+The event handler utility is available for Python and TypeScript/JavaScript. For more information, see [Event Handler REST API](../../../powertools/python/latest/core/event_handler/api_gateway.md "../../../powertools/python/latest/core/event_handler/api_gateway.md")
 in the _Powertools for AWS Lambda (Python) documentation_ and [Event Handler HTTP API](../../../powertools/typescript/latest/features/event-handler/http.md "../../../powertools/typescript/latest/features/event-handler/http.md") in the _Powertools for AWS Lambda (TypeScript) documentation_.
 
 ### Python

@@ -200,7 +200,7 @@ This pattern ensures orders never get stuck in intermediate states. If validatio
 
 ###### Note
 
-The conditional check `if (!validation.itemsValid)` is outside a step and will re-execute during replay. This is safe because it's deterministic—it always produces the same result given the same validation object.
+The conditional check `if (!validation.itemsValid)` is outside a step and re-executes during replay. This is safe because it's deterministic—it always produces the same result given the same validation object.
 
 ## Long-running processes
 
@@ -214,7 +214,7 @@ Common scenarios include document approval processes, scheduled batch processing
 
 Pause execution for document reviews, approvals, or decisions while maintaining execution state. The function waits for external callbacks without consuming resources, resuming automatically when approval is received.
 
-This pattern is essential for processes that require human judgment or external validation. The function suspends at the callback point, incurring no compute charges while waiting. When someone submits their decision via API, Lambda invokes your function again and replays from the checkpoint, continuing with the approval result.
+This pattern is essential for processes that require human judgment or external validation. The function suspends at the callback point, incurring no compute charges while waiting. When someone submits their decision through the API, Lambda invokes your function again and replays from the checkpoint, continuing with the approval result.
 
 TypeScript
 
@@ -486,7 +486,7 @@ Each stage is wrapped in a step, creating a checkpoint that allows the pipeline 
 
 ###### Note
 
-The `new Date()` call and `calculateMsUntilHour()` function are outside steps and will re-execute during replay. For time-based operations that must be consistent across replays, calculate the timestamp inside a step or use it only for wait durations (which are checkpointed).
+The `new Date()` call and `calculateMsUntilHour()` function are outside steps and re-execute during replay. For time-based operations that must be consistent across replays, calculate the timestamp inside a step or use it only for wait durations (which are checkpointed).
 
 ## Advanced patterns
 

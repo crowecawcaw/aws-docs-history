@@ -15,6 +15,8 @@ different network topologies and other infrastructure needs.
 You can use a Lambda function to process records from your Amazon MQ message broker. Lambda invokes your function
 through an [event source mapping](invocation-eventsourcemapping.md "invocation-eventsourcemapping.md"), a Lambda resource that reads
 messages from your broker and invokes the function [synchronously](invocation-sync.md "invocation-sync.md").
+For configuration options, see [Event source mapping parameters](services-mq-params.md "services-mq-params.md"). For common errors, see
+[Troubleshoot Amazon MQ event source mapping errors](services-mq-errors.md "services-mq-errors.md").
 
 ###### Warning
 
@@ -27,11 +29,14 @@ The Amazon MQ event source mapping has the following configuration restrictions:
 - Concurrency – Lambda functions that use an Amazon MQ event source mapping have a default maximum [concurrency](lambda-concurrency.md "lambda-concurrency.md")
   setting. For ActiveMQ, the Lambda service limits the number of concurrent execution environments to five per Amazon MQ
   event source mapping. For RabbitMQ, the number of concurrent execution environments is limited to 1 per Amazon MQ
-  event source mapping. Even if you change your function's reserved or provisioned concurrency settings, the Lambda
-  service won't make more execution environments available. To request an increase in the default maximum concurrency
-  for a single Amazon MQ event source mapping, contact Support with the event source mapping UUID, as well as the region.
-  Because increases are applied at the specific event source mapping level, not the account or region level,
-  you need to manually request a scaling increase for each event source mapping.
+  event source mapping.
+
+Even if you change your function's reserved or provisioned concurrency settings, the Lambda
+service won't make more execution environments available. To request an increase in the default maximum concurrency
+for a single Amazon MQ event source mapping, contact Support with the event source mapping UUID, as well as the region.
+Because increases are applied at the specific event source mapping level, not the account or region level,
+you need to manually request a scaling increase for each event source mapping.
+
 - Cross account – Lambda does not support cross-account processing. You cannot use Lambda to process records
   from an Amazon MQ message broker that is in a different AWS account.
 - Authentication – For ActiveMQ, only the ActiveMQ [SimpleAuthenticationPlugin](https://activemq.apache.org/security#simple-authentication-plugin "https://activemq.apache.org/security#simple-authentication-plugin") is

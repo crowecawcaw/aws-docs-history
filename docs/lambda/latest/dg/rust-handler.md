@@ -183,7 +183,7 @@ the Amazon S3 bucket should contain a receipt file.
 
 ## Valid class definitions for Rust handlers
 
-In most cases, Lambda handler signatures that you define in Rust will have the following
+In most cases, Lambda handler signatures that you define in Rust have the following
 format:
 
 ```
@@ -357,7 +357,7 @@ aws-sdk-s3 = "1.78.0"
 
 ###### Note
 
-This may not be the most recent version. Choose the appropriate version for your application.
+This might not be the most recent version. Choose the appropriate version for your application.
 
 The, import the dependencies directly in your code:
 
@@ -419,12 +419,12 @@ async fn main() -> Result<(), Error> {
 
 Adhere to the guidelines in the following list to use best coding practices when building your Lambda functions:
 
-- **Separate the Lambda handler from your core logic.** This allows you to make
+- **Separate the Lambda handler from your core logic.** This makes it easier to create
   a more unit-testable function.
 - **Minimize the complexity of your dependencies.** Prefer simpler frameworks
   that load quickly on [execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md") startup.
 - **Minimize your deployment package size to its runtime necessities.** This
-  will reduce the amount of time that it takes for your deployment package to be downloaded and unpacked ahead
+  reduces the amount of time that it takes for your deployment package to be downloaded and unpacked ahead
   of invocation.
 
 **Take advantage of execution environment reuse to improve the performance of your

@@ -58,7 +58,7 @@ To use the log format and log level options with your .NET Lambda functions, see
 
 ### Using structured JSON log format with .NET
 
-If you select JSON for your function's log format, Lambda will send logs output using [ILambdaLogger](https://github.com/aws/aws-lambda-dotnet/blob/master/Libraries/src/Amazon.Lambda.Core/ILambdaLogger.cs "https://github.com/aws/aws-lambda-dotnet/blob/master/Libraries/src/Amazon.Lambda.Core/ILambdaLogger.cs")
+If you select JSON for your function's log format, Lambda sends logs output using [ILambdaLogger](https://github.com/aws/aws-lambda-dotnet/blob/master/Libraries/src/Amazon.Lambda.Core/ILambdaLogger.cs "https://github.com/aws/aws-lambda-dotnet/blob/master/Libraries/src/Amazon.Lambda.Core/ILambdaLogger.cs")
 as structured JSON. Each JSON log object contains at least five key value pairs with the following keys:
 
 - `"timestamp"` - the time the log message was generated
@@ -73,7 +73,7 @@ own additional parameters as described in the section [Customer-provided log par
 ###### Note
 
 If your code already uses another logging library to produce JSON-formatted logs, ensure that your function's log format is set to plain text.
-Setting the log format to JSON will result in your log outputs being double-encoded.
+Setting the log format to JSON results in your log outputs being double-encoded.
 
 The following example logging command shows how to write a log message with the level `INFO`.
 
@@ -110,7 +110,7 @@ convention of using a four-character label. For example, a log level of `Debug` 
 
 When you configure your function to use JSON formatted logs, the log level captured in the log uses the full label as shown in the example JSON log record.
 
-If you don't assign a level to your log output, Lambda will automatically assign it the level INFO.
+If you don't assign a level to your log output, Lambda automatically assigns it the level INFO.
 
 #### Logging exceptions in JSON
 
@@ -308,16 +308,16 @@ When you configure your function to use log-level filtering, you must select fro
 want Lambda to send to CloudWatch Logs. Note the mapping of the log levels used by Lambda with the standard Microsoft levels used by the .NET
 `ILambdaLogger`.
 
-| Lambda log level     | Equivalent Microsoft level | Standard usage                                                                      |
-| -------------------- | -------------------------- | ----------------------------------------------------------------------------------- |
-| TRACE (most detail)  | Trace                      | The most fine-grained information used to trace the path of your code's execution   |
-| DEBUG                | Debug                      | Detailed information for system debugging                                           |
-| INFO                 | Information                | Messages that record the normal operation of your function                          |
-| WARN                 | Warning                    | Messages about potential errors that may lead to unexpected behavior if unaddressed |
-| ERROR                | Error                      | Messages about problems that prevent the code from performing as expected           |
-| FATAL (least detail) | Critical                   | Messages about serious errors that cause the application to stop functioning        |
+| Lambda log level     | Equivalent Microsoft level | Standard usage                                                                        |
+| -------------------- | -------------------------- | ------------------------------------------------------------------------------------- |
+| TRACE (most detail)  | Trace                      | The most fine-grained information used to trace the path of your code's execution     |
+| DEBUG                | Debug                      | Detailed information for system debugging                                             |
+| INFO                 | Information                | Messages that record the normal operation of your function                            |
+| WARN                 | Warning                    | Messages about potential errors that might lead to unexpected behavior if unaddressed |
+| ERROR                | Error                      | Messages about problems that prevent the code from performing as expected             |
+| FATAL (least detail) | Critical                   | Messages about serious errors that cause the application to stop functioning          |
 
-Lambda sends logs of the selected detail level and lower to CloudWatch. For example, if you configure a log level of WARN, Lambda will send logs
+Lambda sends logs of the selected detail level and lower to CloudWatch. For example, if you configure a log level of WARN, Lambda sends logs
 corresponding to the WARN, ERROR, and FATAL levels.
 
 ## Additional logging tools and libraries
@@ -332,7 +332,7 @@ corresponding to the WARN, ERROR, and FATAL levels.
 
 ## Using Powertools for AWS Lambda (.NET) and AWS SAM for structured logging
 
-Follow the steps below to download, build, and deploy a sample Hello World C# application with integrated [Powertools for AWS Lambda (.NET)](https://docs.powertools.aws.dev/lambda-dotnet "https://docs.powertools.aws.dev/lambda-dotnet") modules using the AWS SAM. This application implements a
+Follow the steps below to download, build, and deploy a sample Hello World C# application with integrated [Powertools for AWS Lambda (.NET)](../../../powertools/dotnet.md "../../../powertools/dotnet.md") modules using the AWS SAM. This application implements a
 basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function.
 When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and
 sends traces to AWS X-Ray. The function returns a `hello world` message.
@@ -435,7 +435,7 @@ Resources:
 
 You can use the Lambda console to view log output after you invoke a Lambda function.
 
-If your code can be tested from the embedded **Code** editor, you will find logs in the **execution results**. When you use the console test feature to invoke a function, you'll find **Log output** in the **Details** section.
+If your code can be tested from the embedded **Code** editor, you find logs in the **execution results**. When you use the console test feature to invoke a function, you find **Log output** in the **Details** section.
 
 ## Viewing logs in the CloudWatch console
 
@@ -451,7 +451,7 @@ Each log stream corresponds to an [instance of your function](lambda-runtime-env
 
 ## Viewing logs using the AWS Command Line Interface (AWS CLI)
 
-The AWS CLI is an open-source tool that enables you to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+The AWS CLI is an open-source tool that you can use to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 
 You can use the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") to retrieve logs for an invocation using the `--log-type` command option. The response contains a `LogResult` field that contains up to 4 KB of base64-encoded logs from the invocation.
 
@@ -513,7 +513,7 @@ aws logs get-log-events --log-group-name /aws/lambda/`my-function` --log-stream-
 
 ###### Example macOS and Linux (only)
 
-In the same command prompt, macOS and Linux users may need to run the following command to ensure the script is executable.
+In the same command prompt, macOS and Linux users might need to run the following command to ensure the script is executable.
 
 ```
 `chmod -R 755 get-logs.sh`

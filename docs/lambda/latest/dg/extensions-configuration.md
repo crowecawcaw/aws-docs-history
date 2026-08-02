@@ -3,7 +3,7 @@
 ## Configuring extensions (.zip file archive)
 
 You can add an extension to your function as a [Lambda layer](chapter-layers.md "chapter-layers.md"). Using
-layers enables you to share extensions across your organization or to the entire community of Lambda developers.
+layers, you can share extensions across your organization or to the entire community of Lambda developers.
 You can add one or more extensions to a layer. You can register up to 10 extensions for a function.
 
 You add the extension to your function using the same method as you would for any layer. For more information,

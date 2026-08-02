@@ -8,7 +8,9 @@ environment of a MicroVM. The MicroVM image includes your runtime environment,
 application code, and supporting programs such as background processes and
 observability agents. To create a MicroVM image, you provide a zip package
 that contains a `Dockerfile` and your application artifacts, which
-you upload to Amazon S3. Your `Dockerfile` defines how your application
+you upload to Amazon S3.
+
+Your `Dockerfile` defines how your application
 is packaged. Lambda builds your application container image by running your
 `Dockerfile` on top of an operating system environment that is
 provided by a Lambda-managed MicroVM base image. MicroVM base images are
@@ -51,13 +53,13 @@ MicroVM can automatically scale vertically up to 4x the baseline. You pay
 the baseline rate while your MicroVM is running and only pay for what you
 actively use above the baseline, billed per second.
 
-You set the baseline via the `memory` parameter when
+You set the baseline by using the `memory` parameter when
 creating your MicroVM image. vCPU scales proportionally with memory (2 GB =
 1 vCPU). The default baseline is 2 GB / 1 vCPU.
 
 The following table lists the available sizes:
 
-| Baseline                      | Peak                  | Max Disk Space |
+| Baseline                      | Peak                  | Max disk space |
 | ----------------------------- | --------------------- | -------------- |
 | 0.5 GB memory, 0.25 vCPU      | 2 GB memory, 1 vCPU   | 8 GB           |
 | 1 GB memory, 0.5 vCPU         | 4 GB memory, 2 vCPU   | 8 GB           |
@@ -135,10 +137,10 @@ determine whether the hooks successfully completed.
 If you configure any hooks, you must specify the port that your
 application listens on for hook requests.
 
-| Hook      | Path                                       | Details                                                                                                                                                         | HTTP Status Codes                                                                                                                              | Timeout                                        |
-| --------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| /ready    | `/aws/lambda-microvms/runtime/v1/ready`    | Called during the MicroVM image build, after your application<br>starts via `ENTRYPOINT` or `CMD`. Signals<br>that your application is ready to be snapshotted. | **HTTP 503:_<br>• Not yet ready;<br>Lambda retries until timeout. \**HTTP<br>200:_<br>• Initialization complete; Lambda takes the<br>snapshot. | 1–3600 seconds<br>(`readyTimeoutInSeconds`)    |
-| /validate | `/aws/lambda-microvms/runtime/v1/validate` | Called after the build completes, on a new MicroVM started<br>from the created image. Confirms the application works correctly<br>when resumed.                 | **HTTP 503:_<br>• Validation needs<br>more time to complete; Lambda retries until timeout. \**HTTP 200:_<br>• Validation passed.               | 1–3600 seconds<br>(`validateTimeoutInSeconds`) |
+| Hook      | Path                                       | Details                                                                                                                                                             | HTTP status codes                                                                                                                              | Timeout                                        |
+| --------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| /ready    | `/aws/lambda-microvms/runtime/v1/ready`    | Called during the MicroVM image build, after your application<br>starts through `ENTRYPOINT` or `CMD`. Signals<br>that your application is ready to be snapshotted. | **HTTP 503:_<br>• Not yet ready;<br>Lambda retries until timeout. \**HTTP<br>200:_<br>• Initialization complete; Lambda takes the<br>snapshot. | 1–3600 seconds<br>(`readyTimeoutInSeconds`)    |
+| /validate | `/aws/lambda-microvms/runtime/v1/validate` | Called after the build completes, on a new MicroVM started<br>from the created image. Confirms the application works correctly<br>when resumed.                     | **HTTP 503:_<br>• Validation needs<br>more time to complete; Lambda retries until timeout. \**HTTP 200:_<br>• Validation passed.               | 1–3600 seconds<br>(`validateTimeoutInSeconds`) |
 
 ###### Important
 
@@ -243,7 +245,7 @@ aws lambda-microvms update-microvm-image-version \
 
 ## Environment variables
 
-Environment variables are set at MicroVM image build time via the
+Environment variables are set at MicroVM image build time through the
 `environmentVariables` field (maximum 50 variables). These are
 injected into the container during the snapshot build process. You can pass
 dynamically set payloads when running a new MicroVM. Refer to the section

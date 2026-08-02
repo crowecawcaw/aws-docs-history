@@ -64,7 +64,7 @@ When you run a MicroVM from this image, your application starts immediately
 
 ### Step 1: Write your application and Dockerfile
 
-Create a simple HTTP server that will run inside your MicroVM. This
+Create a simple HTTP server that runs inside your MicroVM. This
 example uses Node.js with no external dependencies:
 
 **`app.js`**

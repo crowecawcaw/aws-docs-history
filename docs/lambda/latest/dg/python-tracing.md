@@ -38,7 +38,7 @@ Distro for Open Telemetry and X-Ray SDKs](../../../xray/latest/devguide/xray-ins
 
 ## Using Powertools for AWS Lambda (Python) and AWS SAM for tracing
 
-Follow the steps below to download, build, and deploy a sample Hello World Python application with integrated [Powertools for AWS Lambda (Python)](https://docs.powertools.aws.dev/lambda-python "https://docs.powertools.aws.dev/lambda-python") modules using the AWS SAM. This application implements a
+Follow the steps below to download, build, and deploy a sample Hello World Python application with integrated [Powertools for AWS Lambda (Python)](../../../powertools/python.md "../../../powertools/python.md") modules using the AWS SAM. This application implements a
 basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function.
 When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and
 sends traces to AWS X-Ray. The function returns a hello world message.
@@ -149,7 +149,7 @@ to ensure that tracing is efficient, while still providing a representative samp
 
 ## Using Powertools for AWS Lambda (Python) and the AWS CDK for tracing
 
-Follow the steps below to download, build, and deploy a sample Hello World Python application with integrated [Powertools for AWS Lambda (Python)](https://docs.powertools.aws.dev/lambda-python "https://docs.powertools.aws.dev/lambda-python") modules using the AWS CDK. This application implements a
+Follow the steps below to download, build, and deploy a sample Hello World Python application with integrated [Powertools for AWS Lambda (Python)](../../../powertools/python.md "../../../powertools/python.md") modules using the AWS CDK. This application implements a
 basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function.
 When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and
 sends traces to AWS X-Ray. The function returns a hello world message.
@@ -506,7 +506,7 @@ node represents your specific Lambda function. The following example shows a tra
 are named **my-function**, but one has an origin of `AWS::Lambda` and the other has
 an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service had an issue. If the `AWS::Lambda::Function` segment shows an error, your function had an issue.
 
-![An X-Ray trace that shows latency across each subsegment of a specific Lambda invocation.](/images/lambda/latest/dg/images/V2_sandbox_images/my-function-2-v1.png)
+![An X-Ray trace that shows latency across each subsegment of a specific Lambda invocation.](images/V2_sandbox_images/my-function-2-v1.png)
 
 This example expands the `AWS::Lambda::Function` segment to show its three subsegments.
 

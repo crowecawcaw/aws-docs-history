@@ -42,7 +42,7 @@ async fn main() -> Result<(), Error> {
 ```
 
 The [Rust runtime client for Lambda](https://github.com/aws/aws-lambda-rust-runtime "https://github.com/aws/aws-lambda-rust-runtime") also provides an abstraction over these event types that
-allows you to work with native HTTP types, regardless of which service sends the events. The
+you can work with native HTTP types, regardless of which service sends the events. The
 following code is equivalent to the previous example, and it works out of the box with Lambda
 function URLs, Application Load Balancers, and API Gateway.
 

@@ -11,6 +11,7 @@ source mapping metrics. For more information, see [Types of metrics for Lambda f
 In the CloudWatch console, you can [view these metrics](monitoring-metrics-view.md "monitoring-metrics-view.md")
 and build graphs and dashboards with them. You can also set alarms to respond to changes in
 utilization, performance, or error rates. Lambda sends metric data to CloudWatch in 1-minute intervals.
+
 For more immediate insight into your Lambda function, you can create [high-resolution custom metrics](../../../AmazonCloudWatch/latest/monitoring/publishingMetrics.md "../../../AmazonCloudWatch/latest/monitoring/publishingMetrics.md").
 Charges apply for custom metrics and CloudWatch alarms. For more information, see
 [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").

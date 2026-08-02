@@ -155,9 +155,9 @@ When using an encrypted customer managed key, add the `kms:Decrypt` permission a
 3. Choose the **Configuration** tab, and then choose **Permissions**.
 4. Under **Role name**, choose the link to your execution role. This link opens the role in the IAM console.
 
-![Link to execution role](images/execution-role.png) 5. Choose **Add permissions**, and then choose **Create inline policy**.
+![Link to execution role.](images/execution-role.png) 5. Choose **Add permissions**, and then choose **Create inline policy**.
 
-![Create inline policy in IAM console](images/inline-policy.png) 6. In the **Policy editor**, choose **JSON**. Enter the following policy. Your function needs these permissions to read from an Amazon MQ broker.
+![Create inline policy in IAM console.](images/inline-policy.png) 6. In the **Policy editor**, choose **JSON**. Enter the following policy. Your function needs these permissions to read from an Amazon MQ broker.
 
 JSON
 
@@ -191,7 +191,7 @@ JSON
 
 When using an encrypted customer managed key, you must also add the `kms:Decrypt` permission. 7. Choose **Next**. Enter a policy name and then choose **Create policy**. 8. Go back to your function in the Lambda console. Under **Function overview**, choose **Add trigger**.
 
-![Function overview section of the Lambda console](images/add-trigger.png) 9. Choose the **MQ** trigger type. 10. Configure the required options, and then choose **Add**.
+![Function overview section of the Lambda console.](images/add-trigger.png) 9. Choose the **MQ** trigger type. 10. Configure the required options, and then choose **Add**.
 
 Lambda supports the following options for Amazon MQ event sources:
 

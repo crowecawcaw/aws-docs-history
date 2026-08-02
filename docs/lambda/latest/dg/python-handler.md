@@ -176,7 +176,7 @@ To learn more about using the Lambda context object, and to see a complete list 
 
 When defining your handler function in Python, the function must take two arguments. The first of these arguments is the Lambda [event object](#python-handler-event "#python-handler-event") and the second one
 is the Lambda [context object](#python-handler-context "#python-handler-context"). By convention, these input arguments are usually named `event` and `context`,
-but you can give them any names you wish. If you declare your handler function with a single input argument, Lambda will raise an error when it attempts to run your function.
+but you can give them any names you wish. If you declare your handler function with a single input argument, Lambda raises an error when it attempts to run your function.
 The most common way to declare a handler function in Python is as follows:
 
 ```
@@ -218,7 +218,7 @@ invoked the function. For example:
   [invoke a Lambda function synchronously](invocation-sync.md "invocation-sync.md"), Lambda returns the result of the Python function call
   to the client invoking the Lambda function (in the HTTP response to the invocation request, serialized into JSON).
   For example, AWS Lambda console uses the `RequestResponse` invocation type, so when you invoke the function on the
-  console, the console will display the returned value.
+  console, the console displays the returned value.
 - If the handler returns objects that can't be serialized by `json.dumps`, the runtime returns an error.
 - If the handler returns `None`, as Python functions without a `return` statement implicitly do, the runtime returns `null`.
 - If you use the `Event` invocation type (an [asynchronous invocation](invocation-async.md "invocation-async.md")), the value is discarded.
@@ -241,7 +241,9 @@ In Python 3.9 and later releases, Lambda includes the requestId of the invocatio
 ## Using the AWS SDK for Python (Boto3) in your handler
 
 Often, you'll use Lambda functions to interact with other AWS services and resources. The simplest way to interface with these resources is
-to use the AWS SDK for Python (Boto3). All [supported Lambda Python runtimes](lambda-runtimes.md#runtimes-supported "lambda-runtimes.md#runtimes-supported") include a version of the SDK for Python. However, we strongly recommend that
+to use the AWS SDK for Python (Boto3). All [supported Lambda Python runtimes](lambda-runtimes.md#runtimes-supported "lambda-runtimes.md#runtimes-supported") include a version of the SDK for Python.
+
+However, we strongly recommend that
 you include the SDK in your function's deployment package if your code needs to use it. Including the SDK in your deployment package gives you full
 control over your dependencies and reduces the risk of version misalignment issues with other libraries. See [Runtime dependencies in Python](python-package.md#python-package-dependencies "python-package.md#python-package-dependencies") and
 [Backward compatibility](runtimes-update.md#runtime-update-compatibility "runtimes-update.md#runtime-update-compatibility") to learn more.
@@ -283,8 +285,8 @@ Don't forget to include an `import os` statement in the import block at the begi
 
 Adhere to the guidelines in the following list to use best coding practices when building your Lambda functions:
 
-- **Separate the Lambda handler from your core logic.** This allows you to make
-  a more unit-testable function. For example, in Python, this may look like:
+- **Separate the Lambda handler from your core logic.** This makes it easier to create
+  a more unit-testable function. For example, in Python, this might look like:
 
 ```
 def lambda_handler(event, context):
@@ -299,13 +301,15 @@ def my_lambda_function(foo, bar):
 
 - **Control the dependencies in your function's deployment package.** The
   AWS Lambda execution environment contains a number of libraries. For the Node.js and Python runtimes, these include the AWS SDKs.
-  To enable the latest set of features and security updates, Lambda will periodically update these libraries.
-  These updates may introduce subtle changes to the behavior of your Lambda function. To have full control of the
-  dependencies your function uses, package all of your dependencies with your deployment package.
+
+To enable the latest set of features and security updates, Lambda periodically updates these libraries.
+These updates might introduce subtle changes to the behavior of your Lambda function. To have full control of the
+dependencies your function uses, package all of your dependencies with your deployment package.
+
 - **Minimize the complexity of your dependencies.** Prefer simpler frameworks
   that load quickly on [execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md") startup.
 - **Minimize your deployment package size to its runtime necessities.** This
-  will reduce the amount of time that it takes for your deployment package to be downloaded and unpacked ahead
+  reduces the amount of time that it takes for your deployment package to be downloaded and unpacked ahead
   of invocation.
 
 **Take advantage of execution environment reuse to improve the performance of your

@@ -353,9 +353,9 @@ mvn package
 1. Choose the **Configuration** tab, and then choose **Permissions**.
 2. Under **Role name**, choose the link to your execution role. This link opens the role in the IAM console.
 
-![Link to execution role](images/execution-role-console.png) 3. Choose **Add permissions**, and then choose **Create inline policy**.
+![Link to execution role.](images/execution-role-console.png) 3. Choose **Add permissions**, and then choose **Create inline policy**.
 
-![Attach policies in IAM console](images/create-inline-policy.png) 4. Choose the **JSON** tab and add the following policy. For `Resource`, enter the ARN of your secret.
+![Attach policies in IAM console.](images/create-inline-policy.png) 4. Choose the **JSON** tab and add the following policy. For `Resource`, enter the ARN of your secret.
 
 JSON
 
@@ -383,7 +383,7 @@ JSON
 2. Select the **Test** tab.
 3. Choose **Test**. You should see the following response:
 
-![Successful test result](images/execution-results-secret.png)
+![Successful test result.](images/execution-results-secret.png)
 
 ### Environment variables
 
@@ -435,7 +435,7 @@ The following examples show how to retrieve secrets using the Parameters utility
 
 ###### Note
 
-For complete examples and setup instructions, see the [Parameters utility documentation](https://docs.powertools.aws.dev/lambda/python/latest/utilities/parameters/ "https://docs.powertools.aws.dev/lambda/python/latest/utilities/parameters/").
+For complete examples and setup instructions, see the [Parameters utility documentation](../../../powertools/python/latest/utilities/parameters.md "../../../powertools/python/latest/utilities/parameters.md").
 
 Retrieving secrets from Secrets Manager with Powertools for AWS Lambda Parameters utility.
 
@@ -518,7 +518,7 @@ export const handler = async (event: any, context: Context) => {
 
 ###### Note
 
-For complete examples and setup instructions, see the [Parameters utility documentation](https://docs.powertools.aws.dev/lambda/java/latest/utilities/parameters/ "https://docs.powertools.aws.dev/lambda/java/latest/utilities/parameters/").
+For complete examples and setup instructions, see the [Parameters utility documentation](../../../powertools/java/latest/utilities/parameters.md "../../../powertools/java/latest/utilities/parameters.md").
 
 Retrieving secrets from Secrets Manager with Powertools for AWS Lambda Parameters utility.
 
@@ -563,7 +563,7 @@ public class SecretHandler implements RequestHandler<Object, String> {
 
 ###### Note
 
-For complete examples and setup instructions, see the [Parameters utility documentation](../../../powertools/typescript/latest/features/parameters.md "../../../powertools/typescript/latest/features/parameters.md").
+For complete examples and setup instructions, see the [Parameters utility documentation](../../../powertools/dotnet/utilities/parameters.md "../../../powertools/dotnet/utilities/parameters.md").
 
 Retrieving secrets from Secrets Manager with Powertools for AWS Lambda Parameters utility.
 
@@ -621,4 +621,4 @@ To use the Parameters utility, you need to:
 2. Add the necessary IAM permissions to your function's execution role. Refer to [Managing permissions in AWS Lambda](lambda-permissions.md "lambda-permissions.md") for details.
 3. Configure any optional settings through [environment variables](configuration-envvars.md "configuration-envvars.md").
 
-The required IAM permissions are the same as for the extension approach. The utility will automatically handle caching and API calls to Secrets Manager based on your configuration.
+The required IAM permissions are the same as for the extension approach. The utility automatically handles caching and API calls to Secrets Manager based on your configuration.

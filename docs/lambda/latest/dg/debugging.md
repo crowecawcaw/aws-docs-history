@@ -34,7 +34,7 @@ feature that requires explicit permissions and actions:
 
   - The debugging layer must be attached to the Lambda function and this process requires the following permissions: `lambda:UpdateFunctionConfiguration` and `lambda:GetLayerVersion`.
 
-  - A security token (generated via `iot:OpenTunnel`) must be updated in the function environment variable before each debug session, which also requires `lambda:UpdateFunctionConfiguration`.
+  - Update the security token (generated through `iot:OpenTunnel`) in the function environment variable before each debug session. This step also requires `lambda:UpdateFunctionConfiguration`.
 
   - For security, this token is automatically rotated and the debug layer is automatically removed at the end of each debug session and cannot be reused.
 
@@ -58,7 +58,7 @@ Follow these steps to start a remote debugging session:
 
 1. Open the AWS Explorer in VS Code by selecting the AWS icon in the left sidebar.
 2. Expand the Lambda section to see your functions.
-3. Right-click on the function you want to debug.
+3. Open the context menu for the function you want to debug.
 4. From the context menu, select **Remotely invoke**.
 5. In the invoke window that opens, check the box for **Enable debugging**.
 6. Click **Invoke** to start the remote debugging session.

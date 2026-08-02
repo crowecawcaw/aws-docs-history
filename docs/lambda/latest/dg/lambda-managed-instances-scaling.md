@@ -6,7 +6,7 @@ Lambda Managed Instances does not scale when invocations arrive and does not sup
 
 - **Lambda (default):** Scales when there is no free execution environment to handle an incoming invocation (cold start)
 - **Lambda Managed Instances:** Scales asynchronously based on CPU resource utilization and multi-concurrency saturation of execution environments
-  If your traffic more than doubles within 5 minutes, you may see throttles as Lambda scales up instances and execution environments to meet demand.
+  If your traffic more than doubles within 5 minutes, you might see throttles as Lambda scales up instances and execution environments to meet demand.
 
 ## The scaling lifecycle
 
@@ -38,10 +38,10 @@ Choose the memory size and vCPU allocation for your function. The smallest suppo
 
 **Considerations:**
 
-- Pick a memory and vCPU setting that will support multi-concurrent executions of your function
+- Pick a memory and vCPU setting that supports multi-concurrent executions of your function
 - You cannot configure a function with less than 1 vCPU because functions running on Managed Instances should support multi-concurrent workloads
 - You cannot choose less than 2GB because this matches the 2 to 1 memory to vCPU ratio of c instances, which have the lowest ratio
-- For Python applications, you may need to choose a higher ratio of memory to vCPUs, such as 4 to 1 or 8 to 1, because of the way Python handles multi-concurrency
+- For Python applications, you might need to choose a higher ratio of memory to vCPUs, such as 4 to 1 or 8 to 1, because of the way Python handles multi-concurrency
 - If you are running CPU-intensive operations or perform little IO, you should choose more than one vCPU
 
 #### 2. Maximum concurrency
@@ -55,7 +55,7 @@ Set the maximum concurrency per execution environment.
 - **Increase concurrency:** If your function invocations use very little CPU, you can increase maximum concurrency up to a maximum of 64 per vCPU
 - **Decrease concurrency:** If your application consumes a large amount of memory and very little CPU, you can reduce your maximum concurrency
 
-**Important:** Since Lambda Managed Instances are meant for multi-concurrent applications, execution environments with very low concurrency may experience throttles when scaling. When invocations arrive at an execution environment that has reached its concurrency limit, Lambda routes those invocations elsewhere and scales out new execution environments to handle the load. To identify which resource constraint is causing throttles, monitor the throttle reason metrics (`ConcurrencyThrottles`, `CPUThrottles`, `MemoryThrottles`, and `DiskThrottles`) described in [Types of metrics for Lambda functions](monitoring-metrics-types.md "monitoring-metrics-types.md").
+**Important:** Since Lambda Managed Instances are meant for multi-concurrent applications, execution environments with very low concurrency might experience throttles when scaling. When invocations arrive at an execution environment that has reached its concurrency limit, Lambda routes those invocations elsewhere and scales out new execution environments to handle the load. To identify which resource constraint is causing throttles, monitor the throttle reason metrics (`ConcurrencyThrottles`, `CPUThrottles`, `MemoryThrottles`, and `DiskThrottles`) described in [Types of metrics for Lambda functions](monitoring-metrics-types.md "monitoring-metrics-types.md").
 
 #### 3. Execution environments per function
 
@@ -95,14 +95,14 @@ Choose your own target for CPU utilization consumption.
 
 **Optimization options:**
 
-- If your workload is very steady or if your application is not sensitive to throttles, you may set the target to a high level to achieve higher utilization and lower costs
-- If you want to maintain headroom for bursts of traffic, you can set resource targets to a low level, which will require more capacity
+- If your workload is very steady or if your application is not sensitive to throttles, you can set the target to a high level to achieve higher utilization and lower costs
+- If you want to maintain headroom for bursts of traffic, you can set resource targets to a low level, which requires more capacity
 
 #### 5. Instance type selection
 
 Set allowed or excluded instance types.
 
-**Default behavior:** Lambda chooses the best instance types for your workload. Letting Lambda Managed Instances choose instance types is recommended, as restricting the number of possible instance types may result in lower availability.
+**Default behavior:** Lambda chooses the best instance types for your workload. Letting Lambda Managed Instances choose instance types is recommended, as restricting the number of possible instance types might result in lower availability.
 
 **Custom configuration:**
 

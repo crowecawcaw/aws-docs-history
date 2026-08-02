@@ -28,7 +28,9 @@ invocations.
 
 To get started, see [Create your first MicroVM](microvms-getting-started.md "microvms-getting-started.md"). For pricing information,
 see [AWS Lambda
-Pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/").
+Pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/"). For security and permissions, see [Security and permissions](microvms-security.md "microvms-security.md").
+For observability, see [Monitoring](microvms-monitoring.md "microvms-monitoring.md"). For operational guidance,
+see [Best practices for Lambda MicroVMs](microvms-best-practices.md "microvms-best-practices.md").
 
 ## How Lambda MicroVMs work
 

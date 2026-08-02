@@ -10,7 +10,7 @@ For Node.js, the number of concurrent requests that each execution environment c
 
 ## Building functions for multi-concurrency
 
-With an async function handler, each runtime worker processes multiple requests concurrently. Global objects will be shared across multiple concurrent requests. For mutable objects, avoid using global state or use `AsyncLocalStorage`.
+With an async function handler, each runtime worker processes multiple requests concurrently. Global objects are shared across multiple concurrent requests. For mutable objects, avoid using global state or use `AsyncLocalStorage`.
 
 AWS SDK clients are async safe and do not require special handling.
 
@@ -52,7 +52,7 @@ export const handler = async (event, context) => {
 
 **Example: Database connections**
 
-The following code uses a shared client object which is shared between multiple invocations. Depending on the connection library used, this may not be concurrency safe.
+The following code uses a shared client object which is shared between multiple invocations. Depending on the connection library used, this might not be concurrency safe.
 
 ```
 const { Client } = require('pg');
@@ -168,7 +168,7 @@ exports.handler = async (event, context) => {
 
 ## Initialization and shutdown
 
-Function initialization occurs once per worker thread. You may see repeat log entries if your function emits logs during initialization.
+Function initialization occurs once per worker thread. You might see repeat log entries if your function emits logs during initialization.
 
 For Lambda functions with extensions, the execution environment emits a SIGTERM signal during shut down. This signal is used by extensions to trigger clean up tasks, such as flushing buffers. Lambda (default) functions with extensions can also subscribe to the SIGTERM signal using `process.on()`. This is not supported for functions using Lambda Managed Instances since `process.on()` cannot be used with worker threads. To learn more about the execution environment lifecycle, see [Understanding the Lambda execution environment lifecycle](lambda-runtime-environment.md "lambda-runtime-environment.md").
 

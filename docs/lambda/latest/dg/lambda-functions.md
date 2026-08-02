@@ -34,7 +34,7 @@ You can make your function code portable and keep secrets out of your code by st
 
 **[Outbound networking](configuration-vpc.md "configuration-vpc.md")**
 
-You can use your Lambda function with AWS resources in an Amazon VPC. Connecting your function to a VPC lets you access resources in a private subnet such as relational databases and caches.
+You can use your Lambda function with AWS resources in an Amazon VPC. Connecting your function to a VPC gives you access to resources in a private subnet such as relational databases and caches.
 
 **[Inbound networking](configuration-vpc-endpoints.md "configuration-vpc-endpoints.md")**
 

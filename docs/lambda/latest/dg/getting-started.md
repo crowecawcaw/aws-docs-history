@@ -55,7 +55,7 @@ In the console's built-in code editor, you should see the function code that Lam
 created. If you don't see the **index.mjs** tab in the code editor, select **index.mjs** in the
 file explorer as shown on the following diagram.
 
-![Diagram showing the console code editor and the index.mjs file in the file explorer](images/getting-started-tutorial/nodejs_code_editor.png) 2. Paste the following code into the **index.mjs** tab, replacing the code that Lambda created.
+![Diagram showing the console code editor and the index.mjs file in the file explorer.](images/getting-started-tutorial/nodejs_code_editor.png) 2. Paste the following code into the **index.mjs** tab, replacing the code that Lambda created.
 
 ```
 export const handler = async (event, context) => {
@@ -135,7 +135,7 @@ In the console's built-in code editor, you should see the function code that Lam
 created. If you don't see the **lambda\_function.py** tab in the code editor, select **lambda\_function.py**
 in the file explorer as shown on the following diagram.
 
-![Diagram showing the console code editor and the lambda_function.py file in the file explorer](images/getting-started-tutorial/python_code_editor.png) 2. Paste the following code into the **lambda\_function.py** tab, replacing the code that Lambda created.
+![Diagram showing the console code editor and the lambda_function.py file in the file explorer.](images/getting-started-tutorial/python_code_editor.png) 2. Paste the following code into the **lambda\_function.py** tab, replacing the code that Lambda created.
 
 ```
 import json
@@ -237,7 +237,7 @@ document containing two key-value pairs with the keys `"length"` and `"width"`.
 
 In the **TEST EVENTS** section of the console code editor, choose the run icon next to your test event:
 
-![Run test event button in the Lambda console code editor](images/getting-started-tutorial/run-test-event.png)
+![Run test event button in the Lambda console code editor.](images/getting-started-tutorial/run-test-event.png)
 
 When your function finishes running, the response and function logs are displayed in the **OUTPUT** tab. You should see results similar to the following:
 

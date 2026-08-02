@@ -47,14 +47,14 @@ not always supported by other microservices that you want to integrate with. The
 custom authorization and authentication configurations. In both cases, these integration methods are
 challenging to scale on-demand without additional work by development teams.
 
-![event driven architectures figure 7](images/event-driven-architectures-figure-7.png)
+![Diagram showing direct service-to-service calls replaced by event-based routing in an event-driven architecture.](images/event-driven-architectures-figure-7.png)
 
 Both of these mechanisms can be replaced by events, which can be filtered, routed, and pushed
 downstream to consuming microservices. This approach can result in less bandwidth consumption, CPU
 utilization, and potentially lower cost. These architectures can also reduce complexity, since each
 functional unit is smaller and there is often less code.
 
-![event driven architectures figure 8](images/event-driven-architectures-figure-8.png)
+![Diagram showing events being filtered, routed, and pushed to multiple targets without coupling services.](images/event-driven-architectures-figure-8.png)
 
 Event-driven architectures can also make it easier to design near-real-time systems, helping
 organizations move away from batch-based processing. Events are generated at the time when state in
@@ -70,7 +70,7 @@ ecommerce monolith can be broken down into order acceptance and payment processe
 inventory, fulfillment and accounting services. What might be complex to manage and orchestrate in a
 monolith becomes a series of decoupled services that communicate asynchronously with events.
 
-![event driven architectures figure 9](images/event-driven-architectures-figure-9.png)
+![Diagram showing services processing data at different rates using event queues as buffers.](images/event-driven-architectures-figure-9.png)
 
 This approach also makes it possible to assemble services that process data at different rates.
 In this case, an order acceptance microservice can store high volumes of incoming orders by buffering
@@ -173,7 +173,7 @@ developers "lift and shift" existing code. Frequently, this results in a single 
 all of the application logic that is triggered for all events. For a basic web application, a monolithic
 Lambda function would handle all API Gateway routes and integrate with all necessary downstream resources.
 
-![event driven architectures figure 13](images/event-driven-architectures-figure-13.png)
+![Diagram showing synchronous orchestration pattern where one function calls multiple services sequentially.](images/event-driven-architectures-figure-13.png)
 
 This approach has several drawbacks:
 
@@ -200,7 +200,7 @@ The preferred alternative is to break down the monolithic Lambda function into i
 a single Lambda function to a single, well-defined task. In this simple web application with a few API endpoints,
 the resulting microservice-based architecture can be based upon the API Gateway routes.
 
-![event driven architectures figure 14](images/event-driven-architectures-figure-14.png)
+![Diagram showing asynchronous event-driven pattern decoupling services through an event bus.](images/event-driven-architectures-figure-14.png)
 
 ### Recursive patterns that cause runaway Lambda functions
 
@@ -212,11 +212,11 @@ For example, a Lambda function writes an object to an Amazon S3 object, which in
 function by using a put event. The invocation causes a second object to be written to the bucket, which invokes
 the same Lambda function:
 
-![event driven architectures figure 15](images/event-driven-architectures-figure-15.png)
+![Diagram showing an infinite loop where a Lambda function writes to Amazon S3 triggering itself repeatedly.](images/event-driven-architectures-figure-15.png)
 
 While the potential for infinite loops exists in most programming languages, this anti-pattern has the
 potential to consume more resources in serverless applications. Both Lambda and Amazon S3 automatically scale based
-upon traffic, so the loop can cause Lambda to scale to consume all available concurrency and Amazon S3 will continue
+upon traffic, so the loop can cause Lambda to scale to consume all available concurrency and Amazon S3 continues
 to write objects and generate more events for Lambda.
 
 This example uses S3, but the risk of recursive loops also exists in Amazon SNS, Amazon SQS, DynamoDB, and other services.
@@ -239,7 +239,7 @@ since you are paying for the fixed cost of owning and operating a server.
 This model often does not adapt well to serverless development. For example, consider a simple ecommerce
 application consisting of three Lambda functions that process an order:
 
-![event driven architectures figure 16](images/event-driven-architectures-figure-16.png)
+![Diagram showing synchronous function chaining where one function directly invokes another.](images/event-driven-architectures-figure-16.png)
 
 In this case, the _Create order_ function calls the _Process payment_ function,
 which in turn calls the _Create invoice_ function. While this synchronous flow might work within a
@@ -274,13 +274,13 @@ the work and robustly handles errors and retries, and the Lambda functions conta
 Make sure that any potentially concurrent activities are not scheduled synchronously within a single Lambda function.
 For example, a Lambda function might write to an S3 bucket and then write to a DynamoDB table:
 
-![event driven architectures figure 17](images/event-driven-architectures-figure-17.png)
+![Diagram showing sequential processing with compounded wait times across multiple function calls.](images/event-driven-architectures-figure-17.png)
 
 In this design, wait times are compounded because the activities are sequential. In cases where the
 second task depends on the completion of the first task, you can reduce the total waiting time and the cost
 of execution by have two separate Lambda functions:
 
-![event driven architectures figure 19](images/event-driven-architectures-figure-19.png)
+![Diagram showing asynchronous processing where the first function responds immediately after writing to Amazon S3.](images/event-driven-architectures-figure-19.png)
 
 In this design, the first Lambda function responds immediately after putting the object to the Amazon S3 bucket.
 The S3 service invokes the second Lambda function, which then writes data to the DynamoDB table. This approach

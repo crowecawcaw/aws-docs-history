@@ -31,6 +31,8 @@ CloudWatch Logs. It relays any [logs that your function outputs](python-logging.
 your function returns an error, Lambda formats the error and returns it to the
 invoker.
 
+For guidance on testing your Python functions, see [AWS Lambda function testing in Python](python-testing.md "python-testing.md").
+
 ###### Topics
 
 - [Runtime-included SDK versions](#python-sdk-included "#python-sdk-included")

@@ -202,7 +202,7 @@ You can now test the setup as follows:
 4. Under **Message body**, enter a test message.
 5. Choose **Send message**.
 
-Your Lambda function in **Account A** should receive the message. Lambda will continue to poll
+Your Lambda function in **Account A** should receive the message. Lambda continues to poll
 the queue for updates. When there is a new message, Lambda invokes your function with this new event data from the
 queue. Your function runs and creates logs in Amazon CloudWatch. You can view the logs in the [CloudWatch console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch").
 

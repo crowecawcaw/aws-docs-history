@@ -5,7 +5,7 @@ Before you can deploy TypeScript code to AWS Lambda, you need to transpile it in
 - [Using AWS Serverless Application Model (AWS SAM)](#aws-sam-ts "#aws-sam-ts")
 - [Using the AWS Cloud Development Kit (AWS CDK)](#aws-cdk-ts "#aws-cdk-ts")
 - [Using the AWS Command Line Interface (AWS CLI) and esbuild](#aws-cli-ts "#aws-cli-ts")
-  AWS SAM and AWS CDK simplify building and deploying TypeScript functions. The [AWS SAM template specification](../../../serverless-application-model/latest/developerguide/sam-specification.md "../../../serverless-application-model/latest/developerguide/sam-specification.md") provides a simple and clean syntax to describe the Lambda functions, APIs, permissions, configurations, and events that make up your serverless application. The [AWS CDK](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md") lets you build reliable, scalable, cost-effective applications in the cloud with the considerable expressive power of a programming language. The AWS CDK is intended for moderately to highly experienced AWS users. Both the AWS CDK and the AWS SAM use esbuild to transpile TypeScript code into JavaScript.
+  AWS SAM and AWS CDK simplify building and deploying TypeScript functions. The [AWS SAM template specification](../../../serverless-application-model/latest/developerguide/sam-specification.md "../../../serverless-application-model/latest/developerguide/sam-specification.md") provides a simple and clean syntax to describe the Lambda functions, APIs, permissions, configurations, and events that make up your serverless application. With the [AWS CDK](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md"), you can build reliable, scalable, cost-effective applications in the cloud with the considerable expressive power of a programming language. The AWS CDK is intended for moderately to highly experienced AWS users. Both the AWS CDK and the AWS SAM use esbuild to transpile TypeScript code into JavaScript.
 
 ## Using AWS SAM to deploy TypeScript code to Lambda
 
@@ -13,7 +13,7 @@ Follow the steps below to download, build, and deploy a sample Hello World TypeS
 
 ###### Note
 
-AWS SAM uses esbuild to create Node.js Lambda functions from TypeScript code. esbuild support is currently in public preview. During public preview, esbuild support may be subject to backwards incompatible changes.
+AWS SAM uses esbuild to create Node.js Lambda functions from TypeScript code. esbuild support is currently in public preview. During public preview, esbuild support might be subject to backwards incompatible changes.
 
 ###### Prerequisites
 

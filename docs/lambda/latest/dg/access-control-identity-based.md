@@ -16,7 +16,7 @@ that your users have access to new features when they're released.
 - [AWSLambdaRole](../../../aws-managed-policy/latest/reference/AWSLambdaRole.md "../../../aws-managed-policy/latest/reference/AWSLambdaRole.md") – Grants permissions to invoke Lambda functions.
   AWS managed policies grant permission to API actions without restricting the Lambda functions or layers that a
   user can modify. For finer-grained control, you can create your own policies that limit the scope of a user's
-  permissions.
+  permissions. For information about granting layer access, see [Granting users access to a Lambda layer](permissions-user-layer.md "permissions-user-layer.md").
 
 ###### Topics
 

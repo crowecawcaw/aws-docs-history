@@ -38,7 +38,7 @@ with Lambda MicroVMs:
   `/run` lifecycle hook to reset previously generated unique
   content.
 - **Network connections** –
-  Connections established during the image version build phase may need to
+  Connections established during the image version build phase might need to
   be re-established when a MicroVM is run from the image version. Validate
   connection state and re-establish connections as necessary. In most
   cases, connections created by AWS SDKs are automatically

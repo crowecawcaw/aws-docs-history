@@ -1,6 +1,6 @@
 # How Lambda works
 
-Lambda functions are the basic building blocks you use to build Lambda applications. To write functions, it's essential to understand the core concepts and components that make up the Lambda programming model. This section will guide you through the fundamental elements you need to know to start building serverless applications with Lambda.
+Lambda functions are the basic building blocks you use to build Lambda applications. To write functions, it's essential to understand the core concepts and components that make up the Lambda programming model. This section guides you through the fundamental elements you need to know to start building serverless applications with Lambda.
 
 - **[Lambda functions and function handlers](#gettingstarted-concepts-function "#gettingstarted-concepts-function")** - A Lambda function is a small block of code that runs in response to events. Functions are the basic building blocks you use to build applications. Function handlers are the entry point for event objects that your Lambda function code processes.
 - **[Lambda execution environment and runtimes](#gettingstarted-concepts-runtime "#gettingstarted-concepts-runtime")** - Lambda execution environments manage the resources required to run your function. Runtimes are the language-specific environments your functions run in.
@@ -96,7 +96,9 @@ Every Lambda function must have an execution role, and a single role can be used
 function's execution role and is granted permission to take the actions defined in the role's policy.
 
 When you create a function in the Lambda console, Lambda automatically creates an execution role for your function. The role's policy gives your function basic permissions to
-write log outputs to Amazon CloudWatch Logs. To give your function permission to perform actions on other AWS resources, you need to edit the role to add the extra permissions. The easiest way to add
+write log outputs to Amazon CloudWatch Logs. To give your function permission to perform actions on other AWS resources, you need to edit the role to add the extra permissions.
+
+The easiest way to add
 permissions is to use an AWS [managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies"). Managed policies
 are created and administered by AWS and provide permissions for many common use cases. For example, if your function performs CRUD operations on a DynamoDB table, you can add the
 [AmazonDynamoDBFullAccess](../../../aws-managed-policy/latest/reference/AmazonDynamoDBFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonDynamoDBFullAccess.md") policy to your role.

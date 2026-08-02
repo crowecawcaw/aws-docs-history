@@ -6,6 +6,10 @@ The events are data structured in JSON format. The JSON structure varies dependi
 generates it and the event type, but they all contain the data that the function needs to process the
 event.
 
+In addition to event-driven invocations, you can use Lambda with [Amazon EC2](services-ec2.md "services-ec2.md"),
+[self-managed Apache Kafka](with-kafka-esm.md "with-kafka-esm.md"), and
+[Kubernetes](with-kubernetes.md "with-kubernetes.md").
+
 A function can have multiple triggers. Each trigger acts as a client invoking your function independently, and each event that
 Lambda passes to your function has data from only one trigger. Lambda converts the event document into an object and passes it to your function handler.
 
@@ -31,7 +35,7 @@ The easiest way to create a trigger is to use the Lambda console. When you creat
 4. Select the AWS service you want to invoke your function.
 5. Fill out the options in the **Trigger configuration** pane
    and choose **Add**. Depending on the AWS service you choose to
-   invoke your function, the trigger configuration options will be different.
+   invoke your function, the trigger configuration options are different.
 
 ## Services that can invoke Lambda functions
 

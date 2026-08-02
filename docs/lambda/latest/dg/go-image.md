@@ -23,7 +23,6 @@ Go is implemented differently than other managed runtimes. Because Go compiles n
 | Name            | Identifier        | Operating system  | Deprecation date | Block function create | Block function update |
 | --------------- | ----------------- | ----------------- | ---------------- | --------------------- | --------------------- |
 | OS-only Runtime | `provided.al2023` | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
-| OS-only Runtime | `provided.al2`    | Amazon Linux 2    | Jul 31, 2026     | Feb 1, 2027           | Mar 3, 2027           |
 
 Amazon Elastic Container Registry Public Gallery: [gallery.ecr.aws/lambda/provided](https://gallery.ecr.aws/lambda/provided "https://gallery.ecr.aws/lambda/provided")
 
@@ -40,7 +39,6 @@ build container images for Go functions.
 | Tags   | Runtime         | Operating system  | Dockerfile                                                                                                                                                                                                                                   | Deprecation  |
 | ------ | --------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
 | al2023 | OS-only Runtime | Amazon Linux 2023 | [Dockerfile<br>for OS-only Runtime on GitHub](https://github.com/aws/aws-lambda-base-images/blob/provided.al2023/Dockerfile.provided.al2023 "https://github.com/aws/aws-lambda-base-images/blob/provided.al2023/Dockerfile.provided.al2023") | Jun 30, 2029 |
-| al2    | OS-only Runtime | Amazon Linux 2    | [Dockerfile<br>for OS-only Runtime on GitHub](https://github.com/aws/aws-lambda-base-images/blob/provided.al2/Dockerfile.provided.al2 "https://github.com/aws/aws-lambda-base-images/blob/provided.al2/Dockerfile.provided.al2")             | Jul 31, 2026 |
 
 For more information
 about these base images, see [provided](https://gallery.ecr.aws/lambda/provided "https://gallery.ecr.aws/lambda/provided") in the Amazon ECR
@@ -103,7 +101,7 @@ func main() {
 
 5. Use a text editor to create a Dockerfile in your project directory.
 
-   - The following example Dockerfile uses a [multi-stage build](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds"). This allows you to use a different base image in each step. You can use one image, such as a [Go base image](https://hub.docker.com/_/golang "https://hub.docker.com/_/golang"), to compile your code and build the executable binary. You can then use a different image, such as `provided.al2023`, in the final `FROM` statement to define the image that you deploy to Lambda. The build process is separated from the final deployment image, so the final image only contains the files needed to run the application.
+   - The following example Dockerfile uses a [multi-stage build](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds") on the Docker documentation website. With a multi-stage build, you can use a different base image in each step. You can use one image, such as a [Go base image](https://hub.docker.com/_/golang "https://hub.docker.com/_/golang") on Docker Hub, to compile your code and build the executable binary. You can then use a different image, such as `provided.al2023`, in the final `FROM` statement to define the image that you deploy to Lambda. The multi-stage build separates the build process from the final deployment image, so the final image contains only the files needed to run the application.
    - You can use the optional `lambda.norpc` tag to exclude the Remote Procedure Call (RPC) component of the [lambda](https://github.com/aws/aws-lambda-go/tree/master/lambda "https://github.com/aws/aws-lambda-go/tree/master/lambda")
      library. The RPC component is only required if you are using the deprecated Go 1.x runtime. Excluding the RPC reduces the size of the deployment package.
    - Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user "https://docs.docker.com/reference/dockerfile/#user"). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.

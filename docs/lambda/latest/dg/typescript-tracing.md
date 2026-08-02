@@ -32,7 +32,7 @@ Distro for Open Telemetry and X-Ray SDKs](../../../xray/latest/devguide/xray-ins
 
 ## Using Powertools for AWS Lambda (TypeScript) and AWS SAM for tracing
 
-Follow the steps below to download, build, and deploy a sample Hello World TypeScript application with integrated [Powertools for AWS Lambda (TypeScript)](https://docs.powertools.aws.dev/lambda-typescript "https://docs.powertools.aws.dev/lambda-typescript") modules using the AWS SAM. This application implements a
+Follow the steps below to download, build, and deploy a sample Hello World TypeScript application with integrated [Powertools for AWS Lambda (TypeScript)](../../../powertools/typescript.md "../../../powertools/typescript.md") modules using the AWS SAM. This application implements a
 basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function.
 When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and
 sends traces to AWS X-Ray. The function returns a `hello world` message.
@@ -120,7 +120,7 @@ to ensure that tracing is efficient, while still providing a representative samp
 
 ## Using Powertools for AWS Lambda (TypeScript) and the AWS CDK for tracing
 
-Follow the steps below to download, build, and deploy a sample Hello World TypeScript application with integrated [Powertools for AWS Lambda (TypeScript)](https://docs.powertools.aws.dev/lambda-typescript "https://docs.powertools.aws.dev/lambda-typescript") modules using the AWS CDK. This application implements a
+Follow the steps below to download, build, and deploy a sample Hello World TypeScript application with integrated [Powertools for AWS Lambda (TypeScript)](../../../powertools/typescript.md "../../../powertools/typescript.md") modules using the AWS CDK. This application implements a
 basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function.
 When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and
 sends traces to AWS X-Ray. The function returns a `hello world` message.
@@ -302,4 +302,4 @@ After you've configured active tracing, you can observe specific requests
 through your application. The [X-Ray trace map](../../../xray/latest/devguide/xray-console-servicemap.md "../../../xray/latest/devguide/xray-console-servicemap.md") provides information about your application and all its components. The following example shows a trace from
 the sample application:
 
-![The X-Ray service map for the sample application](images/sample-typescript-servicemap.png)
+![The X-Ray service map for the sample application.](images/sample-typescript-servicemap.png)

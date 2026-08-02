@@ -8,8 +8,12 @@ You can use a Lambda function to process messages in an Amazon Simple Queue Serv
 supports both [standard queues](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.md") and [first-in, first-out (FIFO) queues](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.md") for [event source mappings](invocation-eventsourcemapping.md "invocation-eventsourcemapping.md").
 You can also use provisioned mode to allocate dedicated polling resources for your Amazon SQS event source mappings. The Lambda function and the Amazon SQS queue must be in the same AWS Region, although they can be in [different AWS accounts](with-sqs-cross-account-example.md "with-sqs-cross-account-example.md").
 
+For an example function that processes Amazon SQS messages, see [Tutorial: Using Lambda with Amazon SQS](with-sqs-example.md "with-sqs-example.md").
+For cross-account processing, see [Tutorial: Using a cross-account Amazon SQS queue as an event source](with-sqs-cross-account-example.md "with-sqs-cross-account-example.md").
+For a complete list of configuration options, see [Lambda parameters for Amazon SQS event source mappings](services-sqs-parameters.md "services-sqs-parameters.md").
+
 When processing Amazon SQS messages, you need to implement partial batch response logic to prevent successfully processed messages from being retried when some messages in a batch fail.
-The [Batch Processor utility](https://docs.powertools.aws.dev/lambda/python/latest/utilities/batch/ "https://docs.powertools.aws.dev/lambda/python/latest/utilities/batch/") from Powertools for AWS Lambda simplifies this implementation by automatically handling partial batch response logic, reducing development time and improving reliability.
+The [Batch Processor utility](../../../powertools/python/latest/utilities/batch.md "../../../powertools/python/latest/utilities/batch.md") from Powertools for AWS Lambda simplifies this implementation by automatically handling partial batch response logic, reducing development time and improving reliability.
 
 ###### Topics
 
@@ -54,9 +58,11 @@ mappings, see [Creating an SQS event source mapping](services-sqs-configure.md#e
 
 ## Using provisioned mode with Amazon SQS event source mappings
 
-For workloads where you need to fine-tune the throughput of your event source mapping, you can use provisioned mode. In provisioned mode, you define minimum and maximum limits for the amount of provisioned event pollers. These provisioned event pollers are dedicated to your event source mapping, and can handle unexpected message spikes through responsive autoscaling. Amazon SQS event source mapping configured with Provisioned Mode scales 3x faster (up to 1,000 concurrent invokes per minute) and supports 16x higher concurrency (up to 20,000 concurrent invokes) than default Amazon SQS event source mapping capability. We recommend that you use provisioned mode for Amazon SQS event- driven workloads that have strict performance requirements, such as financial services firms processing market data feeds, e-commerce platforms providing real-time personalized recommendations, and gaming companies managing live player interactions. Using provisioned mode incurs additional costs. For detailed pricing, see [AWS Lambda pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/").
+For workloads where you need to fine-tune the throughput of your event source mapping, you can use provisioned mode. In provisioned mode, you define minimum and maximum limits for the amount of provisioned event pollers. These provisioned event pollers are dedicated to your event source mapping, and can handle unexpected message spikes through responsive autoscaling. Amazon SQS event source mapping configured with Provisioned Mode scales 3x faster (up to 1,000 concurrent invokes per minute) and supports 80x higher concurrency (up to 100,000 concurrent invokes) than default Amazon SQS event source mapping capability.
 
-Each event poller in provisioned mode can handle up to 1 MB/s of throughput, up to 10 concurrent invokes, or up to 10 Amazon SQS polling API calls per second. The range of accepted values for the minimum number of event pollers (MinimumPollers) is between 2 and 200, with default of 2. The range of accepted values for the maximum number of event pollers (MaximumPollers) is between 2 and 2,000, with default of 200. MaximumPollers must be greater than or equal to MinimumPollers.
+We recommend that you use provisioned mode for Amazon SQS event- driven workloads that have strict performance requirements, such as financial services firms processing market data feeds, e-commerce platforms providing real-time personalized recommendations, and gaming companies managing live player interactions. Using provisioned mode incurs additional costs. For detailed pricing, see [AWS Lambda pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/").
+
+Each event poller in provisioned mode can handle up to 1 MB/s of throughput, up to 10 concurrent invokes, or up to 10 Amazon SQS polling API calls per second. The range of accepted values for the minimum number of event pollers (MinimumPollers) is between 2 and 200, with default of 2. The range of accepted values for the maximum number of event pollers (MaximumPollers) is between 2 and 10,000, with default of 200. MaximumPollers must be greater than or equal to MinimumPollers.
 
 ### Determining required event pollers
 
@@ -79,7 +85,7 @@ Then, you can calculate the number of minimum pollers required using below formu
 Required event pollers = (Peak number of events per second in Queue) / EPS per event poller
 ```
 
-Consider a workload with a default batch size of 10, average event size of 3 KB, average function duration of 100 ms, and a requirement to handle 1,000 events per second. In this scenario, each event poller will support approximately 100 events per second (EPS). Therefore, you should set minimum pollers to 10 to adequately handle your peak traffic requirements. If your workload has the same characteristics but with average function duration of 1 second, each poller will support only 10 EPS, requiring you to configure 100 minimum pollers to support 1,000 events per second at low latency.
+Consider a workload with a default batch size of 10, average event size of 3 KB, average function duration of 100 ms, and a requirement to handle 1,000 events per second. In this scenario, each event poller supports approximately 100 events per second (EPS). Therefore, we recommend that you set minimum pollers to 10 to adequately handle your peak traffic requirements. If your workload has the same characteristics but with average function duration of 1 second, each poller supports only 10 EPS, requiring you to configure 100 minimum pollers to support 1,000 events per second at low latency.
 
 We recommend using default batch size of 10 or higher to maximize the efficiency of provisioned mode event pollers. Higher batch sizes allow each poller to process more events per invocation, for improved throughput and cost efficiency. When planning your event poller capacity, account for potential traffic spikes and consider setting your minimumPollers value slightly higher than the calculated minimum to provide a buffer. Additionally, monitor your workload characteristics over time, as changes in message size, function duration, or traffic patterns may necessitate adjustments to your event poller configuration to maintain optimal performance and cost efficiency. For precise capacity planning, we recommend testing your specific workload to determine the actual EPS each event poller can drive.
 
@@ -96,7 +102,7 @@ You can configure provisioned mode for your Amazon SQS event source mapping usin
 5. Under **Event source mapping configuration**, choose **Configure provisioned mode**.
 
    - For **Minimum event pollers**, enter a value between 2 and 200. If you don't specify a value, Lambda chooses a default value of 2.
-   - For **Maximum event pollers**, enter a value between 2 and 2,000. This value must be greater than or equal to your value for **Minimum event pollers**. If you don't specify a value, Lambda chooses a default value of 200.
+   - For **Maximum event pollers**, enter a value between 2 and 10,000. This value must be greater than or equal to your value for **Minimum event pollers**. If you don't specify a value, Lambda chooses a default value of 200.
 
 6. Choose **Save**.
 

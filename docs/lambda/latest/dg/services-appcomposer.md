@@ -57,7 +57,7 @@ To download an AWS SAM template, you must have permission to use the following A
 - [iam:ListRolePolicies](../../../IAM/latest/APIReference/API_ListRolePolicies.md "../../../IAM/latest/APIReference/API_ListRolePolicies.md")
 - [iam:ListRoles](../../../IAM/latest/APIReference/API_ListRoles.md "../../../IAM/latest/APIReference/API_ListRoles.md")
 
-You can grant permission to use all of these actions by adding the [`AWSLambda_ReadOnlyAccess`](../../../aws-managed-policy/latest/reference/AWSLambda_ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSLambda_ReadOnlyAccess.md")
+You can grant permission to use all of these actions by adding the [AWSLambda\_ReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSLambda_ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSLambda_ReadOnlyAccess.md")
 AWS managed policy to your IAM user role.
 
 For Lambda to write your function's configuration to Amazon S3, you must have permission to use the following API actions:

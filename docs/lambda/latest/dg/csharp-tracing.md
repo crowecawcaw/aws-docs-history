@@ -35,7 +35,7 @@ Distro for Open Telemetry and X-Ray SDKs](../../../xray/latest/devguide/xray-ins
 
 ## Using Powertools for AWS Lambda (.NET) and AWS SAM for tracing
 
-Follow the steps below to download, build, and deploy a sample Hello World C# application with integrated [Powertools for AWS Lambda (.NET)](https://docs.powertools.aws.dev/lambda-dotnet "https://docs.powertools.aws.dev/lambda-dotnet") modules using the AWS SAM. This application implements a
+Follow the steps below to download, build, and deploy a sample Hello World C# application with integrated [Powertools for AWS Lambda (.NET)](../../../powertools/dotnet.md "../../../powertools/dotnet.md") modules using the AWS SAM. This application implements a
 basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function.
 When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and
 sends traces to AWS X-Ray. The function returns a hello world message.
@@ -183,7 +183,7 @@ set of configuration options refer to [AWS X-Ray SDK for .NET](../../../xray/lat
 in the _AWS X-Ray Developer Guide_.
 
 Once you have added the desired Nuget packages, configure auto-instrumentation. Best practice is to perform this configuration outside of
-your function's handler function. This allows you to take advantage of execution environment re-use to improve the performance of your function.
+your function's handler function. This takes advantage of execution environment re-use to improve the performance of your function.
 In the following code example, the `RegisterXRayForAllServices` method is called in the function constructor to add instrumentation for
 all AWS SDK calls.
 
@@ -303,7 +303,7 @@ In X-Ray, a _trace_ records information about a request that is processed by one
 _services_. Lambda records 2 segments per trace, which creates
 two nodes on the service graph. The following image highlights these two nodes:
 
-![An X-Ray service map with a single function.](/images/lambda/latest/dg/images/xray-servicemap-function.png)
+![An X-Ray service map with a single function.](images/xray-servicemap-function.png)
 
 The first node on the left represents the Lambda service, which receives the invocation request. The second
 node represents your specific Lambda function. The following example shows a trace with these two segments. Both

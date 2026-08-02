@@ -23,7 +23,7 @@ your filters are satisfied, Lambda discards the record.
 
 If you need to define more than five filters for an event source, you can request a quota
 increase for up to 10 filters for each event source. If you attempt to add more filters than
-your current quota permits, Lambda will return an error when you try to create the event source.
+your current quota permits, Lambda returns an error when you try to create the event source.
 
 ###### Topics
 
@@ -338,7 +338,7 @@ using AWS SAM templates, see [Using filters with different AWS services](#filter
 ## Encryption of filter criteria
 
 By default, Lambda doesn't encrypt your filter criteria object. For use cases
-where you may include sensitive information in your filter criteria object, you can
+where you might include sensitive information in your filter criteria object, you can
 use your own [KMS key](../../../kms/latest/developerguide/concepts.md#kms_keys "../../../kms/latest/developerguide/concepts.md#kms_keys") to encrypt it.
 
 After you encrypt your filter criteria object, you can view its plaintext version
@@ -355,7 +355,7 @@ of `FilterCriteria`, use the [GetEventSourceMapping](../api/API_GetEventSourceMa
 To view the decrypted value of `FilterCriteria` in the console,
 ensure that your IAM role contains permissions for [GetEventSourceMapping](../api/API_GetEventSourceMapping.md "../api/API_GetEventSourceMapping.md").
 
-You can specify your own KMS key via the console, API/CLI, or CloudFormation.
+You can specify your own KMS key through the console, API/CLI, or CloudFormation.
 
 ###### To encrypt filter criteria with a customer-owned KMS key (console)
 

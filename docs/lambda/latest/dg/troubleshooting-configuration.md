@@ -1,7 +1,7 @@
 # Troubleshoot configuration issues in Lambda
 
 Your function configuration settings can have an impact on the overall performance and behavior of your
-Lambda function. These may not cause actual function errors, but can cause unexpected timeouts and results.
+Lambda function. These might not cause actual function errors, but can cause unexpected timeouts and results.
 
 The following topics provide troubleshooting advice for common issues that you might encounter related
 to Lambda function configuration settings.
@@ -22,13 +22,13 @@ performant at this lowest setting. However, if you are importing large code libr
 memory intensive tasks, 128 MB is not sufficient.
 
 If your functions are running much slower than expected, the first step is to increase the memory
-setting. For memory-bound functions, this will resolve the bottleneck and may improve the performance
+setting. For memory-bound functions, this resolves the bottleneck and might improve the performance
 of your function.
 
 ## CPU-bound configurations
 
 For compute-intensive operations, if your function experiences slower-than-expected performance, this
-may be due to your function being CPU-bound. In this case, the computational capacity of the function
+might be due to your function being CPU-bound. In this case, the computational capacity of the function
 cannot keep pace with the work.
 
 While Lambda doesn't allow you to modify CPU configuration directly, CPU is indirectly controlled through
@@ -45,7 +45,7 @@ to 3 seconds. The timeout value is a safety valve that ensures functions do not 
 timeout value is reached, Lambda stops the function invocation.
 
 If a timeout value is set close to the average duration of a function, this increases the risk that the
-function will time out unexpectedly. The duration of a function can vary based on the amount of data transfer
+function times out unexpectedly. The duration of a function can vary based on the amount of data transfer
 and processing, and the latency of any services the function interacts with. Common causes of timeout include:
 
 - When downloading data from S3 buckets or other data stores, the download is larger or takes longer
@@ -72,8 +72,8 @@ immutable assets.
 
 When you use third-party libraries across multiple invocations in the same execution environment, check their
 documentation for usage in a serverless compute environment. Some database connection and logging libraries
-may save intermediate invocation results and other data. This causes the memory usage of these libraries to grow
-with subsequent warm invocations. If this is the case, you may find the Lambda function runs out of memory, even
+might save intermediate invocation results and other data. This causes the memory usage of these libraries to grow
+with subsequent warm invocations. If this is the case, you might find the Lambda function runs out of memory, even
 if your custom code is disposing of variables correctly.
 
 This issue affects invocations occurring in warm execution environments. For example, the following code
@@ -165,7 +165,9 @@ When invoked several times in succession, the results of the callbacks occur in 
 In JavaScript, asynchronous callbacks are handled with an
 [event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop "https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop"). Other runtimes use
 different mechanisms to handle concurrency. When the function's execution environment ends, Lambda freezes the environment
-until the next invocation. After it resumes, JavaScript continues processing the event loop, which in this case includes
+until the next invocation.
+
+After it resumes, JavaScript continues processing the event loop, which in this case includes
 an asynchronous callback from a previous invocation. Without this context, it can appear that the function is running
 code for no reason, and returning arbitrary data. In fact, it is really an artifact of how runtime concurrency and the
 execution environments interact.
@@ -192,7 +194,7 @@ function doWork(id) {
 ```
 
 Using this syntax prevents the handler from exiting before the asynchronous function is finished. In this case, if
-the callback takes longer than the Lambda function's timeout, the function will throw an error, instead of returning the
+the callback takes longer than the Lambda function's timeout, the function throws an error, instead of returning the
 callback result in a later invocation:
 
 ![CloudWatch logs showing the function timing out when using await, preventing callback leaking to later invocations.](images/debugging-ops-figure-8.png)

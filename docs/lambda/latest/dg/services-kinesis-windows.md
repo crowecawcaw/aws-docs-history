@@ -6,17 +6,21 @@ the included records using a window defined in terms of time.
 
 Tumbling windows are distinct time windows that open and close at regular intervals. By default, Lambda invocations
 are stateless—you cannot use them for processing data across multiple continuous invocations without an external database.
-However, with tumbling windows, you can maintain your state across invocations. This state contains the aggregate result
-of the messages previously processed for the current window. Your state can be a maximum of 1 MB per shard. If it exceeds
+However, with tumbling windows, you can maintain your state across invocations.
+
+This state contains the aggregate result
+of the messages previously processed for the current window. Your state can be a maximum of 1 MB for each shard. If it exceeds
 that size, Lambda terminates the window early.
 
-Each record in a stream belongs to a specific window. Lambda will process each record at least once, but doesn't guarantee that each record will be processed only once. In rare cases, such as error handling, some records might be processed more than once. Records are always processed in order the first time. If records are processed more than once, they might be processed out of order.
+Each record in a stream belongs to a specific window. Lambda processes each record at least once, but doesn't guarantee that each record is processed only once. In rare cases, such as error handling, some records might be processed more than once. Records are always processed in order the first time. If records are processed more than once, they might be processed out of order.
 
 ## Aggregation and processing
 
 Your user managed function is invoked both for aggregation and for processing the final results of that
 aggregation. Lambda aggregates all records received in the window. You can receive these records in multiple
-batches, each as a separate invocation. Each invocation receives a state. Thus, when using tumbling windows,
+batches, each as a separate invocation. Each invocation receives a state.
+
+Thus, when using tumbling windows,
 your Lambda function response must contain a `state` property. If the response does not contain a
 `state` property, Lambda considers this a failed invocation. To satisfy this condition, your function
 can return a `TimeWindowEventResponse` object, which has the following JSON shape:
@@ -103,7 +107,7 @@ seconds. The Lambda function defined for aggregation and processing is named
 Lambda determines tumbling window boundaries based on the time when records were inserted into the stream. All
 records have an approximate timestamp available that Lambda uses in boundary determinations.
 
-Tumbling window aggregations do not support resharding. When a shard ends, Lambda considers the current window to be closed, and any child shards will start their own window in a fresh state. When no new records are being added to the current window, Lambda waits for up to 2 minutes before assuming that the window is over. This helps ensure that the function reads all records in the current window, even if the records are added intermittently.
+Tumbling window aggregations do not support resharding. When a shard ends, Lambda considers the current window to be closed, and any child shards start their own window in a fresh state. When no new records are being added to the current window, Lambda waits for up to 2 minutes before assuming that the window is over. This helps ensure that the function reads all records in the current window, even if the records are added intermittently.
 
 Tumbling windows fully support the existing retry policies `maxRetryAttempts` and
 `maxRecordAge`.

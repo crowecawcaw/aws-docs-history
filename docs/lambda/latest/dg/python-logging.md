@@ -125,7 +125,7 @@ To learn more about using the log format and log level options with your Python 
 
 ### Using structured JSON logs with Python
 
-If you select JSON for your function's log format, Lambda will send logs output by the Python standard logging library to CloudWatch as
+If you select JSON for your function's log format, Lambda sends logs output by the Python standard logging library to CloudWatch as
 structured JSON. Each JSON log object contains at least four key value pairs with the following keys:
 
 - `"timestamp"` - the time the log message was generated
@@ -138,7 +138,7 @@ The Python `logging` library can also add extra key value pairs such as `"logger
 The examples in the following sections show how log outputs generated using the Python `logging` library are captured in CloudWatch Logs when you
 configure your function's log format as JSON.
 
-Note that if you use the `print` method to produce basic log outputs as described in [Printing to the log](#python-logging-output "#python-logging-output"), Lambda will capture
+Note that if you use the `print` method to produce basic log outputs as described in [Printing to the log](#python-logging-output "#python-logging-output"), Lambda captures
 these outputs as plain text, even if you configure your function's logging format as JSON.
 
 #### Standard JSON log outputs using Python logging library
@@ -286,7 +286,7 @@ this in two ways:
   level of the log output. For example, you can use Powertools for AWS Lambda to generate JSON structured log outputs from your code.
 
 You can also use a print statement to output a JSON object containing a log level identifier. The following print statement produces
-a JSON formatted output where the log level is set to INFO. AWS Lambda will send the JSON object to CloudWatch Logs if your function's logging level
+a JSON formatted output where the log level is set to INFO. AWS Lambda sends the JSON object to CloudWatch Logs if your function's logging level
 is set to INFO, DEBUG, or TRACE.
 
 ```
@@ -295,13 +295,13 @@ print('{"msg":"My log message", "level":"info"}')
 
 For Lambda to filter your function's logs, you must also include a `"timestamp"` key value pair in your JSON log
 output. The time must be specified in valid [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt "https://www.ietf.org/rfc/rfc3339.txt")
-timestamp format. If you don't supply a valid timestamp, Lambda will assign the log the level INFO and add a timestamp for you.
+timestamp format. If you don't supply a valid timestamp, Lambda assigns the log the level INFO and adds a timestamp for you.
 
 ## Viewing logs in Lambda console
 
 You can use the Lambda console to view log output after you invoke a Lambda function.
 
-If your code can be tested from the embedded **Code** editor, you will find logs in the **execution results**. When you use the console test feature to invoke a function, you'll find **Log output** in the **Details** section.
+If your code can be tested from the embedded **Code** editor, you find logs in the **execution results**. When you use the console test feature to invoke a function, you find **Log output** in the **Details** section.
 
 ## Viewing logs in CloudWatch console
 
@@ -317,7 +317,7 @@ Each log stream corresponds to an [instance of your function](lambda-runtime-env
 
 ## Viewing logs with AWS CLI
 
-The AWS CLI is an open-source tool that enables you to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+The AWS CLI is an open-source tool that you can use to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 
 You can use the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") to retrieve logs for an invocation using the `--log-type` command option. The response contains a `LogResult` field that contains up to 4 KB of base64-encoded logs from the invocation.
 
@@ -379,7 +379,7 @@ aws logs get-log-events --log-group-name /aws/lambda/`my-function` --log-stream-
 
 ###### Example macOS and Linux (only)
 
-In the same command prompt, macOS and Linux users may need to run the following command to ensure the script is executable.
+In the same command prompt, macOS and Linux users might need to run the following command to ensure the script is executable.
 
 ```
 `chmod -R 755 get-logs.sh`

@@ -5,6 +5,8 @@ an Amazon RDS Proxy. Direct connections are useful in simple scenarios, and prox
 for production. A database proxy manages a pool of shared database connections which enables
 your function to reach high concurrency levels without exhausting database connections.
 
+To help determine whether to use Amazon RDS or DynamoDB for your workload, see [Select a database service for your Lambda-based applications](ddb-rds-database-decision.md "ddb-rds-database-decision.md").
+
 We recommend using Amazon RDS Proxy for Lambda functions that make frequent short database
 connections, or open and close large numbers of database connections. For more information,
 see [Automatically connecting a Lambda function and a DB instance](../../../AmazonRDS/latest/UserGuide/lambda-rds-connect.md "../../../AmazonRDS/latest/UserGuide/lambda-rds-connect.md") in the Amazon Relational Database Service Developer Guide.
@@ -1105,5 +1107,5 @@ event notifications](../../../AmazonRDS/latest/UserGuide/USER_Events.md "../../.
 
 - [Using a Lambda function to access an Amazon RDS database](../../../AmazonRDS/latest/UserGuide/rds-lambda-tutorial.md "../../../AmazonRDS/latest/UserGuide/rds-lambda-tutorial.md") –
   From the Amazon RDS User Guide, learn how to use a Lambda function to write data to an Amazon RDS
-  database through an Amazon RDS Proxy. Your Lambda function will read records from an Amazon SQS
+  database through an Amazon RDS Proxy. Your Lambda function reads records from an Amazon SQS
   queue and write new items to a table in your database whenever a message is added.

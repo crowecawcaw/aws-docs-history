@@ -59,8 +59,8 @@ Node.js and Python can use powertools for AWS Lambda, which provides built-in
 schemas for AWS events that offer type hinting, data validation, and functionality
 similar to what compiled language libraries provide.
 
-- [Powertools for TypeScript](https://docs.powertools.aws.dev/lambda/typescript/latest/features/parser/#built-in-schemas "https://docs.powertools.aws.dev/lambda/typescript/latest/features/parser/#built-in-schemas")
-- [Powertools for Python](https://docs.powertools.aws.dev/lambda/python/latest/utilities/parser/#built-in-models "https://docs.powertools.aws.dev/lambda/python/latest/utilities/parser/#built-in-models")
+- [Powertools for TypeScript](../../../powertools/typescript/latest/features/parser.md#built-in-schemas "../../../powertools/typescript/latest/features/parser.md#built-in-schemas")
+- [Powertools for Python](../../../powertools/python/latest/utilities/parser.md#built-in-models "../../../powertools/python/latest/utilities/parser.md#built-in-models")
 
 ## Container base images
 
@@ -100,7 +100,7 @@ GitHub repositories:
   collection of Java libraries and tools for Lambda development, including key
   projects such as JUnit testing utilities and profiling tools.
 - [Serverless
-  Java Container](https://github.com/aws/serverless-java-container "https://github.com/aws/serverless-java-container") - A library that enables you to run existing Java
+  Java Container](https://github.com/aws/serverless-java-container "https://github.com/aws/serverless-java-container") - A library that you can use to run existing Java
   applications on Lambda with minimal changes.
 
 ### .NET development tools

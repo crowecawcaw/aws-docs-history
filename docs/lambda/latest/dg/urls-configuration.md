@@ -21,7 +21,7 @@ see [AWS Regional Services](https://builder.aws.com/build/capabilities/explore?t
 and filter by `Feature Name = Function URLs`.
 
 Function URLs are dual stack-enabled, supporting IPv4 and IPv6. After you configure a function URL for your
-function, you can invoke your function through its HTTP(S) endpoint via a web browser, curl, Postman, or any HTTP
+function, you can invoke your function through its HTTP(S) endpoint by using a web browser, curl, Postman, or any HTTP
 client.
 
 ###### Note
@@ -36,7 +36,7 @@ options.
 You can apply function URLs to any function alias, or to the `$LATEST` unpublished function version.
 You can't add a function URL to any other function version.
 
-The following section show how to create and manage a function URL using the Lambda console, AWS CLI, and CloudFormation template
+The following section show how to create and manage a function URL using the Lambda console, AWS CLI, and CloudFormation template. For a step-by-step tutorial on using function URLs as webhook endpoints, see [Tutorial: Creating a webhook endpoint using a Lambda function URL](urls-webhook-tutorial.md "urls-webhook-tutorial.md").
 
 ###### Topics
 
@@ -46,7 +46,7 @@ The following section show how to create and manage a function URL using the Lam
 - [Cross-origin resource sharing (CORS)](#urls-cors "#urls-cors")
 - [Throttling function URLs](#urls-throttling "#urls-throttling")
 - [Deactivating function URLs](#urls-deactivating "#urls-deactivating")
-- [Deleting function URLs](#w2aac15c47c75c53 "#w2aac15c47c75c53")
+- [Deleting function URLs](#w2aac15c47c77c53 "#w2aac15c47c77c53")
 - [Control access to Lambda function URLs](urls-auth.md "urls-auth.md")
 - [Invoking Lambda function URLs](urls-invocation.md "urls-invocation.md")
 - [Monitoring Lambda function URLs](urls-monitoring.md "urls-monitoring.md")
@@ -131,7 +131,7 @@ This adds a function URL to the `prod` qualifier for the function
 
 ###### Note
 
-To create a function URL via the AWS CLI, the function must already exist.
+To create a function URL by using the AWS CLI, the function must already exist.
 
 ## Adding a function URL to a CloudFormation template
 
@@ -265,7 +265,7 @@ configuration, or set the configuration to an amount greater than zero.
 
 ## Deleting function URLs
 
-When you delete a function URL, you can't recover it. Creating a new function URL will result in a different URL address.
+When you delete a function URL, you can't recover it. Creating a new function URL results in a different URL address.
 
 ###### Note
 
@@ -282,4 +282,4 @@ associated resource-based policy. If you want to delete this policy, you must ma
 
 ###### Note
 
-When you delete a function that has a function URL, Lambda asynchronously deletes the function URL. If you immediately create a new function with the same name in the same account, it is possible that the original function URL will be mapped to the new function instead of deleted.
+When you delete a function that has a function URL, Lambda asynchronously deletes the function URL. If you immediately create a new function with the same name in the same account, it is possible that the original function URL is mapped to the new function instead of deleted.

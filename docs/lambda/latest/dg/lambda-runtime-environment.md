@@ -42,7 +42,7 @@ extensions.
 
 ## Lambda execution environment lifecycle
 
-![Lambda lifecycle phases: Init, Invoke, Shutdown](images/Overview-Successful-Invokes.png)
+![Lambda lifecycle phases: Init, Invoke, Shutdown.](images/Overview-Successful-Invokes.png)
 
 Each phase starts with an event that Lambda sends to the runtime and to all registered extensions. The
 runtime and each extension indicate completion by sending a `Next` API request. Lambda freezes the
@@ -90,12 +90,12 @@ timeout (maximum 900 seconds), whichever is higher.
 
 When you use [provisioned concurrency](provisioned-concurrency.md "provisioned-concurrency.md"),
 Lambda initializes the execution environment when you configure the PC settings for a function. Lambda also ensures that
-initialized execution environments are always available in advance of invocations. You may see gaps between your function's
-invocation and initialization phases. Depending on your function's runtime and memory configuration, you may also see variable
+initialized execution environments are always available in advance of invocations. You might see gaps between your function's
+invocation and initialization phases. Depending on your function's runtime and memory configuration, you might also see variable
 latency on the first invocation on an initialized execution environment.
 
-For functions using on-demand concurrency, Lambda may occasionally initialize execution environments ahead of
-invocation requests. When this happens, you may also observe a time gap between your function's initialization and
+For functions using on-demand concurrency, Lambda might occasionally initialize execution environments ahead of
+invocation requests. When this happens, you might also observe a time gap between your function's initialization and
 invocation phases. We recommend you to not take a dependency on this behavior.
 
 ### Failures during the Init phase
@@ -160,7 +160,7 @@ If the Lambda function crashes or times out during the `Invoke` phase, Lambda re
 execution environment. The following diagram illustrates Lambda execution environment behavior when
 there's an invoke failure:
 
-![Execution environment example: Init, Invoke, Invoke with Error, Invoke, Shutdown](images/Overview-Invoke-with-Error.png)
+![Execution environment example: Init, Invoke, Invoke with Error, Invoke, Shutdown.](images/Overview-Invoke-with-Error.png)
 
 In the previous diagram:
 
@@ -171,12 +171,14 @@ In the previous diagram:
 - At some point, suppose your function runs into an invoke failure (common causes
   include function timeouts, runtime errors, memory exhaustion, VPC connectivity issues,
   permission errors, concurrency limits, and various configuration problems). For a
-  complete list of possible invocation failures, see [Troubleshoot invocation issues in Lambda](troubleshooting-invocation.md "troubleshooting-invocation.md"). The third phase, labeled **INVOKE WITH ERROR** , illustrates this scenario. When this happens, the
-  Lambda service performs a reset. The reset behaves like a `Shutdown` event.
-  First, Lambda shuts down the runtime, then sends a `Shutdown` event to each
-  registered external extension. The event includes the reason for the shutdown. If this
-  environment is used for a new invocation, Lambda re-initializes the extension and runtime
-  together with the next invocation.
+  complete list of possible invocation failures, see [Troubleshoot invocation issues in Lambda](troubleshooting-invocation.md "troubleshooting-invocation.md"). The third phase, labeled **INVOKE WITH ERROR** , illustrates this scenario.
+
+When this happens, the
+Lambda service performs a reset. The reset behaves like a `Shutdown` event.
+First, Lambda shuts down the runtime, then sends a `Shutdown` event to each
+registered external extension. The event includes the reason for the shutdown. If this
+environment is used for a new invocation, Lambda re-initializes the extension and runtime
+together with the next invocation.
 
 Note that the Lambda reset does not clear the `/tmp` directory content before the next init phase.
 This behavior is consistent with the regular shutdown phase.
@@ -233,12 +235,14 @@ REPORT RequestId: 527cb862-4f5e-49a9-9ae4-a7edc90f0fda Duration: 3016.78 ms Bill
 - The fourth phase represents the **INVOKE** phase
   immediately following an invoke failure. Here, Lambda initializes the environment again
   by re-running the **INIT** phase. This is called a
-  _suppressed init_. When suppressed inits occur, Lambda doesn't
-  explicitly report an additional **INIT** phase in CloudWatch Logs.
-  Instead, you may notice that the duration in the REPORT line includes an additional
-  **INIT** duration + the
-  **INVOKE** duration. For example, suppose you see the
-  following logs in CloudWatch:
+  _suppressed init_.
+
+When suppressed inits occur, Lambda doesn't
+explicitly report an additional **INIT** phase in CloudWatch Logs.
+Instead, you might notice that the duration in the REPORT line includes an additional
+**INIT** duration + the
+**INVOKE** duration. For example, suppose you see the
+following logs in CloudWatch:
 
 ```
 2022-12-20T01:00:00.000-08:00 START RequestId: XXX Version: $LATEST
@@ -305,7 +309,7 @@ When Lambda receives a request to run a function through the Lambda API, the ser
 environment. During this initialization phase, the service downloads your code, starts the environment, and
 runs any initialization code outside of the main handler. Finally, Lambda runs the handler code.
 
-![perf optimize figure 1](images/perf-optimize-figure-1.png)
+![Diagram showing the steps of a Lambda cold start including downloading code and setting up the execution environment.](images/perf-optimize-figure-1.png)
 
 In this diagram, the first two steps of downloading the code and setting up the environment are frequently referred
 to as a "cold start". You are [charged for this time](https://aws.amazon.com/blogs/compute/aws-lambda-standardizes-billing-for-init-phase/ "https://aws.amazon.com/blogs/compute/aws-lambda-standardizes-billing-for-init-phase/"), and it adds latency to your overall invocation duration.
@@ -327,7 +331,7 @@ execution environments, reducing cold starts.
 
 For example, a function with a provisioned concurrency of 6 has 6 execution environments pre-warmed.
 
-![perf optimize figure 4](images/perf-optimize-figure-4.png)
+![Diagram showing Lambda execution environment optimization with reduced initialization overhead.](images/perf-optimize-figure-4.png)
 
 ## Optimizing static initialization
 
@@ -364,7 +368,7 @@ uses a warm execution environment. Factors that affect initialization code laten
 - The performance of libraries and other services in setting up connections and other resources.
 
 There are a number of steps that developers can take to optimize static initialization latency. If a function has
-many objects and connections, you may be able to rearchitect a single function into multiple, specialized functions.
+many objects and connections, you might be able to rearchitect a single function into multiple, specialized functions.
 These are individually smaller and each have less initialization code.
 
 It's important that functions only import the libraries and dependencies that they need. For example, if you only
@@ -384,7 +388,7 @@ AWSXRay.captureAWSClient(dynamodb.service)
 ```
 
 Static initialization is also often the best place to open database connections to allow a function to reuse
-connections over multiple invocations to the same execution environment. However, you may have large numbers of
+connections over multiple invocations to the same execution environment. However, you might have large numbers of
 objects that are only used in certain execution paths in your function. In this case, you can lazily load variables
 in the global scope to reduce the static initialization duration.
 

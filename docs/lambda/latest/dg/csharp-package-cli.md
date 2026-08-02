@@ -43,7 +43,7 @@ repository on GitHub.
 ## Creating .NET projects using the .NET CLI
 
 In the .NET CLI, you use the `dotnet new` command to create .NET projects from the command line. Lambda offers
-additional templates using the [`Amazon.Lambda.Templates`](https://www.nuget.org/packages/Amazon.Lambda.Templates "https://www.nuget.org/packages/Amazon.Lambda.Templates")
+additional templates using the [Amazon.Lambda.Templates](https://www.nuget.org/packages/Amazon.Lambda.Templates "https://www.nuget.org/packages/Amazon.Lambda.Templates")
 NuGet package.
 
 After installing this package, run the following command to see a list of the available templates.

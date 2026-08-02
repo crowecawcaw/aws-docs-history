@@ -249,7 +249,9 @@ the full handler string is `ExampleCS::ExampleLambda.OrderHandler::HandleRequest
 You can also define Lambda functions in C# as an executable assembly. Executable assembly handlers
 use C#'s top-level statements feature, in which the compiler generates the `Main()`
 method and puts your function code within it. When using executable assemblies, the Lambda runtime
-must be bootstrapped. To do this, use the `LambdaBootstrapBuilder.Create` method in your
+must be bootstrapped.
+
+To do this, use the `LambdaBootstrapBuilder.Create` method in your
 code. The inputs to this method are the main handler function as well as the Lambda serializer to use.
 The following shows an example of an executable assembly handler in C#:
 
@@ -302,10 +304,10 @@ Apart from the base syntax of the handler signature, there are some additional r
   the `unsafe` context inside the handler method and its dependencies. For more information,
   see [unsafe (C# reference)](https://msdn.microsoft.com/en-us/library/chfa2zb8.aspx "https://msdn.microsoft.com/en-us/library/chfa2zb8.aspx")
   on the Microsoft documentation website.
-- The handler may not use the `params` keyword, or use `ArgIterator` as an
+- The handler can't use the `params` keyword, or use `ArgIterator` as an
   input or return parameter. These keywords support a variable number of parameters. The maximum
   number of arguments your handler can accept is two.
-- The handler may not be a generic method. In other words, it can't use generic type parameters
+- The handler can't be a generic method. In other words, it can't use generic type parameters
   such as `<T>`.
 - Lambda doesn't support async handlers with `async void` in the signature.
 
@@ -349,7 +351,7 @@ public class Order
 ```
 
 If your Lambda function uses input or output types other than a `Stream` object, you
-must add a serialization library to your application. This lets you convert the JSON input into an
+must add a serialization library to your application. You can then convert the JSON input into an
 instance of the class that you defined. There are two methods of serialization for C# functions in
 Lambda: reflection-based serialization and source-generated serialization.
 
@@ -380,7 +382,7 @@ the response payload that the `Invoke` API operation returns.
 
 The main example on this page uses reflection-based serialization. Reflection-based serialization
 works out of the box with AWS Lambda and requires no additional setup, making it a good choice for
-simplicity. However, it does require more function memory usage. You may also see higher function
+simplicity. However, it does require more function memory usage. You might also see higher function
 latencies due to runtime reflection.
 
 ### Source-generated serialization
@@ -595,8 +597,8 @@ using the regular Lambda programming model.
 ### Dependency injection with Lambda Annotations framework
 
 You can also use the Lambda Annotations framework to add dependency injection to your Lambda functions using syntax you are familiar with.
-When you add a `[LambdaStartup]` attribute to a `Startup.cs` file, the Lambda Annotations framework will
-generate the required code at compile time.
+When you add a `[LambdaStartup]` attribute to a `Startup.cs` file, the Lambda Annotations framework
+generates the required code at compile time.
 
 ```
 [LambdaStartup]
@@ -640,20 +642,20 @@ public class Function
 
 Adhere to the guidelines in the following list to use best coding practices when building your Lambda functions:
 
-- **Separate the Lambda handler from your core logic.** This allows you to make
+- **Separate the Lambda handler from your core logic.** With this approach, you can make
   a more unit-testable function.
 - **Control the dependencies in your function's deployment package.** The
   AWS Lambda execution environment contains a number of libraries.
-  To enable the latest set of features and security updates, Lambda will periodically update these libraries.
-  These updates may introduce subtle changes to the behavior of your Lambda function. To have full control of the
+  To enable the latest set of features and security updates, Lambda periodically updates these libraries.
+  These updates might introduce subtle changes to the behavior of your Lambda function. To have full control of the
   dependencies your function uses, package all of your dependencies with your deployment package.
 - **Minimize the complexity of your dependencies.** Prefer simpler frameworks
   that load quickly on [execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md") startup.
 - **Minimize your deployment package size to its runtime necessities.** This
-  will reduce the amount of time that it takes for your deployment package to be downloaded and unpacked ahead
+  reduces the amount of time that it takes for your deployment package to be downloaded and unpacked ahead
   of invocation. For functions authored in .NET, avoid uploading the entire AWS SDK library as part
   of your deployment package. Instead, selectively depend on the modules which pick up components of the SDK you
-  need (e.g. DynamoDB, Amazon S3 SDK modules and Lambda core
+  need (for example, DynamoDB, Amazon S3 SDK modules and Lambda core
   libraries).
 
 **Take advantage of execution environment reuse to improve the performance of your

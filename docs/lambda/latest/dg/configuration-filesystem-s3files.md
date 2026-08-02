@@ -132,4 +132,4 @@ If your function is not already connected to a VPC, see [Giving Lambda functions
 
 7. Choose **Save**.
 
-Your file system will be attached the next time you invoke your Lambda function.
+Your file system is attached the next time you invoke your Lambda function.

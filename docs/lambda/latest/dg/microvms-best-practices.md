@@ -19,7 +19,7 @@ Design your application to work well with MicroVM snapshots and lifecycle hooks:
 - **Design for resume** –
   Validate all network connections and cached state in the
   `/resume` hook. AWS SDK connections typically recover
-  automatically, but custom connections may not.
+  automatically, but custom connections might not.
 
 ## Performance
 

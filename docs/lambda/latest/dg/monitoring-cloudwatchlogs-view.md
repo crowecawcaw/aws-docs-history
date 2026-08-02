@@ -90,7 +90,7 @@ These logs show:
 
 ## Access logs with the AWS CLI
 
-The AWS CLI is an open-source tool that enables you to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+The AWS CLI is an open-source tool that you can use to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 
 You can use the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") to retrieve logs for an invocation using the `--log-type` command option. The response contains a `LogResult` field that contains up to 4 KB of base64-encoded logs from the invocation.
 
@@ -152,7 +152,7 @@ aws logs get-log-events --log-group-name /aws/lambda/`my-function` --log-stream-
 
 ###### Example macOS and Linux (only)
 
-In the same command prompt, macOS and Linux users may need to run the following command to ensure the script is executable.
+In the same command prompt, macOS and Linux users might need to run the following command to ensure the script is executable.
 
 ```
 `chmod -R 755 get-logs.sh`
@@ -298,10 +298,10 @@ The following table shows example Insights queries that can be useful for monito
 
 For any CloudWatch Logs Insights query, you can export the results to markdown or CSV format. In some cases,
 it might be more useful to create
-[visualizations from queries](../../../AmazonCloudWatch/latest/logs/CWL_Insights-Visualizing-Log-Data.md "../../../AmazonCloudWatch/latest/logs/CWL_Insights-Visualizing-Log-Data.md"), providing there is at least one aggregation function. The `stats`
-function allows you to define aggregations and grouping.
+[visualizations from queries](../../../AmazonCloudWatch/latest/logs/CWL_Insights-Visualizing-Log-Data.md "../../../AmazonCloudWatch/latest/logs/CWL_Insights-Visualizing-Log-Data.md"), providing there is at least one aggregation function. With the `stats`
+function, you can define aggregations and grouping.
 
-The previous _logInsightsJSON_ example filtered on upload size and upload time and excluded first invocations. This resulted in a table of data. For monitoring a production system, it may be more useful to visualize minimum, maximum, and average file sizes to find outliers. To do this, apply the stats function with the required aggregates, and group on a time value such as every minute:
+The previous _logInsightsJSON_ example filtered on upload size and upload time and excluded first invocations. This resulted in a table of data. For monitoring a production system, it might be more useful to visualize minimum, maximum, and average file sizes to find outliers. To do this, apply the stats function with the required aggregates, and group on a time value such as every minute:
 
 For example, consider the following query. This is the same example query from the
 [JSON structured logging](#querying-logs-json "#querying-logs-json") section, but with additional aggregation functions:
@@ -315,13 +315,13 @@ fields @message
 | stats min(uploadedBytes), avg(uploadedBytes), max(uploadedBytes) by bin (1m)
 ```
 
-We included these aggregates because it may be more useful to visualize minimum, maximum,
+We included these aggregates because it might be more useful to visualize minimum, maximum,
 and average file sizes to find outliers. You can view the results in the **Visualization** tab:
 
 ![CloudWatch Logs Insights visualization tab showing a time-series graph of minimum, average, and maximum file sizes.](images/monitoring-observability-figure-14.png)
 
 After you have finished building the visualization, you can optionally add the graph to a CloudWatch dashboard.
 To do this, choose **Add to dashboard** above the visualization. This adds the query as a
-widget and enables you to select automatic refresh intervals, making it easier to continuously monitor the results:
+widget and you can select automatic refresh intervals, making it easier to continuously monitor the results:
 
 ![CloudWatch dashboard with a Logs Insights query widget added, showing the Add to dashboard option.](images/monitoring-observability-figure-15.png)

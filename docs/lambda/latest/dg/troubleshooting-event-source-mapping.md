@@ -30,7 +30,7 @@ With such a long invocation time, messages begin arriving in the queue more rapi
 processed. If your account's unreserved concurrency is 100, Lambda scales up to 100 concurrent executions,
 and then throttling occurs. You can see this pattern in the CloudWatch metrics for the function:
 
-![CloudWatch metrics showing concurrent executions reaching 100 and throttles increasing as the function hits the concurrency limit.](images/debugging-ops-figure-10.png)
+![CloudWatch metrics showing concurrent executions reaching 100 and throttles increasing as the function hits its limit.](images/debugging-ops-figure-10.png)
 
 CloudWatch metrics for the function show no errors, but the **Concurrent executions** chart
 shows that the maximum concurrency of 100 is reached. As a result, the **Throttles** chart
@@ -57,7 +57,7 @@ In particular, both the age of the oldest message and the number of messages vis
 while no messages are deleted. The queue continues to grow but messages are not being processed. The
 CloudWatch metrics for the processing Lambda function also indicate that there is a problem:
 
-![Lambda CloudWatch metrics showing growing error count with reduced concurrent executions and no throttling, indicating Lambda stopped scaling due to errors.](images/debugging-ops-figure-12.png)
+![Lambda CloudWatch metrics showing growing error count with reduced concurrency and no throttling, indicating scaling stopped.](images/debugging-ops-figure-12.png)
 
 The **Error count** metric is non-zero and growing, while **Concurrent
 executions** have reduced and throttling has stopped. This shows that Lambda has stopped scaling up

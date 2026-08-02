@@ -12,7 +12,7 @@ To implement this app, you create the following resources:
   You also create an AWS Identity and Access Management (IAM) policy to give your Lambda function permission to perform read and write operations
   on your S3 buckets.
 
-![Diagram showing flow of data between an S3 bucket, a Lambda function and another S3 bucket](images/ExampleApps/file_process_resources.png)
+![Diagram showing flow of data between an S3 bucket, a Lambda function and another S3 bucket.](images/ExampleApps/file_process_resources.png)
 
 ###### Tip
 
@@ -96,7 +96,7 @@ event that caused the invocation. In this case, the information includes name of
 To learn more about the format of event object for Amazon S3, see [Process Amazon S3 event notifications with Lambda](with-s3.md "with-s3.md").
 
 Your function then uses the AWS SDK for Python (Boto3) to download the PDF files specified in the event object to its local temporary storage directory, before
-encrypting them using the [`pypdf`](https://pypi.org/project/pypdf/ "https://pypi.org/project/pypdf/") library.
+encrypting them using the [pypdf](https://pypi.org/project/pypdf/ "https://pypi.org/project/pypdf/") library.
 
 Finally, the function uses the Boto3 SDK to store the encrypted file in your S3 destination bucket.
 
@@ -131,7 +131,7 @@ To deploy your app manually:
 
 #### Create two S3 buckets
 
-First create two S3 buckets. The first bucket is the source bucket you will upload your PDF files to. The second bucket is used by
+First create two S3 buckets. The first bucket is the source bucket you upload your PDF files to. The second bucket is used by
 Lambda to save the encrypted file when you invoke your function.
 
 Console
@@ -141,7 +141,7 @@ Console
 1. Open the [General purpose buckets](https://console.aws.amazon.com/s3/buckets "https://console.aws.amazon.com/s3/buckets") page of the Amazon S3 console.
 2. Select the AWS Region closest to your geographical location. You can change your region using the drop-down list at the top of the screen.
 
-![Image showing drop down region menu in S3 console](images/console_region_select.png) 3. Choose **Create bucket**. 4. Under **General configuration**, do the following:
+![Image showing drop down region menu in S3 console.](images/console_region_select.png) 3. Choose **Create bucket**. 4. Under **General configuration**, do the following:
 
     1. For **Bucket type**, ensure **General purpose** is selected.
     2. For **Bucket name**, enter a globally unique name that meets the Amazon S3 [bucket naming rules](../../../AmazonS3/latest/userguide/bucketnamingrules.md "../../../AmazonS3/latest/userguide/bucketnamingrules.md").
@@ -285,7 +285,7 @@ function's invocation status from CloudWatch Logs to confirm successful invocati
 2. Make sure you're working in the same AWS Region you created your S3 bucket in. You can change your region using the drop-down
    list at the top of the screen.
 
-![Image showing drop down region menu in Lambda console](images/console_region_select.png) 3. Choose **Create function**. 4. Choose **Author from scratch**. 5. Under **Basic information**, do the following:
+![Image showing drop down region menu in Lambda console.](images/console_region_select.png) 3. Choose **Create function**. 4. Choose **Author from scratch**. 5. Under **Basic information**, do the following:
 
     1. For **Function name**, enter ``EncryptPDF``.
     2. For **Runtime** choose **Python 3.12**.

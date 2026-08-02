@@ -14,7 +14,7 @@ AWS SDK clients are thread safe and do not require special handling.
 
 **Example: Database connection pools**
 
-The following code uses a static database connection object which is shared between threads. Depending on the connection library used, this may not be thread safe.
+The following code uses a static database connection object which is shared between threads. Depending on the connection library used, this might not be thread safe.
 
 ```
 public class DBQueryHandler implements RequestHandler<Object, String> {
@@ -127,7 +127,7 @@ Use `context.getXrayTraceId()` to access the X-Ray trace ID. This provides threa
 
 Use `com.amazonaws.services.lambda.runtime.Context.getRemainingTimeInMillis()` to detect timeouts. See [Error handling and recovery](lambda-managed-instances-execution-environment.md#lambda-managed-instances-error-handling "lambda-managed-instances-execution-environment.md#lambda-managed-instances-error-handling") for more information.
 
-If you use virtual threads in your program or create threads during initialization, you will need to pass any required request context to these threads.
+If you use virtual threads in your program or create threads during initialization, you need to pass any required request context to these threads.
 
 **Example: Timeout handling**
 

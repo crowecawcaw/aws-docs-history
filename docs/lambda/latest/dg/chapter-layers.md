@@ -22,7 +22,7 @@ There are multiple reasons why you might consider using layers:
   editor is a useful tool for testing minor function code updates quickly. However, you
   can't use the editor if your deployment package size is too large. Using layers reduces
   your package size and can unlock usage of the code editor.
-- **To lock an embedded SDK version.**The embedded SDKs may change without notice as AWS releases new services and features. You can lock a version
+- **To lock an embedded SDK version.**The embedded SDKs might change without notice as AWS releases new services and features. You can lock a version
   of the SDK by creating a Lambda layer with the specific version needed. The
   function then always uses the version in the layer, even if the version embedded in the service changes.
   If you're working with Lambda functions in Go or Rust, we recommend against using layers.

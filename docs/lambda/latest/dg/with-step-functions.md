@@ -34,7 +34,7 @@ A single Lambda function manages the entire order processing workflow by:
 
 ###### Example workflow graph
 
-![Step Functions workflow graph showing order validation, a choice state, and payment processing with success and failure paths](images/sequential_workflow.png)
+![Step Functions workflow graph showing order validation, a choice state, and payment processing with success and failure paths.](images/sequential_workflow.png)
 
 ###### Note
 
@@ -61,7 +61,7 @@ A single Lambda function handles all of the following:
 
 ###### Example workflow graph
 
-![Step Functions workflow graph for payment processing with three outcomes: payment succeeded, payment invalid, and payment failed](images/error_handling_workflow.png)
+![Step Functions workflow graph for payment processing with three outcomes: payment succeeded, payment invalid, and payment failed.](images/error_handling_workflow.png)
 
 ###### Note
 
@@ -89,7 +89,7 @@ A single Lambda function manages a complex approval workflow by:
 
 ###### Example workflow graph
 
-![Step Functions workflow graph showing credit request evaluation branching to automatic or manager approval based on risk](images/conditional_workflow.png)
+![Step Functions workflow graph showing credit request evaluation branching to automatic or manager approval based on risk.](images/conditional_workflow.png)
 
 ###### Note
 
@@ -118,7 +118,7 @@ A single Lambda function attempts to manage parallel processing by:
 
 ###### Example workflow graph
 
-![Step Functions workflow graph with three parallel Lambda functions: create thumbnail, add watermark, and extract metadata](images/parallel_workflow.png)
+![Step Functions workflow graph with three parallel Lambda functions: create thumbnail, add watermark, and extract metadata.](images/parallel_workflow.png)
 
 ###### Note
 
@@ -136,7 +136,7 @@ Not all Lambda-based applications benefit from using Step Functions. Consider th
 
 ###### Note
 
-For workflows that don't require visual design or extensive service integrations, [Lambda durable functions](durable-functions.md "durable-functions.md") may be a simpler alternative that keeps workflow logic in code within Lambda.
+For workflows that don't require visual design or extensive service integrations, [Lambda durable functions](durable-functions.md "durable-functions.md") might be a simpler alternative that keeps workflow logic in code within Lambda.
 
 For applications that don't require complex orchestration, using Step Functions might add unnecessary complexity. For example, if you're simply processing messages from an Amazon SQS queue or responding to Amazon EventBridge events, you can configure these services to invoke your Lambda functions directly. Similarly, if your application consists of only one or two Lambda functions with straightforward error handling, direct Lambda invocation or event-driven architectures might be simpler to deploy and maintain.
 
@@ -149,7 +149,7 @@ You can use the Step Functions [Distributed Map](../../../step-functions/latest/
 
 ### CPU-intensive workloads
 
-While Step Functions can orchestrate CPU-intensive tasks, Lambda functions may not be suitable for these workloads due to their limited CPU resources. For computationally intensive operations within your workflows, consider these alternatives:
+While Step Functions can orchestrate CPU-intensive tasks, Lambda functions might not be suitable for these workloads due to their limited CPU resources. For computationally intensive operations within your workflows, consider these alternatives:
 
 - **Container orchestration:** Use Step Functions to manage Amazon Elastic Container Service (Amazon ECS) tasks for more consistent and scalable compute resources.
 - **Batch processing:** Integrate AWS Batch with Step Functions for managing compute-intensive batch jobs that require sustained CPU usage.

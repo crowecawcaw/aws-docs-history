@@ -6,6 +6,11 @@ dedicated-throughput consumer with [enhanced fan-out](../../../kinesis/latest/de
 For details about Kinesis data streams, see [Reading Data from
 Amazon Kinesis Data Streams](../../../kinesis/latest/dev/building-consumers.md "../../../kinesis/latest/dev/building-consumers.md").
 
+To get started, see [Process Amazon Kinesis Data Streams records with Lambda](services-kinesis-create.md "services-kinesis-create.md"). You can configure
+[event source mapping parameters](services-kinesis-parameters.md "services-kinesis-parameters.md"),
+use [tumbling windows](services-kinesis-windows.md "services-kinesis-windows.md") for aggregation,
+and view [example function code](with-kinesis-example.md "with-kinesis-example.md").
+
 ###### Note
 
 Kinesis charges for each shard and, for enhanced fan-out, data read from the stream. For pricing details, see
@@ -75,7 +80,7 @@ than the number of shards. This can be true even for Lambda functions without ex
 
 Configure the [ParallelizationFactor](../api/API_CreateEventSourceMapping.md#lambda-CreateEventSourceMapping-request-ParallelizationFactor "../api/API_CreateEventSourceMapping.md#lambda-CreateEventSourceMapping-request-ParallelizationFactor") setting to process one shard of a Kinesis data stream with more than one Lambda invocation simultaneously.
 You can specify the number of concurrent batches that Lambda polls from a shard by using a parallelization factor from 1 (default) to 10. For example, when you set `ParallelizationFactor`
-to 2, you can have 200 concurrent Lambda invocations at maximum to process 100 Kinesis data shards (though in practice, you may see different values for the `ConcurrentExecutions` metric).
+to 2, you can have 200 concurrent Lambda invocations at maximum to process 100 Kinesis data shards (though in practice, you might see different values for the `ConcurrentExecutions` metric).
 This helps scale up the processing throughput when the data volume is volatile and
 the `IteratorAge` is high. When you increase the number of concurrent batches per shard, Lambda still ensures in-order processing at the partition-key level.
 

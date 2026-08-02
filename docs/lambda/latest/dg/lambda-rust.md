@@ -1,6 +1,6 @@
 # Building Lambda functions with Rust
 
-Because Rust compiles to native code, you don't need a dedicated runtime to run Rust code on Lambda. Instead, use the [Rust runtime client](https://github.com/aws/aws-lambda-rust-runtime "https://github.com/aws/aws-lambda-rust-runtime") to build your project locally, and then deploy it to Lambda using an [OS-only runtime](runtimes-provided.md "runtimes-provided.md"). When you use an OS-only runtime, Lambda automatically keeps the operating system up to date with the latest patches.
+Because Rust compiles to native code, you don't need a dedicated runtime to run Rust code on Lambda. Instead, use the [Rust runtime client](https://github.com/aws/aws-lambda-rust-runtime "https://github.com/aws/aws-lambda-rust-runtime") to build your project locally, and then deploy it to Lambda using an [OS-only runtime](runtimes-provided.md "runtimes-provided.md"). When you use an OS-only runtime, Lambda automatically keeps the operating system up to date with the latest patches. For information about working with HTTP events, see [Processing HTTP events with Rust](rust-http-events.md "rust-http-events.md"). For information about using layers with Rust, see [Working with layers for Rust Lambda functions](rust-layers.md "rust-layers.md").
 
 ###### Tools and libraries for Rust
 

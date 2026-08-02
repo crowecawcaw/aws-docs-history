@@ -27,12 +27,12 @@ Using language-specific environment variables is the preferred way to set startu
 ## Wrapper scripts
 
 You can create a _wrapper script_ to customize the runtime startup behavior of your Lambda
-function. A wrapper script enables you to set configuration parameters that cannot be set through
+function. With a wrapper script, you can set configuration parameters that cannot be set through
 language-specific environment variables.
 
 ###### Note
 
-Invocations may fail if the wrapper script does not successfully start the runtime process.
+Invocations might fail if the wrapper script does not successfully start the runtime process.
 
 Wrapper scripts are supported on all native [Lambda runtimes](lambda-runtimes.md "lambda-runtimes.md"). Wrapper scripts are not supported on [OS-only runtimes](runtimes-provided.md "runtimes-provided.md") (the `provided` runtime family).
 
@@ -128,7 +128,7 @@ python-wrapper-layer.zip
 10. Test the wrapper script.
 
     1. Choose the **Test** tab.
-    2. Under **Test event**, choose **Test**. You don't need to create a test event—the default event will work.
+    2. Under **Test event**, choose **Test**. You don't need to create a test event—the default event works.
     3. Scroll down to **Log output**. Because your wrapper script started the Python interpreter with the `-X importtime` option,
        the logs show the time required for each import. For example:
 

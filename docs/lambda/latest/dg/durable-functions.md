@@ -48,7 +48,7 @@ To harness this checkpoint-and-replay mechanism in your applications, Lambda pro
 
 With the SDK, you wrap your Lambda event handler, which then provides a DurableContext alongside your event. This context gives you access to durable operations like steps and waits. You write your function logic as normal sequential code, but instead of calling services directly, you wrap those calls in steps for automatic checkpointing and retries. When you need to pause execution, you add waits that suspend your function without incurring charges. The SDK handles all the complexity of state management and replay behind the scenes, so your code remains clean and readable.
 
-![Diagram showing how Lambda durable functions use checkpoints to persist progress and replay to resume execution after interruptions.](images/how_durable_works.png)
+![Diagram showing how Lambda durable functions use checkpoints to persist progress and replay to resume after interruptions.](images/how_durable_works.png)
 
 ## Next steps
 

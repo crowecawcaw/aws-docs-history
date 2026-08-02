@@ -68,15 +68,15 @@ using the `lambda-testevent-schemas` name.
 To see, share, and edit shareable test events, you must have permissions for all of the
 following [EventBridge (CloudWatch Events) schema registry API operations](../../../eventbridge/latest/schema-reference/operations.md "../../../eventbridge/latest/schema-reference/operations.md"):
 
-- [`schemas.CreateRegistry`](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname.md#CreateRegistry "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname.md#CreateRegistry")
-- [`schemas.CreateSchema`](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#CreateSchema "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#CreateSchema")
-- [`schemas.DeleteSchema`](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#DeleteSchema "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#DeleteSchema")
-- [`schemas.DeleteSchemaVersion`](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname-version-schemaversion.md#DeleteSchemaVersion "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname-version-schemaversion.md#DeleteSchemaVersion")
-- [`schemas.DescribeRegistry`](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname.md#DescribeRegistry "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname.md#DescribeRegistry")
-- [`schemas.DescribeSchema`](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#DescribeSchema "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#DescribeSchema")
-- [`schemas.GetDiscoveredSchema`](../../../eventbridge/latest/schema-reference/v1-discover.md#GetDiscoveredSchema "../../../eventbridge/latest/schema-reference/v1-discover.md#GetDiscoveredSchema")
-- [`schemas.ListSchemaVersions`](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname-versions.md#ListSchemaVersions "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname-versions.md#ListSchemaVersions")
-- [`schemas.UpdateSchema`](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#UpdateSchema "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#UpdateSchema")
+- [schemas.CreateRegistry](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname.md#CreateRegistry "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname.md#CreateRegistry")
+- [schemas.CreateSchema](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#CreateSchema "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#CreateSchema")
+- [schemas.DeleteSchema](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#DeleteSchema "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#DeleteSchema")
+- [schemas.DeleteSchemaVersion](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname-version-schemaversion.md#DeleteSchemaVersion "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname-version-schemaversion.md#DeleteSchemaVersion")
+- [schemas.DescribeRegistry](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname.md#DescribeRegistry "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname.md#DescribeRegistry")
+- [schemas.DescribeSchema](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#DescribeSchema "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#DescribeSchema")
+- [schemas.GetDiscoveredSchema](../../../eventbridge/latest/schema-reference/v1-discover.md#GetDiscoveredSchema "../../../eventbridge/latest/schema-reference/v1-discover.md#GetDiscoveredSchema")
+- [schemas.ListSchemaVersions](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname-versions.md#ListSchemaVersions "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname-versions.md#ListSchemaVersions")
+- [schemas.UpdateSchema](../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#UpdateSchema "../../../eventbridge/latest/schema-reference/v1-registries-name-registryname-schemas-name-schemaname.md#UpdateSchema")
 
 Note that saving edits made to a shareable test event overwrites that event.
 
@@ -102,7 +102,7 @@ access to the EventBridge (CloudWatch Events) registry.
 
 ###### Use shareable test events with AWS Serverless Application Model.
 
-You can use AWS SAM to invoke shareable test events. See [`sam remote test-event`](../../../serverless-application-model/latest/developerguide/using-sam-cli-remote-test-event.md "../../../serverless-application-model/latest/developerguide/using-sam-cli-remote-test-event.md") in the [AWS Serverless Application Model Developer Guide](../../../serverless-application-model/latest/developerguide/using-sam-cli-remote-test-event.md "../../../serverless-application-model/latest/developerguide/using-sam-cli-remote-test-event.md")
+You can use AWS SAM to invoke shareable test events. See [sam remote test-event](../../../serverless-application-model/latest/developerguide/using-sam-cli-remote-test-event.md "../../../serverless-application-model/latest/developerguide/using-sam-cli-remote-test-event.md") in the [AWS Serverless Application Model Developer Guide](../../../serverless-application-model/latest/developerguide/using-sam-cli-remote-test-event.md "../../../serverless-application-model/latest/developerguide/using-sam-cli-remote-test-event.md")
 
 ## Deleting shareable test event schemas
 

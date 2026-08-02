@@ -17,7 +17,7 @@ application development. The overall goal is to develop workloads that are:
   the performance needs of your end users.
 - **Cost-efficient**– designing architectures that avoid unnecessary
   cost that can scale without overspending, and also be decommissioned without significant overhead.
-  The following design principles can help you build workloads that meet these goals. Not every principle may
+  The following design principles can help you build workloads that meet these goals. Not every principle might
   apply to every architecture, but they should guide you in general architecture decisions.
 
 ###### Topics
@@ -68,9 +68,9 @@ corresponding AWS service:
 | Event streams               | Amazon Kinesis                                 |
 
 These services are designed to integrate with Lambda and you can use infrastructure as code (IaC) to
-create and discard resources in the services. You can use any of these services via the
+create and discard resources in the services. You can use any of these services through the
 [AWS SDK](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/") without needing to install applications or
-configure servers. Becoming proficient with using these services via code in your Lambda functions is an
+configure servers. Becoming proficient with using these services through code in your Lambda functions is an
 important step to producing well-designed serverless applications.
 
 ## Understand Lambda abstraction levels
@@ -94,7 +94,7 @@ underlying mechanics helps you develop applications more quickly with less custo
 ## Implement statelessness in functions
 
 For standard Lambda functions, you should assume that the environment exists only for a single invocation.
-The function should initialize any required state when it is first started. For example, your function may
+The function should initialize any required state when it is first started. For example, your function might
 require fetching data from a DynamoDB table. It should commit any permanent data changes to a durable store such
 as Amazon S3, DynamoDB, or Amazon SQS before exiting. It should not rely on any existing data structures or temporary files,
 or any internal state that would be managed by multiple invocations.
@@ -120,7 +120,7 @@ per environment, without exposing these to developers or requiring any code chan
 ## Build for on-demand data instead of batches
 
 Many traditional systems are designed to run periodically and process batches of transactions that have
-built up over time. For example, a banking application may run every hour to process ATM transactions into
+built up over time. For example, a banking application might run every hour to process ATM transactions into
 central ledgers. In Lambda-based applications, the custom processing should be triggered by every event,
 allowing the service to scale up concurrency as needed, to provide near-real time processing of transactions.
 
@@ -134,15 +134,15 @@ processed within the 15-minute Lambda duration limit. If the limitations of exte
 scheduler, you should generally schedule for the shortest reasonable recurring time period.
 
 For example, it's not best practice to use a batch process that triggers a Lambda function to fetch a list of
-new Amazon S3 objects. This is because the service may receive more new objects in between batches than can be
+new Amazon S3 objects. This is because the service might receive more new objects in between batches than can be
 processed within a 15-minute Lambda function.
 
-![event driven architectures figure 10](images/event-driven-architectures-figure-10.png)
+![Diagram showing an Amazon S3 bucket polling pattern that creates unnecessary load on the system.](images/event-driven-architectures-figure-10.png)
 
 Instead, Amazon S3 should invoke the Lambda function each time a new object is put into the bucket. This approach
 is significantly more scalable and works in near-real time.
 
-![event driven architectures figure 11](images/event-driven-architectures-figure-11.png)
+![Diagram showing Amazon S3 invoking a Lambda function each time a new object is added to the bucket.](images/event-driven-architectures-figure-11.png)
 
 ## Choose an orchestration option for complex workflows
 
@@ -176,7 +176,7 @@ AWS serverless services, including Lambda, are fault-tolerant and designed to ha
 service invokes a Lambda function and there is a service disruption, Lambda invokes your function in a different
 Availability Zone. If your function throws an error, Lambda retries the invocation.
 
-Since the same event may be received more than once, functions should be designed to be
+Because the same event might be received more than once, functions should be designed to be
 [idempotent](https://en.wikipedia.org/wiki/Idempotence "https://en.wikipedia.org/wiki/Idempotence"). This means that receiving the same event
 multiple times does not change the result beyond the first time the event was received.
 
@@ -200,7 +200,7 @@ accounts to avoid custom scripts and manual processes.
 One common approach is to provide each developer with an AWS account, and then use separate accounts for a beta
 deployment stage and production:
 
-![application design figure 3](images/application-design-figure-3.png)
+![Diagram showing per-developer AWS accounts with isolated resources and separate concurrency limits.](images/application-design-figure-3.png)
 
 In this model, each developer has their own set of limits for the account, so their usage does not impact your
 production environment. This approach also allows developers to test Lambda functions locally on their development

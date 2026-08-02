@@ -117,5 +117,5 @@ endpoint in a browser. You should see a response similar to the following.
 
 To learn more about using AWS SAM to build and deploy Lambda functions using .NET, see the following resources:
 
-- The [_AWS Serverless Application Model (AWS SAM) Developer Guide_](../../../serverless-application-model/latest/developerguide/what-is-sam.md "../../../serverless-application-model/latest/developerguide/what-is-sam.md")
+- The [AWS Serverless Application Model (AWS SAM) Developer Guide](../../../serverless-application-model/latest/developerguide/what-is-sam.md "../../../serverless-application-model/latest/developerguide/what-is-sam.md")
 - [Building Serverless .NET Applications with AWS Lambda and the SAM CLI](https://aws.amazon.com/blogs/dotnet/building-serverless-net-applications-with-aws-lambda-and-the-sam-cli/ "https://aws.amazon.com/blogs/dotnet/building-serverless-net-applications-with-aws-lambda-and-the-sam-cli/")

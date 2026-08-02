@@ -6,13 +6,16 @@ Java that run your code to process events. Your code runs in an Amazon Linux env
 
 Lambda supports the following Java runtimes.
 
-| Name    | Identifier  | Operating system  | Deprecation date | Block function create | Block function update |
-| ------- | ----------- | ----------------- | ---------------- | --------------------- | --------------------- |
-| Java 25 | `java25`    | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
-| Java 21 | `java21`    | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
-| Java 17 | `java17`    | Amazon Linux 2    | Jun 30, 2027     | Jul 31, 2027          | Aug 31, 2027          |
-| Java 11 | `java11`    | Amazon Linux 2    | Jun 30, 2027     | Jul 31, 2027          | Aug 31, 2027          |
-| Java 8  | `java8.al2` | Amazon Linux 2    | Jun 30, 2027     | Jul 31, 2027          | Aug 31, 2027          |
+| Name    | Identifier      | Operating system  | Deprecation date | Block function create | Block function update |
+| ------- | --------------- | ----------------- | ---------------- | --------------------- | --------------------- |
+| Java 25 | `java25`        | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
+| Java 21 | `java21`        | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
+| Java 17 | `java17.al2023` | Amazon Linux 2023 | Not scheduled    | Not scheduled         | Not scheduled         |
+| Java 11 | `java11.al2023` | Amazon Linux 2023 | Not scheduled    | Not scheduled         | Not scheduled         |
+| Java 8  | `java8.al2023`  | Amazon Linux 2023 | Not scheduled    | Not scheduled         | Not scheduled         |
+| Java 17 | `java17`        | Amazon Linux 2    | Jun 30, 2027     | Jul 31, 2027          | Aug 31, 2027          |
+| Java 11 | `java11`        | Amazon Linux 2    | Jun 30, 2027     | Jul 31, 2027          | Aug 31, 2027          |
+| Java 8  | `java8.al2`     | Amazon Linux 2    | Jun 30, 2027     | Jul 31, 2027          | Aug 31, 2027          |
 
 AWS provides the following libraries for Java functions. These libraries are available through [Maven
 Central Repository](https://search.maven.org/search?q=g:com.amazonaws "https://search.maven.org/search?q=g:com.amazonaws").
@@ -70,6 +73,8 @@ Maven
 ###### Important
 
 Don't use private components of the JDK API, such as private fields, methods, or classes. Non-public API components can change or be removed in any update, causing your application to break.
+
+For information about custom serialization, see [Customize serialization for Lambda Java functions](java-custom-serialization.md "java-custom-serialization.md").
 
 ###### To create a Java function
 

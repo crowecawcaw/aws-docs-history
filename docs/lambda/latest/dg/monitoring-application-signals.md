@@ -17,7 +17,7 @@ data for your applications.
 
 ## How Application Signals integrates with Lambda
 
-Application Signals automatically instruments your Lambda functions using enhanced [AWS Distro for OpenTelemetry (ADOT)](https://aws-otel.github.io/ "https://aws-otel.github.io/") libraries, provided via a [Lambda layer](chapter-layers.md "chapter-layers.md"). Application Signals reads data collected
+Application Signals automatically instruments your Lambda functions using enhanced [AWS Distro for OpenTelemetry (ADOT)](https://aws-otel.github.io/ "https://aws-otel.github.io/") libraries, provided through a [Lambda layer](chapter-layers.md "chapter-layers.md"). Application Signals reads data collected
 by the layer and generates dashboards with key performance metrics for your applications.
 
 You can attach this layer in one-click by [enabling Application Signals](#monitoring-application-signals-console "#monitoring-application-signals-console") in the Lambda console. When you enable Application Signals from the console,
@@ -102,7 +102,7 @@ from the Lambda console with the following steps:
 For example, the following screenshot shows metrics for latency, number of requests,
 availability, fault rate, and error rate for a function across a 10 minute time window.
 
-![An example of an Application Signals dashboard for a Lambda function, depicting latency, number of requests, availability, fault rate, and error rate.](images/monitoring-application-signals-dashboard.png)
+![An Application Signals dashboard for a Lambda function depicting latency, requests, availability, fault rate, and error rate.](images/monitoring-application-signals-dashboard.png)
 
 To make the most out of your integration with Application Signals, you can create service-level
 objectives (SLOs) for your aplication. For example, you can create latency SLOs to ensure your

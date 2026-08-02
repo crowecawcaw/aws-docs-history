@@ -1,11 +1,11 @@
 # Tutorial: Using Lambda with API Gateway
 
 In this tutorial, you create a REST API through which you invoke a Lambda function using an HTTP request.
-Your Lambda function will perform create, read, update, and delete (CRUD) operations on a DynamoDB table.
-This function is provided here for demonstration, but you will learn to configure an API Gateway REST API that can
+Your Lambda function performs create, read, update, and delete (CRUD) operations on a DynamoDB table.
+This function is provided here for demonstration, but you learn to configure an API Gateway REST API that can
 invoke any Lambda function.
 
-![Services and resources used in this tutorial](images/APIG_tut_resources.png)
+![Services and resources used in this tutorial.](images/APIG_tut_resources.png)
 Using API Gateway provides users with a secure HTTP endpoint to invoke your Lambda function and can help manage
 large volumes of calls to your function by throttling traffic and automatically validating and authorizing API
 calls. API Gateway also provides flexible security controls using AWS Identity and Access Management (IAM) and Amazon Cognito. This is useful for use cases where
@@ -16,14 +16,14 @@ advance authorization is required for calls to your application.
 Lambda offers two ways to invoke your function through an HTTP endpoint: API Gateway and Lambda function URLs. If you're not sure which is the best method for your
 use case, see [Select a method to invoke your Lambda function using an HTTP request](apig-http-invoke-decision.md "apig-http-invoke-decision.md").
 
-To complete this tutorial, you will go through the following stages:
+To complete this tutorial, you go through the following stages:
 
 1. Create and configure a Lambda function in Python or Node.js to perform operations on a DynamoDB table.
 2. Create a REST API in API Gateway to connect to your Lambda function.
 3. Create a DynamoDB table and test it with your Lambda function in the console.
 4. Deploy your API and test the full setup using curl in a terminal.
-   By completing these stages, you will learn how to use API Gateway to create an HTTP endpoint that can securely invoke
-   a Lambda function at any scale. You will also learn how to deploy your API, and how to test it in the console and by sending
+   By completing these stages, you learn how to use API Gateway to create an HTTP endpoint that can securely invoke
+   a Lambda function at any scale. You also learn how to deploy your API, and how to test it in the console and by sending
    an HTTP request using a terminal.
 
 ## Create a permissions policy
@@ -256,7 +256,7 @@ Before integrating your function with API Gateway, confirm that you have deploye
 
 ## Create a REST API using API Gateway
 
-In this step, you create the API Gateway REST API you will use to invoke your Lambda function.
+In this step, you create the API Gateway REST API you use to invoke your Lambda function.
 
 ###### To create the API
 
@@ -304,7 +304,7 @@ in Serverless Land.
 
 ## Create a DynamoDB table
 
-Create an empty DynamoDB table that your Lambda function will perform CRUD operations on.
+Create an empty DynamoDB table that your Lambda function performs CRUD operations on.
 
 ###### To create the DynamoDB table
 
@@ -356,7 +356,7 @@ To confirm, check that your DynamoDB table now contains the new item. 6. Open th
 choose the `lambda-apigateway` table. 7. Chose **Explore table items**. In the **Items returned** pane, you
 should see one item with the **id** `1234ABCD` and the **number** `5`. Example:
 
-![Test item (id 1234ABCD, number 5) added to DynamoDB table.](images/items-returned.png)
+![Test item with id 1234ABCD and number 5 added to DynamoDB table.](images/items-returned.png)
 
 ###### Test 2: To update the item in your DynamoDB table
 
@@ -407,12 +407,12 @@ of your API including its methods and integrations.
 3. For **Stage**, choose **\*New stage\***, then for **Stage name**,
    enter `test`.
 4. Choose **Deploy**.
-5. In the **Stage details** pane, copy the **Invoke URL**. You will use this in the
+5. In the **Stage details** pane, copy the **Invoke URL**. You use this in the
    next step to invoke your function using an HTTP request.
 
 ## Use curl to invoke your function using HTTP requests
 
-You can now invoke your Lambda function by issuing an HTTP request to your API. In this step, you will create a
+You can now invoke your Lambda function by issuing an HTTP request to your API. In this step, you create a
 new item in your DynamoDB table and then perform read, update, and delete operations on that item.
 
 ###### To create an item in your DynamoDB table using curl

@@ -16,7 +16,7 @@ an alias ARN in the policy, you don't need to update the policy when the functio
 You can use a [resource-based policy](access-control-resource-based.md "access-control-resource-based.md") to give a service,
 resource, or account access to your function. The scope of that permission depends on whether you apply it to an
 alias, a version, or the entire function. For example, if you use an alias name (such as
-`helloworld:PROD`), the permission allows you to invoke the `helloworld` function using
+`helloworld:PROD`), you can invoke the `helloworld` function using
 the alias ARN (`helloworld:PROD`).
 
 If you attempt to invoke the function without an alias or a specific version, then you get a permission error.

@@ -3,7 +3,7 @@
 In this tutorial, you use the console to create a Lambda function and configure a trigger for an Amazon Simple Storage Service (Amazon S3) bucket. Every time that you
 add an object to your Amazon S3 bucket, your function runs and outputs the object type to Amazon CloudWatch Logs.
 
-![Data flow between an S3 bucket, a Lambda function, and CloudWatch Logs](images/services-s3-example/s3_tut_config.png)
+![Data flow between an S3 bucket, a Lambda function, and CloudWatch Logs.](images/services-s3-example/s3_tut_config.png)
 This tutorial demonstrates how to:
 
 1. Create an Amazon S3 bucket.
@@ -15,7 +15,7 @@ This tutorial demonstrates how to:
 
 ## Create an Amazon S3 bucket
 
-![First step: Create the Amazon S3 bucket](images/services-s3-example/s3trigger_tut_steps1.png)
+![First step: Create the Amazon S3 bucket.](images/services-s3-example/s3trigger_tut_steps1.png)
 
 ###### To create an Amazon S3 bucket
 
@@ -23,7 +23,7 @@ This tutorial demonstrates how to:
 2. Select the AWS Region closest to your geographical location. You can change your region using the drop-down list at the top of the screen.
    Later in the tutorial, you must create your Lambda function in the same Region.
 
-![Image showing drop down region menu in S3 console](images/console_region_select.png) 3. Choose **Create bucket**. 4. Under **General configuration**, do the following:
+![Image showing drop down region menu in S3 console.](images/console_region_select.png) 3. Choose **Create bucket**. 4. Under **General configuration**, do the following:
 
     1. For **Bucket type**, ensure **General purpose** is selected.
     2. For **Bucket name**, enter a globally unique name that meets the Amazon S3 [Bucket naming rules](../../../AmazonS3/latest/userguide/bucketnamingrules.md "../../../AmazonS3/latest/userguide/bucketnamingrules.md").
@@ -33,7 +33,7 @@ This tutorial demonstrates how to:
 
 ## Upload a test object to your bucket
 
-![Next step: Upload a test object](images/services-s3-example/s3trigger_tut_steps2.png)
+![Next step: Upload a test object.](images/services-s3-example/s3trigger_tut_steps2.png)
 
 ###### To upload a test object
 
@@ -47,7 +47,7 @@ Later in the tutorial, you'll test your Lambda function using this object.
 
 ## Create a permissions policy
 
-![Next step: Create the permissions policy for Lambda](images/services-s3-example/s3trigger_tut_steps3.png)
+![Next step: Create the permissions policy for Lambda.](images/services-s3-example/s3trigger_tut_steps3.png)
 
 Create a permissions policy that allows Lambda to get objects from an Amazon S3 bucket and to write to Amazon CloudWatch Logs.
 
@@ -93,7 +93,7 @@ JSON
 
 ## Create an execution role
 
-![Next step: Create the execution role](images/services-s3-example/s3trigger_tut_steps4.png)
+![Next step: Create the execution role.](images/services-s3-example/s3trigger_tut_steps4.png)
 
 An [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") is an AWS Identity and Access Management (IAM) role that grants a Lambda function permission to access AWS services and resources. In this step, create an execution role using the permissions policy that you created in the previous step.
 
@@ -111,7 +111,7 @@ An [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.
 
 ## Create the Lambda function
 
-![Next step: Create the Lambda function](images/services-s3-example/s3trigger_tut_steps5.png)
+![Next step: Create the Lambda function.](images/services-s3-example/s3trigger_tut_steps5.png)
 
 Create a Lambda function in the console using the Python 3.14 runtime.
 
@@ -121,7 +121,7 @@ Create a Lambda function in the console using the Python 3.14 runtime.
 2. Make sure you're working in the same AWS Region you created your Amazon S3 bucket in. You can change your Region using the drop-down list
    at the top of the screen.
 
-![Image showing drop down region menu in Lambda console](images/console_region_select.png) 3. Choose **Create function**. 4. Choose **Author from scratch** 5. Under **Basic information**, do the following:
+![Image showing drop down region menu in Lambda console.](images/console_region_select.png) 3. Choose **Create function**. 4. Choose **Author from scratch** 5. Under **Basic information**, do the following:
 
     1. For **Function name**, enter `s3-trigger-tutorial`
     2. For **Runtime**, choose **Python 3.14**.
@@ -136,7 +136,7 @@ Create a Lambda function in the console using the Python 3.14 runtime.
 
 ## Deploy the function code
 
-![Next step: Deploy the function code](images/services-s3-example/s3trigger_tut_steps6.png)
+![Next step: Deploy the function code.](images/services-s3-example/s3trigger_tut_steps6.png)
 
 This tutorial uses the Python 3.14 runtime, but we've also provided example code files for other runtimes. You can select the
 tab in the following box to see the code for the runtime you're interested in.
@@ -638,7 +638,7 @@ async fn function_handler(
 
 ## Create the Amazon S3 trigger
 
-![Next step: Create the S3 trigger](images/services-s3-example/s3trigger_tut_steps7.png)
+![Next step: Create the S3 trigger.](images/services-s3-example/s3trigger_tut_steps7.png)
 
 ###### To create the Amazon S3 trigger
 
@@ -666,7 +666,7 @@ deleted the function or modified its permissions policies.
 
 ## Test your Lambda function with a dummy event
 
-![Tutorial workflow diagram showing you are in the testing step testing with a dummy event](images/services-s3-example/s3trigger_tut_steps8.png)
+![Tutorial workflow diagram showing you are in the testing step testing with a dummy event.](images/services-s3-example/s3trigger_tut_steps8.png)
 
 ###### To test the Lambda function with a dummy event
 
@@ -741,7 +741,7 @@ Request ID
 
 ### Test the Lambda function with the Amazon S3 trigger
 
-![Tutorial workflow diagram showing you are in the testing step testing using the S3 trigger](images/services-s3-example/s3trigger_tut_steps9.png)
+![Tutorial workflow diagram showing you are in the testing step testing using the S3 trigger.](images/services-s3-example/s3trigger_tut_steps9.png)
 
 To test your function with the configured trigger, upload an object to your Amazon S3 bucket using the console. To verify that your Lambda
 function ran as expected, use CloudWatch Logs to view your function's output.
@@ -760,7 +760,7 @@ function ran as expected, use CloudWatch Logs to view your function's output.
 2. Make sure you're working in the same AWS Region you created your Lambda function in. You can change your Region using the drop-down
    list at the top of the screen.
 
-![Image showing drop down region menu in Lambda console](images/console_region_select.png) 3. Choose **Logs**, then choose **Log groups**. 4. Choose the log group for your function (`/aws/lambda/s3-trigger-tutorial`). 5. Under **Log streams**, choose the most recent log stream. 6. If your function was invoked correctly in response to your Amazon S3 trigger, you'll see output similar to the following. The
+![Image showing drop down region menu in Lambda console.](images/console_region_select.png) 3. Choose **Logs**, then choose **Log groups**. 4. Choose the log group for your function (`/aws/lambda/s3-trigger-tutorial`). 5. Under **Log streams**, choose the most recent log stream. 6. If your function was invoked correctly in response to your Amazon S3 trigger, you'll see output similar to the following. The
 `CONTENT TYPE` you see depends on the type of file you uploaded to your bucket.
 
 ```

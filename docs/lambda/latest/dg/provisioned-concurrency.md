@@ -116,7 +116,7 @@ You can view any active function's concurrency metrics using [CloudWatch metrics
 Specifically, the `ConcurrentExecutions` metric shows you the number of
 concurrent invocations for functions in your account.
 
-![Graph showing concurrency for a function over time.](/images/lambda/latest/dg/images/concurrency-concurrent-executions-metrics.png)
+![Graph showing concurrency for a function over time.](images/concurrency-concurrent-executions-metrics.png)
 
 The previous graph suggests that this function serves an average of 5 to 10
 concurrent requests at any given time, and peaks at 20 requests.
@@ -152,8 +152,8 @@ instantiating clients within your main handler code means your function must run
 this each time it's invoked (this occurs regardless of whether you're using
 provisioned concurrency).
 
-For on-demand invocations, Lambda may need to rerun your initialization code every time
-your function experiences a cold start. For such functions, you may choose to defer
+For on-demand invocations, Lambda might need to rerun your initialization code every time
+your function experiences a cold start. For such functions, you might choose to defer
 initialization of a specific capability until your function needs it. For example,
 consider the following control flow for a Lambda handler:
 
@@ -185,6 +185,7 @@ It's possible for your function to use up all of its provisioned concurrency.
 Lambda uses on-demand instances to handle any excess traffic. To determine the type
 of initialization Lambda used for a specific environment, check
 the value of the `AWS_LAMBDA_INITIALIZATION_TYPE` environment variable.
+
 This variable has two possible values: `provisioned-concurrency` or
 `on-demand`. The value of `AWS_LAMBDA_INITIALIZATION_TYPE` is
 immutable and remains constant throughout the lifetime of the environment. To check
@@ -195,7 +196,7 @@ If you're using the .NET 8 runtime, you can configure the
 `AWS_LAMBDA_DOTNET_PREJIT` environment variable to improve the latency for
 functions, even if they don't use provisioned concurrency. The .NET runtime employs lazy
 compilation and initialization for each library that your code calls for the first time.
-As a result, the first invocation of a Lambda function may take longer than subsequent
+As a result, the first invocation of a Lambda function might take longer than subsequent
 ones. To mitigate this, you can choose one of three values for
 `AWS_LAMBDA_DOTNET_PREJIT`:
 
@@ -236,7 +237,7 @@ percentage, use a target tracking scaling policy.
 If you use Application Auto Scaling to manage your function's provisioned concurrency, ensure
 that you [configure an initial
 provisioned concurrency value](#configuring-provisioned-concurrency "#configuring-provisioned-concurrency") first. If your function doesn't have an initial
-provisioned concurrency value, Application Auto Scaling may not handle function scaling properly.
+provisioned concurrency value, Application Auto Scaling might not handle function scaling properly.
 
 ### Scheduled scaling
 
@@ -311,9 +312,9 @@ reduces the alias's provisioned concurrency.
 
 Lambda emits the `ProvisionedConcurrencyUtilization` metric only
 when your function is active and receiving requests. During periods of inactivity,
-no metrics are emitted, and your auto-scaling alarms will enter the
+no metrics are emitted, and your auto-scaling alarms enter the
 `INSUFFICIENT_DATA` state. As a result, Application Auto Scaling won't be able
-to adjust your function's provisioned concurrency. This may lead to unexpected
+to adjust your function's provisioned concurrency. This might lead to unexpected
 billing.
 
 In the following example, a function scales between a minimum and
@@ -323,9 +324,9 @@ maximum amount of provisioned concurrency based on utilization.
 
 ###### Legend
 
-- ![Orange line = function instances](images/features-scaling-provisioned.instances.png)
+- ![Orange line = function instances.](images/features-scaling-provisioned.instances.png)
   Function instances
-- ![Gray line = function instances](images/features-scaling-provisioned.open.png)
+- ![Gray line = open requests.](images/features-scaling-provisioned.open.png)
   Open requests
 - ![Diagonal orange stripes = provisioned concurrency.](images/features-scaling-provisioned.provisioned.png)
   Provisioned concurrency
@@ -339,11 +340,13 @@ haven't reached your account concurrency limit. When utilization drops and stays
 low, Application Auto Scaling decreases provisioned concurrency in smaller periodic steps.
 
 Both of the Application Auto Scaling alarms use the average statistic by default.
-Functions that experience quick bursts of traffic may not trigger
+Functions that experience quick bursts of traffic might not trigger
 these alarms. For example, suppose your Lambda function executes quickly
 (i.e. 20-100 ms) and your traffic comes in quick bursts. In this case,
 the number of requests exceeds the allocated provisioned concurrency during the
-burst. However, Application Auto Scaling requires the burst load to sustain for at least 3 minutes
+burst.
+
+However, Application Auto Scaling requires the burst load to sustain for at least 3 minutes
 to provision additional environments. Additionally, both CloudWatch alarms require 3
 data points that hit the target average to activate the auto scaling policy. If your
 function experiences quick bursts of traffic, using the

@@ -13,7 +13,7 @@ already configured properly, see [Configuring self-managed Apache Kafka event so
 
 You can host your self-managed Apache Kafka cluster with cloud providers such as [Confluent Cloud](https://www.confluent.io/confluent-cloud/ "https://www.confluent.io/confluent-cloud/")
 or [Redpanda](https://www.redpanda.com/ "https://www.redpanda.com/"), or run it on your own infrastructure. Ensure that your cluster is properly configured
-and accessible from the network where your Lambda event source mapping will connect.
+and accessible from the network where your Lambda event source mapping connects.
 
 ## Configure network security
 

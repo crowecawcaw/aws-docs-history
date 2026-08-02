@@ -1,6 +1,6 @@
 # Lambda runtimes
 
-Lambda supports multiple languages through the use of _runtimes_. A runtime provides a language-specific environment that relays invocation events, context information, and responses between Lambda and the function. You can use runtimes that Lambda provides, or build your own.
+Lambda supports multiple languages through the use of _runtimes_. A runtime provides a language-specific environment that relays invocation events, context information, and responses between Lambda and the function. You can use runtimes that Lambda provides, or build your own. For information about open-source runtimes, see [Open source repositories](runtimes-open-source.md "runtimes-open-source.md").
 
 Lambda is agnostic to your choice of runtime. For simple functions, interpreted languages like Python and Node.js
 offer the fastest performance. For functions with more complex computation, compiled languages like Java are often
@@ -36,9 +36,9 @@ subject to change.
 
 ###### Important
 
-Amazon Linux 2 is scheduled for end of life on June 30, 2026. Lambda runtimes and container base images for Java 8 (AL2), Java 11, Java 17, Python 3.10, Python 3.11, and provided.al2 will continue to receive patches for [critical and selected important](https://alas.aws.amazon.com/faqs.html "https://alas.aws.amazon.com/faqs.html") Amazon Linux 2 security issues, in addition to language runtime patches, until the deprecation dates shown in the table below.
+Amazon Linux 2 is scheduled for end of life on June 30, 2026. Lambda runtimes and container base images for Java 8 (AL2), Java 11 (AL2), Java 17 (AL2), Python 3.10, Python 3.11, and provided.al2 will continue to receive patches for [critical and selected important](https://alas.aws.amazon.com/faqs.html "https://alas.aws.amazon.com/faqs.html") Amazon Linux 2 security issues, in addition to language runtime patches, until the deprecation dates shown in the table below.
 
-We recommend customers upgrade to an Amazon Linux 2023-based runtime as soon as possible. For customers upgrading to Java 21 or Java 25, you can use [AWS Transform custom](../../../transform/latest/userguide/custom.md "../../../transform/latest/userguide/custom.md") to assist with these upgrades. For customers unable to upgrade their Java version, we plan to release Amazon Linux 2023-based runtimes for Java 8, Java 11, and Java 17 before the end of July 2026.
+We recommend customers upgrade to an Amazon Linux 2023-based runtime as soon as possible. For customers upgrading to Java 21 or Java 25, you can use [AWS Transform custom](../../../transform/latest/userguide/custom.md "../../../transform/latest/userguide/custom.md") to assist with these upgrades. For customers unable to upgrade their Java version, we provide Amazon Linux 2023-based runtimes for Java 8, Java 11, and Java 17 that follow the AL2023 deprecation schedule.
 
 | Name                    | Identifier        | Operating system  | Deprecation date | Block function create | Block function update |
 | ----------------------- | ----------------- | ----------------- | ---------------- | --------------------- | --------------------- |
@@ -51,6 +51,9 @@ We recommend customers upgrade to an Amazon Linux 2023-based runtime as soon as 
 | Python 3.10             | `python3.10`      | Amazon Linux 2    | Oct 31, 2026     | Feb 1, 2027           | Mar 3, 2027           |
 | Java 25                 | `java25`          | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
 | Java 21                 | `java21`          | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
+| Java 17                 | `java17.al2023`   | Amazon Linux 2023 | Not scheduled    | Not scheduled         | Not scheduled         |
+| Java 11                 | `java11.al2023`   | Amazon Linux 2023 | Not scheduled    | Not scheduled         | Not scheduled         |
+| Java 8                  | `java8.al2023`    | Amazon Linux 2023 | Not scheduled    | Not scheduled         | Not scheduled         |
 | Java 17                 | `java17`          | Amazon Linux 2    | Jun 30, 2027     | Jul 31, 2027          | Aug 31, 2027          |
 | Java 11                 | `java11`          | Amazon Linux 2    | Jun 30, 2027     | Jul 31, 2027          | Aug 31, 2027          |
 | Java 8                  | `java8.al2`       | Amazon Linux 2    | Jun 30, 2027     | Jul 31, 2027          | Aug 31, 2027          |
@@ -61,7 +64,6 @@ We recommend customers upgrade to an Amazon Linux 2023-based runtime as soon as 
 | Ruby 3.4                | `ruby3.4`         | Amazon Linux 2023 | Mar 31, 2028     | Apr 30, 2028          | May 31, 2028          |
 | Ruby 3.3                | `ruby3.3`         | Amazon Linux 2023 | Mar 31, 2027     | Apr 30, 2027          | May 31, 2027          |
 | OS-only Runtime         | `provided.al2023` | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
-| OS-only Runtime         | `provided.al2`    | Amazon Linux 2    | Jul 31, 2026     | Feb 1, 2027           | Mar 3, 2027           |
 
 ###### Note
 
@@ -104,7 +106,6 @@ Lambda doesn't provide managed runtimes for language versions which aren't sched
 
 The following list shows the target launch month for upcoming Lambda runtimes. These dates are indicative only and subject to change.
 
-- **Java 8, 11, and 17 on AL2023** - July 2026
 - **Node.js 26** - November 2026
 - **Python 3.15** - November 2026
 
@@ -213,6 +214,7 @@ The following runtimes have reached end of support:
 
 | Name                    | Identifier       | Operating system  | Deprecation date | Block function create | Block function update |
 | ----------------------- | ---------------- | ----------------- | ---------------- | --------------------- | --------------------- |
+| OS-only Runtime         | `provided.al2`   | Amazon Linux 2    | Jul 31, 2026     | Feb 1, 2027           | Mar 3, 2027           |
 | Node.js 20              | `nodejs20.x`     | Amazon Linux 2023 | Apr 30, 2026     | Feb 1, 2027           | Mar 3, 2027           |
 | Ruby 3.2                | `ruby3.2`        | Amazon Linux 2    | Mar 31, 2026     | Feb 1, 2027           | Mar 3, 2027           |
 | Python 3.9              | `python3.9`      | Amazon Linux 2    | Dec 15, 2025     | Feb 1, 2027           | Mar 3, 2027           |

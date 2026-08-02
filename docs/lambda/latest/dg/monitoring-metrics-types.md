@@ -263,13 +263,13 @@ Here is more detail about each of the metric:
   criteria, Lambda emits a 0 metric.
 - `InvokedEventCount` – The number of events that invoked your Lambda
   function. Use this metric to verify that events are properly invoking your function. If an
-  event results in a function error or throttling, `InvokedEventCount` may count
+  event results in a function error or throttling, `InvokedEventCount` might count
   multiple times for the same polled event due to automatic retries.
 
 ###### Warning
 
 Lambda event source mappings process each event at least once, and duplicate processing of
-records can occur. Because of this, events may be counted multiple times in metrics that
+records can occur. Because of this, events might be counted multiple times in metrics that
 involve event counts.
 
 - `FailedInvokeEventCount` – The number of events that Lambda tried to
@@ -323,4 +323,4 @@ metrics, which are timestamped at the start of the function invocation.
 - `SumOffsetLag` – The sum of the offset lags across all partitions in the event source mapping.
 
 If your event source mapping is disabled, you won't receive event source mapping metrics. You
-may also see missing metrics if CloudWatch or Lambda is experiencing degraded availability.
+might also see missing metrics if CloudWatch or Lambda is experiencing degraded availability.

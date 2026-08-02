@@ -61,8 +61,8 @@ _concurrency_. For more information about the Lambda execution environment, see 
 
 Adhere to the guidelines in the following list to use best coding practices when building your Lambda functions:
 
-- **Separate the Lambda handler from your core logic.** This allows you to make
-  a more unit-testable function. For example, in Ruby, this may look like:
+- **Separate the Lambda handler from your core logic.** This makes it easier to create
+  a more unit-testable function. For example, in Ruby, this might look like:
 
 ```
 def lambda_handler(event:, context:)
@@ -82,16 +82,18 @@ end
 
 - **Control the dependencies in your function's deployment package.** The
   AWS Lambda execution environment contains a number of libraries. For the Ruby runtime, these include the AWS SDK.
-  To enable the latest set of features and security updates, Lambda will periodically update these libraries.
-  These updates may introduce subtle changes to the behavior of your Lambda function. To have full control of the
-  dependencies your function uses, package all of your dependencies with your deployment package.
+
+To enable the latest set of features and security updates, Lambda periodically updates these libraries.
+These updates might introduce subtle changes to the behavior of your Lambda function. To have full control of the
+dependencies your function uses, package all of your dependencies with your deployment package.
+
 - **Minimize the complexity of your dependencies.** Prefer simpler frameworks
   that load quickly on [execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md") startup.
 - **Minimize your deployment package size to its runtime necessities.** This
-  will reduce the amount of time that it takes for your deployment package to be downloaded and unpacked ahead
+  reduces the amount of time that it takes for your deployment package to be downloaded and unpacked ahead
   of invocation. For functions authored in Ruby, avoid uploading the entire AWS SDK library as part
   of your deployment package. Instead, selectively depend on the gems which pick up components of the SDK you
-  need (e.g. the DynamoDB or Amazon S3 SDK gems).
+  need (for example, the DynamoDB or Amazon S3 SDK gems).
 
 **Take advantage of execution environment reuse to improve the performance of your
 function.** Initialize SDK clients and database connections outside of the function handler, and
