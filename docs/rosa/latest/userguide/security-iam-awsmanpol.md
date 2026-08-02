@@ -280,10 +280,13 @@ This policy includes the following permissions that allow the NodePool controlle
   Manage EC2 lifecycles in the ROSA cluster.
   Dynamically create and integrate worker nodes with Elastic Load Balancing, Amazon VPC, Route 53, Amazon EBS, and Amazon EC2.
   Access and describe capacity reservations to support the Capacity Reservation feature in ROSA.
+  Describe Amazon EC2 instance types to support workload-appropriate node sizing decisions.
 - `iam` — Use Elastic Load Balancing via the service-linked role named `AWSServiceRoleForElasticLoadBalancing`.
   Assign roles to Amazon EC2 instance profiles.
 - `kms` — Read an AWS KMS key, create and manage grants to Amazon EC2, and return a unique symmetric data key for use outside of AWS KMS.
   This is required to allow for disk encryption of the worker node root volume.
+- `sqs` — Receive and delete messages from customer-managed Amazon SQS queues that carry the `red-hat: "true"` resource tag.
+  The NodePool controller uses these permissions to consume spot-instance interruption notifications and drain worker nodes gracefully before reclamation.
 
 To view the full JSON policy document, see [ROSANodePoolManagementPolicy](../../../aws-managed-policy/latest/reference/ROSANodePoolManagementPolicy.md "../../../aws-managed-policy/latest/reference/ROSANodePoolManagementPolicy.md") in the _AWS Managed Policy Reference Guide_.
 
@@ -321,10 +324,35 @@ This policy includes the following permissions that allow the Control Plane Oper
 
 - `ec2` — Create and manage Amazon VPC endpoints.
 - `route53` — List and change Route 53 record sets and list hosted zones.
-- Added tags to RedHatManagedSecurityGroups: Allows the Control Plane Operator to tag Red Hat-managed security groups after creation. This is required for proper resource lifecycle management and cleanup of security groups associated with ROSA with HCP clusters.
-- Added security-group/\* to ManageVPCEndpointWithCondition: Fixes VPCE reconciliation failures during cluster upgrades. The operator needs permission to modify VPC endpoints that reference security groups.
+- Add and remove tags on Red Hat-managed security groups: The Control Plane Operator can tag and untag Red Hat-managed security groups for proper resource lifecycle management and cleanup. The policy prevents the operator from removing the `red-hat-managed` tag, which identifies these resources as Red Hat-managed.
+- Manage VPC endpoints that reference security groups: The Control Plane Operator can modify VPC endpoints that reference security groups. VPC endpoint reconciliation during cluster upgrades requires this permission.
 
 To view the full JSON policy document, see [ROSAControlPlaneOperatorPolicy](../../../aws-managed-policy/latest/reference/ROSAControlPlaneOperatorPolicy.md "../../../aws-managed-policy/latest/reference/ROSAControlPlaneOperatorPolicy.md") in the _AWS Managed Policy Reference Guide_.
+
+### AWS managed policy: ROSAKarpenterControllerPolicy
+
+You can attach `ROSAKarpenterControllerPolicy` to your IAM entities.
+Attach this policy to an operator IAM role so the ROSA with hosted control planes cluster can make calls to other AWS services.
+Each cluster requires a unique set of operator roles.
+
+The ROSA Karpenter controller uses this policy to dynamically provision, scale, and manage EC2 worker nodes based on real-time cluster workload demands.
+The policy grants permissions for EC2 instance lifecycle management (launching, tagging, and terminating instances), fleet creation, and launch template management.
+The policy also covers cost-aware instance selection through the Pricing API, EBS volume encryption using customer-managed KMS keys, and IAM instance profile management for node roles.
+A strict service boundary, enforced through the `red-hat-managed: "true"` resource and request tag, scopes all mutative operations so the controller can only create, modify, or terminate resources that belong to the ROSA-managed infrastructure.
+
+The policy restricts EC2 images to approved Red Hat and AWS AMI publisher accounts, limits IAM instance profiles to the ROSA-specific naming pattern (`rosa-service-managed-`), and permits the controller to pass only ROSA worker node roles () to the EC2 service.
+This policy complements the existing ROSANodePoolManagementPolicy by adding dynamic, Karpenter-driven autoscaling capabilities while maintaining ROSA’s established security model and least-privilege principles.
+
+#### Permissions details
+
+This policy includes the following permissions that allow the ROSA Karpenter controller to complete the following tasks:
+
+- `ec2` — Describe and discover availability zones, instance types, images, launch templates, security groups, subnets, VPCs, snapshots, spot price history, and capacity reservations. Create and manage EC2 fleets, instances, volumes, launch templates, and spot instance requests. Tag and terminate resources tagged with `red-hat-managed: true`.
+- `pricing` — Query EC2 instance pricing information for cost-optimized node selection.
+- `kms` — Describe, decrypt, re-encrypt, and generate data keys using customer-managed KMS keys tagged with `red-hat: true` for EBS volume encryption. Create scoped KMS grants that delegate these operations to the EC2 service.
+- `iam` — Pass ROSA worker node roles to the EC2 service for instance launches. Create, read, tag, and manage instance profiles matching the ROSA-specific naming pattern (`rosa-service-managed-*`).
+
+To view the full JSON policy document, see [ROSAKarpenterControllerPolicy](../../../aws-managed-policy/latest/reference/ROSAKarpenterControllerPolicy.md "../../../aws-managed-policy/latest/reference/ROSAKarpenterControllerPolicy.md") in the _AWS Managed Policy Reference Guide_.
 
 ## ROSA updates to AWS managed policies
 
@@ -333,6 +361,9 @@ For automatic alerts about changes to this page, subscribe to the RSS feed on th
 
 | Change                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Date              |
 | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| ROSANodePoolManagementPolicy — Policy updated             | AWS updated ROSANodePoolManagementPolicy so the NodePool controller can describe EC2 instance types and handle spot-instance interruption messages from customer-tagged Amazon SQS queues.<br>These SQS actions apply only to queues that carry the `red-hat: "true"` resource tag.<br>To learn more, see [AWS managed policy: ROSANodePoolManagementPolicy](#security-iam-awsmanpol-rosanodepoolmanagementpolicy "#security-iam-awsmanpol-rosanodepoolmanagementpolicy").                   | July 28, 2026     |
+| ROSAControlPlaneOperatorPolicy — Policy updated           | AWS updated ROSAControlPlaneOperatorPolicy. With this update, the Control Plane Operator can add and remove tags on Red Hat-managed security groups (`ec2:DeleteTags`).<br>A safeguard prevents the operator from removing the `red-hat-managed` tag itself.<br>To learn more, see [AWS managed policy: ROSAControlPlaneOperatorPolicy](#security-iam-awsmanpol-rosacontrolplaneoperatorpolicy "#security-iam-awsmanpol-rosacontrolplaneoperatorpolicy").                                    | July 28, 2026     |
+| ROSAKarpenterControllerPolicy — New policy added          | AWS released a new policy to enable the Karpenter controller to dynamically provision, scale, and manage EC2 worker nodes for ROSA with hosted control planes clusters.<br>To learn more, see [AWS managed policy: ROSAKarpenterControllerPolicy](#security-iam-awsmanpol-rosakarpentercontrollerpolicy "#security-iam-awsmanpol-rosakarpentercontrollerpolicy").                                                                                                                            | July 22, 2026     |
 | ROSAControlPlaneOperatorPolicy — Policy updated           | ROSA updated the policy to allow tagging of Red Hat-managed security groups for proper resource lifecycle management and to add security-group/\<br>• to ManageVPCEndpointWithCondition to fix VPCE reconciliation failures during cluster upgrades.<br>To learn more, see [AWS managed policy: ROSAControlPlaneOperatorPolicy](#security-iam-awsmanpol-rosacontrolplaneoperatorpolicy "#security-iam-awsmanpol-rosacontrolplaneoperatorpolicy").                                            | April 9, 2026     |
 | ROSAKubeControllerPolicy — Policy updated                 | ROSA updated the policy to clarify Elastic Load Balancing permissions for registering and deregistering targets with target groups.<br>To learn more, see [AWS managed policy: ROSAKubeControllerPolicy](#security-iam-awsmanpol-rosakubecontrollerpolicy "#security-iam-awsmanpol-rosakubecontrollerpolicy").                                                                                                                                                                               | March 5, 2026     |
 | ROSANodePoolManagementPolicy — Policy updated             | ROSA updated the policy to add resource access for Amazon EC2 Capacity Reservations.<br>This change allows the NodePool controller to access and describe Capacity Reservations for improved resource management.<br>To learn more, see [AWS managed policy: ROSANodePoolManagementPolicy](#security-iam-awsmanpol-rosanodepoolmanagementpolicy "#security-iam-awsmanpol-rosanodepoolmanagementpolicy").                                                                                     | September 3, 2025 |
