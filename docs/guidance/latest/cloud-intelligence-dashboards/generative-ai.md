@@ -1,8 +1,8 @@
-# Generative AI Assistant with CID and Amazon Quick Suite
+# Generative AI Assistant with CID and Amazon Quick
 
 ## Introduction
 
-Unlock the power of generative AI for your cloud operations by integrating Cloud Intelligence Dashboards (CID) with Amazon Quick Suite generative AI capabilities. This innovative approach transforms how cloud operations teams analyze, understand, and optimize their AWS environments.
+Unlock the power of generative AI for your cloud operations by integrating Cloud Intelligence Dashboards (CID) with Amazon Quick generative AI capabilities. This innovative approach transforms how cloud operations teams analyze, understand, and optimize their AWS environments.
 
 Instead of manually navigating through multiple dashboards and correlating data points, you can now ask natural language questions and receive intelligent, data-driven insights across FinOps, cost efficiency, security, performance, and operational excellence topics. The AI-powered CID Operations Advisor provides comprehensive analysis by understanding your specific cloud environment and delivering actionable recommendations tailored to your business needs.
 
@@ -17,18 +17,18 @@ Key benefits include:
 
 ## Architecture Overview
 
-The solution combines your existing CID dashboards with Amazon Quick Suite’s generative AI capabilities to create an intelligent operations advisor that understands your cloud environment and provides contextual insights.
+The solution combines your existing CID dashboards with Amazon Quick’s generative AI capabilities to create an intelligent operations advisor that understands your cloud environment and provides contextual insights.
 
 ![Quick Suite Architecture](images/QuickSuite_architecture.png)
 
 ###### Note
 
-Amazon Quick Suite generative AI features incur additional charges. Review Author Pro, Reader Pro and infrastructure fee [Amazon Quick pricing](https://aws.amazon.com/quicksight/pricing/ "https://aws.amazon.com/quicksight/pricing/") before proceeding.
+Amazon Quick generative AI features incur additional charges. Review Author Pro, Reader Pro and infrastructure fee [Amazon Quick pricing](https://aws.amazon.com/quicksight/pricing/ "https://aws.amazon.com/quicksight/pricing/") before proceeding.
 
 ## Prerequisites
 
 1. Deploy one or more Cloud Intelligence Dashboards: [CUDOS Dashboard v5](cudos-cid-kpi.md#foundational-cudos-dashboard "cudos-cid-kpi.md#foundational-cudos-dashboard"), [CORA - Cost Optimization Recommended Actions](cora-dashboard.md "cora-dashboard.md"), [Trusted Advisor Organizational View](trusted-advisor-dashboard.md "trusted-advisor-dashboard.md"), [Health Events Dashboard](health-events-dashboard.md "health-events-dashboard.md"), [Resilience Vue](resiliencevue-dashboard.md "resiliencevue-dashboard.md"), [AWS Config Resource Compliance Dashboard](config-resource-compliance-dashboard.md "config-resource-compliance-dashboard.md"), [Support Cases Radar](support-cases-radar.md "support-cases-radar.md"), [Graviton Savings Dashboard](graviton-savings-dashboard.md "graviton-savings-dashboard.md"), [Extended Support Cost Projection](extended-support.md "extended-support.md"), [FOCUS Dashboard](focus-dashboard.md "focus-dashboard.md"), or [SCAD Containers Cost Allocation](scad-containers-dashboard.md "scad-containers-dashboard.md")
-2. Have a Quick Suite user with Author Pro or Reader Pro permissions. See [Managing users in Amazon Quick](../../../quicksight/latest/user/managing-users.md "../../../quicksight/latest/user/managing-users.md") for setup instructions
+2. Have a Quick user with Author Pro or Reader Pro permissions. See [Managing users in Amazon Quick](../../../quicksight/latest/user/managing-users.md "../../../quicksight/latest/user/managing-users.md") for setup instructions
 
 ## Deployment
 
@@ -36,9 +36,9 @@ Amazon Quick Suite generative AI features incur additional charges. Review Autho
 
 ![Quick Suite Create Space](images/QuickSuite_create_space.gif)
 
-1. **Navigate to Quick Suite Spaces**
+1. **Navigate to Quick Spaces**
 
-   - Open Amazon Quick Suite console
+   - Open Amazon Quick console
    - Select "Spaces" from navigation menu
    - Click "Create space"
 
@@ -62,7 +62,7 @@ Amazon Quick Suite generative AI features incur additional charges. Review Autho
 
 1. **Navigate to Chat Agents**
 
-   - In Quick Suite console, select "Chat Agents"
+   - In Quick console, select "Chat Agents"
    - Click "Create Chat Agent"
    - Click "Skip" when the prompt box appears
 
@@ -226,13 +226,13 @@ Test your agent with sample prompts organized by use case.
 
 ## Flows: Automated Cloud Operations
 
-Create intelligent workflows that monitor your CID dashboards and automatically take actions based on dashboard insights. Amazon Quick Suite offers multiple approaches for creating flows, allowing you to choose the method that best fits your workflow preferences and technical requirements.
+Create intelligent workflows that monitor your CID dashboards and automatically take actions based on dashboard insights. Amazon Quick offers multiple approaches for creating flows, allowing you to choose the method that best fits your workflow preferences and technical requirements.
 
 ### Flow Creation Methods
 
 You can create CID flows using different approaches. This guide demonstrates two methods:
 
-**Method 1: Natural Language Prompt (NLP)** - Describe your desired flow in plain language and let Quick Suite generate it automatically using AI-powered flow creation.
+**Method 1: Natural Language Prompt (NLP)** - Describe your desired flow in plain language and let Quick generate it automatically using AI-powered flow creation.
 
 **Method 2: Build from Scratch** - Create a blank flow and configure each step manually for complete control over workflow design and logic.
 
@@ -244,9 +244,9 @@ This flow automatically detects cost spikes in your CUDOS dashboard and instantl
 
 ![Quick Suite Create Flow 12](/images/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_flow_1_2.gif)
 
-**Navigate to Quick Suite Flows**
+**Navigate to Quick Flows**
 
-- In Quick Suite console, select "Flows"
+- In Quick console, select "Flows"
 - Click "Create Flow"
 - Click "Generate"
 
@@ -279,9 +279,9 @@ Inside reasoning group, add these steps in order:
 
 ![Quick Suite Create Flow 11](images/QuickSuite_create_flow_1_1.gif)
 
-**Navigate to Quick Suite Flows**
+**Navigate to Quick Flows**
 
-- In Quick Suite console, select "Flows"
+- In Quick console, select "Flows"
 - Click "Create Flow"
 - Click "Create a blank flow"
 
@@ -384,9 +384,9 @@ This flow instantly analyzes your CUDOS dashboard to identify and prioritize the
 
 ![Quick Suite Create Flow 22](images/QuickSuite_create_flow_2_2.gif)
 
-**Navigate to Quick Suite Flows**
+**Navigate to Quick Flows**
 
-- In Quick Suite console, select "Flows"
+- In Quick console, select "Flows"
 - Click "Create Flow"
 - Click "Generate"
 
@@ -420,9 +420,9 @@ After reasoning group:
 
 ![Quick Suite Create Flow 21](images/QuickSuite_create_flow_2_1.gif)
 
-**Navigate to Quick Suite Flows**
+**Navigate to Quick Flows**
 
-- In Quick Suite console, select "Flows"
+- In Quick console, select "Flows"
 - Click "Create Flow"
 - Click "Create a blank flow"
 
@@ -506,7 +506,7 @@ Combine your CID dashboard data with external market intelligence, industry benc
 
 **Create Research**
 
-- In Quick Suite console, select "Research"
+- In Quick console, select "Research"
 - Click "New Research"
 
 **Configure Basic Settings**
@@ -537,7 +537,7 @@ Analyze cloud spending benchmarks and optimization strategies for our industry v
 - Web search: Yes
 - Preferred websites: gartner.com, forrester.com, aws.amazon.com, cloudzero.com, flexera.com
 - Websites to avoid: competitor-specific blogs, promotional content
-- Quick Suite assets: Browse and select CID dashboards (CUDOS, CORA, Cost Intelligence)
+- Quick assets: Browse and select CID dashboards (CUDOS, CORA, Cost Intelligence)
 
 **Customer Value:** Provides external context for internal CUDOS findings, identifies industry-specific optimization opportunities, and benchmarks cost efficiency against competitors to guide strategic decisions.
 
@@ -556,7 +556,7 @@ Research AWS service announcements, roadmaps, and upcoming changes that could im
 - Web search: Yes
 - Preferred websites: aws.amazon.com, docs.aws.amazon.com, aws.amazon.com/blogs, aws.amazon.com/new
 - Websites to avoid: third-party speculation, unofficial sources
-- Quick Suite assets: Browse and select CID dashboards (CUDOS, Health Events, Extended Support)
+- Quick assets: Browse and select CID dashboards (CUDOS, Health Events, Extended Support)
 
 **Customer Value:** Enables proactive infrastructure planning, identifies future cost optimization opportunities, and helps avoid costly migrations by planning ahead for AWS service changes.
 
@@ -575,7 +575,7 @@ Research industry-specific security compliance requirements and best practices t
 - Web search: Yes
 - Preferred websites: aws.amazon.com/compliance, nist.gov, cisecurity.org, sans.org, owasp.org
 - Websites to avoid: unverified compliance blogs, outdated regulatory information
-- Quick Suite assets: Browse and select CID dashboards (TAC Dashboard, Health Events, CUDOS Security findings)
+- Quick assets: Browse and select CID dashboards (TAC Dashboard, Health Events, CUDOS Security findings)
 
 **Customer Value:** Provides regulatory context for security findings, identifies compliance gaps, and recommends cost-effective paths to meet industry requirements while optimizing cloud spending.
 
@@ -583,13 +583,13 @@ Research industry-specific security compliance requirements and best practices t
 
 Enhance your CID Operations Advisor with Cloud Financial Management (CFM) best practices by adding the [CFM Technical Implementation Playbooks (CFM TIPs)](https://catalog.workshops.aws/awscff/en-US "https://catalog.workshops.aws/awscff/en-US") as a knowledge base. This enables your chat agent and flows to provide more effective guidance grounded in proven CFM frameworks and actionable examples.
 
-For full details on Web Crawler integration, see [Web Crawler integration in Amazon Quick Suite](../../../quicksuite/latest/userguide/web-crawler-integration.md "../../../quicksuite/latest/userguide/web-crawler-integration.md").
+For full details on Web Crawler integration, see [Web Crawler integration in Amazon Quick](../../../quicksuite/latest/userguide/web-crawler-integration.md "../../../quicksuite/latest/userguide/web-crawler-integration.md").
 
 ### Step 1: Create a Web Crawler Knowledge Base
 
-1. **Navigate to Quick Suite Knowledge Bases**
+1. **Navigate to Quick Knowledge Bases**
 
-   - Open Amazon Quick Suite console
+   - Open Amazon Quick console
    - Select "Knowledge bases" from navigation menu
    - Click "Create knowledge base"
 
@@ -615,7 +615,7 @@ For full details on Web Crawler integration, see [Web Crawler integration in Ama
 
 1. **Open Your CID Space**
 
-   - In Quick Suite console, select "Spaces"
+   - In Quick console, select "Spaces"
    - Open your existing "CID Dashboards Space"
 
 2. **Link the CFM Knowledge Base**
@@ -664,9 +664,9 @@ The agent will now combine your CID dashboard data with CFM TIPs guidance to pro
 
 ## Summary
 
-Integrating Cloud Intelligence Dashboards with Amazon Quick Suite transforms cloud operations through comprehensive AI capabilities. This solution enables teams to analyze intelligently through chat agents, automate operations through intelligent flows, and enhance decision-making through AI-powered research. The combination delivers accelerated analysis, automated responses, and strategic intelligence that drives superior cloud operations outcomes.
+Integrating Cloud Intelligence Dashboards with Amazon Quick transforms cloud operations through comprehensive AI capabilities. This solution enables teams to analyze intelligently through chat agents, automate operations through intelligent flows, and enhance decision-making through AI-powered research. The combination delivers accelerated analysis, automated responses, and strategic intelligence that drives superior cloud operations outcomes.
 
-For questions, feedback, or support regarding generative AI capabilities with CID and Amazon Quick Suite, please refer to the [Feedback & Support](feedback-support.md "feedback-support.md") page.
+For questions, feedback, or support regarding generative AI capabilities with CID and Amazon Quick, please refer to the [Feedback & Support](feedback-support.md "feedback-support.md") page.
 
 ## Authors
 

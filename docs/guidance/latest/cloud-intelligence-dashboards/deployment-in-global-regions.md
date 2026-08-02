@@ -155,21 +155,21 @@ Management/Payer Accounts).
 
 ## Step 3. [Data Collection Account] Deploy Dashboards
 
-### 3.1 - Prepare Amazon Quick Sight (Quick Suite)
+### 3.1 - Prepare Amazon Quick Sight (Quick)
 
-Amazon Quick Sight is the AWS Business Intelligence tool, part of Amazon Quick Suite service. You can install
+Amazon Quick Sight is the AWS Business Intelligence tool, part of Amazon Quick service. You can install
 Dashboards into your Amazon Quick Sight account and customize them to
 your needs. If you are already a regular Amazon Quick Sight user you can
 skip these steps and move on to the next step. If not, complete the
 steps below.
 
-1. Log into your Destination Linked Account and search for **Quick Suite**
+1. Log into your Destination Linked Account and search for **Quick**
    in the list of Services
 2. You will be asked to **Sign up** before you will be able to use it
 
    - Ensure you select the **Region** that is most appropriate based on where you plan to deploy the dashboards.
-   - Enter a **name** for your Quick Suite account. This must be unique across all Quick Suite accounts.
-   - Enter an **email address** for notifications to be sent to. This email will be linked to your Quick Suite user account so it can be your email.
+   - Enter a **name** for your Quick account. This must be unique across all Quick accounts.
+   - Enter an **email address** for notifications to be sent to. This email will be linked to your Quick user account so it can be your email.
 
 3. You will then need to fill in a series of options in order to finish creating your account:
 
@@ -179,10 +179,10 @@ steps below.
 
    Select `Use AWS IAM Identity Center` if you want to use and share the CID dashboards in Production with your wider Organization using your existing Identity Provider such as Azure AD, Okta, or others. Follow the steps [here](publishing-as-sso-application.md "publishing-as-sso-application.md"). You may select `Use IAM federated identities & Quick Sight-managed users` to get started quickly, however, **NOTE:** You will **NOT** be able to change the Quick Sight Authentication method later
 
-4. Click **Create Account** and wait for the congratulations screen to display. Go to 'Manage Quick Suite'.
+4. Click **Create Account** and wait for the congratulations screen to display. Go to 'Manage Quick'.
 
-   - (optional, not recommended) Downgrade your user to avoid charges for Amazon Q in Quick Suite.
-   - Make sure that Pixel Perfect and Amazon Q in Quick Suite are deactivated.
+   - (optional, not recommended) Downgrade your user to avoid charges for Amazon Q in Quick.
+   - Make sure that Pixel Perfect and Amazon Q in Quick are deactivated.
    - Click on the SPICE Capacity option and choose `auto purchase` or purchase enough SPICE capacity so
      that the total is roughly 40GB. If you get SPICE capacity errors later, you can come back here to purchase more. If you’ve purchased too much you can also release it after you’ve deployed the dashboards.
 
