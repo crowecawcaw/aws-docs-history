@@ -2,8 +2,7 @@
 
 ###### Note
 
-Amazon Cognito Sync will no longer be open to new customers starting July 30, 2026.
-Existing Amazon Cognito Sync customers can continue using the service. For alternatives to
+Amazon Cognito Sync is no longer open to new customers. For alternatives to
 Amazon Cognito Sync, please explore [AWS AppSync](../../../appsync.md "../../../appsync.md") and [DynamoDB](../../../dynamodb.md "../../../dynamodb.md").
 [Learn more](cognito-sync-availability-change.md "cognito-sync-availability-change.md").
 

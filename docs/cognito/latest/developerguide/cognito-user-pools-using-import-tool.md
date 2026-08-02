@@ -19,11 +19,6 @@ file, Amazon Cognito imports the users with their existing passwords. These user
 `CONFIRMED` status and can sign in immediately without resetting their passwords.
 For more information, see [Importing users with password hashes](#cognito-user-pools-import-password-hash "#cognito-user-pools-import-password-hash").
 
-###### Limitation for earlier user pools
-
-You can't import password hashes into user pools that you created before the release of
-this feature.
-
 The lowest-effort way to import users from a CSV is to activate [passwordless
 sign-in](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless") in your user pool. With email address and phone number attributes and the right
 user pool configuration, users can sign in with email or SMS one-time passwords (OTPs)
