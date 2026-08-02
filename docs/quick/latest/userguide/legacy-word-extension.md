@@ -3,7 +3,7 @@
 ###### Note
 
 This is the legacy Microsoft Word extension. We recommend using
-the new [Amazon Quick Microsoft Word extension (Preview)](word-extension.md "word-extension.md")
+the new [Amazon Quick Microsoft Word extension](word-extension.md "word-extension.md")
 for new deployments.
 
 The Quick extension for Microsoft Word integrates

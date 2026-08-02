@@ -47,10 +47,10 @@ User roles and extension permissions work as follows:
 ###### Topics
 
 - [Browser extension](browser-extension.md "browser-extension.md")
-- [Amazon Quick Microsoft Outlook extension (Preview)](outlook-extension.md "outlook-extension.md")
-- [Amazon Quick Microsoft Excel extension (Preview)](excel-extension.md "excel-extension.md")
-- [Amazon Quick Microsoft Word extension (Preview)](word-extension.md "word-extension.md")
-- [Amazon Quick Microsoft PowerPoint extension (Preview)](powerpoint-extension.md "powerpoint-extension.md")
+- [Amazon Quick Microsoft Outlook extension](outlook-extension.md "outlook-extension.md")
+- [Amazon Quick Microsoft Excel extension](excel-extension.md "excel-extension.md")
+- [Amazon Quick Microsoft Word extension](word-extension.md "word-extension.md")
+- [Amazon Quick Microsoft PowerPoint extension](powerpoint-extension.md "powerpoint-extension.md")
 - [Amazon Quick Slack extension](slack-extension.md "slack-extension.md")
 - [Amazon Quick Microsoft Teams extension](teams-extension.md "teams-extension.md")
 - [Amazon Quick Microsoft Outlook extension (Legacy)](legacy-outlook-extension.md "legacy-outlook-extension.md")

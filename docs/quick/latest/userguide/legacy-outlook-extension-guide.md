@@ -3,7 +3,7 @@
 ###### Note
 
 This is the legacy version of the Microsoft Outlook extension. We
-recommend using the new [Amazon Quick Microsoft Outlook extension (Preview)](outlook-extension-guide.md "outlook-extension-guide.md") for new deployments.
+recommend using the new [Amazon Quick Microsoft Outlook extension](outlook-extension-guide.md "outlook-extension-guide.md") for new deployments.
 
 ###### Note
 

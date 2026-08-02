@@ -1,12 +1,4 @@
-# Amazon Quick Microsoft Excel extension (Preview)
-
-###### Note
-
-This extension is currently available as a preview. During the preview period,
-the extension is fully functional for end users and production workloads.
-Administrative features such as centralized deployment controls and usage monitoring
-are being developed and will be available when the extension becomes generally
-available. Functionality and features may change during the preview period.
+# Amazon Quick Microsoft Excel extension
 
 The Amazon Quick extension for Excel helps you work with data faster
 by automating data cleaning, analysis, and visualization tasks while integrating with

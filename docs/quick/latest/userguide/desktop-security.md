@@ -12,7 +12,7 @@ conversations, files, or personal context to train or improve AI models.
 ###### Note
 
 To control which Amazon Quick features your users can access after they sign in,
-configure custom permissions. For more information, see [Creating a custom permissions profile in Amazon Quick](create-custom-permissions-profile.md "create-custom-permissions-profile.md").
+configure custom permissions. For more information, see [Custom permissions](custom-permissions.md "custom-permissions.md").
 
 ## How data is handled
 

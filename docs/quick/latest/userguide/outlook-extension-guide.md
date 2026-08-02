@@ -1,14 +1,4 @@
-# Amazon Quick Microsoft Outlook extension (Preview)
-
-###### Note
-
-This extension is currently available as a preview. During the preview period,
-the extension is fully functional for end users and production workloads.
-Administrative features such as centralized deployment controls and usage monitoring
-are being developed and will be available when the extension becomes generally
-available. Functionality and features may change during the preview period. We
-recommend using this extension instead of the legacy Microsoft Outlook
-extension for new deployments.
+# Amazon Quick Microsoft Outlook extension
 
 The Amazon Quick extension for Outlook helps you manage your entire
 inbox using natural language. You can summarize unread messages, organize your inbox,

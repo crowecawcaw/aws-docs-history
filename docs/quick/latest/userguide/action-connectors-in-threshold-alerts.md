@@ -79,7 +79,7 @@ The connector must meet these requirements:
     user or role gets restricted from using the **Export To PDF** capability.
 
 To learn more about custom permissions, see
-[Creating a custom permissions profile in Amazon Quick](create-custom-permissions-profile.md "create-custom-permissions-profile.md").
+[Custom permissions in Amazon Quick](custom-permissions.md "custom-permissions.md").
 
 **Row Level Security (RLS) / Column Level Security (CLS)**
 

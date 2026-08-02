@@ -462,7 +462,7 @@ valid for what is selected in other controls. This is called a cascading control
    showing only specific values).
 5. The parent control must be one of the following:
 
-   1. A string, integer, or numeric parameter control.
+   1. A string, integer, or numeric parameter control. DateTime parameter control is not supported.
    2. A string filter control (excluding top-bottom filters).
    3. A non-aggregated numeric filter control.
    4. A date filter control (excluding top-bottom filters).

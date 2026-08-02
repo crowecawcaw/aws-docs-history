@@ -20,21 +20,17 @@ The following extension types are available:
   experience with AI-powered page summarization, content analysis, and knowledge
   access across Google Chrome, Firefox, and
   Microsoft Edge browsers. No admin setup required.
-- **Microsoft Outlook extension
-  (Preview)** - Manage your entire inbox using natural language.
+- **Microsoft Outlook extension** - Manage your entire inbox using natural language.
   Summarize unread messages, organize your inbox, schedule meetings, and draft
   contextual responses using your Quick enterprise data. No admin setup
   required.
-- **Microsoft Excel extension
-  (Preview)** - Perform in-depth analysis of your workbooks, import and
+- **Microsoft Excel extension** - Perform in-depth analysis of your workbooks, import and
   clean up data, generate tables and charts, and automate spreadsheet operations using
   natural language. No admin setup required.
-- **Microsoft Word extension
-  (Preview)** - Generate formatted documents, make edits while
+- **Microsoft Word extension** - Generate formatted documents, make edits while
   maintaining writing style and structure, and redline documents with track changes
   and comments. No admin setup required.
-- **Microsoft PowerPoint extension
-  (Preview)** - Create visually appealing presentations, edit slides
+- **Microsoft PowerPoint extension** - Create visually appealing presentations, edit slides
   using natural language, and streamline operations such as restructuring
   presentations and applying transitions. No admin setup required.
 - **Slack extension** - Access
@@ -56,10 +52,10 @@ The following extension types are available:
 
 - [Amazon Quick user interaction with extensions](extension-roles-overview.md "extension-roles-overview.md")
 - [Amazon Quick browser extension](browser-extension-user-guide.md "browser-extension-user-guide.md")
-- [Amazon Quick Microsoft Outlook extension (Preview)](outlook-extension-guide.md "outlook-extension-guide.md")
-- [Amazon Quick Microsoft Excel extension (Preview)](excel-extension-guide.md "excel-extension-guide.md")
-- [Amazon Quick Microsoft Word extension (Preview)](word-extension-guide.md "word-extension-guide.md")
-- [Amazon Quick Microsoft PowerPoint extension (Preview)](powerpoint-extension-guide.md "powerpoint-extension-guide.md")
+- [Amazon Quick Microsoft Outlook extension](outlook-extension-guide.md "outlook-extension-guide.md")
+- [Amazon Quick Microsoft Excel extension](excel-extension-guide.md "excel-extension-guide.md")
+- [Amazon Quick Microsoft Word extension](word-extension-guide.md "word-extension-guide.md")
+- [Amazon Quick Microsoft PowerPoint extension](powerpoint-extension-guide.md "powerpoint-extension-guide.md")
 - [Amazon Quick Slack extension](slack-extension-guide.md "slack-extension-guide.md")
 - [Amazon Quick Microsoft Teams extension](teams-extension-guide.md "teams-extension-guide.md")
 - [Amazon Quick Microsoft Outlook extension (Legacy)](legacy-outlook-extension-guide.md "legacy-outlook-extension-guide.md")

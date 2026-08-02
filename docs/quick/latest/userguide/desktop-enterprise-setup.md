@@ -21,14 +21,27 @@ Continue to [Getting started](getting-started-desktop.md "getting-started-deskto
 ## How enterprise sign-in works
 
 The Amazon Quick desktop application uses the OIDC protocol to authenticate users.
-When a user chooses **Continue with SSO**, the application
-opens a browser window and redirects to your IdP's authorization endpoint. The
-application then exchanges the resulting authorization code for tokens using Proof Key
-for Code Exchange (PKCE).
+When you choose **Continue with SSO**, a browser window
+opens to Amazon Quick. Amazon Quick identifies your configured identity
+provider and redirects to your IdP's authorization endpoint. The application then
+exchanges the resulting authorization code for tokens using Proof Key for Code
+Exchange (PKCE).
+
+To identify the configured identity provider, your browser must have an active
+Amazon Quick web session. If no session exists, the browser prompts you to sign in
+to Amazon Quick before the application redirects to your IdP.
 
 Amazon Quick validates the token and maps the user to an identity in your account.
 The email address in your IdP must exactly match the email address of the user
 in Amazon Quick.
+
+###### Note
+
+If you sign in for the first time, the browser checks for an active
+Amazon Quick web session. If no session exists, the browser opens the
+Amazon Quick sign-in page instead of redirecting to your IdP. Sign in to
+Amazon Quick in the browser to continue. The desktop application then completes
+sign-in through your configured identity provider.
 
 ## Prerequisites
 
