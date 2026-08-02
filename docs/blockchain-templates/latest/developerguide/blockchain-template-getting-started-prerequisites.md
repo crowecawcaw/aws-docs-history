@@ -176,7 +176,7 @@ you can search for the role name.
 ![IAM console showing ECSRoleForEtherium role selected in the roles list with search filter.](images/ecs-role-list.png) 10. Copy the **Role ARN** value and save it so that you can copy it again.
 You need this ARN when you create the Ethereum network.
 
-![AWS IAM role summary page showing role ARN, description, and attached policies.](images/ecs-role-arn.png)
+![AWS IAM role summary page showing role ARN, description, and attached policies.](/images/blockchain-templates/latest/developerguide/images/ecs-role-arn.png)
 
 The EC2 instance profile that you specify in the template is assumed by EC2 instances in the Ethereum network to interact with other AWS services. You create a permissions policy for the role, create the role (which automatically creates an instance profile of the same name), and then attach the permissions policy to the role.
 
