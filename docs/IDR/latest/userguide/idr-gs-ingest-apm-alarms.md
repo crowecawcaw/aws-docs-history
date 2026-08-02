@@ -24,7 +24,7 @@ The following diagram shows an example of integration using a API Gateway.
 
 The following diagram shows an example of integration using a Amazon SNS.
 
-![Diagram showing an example of integration using Amazon SNS.](images/example-int-sns.png)
+![Diagram showing an example of integration using Amazon SNS.](/images/IDR/latest/userguide/images/example-int-sns.png)
 To simplify the integration process, AWS Incident Detection and Response provides CloudFormation templates for the most commonly used integration types. These templates automate the setup of AWS resources, and necessary IAM roles.
 
 CloudFormation Templates and instructions to manually create various integration types can be found in the corresponding integration documentation below:
