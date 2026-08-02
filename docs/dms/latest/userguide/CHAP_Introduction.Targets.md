@@ -28,7 +28,7 @@ AWS DMS doesn't support SQL Server Web and Express editions.
 
 - MySQL versions 5.5, 5.6, 5.7, 8.0, and 8.4
 - MariaDB (supported as a MySQL-compatible data target) versions 10.0.24 to
-  10.0.28, 10.2, 10.3, 10.4, 10.5, 10.6, 10.11, and 11.4.3 to 11.4.7.
+  10.0.28, 10.2, 10.3, 10.4, 10.5, 10.6, 10.11, and 11.4.
 
 ###### Note
 
@@ -62,7 +62,7 @@ AWS DMS doesn't support SQL Server Web and Express editions.
 
 - MySQL versions 5.5, 5.6, 5.7, 8.0, and 8.4.
 - MariaDB (supported as a MySQL-compatible data target) versions 10.0.24 to
-  10.0.28, 10.2, 10.3, 10.4, 10.5, 10.6, 10.11, and 11.4.3 to 11.4.7.
+  10.0.28, 10.2, 10.3, 10.4, 10.5, 10.6, 10.11, and 11.4.
 
 ###### Note
 

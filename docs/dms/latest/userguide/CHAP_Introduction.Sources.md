@@ -41,8 +41,7 @@ MySQL and DMS Compatibility| MySQL Version | DMS Version | Compressed transactio
 | 8.4 | 3.5.4 and above | No |
 
 - MariaDB (supported as a MySQL-compatible data source) versions 10.0 (only
-  versions 10.0.24 and higher), 10.2, 10.3, 10.4, 10.5, 10.6, 10.11, and 11.4.3 to
-  11.4.7.
+  versions 10.0.24 and higher), 10.2, 10.3, 10.4, 10.5, 10.6, 10.11, and 11.4.
 
 ###### Note
 
@@ -107,7 +106,7 @@ MySQL and DMS Compatibility| MySQL Version | DMS Version | Compressed transactio
 | 8.4 | 3.5.4 and above | No |
 
 - MariaDB (supported as a MySQL-compatible data source) versions 10.0.24 to
-  10.0.28, 10.2, 10.3, 10.4, 10.5, 10.6, 10.11, and 11.4.3 to 11.4.7.
+  10.0.28, 10.2, 10.3, 10.4, 10.5, 10.6, 10.11, and 11.4.
 
 ###### Note
 
