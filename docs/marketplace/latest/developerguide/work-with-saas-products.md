@@ -91,7 +91,15 @@ Content-type: application/json
             "Endpoints": [
               {
                 "Name": "GenerateContent",
-                "EndpointUrl": "`https://api.example.com/v1/generate`",
+                "EndpointUrl": "`https://api.example.com/v1/{tenantId}/generate`",
+                "EndpointType": "DYNAMIC",
+                "EndpointUrlParameters": [
+                  {
+                    "Name": "tenantId",
+                    "Description": "`The unique identifier for the buyer's tenant`",
+                    "DefaultValue": "`default`"
+                  }
+                ],
                 "Description": "Generate content using AI models",
                 "AuthorizationTypes": ["API_KEY"],
                 "Schemas": [{
@@ -171,7 +179,42 @@ change type:
             Maximum 100 characters.
           - `EndpointUrl` (string) (required)
             – The URL of the API endpoint. Must be a
-            valid HTTPS URL.
+            valid HTTPS URL. Can contain placeholder
+            parameters using `{paramName}` syntax
+            when `EndpointType` is
+            `DYNAMIC`.
+          - `EndpointType` (string)
+            (optional) – The endpoint type. Valid
+            values: `STATIC`,
+            `DYNAMIC`. Use `DYNAMIC`
+            for endpoints with placeholder parameters that
+            resolve to buyer-specific values. Requires
+            `EndpointUrlParameters` and
+            `QuickLaunchEnabled` set to
+            `true`.
+          - `EndpointUrlParameters` (array)
+            (optional) – The placeholder parameters
+            in a dynamic endpoint URL. Required when
+            `EndpointType` is
+            `DYNAMIC`. Limited to 1-5
+            parameters.
+
+            - `Name` (string) (required)
+              – The parameter name. Must match a
+              `{paramName}` placeholder in the
+              `EndpointUrl`. Must match pattern
+              `^[a-zA-Z][a-zA-Z0-9_]*$`. Maximum
+              100 characters.
+            - `Description` (string)
+              (optional) – A description of the
+              parameter. Maximum 1,000 characters.
+            - `DefaultValue` (string)
+              (optional) – The default value for the
+              parameter until the seller delivers a value.
+              Must match pattern
+              `^[a-zA-Z0-9._~-]+$`. Maximum 256
+              characters.
+
           - `Description` (string) (optional)
             – A description of the API endpoint and its
             functionality. Maximum 4,000 characters.
@@ -221,21 +264,28 @@ the ID for the change set and looks like the following.
 
 **Synchronous Validations**
 
-| Error condition                | Message                                                                                                                              | HTTP code |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| Invalid API Type               | You provided an invalid API type. Valid values are:<br>MCP\_SERVER, KNOWLEDGE\_BASE, AGENT, GUARDRAIL, OTHER.                        | 422       |
-| Invalid Fulfillment Url        | Provide a valid fulfillment URL beginning with<br>"https://".                                                                        | 422       |
-| Missing Required Fields        | Required parameter is missing. You must provide ApiType,<br>QuickLaunchEnabled, FulfillmentUrl, UsageInstructions, and<br>Endpoints. | 422       |
-| Invalid Endpoint URL           | Provide a valid endpoint URL beginning with "https://".                                                                              | 422       |
-| Missing Authorization Types    | You must provide at least one authorization type. Valid values<br>are: API\_KEY, OAUTH2.                                             | 422       |
-| Invalid Authorization Types    | You provided invalid authorization types. Valid values are:<br>API\_KEY, OAUTH2.                                                     | 422       |
-| Too Many Endpoints             | You cannot provide more than 1 endpoint for API delivery<br>options.                                                                 | 422       |
-| Invalid Compatible Services    | You provided invalid compatible services. Valid values are:<br>Bedrock-AgentCore.                                                    | 422       |
-| Invalid Schema Type            | You provided an invalid schema type. Valid value is:<br>OPEN\_API.                                                                   | 422       |
-| Invalid Schema URL             | Provide a valid schema URL that points to a Marketplace owned<br>S3 bucket.                                                          | 422       |
-| Invalid Integration Protocol   | You provided an invalid integration protocol type. Valid<br>values are: MCP, A2A.                                                    | 422       |
-| Too Many Integration Protocols | You cannot provide more than 2 integration protocols.                                                                                | 422       |
-| Invalid Usage Instructions     | Usage instructions exceed the maximum length of 30,000<br>characters.                                                                | 422       |
+| Error condition                        | Message                                                                                                                                                                           | HTTP code |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Invalid API Type                       | You provided an invalid API type. Valid values are:<br>MCP\_SERVER, KNOWLEDGE\_BASE, AGENT, GUARDRAIL, OTHER.                                                                     | 422       |
+| Invalid Fulfillment Url                | Provide a valid fulfillment URL beginning with<br>"https://".                                                                                                                     | 422       |
+| Missing Required Fields                | Required parameter is missing. You must provide ApiType,<br>QuickLaunchEnabled, FulfillmentUrl, UsageInstructions, and<br>Endpoints.                                              | 422       |
+| Invalid Endpoint URL                   | Provide a valid endpoint URL beginning with "https://".                                                                                                                           | 422       |
+| Missing Authorization Types            | You must provide at least one authorization type. Valid values<br>are: API\_KEY, OAUTH2.                                                                                          | 422       |
+| Invalid Authorization Types            | You provided invalid authorization types. Valid values are:<br>API\_KEY, OAUTH2.                                                                                                  | 422       |
+| Too Many Endpoints                     | You cannot provide more than 1 endpoint for API delivery<br>options.                                                                                                              | 422       |
+| Invalid Endpoint Type                  | EndpointType must be STATIC or DYNAMIC.                                                                                                                                           | 422       |
+| Endpoint URL Parameters Required       | EndpointUrlParameters is required when EndpointType is<br>DYNAMIC.                                                                                                                | 422       |
+| Endpoint URL Parameters Forbidden      | EndpointUrlParameters is not allowed when EndpointType is<br>STATIC or absent.                                                                                                    | 422       |
+| Invalid Endpoint URL Parameters Count  | EndpointUrlParameters must contain between 1 and 5<br>parameters.                                                                                                                 | 422       |
+| Invalid Endpoint URL Parameter         | EndpointUrlParameters contains an invalid entry. Check that<br>Name starts with a letter (letters, digits, underscores only)<br>and DefaultValue uses only unreserved characters. | 422       |
+| Duplicate Endpoint URL Parameter Names | EndpointUrlParameters must not contain duplicate parameter<br>names.                                                                                                              | 422       |
+| Dynamic Endpoint Requires Quick Launch | QuickLaunchEnabled must be true when EndpointType is<br>DYNAMIC.                                                                                                                  | 422       |
+| Invalid Compatible Services            | You provided invalid compatible services. Valid values are:<br>Bedrock-AgentCore.                                                                                                 | 422       |
+| Invalid Schema Type                    | You provided an invalid schema type. Valid value is:<br>OPEN\_API.                                                                                                                | 422       |
+| Invalid Schema URL                     | Provide a valid schema URL that points to a Marketplace owned<br>S3 bucket.                                                                                                       | 422       |
+| Invalid Integration Protocol           | You provided an invalid integration protocol type. Valid<br>values are: MCP, A2A.                                                                                                 | 422       |
+| Too Many Integration Protocols         | You cannot provide more than 2 integration protocols.                                                                                                                             | 422       |
+| Invalid Usage Instructions             | Usage instructions exceed the maximum length of 30,000<br>characters.                                                                                                             | 422       |
 
 **Asynchronous Errors**
 
@@ -289,7 +339,15 @@ Content-type: application/json
                                 "Endpoints": [
                                     {
                                         "Name": "GenerateContent",
-                                        "EndpointUrl": "`https://api.example.com/v2/generate`",
+                                        "EndpointUrl": "`https://api.example.com/v2/{tenantId}/generate`",
+                                        "EndpointType": "DYNAMIC",
+                                        "EndpointUrlParameters": [
+                                            {
+                                                "Name": "tenantId",
+                                                "Description": "`The unique identifier for the buyer's tenant`",
+                                                "DefaultValue": "`default`"
+                                            }
+                                        ],
                                         "Description": "`Generate content using updated AI models`",
                                         "AuthorizationTypes": ["API_KEY", "OAUTH2"],
                                         "Schemas": [{
@@ -374,7 +432,40 @@ Provide information for the fields to update the
             – The name of the API endpoint.
           - `EndpointUrl` (string) (required)
             – The URL of the API endpoint to be
-            updated.
+            updated. Can contain placeholder parameters
+            using `{paramName}` syntax when
+            `EndpointType` is
+            `DYNAMIC`.
+          - `EndpointType` (string)
+            (optional) – The endpoint type. Valid
+            values: `STATIC`,
+            `DYNAMIC`. Use `DYNAMIC`
+            for endpoints with placeholder parameters that
+            resolve to buyer-specific values. Requires
+            `EndpointUrlParameters`.
+          - `EndpointUrlParameters` (array)
+            (optional) – The placeholder parameters
+            in a dynamic endpoint URL. Required when
+            `EndpointType` is
+            `DYNAMIC`. Limited to 1-5
+            parameters.
+
+            - `Name` (string) (required)
+              – The parameter name. Must match a
+              `{paramName}` placeholder in the
+              `EndpointUrl`. Must match pattern
+              `^[a-zA-Z][a-zA-Z0-9_]*$`. Maximum
+              100 characters.
+            - `Description` (string)
+              (optional) – A description of the
+              parameter. Maximum 1,000 characters.
+            - `DefaultValue` (string)
+              (optional) – The default value for the
+              parameter until the seller delivers a value.
+              Must match pattern
+              `^[a-zA-Z0-9._~-]+$`. Maximum 256
+              characters.
+
           - `Description` (string) (optional)
             – A description of the API endpoint and its
             functionality.
