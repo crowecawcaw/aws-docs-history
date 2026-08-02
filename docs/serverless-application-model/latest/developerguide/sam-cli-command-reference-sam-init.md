@@ -40,7 +40,8 @@ The instruction set architecture for your application's Lambda functions. Specif
 one of `x86_64` or `arm64`.
 
 `--base-image `[ amazon/dotnet8-base | amazon/dotnet6-base | amazon/java25-base |
-amazon/java21-base | amazon/java17-base | amazon/java11-base |
+amazon/java21-base | amazon/java17-base | amazon/java17.al2023-base | amazon/java11-base |
+amazon/java11.al2023-base | amazon/java8.al2023-base |
 amazon/nodejs24.x-base | amazon/nodejs22.x-base | amazon/nodejs20.x-base | amazon/nodejs18.x-base
 | amazon/nodejs16.x-base | amazon/python3.14-base | amazon/python3.13-base |
 amazon/python3.12-base | amazon/python3.11-base | amazon/python3.10-base
@@ -127,7 +128,8 @@ The location where the initialized application is output.
 The package type of the example application. `Zip` creates a .zip file
 archive, and `Image` creates a container image.
 
-`--runtime, -r `[ dotnet8 | dotnet6 | java25 | java21 | java17 | java11 |
+`--runtime, -r `[ dotnet8 | dotnet6 | java25 | java21 | java17 | java17.al2023 | java11 |
+java11.al2023 | java8.al2023 |
 nodejs24.x | nodejs22.x | nodejs20.x | nodejs18.x | nodejs16.x | python3.14 | python3.13 |
 python3.12 | python3.11 | python3.10 | python3.9 | python3.8 | ruby4.0 | ruby3.4 |
 ruby3.3 | ruby3.2 ]``

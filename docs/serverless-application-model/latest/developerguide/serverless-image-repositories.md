@@ -45,7 +45,10 @@ an earlier version of the AWS SAM CLI, we recommend that you upgrade.
 | Java 25                 | [public.ecr.aws/sam/build-java25](https://gallery.ecr.aws/sam/build-java25 "https://gallery.ecr.aws/sam/build-java25")                            |
 | Java 21                 | [public.ecr.aws/sam/build-java21](https://gallery.ecr.aws/sam/build-java21 "https://gallery.ecr.aws/sam/build-java21")                            |
 | Java 17                 | [public.ecr.aws/sam/build-java17](https://gallery.ecr.aws/sam/build-java17 "https://gallery.ecr.aws/sam/build-java17")                            |
+| Java 17 (AL2023)        | [public.ecr.aws/sam/build-java17.al2023](https://gallery.ecr.aws/sam/build-java17.al2023 "https://gallery.ecr.aws/sam/build-java17.al2023")       |
 | Java 11                 | [public.ecr.aws/sam/build-java11](https://gallery.ecr.aws/sam/build-java11 "https://gallery.ecr.aws/sam/build-java11")                            |
+| Java 11 (AL2023)        | [public.ecr.aws/sam/build-java11.al2023](https://gallery.ecr.aws/sam/build-java11.al2023 "https://gallery.ecr.aws/sam/build-java11.al2023")       |
+| Java 8 (AL2023)         | [public.ecr.aws/sam/build-java8.al2023](https://gallery.ecr.aws/sam/build-java8.al2023 "https://gallery.ecr.aws/sam/build-java8.al2023")          |
 | Java 8                  | [public.ecr.aws/sam/build-java8](https://gallery.ecr.aws/sam/build-java8 "https://gallery.ecr.aws/sam/build-java8")                               |
 | .NET 9                  | [public.ecr.aws/sam/build-dotnet9](https://gallery.ecr.aws/sam/build-dotnet9 "https://gallery.ecr.aws/sam/build-dotnet9")                         |
 | .NET 8                  | [public.ecr.aws/sam/build-dotnet8](https://gallery.ecr.aws/sam/build-dotnet8 "https://gallery.ecr.aws/sam/build-dotnet8")                         |
