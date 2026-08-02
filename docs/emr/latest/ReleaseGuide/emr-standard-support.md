@@ -105,11 +105,11 @@ The following table shows the support status for all existing Amazon EMR release
 
 Releases and supported periods| Amazon EMR release version | Initial release date | Standard support end date | End of support start date | End of life start date |
 | --- | --- | --- | --- | --- |
-| • 7.0 – 7.2<br>• 6.x series (all versions)<br>• 5.x series (all versions)<br>• 4.x series (all versions)<br>• 3.x series (all versions)<br>• 2.x series (all versions) | January 1, 2013 to July 25, 2024 | Bridge support until July 31, 2026 | August 1, 2026 | August 1, 2027 |
+| • 7.0 – 7.2<br>• 6.x series (all versions)<br>• 5.x series (all versions)<br>• 4.x series (all versions)<br>• 3.x series (all versions)<br>• 2.x series (all versions) | January 1, 2013 to July 25, 2024 | Bridge support until August 31, 2026 | September 1, 2026 | September 1, 2027 |
 
 ###### Note
 
-Dates for bridge support have been extended to July 31, 2026, for all eligible releases.
+Dates for bridge support have been extended to August 31, 2026, for all eligible releases.
 
 You can use Apache Spark Upgrade Agent to upgrade your Apache Spark existing applications on EMR on EC2 and EMR Serverless from older EMR versions to latest EMR version. To learn more, see [What is Apache Spark Upgrade Agent for Amazon EMR](spark-upgrades.md "spark-upgrades.md").
 

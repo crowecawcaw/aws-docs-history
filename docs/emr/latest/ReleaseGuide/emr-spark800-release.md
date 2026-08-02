@@ -7,8 +7,8 @@ The following table describes the supported lifecycle dates for Amazon EMR Spark
 | Support phase          | Date         |
 | ---------------------- | ------------ |
 | Initial release date   | May 21, 2026 |
-| Standard support until | May 20, 2027 |
-| End of life            | May 20, 2027 |
+| Standard support until | May 20, 2028 |
+| End of life            | May 20, 2028 |
 
 ## emr-spark-8.0.0 application versions
 
