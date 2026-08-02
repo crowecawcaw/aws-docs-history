@@ -76,7 +76,7 @@ with DAG(
 
 ```
 
-Apache Airflow v2.7.2 to 2.11.0
+Apache Airflow v2.7.2 to 2.11.2
 
 ```
 from airflow import DAG

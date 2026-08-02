@@ -71,6 +71,20 @@ v3.0.6
 | Common SQL          | [apache-airflow-providers-common-sql==1.27.3](https://airflow.apache.org/docs/apache-airflow-providers-common-sql/1.27.3/index.html "https://airflow.apache.org/docs/apache-airflow-providers-common-sql/1.27.3/index.html") |
 | SQLite Connection   | [apache-airflow-providers-sqlite==4.1.1](https://airflow.apache.org/docs/apache-airflow-providers-sqlite/4.1.1/index.html "https://airflow.apache.org/docs/apache-airflow-providers-sqlite/4.1.1/index.html")                |
 
+v2.11.2
+
+| Connection type     | Package                                                                                                                                                                                                                       |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AWS Connection      | [apache-airflow-providers-amazon[aiobotocore]==9.22.0](https://airflow.apache.org/docs/apache-airflow-providers-amazon/9.22.0/index.html "https://airflow.apache.org/docs/apache-airflow-providers-amazon/9.22.0/index.html") |
+| Postgres Connection | [apache-airflow-providers-postgres==6.6.0](https://airflow.apache.org/docs/apache-airflow-providers-postgres/6.6.0/index.html "https://airflow.apache.org/docs/apache-airflow-providers-postgres/6.6.0/index.html")           |
+| FTP Connection      | [apache-airflow-providers-ftp==3.14.1](https://airflow.apache.org/docs/apache-airflow-providers-ftp/3.14.1/index.html "https://airflow.apache.org/docs/apache-airflow-providers-ftp/3.14.1/index.html")                       |
+| Celery Connection   | [apache-airflow-providers-celery==3.15.2](https://airflow.apache.org/docs/apache-airflow-providers-celery/3.15.2/index.html "https://airflow.apache.org/docs/apache-airflow-providers-celery/3.15.2/index.html")              |
+| HTTP Connection     | [apache-airflow-providers-http==6.0.0](https://airflow.apache.org/docs/apache-airflow-providers-http/6.0.0/index.html "https://airflow.apache.org/docs/apache-airflow-providers-http/6.0.0/index.html")                       |
+| IMAP Connection     | [apache-airflow-providers-imap==3.11.0](https://airflow.apache.org/docs/apache-airflow-providers-imap/3.11.0/index.html "https://airflow.apache.org/docs/apache-airflow-providers-imap/3.11.0/index.html")                    |
+| Common SQL          | [apache-airflow-providers-common-sql==1.32.0](https://airflow.apache.org/docs/apache-airflow-providers-common-sql/1.32.0/index.html "https://airflow.apache.org/docs/apache-airflow-providers-common-sql/1.32.0/index.html")  |
+| SQLite Connection   | [apache-airflow-providers-sqlite==4.3.0](https://airflow.apache.org/docs/apache-airflow-providers-sqlite/4.3.0/index.html "https://airflow.apache.org/docs/apache-airflow-providers-sqlite/4.3.0/index.html")                 |
+| SMTP Connection     | [apache-airflow-providers-smtp==2.4.2](https://airflow.apache.org/docs/apache-airflow-providers-smtp/2.4.2/index.html "https://airflow.apache.org/docs/apache-airflow-providers-smtp/2.4.2/index.html")                       |
+
 v2.11.0
 
 | Connection type     | Package                                                                                                                                                                                                                      |

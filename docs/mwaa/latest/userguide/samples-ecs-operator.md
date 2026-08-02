@@ -292,10 +292,69 @@ cd dags
 
 2. Copy the contents of the following code sample and save locally as `mwaa-ecs-operator.py`, then upload your new DAG to Amazon S3.
 
+Apache Airflow v3
+
+```
+import boto3
+import pendulum
+
+from airflow.providers.amazon.aws.operators.ecs import EcsRunTaskOperator
+from airflow.sdk import dag, task
+
+CLUSTER_NAME="mwaa-ecs-test-cluster" #Replace value for CLUSTER_NAME with your information.
+CONTAINER_NAME="mwaa-ecs-test-container" #Replace value for CONTAINER_NAME with your information.
+LAUNCH_TYPE = "FARGATE"
+
+
+@dag(
+    schedule=None,
+    start_date=pendulum.datetime(2024, 1, 1, tz="UTC"),
+    catchup=False,
+    tags=["ecs", "fargate"],
+)
+def ecs_fargate_dag():
+    @task()
+    def get_ecs_service_config() -> dict:
+        """Fetch task definition and network config from the ECS service."""
+        client = boto3.client("ecs")
+        services = client.list_services(cluster=CLUSTER_NAME, launchType=LAUNCH_TYPE)
+        service = client.describe_services(cluster=CLUSTER_NAME, services=services["serviceArns"])
+        return {
+            "task_definition": service["services"][0]["taskDefinition"],
+            "network_configuration": service["services"][0]["networkConfiguration"],
+        }
+
+    service_config = get_ecs_service_config()
+
+    EcsRunTaskOperator(
+        task_id="ecs_operator_task",
+        cluster=CLUSTER_NAME,
+        task_definition=service_config["task_definition"],
+        launch_type=LAUNCH_TYPE,
+        overrides={
+            "containerOverrides": [
+              {
+                  "name": CONTAINER_NAME,
+                  "command": ["ls", "-l", "/"],
+              },
+            ],
+        },
+        network_configuration=service_config["network_configuration"],
+        awslogs_group="mwaa-ecs-zero",
+        awslogs_stream_prefix=f"ecs/{CONTAINER_NAME}",
+    )
+
+
+ecs_fargate_dag()
+
+```
+
+Apache Airflow v2
+
 ```
 from http import client
 from airflow import DAG
-from airflow.providers.amazon.aws.operators.ecs import ECSOperator
+from airflow.providers.amazon.aws.operators.ecs import EcsRunTaskOperator
 from airflow.utils.dates import days_ago
 import boto3
 
@@ -309,29 +368,29 @@ with DAG(
     catchup=False,
     start_date=days_ago(1)
 ) as dag:
-    client=boto3.client('ecs')
-    services=client.list_services(cluster=CLUSTER_NAME,launchType=LAUNCH_TYPE)
-    service=client.describe_services(cluster=CLUSTER_NAME,services=services['serviceArns'])
+  client=boto3.client('ecs')
+  services=client.list_services(cluster=CLUSTER_NAME,launchType=LAUNCH_TYPE)
+  service=client.describe_services(cluster=CLUSTER_NAME,services=services['serviceArns'])
 
-    ecs_operator_task = ECSOperator(
-        task_id = "ecs_operator_task",
-        dag=dag,
-        cluster=CLUSTER_NAME,
-        task_definition=service['services'][0]['taskDefinition'],
-        launch_type=LAUNCH_TYPE,
-        overrides={
-            "containerOverrides":[
-                {
-                    "name":CONTAINER_NAME,
-                    "command":["ls", "-l", "/"],
-                },
-            ],
+  ecs_operator_task = EcsRunTaskOperator(
+    task_id = "ecs_operator_task",
+    dag=dag,
+    cluster=CLUSTER_NAME,
+    task_definition=service['services'][0]['taskDefinition'],
+    launch_type=LAUNCH_TYPE,
+    overrides={
+      "containerOverrides":[
+        {
+          "name":CONTAINER_NAME,
+          "command":["ls", "-l", "/"],
         },
+      ],
+    },
+    network_configuration=service['services'][0]['networkConfiguration'],
+    awslogs_group="mwaa-ecs-zero",
+    awslogs_stream_prefix=f"ecs/{CONTAINER_NAME}",
+  )
 
-        network_configuration=service['services'][0]['networkConfiguration'],
-        awslogs_group="mwaa-ecs-zero",
-        awslogs_stream_prefix=f"ecs/{CONTAINER_NAME}",
-    )
 ```
 
 ###### Note
