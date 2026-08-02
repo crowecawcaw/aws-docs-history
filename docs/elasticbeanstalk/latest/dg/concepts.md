@@ -2,7 +2,7 @@
 
 Becoming familiar with the concepts and terms will help you gain an understanding needed for deploying your applications with Elastic Beanstalk.
 
-![Illustrative diagram showing the relationship between an Elastic Beanstalk application and web/worker environments.](images/aeb-overview.png)
+![Illustrative diagram showing the relationship between an Elastic Beanstalk application and web/worker environments.](/images/elasticbeanstalk/latest/dg/images/aeb-overview.png)
 
 ## Application
 

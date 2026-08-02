@@ -67,7 +67,7 @@ You can enable and configure rolling updates in the Elastic Beanstalk console.
 5. In the **Configuration updates** section, for **Rolling update type**, select one of the
    **Rolling** options.
 
-![The configuration updates section on the modify rolling updates and deployments configuration page](images/aeb-config-rolling-updates-health.png) 6. Choose **Batch size**, **Minimum capacity**, and **Pause time** settings. 7. To save the changes choose **Apply** at the bottom of the page.
+![The configuration updates section on the modify rolling updates and deployments configuration page](/images/elasticbeanstalk/latest/dg/images/aeb-config-rolling-updates-health.png) 6. Choose **Batch size**, **Minimum capacity**, and **Pause time** settings. 7. To save the changes choose **Apply** at the bottom of the page.
 
 The **Configuration updates** section of the **Rolling updates and deployments** page has the following options for
 rolling updates:
