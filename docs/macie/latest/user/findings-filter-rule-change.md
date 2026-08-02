@@ -25,7 +25,7 @@ the Amazon Macie console.
 2. In the navigation pane, choose **Findings**.
 3. In the **Saved rules** list, choose the edit icon
    (
-   ![The edit icon, which is a blue pencil.](images/icon-edit-resource-blue.png)
+   ![The edit icon, which is a blue pencil.](/images/macie/latest/user/images/icon-edit-resource-blue.png)
    ) next to the filter rule that you want to change or
    assign tags to.
 4. Do any of the following:
