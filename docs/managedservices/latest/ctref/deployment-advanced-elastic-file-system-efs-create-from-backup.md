@@ -26,7 +26,7 @@ Create an AWS Elastic File System (EFS) stack from backup.
 
 Screenshot of this change type, in the AMS console:
 
-![AWS console interface showing details for creating an EFS stack from backup.](/images/managedservices/latest/ctref/images/guiEfsCreateFromBackupCT.png)
+![AWS console interface showing details for creating an EFS stack from backup.](images/guiEfsCreateFromBackupCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
