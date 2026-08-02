@@ -66,7 +66,7 @@ Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/main
    **kinesis-process-record-python**.
 5. Choose **Configure**.
 
-![Create function page with Use a blueprint option selected and kinesis-process-record-python blueprint shown.](images/lambda-create-function.png)
+![Create function page with Use a blueprint option selected and kinesis-process-record-python blueprint shown.](/images/Monitron/latest/user-guide/images/lambda-create-function.png)
 
 ## Step 3: Configure the Lambda function
 
@@ -87,7 +87,7 @@ Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/main
 2. Check the box next to the name of the Kinesis stream and choose
    **Enable**.
 
-![Configuration tab showing Triggers section with Kinesis bugbash trigger and Enable button.](images/kinesis-process-record-lambda.png)
+![Configuration tab showing Triggers section with Kinesis bugbash trigger and Enable button.](/images/Monitron/latest/user-guide/images/kinesis-process-record-lambda.png)
 
 The blueprint used in this example only consumes log data from the selected
 stream. You can further edit Lambda function code later to complete a more

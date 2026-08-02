@@ -26,7 +26,7 @@ web app and the Amazon Monitron mobile app.
 the asset to. The project or site name indicates that you are at that
 level in the app.
 
-![Navigation bar showing Site name dropdown menu with hamburger menu and notification icons.](images/site-level.png)
+![Navigation bar showing Site name dropdown menu with hamburger menu and notification icons.](/images/Monitron/latest/user-guide/images/site-level.png)
 
 For more information about changing from site level to project level
 and vice versa, see [Navigating between projects and sites in the mobile app](SM-working-project-and-site.md "SM-working-project-and-site.md"). 3. From the **Assets** page, choose **Add
@@ -65,7 +65,7 @@ asset**.
 name**, add a name for the asset you want to create and
 then select **Add asset**.
 
-![Add asset dialog with Asset name field and Add asset button highlighted.](images/add-asset-4.png)
+![Add asset dialog with Asset name field and Add asset button highlighted.](/images/Monitron/latest/user-guide/images/add-asset-4.png)
 
 When you've added your first asset, it's displayed on the **Assets
 list** page.

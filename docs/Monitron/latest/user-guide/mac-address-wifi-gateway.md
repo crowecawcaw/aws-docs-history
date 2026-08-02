@@ -24,7 +24,7 @@ address.
 1. Navigate to the **Gateways** page.
 2. Select the scan icon.
 
-![Scan icon highlighted in the Gateways search bar.](/images/Monitron/latest/user-guide/images/scan-1.png) 3. Amazon Monitron will display a message explaining what scanning a QR code will do.
+![Scan icon highlighted in the Gateways search bar.](images/scan-1.png) 3. Amazon Monitron will display a message explaining what scanning a QR code will do.
 Select **Continue**.
 
 ![Explanation of Scan Gateways QR feature with options to scan for details or find MAC address.](images/scan-2.png) 4. On the **Scan QR Code** page, scan the gateway QR code
