@@ -3,7 +3,14 @@
 This guide explains how to tag Amazon Bedrock and Amazon Bedrock AgentCore workloads to
 report MAP spend and generate any appropriate incentives using the AWS CLI.
 
-There are two methods to tag your Bedrock workloads for MAP:
+![MAP tagging flowchart: Projects for bedrock-mantle; IAM principal or resource tagging for bedrock-runtime/AgentCore.](images/MAP-tagging-flowchart.png)
+
+The flowchart shows how to choose a tagging method. If you use the bedrock-mantle endpoint
+(Responses API, Chat Completions API, or Messages API), use Projects tagging. If you use
+bedrock-runtime or AgentCore (InvokeModel, Converse, AgentCore APIs), choose either IAM
+principal tagging (recommended) or resource tagging with application inference profiles.
+
+There are three methods to tag your Amazon Bedrock workloads for MAP:
 
 - **IAM principal tagging (recommended)** —
   Tag the IAM role used to invoke Bedrock APIs with `map-migrated`.
@@ -14,6 +21,10 @@ There are two methods to tag your Bedrock workloads for MAP:
   Create an application inference profile, tag it with `map-migrated`, and
   invoke models through the profile. This method provides per-model and per-region
   cost granularity but requires creating and managing additional Bedrock resources.
+- **Projects tagging (bedrock-mantle endpoint)** —
+  Create an Amazon Bedrock project, tag it with `map-migrated`, and pass
+  the project ID in your API calls to the bedrock-mantle endpoint. This method is
+  available for the Responses API, Chat Completions API, and Messages API.
 
 ###### Important
 
@@ -387,3 +398,132 @@ To create an application inference profile for multiple Regions, specify a cross
 inference profile. The inference profile will route requests to the Regions defined in the
 cross region (system-defined) inference profile that you choose. Usage and costs for requests
 made to the Regions in the inference profile will be tracked.
+
+## Projects tagging (bedrock-mantle endpoint)
+
+If you use the Amazon Bedrock APIs on the bedrock-mantle endpoint (Responses API, Chat
+Completions API, or Messages API), you can use Amazon Bedrock Projects to attribute MAP
+spend to specific workloads. A project is a logical boundary that represents a workload,
+such as an application, environment, or experiment. You tag the project with
+`map-migrated` and pass the project ID in your API calls. AWS Cost Explorer
+and AWS Cost and Usage Reports (CUR 2.0) then track these costs.
+
+###### Note
+
+Projects tagging is available for the APIs on the bedrock-mantle endpoint
+(Responses API, Chat Completions API, and Messages API). If you use the native
+Bedrock runtime APIs (`InvokeModel` / `Converse`), use the
+IAM principal tagging or resource tagging (application inference profiles) methods
+described earlier in this guide.
+
+### Prerequisites
+
+- You must have an AWS Migration Program Engagement number (MPE ID number),
+  also known as your project number, in your Migration Plan.
+- You must have access to Amazon Bedrock with an API key for the
+  bedrock-mantle endpoint. For more information, see
+  [Getting
+  started with Amazon Bedrock](../../../bedrock/latest/userguide/getting-started.md "../../../bedrock/latest/userguide/getting-started.md").
+- You must have IAM permissions for Amazon Bedrock Projects, inference, and
+  tagging. You can attach the AWS managed policy
+  `AmazonBedrockMantleFullAccess`. For production, implement least
+  privilege policies.
+- Activate the `map-migrated` tag as a cost allocation tag (CAT)
+  in the Billing console under
+  **Cost allocation tags**.
+
+### Step 1: Create a project with the map-migrated tag
+
+Create an Amazon Bedrock project and include the `map-migrated` tag with your MPE
+ID in the project's tag set. You can add additional cost allocation tags (such as
+`Application`, `Environment`, or `Team`) to further
+segment your costs.
+
+Use `curl` to call the Projects API on the bedrock-mantle endpoint:
+
+```
+$ curl -X POST "$OPENAI_BASE_URL/organization/projects" \
+    -H "Authorization: Bearer $OPENAI_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "name": "MyMigratedApp-Prod",
+      "tags": {
+        "map-migrated": "mig`YOUR_MPE_ID`",
+        "Application": "MyMigratedApp",
+        "Environment": "Production",
+        "Team": "PlatformEngineering",
+        "CostCenter": "CC-2002"
+      }
+    }'
+```
+
+Replace `YOUR_MPE_ID` with your MPE ID. Set the environment
+variables before running:
+
+```
+$ export OPENAI_BASE_URL="https://bedrock-mantle.us-east-1.api.aws/openai/v1"
+$ export OPENAI_API_KEY="`YOUR-BEDROCK-API-KEY`"
+```
+
+The command returns the project details, including the project ID and ARN:
+
+```
+{
+  "id": "proj_abc123",
+  "arn": "arn:aws:bedrock-mantle:us-east-1:`YOUR-ACCOUNT-ID`:project/proj_abc123"
+}
+```
+
+Save the project ID — you will use it to associate inference requests in the next
+step.
+
+### Step 2: Associate inference requests with the project
+
+Pass the project ID when making inference calls. Amazon Bedrock attributes all
+costs incurred through the project to your MAP migration.
+
+**Using curl (Responses API):**
+
+```
+$ curl -X POST "$OPENAI_BASE_URL/responses" \
+    -H "Authorization: Bearer $OPENAI_API_KEY" \
+    -H "Content-Type: application/json" \
+    -H "OpenAI-Project: proj_abc123" \
+    -d '{
+      "model": "openai.gpt-5.6-luna",
+      "input": "Summarize the key findings from our migration assessment."
+    }'
+```
+
+**Using curl (Chat Completions API):**
+
+```
+$ curl -X POST "$OPENAI_BASE_URL/chat/completions" \
+    -H "Authorization: Bearer $OPENAI_API_KEY" \
+    -H "Content-Type: application/json" \
+    -H "OpenAI-Project: proj_abc123" \
+    -d '{
+      "model": "openai.gpt-5.6-luna",
+      "messages": [{"role": "user", "content": "Summarize the key findings from our migration assessment."}]
+    }'
+```
+
+**Using the OpenAI Python SDK:**
+
+```
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://bedrock-mantle.us-east-1.api.aws/openai/v1",
+    project="proj_abc123",  # ID returned when you created the project
+)
+
+response = client.responses.create(
+    model="openai.gpt-5.6-luna",
+    input="Summarize the key findings from our migration assessment."
+)
+print(response.output_text)
+```
+
+To maintain clean cost attribution, always specify a project ID in your API calls
+rather than relying on the default project.
