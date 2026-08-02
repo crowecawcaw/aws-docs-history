@@ -291,9 +291,9 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | **Gr6f**           |
 | gr6f.4xlarge 1     | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | **G7**             |
-| g7.2xlarge         | 60 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 64                         | ✓ Yes |
-| g7.4xlarge         | 60 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 64                         | ✓ Yes |
-| g7.8xlarge         | 80 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 10                      | 64                         | ✓ Yes |
+| g7.2xlarge 1       | 40.0 / 60.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 64                         | ✓ Yes |
+| g7.4xlarge 1       | 80.0 / 100.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 64                         | ✓ Yes |
+| g7.8xlarge         | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 10                      | 64                         | ✓ Yes |
 | g7.12xlarge        | 175 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 12                      | 64                         | ✓ Yes |
 | g7.24xlarge        | 350 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | g7.48xlarge        | 700 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
