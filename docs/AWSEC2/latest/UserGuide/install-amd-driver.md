@@ -39,9 +39,7 @@ If you aren't using an AMI with the AMD driver installed, you can download the A
 driver and install it on your instance. Only the following operating system versions
 support AMD drivers:
 
-- Amazon Linux 2 with kernel version 5.4
-- Ubuntu 20.04
-- Ubuntu 22.04
+- Amazon Linux 2 with kernel version 5.10
 - Ubuntu 24.04
 - Windows Server 2016
 - Windows Server 2019
@@ -61,21 +59,14 @@ the [AMD End User License Agreement](https://www.amd.com/en/legal/eula.html "htt
 
 Your user or role must have the permissions granted that contains the
 **AmazonS3ReadOnlyAccess** policy. For more
-information, see [AWS managed policy: AmazonS3ReadOnlyAccess](../../../AmazonS3/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-amazons3readonlyaccess "../../../AmazonS3/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-amazons3readonlyaccess") in the _Amazon Simple Storage Service User Guide_. 3. Install kernel 5.4
+information, see [AWS managed policy: AmazonS3ReadOnlyAccess](../../../AmazonS3/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-amazons3readonlyaccess "../../../AmazonS3/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-amazons3readonlyaccess") in the _Amazon Simple Storage Service User Guide_. 3. Install **gcc**, **make**, and
+**dialog**, if they are not already installed.
 
 ```
-`$` `sudo amazon-linux-extras disable kernel-5.10`
-`$` `sudo amazon-linux-extras enable kernel-5.4`
-`$` `sudo yum install -y kernel`
+`$` `sudo yum install -y gcc make dialog`
 ```
 
-4. Install **gcc** and **make**, if they are not already installed.
-
-```
-`$` `sudo yum install gcc make`
-```
-
-5. Update your package cache and get the package updates for your
+4. Update your package cache and get the package updates for your
    instance.
 
 ```
@@ -83,39 +74,58 @@ information, see [AWS managed policy: AmazonS3ReadOnlyAccess](../../../AmazonS3/
 `$` `sudo yum update -y`
 ```
 
-6. Reboot the instance.
+5. Reboot the instance.
 
 ```
 `$` `sudo reboot`
 ```
 
-7. Reconnect to the instance after it reboots.
-8. Download the latest AMD driver.
+6. Reconnect to the instance after it reboots.
+7. Download the latest AMD driver.
 
 ```
 `$` `aws s3 cp --recursive s3://ec2-amd-linux-drivers/latest/ .`
 ```
 
-9. Extract the file.
+8. Extract the file.
 
 ```
-`$` `tar -xf amdgpu-pro-*rhel*.tar.xz`
+`$` `tar -xzf amdgpu-pro-*rhel*.tar.gz`
 ```
 
-10. Change to the folder for the extracted driver.
-11. Run the self install script to install the full graphics stack.
+9. Install the **amdgpu-install** package. Replace
+   `version` with the version directory name
+   that was created when you extracted the driver.
 
 ```
-`$` `./amdgpu-pro-install -y --opencl=pal,legacy`
+`$` `cd rhel_7/`version`/x86_64/a/`
+`$` `sudo yum install -y ./amdgpu-install-*.el7.noarch.rpm`
 ```
 
-12. Reboot the instance.
+10. Edit `/etc/yum.repos.d/amdgpu.repo`. Set
+    `baseurl` to the extracted `x86_64`
+    directory (for example,
+    `baseurl=file:///home/ec2-user/rhel_7/`version`/x86_64/`).
+    Set `gpgcheck=0`.
+11. Edit `/etc/yum.repos.d/amdgpu-proprietary.repo`. Set
+    `baseurl` to the same directory. Set `gpgcheck=0` and
+    `enabled=1`.
+12. Edit `/etc/yum.repos.d/rocm.repo`. Set
+    `baseurl` to the same directory. Set
+    `gpgcheck=0`.
+13. Install the AMD GPU driver for Amazon Linux 2.
+
+```
+`$` `sudo amdgpu-install --usecase=workstation --vulkan=pro --accept-eula -y`
+```
+
+14. Reboot the instance.
 
 ```
 `$` `sudo reboot`
 ```
 
-13. Confirm that the driver is functional.
+15. Confirm that the driver is functional.
 
 ```
 `$` `sudo dmesg | grep amdgpu`
@@ -131,57 +141,42 @@ The response should look like the following:
 2. Update your package cache and get the package updates for your instance.
 
 ```
-`$` `sudo apt-get update --fix-missing && sudo apt-get upgrade -y`
+`$` `sudo apt-get update -y && sudo apt-get upgrade -y`
 ```
 
-3. Install **gcc** and **make**, if they are not already installed.
+3. Install Linux firmware and kernel modules.
 
 ```
-`$` `sudo apt install build-essential -y`
+`$` `sudo apt install -y linux-firmware linux-modules-extra-$(uname -r)`
 ```
 
-4. Install Linux firmware and kernel modules
-
-```
-`$` `sudo apt install linux-firmware linux-modules-extra-aws -y`
-```
-
-5. Reboot instance
+4. Reboot the instance.
 
 ```
 `$` `sudo reboot`
 ```
 
-6. Reconnect to the instance after it reboots.
-7. Install the AMD Linux driver package
-
-   - For Ubuntu 20.04:
-
-   ```
-   `$` `wget https://repo.radeon.com/.preview/afe3e25b8f1beff0bb312e27924d63b5/amdgpu-install/5.4.02.01/ubuntu/focal/amdgpu-install_5.4.02.01.50402-1_all.deb`
-   `$` `sudo dpkg --add-architecture i386`
-   `$` `sudo apt install ./amdgpu-install_5.4.02.01.50402-1_all.deb`
-   ```
-   - For later Ubuntu versions go to [Linux® Drivers for AMD Radeon™ Graphics](https://www.amd.com/en/support/download/linux-drivers.html "https://www.amd.com/en/support/download/linux-drivers.html") and
-     download the latest Ubuntu package and install it.
-
-   ```
-   `$` `sudo apt install ./amdgpu-install_{version-you-downloaded}.deb`
-   ```
-
-8. Run the self install script to install the full graphics stack.
+5. Reconnect to the instance after it reboots.
+6. Download and install the AMD driver package for Ubuntu 24.04.
 
 ```
-`$` `amdgpu-install --usecase=workstation --vulkan=pro -y`
+`$` `wget https://repo.radeon.com/amdgpu-install/31.30/ubuntu/noble/amdgpu-install_31.30.313000-1_all.deb`
+`$` `sudo apt install -y ./amdgpu-install_31.30.313000-1_all.deb`
 ```
 
-9. Reboot the instance.
+7. Install the AMD GPU driver for Ubuntu.
+
+```
+`$` `sudo amdgpu-install --usecase=graphics --vulkan=radv -y`
+```
+
+8. Reboot the instance.
 
 ```
 `$` `sudo reboot`
 ```
 
-10. Confirm that the driver is functional.
+9. Confirm that the driver is functional.
 
 ```
 `$` `sudo dmesg | grep amdgpu`

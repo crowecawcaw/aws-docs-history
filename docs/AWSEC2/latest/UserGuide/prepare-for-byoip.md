@@ -285,9 +285,8 @@ below has been completed.
 
 Create a ROA object to authorize the Amazon ASNs 16509 and 14618 to advertise your
 address range, as well as the ASNs that are currently authorized to advertise the
-address range. For the AWS GovCloud (US) Regions, authorize ASN 8987 instead of 16509
-and 14618. You must set the maximum length to the size of the CIDR that you are
-bringing in. The most specific IPv4 prefix you can bring is /24. The most specific
+address range. For the AWS GovCloud (US) Regions, authorize only ASN 8987. For the AWS European Sovereign Cloud, authorize ASNs 16509 and 214101. You must set the maximum length to the size of the CIDR
+that you are bringing in. The most specific IPv4 prefix you can bring is /24. The most specific
 IPv6 address range that you can bring is /48 for CIDRs that are publicly
 advertisable and /60 for CIDRs that are not publicly advertisable.
 

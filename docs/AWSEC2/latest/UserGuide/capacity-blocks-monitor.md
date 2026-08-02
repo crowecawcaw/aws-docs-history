@@ -15,7 +15,7 @@ The following example shows an event for Capacity Block Delivered.
 ```
 {
   "customer_event_id": "[Capacity Reservation Id]-delivered",
-  "detail_type": "Capacity Block Reservation Delivered",
+  "detail_type": "Capacity Block Delivered",
   "source": "aws.ec2",
   "account": "[Customer Account ID]",
   "time": "[Current time]",
@@ -36,7 +36,7 @@ The following example shows an event for Capacity Block Expiration Warning.
 ```
 {
   "customer_event_id": "[Capacity Reservation Id]-approaching-expiry",
-  "detail_type": "Capacity Block Reservation Expiration Warning",
+  "detail_type": "Capacity Block Expiration Warning",
   "source": "aws.ec2",
   "account": "[Customer Account ID]",
   "time": "[Current time]",
