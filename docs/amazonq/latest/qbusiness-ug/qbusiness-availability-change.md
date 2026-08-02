@@ -1,12 +1,12 @@
-Amazon Q Business will no longer be open to new customers starting on July 31, 2026. If you would like to use the service, please sign up prior to July 30. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
 
 # Amazon Q Business availability change
 
 ## Overview
 
-Amazon Q Business remains fully supported and AWS will continue to provide bug
-fixes and security updates for existing customers, however new feature requests will no
-longer be considered.
+Amazon Q Business is no longer open to new customers. AWS will continue to
+provide bug fixes and security updates for existing customers, however new feature
+requests will no longer be considered.
 
 We recommend that customers migrate their Q Business applications and implement any new
 generative or agentic AI solutions on Amazon Quick for similar capabilities to Q Business

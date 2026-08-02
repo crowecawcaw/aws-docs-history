@@ -1,4 +1,4 @@
-Amazon Q Business will no longer be open to new customers starting on July 31, 2026. If you would like to use the service, please sign up prior to July 30. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
 
 # Supported connectors
 
@@ -28,8 +28,6 @@ Amazon Q Business supports the following connectors:
 - [Microsoft
   OneDrive](onedrive-connector.md "onedrive-connector.md")
 - [Microsoft SharePoint (Cloud)](sharepoint-cloud-connector.md "sharepoint-cloud-connector.md")
-- [Microsoft SharePoint Server 2016](sharepoint-server-2016-connector.md "sharepoint-server-2016-connector.md")
-- [Microsoft SharePoint Server 2019](sharepoint-server-2019-connector.md "sharepoint-server-2019-connector.md")
 - [Microsoft SharePoint Server (Subscription Edition)](sharepoint-server-subscription-connector.md "sharepoint-server-subscription-connector.md")
 - [Microsoft
   Teams](teams-connector.md "teams-connector.md")
