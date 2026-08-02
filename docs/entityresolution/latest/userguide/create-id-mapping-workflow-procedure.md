@@ -88,7 +88,7 @@ source to a target.
    6. To specify the **Service access** permissions, choose an option
    and take the recommended action.
 
-   ![The Service access options on the Specify source and target page](images/specify-source-target-service-access.PNG)
+   ![The Service access options on the Specify source and target page](/images/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)
 
    | Option                                | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
    | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
