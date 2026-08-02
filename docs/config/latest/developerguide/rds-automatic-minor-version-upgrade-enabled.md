@@ -1,6 +1,6 @@
 # rds-automatic-minor-version-upgrade-enabled
 
-Checks if Amazon Relational Database Service (RDS) database instances are configured for automatic minor version upgrades. The rule is NON\_COMPLIANT if the value of 'autoMinorVersionUpgrade' is false.
+Checks if Amazon Relational Database Service (RDS) database instances are configured for automatic minor version upgrades. The rule is NON\_COMPLIANT if the value of 'autoMinorVersionUpgrade' is false. For Amazon Aurora clusters, automatic minor version upgrades require that all instances in the cluster and the cluster itself have this setting enabled; a COMPLIANT result on an individual instance does not guarantee upgrades will occur if the cluster level setting is not enabled. Additionally, this rule does not account for configurations where automatic minor version upgrades are unsupported, including Aurora clusters in a Global Database and Aurora MySQL clusters with cross-Region read replicas, which may receive evaluation results that do not accurately reflect upgrade behavior.
 
 **Identifier:** RDS\_AUTOMATIC\_MINOR\_VERSION\_UPGRADE\_ENABLED
 
