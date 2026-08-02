@@ -30,9 +30,9 @@ If you do not need to advertise your IPv6 addresses over the Internet, you can p
 ## Step 1: Create a top-level IPAM pool
 
 Since you are going to create a top-level IPAM pool with a Regional pool within it,
-and we’re going to allocate space to a resource from the
-Regional pool, you will set the locale on the Regional pool and not the top-level
-pool. You’ll add the locale to the Regional pool when you create the Regional pool
+and we're going to allocate space to a resource from the
+Regional pool. You set the locale on the Regional pool, not the top-level
+pool. You'll add the locale to the Regional pool when you create the Regional pool
 in a later step. The IPAM integration with BYOIP requires that the locale is set on
 whichever pool will be used for the BYOIP CIDR.
 
@@ -100,7 +100,7 @@ This step must be done by the IPAM account.
 1. Open the IPAM console at
    [https://console.aws.amazon.com/ipam/](https://console.aws.amazon.com/ipam/ "https://console.aws.amazon.com/ipam/").
 2. In the navigation pane, choose **Pools**.
-3. By default, when you create a pool, the default private scope is selected. If you don’t want to use the default
+3. By default, when you create a pool, the default private scope is selected. If you don't want to use the default
    private scope, from the dropdown menu at the top of the content pane, choose the scope you want to use. For more information about scopes, see [How IPAM works](how-it-works-ipam.md "how-it-works-ipam.md").
 4. Choose **Create pool**.
 5. (Optional) Add a **Name tag** for the pool and a description for the pool.
@@ -160,7 +160,7 @@ allocation rules for this pool:
      automatically imported into the pool will not be allowed to allocate space from
      the pool unless they are in this locale.
 
-12. (Optional) Choose **Tags** for the pool. 13. When you’ve finished configuring your pool, choose **Create
+12. (Optional) Choose **Tags** for the pool. 13. When you've finished configuring your pool, choose **Create
 pool**.
 
 Ensure that this CIDR has been provisioned before you continue. You can see the state of provisioning in the **CIDRs** tab in the pool details page.

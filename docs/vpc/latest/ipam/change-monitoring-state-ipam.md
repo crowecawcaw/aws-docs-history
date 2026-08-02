@@ -14,7 +14,7 @@ a VPC CIDR from ignored to monitored if you want IPAM to manage and monitor the 
 - **Monitored**: The VPC CIDR has been detected by IPAM and is being monitored for overlap with other CIDRs and allocation rule compliance.
 - **Ignored**: The VPC CIDR has been chosen to be exempt from monitoring.
   Ignored VPC CIDRs are not evaluated for overlap with other CIDRs or Allocation rule compliance. Once a VPC CIDR is chosen to be ignored,
-  any space allocated to it from an IPAM pool is returned to the pool and the VPC CIDR will not be imported again via auto-import
+  any space allocated to it from an IPAM pool is returned to the pool and the VPC CIDR is not imported again through auto-import
   (if the auto-import Allocation rule is set on the pool).
 
 AWS Management Console

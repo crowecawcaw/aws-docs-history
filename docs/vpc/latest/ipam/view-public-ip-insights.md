@@ -103,7 +103,7 @@ AWS Management Console
 1. Open the IPAM console at
    [https://console.aws.amazon.com/ipam/](https://console.aws.amazon.com/ipam/ "https://console.aws.amazon.com/ipam/").
 2. In the navigation pane, choose **Public IP insights**.
-3. To view details for a public IP address, select an IP address by clicking on it.
+3. To view details for a public IP address, select an IP address by choosing it.
 4. View the following information about the IP address:
 
    - **Details**: The same information visible in the columns of the main Public IP insights pane, such as the **Address type** and **Service**.

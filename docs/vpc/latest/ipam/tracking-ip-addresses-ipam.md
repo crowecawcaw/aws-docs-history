@@ -4,7 +4,7 @@ Amazon VPC IP Address Manager offers IP address usage tracking features that can
 
 IPAM tracks IP address usage at the CIDR, scope, and IPAM levels, providing detailed reporting and analytics. This is valuable for large-scale deployments, multi-account setups, and evolving network requirements.
 
-By leveraging IPAM's usage tracking, you can make informed decisions, improve IP address management, and ensure efficient utilization of IP resources.
+By using IPAM's usage tracking, you can make informed decisions, improve IP address management, and ensure efficient utilization of IP resources.
 
 ###### Note
 

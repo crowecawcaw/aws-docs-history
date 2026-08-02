@@ -70,13 +70,13 @@ service where the CIDR will be advertisable. Currently, the only option
 is **EC2 (EIP/VPC)**, which means that the CIDRs
 allocated from this pool will be advertisable for the Amazon EC2 service
 (for Elastic IP addresses) and the Amazon VPC service (for CIDRs
-associated with VPCs). 11. (Optional) Choose a CIDR to provision for the pool. You can create a pool without a CIDR, but you won’t be able to use the pool
-for allocations until you’ve provisioned a CIDR for it. You can add CIDRs to a pool at any time by editing the pool. 12. You have the same allocation rule options here as you did when you
+associated with VPCs). 11. (Optional) Choose a CIDR to provision for the pool. You can create a pool without a CIDR, but you won't be able to use the pool
+for allocations until you've provisioned a CIDR for it. You can add CIDRs to a pool at any time by editing the pool. 12. You have the same allocation rule options here as you did when you
 created the top-level pool. See [Create a top-level IPv4 pool](create-top-ipam.md "create-top-ipam.md") for an explanation of the options
 that are available when you create pools. The allocation rules for the
 Regional pool are not inherited from the top-level pool. If you do not
 apply any rules here, there will be no allocation rules set for the
-pool. 13. (Optional) Choose **Tags** for the pool. 14. When you’ve finished configuring your pool, choose **Create
+pool. 13. (Optional) Choose **Tags** for the pool. 14. When you've finished configuring your pool, choose **Create
 pool**. 15. See [Create a development IPv4 pool](create-dev-ipam.md "create-dev-ipam.md").
 
 Command line

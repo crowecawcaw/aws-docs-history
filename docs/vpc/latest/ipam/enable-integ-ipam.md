@@ -91,7 +91,7 @@ IPAM monitors the IP address usage in these accounts by assuming the service-lin
 in each member account, discovering the resources and their CIDRs, and integrating them with
 IPAM. The resources within all member accounts will be discoverable by IPAM regardless of
 their Organizational Unit. If there are member accounts that have created a VPC, for
-example, you’ll see the VPC and its CIDR in the Resources section of the IPAM
+example, you'll see the VPC and its CIDR in the Resources section of the IPAM
 console.
 
 ###### Important

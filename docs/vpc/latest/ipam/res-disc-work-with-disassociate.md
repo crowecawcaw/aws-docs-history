@@ -21,7 +21,7 @@ AWS Management Console
    [https://console.aws.amazon.com/ipam/](https://console.aws.amazon.com/ipam/ "https://console.aws.amazon.com/ipam/").
 2. In the navigation pane, choose **IPAMs**.
 3. Select **Associated discoveries,** and then choose **Disassociate resource discoveries**.
-4. Under **IPAM resource discoveries**, choose a resource discovery that’s been shared with you by the **Secondary Org Admin Account**.
+4. Under **IPAM resource discoveries**, choose a resource discovery that's been shared with you by the **Secondary Org Admin Account**.
 5. Choose **Disassociate**.
 
 Command line

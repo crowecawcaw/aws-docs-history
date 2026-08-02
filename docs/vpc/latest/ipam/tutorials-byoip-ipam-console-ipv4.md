@@ -72,9 +72,9 @@ This step must be done by the IPAM account.
 
 The IPAM integration with BYOIP requires that the locale is set on
 whichever pool will be used for the BYOIP CIDR. Since we are going to create a top-level IPAM pool with a Regional pool within it,
-and we’re going to allocate space to an Elastic IP address from the
-Regional pool, you will set the locale on the Regional pool and not the top-level
-pool. You’ll add the locale to the Regional pool when you create the Regional pool
+and we're going to allocate space to an Elastic IP address from the
+Regional pool. You set the locale on the Regional pool, not the top-level
+pool. You'll add the locale to the Regional pool when you create the Regional pool
 in a later step.
 
 ###### Note
@@ -110,7 +110,7 @@ Ensure that this CIDR has been provisioned before you continue. You can see the 
 
 Create a Regional pool within the top-level pool. The IPAM integration with BYOIP
 requires that the locale is set on whichever pool will be used for the BYOIP CIDR.
-You’ll add the locale to the Regional pool when you create the Regional pool in this
+You'll add the locale to the Regional pool when you create the Regional pool in this
 section. The `Locale` must be part of one of the operating Regions you
 configured when you created the IPAM. For example, a locale of _us-east-1_ means that _us-east-1_ must
 be an operating Region for the IPAM. A locale of _us-east-1-scl-1_ (a network border group used for Local Zones) means that
@@ -123,7 +123,7 @@ This step must be done by the IPAM account.
 1. Open the IPAM console at
    [https://console.aws.amazon.com/ipam/](https://console.aws.amazon.com/ipam/ "https://console.aws.amazon.com/ipam/").
 2. In the navigation pane, choose **Pools**.
-3. By default, when you create a pool, the default private scope is selected. If you don’t want to use the default
+3. By default, when you create a pool, the default private scope is selected. If you don't want to use the default
    private scope, from the dropdown menu at the top of the content pane, choose the scope you want to use. For more information about scopes, see [How IPAM works](how-it-works-ipam.md "how-it-works-ipam.md").
 4. Choose **Create pool**.
 5. (Optional) Add a **Name tag** for the pool and a **Description** for the pool.
@@ -163,7 +163,7 @@ You have the same allocation rule options here as you did when you created the
 top-level pool. See [Create a top-level IPv4 pool](create-top-ipam.md "create-top-ipam.md") for an explanation of the options that are
 available when you create pools. The allocation rules for the Regional pool are
 not inherited from the top-level pool. If you do not apply any rules here, there
-will be no allocation rules set for the pool. 12. (Optional) Choose **Tags** for the pool. 13. When you’ve finished configuring your pool, choose **Create
+will be no allocation rules set for the pool. 12. (Optional) Choose **Tags** for the pool. 13. When you've finished configuring your pool, choose **Create
 pool**.
 
 Ensure that this CIDR has been provisioned before you continue. You can see the state of provisioning in the **CIDRs** tab in the pool details page.

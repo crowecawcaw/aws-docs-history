@@ -64,20 +64,20 @@ The results of the search are organized into the following columns:
 
 ###### Example
 
-To help explain the times that you see under Sampled start time and Sampled end time, let’s look at an example use case:
+To help explain the times that you see under Sampled start time and Sampled end time, let's look at an example use case:
 
 At 2:00 PM, a VPC was created with CIDR 10.0.0.0/16. At 3:00 PM, you create an
 IPAM and IPAM pool with CIDR 10.0.0.0/8, and select the auto-import option to
 allow IPAM to discover and import any CIDRs that fall within the 10.0.0.0/8 IP
 address range. Because IPAM picks up changes to CIDRs in periodic snapshots, it
-doesn’t discover the existing VPC CIDR until 3:05 PM. When you search for the ID
+doesn't discover the existing VPC CIDR until 3:05 PM. When you search for the ID
 of this VPC using the Search IP history feature, the Sampled start time for your
 VPC is 3:05 PM, which is when IPAM discovered it, not 2:00 PM, which is when you
-created the VPC. Now, let’s say that you decide to delete the VPC at 5:00 PM.
+created the VPC. Now, let's say that you decide to delete the VPC at 5:00 PM.
 When the VPC is deleted, the CIDR 10.0.0.0/16 that was allocated to the VPC is
 recycled back into the IPAM pool. IPAM takes its periodic snapshot at 5:05 PM
 and picks up the change. When you search for the ID of this VPC in Search IP
-history, 5:05 PM is the Sampled end time for the VPC’s CIDR, not 5:00 PM, which
+history, 5:05 PM is the Sampled end time for the VPC's CIDR, not 5:00 PM, which
 is when the VPC was deleted.
 
 - **Resource ID**: The ID generated when the resource was
@@ -107,12 +107,14 @@ is when the VPC was deleted.
   - **Ignored**: The managed
     resource has been chosen to be exempt from monitoring.
     Ignored resources are not evaluated for overlap or
-    allocation rule compliance. When a resource is chosen to
-    be ignored, any space allocated to it from an IPAM pool
-    is returned to the pool and the resource will not be
-    imported again through automatic import (if the
-    automatic import allocation rule is set on the
-    pool).
+    allocation rule compliance.
+
+  When a resource is chosen to
+  be ignored, any space allocated to it from an IPAM pool
+  is returned to the pool and the resource will not be
+  imported again through automatic import (if the
+  automatic import allocation rule is set on the
+  pool).
   - **-**: This resource is
     not one of the types of resources that IPAM can monitor
     or manage.
@@ -130,12 +132,14 @@ is when the VPC was deleted.
   - **Ignored**: The managed
     resource has been chosen to be exempt from monitoring.
     IPAM does not evaluate ignored resources for overlap or
-    allocation rule compliance. When a resource is chosen to
-    be ignored, any space allocated to it from an IPAM pool
-    is returned to the pool and the resource will not be
-    imported again through automatic import (if the
-    automatic import allocation rule is set on the
-    pool).
+    allocation rule compliance.
+
+  When a resource is chosen to
+  be ignored, any space allocated to it from an IPAM pool
+  is returned to the pool and the resource will not be
+  imported again through automatic import (if the
+  automatic import allocation rule is set on the
+  pool).
   - **-**: This resource is not one of the types of resources that
     IPAM can monitor or manage.
 

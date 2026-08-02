@@ -43,7 +43,7 @@ configure your delegated IPAM using the AWS CLI. For more information about the 
 of the IPAM account, see [Integrate IPAM with accounts in an AWS Organization](enable-integ-ipam.md "enable-integ-ipam.md").
 
 This request must be made from an AWS Organizations management account. When you run
-the following command, ensure that you’re using a role with an IAM policy that permits
+the following command, ensure that you're using a role with an IAM policy that permits
 the following actions:
 
 - `ec2:EnableIpamOrganizationAdminAccount`
@@ -354,7 +354,7 @@ we created a top-level and a Regional pool, so you'll see them both.
 ## Step 6: Provision a CIDR to the Regional pool
 
 Follow the steps in this section to assign a CIDR block to the pool, and validate that
-it’s been successfully provisioned.
+it's been successfully provisioned.
 
 ###### To assign a CIDR block to the Regional pool using the AWS CLI
 

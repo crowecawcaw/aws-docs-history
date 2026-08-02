@@ -26,7 +26,7 @@ the VPC CIDR allocation from the IPAM pool.
   IPAM will automatically release the allocation on your behalf.
   For Amazon VPC IPAM to release allocations on your behalf, all account permissions must be properly configured for either [single-account use](enable-single-user-ipam.md "enable-single-user-ipam.md") or [multi-account use](enable-integ-ipam.md "enable-integ-ipam.md").
 
-When you release a CIDR that’s managed by your IPAM, Amazon VPC IPAM recycles the CIDR
+When you release a CIDR that's managed by your IPAM, Amazon VPC IPAM recycles the CIDR
 back into an IPAM pool. If you are using IPAM in the Advanced Tier, it takes a few minutes
 for the CIDR to become available for future allocations. If you are using IPAM in the Free
 Tier, it will take up to 48 hours for the CIDR to become available for future allocations.

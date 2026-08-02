@@ -26,8 +26,8 @@ When you use the IPAM Advanced Tier, you pay an hourly price per active IP addre
 3. Filter for IPAM usage by choosing **Usage type** and entering
    `IPAddressManager`.
 4. Select one or more checkboxes. Each of them represents a different AWS Region.
-5. Click **Apply**.
+5. Choose **Apply**.
 
-If, for example, you select _USE1-IPAddressManager-IP-Hours(Hrs)_ and us-east-1 is your IPAM home Region, you’ll see the number of active IP hours billed by IPAM in all Regions and the cost. If, say, the usage in hours is 18, this means that you could have 1 active IP address for 18 hours, 3 IP addresses in 3 different Regions each active for 6 hours, or any combination of these that add up to 18 hours.
+If, for example, you select _USE1-IPAddressManager-IP-Hours(Hrs)_ and us-east-1 is your IPAM home Region, you'll see the number of active IP hours billed by IPAM in all Regions and the cost. If, say, the usage in hours is 18, this means that you could have 1 active IP address for 18 hours, 3 IP addresses in 3 different Regions each active for 6 hours, or any combination of these that add up to 18 hours.
 
 For more information about AWS Cost Explorer, see [Analyzing your costs with AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md") in the _AWS Cost Management User Guide_.

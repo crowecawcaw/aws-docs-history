@@ -4,7 +4,7 @@ In this tutorial, you create an IPAM, integrate with AWS Organizations, create I
 and create a VPC with a CIDR from an IPAM pool.
 
 This tutorial shows you how you can use IPAM to organize IP address space based on different
-development needs. Once you’ve completed this tutorial, you’ll have one IP address pool for
+development needs. After you complete this tutorial, you'll have one IP address pool for
 pre-production resources. You can then create other pools based on your routing and security
 needs, such as a pool for production resources.
 
@@ -17,7 +17,7 @@ accounts in an organization. It does not cover how to [Integrate IPAM with accou
 For the purposes of this tutorial, the instructions will tell you to name IPAM resources
 in a particular way, create IPAM resources in specific Regions, and use specific IP address
 CIDR ranges for your pools. This is intended to streamline the choices available in IPAM and
-get you started with IPAM quickly. Once you’ve completed this tutorial, you may decide to
+get you started with IPAM quickly. After you complete this tutorial, you might decide to
 create a new IPAM and configure it differently.
 
 ###### Contents
@@ -46,7 +46,7 @@ three accounts in your organization that you use when you integrate with IPAM in
 tutorial:
 
 - The management account (called **example-management-account** in the following image) to log into the IPAM
-  console and delegate an IPAM admin. You cannot use the organization’s management account
+  console and delegate an IPAM admin. You cannot use the organization's management account
   as your IPAM admin.
 - A member account (called _example-member-account-1_
   in the following image) as the IPAM admin account. The IPAM admin account is responsible
@@ -59,8 +59,8 @@ tutorial:
 
 ![An example of an AWS Organizations org with example management and member accounts.](images/tutorials-get-started-console-10_4.png)
 
-In addition to the accounts, you’ll need the ID of the organizational unit (**ou-fssg-q5brfv9c** in the preceding image) that contains the member
-account you’ll use as the developer account. You need this ID so that, in a later step, when
+In addition to the accounts, you'll need the ID of the organizational unit (**ou-fssg-q5brfv9c** in the preceding image) that contains the member
+account you'll use as the developer account. You need this ID so that, in a later step, when
 you share your IPAM pool, you can share it with this OU.
 
 ###### Note
@@ -71,7 +71,7 @@ terminology and concepts](../../../organizations/latest/userguide/orgs_getting-s
 
 ## Step 1: Delegate an IPAM administrator
 
-In this step, you’ll delegate an AWS Organizations member account as the IPAM admin. When you
+In this step, you'll delegate an AWS Organizations member account as the IPAM admin. When you
 delegate an IPAM admin, [a service-linked role](iam-ipam-slr.md "iam-ipam-slr.md") is automatically created in each of your AWS Organizations member accounts. IPAM monitors the IP
 address usage in these accounts by assuming the service-linked role in each member account. It
 can then discover the resources and their CIDRs regardless of their Organizational Unit.
@@ -97,9 +97,9 @@ account.
 
 ## Step 2: Create an IPAM
 
-In this step you’ll create an IPAM. When you create an IPAM, IPAM automatically creates
-two scopes for the IPAM: the private scope that’s intended for all private space, and the
-public scope that’s intended for all public space. The
+In this step you'll create an IPAM. When you create an IPAM, IPAM automatically creates
+two scopes for the IPAM: the private scope that's intended for all private space, and the
+public scope that's intended for all public space. The
 scopes, together with pools and allocations, are key components of your IPAM. For more
 information, see [How IPAM works](how-it-works-ipam.md "how-it-works-ipam.md").
 
@@ -115,10 +115,10 @@ information, see [How IPAM works](how-it-works-ipam.md "how-it-works-ipam.md").
    from source account(s) into the IPAM delegate account**. If you do not select
    this option, you cannot create an IPAM.
 
-![Create an IPAM page in the IPAM console that includes a description of the Allow Amazon VPC IP Address Manager to replicate data from source account(s) into the IPAM delegate account checkbox.](images/tutorials-get-started-console-HxHJCv2B3DfNcq--wo_gGg.png) 5. Under **Operating Regions**, choose the AWS Regions
+![The Create an IPAM page with the data replication permission checkbox.](images/tutorials-get-started-console-HxHJCv2B3DfNcq--wo_gGg.png) 5. Under **Operating Regions**, choose the AWS Regions
 in which this IPAM can manage and discover resources. The AWS Region in which you are
 creating your IPAM is automatically selected as one of the operating Regions. In this
-tutorial, the home Region of our IPAM is us-east-1, so we’ll choose us-west-1 and
+tutorial, the home Region of our IPAM is us-east-1, so we'll choose us-west-1 and
 us-west-2 as additional operating Regions. If you forget an operating Region, you can edit
 your IPAM settings later and add or remove Regions.
 
@@ -129,7 +129,7 @@ your IPAM settings later and add or remove Regions.
 ## Step 3: Create a top-level IPAM pool
 
 In this tutorial, you create a hierarchy of pools starting with the top-level IPAM pool. In
-the subsequent steps, you’ll create a pair of Regional pools and a pre-production development
+the subsequent steps, you'll create a pair of Regional pools and a pre-production development
 pool in one of the regional pools.
 
 For more information about pool hierarchies that you can build with IPAM, see [Example IPAM pool plans](planning-examples-ipam.md "planning-examples-ipam.md").
@@ -142,19 +142,19 @@ For more information about pool hierarchies that you can build with IPAM, see [E
 3. Choose the private scope.
 
 ![Choosing the private scope in the IPAM console.](images/tutorials-get-started-console-2QXpOvOj0i1rotyKoLjeMQ_update.png) 4. Choose **Create pool**. 5. Under **IPAM scope**, leave the private scope selected. 6. (Optional) Add a **Name tag** for the pool and a
-description for the pool, such as “Global pool”. 7. Under **Source**, choose **IPAM scope**. Because this is our
+description for the pool, such as "Global pool". 7. Under **Source**, choose **IPAM scope**. Because this is our
 top level pool, it will not have a source pool. 8. Under **Address family**, choose
 **IPv4**. 9. Under **Resource planning**, leave **Plan IP
 space within the scope** selected. For more information
 about using this option to plan for subnet IP space within a VPC, see
 [Tutorial: Plan VPC IP address space for subnet IP allocations](tutorials-subnet-planning.md "tutorials-subnet-planning.md"). 10. For the **Locale**, choose **None**.
 Locales are the AWS Regions where you want this IPAM pool to be available for
-allocations. You’ll set the locale for the Regional pools that you create in the next
+allocations. You'll set the locale for the Regional pools that you create in the next
 section of this tutorial.
 
 ![Creating a pool in the IPAM console.](images/tutorials-get-started-console-daejldSm0ArWYGkedgKekQ.png) 11. Choose a CIDR to provision for the pool. In this example, we provision 10.0.0.0/16.
 
-![Defining which CIDRs to provision for a pool in the IPAM console.](images/tutorials-get-started-console-inrC8QzrnWgW6nmdPkk1rw.png) 12. Leave **Configure this pool’s allocation rule settings**
+![Defining which CIDRs to provision for a pool in the IPAM console.](images/tutorials-get-started-console-inrC8QzrnWgW6nmdPkk1rw.png) 12. Leave **Configure this pool's allocation rule settings**
 disabled. This is our top-level pool, and you will not be allocating CIDRs to VPCs
 directly from this pool. Instead, you will allocate them from a sub-pool that you create
 from this pool.
@@ -167,13 +167,13 @@ to the next step.
 
 ![Provisioned message in the IPAM console after you successfully create a pool.](images/tutorials-get-started-console-3_1.png)
 
-Now that you have created your top-level pool, you’ll create Regional pools in us-west-1 and
+Now that you have created your top-level pool, you'll create Regional pools in us-west-1 and
 us-west-2.
 
 ## Step 4: Create Regional IPAM pools
 
 This section shows you how to organize your IP addresses using two Regional pools. In
-this tutorial, we’re following one of [the example
+this tutorial, we're following one of [the example
 IPAM pool plans](planning-examples-ipam.md "planning-examples-ipam.md") and creating two Regional pools which can be used by the member
 accounts in your organization for allocating CIDRs to their VPCs.
 
@@ -188,7 +188,7 @@ accounts in your organization for allocating CIDRs to their VPCs.
 description for the pool, such as **Regional pool us-west-1**.
 
 ![Adding a name for a pool in the IPAM console.](images/tutorials-get-started-console-U9TfeMAvqPNqdM3o18oNCA.png) 7. Under **Source**, select **IPAM pool** and select the top-level pool
-(“Global pool”) that you created in [Step 3: Create a top-level IPAM pool](#3-create-a-toplevel-ipam-pool "#3-create-a-toplevel-ipam-pool"). Then, under
+("Global pool") that you created in [Step 3: Create a top-level IPAM pool](#3-create-a-toplevel-ipam-pool "#3-create-a-toplevel-ipam-pool"). Then, under
 **Locale**, choose **us-west-1**.
 
 ![Choosing a source pool in the IPAM console.](images/tutorials-get-started-console-Qg017oruyE3w2MEkQXr1EQ.png) 8. Under **Resource planning**, leave **Plan IP
@@ -197,14 +197,14 @@ about using this option to plan for subnet IP space within a VPC, see
 [Tutorial: Plan VPC IP address space for subnet IP allocations](tutorials-subnet-planning.md "tutorials-subnet-planning.md"). 9. Under **CIDRs to provision**, enter 10.0.0.0/18, which
 will give this pool around 16,000 available IP addresses.
 
-![Choosing CIDRs to provision for the pool in the IPAM console.](images/tutorials-get-started-console-os9vwNonWgaIGDkbq3Pjbg.png) 10. Leave **Configure this pool’s allocation rule settings**
+![Choosing CIDRs to provision for the pool in the IPAM console.](images/tutorials-get-started-console-os9vwNonWgaIGDkbq3Pjbg.png) 10. Leave **Configure this pool's allocation rule settings**
 disabled. You will not be allocating CIDRs to VPCs directly from this pool. Instead, you
 will allocate them from a sub-pool that you create from this pool.
 
-![The Configure this pool’s allocation rule settings toggle in the IPAM console.](images/tutorials-get-started-console-8j4A_Tr5hG95xWIFfi1wkw.png) 11. Choose **Create pool**. 12. Return to the **Pools** view to see the hierarchy of
-IPAM pools that you’ve created.
+![The Configure this pool's allocation rule settings toggle in the IPAM console.](images/tutorials-get-started-console-8j4A_Tr5hG95xWIFfi1wkw.png) 11. Choose **Create pool**. 12. Return to the **Pools** view to see the hierarchy of
+IPAM pools that you've created.
 
-![Pools view with two pools in the IPAM console.](images/tutorials-get-started-console-Ki7fsgUEn6miZE5Hg2TmrA_update.png) 13. Repeat the steps in this section and create a second Regional pool in **us-west-2** locale with the CIDR **10.0.64.0/18** provisioned to it. When you complete that process, you’ll have
+![Pools view with two pools in the IPAM console.](images/tutorials-get-started-console-Ki7fsgUEn6miZE5Hg2TmrA_update.png) 13. Repeat the steps in this section and create a second Regional pool in **us-west-2** locale with the CIDR **10.0.64.0/18** provisioned to it. When you complete that process, you'll have
 three pools in a hierarchy similar to this one:
 
 ![Pools view with three pools in the IPAM console.](images/tutorials-get-started-console-5_update.png)
@@ -232,7 +232,7 @@ settings**. Do the following:
      but you can read more about the option in [Create a top-level IPv4 pool](create-top-ipam.md "create-top-ipam.md").
     2. Under **Netmask compliancy**, choose **/24** for the minimum, default, and maximum netmask length. A
      detailed description of this option is outside the scope of this tutorial, but you can
-     read more about the option in [Create a top-level IPv4 pool](create-top-ipam.md "create-top-ipam.md"). What’s important to note is that the VPC that you create
+     read more about the option in [Create a top-level IPv4 pool](create-top-ipam.md "create-top-ipam.md"). What's important to note is that the VPC that you create
      later with a CIDR from this pool will be limited to /24 based on what we set here.
     3. Under **Tag compliance**, enter **environment/pre-prod**. This tag will be required for VPCs to
      allocate space from the pool. We will demonstrate later how this works.
@@ -242,7 +242,7 @@ pool us-west-1**:
 
 ![Pool view with four pools in the IPAM console.](images/tutorials-get-started-console-DrNlvRjI9cFmNfq7Xa4x0w_update.png)
 
-Now you’re ready to share the IPAM pool with another member account in your organization and
+Now you're ready to share the IPAM pool with another member account in your organization and
 enable that account to allocate a CIDR from the pool to create a VPC.
 
 ## Step 6: Share the IPAM pool
@@ -258,7 +258,7 @@ This section consists of two subsections:
 
 ### Step 6.1. Enable resource sharing in AWS RAM
 
-After you create your IPAM, you’ll want to share IP address pools with other accounts in
+After you create your IPAM, you'll want to share IP address pools with other accounts in
 your organization. Before you share an IPAM pool, complete the steps in this section to
 enable resource sharing with AWS RAM.
 
@@ -275,7 +275,7 @@ You can now share an IPAM pool with other members of the organization.
 
 ### Step 6.2. Share an IPAM pool using AWS RAM
 
-In this section you’ll share the pre-production development pool with another AWS Organizations
+In this section you'll share the pre-production development pool with another AWS Organizations
 member account. For complete instructions on sharing IPAM pools, including information on
 the required IAM permissions, see [Share an IPAM pool using AWS RAM](share-pool-ipam.md "share-pool-ipam.md").
 
@@ -302,7 +302,7 @@ sharing only within your organization.** Enter your AWS Organizations organizati
 ID (as mentioned in [How AWS Organizations integrates with IPAM](#how-aws-organizations-integrates-with-ipam "#how-aws-organizations-integrates-with-ipam"), and then choose **Add**
 .
 
-![Granting access to a resource share in the AWS RAM console.](images/tutorials-get-started-console-dvLWZpvLDwh-grXeuUwPFQ.png) 13. Choose **Next**. 14. Review the resource share options and the principals that you’ll be sharing with,
+![Granting access to a resource share in the AWS RAM console.](images/tutorials-get-started-console-dvLWZpvLDwh-grXeuUwPFQ.png) 13. Choose **Next**. 14. Review the resource share options and the principals that you'll be sharing with,
 and then choose **Create**.
 
 Now that the pool has been shared, go to the next step to create a VPC with a CIDR
@@ -375,7 +375,7 @@ Follow the steps in this section to clean up the resources that you created in t
    AWS Organizations that you enable in [Step 6.1. Enable resource sharing in AWS RAM](#61-enable-resource-sharing-in-aws-ram "#61-enable-resource-sharing-in-aws-ram").
 4. Using the IPAM admin account, delete the example IPAM by selecting the IPAM in the
    IPAM console and then choosing **Actions** > **Delete**. For detailed instructions, see [Delete an IPAM](delete-ipam.md "delete-ipam.md").
-5. When you’re prompted to delete the IPAM, choose **Cascade
+5. When you're prompted to delete the IPAM, choose **Cascade
    delete**. This will delete all scopes and pools within the IPAM before
    deleting the IPAM.
 

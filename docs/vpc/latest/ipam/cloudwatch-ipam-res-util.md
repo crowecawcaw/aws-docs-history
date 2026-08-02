@@ -29,7 +29,7 @@ the _AWS General Reference_.
 
 ###### Example
 
-Let’s say that your IPAM monitors 2,500 VPCs and 10,000 subnets, all with IPv4 and IPv6 CIDRs. IPAM publishes the following IP utilization metrics:
+Let's say that your IPAM monitors 2,500 VPCs and 10,000 subnets, all with IPv4 and IPv6 CIDRs. IPAM publishes the following IP utilization metrics:
 
 - Up to 150 metrics for VPC IPv4 IP utilization, including:
 
@@ -55,7 +55,7 @@ The VPC metric name and description is listed below.
 
 | Metric name | Description                                                                                                                                                                                                               |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| VpcIPUsage  | The total IPs covered by CIDRs in the VPC’s subnets divided by<br>the total IPs covered by CIDRs in the VPC. This is calculated across<br>all VPC CIDRs in the same IPAM Scope and separately for IPv4 and<br>IPv6 CIDRs. |
+| VpcIPUsage  | The total IPs covered by CIDRs in the VPC's subnets divided by<br>the total IPs covered by CIDRs in the VPC. This is calculated across<br>all VPC CIDRs in the same IPAM Scope and separately for IPv4 and<br>IPv6 CIDRs. |
 
 The dimensions you can use to filter VPC metrics are listed below.
 

@@ -1,7 +1,7 @@
 # Share an IPAM pool using AWS RAM
 
 Follow the steps in this section to share an IPAM pool using AWS Resource Access Manager
-(RAM). When you share an IPAM pool with RAM, “principals” can allocate CIDRs from the pool
+(RAM). When you share an IPAM pool with RAM, "principals" can allocate CIDRs from the pool
 to AWS resources, such as VPCs, from their respective accounts. A principal is a concept
 in RAM that means any AWS account, IAM role or organizational unit in AWS Organizations.
 For more information, see [Sharing
@@ -33,7 +33,7 @@ AWS Management Console
 1. Open the IPAM console at
    [https://console.aws.amazon.com/ipam/](https://console.aws.amazon.com/ipam/ "https://console.aws.amazon.com/ipam/").
 2. In the navigation pane, choose **Pools**.
-3. By default, the default private scope is selected. If you don’t want to use the default
+3. By default, the default private scope is selected. If you don't want to use the default
    private scope, from the dropdown menu at the top of the content pane, choose the scope you want to use. For more information about scopes, see [How IPAM works](how-it-works-ipam.md "how-it-works-ipam.md").
 4. In the content pane, choose the pool you want to share and choose **Actions** > **View details**.
 5. Under **Resource sharing**, choose **Create resource share**. As a result, the AWS RAM console opens. You'll create the shared pool in AWS RAM.
@@ -55,10 +55,10 @@ AWS Management Console
 
 11. Choose the principals that are allowed to access this resource. If principals will be importing existing BYOIP CIDRs
     to this shared IPAM pool, add the BYOIP CIDR owner account as principal.
-12. Review the resource share options and the principals you’ll be sharing with and choose **Create**.
+12. Review the resource share options and the principals you'll be sharing with and choose **Create**.
 
 Command line
-The command(s) in this section link to the _AWS CLI Command Reference_. There you’ll find detailed descriptions
+The command(s) in this section link to the _AWS CLI Command Reference_. There you'll find detailed descriptions
 of the options you can use when you run the command(s).
 
 Use the following AWS CLI commands to share an IPAM pool using RAM:

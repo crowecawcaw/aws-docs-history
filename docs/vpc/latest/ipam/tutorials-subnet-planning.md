@@ -8,11 +8,11 @@ This tutorial covers allocating private IPv4 address space in a private IPAM sco
 
 Planning VPC IP address space for subnets enables you to do the following:
 
-- **Plan and organize your VPC’s IP addresses for allocation to
+- **Plan and organize your VPC's IP addresses for allocation to
   subnets**: You can divide VPC IP address space into smaller CIDR blocks
   and provision those CIDR blocks to subnets with different business needs, such as if you're running workloads in development or production subnets.
 - **Simplify IP address allocations for VPC subnets**: Once your
-  VPC’s address space is planned and organized, you can choose a netmask length rather
+  VPC's address space is planned and organized, you can choose a netmask length rather
   than manually inputting a CIDR. For example, if a developer is creating a subnet for
   hosting development workloads, they need to choose a pool and a netmask length for
   the subnet and IPAM will automatically allocate the CIDR block to your
@@ -35,7 +35,7 @@ Planning VPC IP address space for subnets enables you to do the following:
 
 - The resource planning pool can be used to allocate CIDRs to subnets or it can be used as a source pool in which you can create other pools. In this tutorial, we use the resource planning pool as a source pool for subnet pools.
 - You can create multiple resource planning pools using the same VPC if the VPC has more than
-  one CIDR provisioned to it; if a VPC has two CIDRs assigned to it, for example,
+  one CIDR provisioned to it. For example, if a VPC has two CIDRs assigned to it,
   you can create two resource planning pools, one from each CIDR. Each CIDR can be
   assigned to one pool at a time.
 
@@ -72,7 +72,7 @@ Complete the steps in this section to create a resource planning pool.
 3. Choose the private scope.
 4. Choose **Create pool**.
 5. Under **IPAM scope**, leave the private scope selected.
-6. (Optional) Add a **Name tag** for the pool, such as “Resource-planning-pool”.
+6. (Optional) Add a **Name tag** for the pool, such as "Resource-planning-pool".
 7. Under **Source**, choose **IPAM scope**.
 8. Under **Resource planning**, choose **Plan IP space within a VPC** and choose the VPC you created in the previous step. The VPC is the resource used to provision CIDRs to the resource planning pool.
 9. Under **CIDRs to provision**, choose the VPC CIDR to provision for the resource pool. The CIDR you provision to the resource planning pool must match the CIDR provisioned to the VPC. In this tutorial, we use 10.0.0.0/20.
@@ -92,13 +92,13 @@ Complete the steps in this section to create two subnet pools that will be used 
 3. Choose the private scope.
 4. Choose **Create pool**.
 5. Under **IPAM scope**, leave the private scope selected.
-6. (Optional) Add a **Name tag** for the pool, such as “dev-subnet-pool”.
+6. (Optional) Add a **Name tag** for the pool, such as "dev-subnet-pool".
 7. Under **Source**, choose **IPAM pool** and select the resource planning pool you created in Step 3. The address family, Resource planning configuration, and Locale are automatically inherited from the source pool.
 8. Under **CIDRs to provision**, choose the CIDR to provision for the subnet pool. In this tutorial, we use 10.0.0.0/24.
 9. Choose **Create pool**.
 10. Once the pool is created, choose the **CIDR tab** to see the state of the provisioned CIDR.
     Refresh the page and wait for the CIDR state to change from _Pending-provision_ to _Provisioned_ before you go to the next step.
-11. Repeat this process to create another subnet called “prod-subnet-pool”.
+11. Repeat this process to create another subnet called "prod-subnet-pool".
 
 At this point, if you want to make this subnet pool available to other AWS accounts, you can share the subnet pool. For instructions on how to do that, see [Share an IPAM pool using AWS RAM](share-pool-ipam.md "share-pool-ipam.md"). Then return here to complete the tutorial.
 

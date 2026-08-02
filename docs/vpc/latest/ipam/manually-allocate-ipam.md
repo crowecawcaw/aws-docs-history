@@ -1,8 +1,8 @@
 # Manually allocate a CIDR to a pool to reserve IP address space
 
 Follow the steps in this section to manually allocate a CIDR to a pool. You might do this
-in order to reserve a CIDR within an IPAM pool for later use. You can also reserve space in
-your IPAM pool to represent an on-premises network. IPAM will manage that reservation for you and indicate if any CIDRs overlap with your on-premises IP space.
+to reserve a CIDR within an IPAM pool for later use. You can also reserve space in
+your IPAM pool to represent an on-premises network. IPAM manages that reservation for you and indicates if any CIDRs overlap with your on-premises IP space.
 
 AWS Management Console
 
@@ -11,7 +11,7 @@ AWS Management Console
 1. Open the IPAM console at
    [https://console.aws.amazon.com/ipam/](https://console.aws.amazon.com/ipam/ "https://console.aws.amazon.com/ipam/").
 2. In the navigation pane, choose **Pools**.
-3. By default, the default private scope is selected. If you don’t want to use the default
+3. By default, the default private scope is selected. If you don't want to use the default
    private scope, from the dropdown menu at the top of the content pane, choose the scope you want to use. For more information about scopes, see [How IPAM works](how-it-works-ipam.md "how-it-works-ipam.md").
 4. In the content pane, choose a pool.
 5. Choose **Actions** > **Create custom

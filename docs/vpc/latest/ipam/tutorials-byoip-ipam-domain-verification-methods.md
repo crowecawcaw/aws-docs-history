@@ -68,7 +68,7 @@ RIPE and APNIC).
 ###### Important
 
 Before you can continue, you must have already created an IPAM in the Free or Advanced Tier.
-If you don’t have an IPAM, complete [Create an IPAM](create-ipam.md "create-ipam.md") first.
+If you don't have an IPAM, complete [Create an IPAM](create-ipam.md "create-ipam.md") first.
 
 ###### Contents
 
@@ -79,7 +79,7 @@ If you don’t have an IPAM, complete [Create an IPAM](create-ipam.md "create-ip
 ### Step 1: Create a ROA if you don't have one
 
 You must have a Route Origin Authorization (ROA) in your Regional Internet
-Registry (RIR) for IP address ranges you wish to advertise. If you don’t have a
+Registry (RIR) for IP address ranges you wish to advertise. If you don't have a
 ROA in your RIR, complete [3.
 Create a ROA object in your RIR](../../../AWSEC2/latest/UserGuide/ec2-byoip.md#byoip-create-roa-object "../../../AWSEC2/latest/UserGuide/ec2-byoip.md#byoip-create-roa-object") in the
 _Amazon EC2 User Guide_. Ignore the other steps.
@@ -107,7 +107,7 @@ AWS Management Console
 3. In the left navigation pane, choose **IPAMs**.
 4. Choose your IPAM and then choose the **Verification tokens tab**.
 5. Select **Create verification token**.
-6. After you create the token, leave this browser tab open. You’ll need the **Token value**, **Token name** in the next step and the **Token ID** in a later step.
+6. After you create the token, leave this browser tab open. You'll need the **Token value**, **Token name** in the next step and the **Token ID** in a later step.
 
 Note the following:
 
@@ -196,26 +196,26 @@ of the prefix itself or its parent prefix.
   - For 198.18.123.0/24, which is already aligned at an octet boundary, you would need to create a single authentication record at:
 
     - `*token-name*.123.18.198.in-addr.arpa. IN TXT
-   “*token-value*”`
+   "*token-value*"`
 
   - For 198.18.12.0/22, which itself is not aligned to octet boundary, you would need to create four authentication records. These records must cover the subnets 198.18.12.0/24, 198.18.13.0/24, 198.18.14.0/24, and 198.18.15.0/24 which are aligned at an octet boundary. The corresponding DNS entries must be:
 
     - `*token-name*.12.18.198.in-addr.arpa.
    IN TXT
-   “*token-value*”`
+   "*token-value*"`
     - `*token-name*.13.18.198.in-addr.arpa.
    IN TXT
-   “*token-value*”`
+   "*token-value*"`
     - `*token-name*.14.18.198.in-addr.arpa.
    IN TXT
-   “*token-value*”`
+   "*token-value*"`
     - `*token-name*.15.18.198.in-addr.arpa.
    IN TXT
-   “*token-value*”`
+   "*token-value*"`
 
   - For 198.18.0.0/16, which is already aligned at an octet boundary, you need to create a single authentication record:
 
-    - `*token-name*.18.198.in-addr.arpa. IN TXT “*token-value*”`
+    - `*token-name*.18.198.in-addr.arpa. IN TXT "*token-value*"`
 
 - For IPv6, authentication records need to align to
   ranges at nibble boundary that make up the prefix. Valid
@@ -234,7 +234,7 @@ of the prefix itself or its parent prefix.
 
     		* `*token-name*.0.0.8.b.d.0.1.0.0.2.ip6.arpa
     		 TXT
-    		 “*token-value*”`
+    		 "*token-value*"`
     	- For 2001:0db8:80::/42, which is itself not aligned
     	 at nibble boundary, you need to create four
     	 authentication records. These records must cover the
@@ -248,13 +248,13 @@ of the prefix itself or its parent prefix.
 
     		* `*token-name*.8.0.0.8.b.d.0.1.0.0.2.ip6.arpa
     		 TXT
-    		 “*token-value*”`
+    		 "*token-value*"`
     		* `*token-name*.9.0.0.8.b.d.0.1.0.0.2.ip6.arpa
-    		 TXT “*token-value*”`
+    		 TXT "*token-value*"`
     		* `*token-name*.a.0.0.8.b.d.0.1.0.0.2.ip6.arpa
-    		 IN TXT “*token-value*”`
+    		 IN TXT "*token-value*"`
     		* `*token-name*.b.0.0.8.b.d.0.1.0.0.2.ip6.arpa
-    		 IN TXT “*token-value*”`
+    		 IN TXT "*token-value*"`
     	- For the non-advertised range 2001:db8:0:1000::/54,
     	 which is itself not aligned at a nibble boundary,
     	 you need to create four authentication records.
@@ -268,13 +268,13 @@ of the prefix itself or its parent prefix.
 
 
     		* `*token-name*.0.1.0.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa
-    		 IN TXT “*token-value*”`
+    		 IN TXT "*token-value*"`
     		* `*token-name*.1.1.0.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa
-    		 IN TXT “*token-value*”`
+    		 IN TXT "*token-value*"`
     		* `*token-name*.2.1.0.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa
-    		 IN TXT “*token-value*”`
+    		 IN TXT "*token-value*"`
     		* `*token-name*.3.1.0.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa
-    		 IN TXT “*token-value*”`
+    		 IN TXT "*token-value*"`
     + To validate the correct number of hexadecimal numbers
      between the *token-name* and the
      "ip6.arpa" string, multiply the number by four. The result

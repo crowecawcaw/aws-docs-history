@@ -22,7 +22,7 @@ able to monitor the existing allocations. For more information, see [Monitor CID
 ###### Contents
 
 - [Step 1: Create AWS CLI named profiles and IAM roles](#tutorials-byoip-ipam-ipv4-console-1 "#tutorials-byoip-ipam-ipv4-console-1")
-- [Step 2: Get your IPAM’s public scope ID](#tutorials-byoip-ipam-transfer-ipv4-2 "#tutorials-byoip-ipam-transfer-ipv4-2")
+- [Step 2: Get your IPAM's public scope ID](#tutorials-byoip-ipam-transfer-ipv4-2 "#tutorials-byoip-ipam-transfer-ipv4-2")
 - [Step 3: Create an IPAM pool](#tutorials-byoip-ipam-transfer-ipv4-3 "#tutorials-byoip-ipam-transfer-ipv4-3")
 - [Step 4: Share the IPAM pool using AWS RAM](#tutorials-byoip-ipam-transfer-ipv4-4 "#tutorials-byoip-ipam-transfer-ipv4-4")
 - [Step 5: Transfer an existing BYOIP IPV4 CIDR to IPAM](#tutorials-byoip-ipam-transfer-ipv4-5 "#tutorials-byoip-ipam-transfer-ipv4-5")
@@ -46,9 +46,9 @@ Create one role and one named profile for each of the three AWS accounts you wil
 
 After you have created the IAM roles and named profiles, return to this page and go to the next step. You will notice throughout the rest of this tutorial that the sample AWS CLI commands use the `--profile` option with one of the named profiles to indicate which account must run the command.
 
-## Step 2: Get your IPAM’s public scope ID
+## Step 2: Get your IPAM's public scope ID
 
-Follow the steps in this section to get your IPAM’s public scope ID. This step should
+Follow the steps in this section to get your IPAM's public scope ID. This step should
 be performed by the `ipam-account` account.
 
 Run the following command to get your public scope ID.

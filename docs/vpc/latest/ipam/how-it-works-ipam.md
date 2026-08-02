@@ -6,7 +6,7 @@ The following diagram shows an IPAM pool hierarchy for multiple AWS Regions with
 top-level IPAM pool. Each AWS Regional pool has two IPAM development pools within it, one pool
 for pre-production and one pool production resources. For more information about IPAM concepts, see the descriptions below the diagram.
 
-![IPAM pool how it works](images/ipam-example-1-570px.png)
+![IPAM pool how it works.](images/ipam-example-1-570px.png)
 To use Amazon VPC IP Address Manager, you first create an IPAM.
 
 When you create the IPAM, you choose which AWS Region to create it in. When you create an
@@ -24,7 +24,7 @@ pools and allocations, are key components of your IPAM.
   have separate routing and security needs for development and production applications, you
   can create a pool for each. Within IPAM pools, you allocate CIDRs to AWS resources.
 - An **allocation** is a CIDR assignment from an IPAM pool to
-  another resource or IPAM pool. When you create a VPC and choose an IPAM pool for the VPC’s
+  another resource or IPAM pool. When you create a VPC and choose an IPAM pool for the VPC's
   CIDR, the CIDR is allocated from the CIDR provisioned to the IPAM pool. You can monitor and manage the allocation
   with IPAM.
   IPAM can manage and monitor public and private IPv6 space. For more information about public

@@ -228,7 +228,7 @@ The monitor command shows:
 
 ###### Important
 
-To support rollback workflows, IPAM will retain copies of the previous 10 prefix list resolver versions for each of its targets; additionally, IPAM will delete versions which are older than this threshold if they remain unreferenced for an additional 7 days.
+To support rollback workflows, IPAM retains copies of the previous 10 prefix list resolver versions for each of its targets. Additionally, IPAM deletes versions older than this threshold if they remain unreferenced for an additional 7 days.
 
 ### Step 4: (Optional) Enable and disable IPAM prefix list sync
 

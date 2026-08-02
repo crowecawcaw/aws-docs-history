@@ -16,7 +16,7 @@ AWS Management Console
 1. Open the IPAM console at
    [https://console.aws.amazon.com/ipam/](https://console.aws.amazon.com/ipam/ "https://console.aws.amazon.com/ipam/").
 2. In the navigation pane, choose **Pools**.
-3. By default, the default private scope is selected. If you don’t want to use the default
+3. By default, the default private scope is selected. If you don't want to use the default
    private scope, from the dropdown menu at the top of the content pane, choose the scope you want to use. For more information about scopes, see [How IPAM works](how-it-works-ipam.md "how-it-works-ipam.md")
 4. In the content pane, choose the pool whose CIDR you want to
    edit.

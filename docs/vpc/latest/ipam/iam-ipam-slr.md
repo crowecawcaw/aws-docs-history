@@ -4,7 +4,7 @@ IPAM uses AWS Identity and Access Management (IAM) service-linked roles. A servi
 type of IAM role. Service-linked roles are predefined by IPAM and include all the
 permissions that the service requires to call other AWS services on your behalf.
 
-A service-linked role makes setting up IPAM easier because you don’t have to
+A service-linked role makes setting up IPAM easier because you don't have to
 manually add the necessary permissions. IPAM defines the permissions of its
 service-linked roles, and unless defined otherwise, only IPAM can assume its roles. The
 defined permissions include the trust policy and the permissions policy, and that permissions

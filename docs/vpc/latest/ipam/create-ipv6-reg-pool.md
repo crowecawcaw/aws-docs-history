@@ -112,7 +112,7 @@ address range for this pool. As noted at the top of this page, this
 topic covers how to create an IPv6 regional pool with an IP address
 range provided by AWS. If you want to bring your own IPv4 or IPv6
 address range to AWS (BYOIP), there are prerequisites. For more
-information, see [Tutorial: Bring your IP addresses to IPAM](tutorials-byoip-ipam.md "tutorials-byoip-ipam.md"). 12. (Optional) You can create a pool without a CIDR, but you won’t be able
+information, see [Tutorial: Bring your IP addresses to IPAM](tutorials-byoip-ipam.md "tutorials-byoip-ipam.md"). 12. (Optional) You can create a pool without a CIDR, but you won't be able
 to use the pool for allocations until you've provisioned a CIDR for it.
 To provision a CIDR, do one of the following:
 

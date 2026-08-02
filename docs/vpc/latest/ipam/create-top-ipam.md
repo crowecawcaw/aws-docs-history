@@ -88,8 +88,8 @@ about using this option to plan for subnet IP space within a VPC, see
 [Tutorial: Plan VPC IP address space for subnet IP allocations](tutorials-subnet-planning.md "tutorials-subnet-planning.md"). 9. For the **Locale**, choose **None**.
 You will set the locale on the Regional pool.
 
-The locale is the AWS Region where you want this IPAM pool to be available for allocations. For example, you can only allocate a CIDR for a VPC from an IPAM pool that shares a locale with the VPC’s Region. Note that when you have chosen a locale for a pool, you cannot modify it. If the home Region of the IPAM is unavailable due to an outage and the pool has a locale different than the home Region of the IPAM, the pool can still be used to allocate IP addresses. 10. (Optional) You can create a pool without a CIDR, but you won’t be able
-to use the pool for allocations until you’ve provisioned a CIDR for it.
+The locale is the AWS Region where you want this IPAM pool to be available for allocations. For example, you can only allocate a CIDR for a VPC from an IPAM pool that shares a locale with the VPC’s Region. Note that when you have chosen a locale for a pool, you cannot modify it. If the home Region of the IPAM is unavailable due to an outage and the pool has a locale different than the home Region of the IPAM, the pool can still be used to allocate IP addresses. 10. (Optional) You can create a pool without a CIDR, but you won't be able
+to use the pool for allocations until you've provisioned a CIDR for it.
 To provision a CIDR, choose **Add new CIDR**. Enter an
 IPv4 CIDR to provision for the pool. If you want to bring your own IPv4
 or IPv6 IP address range to AWS there are prerequisites. For more

@@ -84,7 +84,7 @@ AWS Management Console
    Regions in which this IPAM can manage and discover resources.
    The AWS Region in which you are creating your IPAM is selected
    as one of the operating Regions by default. For example, if
-   you’re creating this IPAM in AWS Region `us-east-1`
+   you're creating this IPAM in AWS Region `us-east-1`
    but you want to create Regional IPAM pools later that provide
    CIDRs to VPCs in `us-west-2`, select
    `us-west-2` here. If you forget an operating

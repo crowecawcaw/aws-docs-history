@@ -10,7 +10,7 @@ IPv6 addresses](../userguide/vpc-ip-addressing.md#vpc-ipv6-addresses-private "..
 There are two types of private IPv6 addresses:
 
 - **IPv6 ULA ranges**: IPv6 addresses as defined in [RFC4193](https://datatracker.ietf.org/doc/html/rfc4193 "https://datatracker.ietf.org/doc/html/rfc4193"). These
-  address ranges will always start with “fc” or “fd”, which makes them easily
+  address ranges will always start with "fc" or "fd", which makes them easily
   identifiable. Valid IPv6 ULA space is anything under fd00::/8 that does not overlap
   with the Amazon reserved range fd00::/16.
 - **IPv6 GUA ranges**: IPv6 addresses as defined in

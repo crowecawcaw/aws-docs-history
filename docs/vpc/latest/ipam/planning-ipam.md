@@ -18,7 +18,7 @@ for AWS Regions outside of your IPAM Region. For example, if you have separate r
 security needs for development and production applications, you can create a pool for
 each.
 
-In the first step in this section, you’ll create a top-level pool. Then, you’ll create a
+In the first step in this section, you'll create a top-level pool. Then, you'll create a
 Regional pool within the top-level pool. Within the Regional pool, you can create additional
 pools as needed, such as a production and development environment pools. By default, you can
 create pools up to a depth of 10. For information on IPAM quotas, see [Quotas for your IPAM](quotas-ipam.md "quotas-ipam.md").

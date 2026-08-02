@@ -41,8 +41,8 @@ AWS Management Console
    [Tutorial: Plan VPC IP address space for subnet IP allocations](tutorials-subnet-planning.md "tutorials-subnet-planning.md").
 8. (Optional) Choose a CIDR to provision for the pool. You can only provision a CIDR
    that was provisioned to the top-level pool. You can create a pool
-   without a CIDR, but you won’t be able to use the pool for allocations
-   until you’ve provisioned a CIDR for it. You can add CIDRs to a pool at
+   without a CIDR, but you won't be able to use the pool for allocations
+   until you've provisioned a CIDR for it. You can add CIDRs to a pool at
    any time by editing the pool.
 9. You have the same allocation rule options here as you did when you
    created the IPv6 Regional pool. See [Create a Regional IPv6 address pool in your IPAM](create-ipv6-reg-pool.md "create-ipv6-reg-pool.md") for an explanation of the options
@@ -51,7 +51,7 @@ AWS Management Console
    do not apply any rules here, no allocation rules will be set for the
    pool.
 10. (Optional) Choose **Tags** for the pool.
-11. When you’ve finished configuring your pool, choose **Create
+11. When you've finished configuring your pool, choose **Create
     pool**.
 12. See [Allocate CIDRs from an IPAM pool](allocate-cidrs-ipam.md "allocate-cidrs-ipam.md").
 

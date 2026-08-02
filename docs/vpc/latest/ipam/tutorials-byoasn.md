@@ -1,6 +1,6 @@
 # Tutorial: Bring your ASN to IPAM
 
-If your applications are using trusted IP addresses and Autonomous System Numbers (ASNs) that your partners or customers have allow listed in their network, you can run these applications in AWS without requiring your partners or customers to change their allow lists.
+If your applications use trusted IP addresses and Autonomous System Numbers (ASNs) that your partners or customers have allow listed in their network, you can run these applications in AWS. Your partners or customers do not need to change their allow lists.
 
 An Autonomous System Number (ASN) is a globally unique number which enables a group of networks to be identified over the internet and exchange routing data with other networks dynamically using [Border Gateway Protocol](https://aws.amazon.com/what-is/border-gateway-protocol/ "https://aws.amazon.com/what-is/border-gateway-protocol/"). Internet service providers (ISPs), for example, use ASNs to identify the network traffic source. Not all organizations purchase their own ASNs, but for organizations which do, they can bring their ASN to AWS.
 
@@ -12,8 +12,8 @@ traffic based on your IP address and ASN.
 
 ###### Important
 
-- Complete this tutorial using the IPAM admin account in your IPAM’s home Region.
-- This tutorial assumes you own the public ASN you’d like to bring to IPAM and that you’ve already brought a BYOIP CIDR to AWS and provisioned it to a pool in your public scope. You can bring an ASN to IPAM at any time, but to use it, you have to associate with a CIDR that you’ve brought to your AWS account. This tutorial assumes that you have already done that. For more information, see [Tutorial: Bring your IP addresses to IPAM](tutorials-byoip-ipam.md "tutorials-byoip-ipam.md").
+- Complete this tutorial using the IPAM admin account in your IPAM's home Region.
+- This tutorial assumes you own the public ASN you'd like to bring to IPAM and that you've already brought a BYOIP CIDR to AWS and provisioned it to a pool in your public scope. You can bring an ASN to IPAM at any time, but to use it, you have to associate with a CIDR that you've brought to your AWS account. This tutorial assumes that you have already done that. For more information, see [Tutorial: Bring your IP addresses to IPAM](tutorials-byoip-ipam.md "tutorials-byoip-ipam.md").
 - You can change between your advertising your own ASN or an AWS ASN without delay, but you are limited to changing from an AWS ASN to your own ASN once per hour.
 - If your BYOIP CIDR is currently advertised, you do not have to withdraw it from advertising to associate with your ASN.
 
@@ -42,12 +42,12 @@ You will need the following to complete this tutorial:
     Comments" section for the "Network Information" object representing your
     ASN by using the "Modify ASN" option. Do not add it to the comments
     section for your organization.
-  - For RIPE, add the certificate as a new "descr" field to the “aut-num”
+  - For RIPE, add the certificate as a new "descr" field to the "aut-num"
     object representing your ASN. These can usually be found in the "My
     Resources" section of the
 
   [RIPE Database portal](https://apps.db.ripe.net/db-web-ui/myresources/overview "https://apps.db.ripe.net/db-web-ui/myresources/overview") . Do not add it to the comments
-  section for your organization or the "remarks" field of the “aut-num”
+  section for your organization or the "remarks" field of the "aut-num"
   object.
   - For APNIC, email the certificate to [helpdesk@apnic.net](mailto:helpdesk@apnic.net "mailto:helpdesk@apnic.net") to
     manually add it to the "remarks" field for your ASN. Send the email
@@ -55,7 +55,7 @@ You will need the following to complete this tutorial:
 
 - When you bring an IP address range to IPAM, you create a ROA to verify that you control the IP address
   space that you are bringing to IPAM. In addition to that ROA, you must have a second ROA in your RIR
-  with the ASN that you are bringing to IPAM. If you don’t have this second
+  with the ASN that you are bringing to IPAM. If you don't have this second
   ROA for the ASN in your RIR, complete [3. Create a ROA object](../../../AWSEC2/latest/UserGuide/prepare-for-byoip.md#byoip-create-roa-object "../../../AWSEC2/latest/UserGuide/prepare-for-byoip.md#byoip-create-roa-object") in your RIR. Ignore the other steps.
 
 ## Tutorial steps
@@ -101,7 +101,7 @@ signed_message=$( echo -n $text_message | openssl dgst -sha256 -sigopt rsa_paddi
 18. Choose **Associate**.
 19. Wait for the ASN association to complete. Once the ASN is successfully associated with the BYOIP CIDR, you can advertise the BYOIP CIDR again.
 20. Choose the pool **CIDRs** tab.
-21. Select the BYOIP CIDR and choose **Actions** > **Advertise**. As a result, your ASN options are displayed: the Amazon ASN and any ASNs you’ve brought to IPAM.
+21. Select the BYOIP CIDR and choose **Actions** > **Advertise**. As a result, your ASN options are displayed: the Amazon ASN and any ASNs you've brought to IPAM.
 22. Select the ASN you brought to IPAM and choose **Advertise CIDR**. As a result, the BYOIP CIDR is advertised and the value in the **Advertising** column changes from Withdrawn to Advertised. The **Autonomous System Number** column displays the ASN associated with the CIDR.
 23. (optional) If you decide that you want to change the ASN association back to the Amazon ASN, select the BYOIP CIDR and choose **Actions** > **Advertise** again. This time, choose the Amazon ASN. You can swap back to the Amazon ASN at any time, but you can only change to a custom ASN once every hour.
 
@@ -151,7 +151,7 @@ aws ec2 associate-ipam-byoasn --asn 12345 --cidr xxx.xxx.xxx.xxx/n
 aws ec2 describe-byoip-cidrs --max-results 10
 ```
 
-5. Advertise your CIDR with your ASN. If the CIDR is already advertised, this will swap the origin ASN from Amazon’s to yours.
+5. Advertise your CIDR with your ASN. If the CIDR is already advertised, this will swap the origin ASN from Amazon's to yours.
 
 ```
 aws ec2 advertise-byoip-cidr --asn 12345 --cidr xxx.xxx.xxx.xxx/n

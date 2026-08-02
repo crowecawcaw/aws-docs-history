@@ -23,7 +23,7 @@ parent OU only. As a result, IPAM will not manage the IP addresses in accounts i
 parent OU. IPAM will manage the IP addresses in accounts in the other OUs outside the
 exclusion.
 
-![Diagram of OU exclusion on parent OU](images/ipam-ou-1.png)
+![Diagram of OU exclusion on parent OU.](images/ipam-ou-1.png)
 
 The second diagram shows the impact of adding an organization unit (OU) exclusion on a
 parent OU _and_ all child OUs. As a result, IPAM will

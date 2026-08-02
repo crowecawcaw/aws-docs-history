@@ -7,7 +7,7 @@ block. IPAM manages some resources, but only monitors other resources, so it's i
 
 - **Managed resource**: A managed resource has a CIDR
   allocated from an IPAM pool. IPAM monitors the CIDR for potential IP address overlap
-  with other CIDRs in the pool, and monitors the CIDR’s compliance with a pool’s
+  with other CIDRs in the pool, and monitors the CIDR's compliance with a pool's
   allocation rules. IPAM supports managing the following type of resources:
 
   - Elastic IP addresses
@@ -22,7 +22,7 @@ block. IPAM manages some resources, but only monitors other resources, so it's i
 
 - **Monitored resource**: If a resource is monitored by
   IPAM, the resource has been detected by IPAM and you can view details about the
-  resource’s CIDR when you use `get-ipam-resource-cidrs` with the AWS CLI, or
+  resource's CIDR when you use `get-ipam-resource-cidrs` with the AWS CLI, or
   when you view **Resources** in the navigation pane. IPAM supports
   monitoring the following resources:
 
@@ -81,12 +81,14 @@ AWS Management Console
      - **Ignored**: The resource
        has been chosen to be exempt from monitoring. Ignored
        resources are not evaluated for overlap or allocation
-       rule compliance. When a resource is chosen to be
-       ignored, any space allocated to it from an IPAM pool is
-       returned to the pool and the resource will not be
-       imported again through automatic import (if the
-       automatic import allocation rule is set on the
-       pool).
+       rule compliance.
+
+     When a resource is chosen to be
+     ignored, any space allocated to it from an IPAM pool is
+     returned to the pool. The resource will not be
+     imported again through automatic import (if the
+     automatic import allocation rule is set on the
+     pool).
      - **-**: This resource is
        not one of the types of resources that IPAM can manage.
 
@@ -114,12 +116,14 @@ AWS Management Console
      - **Ignored**: The resource
        has been chosen to be exempt from monitoring. Ignored
        resources are not evaluated for overlap or allocation
-       rule compliance. When a resource is chosen to be
-       ignored, any space allocated to it from an IPAM pool is
-       returned to the pool and the resource will not be
-       imported again through automatic import (if the
-       automatic import allocation rule is set on the
-       pool).
+       rule compliance.
+
+     When a resource is chosen to be
+     ignored, any space allocated to it from an IPAM pool is
+     returned to the pool. The resource will not be
+     imported again through automatic import (if the
+     automatic import allocation rule is set on the
+     pool).
      - **-**: This resource is
        not one of the types of resources that IPAM can manage.
 
@@ -136,12 +140,14 @@ AWS Management Console
      - **Ignored**: The resource
        has been chosen to be exempt from monitoring. IPAM does
        not evaluate ignored resources for overlap or allocation
-       rule compliance. When a resource is chosen to be
-       ignored, any space allocated to it from an IPAM pool is
-       returned to the pool and the resource will not be
-       imported again through automatic import (if the
-       automatic import allocation rule is set on the
-       pool).
+       rule compliance.
+
+     When a resource is chosen to be
+     ignored, any space allocated to it from an IPAM pool is
+     returned to the pool. The resource will not be
+     imported again through automatic import (if the
+     automatic import allocation rule is set on the
+     pool).
      - **-**: This resource is
        not one of the types of resources that IPAM can manage.
 

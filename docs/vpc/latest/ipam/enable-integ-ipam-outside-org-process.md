@@ -27,7 +27,7 @@ When you integrate IPAM with AWS accounts outside of your organization, there ar
 7. Primary Org IPAM Account can now monitor and/or manage IPAM resources created by the accounts in Secondary Org.
 8. (Optional) Primary Org IPAM Account shares IPAM pools with member accounts in Secondary Org (see [Share an IPAM pool using AWS RAM](share-pool-ipam.md "share-pool-ipam.md")).
 9. (Optional) If Primary Org IPAM Account wants to stop discovering resources in Secondary Org, it can disassociate the resource discovery from the IPAM (see [Disassociate a resource discovery](res-disc-work-with-disassociate.md "res-disc-work-with-disassociate.md")).
-10. (Optional) If the Secondary Org Admin Account wants to stop participating in the Primary Org’s
+10. (Optional) If the Secondary Org Admin Account wants to stop participating in the Primary Org's
     IPAM, they can unshare the shared resource discovery (see [Update a
     resource share in AWS RAM](../../../ram/latest/userguide/working-with-sharing-update.md "../../../ram/latest/userguide/working-with-sharing-update.md") in the _AWS RAM User
     Guide_) or delete the resource discovery (see [Delete a resource discovery](res-disc-work-with-delete.md "res-disc-work-with-delete.md")).

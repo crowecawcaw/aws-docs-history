@@ -94,9 +94,9 @@ In the output, you'll see the IPAM you've created. Note the value for `PublicDef
 ## Step 3: Create an IPAM pool
 
 Since you are going to create a top-level IPAM pool with a Regional pool within it,
-and we’re going to allocate space to a resource (a VPC) from the
+and we're going to allocate space to a resource (a VPC) from the
 Regional pool, you will set the locale on the Regional pool and not the top-level
-pool. You’ll add the locale to the Regional pool when you create the Regional pool
+pool. You'll add the locale to the Regional pool when you create the Regional pool
 in a later step. The IPAM integration with BYOIP requires that the locale is set on
 whichever pool will be used for the BYOIP CIDR.
 

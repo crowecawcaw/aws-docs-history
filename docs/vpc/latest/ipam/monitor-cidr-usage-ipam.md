@@ -27,7 +27,7 @@ AWS Management Console
    [https://console.aws.amazon.com/ipam/](https://console.aws.amazon.com/ipam/ "https://console.aws.amazon.com/ipam/").
 2. In the navigation pane, choose **Dashboard**.
 3. By default, when you view the dashboard, the default private scope is
-   selected. If you don’t want to use the default private scope, from the
+   selected. If you don't want to use the default private scope, from the
    dropdown menu at the top of the content pane, choose the scope you want
    to use. For more information about scopes, see [How IPAM works](how-it-works-ipam.md "how-it-works-ipam.md").
 4. The dashboard presents an overview of your IPAM pools and CIDRs within a scope. You can add, remove, resize, and move widgets to customize the dashboard.

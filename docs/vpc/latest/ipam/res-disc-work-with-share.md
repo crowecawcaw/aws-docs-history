@@ -58,7 +58,7 @@ AWS Management Console
 
 12. Specify the principals that are allowed access to the shared resource. For **Principals**, choose the Primary Org IPAM Account, and then choose **Add**.
 13. Choose **Next**.
-14. Review the resource share options and the principals that you’ll be sharing with. Then choose **Create resource share**.
+14. Review the resource share options and the principals that you'll be sharing with. Then choose **Create resource share**.
 15. After a resource discovery is shared, it must be accepted by the Primary Org IPAM Account and
     then associated with an IPAM by the Primary Org IPAM Account. For
     more information, see [Associate a resource discovery with an IPAM](res-disc-work-with-associate.md "res-disc-work-with-associate.md").
