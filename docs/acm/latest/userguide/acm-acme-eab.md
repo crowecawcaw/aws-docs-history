@@ -43,7 +43,7 @@ establishes for ACME:
                 "sts:SetSourceIdentity"
             ],
             "Condition": {
-                "StringLike": {
+                "StringLikeIfExists": {
                     "sts:SourceIdentity": "acm-acme-*"
                 }
             }

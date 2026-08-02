@@ -77,7 +77,7 @@ ACME (source identities that begin with `acm-acme-`):
                 "sts:SetSourceIdentity"
             ],
             "Condition": {
-                "StringLike": {
+                "StringLikeIfExists": {
                     "sts:SourceIdentity": "acm-acme-*"
                 }
             }

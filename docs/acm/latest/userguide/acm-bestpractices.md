@@ -12,6 +12,7 @@ current ACM customers.
 - [Certificate pinning](#best-practices-pinning "#best-practices-pinning")
 - [Domain validation](#best-practices-validating "#best-practices-validating")
 - [Adding or deleting domain names](#best-practices-add-delete "#best-practices-add-delete")
+- [Domain name privacy](#best-practices-domain-name-privacy "#best-practices-domain-name-privacy")
 - [Turn on AWS CloudTrail](#best-practices-ct "#best-practices-ct")
 
 ## Account-level separation
@@ -157,6 +158,12 @@ later queries the database to determine whether the record has been added. Addin
 the record asserts that you own or control the domain. In the preceding example, if
 you request a certificate with five domain names, you must create five DNS records.
 We recommend that you use DNS validation when possible.
+
+## Domain name privacy
+
+Do not include confidential or sensitive information in public certificate
+domain names. Public certificates, including ACM public certificates, are logged
+to public, append-only Certificate Transparency logs. For more information, see [Certificate Transparency Logging](acm-concepts.md#concept-transparency "acm-concepts.md#concept-transparency").
 
 ## Turn on AWS CloudTrail
 
