@@ -29,7 +29,7 @@ For more information, see [CloudWatch Usage Metrics](../../../AmazonCloudWatch/l
 
 ## View Amazon EVS service quotas in the AWS Management Console
 
-1. Open the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/eks/quotas "https://console.aws.amazon.com/servicequotas/home/services/eks/quotas").
+1. Open the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/evs/quotas "https://console.aws.amazon.com/servicequotas/home/services/evs/quotas").
 2. In the left navigation pane, choose **AWS services**.
 3. From the **AWS services** list, search for and select **Amazon Elastic VMware Service**.
 4. Choose **View quotas**.

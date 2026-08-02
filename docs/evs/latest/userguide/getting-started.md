@@ -843,6 +843,14 @@ Amazon EVS performs a DNS lookup of each host’s fully qualified domain name (F
 
 The host FQDN is `<hostName>.<domain>`, where `<hostName>` is the name you will pass to `CreateEnvironmentHost` and `<domain>` is the domain name configured in your VPC’s DHCP option set (see [Configure DNS and NTP servers using the VPC DHCP option set](#getting-started-config-dns-ntp-dhcp "#getting-started-config-dns-ntp-dhcp")).
 
+###### Important
+
+The fully qualified domain name (FQDN) for each host and VCF management appliance must not exceed 62 characters. The FQDN is the hostname combined with the domain name from your VPC DHCP option set. When you plan hostnames, include the length of your domain name so that the combined FQDN stays within 62 characters. An FQDN longer than 62 characters causes a `ValidationException` when you call `CreateEnvironment`.
+
+###### Note
+
+As a NetBIOS best practice, we recommend that you keep each hostname to 15 characters or fewer. This is a recommendation only. A hostname longer than 15 characters does not cause a deployment failure, unlike the 62-character FQDN limit described above.
+
 **Host records** must:
 
 - Use the A record IP address within the host management (vmkManagement) VLAN CIDR that you specified in `initialVlans`.
