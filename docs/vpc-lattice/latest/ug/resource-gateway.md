@@ -111,3 +111,5 @@ domain-name targets. This property is immutable. You can choose:
   domain-name targets are in a Route53 private hosted zone.
 
 If DNS resolution is IN\_VPC, you cannot attach resource configurations defined by ARN to the resource gateway. You cannot set DNS Resolution to IN\_VPC if the resource gateway uses IPv6-only subnets.
+
+A DNS server change in a Dynamic Host Configuration Protocol (DHCP) option set takes 24 hours to propagate to a resource gateway that uses IN\_VPC DNS resolution mode.
