@@ -75,7 +75,7 @@ specified number of seconds.
 
 ## Modifying delayed replication for an existing read replica
 
-To modify delayed replication for an existing read replica, run the [mysql.rds\_set\_source\_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") stored procedure.
+To modify delayed replication for an existing read replica, run the [mysql.rds\_set\_source\_delay (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") stored procedure.
 
 ###### To modify delayed replication for an existing read replica
 
@@ -83,7 +83,7 @@ To modify delayed replication for an existing read replica, run the [mysql.rds\_
    user.
 2. Use the [mysql.rds\_stop\_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored
    procedure to stop replication.
-3. Run the [mysql.rds\_set\_source\_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") stored procedure.
+3. Run the [mysql.rds\_set\_source\_delay (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") stored procedure.
 
 For example, run the following stored procedure to specify that replication
 to the read replica is delayed by at least one hour (3600

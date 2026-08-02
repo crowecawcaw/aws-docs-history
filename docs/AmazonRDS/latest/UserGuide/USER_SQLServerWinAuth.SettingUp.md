@@ -362,6 +362,20 @@ CREATE LOGIN [`mydomain`\`myuser`] FROM WINDOWS WITH DEFAULT_DATABASE = [master]
 GO
 ```
 
+###### Note
+
+If you delete an Active Directory user and create a new user with the same `sAMAccountName`,
+then run `CREATE LOGIN [DOMAIN\username] FROM WINDOWS` on your RDS for SQL Server instance,
+the login might be created with the deleted user's SID instead of the new user's SID, causing
+Windows Authentication failures. This occurs because the RDS host caches name-to-SID mappings at the
+OS level, and this cache isn't directly accessible to customers. To avoid this issue, use a unique
+`sAMAccountName` for each provisioning cycle (for example, by appending a timestamp or
+version suffix). If you must reuse the same name, run
+`DBCC FREESYSTEMCACHE('TokenAndPermUserStore')` after recreating the AD user,
+then wait up to 10 minutes (to allow the OS-level cache to refresh, as this interval is not configurable
+on RDS managed instances) and validate that `SUSER_SID('DOMAIN\username')` returns
+the expected SID before creating the login.
+
 For more information, see [CREATE LOGIN (Transact-SQL)](https://msdn.microsoft.com/en-us/library/ms189751.aspx "https://msdn.microsoft.com/en-us/library/ms189751.aspx") in the Microsoft Developer Network documentation.
 
 Users (both humans and applications) from your domain can now connect to the RDS for SQL Server instance from a domain-joined client machine using Windows authentication.

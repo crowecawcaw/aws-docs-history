@@ -94,7 +94,7 @@ stored procedures:
 - [mysql.rds\_set\_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration")
 - [mysql.rds\_set\_external\_master\_with\_delay (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master_with_delay "mysql-stored-proc-replicating.md#mysql_rds_set_external_master_with_delay")
 - [mysql.rds\_set\_external\_source\_with\_delay (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source_with_delay "mysql-stored-proc-replicating.md#mysql_rds_set_external_source_with_delay")
-- [mysql.rds\_set\_source\_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay")
+- [mysql.rds\_set\_source\_delay (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay")
 
 When the `gtid` parameter specifies a transaction that has already been
 run by the replica, replication is stopped immediately.

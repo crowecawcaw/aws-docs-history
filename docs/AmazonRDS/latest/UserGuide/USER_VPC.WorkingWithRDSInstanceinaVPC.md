@@ -145,7 +145,7 @@ given AWS Region. When creating a DB instance in a VPC, you
 choose a DB subnet group for it. From the DB subnet group, Amazon RDS chooses a subnet and an IP address within that subnet to
 associate with the DB instance. The DB uses the Availability
 Zone that contains the subnet.
-Amazon RDS always assigns an IP address from a
+Amazon RDS assigns an IP address from a
 subnet that has free IP address space.
 
 If the primary DB instance of a Multi-AZ deployment fails,

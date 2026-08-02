@@ -26,7 +26,7 @@ For information about configuring, using, and managing read replicas, see [Worki
 - [mysql.rds\_set\_external\_source\_gtid\_purged](#mysql_rds_set_external_source_gtid_purged "#mysql_rds_set_external_source_gtid_purged")
 - [mysql.rds\_set\_master\_auto\_position (RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_master_auto_position "#mysql_rds_set_master_auto_position")
 - [mysql.rds\_set\_source\_auto\_position (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_source_auto_position "#mysql_rds_set_source_auto_position")
-- [mysql.rds\_set\_source\_delay](#mysql_rds_set_source_delay "#mysql_rds_set_source_delay")
+- [mysql.rds\_set\_source\_delay (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_source_delay "#mysql_rds_set_source_delay")
 - [mysql.rds\_skip\_repl\_error](#mysql_rds_skip_repl_error "#mysql_rds_skip_repl_error")
 - [mysql.rds\_start\_replication](#mysql_rds_start_replication "#mysql_rds_start_replication")
 - [mysql.rds\_start\_replication\_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until")
@@ -1225,12 +1225,6 @@ A value that specifies whether Secure Socket Layer (SSL) encryption is
 used on the replication connection. 1 specifies to use SSL encryption, 0
 specifies to not use encryption. The default is 0.
 
-###### Note
-
-The `SOURCE_SSL_VERIFY_SERVER_CERT` option isn't
-supported. This option is set to 0, which means that the connection
-is encrypted, but the certificates aren't verified.
-
 `delay`
 
 The minimum number of seconds to delay replication from source
@@ -1299,26 +1293,27 @@ tables.
 For disaster recovery, you can use this procedure with the [mysql.rds\_start\_replication\_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or [mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure. To
 roll forward changes to a delayed read replica to the time just before a disaster,
 you can run the `mysql.rds_set_external_source_with_delay` procedure.
-After the `mysql.rds_start_replication_until` procedure stops
-replication, you can promote the read replica to be the new primary DB instance by
+After the [mysql.rds\_start\_replication\_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") procedure stops
+replication, you can promote the read replica to be the new primary DB
+instance by
 using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
 
-To use the `mysql.rds_rds_start_replication_until_gtid` procedure,
+To use the [mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") procedure,
 GTID-based replication must be enabled. To skip a specific GTID-based transaction
 that is known to cause disaster, you can use the [mysql.rds\_skip\_transaction\_with\_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For
 more information about working with GTID-based replication, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md").
 
 ### Examples
 
-When run on a MySQL DB instance, the following example configures the DB instance
-to be a read replica of an instance of MySQL running external to Amazon RDS. It sets the
-minimum replication delay to one hour (3,600 seconds) on the MySQL DB instance. A
-change from the MySQL source database instance running external to Amazon RDS isn't
-applied on the MySQL DB instance read replica for at least one hour.
+When run on a MySQL DB instance, the following example configures
+the DB instance to be a read replica of an instance of MySQL running external to
+Amazon RDS. It sets the minimum replication delay to one hour (3,600 seconds) on the
+MySQL DB instance. A change from the MySQL source
+database instance running external to Amazon RDS isn't applied on the MySQL DB instance read replica for at least one hour.
 
 ```
 call mysql.rds_set_external_source_with_delay(
-  'Externaldb.some.com',
+  'Externaldb.example.com',
   3306,
   'repl_user',
   'SomePassW0rd',
@@ -1376,7 +1371,7 @@ Call `mysql.rds_set_external_source_gtid_purged` before you call [mysql.rds\_set
 Before you call `mysql.rds_set_external_source_gtid_purged`, make sure
 to stop all active replication channels for the database. To check the status of a
 channel, use the `SHOW REPLICA STATUS` MySQL statement. To stop
-replication on a channel, call [mysql.rds\_stop\_replication\_for\_channel](mysql-stored-proc-multi-source-replication.md#mysql_rds_stop_replication_for_channel "mysql-stored-proc-multi-source-replication.md#mysql_rds_stop_replication_for_channel").
+replication on a channel, call `mysql.rds_stop_replication_for_channel`.
 
 The GTID range that you specify must be a superset of the existing
 `GTID_PURGED` value. This stored procedure checks the following
@@ -1511,7 +1506,7 @@ GTID-based replication:
 The administrative user must run the
 `mysql.rds_set_source_auto_position` procedure.
 
-## mysql.rds\_set\_source\_delay
+## mysql.rds\_set\_source\_delay (RDS for MySQL major versions 8.4 and higher)
 
 Sets the minimum number of seconds to delay replication from source database instance
 to the current read replica. Use this procedure when you are connected to a read replica
@@ -1532,39 +1527,29 @@ CALL mysql.rds_set_source_delay(
 The minimum number of seconds to delay replication from the source
 database instance.
 
-The limit for this parameter is one day (86400 seconds).
+The limit for this parameter is 259,200 seconds (72 hours).
 
 ### Usage notes
 
-The master user must run the `mysql.rds_set_source_delay`
+The admin user must run the `mysql.rds_set_source_delay`
 procedure.
 
-For disaster recovery, you can use this procedure with the [mysql.rds\_start\_replication\_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") stored procedure or the
-[mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure. To
-roll forward changes to a delayed read replica to the time just before a disaster,
-you can run the `mysql.rds_set_source_delay` procedure. After the
-`mysql.rds_start_replication_until` or
-`mysql.rds_start_replication_until_gtid` procedure stops replication,
-you can promote the read replica to be the new primary DB instance by using the
-instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
+For disaster recovery, you can use this procedure with the [mysql.rds\_start\_replication\_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") stored procedure or the [mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure. To roll
+forward changes to a delayed read replica to the time just before a disaster, you
+can run the `mysql.rds_set_source_delay` procedure. After the
+[mysql.rds\_start\_replication\_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or
+[mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") procedure stops replication,
+you can promote the read replica to be the new primary
+DB instance by using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
 
-To use the `mysql.rds_rds_start_replication_until_gtid` procedure,
+To use the [mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") procedure,
 GTID-based replication must be enabled. To skip a specific GTID-based transaction
-that is known to cause disaster, you can use the [mysql.rds\_skip\_transaction\_with\_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For
-more information on GTID-based replication, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md").
-
-The `mysql.rds_set_source_delay` procedure is available in these
-versions of RDS for MySQL:
-
-- All RDS for MySQL 8.4 versions
-- MySQL 8.0.26 and higher 8.0 versions
-- All 5.7 versions
+that is known to cause disaster, you can use the [mysql.rds\_skip\_transaction\_with\_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure.
 
 ### Examples
 
 To delay replication from source database instance to the current read replica for
-at least one hour (3,600 seconds), you can call
-`mysql.rds_set_source_delay` with the following parameter:
+at least one hour (3,600 seconds):
 
 ```
 CALL mysql.rds_set_source_delay(3600);
@@ -1717,7 +1702,7 @@ stored procedures:
 - [mysql.rds\_set\_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration")
 - [mysql.rds\_set\_external\_master\_with\_delay (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master_with_delay "#mysql_rds_set_external_master_with_delay")
 - [mysql.rds\_set\_external\_source\_with\_delay (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_external_source_with_delay "#mysql_rds_set_external_source_with_delay")
-- [mysql.rds\_set\_source\_delay](#mysql_rds_set_source_delay "#mysql_rds_set_source_delay")
+- [mysql.rds\_set\_source\_delay (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_source_delay "#mysql_rds_set_source_delay")
 
 The file name specified for the `replication_log_file` parameter must
 match the source database instance binlog file name.

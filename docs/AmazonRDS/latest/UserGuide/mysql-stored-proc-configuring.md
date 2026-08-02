@@ -79,7 +79,7 @@ disaster. If a table is dropped accidentally, you can use delayed replication to
 quickly recover it. The default value of `target delay` is
 `0` (don't delay replication).
 
-When you use this parameter, it runs [mysql.rds\_set\_source\_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") and applies CHANGE primary TO
+When you use this parameter, it runs [mysql.rds\_set\_source\_delay (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") and applies CHANGE primary TO
 MASTER\_DELAY = input value. If successful, the procedure saves the `source
  delay` parameter to the `mysql.rds_configuration`
 table.

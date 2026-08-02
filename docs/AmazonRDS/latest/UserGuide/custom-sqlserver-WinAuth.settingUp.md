@@ -388,5 +388,5 @@ To check if your connection is using Kerberos, run the following query:
 ```
 SELECT net_transport, auth_scheme
     FROM sys.dm_exec_connections
-    WHERE session_id = @@SSPID;
+    WHERE session_id = @@SPID;
 ```
