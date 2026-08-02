@@ -16,8 +16,6 @@ This page describes the limitations and quotas when using S3 Files.
   objects in your bucket, regardless of who uploaded the objects to your bucket. For
   more information, see [Managing access with
   ACLs](acls.md "acls.md").
-- **S3 object annotations** – S3 Files does
-  not support S3 objects with annotations. For more information, see [Annotating your objects](annotations-overview.md "annotations-overview.md").
 
 ## File system limitations
 

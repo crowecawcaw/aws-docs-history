@@ -72,6 +72,8 @@ For versioned metadata fields, replication merges values from the source table i
   into the replica table's sort-orders array by order-id.
 - `partition-specs` – Merges partition specifications from the source
   table into the replica table's partition-specs array by spec-id.
+- `schemas` – Merges schema definitions from the source table into the
+  replica table's schemas array by schema-id.
 
 ### For table configuration
 

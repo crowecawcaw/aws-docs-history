@@ -3,16 +3,16 @@
 Apache Iceberg Version 3 (V3) is the latest version of the Apache Iceberg table format
 specification, introducing advanced capabilities for building petabyte-scale data lakes with
 improved performance and reduced operational overhead. V3 addresses common performance
-bottlenecks encountered with V2, particularly around batch updates and compliance
+bottlenecks encountered with Version 2 (V2), particularly around batch updates and compliance
 deletes.
 
-AWS provides support for deletion vectors and row lineage as defined in the Apache
-Iceberg Version 3 (V3) specification. These features are available with Apache Spark on
-[Amazon EMR
-7.12](../../../prescriptive-guidance/latest/apache-iceberg-on-aws/iceberg-emr.md "../../../prescriptive-guidance/latest/apache-iceberg-on-aws/iceberg-emr.md"), [AWS Glue
-ETL](../../../prescriptive-guidance/latest/apache-iceberg-on-aws/iceberg-glue.md "../../../prescriptive-guidance/latest/apache-iceberg-on-aws/iceberg-glue.md"), [Amazon SageMaker Unified Studio Notebooks](../../../next-generation-sagemaker.md "../../../next-generation-sagemaker.md"), and Apache Iceberg tables in
-[AWS Glue
-Data Catalog](../../../glue/latest/dg/catalog-and-crawler.md "../../../glue/latest/dg/catalog-and-crawler.md"), including [Amazon S3 Tables](https://aws.amazon.com/s3/features/tables/ "https://aws.amazon.com/s3/features/tables/").
+AWS provides support for deletion vectors, row lineage, and the variant data type as
+defined in the Apache Iceberg Version 3 (V3) specification. You can use these features
+with Apache Spark on [Amazon EMR](../../../prescriptive-guidance/latest/apache-iceberg-on-aws/iceberg-emr.md "../../../prescriptive-guidance/latest/apache-iceberg-on-aws/iceberg-emr.md"), [AWS Glue
+ETL](../../../prescriptive-guidance/latest/apache-iceberg-on-aws/iceberg-glue.md "../../../prescriptive-guidance/latest/apache-iceberg-on-aws/iceberg-glue.md"), [Amazon
+SageMaker Unified Studio Notebooks](../../../next-generation-sagemaker.md "../../../next-generation-sagemaker.md"), and Apache Iceberg tables in [AWS Glue Data
+Catalog](../../../glue/latest/dg/catalog-and-crawler.md "../../../glue/latest/dg/catalog-and-crawler.md"), including [Amazon S3
+Tables](https://aws.amazon.com/s3/features/tables/ "https://aws.amazon.com/s3/features/tables/"). The variant data type is specific to S3 Tables.
 
 ## Key Features in V3
 
@@ -32,6 +32,18 @@ can process changes incrementally, speeding up data pipelines and reducing
 compute costs for change data capture (CDC) workflows. This built-in
 capability eliminates the need for custom change tracking
 implementations.
+
+Variant data type
+
+With the variant data type, you can write semi-structured data like
+JSON directly in Iceberg tables without defining a fixed schema in advance.
+V3 compatible engines shred your
+semi-structured data into hidden columns as you write it, generating Parquet
+column statistics that query engines use for optimizations like file pruning.
+This reduces the data your analytical queries scan. S3 Tables provides
+ongoing table maintenance for variant columns, including compaction, so you
+can consolidate data from semi-structured sources into larger files that
+Iceberg engines can read efficiently.
 
 ## Version Compatibility
 
@@ -167,6 +179,64 @@ fields to:
 - Optimize CDC pipelines
 - Reduce compute costs by processing only changes
 
+### Using the variant data type
+
+###### Important
+
+The variant data type is available only in specific AWS Regions. For the
+full list of supported Regions, see [Availability](#availability "#availability").
+
+With the variant data type, you can write semi-structured data like JSON directly
+in your Iceberg tables without defining a fixed schema in advance. You can write data
+faster while still getting efficient analytical query performance. Iceberg V3
+compatible engines shred your semi-structured data into hidden columns as you write
+it. These hidden columns generate Parquet column statistics that query engines use
+for optimizations like file pruning.
+
+**Creating a table with a variant column using Spark
+SQL:**
+
+```
+
+CREATE TABLE IF NOT EXISTS myns.events (
+    event_id bigint,
+    event_timestamp timestamp,
+    source string,
+    event_data VARIANT
+)
+USING iceberg
+TBLPROPERTIES (
+    'format-version' = '3'
+)
+
+```
+
+**Inserting semi-structured data into the variant
+column:**
+
+```
+
+INSERT INTO myns.events VALUES (
+    1,
+    current_timestamp(),
+    'web-app',
+    PARSE_JSON('{"user_id": "u-1234", "action": "page_view", "page": "/products", "duration_ms": 350}')
+);
+
+INSERT INTO myns.events VALUES (
+    2,
+    current_timestamp(),
+    'mobile-app',
+    PARSE_JSON('{"user_id": "u-5678", "action": "purchase", "items": [{"sku": "A100", "qty": 2}], "total": 49.99}')
+);
+
+```
+
+With S3 Tables, table maintenance for variant columns, including compaction, runs
+automatically. Compaction consolidates data from semi-structured sources from small
+files into larger files that Iceberg engines can read more efficiently, improving
+query performance over time.
+
 ## Best Practices for V3
 
 ### When to Use V3
@@ -228,27 +298,37 @@ When migrating from V2 to V3:
 - Backup strategy - Test snapshot-based recovery procedures
 - Monitoring - Update monitoring dashboards for V3-specific metrics
 
+### Considerations for compaction
+
+Compaction writes shredded variant Parquet files by default. Older readers that
+do not support shredding might fail to read compacted files. You can disable
+shredding by setting the table property
+`write.variant.shredding.enabled=false`.
+
 ## Troubleshooting
 
 ### Common Issues
 
 Error: "format-version 3 is not supported"
 
+- Check your query engine catalog for compatibility with
+  Iceberg V3.
+- Ensure that you are using the latest AWS service
+  versions.
 - Verify your engine version supports V3
 
 V3 support for Amazon AWS services is as follows:
 
-| Service                                                  | V3 Support    |
-| -------------------------------------------------------- | ------------- |
-| EMR Spark                                                | Release 7.12+ |
-| AWS Glue ETL                                             | Yes           |
-| Amazon SageMaker Unified Studio<br>Notebooks             | Yes           |
-| AWS Glue: Iceberg REST API, Table<br>Maintenance         | Yes           |
-| Amazon S3 Tables: Iceberg REST API, Table<br>Maintenance | Yes           |
-| Amazon Athena (Trino)                                    | No            |
+| Service                                                  | V3 Support    | V3 variant support |
+| -------------------------------------------------------- | ------------- | ------------------ |
+| EMR Spark                                                | Release 7.12+ | Release 8.0+       |
+| AWS Glue ETL                                             | Yes           | No                 |
+| Amazon SageMaker Unified Studio<br>Notebooks             | Yes           | No                 |
+| AWS Glue: Iceberg REST API, Table<br>Maintenance         | Yes           | No                 |
+| Amazon S3 Tables: Iceberg REST API, Table<br>Maintenance | Yes           | Yes\*              |
+| Amazon Athena (Trino)                                    | No            | No                 |
 
-- Check catalog compatibility
-- Ensure latest AWS service versions
+\*Partial Region availability
 
 Performance degradation after upgrade
 
@@ -309,8 +389,15 @@ Incompatibility with third-party tools
 
 ## Availability
 
-Apache Iceberg V3 support is available across all AWS regions where Amazon EMR,
-AWS Glue Data Catalog, AWS Glue ETL, and S3 Tables operate.
+Apache Iceberg V3 support for deletion vectors and row lineage is available across
+all AWS Regions where Amazon EMR, AWS Glue Data Catalog, AWS Glue ETL, and S3
+Tables operate.
+
+The variant data type in S3 Tables is available in the following AWS Regions: US
+East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Mumbai), Asia
+Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo),
+Canada (Central), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris),
+Europe (Stockholm), and South America (São Paulo).
 
 ## Additional Resources
 

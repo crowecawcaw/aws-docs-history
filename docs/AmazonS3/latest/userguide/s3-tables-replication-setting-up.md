@@ -253,7 +253,7 @@ First, create an IAM role that Amazon S3 can assume to replicate your tables.
 ```
 
 {
-  "Version": "2012-10-17"
+  "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
@@ -337,7 +337,15 @@ aws iam put-role-policy \
 
 ```
 
-5. (Optional) If using KMS encryption, add KMS permissions to your policy:
+###### Note
+
+The permissions policy uses two resource scopes because the actions operate at
+different levels. `CreateTable` and `CreateNamespace` are
+bucket-level operations that create resources in the bucket, so they use the bucket
+ARN without `/table/*`. `PutTableData`,
+`GetTableData`, `UpdateTableMetadataLocation`, and
+`PutTableMaintenanceConfiguration` operate on existing tables, so they
+use the bucket ARN with `/table/*`. 5. (Optional) If using KMS encryption, add KMS permissions to your policy:
 
 ```
 
@@ -380,7 +388,7 @@ permissions to the source account.
         {
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::`444455556666`:role/`cross-account-test`"
+                "AWS": "arn:aws:iam::`111122223333`:role/`S3TablesReplicationRole`"
             },
             "Action": [
                 "s3tables:PutTableData",
@@ -388,18 +396,18 @@ permissions to the source account.
                 "s3tables:UpdateTableMetadataLocation",
                 "s3tables:PutTableMaintenanceConfiguration"
             ],
-            "Resource": "arn:aws:s3tables:`us-east-2`:`111122223333`:bucket/`amzn-s3-demo-table-bucket-cross-account-destination`/table/*"
+            "Resource": "arn:aws:s3tables:`us-east-2`:`444455556666`:bucket/`amzn-s3-demo-table-bucket-cross-account-destination`/table/*"
         },
         {
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::`444455556666`:role/`cross-account-test`"
+                "AWS": "arn:aws:iam::`111122223333`:role/`S3TablesReplicationRole`"
             },
             "Action": [
                 "s3tables:CreateTable",
                 "s3tables:CreateNamespace"
             ],
-            "Resource": "arn:aws:s3tables:`us-east-2`:`111122223333`:bucket/`amzn-s3-demo-table-bucket-cross-account-destination`"
+            "Resource": "arn:aws:s3tables:`us-east-2`:`444455556666`:bucket/`amzn-s3-demo-table-bucket-cross-account-destination`"
         }
     ]
 }
@@ -411,7 +419,7 @@ permissions to the source account.
 
 aws s3tables put-table-bucket-policy \
     --table-bucket-arn arn:aws:s3tables:`us-west-2`:`444455556666`:bucket/``amzn-s3-demo-table-bucket-cross-account-destination`` \
-    --policy file://`destination-bucket-policy.json` \
+    --resource-policy file://`destination-bucket-policy.json` \
     --profile `destination-account`
 
 ```

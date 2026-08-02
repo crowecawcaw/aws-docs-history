@@ -55,6 +55,27 @@ Expected output:
 For more information, see [get-table-replication-status](../../../cli/latest/reference/s3tables/get-table-replication-status.md "../../../cli/latest/reference/s3tables/get-table-replication-status.md") in the _AWS CLI Command
 Reference_.
 
+The following example shows a destination with a FAILED status, which includes a
+`failureMessage` field:
+
+```
+
+{
+  "replicationStatus": "FAILED",
+  "destinationBucketARN": "arn:aws:s3tables:`eu-west-1`:`444455556666`:bucket/`amzn-s3-demo-table-bucket-partner`",
+  "destinationTableARN": "arn:aws:s3tables:`eu-west-1`:`444455556666`:bucket/`amzn-s3-demo-table-bucket-partner`/table/`sales-data`",
+  "failureMessage": "Insufficient permissions given to successfully complete replication."
+}
+
+```
+
+###### Note
+
+The `get-table-replication` command returns the replication configuration
+(role, rules, and destinations). The `get-table-replication-status` command
+returns the replication status (COMPLETED, PENDING, or FAILED), last replicated metadata,
+and error messages.
+
 ### Understanding the response
 
 The response contains the following elements:
@@ -96,3 +117,9 @@ Replication can have three possible statuses for each destination:
   differs from the last replicated metadata location.
 - FAILED – The last replication job for this
   table failed. No new updates are being replicated.
+
+If a destination shows a FAILED status, check the `failureMessage` field for
+details. Common causes include insufficient permissions, destination bucket not found, or
+KMS key issues. After you fix the root cause, the service automatically retries
+replication. You can monitor recovery as the status transitions from FAILED to PENDING to
+COMPLETED.
