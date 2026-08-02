@@ -5,7 +5,7 @@ helps AI coding agents evaluate, create, connect, and operate ElastiCache worklo
 when you are using agent-assisted coding tools to work with ElastiCache for Valkey, Redis OSS, or
 Memcached workloads. The ElastiCache skill provides service-specific instructions, reference material,
 and safety checks to guide agents through the full ElastiCache lifecycle, from setup and data modeling
-to vector search and monitoring. The skill helps an AI coding agent achieve 2x better task
+to vector search and monitoring. The skill helps an AI coding agent achieve better task
 completion on ElastiCache tasks.
 
 The skill covers use-cases like application caching, session storage, rate limiting,

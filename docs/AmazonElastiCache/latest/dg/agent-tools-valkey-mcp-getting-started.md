@@ -14,7 +14,7 @@
       "args": ["awslabs.valkey-mcp-server@latest"],
       "env": {
         "VALKEY_HOST": "<your-endpoint>",
-        "VALKEY_SSL": "true"
+        "VALKEY_USE_SSL": "true"
       }
     }
   }
