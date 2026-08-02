@@ -6,6 +6,7 @@ The following API actions are available for rules:
 - [DeleteRule](../APIReference/API_DeleteRule.md "../APIReference/API_DeleteRule.md")
 - [DescribeRule](../APIReference/API_DescribeRule.md "../APIReference/API_DescribeRule.md")
 - [ListRules](../APIReference/API_ListRules.md "../APIReference/API_ListRules.md")
+- [SearchRules](../APIReference/API_SearchRules.md "../APIReference/API_SearchRules.md")
 - [UpdateRule](../APIReference/API_UpdateRule.md "../APIReference/API_UpdateRule.md")
   To create a CloudFormation template for rules, see the following topic:
 
