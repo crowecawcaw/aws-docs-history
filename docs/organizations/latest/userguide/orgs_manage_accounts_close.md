@@ -23,6 +23,9 @@ considerations and understand the impact for closing an account. For more
 information, see [What you need to know before closing your account](../../../accounts/latest/reference/manage-acct-closing.md#close-account-considerations "../../../accounts/latest/reference/manage-acct-closing.md#close-account-considerations") and [What to expect after you close your account](../../../accounts/latest/reference/manage-acct-closing.md#what-to-expect-after-closure "../../../accounts/latest/reference/manage-acct-closing.md#what-to-expect-after-closure") in the _AWS
 Account Management Guide_.
 
+If the member account's root user email address uses a domain registered
+through Route 53 in that same account, see [Service specific considerations](../../../accounts/latest/reference/manage-acct-closing.md#close-account-considerations "../../../accounts/latest/reference/manage-acct-closing.md#close-account-considerations") before proceeding.
+
 AWS Management Console
 
 ###### To close a member account from the AWS Organizations console
