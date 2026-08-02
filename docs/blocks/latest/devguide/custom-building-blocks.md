@@ -66,7 +66,7 @@ Start by defining the interface your Block exposes. Both the runtime and local i
 
 ```
 // src/types.ts
-import { Scope } from '@aws-blocks/blocks';
+import { Scope } from '@aws-blocks/core';
 
 export interface NotificationOptions {
   /** The sender email address (must be verified in SES) */
@@ -92,7 +92,7 @@ The runtime implementation uses the AWS SDK to interact with real services. It r
 ```
 // src/index.ts
 import { SESv2Client, SendEmailCommand } from '@aws-sdk/client-sesv2';
-import { Scope } from '@aws-blocks/blocks';
+import { Scope } from '@aws-blocks/core';
 import type { NotificationOptions, SendEmailInput } from './types.js';
 
 export class Notifications {
@@ -126,7 +126,8 @@ The local implementation provides the same API but runs without AWS. Use in-memo
 
 ```
 // src/index.mock.ts
-import { Scope, getMockDataDir } from '@aws-blocks/blocks';
+import { Scope } from '@aws-blocks/core';
+import { getMockDataDir } from '@aws-blocks/core/bb-utils';
 import { writeFileSync, mkdirSync } from 'fs';
 import { join } from 'path';
 import type { NotificationOptions, SendEmailInput } from './types.js';
@@ -157,7 +158,7 @@ The infrastructure export defines CDK constructs that are synthesized during dep
 
 ```
 // src/index.cdk.ts
-import { Scope } from '@aws-blocks/blocks';
+import { Scope } from '@aws-blocks/core/cdk';
 import type { NotificationOptions } from './types.js';
 import * as iam from 'aws-cdk-lib/aws-iam';
 

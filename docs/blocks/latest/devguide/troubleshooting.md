@@ -7,15 +7,21 @@
 **Symptom:**
 `npm run dev` fails with `EADDRINUSE` on port 3000 or 3001.
 
-**Solution:** Use a custom port, or stop the process that occupies the default port:
+**Solution:** Change the dev server port, or stop the process that occupies the default port:
 
 ```
-# Option 1: Use a different port
-npm run dev -- --port 3002
-
-# Option 2: Find and stop the blocking process
+# Option 1: Find and stop the blocking process
 lsof -i :3000 | grep LISTEN
 kill <PID>
+```
+
+To run on a different port, set `port:` in the `startDevServer()` options in your generated `aws-blocks/scripts/server.ts`. The generated server does not read a `--port` command-line flag, so `npm run dev — --port `<n>`` has no effect:
+
+```
+startDevServer({
+  // ...
+  port: 3002,
+});
 ```
 
 ### Local data is stale or corrupted

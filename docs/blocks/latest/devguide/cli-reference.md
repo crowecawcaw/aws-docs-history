@@ -25,8 +25,8 @@ npm run dev
 
 Starts the full-stack development server with hot reload. Blocks use local in-memory and filesystem storage. No AWS account required.
 
-- Frontend: `http://localhost:3000`
-- Backend API: `http://localhost:3001`
+- Default template: The dev server serves the frontend and API from a single front door at `http://localhost:3000`, with the API at `http://localhost:3000/aws-blocks/api`.
+- `backend` and `amplify` templates only: The dev server serves the API on `http://localhost:3001`.
 
 ## Sandbox deployment
 
