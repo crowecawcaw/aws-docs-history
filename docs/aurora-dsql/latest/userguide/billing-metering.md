@@ -359,10 +359,22 @@ Multi-Region clusters incur an additional MultiRegion Write DPU component on top
 standard Compute, Read, and Write DPUs. This section applies only to multi-Region clusters.
 Single-Region clusters do not incur this charge.
 
-MultiRegion Write DPUs measure the total bytes written to the peered Region. Since Aurora DSQL
-synchronously replicates the data you write to the peered Region, the MultiRegion Write DPU
-value is equivalent to the Write DPU. Aurora DSQL charges this DPU in the Region where the write
-originated, not in the peered Region.
+Multi-Region Write DPUs measure the total bytes written to the peered Region.
+Aurora DSQL charges this DPU in the Region where the write originated, not in the peered Region.
+For example, in a two-active Region and Witness peering configuration, Aurora DSQL charges the
+write DPU of the originating transaction for each active peered Region when calculating the
+`MultiRegionWriteDPU`. This means a transaction that accrues 8 `WriteDPU`
+incurs an additional 8 `MultiRegionWriteDPU` for this configuration. This is 8 for
+the originating Region, 8 for the
+peered Region, and no charge for the Witness Region. Aurora DSQL bills all charges to the Region
+that originated the transaction.
+
+All clusters in the multi-Region configuration incur storage size charge. Because Aurora DSQL
+synchronously replicates the data you write to the peered Region, the storage size charge applies
+to all clusters in the multi-Region configuration individually. This also applies to clusters in
+**Pending Delete** state. For more information about the
+**Pending Delete** state, see the
+[Aurora DSQL cluster lifecycle](cluster-lifecycle.md#dsql-cluster-statuses.title "cluster-lifecycle.md#dsql-cluster-statuses.title") page.
 
 ```
 MultiRegionWriteDPU = WriteDPU

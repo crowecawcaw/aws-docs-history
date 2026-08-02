@@ -125,8 +125,10 @@ cluster.
 
 #### Asia Pacific Regions
 
+- Asia Pacific (Mumbai)
 - Asia Pacific (Osaka)
 - Asia Pacific (Seoul)
+- Asia Pacific (Singapore)
 - Asia Pacific (Tokyo)
 
 #### European Regions
@@ -135,6 +137,8 @@ cluster.
 - Europe (Ireland)
 - Europe (London)
 - Europe (Paris)
+- Europe (Spain)
+- Europe (Stockholm)
 
 #### Important Limitations
 
