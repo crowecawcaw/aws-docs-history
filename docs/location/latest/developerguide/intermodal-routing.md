@@ -5,6 +5,26 @@ When the travel mode is set to `Intermodal`, the route may include transit, pede
 rental, taxi, and vehicle legs. Pedestrian legs are always enabled and are used to connect between
 other transport types.
 
+## Intermodal coverage
+
+Intermodal routes can combine transit, rental, and taxi legs. The countries, cities, and
+operators covered for each are listed below.
+
+### Transit coverage
+
+For the list of countries, cities, and operators with public transit coverage, see the
+[Amazon Location Service transit coverage list](https://github.com/aws-geospatial/amazon-location-docs-resources/blob/main/routes/transit_coverage.csv "https://github.com/aws-geospatial/amazon-location-docs-resources/blob/main/routes/transit_coverage.csv") on the GitHub website.
+
+### Rental coverage
+
+For the list of countries, cities, and operators with rental coverage, see the
+[Amazon Location Service rental coverage list](https://github.com/aws-geospatial/amazon-location-docs-resources/blob/main/routes/rental_coverage.csv "https://github.com/aws-geospatial/amazon-location-docs-resources/blob/main/routes/rental_coverage.csv") on the GitHub website.
+
+### Taxi coverage
+
+For the list of countries and operators with taxi coverage, see the
+[Amazon Location Service taxi coverage list](https://github.com/aws-geospatial/amazon-location-docs-resources/blob/main/routes/taxi_coverage.csv "https://github.com/aws-geospatial/amazon-location-docs-resources/blob/main/routes/taxi_coverage.csv") on the GitHub website.
+
 ## Leg types
 
 An intermodal route consists of one or more legs, each representing a different transport type.

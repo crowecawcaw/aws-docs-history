@@ -5,6 +5,11 @@ Transit routing calculates routes using public transportation. When the travel m
 trains, and other transit types. Transit routes include pedestrian legs for walking to and from
 transit stops.
 
+## Public transit coverage
+
+For the list of countries, cities, and operators with public transit coverage, see the
+[Amazon Location Service transit coverage list](https://github.com/aws-geospatial/amazon-location-docs-resources/blob/main/routes/transit_coverage.csv "https://github.com/aws-geospatial/amazon-location-docs-resources/blob/main/routes/transit_coverage.csv") on the GitHub website.
+
 ## Supported transit modes
 
 The following transit modes are supported.

@@ -57,14 +57,20 @@ areas, such as countries or place types.
 POI category filters refine search results based on Points of Interest (POI)
 categories, such as specific business chains or food types.
 
+###### Note
+
+If you use [GrabMaps](GrabMaps.md "GrabMaps.md"), values marked with an asterisk (\*) are not
+supported in the `ap-southeast-1` and `ap-southeast-5`
+AWS Regions.
+
 | Filter Type             | Geocode | Reverse Geocode | Autocomplete | Get Place | Search Text | Search Nearby | Suggest |
 | ----------------------- | ------- | --------------- | ------------ | --------- | ----------- | ------------- | ------- |
 | Include Categories      | No      | No              | No           | N/A       | No          | Yes           | No      |
 | Exclude Categories      | No      | No              | No           | N/A       | No          | Yes           | No      |
-| Include Business Chains | No      | No              | No           | N/A       | No          | Yes           | No      |
-| Exclude Business Chains | No      | No              | No           | N/A       | No          | Yes           | No      |
-| Include Food Type       | No      | No              | No           | N/A       | No          | Yes           | No      |
-| Exclude Food Type       | No      | No              | No           | N/A       | No          | Yes           | No      |
+| Include Business Chains | No      | No              | No           | N/A       | No          | Yes \*        | No      |
+| Exclude Business Chains | No      | No              | No           | N/A       | No          | Yes \*        | No      |
+| Include Food Type       | No      | No              | No           | N/A       | No          | Yes \*        | No      |
+| Exclude Food Type       | No      | No              | No           | N/A       | No          | Yes \*        | No      |
 
 ## Definitions of filters
 
@@ -148,450 +154,450 @@ narrowing down results based on the type of location, such as restaurants,
 hospitals, or schools.
 
 To retrieve information on place categories, use the relevant Place API with
-filtering parameters for categories. For more information, refer to the Amazon Location Service
-[API
-documentation](../APIReference/API_geoplaces_Category.md "../APIReference/API_geoplaces_Category.md").
+filtering parameters for categories. For more information about place categories, see the Amazon Location Service
+[Category
+API reference](../APIReference/API_geoplaces_Category.md "../APIReference/API_geoplaces_Category.md").
 
-| Category name                                         | Category ID                                                  |
-| ----------------------------------------------------- | ------------------------------------------------------------ |
-| Administrative Region                                 | administrative\_region                                       |
-| Administrative Region-Streets                         | administrative\_region-streets                               |
-| Adult Entertainment                                   | adult\_entertainment                                         |
-| Adult Shop                                            | adult\_shop                                                  |
-| Advertising-Marketing, PR and Market Research         | advertising-marketing,\_pr\_and\_market\_research            |
-| Aerial Tramway                                        | aerial\_tramway                                              |
-| Airport                                               | airport                                                      |
-| Airport Cargo                                         | airport\_cargo                                               |
-| Airport Terminal                                      | airport\_terminal                                            |
-| Ambulance Services                                    | ambulance\_services                                          |
-| Amusement Park                                        | amusement\_park                                              |
-| Animal Park                                           | animal\_park                                                 |
-| Apartment Rental-Flat Rental                          | apartment\_rental-flat\_rental                               |
-| Aquarium                                              | aquarium                                                     |
-| Art Museum                                            | art\_museum                                                  |
-| Arts and Crafts Supplies                              | arts\_and\_crafts\_supplies                                  |
-| Ashram                                                | ashram                                                       |
-| ATM                                                   | atm                                                          |
-| Attorney                                              | attorney                                                     |
-| Auto Parts                                            | auto\_parts                                                  |
-| Automobile Club                                       | automobile\_club                                             |
-| Automobile Dealership-New Cars                        | automobile\_dealership-new\_cars                             |
-| Automobile Dealership-Used Cars                       | automobile\_dealership-used\_cars                            |
-| Aviation                                              | aviation                                                     |
-| B2B Restaurant Services                               | b2b\_restaurant\_services                                    |
-| B2B Sales and Services                                | b2b\_sales\_and\_services                                    |
-| Badminton                                             | badminton                                                    |
-| Bakery and Baked Goods Store                          | bakery\_and\_baked\_goods\_store                             |
-| Bank                                                  | bank                                                         |
-| Banquet Hall                                          | banquet\_hall                                                |
-| Bar or Pub                                            | bar\_or\_pub                                                 |
-| Barber                                                | barber                                                       |
-| Basketball                                            | basketball                                                   |
-| Bay-Harbor                                            | bay-harbor                                                   |
-| Beach                                                 | beach                                                        |
-| Bed and Breakfast                                     | bed\_and\_breakfast                                          |
-| Beer Garden                                           | beer\_garden                                                 |
-| Bicycle and Bicycle Accessories Shop                  | bicycle\_and\_bicycle\_accessories\_shop                     |
-| Bicycle Parking                                       | bicycle\_parking                                             |
-| Bicycle Service                                       | bicycle\_service                                             |
-| Bicycle Service and Maintenance                       | bicycle\_service\_and\_maintenance                           |
-| Bicycle Sharing Location                              | bicycle\_sharing\_location                                   |
-| Bike Park                                             | bike\_park                                                   |
-| Bill Payment Service                                  | bill\_payment\_service                                       |
-| Billiards-Pool Hall                                   | billiards-pool\_hall                                         |
-| Bistro                                                | bistro                                                       |
-| Blood Bank                                            | blood\_bank                                                  |
-| BMX Shop                                              | bmx\_shop                                                    |
-| BMX Track                                             | bmx\_track                                                   |
-| Boat Ferry                                            | boat\_ferry                                                  |
-| Boating                                               | boating                                                      |
-| Body of Water                                         | body\_of\_water                                              |
-| Body Piercing and Tattoos                             | body\_piercing\_and\_tattoos                                 |
-| Bookstore                                             | bookstore                                                    |
-| Border Crossing                                       | border\_crossing                                             |
-| Bowling Center                                        | bowling\_center                                              |
-| Brewery                                               | brewery                                                      |
-| Building                                              | building                                                     |
-| Bus Rapid Transit                                     | bus\_rapid\_transit                                          |
-| Bus Station                                           | bus\_station                                                 |
-| Bus Stop                                              | bus\_stop                                                    |
-| Business Facility                                     | business\_facility                                           |
-| Business Service                                      | business\_service                                            |
-| Butcher                                               | butcher                                                      |
-| Cafeteria                                             | cafeteria                                                    |
-| Campground                                            | campground                                                   |
-| Camping-Hiking Shop                                   | camping-hiking\_shop                                         |
-| Campsite                                              | campsite                                                     |
-| Canal                                                 | canal                                                        |
-| Canoe-Kayak Shop                                      | canoe-kayak\_shop                                            |
-| Car Repair                                            | car\_repair                                                  |
-| Car Repair-Service                                    | car\_repair-service                                          |
-| Car Wash-Detailing                                    | car\_wash-detailing                                          |
-| Cargo Center                                          | cargo\_center                                                |
-| Cargo Transportation                                  | cargo\_transportation                                        |
-| Carshare Location                                     | carshare\_location                                           |
-| Casino                                                | casino                                                       |
-| Castle                                                | castle                                                       |
-| Casual Dining                                         | casual\_dining                                               |
-| Catering and Other Food Services                      | catering\_and\_other\_food\_services                         |
-| Cellphone Parking Lot                                 | cellphone\_parking\_lot                                      |
-| Cemetery                                              | cemetery                                                     |
-| Check Cashing Service-Currency Exchange               | check\_cashing\_service-currency\_exchange                   |
-| Children's Apparel                                    | children's\_apparel                                          |
-| Children's Museum                                     | children's\_museum                                           |
-| Chiropractor                                          | chiropractor                                                 |
-| Church                                                | church                                                       |
-| Cigar and Tobacco Shop                                | cigar\_and\_tobacco\_shop                                    |
-| Cinema                                                | cinema                                                       |
-| City Hall                                             | city\_hall                                                   |
-| City, Town or Village                                 | city,\_town\_or\_village                                     |
-| Civic-Community Center                                | civic-community\_center                                      |
-| Clothing and Accessories                              | clothing\_and\_accessories                                   |
-| Clubhouse                                             | clubhouse                                                    |
-| Coaching Institute                                    | coaching\_institute                                          |
-| Cocktail Lounge                                       | cocktail\_lounge                                             |
-| Coffee Shop                                           | coffee\_shop                                                 |
-| Coffee-Tea                                            | coffee-tea                                                   |
-| Collective Community                                  | collective\_community                                        |
-| Commercial Services                                   | commercial\_services                                         |
-| Communication-Media                                   | communication-media                                          |
-| Commuter Rail Station                                 | commuter\_rail\_station                                      |
-| Commuter Train                                        | commuter\_train                                              |
-| Complete Rest Area                                    | complete\_rest\_area                                         |
-| Computer and Software                                 | computer\_and\_software                                      |
-| Construction                                          | construction                                                 |
-| Consumer Electronics Store                            | consumer\_electronics\_store                                 |
-| Consumer Goods                                        | consumer\_goods                                              |
-| Consumer Services                                     | consumer\_services                                           |
-| Convenience Store                                     | convenience\_store                                           |
-| Convention-Exhibition Center                          | convention-exhibition\_center                                |
-| County Council                                        | county\_council                                              |
-| Couriers                                              | couriers                                                     |
-| Courthouse                                            | courthouse                                                   |
-| COVID-19 Testing Site                                 | covid-19\_testing\_site                                      |
-| Crematorium                                           | crematorium                                                  |
-| Cross Country Ski Shop                                | cross\_country\_ski\_shop                                    |
-| Customer Care-Service Center                          | customer\_care-service\_center                               |
-| Dairy Goods                                           | dairy\_goods                                                 |
-| Dancing                                               | dancing                                                      |
-| Deli                                                  | deli                                                         |
-| Delivery Entrance                                     | delivery\_entrance                                           |
-| Dentist-Dental Office                                 | dentist-dental\_office                                       |
-| Department Store                                      | department\_store                                            |
-| Discount Store                                        | discount\_store                                              |
-| Distillery                                            | distillery                                                   |
-| Diving Center                                         | diving\_center                                               |
-| Doughnut Shop                                         | doughnut\_shop                                               |
-| Drugstore                                             | drugstore                                                    |
-| Drugstore or Pharmacy                                 | drugstore\_or\_pharmacy                                      |
-| Dry Cleaning and Laundry                              | dry\_cleaning\_and\_laundry                                  |
-| Education Facility                                    | education\_facility                                          |
-| Electrical                                            | electrical                                                   |
-| Embassy                                               | embassy                                                      |
-| Emission Testing                                      | emission\_testing                                            |
-| Engineering and Scientific Services                   | engineering\_and\_scientific\_services                       |
-| Entertainment and Recreation                          | entertainment\_and\_recreation                               |
-| Entertainment Electronics                             | entertainment\_electronics                                   |
-| EV Battery Swap Station                               | ev\_battery\_swap\_station                                   |
-| EV Charging Station                                   | ev\_charging\_station                                        |
-| EV Charging Station for 2-wheelers and Light Vehicles | ev\_charging\_station\_for\_2-wheelers\_and\_light\_vehicles |
-| EV Charging Station for Trucks                        | ev\_charging\_station\_for\_trucks                           |
-| EV Dealership-New Vehicles                            | ev\_dealership-new\_vehicles                                 |
-| EV Repair                                             | ev\_repair                                                   |
-| Event Spaces                                          | event\_spaces                                                |
-| Facilities                                            | facilities                                                   |
-| Family Restaurant                                     | family\_restaurant                                           |
-| Family-General Practice Physicians                    | family-general\_practice\_physicians                         |
-| Farming                                               | farming                                                      |
-| Fast Food                                             | fast\_food                                                   |
-| Ferry Terminal                                        | ferry\_terminal                                              |
-| Finance and Insurance                                 | finance\_and\_insurance                                      |
-| Financial Investment Firm                             | financial\_investment\_firm                                  |
-| Fine Arts                                             | fine\_arts                                                   |
-| Fine Dining                                           | fine\_dining                                                 |
-| Fire Department                                       | fire\_department                                             |
-| Fitness-Health Club                                   | fitness-health\_club                                         |
-| Floor and Carpet                                      | floor\_and\_carpet                                           |
-| Florist                                               | florist                                                      |
-| Flowers and Jewelry                                   | flowers\_and\_jewelry                                        |
-| Food Market-Stall                                     | food\_market-stall                                           |
-| Food Production                                       | food\_production                                             |
-| Food-Beverage Specialty Store                         | food-beverage\_specialty\_store                              |
-| Forest, Heath or Other Vegetation                     | forest,\_heath\_or\_other\_vegetation                        |
-| Fueling Station                                       | fueling\_station                                             |
-| Fulfillment and Distribution Center                   | fulfillment\_and\_distribution\_center                       |
-| Funeral Director                                      | funeral\_director                                            |
-| Furniture Store                                       | furniture\_store                                             |
-| Gallery                                               | gallery                                                      |
-| Gambling-Lottery-Betting                              | gambling-lottery-betting                                     |
-| Garden                                                | garden                                                       |
-| Garden Center                                         | garden\_center                                               |
-| General Merchandise                                   | general\_merchandise                                         |
-| Gift, Antique and Art                                 | gift,\_antique\_and\_art                                     |
-| Glass and Window                                      | glass\_and\_window                                           |
-| Golf Course                                           | golf\_course                                                 |
-| Golf Practice Range                                   | golf\_practice\_range                                        |
-| Golf Shop                                             | golf\_shop                                                   |
-| Government Office                                     | government\_office                                           |
-| Government or Community Facility                      | government\_or\_community\_facility                          |
-| Grocery                                               | grocery                                                      |
-| Guest House                                           | guest\_house                                                 |
-| Gurdwara                                              | gurdwara                                                     |
-| Hair and Beauty                                       | hair\_and\_beauty                                            |
-| Hair Salon                                            | hair\_salon                                                  |
-| Hardware, House and Garden                            | hardware,\_house\_and\_garden                                |
-| Healthcare and Healthcare Support Services            | healthcare\_and\_healthcare\_support\_services               |
-| Higher Education                                      | higher\_education                                            |
-| Highway Entrance                                      | highway\_entrance                                            |
-| Highway Exit                                          | highway\_exit                                                |
-| Historical Monument                                   | historical\_monument                                         |
-| History Museum                                        | history\_museum                                              |
-| Hockey                                                | hockey                                                       |
-| Holiday Park                                          | holiday\_park                                                |
-| Home Improvement                                      | home\_improvement                                            |
-| Home Specialty Store                                  | home\_specialty\_store                                       |
-| Hospital                                              | hospital                                                     |
-| Hospital Emergency Room                               | hospital\_emergency\_room                                    |
-| Hospital or Health Care Facility                      | hospital\_or\_health\_care\_facility                         |
-| Hostel                                                | hostel                                                       |
-| Hot Spring                                            | hot\_spring                                                  |
-| Hotel                                                 | hotel                                                        |
-| Hotel or Motel                                        | hotel\_or\_motel                                             |
-| Human Resources and Recruiting Services               | human\_resources\_and\_recruiting\_services                  |
-| Hunting-Fishing Shop                                  | hunting-fishing\_shop                                        |
-| Hydrogen Fuel Station                                 | hydrogen\_fuel\_station                                      |
-| Ice Skating Rink                                      | ice\_skating\_rink                                           |
-| Inclined Rail                                         | inclined\_rail                                               |
-| Indoor Ski                                            | indoor\_ski                                                  |
-| Indoor Sports                                         | indoor\_sports                                               |
-| Industrial Zone                                       | industrial\_zone                                             |
-| Interior and Exterior Design                          | interior\_and\_exterior\_design                              |
-| Internet Cafe                                         | internet\_cafe                                               |
-| Intersection                                          | intersection                                                 |
-| Investigation Services                                | investigation\_services                                      |
-| Island                                                | island                                                       |
-| IT and Office Equipment Services                      | it\_and\_office\_equipment\_services                         |
-| Jazz Club                                             | jazz\_club                                                   |
-| Jeweler                                               | jeweler                                                      |
-| Karaoke                                               | karaoke                                                      |
-| Kindergarten and Childcare                            | kindergarten\_and\_childcare                                 |
-| Lake                                                  | lake                                                         |
-| Landmark-Attraction                                   | landmark-attraction                                          |
-| Landscaping Services                                  | landscaping\_services                                        |
-| Language Studies                                      | language\_studies                                            |
-| Legal Services                                        | legal\_services                                              |
-| Leisure                                               | leisure                                                      |
-| Library                                               | library                                                      |
-| Lightrail                                             | lightrail                                                    |
-| Live Entertainment-Music                              | live\_entertainment-music                                    |
-| Loading Dock                                          | loading\_dock                                                |
-| Loading Zone                                          | loading\_zone                                                |
-| Local Transit                                         | local\_transit                                               |
-| Locksmiths and Security Systems Services              | locksmiths\_and\_security\_systems\_services                 |
-| Lodging                                               | lodging                                                      |
-| Lottery Booth                                         | lottery\_booth                                               |
-| Lumber                                                | lumber                                                       |
-| Maid Services                                         | maid\_services                                               |
-| Major Appliance                                       | major\_appliance                                             |
-| Management and Consulting Services                    | management\_and\_consulting\_services                        |
-| Manufacturing                                         | manufacturing                                                |
-| Marina                                                | marina                                                       |
-| Market                                                | market                                                       |
-| Marriage and Match Making Services                    | marriage\_and\_match\_making\_services                       |
-| Medical Services-Clinics                              | medical\_services-clinics                                    |
-| Meeting Point                                         | meeting\_point                                               |
-| Men's Apparel                                         | men's\_apparel                                               |
-| Military Base                                         | military\_base                                               |
-| Mining, Quarrying and Other Extraction                | mining,\_quarrying\_and\_other\_extraction                   |
-| Mobile Retailer                                       | mobile\_retailer                                             |
-| Mobile Service Center                                 | mobile\_service\_center                                      |
-| Modeling Agencies                                     | modeling\_agencies                                           |
-| Money Transferring Service                            | money\_transferring\_service                                 |
-| Monorail                                              | monorail                                                     |
-| Mosque                                                | mosque                                                       |
-| Motel                                                 | motel                                                        |
-| Motorcycle Accessories                                | motorcycle\_accessories                                      |
-| Motorcycle Dealership                                 | motorcycle\_dealership                                       |
-| Motorcycle Service and Maintenance                    | motorcycle\_service\_and\_maintenance                        |
-| Motorcycle, Moped and Scooter Parking                 | motorcycle,\_moped\_and\_scooter\_parking                    |
-| Motorway Service Rest Area                            | motorway\_service\_rest\_area                                |
-| Mountain or Hill                                      | mountain\_or\_hill                                           |
-| Mountain Passes                                       | mountain\_passes                                             |
-| Mountain Peaks                                        | mountain\_peaks                                              |
-| Mover                                                 | mover                                                        |
-| Museum                                                | museum                                                       |
-| Nail Salon                                            | nail\_salon                                                  |
-| Named Intersection-Chowk                              | named\_intersection-chowk                                    |
-| Natural and Geographical                              | natural\_and\_geographical                                   |
-| Night Club                                            | night\_club                                                  |
-| Nightlife-Entertainment                               | nightlife-entertainment                                      |
-| Non-Store Retailers                                   | non-store\_retailers                                         |
-| Nursing Home                                          | nursing\_home                                                |
-| Off Road Trailhead                                    | off\_road\_trailhead                                         |
-| Off-Road Vehicle Area                                 | off-road\_vehicle\_area                                      |
-| Office Supply and Services Store                      | office\_supply\_and\_services\_store                         |
-| Optical                                               | optical                                                      |
-| Organizations and Societies                           | organizations\_and\_societies                                |
-| Other Bookshop                                        | other\_bookshop                                              |
-| Other Library                                         | other\_library                                               |
-| Other Place of Worship                                | other\_place\_of\_worship                                    |
-| Outdoor Area-Complex                                  | outdoor\_area-complex                                        |
-| Outdoor Service                                       | outdoor\_service                                             |
-| Outdoor-Recreation                                    | outdoor-recreation                                           |
-| Pagoda                                                | pagoda                                                       |
-| Paint Store                                           | paint\_store                                                 |
-| Park and Ride                                         | park\_and\_ride                                              |
-| Park-Recreation Area                                  | park-recreation\_area                                        |
-| Parking                                               | parking                                                      |
-| Parking and Restroom Only Rest Area                   | parking\_and\_restroom\_only\_rest\_area                     |
-| Parking Garage-Parking House                          | parking\_garage-parking\_house                               |
-| Parking Lot                                           | parking\_lot                                                 |
-| Parking Only Rest Area                                | parking\_only\_rest\_area                                    |
-| Pawnshop                                              | pawnshop                                                     |
-| Performing Arts                                       | performing\_arts                                             |
-| Pet Care                                              | pet\_care                                                    |
-| Pet Supply                                            | pet\_supply                                                  |
-| Petrol-Gasoline Station                               | petrol-gasoline\_station                                     |
-| Pharmacy                                              | pharmacy                                                     |
-| Photography                                           | photography                                                  |
-| Plumbing                                              | plumbing                                                     |
-| Police Box                                            | police\_box                                                  |
-| Police Services-Security                              | police\_services-security                                    |
-| Police Station                                        | police\_station                                              |
-| Post Office                                           | post\_office                                                 |
-| Postal Area                                           | postal\_area                                                 |
-| Postal Collection Box                                 | postal\_collection\_box                                      |
-| Power Equipment Dealer                                | power\_equipment\_dealer                                     |
-| Primary School                                        | primary\_school                                              |
-| Printing and Publishing                               | printing\_and\_publishing                                    |
-| Property Management                                   | property\_management                                         |
-| Psychiatric Institute                                 | psychiatric\_institute                                       |
-| Public Administration                                 | public\_administration                                       |
-| Public Restroom-Toilets                               | public\_restroom-toilets                                     |
-| Public Sports Airport                                 | public\_sports\_airport                                      |
-| Public Transit Access                                 | public\_transit\_access                                      |
-| Race Track                                            | race\_track                                                  |
-| Racquetball Court                                     | racquetball\_court                                           |
-| Rail Ferry                                            | rail\_ferry                                                  |
-| Rail Yard                                             | rail\_yard                                                   |
-| Ranger Station                                        | ranger\_station                                              |
-| Real Estate Services                                  | real\_estate\_services                                       |
-| Record, CD and Video                                  | record,\_cd\_and\_video                                      |
-| Recreation Center                                     | recreation\_center                                           |
-| Recycling Center                                      | recycling\_center                                            |
-| Registration Office                                   | registration\_office                                         |
-| Religious Place                                       | religious\_place                                             |
-| Rental and Leasing                                    | rental\_and\_leasing                                         |
-| Rental Car Agency                                     | rental\_car\_agency                                          |
-| Repair and Maintenance Services                       | repair\_and\_maintenance\_services                           |
-| Repair Service                                        | repair\_service                                              |
-| Reservoir                                             | reservoir                                                    |
-| Residential Area-Building                             | residential\_area-building                                   |
-| Rest Area                                             | rest\_area                                                   |
-| Restaurant                                            | restaurant                                                   |
-| Rideshare Pickup                                      | rideshare\_pickup                                            |
-| River                                                 | river                                                        |
-| Road Assistance                                       | road\_assistance                                             |
-| Roadside Station                                      | roadside\_station                                            |
-| Rugby                                                 | rugby                                                        |
-| Running Track                                         | running\_track                                               |
-| Running-Walking Shop                                  | running-walking\_shop                                        |
-| RV Parks                                              | rv\_parks                                                    |
-| Ryokan                                                | ryokan                                                       |
-| Scenic Overlook Rest Area                             | scenic\_overlook\_rest\_area                                 |
-| Scenic Point                                          | scenic\_point                                                |
-| School                                                | school                                                       |
-| Science Museum                                        | science\_museum                                              |
-| Seaport-Harbour                                       | seaport-harbour                                              |
-| Secondary School                                      | secondary\_school                                            |
-| Shoes-Footwear                                        | shoes-footwear                                               |
-| Shooting Range                                        | shooting\_range                                              |
-| Shopping Mall                                         | shopping\_mall                                               |
-| Short-Time Motel                                      | short-time\_motel                                            |
-| Shrine                                                | shrine                                                       |
-| Skate Shop                                            | skate\_shop                                                  |
-| Ski Lift                                              | ski\_lift                                                    |
-| Ski Resort                                            | ski\_resort                                                  |
-| Ski Shop                                              | ski\_shop                                                    |
-| Snowboard Shop                                        | snowboard\_shop                                              |
-| Soccer Club                                           | soccer\_club                                                 |
-| Social Service                                        | social\_service                                              |
-| Specialty Clothing Store                              | specialty\_clothing\_store                                   |
-| Specialty Food Store                                  | specialty\_food\_store                                       |
-| Specialty Store                                       | specialty\_store                                             |
-| Specialty Trade Contractors                           | specialty\_trade\_contractors                                |
-| Sporting Goods Store                                  | sporting\_goods\_store                                       |
-| Sporting Instruction and Camps                        | sporting\_instruction\_and\_camps                            |
-| Sports Activities                                     | sports\_activities                                           |
-| Sports Complex-Stadium                                | sports\_complex-stadium                                      |
-| Sports Facility-Venue                                 | sports\_facility-venue                                       |
-| Sports Field                                          | sports\_field                                                |
-| Squash Court                                          | squash\_court                                                |
-| Storage                                               | storage                                                      |
-| Street or Square                                      | street\_or\_square                                           |
-| Student Housing                                       | student\_housing                                             |
-| Surf Shop                                             | surf\_shop                                                   |
-| Sweet Shop                                            | sweet\_shop                                                  |
-| Swimming Pool                                         | swimming\_pool                                               |
-| Synagogue                                             | synagogue                                                    |
-| Tack Shop                                             | tack\_shop                                                   |
-| Tailor and Alteration                                 | tailor\_and\_alteration                                      |
-| Take Out and Delivery Only                            | take\_out\_and\_delivery\_only                               |
-| Tanning Salon                                         | tanning\_salon                                               |
-| Taqueria                                              | taqueria                                                     |
-| Tax Service                                           | tax\_service                                                 |
-| Taxi Stand                                            | taxi\_stand                                                  |
-| Tea House                                             | tea\_house                                                   |
-| Telephone Service                                     | telephone\_service                                           |
-| Temple                                                | temple                                                       |
-| Tennis Court                                          | tennis\_court                                                |
-| Theatre, Music and Culture                            | theatre,\_music\_and\_culture                                |
-| Therapist                                             | therapist                                                    |
-| Tire Repair                                           | tire\_repair                                                 |
-| Tollbooth                                             | tollbooth                                                    |
-| Tourist Attraction                                    | tourist\_attraction                                          |
-| Tourist Information                                   | tourist\_information                                         |
-| Towing Service                                        | towing\_service                                              |
-| Toy Store                                             | toy\_store                                                   |
-| Trailhead                                             | trailhead                                                    |
-| Train Station                                         | train\_station                                               |
-| Training and Development                              | training\_and\_development                                   |
-| Translation and Interpretation Services               | translation\_and\_interpretation\_services                   |
-| Transportation Service                                | transportation\_service                                      |
-| Travel Agent-Ticketing                                | travel\_agent-ticketing                                      |
-| Truck Dealership                                      | truck\_dealership                                            |
-| Truck Parking                                         | truck\_parking                                               |
-| Truck Repair                                          | truck\_repair                                                |
-| Truck Stop-Plaza                                      | truck\_stop-plaza                                            |
-| Truck Wash                                            | truck\_wash                                                  |
-| Truck-Semi Dealer-Services                            | truck-semi\_dealer-services                                  |
-| Underground Train-Subway                              | underground\_train-subway                                    |
-| Undersea Feature                                      | undersea\_feature                                            |
-| Urgent Care Center                                    | urgent\_care\_center                                         |
-| Used-Second Hand Merchandise Stores                   | used-second\_hand\_merchandise\_stores                       |
-| Utilities                                             | utilities                                                    |
-| Vaccination Site                                      | vaccination\_site                                            |
-| Van Repair                                            | van\_repair                                                  |
-| Vaping Store                                          | vaping\_store                                                |
-| Variety Store                                         | variety\_store                                               |
-| Veterinarian                                          | veterinarian                                                 |
-| Video and Game Rental                                 | video\_and\_game\_rental                                     |
-| Video Arcade-Game Room                                | video\_arcade-game\_room                                     |
-| Warehouse                                             | warehouse                                                    |
-| Waste and Sanitary                                    | waste\_and\_sanitary                                         |
-| Water Park                                            | water\_park                                                  |
-| Water Transit                                         | water\_transit                                               |
-| Waterfall                                             | waterfall                                                    |
-| Wedding Services and Bridal Studio                    | wedding\_services\_and\_bridal\_studio                       |
-| Weigh Station                                         | weigh\_station                                               |
-| Wellness Center and Services                          | wellness\_center\_and\_services                              |
-| Wholesale Store                                       | wholesale\_store                                             |
-| Wild Animal Park                                      | wild\_animal\_park                                           |
-| Wildlife Refuge                                       | wildlife\_refuge                                             |
-| Wine and Liquor                                       | wine\_and\_liquor                                            |
-| Winery                                                | winery                                                       |
-| Women's Apparel                                       | women's\_apparel                                             |
-| Zoo                                                   | zoo                                                          |
+| Category name                                         | Category ID                                                  | Not supported AWS Regions      |
+| ----------------------------------------------------- | ------------------------------------------------------------ | ------------------------------ |
+| Administrative Region                                 | administrative\_region                                       | ap-southeast-1, ap-southeast-5 |
+| Administrative Region-Streets                         | administrative\_region-streets                               | ap-southeast-1, ap-southeast-5 |
+| Adult Entertainment                                   | adult\_entertainment                                         |                                |
+| Adult Shop                                            | adult\_shop                                                  | ap-southeast-1, ap-southeast-5 |
+| Advertising-Marketing, PR and Market Research         | advertising-marketing,\_pr\_and\_market\_research            |                                |
+| Aerial Tramway                                        | aerial\_tramway                                              |                                |
+| Airport                                               | airport                                                      |                                |
+| Airport Cargo                                         | airport\_cargo                                               |                                |
+| Airport Terminal                                      | airport\_terminal                                            |                                |
+| Ambulance Services                                    | ambulance\_services                                          |                                |
+| Amusement Park                                        | amusement\_park                                              |                                |
+| Animal Park                                           | animal\_park                                                 |                                |
+| Apartment Rental-Flat Rental                          | apartment\_rental-flat\_rental                               | ap-southeast-1, ap-southeast-5 |
+| Aquarium                                              | aquarium                                                     |                                |
+| Art Museum                                            | art\_museum                                                  |                                |
+| Arts and Crafts Supplies                              | arts\_and\_crafts\_supplies                                  |                                |
+| Ashram                                                | ashram                                                       | ap-southeast-1, ap-southeast-5 |
+| ATM                                                   | atm                                                          |                                |
+| Attorney                                              | attorney                                                     |                                |
+| Auto Parts                                            | auto\_parts                                                  |                                |
+| Automobile Club                                       | automobile\_club                                             | ap-southeast-1, ap-southeast-5 |
+| Automobile Dealership-New Cars                        | automobile\_dealership-new\_cars                             |                                |
+| Automobile Dealership-Used Cars                       | automobile\_dealership-used\_cars                            |                                |
+| Aviation                                              | aviation                                                     |                                |
+| B2B Restaurant Services                               | b2b\_restaurant\_services                                    |                                |
+| B2B Sales and Services                                | b2b\_sales\_and\_services                                    |                                |
+| Badminton                                             | badminton                                                    |                                |
+| Bakery and Baked Goods Store                          | bakery\_and\_baked\_goods\_store                             |                                |
+| Bank                                                  | bank                                                         |                                |
+| Banquet Hall                                          | banquet\_hall                                                | ap-southeast-1, ap-southeast-5 |
+| Bar or Pub                                            | bar\_or\_pub                                                 |                                |
+| Barber                                                | barber                                                       |                                |
+| Basketball                                            | basketball                                                   |                                |
+| Bay-Harbor                                            | bay-harbor                                                   | ap-southeast-1, ap-southeast-5 |
+| Beach                                                 | beach                                                        |                                |
+| Bed and Breakfast                                     | bed\_and\_breakfast                                          |                                |
+| Beer Garden                                           | beer\_garden                                                 |                                |
+| Bicycle and Bicycle Accessories Shop                  | bicycle\_and\_bicycle\_accessories\_shop                     |                                |
+| Bicycle Parking                                       | bicycle\_parking                                             | ap-southeast-1, ap-southeast-5 |
+| Bicycle Service                                       | bicycle\_service                                             | ap-southeast-1, ap-southeast-5 |
+| Bicycle Service and Maintenance                       | bicycle\_service\_and\_maintenance                           |                                |
+| Bicycle Sharing Location                              | bicycle\_sharing\_location                                   |                                |
+| Bike Park                                             | bike\_park                                                   |                                |
+| Bill Payment Service                                  | bill\_payment\_service                                       |                                |
+| Billiards-Pool Hall                                   | billiards-pool\_hall                                         |                                |
+| Bistro                                                | bistro                                                       |                                |
+| Blood Bank                                            | blood\_bank                                                  |                                |
+| BMX Shop                                              | bmx\_shop                                                    | ap-southeast-1, ap-southeast-5 |
+| BMX Track                                             | bmx\_track                                                   | ap-southeast-1, ap-southeast-5 |
+| Boat Ferry                                            | boat\_ferry                                                  | ap-southeast-1, ap-southeast-5 |
+| Boating                                               | boating                                                      |                                |
+| Body of Water                                         | body\_of\_water                                              |                                |
+| Body Piercing and Tattoos                             | body\_piercing\_and\_tattoos                                 |                                |
+| Bookstore                                             | bookstore                                                    |                                |
+| Border Crossing                                       | border\_crossing                                             |                                |
+| Bowling Center                                        | bowling\_center                                              |                                |
+| Brewery                                               | brewery                                                      | ap-southeast-1, ap-southeast-5 |
+| Building                                              | building                                                     |                                |
+| Bus Rapid Transit                                     | bus\_rapid\_transit                                          |                                |
+| Bus Station                                           | bus\_station                                                 |                                |
+| Bus Stop                                              | bus\_stop                                                    |                                |
+| Business Facility                                     | business\_facility                                           |                                |
+| Business Service                                      | business\_service                                            |                                |
+| Butcher                                               | butcher                                                      |                                |
+| Cafeteria                                             | cafeteria                                                    |                                |
+| Campground                                            | campground                                                   |                                |
+| Camping-Hiking Shop                                   | camping-hiking\_shop                                         |                                |
+| Campsite                                              | campsite                                                     | ap-southeast-1, ap-southeast-5 |
+| Canal                                                 | canal                                                        | ap-southeast-1, ap-southeast-5 |
+| Canoe-Kayak Shop                                      | canoe-kayak\_shop                                            | ap-southeast-1, ap-southeast-5 |
+| Car Repair                                            | car\_repair                                                  |                                |
+| Car Repair-Service                                    | car\_repair-service                                          |                                |
+| Car Wash-Detailing                                    | car\_wash-detailing                                          |                                |
+| Cargo Center                                          | cargo\_center                                                |                                |
+| Cargo Transportation                                  | cargo\_transportation                                        |                                |
+| Carshare Location                                     | carshare\_location                                           |                                |
+| Casino                                                | casino                                                       |                                |
+| Castle                                                | castle                                                       |                                |
+| Casual Dining                                         | casual\_dining                                               |                                |
+| Catering and Other Food Services                      | catering\_and\_other\_food\_services                         |                                |
+| Cellphone Parking Lot                                 | cellphone\_parking\_lot                                      | ap-southeast-1, ap-southeast-5 |
+| Cemetery                                              | cemetery                                                     |                                |
+| Check Cashing Service-Currency Exchange               | check\_cashing\_service-currency\_exchange                   |                                |
+| Children's Apparel                                    | children's\_apparel                                          |                                |
+| Children's Museum                                     | children's\_museum                                           |                                |
+| Chiropractor                                          | chiropractor                                                 |                                |
+| Church                                                | church                                                       |                                |
+| Cigar and Tobacco Shop                                | cigar\_and\_tobacco\_shop                                    |                                |
+| Cinema                                                | cinema                                                       |                                |
+| City Hall                                             | city\_hall                                                   |                                |
+| City, Town or Village                                 | city,\_town\_or\_village                                     |                                |
+| Civic-Community Center                                | civic-community\_center                                      |                                |
+| Clothing and Accessories                              | clothing\_and\_accessories                                   |                                |
+| Clubhouse                                             | clubhouse                                                    |                                |
+| Coaching Institute                                    | coaching\_institute                                          |                                |
+| Cocktail Lounge                                       | cocktail\_lounge                                             |                                |
+| Coffee Shop                                           | coffee\_shop                                                 |                                |
+| Coffee-Tea                                            | coffee-tea                                                   |                                |
+| Collective Community                                  | collective\_community                                        |                                |
+| Commercial Services                                   | commercial\_services                                         |                                |
+| Communication-Media                                   | communication-media                                          |                                |
+| Commuter Rail Station                                 | commuter\_rail\_station                                      | ap-southeast-1, ap-southeast-5 |
+| Commuter Train                                        | commuter\_train                                              | ap-southeast-1, ap-southeast-5 |
+| Complete Rest Area                                    | complete\_rest\_area                                         | ap-southeast-1, ap-southeast-5 |
+| Computer and Software                                 | computer\_and\_software                                      |                                |
+| Construction                                          | construction                                                 |                                |
+| Consumer Electronics Store                            | consumer\_electronics\_store                                 |                                |
+| Consumer Goods                                        | consumer\_goods                                              |                                |
+| Consumer Services                                     | consumer\_services                                           |                                |
+| Convenience Store                                     | convenience\_store                                           |                                |
+| Convention-Exhibition Center                          | convention-exhibition\_center                                |                                |
+| County Council                                        | county\_council                                              | ap-southeast-1, ap-southeast-5 |
+| Couriers                                              | couriers                                                     |                                |
+| Courthouse                                            | courthouse                                                   |                                |
+| COVID-19 Testing Site                                 | covid-19\_testing\_site                                      | ap-southeast-1, ap-southeast-5 |
+| Crematorium                                           | crematorium                                                  |                                |
+| Cross Country Ski Shop                                | cross\_country\_ski\_shop                                    | ap-southeast-1, ap-southeast-5 |
+| Customer Care-Service Center                          | customer\_care-service\_center                               | ap-southeast-1, ap-southeast-5 |
+| Dairy Goods                                           | dairy\_goods                                                 |                                |
+| Dancing                                               | dancing                                                      |                                |
+| Deli                                                  | deli                                                         |                                |
+| Delivery Entrance                                     | delivery\_entrance                                           | ap-southeast-1, ap-southeast-5 |
+| Dentist-Dental Office                                 | dentist-dental\_office                                       |                                |
+| Department Store                                      | department\_store                                            |                                |
+| Discount Store                                        | discount\_store                                              |                                |
+| Distillery                                            | distillery                                                   | ap-southeast-1, ap-southeast-5 |
+| Diving Center                                         | diving\_center                                               |                                |
+| Doughnut Shop                                         | doughnut\_shop                                               | ap-southeast-1, ap-southeast-5 |
+| Drugstore                                             | drugstore                                                    |                                |
+| Drugstore or Pharmacy                                 | drugstore\_or\_pharmacy                                      | ap-southeast-1, ap-southeast-5 |
+| Dry Cleaning and Laundry                              | dry\_cleaning\_and\_laundry                                  |                                |
+| Education Facility                                    | education\_facility                                          |                                |
+| Electrical                                            | electrical                                                   |                                |
+| Embassy                                               | embassy                                                      |                                |
+| Emission Testing                                      | emission\_testing                                            |                                |
+| Engineering and Scientific Services                   | engineering\_and\_scientific\_services                       |                                |
+| Entertainment and Recreation                          | entertainment\_and\_recreation                               |                                |
+| Entertainment Electronics                             | entertainment\_electronics                                   |                                |
+| EV Battery Swap Station                               | ev\_battery\_swap\_station                                   | ap-southeast-1, ap-southeast-5 |
+| EV Charging Station                                   | ev\_charging\_station                                        |                                |
+| EV Charging Station for 2-wheelers and Light Vehicles | ev\_charging\_station\_for\_2-wheelers\_and\_light\_vehicles | ap-southeast-1, ap-southeast-5 |
+| EV Charging Station for Trucks                        | ev\_charging\_station\_for\_trucks                           | ap-southeast-1, ap-southeast-5 |
+| EV Dealership-New Vehicles                            | ev\_dealership-new\_vehicles                                 | ap-southeast-1, ap-southeast-5 |
+| EV Repair                                             | ev\_repair                                                   | ap-southeast-1, ap-southeast-5 |
+| Event Spaces                                          | event\_spaces                                                | ap-southeast-1, ap-southeast-5 |
+| Facilities                                            | facilities                                                   |                                |
+| Family Restaurant                                     | family\_restaurant                                           | ap-southeast-1, ap-southeast-5 |
+| Family-General Practice Physicians                    | family-general\_practice\_physicians                         |                                |
+| Farming                                               | farming                                                      |                                |
+| Fast Food                                             | fast\_food                                                   |                                |
+| Ferry Terminal                                        | ferry\_terminal                                              |                                |
+| Finance and Insurance                                 | finance\_and\_insurance                                      |                                |
+| Financial Investment Firm                             | financial\_investment\_firm                                  |                                |
+| Fine Arts                                             | fine\_arts                                                   |                                |
+| Fine Dining                                           | fine\_dining                                                 | ap-southeast-1, ap-southeast-5 |
+| Fire Department                                       | fire\_department                                             |                                |
+| Fitness-Health Club                                   | fitness-health\_club                                         |                                |
+| Floor and Carpet                                      | floor\_and\_carpet                                           |                                |
+| Florist                                               | florist                                                      |                                |
+| Flowers and Jewelry                                   | flowers\_and\_jewelry                                        | ap-southeast-1, ap-southeast-5 |
+| Food Market-Stall                                     | food\_market-stall                                           |                                |
+| Food Production                                       | food\_production                                             |                                |
+| Food-Beverage Specialty Store                         | food-beverage\_specialty\_store                              |                                |
+| Forest, Heath or Other Vegetation                     | forest,\_heath\_or\_other\_vegetation                        |                                |
+| Fueling Station                                       | fueling\_station                                             |                                |
+| Fulfillment and Distribution Center                   | fulfillment\_and\_distribution\_center                       |                                |
+| Funeral Director                                      | funeral\_director                                            |                                |
+| Furniture Store                                       | furniture\_store                                             |                                |
+| Gallery                                               | gallery                                                      |                                |
+| Gambling-Lottery-Betting                              | gambling-lottery-betting                                     |                                |
+| Garden                                                | garden                                                       |                                |
+| Garden Center                                         | garden\_center                                               |                                |
+| General Merchandise                                   | general\_merchandise                                         |                                |
+| Gift, Antique and Art                                 | gift,\_antique\_and\_art                                     |                                |
+| Glass and Window                                      | glass\_and\_window                                           |                                |
+| Golf Course                                           | golf\_course                                                 |                                |
+| Golf Practice Range                                   | golf\_practice\_range                                        |                                |
+| Golf Shop                                             | golf\_shop                                                   |                                |
+| Government Office                                     | government\_office                                           |                                |
+| Government or Community Facility                      | government\_or\_community\_facility                          |                                |
+| Grocery                                               | grocery                                                      |                                |
+| Guest House                                           | guest\_house                                                 |                                |
+| Gurdwara                                              | gurdwara                                                     |                                |
+| Hair and Beauty                                       | hair\_and\_beauty                                            |                                |
+| Hair Salon                                            | hair\_salon                                                  |                                |
+| Hardware, House and Garden                            | hardware,\_house\_and\_garden                                |                                |
+| Healthcare and Healthcare Support Services            | healthcare\_and\_healthcare\_support\_services               |                                |
+| Higher Education                                      | higher\_education                                            |                                |
+| Highway Entrance                                      | highway\_entrance                                            |                                |
+| Highway Exit                                          | highway\_exit                                                |                                |
+| Historical Monument                                   | historical\_monument                                         |                                |
+| History Museum                                        | history\_museum                                              |                                |
+| Hockey                                                | hockey                                                       | ap-southeast-1, ap-southeast-5 |
+| Holiday Park                                          | holiday\_park                                                |                                |
+| Home Improvement                                      | home\_improvement                                            |                                |
+| Home Specialty Store                                  | home\_specialty\_store                                       |                                |
+| Hospital                                              | hospital                                                     |                                |
+| Hospital Emergency Room                               | hospital\_emergency\_room                                    |                                |
+| Hospital or Health Care Facility                      | hospital\_or\_health\_care\_facility                         |                                |
+| Hostel                                                | hostel                                                       |                                |
+| Hot Spring                                            | hot\_spring                                                  |                                |
+| Hotel                                                 | hotel                                                        |                                |
+| Hotel or Motel                                        | hotel\_or\_motel                                             |                                |
+| Human Resources and Recruiting Services               | human\_resources\_and\_recruiting\_services                  |                                |
+| Hunting-Fishing Shop                                  | hunting-fishing\_shop                                        |                                |
+| Hydrogen Fuel Station                                 | hydrogen\_fuel\_station                                      | ap-southeast-1, ap-southeast-5 |
+| Ice Skating Rink                                      | ice\_skating\_rink                                           |                                |
+| Inclined Rail                                         | inclined\_rail                                               |                                |
+| Indoor Ski                                            | indoor\_ski                                                  | ap-southeast-1, ap-southeast-5 |
+| Indoor Sports                                         | indoor\_sports                                               |                                |
+| Industrial Zone                                       | industrial\_zone                                             |                                |
+| Interior and Exterior Design                          | interior\_and\_exterior\_design                              |                                |
+| Internet Cafe                                         | internet\_cafe                                               |                                |
+| Intersection                                          | intersection                                                 |                                |
+| Investigation Services                                | investigation\_services                                      |                                |
+| Island                                                | island                                                       |                                |
+| IT and Office Equipment Services                      | it\_and\_office\_equipment\_services                         |                                |
+| Jazz Club                                             | jazz\_club                                                   |                                |
+| Jeweler                                               | jeweler                                                      |                                |
+| Karaoke                                               | karaoke                                                      |                                |
+| Kindergarten and Childcare                            | kindergarten\_and\_childcare                                 |                                |
+| Lake                                                  | lake                                                         |                                |
+| Landmark-Attraction                                   | landmark-attraction                                          |                                |
+| Landscaping Services                                  | landscaping\_services                                        |                                |
+| Language Studies                                      | language\_studies                                            |                                |
+| Legal Services                                        | legal\_services                                              |                                |
+| Leisure                                               | leisure                                                      | ap-southeast-1, ap-southeast-5 |
+| Library                                               | library                                                      |                                |
+| Lightrail                                             | lightrail                                                    |                                |
+| Live Entertainment-Music                              | live\_entertainment-music                                    |                                |
+| Loading Dock                                          | loading\_dock                                                | ap-southeast-1, ap-southeast-5 |
+| Loading Zone                                          | loading\_zone                                                | ap-southeast-1, ap-southeast-5 |
+| Local Transit                                         | local\_transit                                               |                                |
+| Locksmiths and Security Systems Services              | locksmiths\_and\_security\_systems\_services                 |                                |
+| Lodging                                               | lodging                                                      |                                |
+| Lottery Booth                                         | lottery\_booth                                               |                                |
+| Lumber                                                | lumber                                                       | ap-southeast-1, ap-southeast-5 |
+| Maid Services                                         | maid\_services                                               |                                |
+| Major Appliance                                       | major\_appliance                                             |                                |
+| Management and Consulting Services                    | management\_and\_consulting\_services                        |                                |
+| Manufacturing                                         | manufacturing                                                |                                |
+| Marina                                                | marina                                                       |                                |
+| Market                                                | market                                                       |                                |
+| Marriage and Match Making Services                    | marriage\_and\_match\_making\_services                       |                                |
+| Medical Services-Clinics                              | medical\_services-clinics                                    |                                |
+| Meeting Point                                         | meeting\_point                                               | ap-southeast-1, ap-southeast-5 |
+| Men's Apparel                                         | men's\_apparel                                               |                                |
+| Military Base                                         | military\_base                                               |                                |
+| Mining, Quarrying and Other Extraction                | mining,\_quarrying\_and\_other\_extraction                   |                                |
+| Mobile Retailer                                       | mobile\_retailer                                             |                                |
+| Mobile Service Center                                 | mobile\_service\_center                                      |                                |
+| Modeling Agencies                                     | modeling\_agencies                                           | ap-southeast-1, ap-southeast-5 |
+| Money Transferring Service                            | money\_transferring\_service                                 |                                |
+| Monorail                                              | monorail                                                     |                                |
+| Mosque                                                | mosque                                                       |                                |
+| Motel                                                 | motel                                                        |                                |
+| Motorcycle Accessories                                | motorcycle\_accessories                                      |                                |
+| Motorcycle Dealership                                 | motorcycle\_dealership                                       |                                |
+| Motorcycle Service and Maintenance                    | motorcycle\_service\_and\_maintenance                        |                                |
+| Motorcycle, Moped and Scooter Parking                 | motorcycle,\_moped\_and\_scooter\_parking                    | ap-southeast-1, ap-southeast-5 |
+| Motorway Service Rest Area                            | motorway\_service\_rest\_area                                | ap-southeast-1, ap-southeast-5 |
+| Mountain or Hill                                      | mountain\_or\_hill                                           |                                |
+| Mountain Passes                                       | mountain\_passes                                             |                                |
+| Mountain Peaks                                        | mountain\_peaks                                              | ap-southeast-1, ap-southeast-5 |
+| Mover                                                 | mover                                                        |                                |
+| Museum                                                | museum                                                       |                                |
+| Nail Salon                                            | nail\_salon                                                  |                                |
+| Named Intersection-Chowk                              | named\_intersection-chowk                                    | ap-southeast-1, ap-southeast-5 |
+| Natural and Geographical                              | natural\_and\_geographical                                   |                                |
+| Night Club                                            | night\_club                                                  |                                |
+| Nightlife-Entertainment                               | nightlife-entertainment                                      |                                |
+| Non-Store Retailers                                   | non-store\_retailers                                         |                                |
+| Nursing Home                                          | nursing\_home                                                |                                |
+| Off Road Trailhead                                    | off\_road\_trailhead                                         | ap-southeast-1, ap-southeast-5 |
+| Off-Road Vehicle Area                                 | off-road\_vehicle\_area                                      |                                |
+| Office Supply and Services Store                      | office\_supply\_and\_services\_store                         |                                |
+| Optical                                               | optical                                                      |                                |
+| Organizations and Societies                           | organizations\_and\_societies                                |                                |
+| Other Bookshop                                        | other\_bookshop                                              |                                |
+| Other Library                                         | other\_library                                               | ap-southeast-1, ap-southeast-5 |
+| Other Place of Worship                                | other\_place\_of\_worship                                    |                                |
+| Outdoor Area-Complex                                  | outdoor\_area-complex                                        | ap-southeast-1, ap-southeast-5 |
+| Outdoor Service                                       | outdoor\_service                                             | ap-southeast-1, ap-southeast-5 |
+| Outdoor-Recreation                                    | outdoor-recreation                                           |                                |
+| Pagoda                                                | pagoda                                                       | ap-southeast-1, ap-southeast-5 |
+| Paint Store                                           | paint\_store                                                 |                                |
+| Park and Ride                                         | park\_and\_ride                                              |                                |
+| Park-Recreation Area                                  | park-recreation\_area                                        |                                |
+| Parking                                               | parking                                                      |                                |
+| Parking and Restroom Only Rest Area                   | parking\_and\_restroom\_only\_rest\_area                     | ap-southeast-1, ap-southeast-5 |
+| Parking Garage-Parking House                          | parking\_garage-parking\_house                               |                                |
+| Parking Lot                                           | parking\_lot                                                 | ap-southeast-1, ap-southeast-5 |
+| Parking Only Rest Area                                | parking\_only\_rest\_area                                    | ap-southeast-1, ap-southeast-5 |
+| Pawnshop                                              | pawnshop                                                     |                                |
+| Performing Arts                                       | performing\_arts                                             |                                |
+| Pet Care                                              | pet\_care                                                    |                                |
+| Pet Supply                                            | pet\_supply                                                  |                                |
+| Petrol-Gasoline Station                               | petrol-gasoline\_station                                     |                                |
+| Pharmacy                                              | pharmacy                                                     |                                |
+| Photography                                           | photography                                                  |                                |
+| Plumbing                                              | plumbing                                                     |                                |
+| Police Box                                            | police\_box                                                  | ap-southeast-1, ap-southeast-5 |
+| Police Services-Security                              | police\_services-security                                    |                                |
+| Police Station                                        | police\_station                                              |                                |
+| Post Office                                           | post\_office                                                 |                                |
+| Postal Area                                           | postal\_area                                                 | ap-southeast-1, ap-southeast-5 |
+| Postal Collection Box                                 | postal\_collection\_box                                      |                                |
+| Power Equipment Dealer                                | power\_equipment\_dealer                                     |                                |
+| Primary School                                        | primary\_school                                              |                                |
+| Printing and Publishing                               | printing\_and\_publishing                                    |                                |
+| Property Management                                   | property\_management                                         |                                |
+| Psychiatric Institute                                 | psychiatric\_institute                                       |                                |
+| Public Administration                                 | public\_administration                                       | ap-southeast-1, ap-southeast-5 |
+| Public Restroom-Toilets                               | public\_restroom-toilets                                     |                                |
+| Public Sports Airport                                 | public\_sports\_airport                                      |                                |
+| Public Transit Access                                 | public\_transit\_access                                      | ap-southeast-1, ap-southeast-5 |
+| Race Track                                            | race\_track                                                  |                                |
+| Racquetball Court                                     | racquetball\_court                                           | ap-southeast-1, ap-southeast-5 |
+| Rail Ferry                                            | rail\_ferry                                                  | ap-southeast-1, ap-southeast-5 |
+| Rail Yard                                             | rail\_yard                                                   | ap-southeast-1, ap-southeast-5 |
+| Ranger Station                                        | ranger\_station                                              | ap-southeast-1, ap-southeast-5 |
+| Real Estate Services                                  | real\_estate\_services                                       |                                |
+| Record, CD and Video                                  | record,\_cd\_and\_video                                      |                                |
+| Recreation Center                                     | recreation\_center                                           |                                |
+| Recycling Center                                      | recycling\_center                                            |                                |
+| Registration Office                                   | registration\_office                                         |                                |
+| Religious Place                                       | religious\_place                                             |                                |
+| Rental and Leasing                                    | rental\_and\_leasing                                         |                                |
+| Rental Car Agency                                     | rental\_car\_agency                                          |                                |
+| Repair and Maintenance Services                       | repair\_and\_maintenance\_services                           |                                |
+| Repair Service                                        | repair\_service                                              |                                |
+| Reservoir                                             | reservoir                                                    | ap-southeast-1, ap-southeast-5 |
+| Residential Area-Building                             | residential\_area-building                                   |                                |
+| Rest Area                                             | rest\_area                                                   |                                |
+| Restaurant                                            | restaurant                                                   |                                |
+| Rideshare Pickup                                      | rideshare\_pickup                                            |                                |
+| River                                                 | river                                                        |                                |
+| Road Assistance                                       | road\_assistance                                             | ap-southeast-1, ap-southeast-5 |
+| Roadside Station                                      | roadside\_station                                            | ap-southeast-1, ap-southeast-5 |
+| Rugby                                                 | rugby                                                        | ap-southeast-1, ap-southeast-5 |
+| Running Track                                         | running\_track                                               |                                |
+| Running-Walking Shop                                  | running-walking\_shop                                        | ap-southeast-1, ap-southeast-5 |
+| RV Parks                                              | rv\_parks                                                    | ap-southeast-1, ap-southeast-5 |
+| Ryokan                                                | ryokan                                                       |                                |
+| Scenic Overlook Rest Area                             | scenic\_overlook\_rest\_area                                 | ap-southeast-1, ap-southeast-5 |
+| Scenic Point                                          | scenic\_point                                                |                                |
+| School                                                | school                                                       |                                |
+| Science Museum                                        | science\_museum                                              |                                |
+| Seaport-Harbour                                       | seaport-harbour                                              |                                |
+| Secondary School                                      | secondary\_school                                            |                                |
+| Shoes-Footwear                                        | shoes-footwear                                               |                                |
+| Shooting Range                                        | shooting\_range                                              |                                |
+| Shopping Mall                                         | shopping\_mall                                               |                                |
+| Short-Time Motel                                      | short-time\_motel                                            |                                |
+| Shrine                                                | shrine                                                       |                                |
+| Skate Shop                                            | skate\_shop                                                  |                                |
+| Ski Lift                                              | ski\_lift                                                    | ap-southeast-1, ap-southeast-5 |
+| Ski Resort                                            | ski\_resort                                                  |                                |
+| Ski Shop                                              | ski\_shop                                                    |                                |
+| Snowboard Shop                                        | snowboard\_shop                                              | ap-southeast-1, ap-southeast-5 |
+| Soccer Club                                           | soccer\_club                                                 |                                |
+| Social Service                                        | social\_service                                              |                                |
+| Specialty Clothing Store                              | specialty\_clothing\_store                                   |                                |
+| Specialty Food Store                                  | specialty\_food\_store                                       |                                |
+| Specialty Store                                       | specialty\_store                                             |                                |
+| Specialty Trade Contractors                           | specialty\_trade\_contractors                                |                                |
+| Sporting Goods Store                                  | sporting\_goods\_store                                       |                                |
+| Sporting Instruction and Camps                        | sporting\_instruction\_and\_camps                            |                                |
+| Sports Activities                                     | sports\_activities                                           |                                |
+| Sports Complex-Stadium                                | sports\_complex-stadium                                      |                                |
+| Sports Facility-Venue                                 | sports\_facility-venue                                       |                                |
+| Sports Field                                          | sports\_field                                                |                                |
+| Squash Court                                          | squash\_court                                                |                                |
+| Storage                                               | storage                                                      |                                |
+| Street or Square                                      | street\_or\_square                                           |                                |
+| Student Housing                                       | student\_housing                                             |                                |
+| Surf Shop                                             | surf\_shop                                                   |                                |
+| Sweet Shop                                            | sweet\_shop                                                  |                                |
+| Swimming Pool                                         | swimming\_pool                                               |                                |
+| Synagogue                                             | synagogue                                                    |                                |
+| Tack Shop                                             | tack\_shop                                                   | ap-southeast-1, ap-southeast-5 |
+| Tailor and Alteration                                 | tailor\_and\_alteration                                      |                                |
+| Take Out and Delivery Only                            | take\_out\_and\_delivery\_only                               |                                |
+| Tanning Salon                                         | tanning\_salon                                               |                                |
+| Taqueria                                              | taqueria                                                     |                                |
+| Tax Service                                           | tax\_service                                                 |                                |
+| Taxi Stand                                            | taxi\_stand                                                  |                                |
+| Tea House                                             | tea\_house                                                   |                                |
+| Telephone Service                                     | telephone\_service                                           |                                |
+| Temple                                                | temple                                                       |                                |
+| Tennis Court                                          | tennis\_court                                                |                                |
+| Theatre, Music and Culture                            | theatre,\_music\_and\_culture                                |                                |
+| Therapist                                             | therapist                                                    |                                |
+| Tire Repair                                           | tire\_repair                                                 |                                |
+| Tollbooth                                             | tollbooth                                                    |                                |
+| Tourist Attraction                                    | tourist\_attraction                                          |                                |
+| Tourist Information                                   | tourist\_information                                         |                                |
+| Towing Service                                        | towing\_service                                              |                                |
+| Toy Store                                             | toy\_store                                                   |                                |
+| Trailhead                                             | trailhead                                                    |                                |
+| Train Station                                         | train\_station                                               |                                |
+| Training and Development                              | training\_and\_development                                   |                                |
+| Translation and Interpretation Services               | translation\_and\_interpretation\_services                   |                                |
+| Transportation Service                                | transportation\_service                                      |                                |
+| Travel Agent-Ticketing                                | travel\_agent-ticketing                                      |                                |
+| Truck Dealership                                      | truck\_dealership                                            |                                |
+| Truck Parking                                         | truck\_parking                                               | ap-southeast-1, ap-southeast-5 |
+| Truck Repair                                          | truck\_repair                                                |                                |
+| Truck Stop-Plaza                                      | truck\_stop-plaza                                            | ap-southeast-1, ap-southeast-5 |
+| Truck Wash                                            | truck\_wash                                                  | ap-southeast-1, ap-southeast-5 |
+| Truck-Semi Dealer-Services                            | truck-semi\_dealer-services                                  |                                |
+| Underground Train-Subway                              | underground\_train-subway                                    |                                |
+| Undersea Feature                                      | undersea\_feature                                            |                                |
+| Urgent Care Center                                    | urgent\_care\_center                                         |                                |
+| Used-Second Hand Merchandise Stores                   | used-second\_hand\_merchandise\_stores                       |                                |
+| Utilities                                             | utilities                                                    |                                |
+| Vaccination Site                                      | vaccination\_site                                            |                                |
+| Van Repair                                            | van\_repair                                                  | ap-southeast-1, ap-southeast-5 |
+| Vaping Store                                          | vaping\_store                                                |                                |
+| Variety Store                                         | variety\_store                                               | ap-southeast-1, ap-southeast-5 |
+| Veterinarian                                          | veterinarian                                                 |                                |
+| Video and Game Rental                                 | video\_and\_game\_rental                                     |                                |
+| Video Arcade-Game Room                                | video\_arcade-game\_room                                     |                                |
+| Warehouse                                             | warehouse                                                    |                                |
+| Waste and Sanitary                                    | waste\_and\_sanitary                                         |                                |
+| Water Park                                            | water\_park                                                  |                                |
+| Water Transit                                         | water\_transit                                               |                                |
+| Waterfall                                             | waterfall                                                    |                                |
+| Wedding Services and Bridal Studio                    | wedding\_services\_and\_bridal\_studio                       |                                |
+| Weigh Station                                         | weigh\_station                                               | ap-southeast-1, ap-southeast-5 |
+| Wellness Center and Services                          | wellness\_center\_and\_services                              |                                |
+| Wholesale Store                                       | wholesale\_store                                             |                                |
+| Wild Animal Park                                      | wild\_animal\_park                                           |                                |
+| Wildlife Refuge                                       | wildlife\_refuge                                             |                                |
+| Wine and Liquor                                       | wine\_and\_liquor                                            |                                |
+| Winery                                                | winery                                                       |                                |
+| Women's Apparel                                       | women's\_apparel                                             |                                |
+| Zoo                                                   | zoo                                                          |                                |
 
 ## Food Type filters
 
@@ -605,9 +611,14 @@ types of cuisine or food establishments, supporting user preferences for targete
 location searches. Below are the supported food types and their IDs.
 
 To apply food type filters, use the Place APIs with the `foodType`
-parameter set to the desired cuisine. For detailed guidance on implementing these
-filters, see the Amazon Location Service [API
-documentation](../APIReference/API_geoplaces_FoodType.md "../APIReference/API_geoplaces_FoodType.md").
+parameter set to the desired cuisine. For more information about food type filters, see the Amazon Location Service [FoodType
+API reference](../APIReference/API_geoplaces_FoodType.md "../APIReference/API_geoplaces_FoodType.md").
+
+###### Note
+
+If you use [GrabMaps](GrabMaps.md "GrabMaps.md"), the `ap-southeast-1` and
+`ap-southeast-5` AWS Regions do not support food type
+filters.
 
 | Name                              | FoodType ID                         |
 | --------------------------------- | ----------------------------------- |
@@ -803,7 +814,7 @@ documentation](../APIReference/API_geoplaces_FoodType.md "../APIReference/API_ge
 ## Business Chains filter
 
 This section explains how to filter search results using business chain
-identifiers within Amazon Location Service's Places API. This feature allows users to refine
+identifiers in the Amazon Location Service Places API. Use this feature to refine
 location searches based on well-known business chains, helping enhance the search
 experience for brand-specific requests.
 
@@ -811,6 +822,12 @@ The business chains filter enables focused search results by allowing users to
 specify one or more chain identifiers, useful for finding specific brand locations
 (for example, coffee shops, gas stations). Below is a list of supported business
 chains.
+
+###### Note
+
+If you use [GrabMaps](GrabMaps.md "GrabMaps.md"), the `ap-southeast-1` and
+`ap-southeast-5` AWS Regions do not support business chain
+filters.
 
 Business Chains| Name | ID |
 | --- | --- |
@@ -30204,5 +30221,5 @@ Business Chains| Name | ID |
 
 To apply business chain filters, use the Place APIs with the
 `businessChain` parameter set to the desired chain identifier. For
-implementation details, see the Amazon Location Service [API
-documentation](../APIReference/API_geoplaces_BusinessChain.md "../APIReference/API_geoplaces_BusinessChain.md").
+more information about business chain filters, see the Amazon Location Service [BusinessChain
+API reference](../APIReference/API_geoplaces_BusinessChain.md "../APIReference/API_geoplaces_BusinessChain.md").

@@ -62,6 +62,5 @@ An indicator of whether a location is currently open, based on the
 local time. This information is helpful for users looking for businesses
 that are open at the time of their query.
 
-For further details, refer to the Amazon Location Service [API
-documentation](../APIReference/API_geoplaces_OpeningHours.md "../APIReference/API_geoplaces_OpeningHours.md") to explore options for retrieving contact details and opening
-hours for points of interest.
+For more information about contact details and opening hours for points of interest, see the Amazon Location Service [OpeningHours
+API reference](../APIReference/API_geoplaces_OpeningHours.md "../APIReference/API_geoplaces_OpeningHours.md").

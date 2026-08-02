@@ -24,7 +24,7 @@ cost.
 | Cross-References    | No      | No              | No           | Yes       | Yes         | Yes           | Yes     |
 
 To use these additional features, set the `additionalFeatures` parameter in
-the Place API requests. Refer to the Amazon Location Service [API documentation](../APIReference/API_geoplaces_GetPlace.md#API_geoplaces_GetPlace_RequestParameters "../APIReference/API_geoplaces_GetPlace.md#API_geoplaces_GetPlace_RequestParameters") for details.
+the Place API requests. For more information about additional features, see the Amazon Location Service [GetPlace API reference](../APIReference/API_geoplaces_GetPlace.md#API_geoplaces_GetPlace_RequestParameters "../APIReference/API_geoplaces_GetPlace.md#API_geoplaces_GetPlace_RequestParameters").
 
 - For additional information on Time Zone and Phonemes, see [Localization and internationalization](places-localization-internationalization.md "places-localization-internationalization.md").
 - For additional information on Contacts and Opening Hours, see [Contacts and opening hours](contacts-opening-hours.md "contacts-opening-hours.md").

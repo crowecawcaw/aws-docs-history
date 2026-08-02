@@ -61,6 +61,7 @@ Amazon Location Service APIs:
   - Suggest
   - SearchText
   - GetPlace
+  - SearchNearby
 
 - Routes:
 

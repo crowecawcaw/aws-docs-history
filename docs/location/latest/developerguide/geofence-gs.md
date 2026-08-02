@@ -9,8 +9,8 @@ applications like fleet tracking, location-based notifications, and more.
 
 1. Create a geofence collection resource in your AWS account.
 2. Add geofences to the collection. You can use the geofence upload tool on the
-   Amazon Location console or the Amazon Location Geofences API. For more information about
-   available options, see [Authenticate with Amazon Location Service](access.md "access.md"). A geofence can be defined as a
+   Amazon Location console or the Amazon Location Geofences API. For more information, see
+   [Add geofences with Amazon Location](add-geofences.md "add-geofences.md"). A geofence can be defined as a
    `Circle`, `Polygon`, or `MultiPolygon`. Use
    a `Polygon` or `MultiPolygon` to determine when a device
    enters a specific area. Use a `Circle` to determine when a device
