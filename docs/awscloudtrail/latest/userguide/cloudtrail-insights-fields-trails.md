@@ -53,7 +53,7 @@ JSON structure, sometimes called _payload_. CloudTrail Insights events for trail
 - **`insightDetails`** – A CloudTrail Insights event record for a
   trail includes an `insightDetails` block that contains information about the
   underlying triggers of an Insights event, such as event source, user identities, user
-  agents, historical averages or _baselines_, statistics, API
+  agents, resource ARNs, historical averages or _baselines_, statistics, API
   name, and whether the event is the start or end of the Insights event.
 
 **Since:** 1.07
@@ -104,7 +104,7 @@ JSON structure, sometimes called _payload_. CloudTrail Insights events for trail
 
     **Optional:** True
     + **`insightContext`** – Information about the AWS tools (called *user agents*), IAM users
-     and roles (called *user identities*), and error codes associated
+     and roles (called *user identities*), error codes, and resource ARNs associated
      with the events that CloudTrail analyzed to generate the Insights event. This element also
      includes statistics that show how the unusual activity in an Insights event compares
      to *baseline*, or normal, activity.
@@ -212,9 +212,9 @@ JSON structure, sometimes called _payload_. CloudTrail Insights events for trail
 
 
     	- **`attributions`** – Includes information
-    	 about the user identities, user agents, and error codes correlated
+    	 about the user identities, user agents, error codes, and resource ARNs correlated
     	 with unusual and baseline activity. A maximum of five user
-    	 identities, five user agents, and five error codes are captured in
+    	 identities, five user agents, five error codes, and five resource ARNs are captured in
     	 an Insights event `attributions` block, sorted by an
     	 average of the count of activity, in descending order from highest
     	 to lowest.
@@ -230,14 +230,16 @@ JSON structure, sometimes called _payload_. CloudTrail Insights events for trail
 
     		* **`attribute`** – Contains the attribute
     		 type. Value can be `userIdentityArn`,
-    		 `userAgent`, or `errorCode`. If
+    		 `userAgent`, `errorCode`, or `resourceArn`. If
     		 present, these values will appear only once in an individual
     		 attribute. Different attribute values can have different
-    		 `userIdentityArn`, `userAgent`, or
-    		 `errorCode` values, but each attribute
+    		 `userIdentityArn`, `userAgent`,
+    		 `errorCode`, or `resourceArn` values, but each attribute
     		 instance will contain only one value for
-    		 `userIdentityArn`, `userAgent`, or
-    		 `errorCode`.
+    		 `userIdentityArn`, `userAgent`,
+    		 `errorCode`, or `resourceArn`.
+    		 The `resourceArn` attribute is only available
+    		 for Insights events on data events.
 
 
     		**Since:** 1.07
@@ -418,6 +420,21 @@ the entire Insights event, shown in the `statistics` block.
                   "baseline": [
                     {
                       "value": "null",
+                      "average": 0.0000882145
+                    }
+                  ]
+                },
+                {
+                  "attribute": "resourceArn",
+                  "insight": [
+                    {
+                      "value": "arn:aws:s3:::example-bucket",
+                      "average": 0.6
+                    }
+                  ],
+                  "baseline": [
+                    {
+                      "value": "arn:aws:s3:::example-bucket",
                       "average": 0.0000882145
                     }
                   ]

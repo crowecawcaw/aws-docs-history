@@ -221,11 +221,12 @@ information** area of the graph:
      unusual activity.
 
 3. Choose the **Attributions** tab to view information about the
-user identities, user agents, and on API call rate Insights events, error codes
+user identities, user agents, resource ARNs, and on API call rate Insights events, error codes
 correlated with unusual and baseline activity. A maximum of five user
-identities, five user agents, and five error codes are shown in tables on the
+identities, five user agents, five resource ARNs, and five error codes are shown in tables on the
 **Attributions** tab, sorted by an average of the count of
-activity, in descending order from highest to lowest. 4. On the **CloudTrail events** tab, view related events that CloudTrail
+activity, in descending order from highest to lowest. The resource ARN
+attribution is only available for Insights events on data events. 4. On the **CloudTrail events** tab, view related events that CloudTrail
 analyzed to determine that unusual activity occurred. By default, a filter is
 already applied for the Insights event name, which is also the name of the
 related API. The **CloudTrail events** tab shows CloudTrail management or data
