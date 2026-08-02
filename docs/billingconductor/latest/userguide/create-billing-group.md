@@ -6,7 +6,7 @@ You can use AWS Billing Conductor to create billing groups to organize your acco
 accounts with admin permissions can create billing groups. Each billing group is mutually
 exclusive. This means that an account can only belong to one billing group in a given billing
 period. Although you can see the billing group segmentation immediately, it takes up to 24 hours
-after creating a billing group to see the group’s custom rates reflected.
+after creating a billing group to see the group's custom rates reflected.
 
 ###### Note
 

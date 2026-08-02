@@ -28,7 +28,7 @@ following use cases:
 
 1. Customer agreements, which can be a Partner use case negotiated outside of AWS
 2. Internal accounting practices, often an organization-specific use case
-   Billing Conductor configurations don't affect customers’ existing invoices from AWS or billing
+   Billing Conductor configurations don't affect customers' existing invoices from AWS or billing
    configurations (for example, sharing of credits or commitment-based discounts like Reserved
    Instances or Savings Plans).
 
