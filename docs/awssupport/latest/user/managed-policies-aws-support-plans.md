@@ -6,6 +6,7 @@ AWS Support Plans has the following managed policies.
 
 - [AWS managed policy: AWSSupportPlansFullAccess](managed-policies-aws-support-plans.md#support-plan-full-access-managed-policy "managed-policies-aws-support-plans.md#support-plan-full-access-managed-policy")
 - [AWS managed policy: AWSSupportPlansReadOnlyAccess](managed-policies-aws-support-plans.md#support-plan-read-only-access-managed-policy "managed-policies-aws-support-plans.md#support-plan-read-only-access-managed-policy")
+- [AWS managed policy: AWSSupportPlansServiceRolePolicy](managed-policies-aws-support-plans.md#support-plans-service-role-policy-managed-policy "managed-policies-aws-support-plans.md#support-plans-service-role-policy-managed-policy")
 - [AWS Support Plans updates to AWS managed policies](managed-policies-aws-support-plans.md#security-iam-awsmanpol-updates-support-plans "managed-policies-aws-support-plans.md#security-iam-awsmanpol-updates-support-plans")
 
 ## AWS managed policy: AWSSupportPlansFullAccess
@@ -75,6 +76,16 @@ JSON
 ```
 
 For a list of changes to the policies, see [AWS Support Plans updates to AWS managed policies](#security-iam-awsmanpol-updates-support-plans "#security-iam-awsmanpol-updates-support-plans").
+
+## AWS managed policy: AWSSupportPlansServiceRolePolicy
+
+This policy is attached to the `AWSServiceRoleForSupportPlans`
+service-linked role and allows Support Plans to read and update AWS resources used to
+manage your account's support plan on your behalf. You can't attach this policy to your
+IAM entities. For more information, see [Using service-linked roles for AWS Support Plans](using-service-linked-roles-sup-plans.md "using-service-linked-roles-sup-plans.md").
+
+To view the permissions for this policy, see [AWSSupportPlansServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSSupportPlansServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSSupportPlansServiceRolePolicy.md") in the _AWS
+Managed Policy Reference_.
 
 ## AWS Support Plans updates to AWS managed policies
 
