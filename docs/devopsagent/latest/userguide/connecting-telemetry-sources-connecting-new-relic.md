@@ -28,6 +28,8 @@ Please use a Full Platform User (not Basic/Core) in New relic to enable New Reli
 
 5. Choose Add
 
+Each registration connects to one New Relic account. To connect additional New Relic accounts, repeat this process for each one.
+
 ### Step 2: Enable
 
 Activate New Relic in a specific Agent space and configure appropriate scoping
@@ -38,10 +40,12 @@ Activate New Relic in a specific Agent space and configure appropriate scoping
 2. Select the Capabilities tab
 3. Scroll down to the Telemetry section
 4. Press Add
-5. Select New Relic
+5. Choose the New Relic registration you want to enable.
 6. Next
 7. Review and press Save
 8. Copy the Webhook URL and API Key
+
+A single Agent Space can use more than one New Relic registration. To add another registration, repeat these steps.
 
 ### Step 3: Configure webhooks
 

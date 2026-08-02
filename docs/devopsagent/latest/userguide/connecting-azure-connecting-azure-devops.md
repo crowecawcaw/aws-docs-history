@@ -2,7 +2,7 @@
 
 Azure DevOps integration enables AWS DevOps Agent to access repositories and pipeline execution history in your Azure DevOps organization. The agent can correlate code changes and deployments with operational incidents to help identify potential root causes.
 
-This integration follows a two-step process: register Azure DevOps at the AWS account level, then associate specific projects with individual Agent Spaces.
+This integration follows a two-step process: register Azure DevOps at the AWS account level, then associate specific projects with individual Agent Spaces. Each registration corresponds to one Azure DevOps organization. To register additional organizations, repeat the registration process for each one.
 
 ## Prerequisites
 
@@ -99,9 +99,11 @@ After registering Azure DevOps at the account level, associate specific projects
 1. In the AWS DevOps Agent console, select your Agent Space
 2. Go to the **Capabilities** tab
 3. In the **Pipelines** section, choose **Add**
-4. Select **Azure DevOps** from the list of available providers
+4. Choose the **Azure DevOps** registration that contains the project you want to use.
 5. Select the project from the dropdown of available projects
 6. Choose **Add** to complete the association
+
+A single Agent Space can use projects from multiple registrations. To associate another project, from the same registration or a different one, repeat these steps.
 
 ## Managing Azure DevOps connections
 

@@ -15,11 +15,10 @@ AWS DevOps Agent supports two methods for connecting to Azure:
 - **Admin Consent** – A streamlined consent-based flow where you authorize the AWS DevOps Agent Entra application in your Azure tenant. In the console, this appears as the **Admin Consent** option. This method requires signing in with an account that has permission to perform admin consent in Microsoft Entra ID.
 - **App Registration** – A self-managed approach where you create your own Entra application with federated identity credentials using Outbound Identity Federation. In the console, this appears as the **App Registration** option. This method is suitable when you need more control over the application configuration or when admin consent permissions are not available.
 
-Both methods provide the same capabilities. You can use one or both methods within the same AWS account.
+Both methods provide the same capabilities. You can use one or both methods within the same AWS account. With Admin Consent, you can also associate the same Azure tenant with more than one AWS account at a time. You don't need to deregister an existing registration to connect the tenant elsewhere.
 
 ## Known limitations
 
-- **Admin Consent: one AWS account per Azure tenant** – Each Azure tenant can only have its AWS DevOps Agent Entra App associated with one AWS account at a time. To associate the same tenant with a different AWS account, you must deregister the existing registration first.
 - **App Registration: unique application per registration** – Each App Registration must use a different application (client ID). You cannot register multiple configurations with the same client ID.
 - **Azure DevOps: source code access** – The Azure DevOps integration provides access to pipeline execution history regardless of where the source code is hosted. However, to access the actual source code, the repository must be connected separately through a supported source provider (for example, [Connecting GitHub](connecting-to-cicd-pipelines-connecting-github.md "connecting-to-cicd-pipelines-connecting-github.md")). Source code hosted in Bitbucket is not directly accessible through the Azure DevOps integration.
 

@@ -14,7 +14,7 @@ Before connecting Grafana, ensure you have:
 
 ## Registering Grafana (account-level)
 
-Grafana is registered at the AWS account level and shared among all Agent Spaces in that account.
+Grafana is registered at the AWS account level and shared among all Agent Spaces in that account. Each registration corresponds to one Grafana instance. To register additional Grafana instances, repeat this process for each one and give each registration its own **Service Name**.
 
 ### Step 1: Configure Grafana
 
@@ -45,8 +45,10 @@ After registering Grafana at the account level, you can connect it to individual
 1. In the AWS DevOps Agent console, select your Agent Space
 2. Go to the **Capabilities** tab
 3. In the **Telemetry** section, choose **Add**
-4. Select **Grafana** from the list of available providers
+4. Choose the **Grafana** registration you want to connect to this Agent Space.
 5. Choose **Save**
+
+A single Agent Space can use more than one Grafana registration. To connect another registration, repeat these steps.
 
 ## Configuring Grafana alert webhooks
 

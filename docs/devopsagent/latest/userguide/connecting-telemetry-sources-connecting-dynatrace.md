@@ -49,6 +49,8 @@ Establish connection to your Dynatrace environment
 5. Choose Next
 6. Review and add
 
+Each registration connects to one Dynatrace OAuth client. To connect additional Dynatrace accounts, repeat this process for each one.
+
 ### Step 2: Enable
 
 Activate Dynatrace in a specific Agent space and configure appropriate scoping
@@ -58,11 +60,13 @@ Activate Dynatrace in a specific Agent space and configure appropriate scoping
 1. From the agent spaces page, select an agent space and press view details
 2. Select the Capabilities tab
 3. Locate the Telemetry section, Press Add
-4. You will notice Dynatrace with ‘Registered’ status. Choose add to add this to your agent space
+4. Dynatrace appears with a Registered status. Choose **Add** to add the registration you want to your Agent Space.
 5. Dynatrace Environment ID - Provide the Dynatrace environment ID you would like to associate with this DevOps agent space.
 6. Enter one or more Dynatrace Entity IDs - these help DevOps agent discover your most important resources, examples might be services or applications. **If you are unsure you can press remove.**
 7. Review and press Save
 8. Copy the Webhook URL and Webhook Secret. You will use these in the Dynatrace **SRE Agents** app to complete the connection. See the [Getting Started section](https://www.dynatrace.com/hub/detail/community-cloudsreagents/ "https://www.dynatrace.com/hub/detail/community-cloudsreagents/") for details.
+
+A single Agent Space can use more than one Dynatrace registration, and more than one environment from each. To add another registration or environment, repeat these steps.
 
 ### Step 3: Configure your Dynatrace environment
 

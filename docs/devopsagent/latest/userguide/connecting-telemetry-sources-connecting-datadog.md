@@ -48,6 +48,8 @@ Complete OAuth authorization by:
 
 Once configured, Datadog becomes available across all Agent spaces.
 
+Each registration connects to one Datadog organization. To connect additional Datadog organizations, repeat this process for each one and give each registration its own **Server Name**.
+
 ### Step 2: Enable
 
 Activate DataDog in a specific Agent space and configure appropriate scoping
@@ -58,10 +60,12 @@ Activate DataDog in a specific Agent space and configure appropriate scoping
 2. Select the Capabilities tab
 3. Scroll down to the Telemetry section
 4. Press Add
-5. Select Datadog
+5. Choose the Datadog registration you want to enable.
 6. Next
 7. Review and press Save
 8. Copy the Webhook URL and API Key (shown once at save; the API Key can't be viewed later — if you lose it, regenerate it from the webhook details on the Capabilities tab, which invalidates the previous key)
+
+A single Agent Space can use more than one Datadog registration. To add another registration, repeat these steps.
 
 ### Step 3: Configure webhooks
 

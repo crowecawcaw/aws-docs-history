@@ -15,7 +15,7 @@ Before connecting PagerDuty, ensure you have:
 
 ## Registering PagerDuty
 
-PagerDuty is registered at the AWS account level and shared among all Agent Spaces in that account.
+PagerDuty is registered at the AWS account level and shared among all Agent Spaces in that account. Each registration corresponds to one PagerDuty account, identified by its region and subdomain. To register additional PagerDuty accounts, repeat this process for each one.
 
 ### Step 1: Configure access in PagerDuty
 
@@ -56,8 +56,10 @@ After registering PagerDuty at the account level, you can connect it to individu
 1. In the AWS DevOps Agent console, select your Agent Space
 2. Go to the **Capabilities** tab
 3. In the **Communications** section, choose **Add**
-4. Select **PagerDuty** from the list of available providers
+4. Choose the **PagerDuty** registration you want to connect to this Agent Space.
 5. Choose **Save**
+
+A single Agent Space can use more than one PagerDuty registration. To connect another registration, repeat these steps.
 
 ## Managing PagerDuty connections
 

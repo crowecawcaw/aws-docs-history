@@ -2,7 +2,7 @@
 
 Azure Resources integration enables AWS DevOps Agent to discover and investigate resources in your Azure subscriptions during incident investigations. The agent uses Azure Resource Graph for resource discovery and can access metrics, logs, and configuration data across your Azure environment.
 
-This integration follows a two-step process: register Azure at the AWS account level, then associate specific Azure subscriptions with individual Agent Spaces.
+This integration follows a two-step process: register Azure at the AWS account level, then associate specific Azure subscriptions with individual Agent Spaces. You can create more than one Azure Resources registration in an account, and register the same Azure tenant in more than one AWS account. If you use App Registration, each registration must use a different application (client ID). For more information, see [Connecting Azure](configuring-integrations-and-knowledge-connecting-azure-index.md "configuring-integrations-and-knowledge-connecting-azure-index.md").
 
 ## Prerequisites
 
@@ -202,11 +202,11 @@ After registering Azure at the account level, associate specific subscriptions w
 1. In the AWS DevOps Agent console, select your Agent Space
 2. Go to the **Capabilities** tab
 3. In the **Secondary sources** section, choose **Add**
-4. Select **Azure**
+4. Choose the **Azure** registration that contains the subscription you want to use.
 5. Provide the **Subscription ID** for the Azure subscription you want to associate
 6. Choose **Add** to complete the association
 
-You can associate multiple subscriptions with the same Agent Space to give the agent visibility across your Azure environment.
+You can associate multiple subscriptions with the same Agent Space, including subscriptions from different registrations, to give the agent visibility across your Azure environment. To associate another subscription, repeat these steps.
 
 ## Managing Azure Resources connections
 

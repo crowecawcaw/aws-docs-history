@@ -4,7 +4,7 @@ CI/CD pipeline integration enables AWS DevOps Agent to monitor deployments and c
 
 AWS DevOps Agent supports integration with popular CI/CD platforms through a two-step process:
 
-1. **Account-level registration** – Register your CI/CD provider once at the AWS account level
+1. **Account-level registration** – Register your CI/CD provider at the AWS account level. You can create more than one registration per provider, for example, one per organization or group.
 2. **Agent Space connection** – Connect specific projects or repositories to individual Agent Spaces based on your organizational needs
    This approach allows you to share CI/CD provider registrations across multiple Agent Spaces while maintaining granular control over which projects are monitored by each space.
 
