@@ -4,10 +4,15 @@ The AWS Deadline Cloud monitor provides you with an overall view of your visual 
 can use it to monitor and manage jobs, view worker activity on fleets, track budgets and
 usage, and to download a job's results.
 
+When you open a farm, the monitor lists its queues and fleets. The navigation pane
+provides access to each queue's job monitor and to the cost and usage tools.
+
+![A farm page showing queues in a table with queue status and job counts, and a navigation pane listing queues and fleets.](images/monitor/farm-detail.png)
 Each queue has a job monitor that shows you the status of jobs, steps, and tasks. The
 monitor provides ways to manage jobs directly from the monitor. You can make prioritization
 changes, cancel jobs, requeue jobs, and resubmit jobs.
 
+![The job monitor for a queue showing a jobs table with progress, status, duration, and priority, and step and task panels.](images/monitor/queue-jobs.png)
 The Deadline Cloud monitor has a table that shows summary status for a job, or you can select a job to see
 detailed task logs that help troubleshoot issues with a job.
 
@@ -32,3 +37,4 @@ The Deadline Cloud monitor also helps you monitor usage and manage costs. For mo
 - [Download finished output in Deadline Cloud](download-finished-output.md "download-finished-output.md")
 - [Browsing job attachments in Deadline Cloud](browse-job-attachments.md "browse-job-attachments.md")
 - [Automate Deadline Cloud monitor desktop deployment and workflows](monitor-automate-desktop.md "monitor-automate-desktop.md")
+- [Manage cookie preferences in the Deadline Cloud monitor](monitor-cookie-preferences.md "monitor-cookie-preferences.md")

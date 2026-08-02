@@ -4,6 +4,7 @@ The Deadline Cloud budget manager helps you control spending on a given resource
 fleet, or farm. You can create budget amounts and limits, and set automated actions to help
 reduce or stop additional spending against the budget.
 
+![The budget manager showing active budgets with status, resource, remaining percentage, and remaining amount.](images/monitor/budget-manager.png)
 The following sections provide you with the steps for using the Deadline Cloud budget
 manager.
 

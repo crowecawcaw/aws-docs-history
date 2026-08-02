@@ -7,6 +7,7 @@ specific period of time, and look at usage trends over the course of time. You c
 a detailed breakdown of selected data points, allowing for a closer look into metrics. Usage
 can be shown by time (minutes and hours) or by cost ($USD).
 
+![The usage explorer showing filter controls, a donut chart of total cost, and a stacked bar chart of daily costs per queue.](images/monitor/usage-explorer.png)
 The following sections show you the steps for accessing and using the Deadline Cloud usage
 explorer.
 

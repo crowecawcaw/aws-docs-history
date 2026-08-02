@@ -9,6 +9,7 @@ guidance for each part of your farm, see [Security best practices for Deadline C
 ###### Topics
 
 - [Security controls in Deadline Cloud](security-controls.md "security-controls.md")
+- [Data flow, ports, and encryption in Deadline Cloud](security-data-flow.md "security-data-flow.md")
 - [Security best practices for Deadline Cloud](security-best-practices.md "security-best-practices.md")
 - [Verify the authenticity of downloaded software](verify-installer.md "verify-installer.md")
 - [Identity and Access Management in Deadline Cloud](security-iam.md "security-iam.md")

@@ -138,6 +138,7 @@ Windows
   - `unrealengine=5.5`
   - `unrealengine=5.6`
   - `unrealengine=5.7`
+  - `unrealengine=5.8`
   - `unrealengine-openjd`
 
 ###### Note

@@ -22,6 +22,7 @@ The following table shows current support levels for Unreal Engine versions:
 | 5.5           | Windows           | Windows       |
 | 5.6           | Windows           | Windows       |
 | 5.7           | Windows           | Windows       |
+| 5.8           | Windows           | Windows       |
 
 ## Deadline Cloud Conda Channel
 
@@ -33,6 +34,7 @@ The following table lists all conda packages applicable to Unreal Engine availab
 | Windows | unreal-engine        | 5.5     |
 | Windows | unreal-engine        | 5.6     |
 | Windows | unreal-engine        | 5.7     |
+| Windows | unreal-engine        | 5.8     |
 | Windows | unreal-engine-openjd |         |
 
 ## Getting started
@@ -68,7 +70,7 @@ Use the **release** branch for production environments to ensure stability.
 If you're setting up on a brand new Windows Amazon Elastic Compute Cloud (Amazon EC2) instance as your submitter, a g5.2xlarge instance with 200 GB of storage is a reasonable minimum:
 
 1. Launch an Amazon EC2 instance with a valid Instance Profile. The profile is required to download NVIDIA GRID drivers as instructed below.
-2. Download the Epic Installer and install a supported version of Unreal (5.4 - 5.7).
+2. Download the Epic Installer and install a supported version of Unreal Engine (5.4 through 5.8).
 
    - UE 5.5 has a known crash bug when running with the DirectX 11 plugin (see UE issue #UE-276282). If you need DirectX support on UE 5.5, use DirectX 12 or later.
 

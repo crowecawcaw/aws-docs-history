@@ -4,6 +4,13 @@ Deadline Cloud uses a hierarchical membership model where permissions can be ass
 or fleet level. Understanding how membership inheritance works helps you configure access control
 effectively.
 
+Membership controls access to view and manage resources. Membership does not
+affect where jobs run. For example, assigning a group to a fleet lets the group's
+members see the fleet and its workers, but it does not route their jobs to that
+fleet. The service schedules jobs based on queue–fleet associations and each
+step's host requirements. For more information, see [Schedule
+jobs in Deadline Cloud](../developerguide/build-jobs-scheduling.md "../developerguide/build-jobs-scheduling.md") in the _Deadline Cloud Developer Guide_.
+
 ## Farm-level membership
 
 When you assign a user or group membership at the farm level, that membership applies to all

@@ -24,7 +24,7 @@ several fleets, and one fleet with several queues. When a fleet serves multiple 
 it divides its workers among them. For more information, see [Associate a queue and fleet](associate-a-queue-and-fleet.md "associate-a-queue-and-fleet.md").
 
 When a queue has more than one fleet, each job's host requirements (such as GPUs,
-vCPUs, memory, and operating system) determine which fleets can run it. You don't need
+vCPUs, memory, and operating system) determine which fleets can run it. You do not need
 separate queues for GPU jobs and CPU jobs: associate one queue with a GPU fleet and a
 CPU fleet, and a render that requires a GPU is scheduled only to the GPU fleet, while
 jobs without GPU requirements can run on the CPU fleet. The Deadline Cloud integrated submitters
@@ -78,6 +78,27 @@ read its job attachments. Keep the boundary intact: don't share job attachment A
 buckets, fleets, or other resources across farms. To add a farm, see [Create a farm](farms.md#create-farm "farms.md#create-farm"). For the security details,
 see [Isolate workloads with farms, fleets, and queues](farm-structure.md "farm-structure.md"). For the
 end-to-end steps to bring a vendor onto your farm, see [Onboard users to your farm](onboarding.md "onboarding.md").
+
+### A restricted fleet for sensitive content
+
+To keep work under a security or privacy restriction on dedicated workers,
+create a queue and a fleet for that work, and associate the fleet only with that
+queue. Jobs are scheduled only to fleets associated with their queue, so the
+association is what keeps other work off the restricted workers. See [Associate a queue and fleet](associate-a-queue-and-fleet.md "associate-a-queue-and-fleet.md"). For work that must not share
+anything with the rest of the studio, use a separate farm instead.
+
+Complete the boundary around the restricted queue:
+
+- Grant access only to approved users and groups. See [Managing users in Deadline Cloud](managing-users.md "managing-users.md").
+- Use a dedicated job attachments Amazon S3 bucket or root prefix, with a
+  queue role scoped to it. See [Secure job attachment and software buckets](job-attachment-queues.md "job-attachment-queues.md").
+- Run jobs as an operating system user that no other queue uses. See
+  [Run jobs as dedicated OS users](job-run-as-user.md "job-run-as-user.md").
+- Limit who can change the fleet's queue–fleet associations. See
+  [Policy to manage queue–fleet associations for a specific fleet](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-qfa "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-qfa").
+
+For more information about the security considerations behind these steps, see
+[Isolate workloads with farms, fleets, and queues](farm-structure.md "farm-structure.md").
 
 ### Separate queues for service-managed and customer-managed fleets
 

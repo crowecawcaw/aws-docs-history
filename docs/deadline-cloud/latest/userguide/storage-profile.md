@@ -66,12 +66,10 @@ Using storage profiles in your Deadline Cloud farm enables the following behavio
 
 ###### To configure a storage profile on a workstation
 
-On each workstation that will submit jobs to a queue, use the settings dialog to select its default storage profile.
+On each workstation that will submit jobs to a queue, select the workstation's default storage profile.
 
-1. To open the Deadline Cloud settings dialog, complete one of the following steps:
+1. Open a Deadline Cloud submitter, such as the submitter in your digital content creation (DCC) application or the submitter that the CLI command `deadline bundle gui-submit` opens.
+2. On the **Shared job settings** tab, find the **Job submission settings** section and choose the default farm and queue.
+3. Choose the workstation's storage profile from the **Default storage profile** list. The list contains the storage profiles that the queue can use, and only appears after you choose a queue that has storage profiles.
 
-   1. Select the **Settings** button in a Deadline Cloud submitter.
-
-   **OR** 2. Run the CLI command `deadline config gui`.
-
-2. After you have configured the default farm and queue, select the default storage profile from the dropdown list.
+![The job submission settings panel showing a farm, a queue, and a default storage profile.](images/submitter/storage-profile-setting.png)

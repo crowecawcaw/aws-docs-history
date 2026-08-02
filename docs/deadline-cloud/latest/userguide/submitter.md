@@ -9,7 +9,7 @@ with your own user account.
 Before you begin, you need the following:
 
 - The monitor URL for your farm, which looks like
-  `https://`MY-MONITOR`.deadlinecloud.amazonaws.com/`.
+  `https://`MY-MONITOR`.`REGION`.deadlinecloud.amazonaws.com/`.
   Your administrator shares it with you. If you're the administrator, see
   [Share the Deadline Cloud monitor URL](share-monitor-url.md "share-monitor-url.md").
 - A user that can sign in to the monitor. If your organization uses single
@@ -315,7 +315,7 @@ to set up the Deadline Cloud monitor.
 2. When prompted to create a new profile, complete the following steps.
 
    1. Enter your monitor URL into the URL input, which looks like
-      `https://``MY-MONITOR``.deadlinecloud.amazonaws.com/`
+      `https://``MY-MONITOR``.``REGION``.deadlinecloud.amazonaws.com/`
    2. Enter a **Profile** name.
    3. Choose **Create Profile**.
 

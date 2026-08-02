@@ -10,6 +10,7 @@ Use the AWS Deadline Cloud monitor to get an overall view of your jobs, includin
   job from the list. You can use the search box to locate a specific job or jobs in the
   queue.
 
+![The job monitor for a queue showing a jobs table with progress, status, duration, and priority, and step and task panels.](images/monitor/queue-jobs.png)
 Open the context menu for a job, step, or task. You can:
 
 - Change the status
@@ -26,7 +27,6 @@ Each task in a job or step has a status. The status of a job or step depends on 
 of its tasks. The status is determined by tasks that have these statuses, in order. Step
 statuses are determined the same as the job status.
 
-![The Deadline Cloud monitor showing job statuses, including succeeded, canceled, and failed.](images/monitor-job-status.png)
 The following list describes the statuses:
 
 `NOT_COMPATIBLE`
