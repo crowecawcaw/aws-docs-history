@@ -10,7 +10,7 @@ Parameter Store provides support for the following parameter types:
 - `String`
 - `StringList`
 - `SecureString`
-  For more information about the preceding types, see [Understanding parameter types](systems-manager/latest/userguide/what-is-a-parameter.md "systems-manager/latest/userguide/what-is-a-parameter.md").
+  For more information about the preceding types, see [Parameter Store reference](what-is-a-parameter.md "what-is-a-parameter.md").
 
 In the following sections, you learn how to create Parameter Store parameters
 using the AWS Management Console, the AWS Command Line Interface (AWS CLI), or AWS Tools for Windows PowerShell (Tools for Windows PowerShell).

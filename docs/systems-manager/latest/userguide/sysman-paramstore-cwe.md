@@ -27,7 +27,7 @@ parameters tier. Charges apply. For more information, see [Assigning parameter p
 Create any resources you need to specify the target action for the rule you
 create. For example, if the rule you create is for sending a notification, first
 create an Amazon SNS topic. For more information, see [Getting
-started with Amazon SNS](../../../sns/latest/dg/sns-getting-started.htmlGettingStarted.md "../../../sns/latest/dg/sns-getting-started.htmlGettingStarted.md") in the
+started with Amazon SNS](../../../sns/latest/dg/sns-getting-started.md "../../../sns/latest/dg/sns-getting-started.md") in the
 _Amazon Simple Notification Service Developer Guide_.
 
 ## Configuring EventBridge rules for parameters and parameter policies

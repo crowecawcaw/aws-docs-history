@@ -656,7 +656,7 @@ parameter, see [Using the BaselineOverride parameter](patch-manager-baselineover
 
 ### Parameter name: `StepTimeoutSeconds`
 
-**Usage**: Required.
+**Usage**: Optional.
 
 The time in seconds—between 1 and 36000 seconds (10
 hours)—for a command to be completed before it is considered to have

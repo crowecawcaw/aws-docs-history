@@ -1,9 +1,9 @@
 # AWS Systems Manager Application Manager
 
-###### Important
+###### Note
 
-AWS Systems Manager Application Manager will no longer be open to new customers starting on July 30, 2026. If you would like to use the service, please sign up prior to July 30, 2026. For
-capabilities similar to AWS Systems Manager Application Manager, learn more [AWS Systems Manager Application Manager availability change](application-manager-availability-change.md "application-manager-availability-change.md").
+AWS Systems Manager Application Manager is no longer open to new customers. For capabilities similar
+to AWS Systems Manager Application Manager, explore alternatives [AWS Systems Manager Application Manager availability change](application-manager-availability-change.md "application-manager-availability-change.md").
 
 Application Manager, a tool in AWS Systems Manager, helps DevOps engineers investigate and remediate issues
 with their AWS resources in the context of their applications and clusters. Application Manager

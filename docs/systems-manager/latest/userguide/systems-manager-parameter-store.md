@@ -100,7 +100,7 @@ Centralize configuration data in a single AWS account and share parameters with 
 - **OS patching**
 
 Amazon EC2 lets you specify the operating system for new instances by [referencing a parameter instead of
-hardcoding an AMI (AMI) ID](../../../AWSEC2/latest/UserGuide/using-systems-manager-parameter-to-find-AMI.html.md "../../../AWSEC2/latest/UserGuide/using-systems-manager-parameter-to-find-AMI.html.md"). This approach ensures your instances automatically use the latest patched and updated images.
+hardcoding an AMI (AMI) ID](../../../AWSEC2/latest/UserGuide/using-systems-manager-parameter-to-find-AMI.md "../../../AWSEC2/latest/UserGuide/using-systems-manager-parameter-to-find-AMI.md"). This approach ensures your instances automatically use the latest patched and updated images.
 AWS and operating system vendors provide [public parameters](parameter-store-finding-public-parameters.md "parameter-store-finding-public-parameters.md") that track current AMI versions,
 so you don't have to manage updates manually. You can also define your own parameters to reference a centrally managed golden AMI,
 making it easier to enforce consistent, approved configurations across your organization.

@@ -1,9 +1,9 @@
 # AWS Systems Manager Application Manager availability change
 
-AWS Systems Manager (SSM) Application Manager is transitioning to maintenance mode and, from July 30, 2026,
-will no longer be open to new customers. SSM Application Manager is a console capability that enables
-DevOps teams to define or auto-discover applications, associate AWS resources to those
-applications, apply tags for resource management and monitor applications' health.
+AWS Systems Manager Application Manager is no longer open to new customers. SSM Application Manager is a console
+capability that enables DevOps teams to define or auto-discover applications, associate AWS
+resources to those applications, apply tags for resource management and monitor applications'
+health.
 
 Until further notice, existing SSM Application Manager customers can continue to use the service
 normally in established accounts. During this period, AWS will maintain service
