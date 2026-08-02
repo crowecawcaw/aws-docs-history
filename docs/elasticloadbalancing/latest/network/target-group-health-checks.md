@@ -5,17 +5,12 @@ requests to a newly registered target as soon as the registration process comple
 targets pass the initial health checks. It can take a few minutes for the registration process
 to complete and health checks to start.
 
-Network Load Balancers use active and passive health checks to determine whether a target is available to
+Network Load Balancers use active health checks to determine whether a target is available to
 handle requests. By default, each load balancer node routes requests only to the healthy
 targets in its Availability Zone. If you enable cross-zone load balancing, each load
 balancer node routes requests to the healthy targets in all enabled Availability Zones. For
-more information, see [Cross-zone load balancing](network-load-balancers.md#cross-zone-load-balancing "network-load-balancers.md#cross-zone-load-balancing").
-
-With passive health checks, the load balancer observes how targets respond to connections.
-Passive health checks enable the load balancer to detect an unhealthy target before it is
-reported as unhealthy by the active health checks. You cannot disable, configure, or monitor
-passive health checks. Passive health checks are not supported for UDP traffic, and target
-groups with stickiness turned on. For more information, see [Sticky sessions](edit-target-group-attributes.md#sticky-sessions "edit-target-group-attributes.md#sticky-sessions").
+more information, see [Cross-zone load balancing](network-load-balancers.md#cross-zone-load-balancing "network-load-balancers.md#cross-zone-load-balancing") and [Sticky
+sessions](edit-target-group-attributes.md#sticky-sessions "edit-target-group-attributes.md#sticky-sessions").
 
 If a target becomes unhealthy, the load balancer sends a TCP RST for packets received on
 the client connections associated with the target, unless the unhealthy target triggers the
