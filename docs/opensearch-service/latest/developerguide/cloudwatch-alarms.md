@@ -7,7 +7,7 @@ some recommended alarms for Amazon OpenSearch Service and how to respond to them
 
 You can automatically deploy these alarms using CloudFormation. For a sample stack, see the
 related [GitHub
-repository](https://github.com/ev2900/OpenSearch_CloudWatch_Alarms "https://github.com/ev2900/OpenSearch_CloudWatch_Alarms").
+repository](https://github.com/aws-samples/sample-opensearch-on-aws/tree/main/operations/cloudwatch-alarms "https://github.com/aws-samples/sample-opensearch-on-aws/tree/main/operations/cloudwatch-alarms").
 
 ###### Note
 
