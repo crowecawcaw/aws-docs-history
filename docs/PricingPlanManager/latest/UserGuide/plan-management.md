@@ -1,12 +1,23 @@
 # Plan Management
 
+Flat-rate plans can be managed in the console or programmatically using the AWS CLI, AWS SDKs, or the PricingPlanManager API. For programmatic management, see Getting started with the PricingPlanManager API.
+
 ## New Plan Activation
 
-When you activate a new flat-rate plan:
+Paid plans use a two-phase activation: you first create the plan, then approve it to begin billing. This prevents you from being committed to charges before you confirm. Free plans activate immediately and don’t require approval.
+
+When you create a paid plan:
+
+- The plan is created in a pending state and is not yet committed
+- No charges are incurred until you approve the plan
+- In the console, the confirmation step serves as your approval as long as you have permission to approve paid plans
+
+When you approve a paid plan (or create a Free plan):
 
 - Plan activates immediately
 - Pro-rated charge for remaining days in current billing cycle appears on your account and is reflected in your next invoice
 - Full monthly charge begins with next billing cycle
+- Once a paid plan is approved and active, it can’t be canceled or reverted until the end of the current billing period.
 
 ###### Pro-Ration Example
 
