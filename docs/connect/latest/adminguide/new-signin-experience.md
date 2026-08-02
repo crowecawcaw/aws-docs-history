@@ -92,3 +92,9 @@ No, your existing users can continue signing in with their existing credentials 
 ### Will the password reset email come from a different email address?
 
 Yes, you'll receive reset password emails from `no-reply@signin.aws` going forward.
+
+### Do I need to add new IP ranges to my allowlist for the new sign-in endpoints?
+
+No. The new sign-in endpoints (`*.apps.signin.aws`, `*.signin.aws`, `*.threat-mitigation.aws.amazon.com`) use IP addresses that are already covered by the existing EC2 and CLOUDFRONT IP ranges in the AWS [ip-ranges.json](../../../vpc/latest/userguide/aws-ip-ranges.md "../../../vpc/latest/userguide/aws-ip-ranges.md") file. If your network already allows traffic to those ranges, you do not need to make additional IP range configuration changes for the new sign-in experience.
+
+For more information about IP-based allowlisting for Connect Customer, see [Set up your network to use the Connect Customer Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md").

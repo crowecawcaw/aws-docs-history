@@ -47,9 +47,13 @@ at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.co
 | **Set routing order**                                 | By default Connect Customer routes new contacts to<br>agents that have been in **Available**<br>status the longest. You can customize this behavior, for<br>example, to change the impact that outbound contacts have on<br>the assignment of new inbound<br>contacts.                                                                                                                                                                                                                                                             |
 | **Outbound calls should not impact routing<br>order** | Use this setting if you don't want agents who make<br>outbound contacts to move to the bottom of the list for<br>receiving inbound contacts.<br>By default new contacts are routed to the agent who has<br>been in *_Available_<br>• status longest. By<br>making an outbound contact, the agent drops to the bottom of<br>the list waiting for inbound contacts. You can use this<br>setting to override that default logic and ensure that<br>agents making outbound contacts still get their fair share<br>of inbound contacts. |
 
-5. Optionally, add tags to identify, organize, search for, filter, and control
-   who can access this routing profile. For more information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md").
-6. Choose **Save**.
+5. Add queue and channel combinations in the **Manual
+   Assignment** section. Manual assignment supports tasks,
+   emails, and chats.
+
+For more information about routing with manual assignment, see
+[How routing works with manual assignment](about-routing.md#routing-profile-manual-assignment-works "about-routing.md#routing-profile-manual-assignment-works"). 6. Optionally, add tags to identify, organize, search for, filter, and control
+who can access this routing profile. For more information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md"). 7. Choose **Save**.
 
 ## Tips for setting up channels and concurrency
 

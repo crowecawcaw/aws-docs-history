@@ -4,14 +4,13 @@
 
 1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an Admin account, or a user account that has [security profile permissions](security-profile-list.md "security-profile-list.md") to reset
    passwords.
-2. In Connect Customer, on the left navigation menu, choose **Users**,
-   **User management**.
-3. Select the user and choose **Edit**.
-4. Choose **reset password**. Specify a new password and then
+2. In Connect Customer, on the left navigation menu, choose **Users**.
+3. Choose the user's name to open the user detail page.
+4. Choose **Reset password**. Specify a new password and then
    choose **Submit**.
 
-Resetting the user's password will immediately log them out of the Contact
-Control Panel. 5. Communicate the new password to the user.
+When you reset the user's password, the Contact Control Panel immediately
+signs them out. 5. Communicate the new password to the user.
 
 ## Reset your own lost or forgotten Connect Customer admin password
 

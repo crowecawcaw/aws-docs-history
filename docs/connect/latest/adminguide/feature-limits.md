@@ -124,7 +124,7 @@ The following table lists the specifications for WhatsApp business messaging
 | ----------------------------------------------------- | ------------------------------------------- |
 | Task templates per instance                           | 50                                          |
 | Task template customized fields per template          | 50                                          |
-| Maximum duration of a task                            | Default is 7 days, extensible up to 30 days |
+| Maximum duration of a task                            | Default is 7 days, extensible up to 90 days |
 | Maximum number of transfers for a task                | 11 transfers                                |
 | Maximum number of linked tasks on an existing contact | 11                                          |
 

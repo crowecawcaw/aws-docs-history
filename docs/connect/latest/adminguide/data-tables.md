@@ -6,6 +6,8 @@ Data tables allow you to store and manage data that impacts your configurations 
 
 Use data tables to support scenarios ranging from simple routing rules to complex, time-based configurations, accessible and modifiable in real time. In contrast to [Predefined Attributes](predefined-attributes.md "predefined-attributes.md") which store simple key-value pairs, data tables support multiple columns, various data types, and complex relationships.
 
+For example, you can create a data table that maps each store location to its business hours and support queue. In a flow, you look up the caller's location in the table and route the contact based on whether the store is open. Because you update the table directly, you can change hours or queues without editing the flow.
+
 A Data Table consists of:
 
 - Table metadata (structure and validation rules)

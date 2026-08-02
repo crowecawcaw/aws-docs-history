@@ -37,9 +37,15 @@ how third-party applications are registered to Connect Customer today, you gain 
 to whatever tools are available on those servers, including remote MCP
 servers.
 
+For instructions on linking an AgentCore gateway to your Connect Customer instance,
+see [Integrate an MCP
+server with Connect Customer](3p-apps-mcp-server.md "3p-apps-mcp-server.md"). That topic covers how to add the MCP server
+integration in the Connect Customer console and how to configure the gateway's Discovery
+URL and allowed audiences.
+
 ###### Note
 
-MCP tool invocations have a 30-second timeout limit. If a tool execution exceeds this limit, the request will be terminated.
+MCP tool invocations have a 30-second timeout limit. If a tool execution exceeds this limit, the request times out and does not complete.
 
 ## Tool configuration and governance
 

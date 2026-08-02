@@ -7,6 +7,44 @@ your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
 ## July 2026 Updates
 
+### Connect Customer now supports external recording analytics
+
+With Connect Customer, you can now import voice recordings from third-party systems, store them as contacts, and run conversational analytics on them, consolidating insights across every voice interaction in one place regardless of where the call originated. This is especially useful during a migration, where you can bring analytics to Connect Customer on day one without changing your voice traffic and import historical recordings so agents find earlier contacts directly in Connect Customer.
+
+The feature uses a simple API workflow to import recordings from Amazon Simple Storage Service and run analytics jobs.
+
+To learn more, see the [Connect Customer API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+Available in all AWS commercial Regions where Connect Customer is available. Standard external voice charges apply. This feature is not available in Connect Customer Basic.
+
+### Connect Customer adds workforce forecasting and scheduling for tasks and emails
+
+Connect Customer now supports forecasting, capacity planning, and scheduling for tasks and emails. You can plan and optimize your entire workforce across voice, chat, tasks, and emails in a single solution, eliminating the need for manual spreadsheets or third-party tools. Connect Customer accounts for the distinct characteristics of each channel—including concurrent work handling, durations that range from minutes to months, and separate service-level requirements—so a single unified forecast and schedule reflect how your operation actually runs.
+
+To learn more, see [Forecasting, capacity planning, and scheduling](forecasting-capacity-planning-scheduling.md "forecasting-capacity-planning-scheduling.md").
+
+Available in all AWS Regions where Connect Customer agent scheduling is available.
+
+### Connect Customer now delivers more natural agentic voice experiences
+
+Connect Customer now delivers more natural, human-sounding agentic voice experiences, so AI agents can hold smoother, more responsive conversations with your customers. This launch expands support to more than 50 languages, including Spanish, French, Italian, Japanese, Korean, Portuguese, and Thai, and adds over 100 new voice options.
+
+Conversational improvements make interactions feel immediate rather than halting: seamless response pacing fills natural pauses, more accurate turn-taking keeps agents and customers from talking over each other, and speech controls let you adjust speed, volume, and emotion to match your brand's tone.
+
+To learn more, see [Supported languages](supported-languages.md "supported-languages.md").
+
+Available in the AWS Regions listed in the availability of Connect Customer features by Region.
+
+### Connect Customer now displays agent queue metrics on analytics dashboards
+
+Connect Customer analytics dashboards now display real-time and historical metrics for agent queues. Agent queues route contacts directly to a specific agent, so supervisors can track how individual agents perform in their own queues and respond to buildups before they cause long wait times. For example, a supervisor who notices a spike of contacts queued to a specific agent after a series of scheduled callbacks can reassign them to keep service levels on track.
+
+To view these metrics, open the **Current queue performance** widget, select the **Queue** filter chip, and choose **Agent queue**. Then select one or more agents or an agent hierarchy level and choose **Apply**.
+
+To learn more, see [Analytics dashboards](dashboards.md "dashboards.md").
+
+Available in all AWS commercial Regions and the AWS GovCloud (US-West) Region where Connect Customer is offered.
+
 ### Optimize Connect Customer audio for Azure Virtual Desktop and Windows 365
 
 You can deliver high-quality voice experiences in Azure Virtual Desktop (AVD) and Windows
@@ -14,7 +52,7 @@ You can deliver high-quality voice experiences in Azure Virtual Desktop (AVD) an
 (MMR), Connect Customer redirects audio from the session host to the agent's local device,
 improving audio quality by reducing network hops. Connect Customer now supports Azure
 Virtual Desktop as an audio optimization VDI platform, alongside Citrix, Omnissa, and Amazon WorkSpaces.
-For more information, see [Azure Virtual Desktop
+To learn more, see [Azure Virtual Desktop
 and Windows 365](using-ccp-vdi-azure-step-by-step.md "using-ccp-vdi-azure-step-by-step.md").
 
 ### Export cases to CSV
@@ -29,9 +67,27 @@ You can use the exported CSV file to do the following:
 - Share case data with stakeholders outside the agent workspace
 - Analyze case data offline in a spreadsheet application
 
-To use this feature, you must have the **Cases - Export** permission in your security profile. For more information, see [Export cases to CSV](case-bulk-export.md "case-bulk-export.md").
+To use this feature, you must have the **Cases - Export** permission in your security profile. To learn more, see [Export cases to CSV](case-bulk-export.md "case-bulk-export.md").
 
 ## June 2026 Updates
+
+### Connect Customer now supports up to seven security profiles with access control per user
+
+You can now assign up to seven security profiles with access control to a single user, increased from the previous limit of two. A user can have additional security profiles beyond seven, as long as those profiles do not contain access control tags or enforce hierarchy-based access control. An agent who serves multiple lines of business can hold a distinct, scoped permission set for each one rather than relying on a single overly broad profile. Each profile grants access only to the resources for its division, keeping permissions aligned to least privilege and reducing the administrative overhead of workarounds such as duplicating agents across instances.
+
+To learn more, see [Security profiles](connect-security-profiles.md "connect-security-profiles.md").
+
+Available in all AWS Regions where Connect Customer is offered.
+
+### Connect Customer now supports rule-based redaction for agent screen recording
+
+With Connect Customer, you can now protect sensitive information in agent screen recordings by defining rules that redact specific applications or URLs. PII and payment details stay hidden from anyone who later reviews recordings for compliance or coaching. Previously, the only option was to pause screen recording entirely through customer-built triggers. That approach over-redacted by stopping all recording rather than targeting the sensitive content, and it added onboarding complexity.
+
+You configure redaction in a **Set recording, analytics, and processing behavior** block by specifying which URLs or applications to mask. When an agent views a matching page or window, Connect Customer masks only that window in the recording. The rest of the screen remains visible, with no custom development required. A redacted recording is stored alongside the unredacted original under separate Amazon Simple Storage Service prefixes, so you can grant access to each version independently through security profile permissions.
+
+To learn more, see [Rule-based redaction for agent screen recordings](rule-based-redaction-screen-recording.md "rule-based-redaction-screen-recording.md").
+
+Available in all AWS Regions where Connect Customer screen recording is offered.
 
 ### Connect Customer now supports the Interrupt agent flow block
 
@@ -39,7 +95,7 @@ Connect Customer now lets you route a contact to a specific agent even if that a
 
 You configure the behavior in a Customer queue flow by specifying the target agent manually or dynamically via contact attributes, and the routing engine handles the override. This works across voice, chat, task, and email channels.
 
-Available in all AWS Regions where Connect Customer is offered. For more information, see [Interrupt agent](interrupt-agent.md "interrupt-agent.md").
+Available in all AWS Regions where Connect Customer is offered. To learn more, see [Interrupt agent](interrupt-agent.md "interrupt-agent.md").
 
 ### Connect Customer now uses generative AI to evaluate self-service interactions
 
@@ -47,7 +103,7 @@ Connect Customer now enables managers to use generative AI to automatically eval
 
 You define evaluation criteria in natural language within evaluation forms, such as “Were all of the customer’s issues resolved by the AI agent?” Connect Customer applies that criteria across self-service interactions automatically, providing detailed reasoning and relevant reference points from the conversation transcript for each score. Managers can review results in aggregate to identify systemic issues, or drill into individual contacts alongside interaction recordings and transcripts.
 
-For more information, see [generative AI performance evaluations](performance-evaluations-automated-interactions.md "performance-evaluations-automated-interactions.md").
+To learn more, see [generative AI performance evaluations](performance-evaluations-automated-interactions.md "performance-evaluations-automated-interactions.md").
 
 Available in all AWS Regions where Connect Customer performance evaluations are available.
 
@@ -61,7 +117,7 @@ Available in all AWS Regions where Connect Customer agent scheduling is availabl
 
 You can now schedule entire business units, or multiple units that share agents, within a single schedule run. Connect Customer agent scheduling now supports up to 5,000 agents per schedule, up to 350 agents per staffing group, and up to 300 staffing groups per forecast group. Previously, organizations with large or multi-skilled workforces had to split scheduling across multiple runs or maintain separate schedules for shared agent pools, which introduced operational complexity and prevented the optimizer from working across the full workforce.
 
-For more information, see [Amazon Connect feature specifications](feature-limits.md "feature-limits.md").
+To learn more, see [Amazon Connect feature specifications](feature-limits.md "feature-limits.md").
 
 Available in all AWS Regions where Connect Customer agent scheduling is available.
 
@@ -69,7 +125,7 @@ Available in all AWS Regions where Connect Customer agent scheduling is availabl
 
 When adding non-productive activities such as training sessions or team meetings to agent schedules, Connect Customer now automatically identifies the optimal time for each activity while minimizing impact to service level goals. You specify constraints (anytime within the shift, within a specific time window, or relative to shift start/end) and the system handles placement. Previously, supervisors had to manually scan schedules for available windows, which was time-consuming and often resulted in unnecessary service-level degradation.
 
-For more information, see [Add activities to agent schedules](scheduling-shift-activities-calendar-view.md "scheduling-shift-activities-calendar-view.md").
+To learn more, see [Add activities to agent schedules](scheduling-shift-activities-calendar-view.md "scheduling-shift-activities-calendar-view.md").
 
 Available in all AWS Regions where Connect Customer agent scheduling is available.
 
@@ -79,7 +135,7 @@ Connect Customer now provides step-by-step traces showing how AI agents reason, 
 
 From the AI agent performance dashboard, you can filter contacts by AI agent name, escalation status, or intent, then navigate into any individual interaction to inspect each reasoning step, including the model used, latency, tool parameter inputs, and model output. No developer access or raw API log parsing is required.
 
-For more information, see [AI agent traces](ai-agent-traces.md "ai-agent-traces.md").
+To learn more, see [AI agent traces](ai-agent-traces.md "ai-agent-traces.md").
 
 Available in all AWS Regions where Connect Customer is offered.
 
@@ -87,7 +143,7 @@ Available in all AWS Regions where Connect Customer is offered.
 
 Connect Customer now alerts supervisors directly on the real-time analytics dashboard when specific keywords, phrases, or sentiment patterns are detected during live calls and chats. When a customer says something like “cancel my account,” a supervisor sees the alert on the Current agent performance widget, can listen in to the live conversation while viewing the real-time transcript and sentiment analysis, and coach the agent to resolve the issue before the customer churns. You set up alerts by enabling real-time analytics in your flow and creating rules that define which conversational signals should trigger a notification.
 
-For more information, see [real-time conversational analytics alerts](add-rules-for-alerts.md "add-rules-for-alerts.md").
+To learn more, see [real-time conversational analytics alerts](add-rules-for-alerts.md "add-rules-for-alerts.md").
 
 Available in all AWS commercial Regions and the AWS GovCloud (US-West) Region where Connect Customer conversational analytics is offered.
 
@@ -95,7 +151,7 @@ Available in all AWS commercial Regions and the AWS GovCloud (US-West) Region wh
 
 If your contact center handles conversations in multiple languages, agents and managers no longer need to read full transcripts or request translations to understand what happened on a call. Connect Customer now generates AI-powered post-contact summaries in eight additional language families: Portuguese, French, Italian, German, Spanish, Chinese, Japanese, and Korean. Summaries are produced in the language of the original conversation automatically, and also now support non-US English variants including British English and Australian English, reflecting locally appropriate spelling and terminology.
 
-For more information, see [post-contact summaries](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md").
+To learn more, see [post-contact summaries](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md").
 
 Available in all AWS Regions where Connect Customer is offered.
 

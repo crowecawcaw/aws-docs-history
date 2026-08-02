@@ -69,7 +69,15 @@ information:
 
     For example, you specify 40 as FTE hours per week, with 10 percent
      maximum time off. The total work week would be at least 36 hours.
-    5. **Hours of operation**: Select the hours of
+    5. **Shrinkage (optional)**: Enter a total shrinkage
+     percentage to apply to the plan. This field applies to both Hiring
+     plans and Scheduling plans.
+
+
+    If you need more granular interval-level or day-level shrinkage
+     values, you can upload a CSV on the **Import** tab
+     instead. For more information, see [Import estimated future shrinkage and available full-time employees in Connect Customer](upload-estimated-future-shrinkage.md "upload-estimated-future-shrinkage.md").
+    6. **Hours of operation**: Select the hours of
      operation that represent when your agents are available to work.
      This list shows the hours of operation defined in your
      Connect Customer instance. For more information, see [Set the hours of operation and time zone for a queue using Connect Customer](set-hours-operation.md "set-hours-operation.md").

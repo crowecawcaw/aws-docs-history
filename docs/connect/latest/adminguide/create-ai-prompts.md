@@ -239,7 +239,14 @@ the `MESSAGES` format.
          effectively optional since the LLM will use this value
          when the parameter is omitted.
         - **properties** – (Required)
-        - **required** – (Required)
+         An object that defines each parameter the tool accepts.
+         Each key is a parameter name. Each value is a schema
+         object that describes that parameter, such as its
+         `type`, `enum`, or
+         `default`.
+        - **required** – (Required) A
+         list of the parameter names from `properties`
+         that the model must provide when it calls the tool.
 
 For example, the following AI prompt instructs the AI agent to construct appropriate
 queries. The second line of the AI prompt shows that the format is

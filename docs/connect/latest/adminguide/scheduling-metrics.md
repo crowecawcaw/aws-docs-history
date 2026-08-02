@@ -30,6 +30,8 @@ This metric measures the percentage of time that an agent correctly follows thei
 **How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Adherence
+- Dashboard: [Queue and agent performance
+  dashboard](queue-performance-dashboard.md "queue-performance-dashboard.md"), Adherence
 
 **Notes**:
 
@@ -53,6 +55,8 @@ This metric measures the total time an agent adhered to their schedule.
 **How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Adherent time
+- Dashboard: [Queue and agent performance
+  dashboard](queue-performance-dashboard.md "queue-performance-dashboard.md"), Adherent time
 
 ## Non-adherent time
 
@@ -70,6 +74,8 @@ This metric measures the total time an agent did not adhere to their schedule.
 **How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Non-Adherent time
+- Dashboard: [Queue and agent performance
+  dashboard](queue-performance-dashboard.md "queue-performance-dashboard.md"), Non-adherent time
 
 ## Scheduled time
 
@@ -89,6 +95,8 @@ time) and _Adherence_ for those shifts was set to
 **How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Scheduled time
+- Dashboard: [Queue and agent performance
+  dashboard](queue-performance-dashboard.md "queue-performance-dashboard.md"), Scheduled time
 
 ## Using thresholds
 

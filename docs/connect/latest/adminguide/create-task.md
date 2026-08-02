@@ -9,7 +9,7 @@ task to start on a future date and time.
 1. Open the CCP. Select the **Task** tab, and then choose
    **Create task**.
 
-![The CCP, the task button.](/images/connect/latest/adminguide/images/test-create-task-ccp.png) 2. Complete the **Create task** page. When you choose
+![The CCP, the task button.](images/test-create-task-ccp.png) 2. Complete the **Create task** page. When you choose
 **Assign to**, you can assign a task only to someone or
 a queue that has quick connect.
 

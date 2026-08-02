@@ -1,5 +1,10 @@
 # Override a capacity plan in Connect Customer
 
+###### Note
+
+Plan override is not available for Scheduling plans. The following procedure
+applies to Hiring plans only.
+
 You can upload a .csv file that overrides the **Required FTEs (without
 Shrinkage)** data in the **Plan outputs** section of a
 capacity plan. This section is shown in the following image.

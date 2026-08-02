@@ -22,6 +22,15 @@ Once you select an action, you can select a channel to configure those settings 
 | Set message processing               | Yes             | No               | No                                       | No               |
 | Set recording and analytics behavior | Yes             | Yes              | Yes (only for screen recording behavior) | Yes              |
 
+###### Note
+
+The **Email** channel option for the **Set recording
+and analytics behavior** action appears only when your instance has
+Contact Lens conversational analytics for email enabled. If your instance
+does not have this capability, the channel dropdown does not include
+**Email**. Availability can vary by instance and
+Region.
+
 ## Flow types
 
 This block is supported for all flow types except journey flows.

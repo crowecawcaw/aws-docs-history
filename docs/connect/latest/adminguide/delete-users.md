@@ -31,50 +31,36 @@ because their name won't appear in the drop-down list.
 
 ## How to delete users
 
-###### Tip
+You can delete users from the user list page or from an individual user's detail
+page.
 
-- While a batch of deletions is being processed, you can continue
-  working on the **User management** page, choosing
-  another batch of user records to create, edit, or delete, in bulk or
-  individually. This is useful for quickly updating settings such as
-  routing profiles.
--
+### Delete users from the list page
 
-1. Log in to Connect Customer using an **Admin** account,
-   or an account assigned to a security profile that has **Users -
-   Remove** permission.
-2. In Connect Customer, on the left navigation menu, choose **Users**,
-   **User management**. Choose one or more users you want
-   to delete, and then choose **Delete**.
+1. Sign in to Connect Customer using an **Admin**
+   account, or an account assigned to a security profile that has
+   **Users - Remove** permission.
+2. In Connect Customer, on the left navigation menu, choose
+   **Users**.
+   Choose one or more users you want to delete.
 
-![The User management page, Delete option.](images/delete-users-how-to.png) 3. Confirm you want to delete the users.
+![The User management page with users selected for deletion.](images/user-cloudscape-delete-step1.png) 3. Choose **Actions**, and then choose
+**Delete**. 4. In the confirmation dialog, review the list of users to be deleted,
+and then choose **Delete** to confirm. 5. The service deletes the users. When the deletion completes, the
+progress bar shows success and a warning icon appears next to the
+**Refresh** button to indicate the table needs
+refreshing.
 
-![The delete user page, Delete button.](images/delete-users-confirm.png) 4. The following image shows and example of the message when a user is
-deleted successfully. Choose **Refresh** to update the list
-of users on the **User management** page.
+![The User management page after successful deletion.](images/user-cloudscape-delete-step4.png) 6. Refresh the table. The deleted users no longer appear in the
+list.
 
-![The delete user page, the refresh button.](images/delete-users-refresh.png) 5. If Connect Customer fails to delete one or more user records, it displays a message
-similar to the following image.
+### Delete a user from the detail page
 
-![A banner that record was not deleted.](images/delete-users-error.png)
-
-When you get a failed to delete message, you have the following
-options:
-
-    * Choose **download the CSV** to view the error
-     details. The following details show the user records had already
-     been deleted. In this case, I hadn't refreshed the **User
-     management** page and tried to delete the records
-     again.
-
-
-
-    ![A list of reasons for records not being deleted.](images/user-management-bulk-delete-fail-reasons.png)
-    * Choose **Try again** to resubmit those records
-     that failed to be deleted. The other records were successfully
-     deleted.
-    * Choose **Cancel** to not do anything with the
-     user records that weren't deleted.
+1. On the user detail page, choose the **Delete**
+   button in the page header.
+2. In the confirmation dialog, choose **Delete** to
+   confirm.
+3. The service deletes the user. The **User
+   management** page opens.
 
 ## Required permissions to delete users
 

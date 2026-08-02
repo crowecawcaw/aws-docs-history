@@ -28,14 +28,6 @@ Customer Profile domains:
   domain. This isn't recommended, however, because the customer profiles
   from the earlier domain won't be moved to the new domain.
 
-### Data store
-
-Data store is a long-term data store of Customer Profiles data. It stores Customer Profiles data that
-has been updated over the past 10 years. It is the data used for segmentation
-powered by Spark SQL and predictive insights and must be enabled to use those
-features. It is not used in computing calculated attributes or populating Agent
-Workspace.
-
 ### How do you want to name your customer profiles domain?
 
 When you enable customer profiles, you are prompted to provide a friendly
@@ -45,9 +37,9 @@ friendly name using the API at any time.
 
 ### Data store
 
-Data store is a service-managed data store required for segmentation powered by Spark SQL and predictive insights and must be enabled to use those features. It is not used in computing calculated attributes or populating Agent Workspace.
+Data store is a long-term, service-managed data store of Customer Profiles data. It retains Customer Profiles data updated over the past 10 years. You must enable it to use segmentation powered by Spark SQL and predictive insights. Data store does not compute calculated attributes or populate Agent Workspace.
 
-Once you enable Data store, it automatically stores you ingest into Customer Profiles. After you enable Data store, you can't disable this feature. To delete data from the Data Store, you can use the DeleteProfile API or delete the object types or the Customer Profile domain.
+After you enable Data store, it automatically stores the data you ingest into Customer Profiles. You cannot disable Data store after you enable it. To delete data from Data store, use the DeleteProfile API, or delete the object types or the Customer Profiles domain.
 
 ### Do you want to use a dead-letter queue?
 

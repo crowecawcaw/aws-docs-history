@@ -52,8 +52,10 @@ next available agent.
 6. Under Contact handling choose whether you want to auto accept contacts and set the After Contact
    timeout duration.
 
-   - **Auto-Accept Call**: This enables agents to be connected to contacts
-     automatically for the respective channel. For more information, see [Enable auto-accept](enable-auto-accept.md "enable-auto-accept.md").
+   - **Auto-accept**: Auto-accept automatically connects you to
+     contacts on the respective channel when you turn it on. Each channel has its own
+     **Auto-accept** setting, so there is no single checkbox that applies to
+     all channels. For more information, see [Enable auto-accept](enable-auto-accept.md "enable-auto-accept.md").
    - In **After call work (ACW) timeout**, type how many seconds agents have
      for after contact work, such as entering notes about the contact. This needs to be typed
      separately for each individual channel.

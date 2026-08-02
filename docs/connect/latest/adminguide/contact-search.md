@@ -274,8 +274,10 @@ here.
 ###### Tip
 
 The **Is transferred out** option indicates whether the contact
-was transferred to an external number. For the date and time (in UTC time) when the
-transfer was connected, see `TransferCompletedTimestamp` in the [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord").
+was transferred out to another agent, queue, or an external number. This option
+only indicates cold transfers, where the agent disconnected before the contact was
+transferred. For the date and time (in UTC time) when the transfer was connected,
+see `TransferCompletedTimestamp` in the [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord").
 
 ## Download search results
 

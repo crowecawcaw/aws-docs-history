@@ -6,6 +6,12 @@ customers, you can test them without doing any development.
 This tutorial shows you how to access and use the [Contact Control Panel (CCP)](agent-user-guide.md "agent-user-guide.md"). The CCP is a web page that agents use to accept
 and manage voice and chat contacts.
 
+###### Test flows that you build
+
+This tutorial tests the sample voice and chat experience. To test flows that you
+build yourself, use the Connect Customer test and simulation tools. For more information, see
+[Connect Customer Testing and Simulation](testing-simulation.md "testing-simulation.md").
+
 **Prerequisites**
 
 This tutorial is part of a series. If you performed Tutorial 1, you're ready to go. If

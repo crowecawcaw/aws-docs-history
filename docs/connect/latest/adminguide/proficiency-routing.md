@@ -56,6 +56,14 @@ For regulatory or compliance use cases you can use the **Never
 Expire** option for the expiration timer to ensure any agent
 who is joined on the contact meets a minimum requirement.
 
+###### Choose step durations that fit your service level goals
+
+The step durations in this example, such as 30 seconds, are only illustrative. Set
+each step duration to a value that fits your own service level goals and expected
+wait times. Shorter durations relax the requirements sooner, which can reduce customer
+wait time. Longer durations increase the chance of matching a higher-proficiency
+agent.
+
 ###### To route the contact to the above requirements, complete the following steps:
 
 1. **Create predefined attributes**: For example,

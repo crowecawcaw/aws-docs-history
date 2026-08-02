@@ -154,6 +154,83 @@ capacity reduces if any other campaigns start actively dialing.
 
 ![Agent-assisted voice campaign creation interface with configuration options and settings.](images/create_campaign_agent-assisted-voice-1.png)
 
+###### Pacing controls
+
+When you select predictive dialing mode, the **Pacing controls**
+section lets you configure maximum ring time, dialing capacity allocation, agent allocation,
+and abandonment rate thresholds:
+
+The following image shows the pacing controls section.
+
+![Pacing controls section showing max ring time, dialing capacity allocation, and agent allocation fields for a predictive voice campaign.](/images/connect/latest/adminguide/images/create-campaign-pacing-controls.png)
+
+- **Maximum ring time for unanswered calls** – The
+  maximum number of seconds a call will ring before ending. Valid values: 15 to 100
+  seconds.
+- **Dialing capacity allocation** – Allocates
+  telecom dialing capacity for this campaign relative to other active campaigns. When
+  multiple campaigns run concurrently, the dialer distributes capacity proportionally based
+  on each campaign's allocation value. Valid values: 1% to 100%.
+- **Agent allocation** – A weight assigned to this
+  campaign that determines the proportion of available agents belonging to the provided queue
+  for which outbound calls are placed. Valid values: 1% to 200%.
+
+###### Abandonment controls
+
+For predictive dialing mode, you can enable abandonment controls to automatically reduce
+pacing when your configured abandonment rate threshold is reached. Select the
+**Enable abandonment controls** checkbox to configure these settings:
+
+The following image shows the abandonment controls settings.
+
+![Abandonment controls settings showing abandonment time start point, connection threshold, target abandonment rate, and measurement window.](/images/connect/latest/adminguide/images/create-campaign-abandonment-controls.png)
+
+- **Abandonment time start point** – When the
+  abandonment timer starts. The available options depend on whether call classification is
+  enabled:
+
+  - **Greeting start time** – Timer starts when the
+    customer begins speaking. Requires call classification to be enabled.
+  - **Greeting end time** – Timer starts when the
+    customer finishes their greeting. Requires call classification to be enabled.
+  - **Connected to system time** – Timer starts
+    when the customer is connected to the system. This option is only available when call
+    classification is disabled.
+
+###### Important
+
+The start point options change based on the call classification setting:
+
+    + When call classification is **enabled**, only
+     **Greeting start time** and **Greeting end time** are
+     available. The **Connected to system time** option is hidden because
+     the call classifier can detect when the customer's greeting begins and ends.
+    + When call classification is **disabled**, all three
+     options are available. However, if you select a greeting-based start point and the call
+     classifier is unavailable at runtime, the system automatically falls back to connected
+     to system time.
+    + If you enable call classification after selecting **Connected to system
+     time**, the start point automatically resets to **Greeting start
+     time**.
+
+- **Connection threshold** – The number of seconds
+  a call must remain unconnected to an agent before it is counted as abandoned. Minimum
+  value: 1 second.
+- **Target abandonment rate** – The abandonment
+  rate percentage at which the dialer automatically switches to progressive dialing to bring
+  the rate back below the threshold. Valid values: 0% to 100%.
+- **Measurement window** – The time window used for
+  calculating the abandonment rate. Some jurisdictions specify measurement periods (for
+  example, 24 hours). Consult your compliance team for the appropriate value. Valid values: 1
+  to 24 hours.
+
+###### Note
+
+Consult your compliance team for jurisdiction-specific requirements when configuring
+abandonment controls. Regulations vary by country and may specify requirements for
+abandonment rate thresholds, measurement windows, and what constitutes an abandoned
+call.
+
 Automated Voice
 
 1. Select the **Contact Flow** to use for the outbound

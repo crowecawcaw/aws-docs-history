@@ -20,7 +20,10 @@ This dashboard includes:
 - [Performance overview chart](#queue-performance-dashboard-performance-overview "#queue-performance-dashboard-performance-overview")
 - [Current queue overview](#current-queue-overview "#current-queue-overview")
 - [Current agent performance](#current-agent-perf-overview "#current-agent-perf-overview")
-- [Agent adherence](#agent-adherence-dashboard "#agent-adherence-dashboard")
+- [One-click drill-down](#one-click-drilldown "#one-click-drilldown")
+- [Toggle between table and bar chart](#toggle-table-bar-chart "#toggle-table-bar-chart")
+- [Current agent adherence](#current-agent-adherence-dashboard "#current-agent-adherence-dashboard")
+- [Trailing agent adherence](#trailing-agent-adherence-dashboard "#trailing-agent-adherence-dashboard")
 - [Trailing agent performance](#trailing-agent-performance "#trailing-agent-performance")
 - [Average queue answer time and contacts queued trend](#avg-queue-answer "#avg-queue-answer")
 - [Contacts handled and average handle time trend](#queue-performance-dashboard-contacts-handled "#queue-performance-dashboard-contacts-handled")
@@ -122,9 +125,80 @@ states.
 
 ![An example of the filters you can apply to Contact state.](images/dashboard-contact-state-filtering.png)
 
-## Agent adherence
+## One-click drill-down
 
-The **Agent adherence** widget provides a real-time view of agent
+Use the one-click drill-down feature to quickly create a new widget filtered
+by a specific queue or routing profile. This can help you investigate performance
+details without manually configuring a new widget.
+
+When viewing a real-time widget grouped by queue or routing profile, a
+drill-down menu appears next to each resource name. Choose the drill-down menu
+to select the type of widget you want to create.
+
+![A Current queue performance widget showing the drill-down menu button next to a queue name.](images/drilldown-more-options-button.png)
+
+### When grouped by queue
+
+The following options are available when your widget is grouped by queue:
+
+- **View agents** – Creates a
+  **Current agent performance** widget filtered by the
+  selected queue.
+- **View routing profile** – Creates a
+  **Current routing profile performance** widget
+  filtered by the selected queue.
+
+![The drill-down menu for a queue, showing View agents and View routing profile options.](images/drilldown-grouped-by-queue.png)
+
+### When grouped by routing profile
+
+The following options are available when your widget is grouped by routing
+profile:
+
+- **View agents** – Creates a
+  **Current agent performance** widget filtered by the
+  selected routing profile.
+- **View queue** – Creates a
+  **Current queue performance** widget filtered by the
+  selected routing profile.
+
+![The drill-down menu for a routing profile, showing View agents and View queue options.](images/drilldown-grouped-by-routing-profile.png)
+
+The new widget is automatically filtered by the selected resource and inserted
+after the current widget on your dashboard.
+
+![A new widget created by one-click drill-down, filtered by the selected routing profile.](images/drilldown-new-widget-result.png)
+
+### Limitations
+
+The one-click drill-down feature has the following limitations:
+
+- One-click drill-down is not available when the dashboard has
+  reached the maximum of 11 widgets.
+- One-click drill-down is not available when using the
+  [Filter by queue type](dashboard-customize-widgets.md#filter-by-queue-type "dashboard-customize-widgets.md#filter-by-queue-type").
+- One-click drill-down is only available on real-time widgets. It is
+  not available on historical widgets.
+
+## Toggle between table and bar chart
+
+You can switch chart widgets to a table view to see exact metric values.
+
+To switch between chart and table views:
+
+1. Choose **Actions** in the widget header.
+2. Choose **Show as table**.
+
+![A chart widget with the Actions menu open, showing the Show as table option.](images/show-as-table-actions-menu.png)
+
+A checkmark appears next to the option when table view is active. To return to
+the chart view, choose **Show as table** again.
+
+![A widget displaying data in table view, with a checkmark next to Show as table in the Actions menu.](images/show-as-table-result.png)
+
+## Current agent adherence
+
+The **Current agent adherence** widget provides a real-time view of agent
 adherence metrics, including adherence status, duration, and percentage, enabling
 supervisors to monitor and manage agent adherence. This widget supports filtering on
 adherence status, duration, and percentage, sorting by duration or percentage, and
@@ -135,13 +209,13 @@ For example, you can filter for agents with a **Non-adherent**
 status, sort by adherence duration, and highlight duration greater than 5 minutes to
 quickly identify breaches and send reminders to bring agents back on task.
 
-The following image shows an example of the **Agent adherence**
+The following image shows an example of the **Current agent adherence**
 widget. The red highlight is conditional formatting applied on the
 **Adherence status duration** (Adherence status duration >= 3
 hours). The breach in the agent adherence is indicated by the **Non-adherent
 status**.
 
-![The Agent adherence widget with conditional formatting.](images/dashboard-adherence-widget.png)
+![The Current agent adherence widget with conditional formatting.](images/dashboard-adherence-widget.png)
 
 The following image shows an example of how to set up conditional formatting.
 
@@ -152,6 +226,30 @@ duration**. In this case, Connect Customer will display only those agents who ar
 not adherent for longer than 10 minutes.
 
 ![A filter set for Adherence status duration.](images/dashboard-agent-adherence-status-duration1.png)
+
+## Trailing agent adherence
+
+The **Trailing agent adherence** widget provides
+a historical view of agent adherence over a configurable time period.
+Use this widget to review adherence trends and identify patterns over time.
+
+By default, you see adherence metrics grouped by agent, including scheduled time,
+adherent time, non-adherent time, and adherence percentage.
+
+You can group data by agent, queue, channel, routing profile, agent hierarchy levels,
+and shift activity. You can filter by agent, queue, routing profile, channel, and
+agent hierarchy levels. You can sort by any metric, such as adherence percentage,
+to quickly identify agents who need attention.
+
+###### Note
+
+Historical adherence metrics data is available from May 6, 2026. Queries for dates
+before May 6, 2026 return no results.
+
+The following image shows an example of the **Trailing agent
+adherence** widget.
+
+![The Trailing agent adherence widget showing adherence metrics grouped by agent.](images/dashboard-trailing-agent-adherence.png)
 
 ## Trailing agent performance
 

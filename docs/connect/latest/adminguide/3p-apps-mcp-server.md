@@ -28,9 +28,11 @@ Only one instance can be associated with a gateway, and that instance must be co
 
    The Discovery URL must follow this format: `[connect instance URL]/.well-known/openid-configuration`. For example: `https://my-instance.my.connect.aws/.well-known/openid-configuration`.
 
-   ###### Important
+   ###### Configure the gateway's Allowed audiences field
 
-   In the gateway's **Inbound Identity** configuration, you must add the gateway ID to the **Allowed audiences** field. Without this, Connect Customer cannot authenticate with the gateway and tool invocations will fail.
+   In the gateway's **Inbound Identity** configuration, add the gateway ID to the **Allowed audiences** field. The JSON Web Token (JWT) that Connect Customer sends to the gateway carries the gateway ID in its `aud` (audience) claim. When the gateway ID is missing from **Allowed audiences**, the gateway rejects the token and tool invocations fail.
+
+   **Allowed audiences** is the only field you must set for Connect Customer. You can leave the **Allowed clients**, **Allowed scopes**, and **Custom claims** fields empty.
 
    ![Additional gateway configuration options.](images/3p-apps-mcp-bedrock.png) 3. **Instance association (optional)**
 

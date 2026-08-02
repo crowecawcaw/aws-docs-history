@@ -1,130 +1,172 @@
 # Edit users in bulk in Amazon Connect Customer
 
-Bulk edit mode enables you to quickly edit the attributes that are common across user
+With bulk edit mode, you can quickly edit the attributes that are common across user
 records, such as routing profiles, security profiles, and tags.
 
 ###### Tip
 
-While a batch of bulk edits is being processed, you can continue working on the
-**User management** page, such as selecting more records to
-edit or delete, in bulk or individually. This is useful for quickly updating
-settings, such as routing profiles for groups of agents.
-
-###### Bulk editing tags replaces existing tags
-
-When you bulk edit tags, adding a new tag to selected users replaces all existing
-tags on those users. To avoid losing existing tags, include all current tags in your
-bulk edit operation.
+Although the service is processing a batch of bulk edits, you can continue
+working on the **User management** page, such as selecting more
+records to edit or delete, in bulk or individually. This is useful for quickly
+updating settings, such as routing profiles for groups of agents.
 
 1. Sign in to Connect Customer with an Admin account, or an account assigned to
    a security profile that has **Users - Edit** permission.
-2. In Connect Customer, on the left navigation menu, choose **Users**,
-   **User management**.
-3. If needed, choose **Add filter** to specify a subset of
-   users, such as users with a specific **Routing profile**. This
-   option is shown in the following image.
+2. In Connect Customer, on the left navigation menu, choose **Users**.
+3. Select users from the table. You can select users in the following
+   ways:
 
-![The add filter option.](images/user-management-filter.png) 4. To quickly update a large number of users, at the bottom of the table choose
-to display **100** rows per page, as shown in the following
-image.
+   - Select individual rows by choosing the checkbox next to each
+     user. This adds to your existing selections.
+   - Select all users on the current page by choosing the checkbox
+     in the table header. This adds to your existing selections.
+   - Select all users from the search results, regardless of page,
+     by choosing **Select all** from the table
+     actions. This replaces your previous selections with all users
+     from the current search results. Depending on how many users
+     match, you might experience a delay.
+     To manage your selections, choose **Actions**.
+     From there you can add or remove users, or clear all selections. Your
+     selections persist until you refresh the page.
 
-![The rows per page dropdown box.](images/user-management-rows-per-page.png) 5. To edit all the records on the page, choose the top box. Otherwise, select one
-or more records you want to edit at the same time. Choose
-**Edit**.
+![The Actions dropdown showing selection management options.](images/user-cloudscape-bulk-selection.png)
 
-![The User management page, emphasizing the top box, which selects all user records.](images/user-management-edit-select.png) 6. On the **Bulk edit** page, in the
-**Settings** section, you can choose the following settings
-for all of the selected users:
+###### Large selections
 
-    * Security profile
+For large selections, work in batches to keep your browser
+running smoothly. 4. Choose the **Actions** dropdown, and then choose the
+attribute you want to edit. You can edit the following attributes in
+bulk:
+
     * Routing profile
-    * Phone type
-    * Auto accept per channel
-    * After Call Work (ACW) timeout per channel
-    * Agent hierarchy, if this has been set up
+    * Security profiles
+    * Phone configuration
+    * Hierarchy
     * Tags
+    * Contact handling
+    * Proficiencies
 
-7. Choose **Save** to apply your changes to the selected
-records. 8. While that batch of user records is being updated, you can continue working on
+![The User management page with users selected and the Actions dropdown showing bulk edit options.](images/user-cloudscape-bulk-actions.png) 5. Depending on the attribute, the edit experience differs:
+
+    * **Replace settings**: For routing
+     profile, security profile, and hierarchy, the new value replaces
+     the previous settings. For more information, see [Replace settings](#bulk-edit-replace "#bulk-edit-replace").
+    * **Partial updates**: For proficiencies,
+     contact handling, tags, and phone configuration, you can add,
+     remove, or modify individual settings. For more information, see
+     [Partial updates](#bulk-edit-partial "#bulk-edit-partial").
+
+6. Fill out the form, and then choose **Save** to apply your changes. 7. Although the batch update is running, you can continue working on
 the **User management** page, performing other create, edit,
 and delete tasks on user records.
 
-## Perform other edit tasks while a batch of bulk edits is being processed
+## Replace settings
 
-After saving an update for a group of users, you can either make additional
-changes on the **Bulk edit** page (for example, [edit other user details](#edit-other-user-details "#edit-other-user-details") such as contact
-information) or you can choose different user records to edit.
+For routing profile, security profile, and hierarchy, the new value replaces
+the previous settings for all selected users.
 
-###### Important
+The following image shows an example of bulk editing routing profiles.
 
-As long as you remain on the **User management** page, your
-update request will continue to be processed. Review the messages at the top of
-the page for the status of the update.
+![The bulk edit routing profile dialog with a routing profile dropdown.](images/user-cloudscape-bulk-routing-profile.png)
 
-The following image shows an example of message at the top of the **User
-management** page that Connect Customer is updating a batch of user records.
+## Partial updates
 
-![A banner showing Connect Customer in the process of updating a batch of user records.](images/user-management-bulk-edit-banner3.png)
+For proficiencies, contact handling, tags, and phone configuration, you can
+choose whether to add, remove, or modify individual settings rather than
+replacing all values.
 
-When you perform additional tasks on the **User management**
-page, Connect Customer appends the next request to create, edit, or delete user records to the
-existing status message at the top of the page. Connect Customer sequentially processes them in
-bulk.
+### Bulk edit proficiencies
 
-Following are some tips about how Connect Customer processes bulk edit requests.
+When you choose **Proficiencies** from the
+**Actions** dropdown, you can use two modes:
+Add or Remove.
 
-- If you choose **Cancel** during a bulk create, edit, or
-  delete, **only those requests not yet processed are
-  canceled**.
-- A message displays how many users were successfully updated. Choose
-  **Refresh** to refresh the page with the list of the
-  updated users.
+For each mode, specify the attribute name and value from the predefined
+attributes configured for your instance (for example,
+`connect:AssignmentType`).
 
-![The button to refresh the results of Connect Customer processing bulk edit requests.](images/user-management-bulk-cancel-refresh.png)
+#### Add proficiencies
 
-- If some user records fail to be updated, a message similar to the
-  following image is displayed:
+Use **Add** to add proficiency attributes
+to the selected users. If a user already has the attribute, the service
+updates the proficiency level to the new value.
 
-![A message showing that users failed to be updated.](images/user-management-failed-edit.png)
+###### Tip
 
-You have the following options:
+To set hundreds of proficiencies at once, use the CSV import and
+export options. Export saves proficiency settings for reuse on other
+users or instances.
 
-    + Choose **download the CSV** to discover the
-     reason changes weren't updated. In the following example, the agent
-     hierarchy was deleted before the user records were saved.
+1. Choose the **Add** tile (chosen by
+   default).
+2. Choose an attribute name and value from the dropdowns, and set the
+   proficiency level.
 
+![The bulk edit proficiencies page showing AttributeName, AttributeValue, and Level fields, and CSV import and export options.](images/user-cloudscape-bulk-proficiencies-add.png) 3. Choose **Save**.
 
+#### Remove proficiencies
 
-    ![Why edits failed and the failed fields.](images/user-management-failed-edit-reason.png)
-    + Choose **Try again** to resubmit only those user
-     records that failed. The others were already successfully updated.
-    + Choose **Edit** to be directed to the
-     **Bulk edit** page so you can change the input
-     for the user records that failed.
+Use **Remove** to remove the specified
+proficiency attributes from the selected users.
 
+1. Choose the **Remove** tile.
+2. Choose the attribute name and value to remove.
 
+![The bulk edit proficiencies page showing the Remove tile selected with AttributeName and AttributeValue fields.](images/user-cloudscape-bulk-proficiencies-remove.png) 3. Choose **Save**.
 
-    ![The Bulk edit option.](images/user-management-bulk-edit-fail-input.png)
-    + Choose **Cancel** to not do anything with the 3
-     user records that weren't updated.
+## View bulk edit activity
 
-## Edit other user details
+After you perform a bulk edit, a banner shows the operation progress.
+You can track the progress and results, and manage operations from this banner or
+from the **Activity** page.
 
-You can page through selected user records to make updates to contact information,
-rather than choosing and opening each record individually.
+1. To view operation details, choose **View results** in
+   the bulk operation banner.
 
-1. On the **Bulk edit** page, select the user records you
-   want to edit.
-2. Choose the **Edit** (pencil) icon next to individual
-   users to make updates.
-3. A dialog box opens for the individual user. Make your changes, and choose
-   **Submit**.
-4. If needed, choose **Previous** and
-   **Next** to open the next user record in the list. The
-   following image shows the **Edit** dialog box for a single
-   user while in bulk edit mode.
+![The bulk operation banner with the View results button.](images/user-cloudscape-bulk-activity-step1.png) 2. In the table header, choose **Stop** to stop the
+entire bulk operation. To stop an individual operation, in that
+operation's row choose **Stop**. The following image
+shows the Stop controls in the table header and next to individual
+rows.
 
-![The edit dialog box.](images/user-management-bulk-single-edit.png)
+![The Activity page with Stop controls in the table header and next to individual rows.](images/user-cloudscape-bulk-activity-step2.png) 3. To resume a stopped operation, choose **Resume**.
+When you navigate away from the **User management** page, the session
+ends. After the session ends, you cannot retry or resume
+operations.
+
+###### Page refresh clears retry options
+
+Row actions and retry actions are not available after a hard
+refresh of the page. Complete any retries before refreshing.
+
+![The Activity page showing the option to resume stopped operations.](images/user-cloudscape-bulk-activity-step3.png) 4. You can reselect users from a previous bulk operation. From the
+**Select rows** dropdown, choose **All**,
+**Failed**, **Stopped**, or
+**Succeeded**.
+
+![The Activity page with the Select rows dropdown showing all, failed, stopped, and succeeded options.](images/user-cloudscape-bulk-activity-step4.png) 5. To view past activities, choose the **Activity**
+button.
+
+![The User management page with the Activity button in the table header.](images/user-cloudscape-bulk-activity-step5.png) 6. Your browser stores activity data locally for 7 days. Storing
+many activities can slow browser performance. To free up
+space, delete activities manually. Deleting activity records does not
+affect user data or revert any changes.
+
+![The Activity page showing the option to delete activities.](images/user-cloudscape-bulk-activity-step6.png)
+
+## Before selecting users for bulk editing
+
+Use the search and filter options on the **User management** page
+to narrow down the user list before selecting users for bulk editing. You can filter
+by properties such as routing profile, security profile, or proficiencies. By
+default, filters use **Match all** (AND operator) to show users
+that match every filter condition. For security profile and tags filters, you can
+choose **Match any** (OR operator) to show users that match at
+least one condition.
+
+![The User management page showing the filter panel with proficiency filters using Match all.](images/user-cloudscape-filter-proficiency-and.png)
+
+![The User management page showing security profile filters using Match any.](images/user-cloudscape-filter-sp-or.png)
 
 ## Edit user settings programmatically
 

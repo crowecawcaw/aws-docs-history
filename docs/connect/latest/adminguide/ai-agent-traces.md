@@ -32,7 +32,7 @@ enabled.
 
 3. In the navigation pane, choose **Flows**.
 4. Under the **Amazon Lex Bots** section, select
-   **Enable Bot Analytics and Transcripts in
+   **Enable Bot Analytics, Transcripts, and AI Agent Traces in
    Amazon Connect**. Choose this option to log a full transcript of the
    Amazon Lex portion of the customer's experience. The transcript and traces
    is then available for you to read on the
@@ -40,8 +40,9 @@ enabled.
 
 ###### Note
 
-If you previously enabled **Bot Analytics and Transcripts
-in Amazon Connect** (prior to June 5, 2026), you must disable and
+If you previously enabled **Bot Analytics, Transcripts, and AI
+Agent Traces in Amazon Connect** (prior to June 5, 2026), you
+must disable and
 re-enable this setting to activate the AI agent traces
 feature. 5. Under the **Automated interaction logs** section, select
 **Enable Automated Interaction Logs**. This enables you to
@@ -126,6 +127,10 @@ of the Connect Customer AI.
 
 ## AI agent trace details
 
+###### Note
+
+AI agent trace details are currently available for the voice channel.
+
 ### Flows
 
 - Choose the flow and block hyperlinks to open the flow designer in a
@@ -164,7 +169,7 @@ appear.
 - Knowledge base citation reference is available under the Prompt
   (inference span) under Span details, when configured and
   available. To ensure you have your citations configured, see
-  [Knowledge base retrieval configuration](multiple-knowledge-base-setup-and-content-segmentation.md "multiple-knowledge-base-setup-and-content-segmentation.md").
+  [Knowledge base retrieval configuration](multiple-knowledge-base-setup-and-content-segmentation.md#add-citation-data-ai-agent-trace "multiple-knowledge-base-setup-and-content-segmentation.md#add-citation-data-ai-agent-trace").
 - For each tool call, you can view the Tool metadata along with the
   input parameters passed into the tool call.
 - Latency for each span is displayed on the right to each

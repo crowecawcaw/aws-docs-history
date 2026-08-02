@@ -49,7 +49,10 @@ select **Confirm**.
      [Associate tables for the Connect Customer analytics data lake](datalake-tables.md "datalake-tables.md").
    - **TargetAccountId** – Account
      ID to share data.
-     Following is an example of the JSON file with all of the [tables](datalake-tables.md "datalake-tables.md").
+     Each value in `DataSetIds` is a data lake table name, such as
+     `contact_record`. The following JSON file shows a subset of tables
+     as an example. For more information about table names that you can use as
+     `DataSetIds`, see [Data type definitions for the Connect Customer data lake](data-type-definitions.md "data-type-definitions.md").
 
 ```
 {

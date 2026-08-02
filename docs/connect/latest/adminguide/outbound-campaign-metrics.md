@@ -110,6 +110,219 @@ The possible values for X are from 1 to 604800 inclusive.
 - Data for this metric is available starting from June 25, 2024 0:00:00
   GMT.
 
+## Campaign contacts abandoned after X from greeting end
+
+This metric counts the outbound campaign calls that were connected to a live customer but did not get connected to an agent within X seconds from the greeting end timestamp.
+The greeting end timestamp marks when the outbound greeting message finished playing to the customer. The possible values for X are from 1 to 604800 inclusive.
+
+**Metric type**: Integer
+
+**Metric category**: Outbound campaigns driven metric
+
+**How to access using the Connect Customer API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
+  `CAMPAIGN_CONTACTS_ABANDONED_AFTER_X_FROM_GREETING_END`
+
+**How to access using the Connect Customer admin website**:
+
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+  Campaign contacts abandoned after x from greeting end seconds rate
+
+###### Notes
+
+- For AMD-enabled campaigns, only contacts with an answering machine detection status of `HUMAN_ANSWERED` are counted.
+  For AMD-disabled campaigns, all connected contacts are counted.
+- This metric is available only for outbound campaigns using the agent assisted voice delivery mode.
+- Data for this metric is available starting from June 29, 2026, 04:43:45
+  UTC.
+
+## Campaign contacts abandoned after X from greeting end rate
+
+This metric measures the percentage of outbound campaign calls that were connected to a live customer
+but did not get connected to an agent within X seconds from the greeting end timestamp, divided by the count of eligible connected campaign contacts.
+The possible values for X are from 1 to 604800 inclusive.
+
+**Metric type**: Percent
+
+- Min value: 0.00%
+- Max value: 100.00%
+
+**Metric category**: Outbound campaigns driven metric
+
+**How to access using the Connect Customer API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
+  `CAMPAIGN_CONTACTS_ABANDONED_AFTER_X_FROM_GREETING_END_RATE`
+
+**How to access using the Connect Customer admin website**:
+
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+  Campaign contacts abandoned after x from greeting end seconds rate
+
+**Calculation logic**:
+
+- (Campaign contacts abandoned after X from greeting end / Campaign contacts connected) \* 100.0
+
+###### Notes
+
+- For AMD-enabled campaigns, only contacts with an answering machine detection status of `HUMAN_ANSWERED` are counted
+  in both the numerator and denominator. For AMD-disabled campaigns, all connected contacts are counted.
+- This metric is available only for outbound campaigns using the agent assisted voice delivery mode.
+- Data for this metric is available starting from June 29, 2026, 04:43:45
+  UTC.
+
+## Campaign contacts abandoned after X from greeting start
+
+This metric counts the outbound campaign calls that were connected to a live customer but did not get connected to an agent within X seconds from the greeting start timestamp.
+The greeting start timestamp marks when the outbound greeting message began playing to the customer. The possible values for X are from 1 to 604800 inclusive.
+
+**Metric type**: Integer
+
+**Metric category**: Outbound campaigns driven metric
+
+**How to access using the Connect Customer API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
+  `CAMPAIGN_CONTACTS_ABANDONED_AFTER_X_FROM_GREETING_START`
+
+**How to access using the Connect Customer admin website**:
+
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+  Campaign contacts abandoned after x from greeting start seconds rate
+
+###### Notes
+
+- For AMD-enabled campaigns, only contacts with an answering machine detection status of `HUMAN_ANSWERED` are counted.
+  For AMD-disabled campaigns, all connected contacts are counted.
+- This metric is available only for outbound campaigns using the agent assisted voice delivery mode.
+- Data for this metric is available starting from June 29, 2026, 04:43:45
+  UTC.
+
+## Campaign contacts abandoned after X from greeting start rate
+
+This metric measures the percentage of outbound campaign calls that were connected to a live customer
+but did not get connected to an agent within X seconds from the greeting start timestamp, divided by the count of eligible connected campaign contacts.
+The possible values for X are from 1 to 604800 inclusive.
+
+**Metric type**: Percent
+
+- Min value: 0.00%
+- Max value: 100.00%
+
+**Metric category**: Outbound campaigns driven metric
+
+**How to access using the Connect Customer API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
+  `CAMPAIGN_CONTACTS_ABANDONED_AFTER_X_FROM_GREETING_START_RATE`
+
+**How to access using the Connect Customer admin website**:
+
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+  Campaign contacts abandoned after x from greeting start seconds rate
+
+**Calculation logic**:
+
+- (Campaign contacts abandoned after X from greeting start / Campaign contacts connected) \* 100.0
+
+###### Notes
+
+- For AMD-enabled campaigns, only contacts with an answering machine detection status of `HUMAN_ANSWERED` are counted
+  in both the numerator and denominator. For AMD-disabled campaigns, all connected contacts are counted.
+- This metric is available only for outbound campaigns using the agent assisted voice delivery mode.
+- Data for this metric is available starting from June 29, 2026, 04:43:45
+  UTC.
+
+## Campaign contacts abandoned after X from system connection
+
+This metric counts the outbound campaign calls that were connected to a live customer but did not get connected to an agent within X seconds from the system connection timestamp.
+The system connection timestamp marks when the outbound call was connected to the Connect Customer system (before greeting or agent connection). The possible values for X are from 1 to 604800 inclusive.
+
+**Metric type**: Integer
+
+**Metric category**: Outbound campaigns driven metric
+
+**How to access using the Connect Customer API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
+  `CAMPAIGN_CONTACTS_ABANDONED_AFTER_X_FROM_SYSTEM_CONNECTION`
+
+**How to access using the Connect Customer admin website**:
+
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+  Campaign contacts abandoned after x from system connection seconds rate
+
+###### Notes
+
+- For AMD-enabled campaigns, only contacts with an answering machine detection status of `HUMAN_ANSWERED` are counted.
+  For AMD-disabled campaigns, all connected contacts are counted.
+- This metric is available only for outbound campaigns using the agent assisted voice delivery mode.
+- Data for this metric is available starting from June 29, 2026, 04:43:45
+  UTC.
+
+## Campaign contacts abandoned after X from system connection rate
+
+This metric measures the percentage of outbound campaign calls that were connected to a live customer
+but did not get connected to an agent within X seconds from the system connection timestamp, divided by the count of eligible connected campaign contacts.
+The possible values for X are from 1 to 604800 inclusive.
+
+**Metric type**: Percent
+
+- Min value: 0.00%
+- Max value: 100.00%
+
+**Metric category**: Outbound campaigns driven metric
+
+**How to access using the Connect Customer API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
+  `CAMPAIGN_CONTACTS_ABANDONED_AFTER_X_FROM_SYSTEM_CONNECTION_RATE`
+
+**How to access using the Connect Customer admin website**:
+
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+  Campaign contacts abandoned after x from system connection seconds rate
+
+**Calculation logic**:
+
+- (Campaign contacts abandoned after X from system connection / Campaign contacts connected) \* 100.0
+
+###### Notes
+
+- For AMD-enabled campaigns, only contacts with an answering machine detection status of `HUMAN_ANSWERED` are counted
+  in both the numerator and denominator. For AMD-disabled campaigns, all connected contacts are counted.
+- This metric is available only for outbound campaigns using the agent assisted voice delivery mode.
+- Data for this metric is available starting from June 29, 2026, 04:43:45
+  UTC.
+
+## Campaign contacts connected
+
+This metric counts the outbound campaign contacts that were connected to the Connect Customer system and are eligible for abandonment rate calculation.
+For AMD-enabled campaigns, only contacts with an answering machine detection status of `HUMAN_ANSWERED` are counted. For AMD-disabled campaigns, all connected contacts are counted.
+
+**Metric type**: Integer
+
+**Metric category**: Outbound campaigns driven metric
+
+**How to access using the Connect Customer API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
+  `CAMPAIGN_CONTACTS_CONNECTED`
+
+**How to access using the Connect Customer admin website**:
+
+- Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
+  Campaign contacts connected
+
+###### Notes
+
+- For AMD-enabled campaigns, only contacts with an answering machine detection status of `HUMAN_ANSWERED` are counted.
+  For AMD-disabled campaigns (where the answering machine detection status field is absent), all connected contacts are counted.
+- This metric is available only for outbound campaigns using the agent assisted voice delivery mode.
+- Data for this metric is available starting from June 29, 2026, 04:43:45
+  UTC.
+
 ## Campaign interactions
 
 This metric counts the outbound campaign

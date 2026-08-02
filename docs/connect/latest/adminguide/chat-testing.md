@@ -124,7 +124,7 @@ queue that has quick connect.
 
 To create a scheduled task for the future, use the **Scheduled
 date/time** box to choose a future date and time. You can schedule
-a task up to six days in future.
+a task up to 90 days in future.
 
 Choose **Create**.
 
@@ -132,7 +132,7 @@ Choose **Create**.
 the CCP shows what it looks like when a task arrives. Choose **Accept
 task**.
 
-![The CCP, an incoming task.](/images/connect/latest/adminguide/images/test-tasks-incoming.png) 4. Review the task. When you're done with the task, choose **End
+![The CCP, an incoming task.](images/test-tasks-incoming.png) 4. Review the task. When you're done with the task, choose **End
 task** when done.
 
 ![The CCP, a connected task, the End task button.](images/test-task-end-task.png)

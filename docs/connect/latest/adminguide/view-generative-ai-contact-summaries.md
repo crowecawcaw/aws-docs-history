@@ -140,9 +140,9 @@ profile:
 
 ## View post-contact summaries on the CCP
 
-To help agents perform their After contact work (ACW), Connect Customer displays a
-generative AI-powered post-contact summary on their CCP for voice contacts. The
-following image shows an example summary.
+To help you perform After Contact Work (ACW), a generative AI-powered
+post-contact summary appears on your CCP. The summary is available for voice,
+chat, and email contacts. The following image shows an example summary.
 
 ![The Contact Control Panel showing a generative AI-powered post-contact summary during After Contact Work (ACW).](images/genai-summary-ccp1.png)
 

@@ -17,10 +17,10 @@ notify:
 ###### Important
 
 - All emails are sent from `no-reply@amazonconnect.com`.
-- SAML users don't have primary email addresses, they have username logins. A username login
-  is typically an email address but it doesn't have to be. For these users the field label
+- SAML users do not have primary email addresses or passwords. They use a username to log in. A username
+  is typically an email address but it does not have to be. For these users the field label
   **Email address** is empty inside Connect Customer. When email notifications are sent for SAML users, they must have
-  a secondary email configured in order to get it. If a secondary email is not configured, the user won't receive the email.
+  a secondary email configured in order to get it. If a secondary email is not configured, the user will not receive the email.
 
 ###### To create a rule that sends an email notification
 
@@ -54,7 +54,7 @@ who is going to receive the email by using one of these options:
     ###### Important
 
     SAML users must have
-    a secondary email configured in order to get it. If a secondary email is not configured, the user won't receive the email.
+    a secondary email configured in order to get it. If a secondary email is not configured, the user will not receive the email.
     * **Select recipients by tags**. Routes the
      email dynamically based on the agent's tag values.
     * **Select the agent who handled the contact**.
@@ -93,10 +93,10 @@ You cannot apply rules to past, stored conversations.
   complaint limits. For more information, see the **Bounce** and **Complaint** sections in [Understanding email deliverability in Amazon SES](../../../ses/latest/dg/send-email-concepts-deliverability.md "../../../ses/latest/dg/send-email-concepts-deliverability.md").
 - All emails are sent from `no-reply@amazonconnect.com`,
   which you cannot customize.
-- SAML users don't have primary email addresses, they have username logins. A username login
-  is typically an email address but it doesn't have to be. For these users the field label
+- SAML users do not have primary email addresses or passwords. They use a username to log in. A username
+  is typically an email address but it does not have to be. For these users the field label
   **Email address** is empty inside Connect Customer. When email notifications are sent for SAML users, they must have
-  a secondary email configured in order to get it. If a secondary email is not configured, the user won't receive the email.
+  a secondary email configured in order to get it. If a secondary email is not configured, the user will not receive the email.
 
 If the default option for sending emails does not meeting your
 requirements, please contact your Technical Account Manager or Support to

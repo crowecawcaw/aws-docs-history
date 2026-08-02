@@ -8,7 +8,8 @@
 ###### Note
 
 The **Accept call** button does not appear if your admin
-has configured your user profile for [Auto-Accept Call](enable-auto-accept.md "enable-auto-accept.md").
+has enabled [Auto-accept](enable-auto-accept.md "enable-auto-accept.md") for the voice
+channel in your user profile.
 
 **Firefox users**: If you are using the
 Firefox browser and using auto-accept for calls, you must keep the CCP or

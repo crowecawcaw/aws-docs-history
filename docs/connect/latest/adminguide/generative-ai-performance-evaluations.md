@@ -95,6 +95,15 @@ AI-powered evaluations.
 
 ![New account opening scorecard.](images/provide-criteria-for-answering-evaluation-form-questions.png)
 
+###### AI answer mapping and scoring
+
+If AI is not able to identify which of the provided answer options is
+appropriate, then it selects **Not Applicable**, even if the
+question is not optional. When this happens, the question is excluded from
+scoring and the weights are redistributed to the other questions. To avoid this,
+clearly explain each answer option in the **Instructions to
+evaluators** for the question. For more information, see [Guidelines to improve generative AI accuracy](#guidelines-to-improve-generative-ai-accuracy "#guidelines-to-improve-generative-ai-accuracy").
+
 ## Set up automated evaluations using generative AI on the evaluation form
 
 You can pre-configure on an evaluation form whether a question will be
@@ -211,6 +220,12 @@ To set the language of the evaluation form:
 - Specify when the answer is **Not Applicable** (N/A). For
   example: _The answer is N/A if the call resulted in a
   transfer._
+- In the **Instructions to evaluators**, explain when AI
+  should select each answer option. For "Did the agent give a resolution
+  timeframe?", add the instruction: _Answer is Yes if the agent gave
+  a resolution timeframe, No otherwise._ Not explaining each option
+  may result in AI selecting **Not Applicable**, even if the
+  question is not optional.
 - Clarify whether all or any of the specified agent behaviors is required.
   "The agent must ask the customer's name and phone number" fails if the
   agent asked for the name but not the phone number.

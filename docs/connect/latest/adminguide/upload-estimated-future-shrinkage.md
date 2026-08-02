@@ -1,11 +1,16 @@
 # Import estimated future shrinkage and available full-time employees in Connect Customer
 
 You can increase capacity planning accuracy by providing estimated future data
-(Available FTE and Shrinkage) for your existing forecast groups. Providing Available
-FTE and shrinkage data is optional. Connect Customer can generate a capacity plan without it,
-but providing it improves the accuracy of your plan.
+for your existing forecast groups. You can import data for either plan type: Hiring
+plans use day-level Available FTE and shrinkage data, and Scheduling plans use
+interval-level available headcount and shrinkage data. Providing this data is
+optional. Connect Customer can generate a capacity plan without it, but providing it improves
+the accuracy of your plan.
 
-## How to import data
+## How to import data for Hiring plans
+
+Use this procedure to import day-level Available FTE and shrinkage data for
+Hiring plans. To import interval-level data for Scheduling plans, see [Import headcount and shrinkage data for Scheduling plans](#upload-scheduling-headcount-shrinkage "#upload-scheduling-headcount-shrinkage").
 
 1. Log in to the Connect Customer admin website with an account that has security profile
    permissions for **Analytics**, **Capacity
@@ -15,21 +20,25 @@ For more information, see [Assign
 permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Capacity
 Planning**. 3. On the **Import Data** tab, choose **Upload
-data**.
+data**, and then choose **Hiring shrinkage and
+FTE**.
 
 The .csv file you upload must have the following headings:
 FORECAST\_GROUP, Date, AVAILABLE\_FTE,
 IN\_OFFICE\_SHRINKAGE\_OUT\_OFFICE\_SHRINKAGE. These are shown in the
 following image of a .csv file opened with Excel.
 
-![A csv file with correct headings.](images/wfm-capacity-planning-csv-template.png) 4. Update values in this template, and then choose `Upload
+![A Hiring plan csv file with correct headings.](images/wfm-capacity-planning-csv-template.png) 4. Update values in this template, and then choose `Upload
  CSV` to upload it. Choose `Upload`.
 
 It usually between 2 - 5 minutes for the .csv file to upload. If the upload
 fails, check if the `FORECAST_GROUP` name in the .csv file matches
 the name of the forecast group that you created.
 
-## Important things to know about your .csv file
+## Important things to know about your Hiring plan .csv file
+
+The following applies to the day-level .csv file for Hiring plans. For the
+interval-level file used by Scheduling plans, see [Import headcount and shrinkage data for Scheduling plans](#upload-scheduling-headcount-shrinkage "#upload-scheduling-headcount-shrinkage").
 
 - FORECAST\_GROUP: Enter the EXACT name of the forecast group you
   created. You can add multiple forecast groups in this `.csv`
@@ -69,3 +78,59 @@ updated. Make sure errors aren't introduced to the uploaded .csv file
 accidentally. For example, don't press **Enter** and add
 new rows to the end of the file. Otherwise, the data won't validate and an
 error message is displayed.
+
+## Import headcount and shrinkage data for Scheduling plans
+
+For Scheduling plans, you can import headcount and shrinkage data at the
+interval level. Each row covers a 15-minute or 30-minute interval, matching
+your short-term forecast. To upload this data, choose **Scheduling
+shrinkage and headcount** from the **Upload data**
+dropdown on the **Import Data** tab.
+
+### To import headcount and shrinkage data for a Scheduling plan
+
+1. Log in to the Connect Customer admin website with an account that has security profile
+   permissions for **Analytics**,
+   **Capacity planning - Edit**.
+
+For more information, see [Assign
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
+optimization**, **Capacity
+Planning**. 3. Choose the **Import Data** tab. 4. Choose **Upload data**, and then choose
+**Scheduling shrinkage and headcount**. 5. In the **Import scheduling interval data**
+dialog, upload your `.csv` file, and then choose
+**Upload**.
+
+The upload takes 2 to 5 minutes. If it fails, check that the
+`FORECAST_GROUP` value in your file matches the name of an
+existing forecast group.
+
+### CSV field reference for Scheduling plan data
+
+Your `.csv` file must have the following columns in this
+order:
+
+- `START_INTERVAL_TIMESTAMP`: Required. The start of
+  the interval. Use ISO 8601 format with a UTC offset. For example:
+  `2026-01-01T00:00:00-08:00`.
+- `END_INTERVAL_TIMESTAMP`: Optional. Use the same
+  format as the start. If you omit this field, the row covers one
+  interval. If you include it, the row covers every interval in
+  that range.
+- `FORECAST_GROUP`: Required. Enter the exact name of a
+  forecast group you created. You can add multiple forecast groups
+  in one `.csv` file.
+- `AVAILABLE_HC`: Required. Enter the number of agents
+  available for that interval. Use zero or a positive
+  number.
+- `IN_OFFICE_SHRINKAGE`: Required. Percentage of agents
+  in the office but not in production mode. For example, they might
+  be in training or meetings. Enter a value from 0 to 100.
+- `OUT_OFFICE_SHRINKAGE`: Required. Percentage of agents
+  absent from work (for example, no-show or personal time off).
+  Enter a value from 0 to 100.
+
+###### Note
+
+The latest uploaded file always overrides the previous file. Check
+that your file has no errors before you upload it.

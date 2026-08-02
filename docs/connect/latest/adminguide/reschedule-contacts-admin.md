@@ -53,5 +53,6 @@ To reschedule contacts programmatically, use the [UpdateContactSchedule](../APIR
    shown in the following image.
 
 ![The contact details page, Reschedule option.](images/contact-details-contact-reschedule-action.png) 6. Select the time and range to reschedule the contact. The scheduled time
-must be within 6 days of when the task was initiated. 7. When the contact is rescheduled successfully, the page automatically
+must be within 90 days of when the task was initiated, and before the
+task's expiry time. 7. When the contact is rescheduled successfully, the page automatically
 refreshes with the new schedule time for the task.

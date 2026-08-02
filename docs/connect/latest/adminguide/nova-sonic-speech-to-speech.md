@@ -14,9 +14,10 @@ You can configure Amazon Nova Sonic as a Speech-to-Speech (S2S) model for a Conv
 ### Step 1: Open the Speech model configuration
 
 1. Sign in to the Amazon Connect admin website.
-2. Choose **Bots**, then select the **Configuration** tab.
-3. Select the locale you want to configure.
-4. In the Speech model section, choose **Edit**.
+2. In the navigation pane, choose **Conversational AI**, and then choose **Bots**.
+3. Choose the bot you want to configure, and then choose the **Configuration** tab.
+4. Select the locale you want to configure.
+5. In the Speech model section, choose **Edit**.
 
 ![Amazon Nova Sonic Speech-to-Speech overview.](images/nova-sonic-overview.jpg)
 

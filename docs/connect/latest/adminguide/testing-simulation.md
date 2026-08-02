@@ -19,6 +19,10 @@ simulation designer or via programmatic APIs. This section explains the differen
 components that enable the use of Connect Customer simulation
 capabilities.
 
+For information about creating a test, see [Create test cases](testing-simulation-test-cases.md "testing-simulation-test-cases.md"). For information about running a test,
+see [Execute test cases](testing-simulation-execute-test-cases.md "testing-simulation-execute-test-cases.md"). The following simulation
+concepts describe the building blocks that a test uses.
+
 ###### Contents
 
 - [Required permissions](required-permissions.md "required-permissions.md")

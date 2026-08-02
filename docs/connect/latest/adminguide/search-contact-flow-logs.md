@@ -10,9 +10,12 @@ Logs will be created for conversations that occur after logging is enabled.
    **Log groups**. The following image shows a sample log
    group named **mytest88**.
 
-![The Amazon CloudWatch console, log groups section.](images/cloudwatch-log-group.png) 2. Choose the log group for your instance.
+![The Amazon CloudWatch console, log groups section.](images/cloudwatch-log-group.png) 2. Choose the log group for your instance. The log group name uses the format
+`/aws/connect/`instance_alias``, where
+`instance_alias` is the alias of your Connect Customer instance. To
+find it quickly, enter `/aws/connect/` in the log group filter box.
 
-A list of log streams will be displayed. 3. To search all the log streams in the instance, choose **Search log
+A list of log streams appears. 3. To search all the log streams in the instance, choose **Search log
 group**, as shown in the following image.
 
 ![The search log group button on the /aws/connect/mytest88 page.](images/contact-flow-logs-choose-search.png) 4. In the search box, enter the string you want to search for, for example, all

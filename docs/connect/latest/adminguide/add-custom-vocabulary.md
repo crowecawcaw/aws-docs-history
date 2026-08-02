@@ -80,20 +80,22 @@ details about how to add words and acronyms to your vocabulary file, see
 _Amazon Transcribe Developer Guide_.
 
 The following image shows words in a sample vocabulary file. Words in
-the Phrase column are required. Words in the `IPA`,
-`SoundsLike`, and `DisplayAs` columns are
-optional.
+the Phrase column are required. The `DisplayAs` column is
+optional. Amazon Transcribe no longer processes the `IPA`
+and `SoundsLike` columns.
 
-![A sample vocabulary file, words in the phrase column are required.](images/contact-lens-custom-vocab-phrase-column.png)
+![A sample vocabulary file. The Phrase column is required, DisplayAs is optional, and IPA and SoundsLike are deprecated.](images/contact-lens-custom-vocab-phrase-column.png)
 
 To enter multiple words in the **Phrase** column,
 separate each word with a hyphen (-); do not use spaces.
 
-###### IPA column is deprecated
+###### IPA and SoundsLike columns ignored
 
-The `IPA` column is no longer used by Amazon
-Transcribe. Leave this column empty when creating a custom
-vocabulary table.
+Amazon Transcribe ignores values in the `IPA` and
+`SoundsLike` columns. When you create a custom
+vocabulary table, you only need the `Phrase` column
+(required) and optionally the `DisplayAs`
+column.
 
 ## Vocabulary states
 

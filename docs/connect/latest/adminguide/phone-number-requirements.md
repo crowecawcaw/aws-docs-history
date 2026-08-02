@@ -879,9 +879,9 @@ requirements](#uifn-requirements "#uifn-requirements").
 
 ### Number portability
 
-| Portability windows              | Required Documents                                                                                                                                                                                                                                                        |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Monday-Friday 7 AM to 11 AM NZST | 1. Last invoice<br>2. Letter of Authorization (LOA): When you request<br>porting services, we will provide you with a<br>country-specific LOA template and explain how to<br>complete it.<br>3. Wholesale account number of the phone number from the<br>current carrier. |
+| Portability windows            | Required Documents                                                                                                                                                                                                                                                        |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Monday-Friday 8 AM to 3 PM NZT | 1. Last invoice<br>2. Letter of Authorization (LOA): When you request<br>porting services, we will provide you with a<br>country-specific LOA template and explain how to<br>complete it.<br>3. Wholesale account number of the phone number from the<br>current carrier. |
 
 ## Netherlands (NL)
 
@@ -1350,9 +1350,11 @@ requirements](#uifn-requirements "#uifn-requirements").
 
 ### Number portability (Re-Routing)
 
-| Type of Number          | Portability windows            | Required Documents                                                                                                                                                                                                                                                            |
-| ----------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Local telephone numbers | Monday-Friday 9 AM to 5 PM ICT | The business address must be in Thailand<br>1. Last invoice<br>2. Copy of company affidavit of end user (not over than<br>90 days from the date of issue)<br>3. Copy of authorized director ID with signature<br>4. Copy of Authorization representative ID with<br>signature |
+| Type of Number          | Portability windows            | Required Documents                                                                                                                                                                                                                                                                                                                                                                |
+| ----------------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Local telephone numbers | Monday-Friday 9 AM to 5 PM ICT | The business address must be in Thailand<br>1. Complete the form provided with contact name, contact phone number and contact email address.<br>2. Last invoice<br>3. Copy of company affidavit of end user (not over than<br>90 days from the date of issue)<br>4. Copy of authorized director ID with signature<br>5. Copy of Authorization representative ID with<br>signature |
+
+**Additional requirements for Thailand**: See [Things to know about Thailand number porting](porting-numbers-th.md "porting-numbers-th.md").
 
 ## Trinidad and Tobago (TT)
 
@@ -1458,6 +1460,32 @@ national inbound reachability with the following local carriers:
 
 At the moment, we don't offer inbound national recheabiliy with Digitel (fixed and
 mobile network).
+
+### Number portability
+
+Porting is not supported.
+
+## Vietnam (VN)
+
+### For ordering phone numbers
+
+| Type of Number                         | Are there ID requirements? | Agent Location                            | Acceptable Identification                                                                                                                  |
+| -------------------------------------- | -------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Local telephone numbers                | Yes                        | The agent must be located within Vietnam. | Vietnamese phone numbers are available through our telephony<br>partner. Contact your AWS account team to begin the onboarding<br>process. |
+| Toll-free prefixes: +84 1800, +84 1900 | Yes                        | The agent must be located within Vietnam. | Vietnamese phone numbers are available through our telephony<br>partner. Contact your AWS account team to begin the onboarding<br>process. |
+
+**Additional requirements for Vietnam**
+
+- **Agent physical presence** – The
+  telephony partner requires that agents who use Vietnamese phone numbers are
+  physically located in Vietnam. Configure IP-based access restrictions to meet
+  this requirement.
+- **Authentication profiles (preview)** – If
+  you use Vietnam telephony, configure authentication profiles for IP-based access
+  control. This feature is in preview, and onboarding takes as much as 3 weeks.
+  Contact your Solutions Architect, Technical Account Manager (TAM), or AWS
+  Support to request access before you begin the Vietnam onboarding process. For
+  more information, see [Set IP address restrictions and session timeouts in Connect Customer](authentication-profiles.md "authentication-profiles.md").
 
 ### Number portability
 

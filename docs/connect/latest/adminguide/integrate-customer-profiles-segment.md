@@ -1,7 +1,7 @@
 # Set up integration for Segment to provide periodic updates to Connect Customer Customer Profiles
 
 To provide periodic updates to Connect Customer Customer Profiles, you can integrate with Segment using
-Amazon AppFlow. You first set up the connection in Connect Customer and Segment, and then verify the
+Amazon EventBridge. You first set up the connection in Connect Customer and Segment, and then verify the
 Segment integration.
 
 ## Set up the connection in Connect Customer and Segment

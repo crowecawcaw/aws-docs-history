@@ -236,9 +236,9 @@ the callback by configuring the **Caller ID number to display**
 option in the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block,
 as shown in the following image.
 
-![The optional parameters section showing Caller ID number to display options.](images/transfer-to-callback-caller-id-display.png) 15. The callback contact is a new contact separate from the inbound voice contact.
-You can optionally control the experience of this callback contact when it is
-created by configuring the **Set creation flow** option in the
+![The optional parameters section showing Caller ID number to display options.](images/transfer-to-callback-caller-id-display.png) 15. The callback is a new contact, separate from the original inbound voice
+contact. You can optionally choose which flow runs when this callback contact is
+created. To do so, set the **Set creation flow** option in the
 [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md")
 block, as shown in the following image.
 

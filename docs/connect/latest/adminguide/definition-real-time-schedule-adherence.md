@@ -14,7 +14,11 @@ Select this table from the Real-time metrics page or from within an
 existing report. This table has the same functionality as an existing
 agents table, but with the additional metrics listed below.
 
-- [Agent adherence](queue-performance-dashboard.md#agent-adherence-dashboard "queue-performance-dashboard.md#agent-adherence-dashboard") widget on the
+By default, this table filters to show non-adherent agents. To
+view all agents or agents who are not currently scheduled, adjust the
+filters in the table settings.
+
+- [Current agent adherence](queue-performance-dashboard.md#current-agent-adherence-dashboard "queue-performance-dashboard.md#current-agent-adherence-dashboard") widget on the
   **Queue and agent performance** dashboard.
 
 This widget provides detailed agent adherence information that you can

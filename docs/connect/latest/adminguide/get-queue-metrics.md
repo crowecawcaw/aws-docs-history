@@ -118,12 +118,24 @@ the returned metrics. Use the following steps:
 2. In the **Check contact attributes** block, set
    **Attribute to check** to **Queue
    metrics**.
-3. In the **Value** dropdown box, you'll see a list of
-   metrics that can be checked by the **Get
-   metrics** block. Choose the metric that you want to use for
-   the routing decision.
+3. In the **Value** dropdown box, you see a list of
+   metrics that the **Get metrics** block can check. Choose
+   the metric that you want to use for the routing decision.
 
 ![Attribute to check section, dropdown list of available metrics.](images/get-metrics-block-returned-metrics.png)
+
+###### Contact-level metrics
+
+**Contact estimated wait time** and **Contact
+position in queue** are contact-level metrics. They appear in
+the **Queue metrics** namespace only when you turn on
+**Get contact metrics** in the **Get
+metrics** block. In a flow, you reference them as
+`$.Metrics.Contact.EstimatedWaitTime` and
+`$.Metrics.Contact.PositionInQueue`. For a full list of the
+returned attributes, see [Contact Metric attributes](connect-attrib-list.md#attribs-contact-metrics-table "connect-attrib-list.md#attribs-contact-metrics-table").
+
+**Contact estimated wait time** requires [Next Generation Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md").
 
 ### Why Get metrics block throws an error
 

@@ -224,7 +224,7 @@ Connect Customer requires phone numbers in [E.164](https://www.itu.int/rec/T-REC
 To express a US phone number in E.164 format, add the '+' prefix and the country
 code in front of the number. For example, for a US number:
 
-- +1-800-555-1212
+- +18005551212
 
 In the UK and many other countries internationally, local dialing requires the
 addition of a 0 in front of the subscriber number. However, to use E.164 formatting,

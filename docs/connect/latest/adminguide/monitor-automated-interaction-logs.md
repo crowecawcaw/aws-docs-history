@@ -34,7 +34,7 @@ Lock](../../../AmazonS3/latest/userguide/object-lock.md "../../../AmazonS3/lates
 
 3. In the navigation pane, choose **Flows**.
 4. Under the **Amazon Lex Bots** section, select
-   **Enable Bot Analytics and Transcripts in
+   **Enable Bot Analytics, Transcripts, and AI Agent Traces in
    Amazon Connect**. Choose this option to log a full transcript
    of the Amazon Lex portion of the customer's experience. The transcript and
    traces is then available for you to read on the
@@ -42,8 +42,9 @@ Lock](../../../AmazonS3/latest/userguide/object-lock.md "../../../AmazonS3/lates
 
 ###### Note
 
-If you previously enabled **Bot Analytics and Transcripts
-in Amazon Connect** (prior to June 5, 2026), you must
+If you previously enabled **Bot Analytics, Transcripts, and
+AI Agent Traces in Amazon Connect** (prior to June 5, 2026),
+you must
 disable and re-enable this setting to activate the AI agent traces
 feature. 5. Under the **Automated interaction logs** section,
 select **Enable Automated Interaction Logs**. This
@@ -72,19 +73,29 @@ The following image shows an example of an automated interaction log on the
 
 ![An example of an automated interaction log.](images/automated-interaction-log.png)
 
+###### Note
+
+AI agent trace details are currently available for the voice channel.
+
 ###### To navigate the log
 
 1. Use tabs to toggle between the automated interaction and agent interaction
    to see the end-to-end interaction of your customer.
 2. Choose **Show flow & trace details** to show or
    hide system details about the flows and flow blocks.
-3. Choose the flow and block hyperlinks to open the flow designer in a new
-   tab, enabling you to quickly follow along with your flow.
-4. Choose **Play** to play the specific prompt within your
-   audio recording file.
 
 ###### Note
 
-If no audio recording is available, there is no option to play the
-prompt. 5. Quickly see where errors have occurred including customer timeouts or
-Lambda function errors. 6. See where bot intents are detected and resolved. 7. To learn more about enabling AI agent traces, see [AI agent traces](ai-agent-traces.md "ai-agent-traces.md").
+Please allow up to 30 minutes after a contact terminates for the
+Automated Interaction Log to become available, and the toggle to be
+activated. 3. Choose the flow and block hyperlinks to open the flow designer in a new
+tab, enabling you to quickly follow along with your flow. 4. Choose **Play** to play the specific prompt within your
+audio recording file.
+
+###### Note
+
+If no audio recording is available, the Play option does not
+appear. 5. Quickly see where errors have occurred including customer timeouts or
+Lambda function errors. 6. See where bot intents are detected and resolved. 7. Knowledge base citation reference is available under the Prompt
+(inference span) under Span details, when configured and available. To
+ensure you have your citations configured, see [Knowledge base retrieval configuration](multiple-knowledge-base-setup-and-content-segmentation.md#add-citation-data-ai-agent-trace "multiple-knowledge-base-setup-and-content-segmentation.md#add-citation-data-ai-agent-trace"). 8. To learn more about enabling AI agent traces, see [AI agent traces](ai-agent-traces.md "ai-agent-traces.md").

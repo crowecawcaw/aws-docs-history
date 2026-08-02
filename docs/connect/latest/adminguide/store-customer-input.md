@@ -17,11 +17,23 @@ block:
   to respond to.
 - Stores numerical input as in the [Stored customer input](connect-attrib-list.md#attribs-system-table "connect-attrib-list.md#attribs-system-table") system attribute.
 - Allows you to specify a custom terminating keypress.
-- If
-  during a call the customer doesn't enter any input, the contact is routed
-  down the **Success branch** branch with a value of Timeout.
-  Add a **Check contact attributes** block to check for
-  timeouts.
+- When a call
+  includes no customer input, the contact takes the **Success
+  branch**. The [Stored
+  customer input](connect-attrib-list.md#attribs-system-table "connect-attrib-list.md#attribs-system-table") system attribute holds a value of
+  `Timeout`.
+
+###### Check for a timeout
+
+To route contacts that time out, add a [Check contact attributes](check-contact-attributes.md "check-contact-attributes.md") block after the **Store customer
+input** block. For the attribute to check, choose the
+**System** namespace and the **Stored customer
+input** attribute. Then add a condition that checks whether the
+value equals `Timeout`.
+
+The **Stored customer input** attribute holds only the result
+of the most recent **Store customer input** block. Timeouts in
+other flow blocks do not change its value.
 
 ## Supported channels
 
