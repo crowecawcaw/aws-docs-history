@@ -50,8 +50,8 @@ The following are some Multi-Region key replication limitations and consideratio
 - A Replica Region key cannot be configured to replicate to other AWS Regions.
 - Multi-Region key replication is available for symmetric Payment Cryptography keys like Triple Data
   Encryption Standard (3DES), Advanced Encryption Standard (AES), and Hash-based
-  Message Authentication Code (HMAC).
-- Asymmetric Payment Cryptography keys do not support Multi-Region key replication.
+  Message Authentication Code (HMAC), as well as asymmetric Payment Cryptography keys
+  such as RSA and Elliptic Curve Cryptography (ECC).
 - Replica Region key are read-only keys. All changes to the Primary Region key will be applied to the
   Replica Region keys.
 - Primary Region key changes are eventually consistent with Replica Region keys.
