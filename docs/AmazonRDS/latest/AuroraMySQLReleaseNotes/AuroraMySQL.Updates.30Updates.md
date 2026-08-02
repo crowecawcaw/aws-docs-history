@@ -7,6 +7,7 @@ The following are database engine updates for Amazon Aurora MySQL version 3.
 - [Aurora MySQL database engine updates 2026-02-17 (version 3.12.0, compatible with MySQL 8.0.44)](AuroraMySQL.Updates.3120.md "AuroraMySQL.Updates.3120.md")
 - [Aurora MySQL database engine updates 2025-12-16 (version 3.11.1, compatible with MySQL 8.0.43)](AuroraMySQL.Updates.3111.md "AuroraMySQL.Updates.3111.md")
 - [Aurora MySQL database engine updates 2025-11-13 (version 3.11.0, compatible with MySQL 8.0.43)](AuroraMySQL.Updates.3110.md "AuroraMySQL.Updates.3110.md")
+- [Aurora MySQL database engine updates 2026-07-30 (version 3.10.5, compatible with MySQL 8.0.42)](AuroraMySQL.Updates.3105.md "AuroraMySQL.Updates.3105.md")
 - [Aurora MySQL database engine updates 2026-03-30 (version 3.10.4, compatible with MySQL 8.0.42)](AuroraMySQL.Updates.3104.md "AuroraMySQL.Updates.3104.md")
 - [Aurora MySQL database engine updates 2026-01-02 (version 3.10.3, compatible with MySQL 8.0.42)](AuroraMySQL.Updates.3103.md "AuroraMySQL.Updates.3103.md")
 - [Aurora MySQL database engine updates 2025-11-20 (version 3.10.2, compatible with MySQL 8.0.42)](AuroraMySQL.Updates.3102.md "AuroraMySQL.Updates.3102.md")

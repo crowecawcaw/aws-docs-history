@@ -29,10 +29,13 @@ If you have any questions or concerns, AWS Support is available on the community
 - Aurora MySQL version 3.10 extends the in-memory relay log cache support for binary log
   replicas. This feature, first introduced in [version
   3.05](AuroraMySQL.Updates.3050.md "AuroraMySQL.Updates.3050.md"), can improve binary log replication throughput by up to 40%. The in-memory
-  relay log cache is enabled by default for single-threaded binary log replication,
-  multi-threaded replication with [GTID auto-positioning](https://dev.mysql.com/doc/refman/8.0/en/replication-gtids-auto-positioning.html "https://dev.mysql.com/doc/refman/8.0/en/replication-gtids-auto-positioning.html") enabled, and starting with version 3.10, it’s also enabled
-  for multi-threaded replication with [`replica_preserve_commit_order = ON`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_preserve_commit_order "https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_preserve_commit_order") (even without GTIDs). You can
-  control this feature using a new parameter in 3.10, [`aurora_in_memory_relaylog`](../AuroraUserGuide/AuroraMySQL.Reference.ParameterGroups.md "../AuroraUserGuide/AuroraMySQL.Reference.ParameterGroups.md"). For more information, see [Binary log optimizations in Aurora MySQL](../AuroraUserGuide/binlog-optimization.md "../AuroraUserGuide/binlog-optimization.md").
+  relay log cache is turned off by default. To turn it on, set the
+  `aurora_in_memory_relaylog` parameter to `ON` in the
+  DB cluster parameter group or DB instance parameter group. For more information about
+  this parameter, see [Aurora MySQL parameters](../AuroraUserGuide/AuroraMySQL.Reference.ParameterGroups.md "../AuroraUserGuide/AuroraMySQL.Reference.ParameterGroups.md"). The feature supports single-threaded binary log replication
+  and multi-threaded replication with [GTID auto-positioning](https://dev.mysql.com/doc/refman/8.0/en/replication-gtids-auto-positioning.html "https://dev.mysql.com/doc/refman/8.0/en/replication-gtids-auto-positioning.html"). Starting with
+  version 3.10, the feature also supports multi-threaded replication with [replica\_preserve\_commit\_order = ON](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_preserve_commit_order "https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_preserve_commit_order"), even
+  without GTIDs. For more information, see [Binary log optimizations in Aurora MySQL](../AuroraUserGuide/binlog-optimization.md "../AuroraUserGuide/binlog-optimization.md").
 - Amazon Aurora has doubled its maximum storage capacity from 128 TiB to 256 TiB,
   enabling larger workloads in a single database cluster. To use the increased storage limit
   with Aurora MySQL, upgrade your cluster to version 3.10 (compatible with MySQL 8.0.42) or
