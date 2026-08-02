@@ -67,6 +67,25 @@ delete any stacks across any of the target accounts.
 By structuring permissions in this manner, users don't pass an administration role
 when creating or updating a StackSet.
 
+###### Important
+
+Even when you don't specify the `AdministrationRoleARN` parameter,
+the IAM principal calling `CreateStackSet` or
+`UpdateStackSet` must have `iam:PassRole` permission for
+the **AWSCloudFormationStackSetAdministrationRole** role.
+CloudFormation requires this permission to use the default administration role on
+your behalf.
+
+The following example policy grants the required permission:
+
+```
+{
+    "Effect": "Allow",
+    "Action": "iam:PassRole",
+    "Resource": "arn:aws:iam::`account-id`:role/AWSCloudFormationStackSetAdministrationRole"
+}
+```
+
 ![Any user in the administrator account can then create any StackSet in target accounts after setting up a trust relationship.](images/stacksets_perms_master_target.png)
 
 Administrator account
