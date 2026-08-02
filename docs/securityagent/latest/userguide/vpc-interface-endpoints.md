@@ -10,7 +10,7 @@ For more information, see [Access AWS services through AWS PrivateLink](../../..
 
 Before you set up an interface endpoint for Security Agent, review [Considerations](../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints "../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints") in the _AWS PrivateLink Guide_.
 
-Security Agent supports making calls to all of its API actions from your VPC, including operations for managing agent spaces, penetration tests, and security findings.
+Security Agent supports making calls to all of its API actions from your VPC, including operations for managing Agent Spaces, penetration tests, and security findings.
 
 You can select IPv4, IPv6, or dualstack when creating an endpoint.
 

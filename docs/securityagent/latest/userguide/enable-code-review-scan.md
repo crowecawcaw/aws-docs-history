@@ -69,7 +69,7 @@ If you haven’t registered a GitHub integration yet, choose **Settings** to nav
 On the **Manage capabilities** step of the **Connect GitHub** wizard, choose what AWS Security Agent can do in each repository. **Code review comments** and **Code remediation** are set independently per repository.
 
 1. For each repository, toggle **Code review comments** on to have AWS Security Agent post security findings as comments on pull requests.
-2. For each repository, toggle **Code remediation** on to let AWS Security Agent fix findings. When enabled, web app users can request pull requests that fix findings, and pull request authors can comment `@AWS-Security-Agent fix all findings.` to have the agent address its review comments.
+2. For each repository, toggle **Code remediation** on to let AWS Security Agent fix findings. When enabled, web application users can request pull requests that fix findings, and pull request authors can comment `@AWS-Security-Agent fix all findings.` to have the agent address its review comments.
 3. Choose **Save** to apply your selections and return to the code review setup wizard.
 
 When **Code review comments** is enabled for a repository:
@@ -82,7 +82,7 @@ When **Code review comments** is enabled for a repository:
 
 Pull request comments are only available for private GitHub repositories.
 
-When **Code remediation** is enabled for a repository, web app users can start remediation for both code review and penetration test findings on that repository, and AWS Security Agent delivers each fix as a pull request. For more information, see [Enable users to start remediation of penetration test and code review findings](enable-remediate-findings.md "enable-remediate-findings.md").
+When **Code remediation** is enabled for a repository, web application users can start remediation for both code review and penetration test findings on that repository, and AWS Security Agent delivers each fix as a pull request. For more information, see [Enable users to start remediation of penetration test and code review findings](enable-remediate-findings.md "enable-remediate-findings.md").
 
 For more information about how pull request findings appear in GitHub and how to respond to them, see [Review code security findings in pull requests](review-code-findings-github.md "review-code-findings-github.md").
 

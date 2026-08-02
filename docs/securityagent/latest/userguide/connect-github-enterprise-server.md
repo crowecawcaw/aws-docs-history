@@ -10,9 +10,11 @@ GitHub Enterprise Server is registered through the **GitHub** integration, not a
 
 ## How GitHub Enterprise Server integration works
 
-**Code review** happens within GitHub Enterprise Server. After you authorize the connection and connect repositories in the AWS Management Console, you can enable code review for specific repositories. AWS Security Agent will then automatically analyze pull requests in those repositories.
+**Pull request analysis** happens within GitHub Enterprise Server. After you authorize the connection, connect repositories, and enable code review comments in the AWS Management Console, AWS Security Agent automatically scans the changes in each new pull request (a differential scan of just the changed code) and posts findings as pull request comments.
 
-**Penetration testing** and **threat modeling** are initiated within the AWS Security Agent Web Application. Users specify target domains and select connected repositories to provide application context. If you enable automated remediation, users can request AWS Security Agent to fix findings by opening pull requests to connected repositories.
+You create and run **full code reviews** — which scan a repository’s entire codebase — in the AWS Security Agent web application, not in GitHub Enterprise Server.
+
+**Penetration testing** and **threat modeling** are initiated within the AWS Security Agent web application. Users specify target domains and select connected repositories to provide application context. If you enable automated remediation, users can request AWS Security Agent to fix findings by opening pull requests to connected repositories.
 
 ## Prerequisites
 

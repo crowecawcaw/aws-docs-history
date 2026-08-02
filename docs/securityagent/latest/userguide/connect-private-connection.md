@@ -1,14 +1,10 @@
 # Connect to privately hosted source control
 
-###### Important
-
-Private connections is in preview release for AWS Security Agent and is subject to change.
-
 AWS Security Agent can connect to source control systems running in private networks, such as GitLab Self-Managed instances and GitHub Enterprise Server. Private connections use Amazon VPC Lattice to establish secure connectivity between AWS Security Agent and your private infrastructure without exposing your systems to the public internet.
 
 ## How private connections work
 
-A private connection creates a secure network path between AWS Security Agent and a target resource in your VPC. Under the hood, AWS Security Agent uses Amazon VPC Lattice to establish this connectivity.
+A private connection creates a secure network path between AWS Security Agent and a target resource in your VPC. Under the hood, AWS Security Agent uses Amazon VPC Lattice to establish this connectivity. VPC Lattice is an AWS application networking service for connecting, securing, and monitoring traffic between services across VPCs and accounts, without you managing the underlying network infrastructure.
 
 When you create a private connection:
 
@@ -83,7 +79,8 @@ When you select a private connection for a provider that uses OAuth authenticati
    3. (Optional) In the **Certificate public key** field, enter the PEM-encoded public key if your target uses a self-signed certificate or a private certificate authority. This lets AWS Security Agent trust the TLS connection.
 
 9. (Self-managed) Under **Existing resource configuration**, for **Resource configuration**, select a VPC Lattice resource configuration from the list, or enter a resource configuration ID (beginning with `rcfg-`) or its ARN. The list shows resource configurations in the current Region.
-10. Choose **Create connection**.
+10. (Optional) Under **Tags**, add one or more tags to the private connection. Each tag is a key-value pair that helps you organize and identify your resources.
+11. Choose **Create connection**.
 
 The connection status changes to **Create in progress**. This can take up to 10 minutes. When complete, the status changes to **Available**.
 
@@ -122,6 +119,40 @@ After the private connection reaches the **Available** status, verify connectivi
 ###### Important
 
 You cannot delete a private connection that is currently in use by an integration. Remove the integration first, then delete the private connection.
+
+## Advanced setup using existing VPC Lattice resources
+
+If your organization already uses Amazon VPC Lattice and manages your own resource configurations, you can create a private connection in self-managed mode. You provide the Amazon Resource Name (ARN) of an existing resource configuration that points to your target service. You manage the resource gateway yourself, rather than having AWS Security Agent create one.
+
+Consider self-managed mode when you want to:
+
+- Control the resource gateway and resource configuration lifecycle yourself.
+- Share a resource configuration across multiple AWS accounts or services.
+- Use VPC Lattice access logs for detailed traffic monitoring.
+- Run a hub-and-spoke network architecture.
+
+To use an existing resource configuration, select **Use existing resource configuration** when you create the private connection, then choose a configuration under **Existing resource configuration**. For the full console steps, see [Create a private connection](#create-a-private-connection "#create-a-private-connection") earlier on this page.
+
+The resource configuration picker lists configurations in the current console Region. If the list is empty or access is denied, enter a resource configuration ID (starting with `rcfg-`) or its ARN directly.
+
+###### Note
+
+To populate the resource configuration picker, AWS Security Agent needs the `vpc-lattice:ListResourceConfigurations` permission. If this call returns an access-denied error, the picker falls back to manual entry. You can paste the resource configuration ID or ARN instead.
+
+In self-managed mode, AWS Security Agent does not collect a certificate public key in the console. Your resource configuration defines the target service and its TLS settings.
+
+For more information about creating VPC Lattice resource gateways and resource configurations, see the [Amazon VPC Lattice User Guide](../../../vpc-lattice/latest/ug.md "../../../vpc-lattice/latest/ug.md").
+
+## Cross-Region connectivity
+
+You must create a private connection in the same AWS Region as your Agent Space. If your target service runs in a different Region, use self-managed mode with inter-Region Amazon VPC peering or AWS Transit Gateway peering.
+
+Follow this pattern:
+
+1. Establish inter-Region connectivity between a VPC in the Agent Space Region and the target service’s VPC. Use VPC peering or Transit Gateway peering. The VPC CIDR ranges must not overlap.
+2. Create a VPC Lattice resource gateway in the Agent Space Region, in a VPC that has the peering connection.
+3. Create a VPC Lattice resource configuration in the Agent Space Region that points to the target service’s IP address. The address must be routable through the peering connection.
+4. Create a self-managed private connection that uses that resource configuration ARN.
 
 ## Next steps
 

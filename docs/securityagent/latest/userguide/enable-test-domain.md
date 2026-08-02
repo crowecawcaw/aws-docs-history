@@ -66,7 +66,7 @@ This method proves domain ownership by placing a unique token on your web server
 
 ###### Note
 
-If your domain is registered in multiple agent spaces and you are using HTTP route validation, you can place the tokens for both agent spaces in the same `tokens` array.
+If your domain is registered in multiple Agent Spaces and you are using HTTP route validation, you can place the tokens for both Agent Spaces in the same `tokens` array.
 
 ## Bypass domain ownership verification
 

@@ -1,6 +1,6 @@
 # Enable users to start remediation of penetration test and code review findings
 
-In the AWS Management Console, you can enable automatic remediation so users of the AWS Security Agent web app can request fixes for a specific finding. AWS Security Agent delivers each fix as a GitHub pull request on the affected repository.
+In the AWS Management Console, you can enable automatic remediation so users of the AWS Security Agent web application can request fixes for a specific finding. AWS Security Agent delivers each fix as a GitHub pull request on the affected repository.
 
 You enable remediation per repository from within an Agent Space. The **Penetration test** and **Code review** tabs open the same repository configuration wizard, so you can use either tab to manage the **Automatic remediation enabled** setting. Remediation applies to findings from both capabilities, so you only need to enable it once per repository.
 
@@ -44,4 +44,4 @@ After you reach the repository capabilities step through either path above:
 1. In the **Automatic remediation enabled** column, mark each repository you want remediated as **Enabled**.
 2. Choose **Connect** to save the configuration.
 
-Users of the web app can now start remediation for findings on these repositories, and AWS Security Agent will open pull requests with the proposed fixes.
+Users of the web application can now start remediation for findings on these repositories, and AWS Security Agent opens pull requests with the proposed fixes.

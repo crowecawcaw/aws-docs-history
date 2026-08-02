@@ -1,21 +1,26 @@
 # Connect AWS Security Agent to GitHub repositories
 
-Connect your AWS Security Agent to GitHub repositories to enable code review and penetration testing capabilities. AWS Security Agent supports both cloud-hosted GitHub and cloud-hosted GitHub Enterprise. GitHub integration serves multiple purposes:
+Connect your AWS Security Agent to GitHub repositories to enable code review, threat modeling, penetration testing, and automated remediation capabilities. AWS Security Agent supports both cloud-hosted GitHub and cloud-hosted GitHub Enterprise. Before you begin, review [How integrations work with Agent Spaces](about-integrations.md "about-integrations.md") to understand how a registration is reused across Agent Spaces and shared across capabilities.
+
+GitHub integration serves multiple purposes:
 
 ###### Note
 
 This page covers cloud-hosted GitHub (github.com) and cloud-hosted GitHub Enterprise. For self-hosted GitHub Enterprise Server, see [Connect AWS Security Agent to GitHub Enterprise Server](connect-github-enterprise-server.md "connect-github-enterprise-server.md").
 
-- **Code review** - Automatically analyze pull requests against your organizational security requirements
-- **Penetration testing context** - Provide application understanding by analyzing source code, data flows, and architecture
-- **Automated remediation** - Submit pull requests with fixes for vulnerabilities discovered during penetration testing
+- **Code review** - Automatically analyze the code changes in each pull request against your organizational security requirements, and run on-demand full-repository scans
+- **Threat modeling** - Provide application understanding by analyzing source code, data flows, and architecture
+- **Penetration testing context** - Provide application understanding for penetration testing by analyzing source code
+- **Automated remediation** - Submit pull requests with fixes for vulnerabilities discovered during security assessments
   Connecting GitHub to AWS Security Agent requires authorizing the AWS Security Agent GitHub App for your GitHub organization or user account, then registering the connection in the AWS Console.
 
 ## How GitHub integration works
 
-**Code review** happens within GitHub. After you authorize the GitHub App and connect repositories in the AWS Management Console, you can enable code review for specific repositories. AWS Security Agent will then automatically analyze pull requests in those repositories. You review the findings directly in GitHub as pull request comments.
+**Pull request analysis** happens within GitHub. After you authorize the GitHub App, connect repositories, and enable code review comments in the AWS Management Console, AWS Security Agent automatically scans the changes in each new pull request (a differential scan of just the changed code) and posts findings as pull request comments.
 
-**Penetration testing** is initiated within the AWS Security Agent Web Application. Users specify target domains and select connected repositories to provide application context. If you enable automated remediation, users can request AWS Security Agent to fix findings by opening pull requests to connected repositories.
+You create and run **full code reviews** — which scan a repository’s entire codebase — in the AWS Security Agent web application, not in GitHub.
+
+**Penetration testing** and **threat modeling** are initiated within the AWS Security Agent web application. Users select connected repositories to provide application context, and specify target domains for penetration testing. If you enable automated remediation, users can request AWS Security Agent to fix findings by opening pull requests to connected repositories.
 
 ## Prerequisites
 
@@ -23,7 +28,7 @@ Before you begin, ensure you have:
 
 - GitHub organization admin access or GitHub user account owner access
 - Permissions to configure integrations for your Agent Space in the AWS Management Console
-- Understanding of which repositories you want to connect for code review and penetration testing
+- Understanding of which repositories you want to connect for code review, threat modeling, and penetration testing
 
 ###### Important
 
@@ -34,6 +39,30 @@ A GitHub App can only be installed once to a GitHub account or GitHub organizati
 If your GitHub enterprise organization has enabled IP allowlisting, you must accept the allowed IP addresses on the GitHub app. You can also choose to automatically add the IP addresses to your allow list. For more information, see [Allowing access by GitHub Apps](https://docs.github.com/en/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization#allowing-access-by-github-apps "https://docs.github.com/en/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization#allowing-access-by-github-apps") and [Enabling allowed IP addresses](https://docs.github.com/en/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization#enabling-allowed-ip-addresses "https://docs.github.com/en/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization#enabling-allowed-ip-addresses") in the GitHub documentation.
 
 The following IP addresses are used to access your GitHub resources:
+
+- US East (N. Virginia) (us-east-1)
+
+  - `34.228.181.128`
+  - `44.219.176.187`
+  - `54.226.244.221`
+
+- US West (Oregon) (us-west-2)
+
+  - `34.212.16.133`
+  - `52.89.67.212`
+  - `54.187.135.61`
+
+- Asia Pacific (Mumbai) (ap-south-1)
+
+  - `13.126.209.199`
+  - `13.234.6.24`
+  - `35.154.102.216`
+
+- Asia Pacific (Singapore) (ap-southeast-1)
+
+  - `18.139.13.125`
+  - `47.130.240.215`
+  - `54.179.238.173`
 
 - Asia Pacific (Sydney) (ap-southeast-2)
 
@@ -59,17 +88,11 @@ The following IP addresses are used to access your GitHub resources:
   - `52.30.157.157`
   - `52.51.192.222`
 
-- US East (N. Virginia) (us-east-1)
+- South America (São Paulo) (sa-east-1)
 
-  - `34.228.181.128`
-  - `44.219.176.187`
-  - `54.226.244.221`
-
-- US West (Oregon) (us-west-2)
-
-  - `34.212.16.133`
-  - `52.89.67.212`
-  - `54.187.135.61`
+  - `54.94.247.213`
+  - `54.207.222.14`
+  - `54.232.201.242`
 
 ## Authorize and register the AWS Security Agent GitHub App
 

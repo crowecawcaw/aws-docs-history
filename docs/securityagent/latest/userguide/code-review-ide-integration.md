@@ -12,7 +12,7 @@ The IDE integration uses the AWS Security Agent MCP (Model Context Protocol) ser
 4. AWS Security Agent analyzes the code for security vulnerabilities and compliance with your organization’s security requirements.
 5. Findings are returned to the IDE with code locations, descriptions, severity ratings, and remediation suggestions.
 
-The MCP server handles all orchestration — agent space provisioning, S3 bucket creation, IAM role setup, code packaging, and scan polling — so you only need AWS credentials configured locally.
+The MCP server handles all orchestration — Agent Space provisioning, S3 bucket creation, IAM role setup, code packaging, and scan polling — so you only need AWS credentials configured locally.
 
 ###### Note
 
@@ -95,7 +95,7 @@ On first use, the MCP server automatically provisions the required AWS resources
 
 | Resource         | Name convention                           | Purpose                                                        |
 | ---------------- | ----------------------------------------- | -------------------------------------------------------------- |
-| Agent Space      | User-chosen or auto-created               | Container for scans, reviews, and pentests                     |
+| Agent Space      | User-chosen or auto-created               | Container for scans, reviews, and penetration tests            |
 | IAM service role | `SecurityAgentScanRole`                   | Assumed by `securityagent.amazonaws.com` to read uploaded code |
 | S3 bucket        | `security-agent-scans-{account}-{region}` | Stores zipped source code (30-day auto-expiry lifecycle)       |
 

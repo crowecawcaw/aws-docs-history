@@ -2,7 +2,7 @@
 
 Configure AWS Security Agent for your organization by creating your first Agent Space and establishing how users will access the web application.
 
-This initial setup enables administrators to configure security capabilities in the AWS Console and provides users with access to design review and penetration testing through the Security Agent Web Application. After this one-time setup, you can create additional Agent Spaces with a simplified process.
+This initial setup enables administrators to configure security capabilities in the AWS Console and provides users with access to design review and penetration testing through the Security Agent web application. After this one-time setup, you can create additional Agent Spaces with a simplified process.
 
 ## Overview
 
@@ -27,7 +27,7 @@ Each Agent Space contains:
 
 During this first-time setup, you’ll make organizational decisions that apply to all Agent Spaces:
 
-- **Access method** - Choose how users will access the Security Agent Web Application (IAM Identity Center SSO or IAM-only access through the AWS Console)
+- **Access method** - Choose how users will access the Security Agent web application (IAM Identity Center SSO or IAM-only access through the AWS Console)
 - **Permissions** - Configure the IAM role that the web application uses to access AWS services
 - **First Agent Space** - Create your initial Agent Space with a name and description
 
@@ -61,7 +61,7 @@ The description helps distinguish the Agent Space’s purpose. We recommend desc
 
 ## Step 2: Choose your access method
 
-Select how users will access the Security Agent Web Application. You choose between enabling SSO access through IAM Identity Center or providing access through the AWS Console.
+Select how users will access the Security Agent web application. You choose between enabling SSO access through IAM Identity Center or providing access through the AWS Console.
 
 ###### Note
 
@@ -101,7 +101,7 @@ If you’re already managing users in Active Directory or another identity sourc
 
 ## Step 3: Configure permissions (Optional)
 
-Configure the IAM role that your Security Agent Web Application uses to access AWS services, APIs, and accounts.
+Configure the IAM role that your Security Agent web application uses to access AWS services, APIs, and accounts.
 
 1. Locate the **Permissions configuration - optional** section.
 2. If the section is collapsed, choose the **Permissions configuration** section to expand it.
@@ -118,7 +118,7 @@ A default IAM role will be created for your web application to access other AWS 
 
 ## Step 4: Complete setup
 
-After configuring all required settings, complete the setup to create your first Agent Space and establish the Security Agent Web Application.
+After configuring all required settings, complete the setup to create your first Agent Space and establish the Security Agent web application.
 
 1. Review all configuration sections to ensure accuracy.
 2. Choose **Set up**.

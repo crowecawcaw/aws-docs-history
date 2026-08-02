@@ -1,6 +1,6 @@
 # Review findings from a penetration test
 
-Monitor pentest execution in real time on the Penetration Test Logs page after AWS Security Agent starts a pentest. AWS Security Agent logs every action during the pentest. After completion, review the pentest summary, which includes application overview, coverage with identified endpoints, and risk assessment of security findings.
+Monitor penetration test execution in real time on the Penetration Test Logs page after AWS Security Agent starts a penetration test. AWS Security Agent logs every action during the penetration test. After completion, review the penetration test summary, which includes application overview, coverage with identified endpoints, and risk assessment of security findings.
 
 Evaluate security findings to address application vulnerabilities. Each finding contains impact assessment, severity rating, supporting evidence and remediation pull request details (when automatic code remediation is enabled).
 
@@ -43,11 +43,11 @@ Each step displays a status indicator (Complete, In progress, or Pending). Findi
 
 1. Run Summary section provides test status, duration and other high level details. It also provides a dashboard of security findings categorized by severity level and risk-types
 2. Application overview by AWS Security Agent provides a summary of the penetration test run
-3. Discovered endpoints by AWS Security Agent provides a list of all endpoints discovered and tested by the AWS Security agent during the pentest run
+3. Discovered endpoints by AWS Security Agent provides a list of all endpoints discovered and tested by the AWS Security agent during the penetration test run
 
 ## Step 4: Navigate to the penetration test logs tab
 
-Access detailed logs of all actions AWS Security Agent executed during the pentest.
+Access detailed logs of all actions AWS Security Agent executed during the penetration test.
 
 1. The actions are categorized by action type and risk-types.
 2. Select a specific action to view detailed logs:
@@ -77,14 +77,7 @@ Review the information displayed on each finding card:
 
 - **Finding name** – The title and identifier for the vulnerability
 - **Confidence badge** – Indicates the agent’s confidence level in the finding (High, Medium, or Low)
-- **Severity badge** – Shows the risk level with color coding:
-
-  - **Critical** (red) – Requires immediate action; exploitation could lead to system compromise
-  - **High** (red) – Requires prompt attention; exploitation could result in significant security impact
-  - **Medium** (orange) – Should be addressed in a reasonable timeframe; contributes to overall security risk
-  - **Low** (yellow) – Can be addressed as part of regular maintenance; minimal immediate risk
-  - **Informational** (blue) – For informational purposes; minimal to no immediate risk
-
+- **Severity badge** – Shows the color-coded risk level (Critical, High, Medium, Low, or Informational). For what each level means, see [Severity ratings and CVSS metrics](severity-and-cvss.md "severity-and-cvss.md").
 - **Last update timestamp** – Shows when the finding was last modified or validated
 - **Description preview** – Brief summary of the vulnerability
 
@@ -115,17 +108,7 @@ If a finding displays the Unknown "This finding is not validated by AWS Security
     * Why it represents a security risk
     * The potential impact on your application
 
-5. Expand the **Risk Reasoning** section to understand the severity calculation:
-
-    * CVSS (Common Vulnerability Scoring System) metrics breakdown
-    * Attack Vector (AV) – How the vulnerability can be exploited
-    * Attack Complexity (AC) – How difficult the exploit is
-    * Privileges Required (PR) – What access level is needed
-    * User Interaction (UI) – Whether user action is required
-    * Scope (S) – Whether the vulnerability affects other components
-    * Confidentiality, Integrity, and Availability impacts
-
-6. Expand the **Steps to reproduce** section to view:
+5. Expand the **Risk Reasoning** section to see the CVSS metrics breakdown that shows how the severity was calculated. For what each metric means, see [Severity ratings and CVSS metrics](severity-and-cvss.md "severity-and-cvss.md"). 6. Expand the **Steps to reproduce** section to view:
 
     * Detailed technical steps to recreate the vulnerability
     * Request and response examples
@@ -215,39 +198,23 @@ When Findings Personalization is enabled, AWS Security Agent learns from all edi
 
 For the **status** field, only marking a finding as **FALSE\_POSITIVE** is treated as a learnable preference. Changes to other status values do not trigger learning.
 
-On the next pentest run, the agent evaluates new findings against your learned preferences and applies adjustments where applicable. A **Personalization changes** section appears on any finding that was adjusted, explaining what was changed.
+On the next penetration test run, the agent evaluates new findings against your learned preferences and applies adjustments where applicable. A **Personalization changes** section appears on any finding that was adjusted, explaining what was changed.
 
 ###### Note
 
-Personalization only learns from edits made in the most recent completed pentest run. The feature must be enabled at the time the pentest starts for learning to occur. If you edit the same finding in a later run, the most recent edit takes precedence — the agent updates its preferences to reflect your latest decision.
+Personalization only learns from edits made in the most recent completed penetration test run. The feature must be enabled at the time the penetration test starts for learning to occur. If you edit the same finding in a later run, the most recent edit takes precedence — the agent updates its preferences to reflect your latest decision.
 
 ### Enable or disable Findings Personalization
 
 Findings Personalization is enabled by default. To disable or re-enable it:
 
-1. Navigate to your pentest configuration.
+1. Navigate to your penetration test configuration.
 2. Locate the **Findings Personalization** toggle.
 3. To enable Findings Personalization, turn on the toggle. To disable, turn it off.
 
 When disabled, findings appear in their raw agent-produced state with no personalization applied. Previously learned preferences are preserved and will be applied again if the feature is re-enabled.
 
-## Step 7: Interpret CVSS metrics
-
-Understanding CVSS metrics helps you assess the true severity and prioritize remediation efforts.
-
-When reviewing the **Reasoning** section, pay attention to these key metrics:
-
-- **Attack Vector (Network/Adjacent/Local/Physical)** – Indicates how remotely the attack can be executed
-- **Attack Complexity (Low/High)** – Shows whether specialized conditions are required to exploit
-- **Privileges Required (None/Low/High)** – Identifies what access level an attacker needs
-- **User Interaction (None/Required)** – Determines if the exploit needs user involvement
-- **Confidentiality/Integrity/Availability Impact (None/Low/High)** – Measures the impact on your system’s security
-
-###### Important
-
-Findings with Network attack vector, Low complexity, and High confidentiality/integrity impact represent the most dangerous vulnerabilities requiring immediate attention.
-
-## Step 8: Prioritize and address findings
+## Step 7: Prioritize and address findings
 
 Take action on findings to remediate vulnerabilities and improve your application’s security posture.
 
@@ -261,7 +228,7 @@ For **Critical** and **High** severity findings with **High** confidence:
    - For manual requests: Choose 'Remediation Code' on the findings page to request a pull request
      **Prerequisites:**
    - Admin must enable code remediation for GitHub repositories in the AWS Security Agent console
-   - Repositories must be included in your pentest configuration
+   - Repositories must be included in your penetration test configuration
 
 4. Plan for a follow-up penetration test to verify the fix is effective.
 
@@ -276,7 +243,7 @@ For **Medium** and **Low** severity findings:
 
 Do not ignore low-severity findings. Multiple low-severity vulnerabilities can often be chained together to create more serious exploits, especially when combined with social engineering or physical access.
 
-## Step 9: Track remediation progress
+## Step 8: Track remediation progress
 
 Use the findings interface to track which vulnerabilities have been addressed and which require further action.
 

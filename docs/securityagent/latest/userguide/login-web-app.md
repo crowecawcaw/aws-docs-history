@@ -1,6 +1,6 @@
-# Log in to the AWS Security Agent Web App
+# Log in to the AWS Security Agent web application
 
-You should log in to the AWS Security Agent Web App to complete tasks such as:
+You should log in to the AWS Security Agent web application to complete tasks such as:
 
 - Perform a design review
 - Perform a penetration test
@@ -15,7 +15,7 @@ AWS Security Agent provides different methods to access the web application, dep
 
 ###### Note
 
-The primary access method your organization uses was determined during initial AWS Security Agent setup. For information on configuring user access and assignments, see [Grant users access to the AWS Security Agent web app](grant-user-access.md "grant-user-access.md").
+The primary access method your organization uses was determined during initial AWS Security Agent setup. For information on configuring user access and assignments, see [Grant users access to the AWS Security Agent web application](grant-user-access.md "grant-user-access.md").
 
 ## Log in with IAM Identity Center (SSO)
 

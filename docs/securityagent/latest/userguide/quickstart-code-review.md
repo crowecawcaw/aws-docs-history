@@ -4,7 +4,14 @@ This quickstart walks you through running your first code review with AWS Securi
 
 ###### Note
 
-You need access to the AWS Management Console to set up code review
+You need access to the AWS Management Console to set up AWS Security Agent, and access to the web application to create and run code reviews.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- Access to the AWS Management Console with permissions to set up AWS Security Agent.
+- A source code repository (GitHub, GitLab, or Bitbucket) or an Amazon S3 source that contains the code you want to review.
 
 ## Step 1: Set up AWS Security Agent in the AWS console
 
@@ -12,17 +19,17 @@ If you haven’t already set up AWS Security Agent, complete the initial setup:
 
 1. Navigate to [AWS Security Agent](https://console.aws.amazon.com/securityagent/ "https://console.aws.amazon.com/securityagent/") in the AWS Management Console.
 2. Select **Set up AWS Security Agent**.
-3. Create an Agent Space. An agent space can be used by multiple users and should be specific for every application you want to test. Enter a name and description for your first agent space. This name appears to users in the web application. The name should identify the application whose code you want to review.
+3. Create an Agent Space. An Agent Space can be used by multiple users and should be specific for every application you want to secure. Enter a name and description for your first Agent Space. This name appears to users in the web application. The name should identify the application you want to secure.
 4. Select **IAM-only access** under _User access configuration_.
 
-   - This quickstart does not cover enabling single sign-on (SSO) with IAM Identity Center. This allows users to directly access the AWS Security Agent web application, from the AWS Console.
-   - If you want to enable users without AWS Management Console Access to perform tasks such as starting a penetration test or design review, you should enable the IAM Identity Center integration.
+   - This quickstart does not cover enabling single sign-on (SSO) with IAM Identity Center. With IAM Identity Center enabled, you can access the web application directly from the AWS Console.
+   - To let users without AWS Management Console access use AWS Security Agent, enable the IAM Identity Center integration. For details, see [Grant users access to the AWS Security Agent web application](grant-user-access.md "grant-user-access.md").
 
 5. Choose **Set up AWS Security Agent**.
 
 ###### Note
 
-When you choose Set up, AWS Security Agent will create your Agent Space, and establish a web application where your users can carry out design reviews and penetration tests.
+When you choose Set up, AWS Security Agent creates your Agent Space and establishes a web application where users can run penetration tests, code reviews, threat models, and design reviews.
 
 ## Step 2: Enable and configure code review
 
@@ -35,7 +42,7 @@ If you already have GitHub repositories or S3 buckets connected to your Agent Sp
 1. From the left sidebar, select **Agent Spaces** and then select your Agent Space.
 2. Select **Enable code review** from the header or the **Code review** tab.
 
-### Step 1: Connect integrations, repos, and buckets
+### Connect integrations, repositories, and buckets
 
 1. **(If you don’t have a GitHub integration yet)** Create a GitHub registration. If you already have one, skip to the next step.
 
@@ -66,7 +73,7 @@ If you already have GitHub repositories or S3 buckets connected to your Agent Sp
 4. Select your **Code review settings**. The default, **Security requirements and vulnerability findings**, analyzes code for both compliance with the security requirements you’ve enabled and common vulnerabilities.
 5. Choose **Next**.
 
-### Step 2: Optional configurations
+### Optional configurations
 
 1. Configure optional CloudWatch log groups and service access. The default service role is pre-configured with the required permissions.
 2. Choose **Save**.
@@ -77,13 +84,13 @@ If you already have GitHub repositories or S3 buckets connected to your Agent Sp
 
 You create and run code reviews only in the AWS Security Agent web application.
 
-1. Select the **Web app** tab and then **Admin access** to launch the AWS Security Agent web application. Alternatively, if you have IAM Identity Center configured, log in directly.
+1. Select the **Web app** tab and then **Admin access** to launch the AWS Security Agent web application.
 2. In the left sidebar, choose **Code reviews**.
 3. Choose **Create code review**.
 4. Configure the code review:
 
    1. Enter a **Title** that identifies the scope of this review (for example, "billing-service-security-review").
-   2. Under **Sources**, select the GitHub repositories or enter the S3 sources you want to scan.
+   2. Under **Sources**, select the GitHub repositories you connected to your Agent Space in Step 2, or enter the S3 sources you want to scan.
    3. Select the **Service role** from your configured roles.
    4. (Optional) Select **Enable automatic code remediation** to have AWS Security Agent automatically submit pull requests with fixes for all findings.
 
@@ -93,9 +100,12 @@ You create and run code reviews only in the AWS Security Agent web application.
 ## Step 4: Review code review findings
 
 1. The code review typically takes 30–60 minutes depending on the size of your codebase.
-2. Once complete, navigate to the completed run and select the **Findings** tab.
-3. Review findings in the list-detail view:
+2. The run begins with a **Preflight** phase that validates the setup before the scan starts: it confirms AWS Security Agent can pull your source code from your repository or S3 source and sets up the scanning environment. If a preflight check fails (for example, it can’t access your source), the run stops before static analysis. Open the **Preflight** tab to see which check failed, resolve it, and start a new run.
+3. Once complete, navigate to the completed run and select the **Findings** tab.
+4. Review findings in the list-detail view:
 
    1. Select a finding from the left panel to view its details.
-   2. Review the **Description**, **Code locations**, and **Risk reasoning** sections.
+   2. Review the **Description**, **Code locations**, **Evidence**, and **Suggested fix** sections.
    3. Use **Remediate code** to generate a pull request with a fix, or review automatic remediation PRs if you enabled that option.
+
+For more details, see [Create a code review](perform-code-review-scan.md "perform-code-review-scan.md") and [Review findings from a code review](review-code-scan-findings.md "review-code-scan-findings.md").

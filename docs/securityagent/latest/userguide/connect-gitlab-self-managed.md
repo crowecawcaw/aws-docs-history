@@ -56,6 +56,18 @@ Service-managed private connections require the GitLab Self-Managed instance to 
 
 In addition to the troubleshooting steps in [Connect AWS Security Agent to GitLab repositories](connect-gitlab.md "connect-gitlab.md"), the following issues are specific to self-managed instances:
 
+### 401 Unauthorized through a private connection
+
+#### Symptoms
+
+- An operation such as `ListResourcesFromIntegration` returns `GITLAB authentication failed: Invalid or expired token` with the body `{"message":"401 Unauthorized"}`
+
+#### Resolution
+
+- A GitLab `401` response means the request **reached** your GitLab instance and GitLab rejected the credentials. This confirms that DNS resolution, TLS, and the private connection (VPC Lattice resource gateway and resource configuration) are all working. The problem is the access token, not connectivity, so do not troubleshoot the private connection for this error.
+- Resolve it as a token issue. See the **Invalid or expired token**, **Missing or insufficient token scope**, and **Group access token requires a paid GitLab.com tier** sections in [Connect AWS Security Agent to GitLab repositories](connect-gitlab.md "connect-gitlab.md").
+- By contrast, a connection **timeout** or a **TLS error** (rather than a GitLab JSON response) indicates a network or certificate problem. See **Instance unreachable** and **TLS certificate errors** below.
+
 ### Instance unreachable
 
 #### Symptoms

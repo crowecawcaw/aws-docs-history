@@ -1,4 +1,4 @@
-# Grant users access to the AWS Security Agent web app
+# Grant users access to the AWS Security Agent web application
 
 AWS Security Agent provides two methods for users to access the web application, depending on how you configured your Agent Space during setup.
 

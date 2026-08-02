@@ -10,34 +10,34 @@ For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/a
 
 ## AWS managed policy: SecurityAgentWebAppAPIPolicy
 
-Grants permissions to interact with the Security Agent Web Application API. This policy enables users to configure and execute automated security penetration tests, manage test executions, view security findings, and access Security Agent resources. This policy references the legacy Agent Instance resource type and specific legacy IAM actions.
+Grants permissions to interact with the Security Agent web application API. This policy enables users to configure and execute automated security penetration tests, manage test executions, view security findings, and access Security Agent resources. This policy references the legacy Agent Instance resource type and specific legacy IAM actions.
 
 **Permissions details**
 
 This policy grants permissions to interact with the Security Testing Control service (securityagent:\*) for:
 
-- Pentest Management: Create, update, delete, and list penetration tests and their execution jobs
+- Penetration Test Management: Create, update, delete, and list penetration tests and their execution jobs
 - Security Findings: View, describe, and update security findings from completed tests, including related content and metadata.
 - Task Management: List and retrieve code review and documentation review tasks
 - Resource Discovery: List and view agent instances, artifacts, integrations, and discovered endpoints
-- Test Execution: Start and stop pentest executions with real-time monitoring capabilities
+- Test Execution: Start and stop penetration test executions with real-time monitoring capabilities
 - Code Remediation: Start automated code remediation for security findings
 
 To view the latest version of the JSON policy document, see [SecurityAgentWebAppAPIPolicy](../../../aws-managed-policy/latest/reference/SecurityAgentWebAppAPIPolicy.md "../../../aws-managed-policy/latest/reference/SecurityAgentWebAppAPIPolicy.md") in the AWS Managed Policy Reference Guide.
 
 ## AWS managed policy: AWSSecurityAgentWebAppPolicy
 
-Grants permissions to interact with the Security Agent Web Application API. This policy enables users to configure and execute automated security penetration tests, manage test executions, view security findings, and access Security Agent resources.
+Grants permissions to interact with the Security Agent web application API. This policy enables users to configure and execute automated security penetration tests, manage test executions, view security findings, and access Security Agent resources.
 
 **Permissions details**
 
 This policy grants permissions to interact with the Security Testing Control service (securityagent:\*) for:
 
-- Pentest Management: Create, update, delete, and list penetration tests and their jobs
+- Penetration Test Management: Create, update, delete, and list penetration tests and their jobs
 - Security Findings: View, describe, and update security findings from completed tests, including related content and metadata.
 - Task Management: List and retrieve code review and design review tasks
-- Resource Discovery: List and view agent spaces, artifacts, integrations, and discovered endpoints
-- Test Execution: Start and stop pentest jobs with real-time monitoring capabilities
+- Resource Discovery: List and view Agent Spaces, artifacts, integrations, and discovered endpoints
+- Test Execution: Start and stop penetration test jobs with real-time monitoring capabilities
 - Code Remediation: Start automated code remediation for security findings
 
 To view the latest version of the JSON policy document, see [AWSSecurityAgentWebAppPolicy](../../../aws-managed-policy/latest/reference/AWSSecurityAgentWebAppPolicy.md "../../../aws-managed-policy/latest/reference/AWSSecurityAgentWebAppPolicy.md") in the AWS Managed Policy Reference Guide.

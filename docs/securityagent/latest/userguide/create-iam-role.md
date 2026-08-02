@@ -3,8 +3,8 @@
 AWS Security Agent uses IAM Roles in three ways:
 
 1. **Application Role:** Used when creating the AWS Security Agent application. For IAM Identity Center and admin access link use cases, the service assumes this role to grant WebApp users permissions to interact with AWS Security Agent APIs.
-2. **Penetration Test Service Role:** Specified when creating agent spaces as a list of available roles. Later, WebApp users select one of these roles when creating a penetration test. AWS Security Agent service assumes this role to access your AWS resources during testing.
-3. **Actor Role:** Used to authenticate and authorize requests to your target web application (for example, AWS API Gateway APIs). These roles are provided during agent space creation. The AWS Security Agent agent assumes actor roles to interact with your target application.
+2. **Penetration Test Service Role:** Specified when creating Agent Spaces as a list of available roles. Later, WebApp users select one of these roles when creating a penetration test. AWS Security Agent service assumes this role to access your AWS resources during testing.
+3. **Actor Role:** Used to authenticate and authorize requests to your target web application (for example, AWS API Gateway APIs). These roles are provided during Agent Space creation. The AWS Security Agent agent assumes actor roles to interact with your target application.
 
 ## Application Role
 
@@ -66,7 +66,7 @@ Customize the permissions based on your specific application requirements and pr
 
 ## Penetration Test Service Role
 
-The Penetration Test Service Role is specified when creating agent spaces as a list of available roles. When WebApp users create a penetration test, they select one of these roles. The AWS Security Agent service then assumes this role to access and test your AWS resources.
+The Penetration Test Service Role is specified when creating Agent Spaces as a list of available roles. When WebApp users create a penetration test, they select one of these roles. The AWS Security Agent service then assumes this role to access and test your AWS resources.
 
 ### Required Permissions
 
@@ -146,7 +146,7 @@ Grant only the minimum permissions required for your penetration testing scope. 
 
 ## Actor Role
 
-The Actor Role is used to authenticate and authorize requests to your target web application during penetration testing. These roles are provided during agent space creation, and the AWS Security Agent agent assumes them to interact with your target application endpoints (such as AWS API Gateway APIs, Lambda function URLs, or other AWS-hosted applications).
+The Actor Role is used to authenticate and authorize requests to your target web application during penetration testing. These roles are provided during Agent Space creation, and the AWS Security Agent agent assumes them to interact with your target application endpoints (such as AWS API Gateway APIs, Lambda function URLs, or other AWS-hosted applications).
 
 ### Required Permissions
 

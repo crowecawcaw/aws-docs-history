@@ -170,4 +170,4 @@ After you configure your security requirement packs:
 
 - Create a design review or code review to evaluate your application against the packs you enabled.
 - Enable penetration testing to complement your design and code reviews.
-- Grant users access to the AWS Security Agent web app.
+- Grant users access to the AWS Security Agent web application.

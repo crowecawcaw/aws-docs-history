@@ -50,7 +50,7 @@ Sub-domains of a verified domain do not require individual verification when usi
 
 ###### Note
 
-For private domains inside a VPC, you can proceed even if the domain verification status is UNREACHABLE. AWS Security Agent will attempt domain verification for private endpoints at the start of each pentest run.
+For private domains inside a VPC, you can proceed even if the domain verification status is UNREACHABLE. AWS Security Agent will attempt domain verification for private endpoints at the start of each penetration test run.
 
 ## Step 3: (Optional) Configure additional capabilities
 

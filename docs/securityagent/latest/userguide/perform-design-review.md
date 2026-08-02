@@ -17,7 +17,7 @@ Before you begin, ensure you have:
 
 ## Step 1: Start creating a design review
 
-Navigate to the design review creation page in the Agent Web App.
+Navigate to the design review creation page in the web application.
 
 1. Log in to the AWS Security Agent web application.
 2. Navigate to the **Design reviews** section.
@@ -73,7 +73,7 @@ The design review process typically completes within minutes, depending on the n
 
 After starting your design review:
 
-- Monitor the review progress in the Agent Web App
+- Monitor the review progress in the web application
 - Review security findings
 - Share findings with your development team
 - Address identified security findings in your design

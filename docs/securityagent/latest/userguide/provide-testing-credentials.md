@@ -92,7 +92,19 @@ Use this option for complex authentication systems, dynamic credential generatio
 
 The IAM role must have `lambda:InvokeFunction` permissions and the function must complete within 30 seconds.
 
-The agent invokes your Lambda function and receives its output as credentials. Use the **Agent Space login prompt** to tell the agent how to apply those credentials to your application, just as with Secrets Manager. Refer to [Select static credential from connected AWS Secrets Manager](#provide-testing-credentials-secrets-manager "#provide-testing-credentials-secrets-manager") for examples of how to format the output of your Lambda function and supported authentication types.
+When the penetration test runs, AWS Security Agent invokes your AWS Lambda function synchronously and passes an event that identifies the penetration test and the specific credential being resolved:
+
+```
+{
+  "pentest_arn": "arn:aws:securityagent:us-west-2:111122223333:pentest/pt-abcd1234-5678-90ab-cdef-EXAMPLE11111",
+  "actor_identifier": "Credential1"
+}
+```
+
+- `pentest_arn` – The Amazon Resource Name (ARN) of the penetration test that the credential is being resolved for. Use it to scope, authorize, or audit the request within your function.
+- `actor_identifier` – The **Credential name** you assigned to this credential in the console (for example, `Credential1`). Use it to return the correct credential when a single function serves multiple credentials.
+
+The agent uses the function’s output directly as the credential. Use the **Agent Space login prompt** to tell the agent how to apply those credentials to your application, the same way you would with AWS Secrets Manager. Refer to [Select static credential from connected AWS Secrets Manager](#provide-testing-credentials-secrets-manager "#provide-testing-credentials-secrets-manager") for examples of how to format the output of your Lambda function and supported authentication types.
 
 ## Configure multiple credentials
 
@@ -104,11 +116,11 @@ To test different user roles or authentication systems:
 
 ## Login Optimization
 
-Login Optimization allows AWS Security Agent to learn navigation patterns from previous pentest runs and apply them to subsequent runs. These patterns include login flows and multi-step authentication workflows. This reduces the time the agent spends re-discovering how to authenticate, resulting in faster scans and more consistent testing coverage.
+Login Optimization allows AWS Security Agent to learn navigation patterns from previous penetration test runs and apply them to subsequent runs. These patterns include login flows and multi-step authentication workflows. This reduces the time the agent spends re-discovering how to authenticate, resulting in faster scans and more consistent testing coverage.
 
 ### How Login Optimization works
 
-On the first pentest run, the agent discovers how to navigate your application’s login flow using the credentials you provide. It records the successful navigation steps and generates a skill file that captures the learned login workflow.
+On the first penetration test run, the agent discovers how to navigate your application’s login flow using the credentials you provide. It records the successful navigation steps and generates a skill file that captures the learned login workflow.
 
 On subsequent runs, the agent reads the saved skill file and applies the learned navigation pattern directly, skipping the discovery phase. This means:
 
@@ -123,7 +135,7 @@ Login Optimization learns during the first login session within a run. Subsequen
 
 Login Optimization is enabled by default. To disable or re-enable it:
 
-1. In the pentest configuration, navigate to the **Authentication credentials - optional** section.
+1. In the penetration test configuration, navigate to the **Authentication credentials - optional** section.
 2. Locate the **Login Optimization** toggle.
 3. To enable Login Optimization, turn on the toggle. To disable, turn it off.
 

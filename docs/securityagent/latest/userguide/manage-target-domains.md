@@ -1,6 +1,6 @@
 # Managed target domains used for penetration testing
 
-In the AWS Management Console, you can add and manage target domains consumed by agent spaces for penetration testing. These target domains will need to be verified before they can be used in a penetration test. For more information about verifying target domains, see [Enable penetration test](enable-penetration-test.md "enable-penetration-test.md")
+In the AWS Management Console, you can add and manage target domains consumed by Agent Spaces for penetration testing. You must verify these target domains before you can use them in a penetration test. For more information about verifying target domains, see [Enable penetration test](enable-penetration-test.md "enable-penetration-test.md")
 
 ## Prerequisites
 
@@ -15,12 +15,12 @@ Before you begin, ensure you have:
 
   - If you don’t see any target domains associated with your account, follow the steps in [Enable penetration test](enable-penetration-test.md "enable-penetration-test.md") to create and verify a target domain
 
-- Target domains can be reused between agent spaces and share verification status
+- Target domains can be reused between Agent Spaces and share verification status
 
-  - To add an existing target domain to an agent space, navigate to the **Penetration test** tab of the agent space. Select **Add domain** and choose the desired domain under **Select from available previously registered domains** in the domain name field
-  - Target domains must be associated with an agent space before they can be used in a penetration test
+  - To add an existing target domain to an Agent Space, navigate to the **Penetration test** tab of the Agent Space. Select **Add domain** and choose the desired domain under **Select from available previously registered domains** in the domain name field
+  - Target domains must be associated with an Agent Space before they can be used in a penetration test
 
-- Removing a domain from an agent space does not delete the domain. The associated target domain can be permanently deleted from the Target Domains overview page
+- Removing a domain from an Agent Space does not delete the domain. The associated target domain can be permanently deleted from the Target Domains overview page
 
 ## Verify target domains
 

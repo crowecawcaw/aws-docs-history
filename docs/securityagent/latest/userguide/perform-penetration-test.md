@@ -17,7 +17,7 @@ Before you begin, ensure you have:
 
 ## Start creating a penetration test
 
-Navigate to the penetration test creation page in the Agent Web App.
+Navigate to the penetration test creation page in the web application.
 
 1. Log in to the AWS Security Agent web application.
 2. Navigate to the **Penetration tests** section.
@@ -275,7 +275,7 @@ Choose from resources that are already integrated with AWS Security Agent.
 
 ###### Example
 
-We recommend selecting and adding relevant GitHub repositories to your pentest, so AWS Security Agent can develop an understanding of your application context, and generate ready-to-implement code fixes through pull requests (when enabled)
+We recommend selecting and adding relevant GitHub repositories to your penetration test, so AWS Security Agent can develop an understanding of your application context, and generate ready-to-implement code fixes through pull requests (when enabled)
 
 ###### Note
 
@@ -283,7 +283,7 @@ Resources selected from available sources remain synchronized with their origina
 
 ###### Note
 
-If you have a private VPC associated with your pentest and a GitHub repository configured, ensure that GitHub is accessible via your private VPC for pulling GitHub resources. In most cases, you will need to either ensure that outbound traffic via [VPC NAT Gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") is allowed by default or configure specific rules to allow outbound traffic for GitHub IPs (see [GitHub Meta API Endpoint](https://api.github.com/meta "https://api.github.com/meta"))
+If you have a private VPC associated with your penetration test and a GitHub repository configured, ensure that GitHub is accessible through your private VPC for pulling GitHub resources. In most cases, you need to either ensure that outbound traffic through [VPC NAT Gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") is allowed by default or configure specific rules to allow outbound traffic for GitHub IPs (see [GitHub Meta API Endpoint](https://api.github.com/meta "https://api.github.com/meta"))
 
 ### Upload new resources
 
@@ -352,4 +352,4 @@ Before running a penetration test, verify that:
 
 ###### Note
 
-After the penetration test starts, you can monitor its progress from the **Penetration test runs** section. The test may take several hours depending on the scope and complexity of your application.
+After the penetration test starts, you can monitor its progress from the **Penetration test runs** section. The test can take several hours to complete. Most complete within 16 hours, depending on the scope and complexity of your application.

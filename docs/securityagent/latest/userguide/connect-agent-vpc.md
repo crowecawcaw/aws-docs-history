@@ -17,7 +17,7 @@ fd00::/8
 
 When connecting to a subnet, AWS Security Agent will create an ENI ([Elastic Network Interface](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md")) in the subnet configured for the penetration test. This ENI does not have an associated public IP address, meaning that it cannot communicate with [VPC Internet Gateways](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") in public subnets. If your penetration test requires open internet access, please use a private subnet with an associated [VPC NAT Gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") instead
 
-You grant AWS Security Agent general access to a VPC from the AWS Management Console. In the Security Agent web app, users select the specific configuration for a penetration test.
+You grant AWS Security Agent general access to a VPC from the AWS Management Console. In the Security Agent web application, users select the specific configuration for a penetration test.
 
 ## To add a VPC in the Agent Space
 
@@ -27,9 +27,9 @@ You grant AWS Security Agent general access to a VPC from the AWS Management Con
 
 You can add up to 5 VPCs.
 
-## Required agent space service role permissions
+## Required Agent Space service role permissions
 
-In order to run a penetration test with a VPC, your agent space service role must include the following permissions:
+To run a penetration test with a VPC, your Agent Space service role must include the following permissions:
 
 ```
 {
@@ -66,7 +66,7 @@ In order to run a penetration test with a VPC, your agent space service role mus
 }
 ```
 
-## To select a specific VPC configuration for a penetration test in the Security Agent web app
+## To select a specific VPC configuration for a penetration test in the Security Agent web application
 
 1. Navigate to the Penetration Tests overview page
 2. Select the penetration test that you need to add VPC configuration for, and then choose **Modify pentest details**
@@ -102,6 +102,6 @@ aws ram create-resource-share \
 3. Verify that the IAM role grants access to the shared VPC resources
 4. Select **Actions** and then **Edit penetration test configuration**
 5. Under the **VPC** heading, specify the shared **VPC**, **Subnets**, and **Security groups** and save the updated configuration.
-6. Navigate to the Penetration Tests overview page on the AWS Security Agent web app
+6. Navigate to the Penetration Tests overview page on the AWS Security Agent web application
 7. Select the penetration test that you need to add VPC configuration for, and then choose **Modify pentest details**
 8. Update the penetration test to use the shared VPC resources

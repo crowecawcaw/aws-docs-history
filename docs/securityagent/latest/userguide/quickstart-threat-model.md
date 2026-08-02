@@ -6,23 +6,30 @@ This quickstart walks you through running your first threat model with AWS Secur
 
 You need access to the AWS Management Console to set up AWS Security Agent, and access to the web application to create and run threat models.
 
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- Access to the AWS Management Console with permissions to set up AWS Security Agent.
+- At least one input for the agent to analyze: design documents to upload as scope docs, or a source code repository (GitHub, GitLab, or Bitbucket) or Amazon S3 source to provide as context.
+
 ## Step 1: Set up AWS Security Agent in the AWS console
 
 If you haven’t already set up AWS Security Agent, complete the initial setup:
 
 1. Navigate to [AWS Security Agent](https://console.aws.amazon.com/securityagent/ "https://console.aws.amazon.com/securityagent/") in the AWS Management Console.
 2. Select **Set up AWS Security Agent**.
-3. Create an Agent Space. An agent space can be used by multiple users and should be specific for every application you want to secure. Enter a name and description for your first agent space. The name should identify the application you want to threat model.
+3. Create an Agent Space. An Agent Space can be used by multiple users and should be specific for every application you want to secure. Enter a name and description for your first Agent Space. This name appears to users in the web application. The name should identify the application you want to secure.
 4. Select **IAM-only access** under _User access configuration_.
 
-   - This quickstart does not cover enabling single sign-on (SSO) with IAM Identity Center. This allows users to directly access the AWS Security Agent web application from the AWS Console.
-   - If you want to enable users without AWS Management Console access to perform tasks such as starting a threat model, you should enable the IAM Identity Center integration.
+   - This quickstart does not cover enabling single sign-on (SSO) with IAM Identity Center. With IAM Identity Center enabled, you can access the web application directly from the AWS Console.
+   - To let users without AWS Management Console access use AWS Security Agent, enable the IAM Identity Center integration. For details, see [Grant users access to the AWS Security Agent web application](grant-user-access.md "grant-user-access.md").
 
 5. Choose **Set up AWS Security Agent**.
 
 ###### Note
 
-When you choose Set up, AWS Security Agent creates your Agent Space and establishes a web application where your users can carry out threat models and other security assessments.
+When you choose Set up, AWS Security Agent creates your Agent Space and establishes a web application where users can run penetration tests, code reviews, threat models, and design reviews.
 
 ## Step 2: Connect source code
 

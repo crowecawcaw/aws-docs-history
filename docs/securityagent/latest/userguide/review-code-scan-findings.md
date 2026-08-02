@@ -85,13 +85,7 @@ By default, you see only findings with **High** agent confidence. To also show f
 3. Review the information displayed on each finding card:
 
    - **Finding title** – A descriptive name summarizing the security issue
-   - **Severity badge** – Color-coded severity indicator:
-
-     - **Critical** (red) – Requires immediate action; exploitation could lead to system compromise
-     - **High** (red) – Requires prompt attention; exploitation could result in significant security impact
-     - **Medium** (orange) – Should be addressed in a reasonable timeframe; contributes to overall security risk
-     - **Low** (yellow) – Can be addressed as part of regular maintenance; minimal immediate risk
-
+   - **Severity badge** – Color-coded risk level (Critical, High, Medium, or Low). For what each level means, see [Severity ratings and CVSS metrics](severity-and-cvss.md "severity-and-cvss.md").
    - **Last updated** – Timestamp of when the finding was last updated
 
 ## Step 7: Review finding details
@@ -133,11 +127,16 @@ Select individual findings to view comprehensive information about each vulnerab
    - A brief description of what was found at each location
    - Line number badges linking to the relevant code
 
-7. Expand the **Risk reasoning** section to understand:
+7. Expand the **Evidence** section to review:
 
-   - Why this finding represents a security risk
-   - How the vulnerability could be exploited in practice
-   - References to relevant security standards or best practices
+   - The specific code, configuration, or observations that support the finding
+   - A short explanation of why each item demonstrates the vulnerability
+   - The affected files and line numbers for each piece of evidence
+
+8. Expand the **Suggested fix** section to view:
+
+   - The changes AWS Security Agent recommends to remediate the finding
+   - Example code or configuration for each recommended change
 
 ###### Tip
 

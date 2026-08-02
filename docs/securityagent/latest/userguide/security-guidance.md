@@ -28,7 +28,7 @@ AWS Security Agent provides on-demand penetration testing that discovers and rep
 
 #### How does AWS Security Agent authenticate and maintain access to systems?
 
-Penetration testing is the only capability in AWS Security Agent that can authenticate to a user’s system at runtime. The AWS Security Agent accepts credentials in the form of static username and password credentials (stored in Secrets Manager), or a credential vendor (as a Lambda Function) as configuration before starting the pen test. These credentials are used to exercise the normal functionality of the user’s system/application through the lifecycle of the pen test. We encourage users to create new credentials with appropriately scoped permissions for the purposes of pentesting.
+Penetration testing is the only capability in AWS Security Agent that can authenticate to a user’s system at runtime. The AWS Security Agent accepts credentials in the form of static username and password credentials (stored in Secrets Manager), or a credential vendor (as a Lambda Function) as configuration before starting the penetration test. These credentials are used to exercise the normal functionality of the user’s system/application through the lifecycle of the penetration test. We encourage users to create new credentials with appropriately scoped permissions for the purposes of penetration testing.
 
 #### Can users control the scope and depth of testing to prevent unintended system impacts?
 
@@ -44,21 +44,21 @@ AWS Security Agent allows users to upload artifacts to provide context about the
 
 #### What controls are present to block unauthorized testing against an endpoint?
 
-Endpoints that are specified as target URLs for pentesting will require DNS validation or HTTP validation as a measure of ownership. AWS Security Agent will ask the customer to add a TXT record to the endpoint’s DNS or expose an HTTP Route returning validation string as proof of ownership. Only after demonstrating proof of ownership will the user be able to proceed with a pentest. Requests to URLs outside of the target and accessible URLs will be blocked by the network.
+Endpoints that are specified as target URLs for penetration testing will require DNS validation or HTTP validation as a measure of ownership. AWS Security Agent will ask the customer to add a TXT record to the endpoint’s DNS or expose an HTTP Route returning validation string as proof of ownership. Only after demonstrating proof of ownership will the user be able to proceed with a penetration test. Requests to URLs outside of the target and accessible URLs will be blocked by the network.
 
 Customers are responsible for ensuring they have proper authorization to test all systems that may be affected by their penetration testing activities. All use of AWS Security Agent must comply with the AWS Acceptable Use Policy (https://aws.amazon.com/aup/).
 
 #### How do users block and report any abuse using AWS Security Agent?
 
-AWS Security Agent continuously monitors requests and attempts to access URLs that are outside of the target URLs. If abuse is detected, such as attempting to use AWS Security Agent to conduct unauthorized testing on a third party endpoint, any ongoing pentests in the account will be terminated. Customers can reach out to AWS Support or their AWS account team for help.
+AWS Security Agent continuously monitors requests and attempts to access URLs that are outside of the target URLs. If abuse is detected, such as attempting to use AWS Security Agent to conduct unauthorized testing on a third party endpoint, any ongoing penetration tests in the account will be terminated. Customers can reach out to AWS Support or their AWS account team for help.
 
-#### Can AWS Security Agent replace pen testing workflow?
+#### Can AWS Security Agent replace penetration testing workflow?
 
-AWS Security Agent is not a professional penetration testing service, and we encourage users to integrate AWS Security Agent into their security review workflow. AWS Security Agent can provide accessibility to penetration testing on-demand during the development phase of the software lifecycle when engaging with pentesting professionals would be too early, impractical, or need to be re-evaluated too frequently. Security professionals can review findings from AWS Security Agent to validate them, explain them, or extend upon them for new novel findings (if they exist).
+AWS Security Agent is not a professional penetration testing service, and we encourage users to integrate AWS Security Agent into their security review workflow. AWS Security Agent can provide accessibility to penetration testing on-demand during the development phase of the software lifecycle when engaging with penetration testing professionals would be too early, impractical, or need to be re-evaluated too frequently. Security professionals can review findings from AWS Security Agent to validate them, explain them, or extend upon them for new novel findings (if they exist).
 
 #### Can users set up role-based access control (RBAC) for different team members?
 
-Yes. AWS Security Agent integrates with AWS IAM Identity Center, allowing admins to manage team members who can access the AWS Security Agent web application which allows users to create, manage and view design reviews and pentests.
+Yes. AWS Security Agent integrates with AWS IAM Identity Center, allowing admins to manage team members who can access the AWS Security Agent web application which allows users to create, manage and view design reviews and penetration tests.
 
 ### Testing Capabilities
 
@@ -142,11 +142,11 @@ AWS Security Agent uses deterministic validators to help validate the reported f
 
 #### Can AWS Security Agent adapt to custom application logic?
 
-AWS Security Agent optionally accepts source code, threat model, design documents, and API documentation as **Additional Learning Resources** to gain user-directed context on the target application used in the lifecycle of a pentest.
+AWS Security Agent optionally accepts source code, threat model, design documents, and API documentation as **Additional Learning Resources** to gain user-directed context on the target application used in the lifecycle of a penetration test.
 
 #### Can users review AWS Security Agent testing methodology before execution?
 
-Currently there is no way to preview AWS Security Agent’s course of action. The AWS Security Agent plan is dynamic in nature based on its exploration of the target application. Customers can monitor AWS Security Agent as it goes through its exploration in real time by observing the penetration test logs. If logs show an invalid or undesirable trajectory, customers can stop ongoing pentest run.
+Currently there is no way to preview the course of action for AWS Security Agent. The AWS Security Agent plan is dynamic in nature based on its exploration of the target application. Customers can monitor AWS Security Agent as it goes through its exploration in real time by observing the penetration test logs. If logs show an invalid or undesirable trajectory, customers can stop ongoing penetration test run.
 
 ### Integration & Deployment
 
@@ -164,18 +164,18 @@ AWS Security Agent can be configured to run with specific IAM roles, inside VPCs
 
 #### Can multiple team members run tests simultaneously?
 
-AWS Security Agent supports 5 concurrent pentest runs per account, independent of who starts the test. Customers can create a maximum of 100 Agent Spaces and 1,000 Pentest projects.
+AWS Security Agent supports 5 concurrent penetration test runs per account, independent of who starts the test. Customers can create a maximum of 100 Agent Spaces and 1,000 penetration test projects.
 
 ### Operational Impact
 
 #### What’s the performance impact on tested systems?
 
-AWS Security Agent has guardrails to prevent it from disrupting or taking down endpoints under test. This includes velocity controls on number of calls that AWS Security Agent can make to an endpoint. System or the endpoint under test should expect some increase in traffic and potential monitoring alerts being triggered due to the pen test activity. Our recommendation is to only run AWS Security Agent or any pen testing activity in pre-production environment.
+AWS Security Agent has guardrails to prevent it from disrupting or taking down endpoints under test. This includes velocity controls on number of calls that AWS Security Agent can make to an endpoint. System or the endpoint under test should expect some increase in traffic and potential monitoring alerts being triggered due to the penetration test activity. Our recommendation is to only run AWS Security Agent or any penetration testing activity in pre-production environment.
 
 #### Can users schedule or throttle AWS Security Agent?
 
-AWS Security Agent does not have public APIs or the ability to schedule the pen test runs. AWS Security Agent also does not offer a concurrency control on requests to the target endpoint when starting the pen test run. If AWS Security Agent is causing problems for target endpoints, customers can stop the ongoing pentest(s).
+AWS Security Agent does not have public APIs or the ability to schedule the penetration test runs. AWS Security Agent also does not offer a concurrency control on requests to the target endpoint when starting the penetration test run. If AWS Security Agent is causing problems for target endpoints, customers can stop the ongoing penetration test(s).
 
 #### What’s the typical duration for a complete security assessment?
 
-The runtime for each pentest depends on the breadth of the target application, and the risk types configured to be assessed. Typical pentest runs can take 12 hours long on configurations that include all risk types.
+The runtime for each penetration test depends on the breadth of the target application, and the risk types configured to be assessed. Most penetration test runs complete within 16 hours.

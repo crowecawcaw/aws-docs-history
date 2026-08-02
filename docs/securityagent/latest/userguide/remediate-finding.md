@@ -2,7 +2,7 @@
 
 When viewing the findings for a penetration test, you can request AWS Security Agent attempt to remediate a finding. For private GitHub repositories, AWS Security Agent opens a pull request with the proposed fix. For public repositories, the remediation is available as a downloadable diff file that you can apply locally.
 
-You must enable finding remediation in the AWS Management Console. (See [Enable users to start remediation of penetration test and code review findings](enable-remediate-findings.md "enable-remediate-findings.md").) Users can start remediation for a specific finding from the AWS Security Agent Web App.
+You must enable finding remediation in the AWS Management Console. (See [Enable users to start remediation of penetration test and code review findings](enable-remediate-findings.md "enable-remediate-findings.md").) Users can start remediation for a specific finding from the AWS Security Agent web application.
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ Before you begin, ensure you have:
 
 ## Step 1: Enable or disable automatic remediation
 
-You can configure code remediation options when you create or modify a penetration test. If you enable automatic remediation, AWS Security Agent will automatically attempt to remediate the associated GitHub repositories if the Agent confirms a finding during the pentest. You can also manually start code remediation.
+You can configure code remediation options when you create or modify a penetration test. If you enable automatic remediation, AWS Security Agent automatically attempts to remediate the associated GitHub repositories if the agent confirms a finding during the penetration test. You can also manually start code remediation.
 . In the view to edit **Penetration test details**, in the **Automatic code remediation** section, enable or disable code remediation.
 
 ## Step 2: Select repositories for code remediation

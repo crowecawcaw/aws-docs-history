@@ -4,7 +4,7 @@ As a managed service, AWS Security Agent is protected by AWS global network secu
 
 ## Network isolation
 
-AWS Security Agent is a fully managed service accessed through the AWS Console and AWS Security Agent Web Application. Access to the service is controlled through AWS Identity and Access Management (IAM) or AWS IAM Identity Center, which can integrate with your identity provider.
+AWS Security Agent is a fully managed service accessed through the AWS Console and AWS Security Agent web application. Access to the service is controlled through AWS Identity and Access Management (IAM) or AWS IAM Identity Center, which can integrate with your identity provider.
 
 AWS Security Agent supports interface VPC endpoints powered by AWS PrivateLink, enabling you to privately access the service APIs from your VPC without traversing the public internet. For more information, see [AWS Security Agent and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 
