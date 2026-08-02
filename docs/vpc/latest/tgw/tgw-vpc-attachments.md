@@ -221,8 +221,12 @@ The following limitations apply when using security group referencing with a VPC
 - Security group referencing is not supported for VPC attachments in the availability zone use1-az3.
 - Security group referencing is not supported for PrivateLink endpoints. We recommend using IP CIDR-based security rules as an alternative.
 - Security group referencing works for Elastic File System (EFS) as long as an allow all egress security group rule is configured for the EFS interfaces in the VPC.
-- For Local Zone connectivity via a transit gateway, only the following Local Zones are supported: us-east-1-atl-2a, us-east-1-dfw-2a, us-east-1-iah-2a, us-west-2-lax-1a, us-west-2-lax-1b, us-east-1-mia-2a, us-east-1-chi-2a, and us-west-2-phx-2a.
-- We recommend disabling this feature at the VPC attachment level for VPCs with subnets in unsupported Local Zones, AWS Outposts, and AWS Wavelength Zones, as it might cause service disruption.
+- AWS Outposts, AWS Wavelength Zones, and some AWS Local Zones do not support security group referencing. To avoid service disruption, disable security group referencing at the VPC attachment level for VPCs with subnets in these locations.
+
+###### Unsupported AWS Local Zones
+
+The following AWS Local Zones do not support this feature: `us-east-1-bos-1a`, `us-east-1-bue-1a`, `us-east-1-lim-1a`, `us-east-1-mci-1a`, `us-east-1-msp-1a`, `us-east-1-phl-1a`, `us-east-1-scl-1a`, `us-west-2-den-1a`, `us-west-2-hnl-1a`, `us-west-2-las-1a`, `us-west-2-sea-1a`, `ap-south-1-ccu-1a`, `ap-south-1-del-1a`, `ap-southeast-1-mnl-1a`, `ap-southeast-2-per-1a`, `eu-north-1-cph-1a`, `eu-north-1-hel-1a`, `eu-central-1-ham-1a`, `eu-central-1-waw-1a`, `af-south-1-los-1a`, `me-south-1-mct-1a`.
+
 - If you have an inspection VPC, then security group referencing through the transit gateway does not work across AWS Gateway Load Balancer or an AWS Network Firewall.
 
 ## IPv6 support

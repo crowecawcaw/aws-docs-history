@@ -29,17 +29,19 @@ All metrics are always reported. Their values are dependent on the traffic throu
 the transit gateway. See [Transit gateway metric dimensions](#transit-gateway-dimensions "#transit-gateway-dimensions") for the
 supported dimensions.
 
-| Metric                      | Description                                                                                                                              |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `BytesDropCountBlackhole`   | The number of bytes dropped because they matched a<br>`blackhole` route.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.   |
-| `BytesDropCountNoRoute`     | The number of bytes dropped because they did not match a route.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.            |
-| `BytesIn`                   | The number of bytes received by the transit gateway.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.                       |
-| `BytesOut`                  | The number of bytes sent from the transit gateway.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.                         |
-| `PacketsIn`                 | The number of packets received by the transit gateway.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.                     |
-| `PacketsOut`                | The number of packets sent by the transit gateway.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.                         |
-| `PacketDropCountBlackhole`  | The number of packets dropped because they matched a<br>`blackhole` route.<br>**Statistics**: The only meaningful statistic<br>is `Sum`. |
-| `PacketDropCountNoRoute`    | The number of packets dropped because they did not match a route.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.          |
-| `PacketDropCountTTLExpired` | The number of packets dropped because the TTL expired.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.                     |
+| Metric                      | Description                                                                                                                                                                                                                                                                 |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `BytesDropCountBlackhole`   | The number of bytes dropped because they matched a<br>`blackhole` route.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.                                                                                                                                      |
+| `BytesDropCountNoRoute`     | The number of bytes dropped because they did not match a route.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.                                                                                                                                               |
+| `BytesDropCountNoPolicy`    | The number of bytes dropped because no policy rule matched.<br>Equivalent to `BytesDropCountNoRoute` for standard<br>route tables. A sustained non-zero value indicates missing or<br>misconfigured rules.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.    |
+| `BytesIn`                   | The number of bytes received by the transit gateway.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.                                                                                                                                                          |
+| `BytesOut`                  | The number of bytes sent from the transit gateway.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.                                                                                                                                                            |
+| `PacketsIn`                 | The number of packets received by the transit gateway.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.                                                                                                                                                        |
+| `PacketsOut`                | The number of packets sent by the transit gateway.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.                                                                                                                                                            |
+| `PacketDropCountBlackhole`  | The number of packets dropped because they matched a<br>`blackhole` route.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.                                                                                                                                    |
+| `PacketDropCountNoRoute`    | The number of packets dropped because they did not match a route.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.                                                                                                                                             |
+| `PacketDropCountNoPolicy`   | The number of packets dropped because no policy rule matched.<br>Equivalent to `PacketDropCountNoRoute` for standard<br>route tables. A sustained non-zero value indicates missing or<br>misconfigured rules.<br>**Statistics**: The only meaningful statistic<br>is `Sum`. |
+| `PacketDropCountTTLExpired` | The number of packets dropped because the TTL expired.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.                                                                                                                                                        |
 
 ## Attachment-level and availability zone metrics
 
