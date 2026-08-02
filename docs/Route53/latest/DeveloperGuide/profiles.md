@@ -29,7 +29,7 @@ to a Profile are:
 
 ###### Important
 
-Once you enable the Profile settings for the preceding configurations, and associate the
+After you enable the Profile settings for the preceding configurations, and associate the
 Profile to a VPC, the Profile settings take effect immediately.
 
 You can also use CloudFormation to set up consistent DNS settings for newly provisioned VPCs.
@@ -46,11 +46,11 @@ hosted zone that is associated to the Profile, the local DNS settings take prece
 When DNS query is made for a conflicting domain name, the most specific one wins. The
 following table includes examples of the evaluation order:
 
-| DNS query             | Profile rule     | VPC rule              | Evaluated rule |
-| --------------------- | ---------------- | --------------------- | -------------- |
-| example.com           | example.com      | example.com           | Local VPC      |
-| test.example.com      | test.example.com | example.com           | Profile        |
-| marketing.example.com | None             | marketing.example.com | Local VPC      |
+DNS evaluation order examples| DNS query | Profile rule | VPC rule | Evaluated rule |
+| --- | --- | --- | --- |
+| example.com | example.com | example.com | Local VPC |
+| test.example.com | test.example.com | example.com | Profile |
+| marketing.example.com | None | marketing.example.com | Local VPC |
 
 ## Route 53 Profiles Region availability
 

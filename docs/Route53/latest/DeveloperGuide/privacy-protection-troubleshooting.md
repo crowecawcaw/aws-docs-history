@@ -13,7 +13,7 @@ individual TLD page in [Domains that you can register with Amazon Route 53](reg
 Contact information is still visible after enabling privacy
 protection
 
-Some registries maintain their own WHOIS databases and may continue
+Some registries maintain their own WHOIS databases and might continue
 to show contact information even when privacy protection is enabled with
 Route 53. This is controlled by the TLD registry, not by Route 53.
 

@@ -14,7 +14,7 @@ For each IP address that you specify for the inbound endpoint, VPC Resolver crea
 in the VPC where you created the inbound endpoint. 2. You configure resolvers on your network to forward DNS queries for the applicable domain names to the IP addresses
 that you specified in the inbound endpoint. For more information, see
 [Considerations when creating inbound and outbound endpoints](resolver-choose-vpc.md "resolver-choose-vpc.md").
-**Here's how VPC Resolver resolves DNS queries that originate on your network via a default inbound endpoint:**
+**Here's how VPC Resolver resolves DNS queries that originate on your network through a default inbound endpoint:**
 
 1. A web browser or another application on your network submits a DNS query for a domain name
    that you forwarded to VPC Resolver.
@@ -35,10 +35,10 @@ For each IP address that you specify for the inbound endpoint, VPC Resolver crea
 in the VPC where you created the inbound endpoint. 2. You configure resolvers on your network to delegate DNS queries for the applicable domain
 names to VPC Resolver. For the glue records you must enter the IP addresses for
 the inbound endpoints. For more information, see [Considerations when creating inbound and outbound endpoints](resolver-choose-vpc.md "resolver-choose-vpc.md").
-**Here's how VPC Resolver resolves DNS queries that originate on your network via a delegation inbound endpoint:**
+**Here's how VPC Resolver resolves DNS queries that originate on your network through a delegation inbound endpoint:**
 
 1. As a prerequisite, you must delegate the subdomain that is hosted in the private hosted zone
-   from on-premises. Because you are delegating the subdomain via the inbound
+   from on-premises. Because you are delegating the subdomain through the inbound
    delegation endpoint, you use the inbound endpoint IP addresses as the glue
    records for the subdomain that's being delegated.
 

@@ -1,14 +1,19 @@
 # Use an Amazon CloudFront distribution to serve a static website
 
-This tutorial shows you how to use Amazon Route 53 to route DNS traffic for your domain to
-Amazon CloudFront distributions that serve a static website. You'll create alias records that point
-your domain and subdomain to CloudFront distributions.
+This topic shows you how to route DNS traffic for your domain to Amazon CloudFront distributions that
+serve a static website. You create alias records that point your domain and subdomain to
+your CloudFront distributions.
 
-This tutorial is part of a complete static website setup workflow. For general information
-about routing traffic to any CloudFront distribution, see [Routing traffic to an Amazon CloudFront distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
+This topic is part of a static website setup workflow. For general information about routing
+traffic to a CloudFront distribution, see [Routing traffic to an Amazon CloudFront distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
 
-When you're finished, visitors can access your website using your custom domain name with
-HTTPS security provided by CloudFront.
+After you complete these steps, you have the following resources configured:
+
+- An SSL/TLS certificate for your domain in AWS Certificate Manager
+- Amazon S3 buckets configured for website hosting and redirect
+- CloudFront distributions for both your root domain and subdomain
+  Visitors can then reach your website at your custom domain name with HTTPS security from
+  CloudFront.
 
 ## Prerequisites
 
@@ -16,21 +21,15 @@ Before you begin, complete these steps:
 
 - Complete the steps in [Set up Amazon Route 53](setting-up-route-53.md "setting-up-route-53.md").
 - Register a domain name using Amazon Route 53. For more information, see [Registering a new domain](domain-register.md "domain-register.md").
-- Create a secure static website using Amazon CloudFront and Amazon Simple Storage Service. For complete
+- Create a secure static website with Amazon CloudFront and Amazon Simple Storage Service. For
   instructions, see [Get started with a secure static website](../../../AmazonCloudFront/latest/DeveloperGuide/getting-started-secure-static-website-cloudformation-template.md "../../../AmazonCloudFront/latest/DeveloperGuide/getting-started-secure-static-website-cloudformation-template.md") in the
   _Amazon CloudFront Developer Guide_.
 
-When you complete the Amazon CloudFront tutorial, you'll have:
-
-- An SSL/TLS certificate for your domain in AWS Certificate Manager
-- Amazon S3 buckets configured for website hosting and redirect
-- CloudFront distributions for both your root domain and subdomain
-
 ## Step 1: Route DNS traffic for your domain to your CloudFront distribution
 
-Now that you have Amazon CloudFront distributions for your website, use Amazon Route 53 to route DNS
-traffic for your domain to the distributions. This enables visitors to access your
-website using your custom domain name.
+Now that you have Amazon CloudFront distributions for your website, route DNS
+traffic for your domain to those distributions. This lets visitors reach your
+website at your custom domain name.
 
 For more information about routing traffic to CloudFront distributions, see [Routing traffic to an Amazon CloudFront distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
 
@@ -42,9 +41,9 @@ For more information about routing traffic to CloudFront distributions, see [Rou
 
 ###### Note
 
-When you registered your domain, Amazon Route 53 automatically created a hosted
-zone with the same name. A hosted zone contains information about how you
-want Route 53 to route traffic for the domain. 3. In the list of hosted zones, choose the name of your domain. 4. Choose **Create record**. 5. Specify the following values:
+When you registered your domain, Amazon Route 53 created a hosted
+zone with the same name. This hosted zone stores information about how
+Route 53 routes traffic for the domain. 3. In the list of hosted zones, choose the name of your domain. 4. Choose **Create record**. 5. Specify the following values:
 
 **Record name**
 
@@ -66,10 +65,9 @@ Choose **Alias to CloudFront distribution**.
 
 Choose the us-east-1 Region.
 
-Choose your CloudFront distribution. The distribution name should match
-the name that appears in the **Domain name** column
-in the CloudFront console, for example,
-`dddjjjkkk.cloudfront.net`.
+Choose your CloudFront distribution. The distribution name matches the value in the
+**Domain name** column in the CloudFront console (for
+example, `d111111abcdef8.cloudfront.net`).
 
 **Evaluate target health**
 
@@ -77,7 +75,7 @@ Accept the default value of **No**. 6. Choose **Create records**.
 
 ###### To add an alias record for your root domain (`example.com`)
 
-Add an alias record for your root domain also, so it points to the CloudFront
+Add an alias record for your root domain too. Point it to the CloudFront
 distribution that redirects traffic to `www.example.com`.
 
 1. Choose **Create record**.
@@ -110,7 +108,7 @@ Accept the default value of **No**. 3. Choose **Create records**.
 
 ### Step 2: Test your website
 
-To verify that the website is working correctly, open a web browser and browse to
+To check that your website works, open a web browser and go to
 the following URLs:
 
 - https://www.`your-domain-name`, for example,
@@ -123,5 +121,5 @@ the following URLs:
 In some cases, you might need to clear the cache to see the expected
 behavior.
 
-For more advanced information about routing your internet traffic, see [Configuring Amazon Route 53 as your DNS service](dns-configuring.md "dns-configuring.md"). For information
-about routing your internet traffic to AWS resources, see [Routing internet traffic to your AWS resources](routing-to-aws-resources.md "routing-to-aws-resources.md").
+For more information about routing internet traffic, see [Configuring Amazon Route 53 as your DNS service](dns-configuring.md "dns-configuring.md"). To route
+traffic to AWS resources, see [Routing internet traffic to your AWS resources](routing-to-aws-resources.md "routing-to-aws-resources.md").

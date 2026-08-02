@@ -1,16 +1,15 @@
 # Choosing between alias and non-alias records
 
-Amazon Route 53 _alias records_ provide a Route 53–specific extension to DNS
-functionality. Alias records let you route traffic to selected AWS resources,
-including but not limited to, CloudFront distributions and Amazon S3 buckets. They also let you
+Amazon Route 53 _alias records_ provide a Route 53–specific extension to DNS.
+Alias records let you route traffic to selected AWS resources,
+such as CloudFront distributions and Amazon S3 buckets. They also let you
 route traffic from one record in a hosted zone to another record.
 
 Unlike a CNAME record, you can create an alias record at the top node of a DNS namespace,
 also known as the _zone apex_. For example, if you register the DNS
 name example.com, the zone apex is example.com. You can't create a CNAME record for
 example.com, but you can create an alias record for example.com that routes traffic to
-www.example.com (as long as the record type for www.example.com is not of type
-CNAME).
+www.example.com (as long as the record type for www.example.com is not CNAME).
 
 When Route 53 receives a DNS query for an alias record, Route 53 responds with the applicable value for that resource:
 
@@ -38,13 +37,13 @@ When Route 53 receives a DNS query for an alias record, Route 53 responds with
   IP addresses for your interface endpoint.
   For more information, see [Routing internet traffic to your AWS resources](routing-to-aws-resources.md "routing-to-aws-resources.md").
 
-When you use an alias record to route traffic to an AWS resource, Route 53 automatically recognizes changes in the resource.
+When you use an alias record to route traffic to an AWS resource, Route 53 detects changes in the resource on its own.
 For example, suppose an alias record for example.com points to an Elastic Load Balancing load balancer at lb1-1234.us-east-2.elb.amazonaws.com.
-If the IP address of the load balancer changes, Route 53 automatically starts to respond to DNS queries using the new IP address.
+If the IP address of the load balancer changes, Route 53 starts responding to DNS queries with the new IP address.
 
 If an alias record points to an AWS resource, you can't set the time to live (TTL); Route 53 uses the default TTL for the resource.
-If an alias record points to another record in the same hosted zone, Route 53 uses the TTL of the record that the alias record
-points to. For more information about the current TTL value for Elastic Load Balancing, go to
+If an alias record points to another record in the same hosted zone, Route 53 uses the TTL of the target record.
+For more information about the current TTL value for Elastic Load Balancing, go to
 [Request routing](../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#request-routing "../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#request-routing") in the
 _Elastic Load Balancing User Guide_ and search for "ttl".
 

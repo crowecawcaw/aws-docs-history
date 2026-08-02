@@ -1,19 +1,17 @@
 # Configuring Amazon Route 53 as your DNS service
 
-You can use Amazon Route 53 as the DNS service for your domain, such as example.com. When Route 53 is your DNS service, it routes internet traffic
-to your website by translating friendly domain names like www.example.com into numeric IP addresses, like 192.0.2.1, that computers use
-to connect to each other. When someone types your domain name in a browser or sends you an email, a DNS query is forwarded to Route 53,
-which responds with the appropriate value. For example, Route 53 might respond with the IP address for the web server for example.com.
+You can use Amazon Route 53 as the DNS service for your domain, such as example.com. Route 53 routes internet traffic
+to your website by translating domain names like www.example.com into IP addresses like 192.0.2.1. Computers use these IP addresses to connect to each other. When someone types your domain name in a browser or sends you an email, a DNS query goes to Route 53. It responds with the right value, such as the IP address for your web server.
 
 ###### DNS hosting vs. domain registration
 
-This chapter covers using Route 53 for _DNS hosting only_. This means your domain registration stays with your current registrar, and you'll continue paying them for domain renewals. Route 53 will only manage your DNS settings and handle DNS queries for your domain.
+This chapter covers using Route 53 for _DNS hosting only_. Your domain stays registered with your current registrar. You keep paying them for renewals. Route 53 only handles your DNS settings and DNS queries.
 
-If you want to transfer your domain registration to Route 53 as well (making Route 53 both your
+If you want to transfer your domain to Route 53 as well (making Route 53 both your
 registrar and DNS service), see [Pre-transfer checklist for domain transfers](domain-transfer-checklist.md "domain-transfer-checklist.md") and [Transferring registration for a domain to Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md").
 
-In this chapter, we explain how to configure Route 53 to route your internet traffic to the right places. We also explain how to
-migrate DNS service to Route 53 if you're currently using another DNS service, and how to use Route 53 as the DNS service for a new domain.
+This chapter explains how to set up Route 53 to route internet traffic to the right places. It also covers how to
+move DNS service to Route 53 from another provider, and how to use Route 53 as the DNS service for a new domain.
 
 ###### Topics
 

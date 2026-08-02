@@ -53,7 +53,7 @@ Enter a brief summary of the issue.
 Describe the issue that you're having in more detail, and attach any relevant documents or screenshots.
 
 **Contact method**
-Choose the contact method, **Web**. We'll contact you using the email address that's associated with your AWS account. 4. Choose **Submit**.
+Choose the contact method, **Web**. AWS contacts you using the email address that's associated with your AWS account. 4. Choose **Submit**.
 
 ## Contacting AWS Support when you can't sign in to your AWS account
 

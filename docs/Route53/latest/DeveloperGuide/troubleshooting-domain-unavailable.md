@@ -4,21 +4,21 @@ Here are the most common reasons that your domain is not available on the intern
 
 ###### Topics
 
-- [You registered a new domain, but you didn't click the link in the confirmation email](#troubleshooting-domain-unavailable-didnt-click-link "#troubleshooting-domain-unavailable-didnt-click-link")
+- [You registered a new domain, but you didn't choose the link in the confirmation email](#troubleshooting-domain-unavailable-didnt-click-link "#troubleshooting-domain-unavailable-didnt-click-link")
 - [You transferred domain registration to Amazon Route 53, but you didn't transfer DNS service](#troubleshooting-domain-unavailable-transferred-domain-not-dns "#troubleshooting-domain-unavailable-transferred-domain-not-dns")
 - [You transferred domain registration and specified the wrong name servers in the domain settings](#troubleshooting-domain-unavailable-transferred-domain-wrong-name-servers "#troubleshooting-domain-unavailable-transferred-domain-wrong-name-servers")
 - [You transferred DNS service first, but you didn't wait long enough before transferring domain registration](#troubleshooting-domain-unavailable-transferred-domain-too-soon-after-dns-transfer "#troubleshooting-domain-unavailable-transferred-domain-too-soon-after-dns-transfer")
 - [You deleted the hosted zone that Route 53 is using to route internet traffic for the domain](#troubleshooting-domain-unavailable-deleted-hosted-zone "#troubleshooting-domain-unavailable-deleted-hosted-zone")
 - [Your domain has been suspended](#troubleshooting-domain-unavailable-suspended "#troubleshooting-domain-unavailable-suspended")
 
-## You registered a new domain, but you didn't click the link in the confirmation email
+## You registered a new domain, but you didn't choose the link in the confirmation email
 
 When you register a new domain, ICANN requires that we get confirmation that the email address for the
 registrant contact is valid. To get confirmation, we send an email that contains a link. (If you don't respond to the first email,
-we resend the same email up to two more times.) You have between 3 and 15 days to click the link, depending on the top-level domain.
+we resend the same email up to two more times.) You have between 3 and 15 days to choose the link, depending on the top-level domain.
 After that time, the link stops working.
 
-If you don't click the link in the email in the allotted amount of time, ICANN requires that we suspend the domain.
+If you don't choose the link in the email in the allotted amount of time, ICANN requires that we suspend the domain.
 For information about how to resend the confirmation email to the registrant contact, see
 [Resending authorization and confirmation emails](domain-click-email-link.md "domain-click-email-link.md").
 

@@ -32,7 +32,7 @@ see [Monitoring health check status and getting notifications](health-checks-mon
 **Configuring DNS failover**
 
 If you have multiple resources that perform the same function, you can
-configure DNS failover so that Route 53 will route your traffic from an unhealthy
+configure DNS failover so that Route 53 routes your traffic from an unhealthy
 resource to a healthy resource. For example, if you have two web servers and one
 web server becomes unhealthy, Route 53 can route traffic to the other web server.
 For more information, see [Configuring DNS failover](dns-failover-configuring.md "dns-failover-configuring.md").

@@ -12,14 +12,18 @@ As a best practice, before using a Managed Domain List in production, test it in
 
 This section describes the Managed Domain Lists that are currently available for Global Resolver. AWS provides the following Managed Domain Lists, for all users of Global Resolver, classified by **Threat** or **Content** Type.
 
-Threat Categories| Malware |
+Threat Categories| Threat type |
+| --- |
+| Malware |
 | Botnet/Command and Control |
 | Aggregate Threat List |
 | Amazon GuardDuty Threat List |
 | Phishing |
 | Spam |
 
-Content Categories| Violence and Hate Speech |
+Content Categories| Content type |
+| --- |
+| Violence and Hate Speech |
 | For Kids |
 | Online Ads |
 | Science |

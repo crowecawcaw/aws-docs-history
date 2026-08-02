@@ -1,7 +1,7 @@
 # Enabling DNSSEC validation in Amazon Route 53
 
 When you enable DNSSEC validation for a virtual private cloud (VPC) in Amazon Route 53,
-DNSSEC signatures are cryptographically checked to ensure that the response was not
+DNSSEC signatures are cryptographically checked to make sure that the response was not
 tampered with. You enable DNSSEC validation on your VPC detail page.
 
 DNSSEC validation is applied by VPC Resolver to public signed names when it is performing

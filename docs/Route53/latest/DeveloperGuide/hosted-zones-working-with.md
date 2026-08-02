@@ -1,8 +1,8 @@
 # Working with hosted zones
 
-A hosted zone is a container for records, and records contain information about how you want to route traffic for a specific domain,
-such as example.com, and its subdomains (acme.example.com, zenith.example.com). A hosted zone and the corresponding domain have the same name.
-There are two types of hosted zones:
+A hosted zone is a container for records. Records hold information about how to route traffic for a domain,
+such as example.com, and its subdomains (acme.example.com, zenith.example.com). A hosted zone has the same name as its domain.
+There are two types:
 
 - _Public hosted zones_ contain records that specify how you want to route traffic on the internet.
   For more information, see [Working with public hosted zones](AboutHZWorkingWith.md "AboutHZWorkingWith.md").

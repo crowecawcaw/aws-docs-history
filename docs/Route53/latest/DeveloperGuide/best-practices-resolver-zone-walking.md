@@ -1,7 +1,7 @@
 # DNS zone walking
 
 A DNS zone walking attack attempts to get all content from DNSSEC-signed DNS zones. If VPC Resolver team detects a traffic pattern
-that matches the ones generated when DNS zones are walked on your endpoint, the service team will throttle the traffic on your endpoint.
+that matches the ones generated when DNS zones are walked on your endpoint, the service team throttles the traffic on your endpoint.
 As a consequence you might observe a high percentage of your DNS queries timing out.
 
 If you observe reduced capacity on your endpoints and believe that the endpoint

@@ -1,6 +1,6 @@
 # Renewing registration for a domain
 
-When you register a domain with Amazon Route 53 or you transfer domain registration to Route 53, we configure the domain to renew automatically.
+When you register a domain with Amazon Route 53 or you transfer domain registration to Route 53, Route 53 configures the domain to renew automatically.
 The automatic renewal period is typically one year, although the registries for some top-level domains (TLDs) have longer renewal periods.
 For the registration and renewal period for your TLD, see [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md").
 
@@ -28,26 +28,26 @@ If you turn off automatic renewal, be aware of the following effects on your dom
 If automatic renewal is enabled, here's what happens:
 
 **45 days before expiration**
-We send an email to the registrant contact that tells you that automatic renewal is currently enabled and
+Route 53 sends an email to the registrant contact that tells you that automatic renewal is currently enabled and
 gives instructions about how to disable it. Keep your registrant contact email address current so you don't miss this email.
 
 **35 or 30 days before expiration**
-For all domains except .com.ar and .com.br domains, we renew domain registration 35 days before the
-expiration date so we have time to resolve any issues with your renewal before the domain name expires.
+For all domains except .com.ar and .com.br domains, Route 53 renews domain registration 35 days before the
+expiration date to allow time to resolve any issues with your renewal before the domain name expires.
 
-The registries for .com.ar and .com.br domains require that we renew the domains no more than 30 days before expiration.
-You'll get a renewal email from Gandi, our registrar associate, 30 days before expiration, which is the same day that we
-renew your domain if you have automatic renewal enabled.
+The registries for .com.ar and .com.br domains require that Route 53 renew the domains no more than 30 days before expiration.
+You'll get a renewal email from Gandi, our registrar associate, 30 days before expiration, which is the same day that Route 53
+renews your domain if you have automatic renewal enabled.
 
 ###### Note
 
-When we renew your domain, we send you an email to let you know that we renewed it. If the renewal failed,
-we send you an email to explain why it failed.
+When Route 53 renews your domain, Route 53 sends you an email to let you know that it renewed it. If the renewal failed,
+Route 53 sends you an email to explain why it failed.
 
 If automatic renewal is disabled, here's what happens as the expiration date for a domain name approaches:
 
 **45 days before expiration**
-We send an email to the registrant contact for the domain that tells you that automatic renewal is currently disabled
+Route 53 sends an email to the registrant contact for the domain that tells you that automatic renewal is currently disabled
 and gives instructions about how to enable it. Keep your registrant contact email address current so you don't miss this email.
 
 **30 days and 7 days before expiration**
@@ -62,7 +62,7 @@ requires the registrar to send you an email. The email comes from one of the fol
 To determine who the registrar is for your TLD, see [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md").
 
 If you enable automatic renewal less than 30 days before expiration, and the renewal period has not passed,
-we renew the domain within 24 hours.
+Route 53 renews the domain within 24 hours.
 
 ###### Important
 

@@ -1,8 +1,8 @@
 # Locking a domain to prevent unauthorized transfer to another registrar
 
-The domain registries for all generic TLDs and many geographic TLDs let you lock a
+The domain registries for all generic TLDs and many geographic TLDs support locking a
 domain to prevent someone from transferring the domain to another registrar without your
-permission. To determine whether the registry for your domain lets you lock the domain,
+permission. To determine whether the registry for your domain supports locking the domain,
 see [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md"). If locking
 is supported and you want to lock your domain, perform the following procedure. You can
 also use the procedure to disable the lock if you want to transfer a domain to another

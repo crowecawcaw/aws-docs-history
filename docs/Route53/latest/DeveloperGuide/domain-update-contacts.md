@@ -21,7 +21,7 @@ For more information, see the applicable topic.
 The contact you list as the registrant will have certain rights as the
 Registered Name Holder of the domain name, under the [ICANN Transfer Policy](https://www.icann.org/resources/pages/transfer-policy-2016-06-01-en "https://www.icann.org/resources/pages/transfer-policy-2016-06-01-en"). Most domains will be deleted upon closure of
 your AWS account (for more information, see [My AWS account is closed or permanently closed, and my domain is registered with Route 53](troubleshooting-account-closed.md "troubleshooting-account-closed.md")), however if a domain
-remains in a closed account, the contact you listed as the registrant may have
+remains in a closed account, the contact you listed as the registrant might have
 the ability to request a transfer of the domain name to an external registrar.
 Therefore, it is important that the registrant contact you list is either
 yourself or another person you trust to act responsibly.
@@ -59,7 +59,7 @@ respond to this email within 3-15 days (depending on your TLD), your domain
 registration will be cancelled as required by ICANN, which will interrupt your
 website and email services.
 
-Always ensure you can access the registrant contact email address before
+Always make sure you can access the registrant contact email address before
 making any contact changes.
 
 Note the following about changing the owner of a domain:
@@ -73,7 +73,7 @@ Note the following about changing the owner of a domain:
 You can't use AWS credits to pay the fee, if any, to change the
 owner of a domain.
 
-- For some TLDs, when you change the owner of a domain, we send an
+- For some TLDs, when you change the owner of a domain, Route 53 sends an
   authorization email to the email address for the registrant contact. The
   registrant contact must follow the instructions in the email to authorize
   the change.
@@ -196,7 +196,7 @@ complete this checklist:
 
    Choose **Save changes**.
 
-   To verify the new email address, we send a verification email to
+   To verify the new email address, Route 53 sends a verification email to
    the new address (if required for the TLD). You must choose the link
    in the email to verify that the new email address is valid. If
    verification is required, and you don't verify the new email
@@ -222,12 +222,12 @@ the console might display the following message:
 "To change the registrant name or organization, open a case."
 
 If you see that message, skip the rest of this procedure and see [Changing the owner of a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form") for more
-information. 7. Choose **Save**. 8. If you changed the domain owner, as described in [What triggers a domain ownership change?](#domain-update-contacts-who-is-domain-owner "#domain-update-contacts-who-is-domain-owner"), we send
+information. 7. Choose **Save**. 8. If you changed the domain owner, as described in [What triggers a domain ownership change?](#domain-update-contacts-who-is-domain-owner "#domain-update-contacts-who-is-domain-owner"), Route 53 sends
 email to the registrant contact for the domain. The email asks for
 authorization for the change of owner.
 
-If we don't receive authorization for the change within 3 to 15 days,
-depending on the top-level domain, we must cancel the request as required by
+If Route 53 doesn't receive authorization for the change within 3 to 15 days,
+depending on the top-level domain, Route 53 must cancel the request as required by
 ICANN.
 
 The email comes from one of the following email addresses.
@@ -304,7 +304,7 @@ ways:
      **AmazonRoute53FullAccess** managed
      policy.If you don't sign in either by using the root account or by using a
 
-user that has the required permissions, we can't update the domain
+user that has the required permissions, Route 53 can't update the domain
 owner. This requirement prevents unauthorized users from changing the
 owner of a domain. 7. Specify the following values:
 

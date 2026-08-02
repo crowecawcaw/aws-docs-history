@@ -15,7 +15,7 @@ To make it easier to track the records and their relationships, Traffic Flow sim
 record creation with the following features:
 
 **Visual editor**
-The Traffic Flow visual editor lets you create complex trees of records and see the
+With the Traffic Flow visual editor, you can create complex trees of records and see the
 relationships among the records. For example, you might create a
 configuration in which latency alias records reference weighted records, and
 the weighted records reference your resources in multiple AWS Regions.
@@ -28,13 +28,12 @@ Old versions continue to exist until you delete them; there's a default limit of
 give each version a description.
 
 **Automatic record creation and updating**
-A traffic policy can represent dozens or even hundreds of records. Traffic Flow lets you
-create all those records automatically by creating a _traffic
+A traffic policy can represent dozens or even hundreds of records. With Traffic Flow, you can create all those records automatically by creating a _traffic
 policy record_. You specify the hosted zone and the name of
 the record at the root of the tree, such as example.com or www.example.com,
 and Route 53 automatically creates all the other records in the tree. The root
 record—the traffic policy record—appears in the list of
-records for your hosted zone; all the other records are hidden.
+records for your hosted zone. Route 53 hides all the other records.
 
 When you create a new version of a traffic policy, you can selectively update traffic policy records that you created using the
 previous traffic policy version. When you update a traffic policy record, Route 53 automatically updates all the other records in the tree.

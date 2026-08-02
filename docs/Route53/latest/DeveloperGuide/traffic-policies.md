@@ -16,7 +16,7 @@ To create a traffic policy, perform the following procedure.
 
 ###### Note
 
-We're updating the Traffic Flow console for Route 53. During the transition period, you can continue
+Route 53 is updating the Traffic Flow console. During the transition period, you can continue
 to use the old console.
 
 Choose the tab for the console you are using.
@@ -97,7 +97,7 @@ Old console
 
 You can delete rules, endpoints, and branches of a traffic policy in the following ways:
 
-    * To delete a rule or an endpoint, click the **x** in the upper-right corner
+    * To delete a rule or an endpoint, choose the **x** in the upper-right corner
      of the box.
 
 
@@ -105,7 +105,7 @@ You can delete rules, endpoints, and branches of a traffic policy in the followi
 
     If you delete a rule that has child rules and endpoints, Amazon Route 53 also deletes all of the children.
     * If you connect two rules to the same child rule or endpoint and you want to delete one of the
-     connections, pause your cursor on the connection that you want to delete, and click the **x**
+     connections, pause your cursor on the connection that you want to delete, and choose the **x**
      for that connection.
 
 9. Choose **Create traffic policy**. 10. _Optional_: On the **Create policy records with traffic policy** page,
@@ -120,7 +120,7 @@ the list of traffic policies and policy records that you have created by using t
 
 ###### Note
 
-We're updating the Traffic Flow console for Route 53. During the transition period, you can continue
+Route 53 is updating the Traffic Flow console. During the transition period, you can continue
 to use the old console. The following list applies for both console, except where noted.
 
 When you create a traffic policy, you specify the following values.
@@ -199,8 +199,8 @@ For more information, see [Active-passive failover](dns-failover-types.md#dns-fa
 
 ###### Note
 
-Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed via an alias record.
-If you endpoint doesn't receive DNS traffic via an alias record, uncheck this and create a health check if you want to monitor the endpoint health.
+Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed through an alias record.
+If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check if you want to monitor the endpoint health.
 For more information, see [Creating and updating health checks](health-checks-creating.md "health-checks-creating.md").
 
 **Geolocation rule**
@@ -213,8 +213,8 @@ United States that requests originate from.
 
 ###### Note
 
-Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed via an alias record.
-If you endpoint doesn't receive DNS traffic via an alias record, uncheck this and create a health check if you want to monitor the endpoint health.
+Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed through an alias record.
+If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check if you want to monitor the endpoint health.
 For more information, see [Creating and updating health checks](health-checks-creating.md "health-checks-creating.md").
 
 **Latency rule**
@@ -227,8 +227,8 @@ For more information, see [Latency-based routing](routing-policy-latency.md "rou
 
 ###### Note
 
-Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed via an alias record.
-If you endpoint doesn't receive DNS traffic via an alias record, uncheck this and create a health check if you want to monitor the endpoint health.
+Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed through an alias record.
+If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check if you want to monitor the endpoint health.
 For more information, see [Creating and updating health checks](health-checks-creating.md "health-checks-creating.md").
 
 **Geoproximity rule**
@@ -304,8 +304,8 @@ For more information, see [Geoproximity routing](routing-policy-geoproximity.md 
 
 ###### Note
 
-Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed via an alias record.
-If you endpoint doesn't receive DNS traffic via an alias record, uncheck this and create a health check if you want to monitor the endpoint health.
+Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed through an alias record.
+If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check if you want to monitor the endpoint health.
 For more information, see [Creating and updating health checks](health-checks-creating.md "health-checks-creating.md").
 
 **Multivalue answer rule**
@@ -316,8 +316,8 @@ For more information, see [Multivalue answer routing](routing-policy-multivalue.
 
 ###### Note
 
-Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed via an alias record.
-If you endpoint doesn't receive DNS traffic via an alias record, uncheck this and create a health check if you want to monitor the endpoint health.
+Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed through an alias record.
+If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check if you want to monitor the endpoint health.
 For more information, see [Creating and updating health checks](health-checks-creating.md "health-checks-creating.md").
 
 **Weighted rule**
@@ -331,8 +331,8 @@ For more information, see [Weighted routing](routing-policy-weighted.md "routing
 
 ###### Note
 
-Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed via an alias record.
-If you endpoint doesn't receive DNS traffic via an alias record, uncheck this and create a health check if you want to monitor the endpoint health.
+Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed through an alias record.
+If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check if you want to monitor the endpoint health.
 For more information, see [Creating and updating health checks](health-checks-creating.md "health-checks-creating.md").
 
 **Endpoint**
@@ -466,7 +466,7 @@ routing, see [Geoproximity routing](routing-policy-geoproximity.md "routing-poli
 
 ###### Note
 
-We're updating the Traffic Flow console for Route 53. During the transition period, you can continue
+Route 53 is updating the Traffic Flow console. During the transition period, you can continue
 to use the old console.
 
 Choose the tab for the console you are using.
@@ -492,7 +492,7 @@ Note the following:
   you don't see the Region, or the Region number, you can enlarge the
   **Properties** pane and they will
   appear.
-- You can move the map around inside the map window to see specific areas. Use a touchpad, or click and drag the map with a mouse.
+- You can move the map around inside the map window to see specific areas. Use a touchpad or drag the map to navigate.
   You can also move the map window in a browser window.
 - If you have more than one geoproximity rule in a policy, you can view the map for only one rule at a time.
 
@@ -513,7 +513,7 @@ Note the following:
 - The Region number and color in each rule definition correspond with numbers and colors on the map.
 - You can zoom in and zoom out to see more or less detail. Use the + and - buttons on the map, a touchpad, or the wheel on a mouse
   to change the zoom level.
-- You can move the map around inside the map window to see specific areas. Use a touchpad, or click and drag the map with a mouse.
+- You can move the map around inside the map window to see specific areas. Use a touchpad or drag the map to navigate.
   You can also move the map window in a browser window.
 - If you have more than one geoproximity rule in a policy, you can view the map for only one rule at a time.
 
@@ -533,7 +533,7 @@ To create a new traffic policy version, perform the following procedure.
 
 ###### Note
 
-We're updating the Traffic Flow console for Route 53. During the transition period, you can continue
+Route 53 is updating the Traffic Flow console. During the transition period, you can continue
 to use the old console.
 
 Choose the tab for the console you are using.
@@ -554,7 +554,7 @@ New console
 5. Choose **Edit policy as new version**.
 6. On the **Edit policy as a new version** dialog box,
    enter a description for the new traffic policy version.
-   We recommend that you specify a description that distinguishes this version from other versions of the same
+   Specify a description that distinguishes this version from other versions of the same
    traffic policy. When you create a new policy record, the value that you specify appears in the list of available
    versions for this traffic policy.
 7. Choose **Next**.
@@ -596,7 +596,7 @@ Old console
    for the traffic policy version that you want to use as a basis for the new traffic policy version.
 5. Choose **Edit policy as new version**.
 6. On the **Update description** page, enter a description for the new traffic policy version.
-   We recommend that you specify a description that distinguishes this version from other versions of the same
+   Specify a description that distinguishes this version from other versions of the same
    traffic policy. When you create a new policy record, the value that you specify appears in the list of available
    versions for this traffic policy.
 7. Choose **Next**.
@@ -605,7 +605,7 @@ Old console
 
 You can delete rules, endpoints, and branches of a traffic policy in the following ways:
 
-    * To delete a rule or an endpoint, click the **x** in the upper-right corner
+    * To delete a rule or an endpoint, choose the **x** in the upper-right corner
      of the box.
 
 
@@ -613,7 +613,7 @@ You can delete rules, endpoints, and branches of a traffic policy in the followi
 
     If you delete a rule that has child rules and endpoints, Route 53 also deletes all of the children.
     * If you connect two rules to the same child rule or endpoint and you want to delete one of the
-     connections, pause your cursor on the connection that you want to delete, and click the **x**
+     connections, pause your cursor on the connection that you want to delete, and choose the **x**
      for that connection.
 
 9. When you're finished editing, choose **Save as new version**. 10. _Optional_: Specify the settings to create one or more policy records in one hosted zone
@@ -642,7 +642,7 @@ JSON file, replace all the backward slashes with null characters.
 
 ###### Note
 
-We're updating the Traffic Flow console for Route 53. During the transition period, you can continue
+Route 53 is updating the Traffic Flow console. During the transition period, you can continue
 to use the old console.
 
 Choose the tab for the console you are using.
@@ -719,7 +719,7 @@ that you've created by using each of the versions of the traffic policy.
 
 ###### Note
 
-We're updating the Traffic Flow console for Route 53. During the transition period, you can continue
+Route 53 is updating the Traffic Flow console. During the transition period, you can continue
 to use the old console.
 
 Choose the tab for the console you are using.
@@ -861,16 +861,16 @@ traffic policy version.
 
 ###### Important
 
-If you delete policy records that Amazon Route 53 is using to respond to DNS queries, Route 53 will stop responding to
+If you delete policy records that Amazon Route 53 is using to respond to DNS queries, Route 53 stops responding to
 queries for the corresponding DNS names. For example, if Route 53 is using the policy record for www.example.com to respond to
-DNS queries for www.example.com and you delete the policy record, your users will not be able to access your website or
+DNS queries for www.example.com and you delete the policy record, users can't access your website or
 web application by using the domain name www.example.com.
 
 To delete traffic policy versions and, optionally, a traffic policy, perform the following procedure:
 
 ###### Note
 
-We're updating the Traffic Flow console for Route 53. During the transition period, you can continue
+Route 53 is updating the Traffic Flow console. During the transition period, you can continue
 to use the old console.
 
 Choose the tab for the console you are using.

@@ -5,7 +5,7 @@ domains will go through a deletion process:
 
 1. We will notify you that your account is closed and your domain will be suspended in the next 5
    days on a daily basis.
-2. Once your domain is suspended, the following will take place:
+2. After your domain is suspended, the following will take place:
 
    - If your registrar is Amazon Registrar, we will notify you that we will delete your domain in 30 days.
      For more information, see [Finding your registrar and other information about your domain](find-your-registrar.md "find-your-registrar.md").
@@ -22,7 +22,7 @@ domains will go through a deletion process:
 
 ###### Note
 
-Once 90 days has passed from when you closed your account, you can no longer reopen it. For more information, see
+After 90 days have passed from when you closed your account, you can no longer reopen it. For more information, see
 [Closing an account](../../../accounts/latest/reference/manage-acct-closing.md "../../../accounts/latest/reference/manage-acct-closing.md") in the _AWS Account Management guide_.
 
 For more information, see [Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md").

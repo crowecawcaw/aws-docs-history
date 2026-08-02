@@ -138,7 +138,7 @@ network interfaces for your Resolver endpoint. However, there are
 important considerations for specific endpoint types:
 
 For **inbound endpoints** the traffic load balancing is
-customer-dependent. Therefore capacity warnings or critical alerts may
+customer-dependent. Therefore capacity warnings or critical alerts might
 indicate a "hot spot" where a subset of elastic network interfaces is
 disproportionately utilized.
 
@@ -146,7 +146,7 @@ disproportionately utilized.
   interface individually.
 
 For **outbound endpoints** the traffic is automatically
-balanced across elastic network interfaces. Capacity issues may be due to
+balanced across elastic network interfaces. Capacity issues might be due to
 problems with the target name server, or because high-latency queries of
 timeouts overwhelm the Resolver network interfaces.
 
@@ -270,7 +270,7 @@ The `AWS/Route53Resolver` namespace includes the following detailed metrics for 
 
 **P90ResponseTime**
 
-The 90th percentile response latency of the Target Name Server IP (`TargetNameServerIP`) for DNS queries sent via the Resolver endpoint (`EndpointID`)
+The 90th percentile response latency of the Target Name Server IP (`TargetNameServerIP`) for DNS queries sent through the Resolver endpoint (`EndpointID`)
 
 Valid Statistics: Maximum
 
@@ -278,7 +278,7 @@ Units: Microseconds
 
 **RequestQueries**
 
-Number of DNS queries sent to the Target Name Server IP (`TargetNameServerIP`) via the Resolver endpoint (`EndpointID`).
+Number of DNS queries sent to the Target Name Server IP (`TargetNameServerIP`) through the Resolver endpoint (`EndpointID`).
 
 Valid Statistics: Sum
 
@@ -286,7 +286,7 @@ Units: Count
 
 **TimeoutQueries**
 
-Number of DNS queries sent via the Resolver endpoint (`EndpointID`) that timed out at the Target Name Server IP (`TargetNameServerIP`).
+Number of DNS queries sent through the Resolver endpoint (`EndpointID`) that timed out at the Target Name Server IP (`TargetNameServerIP`).
 
 Valid Statistics: Sum
 
@@ -296,12 +296,12 @@ Units: Count
 
 In some cases, gaps might be observed in VPC Resolver metrics (ResolverEndpointCapacityStatus) and RNI enhanced metrics.
 These gaps can occur when your network interfaces undergo consecutive scheduled maintenance or updates.
-After we return a network interface to service, it takes at least 1 minute for our service to collect operational data and publish these metrics.
+After Route 53 returns a network interface to service, it takes at least 1 minute for the service to collect operational data and publish these metrics.
 These gaps do not indicate that your VPC Resolver endpoint is experiencing an outage. If you're configuring a CloudWatch alarm for these metrics, we recommend the following:
 
 - Set the alarm to "Treat missing data as ignore", or
 - Configure an evaluation period of more than five minutes for the alarm threshold.
-  These settings will help reduce false alarms during normal maintenance activities.
+  These settings help reduce false alarms during normal maintenance activities.
 
 ### Dimensions for Route 53 VPC Resolver metrics
 

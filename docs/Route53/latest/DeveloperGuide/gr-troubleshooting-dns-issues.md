@@ -1,6 +1,6 @@
 # Troubleshooting DNS issues with Route 53 Global Resolver
 
-Route 53 Global Resolver provides comprehensive DNS resolution capabilities, but occasionally you may need to
+Route 53 Global Resolver provides comprehensive DNS resolution capabilities, but occasionally you might need to
 troubleshoot connectivity, performance, or configuration issues. Use DNS logs, monitoring data,
 and diagnostic techniques to identify and resolve issues affecting client device DNS resolution
 with Route 53 Global Resolver. This chapter provides systematic approaches to troubleshooting common DNS problems

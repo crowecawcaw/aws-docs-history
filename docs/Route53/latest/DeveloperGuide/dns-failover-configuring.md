@@ -12,8 +12,8 @@ Route 53 can check the health of your resources in both simple and complex conf
   DNS queries based on the health of your resources. For more information, see
   [How health checks work in simple Amazon Route 53 configurations](dns-failover-simple-configs.md "dns-failover-simple-configs.md").
 - In more complex configurations, you create a tree of records that route traffic based on multiple criteria. For example, if latency for
-  your users is your most important criterion, then you might use latency alias records to route traffic to the region that provides the best latency.
-  The latency alias records might have weighted records in each region as the alias target. The weighted records might route traffic to EC2 instances
+  your users is your most important criterion, then you might use latency alias records to route traffic to the Region that provides the best latency.
+  The latency alias records might have weighted records in each Region as the alias target. The weighted records might route traffic to EC2 instances
   based on the instance type. As with a simple configuration, you can configure Route 53 to route traffic based on the health of your resources.
   For more information, see [How health checks work in complex Amazon Route 53 configurations](dns-failover-complex-configs.md "dns-failover-complex-configs.md").
 

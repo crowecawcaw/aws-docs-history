@@ -37,7 +37,7 @@ zone with one or more DNS views.
    association.
 6. Choose **Associate hosted zone**.
 
-The association process typically takes a few minutes to complete. Once complete, Route 53 Global Resolver
+The association process typically takes a few minutes to complete. After this completes, Route 53 Global Resolver
 will use the records in the private hosted zone to answer DNS queries from client devices
 associated with the DNS view.
 

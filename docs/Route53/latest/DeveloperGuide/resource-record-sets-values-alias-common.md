@@ -104,7 +104,7 @@ For CloudFront distributions, do one of the following:
 If your distribution doesn't appear in the list, note the following:
 
     + The name of this record must match an alternate domain name in your distribution.
-    + If you just added an alternate domain name to your distribution, it may take 15 minutes for your changes to propagate
+    + If you just added an alternate domain name to your distribution, it might take 15 minutes for your changes to propagate
      to all CloudFront edge locations. Until changes have propagated, Route 53 can't know about the new alternate domain name.
 
 - **If you used different accounts to create your Route 53 hosted zone and your distribution**

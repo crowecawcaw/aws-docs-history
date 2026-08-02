@@ -5,7 +5,7 @@ not been tampered with. When you use DNSSEC signing, every response for a hosted
 see the DNSSEC section of
 [AWS re:Invent 2021 - Amazon Route 53: A year in review](https://www.youtube.com/watch?v=77V23phAaAE "https://www.youtube.com/watch?v=77V23phAaAE").
 
-In this chapter, we explain how to enable DNSSEC signing for Route 53, how to work with
+In this chapter, you can learn how to enable DNSSEC signing for Route 53, how to work with
 key-signing keys (KSKs), and how to troubleshoot issues. You can work with DNSSEC signing in
 the AWS Management Console or programmatically with the API. For more information about using the CLI or
 SDKs to work with Route 53, see [Set up Amazon Route 53](setting-up-route-53.md "setting-up-route-53.md").

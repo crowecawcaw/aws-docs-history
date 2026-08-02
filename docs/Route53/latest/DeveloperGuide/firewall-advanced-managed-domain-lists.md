@@ -18,56 +18,56 @@ This section describes the Advanced Managed Domain Lists that are currently
 available for DNS Firewall under the Advanced rule tier. AWS provides the
 following Managed Domain Lists, classified by **Threat** or **Content** Type.
 
-| Threat   |
-| -------- |
-| Spam     |
+Threat categories| Threat |
+| --- |
+| Spam |
 | Phishing |
 
-| Content                                      |
-| -------------------------------------------- |
-| Violence and Hate Speech                     |
-| For Kids                                     |
-| Online Ads                                   |
-| Science                                      |
-| Family and Parenting                         |
-| Pets                                         |
-| Career and Job Search                        |
-| Religion                                     |
-| Lifestyle                                    |
-| Home and Garden                              |
-| Criminal and Illegal Activities              |
-| Sports and Recreation                        |
-| Vehicles                                     |
-| Financial Services                           |
-| Real Estate                                  |
-| Hobbies and Interests                        |
-| Travel                                       |
-| Food and Dining                              |
-| Government and Legal                         |
-| Education                                    |
-| Fashion                                      |
-| Health                                       |
-| Shopping                                     |
-| Adult and Mature Content                     |
-| Technology and Internet                      |
-| Business and Economy                         |
-| News                                         |
-| Search Engines and Portals                   |
-| Arts and Culture                             |
-| Entertainment                                |
-| Military                                     |
-| Social Networking                            |
-| Proxy Avoidance                              |
-| Redirect                                     |
-| Email                                        |
-| Translation                                  |
-| Child Abuse                                  |
-| Abortion                                     |
-| Gambling                                     |
-| Hacking                                      |
-| Marijuana                                    |
-| Cryptocurrency                               |
-| Dating                                       |
+Content categories| Content |
+| --- |
+| Violence and Hate Speech |
+| For Kids |
+| Online Ads |
+| Science |
+| Family and Parenting |
+| Pets |
+| Career and Job Search |
+| Religion |
+| Lifestyle |
+| Home and Garden |
+| Criminal and Illegal Activities |
+| Sports and Recreation |
+| Vehicles |
+| Financial Services |
+| Real Estate |
+| Hobbies and Interests |
+| Travel |
+| Food and Dining |
+| Government and Legal |
+| Education |
+| Fashion |
+| Health |
+| Shopping |
+| Adult and Mature Content |
+| Technology and Internet |
+| Business and Economy |
+| News |
+| Search Engines and Portals |
+| Arts and Culture |
+| Entertainment |
+| Military |
+| Social Networking |
+| Proxy Avoidance |
+| Redirect |
+| Email |
+| Translation |
+| Child Abuse |
+| Abortion |
+| Gambling |
+| Hacking |
+| Marijuana |
+| Cryptocurrency |
+| Dating |
 | Artificial Intelligence and Machine Learning |
-| Parked Domains                               |
-| Private IP Address                           |
+| Parked Domains |
+| Private IP Address |

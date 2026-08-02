@@ -3,7 +3,7 @@
 The delegation rule allows the VPC Resolver to reach the name servers that host the delegated
 zone through the specified outbound endpoint. While the forward rule informs the VPC Resolver to
 forward the DNS queries to the name servers that match the specified domain through outbound
-endpoint, the delegation rule informs VPC Resolver to reach the delegated name servers via the
+endpoint, the delegation rule informs VPC Resolver to reach the delegated name servers through the
 outbound endpoint specified when the delegated NS records are returned. VPC Resolver sends a
 query to the delegated name servers when the NS records in the DNS response match the
 domain name specified in the delegation record.

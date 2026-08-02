@@ -5,7 +5,7 @@ We recommend using [VPC Resolver on AWS Outposts](outpost-resolver-getting-start
 ###### Important
 
 Outposts subnets with [Local Network Interface (LNI)](../../../outposts/latest/server-userguide/local-network-interface.md "../../../outposts/latest/server-userguide/local-network-interface.md") enabled are not compatible with VPC Resolver endpoints.
-If you enable LNI on a subnet that contains VPC Resolver endpoint elastic network interfaces (ENIs), those ENIs will stop functioning.
+If you enable LNI on a subnet that contains VPC Resolver endpoint elastic network interfaces (ENIs), those ENIs stop functioning.
 
 To avoid this issue:
 

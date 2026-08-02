@@ -12,7 +12,7 @@ For more information about CloudWatch, see
 ## Metrics and dimensions for Route 53 health checks
 
 When you create a health check, Amazon Route 53 starts to send metrics and dimensions once a minute to CloudWatch about the resource
-that you specify. The Route 53 console lets you view the status of your health checks. You can also use the following procedures
+that you specify. With the Route 53 console, you can view the status of your health checks. You can also use the following procedures
 to view the metrics in the CloudWatch console or view them by using the AWS Command Line Interface (AWS CLI).
 
 ###### To view metrics using the CloudWatch console

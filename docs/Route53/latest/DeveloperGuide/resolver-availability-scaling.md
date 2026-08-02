@@ -16,7 +16,7 @@ typically in the same Availability Zone as the instance. When there are failures
 handling queries by upstream name servers or other components in the path, the Nitro
 Resolver service is frequently able to handle these failures transparently without
 impact to the workloads running on the instance. Furthermore, if the Resolver encounters
-query timeouts, refused connections, or SERVFAILS from the domain's name servers, it may
+query timeouts, refused connections, or SERVFAILS from the domain's name servers, it might
 respond with a cached answer beyond the Time-To-Live (TTL) value to improve
 availability. Queries between the Nitro Resolver service and Zonal Resolver fleet are
 restricted to a tightly controlled network outside of the customer VPC, which is
@@ -24,8 +24,8 @@ inaccessible to customers and subject to rigorous security controls. By handling
 between the Nitro Resolver service and Zonal Resolver fleet outside of the VPC,
 customers are prevented from intercepting DNS queries inside of their VPC. Queries
 destined to name servers outside of AWS will traverse the public internet, originating
-from public IP addresses belonging to the Zonal Resolver fleet. We do not support the
-EDNS0-Client Subnet attribute today, which means all queries destined to public DNS name
+from public IP addresses belonging to the Zonal Resolver fleet. VPC Resolver does not support the
+EDNS0-Client Subnet attribute, which means all queries destined to public DNS name
 servers do not include information about the originating customer IP address.
 
 The Nitro Resolver service is part of the Link-Local services on the instance. Link-Local

@@ -18,7 +18,7 @@ Open to the public, with some restrictions:
   the registry's zone check. Three servers of two different C
   classes are required.
 - If you're using a DNS service other than Route 53, the name
-  servers for the domain must pass a check to ensure that
+  servers for the domain must pass a check to make sure that
   they're correctly configured. To determine whether the name
   servers for your domain will pass the check, see [https://www.denic.de/en/service/tools/nast/](https://www.denic.de/en/service/tools/nast/ "https://www.denic.de/en/service/tools/nast/").
 - You must provide contact information that meets registry validation requirements. Invalid or incorrectly formatted contact details can cause domain renewals to fail.

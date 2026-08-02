@@ -1,6 +1,6 @@
 # How Resolver DNS Firewall works
 
-Resolver DNS Firewall lets you control access to sites and block DNS-level threats for DNS
+With Resolver DNS Firewall, you can control access to sites and block DNS-level threats for DNS
 queries
 going out from your VPC through the Route 53 VPC Resolver. With DNS Firewall, you define domain name
 filtering rules in rule groups that you associate with your VPCs. You can specify lists
@@ -241,7 +241,7 @@ following high-level steps.
   own lists of approved or blocked domain specifications and you can use
   domain lists that AWS manages for you. For DNS Firewall protections you can
   filter the queries by blocking them all, or you can alert on any suspicious
-  query traffic to domains that may contain anomalies associated with threats
+  query traffic to domains that might contain anomalies associated with threats
   (DGA, DNS tunneling, Dictionary DGA) to test your DNS Firewall settings. For
   more information, see [DNS Firewall Foundational Rules](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md") and [DNS Firewall Advanced Rules](firewall-advanced.md "firewall-advanced.md").
 - **Create a firewall rule group** – In

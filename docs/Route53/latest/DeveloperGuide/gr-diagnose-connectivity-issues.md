@@ -24,7 +24,7 @@ Follow these steps to diagnose resolution failures:
 3. **Review firewall rules**
 
    - Check if firewall rules are blocking the queries
-   - Review rule priority and ensure allow rules have higher priority than block
+   - Review rule priority and make sure that allow rules have higher priority than block
      rules
    - Verify firewall fail-open behavior settings
 

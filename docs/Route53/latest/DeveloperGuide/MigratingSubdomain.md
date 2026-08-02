@@ -2,10 +2,10 @@
 
 You can migrate a subdomain to use Amazon Route 53 as the DNS service without migrating the parent domain from another DNS service.
 
-The process has the following basic steps:
+The process has these basic steps:
 
-1. [Figure out](#decide-procedure-migrate-subdomain "#decide-procedure-migrate-subdomain")
-   whether you should even be using this procedure.
+1. [Determine whether this
+   procedure applies to your use case](#decide-procedure-migrate-subdomain "#decide-procedure-migrate-subdomain").
 2. [Create a Route 53 hosted zone for the subdomain](#CreateZoneMigratedSubdomain "#CreateZoneMigratedSubdomain").
 3. [Get the current DNS configuration
    from the current DNS service provider for the parent domain](#GetParentDomainResourceRecords "#GetParentDomainResourceRecords").
@@ -24,46 +24,44 @@ for the parent domain by adding name server records for the subdomain](#UpdateOl
 
 ## Deciding which procedures to use for creating a subdomain
 
-The procedures in this topic explain how to perform an uncommon operation. If you're already using Route 53 as the DNS service
-for your domain and you just want to route traffic for a subdomain, such as www.example.com, to your resources, such as
-a web server running on an EC2 instance, see
+The procedures in this topic explain how to perform an uncommon task. If you already use Route 53 as the DNS service
+for your domain and you want to route traffic for a subdomain, such as www.example.com, to your resources, see
 [Routing traffic for subdomains](dns-routing-traffic-for-subdomains.md "dns-routing-traffic-for-subdomains.md").
 
-Use this procedure _only_ if you're using another DNS service for a domain, such as example.com, and
-you want to start using Route 53 as the DNS service for an existing subdomain of that domain, such as www.example.com.
+Use this procedure _only_ if you're using another DNS service for a
+domain, such as example.com, and you want to start using Route 53 as the DNS service for an
+existing subdomain of that domain, such as www.example.com.
 
 ## Creating a hosted zone for the subdomain
 
-If you want to migrate a subdomain from another DNS service to Amazon Route 53 but you don't want to migrate the parent domain,
-start by creating a hosted zone for the subdomain. Route 53 stores information about your subdomain in the hosted zone.
+To migrate a subdomain from another DNS service to Amazon Route 53 without migrating the parent domain,
+start by creating a hosted zone for the subdomain. Route 53 stores your subdomain information in this hosted zone.
 
 For information about how to create a hosted zone using the Route 53 console, see
 [Creating a public hosted zone](CreatingHostedZone.md "CreatingHostedZone.md").
 
 ## Getting your current DNS configuration from your DNS service provider
 
-To simplify the process of migrating an existing subdomain to Route 53, get the current DNS configuration for the domain
-from the DNS service provider that is currently servicing the domain. You can use this information as a basis for
-configuring Route 53 as the DNS service for the subdomain.
+Contact your current DNS service provider and request the current DNS configuration. Ask
+your current DNS service provider how to get a _zone file_ or a
+_records list_. You can use this as a basis for configuring Route 53
+as the DNS service for the subdomain.
 
-What you ask for and the format that it comes in depends on which company you're currently using as your DNS service provider.
-Ideally, they'll give you a zone file, which contains information about all of the records in your current
-configuration. (Records tell DNS how you want traffic to be routed for your domains and subdomains. For example,
-when someone enters your domain name in a web browser, do you want traffic to be routed to a web server in your data center,
-to an Amazon EC2 instance, to a CloudFront distribution, or to some other location?) If you can get a zone file from your current
-DNS service provider, you can edit the zone file to remove the records that you don't want to migrate to Amazon Route 53.
-Then you can import the remaining records into your Route 53 hosted zone, which greatly simplifies
-the process. Try asking customer support for your current DNS service provider how to get
-a _zone file_ or a _records list_.
+What you ask for and the format depends on your current DNS service provider. Ideally, they
+give you a zone file, which has all the records in your current configuration. These
+records tell DNS how to route traffic for your domains and subdomains. For example, a
+record can route traffic for your domain name to a web server in your data center, an
+Amazon EC2 instance, or a CloudFront distribution. If you can get a zone file, you can edit it to
+remove records you don't want to migrate to Amazon Route 53. Then import the remaining records
+into your Route 53 hosted zone. This greatly simplifies the process.
 
 ## Creating records
 
-Using the records that you got from your current DNS service provider as a
-starting point, create corresponding records in the Amazon Route 53 hosted zone that you
-created for the subdomain. The records that you create in Route 53 will become
-the records that DNS uses after you delegate responsibility for the subdomain
-to Route 53, as explained in [Updating your DNS service with name server records for the subdomain](#UpdateOldDNS "#UpdateOldDNS"),
-later in the process.
+Using the records from your current DNS service provider as a
+starting point, create matching records in the Amazon Route 53 hosted zone that you
+created for the subdomain. These records will become
+the records that DNS uses after you delegate the subdomain
+to Route 53, as explained in [Updating your DNS service with name server records for the subdomain](#UpdateOldDNS "#UpdateOldDNS").
 
 ###### Important
 
@@ -93,23 +91,23 @@ Changes generally propagate to all Route 53 name servers within 60 seconds.
 
 After your changes to Amazon Route 53 records have propagated
 (see [Checking the status of your changes (API only)](#MigratingSubdomainCheckStatus "#MigratingSubdomainCheckStatus")),
-update the DNS service for the parent domain by adding NS records for the subdomain. This is known as
-delegating responsibility for the subdomain to Route 53. For example, suppose the parent domain example.com
-is hosted with another DNS service and you're migrating the subdomain test.example.com to Route 53.
-You must create a hosted zone for test.example.com and update the DNS service for example.com with the
-NS records that Route 53 assigned to the new hosted zone for test.example.com.
+update the DNS service for the parent domain by adding NS records for the subdomain. This delegates
+the subdomain to Route 53. For example, suppose example.com
+is hosted with another DNS service and you're migrating test.example.com to Route 53.
+You must update the DNS service for example.com with the
+NS records that Route 53 assigned to the new hosted zone.
 
-Perform the following procedure.
+###### To update your DNS service with name server records for the subdomain
 
 1. Using the method provided by your DNS service, back up the zone file for the
    parent domain.
-2. If the previous DNS service provider for the domain has a method to change the TTL
-   settings for their name servers, we recommend that you change the settings to 900
-   seconds. This limits the time during which client requests will try to resolve domain
+2. If your previous DNS provider lets you change TTL
+   settings for their name servers, change the settings to 900
+   seconds. This limits the time during which client requests try to resolve domain
    names using obsolete name servers. If the current TTL is 172800 seconds (two days),
-   which is a common default setting, you still need to wait two days for resolvers and
-   clients to stop caching DNS records using the previous TTL. After the TTL settings
-   expire, you can safely delete the records that are stored at the previous provider
+   you still need to wait two days for resolvers and
+   clients to stop caching DNS records. After the TTL settings
+   expire, you can safely delete the records stored at the previous provider
    and make changes only to Route 53.
 3. In the Route 53 console, get the name servers for your Route 53 hosted zone:
 
@@ -122,10 +120,10 @@ Perform the following procedure.
       [GetHostedZone](../APIReference/API_GetHostedZone.md "../APIReference/API_GetHostedZone.md") in the _Amazon Route 53 API Reference_.
 
 4. Using the method provided by the DNS service of the parent domain, add NS records for the subdomain to the
-   zone file for the parent domain. Give the NS records the same name as the subdomain. For the values in the NS records,
-   specify the four Route 53 name servers that are associated with the hosted zone that you created in Step 2. Note that different
-   DNS services use different terminology. You might need to contact technical support for your DNS service to
-   learn how to perform this step.
+   zone file. Name the NS records with the subdomain name. For the values,
+   specify the four Route 53 name servers linked to the hosted zone you created in Step 2. Different
+   DNS services use different terms. You might need to contact support to
+   learn how to do this.
 
 ###### Important
 
@@ -137,15 +135,14 @@ If your DNS service automatically added an SOA record for the subdomain, delete
 the record for the subdomain. However, do not delete the SOA record for the parent
 domain.
 
-Depending on the TTL settings for the name servers for the parent domain, the
-propagation of your changes to DNS resolvers can take 48 hours or more. During this
-period, DNS resolvers may still answer requests with the name servers for the DNS
-service of the parent domain. In addition, client computers may continue to have the
-previous name servers for the subdomain in their cache. 5. After the registrar's TTL settings for the domain expire (see Step 2), delete the
-following records from the zone file for the parent domain:
+Changes to DNS resolvers can take 48 hours or more to propagate. During this
+period, DNS resolvers might still answer with the name servers for the DNS
+service of the parent domain. Also, client computers might still have the
+previous name servers for the subdomain in their cache. 5. After the registrar's TTL settings for the domain expire (see Step 2), delete
+these records from the zone file for the parent domain:
 
     * The records that you added to Route 53 as described in
      [Creating records](#AddMigratedSubdomainRecords "#AddMigratedSubdomainRecords").
-    * Your DNS service's NS records. When you are finished deleting NS records,
-     the only NS records in the zone file will be the ones that you created in Step
+    * Your DNS service's NS records. When you finish deleting NS records,
+     the only NS records in the zone file will be the ones you created in Step
      4.

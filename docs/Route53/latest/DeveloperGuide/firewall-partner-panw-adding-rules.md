@@ -33,17 +33,17 @@ Use the following procedure to add a rule.
 
 The following table describes the DNS security categories available from Palo Alto Networks.
 
-| Category                                                | Description                                                                                                                                                           |
-| ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Palo Alto Networks<br>• Dynamic DNS Hosted Domains      | Domains using dynamic DNS providers that allow rapid IP address<br>changes, frequently abused by threat actors to evade IP-based<br>blocking.                         |
-| Palo Alto Networks<br>• Parked Domains                  | Domains displaying placeholder or "for sale" content. Attackers<br>might acquire these to leverage residual reputation and redirect<br>visitors to malicious content. |
-| Palo Alto Networks<br>• Proxy Avoidance and Anonymizers | Domains providing services to bypass network security controls,<br>including web proxies, VPN services, and anonymizing<br>networks.                                  |
-| Palo Alto Networks<br>• Ad Tracking Domains             | Domains used by advertising networks and third-party trackers to<br>monitor user activity. These can serve as vectors for malvertising<br>campaigns.                  |
-| Palo Alto Networks<br>• Newly Registered Domains        | Domains registered within the past 32 days. Attackers use fresh<br>domains because they lack reputation history, making them harder<br>to detect.                     |
-| Palo Alto Networks<br>• Grayware Domains                | Domains associated with applications that exhibit unwanted<br>behavior such as excessive tracking, unsolicited advertising, or<br>browser hijacking.                  |
-| Palo Alto Networks<br>• Phishing Domains                | Domains impersonating legitimate organizations to steal<br>credentials or personal information through typosquatting,<br>homograph attacks, or domain shadowing.      |
-| Palo Alto Networks<br>• Malware Domains                 | Domains that host or distribute malicious software, including<br>exploit kits, ransomware droppers, and trojan delivery<br>networks.                                  |
-| Palo Alto Networks<br>• Command and Control Domains     | Domains used by malware to communicate with attacker-controlled<br>infrastructure for instructions, data exfiltration, or payload<br>delivery.                        |
+DNS security categories| Category | Description |
+| --- | --- |
+| Palo Alto Networks<br>• Dynamic DNS Hosted Domains | Domains using dynamic DNS providers that allow rapid IP address<br>changes, frequently abused by threat actors to evade IP-based<br>blocking. |
+| Palo Alto Networks<br>• Parked Domains | Domains displaying placeholder or "for sale" content. Attackers<br>might acquire these to leverage residual reputation and redirect<br>visitors to malicious content. |
+| Palo Alto Networks<br>• Proxy Avoidance and Anonymizers | Domains providing services to bypass network security controls,<br>including web proxies, VPN services, and anonymizing<br>networks. |
+| Palo Alto Networks<br>• Ad Tracking Domains | Domains used by advertising networks and third-party trackers to<br>monitor user activity. These can serve as vectors for malvertising<br>campaigns. |
+| Palo Alto Networks<br>• Newly Registered Domains | Domains registered within the past 32 days. Attackers use fresh<br>domains because they lack reputation history, making them harder<br>to detect. |
+| Palo Alto Networks<br>• Grayware Domains | Domains associated with applications that exhibit unwanted<br>behavior such as excessive tracking, unsolicited advertising, or<br>browser hijacking. |
+| Palo Alto Networks<br>• Phishing Domains | Domains impersonating legitimate organizations to steal<br>credentials or personal information through typosquatting,<br>homograph attacks, or domain shadowing. |
+| Palo Alto Networks<br>• Malware Domains | Domains that host or distribute malicious software, including<br>exploit kits, ransomware droppers, and trojan delivery<br>networks. |
+| Palo Alto Networks<br>• Command and Control Domains | Domains used by malware to communicate with attacker-controlled<br>infrastructure for instructions, data exfiltration, or payload<br>delivery. |
 
 ###### Tip
 

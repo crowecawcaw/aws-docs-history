@@ -9,5 +9,5 @@ The Amazon Route 53 dashboard provides detailed information about the status of
   transfer a domain to Route 53, to confirm that there are no issues for you to address.
 
 We also recommend that you confirm that the contact information for your domains is up to date. As the expiration date
-for a domain approaches, we email the registrant contact for the domain with information about when the domain expires and
+for a domain approaches, Route 53 emails the registrant contact for the domain with information about when the domain expires and
 how to renew.

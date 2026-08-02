@@ -5,10 +5,10 @@ how to change your DNS service, see [Making Amazon Route 53 the DNS service for
 
 ###### Note
 
-Some registrars only allow you to specify name servers using IP addresses; they don't allow you to specify fully qualified domain names.
-If your registrar requires using IP addresses, you can get the IP addresses for your name servers using the dig utility
-(for Mac, Unix, or Linux) or the nslookup utility (for Windows). We rarely change the IP addresses of name servers;
-if we need to change IP addresses, we'll notify you in advance.
+Some registrars only let you specify name servers using IP addresses; they don't accept fully qualified domain names.
+If your registrar needs IP addresses, you can get the IP addresses for your name servers using the dig utility
+(for Mac, Unix, or Linux) or the nslookup utility (for Windows). Route 53 rarely changes the IP addresses of name servers;
+if Route 53 needs to change them, it will notify you in advance.
 
 ###### To get the name servers for a hosted zone using the Route 53 console
 

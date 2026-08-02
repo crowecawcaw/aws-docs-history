@@ -106,7 +106,7 @@ For calculated health checks only, the graph shows the number of child health ch
 
 ###### Note
 
-If you selected more than one health check, the graph displays a separate color-coded line for each health check. 5. To view a larger graph and specify different settings, click the graph. You can change the following settings:
+If you selected more than one health check, the graph displays a separate color-coded line for each health check. 5. To view a larger graph and specify different settings, choose the graph. You can change the following settings:
 
 **Statistic**
 
@@ -289,7 +289,7 @@ For the alarm targets that are based on latency (**TCP connection time**,
 **Time to complete SSL handshake**, **Time to first byte**), choose whether you want
 CloudWatch to calculate latency for Route 53 health checkers in a specific region or for all regions (**Global**).
 
-Note that if you choose a region, Route 53 measures latency only twice per minute, and the number of samples will be smaller
+Note that if you choose a Region, Route 53 measures latency only twice per minute, and the number of samples will be smaller
 than if you choose all regions. As a result, outlying values are more likely. To prevent spurious alarm notifications,
 we recommend that you specify a larger number of consecutive periods that the health check must fail before CloudWatch
 sends you a notification.

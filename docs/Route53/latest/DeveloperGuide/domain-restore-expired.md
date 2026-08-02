@@ -29,7 +29,7 @@ You can't use AWS credits to pay the fee for restoring an expired domain.
    available for new registration. 2. Find the TLD for your domain, and review the values in the Deadlines for renewing and
    restoring domains section.###### Important
 
-We forward restoration requests to Gandi, which processes the requests during business hours
+Route 53 forwards restoration requests to Gandi, which processes the requests during business hours
 Monday through Friday. Gandi is based in Paris, where the time is UTC/GMT +1 hour. As a result, depending on when you submit
 your request, in rare cases it can take a week or more for a request to be processed. 2. Review the price for restoring a domain, which is often higher and sometimes much higher than
 the price for registering or renewing a domain. In [Amazon Route 53 Pricing for Domain Registration](https://d32ze2gidvkk54.cloudfront.net/Amazon_Route_53_Domain_Registration_Pricing_20140731.pdf "https://d32ze2gidvkk54.cloudfront.net/Amazon_Route_53_Domain_Registration_Pricing_20140731.pdf"), find the TLD for your
@@ -71,8 +71,8 @@ Provide the following information:
     Replace the blank with the price that you found in step 2.
 
 **Contact method**
-Specify a contact method and enter the applicable values. 5. Choose **Submit**. 6. When we learn whether we were able to restore your domain, an AWS Support representative
-will contact you. In addition, if we were able to restore your domain, the domain will reappear in the console.
+Specify a contact method and enter the applicable values. 5. Choose **Submit**. 6. When AWS Support determines whether the domain can be restored, a representative
+contacts you. In addition, if Route 53 restores your domain, the domain reappears in the console.
 The expiration date depends on whether the domain expired or was accidentally deleted:
 
 **The domain expired**

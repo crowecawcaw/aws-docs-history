@@ -6,10 +6,10 @@ create records using the Route 53 API, see
 
 ###### Note
 
-To create records for complex routing configurations, you can also use the Traffic Flow visual editor and
-save the configuration as a traffic policy. You can then associate the traffic policy with one or more domain names
+To create records for complex routing setups, you can also use the Traffic Flow visual editor and
+save the setup as a traffic policy. You can then link the traffic policy to one or more domain names
 (such as example.com) or subdomain names (such as www.example.com), in the same hosted zone or in multiple hosted zones.
-In addition, you can roll back the updates if the new configuration isn't performing as you expected it to. For more information,
+You can also roll back updates if the new setup isn't working as expected. For more information,
 see [Using Traffic Flow to route DNS traffic](traffic-flow.md "traffic-flow.md").
 
 ###### To create a record using the Route 53 console

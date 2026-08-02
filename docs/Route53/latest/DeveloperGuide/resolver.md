@@ -20,7 +20,7 @@ A VPC Resolver automatically answers DNS queries for:
   the internet.
 
 If you have workloads that leverage both VPCs and on-premises resources, you also need to
-resolve DNS records hosted on-premises. Similarly, these on-premises resources may need to
+resolve DNS records hosted on-premises. Similarly, these on-premises resources might need to
 resolve names hosted on AWS. Through Resolver endpoints and conditional forwarding rules,
 you can resolve DNS queries between your on-premises resources and VPCs to create a hybrid
 cloud setup over VPN or Direct Connect (DX). Specifically:
@@ -52,7 +52,7 @@ The diagram illustrates the following steps:
    private connection between AWS and the data center. The connection can be either
    Direct Connect or AWS Site-to-Site VPN, depicted as a virtual private gateway.
 5. The on-premises DNS resolver resolves the DNS query for internal.example.com and
-   returns the answer to the Amazon EC2 instance via the same path in reverse.
+   returns the answer to the Amazon EC2 instance through the same path in reverse.
    **Inbound (dashed arrows a–d):**
 
 6. A client in the on-premises data center needs to resolve a DNS query to an AWS resource for
@@ -62,7 +62,7 @@ The diagram illustrates the following steps:
 8. The query arrives at the inbound endpoint through a private connection, such as
    Direct Connect or AWS Site-to-Site VPN, depicted as a virtual gateway.
 9. The inbound endpoint sends the query to VPC Resolver, and VPC Resolver resolves the DNS query for
-   dev.example.com and returns the answer to the client via the same path in
+   dev.example.com and returns the answer to the client through the same path in
    reverse.
 
 ###### Topics

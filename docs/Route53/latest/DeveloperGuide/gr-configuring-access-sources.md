@@ -36,5 +36,5 @@ Route 53 Global Resolver evaluates access source rules when identifying the corr
 - Rules are processed from most specific to least specific IP ranges, where the most-specific matching rule takes precedence.
 - If no rules match, the request is denied by default.
 
-Test your access source configuration by querying from different IP addresses to ensure the
+Test your access source configuration by querying from different IP addresses to make sure the
 rules work as expected.

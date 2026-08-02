@@ -2,9 +2,9 @@
 
 This section explains how to delete a public hosted zone using the Amazon Route 53 console.
 
-You can delete a hosted zone only if there are no records other than the default SOA and NS records.
-If your hosted zone contains other records, you must delete them before you can delete your hosted zone. This
-prevents you from accidentally deleting a hosted zone that still contains records.
+You can delete a hosted zone only if it has no records other than the default SOA and NS records.
+If your hosted zone has other records, delete them first. This
+prevents you from removing a hosted zone that still has records in use.
 
 ###### Topics
 
@@ -14,33 +14,33 @@ prevents you from accidentally deleting a hosted zone that still contains record
 
 ## Preventing traffic from being routed to your domain
 
-If you want to keep your domain registration but you want to stop routing internet traffic to your website or web application,
-we recommend that you delete _records_ in the hosted zone instead of deleting the hosted zone.
+If you want to keep your domain registration but stop routing internet traffic to your website or web application,
+we suggest that you delete _records_ in the hosted zone instead of deleting the hosted zone.
 
 ###### Important
 
-If you delete a hosted zone, you can't undelete it. You must create a new hosted zone and update the name servers for your
-domain registration, which can require up to 48 hours to take effect. In addition, if you delete a hosted zone,
+If you delete a hosted zone, you can't undo it. You must create a new hosted zone and update the name servers for your
+domain, which can take up to 48 hours to take effect. Also, if you delete a hosted zone,
 someone could hijack the domain and route traffic to their own resources using your domain name.
 
-If you delegated responsibility for a subdomain to a hosted zone and you want to delete the child hosted zone, you must
-also update the parent hosted zone by deleting the NS record that has the same name as the child hosted zone. For example, if you
+If you gave a subdomain its own hosted zone and you want to delete that child hosted zone, you must
+also update the parent hosted zone by deleting the NS record with the same name as the child hosted zone. For example, if you
 want to delete the hosted zone acme.example.com, you must also delete the NS record acme.example.com in the example.com hosted zone.
-We recommend that you delete the NS record first, and wait for the duration of the TTL on the NS record before you delete the
-child hosted zone. This ensures that someone can't hijack the child hosted zone during the period that DNS resolvers still have
-the name servers for the child hosted zone cached.
+We suggest that you delete the NS record first, and wait for the TTL on that NS record to expire before you delete the
+child hosted zone. This ensures that no one can hijack the child hosted zone while DNS resolvers still have
+the child hosted zone's name servers cached.
 
-If you want to avoid the monthly charge for the hosted zone, you can transfer DNS service for the domain to a free DNS service.
-When you transfer DNS service, you have to update the name servers for the domain registration. If the domain is registered with Route 53,
+If you want to avoid the monthly charge for the hosted zone, you can move DNS service for the domain to a free DNS service.
+When you move DNS service, you must update the name servers for the domain. If the domain is registered with Route 53,
 see [Adding or changing name servers and glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md") for information about how to
 replace Route 53 name servers with name servers for the new DNS service. If the domain is registered with another registrar, use the method
-provided by the registrar to update name servers for the domain registration. For more information, perform an internet search on
+provided by that registrar to update name servers for the domain. For more information, search the internet for
 "free DNS service."
 
 ## Deleting public hosted zones that were created by another service
 
-If a hosted zone was created by another service, you can't delete it using the Route 53 console. Instead, you need to use the
-applicable process for the other service:
+If another service created a hosted zone, you can't delete it using the Route 53 console. Instead, use the
+right process for that service:
 
 - **AWS Cloud Map** – To delete a hosted zone that AWS Cloud Map created when you created a public DNS namespace,
   delete the namespace. AWS Cloud Map deletes the hosted zone automatically. For more information, see

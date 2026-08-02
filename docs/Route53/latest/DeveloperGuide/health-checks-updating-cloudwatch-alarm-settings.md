@@ -15,7 +15,7 @@ the _Amazon Route 53 API Reference_.
 
 ###### Note
 
-We're updating the health checks console for Route 53. During the transition period, you can continue
+Route 53 is updating the health checks console. During the transition period, you can continue
 to use the old console.
 
 Choose the tab for the console you are using.

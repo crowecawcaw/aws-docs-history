@@ -22,17 +22,17 @@ If you need help getting your domain unsuspended, you can contact AWS Support fr
 
 ###### Topics
 
-- [You registered a new domain, but you didn't click the link in the confirmation email](#troubleshooting-domain-suspended-click-link "#troubleshooting-domain-suspended-click-link")
+- [You registered a new domain, but you didn't choose the link in the confirmation email](#troubleshooting-domain-suspended-click-link "#troubleshooting-domain-suspended-click-link")
 - [You disabled automatic renewal for the domain, and the domain expired](#troubleshooting-domain-suspended-automatic-renewal-disabled "#troubleshooting-domain-suspended-automatic-renewal-disabled")
 - [You changed the email address for the registrant contact, but you didn't verify that the new email address is valid](#troubleshooting-domain-suspended-new-email-not-verified "#troubleshooting-domain-suspended-new-email-not-verified")
 - [We couldn't process your payment for automatic domain renewal, and the domain expired](#troubleshooting-domain-suspended-process-payment "#troubleshooting-domain-suspended-process-payment")
 - [We suspended the domain for a violation of the AWS Acceptable Use Policy](#troubleshooting-domain-suspended-acceptable-use "#troubleshooting-domain-suspended-acceptable-use")
 - [We suspended the domain because of a court order](#troubleshooting-domain-suspended-court-order "#troubleshooting-domain-suspended-court-order")
 
-## You registered a new domain, but you didn't click the link in the confirmation email
+## You registered a new domain, but you didn't choose the link in the confirmation email
 
 When you register a domain with AWS for the first time, ICANN requires that we get confirmation that the email address for the
-registrant contact is valid. To get confirmation, we send an email that contains a link. You have between 3 and 15 days to click the link,
+registrant contact is valid. To get confirmation, we send an email that contains a link. You have between 3 and 15 days to choose the link,
 depending on the top-level domain. After that time, the link stops working.
 
 ###### Note
@@ -40,7 +40,7 @@ depending on the top-level domain. After that time, the link stops working.
 If you have already registered
 one or more domains with Amazon Route 53 and used the same email address for the registrant contact, we don't send a confirmation email.
 
-If you don't click the link in the email in the allotted amount of time, ICANN requires that we suspend the domain.
+If you don't choose the link in the email in the allotted amount of time, ICANN requires that we suspend the domain.
 For information about how to resend the confirmation email to the registrant contact, see
 [Resending authorization and confirmation emails](domain-click-email-link.md "domain-click-email-link.md"). When you confirm that the email address
 is valid, we automatically unsuspend the domain.
@@ -62,10 +62,10 @@ For information about how to renew an expired domain, see [Renewing registration
 
 If you change the email address for the registrant contact to an address that you haven't previously verified, ICANN requires
 that we get confirmation that the email address for the registrant contact is valid. To get confirmation, we send an email that
-contains a link. You have between 3 and 15 days to click the link, depending on the top-level domain. After that time, the
+contains a link. You have between 3 and 15 days to choose the link, depending on the top-level domain. After that time, the
 link stops working.
 
-If you don't click the link in the email in the amount of time allowed by the TLD registry, ICANN requires that we suspend the domain.
+If you don't choose the link in the email in the amount of time allowed by the TLD registry, ICANN requires that we suspend the domain.
 For information about how to resend the confirmation email to the registrant contact, see
 [Resending authorization and confirmation emails](domain-click-email-link.md "domain-click-email-link.md"). When you confirm that the email address is valid,
 we automatically unsuspend the domain.

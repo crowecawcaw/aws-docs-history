@@ -43,18 +43,18 @@ Select the same value for all of the records in the group of weighted records.
 The amount of time, in seconds, that you want DNS recursive resolvers to cache
 information about this record. If you specify a longer value (for example, 172800
 seconds, or two days), you reduce the number of calls that DNS recursive resolvers must
-make to Route 53 to get the latest information in this record. This has the effect of
-reducing latency and reducing your bill for Route 53 service. For more information, see
+make to Route 53 to get the latest information in this record. This reduces
+latency and reduces your bill for Route 53 service. For more information, see
 [How Amazon Route 53 routes traffic for your domain](welcome-dns-service.md#welcome-dns-service-how-route-53-routes-traffic "welcome-dns-service.md#welcome-dns-service-how-route-53-routes-traffic").
 
 However, if you specify a longer value for TTL, it takes longer for changes to the
-record (for example, a new IP address) to take effect because recursive resolvers use
+record (for example, a new IP address) to take effect. Recursive resolvers use
 the values in their cache for longer periods before they ask Route 53 for the latest
 information. If you're changing settings for a domain or subdomain that's already in
-use, we recommend that you initially specify a shorter value, such as 300 seconds, and
+use, specify a shorter value first, such as 300 seconds, and
 increase the value after you confirm that the new settings are correct.
 
-If you're associating this record with a health check, we recommend that you specify a
+If you're associating this record with a health check, specify a
 TTL of 60 seconds or less so clients respond quickly to changes in health status.
 
 You must specify the same value for **TTL** for all of the records in
@@ -65,10 +65,10 @@ this group of weighted records.
 If you create two or more weighted records that have the same name and type, and
 you specify different values for **TTL**, Route 53 changes the value
 of **TTL** for all of the records to the last value that you
-specified.
+set.
 
-If a group of weighted records includes one or more weighted alias records that are
-routing traffic to an ELB load balancer, we recommend that you specify a TTL of 60
+If a group of weighted records includes one or more weighted alias records that
+route traffic to an ELB load balancer, specify a TTL of 60
 seconds for all of the non-alias weighted records that have the same name and type.
 Values other than 60 seconds (the TTL for load balancers) will change the effect of the
 values that you specify for **Weight**.
@@ -105,10 +105,10 @@ of a resource's weight to the total.
 You can't create non-weighted records that have the same values for **Record
 name** and **Record type** as weighted records.
 
-Enter an integer between 0 and 255. To disable routing to a resource, set
+Enter an integer between 0 and 255. To stop routing to a resource, set
 **Weight** to 0. If you set **Weight** to 0 for
 all of the records in the group, traffic is routed to all resources with equal
-probability. This ensures that you don't accidentally disable routing for a group of
+probability. This makes sure you don't disable routing for a group of
 weighted records.
 
 The effect of setting **Weight** to 0 is different when you associate
@@ -127,13 +127,13 @@ endpoint is healthy, see [How Amazon Route 53 determines whether a health check
 
 Associating a health check with a record is useful only when Route 53 is choosing between
 two or more records to respond to a DNS query, and you want Route 53 to base the choice in
-part on the status of a health check. Use health checks only in the following
+part on health check status. Use health checks only in the following
 configurations:
 
 - You're checking the health of all of the records in a group of records that
   have the same name, type, and routing policy (such as failover or weighted
   records), and you specify health check IDs for all the records. If the health
-  check for a record specifies an endpoint that is not healthy, Route 53 stops
+  check for a record specifies an unhealthy endpoint, Route 53 stops
   responding to queries using the value for that record.
 - You select **Yes** for **Evaluate target
   health** for an alias record or the records in a group of failover
@@ -146,8 +146,7 @@ configurations:
   Target Health**, both must evaluate to true. For more information,
   see [What happens when you associate a health check with an alias record?](dns-failover-complex-configs.md#dns-failover-complex-configs-hc-alias "dns-failover-complex-configs.md#dns-failover-complex-configs-hc-alias").
 
-If your health checks specify the endpoint only by domain name, we recommend that you
-create a separate health check for each endpoint. For example, create a health check for
+If your health checks specify the endpoint only by domain name, create a separate health check for each endpoint. For example, create a health check for
 each HTTP server that is serving content for www.example.com. For the value of
 **Domain name**, specify the domain name of the server (such as
 us-east-2-www.example.com), not the name of the records (example.com).

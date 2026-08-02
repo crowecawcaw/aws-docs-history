@@ -3,7 +3,7 @@
 Resolver automatically creates autodefined system rules that define how queries for selected domains are resolved by default:
 
 - For private hosted zones and for Amazon EC2–specific domain names (such as compute.amazonaws.com and
-  compute.internal), autodefined rules ensure that your private hosted zones and EC2 instances continue to resolve
+  compute.internal), autodefined rules make sure that your private hosted zones and EC2 instances continue to resolve
   if you create conditional forwarding rules for less specific domain names such as "." (dot) or "com".
 - For publicly reserved domain names (such as localhost and 10.in-addr.arpa), DNS best practices recommend
   that queries are answered locally instead of being forwarded to public name servers. See

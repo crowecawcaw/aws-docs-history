@@ -19,7 +19,7 @@ _Your network_ can include any network that is reachable from your VPC, such as 
   Before you start to forward queries, you create Resolver inbound and/or outbound endpoints in the connected VPC.
   These endpoints provide a path for inbound or outbound queries:
 
-**Inbound endpoint: DNS resolvers on your network can forward DNS queries to Route 53 VPC Resolver via
+**Inbound endpoint: DNS resolvers on your network can forward DNS queries to Route 53 VPC Resolver through
 this endpoint**
 There are two types of inbound endpoints, a **default inbound
 endpoint** that forwards to IP addresses, and a **delegation inbound endpoint** that delegates the
@@ -28,7 +28,7 @@ Route 53 VPC Resolver. Inbound endpoints allow your DNS resolvers to easily reso
 domain names for AWS resources such as EC2 instances or records in a Route 53
 private hosted zone. For more information, see [How DNS resolvers on your network forward DNS queries to Resolver endpoints](resolver-overview-forward-network-to-vpc.md "resolver-overview-forward-network-to-vpc.md").
 
-**Outbound endpoint: VPC Resolver conditionally forwards queries to resolvers on your network via this endpoint**
+**Outbound endpoint: VPC Resolver conditionally forwards queries to resolvers on your network through this endpoint**
 To forward selected queries, you create Resolver rules that specify the domain names for the DNS
 queries that you want to forward (such as example.com), and the IP addresses
 of the DNS resolvers on your network that you want to forward the queries
@@ -38,7 +38,7 @@ forwards the query to the IP addresses that you specified in that rule.
 There are three types of rules, **forward**,
 **system**, and **delegation**. For more information, see [How Resolver endpoints forward DNS queries from your VPCs to your network](resolver-overview-forward-vpc-to-network.md "resolver-overview-forward-vpc-to-network.md").
 
-Like Amazon VPC, VPC Resolver is regional. In each region where you have VPCs, you can choose whether to forward queries from your VPCs
+Like Amazon VPC, VPC Resolver is regional. In each Region where you have VPCs, you can choose whether to forward queries from your VPCs
 to your network (outbound queries), from your network to your VPCs (inbound queries), or both.
 
 You can't create Resolver endpoints in a VPC that you don't own.

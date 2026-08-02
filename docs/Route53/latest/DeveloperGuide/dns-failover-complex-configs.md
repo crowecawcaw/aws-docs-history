@@ -4,8 +4,8 @@ Checking the health of resources in complex configurations works much the same w
 in complex configurations, you use a combination of alias records (such as weighted alias and failover alias) and non-alias records to
 build a decision tree that gives you greater control over how Route 53 responds to requests.
 
-For example, you might use latency alias records to select a region close to a user and use weighted records for two or more
-resources within each region to protect against the failure of a single endpoint or an Availability Zone. The following diagram shows this
+For example, you might use latency alias records to select a Region close to a user and use weighted records for two or more
+resources within each Region to protect against the failure of a single endpoint or an Availability Zone. The following diagram shows this
 configuration.
 
 ![DNS configuration that includes latency alias records and weighted alias records.](images/hc-latency-alias-weighted.png)
@@ -16,9 +16,9 @@ that you'll create records in:
   to your EC2 instances based on whether they're healthy, so you create a health check for each instance. You configure
   each health check to send health-checking requests to the corresponding instance at the Elastic IP address for the instance.
 
-Route 53 is a global service, so you don't specify the region that you want to create health checks in.
+Route 53 is a global service, so you don't specify the Region that you want to create health checks in.
 
-- You want to route traffic to the two instances in each region based on the instance type, so you create a
+- You want to route traffic to the two instances in each Region based on the instance type, so you create a
   weighted record for each instance and give each record a weight. (You can change the weight later to route more or less
   traffic to an instance.) You also associate the applicable health check with each instance.
 
@@ -26,11 +26,11 @@ When you create the records, you use names such as us-east-1-www.example.com. an
 You'll wait until you get to the top of the tree to give records the names that your users will use to access your
 website or web application, such as example.com.
 
-- You want to route traffic to the region that provides the lowest latency for your users, so you choose the latency
+- You want to route traffic to the Region that provides the lowest latency for your users, so you choose the latency
   [routing policy](routing-policy.md "routing-policy.md") for the records at the top of the tree.
 
-You want to route traffic to the _records_ in each region, not directly to the _resources_
-in each region (the weighted records already do that). As a result, you create latency
+You want to route traffic to the _records_ in each Region, not directly to the _resources_
+in each Region (the weighted records already do that). As a result, you create latency
 [alias records](resource-record-sets-choosing-alias-non-alias.md "resource-record-sets-choosing-alias-non-alias.md").
 
 When you create the alias records, you give them the name that you want your users to use to access your website or
@@ -38,8 +38,8 @@ web application, such as example.com. The alias records route traffic for exampl
 and ap-southeast-2-www.example.com records.
 
 For both latency alias records, you set the value of **Evaluate Target Health** to **Yes**.
-This causes Route 53 to determine whether there are any healthy resources in a region before trying to route traffic there.
-If not, Route 53 chooses a healthy resource in the other region.
+This causes Route 53 to determine whether there are any healthy resources in a Region before trying to route traffic there.
+If not, Route 53 chooses a healthy resource in the other Region.
 
 ![DNS configuration that includes latency alias records and weighted alias records.](images/hc-latency-alias-weighted-both-failed.png)
 The preceding diagram illustrates the following sequence of events:

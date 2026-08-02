@@ -6,6 +6,7 @@
 - [Making API Requests for Domain Registration and for Route 53 Resolver](api-requests-rpc.md "api-requests-rpc.md")
 - [Signing Amazon Route 53 API Requests](api-requests-authentication.md "api-requests-authentication.md")
 - [Amazon Route 53 API actions by function](api-operations-by-function.md "api-operations-by-function.md")
+- [Throttling for Amazon Route 53 API requests](throttling-api-requests.md "throttling-api-requests.md")
   This section describes how to make requests to the two Route 53 APIs:
 
 - A REST API for hosted zones, resource record sets, health checks, and cost allocation tags

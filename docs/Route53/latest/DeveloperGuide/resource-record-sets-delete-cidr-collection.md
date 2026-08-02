@@ -6,7 +6,7 @@
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
 2. In the navigation pane, choose **IP-based routing** and then
    **CIDR collections**.
-3. In the **CIDR collections** section, click the linked name of the
+3. In the **CIDR collections** section, choose the linked name of the
    collection that you want to delete.
 4. On the **CIDR locations** page, select each location one at a time,
    choose **Delete**, enter its name in the dialog box, and then choose

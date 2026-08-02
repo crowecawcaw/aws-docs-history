@@ -32,7 +32,7 @@ endpoint is healthy:
 - If 18% of health checkers or fewer report that an endpoint is healthy,
   Route 53 considers it unhealthy.
 
-The 18% value was chosen to ensure that health checkers in multiple regions
+The 18% value was chosen to make sure that health checkers in multiple regions
 consider the endpoint healthy. This prevents an endpoint from being considered
 unhealthy only because network conditions have isolated the endpoint from some
 health-checking locations. This value might change in a future release.

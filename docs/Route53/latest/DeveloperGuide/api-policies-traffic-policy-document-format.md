@@ -127,7 +127,7 @@ To route traffic to an Amazon S3 bucket that is configured as a website endpoint
 for `Type`.
 
 **Region**
-To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you
+To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the Region in which you
 created the bucket for `Region`. For any other resource, omit `Region`.
 
 **Value**
@@ -500,7 +500,7 @@ Specify `latency`.
 
 **Regions**
 Specify one set of values (`EndpointReference` | `RuleReference`, `Region`,
-`EvaluateTargetHealth`, and `HealthCheck`) for each of the regions that you want to
+`EvaluateTargetHealth`, and `HealthCheck`) for each of the Regions that you want to
 route traffic to.
 
 **EndpointReference | RuleReference**

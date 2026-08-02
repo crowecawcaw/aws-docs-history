@@ -1,9 +1,9 @@
 # Viewing DNS query metrics for a public hosted zone
 
-You can view the total number of DNS queries that Route 53 is responding to for a specified public hosted zone or combination of
-public hosted zones. The metrics appear in CloudWatch, which lets you view a graph, choose the time period that you want to view, and
-customize the metrics in a variety of other ways. You can also create alarms and configure notifications, so that you're notified
-when the number of DNS queries in a specified time period go above or below a specified level.
+You can view the total number of DNS queries that Route 53 responds to for a public hosted zone or a set of
+public hosted zones. The metrics show up in CloudWatch, so you can view a graph, choose the time period, and
+customize the metrics in other ways. You can also create alarms and set up notifications when
+the number of DNS queries goes above or below a level that you choose.
 
 ###### Note
 
@@ -13,12 +13,12 @@ you can view query metrics. There's no charge for DNS query metrics.
 **Which DNS queries are counted?**
 
 Metrics include only the queries that DNS resolvers forward to Route 53. If a DNS resolver has already cached the response to a query
-(such as the IP address for a load balancer for example.com), the resolver will continue to return the cached response without
-forwarding the query to Route 53 until the TTL for the corresponding record expires.
+(such as the IP address for a load balancer for example.com), it will keep returning the cached response
+until the TTL for that record expires.
 
-Depending on how many DNS queries are submitted for a domain name (example.com) or subdomain name (www.example.com),
-which resolvers your users are using, and the TTL for the record, DNS query metrics might contain information about only one query
-out of every several thousand queries that are submitted to DNS resolvers. For more information about how DNS works, see
+Depending on how many DNS queries are sent for a domain name (example.com) or subdomain name (www.example.com),
+which resolvers your users use, and the TTL for the record, metrics might show only one query
+out of every few thousand queries sent to DNS resolvers. For more information about how DNS works, see
 [How Amazon Route 53 routes traffic for your domain](welcome-dns-service.md#welcome-dns-service-how-route-53-routes-traffic "welcome-dns-service.md#welcome-dns-service-how-route-53-routes-traffic").
 
 **When do query metrics for a hosted zone start to appear in CloudWatch?**

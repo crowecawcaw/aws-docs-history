@@ -87,7 +87,7 @@ Amazon CloudFront distributions and Amazon S3 buckets. For more information, see
 [Choosing between alias and non-alias records](resource-record-sets-choosing-alias-non-alias.md "resource-record-sets-choosing-alias-non-alias.md").
 
 **authoritative name server**
-A name server that has definitive information about one part of the Domain Name System (DNS) and that responds to requests
+A name server that has definitive information about one part of the Domain Name System (DNS). It responds to requests
 from a DNS resolver by returning the applicable information. For example, an authoritative name server for the .com top-level domain (TLD)
 knows the names of the name servers for every registered .com domain. When a .com authoritative name server receives a request
 from a DNS resolver for example.com, it responds with the names of the name servers for the DNS service for the example.com domain.
@@ -100,27 +100,27 @@ For example, if a Route 53 name server receives a request for www.example.com, 
 IP address, such as 192.0.2.33, that is specified in the record.
 
 **CIDR block**
-A CIDR block is an IP range used with IP-based routing. In Route 53
-You can specify CIDR block from /0 to /24 for IPv4 and/0 to /48 for IPv6. For example,
+A CIDR block is an IP range used with IP-based routing. In Route 53,
+you can specify a CIDR block from /0 to /24 for IPv4 and /0 to /48 for IPv6. For example,
 a /24 IPv4 CIDR block includes 256 contiguous IP addresses.
-You can group sets of CIDR blocks (or IP ranges) into CIDR
-locations, which are in turn grouped into reusable CIDR collections.
+You can group CIDR blocks (or IP ranges) into CIDR
+locations, which are then grouped into reusable CIDR collections.
 
 **DNS query**
-Usually a request that is submitted by a device, such as a computer or a smart phone, to the
-Domain Name System (DNS) for a resource that is associated with a domain name. The most common example of a DNS query
-is when a user opens a browser and types the domain name in the address bar. The response to a DNS query typically is
-the IP address that is associated with a resource such as a web server. The device that initiated the request uses the
+A request that is submitted by a device, such as a computer or a smart phone, to the
+Domain Name System (DNS) for a resource associated with a domain name. The most common example of a DNS query
+is when a user opens a browser and types the domain name in the address bar. The response to a DNS query is typically
+the IP address associated with a resource such as a web server. The device that initiated the request uses the
 IP address to communicate with the resource. For example, a browser can use the IP address to get a web page
 from a web server.
 
 **DNS resolver**
 A DNS server, often managed by an internet service provider (ISP), that acts as an intermediary between
 user requests and DNS name servers. When you open a browser and enter a domain name in the address bar, your query goes first
-to a DNS resolver. The resolver communicates with DNS name servers to get the IP address for the corresponding resource,
+to a DNS resolver. The resolver communicates with DNS name servers to get the IP address for the resource,
 such as a web server. A DNS resolver is also known as a recursive name server because it sends requests to a sequence of
-authoritative DNS name servers until it gets the response (typically an IP address) that it returns to a user's device,
-for example, a web browser on a laptop computer.
+authoritative DNS name servers until it gets the response (typically an IP address) that it returns to the user's device,
+for example, a web browser on a laptop.
 
 **Domain Name System (DNS)**
 A worldwide network of servers that help computers, smart phones, tablets, and other IP-enabled devices
@@ -130,9 +130,9 @@ the numbers, known as _IP addresses_, that allow computers to find each other on
 See also [IP address](#route-53-concepts-ip-address "#route-53-concepts-ip-address").
 
 **hosted zone**
-A container for records, which include information about how you want to route traffic
+A container for records that include information about how to route traffic
 for a domain (such as example.com) and all of its subdomains (such as www.example.com, retail.example.com, and
-seattle.accounting.example.com). A hosted zone has the same name as the corresponding domain.
+seattle.accounting.example.com). A hosted zone has the same name as the domain.
 
 For example, the hosted zone for example.com might include a record that has information about
 routing traffic for www.example.com to a web server that has the IP address 192.0.2.243, and a record
@@ -165,7 +165,7 @@ For an overview of how DNS routes traffic to your resources, including the role 
 [How Amazon Route 53 routes traffic for your domain](welcome-dns-service.md#welcome-dns-service-how-route-53-routes-traffic "welcome-dns-service.md#welcome-dns-service-how-route-53-routes-traffic").
 
 **private DNS**
-A local version of the Domain Name System (DNS) that lets you route traffic for a domain and its
+A local version of the Domain Name System (DNS) where you can route traffic for a domain and its
 subdomains to Amazon EC2 instances within one or more Amazon virtual private clouds (VPCs).
 For more information, see [Working with private hosted zones](hosted-zones-private.md "hosted-zones-private.md").
 
@@ -183,7 +183,7 @@ See [DNS resolver](#route-53-concepts-dns-resolver "#route-53-concepts-dns-resol
 **reusable delegation set**
 A set of four authoritative name servers that you can use with more than one hosted zone. By default, Route 53
 assigns a random selection of name servers to each new hosted zone. To make it easier to migrate DNS service to Route 53 for
-a large number of domains, you can create a reusable delegation set and then associate the reusable delegation set
+a large number of domains, you can create a reusable delegation set. Then associate the reusable delegation set
 with new hosted zones. (You can't change the name servers that are associated with an existing hosted zone.)
 
 You create a reusable delegation set and associate it with a hosted zone programmatically;
@@ -195,7 +195,7 @@ _Amazon Route 53 API Reference_. The same feature is also available in the
 [AWS Tools for Windows PowerShell](../../../powershell/latest/reference.md "../../../powershell/latest/reference.md").
 
 **routing policy**
-A setting for records that determines how Route 53 responds to DNS queries. Route 53 supports the following routing policies:
+A setting for records that determines how Route 53 responds to DNS queries. Route 53 supports these routing policies:
 
 - **Simple routing policy** – Use to route internet traffic to a single resource
   that performs a given function for your domain, for example, a web server that serves content for the example.com website.
@@ -204,7 +204,7 @@ A setting for records that determines how Route 53 responds to DNS queries. Rou
 - **Geolocation routing policy** – Use when you want to route internet traffic
   to your resources based on the location of your users.
 - **Geoproximity routing policy** – Use when you want to route traffic
-  based on the location of your resources and, optionally, shift traffic from resources in one location to resources in another.
+  based on the location of your resources and, optionally, shift traffic from resources in one location to resources in another location.
 - **Latency routing policy** – Use when you have resources in multiple locations
   and you want to route traffic to the resource that provides the best latency.
 - **IP-based routing policy** – Use when you want to route
@@ -231,20 +231,20 @@ before submitting another request to Route 53 to get the current values for tha
 If the DNS resolver receives another request for the same domain before the TTL expires, the resolver returns the cached value.
 
 A longer TTL reduces your Route 53 charges, which are based in part on the number of DNS queries that Route 53 responds to.
-A shorter TTL reduces the amount of time that DNS resolvers route traffic to older resources after you change the values in a
+A shorter TTL reduces the time that DNS resolvers route traffic to older resources after you change the values in a
 record, for example, by changing the IP address for the web server for www.example.com.
 
 ## Control and data plane concepts
 
 Here's an overview of the concepts that are related to how Amazon Route 53 divides its
-functionality into a control and a data plane. Route 53 service, like most
-AWS services, includes a control plane that enables you to perform management
-operations such as creating, updating, and deleting resources, and a data plane that
-provides the service's core functionality. While both functionalities are built to
-be reliable, the control planes are optimized for data consistency, whereas the data
+functionality into a control and a data plane. Like most
+AWS services, Route 53 includes a control plane and a data plane. The control plane enables you to perform management
+operations such as creating, updating, and deleting resources. The data
+plane provides the service's core functionality. Both are built to
+be reliable. The control planes are optimized for data consistency, whereas the data
 planes are optimized for availability. The data plane's resilient design allows it
 to maintain availability even during rare disruptive events, during which the
-control plane might become unavailable. For this reason, we recommend use of data
+control plane might become unavailable. For this reason, use data
 plane functions where availability is important.
 
 For Route 53 public and private DNS and health checks, the control plane is located in the
@@ -253,27 +253,27 @@ us-east-1 AWS Region and the data planes are globally distributed.
 Amazon Route 53 is divided into control and data planes as follows:
 
 - For Route 53 public and private DNS, the control plane consists of the Route 53 APIs, which
-  allow you to manage DNS entries, including both the Route 53 and Traffic Flow
+  allow you to manage DNS entries. This includes both the Route 53 and Traffic Flow
   APIs. The Route 53 console is located in the us-east-1 AWS Region, but if AWS determines
-  that there is an impairment in that Region, the Route 53 console will be served by the us-west-2
+  that there is an impairment in that Region, the Route 53 console is served by the us-west-2
   AWS Region. The data plane is the
-  authoritative DNS service, which runs across over 200 Points of Presence
+  authoritative DNS service. It runs across over 200 Points of Presence
   (PoP) locations, answering DNS queries based on your hosted zones and health
   check data.
 - For Route 53 health checks, the control plane consists of the Route 53 APIs that you can use to create,
   update, and delete health checks. The Route 53 health checks console is
-  located in the us-east-1 AWS Region,but if AWS determines
-  that there is an impairment in that Region, the Route 53 health checks console will be served by the us-west-2
+  located in the us-east-1 AWS Region, but if AWS determines
+  that there is an impairment in that Region, the Route 53 health checks console is served by the us-west-2
   AWS Region. The data plane is the globally
-  distributed service, which performs health checks, aggregates the results
+  distributed service that performs health checks, aggregates the results,
   and delivers them to the data planes of Route 53 public and private DNS and
   [AWS Global Accelerator](https://aws.amazon.com/global-accelerator/ "https://aws.amazon.com/global-accelerator/").
 - For [Route 53 VPC Resolver](resolver.md "resolver.md"), the control plane consists of the VPC Resolver APIs that allow you
   to manage Amazon VPC settings, Resolver rules, query logging policies, and DNS Firewall
-  policies. The data plane is the DNS resolver service, which answers DNS
-  queries in your VPC, endpoints that forward queries to other resolvers, and
-  the DNS Firewall data plane which applies policies to filter DNS queries.
-  VPC Resolver is a regional service and its control and data planes run
+  policies. The data plane is the DNS resolver service. It answers DNS
+  queries in your VPC, forwards queries to other resolvers through endpoints, and
+  applies DNS Firewall policies to filter DNS queries.
+  VPC Resolver is a Regional service. Its control and data planes run
   independently in each AWS Region.
 - Route 53 domain registrations are managed only on the control plane in the us-east-1 AWS Region.
 
@@ -293,8 +293,8 @@ Here's an overview of the concepts that are related to Amazon Route 53 health c
 **DNS failover**
 A method for routing traffic away from unhealthy resources and to healthy resources.
 When you have more than one resource performing the same function—for example, more than one
-web server or mail server—you can configure Route 53 health checks to check the health of your resources
-and configure records in your hosted zone to route traffic only to healthy resources.
+web server or mail server—you can configure Route 53 health checks to check the health of your resources.
+Then configure records in your hosted zone to route traffic only to healthy resources.
 
 For more information, see [Configuring DNS failover](dns-failover-configuring.md "dns-failover-configuring.md").
 
@@ -309,11 +309,11 @@ You can also create health checks that monitor the status of other health checks
 monitor the alarm state of a CloudWatch alarm.
 
 **health check**
-A Route 53 component that lets you do the following:
+A Route 53 component that you can use to do the following:
 
 - Monitor whether a specified endpoint, such as a web server, is healthy
 - Optionally, get notified when an endpoint becomes unhealthy
-- Optionally, configure DNS failover, which allows you to reroute internet traffic from an
+- Optionally, configure DNS failover, so you can reroute internet traffic from an
   unhealthy resource to a healthy resource
 
 For more information about how to create and use health checks, see

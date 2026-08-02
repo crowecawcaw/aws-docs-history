@@ -31,7 +31,7 @@ the following ways:
   and `RetrieveDomainAuthCode`.
 
 If you don't sign in either by using the root account or by using a user that has
-the required permissions, we can't perform the transfer. This requirement prevents
+the required permissions, Route 53 can't perform the transfer. This requirement prevents
 unauthorized users from transferring domains to other AWS accounts.
 
 The transfer process has two steps. First the originating account owner starts the
@@ -60,8 +60,8 @@ transfer from another AWS account](#domain-transfer-between-aws-accounts-accept-
    and forward it to the receiving AWS account owner.
 
 On the **Requests** page, the **Status**
-for the domain will display **In progress**, and the
-**Type** will display **Internal transfer
+for the domain displays **In progress**, and the
+**Type** displays **Internal transfer
 out**.
 
 ###### To accept a domain transfer from a different AWS account
@@ -128,7 +128,7 @@ hosted zone.
 
 If you own the account that you're transferring the domain from and the account
 that you're transferring the domain to, you can optionally migrate the hosted zone
-for the domain to a different account, but it's not required. Route 53 will continue to
+for the domain to a different account, but it's not required. Route 53 continues to
 use the records in the existing hosted zone to route traffic for the domain.
 
 ###### Important

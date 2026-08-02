@@ -36,16 +36,15 @@ in the _Amazon VPC User Guide_.
 
 **Endpoint type**
 The endpoint type can be either IPv4, IPv6, or dual-stack IP addresses. For a dual-stack
-endpoint, the endpoint will have both IPv4 and IPv6 address that your
-DNS resolver on your network can forward DNS query to.
+endpoint, the endpoint has both IPv4 and IPv6 addresses that your
+DNS resolver on your network can forward DNS queries to.
 
 ###### Note
 
-For security reasons, we are denying direct IPv6 traffic access from the public internet for all dual-stack and IPv6 IP addresses.
+For security reasons, VPC Resolver denies direct IPv6 traffic access from the public internet for all dual-stack and IPv6 IP addresses.
 
 **IP addresses**
-The IP addresses that you want DNS resolvers on your network to forward DNS queries to. We
-require you to specify a minimum of two IP addresses for redundancy. If
+The IP addresses that you want DNS resolvers on your network to forward DNS queries to. You must specify a minimum of two IP addresses for redundancy. If
 you created a delegation inbound endpoint, use these IP addresses as the
 glue NS records for the subdomain for which you want to delegate the
 authority to VPC Resolver. Note the following:

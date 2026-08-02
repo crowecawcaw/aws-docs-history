@@ -38,18 +38,41 @@ TLD registries have assigned special or premium prices to some domain names. You
 register a domain that has a special or premium price.
 
 **Charges for hosted zones**
-When you register a domain with Route 53, we automatically create a hosted zone for the domain and
-charge a small monthly fee for the hosted zone in addition to the annual charge for the domain registration.
+When you register a domain with Route 53, Route 53 automatically creates a hosted zone for the domain and
+charges a small monthly fee for the hosted zone in addition to the annual charge for the domain registration.
 This hosted zone is where you store information about how to route traffic for your domain, for example, to an
 Amazon EC2 instance or a CloudFront distribution. If you don't want to use your domain right now, you can delete the hosted zone;
 if you delete it within 12 hours of registering the domain, there won't be any charge for the hosted zone on your
-AWS bill. We also charge a small fee for the DNS queries that we receive for your domain. For more information, see
+AWS bill. Route 53 also charges a small fee for the DNS queries that it receives for your domain. For more information, see
 [Amazon Route 53 Pricing](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53/pricing/").
 
 **Replacing the hosted zone for a domain**
 If you create a new hosted zone for a domain, you must also update the name servers for the
 domain to use the same name servers as the new hosted zone. For details
 see, [Replacing the hosted zone for a domain that is registered with Route 53](domain-replace-hosted-zone.md "domain-replace-hosted-zone.md")
+
+**Do not use a Route 53 domain for the root user email on the same account**
+
+###### Important
+
+Do not use a domain registered in Route 53 as the email domain for the
+root user of the same AWS account. If the account is closed or
+suspended, the domain registration is suspended within 5 days.
+Domain suspension stops email delivery, which prevents root user
+password recovery. Without email access, you cannot recover the
+account or reinstate the domain. After 30 days, the domain is
+permanently deleted with no remediation path.
+
+To avoid this circular dependency, use one of the following
+architectures:
+
+- Register domains used for root user email on a
+  separate, dedicated AWS account (such as a management
+  account).
+- Use an email address hosted outside AWS for the
+  root user.
+
+For more information, see [Best practices for Amazon Route 53 domain registration](best-practices-domain-registration.md "best-practices-domain-registration.md").
 
 ## To register a new domain using Route 53
 
@@ -89,7 +112,7 @@ see, [Replacing the hosted zone for a domain that is registered with Route 53](
 
 4. Choose **Proceed to checkout**.
 5. On the **Pricing** page, choose the number of years that you
-   want to register the domain for and whether you want us to
+   want to register the domain for and whether you want Route 53 to
    automatically renew your domain registration before the
    expiration date.
 
@@ -98,7 +121,7 @@ see, [Replacing the hosted zone for a domain that is registered with Route 53](
 Domain name registrations and renewals are not
 refundable. If you enable automatic domain renewal
 and you decide that you don't want the domain name
-after we renew the registration, you can't get a
+after Route 53 renews the registration, you can't get a
 refund for the cost of the renewal.
 
 Choose **Next**. 6. On the **Contact information** page, enter contact information for the domain
@@ -113,7 +136,7 @@ the Registered Name Holder of the domain name, under the [ICANN Transfer Policy]
 Most domains will be deleted upon closure of your
 AWS account (for more information, see [My AWS account is closed or permanently closed, and my domain is registered with Route 53](troubleshooting-account-closed.md "troubleshooting-account-closed.md")), however if a
 domain remains in a closed account, the contact you listed as the
-registrant may have the ability to request a transfer of the domain
+registrant might have the ability to request a transfer of the domain
 name to an external registrar. Therefore, it is important that the
 registrant contact you list is either yourself or another person you
 trust to act responsibly.
@@ -126,7 +149,7 @@ on your official ID. For some changes to domain settings, some domain registries
 proof of identity. The name on your ID must match the name of the registrant contact for the domain.
 
 **Different contacts**
-By default, we use the same information for all three contacts. If you want to enter different
+By default, Route 53 uses the same information for all three contacts. If you want to enter different
 information for one or more contacts, change the
 value of **Same as registrant
 contact** toggle switch to
@@ -142,11 +165,11 @@ For .jp domains, the technical and administrative contacts must be the same.
 
 **Multiple domains**
 
-If you're registering more than one domain, we use the same contact information for all of the domains.
+If you're registering more than one domain, Route 53 uses the same contact information for all of the domains.
 
 **Additional required information**
 
-For some top-level domains (TLDs), we're required to collect additional information. For these TLDs,
+For some top-level domains (TLDs), additional information is required. For these TLDs,
 enter the applicable values after the **Postal/Zip Code** field.
 
 **Privacy protection**
@@ -178,7 +201,7 @@ to resend the verification email.
 If you specified an email address for the registrant contact that has never been used to register a domain with
 Route 53, some TLD registries require you to verify that the address is valid.
 
-We send a verification email from one of the following email addresses:
+Route 53 sends a verification email from one of the following email addresses:
 
     * **noreply@registrar.amazon** – for TLDs registered by Amazon Registrar.
     * **noreply@domainnameverification.net** or **noreply@emailverification.info** – for TLDs registered by our registrar associate, Gandi.
@@ -187,7 +210,7 @@ We send a verification email from one of the following email addresses:
 ###### Important
 
 The registrant contact must follow the instructions in the email to verify that the email was received, or
-we must suspend the domain as required by ICANN. When a domain is suspended, it's not accessible on the internet.
+Route 53 must suspend the domain as required by ICANN. When a domain is suspended, it's not accessible on the internet.
 
 ###### Note
 

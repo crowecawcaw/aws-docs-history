@@ -1,7 +1,7 @@
 # Latency-based routing
 
 If your application is hosted in multiple AWS Regions, you can improve performance for your users by serving
-their requests from the AWS Region that provides the lowest latency.
+their requests from the AWS Region with the lowest latency.
 
 ###### Note
 
@@ -11,9 +11,9 @@ your resources can vary significantly from AWS latency data. This is true even i
 in the same city as an AWS Region.
 
 To use latency-based routing, you create latency records for your resources in multiple AWS Regions.
-When Route 53 receives a DNS query for your domain or subdomain (example.com or acme.example.com), it determines which AWS Regions
-you've created latency records for, determines which Region gives the user the lowest latency, and then
-selects a latency record for that Region. Route 53 responds with the value from the selected record, such as the IP address
+When Route 53 gets a DNS query for your domain or subdomain (example.com or acme.example.com), it checks which AWS Regions
+you've created latency records for, finds which Region gives the user the lowest latency, and then
+picks a latency record for that Region. Route 53 responds with the value from the chosen record, such as the IP address
 for a web server.
 
 For example, suppose you have Elastic Load Balancing load balancers in the US West (Oregon) Region and in the Asia Pacific (Singapore) Region.
@@ -26,9 +26,9 @@ of your domain in a browser:
 3. If latency is lower between the London and Oregon Regions, Route 53 responds to the query with the IP address
    for the Oregon load balancer. If latency is lower between London and the Singapore Region, Route 53 responds with the IP address
    for the Singapore load balancer.
-   Latency between hosts on the internet can change over time as a result of changes in network connectivity and routing.
-   Latency-based routing is based on latency measurements taken over a period of time, and the measurements reflect
-   these changes. A request that is routed to the Oregon Region this week might be routed to the Singapore Region next week.
+   Latency between hosts on the internet can change over time as network connections and routing change.
+   Latency-based routing uses latency data taken over a period of time, and the data reflects
+   these changes. A request routed to the Oregon Region this week might go to the Singapore Region next week.
 
 ###### Note
 

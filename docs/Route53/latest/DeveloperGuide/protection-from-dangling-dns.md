@@ -55,7 +55,7 @@ Here, <ns1>, <ns2>, <ns3>, and <ns4> are dangling delegation records, because Ro
 which was preventing <ns1>, <ns2>, <ns3>, and <ns4> from being assigned and will now allow newly
 created hosted zones to use above name servers.
 To mitigate the risk, remove <ns1>, <ns2>, <ns3>, and <ns4> from the delegation records
-and only add them back once the child hosted zone has been created.
+and only add them back after the child hosted zone has been created.
 
 **Scenario 3:**
 In this scenario, you create a Route 53 reusable delegation set with
@@ -69,7 +69,7 @@ create the hosted zone using the reusable delegation set with name servers <ns1>
 You create hosted zones for both `child.example.com` with name servers <ns1>, <ns2>, <ns3>, and <ns4>,
 and `grandchild.child.example.com` with name servers <ns5>, <ns6>, <ns7>, and <ns8>.
 However, you delegate both directly in the `example.com` zone, which creates a dangling delegation risk.
-To ensure delegations follow proper DNS hierarchy, only delegate subdomains through their immediate parent zones.
+To make sure that delegations follow proper DNS hierarchy, only delegate subdomains through their immediate parent zones.
 For example, if you want to delegate `grandchild.child.example.com`: first delegate `child.example.com` with name servers <ns1>, <ns2>, <ns3>, and <ns4> in the `example.com` zone,
 then delegate `grandchild.child.example.com` with name servers <ns5>, <ns6>, <ns7>, and <ns8> in the `child.example.com` zone,
 and remove any direct delegations for `grandchild.child.example.com` from the `example.com` zone.

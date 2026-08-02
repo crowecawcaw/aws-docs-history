@@ -25,8 +25,8 @@ For information about how to list records using the Route 53 API, see
 
    In this mode, some advanced features aren't available, but the search performance will be
    faster.
-   To display only selected records, enter the applicable search criteria above the list of records. In the automatic mode the search behavior depends on whether
-   the hosted zone contains up to 2,000 records or more than 2,000 records:
+   To show only certain records, enter search terms above the list of records. In automatic mode the search behavior depends on whether
+   the hosted zone has up to 2,000 records or more than 2,000 records:
 
 **Up to 2,000 records and full mode**
 

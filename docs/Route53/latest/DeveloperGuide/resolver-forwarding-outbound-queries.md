@@ -12,11 +12,9 @@ outbound endpoint for multiple VPCs in the same Region, or you can create multip
 Guide_.
 
 The target IP from the VPC Resolver rule is chosen at random by VPC Resolver and there is no preference on choosing a particular target IP over the other.
-If a target IP does not respond to the DNS request forwarded, the VPC Resolver will retry to a random IP address among the target IPs.
+If a target IP does not respond to the DNS request forwarded, VPC Resolver retries to a random IP address among the target IPs.
 
-Make sure that all the target IP addresses are reachable from the Resolver endpoints. If
-VPC Resolver is not able forward outbound DNS queries to any of the target IP, it
-can lead to extended DNS resolution times.
+Make sure that all the target IP addresses are reachable from the Resolver endpoints. If VPC Resolver can't forward outbound DNS queries to any of the target IPs, it can lead to extended DNS resolution times.
 
 **Rules**
 To specify the domain names of the queries that you want to forward to DNS resolvers on your network, you create

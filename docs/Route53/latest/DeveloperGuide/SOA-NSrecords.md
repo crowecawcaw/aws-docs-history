@@ -36,7 +36,7 @@ For information about migrating DNS service from another DNS service provider to
 
 ## The start of authority (SOA) record
 
-The start of authority (SOA) record identifies the base DNS information about the domain, for example:
+The start of authority (SOA) record holds base DNS information about the domain, for example:
 
 ```
 ns-2048.awsdns-64.net. hostmaster.example.com. 1 7200 900 1209600 86400
@@ -47,17 +47,17 @@ A SOA record includes the following elements:
 - The Route 53 name server that created the SOA record, for example, `ns-2048.awsdns-64.net`.
 - The email address of the administrator. The `@` symbol is replaced by a period, for example,
   `hostmaster.example.com`. The default value is an amazon.com email address that is not monitored.
-- A serial number that you can optionally increment whenever you update a record in the hosted zone. Route 53 doesn't increment
-  the number automatically. (The serial number is used by DNS services that support secondary DNS.) In the example,
+- A serial number that you can add to whenever you update a record in the hosted zone. Route 53 doesn't change
+  the number on its own. (The serial number is used by DNS services that support secondary DNS.) In the example,
   this value is `1`.
 - A refresh time in seconds that secondary DNS servers wait before querying the primary DNS server's SOA record
   to check for changes. In the example, this value is `7200`.
 - The retry interval in seconds that a secondary server waits before retrying a failed zone transfer. Normally, the retry time
   is less than the refresh time. In the example, this value is `900` (15 minutes).
-- The time in seconds that a secondary server will keep trying to complete a zone transfer. If this time elapses before a
-  successful zone transfer, the secondary server will stop answering queries because it considers its data too old to be reliable.
+- The time in seconds that a secondary server will keep trying to finish a zone transfer. If this time passes without a
+  successful transfer, the secondary server stops answering queries because it views its data as too old to be reliable.
   In the example, this value is `1209600` (two weeks).
-- The minimum time to live (TTL). This value helps define the length of time that recursive resolvers should cache the following
+- The minimum time to live (TTL). This value helps set how long recursive resolvers should cache the following
   responses from Route 53:
 
 **NXDOMAIN**
@@ -78,10 +78,10 @@ The duration of negative caching is the lesser of the following values:
      changing this value, see [Editing records](resource-record-sets-editing.md "resource-record-sets-editing.md").
 
 When Route 53 responds to DNS queries with an NXDOMAIN or NODATA response (a negative response), you're charged the rate for
-standard queries. (See "Queries" in [Amazon Route 53 Pricing](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53/pricing/").
+standard queries. (See "Queries" in [Amazon Route 53 Pricing](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53/pricing/").)
 If you're concerned about the cost of negative responses, one option is to change the TTL for the SOA record, the minimum TTL
-in the SOA record (this value), or both. Note that increasing these TTLs, which apply to negative responses for the entire
-hosted zone, can have both positive and negative effects:
+in the SOA record (this value), or both. Note that raising these TTLs, which apply to negative responses for the whole
+hosted zone, can have both good and bad effects:
 
     + DNS resolvers on the internet cache the non-existence of records for longer periods, which reduces
      the number of queries that are forwarded to Route 53. This reduces the Route 53 charge for DNS queries.

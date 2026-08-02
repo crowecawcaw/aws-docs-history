@@ -90,7 +90,7 @@ DS record to the parent zone.
 ###### 4. Make sure there are no other ongoing operations relying on the migrating hosted zone
 
 Some operations will rely on DNS resolution in the migrating hosted zone, for example,
-the TLS/SSL certificate renewal process may require making DNS record changes and the provider
+the TLS/SSL certificate renewal process might require making DNS record changes and the provider
 will try to resolve the DNS record as the validation method. Before the migration,
 you should make sure there is no other operation happening, in order to avoid unexpected
 impact from the hosted zone migration.
@@ -181,7 +181,7 @@ Note the following:
      per page of results. If the hosted zone contains more than 100 records, you must submit multiple requests to list all records.
 
 Make a copy of this output. After you create records in the new hosted zone, we recommend that you run the AWS CLI `list-resource-record-sets`
-command on the new hosted zone and compare the two outputs to ensure that all the records were created. 2. Edit the records that you want to migrate.
+command on the new hosted zone and compare the two outputs to make sure that all the records were created. 2. Edit the records that you want to migrate.
 
 Edit the exported file before you can use it with the
 `change-resource-record-sets` command. You can make

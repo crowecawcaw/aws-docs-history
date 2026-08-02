@@ -14,37 +14,35 @@ rules or queries are routed through Network Load Balancer
 (see [Automatically tracked connections](../../../AWSEC2/latest/UserGuide/security-group-connection-tracking.md#automatic-tracking "../../../AWSEC2/latest/UserGuide/security-group-connection-tracking.md#automatic-tracking")), the overall maximum queries per second
 per IP address for an endpoint can be as low as 1500.
 
-**Ingress and egress Security Group rule recommendations for the
-inbound Resolver endpoint**
+The following tables list the recommended security group rules for inbound Resolver endpoints.
 
-| **Ingress<br>rules** |
-| -------------------- |
-| **Protocol type**    | **Port number** | **Source IP**      |
-| TCP                  | 53              | 0.0.0.0/0          |
-| UDP                  | 53              | 0.0.0.0/0          |
-| **Egress<br>rules**  |
-| **Protocol type**    | **Port number** | **Destination IP** |
-| TCP                  | All             | 0.0.0.0/0          |
-| UDP                  | All             | 0.0.0.0/0          |
+Inbound endpoint ingress rules| Protocol type | Port number | Source IP |
+| --- | --- | --- |
+| TCP | 53 | 0.0.0.0/0 |
+| UDP | 53 | 0.0.0.0/0 |
 
-**Ingress and egress security group rule recommendations for the
-outbound Resolver endpoint**
+Inbound endpoint egress rules| Protocol type | Port number | Destination IP |
+| --- | --- | --- |
+| TCP | All | 0.0.0.0/0 |
+| UDP | All | 0.0.0.0/0 |
 
-| **Ingress<br>rules** |
-| -------------------- |
-| **Protocol type**    | **Port number** | **Source IP**      |
-| TCP                  | All             | 0.0.0.0/0          |
-| UDP                  | All             | 0.0.0.0/0          |
-| **Egress<br>rules**  |
-| **Protocol type**    | **Port number** | **Destination IP** |
-| TCP                  | 53              | 0.0.0.0/0          |
-| UDP                  | 53              | 0.0.0.0/0          |
+The following tables list the recommended security group rules for outbound Resolver endpoints.
+
+Outbound endpoint ingress rules| Protocol type | Port number | Source IP |
+| --- | --- | --- |
+| TCP | All | 0.0.0.0/0 |
+| UDP | All | 0.0.0.0/0 |
+
+Outbound endpoint egress rules| Protocol type | Port number | Destination IP |
+| --- | --- | --- |
+| TCP | 53 | 0.0.0.0/0 |
+| UDP | 53 | 0.0.0.0/0 |
 
 ###### Note
 
 **Security group port requirements:**
 
-- **Inbound endpoints** require ingress rules allowing TCP and UDP on port 53 to receive DNS queries from your network. Egress rules can allow all ports since the endpoint may need to respond to queries from various source ports.
+- **Inbound endpoints** require ingress rules allowing TCP and UDP on port 53 to receive DNS queries from your network. Egress rules can allow all ports since the endpoint might need to respond to queries from various source ports.
 - **Outbound endpoints** require egress rules allowing TCP and UDP
   access to the ports you're using for DNS queries on your network. Port
   53 is shown in the example above because it's the most common DNS port,

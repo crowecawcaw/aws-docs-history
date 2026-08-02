@@ -18,7 +18,7 @@ records or more than 2,000 records:
 
 **Up to 2,000 hosted zones**
 
-    * To display the records that have specific values, click the search
+    * To display the records that have specific values, choose the search
      bar, choose a property in the dropdown list, and enter a value. You can
      also enter a value directly in the search bar and press Enter. For
      example, to display the hosted zones that have a name beginning with

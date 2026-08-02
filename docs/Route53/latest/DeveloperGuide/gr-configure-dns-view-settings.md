@@ -12,7 +12,7 @@ for different client device groups.
 
 ### DNSSEC validation
 
-DNSSEC validation helps ensure that DNS responses for public domains are authentic and
+DNSSEC validation helps verify that DNS responses for public domains are authentic and
 haven't been tampered with. When you enable DNSSEC validation, Route 53 Global Resolver checks DNSSEC
 signatures and returns SERVFAIL for domains with invalid signatures.
 

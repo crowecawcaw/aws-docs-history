@@ -42,7 +42,7 @@ If your domain transfer is rejected due to eligibility issues, check the followi
 - **Verify domain age** - Your domain must be at least 60 days old since registration or last transfer.
 - **Check TLD support** - Confirm that Route 53 supports your domain's top-level domain (TLD). See [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md") for supported TLDs.
 - **Review domain status** - Domains with certain status codes (such as "pendingTransfer" or "redemptionPeriod") cannot be transferred.
-- **Check expiration date** - Domains that are expired or within 15 days of expiration may not be transferable.
+- **Check expiration date** - Domains that are expired or within 15 days of expiration might not be transferable.
 - **Resolve billing issues** - Make sure all outstanding fees with your current registrar are paid.
 
 **Your transfer is taking longer than expected**
@@ -51,7 +51,7 @@ If your transfer seems to be delayed, here's what you should know:
 
 - **Normal timeframe** - Most transfers complete within 5-7 days, but can take up to 10 days.
 - **Monitor transfer status** - Check your transfer progress in the Route 53 console. For more information, see [Viewing the status of a domain transfer](domain-transfer-to-route-53-status.md "domain-transfer-to-route-53-status.md").
-- **Respond to emails quickly** - Both registrars may send confirmation emails that require your response to proceed.
+- **Respond to emails quickly** - Both registrars might send confirmation emails that require your response to proceed.
 - **Contact your current registrar** - If the transfer is delayed, contact your current registrar to make sure they're not blocking the transfer.
 
 **When to contact AWS Support**

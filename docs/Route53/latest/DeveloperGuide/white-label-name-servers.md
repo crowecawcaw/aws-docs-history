@@ -1,8 +1,8 @@
 # Configuring white-label name servers
 
-Each Amazon Route 53 hosted zone is associated with four name servers, known collectively as a delegation set. By default,
-the name servers have names like ns-2048.awsdns-64.com. If you want the domain name of your name servers to be the same as
-the domain name of your hosted zone, for example, ns1.example.com, you can configure white-label name servers,
+Each Amazon Route 53 hosted zone is linked to four name servers, known as a delegation set. By default,
+the name servers have names like ns-2048.awsdns-64.com. If you want your name servers to match
+the domain name of your hosted zone, for example, ns1.example.com, you can set up white-label name servers,
 also known as vanity name servers or private name servers.
 
 The following steps explain how to configure one set of four white-label name servers that you can reuse for multiple domains.
@@ -49,13 +49,13 @@ Create or recreate Amazon Route 53 hosted zones:
   see [CreateHostedZone](../APIReference/API_CreateHostedZone.md "../APIReference/API_CreateHostedZone.md") in the
   _Amazon Route 53 API Reference_.
 - **If you are using Route 53 as the DNS service for the domains for which you want to use
-  white-label name servers** – You must recreate the hosted zones for which you want to use white-label name servers,
-  and specify the reusable delegation set that you created in the previous step for each hosted zone.
+  white-label name servers** – You must recreate the hosted zones and link them to the
+  reusable delegation set that you created in the step before.
 
 ###### Important
 
-You cannot change the name servers that are associated with an existing hosted zone. You can
-associate a reusable delegation set with a hosted zone only when you create the hosted zone.
+You cannot change the name servers for an existing hosted zone. You can
+link a reusable delegation set to a hosted zone only when you create it.
 
 When you create the hosted zones and before you try to access the resources for the corresponding domains,
 change the following TTL values for each hosted zone:
@@ -64,9 +64,9 @@ change the following TTL values for each hosted zone:
 - Change the minimum TTL for the SOA record for the hosted zone to 60 seconds or less.
   This is the last value in the SOA record.
 
-If you accidentally give your registrar the wrong IP addresses for your white-label name servers,
-your website will become unavailable and remain unavailable for the duration of the TTL after you correct the problem.
-By setting a low TTL, you reduce the amount of time that your website is unavailable.
+If you give your registrar the wrong IP addresses for your white-label name servers,
+your website becomes unavailable and stays that way for the TTL after you fix the problem.
+By setting a low TTL, you reduce how long your website is down.
 
 For more information about creating hosted zones and specifying a reusable delegation set for the name servers
 for the hosted zones, see [CreateHostedZone](../APIReference/API_CreateHostedZone.md "../APIReference/API_CreateHostedZone.md")

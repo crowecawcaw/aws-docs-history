@@ -9,21 +9,21 @@ For preventing issues during active transfers, see [Preventing common Route 53 
 
 ###### Topics
 
-- [You didn't click the link in the authorization email](#troubleshooting-domain-transfer-failed-click-link "#troubleshooting-domain-transfer-failed-click-link")
+- [You didn't choose the link in the authorization email](#troubleshooting-domain-transfer-failed-click-link "#troubleshooting-domain-transfer-failed-click-link")
 - [The authorization code that you got from the current registrar is not valid](#troubleshooting-domain-transfer-failed-authorization-code-invalid "#troubleshooting-domain-transfer-failed-authorization-code-invalid")
 - ["Parameters in request are not valid" error when trying to transfer a .es domain to Amazon Route 53](#troubleshooting-domain-transfer-failed-parameters-in-request-are-not-valid "#troubleshooting-domain-transfer-failed-parameters-in-request-are-not-valid")
 - [Is the internationalized domain name you're transferring to Amazon Route 53 listed in punycode?](#troubleshooting-domain-transfer-failed-internationalized-domain-names "#troubleshooting-domain-transfer-failed-internationalized-domain-names")
 - [Common transfer error messages](#troubleshooting-domain-transfer-error-messages "#troubleshooting-domain-transfer-error-messages")
 
-## You didn't click the link in the authorization email
+## You didn't choose the link in the authorization email
 
 When you transfer domain registration to Amazon Route 53, we're required by ICANN, the
 governing body for domain registration, to get authorization for the transfer from
 the registrant contact for the domain. To get authorization, we send you an email
-that contains a link. You have between 5 and 15 days to click the link, depending on
+that contains a link. You have between 5 and 15 days to choose the link, depending on
 the top-level domain. After that time, the link stops working.
 
-If you don't click the link in the email in the allotted amount of time, ICANN
+If you don't choose the link in the email in the allotted amount of time, ICANN
 requires that we cancel the transfer. For information about how to resend the
 authorization email to the registrant contact, see [Resending authorization and confirmation emails](domain-click-email-link.md "domain-click-email-link.md").
 
@@ -69,7 +69,7 @@ it and try again. For more information, see [Formatting internationalized domain
 ## Common transfer error messages
 
 When a domain transfer fails, you'll typically receive an error message either in the
-Route 53 console or via email. Here are the most common error messages and how to resolve them:
+Route 53 console or by email. Here are the most common error messages and how to resolve them:
 
 ### "Transfer was rejected by the registry"
 
@@ -112,7 +112,7 @@ To resolve this issue:
 
 ### "Transfer authorization email not received" or "Authorization timeout"
 
-This error occurs when you don't click the authorization link in the transfer confirmation
+This error occurs when you don't choose the authorization link in the transfer confirmation
 email within the required timeframe (typically 5 days). ICANN requires this authorization
 step for all domain transfers.
 
@@ -152,7 +152,7 @@ To resolve this issue, you have two options:
 
 - Wait 60 days from the date of the contact change before attempting the transfer again.
 - Contact your current registrar to verify your current contact information.
-  Some registrars may allow you to opt out of the 60-day restriction if you can
+  Some registrars might allow you to opt out of the 60-day restriction if you can
   verify your identity.
 
 ###### Note

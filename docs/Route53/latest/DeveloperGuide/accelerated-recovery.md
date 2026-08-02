@@ -1,6 +1,6 @@
 # Enabling accelerated recovery for managing public DNS records
 
-Route 53 accelerated recovery for managing public DNS records is designed to achieve a 60-minute Recovery Time Objective (RTO) in the event of service unavailability in the US East (N. Virginia) Region. When enabled on a Route 53 public hosted zone, you will be able to resume making changes to DNS records in the public hosted zone within approximately 60 minutes after AWS detects that operations in the US East (N. Virginia) Region are impaired.
+Route 53 accelerated recovery for managing public DNS records helps you achieve a 60-minute Recovery Time Objective (RTO) if the US East (N. Virginia) Region becomes unavailable. When you turn on this feature for a Route 53 public hosted zone, you can resume making DNS changes within about 60 minutes after AWS detects that the US East (N. Virginia) Region is impaired.
 
 ###### Important
 
@@ -20,39 +20,39 @@ DNS query resolution from the Route 53 data plane continues to work normally du
 
 ## How accelerated recovery for public DNS records works
 
-When accelerated recovery is enabled, Route 53 will maintain a copy of your public hosted zone in the US West (Oregon) Region. If services in the US East (N. Virginia) Region become unavailable for an extended period, Route 53 will execute failover within 60 minutes, automatically redirecting control plane operations for your accelerated recovery enabled public hosted zones to the US West (Oregon) Region. You can then continue to make DNS changes programmatically via the CLI, SDK, and API. Note that a limited set of API methods will be available during failover. See the "Additional considerations" section for more details. When the region recovers, Route 53 will execute the failback procedure, automatically directing control plane operations back to the US East (N. Virginia) Region.
+When accelerated recovery is on, Route 53 keeps a copy of your public hosted zone in the US West (Oregon) Region. If the US East (N. Virginia) Region becomes unavailable for a long time, Route 53 fails over within 60 minutes. It then routes control plane requests for your enabled hosted zones to the US West (Oregon) Region. You can then keep making DNS changes through the CLI, SDK, and API. Note that only some API methods work during failover. See the "Additional considerations" section for details. When the Region recovers, Route 53 fails back to the US East (N. Virginia) Region.
 
 ###### Note
 
-Before any impairment to US East (N. Virginia) Region occurs, you must first enable accelerated recovery for managing public DNS records on your public hosted zone. This can be done via the Console, CLI, SDK, or API (see the section titled _How to enable accelerated recovery for managing public DNS records_ on this page below). You cannot enable accelerated recovery for managing public DNS records after a failover occurs.
+You must turn on accelerated recovery before any issues with the US East (N. Virginia) Region occur. You can do this through the Console, CLI, SDK, or API (see the section titled _How to enable accelerated recovery for managing public DNS records_ below). You cannot turn on accelerated recovery after a failover starts.
 
 ## Resubmitting DNS changes after failover
 
-Under normal conditions, changes to public hosted zones with accelerated recovery enabled will be accepted by the US East (N. Virginia) Region and will then be successfully replicated to the US West (Oregon) Region. However, when service disruption occurs in the US East (N. Virginia) Region, some changes may be accepted by the US East (N. Virginia) Region, but may not be replicated to the US West (Oregon) Region. These in-flight changes are referred to as "stranded changes". Once failover completes, Route 53 recommends that you resubmit stranded changes before resuming your DNS workflows. You can achieve this either by using the API, or by using AWS CloudFormation, which are described below.
+Under normal conditions, changes to public hosted zones with accelerated recovery are accepted by the US East (N. Virginia) Region and then copied to the US West (Oregon) Region. However, when an outage occurs in the US East (N. Virginia) Region, some changes might be accepted there but not yet copied to the US West (Oregon) Region. These in-flight changes are called "stranded changes". After failover finishes, Route 53 suggests that you resubmit stranded changes before you continue your DNS work. You can do this with the API or with AWS CloudFormation, as described below.
 
 ### Using the API to track and submit DNS changes
 
-If you are using the Route 53 API, AWS CLI, or AWS SDKs to manage DNS records, then you will need to use the [ChangeResourceRecordSets API](../APIReference/API_ChangeResourceRecordSets.md "../APIReference/API_ChangeResourceRecordSets.md") and the [GetChange API](../APIReference/API_GetChange.md "../APIReference/API_GetChange.md") to submit and track DNS changes, respectively.
+If you use the Route 53 API, AWS CLI, or AWS SDKs to manage DNS records, use the [ChangeResourceRecordSets API](../APIReference/API_ChangeResourceRecordSets.md "../APIReference/API_ChangeResourceRecordSets.md") to submit changes and the [GetChange API](../APIReference/API_GetChange.md "../APIReference/API_GetChange.md") to track them.
 
-When you use the ChangeResourceRecordSets API to make DNS changes, Route 53 returns an identifier (ID) for the change you made (see [ChangeInfo](../APIReference/API_ChangeInfo.md "../APIReference/API_ChangeInfo.md") for change response object details). You can provide this ID in a subsequent request to the GetChange API and observe the status of the change. DNS changes with INSYNC status have been replicated to the US West (Oregon) Region and propagated to all Route 53 DNS servers. There are no further actions you need to take on these changes before or after a failover. However, during impairment to the US East (N. Virginia) Region, GetChange may return PENDING, indicating your change may not have replicated to the US West (Oregon) Region. If that's the case, when failover completes, GetChange will return NoSuchChange, indicating that Route 53 could not replicate this DNS change. Therefore, after failover you can safely disregard these stranded DNS changes and resubmit them as new DNS changes. You will know the failover process has completed when Route 53 posts a message to the AWS Health Dashboard.
+When you call ChangeResourceRecordSets, Route 53 returns an ID for the change (see [ChangeInfo](../APIReference/API_ChangeInfo.md "../APIReference/API_ChangeInfo.md") for details). You can then pass this ID to GetChange to check the status. A status of INSYNC means the change was copied to the US West (Oregon) Region and sent to all Route 53 DNS servers. You don't need to do anything more for these changes. However, during an outage in the US East (N. Virginia) Region, GetChange might return PENDING, meaning the change might not have been copied. If that happens, after failover finishes, GetChange returns NoSuchChange. This means Route 53 could not copy that change. You can safely ignore these stranded changes and resubmit them as new changes. The failover is done when Route 53 posts a message to the AWS Health Dashboard.
 
 ### Using AWS CloudFormation to track and submit changes
 
-AWS CloudFormation automatically tracks replication status for your DNS changes utilizing the GetChange API, and only completes an update after DNS changes are confirmed as INSYNC. If you are using CloudFormation to manage DNS records and the US East (N. Virginia) Region becomes unavailable, then the actions you take using CloudFormation will not complete successfully during the period of unavailability. However, you can simply retry the same actions to allow CloudFormation to resubmit DNS changes, once the Route 53 failover process completes.
+AWS CloudFormation tracks status for your DNS changes using the GetChange API. It only marks an update as done after changes are INSYNC. If the US East (N. Virginia) Region becomes unavailable while you are using CloudFormation to manage DNS records, your actions won't finish during the outage. After the Route 53 failover is done, retry the same actions to let CloudFormation resubmit the DNS changes.
 
 ## Failback to the US East (N. Virginia) Region
 
-Route 53 will fail back control plane operations for your public hosted zone to the US East (N. Virginia) Region once the region recovers. During the failback, you will not need to resubmit your DNS changes, as no stranded changes will be introduced during this process.
+Route 53 fails back control plane work for your public hosted zone to the US East (N. Virginia) Region after that Region recovers. During failback, you don't need to resubmit DNS changes, because no stranded changes are created during this process.
 
 ## Additional considerations
 
-There are a few additional considerations to be aware of related to the accelerated recovery feature:
+There are a few more things to know about the accelerated recovery feature:
 
-1. You will not be able to create new hosted zones, delete existing hosted zones, enable DNSSEC signing, or disable DNSSEC signing during failover.
-2. AWS PrivateLink connections will not work after failover, but will work once again after a failback to the US East (N. Virginia) Region.
+1. You can't create new hosted zones, delete hosted zones, turn on DNSSEC signing, or turn off DNSSEC signing during failover.
+2. AWS PrivateLink links won't work after failover, but will work again after failback to the US East (N. Virginia) Region.
 3. [CloudFront flat-rate plans](../../../AmazonCloudFront/latest/DeveloperGuide/flat-rate-pricing-plan.md "../../../AmazonCloudFront/latest/DeveloperGuide/flat-rate-pricing-plan.md") are not supported at this time.
-4. Hosted zones with accelerated recovery enabled cannot be deleted. You must disable accelerated recovery before attempting to delete the hosted zone.
-5. During failover, the following API methods will continue to be supported for public hosted zones with accelerated recovery enabled. However, all other Route 53 API methods will not be functional until a failback occurs.
+4. Hosted zones with accelerated recovery can't be deleted. You must turn off accelerated recovery before you can delete the hosted zone.
+5. During failover, these API methods will still work for public hosted zones with accelerated recovery. All other Route 53 API methods won't work until failback.
 
    - `ChangeResourceRecordSets`
    - `GetChange`
@@ -70,7 +70,7 @@ There are a few additional considerations to be aware of related to the accelera
 
 ## How to enable accelerated recovery for managing public DNS records
 
-You can enable accelerated recovery for managing public DNS records using the Route 53 console, API, CLI, or SDK. The time it takes to enable accelerated recovery will depend on the size of your public hosted zone and other factors. You should plan for the process of enabling accelerated recovery to take up to several hours. You can check on the status of the enablement process in the Accelerated recovery tab of your public hosted zone or via the `GetHostedZone` API. As the process finalizes, there will be a brief period of time lasting up to several minutes where DNS changes are not accepted. Once completed, DNS changes can proceed as normal.
+You can turn on accelerated recovery using the Route 53 console, API, CLI, or SDK. The time it takes depends on the size of your hosted zone and other factors. Plan for the process to take up to several hours. You can check the status in the Accelerated recovery tab of your hosted zone or through the `GetHostedZone` API. Near the end of the process, there is a brief period of up to several minutes where DNS changes are not accepted. After this, DNS changes work as normal.
 
 ###### To enable and disable accelerated recovery using the Route 53 console
 
@@ -83,13 +83,13 @@ You can enable accelerated recovery for managing public DNS records using the Ro
 
 You can disable accelerated recovery using the same steps above, but instead choosing **Disable**.
 
-CLI example to enable
+**CLI example to enable**
 
 ```
 aws route53 update-hosted-zone-features --enable-accelerated-recovery --hosted-zone-id Z123456789
 ```
 
-CLI example to disable
+**CLI example to disable**
 
 ```
 aws route53 update-hosted-zone-features --no-enable-accelerated-recovery --hosted-zone-id Z123456789

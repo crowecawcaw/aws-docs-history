@@ -2,9 +2,9 @@
 
 ###### Note
 
-Effective January 28, 2025, some domain registries may transition from WHOIS to the Registration Data Access Protocol (RDAP) for domain registration data queries.
+Effective January 28, 2025, some domain registries might transition from WHOIS to the Registration Data Access Protocol (RDAP) for domain registration data queries.
 If you access domain registration information directly from registries via WHOIS,
-you may need to update your applications to use RDAP endpoints if the relevant registry discontinues WHOIS support.
+you might need to update your applications to use RDAP endpoints if the relevant registry discontinues WHOIS support.
 
 Route 53 domains service functionality remains unchanged. This notice applies only to direct registry WHOIS queries performed outside of Route 53 services.
 
@@ -27,7 +27,7 @@ A WHOIS request to different levels of the hierarchy can provide different infor
 - A request to registrar WHOIS provides all public information about the domain.
   Because there are multiple levels of WHOIS, including WHOIS lookups operated by the TLD
   registry and the domain registrar, turning your privacy protection off on the Route 53
-  console may only turn it off on the registrar-provided WHOIS. Some registries
+  console might only turn it off on the registrar-provided WHOIS. Some registries
   intentionally maintain privacy protection or redaction services for their WHOIS
   lookup services regardless of whether you have turned it off with Route 53. To get full
   information about your domain, we recommend that you use the registrar-provided
@@ -46,8 +46,8 @@ Email** in the response to a WHOIS query would be similar
 to owner1234@example.com.identity-protect.org.
 
 To contact one or more domain contacts when privacy protection is
-enabled, send an email to the corresponding email addresses. We
-automatically forward your email to the applicable contact.
+enabled, send an email to the corresponding email addresses. Route 53
+automatically forwards your email to the applicable contact.
 
 **Reporting abuse**
 

@@ -49,7 +49,7 @@ Confirm your domain meets ICANN transfer requirements:
 
 ###### Tip
 
-ICANN rules may temporarily block transfers if registrant contact details were updated recently (for example, changing your name or email). Some registrars let you opt out of this hold — check with your current registrar if you're unsure. 5. **☐ Prepare payment method**
+ICANN rules might temporarily block transfers if registrant contact details were updated recently (for example, changing your name or email). Some registrars let you opt out of this hold — check with your current registrar if you're unsure. 5. **☐ Prepare payment method**
 
 Ensure your AWS account has a valid payment method. When you transfer a domain to Route 53, the transfer fee that we apply to your AWS account varies by top-level domain.
 
@@ -66,7 +66,7 @@ If DNSSEC is currently enabled with your current registrar, temporarily disable 
 
 **Why this matters:**
 
-When you transfer a domain, the DNSSEC keys (KSK/ZSK) and DS records stored at your current registrar are not automatically transferred to Route 53. If you re-enable DNSSEC without reconfiguring these keys in Route 53, your domain may fail DNS validation.
+When you transfer a domain, the DNSSEC keys (KSK/ZSK) and DS records stored at your current registrar are not automatically transferred to Route 53. If you re-enable DNSSEC without reconfiguring these keys in Route 53, your domain might fail DNS validation.
 
 **Safe approach (recommended):**
 
@@ -78,7 +78,7 @@ When you transfer a domain, the DNSSEC keys (KSK/ZSK) and DS records stored at y
 
 ###### Tip
 
-If you are transferring your domain along with creating a new hosted zone in Route 53, disable DNSSEC before transferring, then wait until the hosted zone setup is verified and DNS resolution works correctly. Once confirmed, you can safely enable DNSSEC again from Route 53's console. Always verify your DNS configuration in Route 53 before re-enabling DNSSEC. For more information about DNSSEC with Route 53, see [Configuring DNSSEC for a domain](domain-configure-dnssec.md "domain-configure-dnssec.md").
+If you are transferring your domain along with creating a new hosted zone in Route 53, disable DNSSEC before transferring, then wait until the hosted zone setup is verified and DNS resolution works correctly. After you confirm this, you can safely enable DNSSEC again from the Route 53 console. Always verify your DNS configuration in Route 53 before re-enabling DNSSEC. For more information about DNSSEC with Route 53, see [Configuring DNSSEC for a domain](domain-configure-dnssec.md "domain-configure-dnssec.md").
 
 ## Optional: Transfer DNS service first
 

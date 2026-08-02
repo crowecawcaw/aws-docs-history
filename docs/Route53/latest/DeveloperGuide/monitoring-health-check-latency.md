@@ -78,7 +78,7 @@ Note the following:
     * If you just created a health check, you might need to wait for a few minutes for data to appear in the graph and for the health check
      metric to appear in the list of available metrics.
     * The graph doesn't refresh itself automatically. To update the display, choose the refresh (
-    ![Icon to refresh the CloudWatch graph](images/cloudwatch-refresh-icon.png)
+    ![Icon to refresh the CloudWatch graph](/images/Route53/latest/DeveloperGuide/images/cloudwatch-refresh-icon.png)
     ) icon.
     * If health checks are failing for some reason, such as a connection timeout, Route 53 can't measure latency,
      and latency data will be missing from the graph for the affected period.
@@ -114,7 +114,7 @@ to complete the SSL/TLS handshake.
 
 ###### Note
 
-If you select more than one health check, the graph displays a separate color-coded line for each health check. 6. To view a larger graph and specify different settings, click the graph. You can change the following settings:
+If you select more than one health check, the graph displays a separate color-coded line for each health check. 6. To view a larger graph and specify different settings, choose the graph. You can change the following settings:
 
 **Statistic**
 
@@ -133,7 +133,7 @@ Note the following:
     * If you just created a health check, you might need to wait for a few minutes for data to appear in the graph and for the health check
      metric to appear in the list of available metrics.
     * The graph doesn't refresh itself automatically. To update the display, choose the refresh (
-    ![Icon to refresh the CloudWatch graph](images/cloudwatch-refresh-icon.png)
+    ![Icon to refresh the CloudWatch graph](/images/Route53/latest/DeveloperGuide/images/cloudwatch-refresh-icon.png)
     ) icon.
     * If health checks are failing for some reason, such as a connection timeout, Route 53 can't measure latency,
      and latency data will be missing from the graph for the affected period.

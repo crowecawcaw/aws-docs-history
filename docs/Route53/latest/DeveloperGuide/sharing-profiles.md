@@ -38,7 +38,7 @@ shared with you.
 ## Granting permissions for sharing Route 53 Profiles
 
 A minimum set of permissions is required for an IAM principal to share a Profile. We recommend using the `AmazonRoute53ProfilesFullAccess`
-managed IAM policy to ensure your IAM principals have the required permissions to share and use shared Profiles.
+managed IAM policy to make sure your IAM principals have the required permissions to share and use shared Profiles.
 
 If you use a custom IAM policy, the `route53profiles:GetProfilePolicy` and
 `route53profiles:PutProfilePolicy` actions are required. These are permission-only IAM actions. If an IAM principal

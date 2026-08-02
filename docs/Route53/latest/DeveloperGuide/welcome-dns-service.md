@@ -1,14 +1,14 @@
 # How internet traffic is routed to your website or web application
 
-All computers on the internet, from your smart phone or laptop connect to the servers that serve content for massive retail websites,
+All computers on the internet, from your smart phone or laptop to the servers that serve content for massive retail websites,
 communicate with one another by using numbers. These numbers, known as _IP addresses_, are in
 one of the following formats:
 
 - Internet Protocol version 4 (IPv4) format, such as 192.0.2.44
 - Internet Protocol version 6 (IPv6) format, such as 2001:0db8:85a3:0000:0000:abcd:0001:2345
   When you open a browser and go to a website, you don't have to remember and enter a long string of characters like that.
-  Instead, you can enter a domain name like example.com and still end up in the right place. A DNS service such as
-  Amazon Route 53 helps to make that connection between domain names and IP addresses.
+  Instead, you can enter a domain name like example.com and still get to the right place. A DNS service such as
+  Amazon Route 53 makes the connection between domain names and IP addresses.
 
 ###### Topics
 
@@ -25,7 +25,7 @@ to your website or web application.
 2. After you register your domain name, Route 53 automatically creates a public hosted zone that has the
    same name as the domain. For more information, see [Working with public hosted zones](AboutHZWorkingWith.md "AboutHZWorkingWith.md").
 3. To route traffic to your resources, you create _records_, also known as
-   _resource record sets_, in your hosted zone. Each record includes information about how you want to route traffic
+   _resource record sets_, in your hosted zone. Each record includes information about how to route traffic
    for your domain, such as the following:
 
 **Name**
@@ -52,13 +52,10 @@ AWS resources. For more information, see
 [Choosing between alias and non-alias records](resource-record-sets-choosing-alias-non-alias.md "resource-record-sets-choosing-alias-non-alias.md") and
 [Routing internet traffic to your AWS resources](routing-to-aws-resources.md "routing-to-aws-resources.md").
 
-For more information about routing internet traffic to your resources, see
-[Configuring Amazon Route 53 as your DNS service](dns-configuring.md "dns-configuring.md").
-
 ## How Amazon Route 53 routes traffic for your domain
 
 After you configure Amazon Route 53 to route your internet traffic to your resources, such as web servers or Amazon S3 buckets,
-here's what happens in just a few milliseconds when someone requests content for www.example.com:
+here's what happens in a few milliseconds when someone requests content for www.example.com:
 
 ![Conceptual graphic that shows how the Domain Name System and Route 53 route internet traffic to the resources for www.example.com.](images/how-route-53-routes-traffic.png)
 
@@ -67,15 +64,15 @@ here's what happens in just a few milliseconds when someone requests content for
    internet service provider (ISP), such as a cable internet provider, a DSL broadband provider, or a corporate network.
 3. The DNS resolver for the ISP forwards the request for www.example.com to a DNS root name server.
 4. The DNS resolver forwards the request for www.example.com again, this time to one of the
-   TLD name servers for .com domains. The name server for .com domains responds to the request with the names
-   of the four Route 53 name servers that are associated with the example.com domain.
+   TLD name servers for .com domains. The name server for .com domains responds with the names
+   of the four Route 53 name servers associated with the example.com domain.
 
 The DNS resolver caches (stores) the four Route 53 name servers. The next time someone browses to example.com,
 the resolver skips steps 3 and 4 because it already has the name servers for example.com. The name servers
 are typically cached for two days. 5. The DNS resolver chooses a Route 53 name server and forwards the request for www.example.com
 to that name server. 6. The Route 53 name server looks in the example.com hosted zone for the www.example.com record,
 gets the associated value, such as the IP address for a web server, 192.0.2.44, and returns the IP address
-to the DNS resolver. 7. The DNS resolver finally has the IP address that the user needs. The resolver
+to the DNS resolver. 7. The DNS resolver now has the IP address that the user needs. The resolver
 returns that value to the web browser.
 
 ###### Note

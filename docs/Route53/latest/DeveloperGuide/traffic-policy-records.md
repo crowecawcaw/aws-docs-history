@@ -48,7 +48,7 @@ policy record, the charge is prorated. For more information, see the section "Tr
 
 ###### Note
 
-We're updating the Traffic Flow console for Route 53. During the transition period, you can continue
+Route 53 is updating the Traffic Flow console. During the transition period, you can continue
 to use the old console.
 
 Choose the tab for the console you are using.
@@ -103,7 +103,7 @@ next to the status to get more information about the failure. If you need furthe
 
 ###### Note
 
-We're updating the Traffic Flow console for Route 53. During the transition period, you can continue
+Route 53 is updating the Traffic Flow console. During the transition period, you can continue
 to use the old console. The following list applies for both console, except where noted.
 
 When you create or update a policy record, you specify the following values
@@ -150,7 +150,7 @@ To update the settings in a policy record, perform the following procedure.
 
 ###### Note
 
-We're updating the Traffic Flow console for Route 53. During the transition period, you can continue
+Route 53 is updating the Traffic Flow console. During the transition period, you can continue
 to use the old console.
 
 Choose the tab for the console you are using.
@@ -208,14 +208,14 @@ To delete policy records, perform the following procedure.
 
 ###### Important
 
-If you delete policy records that Amazon Route 53 is using to respond to DNS queries, Route 53 will stop responding to
+If you delete policy records that Amazon Route 53 is using to respond to DNS queries, Route 53 stops responding to
 queries for the corresponding DNS names. For example, if Route 53 is using the policy record for www.example.com to respond to
-DNS queries for www.example.com and you delete the policy record, your users will not be able to access your website or
+DNS queries for www.example.com and you delete the policy record, users can't access your website or
 web application by using the domain name www.example.com.
 
 ###### Note
 
-We're updating the Traffic Flow console for Route 53. During the transition period, you can continue
+Route 53 is updating the Traffic Flow console. During the transition period, you can continue
 to use the old console.
 
 Choose the tab for the console you are using.

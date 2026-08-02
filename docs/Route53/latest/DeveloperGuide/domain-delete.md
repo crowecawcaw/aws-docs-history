@@ -18,7 +18,7 @@ the domain lock, see [DisableDomainTransferLock](../APIReference/API_domains_Dis
 
 **What if you can't delete a domain registration?**
 If the registry for your domain doesn't allow you to delete a domain name registration, you must wait for the domain to expire.
-To ensure that the domain isn't automatically renewed, disable automatic renewal for the domain. When the **Expires on**
+To make sure that the domain isn't automatically renewed, disable automatic renewal for the domain. When the **Expires on**
 date passes, Route 53 automatically deletes the registration for the domain. For information about how to change the automatic renewal setting, see
 [Enabling or disabling automatic renewal for a domain](domain-enable-disable-auto-renewal.md "domain-enable-disable-auto-renewal.md").
 
@@ -45,7 +45,7 @@ transfer the domain to another registrar. See the applicable documentation inste
 If you want to delete a .co.uk, .me.uk, .org.uk, or .uk domain, see
 [To delete .co.uk, .me.uk, .org.uk, and .uk domain name registrations](#domain-delete-uk-procedure "#domain-delete-uk-procedure"). 4. If the registry for your TLD allows deleting a domain name registration, choose **Delete domain**.
 
-Some domains may require that we send an email an email to the registrant for the domain to verify that the registrant wants to delete the domain.
+Some domains might require that Route 53 send an email to the registrant for the domain to verify that the registrant wants to delete the domain.
 If you receive an email, it will from one of the following email addresses:
 
     * noreply@registrar.amazon – for TLDs registered by Amazon Registrar.
@@ -55,7 +55,7 @@ To determine who the registrar is for your TLD, see [Domains that you can regist
 
 ###### Important
 
-The registrant contact must immediately follow the instructions in the email, or we
+The registrant contact must immediately follow the instructions in the email, or Route 53
 must cancel the deletion request as soon as after one day, as
 required by ICANN.
 

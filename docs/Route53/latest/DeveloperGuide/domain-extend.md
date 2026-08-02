@@ -1,7 +1,7 @@
 # Extending the registration period for a domain
 
 When you register a domain with Amazon Route 53 or you transfer domain registration to
-Route 53, we configure the domain to renew automatically. The automatic renewal period is
+Route 53, Route 53 configures the domain to renew automatically. The automatic renewal period is
 typically one year, although the registries for some top-level domains (TLDs) have
 longer renewal periods.
 
@@ -55,7 +55,7 @@ and the maximum registration period allowed by the registry for this domain. The
 expiration date with that number of years applied is listed under the
 duration. 6. Choose **Renew domain registration**.
 
-When we receive confirmation from the registry that they've updated your
-expiration date, we send you an email to confirm that we've changed the
-expiration date. 7. If you encounter issues while extending the registration period for a domain,
+When Route 53 receives confirmation from the registry that they've updated your
+expiration date, Route 53 sends you an email to confirm that the
+expiration date has changed. 7. If you encounter issues while extending the registration period for a domain,
 you can contact AWS Support for free. For more information, see [Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md").

@@ -15,7 +15,7 @@ Each domain specification in your domain list must satisfy the following require
 2. Choose the **Domain lists** tab.
 3. Choose **Create domain list**.
 4. Provide a name and optional description for your domain list, along with any tags, and select **Create domain list**.
-5. Once created and operational, you can begin adding domains to your domain list by selecting **Add domains**.
+5. After the domain list is created and operational, you can begin adding domains to your domain list by selecting **Add domains**.
 6. If you choose to **Upload a list of domains from an Amazon S3 bucket**, enter the URI of the Amazon S3 bucket where you created a domain list. This domain list should have one domain name per line.
 7. Otherwise, enter your domain specifications in the text box, one per line.
 8. Choose **Add domains**.

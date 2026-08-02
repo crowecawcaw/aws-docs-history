@@ -580,7 +580,7 @@ see [DNS domain name format](DomainNameFormat.md "DomainNameFormat.md").
 **November 25, 2014**
 
 With this release, you can now edit the comment that you specified for a hosted zone when you created it.
-In the console, you just click the pencil icon next to the **Comment** field and enter a new value.
+In the console, you just choose the pencil icon next to the **Comment** field and enter a new value.
 For more information about changing the comment by using the Route 53 API, see
 [UpdateHostedZoneComment](../APIReference/API_UpdateHostedZoneComment.md "../APIReference/API_UpdateHostedZoneComment.md")
 in the _Amazon Route 53 API Reference_.

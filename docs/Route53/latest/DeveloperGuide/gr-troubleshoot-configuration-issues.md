@@ -48,7 +48,7 @@ Common firewall rule configuration problems:
 
 Rule priority conflicts
 
-- Review rule evaluation order and ensure correct priority assignment
+- Review rule evaluation order and verify correct priority assignment
 - Check for block rules with higher priority than intended allow rules
 - Test rule changes in a controlled environment before production deployment
 

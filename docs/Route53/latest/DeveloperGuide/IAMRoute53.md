@@ -1,6 +1,6 @@
 # AWS Identity and Access Management
 
-Amazon Route 53 integrates with AWS Identity and Access Management (IAM), a service that lets your organization do the following:
+Amazon Route 53 integrates with AWS Identity and Access Management (IAM), a service that your organization can use to do the following:
 
 - Create users and groups under your organization's AWS account
 - Easily share your AWS account resources among the users in the account

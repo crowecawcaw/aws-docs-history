@@ -6,7 +6,7 @@ Route 53 DNS servers select a weighted random response to return to DNS resolve
 a weight of 2 is returned, on average, twice as often as the value of a weighted record that has a weight of 1.
 
 If you need to direct traffic to more than 100 endpoints, one way to achieve this is to use a tree of weighted alias records
-and weighted records. For example, the first "level" of the tree may be up to 100 weighted alias records,
+and weighted records. For example, the first "level" of the tree might be up to 100 weighted alias records,
 each of which can, in turn, point to up to 100 weighted records. Route 53 permits up to three levels of recursion,
 allowing you to manage up to 1,000,000 unique weighted endpoints.
 

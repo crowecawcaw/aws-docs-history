@@ -1,6 +1,6 @@
 # Best practices for VPC Resolver
 
-This section provides best practices for optimizing Amazon Route 53 VPC Resolver, covering the following topics:
+This section provides best practices for optimizing Route 53 VPC Resolver, covering the following topics:
 
 1. **Avoiding Loop Configurations with Resolver Endpoints:**
 
@@ -30,8 +30,8 @@ This section provides best practices for optimizing Amazon Route 53 VPC Resolver
 5. **Subnet compatibility for Resolver endpoints:**
 
    - We recommend using non-Outposts subnets for Resolver endpoints.
-   - Outposts subnets with Local Network Interface (LNI) enabled are not compatible with Route 53 Resolver endpoints.
-   - If you enable LNI on a subnet that contains Route 53 Resolver endpoint ENIs, those ENIs will stop functioning.
+   - Outposts subnets with Local Network Interface (LNI) enabled are not compatible with VPC Resolver endpoints.
+   - If you enable LNI on a subnet that contains VPC Resolver endpoint ENIs, those ENIs stop functioning.
      For more information, see [Subnet compatibility for Resolver endpoints](best-practices-resolver-subnet-compatibility.md "best-practices-resolver-subnet-compatibility.md")
      By following these best practices, you can optimize the performance, scalability, and security of your VPC Resolver deployments, ensuring reliable
      and efficient DNS resolution for your applications and resources.

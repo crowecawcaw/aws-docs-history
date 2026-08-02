@@ -18,4 +18,4 @@ stored.
    **Set region**.
 
 After setting the observability region, you can configure log delivery destinations in
-that region.
+that Region.

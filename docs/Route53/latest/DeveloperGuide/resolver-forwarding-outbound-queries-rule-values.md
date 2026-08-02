@@ -30,7 +30,7 @@ DNS queries that mach to this domain are forwarded to the resolvers on your netw
 
 As a prerequisite for a delegate rule you must create NS records in the private hosted zone,
 when using private hosted zone to outbound delegation The record is:
-NS - Nameservers to delegate via the Resolver outbound endpoint with
+NS - Nameservers to delegate through the Resolver outbound endpoint with
 delegate rule. For more information, see [NS record type](ResourceRecordTypes.md#NSFormat "ResourceRecordTypes.md#NSFormat").
 
 **VPCs that use this rule**

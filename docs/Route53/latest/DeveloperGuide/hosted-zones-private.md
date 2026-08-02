@@ -18,7 +18,7 @@ _Amazon VPC User Guide_. 3. When an application submits a DNS query for db.examp
 address. To get an answer from a private hosted zone you also have to be running an
 EC2 instance in one of the associated VPCs (or have an inbound endpoint from a
 hybrid setup.) If you try to query a private hosted zone from outside the VPCs or
-your hybrid setup, the query will be recursively resolved on the internet. 4. The application uses the IP address that it got from Route 53 to establish a connection with the database server.
+your hybrid setup, the query is recursively resolved on the internet. 4. The application uses the IP address that it got from Route 53 to establish a connection with the database server.
 When you create a private hosted zone, the following name servers are used:
 
 - ns-0.awsdns-00.com
@@ -27,7 +27,7 @@ When you create a private hosted zone, the following name servers are used:
 - ns-1536.awsdns-00.co.uk
   These name servers are used because the DNS protocol requires that every hosted zone must
   have an NS record set. These name servers are reserved and never used by Route 53 public hosted
-  zones. You can only query those zones via VPC Resolver in a VPC that has been associated to the
+  zones. You can only query those zones through VPC Resolver in a VPC that has been associated to the
   hosted zone by using an inbound endpoint connected to the VPCs specified in the private
   hosted zone.
 

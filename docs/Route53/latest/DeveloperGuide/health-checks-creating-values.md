@@ -18,8 +18,8 @@ health check. If you specify a value for **Name**,
 Route 53 adds a tag to the health check, assigns the value
 **Name** to the tag key, and assigns the value that
 you specify to the tag value. The value of the **Name**
-tag appears in the list of health checks in the Route 53 console, which
-lets you easily distinguish health checks from one another.
+tag appears in the list of health checks in the Route 53 console, so you can
+easily distinguish health checks from one another.
 
 For more information about tagging and health checks, see [Naming and tagging health checks](health-checks-tagging.md "health-checks-tagging.md").
 
@@ -54,7 +54,7 @@ Pricing](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53
 
 ###### Note
 
-We're updating the health checks console for Route 53. During the transition period, you can continue
+Route 53 is updating the health checks console. During the transition period, you can continue
 to use the old console.
 
 Choose the tab for the console you are using.
@@ -406,7 +406,7 @@ automatically adds one.
 
 ###### Note
 
-We're updating the health checks console for Route 53. During the transition period, you can continue
+Route 53 is updating the health checks console. During the transition period, you can continue
 to use the old console.
 
 Choose the tab for the console you are using.
@@ -566,7 +566,7 @@ is disabled.
 
 ###### Note
 
-We're updating the health checks console for Route 53. During the transition period, you can continue
+Route 53 is updating the health checks console. During the transition period, you can continue
 to use the old console.
 
 Choose the tab for the console you are using.
@@ -739,7 +739,7 @@ is disabled.
 
 ###### Note
 
-We're updating the health checks console for Route 53. During the transition period, you can continue
+Route 53 is updating the health checks console. During the transition period, you can continue
 to use the old console.
 
 - [New console](#health-checks-creating-values-advanced-new "#health-checks-creating-values-advanced-new")
@@ -891,16 +891,16 @@ Choose whether you want Route 53 to check the health of the endpoint
 by using health checkers in the recommended regions or by using
 health checkers in regions that you specify.
 
-If you update a health check to remove a region that has been
+If you update a health check to remove a Region that has been
 performing health checks, Route 53 continues to perform checks from
-that region for up to an hour. This ensures that some health
+that Region for up to an hour. This ensures that some health
 checkers are always checking the endpoint (for example, if you
-replace three regions with four different regions).
+replace three Regions with four different Regions).
 
 If you choose **Customize**, choose the
-**x** for a region to remove it. Click the
-space at the bottom of the list to add a region back to the list.
-You must specify at least three regions.
+**x** for a Region to remove it. Choose the
+space at the bottom of the list to add a Region back to the list.
+You must specify at least three Regions.
 
 **Host name ("Specify endpoint by IP address"
 Only, HTTP and HTTPS Protocols Only)**
@@ -1084,16 +1084,16 @@ Choose whether you want Route 53 to check the health of the endpoint
 by using health checkers in the recommended regions or by using
 health checkers in regions that you specify.
 
-If you update a health check to remove a region that has been
+If you update a health check to remove a Region that has been
 performing health checks, Route 53 continues to perform checks from
-that region for up to an hour. This ensures that some health
+that Region for up to an hour. This ensures that some health
 checkers are always checking the endpoint (for example, if you
-replace three regions with four different regions).
+replace three Regions with four different Regions).
 
 If you choose **Customize**, choose the
-**x** for a region to remove it. Click the
-space at the bottom of the list to add a region back to the list.
-You must specify at least three regions.
+**x** for a Region to remove it. Choose the
+space at the bottom of the list to add a Region back to the list.
+You must specify at least three Regions.
 
 **Invert health check
 status (old console only)**

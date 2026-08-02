@@ -17,8 +17,7 @@ zone**
 You can also create a hosted zone for the subdomain. Using a separate
 hosted zone to route internet traffic for a subdomain is sometimes known as
 "delegating responsibility for a subdomain to a hosted zone" or "delegating
-a subdomain to other name servers" or some similar combination of terms.
-Here's an overview of how it works:
+a subdomain to other name servers." Here's an overview of how it works:
 
 1. You create a hosted zone that has the same name as the subdomain
    that you want to route traffic for, such as acme.example.com.
@@ -34,13 +33,12 @@ Here's an overview of how it works:
 
 When you use a separate hosted zone to route traffic for a subdomain, you
 can use IAM permissions to restrict access to the hosted zone for the
-subdomain. If you have multiple subdomains that are managed by different
-groups, creating a hosted zone for each subdomain can significantly reduce
-the number of people who must have access to records in the hosted zone for
-the domain.
+subdomain. If you have multiple subdomains managed by different groups,
+creating a hosted zone for each subdomain can reduce the number of people
+who need access to records in the hosted zone for the domain.
 
 To implement this delegation process, you need the following IAM
-permissions. For more information about Route 53 IAM policies, see [Identity and access management in Amazon Route 53](security-iam.md "security-iam.md"):
+permissions. For more information about Route 53 IAM policies, see [Identity and access management in Amazon Route 53](security-iam.md "security-iam.md"):
 
 **Parent account (owns example.com)**
 
@@ -58,7 +56,7 @@ information, see [Using Amazon Route 53 as the DNS service for subdomains witho
 
 There's a small performance impact to this configuration for the first DNS
 query from each DNS resolver. The resolver must get information from the
-hosted zone for the root domain and then get information from the hosted
+hosted zone for the root domain and then from the hosted
 zone for the subdomain. After the first DNS query for a subdomain, the
 resolver caches the information and doesn't need to get it again until the
 TTL expires and another client requests the subdomain from that resolver.
@@ -120,7 +118,7 @@ zone**.
 ### Creating records in the hosted zone for the subdomain
 
 To define how you want Route 53 to route traffic for the subdomain
-(acme.example.com) and its subdomains (backend.acme.example.com), you create
+(acme.example.com) and its subdomains (backend.acme.example.com), create
 records in the hosted zone for the subdomain.
 
 Note the following about creating records in the hosted zone for the
@@ -145,12 +143,12 @@ subdomain:
 
 If you have some records for the subdomain in both the hosted zone
 for the domain and the hosted zone for the subdomain, DNS behavior
-will be inconsistent. Behavior will depend on which name servers a
-DNS resolver has cached, the name servers for the domain hosted zone
+will be inconsistent. Behavior depends on which name servers a
+DNS resolver has cached: the name servers for the domain hosted zone
 (example.com) or the name servers for the subdomain hosted zone
 (acme.example.com). In some cases, Route 53 will return NXDOMAIN
-(non-existent domain) when the record exists, but not in the hosted
-zone that DNS resolvers are submitting the query to.
+(non-existent domain) when the record exists but not in the hosted
+zone that DNS resolvers query.
 
 For more information, see [Working with records](rrsets-working-with.md "rrsets-working-with.md").
 
@@ -159,9 +157,9 @@ For more information, see [Working with records](rrsets-working-with.md "rrsets-
 When you create a hosted zone, Route 53 automatically assigns four name servers
 to the zone. The NS record for a hosted zone identifies the name servers that
 respond to DNS queries for the domain or subdomain. To start using the records
-in the hosted zone for the subdomain to route internet traffic, you create a new
-NS record in the hosted zone for the domain (example.com), and give it the name
-of the subdomain (acme.example.com). For the value of the NS record, you specify
+in the hosted zone for the subdomain to route internet traffic, create a new
+NS record in the hosted zone for the domain (example.com). Give it the name
+of the subdomain (acme.example.com). For the value of the NS record, specify
 the names of the name servers from the hosted zone for the subdomain.
 
 Here's what happens when Route 53 receives a DNS query from a DNS resolver for
@@ -178,7 +176,7 @@ the subdomain acme.example.com or one of its subdomains:
    hosted zone.
 
 To configure Route 53 to route traffic for the subdomain using the hosted zone
-for the subdomain and to delete any duplicate records from the hosted zone for
+for the subdomain, and to delete any duplicate records from the hosted zone for
 the domain, perform the following procedure:
 
 ###### To configure Route 53 to use the hosted zone for the subdomain (console)
@@ -233,14 +231,14 @@ hosted zone for the subdomain.
 ## Routing traffic for additional levels of subdomains
 
 You route traffic to a subdomain of a subdomain, such as backend.acme.example.com,
-the same way that you route traffic to a subdomain, such as acme.example.com. Either
-you create records in the hosted zone for the domain, or you create a hosted zone
-for the lower-level subdomain, and then you create records in that new hosted
+the same way that you route traffic to a subdomain, such as acme.example.com. You
+create records in the hosted zone for the domain, or you create a hosted zone
+for the lower-level subdomain and create records in that new hosted
 zone.
 
-If you choose to create a separate hosted zone for the lower-level subdomain,
+If you create a separate hosted zone for the lower-level subdomain,
 create the NS record for the lower-level subdomain in the hosted zone for the
-subdomain that is one level closer to the domain name. This helps to ensure that
+subdomain that is one level closer to the domain name. This makes sure that
 traffic is correctly routed to your resources. For example, suppose you want to
 route traffic for the following subdomains:
 

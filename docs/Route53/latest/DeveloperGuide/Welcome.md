@@ -3,10 +3,10 @@
 Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service. You can use Route 53 to perform three main functions
 in any combination: domain registration, DNS routing, and health checking.
 
-If you choose to use Route 53 for all three functions, be sure to follow the order below:
+If you choose to use Route 53 for all three functions, follow the order below:
 
 **1. Register domain names**
-Your website needs a name, such as example.com. Route 53 lets you register a name for your website or web application,
+Your website needs a name, such as example.com. With Route 53, you can register a name for your website or web application,
 known as a _domain name_.
 
 - For an overview, see [How domain registration works](welcome-domain-registration.md "welcome-domain-registration.md").
@@ -15,8 +15,8 @@ known as a _domain name_.
   [Getting started with Amazon Route 53](getting-started.md "getting-started.md").
 
 **2. Route internet traffic to the resources for your domain**
-When a user opens a web browser and enters your domain name (example.com) or subdomain name (acme.example.com) in the address bar,
-Route 53 helps connect the browser with your website or web application.
+When a user opens a web browser and enters your domain name (example.com) or subdomain name (acme.example.com),
+Route 53 connects the browser with your website or web application.
 
 - For an overview, see [How internet traffic is routed to your website or web application](welcome-dns-service.md "welcome-dns-service.md").
 - For procedures, see [Configuring Amazon Route 53 as your DNS service](dns-configuring.md "dns-configuring.md").
@@ -24,7 +24,7 @@ Route 53 helps connect the browser with your website or web application.
 
 **3. Check the health of your resources**
 Route 53 sends automated requests over the internet to a resource, such as a web server, to verify that it's reachable, available,
-and functional. You also can choose to receive notifications when a resource becomes unavailable and choose to route internet traffic
+and functional. You can receive notifications when a resource becomes unavailable. You can also route internet traffic
 away from unhealthy resources.
 
 - For an overview, see [How Amazon Route 53 checks the health of your resources](welcome-health-checks.md "welcome-health-checks.md").
@@ -38,14 +38,14 @@ features:
 **VPC Resolver**
 Get recursive DNS for your Amazon VPCs in AWS Regions, VPCs in AWS Outposts racks, or any other on-premises networks.
 Create conditional forwarding rules and
-Route 53 endpoints to resolve custom names mastered in Route 53 private hosted zones or in your on-premises DNS servers.
+Route 53 endpoints to resolve custom names in Route 53 private hosted zones or in your on-premises DNS servers.
 
 For more information , see [What is Route 53 VPC Resolver?](resolver.md "resolver.md").
 
 **Amazon Route 53 Resolver on Outposts**
 
 Connect VPC Resolver on Outpost racks with DNS servers in your on-premises data
-centers through Resolver endpoints. This enables resolution of DNS queries between
+centers through Resolver endpoints. This resolves DNS queries between
 the Outposts racks and your other on-premises resources.
 
 For more information , see [What is Amazon Route 53 on Outposts?](outpost-resolver.md "outpost-resolver.md").

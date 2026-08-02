@@ -7,7 +7,7 @@ maintainer. This can be the same person, but if not, the zone owner should notif
 and work with the parent zone maintainer.
 
 We recommend following the steps in this article to have your zone signed and included in
-the chain of trust. The following steps will minimize the risk of onboarding onto
+the chain of trust. The following steps minimize the risk of onboarding onto
 DNSSEC.
 
 ###### Note
@@ -47,16 +47,15 @@ The zone’s maximum TTL is the longest TTL record in the zone. In the
 following example zone, the zone’s maximum TTL is 1 day (86400
 seconds).
 
-| Name                 | TTL   | Record class | Record type | Record data                                                                |
-| -------------------- | ----- | ------------ | ----------- | -------------------------------------------------------------------------- |
-| example.com.         | 900   | IN           | SOA         | ns1.example.com. hostmaster.example.com. 2002022401<br>10800 15 604800 300 |
-| example.com.         | 900   | IN           | NS          | ns1.example.com.                                                           |
-| route53.example.com. | 86400 | IN           | TXT         | `some txt record`                                                          |
+Example zone records| Name | TTL | Record class | Record type | Record data |
+| --- | --- | --- | --- | --- |
+| example.com. | 900 | IN | SOA | ns1.example.com. hostmaster.example.com. 2002022401<br>10800 15 604800 300 |
+| example.com. | 900 | IN | NS | ns1.example.com. |
+| route53.example.com. | 86400 | IN | TXT | `some txt record` |
 
-Lowering the zone's maximum TTL will help reduce the wait time between
+Lowering the zone's maximum TTL helps reduce the wait time between
 enabling signing and the insertion of the Delegation Signer (DS) record. We
-recommend lowering the zone's maximum TTL to 1 hour (3600 seconds). This
-allows you to roll back after only an hour if any resolver has problems with
+recommend lowering the zone's maximum TTL to 1 hour (3600 seconds). You can then roll back after only an hour if any resolver has problems with
 caching signed records.
 
 **Rollback:** undo the TTL changes. 3. Lower the SOA TTL and SOA minimum field.
@@ -65,9 +64,9 @@ The SOA minimum field is the last field in the SOA record data. In the
 following example SOA record, the minimum field has the value of 5 minutes
 (300 seconds).
 
-| Name         | TTL | Record class | Record type | Record data                                                                |
-| ------------ | --- | ------------ | ----------- | -------------------------------------------------------------------------- |
-| example.com. | 900 | IN           | SOA         | ns1.example.com. hostmaster.example.com. 2002022401<br>10800 15 604800 300 |
+Example SOA record| Name | TTL | Record class | Record type | Record data |
+| --- | --- | --- | --- | --- |
+| example.com. | 900 | IN | SOA | ns1.example.com. hostmaster.example.com. 2002022401<br>10800 15 604800 300 |
 
 The SOA TTL and SOA minimum field determines how long resolvers remember
 negative answers. After you enable signing, Route 53 name servers start
@@ -144,7 +143,7 @@ or that there already exists, a chain of trust for the
 hosted zone for DNSSEC, and then you're done. For more
 information, see [Step 3: Establish chain of trust](#dns-configuring-dnssec-chain-of-trust "#dns-configuring-dnssec-chain-of-trust"). 4. In the **Key-signing key (KSK) creation** section, choose **Create new KSK**, and under
 **Provide KSK name**, enter a name for the
-KSK that Route 53 will create for you. The name can include
+KSK that Route 53 creates for you. The name can include
 numbers, letters, and underscores (\_). It must be unique. 5. Under **Customer managed CMK**, choose the
 customer managed key for Route 53 to use when it creates the KSK for you. You
 can use an existing customer managed key that applies to DNSSEC signing,
@@ -153,7 +152,7 @@ or create a new customer managed key.
 When you provide or create a customer managed key, there are several
 requirements. For more information, see [Working with customer managed keys for DNSSEC](dns-configuring-dnssec-cmk-requirements.md "dns-configuring-dnssec-cmk-requirements.md"). 6. Enter the alias for an existing customer managed key. If you want to use
 a new customer managed key, enter an alias for the customer managed key, and Route 53
-will create one for you.
+creates one for you.
 
 ###### Note
 
@@ -263,7 +262,7 @@ Establish a chain of trust for the parent zone:
     	5. Choose **Add**.
 
 
-    	 Route 53 will add the DS record to the parent zone from the public
+    	 Route 53 adds the DS record to the parent zone from the public
     	 key. For example, if your domain is `example.com`, the DS
     	 record is added to the .com DNS zone.
     * If your domain is managed on another registry, follow the instructions in the **Another domain registrar** section.
@@ -281,7 +280,7 @@ Establish a chain of trust for the parent zone:
 
     	If your parent zone is administered by
     	 another registry, contact your registrar to introduce the DS record
-    	 for your zone. Typically you will not be able to adjust the
+    	 for your zone. Typically you can't adjust the
     	 TTL of the DS record.
     	+ If your parent zone is hosted on Route 53, contact the parent zone owner
     	 to introduce the DS record for your zone.
@@ -381,7 +380,7 @@ the DS record insertion being fully propagated. Do note that some registrars
 have scheduled DS insertion, for example, once a day.
 
 When you introduce the Delegation Signer (DS) record in the parent zone, the validated
-resolvers that have picked up the DS will start validating responses from the
+resolvers that have picked up the DS start validating responses from the
 zone.
 
 To make sure the steps for establishing trust go smoothly, complete the following:
@@ -431,13 +430,13 @@ There are 2 sets of NS records associated with your zones:
 
 Prior to the DS insertion, resolvers are getting a signed response, but
 aren't validating the signature. When the DS record is inserted, resolvers
-will not see it until the NS record for the zone expires. When resolvers
-re-fetch the NS record, the DS record will then be also returned.
+don't see it until the NS record for the zone expires. When resolvers
+re-fetch the NS record, the DS record is then also returned.
 
 If your customer is running a resolver on a host with an out of sync
 clock, make sure the clock is within 1 hour of the correct time.
 
-After completing this step, all DNSSEC-aware resolvers will validate your
+After completing this step, all DNSSEC-aware resolvers validate your
 zone. 3. Observe name resolution.
 
 You should observe that there are no issues with resolvers validating your

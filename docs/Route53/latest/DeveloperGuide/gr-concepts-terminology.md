@@ -195,7 +195,7 @@ Domain Generation Algorithms (DGAs) are used by attackers to create large number
 Confidence thresholds
 
 Each detection algorithm outputs a confidence score that determines rule triggering.
-Higher confidence thresholds reduce false positives but may miss sophisticated attacks. Lower
+Higher confidence thresholds reduce false positives but might miss sophisticated attacks. Lower
 thresholds increase detection sensitivity but require additional alert analysis to filter
 false positives.
 

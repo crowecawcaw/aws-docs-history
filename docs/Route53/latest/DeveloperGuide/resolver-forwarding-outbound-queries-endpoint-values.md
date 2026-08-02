@@ -9,7 +9,7 @@ If you are creating the endpoint for a VPC Resolver on an AWS Outposts VPC, this
 A friendly name that lets you easily find an outbound endpoint on the dashboard.
 
 **VPC in the _region-name_ Region**
-All outbound DNS queries will flow through this VPC on the way to your network.
+All outbound DNS queries flow through this VPC on the way to your network.
 
 **Security group for this endpoint**
 
@@ -26,17 +26,17 @@ in the _Amazon VPC User Guide_.
 
 **Endpoint type**
 The endpoint type can be either IPv4, IPv6, or dual-stack IP addresses. For a dual-stack
-endpoint, the endpoint will have both IPv4 and IPv6 address that your
-DNS resolver on your network can forward DNS query to.
+endpoint, the endpoint has both IPv4 and IPv6 addresses that your
+DNS resolver on your network can forward DNS queries to.
 
 ###### Note
 
-For security reasons, we are denying direct IPv6 traffic access to the public internet for all dual-stack and IPv6 IP addresses by default. To enable this access, turn on **IPv6 internet access** when you create or edit the endpoint.
+For security reasons, VPC Resolver denies direct IPv6 traffic access to the public internet for all dual-stack and IPv6 IP addresses by default. To enable this access, turn on **IPv6 internet access** when you create or edit the endpoint.
 
 **IP addresses**
 The IP addresses in your VPC that you want VPC Resolver to forward DNS queries to on the way to resolvers
 on your network. These are not the IP addresses of the DNS resolvers on your network; you specify resolver
-IP addresses when you create the rules that you associate with one or more VPCs. We require you to specify
+IP addresses when you create the rules that you associate with one or more VPCs. You must specify
 a minimum of two IP addresses for redundancy.
 
 ###### Note

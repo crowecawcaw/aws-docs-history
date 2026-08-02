@@ -20,4 +20,4 @@ aws route53domains get-domain-detail \
 This command only runs in us-east-1 AWS Region.
 
 All the information about your domain will be listed in the output, including
-the registrar, registration date, privacy setting, etc.
+the registrar, registration date, and privacy setting.

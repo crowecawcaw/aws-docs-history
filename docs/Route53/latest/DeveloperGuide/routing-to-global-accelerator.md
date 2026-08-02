@@ -2,7 +2,7 @@
 
 AWS Global Accelerator is a service in which you create accelerators to improve the performance of your
 applications for local and global users. The service reacts instantly to changes in
-health or configuration to ensure that internet traffic from clients is always directed
+health or configuration to make sure that internet traffic from clients is always directed
 to healthy endpoints. Global Accelerator includes a fault tolerant architecture, and incorporates
 AWS Shield Standard, for automated in-line mitigation from DDoS attacks. For more information,
 see [What is

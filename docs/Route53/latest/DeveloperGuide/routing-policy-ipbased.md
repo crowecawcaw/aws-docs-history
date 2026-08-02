@@ -1,16 +1,16 @@
 # IP-based routing
 
 With IP-based routing in Amazon Route 53, you can fine-tune your DNS routing
-by using your understanding of your network, applications, and clients to make the
-best DNS routing decisions for your end users. IP-based routing gives you granular
-control to optimize performance or reduce network costs by uploading your data to
-Route 53 in the form of user-IP-to-endpoint mappings.
+based on your knowledge of your network, applications, and clients. This helps you make the
+best DNS routing choices for your end users. IP-based routing gives you fine-grained
+control to boost performance or cut network costs by uploading your data to
+Route 53 as user-IP-to-endpoint mappings.
 
-Geolocation and latency-based routing is based on data that Route 53 collects and
-keeps up to date. This approach works well for the majority of customers, but IP-based
-routing offers you the additional ability to optimize routing based on specific
-knowledge of your customer base. For example, a global video content provider might
-want to route end users from a particular internet service provider (ISP).
+Geolocation and latency-based routing uses data that Route 53 collects and
+keeps current. This approach works well for most customers. IP-based
+routing gives you the added ability to tune routing based on what you know
+about your customer base. For example, a global video provider might
+want to route end users from a given internet service provider (ISP).
 
 Some common use cases for IP-based routing are the following:
 
@@ -81,4 +81,4 @@ policy to create records, see the following topics:
 - [Creating a CIDR collection with CIDR locations and blocks](resource-record-sets-creating-cidr-collection.md "resource-record-sets-creating-cidr-collection.md")
 - [Working with CIDR locations and blocks](resource-record-sets-working-with-cidr-locations.md "resource-record-sets-working-with-cidr-locations.md")
 - [Deleting a CIDR collection](resource-record-sets-delete-cidr-collection.md "resource-record-sets-delete-cidr-collection.md")
-- [Moving a geolocation to IP-based routing](resource-record-sets-move-geolocation-to-cidr.md "resource-record-sets-move-geolocation-to-cidr.md")
+- [Moving geolocation routing to IP-based routing](resource-record-sets-move-geolocation-to-cidr.md "resource-record-sets-move-geolocation-to-cidr.md")

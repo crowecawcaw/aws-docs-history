@@ -7,7 +7,7 @@ You can configure Amazon Route 53 to log information about the public DNS queri
 - DNS record type (such as A or AAAA)
 - Route 53 edge location that responded to the DNS query
 - DNS response code, such as `NoError` or `ServFail`
-  Once you configure query logging, Route 53 will send logs to CloudWatch Logs. You use CloudWatch Logs tools to
+  After you configure query logging, Route 53 will send logs to CloudWatch Logs. You use CloudWatch Logs tools to
   access the query logs.
 
 Query logs contain only the queries that DNS resolvers send to Route 53. If a DNS resolver has

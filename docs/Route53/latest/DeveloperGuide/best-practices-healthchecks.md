@@ -13,9 +13,9 @@ Here are some best practices to consider when setting up and managing Amazon Rou
 
    - Set health check intervals based on your application's requirements and the criticality of
      the monitored resources.
-   - Shorter intervals provide faster failure detection but may increase Route 53 costs and load on
+   - Shorter intervals provide faster failure detection but might increase Route 53 costs and load on
      your resources.
-   - Longer intervals reduce costs and resource load but may delay failure detection.
+   - Longer intervals reduce costs and resource load but might delay failure detection.
      Fore more information, see [Advanced configuration ("Monitor an Endpoint" only)](health-checks-creating-values.md#health-checks-creating-values-advanced "health-checks-creating-values.md#health-checks-creating-values-advanced").
 
 3. **Implement alarm notifications:**
@@ -44,5 +44,5 @@ Here are some best practices to consider when setting up and managing Amazon Rou
 7. **Regularly Review and Update Health Checks:**
 
    - Update health check endpoints, intervals, and alarm thresholds as needed to maintain optimal monitoring and performance.
-     By following these best practices, you can effectively leverage Amazon Route 53 health checks to monitor the health and availability of y
+     By following these best practices, you can effectively leverage Route 53 health checks to monitor the health and availability of y
      our resources, ensuring a reliable and high-performing infrastructure for your applications and services.

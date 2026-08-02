@@ -109,7 +109,7 @@ Change the owner, either programmatically or by using the Route 53
 console. See [Updating contact information for a domain](domain-update-contacts.md#domain-update-contacts-basic "domain-update-contacts.md#domain-update-contacts-basic"). Then complete
 the following process to complete the ownership change:
 
-1. Both the old and new registrants must click the link they receive in an email from
+1. Both the old and new registrants must choose the link they receive in an email from
    *transfers@1api.net* to their listed
    email addresses. If this isn't completed within 14 days, you
    have to start the process again.

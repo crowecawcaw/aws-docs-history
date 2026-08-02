@@ -11,4 +11,4 @@ as glue records (NS records) on your on-premises name server for the subdomain b
 For example, if you're delegating the subdomain "aws.example.com" to VPC Resolver through an inbound delegation endpoint
 with IP addresses 10.0.1.100 and 10.0.1.101, you would create NS records on your on-premises DNS server pointing
 "aws.example.com" to these IP addresses. This makes sure that DNS queries for the delegated subdomain are properly
-routed to the VPC Resolver via the inbound endpoint, allowing the VPC Resolver to respond with records from the associated private hosted zone.
+routed to the VPC Resolver through the inbound endpoint, allowing the VPC Resolver to respond with records from the associated private hosted zone.

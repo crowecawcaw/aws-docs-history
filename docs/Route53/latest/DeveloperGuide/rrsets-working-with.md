@@ -9,7 +9,7 @@ For example, you might create records that cause DNS to do the following:
 - Route email for that domain (ichiro@example.com) to a mail server (mail.example.com).
 - Route traffic for a subdomain called operations.tokyo.example.com to the IP address of a different host.
   Each record includes the name of a domain or a subdomain, a record type (for example, a record
-  with a type of MX routes email), and other information applicable to the record type (for MX records, the host name of one or more
+  with a type of MX routes email), and other information for that record type (for MX records, the host name of one or more
   mail servers and a priority for each server). For information about the different record types, see
   [Supported DNS record types](ResourceRecordTypes.md "ResourceRecordTypes.md").
 
@@ -19,10 +19,10 @@ but cannot contain records for a www.example.ca subdomain.
 
 ###### Note
 
-To create records for complex routing configurations, you can also use the Traffic Flow visual editor and
-save the configuration as a traffic policy. You can then associate the traffic policy with one or more domain names
+To create records for complex routing setups, you can also use the Traffic Flow visual editor and
+save the setup as a traffic policy. You can then link the traffic policy to one or more domain names
 (such as example.com) or subdomain names (such as www.example.com), in the same hosted zone or in multiple hosted zones.
-In addition, you can roll back the updates if the new configuration isn't performing as you expected it to. For more information,
+You can also roll back updates if the new setup isn't working as expected. For more information,
 see [Using Traffic Flow to route DNS traffic](traffic-flow.md "traffic-flow.md").
 
 Amazon Route 53 doesn't charge for the records that you add to a hosted zone. For information about the maximum number of

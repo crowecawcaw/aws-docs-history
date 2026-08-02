@@ -59,7 +59,7 @@ When you're finished with the following example, you'll have two weighted alias 
 When you're finished creating the latency records, Route 53 will continue to
 route traffic using the record that you updated in Step 2.
 
-You can use `www-lbr.example.com` for validation testing, for example, to ensure that each endpoint
+You can use `www-lbr.example.com` for validation testing, for example, to make sure that each endpoint
 can accept requests. 4. Let's now add the `www-lbr.example.com` latency record into the `www.example.com`
 weighted record and begin routing limited traffic to the corresponding Amazon EC2 instances. This means that the
 Amazon EC2 instance in the US East (Ohio) region will be getting traffic from both weighted records.

@@ -120,7 +120,7 @@ manual recovery.
    hosted zone records
 2. Manually create or update the missing DNS records through the Route 53
    console or API. For information about creating records, see [Working with records](rrsets-working-with.md "rrsets-working-with.md").
-3. Once DNS is restored, update your CloudFormation template to match the current
+3. After DNS is restored, update your CloudFormation template to match the current
    state
 4. Deploy the corrected template to bring CloudFormation back in sync with the actual
    resources

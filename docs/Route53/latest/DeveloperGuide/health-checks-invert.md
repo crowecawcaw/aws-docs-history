@@ -5,7 +5,7 @@ check to be unhealthy when the status is healthy and vice versa.
 
 ###### Note
 
-We're updating the health checks console for Route 53. During the transition period, you can continue
+Route 53 is updating the health checks console. During the transition period, you can continue
 to use the old console.
 
 You can invert a health check on the old console when you create or edit the health check. For more information, see

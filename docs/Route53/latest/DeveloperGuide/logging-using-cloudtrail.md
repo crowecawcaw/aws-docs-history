@@ -45,7 +45,7 @@ For more information, see the [CloudTrail userIdentity element](../../../awsclou
 ## Viewing Route 53 events in event history
 
 CloudTrail lets you view recent events in **Event history**. To view events for Route 53 API requests, you must choose
-**US East (N. Virginia)** in the region selector at the top of the console. For more information, see
+**US East (N. Virginia)** in the Region selector at the top of the console. For more information, see
 [Viewing events with CloudTrail event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the
 _AWS CloudTrail User Guide_.
 

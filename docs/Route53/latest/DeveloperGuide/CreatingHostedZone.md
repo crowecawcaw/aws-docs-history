@@ -1,8 +1,8 @@
 # Creating a public hosted zone
 
 A public hosted zone is a container that holds information about how you want to route traffic on the internet
-for a specific domain, such as example.com, and its subdomains (acme.example.com, zenith.example.com). After you create a
-hosted zone, you create records that specify how you want to route traffic for the domain and subdomains.
+for a domain, such as example.com, and its subdomains (acme.example.com, zenith.example.com). After you create a
+hosted zone, you create records to route traffic for the domain and subdomains.
 
 ###### Restrictions
 

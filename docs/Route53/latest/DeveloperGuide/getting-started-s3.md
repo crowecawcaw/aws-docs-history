@@ -1,14 +1,19 @@
 # Use your domain for a static website in an Amazon S3 bucket
 
-This tutorial shows you how to use Amazon Route 53 to route DNS traffic for your domain to an
+This topic shows you how to use Amazon Route 53 to route DNS traffic for your domain to an
 Amazon Simple Storage Service bucket that hosts a static website. You'll create alias records that point your
 domain to the S3 website endpoint.
 
-This tutorial is part of a complete static website setup workflow. For general information
+This topic is part of a complete static website setup workflow. For general information
 about routing traffic to any S3 bucket, see [Routing traffic to a website that is hosted in an Amazon S3 bucket](RoutingToS3Bucket.md "RoutingToS3Bucket.md").
 
-When you're finished, visitors can access your static website using your custom domain
-name.
+After you complete these steps, you have the following resources configured:
+
+- Amazon S3 buckets configured for website hosting and redirect (if using www
+  subdomain)
+- Website content uploaded to your bucket
+- Public access configured for your website bucket
+  Visitors can access your static website using your custom domain name.
 
 ###### Note
 
@@ -24,13 +29,6 @@ Before you begin, complete these steps:
 - Configure an Amazon Simple Storage Service bucket for static website hosting. For complete
   instructions, see [Tutorial: Configuring a static website using a custom domain registered
   with Route 53](../../../AmazonS3/latest/userguide/website-hosting-custom-domain-walkthrough.md "../../../AmazonS3/latest/userguide/website-hosting-custom-domain-walkthrough.md") in the _Amazon Simple Storage Service User Guide_.
-
-When you complete the Amazon Simple Storage Service tutorial, you'll have:
-
-- Amazon S3 buckets configured for website hosting and redirect (if using www
-  subdomain)
-- Website content uploaded to your bucket
-- Public access configured for your website bucket
 
 ## Step 1: Route DNS traffic for your domain to your website bucket
 

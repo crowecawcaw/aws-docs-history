@@ -208,5 +208,5 @@ You should observe that there are no issues resulting in resolvers validating
 your zone. Allow 1-2 weeks to also account for the time needed for your
 customers to report problems to you. 10. (Optional) Clean up.
 
-If you will not re-enable signing, you can clean up the KSKs through [DeleteKeySigningKey](../APIReference/API_DeleteKeySigningKey.md "../APIReference/API_DeleteKeySigningKey.md") and delete the corresponding customer managed
+If you don't re-enable signing, you can clean up the KSKs through [DeleteKeySigningKey](../APIReference/API_DeleteKeySigningKey.md "../APIReference/API_DeleteKeySigningKey.md") and delete the corresponding customer managed
 key to save costs.

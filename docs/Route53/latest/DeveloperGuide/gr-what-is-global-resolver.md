@@ -2,7 +2,7 @@
 
 Route 53 Global Resolver is an internet-reachable DNS resolver that provides easy, secure, and reliable DNS resolution for authorized clients in your organization across remote locations, branch offices, and on-premises environments. You can resolve queries for domains hosted on Amazon Route 53 private hosted zones or public domains on the internet, while maintaining high availability through global anycast architecture. Route 53 Global Resolver helps you protect your clients from DNS-based data exfiltration attacks, by filtering queries to potentially malicious domains.
 
-Route 53 Global Resolver uses anycast IP addresses that automatically route DNS queries to the AWS Region closest to your source query location for optimal latency and availability. You can select the regions where your global resolver should provide DNS resolution from for your authorized clients, configure different views for the clients for the resolution of private and public domains, filter malicious domains, and monitor DNS activity across your organization.
+Route 53 Global Resolver uses anycast IP addresses that automatically route DNS queries to the AWS Region closest to your source query location for optimal latency and availability. You can select the Regions where your global resolver should provide DNS resolution from for your authorized clients, configure different views for the clients for the resolution of private and public domains, filter malicious domains, and monitor DNS activity across your organization.
 
 ###### Topics
 

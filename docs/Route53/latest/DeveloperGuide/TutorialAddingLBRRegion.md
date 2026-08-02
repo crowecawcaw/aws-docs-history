@@ -7,7 +7,7 @@ latency-based routing in [Transitioning to latency-based routing in Amazon Route
 For example, suppose you're using latency-based routing to route traffic for `www.example.com`, and you
 want to add an Amazon EC2 instance in Asia Pacific (Tokyo) to your instances in US East (Ohio),
 US West (N. California), and Europe (Ireland). The following example procedure explains one way that you could add
-an instance in another region.
+an instance in another Region.
 
 For this example, the Amazon Route 53 hosted zone for `example.com` already has a weighted alias
 record for `www.example.com` that is routing traffic to the latency-based
@@ -36,7 +36,7 @@ route traffic using the original weighted alias record (`www.example.com`) and
 latency records (`www-lbr.example.com`).
 
 You can use the `www-lbr-2012-04-30.example.com` records for validation testing,
-for example, to ensure that each endpoint can accept requests. 2. Create a weighted alias record for the new latency records:
+for example, to make sure that each endpoint can accept requests. 2. Create a weighted alias record for the new latency records:
 
     * For the domain name, specify the name for the existing weighted alias record,
      `www.example.com`.

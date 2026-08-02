@@ -2,7 +2,7 @@
 
 Attackers sometimes hijack traffic to internet endpoints such as web servers by intercepting DNS queries and returning their own
 IP addresses to DNS resolvers in place of the actual IP addresses for those endpoints. Users are then routed to the IP addresses
-provided by the attackers in the spoofed response, for example, to fake websites.
+provided by the attackers in the spoofed response, such as fake websites.
 
 You can protect your domain from this type of attack, known as DNS spoofing or a man-in-the-middle attack, by configuring
 Domain Name System Security Extensions (DNSSEC), a protocol for securing DNS traffic.
@@ -25,10 +25,9 @@ When you configure DNSSEC for your domain, a DNS resolver establishes a chain of
 responses from intermediate resolvers. The chain of trust begins with the TLD registry
 for the domain (your domain's parent zone) and ends with the authoritative name servers
 at your DNS service provider. Not all DNS resolvers support DNSSEC. Only resolvers that
-support DNSSEC perform any signature or authenticity validation.
+support DNSSEC perform signature or authenticity checks.
 
-Here's how you configure DNSSEC for domains registered with Amazon Route 53 to protect your internet hosts from DNS spoofing,
-simplified for clarity:
+Here's how you configure DNSSEC for domains registered with Amazon Route 53 to protect your internet hosts from DNS spoofing:
 
 1. Use the method provided by your DNS service provider to _sign_ the records
    in your hosted zone with the _private key_ in an asymmetric key pair.
@@ -36,8 +35,8 @@ simplified for clarity:
 ###### Important
 
 Route 53 supports DNSSEC signing and DNSSEC for domain registration. To learn more, see [Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md "dns-configuring-dnssec.md"). 2. Provide the _public key_ from the key pair to your domain registrar, and specify the
-algorithm that was used to generate the key pair. The domain registrar forwards the public key and the algorithm to the registry
-for the top-level domain (TLD).
+algorithm that was used to generate the key pair. The domain registrar forwards the public key and the algorithm to the
+top-level domain (TLD) registry.
 
 For information about how to perform this step for domains that you registered with Route 53, see
 [Adding public keys for a domain](#domain-configure-dnssec-adding-keys "#domain-configure-dnssec-adding-keys").
@@ -45,21 +44,20 @@ For information about how to perform this step for domains that you registered w
 After you configure DNSSEC, here's how it protects your domain from DNS spoofing:
 
 1. Submit a DNS query, for example, by browsing to a website or by sending an email message.
-2. The request is routed to a DNS resolver. Resolvers are responsible for returning the appropriate value
-   to clients based on the request, for example, the IP address for the host that is running a web server or an email server.
-3. If the IP address is cached on the DNS resolver because someone else has already submitted
-   the same DNS query, and the resolver already got the value, the resolver returns
-   the IP address to the client that submitted the request. The client then uses
+2. The request is routed to a DNS resolver. Resolvers return the correct value
+   to clients based on the request, such as the IP address for a web server or an email server.
+3. If the IP address is cached on the DNS resolver, the resolver returns
+   the IP address to the client. The client then uses
    the IP address to access the host.
 
 If the IP address isn't cached on the DNS resolver, the resolver sends a request to the parent zone for your domain,
-at the TLD registry, which returns two values:
+at the TLD registry. The TLD registry returns two values:
 
     * The Delegation Signer (DS) record, which is a public key that corresponds with the private key that was
      used to sign the record.
     * The IP addresses of the authoritative name servers for your domain.
 
-4. The DNS resolver sends the original request to another DNS resolver. If that resolver doesn't have the IP address,
+4. The DNS resolver sends the request to another DNS resolver. If that resolver doesn't have the IP address,
 it repeats the process until a resolver sends the request to a name server at your DNS service provider. The name server returns two values:
 
     * The record for the domain, such as example.com. Typically this contains the IP address

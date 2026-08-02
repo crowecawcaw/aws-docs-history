@@ -12,7 +12,7 @@ identifiers in the DNS payload including the timestamp of requests, frequency of
 and responses, the DNS query strings, and the length, type or size of both outbound and
 inbound DNS queries. Based on the type of threat signature, you can configure policies
 to block, or simply log and alert on the query. By using an expanded set of threat
-identifiers, you can protect against DNS threats from domain sources that may yet be
+identifiers, you can protect against DNS threats from domain sources that might yet be
 unclassified by threat intelligence feeds maintained by the broader security
 community.
 

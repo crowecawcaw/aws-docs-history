@@ -39,11 +39,11 @@ Follow these steps to add a KSK in the AWS Management Console.
    (KSKs)**, choose **Switch to advanced view**,
    and then, under **Actions**, choose **Add
    KSK**.
-4. Under **KSK**, enter a name for the KSK that Route 53 will
-   create for you. The name can include numbers, letters, and underscores (\_). It
+4. Under **KSK**, enter a name for the KSK that Route 53
+   creates for you. The name can include numbers, letters, and underscores (\_). It
    must be unique.
 5. Enter the alias for a customer managed key that applies to DNSSEC signing, or enter an alias for a
-   new customer managed key that Route 53 will create for you.
+   new customer managed key that Route 53 creates for you.
 
 ###### Note
 

@@ -1,8 +1,8 @@
 # Failover routing
 
-Failover routing lets you route traffic to a resource when the resource is healthy or to a different resource when the
-first resource is unhealthy. The primary and secondary records can route traffic to anything from an Amazon S3 bucket
-that is configured as a website to a complex tree of records. For more information, see
+With failover routing, you can route traffic to a resource when it's healthy or to a different resource when the
+first one is unhealthy. The primary and secondary records can route traffic to anything from an Amazon S3 bucket
+set up as a website to a complex tree of records. For more information, see
 [Active-passive failover](dns-failover-types.md#dns-failover-types-active-passive "dns-failover-types.md#dns-failover-types-active-passive").
 
 You can use failover routing policy for records in a private hosted zone.

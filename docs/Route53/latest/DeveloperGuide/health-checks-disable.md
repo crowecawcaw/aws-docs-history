@@ -9,7 +9,7 @@ If you want to stop routing traffic to a resource, change the value of **Inverte
 
 ###### Note
 
-We're updating the health checks console for Route 53. During the transition period, you can continue
+Route 53 is updating the health checks console. During the transition period, you can continue
 to use the old console.
 
 You can disable or enable a health check on the old console when you create or edit the health check. For more information, see

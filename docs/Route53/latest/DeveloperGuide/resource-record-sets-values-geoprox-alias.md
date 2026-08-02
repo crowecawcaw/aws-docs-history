@@ -120,7 +120,11 @@ if the Local Zone is `us-east-1-bue-1a` the Local Zone Group is `us-east-1-bue-1
 You can also identify the Local Zones Group for a specific Local Zone by using the [describe-availability-zones](../../../cli/latest/reference/ec2/describe-availability-zones.md "../../../cli/latest/reference/ec2/describe-availability-zones.md") CLI command:
 
 ```
-aws ec2 describe-availability-zones --region us-west-2 --all-availability-zones --query "AvailabilityZones[?ZoneName=='us-west-2-den-1a']" | grep "GroupName"
+aws ec2 describe-availability-zones \
+    --region us-west-2 \
+    --all-availability-zones \
+    --query "AvailabilityZones[?ZoneName=='us-west-2-den-1a']" \
+    | grep "GroupName"
 ```
 
 This command returns: `"GroupName": "us-west-2-den-1"`, specifying that the Local Zone `us-west-2-den-1a`

@@ -1,15 +1,15 @@
 # Resource record set permissions
 
 Resource record set permissions use Identity and Access management (IAM) policy conditions
-to allow you to set granular permissions for actions on the Route 53 console or for using
+to let you set fine-grained permissions for actions on the Route 53 console or when using
 the [ChangeResourceRecordSets](../APIReference/API_ChangeResourceRecordSets.md "../APIReference/API_ChangeResourceRecordSets.md") API.
 
-A resource record set is defined as multiple resource records with the same name and type
-(and class, but for most purposes the class is always IN, or internet), but they contain
+A resource record set is a group of DNS records with the same name and type
+(and class, but for most uses the class is always IN, or internet), but they hold
 different data. For example, if you choose geolocation routing, you can have multiple A
 or AAAA records pointing to different endpoints for the same domain. All of these A or
-AAAA records combine to form a resource record set. For more information about DNS
-terminology, see [RFC
+AAAA records form a resource record set. For more information about DNS
+terms, see [RFC
 7719](https://datatracker.ietf.org/doc/html/rfc7719 "https://datatracker.ietf.org/doc/html/rfc7719").
 
 With the IAM policy conditions,

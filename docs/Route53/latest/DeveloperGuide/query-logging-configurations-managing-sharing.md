@@ -21,7 +21,7 @@ When an account creates a configuration and shares it with one or more
 other accounts, the maximum number of VPCs that can be associated
 with the configuration are applied per account. For example, if you
 have 10,000 accounts in your organization, you can create the query
-logging configuration in the central account and share it via AWS RAM to
+logging configuration in the central account and share it through AWS RAM to
 share it to the organization accounts. The organization accounts
 will then associate the configuration with their VPCs counting them
 against their account’s query log configuration VPC associations per

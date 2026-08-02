@@ -2,7 +2,7 @@
 
 ###### Note
 
-We've updated the domains console for Route 53. During the transition period, you can continue to
+Route 53 has updated the domains console. During the transition period, you can continue to
 use the old console, or use the new console. Most of the information returned by
 Route 53 is the same for both consoles. The differences are noted in the following
 list.
@@ -17,10 +17,10 @@ that are in your shopping cart.
 
 You can also change values for a domain that is currently registered with Route 53. Note the following:
 
-- If you change contact information for the domain, we send an email notification to the registrant contact
+- If you change contact information for the domain, Route 53 sends an email notification to the registrant contact
   about the change. This email comes from noreply@registrar.amazon. For most changes, the registrant contact
   is not required to respond.
-- For changes to contact information that also constitutes a change in ownership, we send the
+- For changes to contact information that also constitutes a change in ownership, Route 53 sends the
   registrant contact an additional email. ICANN requires that the registrant
   contact confirms receiving the email. For more information, see
   **First Name, Last Name** and
@@ -76,8 +76,8 @@ If you're transferring a domain to Route 53 and the following are true, then yo
 - You're changing the **First Name** and/or **Last Name** fields for the
   registrant contact from the current settings.
 
-In that case, ICANN requires that we email the registrant contact to get approval. We
-send email from one of the following email addresses:
+In that case, ICANN requires that Route 53 email the registrant contact to get approval. Route 53
+sends email from one of the following email addresses:
 
 | TLDs                                | Email address that approval email comes from                                                          |
 | ----------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -89,8 +89,7 @@ To determine who the registrar is for your TLD, see [Domains that you can regist
 
 ###### Important
 
-The registrant contact must follow the instructions in the email to confirm that the email was received,
-or we must suspend the domain as required by ICANN. When a domain is suspended, it's not accessible on the internet.
+The registrant contact must follow the instructions in the email to confirm that the email was received, or Route 53 must suspend the domain as required by ICANN. When a domain is suspended, it's not accessible on the internet.
 
 If you change the email address of the registrant contact, this email is sent to the former email address and the new email address
 for the registrant contact.
@@ -105,8 +104,8 @@ that manages the domain.
 
 When the contact type is any value except **Person** and you change the
 **Organization** field for the registrant contact,
-you change the owner of the domain. ICANN requires that we email the
-registrant contact to get approval. We send email from one of the
+you change the owner of the domain. ICANN requires that Route 53 email the
+registrant contact to get approval. Route 53 sends email from one of the
 following email addresses:
 
 | TLDs                                | Email address that approval email comes from                                                          |
@@ -126,7 +125,7 @@ the Route 53 console displays a message that tells you whether there is a fee.
 **Email**
 The email address for the contact.
 
-If you change the email address for the registrant contact, we send a notification email
+If you change the email address for the registrant contact, Route 53 sends a notification email
 to the former email address and the new email address. This email comes
 from noreply@registrar.amazon.
 

@@ -1,12 +1,12 @@
 # Creating records by importing a zone file
 
-If you're migrating from another DNS service provider, and if your current DNS service provider lets you export your current DNS settings to a zone
-file, you can quickly create all of the records for an Amazon Route 53 hosted zone by importing a zone file.
+If you're moving from another DNS service provider, and if that provider lets you export your current DNS settings to a zone
+file, you can quickly create all the records for an Amazon Route 53 hosted zone by importing that zone file.
 
 ###### Note
 
-A zone file uses a standard format known as BIND to represent records in a text format. For information about the
-format of a zone file, see the Wikipedia entry [Zone file](https://en.wikipedia.org/wiki/Zone_file "https://en.wikipedia.org/wiki/Zone_file"). Additional
+A zone file uses a standard format known as BIND to show records in a text format. For information about the
+format of a zone file, see the Wikipedia entry [Zone file](https://en.wikipedia.org/wiki/Zone_file "https://en.wikipedia.org/wiki/Zone_file"). More
 information is available in
 [RFC 1034, Domain Names—Concepts and Facilities](https://datatracker.ietf.org/doc/html/rfc1034 "https://datatracker.ietf.org/doc/html/rfc1034") section 3.6.1, and
 [RFC 1035, Domain Names—Implementation and Specification](https://datatracker.ietf.org/doc/html/rfc1035 "https://datatracker.ietf.org/doc/html/rfc1035") section 5.
@@ -56,8 +56,8 @@ The import process automatically combines these into a single TXT record with
 multiple strings. Each individual string can contain up to 65,535 characters. Do
 not concatenate long strings into a single quoted value.
 
-- We recommend that you review the contents of the zone file to confirm that
-  record names include or exclude a trailing dot as appropriate:
+- We suggest that you review the zone file to confirm that
+  record names include or exclude a trailing dot as needed:
 
   - When the name of a record in the zone file includes a trailing dot
     (`example.com.`), the import process interprets the name
@@ -69,8 +69,7 @@ not concatenate long strings into a single quoted value.
     a Route 53 record with the concatenated name
     (`www.example.com`).
     If the export process doesn't add a trailing dot to the fully qualified domain
-    names of a record, the Route 53 import process adds the domain name to the name of
-    the record. For example, suppose you're importing records into the hosted zone
+    names of a record, the Route 53 import process adds the domain name to the record's name. For example, suppose you're importing records into the hosted zone
     `example.com` and the name of an MX record in the zone file is
     `mail.example.com`, with no trailing dot. The Route 53 import
     process creates an MX record named
@@ -97,12 +96,12 @@ If you're creating a record that has the same name as the hosted zone, don't ent
 
 ###### To create records by importing a zone file
 
-1. Get a zone file from the DNS service provider that is currently servicing the domain. The process and terminology
-   vary from one service provider to another. Refer to your provider's interface and documentation for information about
+1. Get a zone file from the DNS service provider that currently handles your domain. The process and terms
+   vary from one provider to another. Refer to your provider's interface and documentation for information about
    exporting or saving your records in a zone file or a BIND file.
 
-If the process isn't obvious, try asking your current DNS provider's customer support for your
-_records list_ or _zone file_ information. 2. Sign in to the AWS Management Console and open the Route 53 console at
+If the process isn't clear, try asking your current DNS provider's support for your
+_records list_ or _zone file_ data. 2. Sign in to the AWS Management Console and open the Route 53 console at
 [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/"). 3. In the navigation pane, choose **Hosted zones**. 4. On the **Hosted zones** page, create a new hosted zone:
 
     1. Choose **Create hosted zone**.
@@ -116,7 +115,7 @@ the **Zone file** text box. 7. Choose **Import**.
 
 Depending on the number of records in your zone file, you might have to wait a few minutes for
 the records to be created. 8. If you're using another DNS service for the domain (which is common if you registered the domain with another registrar),
-migrate DNS service to Route 53. When that step is complete, your registrar will start to identify Route 53 as your DNS service in response to
-DNS queries for your domain, and the queries will start being sent to Route 53 DNS servers. (Typically, there's a day or two of delay
-before DNS queries start being routed to Route 53 because information about your previous DNS service is cached on DNS resolvers
+move DNS service to Route 53. When that step is done, your registrar will identify Route 53 as your DNS service for
+DNS queries for your domain, and the queries will start going to Route 53 DNS servers. (Typically, there's a day or two of delay
+before DNS queries start going to Route 53 because your previous DNS service's data is cached on DNS resolvers
 for that long.) For more information, see [Making Amazon Route 53 the DNS service for an existing domain](MigratingDNS.md "MigratingDNS.md").

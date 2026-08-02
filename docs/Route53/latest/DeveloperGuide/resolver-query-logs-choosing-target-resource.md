@@ -3,7 +3,7 @@
 ###### Note
 
 If you expect to log queries for workloads with high queries per second (QPS), you
-should use Amazon S3 to ensure your query logs are not throttled when written to your
+should use Amazon S3 to make sure your query logs are not throttled when written to your
 destination. If you use Amazon CloudWatch, you can increase your requests per second limit
 for the `PutLogEvents` operation. To learn more about increasing your
 CloudWatch limits, see [CloudWatch Logs

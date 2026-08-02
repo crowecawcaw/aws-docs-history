@@ -6,7 +6,7 @@
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
 2. In the navigation pane, choose **IP-based routing**, **CIDR
    collections** and then, in the **CIDR collections** section,
-   click on a link to a CIDR collection in the **Collection name** list.
+   choose a link to a CIDR collection in the **Collection name** list.
 
 On the **CIDR locations** page, you can create a CIDR
 location, delete it, or edit a location and its blocks.

@@ -4,11 +4,11 @@ You can use Amazon API Gateway to create, publish, maintain, monitor, and secure
 APIs that access AWS services or other web services in addition to data stored in the
 AWS Cloud.
 
-The method that you use to route domain traffic to an API Gateway API is the same regardless of whether you created a regional API Gateway endpoint or an
+The method that you use to route domain traffic to an API Gateway API is the same regardless of whether you created a Regional API Gateway endpoint or an
 edge-optimized API Gateway endpoint. If you create a private API Gateway endpoint, the process is slightly different.
 
 - **Regional API endpoint**: You create a Route 53 alias record that routes traffic
-  to the regional API endpoint.
+  to the Regional API endpoint.
 - **Edge-optimized API endpoint**: You create a Route 53 alias record that routes traffic
   to the edge-optimized API. This causes traffic to be routed to the CloudFront distribution that's associated with the edge-optimized API.
 - **Private API endpoint**: You create a Route 53 alias record that routes traffic to

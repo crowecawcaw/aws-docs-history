@@ -55,7 +55,7 @@ the transfer.
 (step 5 of 14)**
 
 We sent email to the registrant contact for the domain (see step 3 of 14),
-and we're waiting for the registrant contact to click a link in the email to
+and we're waiting for the registrant contact to choose a link in the email to
 authorize the transfer. If you're transferring a domain that has a [geographic TLD](registrar-tld-list.md#registrar-tld-list-geographic "registrar-tld-list.md#registrar-tld-list-geographic") and you didn't receive the email for some
 reason, see [Resending authorization and confirmation emails](domain-click-email-link.md "domain-click-email-link.md").
 
