@@ -359,7 +359,7 @@ Conditional PUTs are supported only in `batch` bundles. `Transaction` bundles do
 - `_id` in combination with one of the following:
 
   - `_tag`
-  - `_createdAt`
+  - `createdAt`
   - `_lastUpdated`
 
 When you use conditional PUTs in bundles, AWS HealthLake evaluates the query parameters against existing resources and takes action based on the match results.

@@ -98,7 +98,7 @@ AWS HealthLake handles conditional delete operations with the following response
 
 ###### ID-Based Conditional Delete
 
-When performing conditional delete based on `id` with additional parameters (`createdAt`, `tag`, or `_lastUpdated`):
+When performing conditional delete based on `id` with additional parameters (`createdAt`, `_tag`, or `_lastUpdated`):
 
 - **204 No Content**: Resource was already deleted
 - **404 Not Found**: Resource doesn't exist
@@ -106,7 +106,7 @@ When performing conditional delete based on `id` with additional parameters (`cr
 
 ###### Non-ID-Based Conditional Delete
 
-When `id` is not provided or when using parameters other than `createdAt`, `tag`, or `_lastUpdated`:
+When `id` is not provided or when using parameters other than `createdAt`, `_tag`, or `_lastUpdated`:
 
 - **404 Not Found**: No matches found
 
