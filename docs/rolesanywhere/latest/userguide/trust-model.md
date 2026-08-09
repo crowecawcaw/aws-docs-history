@@ -422,7 +422,10 @@ We define a source identity prefix as follows:
 
 - `"CN="`: the common name of the subject in the certificate is set and less than or equal to 61 characters.
 - `"ID="`: the common name of the subject in the certificate is not set. This value is left-padded with zero to be even in length.
-- `""`: (empty string) the common name of the subject in the certificate is set and has a length from 62 to 64 characters.
+- `""` (empty string): the common name of the subject in the certificate is set and has a length from 62 to 256 characters.
+
+IAM Roles Anywhere does not support subject common names longer than 256 characters, and the
+`CreateSession` request fails.
 
 Hex encoding example:
 
