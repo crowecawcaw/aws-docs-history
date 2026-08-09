@@ -91,8 +91,10 @@ For more information, see [Encrypting event bus logs](encryption-bus-logs.md "en
 
 ### Specifying event bus logging permissions
 
-To enable logging from an event bus, you must grant permissions for EventBridge to send logs from that bus. Add a policy that grants
-**AllowVendedLogDeliveryForResource** to the event bus.
+To enable logging from an event bus, attach the following identity-based policy
+to your AWS Identity and Access Management (IAM) identity (user or role). This policy
+grants the `events:AllowVendedLogDeliveryForResource` action for the event
+bus.
 
 JSON
 
