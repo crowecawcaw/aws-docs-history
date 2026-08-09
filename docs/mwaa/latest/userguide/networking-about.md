@@ -58,7 +58,6 @@ This section describes the Amazon VPC infrastructure of an environment with publ
 
   - Two public subnets are required. This allows Amazon MWAA to build a new container image for your environment in your other availability zone, if one container fails.
   - The subnets must be in different Availability Zones. For example, `us-east-1a`, `us-east-1b`.
-  - The subnets must route to a NAT gateway (or NAT instance) with an Elastic IP Address (EIP).
   - The subnets must have a route table that directs internet-bound traffic to an internet gateway.
 
 - **Two private subnets**. A private subnet is a subnet that's **not** associated with a route table that has a route to an internet gateway.
@@ -76,10 +75,14 @@ This section describes the Amazon VPC infrastructure of an environment with publ
   - The NACL must have an outbound rule that allows all traffic (`0.0.0.0/0`; for IPv6, use `::/0`).
   - For example, [(Recommended) Example ACLs](vpc-security.md#vpc-security-acl-example "vpc-security.md#vpc-security-acl-example").
 
-- **Two NAT gateways (or NAT instances)**. A NAT device forwards traffic from the instances in the private subnet to the internet or other AWS services, and then routes the response back to the instances.
+- **A NAT gateway (or NAT instance)**. With a NAT gateway (or NAT instance), you can route traffic from instances in the private subnet to the internet or other AWS services, and receive responses.
 
-  - The NAT device must be attached to a public subnet. (One NAT device per public subnet.)
+  - The NAT device must be attached to a public subnet.
   - The NAT device must have an Elastic IPv4 Address (EIP) attached to each public subnet.
+
+###### High availability
+
+For high availability, consider provisioning a separate NAT device in each of the public subnets.
 
 - **An internet gateway**. An internet gateway connects an Amazon VPC to the internet and other AWS services.
 

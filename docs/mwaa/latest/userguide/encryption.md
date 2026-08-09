@@ -48,5 +48,22 @@ on multiple environments. For more information, refer to [Data protection in Ama
 
 Data in transit is referred to as data that can be intercepted as it travels the network.
 
-Transport Layer Security (TLS) encrypts the Amazon MWAA objects in transit between your environment's Apache Airflow components and other AWS services that integrate with Amazon MWAA, such as Amazon S3.
-For more information about Amazon S3 encryption, refer to [Protecting data using encryption](../../../AmazonS3/latest/dev/UsingEncryption.md "../../../AmazonS3/latest/dev/UsingEncryption.md").
+Transport Layer Security (TLS) encrypts the Amazon MWAA objects in transit between your environment's Apache Airflow components and other AWS services that integrate with Amazon MWAA, including traffic between Apache Airflow components. The following paths are encrypted:
+
+Metadata database
+
+Schedulers, workers, and the DAG processor connect to the Aurora PostgreSQL database through with `sslmode=require`.
+
+Celery broker
+
+Schedulers and workers communicate with the Amazon SQS Celery broker queue over HTTPS.
+
+AWS services
+
+All components connect to Amazon S3, CloudWatch Logs, AWS KMS, Secrets Manager, and AWS STS using HTTPS endpoints through the AWS SDK for Python (Boto3).
+
+Web server
+
+Client connections terminate TLS at the managed load balancer. The load balancer accepts only HTTPS connections.
+
+For more information about Amazon S3 encryption, see [Protecting data using encryption](../../../AmazonS3/latest/userguide/UsingEncryption.md "../../../AmazonS3/latest/userguide/UsingEncryption.md").
