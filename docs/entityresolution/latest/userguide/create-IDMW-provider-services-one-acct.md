@@ -17,7 +17,7 @@ RampIDs to another set using either maintained or derived RampIDs.
    1. Enter an **ID mapping workflow name** and an optional
       **Description**.
 
-   ![The name and description fields on the Specify ID mapping workflow page](images/specify-ID-mapping-details-name.png) 2. For the **ID mapping method**, choose **Provider
+   ![The name and description fields on the Specify ID mapping workflow page](/images/entityresolution/latest/userguide/images/specify-ID-mapping-details-name.png) 2. For the **ID mapping method**, choose **Provider
    services**.
 
    AWS Entity Resolution currently offers the LiveRamp provider service as an ID mapping method. If
@@ -65,7 +65,7 @@ RampIDs to another set using either maintained or derived RampIDs.
    ![The Data staging field on the Specify source and target page](images/data-staging.PNG) 4. To specify the **Service access** permissions, choose an option
    and take the recommended action.
 
-   ![The Service access options on the Specify source and target page](images/specify-source-target-service-access.PNG)
+   ![The Service access options on the Specify source and target page](/images/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)
 
    | Option                                | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
    | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
