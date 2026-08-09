@@ -25,7 +25,7 @@ based on evaluation results.
 2. Select **Create a rule**, **Evaluation
    forms**.
 3. Under **When**, use the dropdown list to choose
-   **A Contact Lens evaluation result is
+   **A conversational analytics evaluation result is
    available**, as shown in the following image.
 
 ![The option When an evaluation result is available.](images/evaluationforms-rule-condition.png) 4. Choose **Add condition**.
@@ -33,7 +33,7 @@ based on evaluation results.
 ![The list of conditions for when an evaluation result is available.](images/evaluationforms-rule-condition-all.png)
 
 You can combine criteria from a set of conditions to build very specific
-Contact Lens rules. The following are some of the available conditions:
+conversational analytics rules. The following are some of the available conditions:
 
     * **Evaluation - Form score**: Build rules that run
      when the score for a specific evaluation form is met.

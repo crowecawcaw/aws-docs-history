@@ -17,6 +17,6 @@ include these resource events:
 - [Set up case event
   streams](case-event-streams-enable.md "case-event-streams-enable.md")
 - [Allow Cases to send
-  updates to Contact Lens rules](cases-rules-integration-onboarding.md "cases-rules-integration-onboarding.md")
+  updates to conversational analytics rules](cases-rules-integration-onboarding.md "cases-rules-integration-onboarding.md")
 - [Case event payload and
   schema](case-event-streams-sample.md "case-event-streams-sample.md")

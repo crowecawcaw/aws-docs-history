@@ -26,7 +26,7 @@ Once you select an action, you can select a channel to configure those settings 
 
 The **Email** channel option for the **Set recording
 and analytics behavior** action appears only when your instance has
-Contact Lens conversational analytics for email enabled. If your instance
+conversational analytics for email enabled. If your instance
 does not have this capability, the channel dropdown does not include
 **Email**. Availability can vary by instance and
 Region.
@@ -66,13 +66,13 @@ The following guide will discuss the **Set recording and analytics** action in t
 - You configure what part of the call can be recorded be it either agent, customer or both. No additional charges apply.
 - You can enable automated interaction call recording to hear how a customer is interacting with your IVR or conversational AI bot. No additional charges apply.
 - You can enable screen recording of agents, if agent screen recording has been set up as described in [Enable screen recording](enable-sr.md "enable-sr.md"). For pricing information, see [Amazon Connect Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
-- You can configure Contact Lens analytics settings for voice, chat, and email contacts. For pricing information, see [Amazon Connect Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/"). This includes:
+- You can configure conversational analytics settings for voice, chat, and email contacts. For pricing information, see [Amazon Connect Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/"). This includes:
 
   - Language in which customers and agents will interact (to improve the speech to text transcript generation).
   - Redaction of sensitive data.
-  - Additional Contact Lens Generative AI capabilities.
+  - Additional Generative AI capabilities.
 
-This action enables Contact Lens conversational analytics on a contact. For more information, see [Analyze conversations using
+This action enables conversational analytics on a contact. For more information, see [Analyze conversations using
 conversational analytics](analyze-conversations.md "analyze-conversations.md"). This action currently supports Chat, Email, Voice, and Tasks media channel types. However, for tasks, you are only able to configure screen recording behavior. Therefore, in the channel dropdown for this action, you will see the following options:
 
 ![The channel dropdown showing Chat, Email, Screen recording, and Voice options.](images/set-recording-analytics-processing-behavior-channel-dropdown.png)
@@ -95,7 +95,7 @@ Once conversational analytics is enabled, you can configure settings such as lan
 - **Conversational Analytics Redaction**: Choose whether to redact sensitive data. For more information, see [Enable redaction of sensitive data](enable-analytics.md#enable-redaction "enable-analytics.md#enable-redaction").
 - **In-flight Redaction**: Choose whether to redact sensitive data from messages in-flight. For more information, see [Enable in-flight sensitive data redaction and message processing](redaction-message-processing.md "redaction-message-processing.md").
 - **Sentiment**: Choose whether to enable sentiment analysis.
-- **Contact Lens Generative AI capabilities**: For more information, see [View generative AI-powered post-contact summaries](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md")
+- **Generative AI capabilities**: For more information, see [View generative AI-powered post-contact summaries](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md")
 
 #### Email
 
@@ -107,7 +107,7 @@ The email analytics settings include:
 
 - **Language**: Select the language of the email content. You can dynamically set the language using contact attributes. For instructions, see [Dynamically enable redaction based on the customer's language](enable-analytics.md#dynamically-enable-analytics-contact-flow "enable-analytics.md#dynamically-enable-analytics-contact-flow").
 - **Conversational Analytics Redaction**: Choose whether to redact sensitive data such as names, addresses, and credit card information from the email transcript. For more information, see [Enable redaction of sensitive data](enable-analytics.md#enable-redaction "enable-analytics.md#enable-redaction").
-- **Contact Lens Generative AI capabilities**: Enable contact summaries for email contacts. For more information, see [View generative AI-powered post-contact summaries](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md").
+- **Generative AI capabilities**: Enable contact summaries for email contacts. For more information, see [View generative AI-powered post-contact summaries](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md").
 
 ###### Note
 
@@ -122,7 +122,7 @@ As shown in the following image, the voice settings are split into three section
 **Recording settings:**
 
 - **Agent and customer voice recording**: Choose who you want to record.
-- **Contact Lens speech analytics**: Choose whether to use speech analytics on agent and customer recordings.
+- **Speech analytics**: Choose whether to use speech analytics on agent and customer recordings.
 - **Automated interaction call recording**: Choose whether to enable voice recording when the customer is interacting with bots and other automation.
 
 **Configuration:**
@@ -130,7 +130,7 @@ As shown in the following image, the voice settings are split into three section
 - **Language**: You can dynamically enable the redaction of the output files based on the language of the customer. For instructions, see [Dynamically enable redaction based on the customer's language](enable-analytics.md#dynamically-enable-analytics-contact-flow "enable-analytics.md#dynamically-enable-analytics-contact-flow").
 - **Conversational Analytics Redaction**: Choose whether to redact sensitive data. For more information, see [Enable redaction of sensitive data](enable-analytics.md#enable-redaction "enable-analytics.md#enable-redaction").
 - **Sentiment**: Choose whether to enable sentiment analysis.
-- **Contact Lens Generative AI capabilities**: For more information, see [View generative AI-powered post-contact summaries](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md")
+- **Generative AI capabilities**: For more information, see [View generative AI-powered post-contact summaries](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md")
 
 ###### Note
 
@@ -149,7 +149,7 @@ Though not a media channel, you can find this in the media channel dropdown of t
 
 The settings in the **Analytics** section are overwritten by each subsequent **Set recording and analytics behavior** block in the flow.
 
-- **For calls**: Unselecting **Enable speech analytics on agent and customer voice recordings** disables Contact Lens conversational analytics.
+- **For calls**: Unselecting **Enable speech analytics on agent and customer voice recordings** disables conversational analytics.
 
 For example, let's say you have two **Set recording, analytics and processing behavior** blocks in your flow.
 
@@ -173,7 +173,7 @@ When a call is transferred by using the [Transfer to phone number](transfer-to-p
 
 - **For chat**: Real-time chat starts analysis as soon as any block in the flow enables it. No block later in the flow disables the real time chat settings.
 - If an agent puts a customer on hold, the agent is still recorded, but the customer is not.
-- If you want to transfer a contact to another agent or queue, and you want to continue using Contact Lens conversational analytics to collect data, you need to add to the flow another **Set recording, analytics and processing behavior** block with **Enable analytics** turned on. This is because a transfer generates a second contact ID and contact record. Contact Lens conversational analytics needs to run on that contact record as well.
+- If you want to transfer a contact to another agent or queue, and you want to continue using conversational analytics to collect data, you need to add to the flow another **Set recording, analytics and processing behavior** block with **Enable analytics** turned on. This is because a transfer generates a second contact ID and contact record. conversational analytics needs to run on that contact record as well.
 - **When** you enable conversational analytics, the type of flow that the block is in, and where it is placed in the flow, determine **whether** agents receive the key highlights transcript, and **when** they receive it.
 
 For more information and example use cases that explain how the block affects the agent's experience with key highlights, see [Design a flow for key highlights](enable-analytics.md#call-summarization-agent "enable-analytics.md#call-summarization-agent").

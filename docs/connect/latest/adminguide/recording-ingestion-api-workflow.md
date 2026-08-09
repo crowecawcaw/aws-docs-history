@@ -133,4 +133,4 @@ Notes:
 - Subscribe to EventBridge to receive notifications when analysis fails.
   Successful completion is indicated by the conversational analytics output
   file being delivered to your configured Amazon S3 bucket. For more information,
-  see [Error notifications: When Contact Lens can't analyze a contact](contact-lens-error-notifications.md "contact-lens-error-notifications.md").
+  see [Error notifications: When conversational analytics can't analyze a contact](contact-lens-error-notifications.md "contact-lens-error-notifications.md").

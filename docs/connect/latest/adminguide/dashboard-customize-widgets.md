@@ -135,6 +135,47 @@ performance** metrics.
 
 ![An example of filters you can add for a widget.](images/dashboards-configurable-filters.png)
 
+With the **Routing step** and
+**Proficiency** filters, you can filter metrics by
+proficiency. To build either filter, you add one or more groups of conditions
+and choose how each group is matched.
+
+Within a group, choose **Match All** to include results
+that match all conditions. Choose **Match Any** to include
+results that match at least one condition. To add a condition, choose
+**Add condition**. To add another group, choose
+**Add group**. Groups are always combined using
+**AND**, so results must match all of the groups you add. You
+can add up to 20 conditions in total across all groups.
+
+For example, set the first group to **Match Any** for
+Language: English or Language: Spanish, and set a second group for
+Skill: Finance. This returns metrics for queues whose routing step matches
+English or Spanish and requires the Finance skill.
+
+### Routing step
+
+The Routing step filter is available on Current queue performance and
+trailing widgets. Each condition consists of a proficiency
+**key** and **value**, and matches the
+proficiency criteria used in routing steps.
+
+![The Routing step filter showing two groups with proficiency key and value conditions.](images/routing-step-filter-key-value.png)
+
+### Proficiency
+
+The Proficiency filter is available on Current agent performance widgets.
+In addition to a proficiency key and value, each condition includes an
+optional **Operator** and **Level** that
+you can use to filter on an agent's proficiency level.
+
+For example, you can filter for agents who have the Skill: Finance
+proficiency at a level greater than or equal to 3. If you leave the
+operator and level blank, the condition matches all agents who have that
+proficiency, regardless of level.
+
+![The Proficiency filter showing a condition with Skill: Finance, operator greater than or equal to, and level 3.](images/proficiency-filter-key-value-operator.png)
+
 ## Filter by queue type
 
 You can filter dashboard widgets by agent queues to view performance data for

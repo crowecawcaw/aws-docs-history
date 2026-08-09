@@ -1,4 +1,4 @@
-# Forecasting, capacity planning, and scheduling in Connect Customer
+# Forecasting & agent scheduling in Connect Customer
 
 ###### Tip
 
@@ -31,7 +31,7 @@ contact center by offering the following:
 - [Capacity planning](capacity-planning.md "capacity-planning.md").
   Predict how many agents your contact center will require. Optimize plans by
   scenarios, service level goals, and metrics, such as shrinkage.
-  For information about where Connect Customer forecasting, capacity planning, and scheduling is available, see [Availability of Connect Customer features by Region](regions.md "regions.md").
+  For information about where Connect Customer forecasting & agent scheduling is available, see [Availability of Connect Customer features by Region](regions.md "regions.md").
 
 The following diagram shows a typical end-to-end optimization workflow by persona: Connect Customer
 administrator, forecaster, scheduler, capacity planner, and agent. It lists the tasks

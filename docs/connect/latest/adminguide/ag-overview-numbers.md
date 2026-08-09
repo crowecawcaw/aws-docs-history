@@ -1,6 +1,6 @@
 # Set up contact center phone numbers for your Connect Customer instance
 
-After you create an Connect Customer instance, you can get a phone number to use for your contact
+After you create a Connect Customer instance, you can get a phone number to use for your contact
 center. You can use this phone number to place a test call in to your contact center to
 confirm that it is working correctly. You can also use it in your production
 environment.

@@ -3,7 +3,7 @@
 Connect Customer supports identity federation by configuring Security Assertion Markup Language
 (SAML) 2.0 with AWS IAM to enable web-based single sign-on (SSO) from your organization to
 your Connect Customer instance. This allows your users to sign in to a portal in your organization
-hosted by a SAML 2.0 compatible identity provider (IdP) and log in to an Connect Customer instance with
+hosted by a SAML 2.0 compatible identity provider (IdP) and log in to a Connect Customer instance with
 a single sign-on experience without having to provide separate credentials for Connect Customer.
 
 ## Important notes
@@ -11,7 +11,7 @@ a single sign-on experience without having to provide separate credentials for C
 Before you begin, note the following:
 
 - These instructions do not apply to Connect Customer Global Resiliency deployments. For
-  information that applies to Connect Customer Global Resiliency, see [Integrate your identity provider (IdP) with an Connect Customer Global Resiliency SAML sign in endpoint](integrate-idp.md "integrate-idp.md").
+  information that applies to Connect Customer Global Resiliency, see [Integrate your identity provider (IdP) with a Connect Customer Global Resiliency SAML sign in endpoint](integrate-idp.md "integrate-idp.md").
 - Choosing SAML 2.0-based authentication as the identity management method for
   your Connect Customer instance requires the configuration of [AWS Identity and Access Management
   federation](../../../IAM/latest/UserGuide/id_roles_providers_enable-console-saml.md "../../../IAM/latest/UserGuide/id_roles_providers_enable-console-saml.md").
@@ -60,7 +60,7 @@ steps:
 The following steps are required to enable and configure SAML authentication for use
 with your Connect Customer instance:
 
-1. Create an Connect Customer instance and select SAML 2.0-based authentication for identity
+1. Create a Connect Customer instance and select SAML 2.0-based authentication for identity
    management.
 2. Enable SAML federation between your identity provider and AWS.
 3. Add Connect Customer users to your Connect Customer instance. Log in to your instance using the
@@ -72,7 +72,7 @@ with your Connect Customer instance:
     * **For a list of allowed characters in user
      names**, see the documentation for the
      `Username` property in the [CreateUser](../APIReference/API_CreateUser.md "../APIReference/API_CreateUser.md") action.
-    * Due to the association of an Connect Customer user and an AWS IAM Role,
+    * Due to the association of a Connect Customer user and an AWS IAM role,
      the user name must match exactly the RoleSessionName as configured
      with your AWS IAM federation integration, which typically ends up
      being the user name in your directory. The format of the username

@@ -5,7 +5,7 @@ history, you must use the [DeleteKnowledgeBase](../../../amazon-q-connect/latest
 
 This topic explains how to use the Connect Customer admin website to view import histories. To view import histories
 programmatically, see [ListImportJobs](../../../amazon-q-connect/latest/APIReference/API_ListImportJobs.md "../../../amazon-q-connect/latest/APIReference/API_ListImportJobs.md") in the
-_Connect AI agents API Reference_.
+_agent assist API Reference_.
 
 ###### To view import history
 

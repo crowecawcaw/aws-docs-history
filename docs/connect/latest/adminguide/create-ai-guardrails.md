@@ -1,9 +1,9 @@
-# Create AI guardrails for Connect AI agents
+# Create AI guardrails for AI agents
 
 An _AI guardrail_ is a resource that enables you to implement
 safeguards based on your use cases and responsible AI policies.
 
-Connect AI agents use Amazon Bedrock guardrails. You can create and edit these guardrails in the
+AI agents use Amazon Bedrock guardrails. You can create and edit these guardrails in the
 Connect Customer admin website.
 
 ###### Contents
@@ -19,7 +19,7 @@ Connect Customer admin website.
 - Orchestration AI agents do not support contextual grounding policies. If
   you create or update an orchestration AI agent that uses an AI guardrail with
   a contextual grounding policy, you will then see a validation error.
-- Guardrails for Connect AI agents support the same languages as Amazon Bedrock guardrails classic tier.
+- Guardrails for AI agents support the same languages as Amazon Bedrock guardrails classic tier.
   For a complete list of supported languages, see
   [Languages supported by Amazon Bedrock Guardrails](../../../bedrock/latest/userguide/guardrails-supported-languages.md "../../../bedrock/latest/userguide/guardrails-supported-languages.md").
   Evaluating text content in other languages will be ineffective.

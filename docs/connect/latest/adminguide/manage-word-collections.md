@@ -1,4 +1,4 @@
-# Manage word collections when you create conversational analytics rules in Contact Lens
+# Manage word collections when you create conversational analytics rules in conversational analytics
 
 A _word collection_ is a set of pre-built words and phrases
 that you can use to define the exact match condition when you create
@@ -7,9 +7,9 @@ you can choose a list of words and phrases from a dropdown menu.
 
 ## Required permissions
 
-Contact Lens Rules - Word Collections uses the same set of security
-profile permissions as Contact Lens Rules. For more information, see
-[Security profile permissions for Contact Lens rules](permissions-for-rules.md "permissions-for-rules.md").
+Conversational analytics Rules - Word Collections uses the same set of security
+profile permissions as conversational analytics Rules. For more information, see
+[Security profile permissions for conversational analytics rules](permissions-for-rules.md "permissions-for-rules.md").
 
 ## How to access the word collection management page
 

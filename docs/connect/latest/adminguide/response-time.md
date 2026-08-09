@@ -1,9 +1,9 @@
-# Investigate response time during chats in Contact Lens
+# Investigate response time during chats in conversational analytics
 
 Use the response time metric to understand the responsiveness of the agent or
 customer during a chat contact.
 
-Contact Lens calculates the following metrics:
+Conversational analytics calculates the following metrics:
 
 - **Agent greeting time**. This is the first response time
   for the agent, which is how fast the agent engaged with the customer after

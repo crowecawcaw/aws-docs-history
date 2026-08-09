@@ -1,7 +1,7 @@
-# Error notifications: When Contact Lens can't analyze a contact
+# Error notifications: When conversational analytics can't analyze a contact
 
-It's possible that Contact Lens can't analyze a contact file, even
-though analysis is enabled on the flow. When this happens, Contact Lens
+It's possible that conversational analytics can't analyze a contact file, even
+though analysis is enabled on the flow. When this happens, conversational analytics
 sends error notifications using Amazon EventBridge events.
 
 Events are emitted on a
@@ -14,7 +14,7 @@ To subscribe to these notifications, create a custom EventBridge rule that
 matches the following:
 
 - "source" = "aws.connect"
-- "detail-type" = "Contact Lens Analysis State Change"
+- "detail-type" = "conversational analytics Analysis State Change"
 
 You can also add to the pattern to be notified when a specific event code
 occurs. For more information, see [Event Patterns](../../../eventbridge/latest/userguide/filtering-examples-structure.md "../../../eventbridge/latest/userguide/filtering-examples-structure.md") in the
@@ -27,7 +27,7 @@ The format of a notification looks like the following sample:
     "version": "0", // set by CloudWatch Events
     "id": "55555555-1111-1111-1111-111111111111", // set by CloudWatch Events
     "source": "aws.connect",
-    "detail-type": "Contact Lens Analysis State Change",
+    "detail-type": "conversational analytics Analysis State Change",
     "account": "111122223333",
     "time": "2020-04-27T18:43:48Z",
     "region": "us-east-1", // set by CloudWatch Events
@@ -48,15 +48,15 @@ The format of a notification looks like the following sample:
 ## Event codes
 
 The following table lists the event codes that may result when
-Contact Lens can't analyze a contact.
+conversational analytics can't analyze a contact.
 
-| Event reason code                       | Description                                                                                                                                                                                 |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID\_ANALYSIS\_CONFIGURATION        | Contact Lens received invalid values when<br>the flow was initiated, such as an unsupported or<br>invalid language code, or an unsupported value for<br>redaction behavior.                 |
-| RECORDING\_FILE\_CANNOT\_BE\_READ       | Contact Lens can't get the recording file.<br>This might be because file isn't present in the S3<br>bucket, or there are problems with permissions.                                         |
-| RECORDING\_FILE\_TOO\_SMALL             | The recording file is too small for analysis (less<br>than 105 ms).<br>If file doesn't have expected format, an<br>INVALID error occurs. Empty JSON is<br>also an unexpected object.        |
-| RECORDING\_FILE\_TOO\_LARGE             | The recording file exceeds the duration limit for<br>analysis.<br>• Voice: More than 14,400 seconds, or 4<br>hours<br>• Chat: More than 20K messages in a<br>transcript                     |
-| RECORDING\_FILE\_INVALID                | The recording file is invalid.                                                                                                                                                              |
-| RECORDING\_FILE\_CANNOT\_BE\_READ       | An error occurred when Contact Lens tried to<br>read the recording file.                                                                                                                    |
-| RECORDING\_FILE\_EMPTY                  | The recording file is empty.                                                                                                                                                                |
-| RECORDING\_SAMPLE\_RATE\_NOT\_SUPPORTED | The sample rate of the audio file is not supported.<br>Contact Lens currently supports audio files<br>with an 8kHz sample rate. That is the sample rate for<br>Connect Customer recordings. |
+| Event reason code                       | Description                                                                                                                                                                                             |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INVALID\_ANALYSIS\_CONFIGURATION        | Conversational analytics received invalid values when<br>the flow was initiated, such as an unsupported or<br>invalid language code, or an unsupported value for<br>redaction behavior.                 |
+| RECORDING\_FILE\_CANNOT\_BE\_READ       | Conversational analytics can't get the recording file.<br>This might be because file isn't present in the S3<br>bucket, or there are problems with permissions.                                         |
+| RECORDING\_FILE\_TOO\_SMALL             | The recording file is too small for analysis (less<br>than 105 ms).<br>If file doesn't have expected format, an<br>INVALID error occurs. Empty JSON is<br>also an unexpected object.                    |
+| RECORDING\_FILE\_TOO\_LARGE             | The recording file exceeds the duration limit for<br>analysis.<br>• Voice: More than 14,400 seconds, or 4<br>hours<br>• Chat: More than 20K messages in a<br>transcript                                 |
+| RECORDING\_FILE\_INVALID                | The recording file is invalid.                                                                                                                                                                          |
+| RECORDING\_FILE\_CANNOT\_BE\_READ       | An error occurred when conversational analytics tried to<br>read the recording file.                                                                                                                    |
+| RECORDING\_FILE\_EMPTY                  | The recording file is empty.                                                                                                                                                                            |
+| RECORDING\_SAMPLE\_RATE\_NOT\_SUPPORTED | The sample rate of the audio file is not supported.<br>conversational analytics currently supports audio files<br>with an 8kHz sample rate. That is the sample rate for<br>Connect Customer recordings. |

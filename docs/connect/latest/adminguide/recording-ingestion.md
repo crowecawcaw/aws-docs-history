@@ -110,7 +110,7 @@ your instance and navigate to **Data storage**,
   (CTR) delivery via Amazon Kinesis Data Stream or Amazon Kinesis Data
   Firehose to confirm attachment status. For more information, see [Enable data streaming for your Connect Customer instance](data-streaming.md "data-streaming.md").
 - Configure EventBridge to receive analytics job failure notifications. For
-  more information, see [Error notifications: When Contact Lens can't analyze a contact](contact-lens-error-notifications.md "contact-lens-error-notifications.md").
+  more information, see [Error notifications: When conversational analytics can't analyze a contact](contact-lens-error-notifications.md "contact-lens-error-notifications.md").
 
 ## Verification
 

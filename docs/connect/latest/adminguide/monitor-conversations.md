@@ -81,9 +81,9 @@ previous agent event stream.
  name`.my.connect.aws/agent-app-v2/. It's also available in
   custom CCP using Connect Customer Streams.js.
 - Before enabling the multi-party calls, if you are using
-  Contact Lens or planning to do so in the future, see [Multi-party calls and conversational analytics](enable-analytics.md#multiparty-calls-contactlens "enable-analytics.md#multiparty-calls-contactlens"). Contact Lens
+  conversational analytics or planning to do so in the future, see [Multi-party calls and conversational analytics](enable-analytics.md#multiparty-calls-contactlens "enable-analytics.md#multiparty-calls-contactlens"). conversational analytics
   supports calls with up to 2 participants. We recommend that you disable
-  Contact Lens in the [Set recording and analytics
+  conversational analytics in the [Set recording and analytics
   behavior](set-recording-behavior.md "set-recording-behavior.md") block for contacts that
   are expected to have 3 and more participants.
 - In custom CCPs, use the updated Connect Customer Streams API to enable multi-party

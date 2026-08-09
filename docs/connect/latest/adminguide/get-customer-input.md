@@ -204,7 +204,7 @@ represented by the [GetParticipantInput](../APIReference/participant-actions-get
 
   When you select a Lex bot ARN and alias from a dropdown lists,
   you can add intents for that bot by searching using locale. In
-  order for intents to be listed, the bot must have an Connect Customer tag
+  order for intents to be listed, the bot must have a Connect Customer tag
   and the bot alias must have a version associated with it.
 
   The **Intents** dropdown box does not list

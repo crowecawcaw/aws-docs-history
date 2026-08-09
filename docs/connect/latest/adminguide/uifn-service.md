@@ -3,9 +3,10 @@
 A Universal International Freephone number (UIFN) is a unique **inbound only** freephone number that can be used throughout the world. It
 provides toll-free calling from international locations to your contact center.
 
-Connect Customer supports UIFN in more than [60
-countries](#list-of-uifn-countries "#list-of-uifn-countries") that are registered with the International Telecommunications
-Union, an organization that supports the administration of the UIFN service.
+You can use UIFN with Connect Customer in [many
+countries](#list-of-uifn-countries "#list-of-uifn-countries") registered with the International Telecommunications Union (ITU).
+The ITU supports the administration of the UIFN service. Availability depends on
+carrier support and may vary by country.
 
 ###### Note
 
@@ -49,9 +50,9 @@ supported AWS Region.
 
 The following image shows the body of a sample UIFN request submitted to
 AWS Support. This request is for two UIFNs. The first is for a UIFN that is enabled
-for Argentina, Brazil, and Colombia, and connected to an Connect Customer instance in the
+for Argentina, Brazil, and Colombia, and connected to a Connect Customer instance in the
 US West (Oregon) Region. The second request is for a UIFN that is enabled for Japan,
-Australia, and New Zealand and connected to an Connect Customer instance located in the
+Australia, and New Zealand and connected to a Connect Customer instance located in the
 Asia Pacific (Singapore) Region.
 
 ![A support case requesting two UIFNs.](images/uifn-example-request.png)

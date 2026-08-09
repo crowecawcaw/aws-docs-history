@@ -1,7 +1,7 @@
 # Set up WhatsApp Business messaging
 
 The topics in this section explain how to set up and test WhatsApp Business messaging for
-Connect Customer. You use [AWS End User Messaging Social](../../../social-messaging/latest/userguide/what-is-service.md "../../../social-messaging/latest/userguide/what-is-service.md") to link a WhatsApp Business Account and phone number to an Connect Customer instance, then
+Connect Customer. You use [AWS End User Messaging Social](../../../social-messaging/latest/userguide/what-is-service.md "../../../social-messaging/latest/userguide/what-is-service.md") to link a WhatsApp Business Account and phone number to a Connect Customer instance, then
 import the linked phone number into Connect Customer. Customers can then use WhatsApp to send messages to
 your call center.
 
@@ -26,10 +26,10 @@ Before you can integrate WhatsApp with Connect Customer, you must have the follo
 - A WhatsApp Business Account.
 - A WhatsApp phone number. The number must be able to receive a voice call or an SMS text
   message to complete Meta's phone number verification process for WhatsApp Business
-  messaging. You can use an Connect Customer voice number or an AWS End User Messaging SMS number for the WhatsApp phone
+  messaging. You can use a Connect Customer voice number or an AWS End User Messaging SMS number for the WhatsApp phone
   number. You can also use a phone number that you own outside of AWS.
 
-When using an Connect Customer voice number or AWS End User Messaging SMS number, we recommend claiming a new number
+When using a Connect Customer voice number or AWS End User Messaging SMS number, we recommend claiming a new number
 that isn’t used with live voice or SMS traffic to avoid potential disruption of service.
 
 You can use the AWS End User Messaging Social console at [https://console.aws.amazon.com/social-messaging/](https://console.aws.amazon.com/social-messaging/ "https://console.aws.amazon.com/social-messaging/") to create the WhatsApp Business
@@ -259,7 +259,7 @@ details.
 
 You can also check these common scenarios:
 
-- Ensure that your linked WhatsApp Business Account in AWS End User Messaging Social has an Connect Customer event
+- Ensure that your linked WhatsApp Business Account in AWS End User Messaging Social has a Connect Customer event
   destination enabled.
 - Ensure your event destination IAM role has the necessary permissions. For more
   information, see [Step 1: Enable Connect Customer as the event destination](#enable-connect-destination "#enable-connect-destination") earlier in this section. You

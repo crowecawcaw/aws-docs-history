@@ -1,14 +1,13 @@
 # Conversational analytics metrics in Connect Customer
 
-The following metrics are derived from Contact Lens conversational
-analytics. These metrics are available only when [Contact Lens is enabled for your instance](enable-analytics.md#enable-cl "enable-analytics.md#enable-cl") and [conversational analytics](enable-analytics.md#enable-callrecording-speechanalytics "enable-analytics.md#enable-callrecording-speechanalytics")
+The following metrics are derived from conversational analytics. These metrics are available only when [conversational analytics is enabled for your instance](enable-analytics.md#enable-cl "enable-analytics.md#enable-cl") and [conversational analytics](enable-analytics.md#enable-callrecording-speechanalytics "enable-analytics.md#enable-callrecording-speechanalytics")
 is enabled on the contact.
 
 These metrics are displayed on the Real-time and Historical metrics reports. For
 instructions about how add these metrics to your report, see [How to create a
 historical metrics report](create-historical-metrics-report.md#historical-reports-howto-create "create-historical-metrics-report.md#historical-reports-howto-create").
 
-Also check out the [Contact Lens conversational analytics dashboard](contact-lens-conversational-analytics-dashboard.md "contact-lens-conversational-analytics-dashboard.md") for data
+Also check out the [conversational analytics dashboard](contact-lens-conversational-analytics-dashboard.md "contact-lens-conversational-analytics-dashboard.md") for data
 visualizations about the trends of contact drivers over time.
 
 ## Agent talk time percent
@@ -37,8 +36,7 @@ conversation duration.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
 ## Average agent greeting time
 
@@ -65,8 +63,7 @@ indicating how quickly they engage with customers after joining the chat.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
 ## Average agent interruptions
 
@@ -93,8 +90,7 @@ customer interactions.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
 ## Average agent interruption time
 
@@ -122,8 +118,7 @@ This metric measures the average of total agent interruption time while talking 
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
 ## Average agent talk time
 
@@ -150,8 +145,7 @@ This metric measures the average time that was spent talking in a conversation b
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
 ## Average conversation duration
 
@@ -180,8 +174,7 @@ This metric measures the average conversation duration of voice contacts with ag
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
 ## Average customer talk time
 
@@ -209,8 +202,7 @@ conversation by a customer.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
 ## Average non-talk time
 
@@ -240,8 +232,7 @@ conversation.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
 ## Average talk time
 
@@ -269,8 +260,7 @@ customer or the agent.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
 ## Customer talk time percent
 
@@ -297,8 +287,7 @@ conversation duration.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
 ## Non-talk time percent
 
@@ -325,8 +314,7 @@ conversation duration.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
 ## Talk time percent
 
@@ -355,5 +343,4 @@ duration.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.

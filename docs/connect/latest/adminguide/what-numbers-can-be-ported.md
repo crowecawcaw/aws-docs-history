@@ -11,7 +11,7 @@ number depends on several factors. For example:
   mobile, or toll-free—can be ported to Connect Customer:
 
 1. See if your country or region supports number porting: [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md "phone-number-requirements.md").
-2. Then get started by [submitting an Connect Customer
+2. Then get started by [submitting a Connect Customer
    support ticket for number verification](about-porting.md#step1-porting "about-porting.md#step1-porting").
 
 ## Porting numbers purchased from other contact center providers
@@ -25,7 +25,7 @@ information is provided in the Letter of Authorization (LOA).
 
 Because of Telecom regulations in various countries or regions, the short
 phone number will need to be evaluated on a case-by-case basis. To verify if
-your phone number can be ported to Connect Customer, [submit an Connect Customer support ticket](about-porting.md#step1-porting "about-porting.md#step1-porting").
+your phone number can be ported to Connect Customer, [submit a Connect Customer support ticket](about-porting.md#step1-porting "about-porting.md#step1-porting").
 
 ## Port a number to one EU Region only
 
@@ -35,7 +35,7 @@ number cannot be ported to an instance in one of these Regions, then it
 cannot be ported to an instance in the other.
 
 If you had a phone number ported into the EU-CENTRAL-1 or EU-WEST-2
-Regions, and want to move it to the other Region, [submit an Connect Customer support ticket](about-porting.md#step1-porting "about-porting.md#step1-porting") for
+Regions, and want to move it to the other Region, [submit a Connect Customer support ticket](about-porting.md#step1-porting "about-porting.md#step1-porting") for
 assistance.
 
 The same is true for the North America Regions of US-EAST-1 and US-WEST-2.
@@ -47,7 +47,7 @@ or portion of your phone numbers. In other cases, it is required by the
 carrier to port full block of phone numbers.
 
 If you want to port only a subset of the phone numbers you currently own
-to Connect Customer, [submit an Connect Customer support
+to Connect Customer, [submit a Connect Customer support
 ticket](about-porting.md#step1-porting "about-porting.md#step1-porting") to verify whether the phone numbers can be ported. We will
 verify the actions that can be completed and assist you with next
 steps.

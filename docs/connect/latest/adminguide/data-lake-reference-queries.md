@@ -956,9 +956,9 @@ GROUP BY date_trunc('hour', "disconnect_timestamp"), "queue_id"
 ORDER BY "hour";
 ```
 
-### Contact Lens enriched contacts
+### Conversational analytics enriched contacts
 
-**Definition:** Enrich contact records with Contact Lens analytics.
+**Definition:** Enrich contact records with conversational analytics.
 
 **Source table:**
 `contact_record` joined with `contact_lens_conversational_analytics`

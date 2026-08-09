@@ -1,4 +1,4 @@
-# Design a flow to use contact attributes in a rule in Contact Lens
+# Design a flow to use contact attributes in a rule in conversational analytics
 
 You can have up to 5 contact attributes in a rule.
 
@@ -9,7 +9,7 @@ session started isn't picked up.
 
 You can design flows to use the contact attributes you specify in a rule, and
 then route the task accordingly. For example, a call or chat arrives in your
-contact center. When Contact Lens analyzes the call or chat, it gets a
+contact center. When conversational analytics analyzes the call or chat, it gets a
 hit on the **Compliance** rule. The contact record that's
 created for the call, for example, includes information similar to the following
 image. It shows the **Category** =

@@ -2,7 +2,7 @@
 
 ###### Understanding data tables
 
-Data tables allow you to store and manage data that impacts your configurations within Connect Customer. Data tables can be referenced by other resources, for example Flows and Views. When changes or additions are made to data tables, they are available immediately via public APIs and on-screen, no redeployment necessary.
+Data tables allow you to store and manage data that impacts your configurations within Connect Customer. Data tables can be referenced by other resources, for example Flows and Views. When changes or additions are made to data tables, they are available immediately through public APIs and on-screen, no redeployment necessary.
 
 Use data tables to support scenarios ranging from simple routing rules to complex, time-based configurations, accessible and modifiable in real time. In contrast to [Predefined Attributes](predefined-attributes.md "predefined-attributes.md") which store simple key-value pairs, data tables support multiple columns, various data types, and complex relationships.
 

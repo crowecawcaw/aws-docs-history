@@ -1,10 +1,10 @@
-# Add real-time alerts to Contact Lens for supervisors based on keywords and phrases in a chat
+# Add real-time alerts to conversational analytics for supervisors based on keywords and phrases in a chat
 
 After you [enable real-time analytics](enable-analytics.md "enable-analytics.md")
 in your flow, you can add rules that automatically alert supervisors when a
 customer experience issue occurs.
 
-For example, Contact Lens can automatically send an alert when certain
+For example, conversational analytics can automatically send an alert when certain
 keywords or phrases are mentioned during the chat, or when it detects other
 criteria. The supervisor can then view the **Contact details**
 page for a real-time chat to view the issue. From there, supervisors can join
@@ -13,11 +13,11 @@ issue faster.
 
 The following image shows an example of what a supervisor would see on the
 **Contact details** page when they get an alert for a
-real-time chat. In this case, Contact Lens has detected an angry customer
+real-time chat. In this case, conversational analytics has detected an angry customer
 situation.
 
 ![The contact details page, an alert for an angry real-time chat customer.](images/contact-lens-realtime-alert-chat.png)
-When the supervisor monitors a chat, Contact Lens provides them with a
+When the supervisor monitors a chat, conversational analytics provides them with a
 real-time transcript and customer sentiment trend that helps them understand the
 situation and assess the appropriate action. The transcript also eliminates the
 need for customers to repeat themselves if they are transferred to another
@@ -65,7 +65,7 @@ a comma gets its own line.
 
 ![A words and phrases rule with multiple phrases, each on its own line.](images/contact-lens-add-alert-rules-2.png)
 
-The logic that Contact Lens uses to read these words or
+The logic that conversational analytics uses to read these words or
 phrases is: (Talk OR to OR your OR manager) OR (this OR is OR not OR
 helpful) OR (speak OR to OR your OR supervisor), etc. 9. To add more words or phrases, choose **Add group of words
 or phrases**. In the following image, the first group
@@ -74,7 +74,7 @@ group is what the customer might mention.
 
 ![A words and phrases rule with multiple phrases for customer and agent.](images/contact-lens-add-category-rules-script3.png)
 
-    1. In this first card, Contact Lens reads each line as
+    1. In this first card, conversational analytics reads each line as
      an OR. For example: (Hello) OR (thank OR you OR for OR
      calling OR Example OR Corp) OR (we OR value OR your OR
      business).
@@ -83,7 +83,7 @@ group is what the customer might mention.
      one of the phrases in the second card needs to be
      mentioned.
 
-The logic that Contact Lens uses to read the two cards of
+The logic that conversational analytics uses to read the two cards of
 words or phrases is (card 1) AND (card 2). 10. Choose **Add condition** to apply the rules
 to:
 

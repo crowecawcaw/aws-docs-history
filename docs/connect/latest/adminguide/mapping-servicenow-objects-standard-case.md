@@ -95,7 +95,7 @@ Servicenow-task object to the standard case.
 | sys\_updated\_on             | UpdatedDate                       |
 
 The Servicenow-task customer data from Servicenow is associated with
-an Connect Customer standard case using the indexes in the following table.
+a Connect Customer standard case using the indexes in the following table.
 
 | Standard Index Name  | Servicenow-task source field |
 | -------------------- | ---------------------------- |
@@ -156,7 +156,7 @@ Servicenow-incident object to the standard case.
 | category                         | Reason                             |
 
 The Servicenow-incident customer data from the Servicenow object is
-associated with an Connect Customer standard case using the indexes in the
+associated with a Connect Customer standard case using the indexes in the
 following table.
 
 | Standard Index Name    | Servicenow source field |

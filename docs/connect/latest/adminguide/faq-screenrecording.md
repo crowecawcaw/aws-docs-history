@@ -20,8 +20,8 @@ The screen recording files are saved in MP4 format.
 - **Which Connect Customer channels are
   supported?**
 
-You can generate screen recordings for voice and chat
-contacts. Screen recording is not supported for task contacts.
+You can generate screen recordings for voice, chat, and task
+contacts. Screen recording is not supported for email contacts.
 
 - **Do you capture the entire screen?**
 
@@ -185,7 +185,7 @@ Screen recording uses OpenH264 codec.
 By default, the screen recording uses the unredacted audio. If you enable
 [rule-based
 redaction](rule-based-redaction-screen-recording.md "rule-based-redaction-screen-recording.md") for the contact, the redacted screen recording is
-stitched with the redacted call recording when Contact Lens call recording redaction is
+stitched with the redacted call recording when conversational analytics call recording redaction is
 also enabled for the contact, and has no audio otherwise.
 
 - **Is there a service limit for screen
@@ -275,10 +275,10 @@ expire them on a shorter schedule than the redacted versions.
 
 Rule-based redaction applies only to agent screen recordings. It does not
 redact audio. When rule-based redaction is enabled for a contact, Connect Customer
-stitches the redacted video with the redacted call recording if Contact Lens call
+stitches the redacted video with the redacted call recording if conversational analytics call
 recording redaction is also enabled for the contact, and with no audio
 otherwise. To redact audio from call recordings, see [Use
-sensitive data redaction with Contact Lens](sensitive-data-redaction.md "sensitive-data-redaction.md").
+sensitive data redaction with conversational analytics](sensitive-data-redaction.md "sensitive-data-redaction.md").
 
 - **Does rule-based redaction use artificial
   intelligence or machine learning?**
@@ -398,14 +398,14 @@ recording app](troubleshoot-sr.md "troubleshoot-sr.md").
 
 ### Configuration
 
-- **Does rule-based redaction require Conversational
-  Analytics (Contact Lens)?**
+- **Does rule-based redaction require conversational
+  analytics?**
 
 No. The URL and window-title matching that drives rule-based redaction is
-independent of Contact Lens and works without it enabled. However, audio in the
+independent of conversational analytics and works without it enabled. However, audio in the
 _redacted_ recording does depend on it: when rule-based
 redaction is enabled for a contact, the redacted screen recording is stitched
-with the redacted call recording only if Contact Lens call recording redaction is
+with the redacted call recording only if conversational analytics call recording redaction is
 also enabled for that contact — otherwise the redacted recording has no
 audio. The unredacted screen recording always uses the unredacted
 audio.

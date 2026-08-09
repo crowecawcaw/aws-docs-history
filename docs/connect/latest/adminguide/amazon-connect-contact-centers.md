@@ -1,9 +1,9 @@
 # Set up your contact center in Connect Customer
 
-To get started, you [create an Connect Customer
+To get started, you [create a Connect Customer
 instance](amazon-connect-instances.md "amazon-connect-instances.md"), which is a virtual contact center.
 
-After you create an Connect Customer instance, you can:
+After you create a Connect Customer instance, you can:
 
 - [Test](chat-testing.md "chat-testing.md") the voice and chat experiences to learn
   how they work.

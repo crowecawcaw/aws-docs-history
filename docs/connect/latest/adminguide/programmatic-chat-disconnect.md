@@ -1,4 +1,4 @@
-# Programmatically disconnect the chat session of an Connect Customer communication widget
+# Programmatically disconnect the chat session of a Connect Customer communication widget
 
 You can disconnect the chat session of a communication widget programmatically using
 'JavaScript by calling the `disconnect` method stored to the widget's

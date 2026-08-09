@@ -14,7 +14,7 @@ set of features, you can:
 
 ###### Contents
 
-- [Integrate your IdP with an Connect Customer
+- [Integrate your IdP with a Connect Customer
   Global Resiliency SAML sign in endpoint](integrate-idp.md "integrate-idp.md")
 - [Associate agents
   to instances across multiple AWS Regions](associate-agents-across-regions.md "associate-agents-across-regions.md")

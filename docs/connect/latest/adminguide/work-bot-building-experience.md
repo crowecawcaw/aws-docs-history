@@ -10,21 +10,19 @@ page.
 1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an Admin account or an account that has **Channels and
    Flows** - **Bots** - **Create** permission
    in its security profile.
-2. In the left navigation menu, choose **Routing**,
-   **Flows**.
-3. On the **Flows** page, choose **Bots**,
-   **Create bot**.
+2. In the navigation pane, choose **Conversational AI**, and
+   then choose **Bots**.
+3. On the **Bots** page, choose **Create
+   bot**.
+4. In the **Details** dialog box, provide the following information:
 
-![The Flows page, the Bots tab, the Create bot button.](images/flows-bots-tab.png) 4. In the **Details** dialog box, provide the following information:
-
-    * **Bot name**: Enter a unique name for the bot.
-    * **Bot description**: - (Optional) Provide additional
+   - **Bot name**: Enter a unique name for the bot.
+   - **Bot description**: - (Optional) Provide additional
      information about the purpose of the bot.
-    * **Child Online Privacy Protection Act (COPPA)**: Choose whether
+   - **Child Online Privacy Protection Act (COPPA)**: Choose whether
      the bot is subject to the Child Online Privacy Protection Act.
-
-The following image shows the **Details** dialog box and these
-options.
+     The following image shows the **Details** dialog box and these
+     options.
 
 ![Bot creation details page with name, description, and COPPA settings.](images/bot-create.png) 5. Choose **Create**. After the bot is successfully created, you are
 directed to the bot configuration page. The following image shows an example page for a

@@ -8,7 +8,7 @@ metrics reports. Use these metrics to track when agents are following the schedu
 that you have created. For instructions about how add these metrics to your report,
 see [How to create a historical metrics report](create-historical-metrics-report.md#historical-reports-howto-create "create-historical-metrics-report.md#historical-reports-howto-create").
 
-These metrics are available in AWS Regions only where [Forecasting, capacity planning, and scheduling](regions.md#optimization_region "regions.md#optimization_region") is
+These metrics are available in AWS Regions only where [Forecasting & agent scheduling](regions.md#optimization_region "regions.md#optimization_region") is
 available.
 
 ## Adherence

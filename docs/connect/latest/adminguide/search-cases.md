@@ -37,7 +37,7 @@ Only users who have access to this page will be able to see contact details
 for a given contact. Even within this page, there are more granular permissions
 so different users may see different information. Information might include:
 basic contact details/contact attachments, transcripts and recordings with
-Contact Lens categories, sentiment, and summaries, recordings,
+conversational analytics categories, sentiment, and summaries, recordings,
 etc.
 
 ![The activity feed.](images/cases-agent-application-activity-feed.png)

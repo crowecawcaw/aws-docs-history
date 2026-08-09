@@ -8,7 +8,7 @@ public Connect Customer APIs support CloudTrail.
 
 - For access to the updated Connect Customer admin website and CloudTrail support, you must use service-linked roles. For more information, see
   [Use service-linked roles and role permissions for Connect Customer](connect-slr.md "connect-slr.md").
-  Using the information that CloudTrail collects, you can identify a specific request to an Connect Customer
+  Using the information that CloudTrail collects, you can identify a specific request to a Connect Customer
   API, the IP address of the requester, the requester's identity, the date and time of the
   request, and so on. If you configure a trail, you can enable continuous delivery of CloudTrail
   events to an Amazon S3 bucket. If you don't configure a trail, you can view the most recent

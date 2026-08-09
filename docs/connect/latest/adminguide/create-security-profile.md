@@ -15,7 +15,7 @@ users.
 
 ## Required permissions to create security profiles
 
-Before you can create a new security profile, you must be logged in with an Connect Customer
+Before you can create a new security profile, you must be logged in with a Connect Customer
 account that has **Security profiles - Create** permissions, as
 shown in the following image.
 

@@ -1,10 +1,10 @@
-# Amazon Connect Voice ID end of support
+# Amazon Connect Customer Voice ID end of support
 
-After careful consideration, we decided to end support for Amazon Connect Voice ID,
-effective May 20, 2026. Amazon Connect Voice ID will no longer accept new customers
+After careful consideration, we decided to end support for Amazon Connect Customer Voice ID,
+effective May 20, 2026. Amazon Connect Customer Voice ID will no longer accept new customers
 beginning May 20, 2025. As an existing customer with an account signed up for the service
-before May 20, 2025, you can continue to use Amazon Connect Voice ID features. After May 20,
-2026, you will no longer be able to use Amazon Connect Voice ID.
+before May 20, 2025, you can continue to use Amazon Connect Customer Voice ID features. After May 20,
+2026, you will no longer be able to use Amazon Connect Customer Voice ID.
 
 This page provides instructions and best practices for Connect Customer IT administrators and users
 to transition Voice ID to alternate solutions to meet your business needs. This might

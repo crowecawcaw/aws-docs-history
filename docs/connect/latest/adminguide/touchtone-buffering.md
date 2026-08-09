@@ -192,7 +192,7 @@ levels**
 3. System skips remaining prompts and processes the full path.
 4. Customer reaches their destination in seconds.
 
-### Passing caller context via choose-to-call or app-to-call
+### Passing caller context using choose-to-call or app-to-call
 
 Touchtone buffering also enables applications to pass known caller context into
 a flow before the conversation starts. In choose-to-call and app-to-call scenarios,

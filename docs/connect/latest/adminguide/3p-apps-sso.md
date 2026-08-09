@@ -15,7 +15,7 @@ iframing capabilities.
 
 1. Set up an Identity Provider or use an existing Identity Provider.
 2. Set up users within the Identity Provider.
-3. Set up an Connect Customer instance and [Configure SAML with IAM for Connect Customer](configure-saml.md "configure-saml.md").
+3. Set up a Connect Customer instance and [Configure SAML with IAM for Connect Customer](configure-saml.md "configure-saml.md").
 4. Set up other applications within your Identity Provider which you will be
    integrating with your Connect Customer instance.
 5. Attach each individual user identity to any applications within the

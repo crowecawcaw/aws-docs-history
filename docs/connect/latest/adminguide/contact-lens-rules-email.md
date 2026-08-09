@@ -81,7 +81,7 @@ Other rule types support different variables:
     * Rules for cases allow you to insert **rule name, instance URL** and **case ID**.
 
 8. Choose **Next**. Review your selections, and then
-choose **Save**. 9. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.
+choose **Save**. 9. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Connect Customer conversational analytics analyzes conversations.
 
 You cannot apply rules to past, stored conversations.
 

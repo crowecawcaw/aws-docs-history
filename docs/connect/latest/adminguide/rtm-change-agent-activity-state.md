@@ -48,7 +48,7 @@ multiple contact states:
 ###### Note
 
 The real-time metrics report and analytics dashboards do not display who changed the agent's
-status. This is available via [AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md") by looking at the PutUserStatus API logs.
+status. This is available through [AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md") by looking at the PutUserStatus API logs.
 
 ## Required permissions to change an agent's activity status
 

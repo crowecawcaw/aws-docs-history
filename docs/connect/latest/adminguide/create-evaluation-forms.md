@@ -10,7 +10,7 @@ Each form can contain multiple sections and questions.
   each question and section to indicate how much their score impacts the overall score of the evaluation form.
 - You can configure automation on each question so that answers to those
   questions are automatically filled using insights and metrics from
-  Contact Lens conversational analytics.
+  conversational analytics.
   This topic explains how to create a form and configure automation using the Connect Customer admin website. To
   create and manage forms programmatically, see [Evaluation actions](../APIReference/evaluation-api.md "../APIReference/evaluation-api.md") in
   the _Connect Customer API Reference_.
@@ -196,7 +196,7 @@ the question was conditionally disabled.
 
 For the default limit of the **Number of evaluation questions that can
 be answered automatically on a contact using generative AI**, see
-[Contact Lens service quotas](amazon-connect-service-limits.md#contactlens-quotas "amazon-connect-service-limits.md#contactlens-quotas").
+[Conversational analytics service quotas](amazon-connect-service-limits.md#contactlens-quotas "amazon-connect-service-limits.md#contactlens-quotas").
 
 ## Step 5: Assign scores and ranges to answers
 
@@ -392,7 +392,7 @@ evaluations:
   agent properly greet the customer (Yes/ No)?), and _Multiple selection_
   questions (for example, what parts of the greeting script did the agent state correctly?)
   can be automatically answered using contact categories defined with rules. For more
-  information, see [Create Contact Lens rules using the Connect Customer admin website](build-rules-for-contact-lens.md "build-rules-for-contact-lens.md").
+  information, see [Create conversational analytics rules using the Connect Customer admin website](build-rules-for-contact-lens.md "build-rules-for-contact-lens.md").
 - **Generative AI**: Both _Single
   selection_ and _Text field_ questions can
   be automatically answered using generative AI.
@@ -408,10 +408,10 @@ For information about automating evaluations of self-service
 Following are examples of each type of automation for each type of
 question.
 
-###### Example automation for a Single selection question using Contact Lens categories
+###### Example automation for a Single selection question using conversational analytics categories
 
 - The following image shows that the answer to the evaluation question is
-  yes when Contact Lens has categorized the contact with a label
+  yes when conversational analytics has categorized the contact with a label
   **ProperGreeting**. To label contacts as
   **ProperGreeting**, you must first setup a rule that
   detects the words or phrases expected as part of a proper greeting, for
@@ -419,7 +419,7 @@ question.
   of the interaction. For more information, see [Automatically categorize
   contacts](rules.md "rules.md").
 
-![A question section, the automation tab with Contact Lens categories.](images/evaluationforms-automation1.png)
+![A question section, the automation tab with conversational analytics categories.](images/evaluationforms-automation1.png)
 
 For information about setting up contact categories, see [Automatically categorize
 contacts](rules.md "rules.md").
@@ -456,9 +456,9 @@ contacts](rules.md "rules.md").
   question and clearly specifying the evaluation criteria within the
   instructions improves accuracy of generative AI. For information, see [Evaluate agent performance in Connect Customer using generative AI](generative-ai-performance-evaluations.md "generative-ai-performance-evaluations.md").
 
-![A question section, the generative AI Contact Lens option.](images/evaluationforms-automation-genai.png)
+![A question section, the generative AI conversational analytics option.](images/evaluationforms-automation-genai.png)
 
-###### Example automation for a Multiple selection question using Contact Lens categories
+###### Example automation for a Multiple selection question using conversational analytics categories
 
 - Multiple selection questions can be used to capture answer reasoning for a
   single select question. It can also be used to trigger conditional questions, by
@@ -470,7 +470,7 @@ contacts](rules.md "rules.md").
   would be both "Checking status of existing service request" and "Changing a service
   request".
 
-![A question section, the automation tab with Contact Lens categories.](images/evaluationforms-automation1b.png)
+![A question section, the automation tab with conversational analytics categories.](images/evaluationforms-automation1b.png)
 
 For information about setting up contact categories, see [Automatically categorize
 contacts](rules.md "rules.md").
@@ -487,7 +487,7 @@ contacts](rules.md "rules.md").
 
 ![A question section, the automation tab, a metric to automatically evaluate the question.](images/evaluationforms-automation3.png)
 
-- You can automate responses to numeric questions using Contact Lens
+- You can automate responses to numeric questions using conversational analytics
   metrics (such as sentiment score of the customers, non-talk time percentage,
   and number of interruptions) and contact metrics (such as longest hold
   duration, number of holds, and agent interaction duration).
@@ -504,8 +504,8 @@ start an evaluation from within the Connect Customer admin website.
    evaluations** before activating the evaluation form. This
    toggle is shown in the following image.
 
-![The Enable fully automated evaluations toggle set to On.](images/evaluationforms-automation4.png) 3. Activate the evaluation form. 4. Upon activation you will be asked to create a rule in Contact Lens
-that submits an automated evaluation. For more information, see [Create a rule in Contact Lens that submits an automated evaluation](contact-lens-rules-submit-automated-evaluation.md "contact-lens-rules-submit-automated-evaluation.md"). The
+![The Enable fully automated evaluations toggle set to On.](images/evaluationforms-automation4.png) 3. Activate the evaluation form. 4. Upon activation you will be asked to create a rule in conversational analytics
+that submits an automated evaluation. For more information, see [Create a rule in conversational analytics that submits an automated evaluation](contact-lens-rules-submit-automated-evaluation.md "contact-lens-rules-submit-automated-evaluation.md"). The
 rule enables you to specify which contacts should be automatically evaluated
 using the evaluation form.
 

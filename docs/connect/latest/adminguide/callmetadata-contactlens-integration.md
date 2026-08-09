@@ -1,13 +1,13 @@
-# Provide call metadata for Contact Lens integration
+# Provide call metadata for conversational analytics integration
 
-In Connect Customer, each interaction with a customer is an Connect Customer contact. Each voice session
-that comes through the Contact Lens connector creates an Connect Customer contact. The
-connector creates an Connect Customer contact using the fields provided in the call metadata.
+In Connect Customer, each interaction with a customer is a Connect Customer contact. Each voice session
+that comes through the conversational analytics connector creates a Connect Customer contact. The
+connector creates a Connect Customer contact using the fields provided in the call metadata.
 The call metadata includes the agent user ID and agent queue ID for the streamed
 call in the call metadata.
 
 You can provide the agent user ID and other call metadata to the
-Contact Lens connector by using supported SIPREC metadata parameters
+conversational analytics connector by using supported SIPREC metadata parameters
 within the SIP INVITE of the audio stream session. The connector parses the
 following call metadata fields and adds this information to the Connect Customer
 contact.
@@ -18,13 +18,13 @@ contact.
 | Queue id          | `AmznConnectQueueId`          | Connect Customer queue id      | _Optional_. If not provided, the<br>default queue of the Connect Customer instance is used.                                                                                                          |
 | Participant order | `AmznConnectParticipantOrder` | Valid values: `asc`, `desc`    | _Optional_. If not provided,<br>ascending order is used. Connect Customer sorts the SIPREC streams by using<br>labels. The first stream in label order is the agent and the second<br>is the caller. |
 
-A contact must have an Connect Customer agent user ID. Contact Lens starts capturing
+A contact must have a Connect Customer agent user ID. conversational analytics starts capturing
 the streamed audio, and generating call recording and call analysis, only when the
 agentId is provided.
 
-If agentid is missing then the Connect Customer Contact Lens connector session is
+If agentid is missing then the Connect Customer conversational analytics connector session is
 terminated. If your SIPREC metadata was not parsed automatically by the Connect Customer
-Contact Lens connector and agent user ID is not set, you can create a
+conversational analytics connector and agent user ID is not set, you can create a
 flow lambda and access all the SIP and SIPREC metadata by using the following
 fields:
 

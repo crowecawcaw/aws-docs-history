@@ -1,34 +1,34 @@
-# Connect Customer Contact Lens notification types
+# Connect Customer conversational analytics notification types
 
-Contact Lens provides the following notification types:
+Conversational analytics provides the following notification types:
 
-- Contact Lens Post Call/Chat Rules Matched: An EventBridge event is
-  delivered whenever a Contact Lens rule is matched and has triggered
+- Conversational analytics Post Call/Chat Rules Matched: An EventBridge event is
+  delivered whenever a conversational analytics rule is matched and has triggered
   the EventBridge rule action.
 
-This event contains useful information about the Contact Lens rule
+This event contains useful information about the conversational analytics rule
 that is triggered including the category assigned, and details of the agent,
 contact and queue.
 
-- Contact Lens Real Time Call/Chat Rules Matched: An EventBridge event is
-  delivered whenever a Contact Lens rule is matched and has triggered
+- Conversational analytics Real Time Call/Chat Rules Matched: An EventBridge event is
+  delivered whenever a conversational analytics rule is matched and has triggered
   in real time.
 
-This event contains useful information about the Contact Lens rule
+This event contains useful information about the conversational analytics rule
 that is triggered including the category assigned, and details of the agent,
 contact and queue.
 
-- Contact Lens Analysis State Change: An EventBridge event is delivered when
-  Contact Lens is unable to analyze a contact recording. The event
+- Conversational analytics Analysis State Change: An EventBridge event is delivered when
+  conversational analytics is unable to analyze a contact recording. The event
   contains the Event Reason Code which provides the details on why it was
   unable to process the recording.
   You can use these notification types in a variety of scenarios. For example, use
-  Contact Lens analysis State Change events to signal unexpected errors in
+  conversational analytics analysis State Change events to signal unexpected errors in
   the processing of a contact file where EventBridge event details can be subsequently stored
   in a CloudWatch log for additional review, trigger additional workflows, or alert relevant
   support teams for further investigation.
 
-The Contact Lens events for speech and chat analytics enable numerous new
+The conversational analytics events for speech and chat analytics enable numerous new
 use cases such as surfacing and visualization of additional insights, for
 example:
 

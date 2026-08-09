@@ -135,7 +135,7 @@ metrics** block. In a flow, you reference them as
 `$.Metrics.Contact.PositionInQueue`. For a full list of the
 returned attributes, see [Contact Metric attributes](connect-attrib-list.md#attribs-contact-metrics-table "connect-attrib-list.md#attribs-contact-metrics-table").
 
-**Contact estimated wait time** requires [Next Generation Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md").
+**Contact estimated wait time** requires [Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md").
 
 ### Why Get metrics block throws an error
 

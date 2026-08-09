@@ -1,8 +1,7 @@
 # Connect Customer data lake
 
 You can use the Connect Customer data lake as a central location to query various types of
-data from Connect Customer. This data includes contact records, Contact Lens conversational
-analytics, Contact Lens performance evaluations, and more. Data is refreshed after a
+data from Connect Customer. This data includes contact records, conversational analytics data, performance evaluations, and more. Data is refreshed after a
 record is created with a small delay for processing and should be available in less than an
 hour. You can use the data lake to create custom reports or run SQL
 queries.

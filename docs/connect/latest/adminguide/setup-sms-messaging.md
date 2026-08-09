@@ -219,6 +219,25 @@ number's status changes to **Active**.
 In this step you use the Contact Control Panel (CCP) and a mobile phone to test
 sending and receiving SMS messages.
 
+###### Important
+
+By default, AWS End User Messaging SMS handles reserved opt-out and help keywords, such as
+`STOP` and `HELP`, at the platform level. When a customer
+sends one of these keywords, AWS End User Messaging SMS replies automatically and does not forward the
+message to Connect Customer. As a result, the message does not appear in the agent CCP. If you
+send a keyword while you test, this is expected behavior and does not mean that your
+setup is broken.
+
+If a customer sends `STOP`, AWS End User Messaging SMS adds them to the opt-out list, and
+later messages to that customer are blocked. To check whether a customer was
+inadvertently opted out, review the opt-out list in the AWS End User Messaging SMS console. For more
+information, including the full list of reserved keywords, see [Opt-out
+lists](../../../sms-voice/latest/userguide/opt-out-list.md "../../../sms-voice/latest/userguide/opt-out-list.md") in the _AWS End User Messaging SMS User Guide_.
+
+To route keyword messages to Connect Customer instead, so that you can handle them in a flow,
+enable self-managed opt-out on the phone number. For more information, see [Step 6: (Optional) Self-managed
+opt-out](#sms-self-managed-opt-out "#sms-self-managed-opt-out").
+
 1. In your CCP, set your status to **Available**.
 2. Using a mobile device, send an SMS to the phone number that you requested in
    [Step 1: Request a number in AWS End User Messaging SMS](#get-sms-number "#get-sms-number").

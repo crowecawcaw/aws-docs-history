@@ -104,7 +104,7 @@ _IAM User Guide_.
 
 ## Creating a service-linked role for Managed Synchronization
 
-You don't need to manually create a service-linked role. When you replicate an Connect Customer
+You don't need to manually create a service-linked role. When you replicate a Connect Customer
 instance by invoking the `ReplicateInstance` API, Managed Synchronization creates the
 service-linked role for you.
 

@@ -73,7 +73,7 @@ permissions, see [Actions, resources, and condition keys for Connect Customer
 Cases](../../../service-authorization/latest/reference/list_amazonconnectcases.md "../../../service-authorization/latest/reference/list_amazonconnectcases.md"). 5. Optionally, add the [Cases](cases-block.md "cases-block.md") block to your flows. This block
 enables you to get, update, or create cases automatically. 6. Optionally, set up [case event
 streams](case-event-streams.md "case-event-streams.md") to get near real-time updates when cases are created or
-modified. 7. Optionally, set up a [Connect AI agents
+modified. 7. Optionally, set up a [AI agents
 domain](ai-agent-initial-setup.md "ai-agent-initial-setup.md") and [Configure your
 flow](ai-agent-initial-setup.md#enable-ai-agents-step4 "ai-agent-initial-setup.md#enable-ai-agents-step4") to generate AI-powered Case Summaries in the agent
 workspace 8. Optionally, [set up tag-based access controls for cases](cases-tag-based-access-control.md "cases-tag-based-access-control.md").

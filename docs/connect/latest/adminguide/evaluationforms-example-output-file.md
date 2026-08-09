@@ -37,7 +37,7 @@ For example:
 
 ## Known issue: Two output files for the same evaluation
 
-Contact Lens generates two output files for the same evaluation
+Conversational analytics generates two output files for the same evaluation
 form.
 
 - One file is written to the new default S3 path. You can configure the path

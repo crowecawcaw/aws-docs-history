@@ -1,6 +1,6 @@
-# Logging and tracing for Connect AI agents
+# Logging and tracing for AI agents
 
-To troubleshoot Connect AI agent issues effectively, use the following logging
+To troubleshoot AI agent issues effectively, use the following logging
 and tracing options.
 
 - **ListSpans API (recommended for orchestrator AI
@@ -11,7 +11,7 @@ and tracing options.
   trace how the AI agent reasoned through a request and which tools it
   selected and executed.
 - **CloudWatch Logs**: Enable CloudWatch Logging for your
-  Connect AI agents by following the steps in [Monitor AI agents using
+  AI agents by following the steps in [Monitor AI agents using
   CloudWatch](monitor-ai-agents.md "monitor-ai-agents.md").
 
 Legacy self-service interactions generate log entries with the

@@ -64,7 +64,7 @@ a Connect Customer customer profile using the following indexes.
 | \_zendeskExternalId | external\_id              |
 
 For example, you can use `_zendeskUserId` and
-`_zendeskExternalId` as a key name with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find an Connect Customer customer profile. You can
+`_zendeskExternalId` as a key name with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find a Connect Customer customer profile. You can
 find the Zendesk-users objects associated with a specific customer profile
 by using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId` and
 `ObjectTypeName` set to `Zendesk-users`.

@@ -23,7 +23,7 @@ A single profile object can be up to 250 KB and can be any structured
 JSON document.
 
 - Every profile object has a type. For example, the profile
-  object can be an Connect Customer contact record, ServiceNow Users, or
+  object can be a Connect Customer contact record, ServiceNow Users, or
   Marketo Leads.
 - The type refers to the object type mapping.
 - The object type mapping defines how that specific object

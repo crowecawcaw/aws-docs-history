@@ -1,8 +1,8 @@
-# Add custom vocabularies to Contact Lens using the Connect Customer admin website
+# Add custom vocabularies to conversational analytics using the Connect Customer admin website
 
 You can improve the accuracy of speech recognition for product names, brand names,
 and domain-specific terminology, by expanding and tailoring the vocabulary of the
-speech-to-text engine in Contact Lens.
+speech-to-text engine in conversational analytics.
 
 This topic explains how to add custom vocabularies using the Connect Customer admin website. You can also
 add them using the [CreateVocabulary](../APIReference/API_CreateVocabulary.md "../APIReference/API_CreateVocabulary.md") and [AssociateDefaultVocabulary](../APIReference/API_AssociateDefaultVocabulary.md "../APIReference/API_AssociateDefaultVocabulary.md") APIs.
@@ -40,7 +40,7 @@ add them using the [CreateVocabulary](../APIReference/API_CreateVocabulary.md ".
 
 Before you can add custom vocabularies to Connect Customer, you need the
 **Analytics and Optimization**,
-**Contact Lens - custom vocabularies**
+**conversational analytics - custom vocabularies**
 permission assigned to your security profile.
 
 By default, in new instances of Connect Customer the **Admin** and

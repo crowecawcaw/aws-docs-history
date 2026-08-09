@@ -1,6 +1,6 @@
 # Use service-linked roles for outbound campaigns in Connect Customer
 
-Connect Customer outbound campaigns uses AWS Identity and Access Management service-linked roles. When an Connect Customer instance is enabled to
+Connect Customer outbound campaigns uses AWS Identity and Access Management service-linked roles. When a Connect Customer instance is enabled to
 use outbound campaigns, it creates a unique service linked role that allows it to perform actions on
 the Connect Customer instance.
 
@@ -73,7 +73,7 @@ permissions are added for the service-linked role to access the resources:
     `events:ListTargetsByRule` action is also permitted on
     `ConnectCampaignsRule*` resources in the same account.
 
-- Action: Connect AI agents Message Templates:
+- Action: agent assist Message Templates:
 
   - `wisdom:GetMessageTemplate`
   - `wisdom:RenderMessageTemplate`
@@ -90,7 +90,7 @@ _IAM User Guide_.
 
 ## Create a service-linked role for outbound campaigns
 
-You don't need to manually create a service-linked role. When you associate an Connect Customer
+You don't need to manually create a service-linked role. When you associate a Connect Customer
 instance with outbound campaigns by invoking the `StartInstanceOnboardingJob` API,
 outbound campaigns creates the service-linked role for you.
 

@@ -1,6 +1,6 @@
 # Set languages
 
-Agents can ask for assistance in the [language](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens") of your choice when you set the locale on Connect AI agents. Connect AI agents then provide answers and recommended step-by-step guides in that language.
+Agents can ask for assistance in the [language](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens") of your choice when you set the locale on AI agents. AI agents then provide answers and recommended step-by-step guides in that language.
 
 ###### To set the locale
 
@@ -27,7 +27,7 @@ search** AI agent.
 
 ## Supported locale codes
 
-Connect AI agents support the following locales for agent assistance:
+AI agents support the following locales for agent assistance:
 
 - Afrikaans (South Africa) / af\_ZA
 - Arabic (General) / ar

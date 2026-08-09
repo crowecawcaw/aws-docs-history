@@ -1,7 +1,6 @@
-# Output file locations for files analyzed by Contact Lens conversational analytics
+# Output file locations for files analyzed by conversational analytics
 
-Following are examples of what the path looks like for Contact Lens
-conversational analytics output files when they are stored in the Amazon S3 bucket for
+Following are examples of what the path looks like for conversational analytics output files when they are stored in the Amazon S3 bucket for
 your instance.
 
 - Original analyzed transcript file (JSON)

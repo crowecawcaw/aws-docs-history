@@ -1,4 +1,4 @@
-# Create a rule in Contact Lens that creates a case
+# Create a rule in conversational analytics that creates a case
 
 ###### To create a rule that creates a case
 
@@ -24,6 +24,6 @@ A customer profile must be associated with a contact for this
 action to work. For more information, see [Enable Cases](enable-cases.md "enable-cases.md").
 
 ![Fill out the required fields and add optional case fields to populate case data.](images/contact-lens-rules-create-case-4.png) 6. Choose **Next**. Review and then choose
-**Save**. 7. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.
+**Save**. 7. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Connect Customer conversational analytics analyzes conversations.
 
 You cannot apply rules to past, stored conversations.

@@ -78,7 +78,7 @@ agent in case the initial phone call was disconnected.
 When an agent calls 911 it is important to notify in real time the appropriate
 people in your organization, such as corporate security or a human resources
 administrator, that someone from the contact center has placed an E911 call. To
-do this, create an Connect Customer task in the [outbound
+do this, create a Connect Customer task in the [outbound
 whisper flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"). Then add custom notification logic to the task.
 
 The following image shows an example of a [Create task](create-task-block.md "create-task-block.md") block in an [outbound whisper flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"). It is located

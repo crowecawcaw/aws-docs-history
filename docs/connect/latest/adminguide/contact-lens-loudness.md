@@ -1,7 +1,7 @@
-# Investigate the loudness of agents and customers in calls using Contact Lens
+# Investigate the loudness of agents and customers in calls using conversational analytics
 
 A loudness score measures how loudly the customer or agent are speaking during a
-call. Contact Lens displays an analysis of the conversation that lets you
+call. conversational analytics displays an analysis of the conversation that lets you
 identify where the customer or agent may be talking loudly and have a negative
 sentiment.
 

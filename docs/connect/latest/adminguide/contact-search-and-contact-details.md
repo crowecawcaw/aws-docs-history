@@ -87,7 +87,7 @@ regardless of which Region the contact originated from, including:
 
 - Overview, connection details, and queue information
 - Contact tags and attributes
-- Contact Lens data (conversational analytics, voice transcripts,
+- Conversational analytics data (voice transcripts,
   chat transcripts)
 - Screen and audio recordings
 - Chat transcripts and IVR interactions
@@ -102,12 +102,12 @@ The contact's active Region is displayed on the contact details page under
 
 If the contact's active Region is impaired, some information may be
 unavailable, including screen and audio recordings, chat transcripts, IVR
-interactions, email attachments and transcripts, and Contact Lens
+interactions, email attachments and transcripts, and conversational analytics
 data.
 
-### Contact Lens data access
+### Conversational analytics data access
 
-You have full access to Contact Lens data across Regions,
+You have full access to conversational analytics data across Regions,
 including:
 
 - In-progress contacts:

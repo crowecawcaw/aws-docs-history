@@ -13,7 +13,7 @@ you delete it:
   metrics, and reports.
 - Due to GDPR compliance, scheduling data is retained for 30 days and you
   are be billed for usage during this time. For information about GDPR
-  compliance and Connect Customer forecasting, capacity planning, and scheduling, see this [FAQ](https://aws.amazon.com/connect/optimization/#topic-0 "https://aws.amazon.com/connect/optimization/#topic-0").
+  compliance and Connect Customer forecasting & agent scheduling, see this [FAQ](https://aws.amazon.com/connect/optimization/#topic-0 "https://aws.amazon.com/connect/optimization/#topic-0").
 - If you have [enabled Connect Customer flow
   logging](contact-flow-logs.md "contact-flow-logs.md"), you need to delete the CloudWatch log groups manually if they
   are no longer needed. You can do this by using the CloudWatch console. For
@@ -22,7 +22,7 @@ you delete it:
 
 ## Delete your instance
 
-You must have the appropriate AWS permissions to delete an Connect Customer. If your
+You must have the appropriate AWS permissions to delete a Connect Customer instance. If your
 organization is using IAM, see [Required permissions for using custom IAM policies to manage access to the Connect Customer console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md").
 
 1. Open the Connect Customer console at

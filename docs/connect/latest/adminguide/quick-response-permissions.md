@@ -11,7 +11,7 @@ Following is a description of the Content Management permissions.
   to enable **Access**.
 - **Access** – Grants users access to custom views. This checkbox
   remains unavailable until you create a custom view.
-- **Create** – Enables users to create Connect AI agents knowledge bases
+- **Create** – Enables users to create Connect Customer agent assist knowledge bases
   and quick responses in the Connect Customer admin website. This setting also enables users to View and Edit. It does not
   grant permission to delete quick responses.
 - **View** – Enables users to view quick responses in the

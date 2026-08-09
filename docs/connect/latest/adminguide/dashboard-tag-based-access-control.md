@@ -65,7 +65,7 @@ View**, **Queues - View**, **Users -
 View**, **Test Cases - View**, **Evaluation forms
 
 - manage form definitions - View**, **Flows - View**,
-  **Flow modules - View**, and **Bot - View**.
+  **Flow modules - View**, and **Bot - View** are selected.
   The following image shows an example of security profile permissions that grant
   users the ability to view routing profiles, queues, and Connect Customer user accounts.
 
@@ -79,21 +79,19 @@ View**, **Test Cases - View**, **Evaluation forms
   queues, and routing profiles.
 - The Agent Activity Audit report supports access controls on users
   only.
-- The Login/Logout report supports access controls on users and routing
-  profiles.
-- The tag-based access control experience on the **Real-time
-  metrics**, **Historical metrics** and
-  **Agent Activity Audit** page remains unchanged after
+- The tag-based access control experience on the **Historical metrics**,
+  **Agent Activity Audit**, and **Login/Logout** pages remain unchanged after
   this launch for users that had tag based access controls enabled in their
   security profile before January 15, 2026. It will continue to work the same
   way. However, if you would like the enhanced tag based access controls
-  experience on your historical metrics, real-time metrics, and Agent Activity
-  Audit report, please contact the Connect Customer service team to assist with the
+  experience on your historical metrics, Agent Activity
+  Audit report or Login/Logout, please contact the Connect Customer service team to assist with the
   migration. When you migrate to the new tag based access controls experience,
-  please note that starting January 15, 2026, the historical metrics, and
-  Agent Activity Audit report will display 2 months of historical data. The
-  retention period will increase by 1 day each day.
-- Access to view **Agent Queues** is disabled.
+  please note that, the historical metrics report shows data
+  from November, 2025 to the current date. The Login/Logout report shows data
+  from April 9, 2026 to the current date. The retention period will increase by 1 day each day.
+- Agent queues do not support tag-based access controls.
+- The cases performance dashboard does not support tag-based access controls.
 - Scheduled reports are not supported.
 - Changes to resource tags are eventually consistent. After a data update, a
   brief delay may occur before the system reflects the latest value.
@@ -106,9 +104,6 @@ View**, **Test Cases - View**, **Evaluation forms
   profile.
 - When you filter metrics by resource tags you don't have access to, the
   dashboards and reports will display access restriction error.
-- Starting January 15, 2026, Dashboards with tag-based access controls will
-  display 2 months of historical data. The retention period will increase by 1
-  day each day until reaching 3 months on February 15, 2026.
 - When you filter metrics by tags and select **All accessible
   tags**, the system restricts data to permitted tags for the
   selected resource types.
@@ -162,9 +157,15 @@ To view the data, perform one of the following steps:
 - If your widget or report does not have any groupings configured, add
   relevant authorized groupings such as users, queues, routing profiles,
   flows, flow modules, evaluation forms, and test cases.
+
+OR
+
 - To view metrics on Summary widgets on the Dashboard, use the Tag filter to
   select the resource and tags you have access to by selecting the first
   filter value **All accessible tags**. This gives you access
   to metrics based on all the resource tags configured in your security
   profile.
+
+OR
+
 - Create a new report that includes the resources you have access to.

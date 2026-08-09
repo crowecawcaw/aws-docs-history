@@ -1,4 +1,4 @@
-# Error notifications when an Connect Customer rule fails to run
+# Error notifications when a Connect Customer rule fails to run
 
 It's important to know when a specific rule action has failed in a production
 environment, and what caused the failure. Then you can proactively mitigate such
@@ -21,7 +21,7 @@ To subscribe to these notifications, create a custom EventBridge rule that
 matches the following:
 
 - "source" = "aws.connect"
-- "detail-type" = "Contact Lens Rules Action Execution
+- "detail-type" = "conversational analytics Rules Action Execution
   Failed"
 
 You can also add to the pattern to be notified when a specific event code
@@ -59,7 +59,7 @@ The format of a notification looks like the following sample:
 - `SEND_NOTIFICATION`
 
 For information about `ASSIGN_CONTACT_CATEGORY`, see [Error
-notifications: When Contact Lens can't analyze a
+notifications: When conversational analytics can't analyze a
 contact](contact-lens-error-notifications.md "contact-lens-error-notifications.md").
 
 ## Supported trigger events

@@ -57,7 +57,7 @@ limited to the following categories.
 Amazon AppIntegrations enables you to integrate with external applications. It stores
 references to other AWS resources and client-service specified metadata. No data
 is stored other than incidentally while being processed. When syncing data
-periodically with an Connect Customer service, data is encrypted using a customer managed key and stored
+periodically with a Connect Customer service, data is encrypted using a customer managed key and stored
 temporarily for one month.
 
 ## Phone call media
@@ -175,12 +175,12 @@ The following data stored by Connect Customer is treated as sensitive:
 - All contact attributes
 - All contact references
 
-## Contact Lens real-time processing
+## Conversational analytics real-time processing
 
-Content processed by Contact Lens in real-time is encrypted at rest and in
-transit. Data is encrypted with keys owned by Contact Lens.
+Content processed by conversational analytics in real-time is encrypted at rest and in
+transit. Data is encrypted with keys owned by conversational analytics.
 
-Contact Lens persists data (transcript, category names, etc.) on the Connect Customer
+Conversational analytics persists data (transcript, category names, etc.) on the Connect Customer
 side for a short period of time. This is to ensure that the API serves data
 continuously, for up to 24h after contact terminates.
 

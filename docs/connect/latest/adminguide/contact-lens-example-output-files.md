@@ -1,13 +1,12 @@
-# Example Contact Lens conversational analytics output files for a call
+# Example conversational analytics output files for a call
 
 The following sections provide examples of the output that results when
-Contact Lens conversational analytics detects issues, matches categories,
+conversational analytics detects issues, matches categories,
 indicates loudness, redacts sensitive data, and skipped analysis.
 
 Expand each section to learn more.
 
-The following example shows the schema for a call that Contact Lens
-conversational analytics has analyzed. The example shows loudness, issue
+The following example shows the schema for a call that conversational analytics has analyzed. The example shows loudness, issue
 detection, call drivers, and the information that will be redacted.
 
 Note the following about the analyzed file:
@@ -389,15 +388,15 @@ Note the following about the analyzed file:
 ```
 
 This section shows an example redacted file for a call after it's been
-analyzed by Contact Lens conversational analytics. It's a twin of the
+analyzed by conversational analytics. It's a twin of the
 original analyzed file. The only difference is that sensitive data are
 redacted. In this example, three entities were selected for redaction:
 "`CREDIT_DEBIT_NUMBER`", "`NAME`",
 "`USERNAME`".
 
 In this example, `RedactionMaskMode` is set to PII. When an
-entity is redacted, Contact Lens replaces it with `[PII]`.
-If it were set to `ENTITY_TYPE`, Contact Lens would
+entity is redacted, conversational analytics replaces it with `[PII]`.
+If it were set to `ENTITY_TYPE`, conversational analytics would
 replace the data with the name of the entity, for example,
 `[CREDIT_DEBIT_NUMBER]`.
 

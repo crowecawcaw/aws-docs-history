@@ -54,8 +54,7 @@ You can access generative AI-powered post-contact summaries multiple ways:
       customer**, as shown in the following image.
 
    ![The properties page of the Set recording and analytics behavior block configured for call recording.](images/call-recording-summaries.png) 2. Set **Analytics** to **On**. 3. Choose **Enable speech analytics**. 4. Choose **Real-time and post-call
-   analytics**. 5. Under **Contact Lens Generative AI
-   capabilities**, choose **Post-contact
+   analytics**. 5. Under **Generative AI capabilities**, choose **Post-contact
    summary**.
    The following image shows the **Analytics** section
    of a **Properties** page that is configured to enable
@@ -64,10 +63,10 @@ You can access generative AI-powered post-contact summaries multiple ways:
 ![The properties page of the Set recording and analytics behavior block.](images/set-block-post-contact-summaries-ccp.png) 3. Assign the following permissions to the agent's security
 profile:
 
-    * **Contact Control Panel (CCP) - Contact Lens
+    * **Contact Control Panel (CCP) - conversational analytics
      data - Access**
     * **Analysis and Optimization -
-     Contact Lens–post-contact summary -
+     conversational analytics–post-contact summary -
      View**
     * **Analysis and Optimization - Recorded conversations
      (redacted)**, **View Recorded conversations
@@ -78,7 +77,7 @@ profile:
      (unredacted)** – **Access**
     * **Analysis and Optimization - View my contacts**  or **Contact Search**
     * **Analysis and Optimization -
-     Contact Lens - conversational analytics**
+     conversational analytics**
 
 ###### To enable post-contact summaries on Connect Customer admin website
 
@@ -101,8 +100,7 @@ profile:
    3. Granular redaction is not supported for post-contact summary.
    When granular redaction is selected, post-contact summary
    redacts all PII identified in text and replaces it with a [PII]
-   tag. 4. Under **Contact Lens Generative AI
-   capabilities**, choose **Post-contact
+   tag. 4. Under **Generative AI capabilities**, choose **Post-contact
    summary**.
 
 2. Assign the following permissions to the user's security
@@ -112,7 +110,7 @@ profile:
      Search** OR **View my
      contacts**
    - **Analysis and Optimization -
-     Contact Lens–post-contact summary -
+     conversational analytics–post-contact summary -
      View**
    - **Analysis and Optimization - Recorded conversations
      (redacted)**, **View Recorded conversations
@@ -120,7 +118,7 @@ profile:
      **Access** (least privilege is
      **Access**, which we recommend)
    - **Analysis and Optimization -
-     Contact Lens - conversational analytics**
+     conversational analytics**
 
 ## Enable contact summaries for email
 
@@ -133,7 +131,7 @@ profile:
    1. For **Channel**, choose **Email**.
    2. Set **Analytics** to **On**.
    3. Choose **Enable email analytics**.
-   4. Under **Contact Lens Generative AI capabilities**,
+   4. Under **Generative AI capabilities**,
       choose **Contact summary**.
 
 3. Choose **Save**.
@@ -179,7 +177,7 @@ have a summary generated; for more information, see [Why a summary is not genera
 If a summary is not generated, an error message is displayed on the
 **Contact details** and **Contact search**
 pages. In addition, the ReasonCode for the error appears in the
-`ContactSummary` object in the Contact Lens output file,
+`ContactSummary` object in the conversational analytics output file,
 similar to the following example:
 
 ```
@@ -195,7 +193,7 @@ similar to the following example:
 
 Following is a list of error messages that may be displayed on the Contact
 details or search pages if a summary is not generated. Also listed is the
-associated reason code that appears in the Contact Lens output file.
+associated reason code that appears in the conversational analytics output file.
 
 - **Summary could not be generated due to exceeding quota of
   concurrent summaries**. ReasonCode:
@@ -214,13 +212,13 @@ Supported message types are `text/plain` and
 `text/markdown`. Messages of other types, such as
 `application/json`, are not used for the summary.
 
-- **Contact Flow had invalid Contact Lens configuration
+- **Contact Flow had invalid conversational analytics configuration
   for PostContact Summary, such as unsupported or invalid language
   code**. ReasonCode:
   `INVALID_ANALYSIS_CONFIGURATION`.
 
 This error is returned if the enabled summary is incompatible with
-other Contact Lens settings, particularly if it's enabled for an
+other conversational analytics settings, particularly if it's enabled for an
 unsupported locale.
 
 - **Summary cannot be provided because it failed to satisfy

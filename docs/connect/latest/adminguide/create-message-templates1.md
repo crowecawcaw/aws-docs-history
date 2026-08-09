@@ -10,7 +10,7 @@ templates using the Connect Customer admin website.
 
 ###### Tip
 
-Even though message templates use the Connect AI agents APIs, message templates don't lead to
+Even though message templates use the agent assist APIs, message templates don't lead to
 additional billing. You only pay for the chat message price or email price. For more
 information, see [Connect Customer
 Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").

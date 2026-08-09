@@ -117,7 +117,7 @@ to create, edit, or delete a service-linked role. For more information, see [Ser
 ## Creating a service-linked role for Amazon AppIntegrations
 
 You don't need to manually create a service-linked role. When you
-create a data or event integration using either the Connect AI agents, Customer Profiles, or Tasks widget in Connect Customer in the AWS Management Console, the AWS CLI, or the AWS API, Amazon AppIntegrations
+create a data or event integration using either the agent assist, Customer Profiles, or Tasks widget in Connect Customer in the AWS Management Console, the AWS CLI, or the AWS API, Amazon AppIntegrations
 creates the service-linked role for you.
 
 ###### Important
@@ -129,7 +129,7 @@ then Amazon AppIntegrations created the AWSServiceRoleForAppIntegrations role in
 role appeared in my IAM account](../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared "../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared").
 
 If you delete this service-linked role, and then need to create it again, you can use the
-same process to recreate the role in your account. When you create a data or event integration using either the Connect AI agents, Customer Profiles, or Tasks widget in Connect Customer,
+same process to recreate the role in your account. When you create a data or event integration using either the agent assist, Customer Profiles, or Tasks widget in Connect Customer,
 Amazon AppIntegrations creates the service-linked role for you again.
 
 You can also use the IAM console to create a service-linked role with the
@@ -163,7 +163,7 @@ operation again.
 
 ###### To delete data integration associations used by the AWSServiceRoleForAppIntegrations in the AWS Console
 
-1. Go to the Connect AI agents section of the Connect Customer Console and choose the name of the data integration association that you wish to delete.
+1. Go to the agent assist section of the Connect Customer Console and choose the name of the data integration association that you wish to delete.
 2. Choose **Delete** on the right hand side of the **Integration details** section.
 3. In the pop-box, enter the name of the integration for confirmation and choose **Delete**.
 

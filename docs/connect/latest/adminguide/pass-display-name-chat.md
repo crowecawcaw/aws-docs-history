@@ -1,4 +1,4 @@
-# Pass the customer display name when an Connect Customer chat starts
+# Pass the customer display name when a Connect Customer chat starts
 
 To deliver a more personalized experience for both your customers and agents, you can
 customize the Connect Customer communications widget to pass the customer display name during contact

@@ -1,6 +1,6 @@
-# Review analyzed conversations using Contact Lens
+# Review analyzed conversations using conversational analytics
 
-By using Connect Customer Contact Lens, you can review the transcript and identify what
+By using Connect Customer conversational analytics, you can review the transcript and identify what
 part of the contact is of interest. You won't need to listen to an entire call or
 read an entire chat transcript to find out what's interesting about it. You can
 focus on specific parts of the audio or transcript. Both are highlighted for you
@@ -23,7 +23,7 @@ prompt.
 ###### To review analyzed conversations
 
 1. Log in to Connect Customer with a user account that has **Contact
-   search** and **Contact Lens - conversational
+   search** and **conversational analytics - conversational
    analytics** permissions in the security profile.
 2. In Connect Customer, choose **Analytics and optimization**,
    **Contact search**.

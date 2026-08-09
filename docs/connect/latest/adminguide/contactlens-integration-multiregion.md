@@ -1,4 +1,4 @@
-# Set up multi-region redundancy for Contact Lens integration
+# Set up multi-region redundancy for conversational analytics integration
 
 Multi-region redundancy enables you to scale your external voice system for
 highest reliability, performance, and efficiency. You can support multi-region
@@ -18,11 +18,11 @@ replica Connect Customer instance in the passive Region.
 You can implement the active-active strategy by concurrently streaming audio
 to both Connect Customer instances. To implement this strategy, configure your external
 voice system to concurrently stream audio to the two separate Regions. In each
-Region, Contact Lens integration will do the following:
+Region, conversational analytics integration will do the following:
 
 1. Create its own Connect Customer contact.
 2. Captures the audio stream to create call recordings
-3. Perform Contact Lens analysis
+3. Perform conversational analytics analysis
 
 This approach requires you to replicate all the Connect Customer contact center
 configurations manually. However, you can use Connect Customer Global Resiliency and it

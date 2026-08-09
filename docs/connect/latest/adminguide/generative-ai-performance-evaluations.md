@@ -3,7 +3,7 @@
 ###### Note
 
 **Powered by Amazon Bedrock**: AWS implements automated abuse
-detections. Because generative AI features in Contact Lens are built on Amazon Bedrock,
+detections. Because generative AI features in conversational analytics are built on Amazon Bedrock,
 users can take full advantage of the controls implemented in Amazon Bedrock to enforce safety,
 security, and the responsible use of artificial intelligence (AI).
 
@@ -78,7 +78,7 @@ time.
       generative AI recommendation, but you can change it.
    2. You can get generative AI-powered recommendations by choosing
       **Ask AI** for up to 10 questions per contact.
-      For more information, see [Contact Lens service quotas](amazon-connect-service-limits.md#contactlens-quotas "amazon-connect-service-limits.md#contactlens-quotas").
+      For more information, see [Conversational analytics service quotas](amazon-connect-service-limits.md#contactlens-quotas "amazon-connect-service-limits.md#contactlens-quotas").
 
 3. You can choose the time associated with a transcript reference to be
    directed to the point in the conversation
@@ -112,7 +112,7 @@ the evaluation form on the Connect Customer UI, answers to these questions will 
 automatically filled using generative AI (without requiring you to choose Ask AI).
 You can also use generative AI to automatically fill and submit evaluations. For
 automatically submitted evaluations, you can use generative AI to answer up to 10
-questions per contact (see [Contact Lens service quotas](amazon-connect-service-limits.md#contactlens-quotas "amazon-connect-service-limits.md#contactlens-quotas")). Note that this limit does not apply to
+questions per contact (see [Conversational analytics service quotas](amazon-connect-service-limits.md#contactlens-quotas "amazon-connect-service-limits.md#contactlens-quotas")). Note that this limit does not apply to
 automation using contact categories or metrics (for example, longest
 hold duration, etc.).
 
@@ -182,7 +182,7 @@ To set the language of the evaluation form:
   and use metrics such as the longest hold duration or the number of
   interruptions. For more details, see [Step 6: Enable automated evaluations](create-evaluation-forms.md#step-automate "create-evaluation-forms.md#step-automate").
 - Don't automate questions that assess interactions between multiple parties
-  (another agent, a partner institution, or a second customer). Contact Lens
+  (another agent, a partner institution, or a second customer). conversational analytics
   is aware of only two participants at a given time. For example, avoid a
   question like "If another person other than the primary account holder
   joined the conversation, did the agent first confirm with the primary

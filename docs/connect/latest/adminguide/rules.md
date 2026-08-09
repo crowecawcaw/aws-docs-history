@@ -1,6 +1,6 @@
 # Automatically categorize contacts by matching conversations with natural language statements, or specific words and phrases
 
-Contact Lens conversational analytics enables you to automatically
+Conversational analytics enables you to automatically
 categorize contacts to identify top drivers, customer experience, and agent
 behavior for your contacts. On the **Contact details** page for
 a chat, categories appear above the transcript, as shown in the following image.
@@ -13,7 +13,7 @@ contacts:
   criteria to categorize contacts in natural language (for example, did
   the customer try to make a payment on their balance?).
 - You can provide specific words or phrases spoken by agents or
-  customers to match with a conversation. Contact Lens then
+  customers to match with a conversation. conversational analytics then
   automatically labels contacts that meet the match criteria, and provides
   relevant points from the conversation.
 - You can define actions to receive alerts and generate tasks on
@@ -144,7 +144,7 @@ the card.
 
 ![The new rules page, the Words or phrases - Exact match section, the Add button.](images/contact-lens-add-category-rules-script2.png)
 
-The logic that Contact Lens uses to read these phrases
+The logic that conversational analytics uses to read these phrases
 is: (Hello AND thank AND you AND for AND calling AND Example AND
 Corp) OR (we AND value AND your AND business) OR (how AND may
 AND I AND assist AND you).
@@ -161,7 +161,7 @@ and the second group is what the customer might utter.
 
 ![A Words or phrases - Exact match for agent, the word AND, a Words or phrases section for the customer.](images/contact-lens-add-category-rules-script3.png)
 
-    1. The logic that Contact Lens uses to read these
+    1. The logic that conversational analytics uses to read these
      phrases is: (Hello AND thank AND you AND for AND calling
      AND Example AND Corp) OR (we AND value AND your AND
      business) OR (how AND may AND I AND assist AND
@@ -171,7 +171,7 @@ and the second group is what the customer might utter.
      AND then one of the phrases in the second card needs to
      be uttered.
 
-The logic that Contact Lens uses to read the two cards
+The logic that conversational analytics uses to read the two cards
 of words or phrases is (card 1) AND (card 2). 9. Choose **Add condition** to apply the rules
 to:
 
@@ -205,6 +205,6 @@ Connect Customer should take:
 ### Step 3: Review and save
 
 1. When done, choose **Save**.
-2. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.
+2. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Connect Customer conversational analytics analyzes conversations.
 
 You cannot apply rules to past, stored conversations.

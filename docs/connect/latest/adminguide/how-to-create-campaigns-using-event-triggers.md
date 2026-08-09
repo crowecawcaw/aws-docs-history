@@ -123,40 +123,40 @@ For more information about Predictive Insights, see [Get started with Predictive
 
 ```
 {
-"Description": "string",
-"EventTriggerConditions": [
-{
-"EventTriggerDimensions": [
-{
-"ObjectAttributes": [
-{
-"ComparisonOperator": "string",
-"FieldName": "string",
-"Source": "string",
-"Values": [ "string" ]
-}
-]
-}
-],
-"LogicalOperator": "string"
-}
-],
-"EventTriggerLimits": {
-"EventExpiration": number,
-"Periods": [
-{
-"MaxInvocationsPerProfile": number,
-"Unit": "string",
-"Unlimited": boolean,
-"Value": number
-}
-]
-},
-"ObjectTypeName": "string",
-"SegmentFilter": "string",
-"Tags": {
-"string" : "string"
-}
+    "Description": "string",
+    "EventTriggerConditions": [
+        {
+            "EventTriggerDimensions": [
+                {
+                    "ObjectAttributes": [
+                        {
+                            "ComparisonOperator": "string",
+                            "FieldName": "string",
+                            "Source": "string",
+                            "Values": [ "string" ]
+                        }
+                    ]
+                }
+            ],
+            "LogicalOperator": "string"
+        }
+    ],
+    "EventTriggerLimits": {
+        "EventExpiration": number,
+        "Periods": [
+            {
+                "MaxInvocationsPerProfile": number,
+                "Unit": "string",
+                "Unlimited": boolean,
+                "Value": number
+            }
+        ]
+    },
+    "ObjectTypeName": "string",
+    "SegmentFilter": "string",
+    "Tags": {
+        "string" : "string"
+    }
 }
 ```
 

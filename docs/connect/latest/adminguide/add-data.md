@@ -3,7 +3,7 @@
 You can import a maximum of 100 quick responses at a time from a .csv file. This topic
 explains how to use the Connect Customer admin website to import quick responses. To import quick responses
 programmatically, see [StartImportJob](../../../amazon-q-connect/latest/APIReference/API_StartImportJob.md "../../../amazon-q-connect/latest/APIReference/API_StartImportJob.md") in the
-_Connect AI agents API Reference_.
+_agent assist API Reference_.
 
 ###### To import responses
 

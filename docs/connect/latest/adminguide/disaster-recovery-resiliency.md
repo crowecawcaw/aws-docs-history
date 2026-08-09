@@ -22,8 +22,8 @@ geographic regions around the world. This makes Connect Customer more highly ava
 and scalable than would be possible if a contact center solution was run from a single data
 center.
 
-Within each AWS Region you can create an Connect Customer instance, with a minimum of
-3 AZs. When you create an Connect Customer instance, that instance is propagated across those AZs in an
+Within each AWS Region you can create a Connect Customer instance, with a minimum of
+3 AZs. When you create a Connect Customer instance, that instance is propagated across those AZs in an
 active-active-active configuration. If there is a failure in one AZ, that node is taken out
 of rotation without impacting production. This architecture allows you to perform
 maintenance, release new features, and expand infrastructure without requiring any

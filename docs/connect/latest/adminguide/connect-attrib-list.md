@@ -28,7 +28,7 @@ The JSONPath reference for each attribute is provided so you can [create dynamic
 - [Apple Messages for Business attributes](#apple-messages-for-business-attributes "#apple-messages-for-business-attributes")
 - [Customer Profiles attributes](#customer-profiles-attributes "#customer-profiles-attributes")
 - [Outbound campaign attributes](#campaign-attributes "#campaign-attributes")
-- [Connect AI agents attribute](#qic-attributes "#qic-attributes")
+- [agent assist attribute](#qic-attributes "#qic-attributes")
 
 ## System attributes
 
@@ -261,19 +261,19 @@ also know as _session attributes_.
 
 The following table lists the attributes that are used with Connect Customer Cases.
 
-| Attribute         | Description                                                                                                                                                                                                                    | Type          | JSONPath Reference             | Where the data comes from |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ------------------------------ | ------------------------- |
-| Case ID           | Unique Identifier of the case in UUID format (for example,<br>689b0bea-aa29-4340-896d-4ca3ce9b6226)                                                                                                                            | text          | $.Case.case\_id                | Connect Customer          |
-| Case Reason       | The reason for opening the case                                                                                                                                                                                                | single-select | $.Case.case\_reason            | Agent                     |
-| Created By        | The identity of the user who created the case.                                                                                                                                                                                 | user          | $.Case.created\_by             | Connect Customer          |
-| Customer          | The API is a customer profile ID. On the **Cases: Fields**<br>page, the customer's name is displayed.                                                                                                                          | text          | $.Case.customer\_id            | Connect Customer          |
-| Date/Time Closed  | The date and time the case was last closed. It does not guarantee that a case<br>is closed. If a case is reopened, this field contains the date/time stamp of the<br>last time the status was changed to closed.               | date-time     | $.Case.last\_closed\_datetime  | Connect Customer          |
-| Date/Time Opened  | The date and time the case was opened.                                                                                                                                                                                         | date-time     | $.Case.created\_datetime       | Connect Customer          |
-| Date/Time Updated | The date and time the case was last updated.                                                                                                                                                                                   | date-time     | $.Case.last\_updated\_datetime | Connect Customer          |
-| Reference number  | The reference number is an alphanumeric value used to identify a case. For cases created after September 2026, reference numbers are unique within an Connect Customer Cases domain. Reference numbers are not case-sensitive. | text          | $.Case.reference\_number       | Agent                     |
-| Status            | Current status of the case                                                                                                                                                                                                     | text          | $.Case.status                  | Agent                     |
-| Summary           | Summary of the case                                                                                                                                                                                                            | text          | $.Case.summary                 | Agent                     |
-| Title             | Title of the case                                                                                                                                                                                                              | text          | $.Case.title                   | Agent                     |
+| Attribute         | Description                                                                                                                                                                                                                   | Type          | JSONPath Reference             | Where the data comes from |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------------------ | ------------------------- |
+| Case ID           | Unique Identifier of the case in UUID format (for example,<br>689b0bea-aa29-4340-896d-4ca3ce9b6226)                                                                                                                           | text          | $.Case.case\_id                | Connect Customer          |
+| Case Reason       | The reason for opening the case                                                                                                                                                                                               | single-select | $.Case.case\_reason            | Agent                     |
+| Created By        | The identity of the user who created the case.                                                                                                                                                                                | user          | $.Case.created\_by             | Connect Customer          |
+| Customer          | The API is a customer profile ID. On the **Cases: Fields**<br>page, the customer's name is displayed.                                                                                                                         | text          | $.Case.customer\_id            | Connect Customer          |
+| Date/Time Closed  | The date and time the case was last closed. It does not guarantee that a case<br>is closed. If a case is reopened, this field contains the date/time stamp of the<br>last time the status was changed to closed.              | date-time     | $.Case.last\_closed\_datetime  | Connect Customer          |
+| Date/Time Opened  | The date and time the case was opened.                                                                                                                                                                                        | date-time     | $.Case.created\_datetime       | Connect Customer          |
+| Date/Time Updated | The date and time the case was last updated.                                                                                                                                                                                  | date-time     | $.Case.last\_updated\_datetime | Connect Customer          |
+| Reference number  | The reference number is an alphanumeric value used to identify a case. For cases created after September 2026, reference numbers are unique within a Connect Customer Cases domain. Reference numbers are not case-sensitive. | text          | $.Case.reference\_number       | Agent                     |
+| Status            | Current status of the case                                                                                                                                                                                                    | text          | $.Case.status                  | Agent                     |
+| Summary           | Summary of the case                                                                                                                                                                                                           | text          | $.Case.summary                 | Agent                     |
+| Title             | Title of the case                                                                                                                                                                                                             | text          | $.Case.title                   | Agent                     |
 
 ## Lambda contact attributes
 
@@ -506,13 +506,13 @@ After the block runs, you can access standard profile attributes using
 
 For more information about creating segments, see [Build customer segments in Connect Customer](customer-segments-building-segments.md "customer-segments-building-segments.md").
 
-## Connect AI agents attribute
+## agent assist attribute
 
-The following attribute stores the Connect AI agents session ARN. A use case for this attribute is
+The following attribute stores the agent assist session ARN. A use case for this attribute is
 when you want to perform any API action, such as [UpdateSession](../APIReference/API_amazon-q-connect_UpdateSession.md "../APIReference/API_amazon-q-connect_UpdateSession.md")
 [UpdateSessionData](../APIReference/API_amazon-q-connect_UpdateSessionData.md "../APIReference/API_amazon-q-connect_UpdateSessionData.md"). You can pass the attribute as input to [AWS Lambda
 function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") block. And Lambda can call those APIs against the input session ARN.
 
-| Attribute  | Description                                                    | Type | JSONPath Reference  |
-| ---------- | -------------------------------------------------------------- | ---- | ------------------- |
-| SessionArn | The Amazon Resource Name (ARN) of a Connect AI agents session. | Flow | $.Wisdom.SessionArn |
+| Attribute  | Description                                                | Type | JSONPath Reference  |
+| ---------- | ---------------------------------------------------------- | ---- | ------------------- |
+| SessionArn | The Amazon Resource Name (ARN) of an agent assist session. | Flow | $.Wisdom.SessionArn |

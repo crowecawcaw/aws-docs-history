@@ -79,7 +79,7 @@ In this example, the agent sees the following values for
      to the Real-time details page
 
 4. Choose **Next**. Review and then choose
-**Save** the task. 5. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.
+**Save** the task. 5. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Connect Customer conversational analytics analyzes conversations.
 
 You cannot apply rules to past, stored conversations.
 

@@ -1,8 +1,8 @@
-# Investigate non-talk time during calls using Connect Customer Contact Lens
+# Investigate non-talk time during calls using Connect Customer conversational analytics
 
 ## What is non-talk time?
 
-Connect Customer Contact Lens also identifies the amount of _non-talk time_ in a call. Non-talk time equals hold time, plus any silence
+Connect Customer conversational analytics also identifies the amount of _non-talk time_ in a call. Non-talk time equals hold time, plus any silence
 where both participants aren't talking for more than 3 seconds. This duration
 can't be customized.
 

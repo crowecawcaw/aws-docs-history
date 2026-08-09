@@ -5,7 +5,7 @@ the CCP or agent workspace. You can view the entire transcript for reference, an
 copy any useful text into your notes.
 
 The call transcript displays any [categories](rules.md "rules.md")
-identified by Contact Lens. For example, in the following image, an issue has
+identified by conversational analytics. For example, in the following image, an issue has
 been identified at 22 seconds.
 
 ![The CCP, a transcript, an issue.](images/ccp-view-call-transcript.png)
@@ -30,4 +30,4 @@ in the CCP and the agent workspace. To make this feature available to agents:
      **View My Contacts** or **Contact
      search**
    - **Contact Control Panel (CCP)** -
-     **Contact Lens data**
+     **conversational analytics data**

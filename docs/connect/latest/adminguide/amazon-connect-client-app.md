@@ -22,9 +22,9 @@ extension](deploy-browser-extension.md "deploy-browser-extension.md").
 
 ### Version information
 
-- Version: v3.0.2 (latest)
-- Release date: June 30, 2026
-- Download link: [AmazonConnectClientWin-v3.0.2](https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v3.0.2.zip "https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v3.0.2.zip")
+- Version: v3.0.3 (latest)
+- Release date: July 30, 2026
+- Download link: [AmazonConnectClientWin-v3.0.3](https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v3.0.3.zip "https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v3.0.3.zip")
 - Release note: This version adds support for rule-based redaction of
   agent screen recordings.
 

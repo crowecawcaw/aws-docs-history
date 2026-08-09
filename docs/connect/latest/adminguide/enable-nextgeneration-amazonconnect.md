@@ -20,6 +20,9 @@ capabilities are included with Connect Customer.
 
 - **End-customer self-service** — agentic
   voice and agentic chat powered by AI agents
+- **Generative speech** — Amazon Polly
+  generative voices and third-party speech-to-text (STT) and text-to-speech
+  (TTS) model configuration
 - **Real-time agent assistance** —
   AI-powered recommendations and next-best-action guidance during live
   conversations
@@ -36,11 +39,9 @@ capabilities are included with Connect Customer.
   into contact flow performance
 - **Custom metrics in dashboards and APIs**
   — build tailored views of contact center performance
-- **Generative speech** — Amazon Polly
-  generative voices and third-party speech-to-text (STT) and text-to-speech
-  (TTS) model configuration
-- **Customer first callbacks** — let
-  customers request a callback instead of waiting on hold
+- **Customer-first callbacks** — dials
+  the customer first and only offers the callback to an agent if the customer
+  answers the call
 
 ## Updating existing Connect Customer instances
 
@@ -63,18 +64,58 @@ update your instance to Connect Customer.
 
 ## How to switch to Customer Basic
 
-Connect Customer Basic does not include all the AI capabilities available in Connect Customer. If you move to Connect Customer Basic, some capabilities you are using today may no longer
+Connect Customer Basic does not include all the AI capabilities available in Connect Customer. If you switch to Connect Customer Basic, some capabilities you are using today may no longer
 be available, including:
 
-- Conversational analytics for email
-- AI-powered case summarization
-- Performance evaluations of self-service interactions
-- Flow designer analytics
-- Custom metrics in dashboards and APIs
-- Agentic voice with Amazon Nova Sonic
-- Third-party speech-to-text (STT) and text-to-speech (TTS) model
-  configuration
-- Customer first callbacks
+- Agentic customer experience designer (ACXD)
+
+  - No-code visual canvas
+  - Blended AI logic - agentic AI reasoning and deterministic AI
+  - Live sync of web or mobile app during live voice or chat
+
+- [Agentic voice](agentic-voice.md "agentic-voice.md")
+
+  - 50+ languages
+  - 100+ voices
+  - Third-party speech-to-text (STT) and text-to-speech (TTS) model support
+
+- [AI agent observability](monitor-ai-agent-performance.md "monitor-ai-agent-performance.md")
+
+  - Out-of-the-box AI agent performance metrics evaluated using LLM-as-a-judge
+
+- [AI assistant for natural language configuration](connect-assistant-ui-builder.md "connect-assistant-ui-builder.md")
+
+  - Step-by-step guides
+  - Workspace pages
+
+- Queue management
+
+  - [Contact estimated wait time](get-queue-metrics.md#get-metrics-tips "get-queue-metrics.md#get-metrics-tips")
+  - [Customer-first callbacks](customer-first-cb.md "customer-first-cb.md")
+
+- [Conversational analytics](analyze-conversations.md "analyze-conversations.md")
+
+  - Email conversational analytics, including:
+
+    - Sensitive data redaction
+    - Summarization
+    - Categorization
+    - Rules-based actions
+
+  - Case summarization
+  - Information extraction
+
+    - Rules-based information extraction for voice and chat contacts
+
+  - Recording ingestion and conversational analytics
+
+- [Performance evaluations](evaluations.md "evaluations.md")
+
+  - Self-service interaction evaluations
+  - AI agent performance evaluations
+
+- [Flow designer analytics](monitor-flow-performance.md "monitor-flow-performance.md")
+- [Custom metrics in dashboards and APIs](custom-metrics-topic.md "custom-metrics-topic.md")
 
 ###### Warning
 

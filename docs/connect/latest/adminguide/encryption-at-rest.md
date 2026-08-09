@@ -25,7 +25,7 @@ For more information about key management in Connect Customer, see [Key manageme
 - [Amazon AppIntegrations](#encryption-at-rest-appintegrations "#encryption-at-rest-appintegrations")
 - [Connect Customer Cases](#encryption-at-rest-cases "#encryption-at-rest-cases")
 - [Connect Customer Customer Profiles](#encryption-at-rest-customer-profiles "#encryption-at-rest-customer-profiles")
-- [Connect AI agents](#encryption-at-rest-wisdom "#encryption-at-rest-wisdom")
+- [Connect Customer agent assist](#encryption-at-rest-wisdom "#encryption-at-rest-wisdom")
 - [Connect Customer Voice ID encryption at rest](#encryption-at-rest-voiceid "#encryption-at-rest-voiceid")
 - [Outbound campaigns encryption at rest](#encryption-at-rest-outboundcommunications "#encryption-at-rest-outboundcommunications")
 - [Forecasts, capacity plans, and schedules](#forecasts-encryption-at-rest- "#forecasts-encryption-at-rest-")
@@ -96,14 +96,14 @@ that grants it access to the customer managed key.
 AWS KMS charges apply for a customer managed key. For more information about pricing, see
 [AWS KMS pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
 
-## Connect AI agents encryption at rest
+## Connect Customer agent assist encryption at rest
 
-All user data stored in Connect AI agents is encrypted at rest using encryption keys
-stored in AWS Key Management Service. If you optionally provide a customer managed key, Connect AI agents uses it to
-encrypt knowledge content stored at rest outside of Connect AI agents search indices.
-Connect AI agents uses dedicated search indices per customer and they are encrypted at rest
+All user data stored in Connect Customer agent assist is encrypted at rest using encryption keys
+stored in AWS Key Management Service. If you optionally provide a customer managed key, agent assist uses it to
+encrypt knowledge content stored at rest outside of agent assist search indices.
+agent assist uses dedicated search indices per customer and they are encrypted at rest
 by using AWS owned keys stored in AWS Key Management Service. Additionally, you can use CloudTrail to
-audit any data access using the Connect AI agents APIs.
+audit any data access using the agent assist APIs.
 
 AWS KMS charges apply when using a key that you provide. For more information about
 pricing, see [AWS KMS

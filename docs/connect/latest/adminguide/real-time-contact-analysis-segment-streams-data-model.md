@@ -1,4 +1,4 @@
-# Data model for conversational analytics segment streams to analyze voice contacts in Contact Lens
+# Data model for conversational analytics segment streams to analyze voice contacts in conversational analytics
 
 Real-time contact analysis segment streams are generated in JSON. Event JSON blobs are published to
 the associated stream for every contact that has real-time conversational
@@ -65,7 +65,7 @@ The language code associated to this contact.
 Type: String
 
 Valid values: the language code for one of the [supported
-languages for Contact Lens real-time call
+languages for conversational analytics real-time call
 analytics](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens").
 
 **EventType**

@@ -1,9 +1,9 @@
-# Create an Connect AI agents intent from an Connect Customer instance
+# Create an agent assist intent from a Connect Customer instance
 
-You can use the generative AI capabilities powered by Connect AI agents for your bot by enabling the
+You can use the generative AI capabilities powered by agent assist for your bot by enabling the
 [AMAZON.QinConnectIntent](../../../lexv2/latest/dg/built-in-intent-qinconnect.md "../../../lexv2/latest/dg/built-in-intent-qinconnect.md") in your bot. This is an Amazon Lex built-in intent.
 
-Complete the following steps to enable Connect AI agents.
+Complete the following steps to enable agent assist.
 
 1. Open the bot for which you want to add the **AMAZON.QinConnectIntent**
    intent.
@@ -14,12 +14,12 @@ Complete the following steps to enable Connect AI agents.
 
 ![A sample configuration page for an unconfigured bot.](images/enable-qic-bot.png)
 
-The **Connect AI agents intent** toggle is only supported for bots created
+The **agent assist intent** toggle is only supported for bots created
 directly within the Connect Customer admin website. To add Amazon Q capabilities to intents for bots created
-outside of Connect Customer admin website, use the Amazon Lex console to update the configuration. 4. In the **Enable Connect AI agents intent** dialog box, use the dropdown menu to
-choose the Amazon Resource Name (ARN) of the Connect AI agents intent.
+outside of Connect Customer admin website, use the Amazon Lex console to update the configuration. 4. In the **Enable agent assist intent** dialog box, use the dropdown menu to
+choose the Amazon Resource Name (ARN) of the agent assist intent.
 
-![A Enable Connect AI agents intent dialog box.](images/qic-intent-dropdownbox.png) 5. Choose **Confirm** to add **AMAZON.QinConnectIntent**
+![A Enable agent assist intent dialog box.](images/qic-intent-dropdownbox.png) 5. Choose **Confirm** to add **AMAZON.QinConnectIntent**
 intent support.
 
 ###### Important

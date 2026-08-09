@@ -6,7 +6,7 @@ Orchestration AI Agents require chat streaming to be enabled for chat contacts. 
 
 ## What is AI Messaging Streaming?
 
-AI Message Streaming is an Connect Customer feature that enables **progressive display of AI agent responses** during chat interactions. Instead of waiting for the AI to generate a complete response before showing anything to the customer, streaming displays text as it's being generated, creating a more natural, conversational experience.
+AI Message Streaming is a Connect Customer feature that enables **progressive display of AI agent responses** during chat interactions. Instead of waiting for the AI to generate a complete response before showing anything to the customer, streaming displays text as it's being generated, creating a more natural, conversational experience.
 
 ### How It Works
 
@@ -48,7 +48,7 @@ Connect Customer instances created **after December 2025** have AI Message Strea
 
 ###### Important
 
-If you're using an AWS account with an Connect Customer instance created **before December 2025**, you may need to manually enable AI Message Streaming. Follow the instructions in the [Enable message streaming for AI-powered chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md") documentation to check your instance's `MESSAGE_STREAMING` attribute and enable it if needed.
+If you're using an AWS account with a Connect Customer instance created **before December 2025**, you may need to manually enable AI Message Streaming. Follow the instructions in the [Enable message streaming for AI-powered chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md") documentation to check your instance's `MESSAGE_STREAMING` attribute and enable it if needed.
 
 ### Amazon Lex Bot Permissions
 

@@ -53,7 +53,7 @@ create a Customer Profiles domain by following the steps below:
 
 ### Set up an external application using Amazon AppFlow
 
-You can add an external application integration to an Connect Customer Customer
+You can add an external application integration to a Connect Customer Customer
 Profiles domain by using Amazon AppFlow by following steps below. You must create a
 flow for your data source in the Amazon AppFlow console and set Connect Customer Customer
 Profiles as the destination before continuing in the Customer Profiles

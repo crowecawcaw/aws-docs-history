@@ -1,6 +1,6 @@
-# Use Contact Lens APIs for chat analytics
+# Use conversational analytics APIs for chat analytics
 
-Contact Lens includes two APIs that support conversational analytics. Use
+Conversational analytics includes two APIs that support conversational analytics. Use
 these APIs to build solutions that make your contact center more efficient.
 
 - [ListRealtimeContactAnalysisSegments](../../../contact-lens/latest/APIReference/API_ListRealtimeContactAnalysisSegments.md "../../../contact-lens/latest/APIReference/API_ListRealtimeContactAnalysisSegments.md"): Use for voice

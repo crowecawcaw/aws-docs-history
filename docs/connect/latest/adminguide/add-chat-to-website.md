@@ -80,7 +80,7 @@ communications widget.
 
 ###### Note
 
-The Name must be unique for each communications widget created in an Connect Customer
+The Name must be unique for each communications widget created in a Connect Customer
 instance. 4. In the **Communications options** section, choose how your
 customers can engage with your widget, and then choose **Save and
 continue**.

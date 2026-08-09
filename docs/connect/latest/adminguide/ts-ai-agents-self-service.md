@@ -1,10 +1,10 @@
-# Troubleshoot Connect AI agent issues
+# Troubleshoot AI agent issues
 
-Use this topic to help diagnose and resolve common issues with Connect AI agents.
+Use this topic to help diagnose and resolve common issues with AI agents.
 
 ###### Contents
 
-- [Logging and tracing for Connect AI agents](viewing-logs-for-connect-ai-agents-self-service.md "viewing-logs-for-connect-ai-agents-self-service.md")
+- [Logging and tracing for AI agents](viewing-logs-for-connect-ai-agents-self-service.md "viewing-logs-for-connect-ai-agents-self-service.md")
 - [Troubleshoot agentic self-service issues](ts-agentic-self-service.md "ts-agentic-self-service.md")
 - [Common issues](ts-common-self-service-issues.md "ts-common-self-service-issues.md")
 - [(Legacy) Self-service issues](ts-non-agentic-self-service.md "ts-non-agentic-self-service.md")

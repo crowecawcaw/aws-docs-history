@@ -76,14 +76,14 @@ field.
 ```
 
 The Segment-Identify customer data from the Segment object is
-associated with an Connect Customer customer profile using the following index.
+associated with a Connect Customer customer profile using the following index.
 
 | Standard Index Name | Segment-Identify source field |
 | ------------------- | ----------------------------- |
 | \_segmentUserId     | userId                        |
 
 For example, you can use `_segmentUserId` as a key name
-with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find an Connect Customer customer profile.
+with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find a Connect Customer customer profile.
 You can find the Segment-Identify objects associated with a specific
 profile by using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId`
 and `ObjectTypeName` set to

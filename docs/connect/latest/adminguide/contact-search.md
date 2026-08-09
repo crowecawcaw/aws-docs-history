@@ -2,10 +2,10 @@
 
 ###### Note
 
-End of support notice: On May 20, 2026, AWS will end support for Amazon Connect
+End of support notice: On May 20, 2026, AWS will end support for Amazon Connect Customer
 Voice ID. After May 20, 2026, you will no longer be able to access Voice ID on the
-Amazon Connect console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID
-resources. For more information, visit [Amazon Connect
+Amazon Connect Customer console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID
+resources. For more information, visit [Amazon Connect Customer
 Voice ID end of support](amazonconnect-voiceid-end-of-support.md "amazonconnect-voiceid-end-of-support.md").
 
 This topic is for administrators and contact center managers who need to search for
@@ -98,15 +98,15 @@ on the next hierarchy level(s).
   **Match any** or **Match all** or **Match none**.
   For example, you can search contacts with both "category A" and "category B", or with either one of the two categories.
 
-You can refer to the complete list of conversational analytics filters [here](search-conversations.md "search-conversations.md"). You can apply these filters only if your organization has enabled Contact Lens.
+For the complete list of conversational analytics filters, see [Search conversations analyzed by conversational analytics](search-conversations.md "search-conversations.md"). You can apply these filters only if your organization has enabled conversational analytics.
 
-In the **Add filter** drop-down box, the Contact Lens
+In the **Add filter** drop-down box, the conversational analytics
 filters have **CL** next to them. You can apply these filters
-only if your organization has enabled Contact Lens.
+only if your organization has enabled conversational analytics.
 
 ![The contact search page, the filters section, the filter dropdown menu.](images/contact-lens-search-contact-category-1.png)
 
-If you want to remove the Contact Lens filters from a user's drop-down
+If you want to remove the conversational analytics filters from a user's drop-down
 list, remove the following permissions from their security profile:
 
     + **Search contacts by conversation**: This controls
@@ -114,7 +114,7 @@ list, remove the following permissions from their security profile:
      searches.
     + **Search contacts by keywords**: This controls access
      to the keywords search.
-    + **Contact Lens - conversational analytics**: On
+    + **Conversational analytics**: On
      the **Contact details** page, this displays graphs that
      summarize conversational analytics.
 
@@ -204,15 +204,15 @@ details** pages.
 We do not recommend assigning permissions in any other combination than
 what is shown in the preceding table.
 
-- **Contact Lens - conversational analytics**: On the
+- **Conversational analytics**: On the
   **Contact details** page for a contact, you can view
   graphs that summarize conversational analytics: customer sentiment trend,
   sentiment, and non-talk time.
 - **Call recordings (redacted) - Access**: If your organization
-  uses Contact Lens, you can assign this permission so agents access only
+  uses conversational analytics, you can assign this permission so agents access only
   those agent call recordings in which sensitive data has been redacted.
 - **Contact transcripts (redacted) - Access**: If your
-  organization uses Contact Lens, you can assign this permission so agents
+  organization uses conversational analytics, you can assign this permission so agents
   access only those contact transcripts in which sensitive data has been
   redacted.
 - **Call recordings (unredacted) - Access**: Use this
@@ -223,7 +223,7 @@ what is shown in the preceding table.
   hierarchy group.
 - **Contact transcripts (unredacted) - Access**: Use this
   permission to manage who can view unredacted chat and email conversations, and
-  unredacted voice transcripts produced by Contact Lens on the
+  unredacted voice transcripts produced by conversational analytics on the
   **Contact search** and **Contact details**
   pages. If desired, you can use **Restrict contact access** to
   ensure they only have access to detailed information for those contacts handled

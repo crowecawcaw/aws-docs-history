@@ -264,8 +264,8 @@ issue_.
 
 ### Generative AI-powered agent assist
 
-You can use [Connect AI agents](connect-ai-agent.md "connect-ai-agent.md") to
-automatically detect customer intent during calls and chats. Connect AI agents uses the
+You can use [Connect Customer agent assist](connect-ai-agent.md "connect-ai-agent.md") to
+automatically detect customer intent during calls and chats. agent assist uses the
 real-time conversation with the customer, along with relevant company content,
 to automatically recommend what to say or what actions an agent should take to
 better assist the customer. This improves both agent productivity and customer
@@ -344,7 +344,7 @@ operations and outcomes.
 - [Real-time and historical reports and dashboards](#connect-intro-reporting "#connect-intro-reporting")
 - [Real-time conversational analytics](#connect-intro-rtc "#connect-intro-rtc")
 - [Quality and performance management](#connect-intro-qa "#connect-intro-qa")
-- [Forecasting, capacity planning, and scheduling](#connect-intro-wfm "#connect-intro-wfm")
+- [Forecasting & agent scheduling](#connect-intro-wfm "#connect-intro-wfm")
 
 ### Real-time and historical reports and dashboards
 
@@ -355,7 +355,7 @@ customizable real-time and historical metrics.
 
 ![A couple of the ready-made dashboards for you to start using.](images/whatisconnect-dashboard-intro.png)
 
-The following image shows an example of the [Contact Lens Conversational analytics dashboard](contact-lens-conversational-analytics-dashboard.md "contact-lens-conversational-analytics-dashboard.md"). This
+The following image shows an example of the [Conversational analytics dashboard](contact-lens-conversational-analytics-dashboard.md "contact-lens-conversational-analytics-dashboard.md"). This
 dashboard helps you understand why customers are contacting you, the trends of
 contact drivers over time, and the performance of each of those call drivers.
 
@@ -363,8 +363,7 @@ contact drivers over time, and the performance of each of those call drivers.
 
 You can use Connect Customer data lake as a central location to query various
 types of data from Connect Customer. This data includes contact records,
-Contact Lens conversational analytics, Contact Lens
-performance evaluations, and more. You can use data lake to create
+conversational analytics data, performance evaluations, and more. You can use data lake to create
 custom reports, run SQL queries, or use the BI tools of your choice to
 analyze the information that matters most to improving customer experience and
 operational efficiency.
@@ -476,9 +475,9 @@ The following image shows the **Monitor** state.
 
 ![The CCP, the Monitor and Barge toggles.](images/monitor-barge-voice-channel-ccp.png)
 
-### Forecasting, capacity planning, and scheduling
+### Forecasting & agent scheduling
 
-Forecasting, capacity planning, and scheduling are machine learning (ML)–powered features that help your workforce
+Forecasting & agent scheduling are machine learning (ML)–powered features that help your workforce
 management team predict, allocate, and verify that the right number of agents
 are scheduled at the right time. Highly accurate forecasting helps you meet your
 operational goals with minimal overstaffing. You can anticipate contact volume

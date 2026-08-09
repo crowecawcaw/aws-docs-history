@@ -1,13 +1,13 @@
-# Example Contact Lens output files for a chat analyzed by Contact Lens conversational analytics
+# Example conversational analytics output files for a chat analyzed by conversational analytics
 
 This section shows an example schema for a chat conversation that has been
-analyzed by Contact Lens conversational analytics. The example shows inferred
+analyzed by conversational analytics. The example shows inferred
 sentiment, matched categories, contact summary, and response time.
 
 The original, analyzed file contains the full chat transcript. The same content
 that is present in the chat **Transcript** field on the
 **Contact details** page is present in `Transcript`
-field in the original Contact Lens analysis file. In addition, the analyzed
+field in the original conversational analytics analysis file. In addition, the analyzed
 file may contain more fields, such as a `Redaction` section to indicate
 that there is redacted data in the redacted analysis file.
 
@@ -19,7 +19,7 @@ However, not all roles from the `Participants` list (such as
 `CUSTOMER` or `AGENT`) are guaranteed to have
 corresponding keys in the `DetailsByParticipantRole` objects. The
 presence of a key for a participant depends on whether there was eligible data
-for Contact Lens analysis.
+for conversational analytics analysis.
 
 ## Categories
 
@@ -72,7 +72,7 @@ messages only.
 ### Overall sentiment
 
 The `DetailsByParticipantRole` field sentiment score for
-contact participants is similar to the Contact Lens for speech
+contact participants is similar to the conversational analytics for speech
 analytics file.
 
 `DetailsByInteraction` field has `CUSTOMER`
@@ -122,7 +122,7 @@ or vice versa).
 
 For example, if there was only one message from `CUSTOMER` and then
 only one message from `AGENT` before the chat ended,
-Contact Lens will calculate a response time for the
+conversational analytics will calculate a response time for the
 `AGENT`, but not for the `CUSTOMER`.
 
 ###### Note

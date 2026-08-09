@@ -24,9 +24,10 @@ post.
 Segment](customer-segments-managing-segments.md "customer-segments-managing-segments.md")** to use for this campaign.  Recipients for the campaign will be
 determined at the campaign's scheduled start time using the chosen segment. 
 
-###### Important
+###### Spark SQL segments not supported
 
-If you are running a campaign initiated by a customer event and using segment powered by Spark SQL, the campaign checks the segment membership as of the last time the segment was exported (segment snapshot), not at the point when the campaign is running. The API provides this as an attribute (lastComputedAt). If you receive a 4XX error, you also need to run a new export (segment snapshot). If you need Connect to automatically check membership as the campaign is running, please use Classic Segmentation. 5. Choose the **Channel** for the main communication of the campaign. The
+Managed campaigns do not support the use of Spark SQL segments. You must use Classic
+segments. 5. Choose the **Channel** for the main communication of the campaign. The
 supported channels include **Agent assisted voice**, **Automated
 voice**, **Email**, and **SMS**.
 
@@ -162,10 +163,10 @@ and abandonment rate thresholds:
 
 The following image shows the pacing controls section.
 
-![Pacing controls section showing max ring time, dialing capacity allocation, and agent allocation fields for a predictive voice campaign.](/images/connect/latest/adminguide/images/create-campaign-pacing-controls.png)
+![Pacing controls section showing max ring time, dialing capacity allocation, and agent allocation fields for a predictive voice campaign.](images/create-campaign-pacing-controls.png)
 
 - **Maximum ring time for unanswered calls** – The
-  maximum number of seconds a call will ring before ending. Valid values: 15 to 100
+  maximum number of seconds a call will ring before ending. Valid values: 15 to 60
   seconds.
 - **Dialing capacity allocation** – Allocates
   telecom dialing capacity for this campaign relative to other active campaigns. When
@@ -183,16 +184,16 @@ pacing when your configured abandonment rate threshold is reached. Select the
 
 The following image shows the abandonment controls settings.
 
-![Abandonment controls settings showing abandonment time start point, connection threshold, target abandonment rate, and measurement window.](/images/connect/latest/adminguide/images/create-campaign-abandonment-controls.png)
+![Abandonment controls settings showing abandonment time start point, connection threshold, target abandonment rate, and measurement window.](images/create-campaign-abandonment-controls.png)
 
 - **Abandonment time start point** – When the
   abandonment timer starts. The available options depend on whether call classification is
   enabled:
 
   - **Greeting start time** – Timer starts when the
-    customer begins speaking. Requires call classification to be enabled.
+    customer begins speaking.
   - **Greeting end time** – Timer starts when the
-    customer finishes their greeting. Requires call classification to be enabled.
+    customer finishes their greeting.
   - **Connected to system time** – Timer starts
     when the customer is connected to the system. This option is only available when call
     classification is disabled.
@@ -537,6 +538,14 @@ following settings:
 
     + **Detect recipient's local time zone** — Choose the method
      used to detect the recipient's time zone. Connect Customer Outbound Campaigns use a profile's [Address](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address") and/or [Phone Number](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber")'s area code to infer the recipient's time zone.
+
+
+    To detect a recipient's time zone from their postal code, you must populate the
+     profile's `Address.Country` together with `Address.PostalCode`.
+     Postal code-based time zone detection requires `Country`; other detection
+     methods do not require `Country`. If `Country` is missing, we
+     cannot determine the recipient's time zone from the postal code. We drop the recipient
+     from the Campaign with a `DROPPED_MISSING_TIMEZONE` status.
     + **Profile attributes to use for time zone detection** — Choose
      the scope of profile attributes used for time zone detection:
 

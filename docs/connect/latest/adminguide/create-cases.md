@@ -21,11 +21,14 @@ in the following image.
 
 ###### To create a case while on the **Cases** page
 
-1. You must be on a contact (call, chat, or task) and the contact must
-   already be **Associated** with a customer profile, as shown
-   in the following image.
+1. You must be on a contact (call, chat, or task).
 
-![The Associated status on the Customer profile page.](images/cm-create-case.png) 2. Choose the **Cases** tab and then choose **+
+If `customer_id` is included in the template's
+`requiredFields`, the contact must already be
+**Associated** with a customer profile. Otherwise,
+you can create a case without a customer profile.
+
+![A customer profile with the Associated status in the contact panel.](images/cm-create-case.png) 2. Choose the **Cases** tab and then choose **+
 Case**, as shown in the following image.
 
 ![The Cases button.](images/cm-create-case1.png) 3. Complete the required information for the case, and then choose

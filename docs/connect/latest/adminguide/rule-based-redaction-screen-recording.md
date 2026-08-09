@@ -84,9 +84,9 @@ Rule-based redaction uses one of two modes.
 
 - It does not redact voice or chat content. For call recording
   redaction, see [Use
-  sensitive data redaction with Contact Lens](sensitive-data-redaction.md "sensitive-data-redaction.md"). When rule-based redaction
+  sensitive data redaction with conversational analytics](sensitive-data-redaction.md "sensitive-data-redaction.md"). When rule-based redaction
   is enabled for a contact, Connect Customer stitches the redacted video with the
-  redacted call recording if Contact Lens call recording redaction is also enabled,
+  redacted call recording if conversational analytics call recording redaction is also enabled,
   and with no audio otherwise.
 - It does not hide content at the field level. Entire matching windows
   are masked; individual fields, DOM elements, or regions within a window

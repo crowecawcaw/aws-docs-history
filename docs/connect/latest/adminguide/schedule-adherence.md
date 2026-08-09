@@ -245,11 +245,11 @@ threshold.
 
 ## Set up schedule adherence notifications
 
-You can use Contact Lens rules to configure notifications to be sent when
+You can use conversational analytics rules to configure notifications to be sent when
 agents are out of adherence.
 
 1. In the Connect Customer admin website, navigate to **Analytics and Optimization**,
-   **Contact Lens**,
+   **conversational analytics**,
    **Rules**, and then choose **Create a
    rule**, **Real-time metrics**.
 2. For **When**, choose **There is an update in

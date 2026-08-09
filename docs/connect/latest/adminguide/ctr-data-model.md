@@ -2,10 +2,10 @@
 
 ###### Note
 
-End of support notice: On May 20, 2026, AWS will end support for Amazon Connect
+End of support notice: On May 20, 2026, AWS will end support for Amazon Connect Customer
 Voice ID. After May 20, 2026, you will no longer be able to access Voice ID on the
-Amazon Connect console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID
-resources. For more information, visit [Amazon Connect
+Amazon Connect Customer console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID
+resources. For more information, visit [Amazon Connect Customer
 Voice ID end of support](amazonconnect-voiceid-end-of-support.md "amazonconnect-voiceid-end-of-support.md").
 
 This article describes the data model for Connect Customer contact records. Contact
@@ -612,7 +612,7 @@ Length: 1-256
 
 **ContactLens**
 
-Information about Contact Lens features applied to this
+Information about conversational analytics features applied to this
 contact.
 
 Type: [ContactLens](#ctr-ContactLens "#ctr-ContactLens")
@@ -730,11 +730,12 @@ networks on your behalf.
   reports that it has reached the timeout point for this call
   attempt.
 - `TELECOM_ORIGINATOR_CANCEL` – This occurs when the call
-  is cancelled by the originating party before the connection is
-  established. For inbound calls, this happens when the customer
-  cancels the call before connecting. For outbound calls, this occurs
-  when the agent/API user cancels the call before connecting, or when
-  the call remains unanswered after 60 seconds.
+  is cancelled by the originating party before the connection to the
+  Connect Customer system is established. For inbound calls, this happens when
+  the customer cancels the call before connecting to the Connect Customer system.
+  For outbound calls, this occurs when the agent/API user cancels the
+  call before connecting, or when the call remains unanswered after 60
+  seconds.
 - `TELECOM_PROBLEM` – If we try to reach this customer
   via multiple networks and receive responses from the PSTN that
   indicate a problem exists with the destination network where we
@@ -759,10 +760,12 @@ Amazon Connect failure.
 - `THIRD_PARTY_DISCONNECT` – If a call connects with the
   customer and agent engaging, this flag triggers if the remote side
   of the call initiates the disconnect.
-- `CUSTOMER_DISCONNECT` – If a call connects with the
-  customer and agent engaging, this flag triggers if the customer side
-  of the call initiates the disconnect. This state cannot distinguish
-  between poor reception and deliberate disconnection.
+- `CUSTOMER_DISCONNECT` – After a call connects to the
+  Connect Customer system, this flag triggers if the customer side of the call
+  initiates the disconnect. This applies regardless of whether the
+  customer has been connected to an agent. This state cannot
+  distinguish between poor reception and deliberate
+  disconnection.
 - `AGENT_DISCONNECT` – If a call connects with the
   customer and agent engaging, this flag triggers if the agent side of
   the call initiates the disconnect.
@@ -1117,7 +1120,7 @@ Type: Array of [RecordingsInfo](#ctr-RecordingsInfo "#ctr-RecordingsInfo")
 The first recording for a contact will appear in both the Recording
 and Recordings sections of the contact record.
 
-**Connect AI agents**
+**agent assist**
 
 If Amazon Q was enabled on the contact, this is information about the
 Amazon Q session.
@@ -1260,11 +1263,11 @@ Type: [GlobalResiliencyMetadata](#ctr-GlobalResiliencyMetadata "#ctr-GlobalResil
 
 ## ContactLens
 
-Contact Lens information, if Contact Lens is enabled on the flow.
+Conversational analytics information, if conversational analytics is enabled on the flow.
 
 **ConversationalAnalytics**
 
-Information about the [Contact Lens conversational analytics](analyze-conversations.md "analyze-conversations.md") feature.
+Information about the [conversational analytics](analyze-conversations.md "analyze-conversations.md") feature.
 
 An object that holds the conversational analytics behavior for the
 contact.
@@ -1273,8 +1276,7 @@ Type: [ConversationalAnalytics](#ctr-ConversationalAnalytics "#ctr-Conversationa
 
 ## ConversationalAnalytics
 
-Information about [Contact Lens
-conversational analytics](analyze-conversations.md "analyze-conversations.md").
+Information about [conversational analytics](analyze-conversations.md "analyze-conversations.md").
 
 **Configuration**
 
@@ -1284,20 +1286,20 @@ Type: [Configuration](#ctr-Configuration "#ctr-Configuration")
 
 ## Configuration
 
-Configuration for Contact Lens conversational analytics. You configure
+Configuration for conversational analytics. You configure
 conversational analytics by using the [Set recording and analytics
 behavior](set-recording-behavior.md "set-recording-behavior.md") flow block in the Connect Customer admin website, or by using
 the [UpdateContactRecordingBehavior](../APIReference/contact-actions-updatecontactrecordingbehavior.md "../APIReference/contact-actions-updatecontactrecordingbehavior.md") contact action in the Flow language.
 
 **Enabled**
 
-Is Contact Lens enabled for the contact?
+Is conversational analytics enabled for the contact?
 
 Type: Boolean
 
 **ChannelConfiguration**
 
-Channel-specific Contact Lens conversational analytics
+Channel-specific conversational analytics
 configuration for the contact. Conversational analytics configuration is
 mapped to the flow block that can process contacts from different channels.
 While majority of configuration parameters apply to all channels, this
@@ -1307,7 +1309,7 @@ Type: [ChannelConfiguration](#ctr-ChannelConfiguration "#ctr-ChannelConfiguratio
 
 **LanguageLocale**
 
-Language locale used by Contact Lens to analyze the contact.
+Language locale used by conversational analytics to analyze the contact.
 
 Type: String
 
@@ -1377,7 +1379,7 @@ Redaction configuration for the contact.
 **Behavior**
 
 Indicates whether redaction is enabled for sensitive data, such as
-personal information, in the Contact Lens output file and audio
+personal information, in the conversational analytics output file and audio
 recording. When this field is set to `Disabled` all other values
 in this object are ignored.
 
@@ -2114,11 +2116,11 @@ Type: Boolean
 
 ## WisdomInfo
 
-Information about an Connect AI agents session.
+Information about an agent assist session.
 
 **SessionArn**
 
-The Amazon Resource Name (ARN) of the Connect AI agents session for the
+The Amazon Resource Name (ARN) of the agent assist session for the
 contact.
 
 Type: ARN

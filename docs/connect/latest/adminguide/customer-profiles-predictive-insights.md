@@ -1,7 +1,7 @@
 # Predictive Insights (Preview)
 
 _Predictive Insights_ (Preview) is a feature of
-Amazon Connect Customer Profiles that uses artificial intelligence to generate personalized product and
+Amazon Connect Customer Customer Profiles that uses artificial intelligence to generate personalized product and
 content recommendations for your customers. By analyzing customer interaction data,
 Predictive Insights helps you provide more relevant experiences across all customer
 touchpoints.

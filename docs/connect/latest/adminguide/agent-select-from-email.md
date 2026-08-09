@@ -61,5 +61,5 @@ The following examples show when agents might need to select a different From em
 
 - **Multi-brand support**: An agent handles contacts for both an insurance division and a retail division. When sending a follow-up email, the agent selects the appropriate brand email address.
 - **BPO scenario**: A BPO agent supporting multiple client brands receives a call from AnyCompany Brand. When initiating a follow-up email, the agent selects the AnyCompany Brand email address.
-- **Blended agents**: An agent on a voice call needs to send follow-up instructions via email. The agent initiates an outbound email and selects the correct department email address.
+- **Blended agents**: An agent on a voice call needs to send follow-up instructions by email. The agent initiates an outbound email and selects the correct department email address.
 - **Email routing correction**: An agent receives an email that was sent to sales@example.com but should have gone to support@example.com. The agent selects support@example.com as the From address when replying.

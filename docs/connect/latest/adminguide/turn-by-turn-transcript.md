@@ -1,4 +1,4 @@
-# Navigate transcripts and audio in Connect Customer Contact Lens
+# Navigate transcripts and audio in Connect Customer conversational analytics
 
 Supervisors are often required to review the contacts for many agents, for quality
 assurance purposes. The turn-by-turn transcript and sentiment data helps you quickly
@@ -25,9 +25,9 @@ image shows a voice contact, the same features apply to chat contacts.
 ## Show key highlights
 
 It can be time-consuming to review contact transcripts that are hundreds of
-lines long. To make this process faster and more efficient, Contact Lens
+lines long. To make this process faster and more efficient, conversational analytics
 provides the option for you to view key highlights. The highlights show only
-those lines where Contact Lens has identified an issue, outcome, or
+those lines where conversational analytics has identified an issue, outcome, or
 action item in the transcript.
 
 - **Issue** represents the call driver. For example,
@@ -44,7 +44,7 @@ all contacts will have all three.
 
 ###### Note
 
-If Contact Lens displays the message **There are no key
+If conversational analytics displays the message **There are no key
 highlights for this transcript**, it means no issue, outcome,
 or action item was identified.
 
@@ -82,7 +82,7 @@ conversation to check how that agent helped the customer.
 
 ## Tap or click category tags to navigate through transcript
 
-When you tap or click on the category tags, Contact Lens auto-navigates
+When you tap or click on the category tags, conversational analytics auto-navigates
 to the corresponding point-of-interests in the transcript. There are also
 category markers in the visualization of the interaction to indicate which part
 of the recording file has utterances related to the category.

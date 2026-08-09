@@ -1,4 +1,4 @@
-# Enable contact analysis segment streams to analyze Contact Lens conversations
+# Enable contact analysis segment streams to analyze conversational analytics conversations
 
 Contact analysis segment streams are not enabled by default. This topic
 explains how to enable them.
@@ -155,9 +155,9 @@ async function associate (): Promise <void> {
 associate().then(r => console.log('`Done`'));
 ```
 
-## Step 4: Enable Contact Lens for your Connect Customer instance
+## Step 4: Enable conversational analytics for your Connect Customer instance
 
-For instructions, see [Enable conversational analytics in Connect Customer Contact Lens](enable-analytics.md "enable-analytics.md").
+For instructions, see [Enable conversational analytics in Connect Customer conversational analytics](enable-analytics.md "enable-analytics.md").
 
 ## Step 5 (Optional): Review a sample segment stream
 

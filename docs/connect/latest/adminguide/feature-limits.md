@@ -20,7 +20,7 @@ The following tables list the various Connect Customer feature specifications.
 - [Forecasting,
   capacity planning, and scheduling](#forecasting-cap-planning-scheduling-specs "#forecasting-cap-planning-scheduling-specs")
 - [Integration association resource](#integration-association-resource-feature-specs "#integration-association-resource-feature-specs")
-- [Connect Customer Contact Lens](#contact-lens-feature-specs "#contact-lens-feature-specs")
+- [Connect Customer conversational analytics](#contact-lens-feature-specs "#contact-lens-feature-specs")
 - [Evaluation
   forms](#evaluationforms-feature-specs "#evaluationforms-feature-specs")
 - [Connect Customer
@@ -108,7 +108,7 @@ The following table lists the specifications for WhatsApp business messaging
 | Maximum email message body size                       | 5 MB                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Email message body format                             | HTML (`text/html`) (Default)<br>Plain text (`text/plain`)<br>All email contacts (messages) sent by Connect Customer are handled in HTML<br>(`text/html`) format by default. Additionally, a plain<br>text (`text/plain`) version is stored and available<br>for all email contacts (messages) in Connect Customer for features like the<br>[Flow block in Connect Customer: Get stored content](get-stored-content.md "get-stored-content.md") flow block.                                                                                                                                                                                                                                                                        |
 | Maximum email message body plus attachments size      | 25 MB                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| File attachments per email contact (message)          | 10 attachments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| File attachments per email contact (message)          | 50 attachments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Inline images per email contact (message)             | No limit so long as the size of inline images received in the<br>email message does not exceed 5 MB.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Inline image formats supported                        | `image/jpg`, `image/jpeg`,<br>`image/png`, `image/gif`,<br>`image/svg`, `image/webp`,<br>`image/bmp`, `image/heif`,<br>`image/heic`<br>All inline images are Base64 encoded when storing email<br>messages with Connect Customer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Email message and attachment retention                | This is defined by your Amazon S3 lifecycle configuration. For more<br>information, see [Managing your storage lifecycle](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md") in the<br>_Amazon Simple Storage Service User Guide_. Contact record<br>retention for all channels and subtypes still applies for email<br>contact data.<br>You can easily download and access email messages and<br>attachments using the [Download recordings and transcripts of past conversations in Connect Customer](download-recordings.md "download-recordings.md") feature.                                                                                         |
@@ -139,6 +139,7 @@ The following table lists the specifications for WhatsApp business messaging
 | Capacity plan user data uploads per instance                           | 500                                             |
 | Capacity plan override uploads per instance                            | 5000                                            |
 | Concurrent uploads per instance                                        | 20                                              |
+| Demand groups per forecast group                                       | 25                                              |
 | File size per upload of agent time off data                            | 1GB                                             |
 | File size per upload of time off group allowance data                  | 1GB<br>The .csv file can cover up to 13 months. |
 | File size per upload of capacity plan user data                        | 1GB                                             |
@@ -171,31 +172,33 @@ The following table lists feature specifications for the integration association
 resource. It lists how many of each type of integration association resource can be
 ingested.
 
-| Item                             | Feature Specification                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| Attachment scanner               | 1                                                                  |
-| Voice ID domain                  | 1                                                                  |
-| Amazon Pinpoint app              | 1                                                                  |
-| Event                            | 10<br>The event integration resource is used for task<br>triggers. |
-| Connect AI agents assistant      | 1                                                                  |
-| Connect AI agents knowledge base | 10                                                                 |
-| Cases domain                     | 1                                                                  |
-| Connect AI agents knowledge base | 10                                                                 |
+| Item                        | Feature Specification                                              |
+| --------------------------- | ------------------------------------------------------------------ |
+| Attachment scanner          | 1                                                                  |
+| Voice ID domain             | 1                                                                  |
+| Amazon Pinpoint app         | 1                                                                  |
+| Event                       | 10<br>The event integration resource is used for task<br>triggers. |
+| agent assist assistant      | 1                                                                  |
+| agent assist knowledge base | 10                                                                 |
+| Cases domain                | 1                                                                  |
+| agent assist knowledge base | 10                                                                 |
 
-## Connect Customer Contact Lens feature specifications
+## Connect Customer conversational analytics feature specifications
 
-| Item                             | Feature Specification |
-| -------------------------------- | --------------------- |
-| Custom vocabularies              | 20                    |
-| Contact Lens rules for post-call | 500                   |
-| Contact Lens rules for post-chat | 500                   |
-| Contact Lens rules for real-time | 500                   |
+| Item                                         | Feature Specification |
+| -------------------------------------------- | --------------------- |
+| Custom vocabularies                          | 20                    |
+| conversational analytics rules for post-call | 500                   |
+| conversational analytics rules for post-chat | 500                   |
+| conversational analytics rules for real-time | 500                   |
 
 ## Evaluation forms feature specifications
 
 | Item                                                                                                                    | Feature Specification                                                                |
 | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| Maximum number of evaluations per agent per month                                                                       | 3000                                                                                 |
+| Maximum number of manual evaluations per agent per<br>month                                                             | 2,000                                                                                |
+| Maximum number of manually started evaluations filled<br>with assistance of AI per agent per month                      | 1,000                                                                                |
+| Maximum number of automated evaluations filled by Gen AI<br>per agent per month                                         | 2,000                                                                                |
 | Maximum number of evaluation forms per instance<br>Historical versions are not counted, only form names are<br>counted. | 400                                                                                  |
 | Maximum number of versions per form                                                                                     | 50                                                                                   |
 | Maximum number of sections per form                                                                                     | 100                                                                                  |

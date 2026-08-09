@@ -276,7 +276,7 @@ AWS KMS key:
      choose **Finish**.
 
 
-    In the following example, the name of the key starts with
+    In the following example, the key ID starts with
      **bcb6fdd**:
 
 

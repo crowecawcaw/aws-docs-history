@@ -16,7 +16,7 @@ For many features, Connect Customer fully manages the underlying AI, including m
 
 Model inference is the process of a model generating an output (response) from a given input (prompt). To use an optimal model for each feature, Connect Customer may use [cross-region inference](../../../bedrock/latest/userguide/cross-region-inference.md "../../../bedrock/latest/userguide/cross-region-inference.md") for data processing. This means Connect Customer will automatically select the optimal AWS Region to process inference requests. The available AWS Regions vary based on the region of your Connect Customer instance. All data is transmitted encrypted across Amazon's secure network and does not traverse the public internet.
 
-The following tables lists the Inference regions that an Connect Customer instance may use:
+The following tables lists the Inference regions that a Connect Customer instance may use:
 
 | Connect Customer Instance Region          | Inference Regions                                                                                                                                                                                                                      |
 | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -1,4 +1,4 @@
-# Monitor live and recorded conversations using Connect Customer Contact Lens
+# Monitor live and recorded conversations using Connect Customer conversational analytics
 
 Managers can monitor or listen-in to live conversations between agents and contacts. They
 can also review and download recordings of past interactions for both automated interactions

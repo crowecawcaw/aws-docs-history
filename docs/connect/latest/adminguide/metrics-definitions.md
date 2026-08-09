@@ -115,7 +115,7 @@ This metric helps organizations:
 ## Adherence
 
 This metric is available in AWS Regions only where
-[Forecasting, capacity planning, and scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
+[Forecasting & agent scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
 
 This metric measures the percentage of time that an agent correctly follows their schedule.
 
@@ -148,7 +148,7 @@ For a list of all schedule adherence metrics, see [Schedule Adherence metrics in
 ## Adherent time
 
 This metric is available in AWS Regions only where
-[Forecasting, capacity planning, and scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
+[Forecasting & agent scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
 
 This metric measures the total time an agent adhered to their schedule.
 
@@ -890,10 +890,9 @@ conversation duration.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## AI Handoffs
 
@@ -2200,10 +2199,9 @@ indicating how quickly they engage with customers after joining the chat.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average agent incoming connecting time
 
@@ -2342,10 +2340,9 @@ customer interactions.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average agent interruption time
 
@@ -2373,10 +2370,9 @@ This metric measures the average of total agent interruption time while talking 
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average agent message length
 
@@ -2591,10 +2587,9 @@ This metric measures the average time that was spent talking in a conversation b
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average bot conversation time
 
@@ -2823,10 +2818,9 @@ This metric measures the average conversation duration of voice contacts with ag
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average customer hold time
 
@@ -3043,10 +3037,9 @@ conversation by a customer.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average dials per minute
 
@@ -3285,10 +3278,9 @@ conversation.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average outbound after contact work time
 
@@ -3680,10 +3672,9 @@ customer or the agent.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average Test Case Execution Duration
 
@@ -5968,10 +5959,9 @@ conversation duration.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Delivery attempts
 
@@ -6404,7 +6394,7 @@ start time and end time.
 ## Non-adherent time
 
 This metric is available in AWS Regions only where
-[Forecasting, capacity planning, and scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
+[Forecasting & agent scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
 
 This metric measures the total time an agent did not adhere to their schedule.
 
@@ -6450,10 +6440,9 @@ conversation duration.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Occupancy
 
@@ -6813,7 +6802,7 @@ For a list of all Outbound campaigns driven metrics, see [Outbound campaign metr
 ## Scheduled time
 
 This metric is available in AWS Regions only where
-[Forecasting, capacity planning, and scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
+[Forecasting & agent scheduling](regions.md#optimization_region "regions.md#optimization_region") is available.
 
 This metric measures the total time an agent was scheduled (either for productive or non-productive
 time) and _Adherence_ for those shifts was set to
@@ -7075,10 +7064,9 @@ duration.
 
 **Notes**:
 
-- This metric is available only for contacts analyzed by Contact Lens conversational
-  analytics.
+- This metric is available only for contacts analyzed by conversational analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Test case execution count
 

@@ -1,6 +1,6 @@
 # Custom metrics
 
-If your Connect Customer instance has Unlimited AI pricing enabled, you can create and manage custom
+In [Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") instances, you can create and manage custom
 metrics with advanced filters and functions on metric primitives and have them available
 for your dashboards.
 
@@ -225,10 +225,10 @@ Description of the custom metric
 - Optional
   Typical callouts when using the editor
 
-- To access metric builder your Connect instance should
-  have Unlimited AI enabled.
+- The metric builder is only available on [Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md")
+  instances.
 - Metrics created using metric builder will not be accessible
-  for editing once Unlimited AI is disabled.
+  for editing if the instance is switched from Connect Customer to [Customer Basic](enable-nextgeneration-amazonconnect.md#how-to-disable-ac "enable-nextgeneration-amazonconnect.md#how-to-disable-ac").
 
 ![The Metric Builder editor showing components, definition, and configuration options for creating advanced custom metrics.](images/dashboard-metric-builder-editor.png)
 

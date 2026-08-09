@@ -8,7 +8,7 @@ rescheduled, or restarted from the beginning.
 **Documentation requirements**: For a list of
 country-specific requirements for porting numbers, see [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md "phone-number-requirements.md").
 
-## Step 1: Create an Connect Customer support case
+## Step 1: Create a Connect Customer support case
 
 ###### Important
 
@@ -43,7 +43,7 @@ information** 6. On the **Additional information** page:
     	 instead of a production instance, you can self-move
     	 the phone numbers across instances only if the
     	 instances are in the same Region and same AWS
-    	 account. For limitations and instructions, see [Move an Connect Customer phone number across instances](move-phone-number-across-instances.md "move-phone-number-across-instances.md").
+    	 account. For limitations and instructions, see [Move a Connect Customer phone number across instances](move-phone-number-across-instances.md "move-phone-number-across-instances.md").
     	* Phone number. Use E.164 format for example:
     	 [+][country code][phone number including area code].
 

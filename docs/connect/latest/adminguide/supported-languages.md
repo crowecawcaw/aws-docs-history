@@ -10,7 +10,7 @@ This topic lists Connect Customer features and which languages they support.
 - [Quick responses](#supported-languages-quick-responses "#supported-languages-quick-responses")
 - [Connect Customer admin website](#supported-languages-admin-console "#supported-languages-admin-console")
 - [Connect Customer Cases](#supported-languages-cases "#supported-languages-cases")
-- [Connect Customer forecasting, capacity planning, and scheduling](#supported-languages-forecasting "#supported-languages-forecasting")
+- [Connect Customer forecasting & agent scheduling](#supported-languages-forecasting "#supported-languages-forecasting")
 - [Amazon Lex](#supported-languages-lex "#supported-languages-lex")
 - [Amazon Polly](#supported-languages-polly "#supported-languages-polly")
 
@@ -114,16 +114,16 @@ for the country code).
   the following AWS regions: Africa (Cape Town), Asia Pacific (Mumbai), Asia Pacific
   (Seoul) and AWS GovCloud (US-West).
 
-### Language support for Connect AI agents
+### Language support for agent assist
 
-Following is additional information about language support for Connect AI agents.
+Following is additional information about language support for agent assist.
 
 #### Agent assistance - Proactive Intent Detection based on transcripts
 
 - **Supported languages:** English,
   Spanish, Portuguese, French, Korean, Japanese, and Chinese
 
-Connect AI agents uses conversational analytics and natural language understanding (NLU)
+agent assist uses conversational analytics and natural language understanding (NLU)
 to detect customer intent during calls and chats. It provides agents with
 real-time generative responses and suggested actions.
 
@@ -146,7 +146,7 @@ For more information on customizing prompts, see [Create AI prompts in Connect C
 
 #### Guardrails
 
-Guardrails for Connect AI agents support the same languages as Amazon Bedrock guardrails classic tier.
+Guardrails for AI agents support the same languages as Amazon Bedrock guardrails classic tier.
 For a complete list of supported languages, see
 [Languages supported by Amazon Bedrock Guardrails](../../../bedrock/latest/userguide/guardrails-supported-languages.md "../../../bedrock/latest/userguide/guardrails-supported-languages.md").
 Evaluating text content in other languages will be ineffective.
@@ -193,7 +193,7 @@ Quick responses for chat and email contacts are available in English.
 - Portuguese (Brazilian)
 - Spanish
 
-## Connect Customer forecasting, capacity planning, and scheduling
+## Connect Customer forecasting & agent scheduling
 
 - Chinese (Simplified)
 - Chinese (Traditional)

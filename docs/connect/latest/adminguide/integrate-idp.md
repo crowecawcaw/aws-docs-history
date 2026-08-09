@@ -1,4 +1,4 @@
-# Integrate your identity provider (IdP) with an Connect Customer Global Resiliency SAML sign in endpoint
+# Integrate your identity provider (IdP) with a Connect Customer Global Resiliency SAML sign in endpoint
 
 To enable your agents to sign in once and be logged into both AWS Regions to
 process contacts from the current active Region, you need to configure IAM
@@ -48,7 +48,7 @@ steps in [Use an allowlist for integrated applications in Connect Customer](app-
   help sign-in. Regardless of how your `SignInConfig`
   distribution is configured, Connect Customer always attempts to sign in agents
   to both Regions of your Connect Customer instance.
-- After replicating an Connect Customer instance, only one SAML sign-in
+- After replicating a Connect Customer instance, only one SAML sign-in
   endpoint is generated for your instances. This endpoint always
   contains the source AWS Region in the URL.
 - You don't need to configure a relay state when using the

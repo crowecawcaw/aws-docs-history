@@ -1,6 +1,6 @@
 # Use Generative AI to semantically match contacts with natural language statements
 
-Within a Contact Lens
+Within a conversational analytics
 **conversational analytics** rule, you have the option to
 specify a **Natural language - semantic match** condition that
 uses generative AI to find contacts that match a natural language statement.
@@ -25,8 +25,8 @@ previously used Words or Phrases - Semantic Match.
 3. Then select **Create a Rule** and choose
    **Conversational analytics**.
 
-![Import from word collection option in the UI.](images/create-natural-semantic-match-rule.png) 4. Select either "A Contact Lens post-call analysis is
-available" or "A Contact Lens post-chat analysis is
+![Import from word collection option in the UI.](images/create-natural-semantic-match-rule.png) 4. Select either "A conversational analytics post-call analysis is
+available" or "A conversational analytics post-chat analysis is
 available". 5. Select **Add condition** and then choose
 **Natural language - semantic match**.
 

@@ -23,11 +23,23 @@ audio optimization does not function until you apply the workaround.
 For details and workaround steps, see [Chrome 147 and Edge 147 Local Network Access Prompts Block UCSDK
 Optimization](https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX696569&articleTitle=Chrome_147_and_Edge_147_Local_Network_Access_Prompts_Block_UCSDK_Optimization "https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX696569&articleTitle=Chrome_147_and_Edge_147_Local_Network_Access_Prompts_Block_UCSDK_Optimization") on the Citrix support website.
 
+###### Upgrade Citrix Workspace App to improve call quality
+
+To improve Citrix connectivity and reduce dropped calls and
+missed calls, use `CITRIX_413` instead of
+`CITRIX` for `VDIPlatform`, and upgrade to
+Citrix Workspace App (CWA) version 2508.10 or later for Windows,
+Linux, and Mac. For ChromeOS, use CWA version 2507 or later.
+This upgrade fixes a bug in older CWA versions that caused dead
+air and dropped calls during mute operations.
+
 - **Citrix Workspace Application
   Version**
 
-It is recommended to use the latest version of the Citrix Workspace
-Application, as outlined in [this documentation](https://community.citrix.com/tech-zone/learn/tech-briefs/ucssdk/ "https://community.citrix.com/tech-zone/learn/tech-briefs/ucssdk/"). However, at a minimum, you must use CWA
+Use CWA version 2508.10 or later for Windows, Linux, and
+Mac. For ChromeOS, use CWA version 2507 or later. For general
+Citrix UCSDK version compatibility, see [Citrix UCSDK compatibility documentation](https://community.citrix.com/tech-zone/learn/tech-briefs/ucssdk/ "https://community.citrix.com/tech-zone/learn/tech-briefs/ucssdk/") on the
+Citrix Tech Zone website. At a minimum, you must use CWA
 2305 or later.
 
 - **Citrix Server Version**

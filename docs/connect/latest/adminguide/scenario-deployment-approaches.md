@@ -40,7 +40,7 @@ individual business objectives. You can use flows for your IVR/ACD, have voice a
 data delivered through a supported web browser to your agent’s softphone, port your
 existing phone numbers, redirect softphone audio to an existing desk phone, invoke
 an Amazon Lex bot natively within your flow for ASR and NLP, and use the same flow for
-chat and voice. You can use Connect Customer Contact Lens to automatically generate voice
+chat and voice. You can use Connect Customer conversational analytics to automatically generate voice
 transcriptions, perform key word identification and sentiment analysis, and
 categorize contacts. For agent CTI data and real-time voice streaming, you can use
 Connect Customer Agent Event Streams and Kinesis Video Streams. You can also create multi-stage development,

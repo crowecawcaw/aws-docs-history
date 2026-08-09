@@ -2,9 +2,9 @@
 
 ###### Tip
 
-Check out this course from AWS Workshop: [Building advanced, generative AI with Connect AI agents](https://catalog.us-east-1.prod.workshops.aws/workshops/f77f49a2-1eae-4223-a9da-7044d6da51f8/en-US/01-introduction "https://catalog.us-east-1.prod.workshops.aws/workshops/f77f49a2-1eae-4223-a9da-7044d6da51f8/en-US/01-introduction").
+Check out this course from AWS Workshop: [Building advanced, generative AI with AI agents](https://catalog.us-east-1.prod.workshops.aws/workshops/f77f49a2-1eae-4223-a9da-7044d6da51f8/en-US/01-introduction "https://catalog.us-east-1.prod.workshops.aws/workshops/f77f49a2-1eae-4223-a9da-7044d6da51f8/en-US/01-introduction").
 
-Agentic self-service enables Connect AI agents to autonomously resolve customer issues
+Agentic self-service enables AI agents to autonomously resolve customer issues
 across voice and chat channels. Unlike [legacy self-service](generative-ai-powered-self-service.md "generative-ai-powered-self-service.md"), where the
 AI agent returns control to the contact flow when a custom tool is selected, agentic
 self-service uses orchestrator AI agents that can reason across multiple steps, invoke MCP
@@ -91,7 +91,7 @@ Follow these high-level steps to set up agentic self-service:
    `SelfServiceOrchestrator` includes a default
    `SelfServiceOrchestration` prompt that you can use as-is or
    create a new one to define your AI agent's personality, behavior, and
-   instructions for using tools. For more information about prompts, see [Customize Connect AI agents](customize-connect-ai-agents.md "customize-connect-ai-agents.md").
+   instructions for using tools. For more information about prompts, see [Customize AI agents](customize-connect-ai-agents.md "customize-connect-ai-agents.md").
 
 ###### Important
 
@@ -103,7 +103,7 @@ Configurations** and select your agent in the
 **Self Service** row. 6. Create a Conversational AI bot. Go to **Routing**,
 **Flows**, **Conversational AI**, and
 create a bot with the Connect Customer AI agent intent enabled. For more information, see
-[Create an Connect AI agents intent](create-qic-intent-connect.md "create-qic-intent-connect.md"). 7. Build a contact flow that routes contacts to your AI agent. Add a [Get customer input](get-customer-input.md "get-customer-input.md")
+[Create an agent assist intent](create-qic-intent-connect.md "create-qic-intent-connect.md"). 7. Build a contact flow that routes contacts to your AI agent. Add a [Get customer input](get-customer-input.md "get-customer-input.md")
 block that invokes your Conversational AI bot, and a [Check contact
 attributes](check-contact-attributes.md "check-contact-attributes.md") block to route based on
 the Return to Control tool selected by the AI agent. For more information, see [Create a flow and add your conversational AI bot](create-bot-flow.md "create-bot-flow.md").

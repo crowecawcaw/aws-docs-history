@@ -83,7 +83,7 @@ ID, see [Find the flow ID when integrating Apple Messages for Business with Amaz
 
 ## Step 3: Link your Apple Messages for Business ID to Connect Customer
 
-In this step you create an Connect Customer support ticket to link your Apple Messages for Business ID to Connect Customer.
+In this step you create a Connect Customer support ticket to link your Apple Messages for Business ID to Connect Customer.
 
 1. Create a [special Support ticket](https://support.console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-chime-end-user&categoryCode=other "https://support.console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-chime-end-user&categoryCode=other") to link your Apple Messages for Business to Connect Customer.
 
@@ -203,7 +203,7 @@ interaction, and any [out of hours messages](https://register.apple.com/resource
   messages in sequence, use only a 1-second typing indicators before each message.
   For more information, see [Typing Indicator Message](https://register.apple.com/resources/messages/msp-rest-api/common-specs#typingindicatormessage "https://register.apple.com/resources/messages/msp-rest-api/common-specs#typingindicatormessage").
 
-After your experience review recording is created, you can once again create an Connect Customer
+After your experience review recording is created, you can once again create a Connect Customer
 support ticket to share. Feedback will be provided by Connect Customer and Apple Messages for Business before final
 approval.
 

@@ -1,6 +1,6 @@
-# Enable Connect Customer Contact Lens integration
+# Enable Connect Customer conversational analytics integration
 
-After you create a Contact Lens connector, you need to enable the integration
+After you create a conversational analytics connector, you need to enable the integration
 by assigning users security profile permissions so they can access it on the
 Connect Customer admin website.
 
@@ -17,32 +17,32 @@ Connect Customer admin website.
 
 ###### Important
 
-If you don't see the Contact Lens connectors permission under
+If you don't see the conversational analytics connectors permission under
 **Channels and Flows**, request service quota increases
 for the following quotas in your Connect Customer account:
 
-    * Contact Lens connectors per account
+    * Conversational analytics connectors per account
     * Maximum active recording sessions from external voice systems per
      instance
 
 4. Assign this permission to the security profiles for users who you want to
-access the Contact Lens connectors.
+access the conversational analytics connectors.
 
 ###### Note
 
-You can only delete the last Contact Lens connector in your Connect Customer
-instance when the access to the Contact Lens connector is removed
+You can only delete the last conversational analytics connector in your Connect Customer
+instance when the access to the conversational analytics connector is removed
 from the users of that instance.
 
-If you attempt to delete the last Contact Lens connector without
-first removing the Contact Lens connectors access from the users of
+If you attempt to delete the last conversational analytics connector without
+first removing the conversational analytics connectors access from the users of
 that instance, the following error message is displayed: **error -
 Failed to delete connector {connector-name} with error: An analytics
 connector permissions is being used in a security
 profile**. 5. After you apply the permission, users who have it will be able to see the
-**Contact Lens connectors** option in the Connect Customer admin website
+**conversational analytics connectors** option in the Connect Customer admin website
 left navigation menu, as shown in the following image.
 
-![The left menu on the Connect Customer admin website, the Contact Lens option.](images/contact-lens-connector-menuitem.png) 6. You're done enabling the Contact Lens connector. Continue to the next
+![The left menu on the Connect Customer admin website, the conversational analytics option.](images/contact-lens-connector-menuitem.png) 6. You're done enabling the conversational analytics connector. Continue to the next
 step: [associate a
-Contact Lens connector with a flow](associate-contactlens-integration.md "associate-contactlens-integration.md").
+conversational analytics connector with a flow](associate-contactlens-integration.md "associate-contactlens-integration.md").

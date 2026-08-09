@@ -341,7 +341,7 @@ If you use a multilingual voice, you need only a single Amazon Lex bot locale. B
 
 **Don't:**
 
-- Add separate Amazon Lex bot locales for every language the multilingual voice supports. This is unnecessary — the AI agent handles language switching via the prompt.
+- Add separate Amazon Lex bot locales for every language the multilingual voice supports. This is unnecessary — the AI agent handles language switching through the prompt.
 
 If you need to support a language that is not in the multilingual voice's supported language list (for example, Thai or Tagalog), create a separate bot for that locale and use a locale-specific voice. See [Using a non-multilingual agentic voice in a non-English locale](#agentic-voice-multilingual-non-english-locale "#agentic-voice-multilingual-non-english-locale").
 
@@ -433,7 +433,7 @@ These prompts are templates to get you started. Modify them for your specific us
 
 ###### Tip
 
-For guidance on optimizing your AI agent prompt for voice performance and latency, see [Prompt engineering best practices for Connect AI agents](agentic-self-service-prompt-best-practices.md "agentic-self-service-prompt-best-practices.md").
+For guidance on optimizing your AI agent prompt for voice performance and latency, see [Prompt engineering best practices for AI agents](agentic-self-service-prompt-best-practices.md "agentic-self-service-prompt-best-practices.md").
 
 **Speech output formatting prompt**
 

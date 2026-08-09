@@ -1,4 +1,4 @@
-# Set up forecasting, capacity planning, and scheduling in Connect Customer
+# Set up forecasting & agent scheduling in Connect Customer
 
 ###### Tip
 
@@ -7,17 +7,17 @@ forecasting, capacity planning, and scheduling workshop](https://catalog.worksho
 course is for Contact Center Administrators, Workforce Managers, Forecasters and
 Schedulers who are responsible for the forecasting and scheduling of agents.
 
-Use these steps to set up forecasting, capacity planning, and scheduling.
+Use these steps to set up forecasting & agent scheduling.
 
 1. [Enable
-   forecasting, capacity planning, and scheduling](enable-forecasting-capacity-planning-scheduling.md "enable-forecasting-capacity-planning-scheduling.md") in the Connect Customer console.
+   forecasting & agent scheduling](enable-forecasting-capacity-planning-scheduling.md "enable-forecasting-capacity-planning-scheduling.md") in the Connect Customer console.
 
 ###### Note
 
-After enabling Forecasting, capacity planning, and scheduling, it may take up to **24
+After enabling Forecasting & agent scheduling, it may take up to **24
 hours** before the feature is available for use. 2. [Assign security profile
 permissions](required-optimization-permissions.md "required-optimization-permissions.md") to the Connect Customer users who will use this feature.
-Use the following steps to start using forecasting, capacity planning, and scheduling.
+Use the following steps to start using forecasting & agent scheduling.
 
 1. [Set the forecast and
    scheduling interval](set-forecast-scheduling-interval.md "set-forecast-scheduling-interval.md")

@@ -1,6 +1,6 @@
 # Add customer data to an AI agent session
 
-Connect Customer supports adding custom data to a Connect AI agent session so that
+Connect Customer supports adding custom data to an AI agent session so that
 it can be used to drive the generative AI driven solutions.
 Custom data can be used by first adding it to a session using
 the [UpdateSessionData](../APIReference/API_amazon-q-connect_UpdateSessionData.md "../APIReference/API_amazon-q-connect_UpdateSessionData.md") API, and then using the data added to customize AI prompts..
@@ -27,7 +27,7 @@ function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") blo
 Here's what you do:
 
 1. Add a [Connect assistant](connect-assistant-block.md "connect-assistant-block.md") block to
-   your flow. It associates an Connect AI agent domain to a contact so Connect Customer can search
+   your flow. It associates an AI agent domain to a contact so Connect Customer can search
    knowledge bases for real-time recommendations.
 2. Place the [AWS Lambda
    function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") block after your

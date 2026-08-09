@@ -32,5 +32,5 @@ you can do the following:
 - Embed the Connect Customer Assistant application into your existing employee workspace or
   CRM system.
   Connect agentic assistance is available through an out-of-the-box UI and by API for
-  integration into existing agent workspaces. For more information, see [Connect AI agents
+  integration into existing agent workspaces. For more information, see [AI agents
   API](../APIReference/API_Operations_Amazon_Q_Connect.md "../APIReference/API_Operations_Amazon_Q_Connect.md").

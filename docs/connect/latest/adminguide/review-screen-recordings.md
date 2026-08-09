@@ -141,8 +141,8 @@ To view a redacted recording:
 For information about the permissions that control access to redacted and
 unredacted recordings, see [Permissions for redacted recordings](rule-based-redaction-screen-recording.md#permissions-for-redacted-recordings "rule-based-redaction-screen-recording.md#permissions-for-redacted-recordings").
 
-The audio in a redacted recording depends on whether Contact Lens call recording redaction
+The audio in a redacted recording depends on whether conversational analytics call recording redaction
 is also enabled for the contact. If it is, the redacted video is stitched with the
 redacted call recording. If not, the redacted video has no audio. To redact audio from
 call recordings, see [Use sensitive data
-redaction with Contact Lens](sensitive-data-redaction.md "sensitive-data-redaction.md").
+redaction with conversational analytics](sensitive-data-redaction.md "sensitive-data-redaction.md").

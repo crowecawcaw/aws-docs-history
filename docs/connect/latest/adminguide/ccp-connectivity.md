@@ -24,7 +24,7 @@ Connect Customer page. If you still get this message, contact your IT team.
 
 ###### Inbound calls
 
-- When an inbound call is received, the call is anchored to an Connect Customer endpoint.
+- When an inbound call is received, the call is anchored to a Connect Customer endpoint.
   Any external transfers or conferences also use this anchor until the call is
   disconnected.
 - When an agent is available, the call is pushed through using a new Amazon EC2

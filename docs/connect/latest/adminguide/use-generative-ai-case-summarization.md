@@ -48,7 +48,7 @@ After a case summary is generated, the agent can:
 
 Following is an overview of the steps to configure case summarization for your contact center.
 
-1. [Enable Connect AI agents for your instance](ai-agent-initial-setup.md "ai-agent-initial-setup.md").
+1. [Enable AI agents for your instance](ai-agent-initial-setup.md "ai-agent-initial-setup.md").
 2. [Enable Cases for you instance](enable-cases.md "enable-cases.md").
 3. Add the [Connect assistant](connect-assistant-block.md "connect-assistant-block.md") block to your flows before a contact is assigned to your agent.
 4. Customize the outputs of your cases generative AI-powered assistant by [defining your prompts](create-ai-prompts.md "create-ai-prompts.md") to guide the AI agent with generating responses that match your company's language, tone, and policies for consistent customer service.
@@ -58,7 +58,7 @@ Following is an overview of the steps to configure case summarization for your c
 To ensure the best quality response from AI agent, implement the following best practices:
 
 - Train your agents to review all AI-generated content before storing it on a case.
-- Use AI guardrails to ensure appropriate content generation. For more information, see [Create AI guardrails for Connect AI agents](create-ai-guardrails.md "create-ai-guardrails.md").
+- Use AI guardrails to ensure appropriate content generation. For more information, see [Create AI guardrails for AI agents](create-ai-guardrails.md "create-ai-guardrails.md").
 - Monitor AI agent performance through CloudWatch Logs logs for:
 
   - Response feedback from your agents. For more information, see [TRANSCRIPT\_RESULT\_FEEDBACK](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").

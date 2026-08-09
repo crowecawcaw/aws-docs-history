@@ -1,6 +1,6 @@
 # Agentic voice
 
-Agentic voice enables your Amazon Connect bots to deliver natural, expressive voice interactions using advanced speech models. This section covers how to configure agentic voice, best practices for optimizing voice experiences, and how to set up Amazon Nova Sonic Speech-to-Speech.
+Agentic voice enables your Amazon Connect bots to deliver natural, expressive voice interactions using advanced speech models. This section covers how to configure agentic voice and best practices for optimizing voice experiences.
 
 ###### Contents
 

@@ -1,4 +1,4 @@
-# Use theme detection in Connect Customer Contact Lens to discover issues with contacts
+# Use theme detection in Connect Customer conversational analytics to discover issues with contacts
 
 Use theme detection to discover previously unknown or emerging contact themes from
 thousands of customer interactions. For example, you can spot common reasons for
@@ -10,7 +10,7 @@ training.
 ## Important things to know
 
 - Theme detection is available in the following languages supported by
-  Connect Customer Contact Lens:
+  Connect Customer conversational analytics:
 
 | Language (country)       | Language code |
 | ------------------------ | ------------- |
@@ -28,7 +28,7 @@ training.
   January 30, 2023.
 - The **Generate themes report** button is enabled only
   when your saved search contains at least 300 contacts with issues
-  detected by Contact Lens.
+  detected by conversational analytics.
 - The theme detection report is generated for the 3,000 most recent
   contacts.
 - Theme detection reports are available for 30 days after they are
@@ -46,25 +46,25 @@ training.
    profile permissions:
 
    - **Contact search - View**
-   - **Contact Lens - theme detection -
+   - **conversational analytics - theme detection -
      Create**
-   - **Contact Lens - theme detection -
+   - **conversational analytics - theme detection -
      View**
 
 2. In Connect Customer, on the left navigation menu, choose **Analytics and
    optimization**, **Contact search**.
 3. On the **Contact search** page, apply filters to
    select a group of contacts that have been analyzed by
-   Contact Lens.
+   conversational analytics.
 
 ###### Important
 
 Your search query must return at least 300 contacts with issues
-detected by Contact Lens. Otherwise, the **Generate
+detected by conversational analytics. Otherwise, the **Generate
 themes report** button is not enabled. 4. Choose **Save search** to save your results. Assign a
 name to your search. 5. Choose **Generate themes report**.
 
-Contact Lens applies machine learning to automatically group
+Conversational analytics applies machine learning to automatically group
 contacts with similar issues. When the report is generated, a banner
 displays a link to the theme report. An example banner is shown in the
 following image.

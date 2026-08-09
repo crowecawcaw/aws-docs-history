@@ -169,39 +169,77 @@ await amazon_connect.Web.ClickStream.recordBusinessMetric('clear_cart', {
 
 ## Associate clickstream with authenticated users
 
-Clickstream data captured by the web data tracker is continuously streamed to Customer Profiles
-and associated with the visitor's profile. The following table describes how that
-association behaves for anonymous and authenticated visitors.
+Clickstream data captured by the web data tracker is continuously streamed to Customer Profiles.
+How data is associated with a profile depends on whether profile keys are provided
+during widget initialization.
 
-| **Visitor type**      | **Profile association<br>behavior**                                                                                                                                                                                                                      |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Anonymous visitor     | Tracked by session identifier only. Behavioral data is<br>captured but not linked to a known customer identity. No<br>personally identifiable information is collected.                                                                                  |
-| Authenticated visitor | When you pass an authenticated user ID during widget<br>initialization, the service links all clickstream activity to<br>that user's known profile in Customer Profiles. This enables richer<br>personalization and more accurate trigger<br>conditions. |
+| **Visitor type**                         | **Profile association<br>behavior**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Visitor without profile keys (anonymous) | Tracked by an anonymous identifier stored in a browser<br>cookie that expires after 7 days. During this period,<br>clickstream data from the same visitor is linked to a single<br>anonymous profile. After the cookie expires, a new anonymous<br>identifier is generated and subsequent activity is tracked<br>under a new profile. No personally identifiable information is<br>collected.<br>If profile keys are provided during widget initialization,<br>clickstream data is linked to the corresponding known profile<br>instead of the anonymous profile. |
+| Visitor with profile keys                | When you pass profile keys during widget initialization,<br>the service links all clickstream activity to that user's known<br>profile in Customer Profiles. This enables richer personalization and more<br>accurate trigger conditions.                                                                                                                                                                                                                                                                                                                         |
 
-To associate tracking with an authenticated user, use one of the following
-approaches:
+### Link web analytics events with existing profiles
 
-- **(Recommended) Use the CustomerId JWT
-  claim** – If you enabled security on your Communications widget,
-  include the authenticated user ID in the `CustomerId` field of
-  your JSON Web Token (JWT) claims. This links clickstream activity to the
-  user's profile without exposing the ID in client-side code. For setup
-  details, see [Step 3: Confirm and copy communications widget code and security keys](add-chat-to-website.md#confirm-and-copy-chat-widget-script "add-chat-to-website.md#confirm-and-copy-chat-widget-script").
-- **Pass the user ID during initialization**
-  – If security is not enabled on your widget, pass the authenticated
-  user ID as an argument when initializing the tracker:
+To associate tracking with a known profile, set `profileKeys` in
+your JWT claims to search for and associate with an existing profile at
+connection time, and the service uses these keys to find a matching profile via
+the `SearchProfiles` API. This requires security to be enabled on
+your Communications widget. For setup details, see [Step 3: Confirm and copy communications widget code and security keys](add-chat-to-website.md#confirm-and-copy-chat-widget-script "add-chat-to-website.md#confirm-and-copy-chat-widget-script").
 
 ```
-await window.amazon_connect.Web.ClickStream.init('<authenticated-user-id>');
+{
+  "sub": "<widgetId>",
+  "iat": 1234567890,
+  "exp": 1234571490,
+  "profileKeys": {
+    "_email": "user@example.com",
+    "_account": "ACCT-12345"
+  },
+  "profileKeysOperator": "OR"
+}
 ```
 
-###### Important
+- `profileKeys` – A key-value object where each key
+  is a searchable Customer Profiles identifier (for example, `_email`,
+  `_phone`, `_account`) and the value is the
+  lookup value.
+- `profileKeysOperator` (optional) –
+  `"AND"` or `"OR"` (default:
+  `"OR"`). Determines whether the profile must match all keys
+  or any key.
+- If exactly one profile is found, it is associated with the
+  session.
+- If no profile is found, the session proceeds anonymously (a new
+  profile can be created later).
+- If multiple profiles are found,
+  `window.amazon_connect.Web.ClickStream.init()` returns an
+  error. Revise your key selection to ensure uniqueness.
 
-If an authenticated user ID is passed, it links to existing profiles via the
-account key. Since data tracker events accumulate over time, set object limits
-for `WebAnalytics-Clickstream` and `_webAnalytics` to
-prevent new events from overwriting other object types once the profile object
-limit is reached. For configuration guidance, see [Customer Profiles data limits](customer-profiles-data-limits.md "customer-profiles-data-limits.md").
+### Grouping events by a custom identifier
+
+If you don't need to link to an existing profile but want to group clickstream
+activity on your own, you can provide a custom identifier. Clickstream events
+sharing the same identifier are grouped under a common
+`_webAnalyticsUserId` profile key.
+
+There are two ways to provide it:
+
+- **Via JWT claims** – Set the
+  `customerId` field in your JWT claims (requires security
+  enabled).
+- **Via initialization** – Pass the
+  identifier as an argument when initializing the tracker:
+
+```
+// Pass the custom user id as a positional string argument.
+await window.amazon_connect.Web.ClickStream.init('<custom-user-id>');
+```
+
+###### Note
+
+If `profileKeys` are also provided and resolve to an existing
+profile, profile resolution uses that result and skips this custom
+identifier.
 
 ## What is captured
 

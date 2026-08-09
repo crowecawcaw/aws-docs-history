@@ -250,8 +250,8 @@ customers after joining the chat.
 
 ###### Note
 
-This metric is available only for contacts analyzed by Contact Lens conversational
-analytics, please refer to the following metric for more clarity: [Average agent greeting time](contact-lens-metrics.md#average-greeting-time-agent-hmetric "contact-lens-metrics.md#average-greeting-time-agent-hmetric")
+This metric is available only for contacts analyzed by conversational
+analytics. For more information, see the following metric: [Average agent greeting time](contact-lens-metrics.md#average-greeting-time-agent-hmetric "contact-lens-metrics.md#average-greeting-time-agent-hmetric")
 
 **Metric Primitive Name:**
 `Agent greeting time`
@@ -266,8 +266,8 @@ The total agent interruption time while talking to a contact.
 
 ###### Note
 
-This metric is available only for contacts analyzed by Contact Lens conversational
-analytics, please refer to the following metric for more clarity: [Average agent interruptions time](contact-lens-metrics.md#average-interruption-time-agent-hmetric "contact-lens-metrics.md#average-interruption-time-agent-hmetric")
+This metric is available only for contacts analyzed by conversational
+analytics. For more information, see the following metric: [Average agent interruptions time](contact-lens-metrics.md#average-interruption-time-agent-hmetric "contact-lens-metrics.md#average-interruption-time-agent-hmetric")
 
 **Metric Primitive Name:**
 `Agent interruption time`
@@ -283,8 +283,8 @@ Quantifies the frequency of agent interruptions during customer interactions.
 
 ###### Note
 
-This metric is available only for contacts analyzed by Contact Lens conversational
-analytics, please refer to the following metric for more clarity: [Average agent interruptions](contact-lens-metrics.md#average-interruptions-agent-hmetric "contact-lens-metrics.md#average-interruptions-agent-hmetric")
+This metric is available only for contacts analyzed by conversational
+analytics. For more information, see the following metric: [Average agent interruptions](contact-lens-metrics.md#average-interruptions-agent-hmetric "contact-lens-metrics.md#average-interruptions-agent-hmetric")
 
 **Metric Primitive Name:**
 `Agent interruptions`
@@ -300,8 +300,8 @@ The time that was spent talking in a conversation by an agent.
 
 ###### Note
 
-This metric is available only for contacts analyzed by Contact Lens conversational
-analytics, please refer to the following metric for more clarity: [Average agent talk time](contact-lens-metrics.md#average-talk-time-agent-hmetric "contact-lens-metrics.md#average-talk-time-agent-hmetric")
+This metric is available only for contacts analyzed by conversational
+analytics. For more information, see the following metric: [Average agent talk time](contact-lens-metrics.md#average-talk-time-agent-hmetric "contact-lens-metrics.md#average-talk-time-agent-hmetric")
 
 **Metric Primitive Name:**
 `Agent talk time`
@@ -316,9 +316,8 @@ The time that was spent talking in a conversation by a customer.
 
 ###### Note
 
-This metric is available only for contacts analyzed by Contact Lens
-conversational analytics, please refer to the following metric for more
-clarity: [Average customer talk time](contact-lens-metrics.md#average-talk-time-customer-hmetric "contact-lens-metrics.md#average-talk-time-customer-hmetric")
+This metric is available only for contacts analyzed by conversational
+analytics. For more information, see the following metric: [Average customer talk time](contact-lens-metrics.md#average-talk-time-customer-hmetric "contact-lens-metrics.md#average-talk-time-customer-hmetric")
 
 Note:
 
@@ -338,8 +337,8 @@ during which neither the agent nor the customer is engaged in conversation.
 
 ###### Note
 
-This metric is available only for contacts analyzed by Contact Lens conversational
-analytics, please refer to the following metric for more clarity: [Average non-talk time](contact-lens-metrics.md#average-non-talk-time-hmetric "contact-lens-metrics.md#average-non-talk-time-hmetric")
+This metric is available only for contacts analyzed by conversational
+analytics. For more information, see the following metric: [Average non-talk time](contact-lens-metrics.md#average-non-talk-time-hmetric "contact-lens-metrics.md#average-non-talk-time-hmetric")
 
 **Metric Primitive Name:**
 `Non-talk time`
@@ -356,9 +355,8 @@ customer or the agent.
 
 ###### Note
 
-This metric is available only for contacts analyzed by Contact Lens
-conversational analytics, please refer to the following metric for more
-clarity: [Average talk time](contact-lens-metrics.md#average-talk-time-hmetric "contact-lens-metrics.md#average-talk-time-hmetric")
+This metric is available only for contacts analyzed by conversational
+analytics. For more information, see the following metric: [Average talk time](contact-lens-metrics.md#average-talk-time-hmetric "contact-lens-metrics.md#average-talk-time-hmetric")
 
 **Metric Primitive Name:**
 `Talk time`
@@ -376,8 +374,8 @@ customer.
 
 ###### Note
 
-This metric is available only for contacts analyzed by Contact Lens
-conversational analytics, please refer to the following metric for more clarity: [Average conversation duration](contact-lens-metric..md#average-conversation-duration-hmetric "contact-lens-metric..md#average-conversation-duration-hmetric")
+This metric is available only for contacts analyzed by conversational
+analytics. For more information, see the following metric: [Average conversation duration](contact-lens-metrics.md#average-conversation-duration-hmetric "contact-lens-metrics.md#average-conversation-duration-hmetric")
 
 **Metric Primitive Name:**
 `Conversation duration`
@@ -679,7 +677,7 @@ from the client application and a response from the bot.
 | ValidationTestType (Represented as *_Contact source_<br>• in the custom metric builder) | Represents the testing and simulation type. This field remains empty for non-simulated contacts. You can use this attribute in the analytics dashboard to filter out actual customer contacts or to identify whether a contact is simulated within your contact record object.      | Please refer to *_connect:ValidationTestType_<br>• table row in the<br>[SegmentAttributes](connect-attrib-list.md#attribs-segment-attributes "connect-attrib-list.md#attribs-segment-attributes")<br>section for valid list of values.                                                                         |
 | Subtype                                                                                 | Represents the subtype of the channel used for the contact.                                                                                                                                                                                                                         | Please refer to *_connect:Subtype_<br>• table row in the<br>[SegmentAttributes](connect-attrib-list.md#attribs-segment-attributes "connect-attrib-list.md#attribs-segment-attributes")<br>section for valid list of values.                                                                                    |
 | User defined attribute keys                                                             | Represents any user defined predefined attribute that has been enabled for analytics.                                                                                                                                                                                               | Navigate to the<br>[predefined attributes page](predefined-attributes.md "predefined-attributes.md")<br>for the user defined attribute to understand what values are available.                                                                                                                                |
-| Feature                                                                                 | Identifies if Contact Lens conversational analytics is enabled on the flow.                                                                                                                                                                                                         | Contacts analyzed by conversational analytics                                                                                                                                                                                                                                                                  |
+| Feature                                                                                 | Identifies if conversational analytics is enabled on the flow.                                                                                                                                                                                                                      | Contacts analyzed by conversational analytics                                                                                                                                                                                                                                                                  |
 | Is abandoned                                                                            | This is true when the contact was abandoned by customer while waiting in queue, false otherwise.<br>Please note if a contact was scheduled for a callback it would not be considered as abandoned.                                                                                  | True or False                                                                                                                                                                                                                                                                                                  |
 | Is resulted in callback                                                                 | This is true when the contact was scheduled for a callback, false otherwise.                                                                                                                                                                                                        |
 | Is handled                                                                              | This is true when a contact is connected to an agent, false otherwise.                                                                                                                                                                                                              |
@@ -795,7 +793,7 @@ from the client application and a response from the bot.
 | AGENT\_HIERARCHY\_LEVEL\_ONE                         | Agent hierarchy level one              |
 | CHANNEL                                              | Channel                                | Valid values: Voice, Chat, Task, Email                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | QUEUE                                                | Queue                                  | Valid inputs to this key are Queue ARNs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Q\_CONNECT\_ENABLED                                  | Amazon Q                               | `TRUE` and `FALSE` are the only valid filter<br>values. This filter helps identify if or not Amazon Q in Connect<br>enabled as part of the flow.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Q\_CONNECT\_ENABLED                                  | Amazon Q                               | `TRUE` and `FALSE` are the only valid filter<br>values. This filter helps identify whether or not agent assist<br>is enabled as part of the flow.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ROUTING\_PROFILE                                     | Routing profile                        | Valid input is Routing Profile ARNs. Please read below docs for<br>more details:<br>• [How Amazon Connect uses routing profiles](concepts-routing.md "concepts-routing.md")<br>• [Contact Trace Record Data Model](ctr-data-model.md#ctr-Agent "ctr-data-model.md#ctr-Agent")                                                                                                                                                                                                                                                                                             |
 | contact/segmentAttributes/connect:Subtype            | Subtype                                | Please refer to *_connect:Subtype_<br>• table row in the<br>[SegmentAttributes](connect-attrib-list.md#attribs-segment-attributes "connect-attrib-list.md#attribs-segment-attributes")<br>section for valid list of values.                                                                                                                                                                                                                                                                                                                                               |
 | contact/segmentAttributes/connect:ValidationTestType | Contact source                         | Please refer to *_connect:ValidationTestType_<br>• table row in the<br>[SegmentAttributes](connect-attrib-list.md#attribs-segment-attributes "connect-attrib-list.md#attribs-segment-attributes")<br>section for valid list of values.                                                                                                                                                                                                                                                                                                                                    |

@@ -1,4 +1,4 @@
-# Allow Connect Customer Cases to send updates to Contact Lens rules
+# Allow Connect Customer Cases to send updates to conversational analytics rules
 
 ###### Note
 

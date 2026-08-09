@@ -14,15 +14,9 @@ contact center.
   granted by the **AmazonConnect\_FullAccess** policy.
 - For a list of the minimum IAM permissions required to create an instance, see
   [Required permissions for using custom IAM policies to manage access to the Connect Customer console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md").
-- By default when you create an Connect Customer instance, Next Generation Connect Customer is
-  enabled. It's pricing model includes unlimited AI features in Connect Customer. It's an
+- When you create an instance, it is a [Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") instance, which has an
   all-inclusive channel pricing model that covers all optimization features for
   usage on your platform.
-
-After you initially create your Connect Customer instance, you can choose to disable this
-option and instead pay separately for channels and any optimization features you
-choose to use. For more information, see [Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md").
-
 - Connect Customer is not available to customers in India using Amazon Web Services through
   Amazon Web Services India Private Limited (AWS India). You will receive an error
   message if you try to create an instance in Connect Customer.
@@ -151,7 +145,7 @@ conversations and exported reports. For instructions, see [Update settings for y
 
 ###### Note
 
-For voice artifacts (analysis files and redacted audio), Contact Lens uses
+For voice artifacts (analysis files and redacted audio), conversational analytics uses
 the recording key. For chat artifacts (analysis files), it uses the chat recording
 key.
 
@@ -210,13 +204,6 @@ If you chose to manage your users directly within Connect Customer or through an
 directory, you can access the instance using its access URL. If you chose to
 manage your users through SAML-based authentication, you can access the instance
 using the IdP.
-
-###### Important
-
-Next Generation Connect Customer is now enabled. It provides Connect Customer with unlimited AI features
-in an all-inclusive pricing model. To switch to paying separately for channels and
-any optimization features you choose, [disable Next
-Generation Connect Customer](enable-nextgeneration-amazonconnect.md#how-to-disable-ac "enable-nextgeneration-amazonconnect.md#how-to-disable-ac").
 
 ## Next steps
 

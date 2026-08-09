@@ -8,5 +8,5 @@ If you are an administrator and need to contact support for Connect Customer, ch
   It's helpful to provide the following information:
 
 - Your contact center instance ID/ARN. To find your instance ARN, see [Find your Connect Customer instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
-- Your region.
+- Your Region.
 - A detailed description of the issue.

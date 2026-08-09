@@ -81,12 +81,11 @@ Use the steps provided in the following overview to set up queued callback.
 
 ###### Important
 
-    + This option is available only when Next Generation Connect Customer is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for
-     your Connect Customer instance.
-    + If you disable Next Generation Connect Customer after you've already
-     activated and started using customer first callback, customer first
-     callback is also disabled. It is not available in the
-     pay-per-feature pricing model.
+    + This option is available in [Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md")
+     instances.
+    + If you switch from Connect Customer after you've already
+     activated and started using customer first callbacks, customer first
+     callbacks are also disabled.
 
 ## The routing process
 
@@ -244,9 +243,8 @@ block, as shown in the following image.
 
 ![The properties page of the Transfer to queue block, the Transfer to Callback tab.](images/transfer-to-queue-properties1a.png)
 
-    * If Next Generation Connect Customer is enabled for your Connect Customer instance (learn how
-     to [check whether it's enabled](enable-nextgeneration-amazonconnect.md#how-to-enable-ac "enable-nextgeneration-amazonconnect.md#how-to-enable-ac")),
-     you can choose either agent first callback mode (the default) or
+    * In [Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md")
+     instances, you can choose either agent first callback mode (the default) or
      customer first callback mode. For more information about these options,
      see [Use customer first callback
      mode](customer-first-cb.md "customer-first-cb.md").
@@ -312,7 +310,7 @@ example, if a customer reaches out after hours when no agent is available, they 
 request a voice callback by sending a chat message or completing a webform request
 (which uses tasks).
 
-The following video shows how to use Contact Lens to allow customers who
+The following video shows how to use conversational analytics to allow customers who
 contact you through Connect Customer chat to request a callback. This creates a more personalized
 customer experience. It shows how to configure this capability that allows customers to
 request callbacks from any channel, not just voice calls.

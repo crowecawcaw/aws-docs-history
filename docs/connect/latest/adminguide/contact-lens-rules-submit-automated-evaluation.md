@@ -1,6 +1,6 @@
-# Create a rule in Contact Lens that submits an automated evaluation
+# Create a rule in conversational analytics that submits an automated evaluation
 
-Contact Lens enables you to automatically fill and submit evaluations
+Conversational analytics enables you to automatically fill and submit evaluations
 by using insights and metrics from conversational analytics.
 
 ## Step 1: Configure automation on the evaluation form
@@ -30,7 +30,7 @@ instructions.
 You can trigger automated evaluations with two types of rules:
 
 - A **Conversational analytics** rule
-  that automatically evaluates the contact after Contact Lens
+  that automatically evaluates the contact after conversational analytics
   completes its analysis.
 - An **Evaluation forms** rule that can be
   used to trigger a situation-specific evaluation form as an outcome
@@ -48,8 +48,8 @@ create such a rule by selecting **Create a rule**,
 **Conversational analytics** on the
 **Rules** page.
 
-1. Choose **A Contact Lens post-call analysis is
-   available** or **A Contact Lens
+1. Choose **A conversational analytics post-call analysis is
+   available** or **A conversational analytics
    post-chat analysis is available** as the event
    source. These two options are highlighted in the following
    image.
@@ -90,7 +90,7 @@ You cannot apply rules to past, stored conversations.
    **Create a rule**, **Evaluation
    forms**.
 2. Under **When**, select the event source as
-   **A Contact Lens evaluation result is
+   **A conversational analytics evaluation result is
    available**.
 3. Choose **Add condition** to trigger a situation-specific
    evaluation. For example:
@@ -121,7 +121,7 @@ see such failure notifications within CloudWatch. 2. **How do I identify automat
 evaluations?**
 
 If an evaluation is automatically submitted, it is marked as
-"submitted by Contact Lens automation" on the
+"submitted by conversational analytics automation" on the
 **Contact details** page. If an automated
 evaluation is edited and re-submitted by an evaluator, the
 "submitted by" contains the name of the evaluator. 3. **Can I automatically evaluate a contact using

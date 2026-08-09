@@ -1,4 +1,4 @@
-# Supported flow blocks for Contact Lens integration
+# Supported flow blocks for conversational analytics integration
 
 The following tables list the flow blocks that you can use to specify how Connect Customer
 processes the audio stream sessions.
@@ -22,10 +22,10 @@ processes the audio stream sessions.
 
 **Analyze blocks**
 
-| Flow block                           | Effect    | Description                                                         |
-| ------------------------------------ | --------- | ------------------------------------------------------------------- |
-| Set Recording and Analytics behavior | Supported | Sets options for recording and enables features in<br>Contact Lens. |
-| Set logging behavior                 | Supported | Enable or disable flow logs                                         |
+| Flow block                           | Effect    | Description                                                                     |
+| ------------------------------------ | --------- | ------------------------------------------------------------------------------- |
+| Set Recording and Analytics behavior | Supported | Sets options for recording and enables features in<br>conversational analytics. |
+| Set logging behavior                 | Supported | Enable or disable flow logs                                                     |
 
 **Logic blocks**
 

@@ -13,7 +13,7 @@ automatically run whenever a case is created or updated. You can create rules th
 
 ###### Tip
 
-A developer needs to enable this feature. For instructions, see [Allow Connect Customer Cases to send updates to Contact Lens rules](cases-rules-integration-onboarding.md "cases-rules-integration-onboarding.md").
+A developer needs to enable this feature. For instructions, see [Allow Connect Customer Cases to send updates to conversational analytics rules](cases-rules-integration-onboarding.md "cases-rules-integration-onboarding.md").
 
 ###### Contents
 

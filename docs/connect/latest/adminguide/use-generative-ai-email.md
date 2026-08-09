@@ -4,7 +4,7 @@ To help agents to handle emails more efficiently, they can use generative AI-pow
 email responses. The email AI agents help agents provide faster email responses and more
 consistent support to customers.
 
-When an agent accepts an email contact that is [enabled](ai-agent-initial-setup.md#enable-ai-agents-step4 "ai-agent-initial-setup.md#enable-ai-agents-step4") with Connect AI agents, they automatically receive three types of proactive
+When an agent accepts an email contact that is [enabled](ai-agent-initial-setup.md#enable-ai-agents-step4 "ai-agent-initial-setup.md#enable-ai-agents-step4") with AI agents, they automatically receive three types of proactive
 responses in their Connect assistant panel on the agent workspace:
 
 1. [Email conversation overview](#email-conversation-overview "#email-conversation-overview"). For example, it provides key information about the customer's purchase history.
@@ -142,7 +142,7 @@ your contact center.
 
 ## Best practices to ensure quality responses
 
-To ensure the best quality response from Connect AI agents, implement the following best
+To ensure the best quality response from AI agents, implement the following best
 practices:
 
 - Train your agents to review all AI-generated content before sending to
@@ -152,8 +152,8 @@ practices:
 - Maintain up-to-date knowledge base content to improve response quality.
   For more information, see [Step 3: Create an integration (knowledge base)](ai-agent-initial-setup.md#enable-ai-agents-step-3 "ai-agent-initial-setup.md#enable-ai-agents-step-3").
 - Use AI guardrails to ensure appropriate content generation. For more
-  information, see [Create AI guardrails for Connect AI agents](create-ai-guardrails.md "create-ai-guardrails.md").
-- Monitor Connect AI agent performance through Amazon CloudWatch logs for:
+  information, see [Create AI guardrails for AI agents](create-ai-guardrails.md "create-ai-guardrails.md").
+- Monitor AI agent performance through Amazon CloudWatch logs for:
 
   - Response feedback from your agents. For more information, see
     [TRANSCRIPT\_RESULT\_FEEDBACK](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").

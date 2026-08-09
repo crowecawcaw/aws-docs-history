@@ -1,7 +1,7 @@
-# Example Contact Lens output files for an email analyzed by Contact Lens conversational analytics
+# Example conversational analytics output files for an email analyzed by conversational analytics
 
 This section shows an example schema for an email contact that has been
-analyzed by Contact Lens conversational analytics. The example shows
+analyzed by conversational analytics. The example shows
 matched categories and a contact chain summary.
 
 Note the following about email analytics output files:

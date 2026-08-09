@@ -1,6 +1,6 @@
-# When a rule or category fails to be evaluated by Connect Customer Contact Lens
+# When a rule or category fails to be evaluated by Connect Customer conversational analytics
 
-When Connect Customer Contact Lens evaluates a rule or category during a
+When Connect Customer conversational analytics evaluates a rule or category during a
 post-contact analysis for a voice or chat contact, it is possible that the rule
 or category fails to evaluate.
 
@@ -15,11 +15,11 @@ evaluated during contact analysis:
    to the contact**. When categories are absent from the
    **Contact details** page, it indicates they don't
    apply to the contact but were successfully evaluated by
-   Contact Lens rules.
+   conversational analytics rules.
 3. **The contact analysis was completed but a
    specific category was not evaluated**. When a category
    fails to be evaluated, it doesn't mean the category doesn't apply to the
-   contact (based on its criteria), but rather that Contact Lens
+   contact (based on its criteria), but rather that conversational analytics
    completed the contact analysis without evaluating this specific
    category.
    The following image shows that failed categories are denoted with their dashed
@@ -41,7 +41,7 @@ condition. The two possible reasons are:
    down the number of contacts it may apply to. This will help avoid quota exceeded
    failures.
 
-## Contact Lens post-contact analysis output customer S3 file
+## Conversational analytics post-contact analysis output customer S3 file
 
 Failed categories appear in the analysis file under JobDetails > Skipped
 Analysis.
@@ -98,4 +98,4 @@ Following is an example of failed categories within
 },
 ```
 
-For more information, see [Example Contact Lens conversational analytics output files for a call](contact-lens-example-output-files.md "contact-lens-example-output-files.md").
+For more information, see [Example conversational analytics output files for a call](contact-lens-example-output-files.md "contact-lens-example-output-files.md").

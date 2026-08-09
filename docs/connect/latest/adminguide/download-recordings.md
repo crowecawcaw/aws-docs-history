@@ -10,7 +10,7 @@ conversations.
 
 ###### Tip
 
-To have Connect Customer create transcripts of phone calls, see the Contact Lens
+To have Connect Customer create transcripts of phone calls, see the conversational analytics
 feature.
 
 ## Download a voice recording as a .wav file

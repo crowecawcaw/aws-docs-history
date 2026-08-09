@@ -1,9 +1,9 @@
-# Customize Connect AI agents
+# Customize AI agents
 
-You can customize how Connect AI agents work by using the Connect Customer admin website, no coding required. For example, you
+You can customize how AI agents work by using the Connect Customer admin website, no coding required. For example, you
 can customize the tone or format of the responses, the language, or the behavior.
 
-Following are a few use cases for how you can customize Connect AI agents:
+Following are a few use cases for how you can customize AI agents:
 
 - Personalize a response based on data. For example, you want your AI agent to provide a
   recommendation to a caller based on their loyalty status and past purchase
@@ -12,7 +12,7 @@ Following are a few use cases for how you can customize Connect AI agents:
   in.
 - Create a new tool, such as a self-service password reset for customers.
 - Summarize a conversation and pass it to an agent.
-  You customize Connect AI agents by creating or editing their AI prompts, AI guardrails, and adding tools.
+  You customize AI agents by creating or editing their AI prompts, AI guardrails, and adding tools.
 
 1. [AI prompt](create-ai-prompts.md "create-ai-prompts.md"): This is a task for the large
    language model (LLM) to do. It provides a task description or instruction for how
@@ -43,5 +43,5 @@ AI agents with your flows.
 - [Create AI prompts](create-ai-prompts.md "create-ai-prompts.md")
 - [Create AI guardrails](create-ai-guardrails.md "create-ai-guardrails.md")
 - [Create AI agents](create-ai-agents.md "create-ai-agents.md")
-- [Set the language for Connect AI agents](ai-agent-configure-language-support.md "ai-agent-configure-language-support.md")
+- [Set the language for AI agents](ai-agent-configure-language-support.md "ai-agent-configure-language-support.md")
 - [Add customer data to an AI agent session](ai-agent-session.md "ai-agent-session.md")

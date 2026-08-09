@@ -24,7 +24,7 @@ the _Connect Customer API Reference Guide_.
 - [Set up prompts to play from an S3 bucket in Connect Customer](setup-prompts-s3.md "setup-prompts-s3.md")
 - [Choose the text-to-speech voice and language for audio prompts in Connect Customer](voice-for-audio-prompts.md "voice-for-audio-prompts.md")
 - [Use SSML tags to personalize text-to-speech in Amazon Polly](ssml-prompt.md "ssml-prompt.md")
-- [SSML tags in an Connect Customer chat conversation](chat-and-ssml-tags.md "chat-and-ssml-tags.md")
+- [SSML tags in a Connect Customer chat conversation](chat-and-ssml-tags.md "chat-and-ssml-tags.md")
 - [SSML tags supported by Connect Customer](supported-ssml-tags.md "supported-ssml-tags.md")
 
 ## How to create prompts

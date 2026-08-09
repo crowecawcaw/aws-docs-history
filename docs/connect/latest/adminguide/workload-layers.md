@@ -25,7 +25,7 @@ experience for your customers.
 
 ![A graphic showing how telephony works for Connect Customer.](images/architecture/telephony2.png)
 
-When a voice call is placed to an Connect Customer instance, the telephony layer is
+When a voice call is placed to a Connect Customer instance, the telephony layer is
 responsible for controlling the endpoint that your customer calls into through their
 carrier, across the PSTN and into Connect Customer. This layer represents the audio path
 established between Connect Customer and the customer. Through the Connect Customer interface layer, you

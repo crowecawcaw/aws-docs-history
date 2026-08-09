@@ -1,7 +1,7 @@
-# Integrate Connect AI agents with step-by-step guides
+# Integrate agent assist with step-by-step guides
 
 To help agents get to solutions faster, you can associate [step-by-step guides](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md") with knowledge
-base content, such as knowledge articles. Then, when Connect AI agents provides a recommended
+base content, such as knowledge articles. Then, when agent assist provides a recommended
 solution to an agent, it also provides them with the option to start the step-by-step
 guide that you associated with the content.
 
@@ -179,9 +179,9 @@ Assign the following **Agent Applications** security profile
 permissions to the agents so they can view the knowledge base content and the
 step-by-step guides.
 
-- **Connect AI agents - View**: Enables agents to search for and
+- **agent assist - View**: Enables agents to search for and
   view content. They can also receive automatic recommendations during
-  calls if Contact Lens conversational analytics is enabled.
+  calls if conversational analytics is enabled.
 - **Custom views - Access**: Enables agents to see
   step-by-step guides in their agent workspace.
 

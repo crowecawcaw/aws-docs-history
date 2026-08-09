@@ -35,7 +35,7 @@ created your Connect Customer instance, skip to these topics:
 
 ## Step 2: Get a default Connect Customer email domain
 
-These steps only apply if you already created an Connect Customer instance but didn't enable
+These steps only apply if you already created a Connect Customer instance but didn't enable
 email. Complete these steps to get a default email domain from Connect Customer.
 
 1. In the Connect Customer console, on the left navigation menu, choose
@@ -69,7 +69,7 @@ to choose custom domains that have been [verified by Amazon SES](../../../ses/la
 
 ## Step 4: Enable email and create an Amazon S3 bucket for storing email and attachments
 
-These steps apply only if you already created an Connect Customer instance but didn't enable
+These steps apply only if you already created a Connect Customer instance but didn't enable
 email.
 
 You need to update your **Data storage** settings to enable the

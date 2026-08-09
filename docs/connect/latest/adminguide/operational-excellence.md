@@ -7,7 +7,7 @@ excellence of Connect Customer workloads.
 
 ## Prepare
 
-Consider the following areas to prepare for an Connect Customer workload.
+Consider the following areas to prepare for a Connect Customer workload.
 
 ### AWS account
 
@@ -44,7 +44,7 @@ For detailed information about porting your numbers, see [Port a current phone n
   should use Connect Customer telephony services for US toll-free numbers, allowing
   you to route toll-free traffic across multiple suppliers in an
   active-active fashion at no additional charge. In situations where you
-  are forwarding inbound traffic to an Connect Customer phone number, you should
+  are forwarding inbound traffic to a Connect Customer phone number, you should
   request redundant DID or Toll-Free numbers across multiple telephony
   providers. If you are claiming or porting multiple DID or Toll-Free
   numbers outside of the US, you should request that those numbers be
@@ -139,7 +139,7 @@ qualify for the Connect Customer Service Level Agreement.
 
 ## Operate
 
-Consider the following areas to operate an Connect Customer workload.
+Consider the following areas to operate a Connect Customer workload.
 
 ### Logging and monitoring
 

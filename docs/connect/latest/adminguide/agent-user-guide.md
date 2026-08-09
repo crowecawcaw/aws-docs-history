@@ -15,7 +15,7 @@ application. You can:
   customer information.
 - [Use Cases](search-cases.md "search-cases.md") to create, edit, and
   resolve customer cases.
-- [Use Connect AI agents](search-for-answers.md "search-for-answers.md") to obtain
+- [Use Connect Customer agent assist](search-for-answers.md "search-for-answers.md") to obtain
   the information you need from your company knowledge base.
 
 To access the agent workspace use the following URL:
@@ -26,7 +26,7 @@ Where `instance name` is provided by your IT
 department or the individuals that set up Connect Customer for your business.
 
 The following image shows the agent workspace with the CCP, Customer Profiles,
-Cases, and Connect AI agents.
+Cases, and agent assist.
 
 ![The agent workspace.](images/ccp-intro-agent-app.png)
 

@@ -128,7 +128,7 @@ include Person fields.)
 | AccountNumber                   | AccountNumber                 |
 
 The Salesforce-Account customer data from the Salesforce object is
-associated with an Connect Customer customer profile using the indexes in the
+associated with a Connect Customer customer profile using the indexes in the
 following table.
 
 | Standard Index Name   | Salesforce-Account source field |
@@ -251,7 +251,7 @@ standard profile object.
 | Birthdate                       | BirthDate                     |
 
 The Salesforce-Contact customer data from a Salesforce object is
-associated with an Connect Customer customer profile using the indexes in the
+associated with a Connect Customer customer profile using the indexes in the
 following table.
 
 | Standard Index Name   | Salesforce-Contact source field |

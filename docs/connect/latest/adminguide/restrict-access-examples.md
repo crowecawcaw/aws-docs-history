@@ -11,7 +11,7 @@ the bucket must be passed to the [AssociateInstanceStorageConfig](../APIReferenc
 For the set of IAM actions defined by Connect Customer, see [Actions defined by Connect Customer](../../../service-authorization/latest/reference/list_amazonconnect.md#amazonconnect-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonconnect.md#amazonconnect-actions-as-permissions").
 
 Following are some examples of how to restrict access to other resources that may be
-associated with an Connect Customer instance. They should be applied to the User or Role that is
+associated with a Connect Customer instance. They should be applied to the User or Role that is
 interacting with Connect Customer APIs or the Connect Customer console.
 
 ###### Note
@@ -23,7 +23,7 @@ For more information about what resources, condition keys, and dependent APIs yo
 use to restrict access, see [Actions, resources,
 and condition keys for Connect Customer](../../../service-authorization/latest/reference/list_amazonconnect.md "../../../service-authorization/latest/reference/list_amazonconnect.md").
 
-## Example 1: Restrict which Amazon S3 buckets can be associated with an Connect Customer instance
+## Example 1: Restrict which Amazon S3 buckets can be associated with a Connect Customer instance
 
 This example allows an IAM principal to associate an Amazon S3 bucket for call
 recordings for the given Connect Customer instance ARN, and a specific Amazon S3 bucket named
@@ -37,14 +37,14 @@ needed).
 To use an AWS KMS key to encrypt recordings in this bucket, an additional policy is
 needed.
 
-## Example 2: Restrict which AWS Lambda functions can be associated with an Connect Customer instance
+## Example 2: Restrict which AWS Lambda functions can be associated with a Connect Customer instance
 
-AWS Lambda functions are associated with an Connect Customer instance, but the Connect Customer
+AWS Lambda functions are associated with a Connect Customer instance, but the Connect Customer
 service-linked role is not used to invoke them, and so is not modified. Instead, a
 policy is added to the function through the `lambda:AddPermission` API that
 allows the given Connect Customer instance to invoke the function.
 
-To restrict which functions can be associated with an Connect Customer instance, you specify the
+To restrict which functions can be associated with a Connect Customer instance, you specify the
 Lambda function ARN that a user can use to invoke `lambda:AddPermission`:
 
 JSON
@@ -70,7 +70,7 @@ JSON
 
 ```
 
-## Example 3: Restrict which Amazon Kinesis Data Streams can be associated with an Connect Customer instance
+## Example 3: Restrict which Amazon Kinesis Data Streams can be associated with a Connect Customer instance
 
 This example follows a similar model to the Amazon S3 example. It restricts which specific
 Kinesis Data Streams may be associated with a given Connect Customer instance for delivering contact

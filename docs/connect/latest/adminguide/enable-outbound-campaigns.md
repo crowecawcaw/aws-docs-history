@@ -85,7 +85,7 @@ If you choose **Create an AWS KMS key**:
      **Finish**.
 
 
-    In the following example, the name of the key starts with
+    In the following example, the key ID starts with
      **bcb6fdd**:
 
 
@@ -112,6 +112,6 @@ calls ring until they go to voicemail or automatically terminate.
 **Maintain Calling Line Identification**
 
 Many locations require you to display the phone number associated with a caller ID. Connect Customer
-enforces the use of Calling Line Identification that corresponds to a number in an Connect Customer
+enforces the use of Calling Line Identification that corresponds to a number in a Connect Customer
 instance. The phone number you specify as caller ID for an outbound campaign must be one you
 have claimed or ported in to your number inventory.

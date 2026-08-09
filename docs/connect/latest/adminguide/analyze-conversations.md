@@ -1,6 +1,6 @@
-# Analyze conversations using conversational analytics in Connect Customer Contact Lens
+# Analyze conversations using conversational analytics in Connect Customer conversational analytics
 
-With Contact Lens conversational analytics, you can analyze conversations
+With conversational analytics, you can analyze conversations
 between customers and agents or customers and conversational AI, across voice, chat, and email, using natural language
 processing. Conversational analytics performs sentiment analysis, detects issues, and enables you to automatically categorize
 contacts.
@@ -32,14 +32,14 @@ contacts.
   improvement.
 - Each processed chat message is charged the same way. While not all messages may have
   all features applied (for example, summarization is applied to `text/plain`
-  messages only), if Contact Lens conversational analytics is enabled on the
+  messages only), if conversational analytics is enabled on the
   contact, the message is counted for billing. For more information about pricing, see
   [Connect Customer Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 
 ###### Email analytics support
 
 - **Email analytics**: Use to analyze email
-  conversations between customers and agents. Contact Lens automatically
+  conversations between customers and agents. conversational analytics automatically
   categorizes email contacts, redacts sensitive data from email transcripts, and
   generates contact summaries. This helps you understand email conversation
   trends and ensure compliance across your email channel.

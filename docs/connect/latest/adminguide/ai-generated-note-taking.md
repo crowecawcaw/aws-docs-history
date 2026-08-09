@@ -74,7 +74,7 @@ and which agents have access to it.
 Following is an overview of the steps to configure AI-generated note taking for
 your contact center.
 
-1. [Enable Connect AI agents for your
+1. [Enable AI agents for your
    instance](ai-agent-initial-setup.md "ai-agent-initial-setup.md").
 2. Enable NoteTaking for your instance.
 3. Add the [Connect assistant](connect-assistant-block.md "connect-assistant-block.md") block to your flows before a

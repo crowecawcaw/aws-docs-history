@@ -1,7 +1,7 @@
-# Troubleshooting forecasting, capacity planning, and scheduling in Connect Customer
+# Troubleshooting forecasting & agent scheduling in Connect Customer
 
 These sections outline troubleshooting scenarios and address frequently asked
-questions for forecasting, capacity planning, and scheduling.
+questions for forecasting & agent scheduling.
 
 - [Forecasting](#troubleshooting-forecasting "#troubleshooting-forecasting")
 - [Capacity

@@ -2,10 +2,10 @@
 
 ###### Note
 
-End of support notice: On May 20, 2026, AWS will end support for Amazon Connect
+End of support notice: On May 20, 2026, AWS will end support for Amazon Connect Customer
 Voice ID. After May 20, 2026, you will no longer be able to access Voice ID on the
-Amazon Connect console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID
-resources. For more information, visit [Amazon Connect
+Amazon Connect Customer console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID
+resources. For more information, visit [Amazon Connect Customer
 Voice ID end of support](amazonconnect-voiceid-end-of-support.md "amazonconnect-voiceid-end-of-support.md").
 
 Connect Customer Voice ID provides APIs for you manage Voice ID domains. You can find
@@ -24,12 +24,12 @@ API:
     * You must also specify the KMS key for the Voice ID domain at
      the time of creation.
     * After creating a Voice ID domain, use the [Connect Customer
-     association APIs](../APIReference.md "../APIReference.md") to associate it with an Connect Customer
+     association APIs](../APIReference.md "../APIReference.md") to associate it with a Connect Customer
      instance.
 
 2. [DeleteDomain](../../../voiceid/latest/APIReference/API_DeleteDomain.md "../../../voiceid/latest/APIReference/API_DeleteDomain.md"): To delete a Voice ID domain, you must invoke the
 `DeleteDomain` Voice ID API and provide the domain ID. If
-this domain was associated with an Connect Customer instance, Voice ID API calls, and
+this domain was associated with a Connect Customer instance, Voice ID API calls, and
 Voice ID flow blocks will return runtime error. Deleting a Voice ID domain
 deletes all stored customer data such as audio recordings, voiceprints and
 speaker identifiers, as well as fraudster lists that you managed. 3. [DescribeDomain](../../../voiceid/latest/APIReference/API_DescribeDomain.md "../../../voiceid/latest/APIReference/API_DescribeDomain.md"): Use this API to return the name, description

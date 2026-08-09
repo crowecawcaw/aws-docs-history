@@ -1,16 +1,16 @@
-# Search for content using Connect AI agents
+# Search for content using Connect Customer agent assist
 
-|                                                                                                                                                                                                                                                                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Powered by Amazon Bedrock**:<br>Connect AI agents is built on Amazon Bedrock and includes [automated abuse<br>detection](../../../bedrock/latest/userguide/abuse-detection.md "../../../bedrock/latest/userguide/abuse-detection.md") implemented in Amazon Bedrock to enforce safety, security, and the<br>responsible use of artificial intelligence (AI). |
+|                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Powered by Amazon Bedrock**:<br>AI agents is built on Amazon Bedrock and includes [automated abuse<br>detection](../../../bedrock/latest/userguide/abuse-detection.md "../../../bedrock/latest/userguide/abuse-detection.md") implemented in Amazon Bedrock to enforce safety, security, and the<br>responsible use of artificial intelligence (AI). |
 
-With Connect AI agents agents can use natural language to search across connected knowledge
+With Connect Customer agent assist agents can use natural language to search across connected knowledge
 sources to receive generated recommendations, like actions to take and links to more
 information.
 
 For example, you can type questions or phrases in the search box (such as, "how long
 after purchase can handbags be exchanged?") without having to guess which keywords will
-work. Connect AI agents searches the connected sources, and returns a specific solution generated
+work. agent assist searches the connected sources, and returns a specific solution generated
 from your knowledge content along with links to relevant information.
 
 You can search for content at any time: while on a contact, on After Contact Work, or

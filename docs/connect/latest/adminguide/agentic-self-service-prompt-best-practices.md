@@ -1,7 +1,7 @@
-# Prompt engineering best practices for Connect AI agents
+# Prompt engineering best practices for AI agents
 
 The following best practices can help you write more effective orchestration prompts
-for your Connect AI agents. Many of these practices apply broadly to both
+for your AI agents. Many of these practices apply broadly to both
 self-service and agent assistance use cases, while some are specific to managing
 response latency or self-service interactions.
 
@@ -253,7 +253,7 @@ promising capabilities it doesn't have.
 ## Manage response latency
 
 The following best practices help you optimize response latency for your
-Connect AI agents.
+AI agents.
 
 ### Calibrate prompt specificity to model capability
 

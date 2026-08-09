@@ -526,13 +526,13 @@ The following table lists the variables you can use in your AI prompts, and how 
 format them. You'll notice these variables are already used in the AI prompt
 templates.
 
-| Variable type              | Format                        | Description                                                                                                                                                                              |
-| -------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| System variable            | {{$.transcript}}              | Inserts a transcript of up to the three most recent turns of<br>conversation so the transcript can be included in the instructions<br>that are sent to the LLM.                          |
-| System variable            | {{$.contentExcerpt}}          | Inserts relevant document excerpts found within the knowledge<br>base so the excerpts can be included in the instructions that are<br>sent to the LLM.                                   |
-| System variable            | {{$.locale}}                  | Defines the locale to be used for the inputs to the LLM and its<br>outputs in response.                                                                                                  |
-| System variable            | {{$.query}}                   | Inserts the query constructed by a Connect AI agent to find document excerpts<br>within the knowledge base so the query can be included in the<br>instructions that are sent to the LLM. |
-| Customer provided variable | {{$.Custom.<VARIABLE\_NAME>}} | Inserts any customer provided value that is added to a Connect Customer<br>session so that value can be included in the instructions that are<br>sent to the LLM.                        |
+| Variable type              | Format                        | Description                                                                                                                                                                       |
+| -------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| System variable            | {{$.transcript}}              | Inserts a transcript of up to the three most recent turns of<br>conversation so the transcript can be included in the instructions<br>that are sent to the LLM.                   |
+| System variable            | {{$.contentExcerpt}}          | Inserts relevant document excerpts found within the knowledge<br>base so the excerpts can be included in the instructions that are<br>sent to the LLM.                            |
+| System variable            | {{$.locale}}                  | Defines the locale to be used for the inputs to the LLM and its<br>outputs in response.                                                                                           |
+| System variable            | {{$.query}}                   | Inserts the query constructed by an AI agent to find document excerpts<br>within the knowledge base so the query can be included in the<br>instructions that are sent to the LLM. |
+| Customer provided variable | {{$.Custom.<VARIABLE\_NAME>}} | Inserts any customer provided value that is added to a Connect Customer<br>session so that value can be included in the instructions that are<br>sent to the LLM.                 |
 
 ## Optimize your AI prompts
 

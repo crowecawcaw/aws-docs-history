@@ -22,7 +22,7 @@ There are two steps to set up E911:
 
 Calling 911 for a non-emergency situation carries a penalty of $100 per
 occurrence. To help you avoid penalties, we have set up 933 so you can test this
-capability. Calls placed from an Connect Customer Contact Control Panel (CCP) to 933 have
+capability. Calls placed from a Connect Customer Contact Control Panel (CCP) to 933 have
 an audio playback message confirming:
 
 - The number the call originated from.

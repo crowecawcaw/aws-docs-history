@@ -30,8 +30,7 @@ voice to use for the contact flow.
 - You will be charged for using the Generative voices. For more details on
   pricing, see the [Amazon
   Polly Pricing Details](https://aws.amazon.com/polly/pricing/ "https://aws.amazon.com/polly/pricing/")
-- If you are onboarded to [Next Gen Amazon Connect](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md"), the Generative voices are included as
-  part of the Next Gen Amazon Connect pricing.
+- Generative voices are available in [Amazon Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md").
 
 ###### Note
 

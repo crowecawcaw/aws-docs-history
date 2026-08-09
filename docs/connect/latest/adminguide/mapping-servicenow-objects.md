@@ -95,7 +95,7 @@ Servicenow-sys\_users object to the standard profile.
 | zip                                | Address.PostalCode             |
 
 The Servicenow-sys\_user customer data from Servicenow object is
-associated with an Connect Customer customer profile using the indexes in the
+associated with a Connect Customer customer profile using the indexes in the
 following table.
 
 | Standard Index Name  | Servicenow-sys\_user source field |
@@ -103,7 +103,7 @@ following table.
 | \_serviceNowSystemId | sys\_id                           |
 
 For example, you can use `_serviceNowSystemId` and
-`_serviceNowIncidentId` as a key name with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find an Connect Customer customer profile. You
+`_serviceNowIncidentId` as a key name with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find a Connect Customer customer profile. You
 can find the Servicenow-sys\_user objects associated with a specific
 profile by using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId` and
 `ObjectTypeName` set to

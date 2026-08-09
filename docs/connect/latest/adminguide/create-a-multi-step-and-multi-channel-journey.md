@@ -1,8 +1,20 @@
 # Visual Journey Builder
 
-A journey is an automated, multi-step outbound campaign. It reaches your customers across
-more than one channel, such as SMS, email, and voice. Each step can branch based on how a
-customer responds, so you can guide different customers down different paths.
+###### Using Spark SQL segments in Journeys
+
+By default, Spark SQL segments aren't available for use in Journeys. To enable them,
+contact AWS Support to request access.
+
+Before using Spark SQL segments in a journey, consider the following limitations:
+
+- Spark SQL segment processing can take up to 2 hours to complete. However, Outbound
+  Campaigns waits only 30 minutes for segment processing to complete. If Spark SQL segment
+  processing exceeds this 30-minute timeout, the journey fails.
+- If you use a Spark SQL segment for the dial criteria parameter in the Send Communication
+  voice block, the criteria won't reflect the latest state of the segment.
+  A journey is an automated, multi-step outbound campaign. It reaches your customers across
+  more than one channel, such as SMS, email, and voice. Each step can branch based on how a
+  customer responds, so you can guide different customers down different paths.
 
 Use the Visual Journey Builder to create a journey when your outreach needs more than a
 single message on one channel. For example, you can send a promotional SMS, and then email the
@@ -110,6 +122,14 @@ following settings:
 
     + **Detect recipient's local time zone** — Choose the method
      used to detect the recipient's time zone. Connect Customer Outbound Campaigns use a profile's [Address](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address") and/or [Phone Number](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber")'s area code to infer the recipient's time zone.
+
+
+    To detect a recipient's time zone from their postal code, you must populate the
+     profile's `Address.Country` together with `Address.PostalCode`.
+     Postal code-based time zone detection requires `Country`; other detection
+     methods do not require `Country`. If `Country` is missing, we
+     cannot determine the recipient's time zone from the postal code. We drop the recipient
+     from the Journey with a `DROPPED_MISSING_TIMEZONE` status.
     + **Profile attributes to use for time zone detection** — Choose
      the scope of profile attributes used for time zone detection:
 

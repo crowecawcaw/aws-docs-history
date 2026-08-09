@@ -33,7 +33,7 @@ Case SLAs in Amazon Connect consist of the following components:
 
 You can associate SLAs with cases in two ways:
 
-- **Automatically**: Use Contact Lens Rules to add
+- **Automatically**: Use conversational analytics rules to add
   SLAs to cases that meet specified conditions (case template and field values)
   for Case Creation and Update rules. For more information, see [Automatically monitor and update cases in Connect Customer Cases](create-alerts-on-cases.md "create-alerts-on-cases.md").
 - **Manually**: Use the CreateRelatedItem API to
@@ -80,10 +80,10 @@ These settings persist unless you clear your cookies.
 
 ## Automating Actions for Breached SLAs
 
-You can use Contact Lens Rules to trigger automated actions when SLAs reach their
+You can use conversational analytics rules to trigger automated actions when SLAs reach their
 target completion time without being met:
 
-1. In the Contact Lens Rules interface, add a new rule with the trigger based on
+1. In the conversational analytics rules interface, add a new rule with the trigger based on
    **Case SLA Breach**.
 2. Specify which SLA names the **Breach rule** should apply to.
 

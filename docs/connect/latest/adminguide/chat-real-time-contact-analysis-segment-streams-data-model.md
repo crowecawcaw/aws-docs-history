@@ -1,4 +1,4 @@
-# Data model for conversational analytics segment streams to analyze chats in Contact Lens
+# Data model for conversational analytics segment streams to analyze chats in conversational analytics
 
 Conversational analytics segment streams for chat contacts are generated in
 JSON. Event JSON blobs are published to the associated stream for every contact
@@ -72,7 +72,7 @@ Valid values: `STARTED`, `SEGMENTS`,
 
 **StreamingSettings**
 
-The Contact Lens settings for this contact
+The conversational analytics settings for this contact
 
 Type: [StreamingSettings](#streamingsettingsobject "#streamingsettingsobject") object
 
@@ -85,12 +85,12 @@ The language code associated to this contact.
 Type: String
 
 Valid values: the language code for one of the [supported
-languages for Contact Lens real-time call
+languages for conversational analytics real-time call
 analytics](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens").
 
 **Output**
 
-The Contact Lens output type enabled for this
+The conversational analytics output type enabled for this
 contact.
 
 Type: String
@@ -146,7 +146,7 @@ Valid values: `PII`, `EntityType`
 - AccountId
 - OutputType
 
-  - The Contact Lens output type of the current
+  - The conversational analytics output type of the current
     segment
   - Type: String
   - Valid values: `Raw`,

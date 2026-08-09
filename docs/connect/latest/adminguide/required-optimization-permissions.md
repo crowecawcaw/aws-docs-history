@@ -1,6 +1,6 @@
-# Security profile permissions for forecasting, capacity planning, and scheduling in Connect Customer
+# Security profile permissions for forecasting & agent scheduling in Connect Customer
 
-Assign the following security profile permissions as needed to use forecasting, capacity planning, and scheduling.
+Assign the following security profile permissions as needed to use forecasting & agent scheduling.
 
 ###### Analytics and Optimization permissions
 

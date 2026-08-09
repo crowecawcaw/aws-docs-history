@@ -1,6 +1,6 @@
 # Calibration sessions for performance evaluations
 
-Connect Customer Contact Lens enables you to conduct calibration sessions to drive
+Connect Customer conversational analytics enables you to conduct calibration sessions to drive
 consistency and accuracy in how managers evaluate agent performance, so that agents
 receive feedback that is consistent. During a calibration, multiple managers can
 evaluate the same contact using the same evaluation form. You can then review
@@ -32,7 +32,7 @@ contacts. For more information, see [Manage who can search for contacts and acce
 
 ###### To create a calibration session
 
-1. Login to Amazon Connect with a user account that has the necessary permissions
+1. Login to Amazon Connect Customer with a user account that has the necessary permissions
    within their security profile.
 2. On the left nav, go to **Analytics and optimization, Contact
    search**.

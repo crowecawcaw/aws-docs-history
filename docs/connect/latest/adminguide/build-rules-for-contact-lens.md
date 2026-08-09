@@ -1,6 +1,6 @@
-# Create Contact Lens rules using the Connect Customer admin website
+# Create conversational analytics rules using the Connect Customer admin website
 
-Contact Lens rules allow you to automatically categorize contacts, receive
+Conversational analytics rules allow you to automatically categorize contacts, receive
 alerts, or generate tasks based on keywords that are used during a call, chat, or email,
 sentiment scores, customer attributes, and other criteria.
 
@@ -29,7 +29,7 @@ can create), see [Connect Customer Rules feature specifications](feature-limits.
 ![The new rule page, the when dropdown menu.](images/contact-lens-rule-define-conditions.png) 4. Choose **Add condition**.
 
 You can combine criteria from a large set of conditions to build very
-specific Contact Lens rules. Following are the available
+specific conversational analytics rules. Following are the available
 conditions:
 
     * **Words or phrases**: Choose from [Exact
@@ -162,6 +162,6 @@ the chat, how long until they sent the first message to the customer.
    - [Generate
      an EventBridge event](contact-lens-rules-eventbridge-event.md "contact-lens-rules-eventbridge-event.md")
 
-![The add action dropdown menu, a list of actions.](images/contact-lens-add-action-no-wisdom.png) 2. Choose **Next**. 3. Review and make any edits, then choose **Save**. 4. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.
+![The add action dropdown menu, a list of actions.](images/contact-lens-add-action-no-wisdom.png) 2. Choose **Next**. 3. Review and make any edits, then choose **Save**. 4. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Connect Customer conversational analytics analyzes conversations.
 
 You cannot apply rules to past, stored conversations.

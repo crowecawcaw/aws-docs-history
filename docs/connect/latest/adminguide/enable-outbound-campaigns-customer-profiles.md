@@ -2,7 +2,7 @@
 
 **To enable Connect Customer Customer Profiles and Connect Customer outbound campaigns**
 
-1. When creating an Connect Customer instance, when you get to **Step 4 - Data
+1. When creating a Connect Customer instance, when you get to **Step 4 - Data
    storage**, keep **Enable Customer Profiles** selected, as shown in
    the following image. This option enables  Connect Customer Customer Profiles and outbound
    campaigns.
@@ -33,7 +33,7 @@ campaigns. 
 
 The KMS configuration will only be used for the outbound campaigns configuration and the
 KMS key cannot be updated once it is created. 5. Choose **Enable outbound campaigns**. Upon enabling outbound campaigns, a Customer Profiles
-domain, and an Connect AI agents knowledge base with KnowledgeType `MESSAGE_TEMPLATES` will
+domain, and an agent assist knowledge base with KnowledgeType `MESSAGE_TEMPLATES` will
 be created if none existed previously. 6. You will be redirected to the home page and see a notification bar indicating that
 resources are being created.
 

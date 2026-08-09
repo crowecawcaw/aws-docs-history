@@ -8,7 +8,7 @@ endpoints:
 - Customer Profiles
 - Outbound campaigns
 - Voice ID
-- Connect AI agents
+- agent assist
 - Connect Customer Service
   Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you to privately access Connect Customer APIs
   without an internet gateway, NAT device, VPN connection, or Direct Connect connection.
@@ -31,7 +31,7 @@ Connect Customer supports the following service names:
 - com.amazonaws.`region`.connect-campaigns
 - com.amazonaws.`region`.voiceid
 - com.amazonaws.`region`.wisdom (This is for
-  Connect AI agents.)
+  agent assist.)
 - com.amazonaws.`region`.connect
 - com.amazonaws.`region`.connect-fips (This is for creating an endpoint for Connect Customer Service that complies with the Federal Information Processing Standard (FIPS).)
 

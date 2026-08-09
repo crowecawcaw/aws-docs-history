@@ -65,7 +65,7 @@ field.
 ```
 
 The Shopify-DraftOrder customer data from the Shopify object is
-associated with an Connect Customer standard order using the following
+associated with a Connect Customer standard order using the following
 index.
 
 | Standard Index Name | Shopify-DraftOrder source field |
@@ -155,7 +155,7 @@ field.
 ```
 
 The Shopify-Order customer data from the Shopify object is
-associated with an Connect Customer standard order using the following
+associated with a Connect Customer standard order using the following
 index.
 
 | Standard Index Name | Shopify-Order source field |

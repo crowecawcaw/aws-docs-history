@@ -29,7 +29,7 @@ Otherwise, proceed to Step 2.
 
 ## Step 2: Enable email and create an Amazon S3 bucket for storing email and attachments
 
-These steps apply only if you already created an Connect Customer instance but didn't enable
+These steps apply only if you already created a Connect Customer instance but didn't enable
 email.
 
 You need to update your **Data storage** settings to enable sending email
@@ -59,9 +59,9 @@ email messages and attachments.
 
 ![The Amazon S3 bucket to store emails and attachments.](images/email-s3-bucket.png)
 
-## Step 3: Get an Connect Customer email domain
+## Step 3: Get a Connect Customer email domain
 
-These steps apply only if you already created an Connect Customer instance but didn't enable email.
+These steps apply only if you already created a Connect Customer instance but didn't enable email.
 Complete these steps to get an email domain from Connect Customer.
 
 1. In the Connect Customer console, on the left navigation menu, choose **Email**, and

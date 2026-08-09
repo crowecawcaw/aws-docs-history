@@ -31,7 +31,7 @@ You can use modules across all [flow types](create-contact-flow.md#contact-flow-
   - External attributes
   - Amazon Lex attributes
   - Customer Profiles attributes
-  - Connect AI agents attributes
+  - agent assist attributes
   - Queue metrics
   - Stored customer input
 
@@ -169,7 +169,7 @@ You can define up to 8 custom branches for your module.
 
 ### Accessing module related attributes
 
-As part of custom blocks module enhancement, a new namespace Module is introduced for you to access module inputs within a module, output and results from flows or modules that were calling the module. You can store these attributes using [Flow block in Connect Customer: Set contact attributes](set-contact-attributes.md "set-contact-attributes.md") block or directly use these attributes via JSONPath reference. See [List of available contact attributes in Connect Customer and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md") documentation on details of module attributes.
+As part of custom blocks module enhancement, a new namespace Module is introduced for you to access module inputs within a module, output and results from flows or modules that were calling the module. You can store these attributes by using the [Flow block in Connect Customer: Set contact attributes](set-contact-attributes.md "set-contact-attributes.md") block, or use them directly through a JSONPath reference. For details about module attributes, see [List of available contact attributes in Connect Customer and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
 
 ### Example custom block module
 

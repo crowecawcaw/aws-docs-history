@@ -28,7 +28,7 @@ will be blocked.
 ## Redirection of calls
 
 If you are using Amazon Connect to redirect calls: If you are receiving calls with
-Anonymous (withheld CLI), you must use an Connect Customer number for the transfer.
+Anonymous (withheld CLI), you must use a Connect Customer number for the transfer.
 
 **Important:** Anonymous calls (calls without caller
 ID) are increasingly blocked by carriers as anti-spam measures and may violate

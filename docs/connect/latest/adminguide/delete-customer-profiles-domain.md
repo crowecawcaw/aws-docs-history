@@ -1,4 +1,4 @@
-# Delete an Connect Customer Customer Profiles domain
+# Delete a Connect Customer Customer Profiles domain
 
 ###### Select your instance first
 

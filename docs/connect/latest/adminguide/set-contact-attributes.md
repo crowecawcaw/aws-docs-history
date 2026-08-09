@@ -102,7 +102,7 @@ customer's credit card number to do a Lambda data dip.
 - To reference a customer name from a Lambda function lookup, use
   $.External.AttributeKey, replacing AttributeKey with the key (or name)
   of the attribute returned from the Lambda function.
-- To use an Connect Customer prompt in a Lambda function, set a user-defined
+- To use a Connect Customer prompt in a Lambda function, set a user-defined
   attribute to the ARN for the prompt, and then access that attribute from
   the Lambda function.
 

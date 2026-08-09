@@ -1,4 +1,4 @@
-# Delete a routing profile from an Connect Customer instance
+# Delete a routing profile from a Connect Customer instance
 
 There are three ways to delete a routing profile from your Connect Customer instance:
 

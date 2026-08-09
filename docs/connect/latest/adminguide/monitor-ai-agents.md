@@ -1,12 +1,12 @@
 # Monitor AI agents using CloudWatch
 
-To gain visibility into the real-time recommendations that Connect AI agents provide to your
+To gain visibility into the real-time recommendations that AI agents provide to your
 agents, and the customer intents they detect through natural language understanding, you
 can query CloudWatch Logs. CloudWatch Logs give you visibility into the entire contact journey: the
 conversation, triggers, intents, recommendations. You can also use this information for
 debugging, or provide it to Support when you contact them for help.
 
-This topic explains how to enable logging for Connect AI agents.
+This topic explains how to enable logging for AI agents.
 
 ###### Contents
 
@@ -35,9 +35,9 @@ examples for different logging destinations, such as logs sent to CloudWatch Log
 sent to Amazon S3 The examples show how to allow updates to your specific logging
 destination resource.
 
-## Enable logging for Connect AI agents
+## Enable logging for AI agents
 
-To enable logging for Connect AI agents, you use the CloudWatch API. Complete the following steps.
+To enable logging for AI agents, you use the CloudWatch API. Complete the following steps.
 
 1. Get the ARN of your _assistant_ (also known as
    its [domain](ai-agent-initial-setup.md#ai-agent-requirements "ai-agent-initial-setup.md#ai-agent-requirements")). After you [create an assistant](ai-agent-initial-setup.md#enable-ai-agents-step1 "ai-agent-initial-setup.md#enable-ai-agents-step1"), you can obtain it's
@@ -94,9 +94,48 @@ Amazon CloudWatch Logs Group and in JSON format.
 }
 ```
 
+The following example shows how to run the previous steps as a sequence of AWS CLI
+commands. This example enables event logging for an assistant and sends the logs to a
+Amazon CloudWatch Logs log group. Run the commands in order, and replace each
+`value` with your own resource names and ARNs.
+
+1. Create a delivery source for the assistant. Use the assistant ARN as the
+   resource ARN, and specify `EVENT_LOGS` as the log type.
+
+```
+aws logs put-delivery-source \
+    --name `your-assistant-delivery-source` \
+    --resource-arn arn:aws:wisdom:`your-region`:`your-account-id`:assistant/`assistant-id` \
+    --log-type EVENT_LOGS
+```
+
+2. Create a delivery destination that points to your log group. To send logs to
+   Amazon S3 or Amazon Data Firehose instead, specify that resource ARN.
+
+```
+aws logs put-delivery-destination \
+    --name `your-delivery-destination` \
+    --delivery-destination-configuration "destinationResourceArn=arn:aws:logs:`your-region`:`your-account-id`:log-group:`your-log-group-name`" \
+    --output-format json
+```
+
+3. Link the delivery source to the delivery destination. Use the destination ARN
+   that the previous command returns.
+
+```
+aws logs create-delivery \
+    --delivery-source-name `your-assistant-delivery-source` \
+    --delivery-destination-arn arn:aws:logs:`your-region`:`your-account-id`:delivery-destination:`your-delivery-destination`
+```
+
+After you create the delivery, you can view logged events in your log group. To
+confirm that logging works, generate assistant activity, and then query the log group as
+described in [Examples of common queries to
+debug assistant logs](#example2-assistant-log "#example2-assistant-log").
+
 ## Supported log types
 
-Connect AI agents support the following log type:
+AI agents support the following log type:
 
 - `EVENT_LOGS`: Logs that track event of an Connect assistant
   during calls, chats, tasks, and emails.
@@ -117,21 +156,21 @@ The following table describes each event type. Note that different event types
 contain different fields. Refer to the [Field Definitions](#field-definitions "#field-definitions") section for detailed information about
 each field.
 
-| EventType                                         | Definition                                                                                                                                                                                                                                                                          |
-| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TRANSCRIPT\_CREATE\_SESSION                       | Logged when a new Connect AI agents session is created.<br>This marks the beginning of a conversation.                                                                                                                                                                              |
-| TRANSCRIPT\_INTENT\_TRIGGERING\_REFERENCE         | Logged when a specific customer intent is detected in the<br>conversation, which may trigger automated responses or<br>workflows.                                                                                                                                                   |
-| TRANSCRIPT\_LARGE\_LANGUAGE\_MODEL\_INVOCATION    | Logged when a large language model (LLM) is invoked to<br>generate responses or process conversation content. Records the<br>inputs to and outputs from the LLM.                                                                                                                    |
-| TRANSCRIPT\_QUERY\_ASSISTANT                      | Logged when one of the following Connect AI agents is invoked:<br>AnswerRecommendation, CaseSummarization, EmailGenerativeAnswer,<br>EmailOverview, EmailResponse, ManualSearch, NoteTaking.                                                                                        |
-| TRANSCRIPT\_RECOMMENDATION                        | Logged when the system provides a recommendation to an agent<br>or customer, which may include knowledge articles, generated<br>responses, or suggested actions.                                                                                                                    |
-| TRANSCRIPT\_RESULT\_FEEDBACK                      | Logged when feedback is provided about a search or query<br>result's usefulness or relevance.                                                                                                                                                                                       |
-| TRANSCRIPT\_SELF\_SERVICE\_MESSAGE                | Logged when a customer interacts with a SelfService Connect AI agent                                                                                                                                                                                                                |
-| TRANSCRIPT\_SESSION\_POLLED                       | Logged when the system detects an agent is connected to a<br>session (A session is polled when a GetRecommendations API call<br>has been made)                                                                                                                                      |
-| TRANSCRIPT\_TRIGGER\_DETECTION\_MODEL\_INVOCATION | Logged when the trigger detection model is invoked to<br>determine if a conversation has intents                                                                                                                                                                                    |
-| TRANSCRIPT\_UTTERANCE                             | Logged when a message is sent by any participant in the<br>conversation, recording the actual conversation content.                                                                                                                                                                 |
-| TRANSCRIPT\_ORCHESTRATION\_MESSAGE                | Logged for each step within an orchestration loop, including<br>the initial customer message, bot text responses, reasoning,<br>tool use requests, and tool results. Captures the full detail<br>of multi-turn agentic reasoning performed by an Orchestration<br>Connect AI agent. |
-| TRANSCRIPT\_ORCHESTRATION\_ERROR                  | Logged when an error occurs during orchestration, such as<br>exceeding the maximum number of orchestration iterations,<br>system capacity constraints, or a general orchestration<br>failure.                                                                                       |
-| TRANSCRIPT\_AI\_AGENT\_TRACE                      | Logged for each execution span during AI agent orchestration,<br>capturing detailed traces including LLM configuration, token usage,<br>messages, and guardrail assessment results.                                                                                                 |
+| EventType                                         | Definition                                                                                                                                                                                                                                                                  |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TRANSCRIPT\_CREATE\_SESSION                       | Logged when a new AI agents session is created.<br>This marks the beginning of a conversation.                                                                                                                                                                              |
+| TRANSCRIPT\_INTENT\_TRIGGERING\_REFERENCE         | Logged when a specific customer intent is detected in the<br>conversation, which may trigger automated responses or<br>workflows.                                                                                                                                           |
+| TRANSCRIPT\_LARGE\_LANGUAGE\_MODEL\_INVOCATION    | Logged when a large language model (LLM) is invoked to<br>generate responses or process conversation content. Records the<br>inputs to and outputs from the LLM.                                                                                                            |
+| TRANSCRIPT\_QUERY\_ASSISTANT                      | Logged when one of the following AI agents is invoked:<br>AnswerRecommendation, CaseSummarization, EmailGenerativeAnswer,<br>EmailOverview, EmailResponse, ManualSearch, NoteTaking.                                                                                        |
+| TRANSCRIPT\_RECOMMENDATION                        | Logged when the system provides a recommendation to an agent<br>or customer, which may include knowledge articles, generated<br>responses, or suggested actions.                                                                                                            |
+| TRANSCRIPT\_RESULT\_FEEDBACK                      | Logged when feedback is provided about a search or query<br>result's usefulness or relevance.                                                                                                                                                                               |
+| TRANSCRIPT\_SELF\_SERVICE\_MESSAGE                | Logged when a customer interacts with a SelfService AI agent                                                                                                                                                                                                                |
+| TRANSCRIPT\_SESSION\_POLLED                       | Logged when the system detects an agent is connected to a<br>session (A session is polled when a GetRecommendations API call<br>has been made)                                                                                                                              |
+| TRANSCRIPT\_TRIGGER\_DETECTION\_MODEL\_INVOCATION | Logged when the trigger detection model is invoked to<br>determine if a conversation has intents                                                                                                                                                                            |
+| TRANSCRIPT\_UTTERANCE                             | Logged when a message is sent by any participant in the<br>conversation, recording the actual conversation content.                                                                                                                                                         |
+| TRANSCRIPT\_ORCHESTRATION\_MESSAGE                | Logged for each step within an orchestration loop, including<br>the initial customer message, bot text responses, reasoning,<br>tool use requests, and tool results. Captures the full detail<br>of multi-turn agentic reasoning performed by an Orchestration<br>AI agent. |
+| TRANSCRIPT\_ORCHESTRATION\_ERROR                  | Logged when an error occurs during orchestration, such as<br>exceeding the maximum number of orchestration iterations,<br>system capacity constraints, or a general orchestration<br>failure.                                                                               |
+| TRANSCRIPT\_AI\_AGENT\_TRACE                      | Logged for each execution span during AI agent orchestration,<br>capturing detailed traces including LLM configuration, token usage,<br>messages, and guardrail assessment results.                                                                                         |
 
 ### Field Definitions
 
@@ -139,7 +178,7 @@ The following table describes each field.
 
 | Field                               | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ai\_agent\_id                       | Unique identifier for the Connect AI agent<br>resource.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ai\_agent\_id                       | Unique identifier for the AI agent<br>resource.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | assistant\_id                       | Unique identifier for the Connect assistant<br>resource.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | completion                          | The raw completion text returned by the LLM or generated for<br>the message.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | connect\_user\_arn                  | Amazon Resource Name (ARN) of the Connect user accessing the<br>session.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -161,7 +200,7 @@ The following table describes each field.
 | response                            | The final response text generated for the user after<br>processing.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | session\_event\_id                  | Unique identifier for a specific event within the<br>session.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | session\_event\_ids                 | List of session event identifiers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| session\_id                         | Unique identifier for the Connect AI agents session.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| session\_id                         | Unique identifier for the AI agents session.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | session\_message\_id                | Unique identifier for a self-service message within a<br>session.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | session\_name                       | Name of the session.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | utterance                           | The actual message text exchanged in the<br>conversation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |

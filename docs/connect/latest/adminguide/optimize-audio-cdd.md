@@ -50,10 +50,10 @@ environment.
    example:
 
    1. For Citrix cloud desktop, the value for the query
-      parameter is `CITRIX`. The following code shows
+      parameter is `CITRIX_413`. The following code shows
       an example of the complete URL:
 
-      - `https://`your-instance-url`/agent-app-v2?VDIPlatform=CITRIX`
+      - `https://`your-instance-url`/agent-app-v2?VDIPlatform=CITRIX_413`
 
    2. For Amazon WorkSpaces cloud desktop, the value for the query
       parameter is `AWS_WORKSPACE`. The following code
@@ -97,7 +97,7 @@ environment.
 
       1. In Citrix Desktop
 
-      `https://us-east-1.console.aws.amazon.com/connect/federate/instance-id?destination=%2Fagent-app-v2?VDIPlatform=CITRIX` 2. In Amazon WorkSpaces
+      `https://us-east-1.console.aws.amazon.com/connect/federate/instance-id?destination=%2Fagent-app-v2?VDIPlatform=CITRIX_413` 2. In Amazon WorkSpaces
 
       `https://us-east-1.console.aws.amazon.com/connect/federate/instance-id?destination=%2Fagent-app-v2?VDIPlatform=AWS_WORKSPACE` 3. In Omnissa
 

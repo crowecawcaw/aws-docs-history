@@ -1,4 +1,4 @@
-# Create a rule in Contact Lens that updates a case
+# Create a rule in conversational analytics that updates a case
 
 ###### To create a rule that updates a case
 
@@ -15,6 +15,6 @@ define its new value.
 ![Any case field that you want to update from the dropdown and define its new value.](images/contact-lens-rules-update-case-3.png)
 
 ![Any case field that you want to update from the dropdown and define its new value.](images/contact-lens-rules-update-case-4.png) 4. Choose **Next**. Review and then choose
-**Save**. 5. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.
+**Save**. 5. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Connect Customer conversational analytics analyzes conversations.
 
 You cannot apply rules to past, stored conversations.

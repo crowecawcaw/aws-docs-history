@@ -157,8 +157,8 @@ For more information, see [Barge into live voice and chat conversations between 
 
 1. In the navigation pane, choose **Analytics
    tools**.
-2. Choose **Enable Contact Lens**. For more
-   information, see [Analyze conversations using conversational analytics in Connect Customer Contact Lens](analyze-conversations.md "analyze-conversations.md").
+2. Choose **Enable conversational analytics**. For more
+   information, see [Analyze conversations using conversational analytics in Connect Customer conversational analytics](analyze-conversations.md "analyze-conversations.md").
 3. Choose **Save**.
 
 ## Update flow settings

@@ -74,7 +74,7 @@ sections describe common issues and how to resolve them.
 
 The redacted recording is produced after the contact ends and after the
 unredacted recording is finalized. It can take longer than the unredacted version
-to appear, especially when Contact Lens call recording redaction is also enabled, because
+to appear, especially when conversational analytics call recording redaction is also enabled, because
 the redacted audio must be available before the redacted video is stitched. Allow
 extra time before treating it as missing.
 
@@ -97,15 +97,15 @@ the following.
 ### The redacted recording has no audio
 
 When rule-based redaction is enabled for a contact, Connect Customer stitches the redacted
-video with the redacted call recording only if Contact Lens call recording redaction is
-also enabled for the contact. If Contact Lens call recording redaction is not enabled, the
+video with the redacted call recording only if conversational analytics call recording redaction is
+also enabled for the contact. If conversational analytics call recording redaction is not enabled, the
 redacted recording is produced with no audio. This prevents the original audio
 from being exposed alongside a redacted video and is by design.
 
 - To produce a redacted recording that includes redacted audio, enable
-  Contact Lens call recording redaction for the contact in addition to rule-based
+  conversational analytics call recording redaction for the contact in addition to rule-based
   screen redaction. See [Use
-  sensitive data redaction with Contact Lens](sensitive-data-redaction.md "sensitive-data-redaction.md").
+  sensitive data redaction with conversational analytics](sensitive-data-redaction.md "sensitive-data-redaction.md").
 - If a user needs to review the original audio, remove the
   **Screen recording (redacted) - Access** permission
   and grant them the **Screen recording - Access**

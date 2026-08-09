@@ -1,4 +1,4 @@
-# Search conversations analyzed by Contact Lens
+# Search conversations analyzed by conversational analytics
 
 You can search the analyzed and transcribed recordings based on:
 
@@ -15,14 +15,14 @@ These criteria are described in the following sections.
 
 ###### Important
 
-When a Contact Lens is enabled on a contact, after a call or chat ends
+When a conversational analytics is enabled on a contact, after a call or chat ends
 **and** the agent completes After Contact Work
-(ACW), Contact Lens analyzes (and for calls, transcribes) the recording
+(ACW), conversational analytics analyzes (and for calls, transcribes) the recording
 of the customer-agent conversation. The agent must choose **Close
 contact** first.
 
-Chat transcripts are indexed for search when Contact Lens is enabled;
-they are not indexed for search if Contact Lens is not enabled.
+Chat transcripts are indexed for search when conversational analytics is enabled;
+they are not indexed for search if conversational analytics is not enabled.
 
 ## Required permissions for searching conversations
 
@@ -47,7 +47,7 @@ permissions](permissions-for-contact-lens.md "permissions-for-contact-lens.md").
 
 ## Search for words or phrases
 
-For keyword search, Contact Lens uses the `standard`
+For keyword search, conversational analytics uses the `standard`
 analyzer in Amazon OpenSearch Service. This analyzer is not case sensitive. For example, if you
 enter _thank you for your business 2 CANCELLED
 Flights_, the search looks for:
@@ -125,7 +125,7 @@ You can enter up to 128 characters.
 
 ## Search for sentiment score or evaluate sentiment shift
 
-With Contact Lens, you can search conversations for sentiment scores or
+With conversational analytics, you can search conversations for sentiment scores or
 sentiment shifts on a scale of -5 (most negative) to +5 (most positive). This
 enables you to identify patterns and factors for why calls go well or
 poorly.
@@ -203,7 +203,7 @@ You can search by the:
 - Maximum response time of the agent or customer during the chat
 
 You specify whether the duration is less or greater than or equal to a
-specific time. For information about how to use this metric, see [Investigate response time during chats in Contact Lens](response-time.md "response-time.md").
+specific time. For information about how to use this metric, see [Investigate response time during chats in conversational analytics](response-time.md "response-time.md").
 
 For the supported minimum and maximum response times, see [Connect Customer Rules feature specifications](feature-limits.md#rules-feature-specs "feature-limits.md#rules-feature-specs").
 
@@ -228,7 +228,7 @@ response time was greater than or equal to 1 minute.
    - **Match none**: Searches for contacts that
      did not match any of the selected categories. Note that this
      would only return contacts that were analyzed by
-     Contact Lens conversational analytics.
+     conversational analytics.
      The following image shows a dropdown menu with all the current
      categories listed.
 

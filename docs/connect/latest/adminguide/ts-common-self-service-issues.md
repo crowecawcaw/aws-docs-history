@@ -2,10 +2,10 @@
 
 ## Bundle the latest AWS SDK with your Lambda functions
 
-If you are calling Connect AI agents APIs directly from Lambda functions,
+If you are calling AI agents APIs directly from Lambda functions,
 you must package and bundle the latest version of the AWS SDK along with your
 function code. The Lambda runtime environment may include an older version of the
-SDK that does not support the latest Connect AI agents API models and
+SDK that does not support the latest AI agents API models and
 features.
 
 **Symptoms**: You may experience parameter

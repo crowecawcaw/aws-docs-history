@@ -1,7 +1,7 @@
 # Default AI prompts and AI agents
 
 Connect Customer provides a set of system AI prompts and AI agents. It uses them to power the
-out-of-the-box experience with Connect AI agents.
+out-of-the-box experience with AI agents.
 
 ## Default AI prompts
 
@@ -84,7 +84,7 @@ off to either the **EmailResponse** or
   Generates an answer to a customer query by making use of documents and
   excerpts in a knowledge base.
 
-To learn more about enabling Connect AI agents for self-service uses cases for both
+To learn more about enabling AI agents for self-service uses cases for both
 testing and production purposes, see [(legacy) Use generative
 AI-powered self-service](generative-ai-powered-self-service.md "generative-ai-powered-self-service.md").
 
@@ -98,14 +98,36 @@ AI-powered self-service](generative-ai-powered-self-service.md "generative-ai-po
 
 ## Default AI agents
 
-- **AgentAssistanceOrchestrator**
-- **AnswerRecommendation**
-- **CaseSummarization**
-- **EmailGenerativeAnswer**
-- **EmailOverview**
-- **EmailResponse**
-- **ManualSearch**
-- **NoteTaking**
-- **SalesAgent**
-- **SelfService**
-- **SelfServiceOrchestrator**
+Each AI agent configures one use case in the AI agents experience. It
+specifies which AI prompts and AI guardrail that use case uses. Following are the
+default AI agents:
+
+- **AgentAssistanceOrchestrator** – Orchestrates the
+  agent assistance experience. It coordinates other AI agents and tools to help
+  agents resolve customer issues.
+- **AnswerRecommendation** – Recommends answers to the
+  agent by searching the knowledge base. It uses the conversation transcript to
+  find relevant articles.
+- **CaseSummarization** – Generates a summary of a
+  case by analyzing key case fields and items in the activity feed.
+- **EmailGenerativeAnswer** – Provides comprehensive,
+  knowledge-based answers to customer email queries.
+- **EmailOverview** – Generates a structured overview
+  of email conversations.
+- **EmailResponse** – Generates professional email
+  responses using knowledge base content.
+- **ManualSearch** – Answers a query that the agent
+  enters manually by searching the knowledge base.
+- **NoteTaking** – Analyzes real-time conversation
+  transcripts to generate structured notes. The
+  **AgentAssistanceOrchestrator** AI agent invokes it as a
+  tool.
+- **SalesAgent** – Identifies sales opportunities in
+  customer conversations. It recommends items based on customer preferences and
+  recent activity.
+- **SelfService** – Responds directly to customer
+  inquiries in self-service. It can perform actions to resolve issues based on
+  the available tools.
+- **SelfServiceOrchestrator** – Orchestrates the
+  self-service experience. It determines the appropriate action and coordinates
+  other AI agents and tools.

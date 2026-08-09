@@ -56,7 +56,7 @@ tasks, and chats.
   updated on a voice call, chat, task, or email: scheduled timestamp (task only),
   accepted by agent timestamp (outbound campaign voice contact in preview dialing
   mode only), user-defined attributes and tags, routing criteria is updated or
-  step is expired, and if Contact Lens is enabled for a given
+  step is expired, and if conversational analytics is enabled for a given
   contact.
 - QUEUED - A voice call, chat, task, or email is queued to be assigned to an
   agent.
@@ -464,7 +464,7 @@ Type: `QueueInfo` object
 
 **ContactLens**
 
-Contact Lens information if Contact Lens is enabled on
+Conversational analytics information if conversational analytics is enabled on
 the flow.
 
 Type: For more information about the `ContactLens` object,

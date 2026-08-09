@@ -1,6 +1,6 @@
-# Use a Word or phrase condition in a Contact Lens rule
+# Use a Word or phrase condition in a conversational analytics rule
 
-Within Contact Lens
+Within conversational analytics
 **conversational analytics** rule, you have the option to
 specify a Words or phrases condition. You can choose Exact Match, Semantic
 Match, or Pattern Match for the words or phrases. This topic explains each type
@@ -35,7 +35,7 @@ Word collections can be categorized into two types: user word collections
 and system word collections. System word collections are pre-defined by
 Connect Customer, which are non-editable to users. A user word collection can be
 created, read, updated, and deleted (CRUD) by users. For more information,
-see [Manage word collections when you create conversational analytics rules in Contact Lens](manage-word-collections.md "manage-word-collections.md").
+see [Manage word collections when you create conversational analytics rules in conversational analytics](manage-word-collections.md "manage-word-collections.md").
 
 ## How to use pattern match
 

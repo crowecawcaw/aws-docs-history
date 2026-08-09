@@ -18,7 +18,7 @@ window.
 If CCP is embedded in your agent's application, see [Initialization for CCP, Customer Profiles, and Connect assistant](https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#initialization-for-ccp-customer-profiles-and-wisdom " https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#initialization-for-ccp-customer-profiles-and-wisdom ") in the _Connect Customer
 Streams Documentation_ for information about how to include the Connect assistant.
 
-For more information about the agent's experience using Connect AI agents, see [Search for content using Connect AI agents](search-for-answers.md "search-for-answers.md").
+For more information about the agent's experience using agent assist, see [Search for content using Connect Customer agent assist](search-for-answers.md "search-for-answers.md").
 
 ## Security profile permissions for the Connect assistant
 
@@ -27,7 +27,7 @@ security profile:
 
 - **Connect assistant - Access**: Enables agents to search for and view
   content. They can also receive automatic recommendations during calls if
-  Contact Lens conversational analytics is enabled.
+  conversational analytics is enabled.
 
 For information about how to add more permissions to an existing security profile,
 see [Update security profiles in Connect Customer](update-security-profiles.md "update-security-profiles.md").

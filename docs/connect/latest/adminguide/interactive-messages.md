@@ -585,7 +585,7 @@ record transcript and are viewable by other chat participants and contact analys
 with access to transcripts. To prevent PII from appearing in your contact record
 transcript **after the contact has ended**, you will
 want to use the [Set recording and analytics
-behavior block](set-recording-behavior.md "set-recording-behavior.md") in your step-by-step guide flow, [enable Contact Lens](sensitive-data-redaction.md "sensitive-data-redaction.md"), and enable
+behavior block](set-recording-behavior.md "set-recording-behavior.md") in your step-by-step guide flow, [enable conversational analytics](sensitive-data-redaction.md "sensitive-data-redaction.md"), and enable
 the redaction of sensitive date. For full details on how to enable PII redaction,
 see [Enable redaction of sensitive
 data](enable-analytics.md#enable-redaction "enable-analytics.md#enable-redaction").

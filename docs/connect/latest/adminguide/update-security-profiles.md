@@ -5,7 +5,7 @@ You can update a security profile at any time to add or remove permissions.
 ## Required permissions to update security profiles
 
 Before you can update permissions in a security profile, you must be logged in
-with an Connect Customer account that has the following permissions: **Security
+with a Connect Customer account that has the following permissions: **Security
 profiles - Edit**.
 
 ![The users and permissions section of the security profiles page.](images/SecurityProfile_cloudscape_sp_edit.png)
@@ -15,7 +15,7 @@ permissions.
 
 ## How to update security profiles
 
-1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. You must be logged in with an Connect Customer account that has
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. You must be logged in with a Connect Customer account that has
    permissions to update security profiles.
 2. Choose **Users**, **Security
    profiles**.

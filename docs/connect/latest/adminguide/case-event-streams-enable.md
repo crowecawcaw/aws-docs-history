@@ -3,9 +3,9 @@
 This topic explains how to set up and use case event streams. Some of the onboarding
 steps require you to call [Connect Customer Cases APIs](../../../cases/latest/APIReference/Welcome.md "../../../cases/latest/APIReference/Welcome.md").
 
-## Step 1: Create an Connect Customer instance and enable Customer Profiles
+## Step 1: Create a Connect Customer instance and enable Customer Profiles
 
-1. Ensure you have an working Connect Customer instance in one of the AWS Regions
+1. Ensure you have a working Connect Customer instance in one of the AWS Regions
    where Cases is available. See [Cases availability by Region](regions.md#cases_region "regions.md#cases_region").
 2. Enable Connect Customer Customer Profiles. For instructions, see [Enable Customer Profiles for your Connect Customer instance](enable-customer-profiles.md "enable-customer-profiles.md").
 

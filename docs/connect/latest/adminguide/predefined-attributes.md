@@ -47,7 +47,7 @@ described in this topic. Or programmatically by using the [Predefined attribute 
 Before deleting an attribute, ensure none of the contacts are waiting for an
 agent with that attribute or the contact will not find a match.
 
-- For the quota for predefined attributes allowed in an Connect Customer instance, see
+- For the quota for predefined attributes allowed in a Connect Customer instance, see
   [Connect Customer quotas](amazon-connect-service-limits.md#connect-quotas "amazon-connect-service-limits.md#connect-quotas").
 
 ## System predefined attributes

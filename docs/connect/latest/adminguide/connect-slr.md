@@ -3,7 +3,7 @@
 ## What are service-linked roles (SLR) and why are they important?
 
 Connect Customer uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
-linked directly to an Connect Customer instance.
+linked directly to a Connect Customer instance.
 
 Service-linked roles are predefined by Connect Customer and include [all the permissions](#slr-permissions "#slr-permissions") that Connect Customer requires to call other AWS services on your
 behalf.
@@ -69,14 +69,14 @@ It also grants `s3:PutObject`, `s3:PutObjectAcl`, and
 ###### Note
 
 Each Connect Customer instance can be associated with only one domain at a time. However, you
-can link any domain to an Connect Customer instance. Cross-domain access within the same AWS
-account and region is automatically enabled for all domains that start with the prefix
+can link any domain to a Connect Customer instance. Cross-domain access within the same AWS
+account and Region is automatically enabled for all domains that start with the prefix
 `amazon-connect-`. To restrict cross-domain access, you can either use
 separate Connect Customer instances to logically partition your data or use Customer Profiles
 domain names within the same instance that do not start with the
 `amazon-connect-` prefix, thereby preventing cross-domain access.
 
-- Action: Connect AI agents `wisdom:*` on all Connect Customer Connect AI agents
+- Action: agent assist `wisdom:*` on all Connect Customer agent assist
   resources with resource tag `'AmazonConnectEnabled':'True'` associated with
   your Connect Customer instance, except for the following actions which are explicitly denied:
 
@@ -107,7 +107,7 @@ domain names within the same instance that do not start with the
   - `social-messaging:GetLinkedWhatsAppBusinessAccountPhoneNumber`
     The Social APIs are restricted to your phone number resources that are enabled for
     Connect Customer. A phone number is tagged with `AmazonConnectEnabled : True` when it is
-    imported into an Connect Customer instance.
+    imported into a Connect Customer instance.
 
 - Action: Connect Customer Messaging WhatsApp message template integration. Grants Connect Customer
   permission to call AWS End User Messaging Social APIs. An AWS account's WhatsApp business

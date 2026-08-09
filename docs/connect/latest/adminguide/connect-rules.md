@@ -8,7 +8,7 @@ console. No coding is required.
 
 - To create and manage rules programmatically, see [Rules actions](../APIReference/rules-api.md "../APIReference/rules-api.md") and the [Connect Customer Rules Function
   language](../APIReference/connect-rules-language.md "../APIReference/connect-rules-language.md") in the _Connect Customer API Reference Guide_.
-- [Add real-time alerts to Contact Lens for supervisors based on keywords and phrases in a call](add-rules-for-alerts.md "add-rules-for-alerts.md")
+- [Add real-time alerts to conversational analytics for supervisors based on keywords and phrases in a call](add-rules-for-alerts.md "add-rules-for-alerts.md")
 - [Automatically categorize contacts by matching conversations with natural language statements, or specific words and phrases](rules.md "rules.md")
 - [Create a rule that generates a task](contact-lens-rules-create-task.md "contact-lens-rules-create-task.md")
 - [Create a rule that generates an EventBridge event](contact-lens-rules-eventbridge-event.md "contact-lens-rules-eventbridge-event.md")

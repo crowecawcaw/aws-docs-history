@@ -1,4 +1,4 @@
-# Sample conversational analytics streams to analyze chats in Contact Lens
+# Sample conversational analytics streams to analyze chats in conversational analytics
 
 This topic provides sample segment streams for STARTED, SEGMENTS, COMPLETED,
 and FAILED events that occur during a chat contact.

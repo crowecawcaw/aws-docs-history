@@ -68,7 +68,7 @@ Salesforce-Asset object to the standard asset.
 | Description                  | Description                 |
 
 The Salesforce-Asset customer data from the Salesforce object is
-associated with an Connect Customer standard asset using the indexes in the
+associated with a Connect Customer standard asset using the indexes in the
 following table.
 
 | Standard Index Name   | Salesforce-Asset source field |

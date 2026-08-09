@@ -7,16 +7,14 @@ first callback mode or customer first callback mode.
   callback is offered to an agent to accept or reject before the call is dialed to a
   customer.
 - **Customer first callback mode** is available only
-  when Next Generation Connect Customer is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your Connect Customer instance. In this mode, Connect Customer dials the customer
+  in [Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") instances. In this mode, Connect Customer dials the customer
   first and only offers the callback to an agent if the customer answers the callback
   that they've received.
 
 ###### Important
 
-- Customer first callback mode is not available in the pay-per-feature pricing
-  model.
-- If you disable Next Generation Connect Customer after you've already activated and
-  started using customer first callback, customer first callback mode is also
+- If you switch from Connect Customer after you've already activated and
+  started using customer first callbacks, customer first callbacks are also
   disabled.
 
 ###### Contents

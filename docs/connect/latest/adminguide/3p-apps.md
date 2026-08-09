@@ -3,7 +3,7 @@
 Connect Customer agent workspace is a single, intuitive application that provides
 your agents with the tools and step-by-step guidance they need to resolve issues
 efficiently, improve customer experiences, and onboard faster. In addition to using
-first-party applications in your agent workspace, such as Customer Profiles, Cases, and Connect AI agents, you
+first-party applications in your agent workspace, such as Customer Profiles, Cases, and agent assist, you
 can integrate third-party applications.
 
 ###### Note

@@ -1,16 +1,16 @@
-# Configure your external voice system for integration with Contact Lens
+# Configure your external voice system for integration with conversational analytics
 
-After you [create a Contact Lens
+After you [create a conversational analytics
 connector](create-contact-lens-connector.md "create-contact-lens-connector.md") you need to configure your external voice system to point to the
 connector. Complete the following steps.
 
 1. In the Connect Customer console navigation pane, choose **External voice
-   systems**, **Contact Lens integrations**.
-   You'll see the name of available Contact Lens connectors. Select the one
-   you want to use. The following image shows an example Contact Lens
+   systems**, **conversational analytics integrations**.
+   You'll see the name of available conversational analytics connectors. Select the one
+   you want to use. The following image shows an example conversational analytics
    connector named **MyTestConnector**.
 
-![The Contact Lens integrations page, an example connector named MyTestConnector.](images/contactlens-connector-name.png) 2. On the connector details page, note the fully qualified host name. This is the
+![The conversational analytics integrations page, an example connector named MyTestConnector.](images/contactlens-connector-name.png) 2. On the connector details page, note the fully qualified host name. This is the
 name of the host in Connect Customer that will receive the SIPREC audio. The following
 image shows an example fully qualified host name.
 
@@ -25,5 +25,5 @@ Configuration Guides**, as shown in the following image.
 
 If you created credentials for the connector, you need to use the same
 credentials for your external system. 4. After you configure your external source system, continue to the next step:
-[enable Contact Lens
+[enable conversational analytics
 integration](enable-contactlens-integration.md "enable-contactlens-integration.md").

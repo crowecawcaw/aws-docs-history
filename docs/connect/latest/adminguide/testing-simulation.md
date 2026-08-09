@@ -15,7 +15,7 @@ changes to your workflows and confidently deploy new experiences, adapting to yo
 ever-changing business needs.
 
 You can create these configurations through the user interface using the new visual
-simulation designer or via programmatic APIs. This section explains the different UI
+simulation designer or through programmatic APIs. This section explains the different UI
 components that enable the use of Connect Customer simulation
 capabilities.
 

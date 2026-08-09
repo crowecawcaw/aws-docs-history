@@ -27,10 +27,12 @@ contact center performance.
 - [Save, download, and share your dashboard](#dashboard-actions "#dashboard-actions")
 - [Customize your
   dashboard](dashboard-customize-widgets.md "dashboard-customize-widgets.md")
-- [Contact Lens conversational analytics dashboard](contact-lens-conversational-analytics-dashboard.md "contact-lens-conversational-analytics-dashboard.md")
+- [Conversational analytics dashboard](contact-lens-conversational-analytics-dashboard.md "contact-lens-conversational-analytics-dashboard.md")
 - [Agent performance
   evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 - [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md")
+- [Cases performance
+  dashboard](cases-performance-dashboard.md "cases-performance-dashboard.md")
 - [Flows and conversational bot
   performance dashboard](flows-performance-dashboard.md "flows-performance-dashboard.md")
 - [Outbound
@@ -120,7 +122,7 @@ respectively.
 Each dashboard has additional filters specific to that feature. For example, the
 following image of the **Conversational analytics dashboard** shows the
 available filters for that widget. **Contact category** is specific to
-Contact Lens.
+conversational analytics.
 
 ![Required dashboard filters.](images/conversational-analytics-dashboards-performance-overview-filters.png)
 

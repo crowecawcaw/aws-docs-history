@@ -147,8 +147,12 @@ The following options are available when your widget is grouped by queue:
 - **View routing profile** – Creates a
   **Current routing profile performance** widget
   filtered by the selected queue.
+- **View steps** – Creates a
+  **Current routing step expression performance**
+  widget filtered by the selected queue. This displays all the routing
+  steps that are being used on active contacts in that queue.
 
-![The drill-down menu for a queue, showing View agents and View routing profile options.](images/drilldown-grouped-by-queue.png)
+![The drill-down menu for a queue, showing View agents, View routing profile, and View steps options.](images/drilldown-grouped-by-queue.png)
 
 ### When grouped by routing profile
 

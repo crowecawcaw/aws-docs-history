@@ -12,7 +12,7 @@ self-service bot interaction or when the model doesn't produce a valid
 
 ### Troubleshooting steps
 
-1. **Check the Connect AI agent
+1. **Check the AI agent
    logs**: Examine the `completion` attribute
    in the associated log entry.
 2. **Validate the stop reason**: Confirm
@@ -48,7 +48,7 @@ configuration. These issues are described below.
   "Internal Server Error" for the [Get customer input](get-customer-input.md "get-customer-input.md") block
 - **Cause**: Your self-service bot
   timed out while providing results within the 10-second limit.
-  Timeout errors won't appear in Connect AI agent logs.
+  Timeout errors won't appear in AI agent logs.
 - **Solution**: Simplify your prompt by
   removing complex reasoning to reduce processing time.
 

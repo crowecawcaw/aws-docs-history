@@ -1,7 +1,7 @@
 # Model contact transfers and conferencing in Connect Customer
 
 This topic is for developers who have integrated their external voice system with
-Connect Customer Contact Lens.
+Connect Customer conversational analytics.
 
 Your external voice system may support contact transfers (cold and warm) and
 conferencing multiple agents in a single call. You can signal these cases to Connect Customer by
@@ -18,7 +18,7 @@ Each agent-customer interaction is modeled by an independent contact segment.
   `previousContactId`.
 - If enabled, call recordings are generated independently for each contact
   segment and delivered upon completion of that segment.
-- Contact Lens real-time and post-call analytics are generated for each
+- Conversational analytics real-time and post-call analytics are generated for each
   contact segment independently.
 - A contact record is generated for each independent contact segment.
 - To model an agent leaving a call, you can end a contact segment by calling the

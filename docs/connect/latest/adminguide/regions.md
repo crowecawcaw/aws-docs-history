@@ -10,7 +10,7 @@ available.
   guides](#agentworkspace_region "#agentworkspace_region")
 - [Agent workspace third-party
   applications](#agentworkspace_3p_region "#agentworkspace_3p_region")
-- [Connect AI agents](#q-connect_region "#q-connect_region")
+- [agent assist](#q-connect_region "#q-connect_region")
 - [Data
   lake](#analytics_datalake_region "#analytics_datalake_region")
 - [AppIntegrations](#appintegrations_region "#appintegrations_region")
@@ -24,8 +24,7 @@ available.
 - [Customer Profiles](#customerprofiles_region "#customerprofiles_region")
 - [Customer Profiles
   calculated attributes API](#customerprofiles_calculatedattributesregion "#customerprofiles_calculatedattributesregion")
-- [Forecasting, capacity planning, and
-  scheduling](#optimization_region "#optimization_region")
+- [Forecasting & agent scheduling](#optimization_region "#optimization_region")
 - [Amazon Connect agentic voice](#gv_region "#gv_region")
 - [Global Resiliency](#gr_region "#gr_region")
 - [In-app, web, and video calling
@@ -79,7 +78,7 @@ available.
 - Europe (Frankfurt)
 - Europe (London)
 
-## Connect AI agents
+## agent assist
 
 - US East (N. Virginia)
 - US West (Oregon)
@@ -239,7 +238,7 @@ The calculated attributes API is available in the following AWS Regions:
 - Europe (Frankfurt)
 - Europe (London)
 
-## Forecasting, capacity planning, and scheduling
+## Forecasting & agent scheduling
 
 - US East (N. Virginia)
 - US West (Oregon)

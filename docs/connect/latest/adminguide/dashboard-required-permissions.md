@@ -69,7 +69,7 @@ reports** page.
 
   - This permission enables users to view, create and manage custom
     metrics.
-  - If you have enabled Next Generation Connect Customer in your instance, you
+  - In [Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") instances, you
     will have the ability to view, create, and manage custom metrics
     with custom filters and functions in addition to custom customer
     service level metric calculations.
