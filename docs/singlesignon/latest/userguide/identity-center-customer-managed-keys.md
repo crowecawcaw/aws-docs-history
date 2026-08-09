@@ -193,7 +193,13 @@ Before proceeding with this step:
 
 ### Specify a KMS key when enabling new organization instance of IAM Identity Center
 
-When enabling a new organization instance of IAM Identity Center, you can specify a
+###### Note
+
+In AWS Regions that are enabled by default, you can configure a customer
+managed key as part of instance creation. For more information, see [Enable IAM Identity Center](enable-identity-center.md "enable-identity-center.md").
+
+When enabling a new organization instance of IAM Identity Center in a Region where
+instance configuration options are not available, you can specify a
 customer managed KMS key during setup. This ensures the instance uses your key for
 encryption at rest from the start. Before you start, refer to [Considerations for customer managed KMS keys and advanced KMS key policies](considerations-for-customer-managed-kms-keys-advanced.md "considerations-for-customer-managed-kms-keys-advanced.md").
 

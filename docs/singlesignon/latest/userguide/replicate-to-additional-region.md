@@ -3,6 +3,11 @@
 If your environment meets the [prerequisites](multi-region-iam-identity-center.md#multi-region-prerequisites "multi-region-iam-identity-center.md#multi-region-prerequisites"), such as configuring IAM Identity Center with a multi-Region customer managed KMS key, complete the following steps to
 replicate your IAM Identity Center instance to an additional Region. Your primary Region continues to operate normally during and after these steps.
 
+###### Note
+
+If you are creating a new organization instance, you can enable multi-Region during
+instance creation. For more information, see [Enable IAM Identity Center](enable-identity-center.md "enable-identity-center.md").
+
 ## Step 1: Create a replica key in the additional Region
 
 Before replicating IAM Identity Center to a Region, you must first create a replica key of your

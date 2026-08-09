@@ -436,3 +436,59 @@ Try the following steps to troubleshoot:
   domain. This approach works because IAM Identity Center can access actual user objects in the source domain.
 - Verify service account permissions: Ensure the IAM Identity Center service account has the required
   permissions on user objects in the trusted domain: ReadProperties and ListContents permission.
+
+## Issues enabling a multi-Region instance of IAM Identity Center
+
+If you selected **Multi-Region instance** when enabling
+IAM Identity Center, the setup process creates a customer managed key, replicates it to the additional
+Region, enables your instance, and adds the additional Region. If any of these steps fail,
+you may see one of the following errors.
+
+### Key creation failed
+
+A customer managed key could not be created in your account. Your instance was not
+enabled.
+
+If this is a permission error, verify that your role has the
+`kms:CreateKey` and `kms:TagResource` permissions, then choose
+**Enable** to try again.
+
+### Key replication failed
+
+A customer managed key was created in your account, but the replica key could not
+be created in the additional Region. Your instance was not enabled.
+
+If this is a permission error, verify that your role has the
+`kms:ReplicateKey` permission.
+
+Choose **Enable** to try again. The same key is used.
+
+If you return later, find the key in the AWS KMS console by filtering on the tag
+`CreatedBy: IAM Identity Center`. Copy the key ID, then choose
+**Custom instance** and select that key.
+
+To start fresh, delete the key in the AWS KMS console and choose
+**Multi-Region instance** to create a new one.
+
+### Instance creation failed
+
+A customer managed key was created and replicated to the additional Region, but your
+instance could not be enabled.
+
+If this is a permission error, verify that your role has the required [permissions to create an IAM Identity Center instance](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+
+Choose **Enable** to try again. The same key is used.
+
+If you return later, find the key in the AWS KMS console by filtering on the tag
+`CreatedBy: IAM Identity Center`. Copy the key ID, then choose
+**Custom instance** and select that key.
+
+To start fresh, delete the key and its replica in the AWS KMS console and choose
+**Multi-Region instance** to create a new one.
+
+###### Note
+
+These errors can also occur when using **Custom
+instance** if instance creation or Region replication fails. If you provided
+your own customer managed key, the key creation and replication steps do not
+apply.

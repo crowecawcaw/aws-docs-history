@@ -8,6 +8,16 @@ administering AWS RDS, DynamoDB, and Aurora services, and use that single permis
 to grant access to a list of target AWS accounts within your [AWS Organization](https://aws.amazon.com/organizations/ "https://aws.amazon.com/organizations/") for your
 database administrators.
 
+###### Note
+
+Your organization instance must have multi-account permissions enabled
+for permission sets to work. By default, when you create your organization
+instance, multi-account permissions are turned on. If not previously
+enabled, use the **Management** tab of the
+**Settings** page to enable multi-account permissions
+so you can create permission sets. You can also use the
+[UpdateInstance](../APIReference/API_UpdateInstance.md "../APIReference/API_UpdateInstance.md") API to enable multi-account permissions.
+
 IAM Identity Center assigns access to a user or group in one or more AWS accounts with permission
 sets. When you assign a permission set, IAM Identity Center creates corresponding IAM Identity Center-controlled
 IAM roles in each account, and attaches the policies specified in the permission set

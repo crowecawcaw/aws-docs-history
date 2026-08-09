@@ -7,10 +7,10 @@ account access
 during service disruptions.
 
 When you enable an organization instance of IAM Identity Center, you choose a single AWS Region (primary
-Region). You can replicate this instance to additional AWS Regions if it meets certain
-prerequisites. IAM Identity Center automatically replicates workforce identities, permission sets, user and
-group assignments, sessions, and other metadata from the primary Region to the chosen additional
-Regions.
+Region). You can replicate this instance to additional AWS Regions during instance creation
+or after, if it meets certain prerequisites. IAM Identity Center automatically replicates workforce identities,
+permission sets, user and group assignments, sessions, and other metadata from the primary Region
+to the chosen additional Regions.
 
 ## Benefits of multi-Region support
 
