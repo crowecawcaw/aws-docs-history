@@ -14,6 +14,7 @@ Specifically, this documentation applies to code that you compile with the `-DDG
 
 - [GetSdkVersion()](#integration-server-sdk5-cpp-getsdkversion "#integration-server-sdk5-cpp-getsdkversion")
 - [InitMetrics()](#integration-server-sdk5-cpp-initmetrics "#integration-server-sdk5-cpp-initmetrics")
+- [InitCustomLogger()](#integration-server-sdk5-cpp-initcustomlogger "#integration-server-sdk5-cpp-initcustomlogger")
 - [InitSDK()](#integration-server-sdk5-cpp-initsdk "#integration-server-sdk5-cpp-initsdk")
 - [InitSDK()](#integration-server-sdk5-cpp-initsdk-anywhere "#integration-server-sdk5-cpp-initsdk-anywhere")
 - [ProcessReady()](#integration-server-sdk5-cpp-processready "#integration-server-sdk5-cpp-processready")
@@ -96,6 +97,69 @@ Aws::GameLift::Server::MetricsParameters metricsParams("localhost", 8125, "crash
 Aws::GameLift::GenericOutcome customOutcome = Aws::GameLift::Server::InitMetrics(metricsParams);
 if (customOutcome.IsSuccess()) {
     // Metrics system initialized with custom parameters
+}
+```
+
+## InitCustomLogger()
+
+Routes the server SDK's log output to a custom logging callback that you provide, in
+place of the default file and console logging. Use this operation to integrate the server
+SDK logs with your game server's own logging system. For example, an Unreal Engine game
+server can route the SDK logs through the Unreal Engine logging system
+(`UE_LOG`).
+
+For best results, call this operation before [InitSDK()](#integration-server-sdk5-cpp-initsdk "#integration-server-sdk5-cpp-initsdk") so that your callback receives
+SDK initialization diagnostics (connection setup, logger initialization, and
+`InitSDK()` errors) from the start. Calling
+`InitCustomLogger()` after
+`InitSDK()` is also safe. Log output switches to your callback from that
+point onward. Messages logged before the call go to the default logger.
+
+You can call this operation at most once. Subsequent calls return
+`ALREADY_INITIALIZED` and don't change the logger that's already
+registered.
+
+### Syntax
+
+```
+Aws::GameLift::GenericOutcome InitCustomLogger(const Aws::GameLift::Server::CustomLoggerConfiguration &logParameters);
+```
+
+### Parameters
+
+[CustomLoggerConfiguration](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-customloggerconfiguration "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-customloggerconfiguration")
+
+The configuration for the custom logger, including the log callback
+function, an optional user-data context pointer, and the minimum log
+level to dispatch. The callback must not be `null`; the
+operation rejects a `null` callback with
+`BAD_REQUEST_EXCEPTION`.
+
+### Return value
+
+If successful, the operation returns a [GenericOutcome](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-genericoutcome "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-genericoutcome")
+object indicating success. If the operation fails, the outcome contains an error
+message with an error code, such as `BAD_REQUEST_EXCEPTION` when the
+callback is `null` or `ALREADY_INITIALIZED` when a logger is
+already registered.
+
+### Example
+
+```
+// Implement a log callback that forwards SDK log messages to your logging system.
+void OnGameLiftLog(Aws::GameLift::Server::LogLevel level, const char* message, void* userData)
+{
+  // Route the message to your game server's logging system.
+  // The message pointer is valid only for the duration of this call; copy it if you
+  // need to retain it.
+  std::cout << message << std::endl;
+}
+
+// Configure and initialize the custom logger before calling InitSDK.
+Aws::GameLift::Server::CustomLoggerConfiguration logParameters(OnGameLiftLog, nullptr, Aws::GameLift::Server::LogLevel::Info);
+Aws::GameLift::GenericOutcome loggerOutcome = Aws::GameLift::Server::InitCustomLogger(logParameters);
+if (loggerOutcome.IsSuccess()) {
+    // Custom logger initialized successfully
 }
 ```
 

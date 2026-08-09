@@ -14,6 +14,7 @@ Specifically, this documentation applies to code that you compile with the `-DDG
 
 - [LogParameters](#integration-server-sdk5-cpp-dataypes-log "#integration-server-sdk5-cpp-dataypes-log")
 - [MetricsParameters](#integration-server-sdk5-cpp-datatypes-metricsparameters "#integration-server-sdk5-cpp-datatypes-metricsparameters")
+- [CustomLoggerConfiguration](#integration-server-sdk5-cpp-datatypes-customloggerconfiguration "#integration-server-sdk5-cpp-datatypes-customloggerconfiguration")
 - [ProcessParameters](#integration-server-sdk5-cpp-dataypes-process "#integration-server-sdk5-cpp-dataypes-process")
 - [UpdateGameSession](#integration-server-sdk5-cpp-dataypes-updategamesession "#integration-server-sdk5-cpp-dataypes-updategamesession")
 - [GameSession](#integration-server-sdk5-cpp-dataypes-gamesession "#integration-server-sdk5-cpp-dataypes-gamesession")
@@ -70,6 +71,18 @@ The game server communicates `MetricsParameters` to Amazon GameLift Servers in a
 | CrashReporterPort | The port number of the crash reporter server.<br>**Type:**<br>`int`<br>**Required:*<br>• No                                   |
 | FlushIntervalMs   | The interval in milliseconds for flushing metrics data to the server.<br>**Type:**<br>`int`<br>**Required:*<br>• No           |
 | MaxPacketSize     | The maximum size in bytes for metrics packets sent to the server.<br>**Type:**<br>`int`<br>**Required:*<br>• No               |
+
+## CustomLoggerConfiguration
+
+Use this data type to route the server SDK's log output to a custom log callback. The
+game server communicates `CustomLoggerConfiguration` to Amazon GameLift Servers in an [InitCustomLogger()](integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-initcustomlogger "integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-initcustomlogger") call.
+
+|                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Properties**  | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| callback        | Amazon GameLift Servers invokes this callback function for each log message.<br>The function receives the log level, the pre-formatted message<br>string, and the `userData` context pointer. The message<br>pointer is valid only for the duration of the callback invocation;<br>copy the message if you need to retain it. The SDK serializes<br>callback invocations, but any thread might invoke the callback.<br>This value must not be `null`; the operation rejects a<br>`null` callback with<br>`BAD_REQUEST_EXCEPTION`.<br>**Type:**<br>`Aws::GameLift::Server::LogCallback`<br>(`void(*)(LogLevel level, const char<br>• message, void*<br>userData)`)<br>**Required:*<br>• Yes |
+| userData        | A user-provided context pointer that Amazon GameLift Servers passes to the callback<br>on each invocation. The SDK doesn't manage its lifetime. This pointer<br>must remain valid until the process terminates.<br>**Type:**<br>`void*`<br>**Required:*<br>• No                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| minimumLogLevel | The minimum log level for the SDK. Amazon GameLift Servers will not invoke the<br>provided callback for logs below this level. The default value is<br>`LogLevel::Info`. To disable logging, set this value<br>to `LogLevel::Off`.<br>**Type:**<br>`Aws::GameLift::Server::LogLevel`<br>enum value<br>**Required:*<br>• No                                                                                                                                                                                                                                                                                                                                                                 |
 
 ## ProcessParameters
 
@@ -464,3 +477,19 @@ Valid values include:
 - **ACCEPT\_ALL** – Accept all new player sessions.
 - **DENY\_ALL** – Deny all new player sessions.
 - **NOT\_SET** – The game session is not set to accept or deny new player sessions.
+
+**LogLevel**
+
+The severity level of a log message. Values increase in severity from
+`Trace` (most verbose) to `Fatal` (most severe).
+`Off` is not a log severity, but you can use it as the minimum log
+level in a [CustomLoggerConfiguration](#integration-server-sdk5-cpp-datatypes-customloggerconfiguration "#integration-server-sdk5-cpp-datatypes-customloggerconfiguration")
+to disable logging. Valid values include:
+
+- **Trace** – The most verbose level, used for fine-grained diagnostic messages.
+- **Debug** – Detailed information useful for debugging.
+- **Info** – General informational messages. This is the default minimum log level.
+- **Warn** – Messages that indicate a potential problem.
+- **Error** – Messages that indicate a recoverable error.
+- **Fatal** – The most severe level, used for unrecoverable errors.
+- **Off** – Disables all log callback dispatching.

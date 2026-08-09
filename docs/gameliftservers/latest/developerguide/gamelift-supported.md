@@ -64,7 +64,7 @@ the included readme files in each package.
 
     + [Plugin for Unreal Engine](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal") – Built for use with
      Unreal Engine versions 5.0, 5.1, 5.2, 5.3,
-     5.4, 5.5, and 5.6. Check version-specific readme files
+     5.4, 5.5, 5.6, 5.7, and 5.8. Check version-specific readme files
      for Unreal support.
 
 

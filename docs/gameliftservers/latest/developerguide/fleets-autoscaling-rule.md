@@ -185,15 +185,18 @@ Fleet capacity is also constrained by limits on the fleet's instance type and by
 service quotas in your AWS account. You can't set a minimum and maximum outside
 these limits and account quotas.
 
-### Track metrics after a change in capacity
+### Cooldown after a change in capacity
 
-After changing capacity in response to an auto scaling policy, Amazon GameLift Servers waits 10
-minutes before responding to triggers from the same policy. This wait gives Amazon GameLift Servers
+After changing capacity in response to an auto scaling policy, Amazon GameLift Servers enforces a
+cooldown before responding to additional scaling triggers. The cooldown begins
+after the last instance finishes launching or terminating. This wait gives Amazon GameLift Servers
 time to add the new instances, launch the game servers, connect players, and start
-collecting data from the new instances. During this time, Amazon GameLift Servers evaluates the policy
-against the metric and tracks the policy's evaluation period, which restarts after a
-scaling event occurs. This means that a scaling policy could start another scaling
-event immediately after the wait time is over.
+collecting data from the new instances. During this time, Amazon GameLift Servers continues
+to evaluate the policy against the metric, but it doesn't start another scaling
+event until the cooldown ends.
 
-There is no wait time between scaling events that different auto scaling policies
-start.
+###### Multiple auto scaling policies
+
+We recommend caution when using multiple auto scaling policies on a fleet,
+because policies can interact in unexpected ways. Consider how your policies
+might affect one another.

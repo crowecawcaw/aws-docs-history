@@ -209,6 +209,27 @@ per-instance container group or log router overhead.
 | `r7i.xlarge`   | 32,768             | 5%                | 31,130                 |
 | `r7i.2xlarge`  | 65,536             | 5%                | 62,259                 |
 | `r7i.4xlarge`  | 131,072            | 4%                | 125,829                |
+| `c8a.medium`   | 2,048              | 8%                | 1,884                  |
+| `c8a.large`    | 4,096              | 8%                | 3,768                  |
+| `c8a.xlarge`   | 8,192              | 6%                | 7,700                  |
+| `c8a.2xlarge`  | 16,384             | 5%                | 15,565                 |
+| `c8i.large`    | 4,096              | 8%                | 3,768                  |
+| `c8i.xlarge`   | 8,192              | 6%                | 7,700                  |
+| `c8i.2xlarge`  | 16,384             | 5%                | 15,565                 |
+| `m8a.medium`   | 4,096              | 8%                | 3,768                  |
+| `m8a.large`    | 8,192              | 6%                | 7,700                  |
+| `m8a.xlarge`   | 16,384             | 5%                | 15,565                 |
+| `m8a.2xlarge`  | 32,768             | 5%                | 31,130                 |
+| `m8i.large`    | 8,192              | 6%                | 7,700                  |
+| `m8i.xlarge`   | 16,384             | 5%                | 15,565                 |
+| `m8i.2xlarge`  | 32,768             | 5%                | 31,130                 |
+| `c9g.medium`   | 2,048              | 8%                | 1,884                  |
+| `c9g.large`    | 4,096              | 8%                | 3,768                  |
+| `c9g.xlarge`   | 8,192              | 6%                | 7,700                  |
+| `c9g.2xlarge`  | 16,384             | 5%                | 15,565                 |
+| `m9g.large`    | 8,192              | 6%                | 7,700                  |
+| `m9g.xlarge`   | 16,384             | 5%                | 15,565                 |
+| `m9g.2xlarge`  | 32,768             | 5%                | 31,130                 |
 
 For instance types not listed here, you can calculate the available memory using the
 formula described above. Check the [Amazon EC2 instance types documentation](../../../ec2/latest/instancetypes/ec2-instance-type-specifications.md "../../../ec2/latest/instancetypes/ec2-instance-type-specifications.md") for the total memory of your chosen
