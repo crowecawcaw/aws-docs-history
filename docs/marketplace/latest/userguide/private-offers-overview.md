@@ -33,6 +33,7 @@ Sellers in India can create private offers in USD and INR, and can extend these 
 - [Creating private offers as an AWS Marketplace Channel Partner](channel-partner-offers.md "channel-partner-offers.md")
 - [Express private offers](express-private-offers.md "express-private-offers.md")
 - [Private offer installment plans](installment-plans.md "installment-plans.md")
+- [Configuring net payment terms for private offers](seller-net-payment-terms.md "seller-net-payment-terms.md")
 - [Creating future dated agreements for private offers](private-offers-seller-future-dated-private-offers-and-agreements.md "private-offers-seller-future-dated-private-offers-and-agreements.md")
 - [Private offer FAQ](private-offer-faq.md "private-offer-faq.md")
 
