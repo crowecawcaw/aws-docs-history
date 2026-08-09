@@ -289,12 +289,59 @@ and the FSx for ONTAP file system. For detailed security group configuration, se
 [Step 1: Configure security groups](fsx-ontap.md#fsx-ontap-step1-security-groups "fsx-ontap.md#fsx-ontap-step1-security-groups") in the
 [FSx for ONTAP configuration](fsx-ontap.md "fsx-ontap.md").
 
-###### Note
+**Replication server package repository access**
 
-The target instance also requires outbound internet access or access to OS package
-repositories to install iSCSI initiator and multipath tools. For details, see
+MGN replication servers require iSCSI initiator and multipath packages to replicate
+data to FSx for ONTAP. These packages are installed automatically using `yum`
+from the Amazon Linux 2 package repository.
+
+- **Connected subnets (internet via NAT or internet gateway)**:
+  Allowlist the following URLs in your firewall or DNS rules:
+
+```
+https://cdn.amazonlinux.com/
+https://amazonlinux-2-repos-<region>.s3.<region>.amazonaws.com/
+```
+
+- **Isolated subnets (Amazon S3 VPC gateway endpoint only)**:
+  Add the following resource ARN to the endpoint policy:
+
+```
+"arn:aws:s3:::amazonlinux-2-repos-<region>/*"
+```
+
+If neither option is available, you must pre-install the packages on the source server
+before migration. For the required packages by operating system, see
 [Step 6: Configure launch template and launch
 settings](fsx-ontap.md#fsx-ontap-step6-launch-settings "fsx-ontap.md#fsx-ontap-step6-launch-settings").
+
+**Target instance package repository access**
+
+MGN automatically installs iSCSI initiator and multipath packages on test and cutover
+instances using the OS package manager of the target operating system. The launch subnet
+must have outbound access to the appropriate OS package repositories.
+
+Required packages by package manager (Linux)| Package Manager | Packages Installed |
+| --- | --- |
+| dnf (Fedora/RHEL 8+) | `iscsi-initiator-utils`, `device-mapper-multipath` |
+| yum (RHEL 6/7, CentOS, Amazon Linux) | `iscsi-initiator-utils`, `device-mapper-multipath` |
+| apt-get (Debian/Ubuntu) | `open-iscsi`, `multipath-tools` |
+| zypper (SLES/openSUSE) | `open-iscsi`, `multipath-tools` |
+
+On Windows, the iSCSI initiator (`MSiSCSI` service) is a built-in service
+that is enabled and started automatically. Only Multipath-IO needs to be enabled:
+
+Required features (Windows)| Method | Feature Enabled |
+| --- | --- |
+| `Install-WindowsFeature` (Server 2012+) | `Multipath-IO` |
+| `Add-WindowsFeature` (Server 2008 R2) | `Multipath-IO` |
+
+If the launch subnet cannot reach OS package repositories (for example, air-gapped
+environments or private subnets without a NAT gateway), or if the operating system uses
+subscription-based repositories (SUSE, RHEL, CentOS), you must pre-install the packages
+on the source server before migration. See the
+[Supported Linux operating
+systems](Supported-Operating-Systems.md#Supported-Operating-Systems-Linux "Supported-Operating-Systems.md#Supported-Operating-Systems-Linux") table for the specific pre-install commands by operating system.
 
 ## Troubleshooting connectivity issues
 

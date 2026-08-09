@@ -56,6 +56,10 @@ the beginning.
   quotas](../../../fsx/latest/ONTAPGuide/limits.md "../../../fsx/latest/ONTAPGuide/limits.md"). For MGN service quotas, see
   [MGN
   endpoints and quotas](../../../general/latest/gr/mgn.md "../../../general/latest/gr/mgn.md").
+- **igroup limits per file system**. MGN creates one
+  igroup per source server during replication and one per target instance at launch.
+  FSx for ONTAP supports up to 256 igroups (Single-AZ) or 512 igroups (Multi-AZ). Plan the
+  number of source servers per file system accordingly.
 - **ONTAP configurations not migrated**. If you are
   migrating from an existing ONTAP storage system, source ONTAP configurations (such as
   access permissions, quotas, snapshot policies, and schedules) are not migrated
@@ -91,21 +95,12 @@ managed policies, see
   latency. If your applications do not require cross-AZ resiliency, you can use a Single-AZ
   FSx for ONTAP file system. Deploy your target EC2 instances in the same AZ as the file system
   to minimize latencies and avoid cross-AZ data transfer charges.
-- **OS package repository access**: Replication servers
-  and launched instances require iSCSI initiator and multipath tools to connect to
-  FSx for ONTAP. Ensure that both the staging area subnet (for replication servers) and the
-  launch subnet (for test and cutover instances) have outbound access to OS package
-  repositories (for example, through a NAT gateway or internet gateway).
-
-If the target instance does not have network access to OS package repositories
-(for example, in air-gapped environments or private subnets without a NAT gateway), or if
-the operating system uses subscription-based repositories (SUSE, RHEL, CentOS),
-**you must pre-install the packages on the source server before
-migration**. For the required packages by operating system, see
-[Step 6: Configure launch template and
-launch settings](#fsx-ontap-step6-launch-settings "#fsx-ontap-step6-launch-settings") and the
-[Supported Linux operating
-systems](Supported-Operating-Systems.md#Supported-Operating-Systems-Linux "Supported-Operating-Systems.md#Supported-Operating-Systems-Linux") table.
+- **OS package repository access**: MGN automatically
+  installs iSCSI initiator and multipath packages on replication servers and launched
+  instances. Ensure that both the staging area subnet and the launch subnet have outbound
+  access to OS package repositories (for example, through a NAT gateway or internet
+  gateway). For the full list of required URLs, see
+  [Network requirements for FSx for ONTAP](preparing-environments.md#fsx-ontap-network-requirements "preparing-environments.md#fsx-ontap-network-requirements").
 
 ## Step 1: Configure security groups
 
@@ -474,28 +469,14 @@ The target instance must establish iSCSI connectivity to the FSx for ONTAP SVM o
 
 **Requirements:**
 
-- Choose the required target subnet (subnet that can communicate with FSx for ONTAP and has outbound access to OS package repositories).
+- Choose the required target subnet. This subnet must have network connectivity to the
+  FSx for ONTAP file system (ports 3260 and 443) and outbound access to OS package repositories.
+  For connectivity details, see
+  [Network requirements for
+  FSx for ONTAP](preparing-environments.md#fsx-ontap-network-requirements "preparing-environments.md#fsx-ontap-network-requirements").
 - Modify the source server's launch template to include the
   `MGN-Instances-SG` security group (see
   [Step 1: Configure security groups](#fsx-ontap-step1-security-groups "#fsx-ontap-step1-security-groups")).
-- Ensure that target instances have network access to OS package repositories. MGN
-  automatically installs iSCSI initiator and multipath tools using the OS package manager
-  during migration.
-
-Required packages by package manager (Linux)| Package Manager | Packages Installed |
-| --- | --- |
-| dnf (Fedora/RHEL 8+) | `iscsi-initiator-utils`, `device-mapper-multipath` |
-| yum (RHEL 6/7, CentOS, Amazon Linux) | `iscsi-initiator-utils`, `device-mapper-multipath` |
-| apt-get (Debian/Ubuntu) | `open-iscsi`, `multipath-tools` |
-| zypper (SLES/openSUSE) | `open-iscsi`, `multipath-tools` |
-
-On Windows, the iSCSI initiator (`MSiSCSI` service) is a built-in service
-that is enabled and started automatically. Only Multipath-IO needs to be enabled:
-
-Required features (Windows)| Method | Feature Enabled |
-| --- | --- |
-| `Install-WindowsFeature` (Server 2012+) | `Multipath-IO` |
-| `Add-WindowsFeature` (Server 2008 R2) | `Multipath-IO` |
 
 ## Step 7: Enable volume integrity validation (recommended)
 

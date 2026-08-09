@@ -2,6 +2,10 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Release notes
 
+## August 2026
+
+Added support for Amazon Linux 2023 with kernel 6.18.
+
 ## July 2026
 
 Added support for RHEL 9.8, Rocky Linux 9.8, and

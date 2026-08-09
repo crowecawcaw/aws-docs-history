@@ -27,6 +27,14 @@ In order to use the import feature, you will need to create a role with the foll
 - [AWSApplicationMigrationFullAccess](security-iam-awsmanpol-AWSApplicationMigrationFullAccess.md "security-iam-awsmanpol-AWSApplicationMigrationFullAccess.md")
 - [AWSApplicationMigrationEC2Access](security-iam-awsmanpol-AWSApplicationMigrationEC2Access.md "security-iam-awsmanpol-AWSApplicationMigrationEC2Access.md")
 
+###### Note
+
+These managed policies grant broad access to MGN features beyond
+the import function. For least privilege, use IAM Access Analyzer to generate a
+policy scoped to only the actions required for your import workflow. For more information,
+see [Generate policies based
+on access activity](../../../IAM/latest/UserGuide/access-analyzer-policy-generation.md "../../../IAM/latest/UserGuide/access-analyzer-policy-generation.md").
+
 **Additional policies:**
 
 ```

@@ -239,7 +239,7 @@ Supported OSs include:
 - SLES 12 and 15
 - Debian 9–11
 - Ubuntu 16, 18, 20, and 22
-- Amazon Linux 2
+- Amazon Linux 2 and 2023
 - AlmaLinux 9.6, 9.7, 9.8, 10, 10.1
 
 ###### Note

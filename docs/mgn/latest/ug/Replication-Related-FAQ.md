@@ -29,25 +29,20 @@ This section contains answers to questions about data replication.
 
 ## What is the lifecycle of the snapshots and volumes automatically created during migration?
 
-For each source block device, we create a corresponding EBS volume. On occasion if there is
-an issue with the agent on the source machine being able to send data to a volume, we may
-create a new volume to replace the old one. Our workflow does not necessarily delete the old
-volume straight away, and it may remain present for around 10 minutes after the replacement
-volume comes online. But this is going to be rare, if your network connection is
-stable.
+For each source block device, MGN creates a corresponding EBS volume. If the agent on the
+source machine cannot send data to a volume, MGN creates a replacement volume. The old
+volume might remain for approximately 10 minutes after the replacement volume comes online.
+Volume replacement occurs only when there is an agent communication failure, which
+typically results from an unstable network connection.
 
-With regards to the snapshots, we take regular snapshots, so that we can take advantage of
-the incremental nature of snapshots. If we were for example to take a snapshot once every 6
-hours, the snapshot would contain 6 hours worth of snapshots, and could potentially take a
-long time to complete. By taking them more frequently, we shorten the time taken to create
-the actual snapshot. This in turn means that when you trigger a test or cutover instance,
-the time taken to get the process started is not delayed unnecessarily by waiting for EBS
-snapshots to complete. We would generally keep 5–6 snapshots of a volume, to be sure that
-there is at least one that is completed when we need it for launch. EBS snapshot creation
-time has no SLA, and sometimes can be delayed significantly. EBS snapshot creation is also
-not guaranteed. A snapshot creation can fail (Not the API call, but the actual creation
-process). Hence we keep the additional snapshots, just in case something more recent
-actually failed.
+MGN takes regular EBS snapshots to use incremental snapshot capabilities.
+Frequent snapshots reduce the time required to create each snapshot, which
+means that test or cutover instance launches are not delayed while waiting for EBS
+snapshots to complete. MGN retains 5–6 snapshots per volume to ensure that at least
+one completed snapshot is available at launch time. EBS snapshot creation has no SLA
+and can be delayed. Snapshot creation can also fail independently of the API call.
+MGN retains multiple snapshots to provide redundancy if the most recent snapshot
+fails.
 
 ## What do Lag and Backlog mean during replication?
 
@@ -231,7 +226,9 @@ AL2023.
 
 **New S3 bucket dependency:** AL2023 introduces a new S3
 bucket dependency for package management that was not required by AL2-based servers. MGN
-replication and conversion servers connect to the following AL2023 package repository:
+replication and conversion servers connect to the following AL2023 package repository. In the
+following URL, replace `region` with the AWS Region code where
+your staging area is configured (for example, `us-east-1`).
 
 ```
 https://al2023-repos-`region`-de612dc2.s3.dualstack.`region`.amazonaws.com
