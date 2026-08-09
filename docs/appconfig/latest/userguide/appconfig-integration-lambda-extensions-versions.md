@@ -24,6 +24,7 @@ Note the following important details about the AWS AppConfig Agent Lambda extens
 
 - [AWS AppConfig Agent Lambda Extension release notes](#appconfig-integration-lambda-extensions-versions-release-notes "#appconfig-integration-lambda-extensions-versions-release-notes")
 - [Finding your Lambda extension version number](#appconfig-integration-lambda-extensions-versions-find "#appconfig-integration-lambda-extensions-versions-find")
+- [Retrieving the latest extension ARN from a public parameter](#appconfig-integration-lambda-extensions-versions-public-param "#appconfig-integration-lambda-extensions-versions-public-param")
 - [x86-64 platform](#appconfig-integration-lambda-extensions-enabling-x86-64 "#appconfig-integration-lambda-extensions-enabling-x86-64")
 - [ARM64 platform](#appconfig-integration-lambda-extensions-enabling-ARM64 "#appconfig-integration-lambda-extensions-enabling-ARM64")
 - [Older extension versions](#appconfig-integration-lambda-extensions-enabling-older-versions "#appconfig-integration-lambda-extensions-enabling-older-versions")
@@ -33,25 +34,25 @@ Note the following important details about the AWS AppConfig Agent Lambda extens
 The following table describes changes made to recent versions of the AWS AppConfig Lambda
 extension.
 
-| Version     | Launch date | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2.0.20159   | 07/13/2026  | Added support for AWS AppConfig experimentation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| 2.0.18836   | 06/22/2026  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| 2.0.17054.0 | 05/14/2026  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| 2.0.14126.0 | 03/25/2026  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| 2.0.11962.0 | 02/20/2026  | Improved environment support, minor enhancements, and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| 2.0.8693    | 11/20/2025  | Improved environment support, minor enhancements, and bug fixes. Added support for the following AWS Regions<br>• Asia Pacific (Taipei), ap-east-2<br>• Asia Pacific (New Zealand), ap-southeast-6<br>• Asia Pacific (Thailand), ap-southeast-7<br>• Mexico (Central), mx-central-1                                                                                                                                                                                                                                                                                   |
-| 2.0.2037    | 05/12/2025  | Added<br>`/ping` path, which exposes a simple health check that returns that agent's version. Also includes minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| 2.0.1079    | 12/12/2024  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| 2.0.719     | 08/08/2024  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| 2.0.678     | 07/23/2024  | Enhancements to support feature flag targets, variants, and splits. For more information, see<br>[Creating multi-variant feature flags](appconfig-creating-multi-variant-feature-flags.md "appconfig-creating-multi-variant-feature-flags.md").                                                                                                                                                                                                                                                                                                                       |
-| 2.0.501     | 07/01/2024  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| 2.0.358     | 12/01/2023  | Added support for the following<br>[retrieval features:](appconfig-agent-how-to-use-additional-features.md "appconfig-agent-how-to-use-additional-features.md")<br>• _Multi-account retrieval_: Use AWS AppConfig Agent from a primary or<br>*retrieval<br>• AWS account to retrieve configuration data from multiple vendor accounts.<br>• _Write configuration copy to disk_: Use AWS AppConfig Agent to write configuration data to disk. This feature enables customers with applications that read configuration data from disk to integrate with AWS AppConfig. |
-| 2.0.181     | 08/14/2023  | Added support for the Israel (Tel Aviv) il-central-1 AWS Region.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| 2.0.165     | 02/21/2023  | Minor bug fixes. No longer restricting extension use to specific runtime versions via the AWS Lambda console. Added support for the following AWS Regions:<br>• Middle East (UAE), me-central-1<br>• Asia Pacific (Hyderabad), ap-south-2<br>• Asia Pacific (Melbourne), ap-southeast-4<br>• Europe (Spain), eu-south-2<br>• Europe (Zurich), eu-central-2                                                                                                                                                                                                            |
-| 2.0.122     | 08/23/2022  | Added support for a tunneling proxy, which can be configured with the<br>`AWS_APPCONFIG_EXTENSION_PROXY_URL` and<br>`AWS_APPCONFIG_EXTENSION_PROXY_HEADERS` environment variables. Added .NET 6 as a runtime. For more information about environment variables, see<br>[Configuring the AWS AppConfig Agent Lambda extension](appconfig-integration-lambda-extensions-config.md "appconfig-integration-lambda-extensions-config.md").                                                                                                                                 |
-| 2.0.58      | 05/03/2022  | Improved support for Graviton2 (ARM64) processors in Lambda.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| 2.0.45      | 03/15/2022  | Added support for calling a single feature flag. Previously, customers called feature flags grouped into a configuration profile and had to parse the response client-side. With this release, customers can use a<br>`flag=<flag-name>` parameter when calling the HTTP localhost endpoint to get the value of a single flag. Also added initial support for Graviton2 (ARM64) processors.                                                                                                                                                                           |
+| Version   | Launch date | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2.0.20159 | 07/13/2026  | Added support for AWS AppConfig experimentation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 2.0.18836 | 06/22/2026  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| 2.0.17054 | 05/14/2026  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| 2.0.14126 | 03/25/2026  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| 2.0.11962 | 02/20/2026  | Improved environment support, minor enhancements, and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 2.0.8693  | 11/20/2025  | Improved environment support, minor enhancements, and bug fixes. Added support for the following AWS Regions<br>• Asia Pacific (Taipei), ap-east-2<br>• Asia Pacific (New Zealand), ap-southeast-6<br>• Asia Pacific (Thailand), ap-southeast-7<br>• Mexico (Central), mx-central-1                                                                                                                                                                                                                                                                                   |
+| 2.0.2037  | 05/12/2025  | Added<br>`/ping` path, which exposes a simple health check that returns that agent's version. Also includes minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| 2.0.1079  | 12/12/2024  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| 2.0.719   | 08/08/2024  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| 2.0.678   | 07/23/2024  | Enhancements to support feature flag targets, variants, and splits. For more information, see<br>[Creating multi-variant feature flags](appconfig-creating-multi-variant-feature-flags.md "appconfig-creating-multi-variant-feature-flags.md").                                                                                                                                                                                                                                                                                                                       |
+| 2.0.501   | 07/01/2024  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| 2.0.358   | 12/01/2023  | Added support for the following<br>[retrieval features:](appconfig-agent-how-to-use-additional-features.md "appconfig-agent-how-to-use-additional-features.md")<br>• _Multi-account retrieval_: Use AWS AppConfig Agent from a primary or<br>*retrieval<br>• AWS account to retrieve configuration data from multiple vendor accounts.<br>• _Write configuration copy to disk_: Use AWS AppConfig Agent to write configuration data to disk. This feature enables customers with applications that read configuration data from disk to integrate with AWS AppConfig. |
+| 2.0.181   | 08/14/2023  | Added support for the Israel (Tel Aviv) il-central-1 AWS Region.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 2.0.165   | 02/21/2023  | Minor bug fixes. No longer restricting extension use to specific runtime versions via the AWS Lambda console. Added support for the following AWS Regions:<br>• Middle East (UAE), me-central-1<br>• Asia Pacific (Hyderabad), ap-south-2<br>• Asia Pacific (Melbourne), ap-southeast-4<br>• Europe (Spain), eu-south-2<br>• Europe (Zurich), eu-central-2                                                                                                                                                                                                            |
+| 2.0.122   | 08/23/2022  | Added support for a tunneling proxy, which can be configured with the<br>`AWS_APPCONFIG_EXTENSION_PROXY_URL` and<br>`AWS_APPCONFIG_EXTENSION_PROXY_HEADERS` environment variables. Added .NET 6 as a runtime. For more information about environment variables, see<br>[Configuring the AWS AppConfig Agent Lambda extension](appconfig-integration-lambda-extensions-config.md "appconfig-integration-lambda-extensions-config.md").                                                                                                                                 |
+| 2.0.58    | 05/03/2022  | Improved support for Graviton2 (ARM64) processors in Lambda.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| 2.0.45    | 03/15/2022  | Added support for calling a single feature flag. Previously, customers called feature flags grouped into a configuration profile and had to parse the response client-side. With this release, customers can use a<br>`flag=<flag-name>` parameter when calling the HTTP localhost endpoint to get the value of a single flag. Also added initial support for Graviton2 (ARM64) processors.                                                                                                                                                                           |
 
 ## Finding your Lambda extension version number
 
@@ -75,6 +76,105 @@ is currently hosted.
 8. After the test completes, view the log output. Locate the AWS AppConfig Agent Lambda
    extension version in the **Details of the Execution** section. This
    version must match the required URLs for that version.
+
+## Retrieving the latest extension ARN from a public parameter
+
+The latest AWS AppConfig Agent Lambda extension layer ARN is available as a public
+parameter in AWS Systems Manager Parameter Store in every commercial AWS Region. You can reference these
+parameters programmatically to always deploy your Lambda function with the latest
+extension version without manual ARN updates.
+
+The public parameter paths are:
+
+- **x86\_64**:
+  `/aws/service/aws-appconfig/lambda-extension/x86/latest`
+- **arm64**:
+  `/aws/service/aws-appconfig/lambda-extension/arm64/latest`
+
+###### Note
+
+The x86 parameter path uses `x86` (not `x86_64`), even
+though the Lambda architecture is x86\_64.
+
+You don't need special IAM permissions beyond `ssm:GetParameter`.
+The parameter is public and readable from any AWS account.
+
+### AWS CLI
+
+To retrieve the latest ARN versions, run the following commands.
+
+**x86\_64**
+
+```
+aws ssm get-parameter \
+    --name "/aws/service/aws-appconfig/lambda-extension/x86/latest" \
+    --query "Parameter.Value" \
+    --output text
+```
+
+**arm64**
+
+```
+aws ssm get-parameter \
+    --name "/aws/service/aws-appconfig/lambda-extension/arm64/latest" \
+    --query "Parameter.Value" \
+    --output text
+```
+
+### CloudFormation
+
+When you deploy Lambda functions with CloudFormation, you can use the
+`{{resolve:ssm:...}}` dynamic reference syntax to retrieve the latest
+extension ARN during stack operations. This ensures that your function always uses
+the latest extension version without manual updates.
+
+**x86\_64**
+
+```
+Resources:
+  MyFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: my-function
+      Runtime: python3.13
+      Handler: index.handler
+      Architectures:
+        - x86_64
+      Code:
+        ZipFile: |
+          def handler(event, context):
+              return {'statusCode': 200}
+      Layers:
+        - '{{resolve:ssm:/aws/service/aws-appconfig/lambda-extension/x86/latest}}'
+      Role: !GetAtt MyFunctionRole.Arn
+```
+
+**arm64**
+
+```
+Resources:
+  MyFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: my-function
+      Runtime: python3.13
+      Handler: index.handler
+      Architectures:
+        - arm64
+      Code:
+        ZipFile: |
+          def handler(event, context):
+              return {'statusCode': 200}
+      Layers:
+        - '{{resolve:ssm:/aws/service/aws-appconfig/lambda-extension/arm64/latest}}'
+      Role: !GetAtt MyFunctionRole.Arn
+```
+
+###### Note
+
+The `{{resolve:ssm:`parameter-name`}}`
+syntax automatically retrieves the parameter value during stack operations.
+This ensures that you always deploy with the current ARN.
 
 ## x86-64 platform
 
@@ -228,7 +328,7 @@ Version 2.0.18836| Region | ARN |
 
 Date replaced by newer extension: 06/22/2026
 
-Version 2.0.17054.0| Region | ARN |
+Version 2.0.17054| Region | ARN |
 | --- | --- |
 | US East (N. Virginia) | `arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension:321` |
 | US East (Ohio) | `arn:aws:lambda:us-east-2:728743619870:layer:AWS-AppConfig-Extension:277` |
@@ -271,7 +371,7 @@ Version 2.0.17054.0| Region | ARN |
 
 Date replaced by newer extension: 05/14/2026
 
-Version 2.0.14126.0| Region | ARN |
+Version 2.0.14126| Region | ARN |
 | --- | --- |
 | US East (N. Virginia) | `arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension:317` |
 | US East (Ohio) | `arn:aws:lambda:us-east-2:728743619870:layer:AWS-AppConfig-Extension:273` |
@@ -312,7 +412,7 @@ Version 2.0.14126.0| Region | ARN |
 
 Date replaced by newer extension: 03/25/2026
 
-Version 2.0.11962.0| Region | ARN |
+Version 2.0.11962| Region | ARN |
 | --- | --- |
 | US East (N. Virginia) | `arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension:296` |
 | US East (Ohio) | `arn:aws:lambda:us-east-2:728743619870:layer:AWS-AppConfig-Extension:252` |
@@ -873,7 +973,7 @@ Version 2.0.18836| Region | ARN |
 
 Date replaced by newer extension: 06/22/2026
 
-Version 2.0.17054.0| Region | ARN |
+Version 2.0.17054| Region | ARN |
 | --- | --- |
 | US East (N. Virginia) | `arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension-Arm64:254` |
 | US East (Ohio) | `arn:aws:lambda:us-east-2:728743619870:layer:AWS-AppConfig-Extension-Arm64:229` |
@@ -916,7 +1016,7 @@ Version 2.0.17054.0| Region | ARN |
 
 Date replaced by newer extension: 05/14/2026
 
-Version 2.0.14126.0| Region | ARN |
+Version 2.0.14126| Region | ARN |
 | --- | --- |
 | US East (N. Virginia) | `arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension-Arm64:250` |
 | US East (Ohio) | `arn:aws:lambda:us-east-2:728743619870:layer:AWS-AppConfig-Extension-Arm64:225` |
@@ -957,7 +1057,7 @@ Version 2.0.14126.0| Region | ARN |
 
 Date replaced by newer extension: 03/25/2026
 
-Version 2.0.11962.0| Region | ARN |
+Version 2.0.11962| Region | ARN |
 | --- | --- |
 | US East (N. Virginia) | `arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension-Arm64:229` |
 | US East (Ohio) | `arn:aws:lambda:us-east-2:728743619870:layer:AWS-AppConfig-Extension-Arm64:204` |
