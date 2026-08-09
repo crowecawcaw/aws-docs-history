@@ -49,7 +49,7 @@ closer at the resource status when the metric is in this state.
 
 For request floods, we recommend that you create alarms for composite checks that also
 consider factors such as application health and web request volume. You may choose to
-alarm on the other three metrics that report on the volume of traffic for various
+alarm on the other 3 metrics that report on the volume of traffic for various
 attack vector dimensions. By considering the capacity of your application and alarming
 when traffic is approaching your application limitations,
 you can create a set of rules that notify you as needed, without too much unwanted noise.

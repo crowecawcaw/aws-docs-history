@@ -5,7 +5,7 @@ For more details, see [Working with the console](working-with-console.md "workin
 
 # Working with the updated console experience
 
-AWS WAF offers two options for using the console:
+AWS WAF offers 2 options for using the console:
 
 The **new console** aims to simplify web ACL configuration process required by standard console workflows.
 You can use guided workflows to simplify the web ACL creation and management process

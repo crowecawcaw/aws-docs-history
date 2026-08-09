@@ -192,7 +192,7 @@ Each label reflects the Bot Control rule findings:
   ###### Note
 
   When the `web_bot_auth:verified`
-  label is present, the `Category`<Name>`` and
+  label is present, the `Category`<category_name>`` and
   `TGT_TokenAbsent` rules do not match,
   allowing verified WBA hosts to proceed.
   - `awswaf:managed:aws:bot-control:bot:organization:`<organization>``
