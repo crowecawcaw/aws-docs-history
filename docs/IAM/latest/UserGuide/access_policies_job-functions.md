@@ -186,7 +186,9 @@ uses the [NotAction](reference_policies_elements_notaction.md "reference_policie
 element to allow all actions for all AWS services and for all resources except AWS Identity and Access Management,
 AWS Organizations, and AWS Account Management. The second statement grants IAM permissions to create a
 service-linked role. This is required by some services that must access resources in another
-service, such as an Amazon S3 bucket. It also grants AWS Organizations permissions to view information about
+service, such as an Amazon S3 bucket.
+
+It also grants AWS Organizations permissions to view information about
 the user's organization, including the management account email and organization limitations.
 Although this policy limits IAM, AWS Organizations, it allows the user to perform all IAM Identity Center actions
 if IAM Identity Center is enabled. It also grants Account Management permissions to view which AWS Regions are enabled
@@ -240,7 +242,9 @@ updates, see [Updates to AWS managed policies for job functions](#security-iam-a
 **Policy description:** This policy grants permissions to
 list, get, describe, and otherwise view resources and their attributes. It does not include
 mutating functions like create or delete. This policy does include read-only access to
-security-related AWS services, such as AWS Identity and Access Management and AWS Billing and Cost Management. View the policy for the full
+security-related AWS services, such as AWS Identity and Access Management and AWS Billing and Cost Management.
+
+View the policy for the full
 list of services and actions that this policy supports. For more information about the managed
 policy, see [ReadOnlyAccess](../../../aws-managed-policy/latest/reference/ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/ReadOnlyAccess.md") in
 _AWS Managed Policy Reference Guide_. If you need a similar policy that

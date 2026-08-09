@@ -23,6 +23,8 @@ You can use the information in the policy summaries to understand the permission
 allowed or denied by your policy. Policy summaries can help you [troubleshoot](troubleshoot_policies.md "troubleshoot_policies.md") and
 fix policies that are not providing the permissions that you expect.
 
+For step-by-step instructions on viewing summaries, see [View policy summaries](access_policies_view-policy-summary.md "access_policies_view-policy-summary.md"), [View service summaries](access_policies_view-service-summary.md "access_policies_view-service-summary.md"), and [View action summaries](access_policies_view-action-summary.md "access_policies_view-action-summary.md").
+
 ###### Topics
 
 - [Policy summary (list of services)](access_policies_understand-policy-summary.md "access_policies_understand-policy-summary.md")

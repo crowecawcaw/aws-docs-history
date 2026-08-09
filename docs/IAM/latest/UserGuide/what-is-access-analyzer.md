@@ -37,6 +37,8 @@ An external entity can be another AWS account, a root user, an IAM user or role,
 federated user, an anonymous user, or another entity that you can use to create a filter. For
 more information, see [AWS JSON Policy Elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md").
 
+For instructions on getting started, see [Create an IAM Access Analyzer external access analyzer](access-analyzer-create-external.md "access-analyzer-create-external.md"). After you create an analyzer, you can [Manage an IAM Access Analyzer external access analyzer](access-analyzer-manage-external.md "access-analyzer-manage-external.md").
+
 When you enable IAM Access Analyzer, you create an analyzer for your entire organization or your
 account. The organization or account you choose is known as the zone of trust for the analyzer.
 The analyzer monitors all of the [supported
@@ -102,6 +104,8 @@ principals within your organization or account have access to them. This analysi
 implementing the principle of least privilege by ensuring that your specified resources can only
 be accessed by the intended principals within your organization.
 
+For instructions on getting started, see [Create an IAM Access Analyzer internal access analyzer](access-analyzer-create-internal.md "access-analyzer-create-internal.md"). After you create an analyzer, you can [Manage an IAM Access Analyzer internal access analyzer](access-analyzer-manage-internal.md "access-analyzer-manage-internal.md").
+
 Internal access analysis helps you:
 
 - Determine which IAM users or roles within your account or organization can access your
@@ -130,6 +134,8 @@ organization and accounts and generates findings for unused access. The findings
 roles, unused access keys for IAM users, and unused passwords for IAM users. For active IAM
 roles and users, the findings provide visibility into unused services and actions.
 
+For instructions on creating an unused access analyzer and managing its findings, see [Manage an IAM Access Analyzer unused access analyzer](access-analyzer-manage-unused.md "access-analyzer-manage-unused.md").
+
 IAM Access Analyzer reviews last accessed information for all roles in your AWS organization and
 accounts to help you identify unused access. IAM action last accessed information helps you
 identify unused actions for roles in your AWS accounts. For more information, see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
@@ -147,7 +153,7 @@ using the AWS CLI, AWS API, or JSON policy editor in the IAM console. You can vi
 validation check findings that include security warnings, errors, general warnings, and
 suggestions for your policy. These findings provide actionable recommendations that help you
 author policies that are functional and conform to AWS best practices. To learn more about
-validating policies using policy validation, see [Validate policies with IAM Access Analyzer](access-analyzer-policy-validation.md "access-analyzer-policy-validation.md").
+validating policies using policy validation, see [Validate policies with IAM Access Analyzer](access-analyzer-policy-validation.md "access-analyzer-policy-validation.md"). For a list of the policy checks that IAM Access Analyzer performs, see [Checks for validating policies](access-analyzer-checks-validating-policies.md "access-analyzer-checks-validating-policies.md").
 
 ## Validating policies against your specified security standards
 

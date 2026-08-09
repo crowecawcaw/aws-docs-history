@@ -132,11 +132,11 @@ services that have **Yes** in the **Resource Based** column.
   information, see the [example walkthroughs](../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access.md "../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access.md") in the _Amazon Simple Storage Service User
   Guide_.
 - **Amazon Simple Notification Service (Amazon SNS) topics** — For more
-  information, go to [Example cases for
+  information, see [Example cases for
   Amazon SNS access control](../../../sns/latest/dg/sns-access-policy-use-cases.md "../../../sns/latest/dg/sns-access-policy-use-cases.md") in the _Amazon Simple Notification Service Developer
   Guide_.
 - **Amazon Simple Queue Service (Amazon SQS) queues** – For more
-  information, go to [Appendix: The Access Policy Language](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.md") in the
+  information, see [Appendix: The Access Policy Language](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.md") in the
   _Amazon Simple Queue Service Developer Guide_.
 
 ## Resource-based policies to delegate AWS permissions

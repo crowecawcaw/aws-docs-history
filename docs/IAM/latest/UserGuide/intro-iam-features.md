@@ -41,7 +41,7 @@ extra security. With MFA you or your users must provide not only a password or a
 key to work with your account, but also a code from a specially configured device. If
 you already use a FIDO security key with other services, and it has an AWS supported
 configuration, you can use WebAuthn for MFA security. For more information, see
-[Supported configurations for using passkeys and security keys](id_credentials_mfa_fido_supported_configurations.md "id_credentials_mfa_fido_supported_configurations.md")
+[Supported configurations for using passkeys and security keys](../../../id_credentials_mfa_fido_supported_configurations.md "../../../id_credentials_mfa_fido_supported_configurations.md")
 
 ## Identity federation
 

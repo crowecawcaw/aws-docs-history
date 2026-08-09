@@ -2,7 +2,9 @@
 
 As an administrator or developer, you might grant permissions to IAM entities (users or
 roles) beyond what they require. IAM provides several options to help you refine the
-permissions that you grant. One option is to generate an IAM policy that is based on
+permissions that you grant.
+
+One option is to generate an IAM policy that is based on
 access activity for an entity. IAM Access Analyzer reviews your AWS CloudTrail logs and generates a
 policy template that contains the permissions that the entity used in your specified date
 range. You can use the template to create a policy with fine-grained permissions that grant
@@ -260,7 +262,7 @@ account as shown in the following policy statement.
   "Sid": "AllowUserToListTrails",
   "Effect": "Allow",
   "Action": [
-    "CloudTrail:ListTrails"
+    "cloudtrail:ListTrails"
   ],
   "Resource": "*"
 }
@@ -409,7 +411,9 @@ a user or role in your account.
 You might create CloudTrail trails that store data in central accounts to streamline
 governing activities. For example, you can use AWS Organizations to create a trail that logs all
 events for all of the AWS accounts in that organization. The trail belongs to a
-central account. If you want to generate a policy for a user or role in an account that
+central account.
+
+If you want to generate a policy for a user or role in an account that
 is different from the account where your CloudTrail log data is stored, you must grant
 cross-account access. To do this, you need both a role and a bucket policy that grant
 IAM Access Analyzer permissions to your CloudTrail logs. For more information about creating Organizations

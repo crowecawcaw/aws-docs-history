@@ -137,4 +137,4 @@ request to perform an action on a resource that isn't included in the permission
 service denies the request. For example, if you have permission to delete an IAM role but
 request to delete an IAM group, the request fails if you don't have permission to delete
 IAM groups. To learn more about which actions, resources, and condition keys the different
-AWS services support, see [Actions, Resources, and Condition Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md").
+AWS services support, see [Actions, Resources, and Condition Keys for AWS Services](../../../reference_policies_actions-resources-contextkeys.md "../../../reference_policies_actions-resources-contextkeys.md").

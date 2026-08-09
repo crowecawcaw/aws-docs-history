@@ -24,7 +24,7 @@ languages and platforms (Java, Ruby, .NET, iOS, Android, etc.). The SDKs provide
 way to create programmatic access to IAM and AWS. For example, the SDKs take care of tasks
 such as cryptographically signing requests (see below), managing errors, and retrying requests
 automatically. For information about the AWS SDKs, including how to download and install
-them, see the [Tools for Amazon Web Services](http://aws.amazon.com/tools/ "http://aws.amazon.com/tools/")
+them, see the [Tools for Amazon Web Services](../../../http:/aws.amazon.com/tools.md "../../../http:/aws.amazon.com/tools.md")
 page.
 
 For details about the API actions and errors, see the [IAM API Reference](../APIReference.md "../APIReference.md") or the [AWS Security Token Service API Reference](../../../STS/latest/APIReference.md "../../../STS/latest/APIReference.md").
@@ -60,7 +60,7 @@ use the credentials for an IAM user or you can use AWS STS to generate temporary
 credentials.
 
 To sign your API requests, we recommend using AWS Signature Version 4. For information
-about using Signature Version 4, go to [Signature Version 4 Signing Process](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") in the _AWS General
+about using Signature Version 4, see [Signature Version 4 Signing Process](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") in the _AWS General
 Reference_.
 
 If you need to use Signature Version 2, information about using Signature Version 2 is

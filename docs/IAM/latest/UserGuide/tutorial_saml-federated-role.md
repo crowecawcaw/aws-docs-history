@@ -21,7 +21,7 @@ The deployed resource consists of the following:
 This tutorial assumes that you have the following already in place:
 
 - An existing SAML IdP configured in your AWS account. If you don't have one,
-  you can create it using the [IAM tutorial: Use an CloudFormation template to create a SAML Identity Provider (IdP)](tutorial_saml-idp.md "tutorial_saml-idp.md") tutorial.
+  you can create it using the [IAM tutorial: Use a CloudFormation template to create a SAML Identity Provider (IdP)](tutorial_saml-idp.md "tutorial_saml-idp.md") tutorial.
 - The ARN of your SAML IdP, which you'll need to specify as a parameter when
   creating the stack.
 - Python 3.6 or later installed on your local machine to run the Python command
@@ -72,7 +72,7 @@ Next, use the template you've saved to provision a CloudFormation stack.
 
    ###### Note
 
-   If you created your SAML IdP using the [IAM tutorial: Use an CloudFormation template to create a SAML Identity Provider (IdP)](tutorial_saml-idp.md "tutorial_saml-idp.md") tutorial, you can find
+   If you created your SAML IdP using the [IAM tutorial: Use a CloudFormation template to create a SAML Identity Provider (IdP)](tutorial_saml-idp.md "tutorial_saml-idp.md") tutorial, you can find
    the provider ARN in the Outputs tab of that CloudFormation
    stack. 3. For **RoleName**, you can leave this empty to
    auto-generate a name based on the stack name, or enter a custom name

@@ -36,3 +36,4 @@ Here are some important characteristics of IAM groups:
   group. However, users can belong to multiple IAM groups.
 
 ![Example of relationship between AWS accounts, users, and IAM groups.](images/Relationship_Between_Entities_Example.diagram.png)
+After you create a user group, you can [View IAM groups](id_groups_manage_list.md "id_groups_manage_list.md"), [Attach a policy to an IAM user group](id_groups_manage_attach-policy.md "id_groups_manage_attach-policy.md"), and [Rename an IAM user group](id_groups_manage_rename.md "id_groups_manage_rename.md").

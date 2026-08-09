@@ -34,17 +34,17 @@ JSON
 _**DenyCustomerBucket** Policy
 Summary:_
 
-![Policy summary dialog image.](images/policies-summary-example1-dialog.png)
+![Policy summary for DenyCustomerBucket showing S3 service with explicit deny access level.](images/policies-summary-example1-dialog.png)
 
 _**DenyCustomerBucket S3 (Explicit deny)** Service
 Summary:_
 
-![Service summary dialog image.](images/policies-summary-action-example1-dialog.png)
+![Service summary for DenyCustomerBucket S3 showing explicitly denied actions.](images/policies-summary-action-example1-dialog.png)
 
 _**GetObject (Read)** Action
 Summary:_
 
-![Action summary dialog image.](images/policies-summary-resource-example1-dialog.png)
+![Action summary for GetObject showing denied resources in the DenyCustomerBucket policy.](images/policies-summary-resource-example1-dialog.png)
 
 ## Policy 2: DynamoDbRowCognitoID
 
@@ -83,17 +83,17 @@ JSON
 _**DynamoDbRowCognitoID** Policy
 Summary:_
 
-![Policy summary dialog image.](images/policies-summary-example2-dialog.png)
+![Policy summary for DynamoDbRowCognitoID showing DynamoDB service with allowed access level.](images/policies-summary-example2-dialog.png)
 
 _**DynamoDbRowCognitoID DynamoDB (Allow)** Service
 Summary:_
 
-![Service summary dialog image.](images/policies-summary-action-example2-dialog.png)
+![Service summary for DynamoDbRowCognitoID DynamoDB showing allowed actions.](images/policies-summary-action-example2-dialog.png)
 
 _**GetItem (List)** Action
 Summary:_
 
-![Action summary dialog image.](images/policies-summary-resource-example2-dialog.png)
+![Action summary for GetItem showing allowed resources with conditions in the DynamoDbRowCognitoID policy.](images/policies-summary-resource-example2-dialog.png)
 
 ## Policy 3: MultipleResourceCondition
 
@@ -134,17 +134,17 @@ JSON
 _**MultipleResourceCondition** Policy
 Summary:_
 
-![Policy summary dialog image.](images/policies-summary-example3-dialog.png)
+![Policy summary for MultipleResourceCondition showing S3 service with allowed access level.](images/policies-summary-example3-dialog.png)
 
 _**MultipleResourceCondition S3 (Allow)** Service
 Summary:_
 
-![Service summary dialog image.](images/policies-summary-action-example3-dialog.png)
+![Service summary for MultipleResourceCondition S3 showing allowed actions.](images/policies-summary-action-example3-dialog.png)
 
 _**PutObject (Write)** Action
 Summary:_
 
-![Action summary dialog image.](images/policies-summary-resource-example3-dialog.png)
+![Action summary for PutObject showing allowed resources with conditions in the MultipleResourceCondition policy.](images/policies-summary-resource-example3-dialog.png)
 
 ## Policy 4: EC2\_troubleshoot
 
@@ -184,17 +184,17 @@ JSON
 _**EC2\_Troubleshoot** Policy
 Summary:_
 
-![Policy summary dialog image.](images/policies-summary-example4-dialog.png)
+![Policy summary for EC2_Troubleshoot showing EC2 and S3 services with allowed access levels.](images/policies-summary-example4-dialog.png)
 
 _**EC2\_Troubleshoot S3 (Allow)** Service
 Summary:_
 
-![Service summary dialog image.](images/policies-summary-action-example4-dialog.png)
+![Service summary for EC2_Troubleshoot S3 showing allowed actions.](images/policies-summary-action-example4-dialog.png)
 
 _**ListBucket (List)** Action
 Summary:_
 
-![Action summary dialog image.](images/policies-summary-resource-example4-dialog.png)
+![Action summary for ListBucket showing allowed resources in the EC2_Troubleshoot policy.](images/policies-summary-resource-example4-dialog.png)
 
 ## Policy 5: CodeBuild\_CodeCommit\_CodeDeploy
 
@@ -232,14 +232,14 @@ JSON
 _**CodeBuild\_CodeCommit\_CodeDeploy** Policy
 Summary:_
 
-![Policy summary dialog image.](images/policies-summary-example6-dialog.png)
+![Policy summary for CodeBuild_CodeCommit_CodeDeploy showing multiple services with allowed access levels.](images/policies-summary-example6-dialog.png)
 
 _**CodeBuild\_CodeCommit\_CodeDeploy CodeBuild
 (Allow)** Service Summary:_
 
-![Service summary dialog image.](images/policies-summary-action-example6-dialog.png)
+![Service summary for CodeBuild_CodeCommit_CodeDeploy CodeBuild showing allowed actions.](images/policies-summary-action-example6-dialog.png)
 
 _**CodeBuild\_CodeCommit\_CodeDeploy StartBuild
 (Write)** Action Summary:_
 
-![Action summary dialog image.](images/policies-summary-resource-example6-dialog.png)
+![Action summary for StartBuild showing allowed resources in the CodeBuild_CodeCommit_CodeDeploy policy.](images/policies-summary-resource-example6-dialog.png)

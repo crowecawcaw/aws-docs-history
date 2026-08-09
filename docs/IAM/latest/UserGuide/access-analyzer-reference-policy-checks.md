@@ -2620,13 +2620,13 @@ Include an account ID in the resource ARN. Account IDs are 12-digit integers. To
 In the AWS Management Console, the finding for this check includes the following message:
 
 ```
-Invalid kms key value: The {{key}} condition key value must be valid a KMS key ARN.
+Invalid kms key value: The {{key}} condition key value must be a valid KMS key ARN.
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
 
 ```
-"findingDetails": "The {{key}} condition key value must be valid a KMS key ARN."
+"findingDetails": "The {{key}} condition key value must be a valid KMS key ARN."
 ```
 
 **Resolving the error**
@@ -4369,6 +4369,40 @@ These AWS managed policies are exceptions to this security warning:
 - [Amazon Resource Name (ARN) condition operators](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN")
 - [String condition operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")
 - [AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies "access_policies_managed-vs-inline.md#aws-managed-policies")
+
+## Security Warning – DynamoDB attributes without select
+
+**Issue code:** DYNAMODB\_ATTRIBUTES\_WITHOUT\_SELECT
+
+**Finding type:** SECURITY\_WARNING
+
+**Finding details**
+
+In the AWS Management Console, the finding for this check includes the following message:
+
+```
+DynamoDB attributes without select: Restricting dynamodb:Attributes without also setting dynamodb:Select to SPECIFIC_ATTRIBUTES allows all attributes to be returned on read requests that omit a projection expression. We recommend that you also set dynamodb:Select to SPECIFIC_ATTRIBUTES.
+```
+
+In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
+
+```
+"findingDetails": "Restricting dynamodb:Attributes without also setting dynamodb:Select to SPECIFIC_ATTRIBUTES allows all attributes to be returned on read requests that omit a projection expression. We recommend that you also set dynamodb:Select to SPECIFIC_ATTRIBUTES."
+```
+
+**Resolving the security warning**
+
+Add a `StringEquals` condition that sets `dynamodb:Select` to
+`SPECIFIC_ATTRIBUTES` in the same statement as the `dynamodb:Attributes`
+condition. DynamoDB evaluates `dynamodb:Attributes` only for requests that specify
+the attributes to return. Without this condition, a read request that omits a projection expression returns the entire item.
+
+**Related terms**
+
+- [Using IAM policy
+  conditions for fine-grained access control](../../../amazondynamodb/latest/developerguide/specifying-conditions.md "../../../amazondynamodb/latest/developerguide/specifying-conditions.md")
+- [IAM JSON policy
+  elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md")
 
 ## Security Warning – ForAnyValue with audience claim type
 

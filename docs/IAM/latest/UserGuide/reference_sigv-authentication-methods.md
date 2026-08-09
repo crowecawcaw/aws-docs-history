@@ -74,7 +74,7 @@ X-Amz-SignedHeaders=host &X-Amz-Signature=<signature-value>
 ###### Example SigV4a
 
 ```
-http://s3.amazonaws.com/amzn-s3-demo-bucket/test.txt ?
+https://s3.amazonaws.com/amzn-s3-demo-bucket/test.txt ?
 X-Amz-Algorithm=AWS4-ECDSA-P256-SHA256 &
 X-Amz-Credential=<your-access-key-id>/20240721/s3/aws4_request &
 X-amz-Region-Set=<regionset> &

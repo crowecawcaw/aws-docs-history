@@ -8,7 +8,7 @@ found at [Specifying Permissions in a
 Policy](../../../AmazonS3/latest/userguide/using-with-s3-actions.md "../../../AmazonS3/latest/userguide/using-with-s3-actions.md") in the _Amazon Simple Storage Service User Guide_, the list of actions for Amazon EC2 can
 be found in the [Amazon EC2 API Reference](../../../AWSEC2/latest/APIReference/query-apis.md "../../../AWSEC2/latest/APIReference/query-apis.md"), and the list
 of actions for AWS Identity and Access Management can be found in the [IAM API Reference](../APIReference/API_Operations.md "../APIReference/API_Operations.md"). To find the list of actions for other services, consult the API
-reference [documentation](http://aws.amazon.com/documentation "http://aws.amazon.com/documentation") for the
+reference [documentation](../../../http:/aws.amazon.com/documentation.md "../../../http:/aws.amazon.com/documentation.md") for the
 service.
 
 AWS also provides service reference information in JSON format to streamline the

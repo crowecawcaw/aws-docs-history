@@ -80,7 +80,7 @@ The URL grants access to your AWS resources through the AWS Management Console i
 permissions in the associated temporary security credentials. For this reason, you should
 treat the URL as a secret. We recommend returning the URL through a secure redirect, for
 example, by using a 302 HTTP response status code over an SSL connection. For more information
-about the 302 HTTP response status code, go to [RFC 2616, section 10.3.3](https://datatracker.ietf.org/doc/html/rfc2616#section-10.3.3 "https://datatracker.ietf.org/doc/html/rfc2616#section-10.3.3").
+about the 302 HTTP response status code, see [RFC 2616, section 10.3.3](https://datatracker.ietf.org/doc/html/rfc2616#section-10.3.3 "https://datatracker.ietf.org/doc/html/rfc2616#section-10.3.3").
 
 To complete these tasks, you can use the [HTTPS Query API for
 AWS Identity and Access Management (IAM)](../APIReference.md "../APIReference.md") and the [AWS Security Token Service (AWS STS)](../../../STS/latest/APIReference.md "../../../STS/latest/APIReference.md").
@@ -447,7 +447,7 @@ input("Press Enter to close the browser window...")
 ## Example code using Java
 
 The following example shows how to use Java to programmatically construct a URL that gives
-users direct access to the AWS Management Console. The following code snippet uses the [AWS SDK for Java](http://aws.amazon.com/documentation/sdkforjava/ "http://aws.amazon.com/documentation/sdkforjava/").
+users direct access to the AWS Management Console. The following code snippet uses the [AWS SDK for Java](../../../http:/aws.amazon.com/documentation/sdkforjava.md "../../../http:/aws.amazon.com/documentation/sdkforjava.md").
 
 ```
 import java.net.URLEncoder;
@@ -552,7 +552,7 @@ String loginURL = signInURL + "?Action=login" +
 ## Example showing how to construct the URL (Ruby)
 
 The following example shows how to use Ruby to programmatically construct a URL that gives
-users direct access to the AWS Management Console. This code snippet uses the [AWS SDK for Ruby](http://aws.amazon.com/documentation/sdkforruby/ "http://aws.amazon.com/documentation/sdkforruby/").
+users direct access to the AWS Management Console. This code snippet uses the [AWS SDK for Ruby](../../../http:/aws.amazon.com/documentation/sdkforruby.md "../../../http:/aws.amazon.com/documentation/sdkforruby.md").
 
 ```
 require 'rubygems'

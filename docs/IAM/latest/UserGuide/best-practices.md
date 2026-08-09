@@ -3,6 +3,9 @@
 To help secure your AWS resources, follow these best practices for AWS Identity and Access Management
 (IAM).
 
+After you implement these best practices, see [Security in IAM and AWS STS](security.md "security.md") for additional security topics including compliance
+validation, resilience, and infrastructure security.
+
 ###### Topics
 
 - [Require human users to use federation with an identity provider to access AWS using temporary credentials](#bp-users-federation-idp "#bp-users-federation-idp")

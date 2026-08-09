@@ -19,7 +19,7 @@ This section describes how to switch roles when you work at the command line wit
 AWS Tools for Windows PowerShell.
 
 Imagine that you have an account in the development environment and you occasionally need to
-work with the production environment at the command line using the [Tools for Windows PowerShell](http://aws.amazon.com/powershell/ "http://aws.amazon.com/powershell/"). You already have one access key
+work with the production environment at the command line using the [Tools for Windows PowerShell](../../../http:/aws.amazon.com/powershell.md "../../../http:/aws.amazon.com/powershell.md"). You already have one access key
 credential set available to you. These can be an access key pair assigned to your standard IAM
 user. Or, if you signed-in as a SAML or OIDC federated principal, they can be the access key pair for the role
 initially assigned to you. You can use these credentials to run the `Use-STSRole`

@@ -37,3 +37,6 @@ managed policy with reduced permissions to replace the AWS managed policy. The n
 should include only the services that were accessed during the sample period. Update your
 permissions to remove the AWS managed policy and attach the new customer managed policy you
 created.
+
+For instructions on refining permissions, see [Reviewing last accessed information for your AWS account](getting-started-reduce-permissions-last-accessed.md "getting-started-reduce-permissions-last-accessed.md"). After you identify unused
+services, see [Generating a policy based on access activity](getting-started_reduce-permissions-edit-policy.md "getting-started_reduce-permissions-edit-policy.md").

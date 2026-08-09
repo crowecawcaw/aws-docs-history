@@ -7,7 +7,7 @@ cross-account access to your resource. This helps you start with intended extern
 your resources.
 
 You can preview and validate public and cross-account access to your Amazon S3 buckets in the
-[Amazon S3 console](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/"). You can also use IAM Access Analyzer
+[Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/") console. You can also use IAM Access Analyzer
 APIs to preview public and cross-account access for your Amazon S3 buckets, AWS KMS keys, IAM
 roles, Amazon SQS queues and Secrets Manager secrets by providing proposed permissions for your
 resource.

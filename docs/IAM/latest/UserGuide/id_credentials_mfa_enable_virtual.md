@@ -76,7 +76,7 @@ including a QR code graphic. The graphic is a representation of the "secret
 configuration key" that is available for manual entry on devices that do not support
 QR codes. 6. Open your virtual MFA app. For a list of apps that you can use for hosting virtual
 MFA devices, see [Multi-Factor
-Authentication](http://aws.amazon.com/iam/details/mfa/ "http://aws.amazon.com/iam/details/mfa/").
+Authentication](../../../http:/aws.amazon.com/iam/details/mfa.md "../../../http:/aws.amazon.com/iam/details/mfa.md").
 
 If the virtual MFA app supports multiple virtual MFA devices or accounts, choose
 the option to create a new virtual MFA device or account. 7. Determine whether the MFA app supports QR codes, and then do one of the

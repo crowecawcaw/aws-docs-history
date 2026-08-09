@@ -7,7 +7,7 @@ see [Temporary security credentials in IAM](id_credentials_temp.md "id_credentia
 the different methods that you can use to request temporary security credentials by assuming a
 role, see [Methods to assume a role](id_roles_manage-assume.md "id_roles_manage-assume.md").
 
-To call the API operations, you can use one of the [AWS SDKs](http://aws.amazon.com/tools/ "http://aws.amazon.com/tools/"). The SDKs are available for a variety of programming languages and
+To call the API operations, you can use one of the [AWS SDKs](../../../http:/aws.amazon.com/tools.md "../../../http:/aws.amazon.com/tools.md"). The SDKs are available for a variety of programming languages and
 environments, including Java, .NET, Python, Ruby, Android, and iOS. The SDKs take care of tasks
 such as cryptographically signing your requests, retrying requests if necessary, and handling
 error responses. You can also use the AWS STS Query API, which is described in the
@@ -16,7 +16,9 @@ error responses. You can also use the AWS STS Query API, which is described in t
 The AWS STS API operations create a new session with temporary security credentials that
 include an access key pair and a session token. The access key pair consists of an access key ID
 and a secret key. Users (or an application that the user runs) can use these credentials to
-access your resources. You can create a role session and pass session policies and session tags
+access your resources.
+
+You can create a role session and pass session policies and session tags
 programmatically using AWS STS API operations. The resulting session permissions are the
 intersection of the role's identity-based policies and the session policies. For more
 information about session policies, see [Session policies](access_policies.md#policies_session "access_policies.md#policies_session"). For more information about session tags, see [Pass session tags in AWS STS](id_session-tags.md "id_session-tags.md").
@@ -32,7 +34,9 @@ than 4096 bytes, but that can vary.
 You can send AWS STS API calls either to a global endpoint or to one of the Regional
 endpoints. If you choose an endpoint closer to you, you can reduce latency and improve the
 performance of your API calls. You also can choose to direct your calls to an alternative
-Regional endpoint if you can no longer communicate with the original endpoint. If you are
+Regional endpoint if you can no longer communicate with the original endpoint.
+
+If you are
 using one of the various AWS SDKs, then use that SDK method to specify a Region before you
 make the API call. If you manually construct HTTP API requests, then you must direct the
 request to the correct endpoint yourself. For more information, see the [AWS STS section of _Regions and
@@ -287,7 +291,7 @@ Also, note that the `&AUTHPARAMS` parameter in the example is meant as a
 placeholder for the authentication information. This is the _signature_,
 which you must include with AWS HTTP API requests. We recommend using the [AWS SDKs](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/") to create API requests, and one benefit of
 doing so is that the SDKs handle request signing for you. If you must create and sign API
-requests manually, go to [Signing AWS Requests
+requests manually, see [Signing AWS Requests
 By Using Signature Version 4](../../../general/latest/gr/sigv4_signing.md "../../../general/latest/gr/sigv4_signing.md") in the _Amazon Web Services General Reference_ to learn
 how to sign a request.
 
@@ -383,7 +387,7 @@ The `AUTHPARAMS` parameter in the example is a placeholder for your
 _signature_. A signature is the authentication information that you must
 include with AWS HTTP API requests. We recommend using the [AWS SDKs](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/") to create API requests, and one benefit of
 doing so is that the SDKs handle request signing for you. If you must create and sign API
-requests manually, go to [Signing AWS Requests
+requests manually, see [Signing AWS Requests
 By Using Signature Version 4](../../../general/latest/gr/sigv4_signing.md "../../../general/latest/gr/sigv4_signing.md") in the _Amazon Web Services General Reference_ to learn
 how to sign a request.
 

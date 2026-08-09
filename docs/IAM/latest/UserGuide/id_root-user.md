@@ -26,6 +26,10 @@ While MFA is enforced for root users by default, it requires customer action to 
 the initial account creation or as prompted during sign-in. For more information about using MFA
 to protect the root user, see [Multi-factor authentication for AWS account root user](enable-mfa-for-root.md "enable-mfa-for-root.md").
 
+In addition to console access, you can manage programmatic access for the root user. You can
+[Create access keys for the root user](id_root-user_manage_add-key.md "id_root-user_manage_add-key.md") and
+[Delete access keys for the root user](id_root-user_manage_delete-key.md "id_root-user_manage_delete-key.md") when they are no longer needed.
+
 ## Centrally manage root access for member accounts
 
 To help you manage credentials at scale, you can centrally secure access to root user

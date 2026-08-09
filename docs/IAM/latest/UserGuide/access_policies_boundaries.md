@@ -16,7 +16,9 @@ permissions boundary policy attached. The `NotPrincipal` element with a
 `Deny` effect will always deny any IAM principal that has a permissions
 boundary policy attached, regardless of the values specified in the
 `NotPrincipal` element. This causes some IAM users or roles that would
-otherwise have access to the resource to lose access. We recommend changing your
+otherwise have access to the resource to lose access.
+
+We recommend changing your
 resource-based policy statements to use the condition operator [ArnNotEquals](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN") with the [aws:PrincipalArn](reference_policies_condition-keys.md#condition-keys-principalarn "reference_policies_condition-keys.md#condition-keys-principalarn") context
 key to limit access instead of the `NotPrincipal` element. For information
 about the `NotPrincipal` element, see [AWS JSON policy elements: NotPrincipal](reference_policies_elements_notprincipal.md "reference_policies_elements_notprincipal.md").
@@ -527,7 +529,9 @@ If someone adds a resource-based policy to the `logs` bucket that allows
 Nikhil to put an object in the bucket, he still cannot access the bucket. The reason is
 that any actions on the `logs` bucket are explicitly denied by his
 permissions boundary. An explicit deny in any policy type results in a request being
-denied. However, if a resource-based policy attached to a Secrets Manager secret allows
+denied.
+
+However, if a resource-based policy attached to a Secrets Manager secret allows
 Nikhil to perform the `secretsmanager:GetSecretValue` action, then Nikhil can
 retrieve and decrypt the secret. The reason is that Secrets Manager operations are not
 explicitly denied by his permissions boundary, and implicit denies in permissions

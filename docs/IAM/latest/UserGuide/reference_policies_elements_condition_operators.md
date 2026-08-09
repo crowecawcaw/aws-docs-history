@@ -8,7 +8,7 @@ The condition operator that you can use in a policy depends on the condition key
 You can choose a global condition key or a service-specific condition key. To learn which
 condition operator you can use for a global condition key, see [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md"). To learn which condition operator you can use for a service-specific condition key, see
 [Actions, Resources, and
-Condition Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md") and choose the service that you want to view.
+Condition Keys for AWS Services](../../../reference_policies_actions-resources-contextkeys.md "../../../reference_policies_actions-resources-contextkeys.md") and choose the service that you want to view.
 
 ###### Important
 
@@ -336,7 +336,7 @@ Date condition operators let you construct `Condition` elements that restrict
 access based on comparing a key to a date/time value. You use these condition operators with
 [`aws:CurrentTime`](reference_policies_condition-keys.md#condition-keys-currenttime "reference_policies_condition-keys.md#condition-keys-currenttime") key or [`aws:EpochTime`](reference_policies_condition-keys.md#condition-keys-epochtime "reference_policies_condition-keys.md#condition-keys-epochtime") key. You must specify date/time values with one of the
 [W3C implementations of the ISO 8601 date
-formats](http://www.w3.org/TR/NOTE-datetime "http://www.w3.org/TR/NOTE-datetime") or in epoch (UNIX) time.
+formats](../../../http:/www.w3.org/TR/NOTE-datetime.md "../../../http:/www.w3.org/TR/NOTE-datetime.md") or in epoch (UNIX) time.
 
 - **Policy variables** – Not supported
 - **Wildcards** – Not supported

@@ -50,3 +50,5 @@ alias.
 
 The original URL containing your AWS account ID remains active and can be
 used after you create your AWS account alias.
+
+For instructions on setting up or removing an alias, see [Creating an account alias](account-alias-create.md "account-alias-create.md") and [Deleting an account alias](account-alias-delete.md "account-alias-delete.md").

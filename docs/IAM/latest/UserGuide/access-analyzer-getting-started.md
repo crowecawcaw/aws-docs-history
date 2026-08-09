@@ -3,6 +3,9 @@
 Use the information in this topic to learn about the requirements necessary to use and
 manage AWS Identity and Access Management Access Analyzer.
 
+If you are using IAM Access Analyzer within an AWS Organizations organization, you can [Add a delegated administrator for IAM Access Analyzer](access-analyzer-delegated-administrator-add.md "access-analyzer-delegated-administrator-add.md"). For information about service
+limits, see [IAM Access Analyzer quotas](access-analyzer-quotas.md "access-analyzer-quotas.md").
+
 ## Permissions required to use IAM Access Analyzer
 
 To successfully configure and use IAM Access Analyzer, the account you use must be granted the

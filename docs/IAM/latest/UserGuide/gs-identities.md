@@ -3,7 +3,7 @@
 When setting up AWS, plan how you intend people to access your AWS account and
 resources. A well-designed identity management solution keeps your account secure.
 
-**Identity sources**
+## Identity sources
 
 According to IAM best practices, we recommend that human users and workloads use
 temporary credentials to access your AWS resources. You grant temporary credentials
@@ -25,7 +25,8 @@ For instructions on adding users directly to the IAM Identity Center organizatio
 For instructions on federating an external identity provider to the IAM Identity Center organizational
 directory, see the appropriate [Getting started
 tutorial](../../../singlesignon/latest/userguide/tutorials.md "../../../singlesignon/latest/userguide/tutorials.md").
-**Access management**
+
+## Access management
 
 Identify the AWS resources and services that your users need. Then define the
 access permissions and policies for each user, group, or role.
@@ -44,3 +45,5 @@ For more information, see [Assign user access](../../../singlesignon/latest/user
   is allowed or denied access to.
 
 For more information, see [Identity providers and federation into AWS](id_roles_providers.md "id_roles_providers.md")
+
+For instructions on adding an extra layer of security for sign-in, see [Use multi-factor authentication with your identities](gs-identities-mfa.md "gs-identities-mfa.md").

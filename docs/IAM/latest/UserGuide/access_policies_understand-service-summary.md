@@ -15,7 +15,7 @@ action, then it is included under one of the access level (**List**,
 **Read**, **Write** and **Permissions
 management**) sections of the table. To view the access level classification that is
 assigned to each action in a service, see [Actions, Resources, and Condition
-Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md").
+Keys for AWS Services](../../../reference_policies_actions-resources-contextkeys.md "../../../reference_policies_actions-resources-contextkeys.md").
 
 ## Understanding the elements of a service summary
 
@@ -60,7 +60,7 @@ The service summary page for a managed policy includes the following information
    the service. In this example, 35 actions provide permissions out of 52 total known Amazon S3
    **Read** actions. To view the access level classification that is
    assigned to each action in a service, see [Actions, Resources, and
-   Condition Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md").
+   Condition Keys for AWS Services](../../../reference_policies_actions-resources-contextkeys.md "../../../reference_policies_actions-resources-contextkeys.md").
 6. **Show remaining actions** – Toggle this button to expand or
    hide the table to include actions that are known but do not provide permissions for this
    service. Toggling the button also displays warnings for any elements that do not provide

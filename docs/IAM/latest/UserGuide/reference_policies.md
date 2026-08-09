@@ -28,7 +28,7 @@ This reference includes the following sections.
   list of all the IAM and AWS STS condition keys that you can use to limit permissions in an
   IAM policy.
 - [Actions, Resources,
-  and Condition Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md") — This section presents a list of all
+  and Condition Keys for AWS Services](../../../reference_policies_actions-resources-contextkeys.md "../../../reference_policies_actions-resources-contextkeys.md") — This section presents a list of all
   the AWS API operations that you can use as permissions in an IAM policy. It also
   includes the service-specific condition keys that can be used to further refine the
   request.

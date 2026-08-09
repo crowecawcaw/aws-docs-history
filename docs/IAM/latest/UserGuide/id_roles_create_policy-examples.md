@@ -96,7 +96,7 @@ Alternatively, account A can use Amazon S3 [Access Control Lists (ACLs)](../../.
 object within a bucket. In that case, the only thing that changes is how account A grants
 access to account B. Account B still uses a policy to delegate access to an IAM group in
 account B, as described in the next part of this example. For more information about
-controlling access on S3 buckets and objects, go to [Access Control](../../../AmazonS3/latest/userguide/UsingAuthAccess.md "../../../AmazonS3/latest/userguide/UsingAuthAccess.md") in the
+controlling access on S3 buckets and objects, see [Access Control](../../../AmazonS3/latest/userguide/UsingAuthAccess.md "../../../AmazonS3/latest/userguide/UsingAuthAccess.md") in the
 _Amazon Simple Storage Service User Guide_.
 
 The administrator of account B might create the following policy sample. The policy allows

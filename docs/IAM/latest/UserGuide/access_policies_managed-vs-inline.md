@@ -13,6 +13,8 @@ The following table outlines these policies:
 | [Customer managed policies](#customer-managed-policies "#customer-managed-policies") | Policy you create for specific use cases, and you can change or update them as<br>often as you like.                                                 | You                     | Yes                 | Many                                    |
 | [Inline policies](#inline-policies "#inline-policies")                               | Policy created for a single IAM identity (user, group, or role) that maintains a<br>strict one-to-one relationship between a policy and an identity. | You                     | Yes                 | One                                     |
 
+For instructions on creating roles and attaching these policies, see [Creating roles and attaching policies (console)](access_policies_job-functions_create-policies.md "access_policies_job-functions_create-policies.md").
+
 ###### Topics
 
 - [AWS managed policies](#aws-managed-policies "#aws-managed-policies")

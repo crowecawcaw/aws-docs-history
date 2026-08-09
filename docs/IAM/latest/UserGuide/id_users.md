@@ -148,3 +148,5 @@ not have to keep them in code. For more information, see [Manage IAM
 User Access Keys Properly](../../../general/latest/gr/aws-access-keys-best-practices.md#iam-user-access-keys "../../../general/latest/gr/aws-access-keys-best-practices.md#iam-user-access-keys") in the _AWS General Reference_. Alternatively,
 and as a best practice, you can [use temporary security
 credentials (IAM roles) instead of long-term access keys](../../../general/latest/gr/aws-access-keys-best-practices.md#use-roles "../../../general/latest/gr/aws-access-keys-best-practices.md#use-roles").
+
+After you create IAM users, you can [View IAM users](id_users_list.md "id_users_list.md") in your account and [Rename an IAM user](id_users_rename.md "id_users_rename.md") as needed.

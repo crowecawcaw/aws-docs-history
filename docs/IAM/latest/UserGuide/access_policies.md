@@ -133,7 +133,9 @@ A VPC endpoint policy is a resource-based policy that you attach to a VPC endpoi
 control which principals can use the endpoint and which resources can be accessed through
 it. VPC endpoint policies do not override or replace identity-based policies or resource-based
 policies attached to the destination service—they act as an additional access boundary
-scoped to traffic that traverses the endpoint. VPC endpoint policies are used to ensure that only trusted identities in your AWS Organizations
+scoped to traffic that traverses the endpoint.
+
+VPC endpoint policies are used to ensure that only trusted identities in your AWS Organizations
 organization can access trusted resources through your VPC endpoints. If you do not attach a custom endpoint
 policy, AWS attaches a default policy that allows full access. For more information about
 endpoint policies, see [Control access to VPC endpoints
@@ -145,7 +147,9 @@ Guide_.
 A permissions boundary is an advanced feature in which you set the maximum permissions
 that an identity-based policy can grant to an IAM entity. When you set a permissions
 boundary for an entity, the entity can perform only the actions that are allowed by both its
-identity-based policies and its permissions boundaries. If you specify a role session or
+identity-based policies and its permissions boundaries.
+
+If you specify a role session or
 user in the principal element of a resource-based policy, an explicit allow in the
 permission boundary is not required. However, if you specify a role ARN in the principal
 element of a resource-based policy, an explicit allow in the permission boundary is
@@ -200,6 +204,7 @@ AWS Organizations, without writing individual resource-based policies for each s
 you can grant cross-account access by attaching a resource-based policy directly to a
 resource, AWS RAM provides a managed, centralized alternative that eliminates the need to
 enumerate account IDs in policies or maintain identical policy documents across accounts.
+
 With RAM, consuming accounts see shared resources natively in their service consoles,
 resource owners retain full ownership and visibility into who has access, and managed
 permissions define the maximum actions consumers can perform—all governed by a single

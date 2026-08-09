@@ -12,7 +12,7 @@ This topic describes the keys defined and provided by the IAM service (with an
 `iam:` prefix) and the AWS Security Token Service (AWS STS) service (with an `sts:`
 prefix). Several other AWS services also provide service-specific keys that are relevant to
 the actions and resources defined by that service. For more information, see [Actions, Resources, and
-Condition Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md"). The documentation for a service that supports
+Condition Keys for AWS Services](../../../reference_policies_actions-resources-contextkeys.md "../../../reference_policies_actions-resources-contextkeys.md"). The documentation for a service that supports
 condition keys often has additional information. For example, for information about keys that
 you can use in policies for Amazon S3 resources, see [Amazon S3 Policy Keys](../../../AmazonS3/latest/userguide/amazon-s3-policy-keys.md#AvailableKeys-iamV2 "../../../AmazonS3/latest/userguide/amazon-s3-policy-keys.md#AvailableKeys-iamV2")
 in the _Amazon Simple Storage Service User Guide_.

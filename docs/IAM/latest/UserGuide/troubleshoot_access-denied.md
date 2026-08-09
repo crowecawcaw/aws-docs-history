@@ -77,7 +77,7 @@ action.
   support resource-based policies, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 - If your policy includes a condition with a key–value pair, review it
   carefully. Examples include the [aws:RequestTag/tag-key](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-  global condition key, the AWS KMS [`kms:EncryptionContext:`encryption_context_key``](kms/latest/developerguide/policy-conditions.md#conditions-kms-encryption-context "kms/latest/developerguide/policy-conditions.md#conditions-kms-encryption-context"),
+  global condition key, the AWS KMS [`kms:EncryptionContext:`encryption_context_key``](../../../kms/latest/developerguide/policy-conditions.md#conditions-kms-encryption-context "../../../kms/latest/developerguide/policy-conditions.md#conditions-kms-encryption-context"),
  and the `ResourceTag/`tag-key`` condition
   key supported by multiple services. Make sure that the key name does not match
   multiple results. Because condition key names are not case sensitive, a
@@ -107,7 +107,7 @@ action.
   to your temporary credentials. For more information, see [I get "access denied" when I make a request to an AWS service](#troubleshoot_general_access-denied-service "#troubleshoot_general_access-denied-service").
 - Verify that the service accepts temporary security credentials, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 - Verify that your requests are being signed correctly and that the request is
-  well-formed. For details, see your [toolkit](http://aws.amazon.com/developer/tools/ "http://aws.amazon.com/developer/tools/") documentation or
+  well-formed. For details, see your [toolkit](../../../http:/aws.amazon.com/developer/tools.md "../../../http:/aws.amazon.com/developer/tools.md") documentation or
   [Use temporary credentials with AWS resources](id_credentials_temp_use-resources.md "id_credentials_temp_use-resources.md").
 - Verify that your temporary security credentials haven't expired. For more
   information, see [Temporary security credentials in IAM](id_credentials_temp.md "id_credentials_temp.md").

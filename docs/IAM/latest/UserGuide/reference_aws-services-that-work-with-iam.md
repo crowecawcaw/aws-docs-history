@@ -10,7 +10,7 @@ what IAM features they support:
   a policy. If the service does not support this feature, then **All
   actions** is selected in the [visual editor](access_policies_create-console.md#access_policies_create-visual-editor "access_policies_create-console.md#access_policies_create-visual-editor"). In a JSON policy document, you must use `*` in the
   `Action` element. For a list of actions in each service, see [Actions, Resources, and
-  Condition Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md").
+  Condition Keys for AWS Services](../../../reference_policies_actions-resources-contextkeys.md "../../../reference_policies_actions-resources-contextkeys.md").
 - **Resource-level permissions** – You can use [ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns") to specify individual resources in the policy. If
   the service does not support this feature, then **All resources** is chosen
   in the [policy visual editor](access_policies_create-console.md#access_policies_create-visual-editor "access_policies_create-console.md#access_policies_create-visual-editor"). In
@@ -30,10 +30,13 @@ what IAM features they support:
   `aws:TagKeys` condition keys. If a service supports all three condition keys
   for every resource type, then the value is **Yes** for the
   service. If a service supports all three condition keys for only some resource types, then
-  the value is **Partial**. For more information about defining
-  permissions based on attributes such as tags, see [Define permissions based on attributes with ABAC authorization](introduction_attribute-based-access-control.md "introduction_attribute-based-access-control.md"). To view a tutorial with
-  steps for setting up ABAC, see [Use attribute-based
-  access control (ABAC)](tutorial_attribute-based-access-control.md "tutorial_attribute-based-access-control.md").
+  the value is **Partial**.
+
+For more information about defining
+permissions based on attributes such as tags, see [Define permissions based on attributes with ABAC authorization](introduction_attribute-based-access-control.md "introduction_attribute-based-access-control.md"). To view a tutorial with
+steps for setting up ABAC, see [Use attribute-based
+access control (ABAC)](tutorial_attribute-based-access-control.md "tutorial_attribute-based-access-control.md").
+
 - **Temporary credentials** – You can use short-term
   credentials that you obtain when you sign in using IAM Identity Center, switch roles in the console, or
   that you generate using AWS STS in the AWS CLI or AWS API. You can access services with a

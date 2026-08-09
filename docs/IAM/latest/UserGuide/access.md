@@ -32,6 +32,9 @@ allowed by the applicable policies. The [evaluation logic](reference_policies_ev
   access the resource. In addition, the IAM entity that you use to make the request must have an
   identity-based policy that allows the request.
 
+You can also use [IAM temporary delegation](access_policies-temporary-delegation.md "access_policies-temporary-delegation.md") to grant Amazon and AWS Partners
+limited, time-bounded access to configure AWS services in your account.
+
 ## Access management resources
 
 For more information about permissions and about creating policies, see the following

@@ -14,6 +14,7 @@ assumed role sessions.
 After a source identity is set, it is present in requests for any AWS action taken
 during the role session. The value that is set persists when a role is used to assume
 another role through the AWS CLI or AWS API, known as [role chaining](id_roles.md#iam-term-role-chaining "id_roles.md#iam-term-role-chaining"). The value that is set cannot be changed during the role session.
+
 Administrators can configure granular permissions based on the presence or value of the
 source identity to further control AWS actions that are taken with shared roles. You can
 decide whether the source identity attribute can be used, whether it is required, and what
@@ -234,7 +235,9 @@ When AWS evaluates the request, the request context contains the
 
 You can specify a source identity when you use one of the AWS STS
 `AssumeRole*` API operations to get temporary security credentials for a
-role. The API operation that you use differs depending on your use case. For example, if
+role. The API operation that you use differs depending on your use case.
+
+For example, if
 you use IAM roles to give IAM users access to AWS resources that they don’t
 normally have access to, you might use the `AssumeRole` operation. If you use
 enterprise identity federation to manage your workforce users, you might use the

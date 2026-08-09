@@ -3,7 +3,7 @@
 After you have verified a user's identity in your organization, the external identity
 provider (IdP) sends an authentication response to the AWS sign-in endpoint URL. This response
 is a POST request that includes a SAML token that adheres to the [HTTP POST Binding
-for SAML 2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf "http://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf") standard and that contains the following elements, or
+for SAML 2.0](../../../http:/docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf.md "../../../http:/docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf.md") standard and that contains the following elements, or
 _claims_. You configure these claims in your SAML-compatible IdP. Refer to
 the documentation for your IdP for instructions on how to enter these claims.
 

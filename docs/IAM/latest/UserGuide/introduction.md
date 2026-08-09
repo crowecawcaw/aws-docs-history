@@ -6,6 +6,8 @@ access. You use IAM to control who is authenticated (signed in) and authorized (
 permissions) to use resources. IAM provides the infrastructure necessary to control
 authentication and authorization for your AWS accounts.
 
+For instructions on setting up your AWS account and creating identities, see [Getting started with IAM](getting-started.md "getting-started.md").
+
 **Identities**
 
 When you create an AWS account, you begin with one sign-in identity called the AWS account _root user_ that has complete access to all AWS services and resources. We strongly recommend that you don't use the root user for everyday tasks. For tasks that require root user credentials, see [Tasks that require root user credentials](id_root-user.md#root-user-tasks "id_root-user.md#root-user-tasks") in the _IAM User Guide_.
@@ -34,10 +36,10 @@ IAM group membership, or delete Amazon Simple Storage Service buckets.
 
 ###### Tip
 
-AWS Training and Certification provides a 10-minute video introduction to IAM:
+AWS Skill Builder provides a 10-minute video introduction to IAM:
 
 [Introduction to
-AWS Identity and Access Management](https://www.aws.training/learningobject/video?id=16448 "https://www.aws.training/learningobject/video?id=16448").
+AWS Identity and Access Management](https://skillbuilder.aws/learn/M1QWQ1MURQ/introduction-to-aws-identity-and-access-management-iam/W4W2NQF2AR "https://skillbuilder.aws/learn/M1QWQ1MURQ/introduction-to-aws-identity-and-access-management-iam/W4W2NQF2AR") on the AWS Skill Builder website.
 
 **Service availability**
 

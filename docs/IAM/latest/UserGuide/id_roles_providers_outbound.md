@@ -4,6 +4,10 @@ IAM outbound identity federation enables your AWS workloads to securely access e
 
 Outbound identity federation eliminates the need to store long-term credentials such as API keys or passwords in your application code or environment variables, improving your security posture. You can control access to token generation and enforce token properties such as signing algorithms, permitted audiences and duration using IAM policies. All token requests are logged in AWS , providing complete audit trails for security monitoring and compliance reporting. You can also customize tokens with tags that appear as custom claims, enabling external services to implement fine-grained, attribute-based access control.
 
+For instructions on setting up outbound federation, see [Getting started with outbound identity federation](id_roles_providers_outbound_getting_started.md "id_roles_providers_outbound_getting_started.md"). For more information about token
+contents, see [Understanding token claims](id_roles_providers_outbound_token_claims.md "id_roles_providers_outbound_token_claims.md"). For instructions on controlling
+which workloads can request tokens, see [Controlling access with IAM policies](id_roles_providers_outbound_policies.md "id_roles_providers_outbound_policies.md").
+
 ## Common use cases
 
 Using outbound identity federation, your AWS workloads can securely:

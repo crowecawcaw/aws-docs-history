@@ -10,7 +10,7 @@ Access level summaries indicate whether the actions in each access level (`List`
  management`) have `Full` or `Limited` permissions defined in the
 policy. To view the access level classification that is assigned to each action in a service,
 see [Actions, Resources, and
-Condition Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md").
+Condition Keys for AWS Services](../../../reference_policies_actions-resources-contextkeys.md "../../../reference_policies_actions-resources-contextkeys.md").
 
 The following example describes the access provided by a policy for the given services.
 For examples of full JSON policy documents and their related summaries, see [Examples of policy summaries](access_policies_policy-summary-examples.md "access_policies_policy-summary-examples.md").
@@ -85,4 +85,4 @@ policies that include the **Permissions management** access level
 classification.
 
 To view the access level classification for all of the actions in a service, see [Actions, Resources, and
-Condition Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md").
+Condition Keys for AWS Services](../../../reference_policies_actions-resources-contextkeys.md "../../../reference_policies_actions-resources-contextkeys.md").

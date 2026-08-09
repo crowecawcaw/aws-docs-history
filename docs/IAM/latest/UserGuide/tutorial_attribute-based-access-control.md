@@ -50,7 +50,7 @@ strategy for services that support it, beginning with AWS Secrets Manager. To
 learn which services support authorization based on tags, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"). To learn which tagging
 condition keys you can use in a policy with each service's actions and resources, see
 [Actions, Resources,
-and Condition Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md"). You can configure your SAML-based or web
+and Condition Keys for AWS Services](../../../reference_policies_actions-resources-contextkeys.md "../../../reference_policies_actions-resources-contextkeys.md"). You can configure your SAML-based or web
 identity provider to pass [session tags](id_session-tags.md "id_session-tags.md") to AWS.
 When your employees federate into AWS, their attributes are applied to their resulting
 principal in AWS. You can then use ABAC to allow or deny permissions based on those

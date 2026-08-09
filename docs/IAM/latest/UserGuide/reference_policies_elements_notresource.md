@@ -44,7 +44,7 @@ affects only Amazon S3 actions, and therefore only Amazon S3 resources. If the `
 also included Amazon EC2 actions, then the policy would deny access to any EC2 resources not
 specified in the `NotResource` element. To learn which actions in a service allow
 specifying the ARN of a resource, see [Actions, Resources, and Condition
-Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md").
+Keys for AWS Services](../../../reference_policies_actions-resources-contextkeys.md "../../../reference_policies_actions-resources-contextkeys.md").
 
 ## NotResource with other elements
 

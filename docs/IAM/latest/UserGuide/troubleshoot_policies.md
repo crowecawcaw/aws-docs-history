@@ -3,19 +3,21 @@
 A [policy](access_policies.md "access_policies.md") is an entity in AWS that, when attached to
 an identity or resource, defines their permissions. AWS evaluates these policies when a
 principal, such as a user, makes a request. Permissions in the policies determine whether the
-request is allowed or denied. Policies are stored in AWS as JSON documents that are attached
-to principals as _identity-based policies_ or to resources as
-_resource-based policies_. You can attach an identity-based policy to a
-principal (or identity), such as an IAM group, user, or role. Identity-based policies include
-AWS managed policies, customer managed policies, and inline policies. You can create and edit
-customer managed policies in the AWS Management Console using both **Visual** and
-**JSON** editor options. When you view a policy in the AWS Management Console, you can see
-a summary of the permissions that are granted by that policy. You can use the visual editor and
-policy summaries to help you diagnose and fix common errors encountered while managing IAM
-policies.
+request is allowed or denied.
+
+Policies are stored in AWS as JSON documents that are attached to principals as
+_identity-based policies_ or to resources as _resource-based
+policies_. Identity-based policies include AWS managed policies, customer managed
+policies, and inline policies.
+
+You can create and edit customer managed policies in the AWS Management Console using both
+**Visual** and **JSON** editor options. When you view a
+policy in the AWS Management Console, you can see a summary of the permissions that are granted by that
+policy. You can use the visual editor and policy summaries to help you diagnose and fix common
+errors encountered while managing IAM policies.
 
 Keep in mind that all IAM policies are stored using syntax that begins with the rules of
-[JavaScript Object Notation](http://www.json.org "http://www.json.org") (JSON). You do not have to
+[JavaScript Object Notation](../../../http:/www.json.org.md "../../../http:/www.json.org.md") (JSON). You do not have to
 understand this syntax to create or manage your policies. You can create and edit a policy using
 the visual editor in the AWS Management Console. To learn more about JSON syntax in IAM policies, see [Grammar of the IAM JSON policy language](reference_policies_grammar.md "reference_policies_grammar.md").
 
@@ -244,13 +246,14 @@ You can diagnose and resolve issues related to policy summaries.
 The IAM console includes _policy summary_ tables that describe the
 access level, resources, and conditions that are allowed or denied for each service in a
 policy. Policies are summarized in three tables: the [policy summary](access_policies_understand-policy-summary.md "access_policies_understand-policy-summary.md"), the [service summary](access_policies_understand-service-summary.md "access_policies_understand-service-summary.md"), and the
-[action summary](access_policies_understand-action-summary.md "access_policies_understand-action-summary.md"). The
-_policy summary_ table includes a list of services and summaries of the
-permissions that are defined by the chosen policy. You can view the [policy summary](access_policies_understand.md "access_policies_understand.md") for any policies that are
-attached to an entity on the **Policy details** page for that policy. You
-can view the policy summary for managed policies on the **Policies** page.
-If AWS is unable to render a summary for a policy, you will see the JSON policy document
-and the following error:
+[action summary](access_policies_understand-action-summary.md "access_policies_understand-action-summary.md").
+
+The _policy summary_ table includes a list of services and summaries
+of the permissions that are defined by the chosen policy. The policy summary is available on
+the **Policy details** page for any attached policy, or on the
+**Policies** page for managed policies. If AWS is unable to render a
+summary for a policy, the console displays the JSON policy document and the following
+error:
 
 **A summary for this policy cannot be generated. You can still view or edit the
 JSON policy document.**
@@ -412,7 +415,7 @@ To grant access, your policy must define an action with a supported resource. If
 policy also includes a condition, that condition must include a [global condition key](reference_policies_condition-keys.md "reference_policies_condition-keys.md") or must apply to
 the action. To learn which resources are supported by an action, see the [AWS documentation](../../../index.md "../../../index.md") for your service. To learn which
 conditions are supported by an action, see [Actions, Resources, and
-Condition Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md").
+Condition Keys for AWS Services](../../../reference_policies_actions-resources-contextkeys.md "../../../reference_policies_actions-resources-contextkeys.md").
 
 Check whether your policy defines an action, resource, or condition that does not grant
 permissions. View the [policy summary](access_policies_understand-policy-summary.md "access_policies_understand-policy-summary.md") for your
@@ -957,11 +960,15 @@ versions, see [Versioning IAM policies](access_policies_managed-versioning.md "a
 As AWS features evolve, new capabilities are added to IAM policies to support those
 features. Sometimes, an update to the policy syntax includes a new version number. If you
 use newer features of the policy grammar in your policy, then you must tell the policy
-parsing engine which version you are using. The default policy version is "2008-10-17." If
+parsing engine which version you are using.
+
+The default policy version is "2008-10-17." If
 you want to use any policy feature that was introduced later, then you must specify the
 version number that supports the feature you want. We recommend that you
 _always_ include the latest policy syntax version number, which is
-currently `"Version": "2012-10-17"`. For example, the following policy is
+currently `"Version": "2012-10-17"`.
+
+For example, the following policy is
 incorrect because it uses a policy variable `${...}` in the ARN for a resource.
 But it fails to specify a policy syntax version that supports policy variables (called out
 in `red`):

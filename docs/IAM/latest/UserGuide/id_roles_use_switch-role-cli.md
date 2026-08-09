@@ -41,7 +41,7 @@ the operation fails.
 
 Imagine that you are an IAM user for working in the development environment. In this
 scenario, you occasionally need to work with the production environment at the command line
-with the [AWS CLI](http://aws.amazon.com/cli/ "http://aws.amazon.com/cli/"). You already have an access
+with the [AWS CLI](../../../http:/aws.amazon.com/cli.md "../../../http:/aws.amazon.com/cli.md"). You already have an access
 key credential set available to you. This can be the access key pair that is assigned to
 your standard IAM user. Or, if you signed in as a SAML or OIDC federated principal, it can be the access
 key pair for the role that was initially assigned to you. If your current permissions grant
@@ -120,7 +120,7 @@ Role](../../../cli/latest/userguide/cli-roles.md "../../../cli/latest/userguide/
 ## Example scenario: Allow an instance profile role to switch to a role in another account
 
 Imagine that you are using two AWS accounts, and you want to allow an application
-running on an Amazon EC2 instance to run [AWS CLI](http://aws.amazon.com/cli/ "http://aws.amazon.com/cli/")
+running on an Amazon EC2 instance to run [AWS CLI](../../../http:/aws.amazon.com/cli.md "../../../http:/aws.amazon.com/cli.md")
 commands in both accounts. Assume that the EC2 instance exists in account
 `111111111111`. That instance includes the `abcd`
 instance profile role that allows the application to perform read-only Amazon S3 tasks on the
@@ -252,7 +252,7 @@ To differentiate between role sessions when a role is used by different principa
 CloudTrail logs, you can use the role session name. When the AWS CLI assumes a role on a user's
 behalf as described in this topic, a role session name is automatically created as
 `AWS-CLI-session-`nnnnnnnn``. Here
-`nnnnnnnn` is an integer that represents the time in [Unix epoch time](http://wikipedia.org/wiki/Unix_time "http://wikipedia.org/wiki/Unix_time") (the number of
+`nnnnnnnn` is an integer that represents the time in [Unix epoch time](../../../http:/wikipedia.org/wiki/Unix_time.md "../../../http:/wikipedia.org/wiki/Unix_time.md") (the number of
 seconds since midnight UTC on January 1, 1970). For more information, see [CloudTrail Event Reference](../../../awscloudtrail/latest/userguide/eventreference.md "../../../awscloudtrail/latest/userguide/eventreference.md") in the
 _AWS CloudTrail User Guide_.
 

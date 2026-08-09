@@ -166,11 +166,15 @@ points to a specific IAM role, then that ARN transforms to the role's unique pri
 when you save the policy. This helps mitigate the risk of someone escalating their
 privileges by removing and recreating the role. You don't normally see this ID in the
 console, because IAM uses a reverse transformation back to the role ARN when the trust
-policy is displayed. However, if you delete the role, then you break the relationship. The
+policy is displayed.
+
+However, if you delete the role, then you break the relationship. The
 policy no longer applies, even if you recreate the role because the new role has a new
 principal ID that does not match the ID stored in the trust policy. When this happens, the
 principal ID appears in resource-based policies because AWS can no longer map it back to a
-valid ARN. The end result is that if you delete and recreate a role referenced in a trust
+valid ARN.
+
+The result is that if you delete and recreate a role referenced in a trust
 policy's `Principal` element, you must edit the role in the policy to replace the
 principal ID with the correct ARN. The ARN once again transforms into the role's new
 principal ID when you save the policy. For more information, see [Understanding AWS's Handling of Deleted IAM roles in Policies](https://repost.aws/articles/ARSqFcxvd7R9u-gcFD9nmA5g/understanding-aws-s-handling-of-deleted-iam-roles-in-policies "https://repost.aws/articles/ARSqFcxvd7R9u-gcFD9nmA5g/understanding-aws-s-handling-of-deleted-iam-roles-in-policies").
@@ -331,11 +335,15 @@ points to a specific IAM user, then IAM transforms the ARN to the user's unique
 principal ID when you save the policy. This helps mitigate the risk of someone escalating
 their privileges by removing and recreating the user. You don't normally see this ID in the
 console, because there is also a reverse transformation back to the user's ARN when the
-trust policy is displayed. However, if you delete the user, then you break the relationship.
+trust policy is displayed.
+
+However, if you delete the user, then you break the relationship.
 The policy no longer applies, even if you recreate the user. That's because the new user has
 a new principal ID that does not match the ID stored in the trust policy. When this happens,
 the principal ID appears in resource-based policies because AWS can no longer map it back
-to a valid ARN. The result is that if you delete and recreate a user referenced in a trust
+to a valid ARN.
+
+The result is that if you delete and recreate a user referenced in a trust
 policy `Principal` element, you must edit the role to replace the now incorrect
 principal ID with the correct ARN. IAM once again transforms ARN into the user's new
 principal ID when you save the policy.
@@ -357,7 +365,7 @@ element of a resource-based policy or in condition keys that support principals.
 
 AWS recommends that you limit the use of AWS STS federated user sessions. Instead, use
 [IAM
-roles](IAM/latest/UserGuide/tutorial_cross-account-with-roles.md "IAM/latest/UserGuide/tutorial_cross-account-with-roles.md").
+roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md").
 
 An AWS STS federated user principal is created through the `GetFederationToken`
 operation called with long-lived IAM credentials. Federated user permissions are the

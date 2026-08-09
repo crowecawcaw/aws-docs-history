@@ -90,3 +90,4 @@ The following resources can help you learn more about AWS sign-in.
 - You can sign in up to five different identities simultaneously in a single web browser in the
   AWS Management Console. For details, see [Signing in to multiple accounts](../../../awsconsolehelpdocs/latest/gsg/multisession.md "../../../awsconsolehelpdocs/latest/gsg/multisession.md")
   in the _AWS Management Console Getting Started Guide_.
+- To find the account ID or alias needed for sign-in, see [Viewing your AWS account ID](console-account-id.md "console-account-id.md") and [Using an alias for your AWS account ID](console-account-alias.md "console-account-alias.md").

@@ -23,6 +23,9 @@ The difference between single-valued and multivalued context keys depends on the
 number of values in the request context, not the number of values in the policy
 condition.
 
+For policy examples that demonstrate conditions with multiple context keys and values,
+see [Condition policy examples](reference_policies_condition_examples.md "reference_policies_condition_examples.md").
+
 ## Key points
 
 - The _Single-valued_ and _Multivalued_

@@ -4,6 +4,13 @@
 
 IAM temporary delegation enables AWS customers to seamlessly onboard and/or integrate AWS Partner products into their AWS environment through interactive, guided workflows. Customers can grant AWS Partners limited, temporary access to configure required AWS services, reducing onboarding friction and accelerating time to value.
 
+To integrate temporary delegation into your product, learn about [understanding your integration](temporary-delegation-understanding-integration.md "temporary-delegation-understanding-integration.md"),
+review [understanding
+permissions](temporary-delegation-understanding-permissions.md "temporary-delegation-understanding-permissions.md"), and follow the [policy evaluation
+guidelines](temporary-delegation-policy-evaluation-guidelines.md "temporary-delegation-policy-evaluation-guidelines.md"). For sample IAM policies, see [policy templates](temporary-delegation-policy-templates.md "temporary-delegation-policy-templates.md"). When you are ready to
+implement, see [building your
+integration](temporary-delegation-building-integration.md "temporary-delegation-building-integration.md").
+
 IAM temporary delegation enables partners to:
 
 - Streamline customer onboarding with automated resource provisioning

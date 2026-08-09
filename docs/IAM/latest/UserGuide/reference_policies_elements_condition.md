@@ -67,7 +67,7 @@ encryption contexts. You can enforce this using the [aws:TagKeys](reference_poli
   of how to handle context keys that have multiple values, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 - For a list of all of the globally available context keys, see [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md").
 - For condition context keys that are defined by each service, see [Actions, Resources, and
-  Condition Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md").
+  Condition Keys for AWS Services](../../../reference_policies_actions-resources-contextkeys.md "../../../reference_policies_actions-resources-contextkeys.md").
 
 ## The request context
 

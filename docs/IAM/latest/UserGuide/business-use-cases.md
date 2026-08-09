@@ -66,7 +66,7 @@ accounts](../../../singlesignon/latest/userguide/useracces.md "../../../singlesi
 
 A company like Example Corp typically uses IAM to interact with services like
 Amazon EC2. To understand this part of the use case, you need a basic understanding of Amazon EC2.
-For more information about Amazon EC2, go to the [Amazon EC2 User Guide](../../../AWSEC2/latest/UserGuide.md "../../../AWSEC2/latest/UserGuide.md").
+For more information about Amazon EC2, see the [Amazon EC2 User Guide](../../../AWSEC2/latest/UserGuide.md "../../../AWSEC2/latest/UserGuide.md").
 
 ### Amazon EC2 permissions for the user groups
 

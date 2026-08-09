@@ -12,14 +12,14 @@ policy examples, see [Example IAM identity-based policies](access_policies_examp
 
 ## Condition policy examples: Single-valued context keys
 
-- Multiple condition blocks with single-valued context keys. ([View
-  this example](reference_policies_condition_examples-single-valued-context-keys.md#reference_policies_condition_examples-single-valued-context-keys-1 "reference_policies_condition_examples-single-valued-context-keys.md#reference_policies_condition_examples-single-valued-context-keys-1").)
-- One condition block with multiple single-valued context keys and values. ([View
-  this example](reference_policies_condition_examples-single-valued-context-keys.md#reference_policies_condition_examples-single-valued-context-keys-2 "reference_policies_condition_examples-single-valued-context-keys.md#reference_policies_condition_examples-single-valued-context-keys-2").)
+- [Multiple
+  condition blocks with single-valued context keys](reference_policies_condition_examples-single-valued-context-keys.md#reference_policies_condition_examples-single-valued-context-keys-1 "reference_policies_condition_examples-single-valued-context-keys.md#reference_policies_condition_examples-single-valued-context-keys-1")
+- [One
+  condition block with multiple single-valued context keys and values](reference_policies_condition_examples-single-valued-context-keys.md#reference_policies_condition_examples-single-valued-context-keys-2 "reference_policies_condition_examples-single-valued-context-keys.md#reference_policies_condition_examples-single-valued-context-keys-2")
 
 ## Condition policy examples: Multivalued context keys
 
-- Deny policy with condition set operator `ForAllValues`. ([View
-  this example](reference_policies_condition_examples-multi-valued-context-keys.md#reference_policies_condition_examples-multi-valued-context-keys-1 "reference_policies_condition_examples-multi-valued-context-keys.md#reference_policies_condition_examples-multi-valued-context-keys-1").)
-- Deny policy with condition set operator `ForAnyValue`. ([View
-  this example](reference_policies_condition_examples-multi-valued-context-keys.md#reference_policies_condition_examples-multi-valued-context-keys-2 "reference_policies_condition_examples-multi-valued-context-keys.md#reference_policies_condition_examples-multi-valued-context-keys-2").)
+- [Deny policy
+  with condition set operator ForAllValues](reference_policies_condition_examples-multi-valued-context-keys.md#reference_policies_condition_examples-multi-valued-context-keys-1 "reference_policies_condition_examples-multi-valued-context-keys.md#reference_policies_condition_examples-multi-valued-context-keys-1")
+- [Deny policy
+  with condition set operator ForAnyValue](reference_policies_condition_examples-multi-valued-context-keys.md#reference_policies_condition_examples-multi-valued-context-keys-2 "reference_policies_condition_examples-multi-valued-context-keys.md#reference_policies_condition_examples-multi-valued-context-keys-2")

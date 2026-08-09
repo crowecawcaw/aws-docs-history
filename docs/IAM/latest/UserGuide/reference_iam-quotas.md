@@ -40,7 +40,7 @@ IAM names have the following requirements and restrictions:
   start or end with a hyphen, it can't contain two consecutive hyphens, and it can't be a
   12-digit number.
 
-For a list of Basic Latin (ASCII) characters, go to the [Library of Congress
+For a list of Basic Latin (ASCII) characters, see the [Library of Congress
 Basic Latin (ASCII) Code Table](https://www.loc.gov/marc/specifications/codetables/BasicLatin.html "https://www.loc.gov/marc/specifications/codetables/BasicLatin.html").
 
 ## IAM object quotas

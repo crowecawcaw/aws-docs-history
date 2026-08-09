@@ -418,7 +418,7 @@ switch roles immediately without reentering the account ID and role name.
 ### Switch roles (AWS CLI)
 
 If David needs to work in the **Destination**
-environment at the command line, he can do so by using the [AWS CLI](http://aws.amazon.com/cli/ "http://aws.amazon.com/cli/"). He runs the `aws sts
+environment at the command line, he can do so by using the [AWS CLI](../../../http:/aws.amazon.com/cli.md "../../../http:/aws.amazon.com/cli.md"). He runs the `aws sts
  assume-role` command and passes the role ARN to get temporary security
 credentials for that role. He then configures those credentials in environment variables
 so subsequent AWS CLI commands work using the role's permissions. While David uses the

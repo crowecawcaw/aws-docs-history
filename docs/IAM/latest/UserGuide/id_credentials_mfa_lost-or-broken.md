@@ -24,7 +24,7 @@ same root user or IAM user.
 
 ###### To sign in using another MFA device
 
-1. Sign in to the [AWS Management Console](url-comsole-domain.md "url-comsole-domain.md") with your
+1. Sign in to the [AWS Management Console](../../../url-comsole-domain.md "../../../url-comsole-domain.md") with your
    AWS account ID or account alias and password.
 2. On the **Additional verification required** page or
    **Multi-factor authentication** page, choose **Try another MFA
@@ -99,13 +99,13 @@ Multi-Factor Authentication (MFA) device](https://support.aws.amazon.com/#/conta
      [AWS Security
      Credentials](https://console.aws.amazon.com/iam/home?#security_credential "https://console.aws.amazon.com/iam/home?#security_credential") page and delete the old MFA virtual device entity before you
      create a new one.
-    * For a FIDO security key, go to the [AWS Security
+    * For a FIDO security key, see the [AWS Security
      Credentials](https://console.aws.amazon.com/iam/home?#security_credential "https://console.aws.amazon.com/iam/home?#security_credential") page and deactivate the old FIDO security key before enabling a
      new one.
     * For a hardware TOTP token, contact the third-party provider for help with fixing
      or replacing the device. You can continue to sign in using alternative factors of
      authentication until you receive your new device. After you have the new hardware MFA
-     device, go to the [AWS
+     device, see the [AWS
      Security Credentials](https://console.aws.amazon.com/iam/home?#security_credential "https://console.aws.amazon.com/iam/home?#security_credential") page and delete the old MFA device.
 
 ###### Note
