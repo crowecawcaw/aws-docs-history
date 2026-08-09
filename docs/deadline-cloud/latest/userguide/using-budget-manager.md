@@ -1,8 +1,9 @@
 # Control costs with a budget
 
-The Deadline Cloud budget manager helps you control spending on a given resource, such as a queue,
-fleet, or farm. You can create budget amounts and limits, and set automated actions to help
-reduce or stop additional spending against the budget.
+The Deadline Cloud budget manager helps you control spending on a queue. You can create budget
+amounts and limits, and set automated actions to help reduce or stop additional spending
+against the budget. Each budget tracks the estimated cost of one queue, so you can give
+each project, department, or vendor its own queue and its own spending cap.
 
 ![The budget manager showing active budgets with status, resource, remaining percentage, and remaining amount.](images/monitor/budget-manager.png)
 The following sections provide you with the steps for using the Deadline Cloud budget
@@ -12,6 +13,7 @@ manager.
 
 - [Prerequisite](#budget-manager-prereqs "#budget-manager-prereqs")
 - [Open the Deadline Cloud budget manager](#access-budget-manager "#access-budget-manager")
+- [How budget actions affect running and new work](budget-actions.md "budget-actions.md")
 - [Create a budget for a Deadline Cloud queue](create-budget.md "create-budget.md")
 - [View a Deadline Cloud queue budget](view-a-budget.md "view-a-budget.md")
 - [Edit a budget for a Deadline Cloud queue](edit-a-budget.md "edit-a-budget.md")

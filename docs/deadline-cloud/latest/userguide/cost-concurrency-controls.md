@@ -101,27 +101,46 @@ the most important work gets workers first when the fleet is at capacity. Combin
 priority with a fleet maximum worker count to control both which jobs run first and how
 much compute runs in total.
 
-## Choose the right controls for your workflow
+## Limit your spend rate
 
-The following scenarios illustrate common combinations:
+A fleet's cost comes from its running workers, so you can cap a fleet's spend rate
+by setting the maximum number of workers. Two controls work together:
 
-"I want a hard cap on what I spend per month"
+- The **fleet maximum worker count** sets your
+  peak spend rate by capping how many workers can run at once. For more
+  information about what makes up the hourly cost of a worker, see [Understand the cost model for service-managed fleets](cost-model-smf.md "cost-model-smf.md").
+- A **budget** caps cumulative spending. A budget
+  tracks total estimated spending over a time period rather than a rate, so it
+  adds a hard dollar limit alongside the fleet's capacity cap.
 
-Create a budget on each queue with a monthly dollar limit and a
-stop-scheduling action.
+## Mix Spot and On-Demand capacity
 
-"I want to limit how many instances run at once, like my old fixed
-farm"
+Each service-managed fleet uses a single instance market option: Spot, On-Demand, or
+Wait and Save. To combine market options, create a separate fleet for each option and
+associate the fleets with the same queue. For more information, see [Service-managed fleets](fleet-types.md#fleet-types-smf "fleet-types.md#fleet-types-smf") and [Associate a queue and fleet](associate-a-queue-and-fleet.md "associate-a-queue-and-fleet.md").
 
-Set the maximum worker count on your fleet. This directly replaces
-the natural concurrency limit of a fixed-size farm.
+When a queue has more than one fleet, it distributes jobs evenly across those fleets.
+To instead treat one fleet as primary capacity and another as overflow, adjust the
+fleets' maximum worker counts. The [capacity manager](../developerguide/examples-cfn-capacity-manager.md "../developerguide/examples-cfn-capacity-manager.md") sample in the _Deadline Cloud Developer Guide_
+automates that adjustment for a hybrid Wait and Save plus Spot setup.
 
-"I have 50 licenses and don't want jobs to fail because they can't get
-one"
+## Temporarily raise limits during busy periods
 
-Create a resource limit of 50 and associate it with the relevant
-queues. Jobs that declare the limit only schedule tasks when a license
-is available.
+All of these controls are adjustable at any time. You can temporarily increase
+limits during periods of increased job activity. For example, before a delivery
+deadline you might raise a fleet's maximum worker count,
+increase a budget threshold, and add standby workers to reduce job start latency. After
+the deadline, lower the settings again.
+
+You can update fleet auto scaling settings and budgets from the Deadline Cloud
+console. To change capacity on a schedule, such as raising the standby worker count
+during working hours, use the sample CloudFormation template at [fleet\_standby\_scheduling](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling") on GitHub. If you need more capacity than your
+account's service quotas allow, see [Quotas for Deadline Cloud](deadline-cloud-quotas.md "deadline-cloud-quotas.md").
+
+## Combine controls
+
+Each control on its own addresses one need. The following scenarios show how to
+combine controls:
 
 "I don't want one huge job to starve smaller jobs"
 

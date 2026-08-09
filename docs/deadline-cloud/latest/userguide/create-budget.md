@@ -47,6 +47,8 @@ To create a budget, use the following procedure.
       - **Immediately stop work**
         – All work is canceled immediately when the threshold
         amount is met.
+        For details about how each action affects running and new work,
+        see [How budget actions affect running and new work](budget-actions.md "budget-actions.md").
 
    4. To create additional limit alerts, choose **Add new
       action** and repeat the previous steps.

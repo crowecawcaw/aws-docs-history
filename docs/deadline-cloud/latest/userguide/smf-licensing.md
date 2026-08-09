@@ -12,12 +12,17 @@ For a list of supported software packages and information about pricing for UBL,
 
 ## Bring your own license with service-managed fleets
 
-With Deadline Cloud usage-based licensing (UBL) you don't need to manage separate licence
+With Deadline Cloud usage-based licensing (UBL), you don't need to manage separate license
 agreements with software vendors. However, if you have existing licenses or need to use
 software that isn't available through UBL, you can use your own software licenses with your
-Deadline Cloud service-managed fleets. You connect your SMF to the software license server via the
-internet to check out a license for each worker in the fleet.
+Deadline Cloud service-managed fleets. Workers connect to your license server through a VPC resource
+endpoint, through port forwarding to an instance in your account, or over the internet. The
+license server can be in another VPC or AWS account, as long as the endpoint or forwarding
+instance has network access to it.
 
-For an example of connecting to a license server using a proxy, see [Connect
-service-managed fleets to a custom license server](../developerguide/smf-byol.md "../developerguide/smf-byol.md") in the _Deadline Cloud Developer
+You can also combine both methods so workers use your existing licenses first and fall
+back to UBL when they run out.
+
+For a comparison of the licensing options and setup instructions, see [Using
+software licenses with Deadline Cloud](../developerguide/license.md "../developerguide/license.md") in the _Deadline Cloud Developer
 Guide_.

@@ -690,6 +690,22 @@ Deadline Cloud Perforce render job
 - **Path resolution**: Environment variables reference Perforce workspace paths.
 - **Dependency collection**: Automatic collection and sync of Perforce-tracked assets.
 
+### How Perforce sync scales for production projects
+
+Production Unreal Engine projects can reach hundreds of gigabytes across tens of thousands of files. The Perforce integration keeps sync time proportional to what changed rather than to the size of the project:
+
+Jobs are pinned to a changelist
+
+At submission, the submitter sets the `PerforceChangelistNumber` job parameter to the changelist your workspace has synced. Every task in the job renders against that same revision, so your job stays reproducible even when artists submit new changes while it runs. Workers can start a task only after the pinned changelist is available on the Perforce server they sync from.
+
+Workers reuse a stable client workspace
+
+Each worker creates its Perforce client workspace under a persistent root directory. It records the pairing in a `workspace_info.json` registry file stored with the workspace. A replacement worker that receives the same storage reads the registry and reuses the existing client. It doesn't create a new workspace. Because Perforce tracks the have-list on the server under the client name, a normal sync then downloads only the file revisions that changed since the last job.
+
+To benefit from client workspace reuse on a service-managed fleet, enable [persistent storage](volumes.md "volumes.md") so the volume holding the synced workspace is reattached to future workers.
+
+If the network path between your fleet's Region and your Perforce server has low throughput or high latency, a Perforce edge server in the fleet's Region can act as a regional cache for depot data. For more information, see [Perforce source control](../developerguide/architecture-guidance.md#perforce-asset-access "../developerguide/architecture-guidance.md#perforce-asset-access") in the _Deadline Cloud Developer Guide_.
+
 ### Setting up Perforce render job components
 
 Follow these steps to create the required data assets for Perforce-integrated render jobs.
@@ -773,27 +789,28 @@ Set up an OpenJD render job that orchestrates the entire rendering workflow.
 
 ![Pick Class For Data Asset Instance dialog filtered to "deadline cloud", with Deadline Cloud Render Job selected.](images/unreal-engine-p4-render-job-data-asset.png) 2. Name the data asset descriptively (for example, "P4RenderJob"). 3. Select the `p4_render_job.yml` template from `Content/Python/openjd_templates/p4/`. 4. **Review parameter definitions**: The template includes these parameters with their default behaviors:
 
-| Parameter                                | Description                                        | Auto-filled | Action required                                        |
-| ---------------------------------------- | -------------------------------------------------- | ----------- | ------------------------------------------------------ |
-| `ProjectRelativePath`                    | Project path relative to Perforce workspace root   | Yes         | Leave empty<br>• auto-populated                        |
-| `ProjectName`                            | Project name for Perforce workspace creation       | Yes         | Leave empty<br>• auto-populated                        |
-| `PerforceChangelistNumber`               | Perforce changelist to sync workspace to           | Yes         | Leave empty<br>• auto-populated                        |
-| `PerforceWorkspaceSpecificationTemplate` | Perforce client spec with `{workspace_name}` token | Yes         | Leave empty<br>• auto-populated                        |
-| `MrqJobDependenciesDescriptor`           | JSON file with MRQ dependencies for sync           | Yes         | Leave empty<br>• auto-populated                        |
-| `ExtraCmdArgsFile`                       | File for extra args (avoids 1024 char limit)       | No          | Optional<br>• use default for standard setups          |
-| `FramesPerTask`                          | Number of frames to render per task                | No          | Optional<br>• use default (0) to divide tasks by shots |
-| `ExtraCmdArgs`                           | Additional Unreal launch arguments                 | No          | Optional<br>• use default for standard setups          |
-| `Executable`                             | Unreal executable name for render node             | No          | Configure<br>• use default for standard setups         |
-| `CondaPackages`                          | Conda packages needed to render the job            | No          | Configure<br>• use default for standard setups         |
-| `CondaChannels`                          | Conda channels where packages are stored           | No          | Configure<br>• use default for standard setups         |
-| `ChunkSize`                              | Number of shots grouped in a single render session | No          | Configure<br>• default: 1 (tune for performance)       |
-| `MarketplacePluginsDir`                  | Path to engine Marketplace plugins                 | Yes         | Leave empty<br>• auto-populated                        |
+| Parameter                                | Description                                                     | Auto-filled | Action required                                                   |
+| ---------------------------------------- | --------------------------------------------------------------- | ----------- | ----------------------------------------------------------------- |
+| `ProjectRelativePath`                    | Project path relative to Perforce workspace root                | Yes         | Leave empty<br>• auto-populated                                   |
+| `ProjectName`                            | Project name for Perforce workspace creation                    | Yes         | Leave empty<br>• auto-populated                                   |
+| `PerforceChangelistNumber`               | Perforce changelist to sync workspace to                        | Yes         | Leave empty<br>• auto-populated                                   |
+| `PerforceWorkspaceSpecificationTemplate` | Perforce client spec with `{workspace_name}` token              | Yes         | Leave empty<br>• auto-populated                                   |
+| `MrqJobDependenciesDescriptor`           | JSON file with MRQ dependencies for sync                        | Yes         | Leave empty<br>• auto-populated                                   |
+| `ExtraCmdArgsFile`                       | File for extra args (avoids 1024 char limit)                    | No          | Optional<br>• use default for standard setups                     |
+| `FramesPerTask`                          | Number of frames to render per task                             | No          | Optional<br>• use default (0) to divide tasks by shots            |
+| `ExtraCmdArgs`                           | Additional Unreal launch arguments                              | No          | Optional<br>• use default for standard setups                     |
+| `Executable`                             | Unreal executable name for render node                          | No          | Configure<br>• use default for standard setups                    |
+| `CondaPackages`                          | Conda packages needed to render the job                         | No          | Configure<br>• use default for standard setups                    |
+| `CondaChannels`                          | Conda channels where packages are stored                        | No          | Configure<br>• use default for standard setups                    |
+| `ShotsPerTask`                           | Number of shots grouped in a single render session              | No          | Configure<br>• default: 1 (tune for performance)                  |
+| `SubmitMode`                             | Push render outputs into Perforce (`''`, `submit`, or `shelve`) | No          | Optional<br>• default `''` deactivates Perforce output submission |
+| `MarketplacePluginsDir`                  | Path to engine Marketplace plugins                              | Yes         | Leave empty<br>• auto-populated                                   |
 
 **Parameter configuration guidelines**:
 
     * **Auto-populated parameters**: Leave these empty - they're filled automatically during job submission.
     * **Manual parameters**: Review defaults and adjust based on your specific requirements.
-    * **ChunkSize**: Start with 1, increase for better performance with simple shots.
+    * **ShotsPerTask**: Start with 1, increase for better performance with simple shots.
 
 ![Parameter Definition properties for the Perforce render job data asset, listing ProjectRelativePath, ProjectName, PerforceChangelistNumber, PerforceWorkspaceSpecificationTemplate, MrqJobDependenciesDescriptor, ExtraCmdArgs, ExtraCmdArgsFile, Executable, CondaPackages, CondaChannels, and ChunkSize fields.](images/unreal-engine-p4-job-parameter-definition.png) 5. **Configure environments** (in this exact order):
 
@@ -809,6 +826,24 @@ Environment order is essential for proper dependency resolution and credential f
 
 ![Render job data asset Environments array showing ApplyP4SecretsEnv, P4SyncSMFEnv, and P4LaunchUEEnv in order, with P4RenderStep added under Steps.](images/unreal-engine-p4-add-environments-and-steps.png)
 
+### Submitting render outputs back to Perforce
+
+By default, a Perforce render job uploads outputs through job attachments only. The `SubmitMode` job parameter opts in to pushing rendered outputs into Perforce instead, so finished frames land in your depot alongside the project.
+
+| `SubmitMode` value | Behavior                                                                                                                                                                                                                              |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `''` (default)     | Job attachments only. No Perforce write occurs. Existing jobs behave unchanged.                                                                                                                                                       |
+| `submit`           | Each render task shelves the files it produced. When every task has finished, an `AssembleShelves` step combines all task shelves into a single aggregate changelist and submits it. The job log records the final changelist number. |
+| `shelve`           | Same aggregation as `submit`, but the final aggregate changelist is shelved instead of submitted, so a person can review the aggregate before committing it.                                                                          |
+
+Only files that changed since the last sync end up in the changelist. Each task reconciles the exact files it produced, and the integration reverts files whose content is identical to the depot revision, so re-rendering an unchanged frame produces no changelist entry.
+
+###### Note
+
+When `SubmitMode` is `submit` or `shelve`, the job doesn't upload render outputs to Amazon S3 through job attachments. Perforce becomes the sole delivery path for the frames. The download outputs feature in Deadline Cloud monitor doesn't find the frames, and downstream jobs that consume outputs through job attachments don't see them. Input attachments are still uploaded through job attachments as normal.
+
+Configure your workers to authenticate to Perforce as the same Perforce user for all tasks in a job, because the aggregation step finds task shelves by owner. The recommended credential setup in [Perforce credentials management](#unreal-engine-perforce-credentials "#unreal-engine-perforce-credentials"), a single shared secret in Secrets Manager, already satisfies that requirement.
+
 ### Best practices
 
 #### Pre-submission checklist
@@ -821,13 +856,13 @@ Environment order is essential for proper dependency resolution and credential f
 
 #### Performance optimization
 
-**Chunk size configuration**:
+The following table shows how the `ShotsPerTask` setting affects performance:
 
-| Chunk size | Use case                              | Performance impact                         |
-| ---------- | ------------------------------------- | ------------------------------------------ |
-| 1-2 shots  | Complex shots, detailed review needed | Lower throughput, higher quality control   |
-| 4-8 shots  | Balanced workload, typical projects   | Optimal balance of speed and manageability |
-| 10+ shots  | Simple shots, batch processing        | Maximum throughput, minimal overhead       |
+| Shots per task | Use case                              | Performance impact                         |
+| -------------- | ------------------------------------- | ------------------------------------------ |
+| 1-2 shots      | Complex shots, detailed review needed | Lower throughput, higher quality control   |
+| 4-8 shots      | Balanced workload, typical projects   | Optimal balance of speed and manageability |
+| 10+ shots      | Simple shots, batch processing        | Maximum throughput, minimal overhead       |
 
 Consider the following additional optimizations:
 
