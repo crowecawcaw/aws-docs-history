@@ -174,17 +174,18 @@ To view a Amazon Quick user account, use the following procedure.
 **Deleting user accounts has permanent, organization-wide
 consequences.** When you delete a user account:
 
-- All user-owned resources are permanently removed unless explicitly transferred
-  to another user before deletion
-- Shared dashboards and analyses become inaccessible to other users if the deleted
-  user was the owner
-- Data sources and datasets owned by the user are deleted, potentially breaking
-  dependent analyses across your organization
-- **This action cannot be undone - deleted resources cannot
-  be recovered**
+- Assets owned solely by the user are permanently removed unless you
+  transfer them to another user before deletion.
+- Assets that have other owners remain available to those owners; the
+  deleted user is removed from their permissions.
+- **This action cannot be undone – deleted resources cannot
+  be recovered.**
   Always transfer critical resources to another user before deleting an account. Review
   all user-owned assets using the asset management console before proceeding with any
   account deletion.
+
+For the full model of how user removal affects assets and data, see
+[User lifecycle and data handling in Amazon Quick](user-lifecycle-data-handling.md "user-lifecycle-data-handling.md").
 
 Accounts can be deleted by either an AWS administrator or an Amazon Quick
 administrator. Deleting a Amazon Quick user account works the same in both the

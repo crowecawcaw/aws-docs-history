@@ -6,8 +6,8 @@ Amazon Quick uses the following data encryption features:
 - Encryption in transit
 - Key management
   You can find more details about data encryption at rest and data encryption in transit in
-  the following topics. For more information about key management in Amazon Quick see [Encrypting
-  Amazon Quick SPICE datasets with AWS KMS customer-managed keys](../../../quicksuite/latest/userguide/customer-managed-keys.md "../../../quicksuite/latest/userguide/customer-managed-keys.md").
+  the following topics. For more information about key management in Amazon Quick, see
+  [Encrypting your Amazon Quick data with AWS Key Management Service customer managed keys](customer-managed-keys.md "customer-managed-keys.md").
 
 ###### Topics
 
@@ -25,10 +25,12 @@ Amazon Quick securely stores your Amazon Quick metadata. This includes the follo
   Directory or identity federation implementation (Federated Single Sign-On (IAM Identity Center)
   through Security Assertion Markup Language 2.0 (SAML 2.0)).
 - Data source connection data.
-- Amazon Quick data source credentials (username and password) or OAuth tokens to establish a
-  data source connection are encrypted with the customers default CMK when customer
-  registers a CMK with Amazon Quick. If the customer does not register a CMK with Amazon Quick, we will
-  continue to encrypt the information using a Amazon Quick owned AWS KMS key.
+- Amazon Quick encrypts your data source credentials (username and password) and OAuth
+  tokens with your default customer managed KMS key when one is registered with Amazon Quick.
+  Amazon Quick re-encrypts credentials and tokens with the current default customer managed KMS key
+  each time you update the credential or refresh an OAuth token. If you do not register a
+  default customer managed KMS key, Amazon Quick encrypts this information with a service-managed
+  key.
 - Names of your uploaded files, data source names, and data set names.
 - Statistics that Amazon Quick uses to populate machine learning (ML) insights.
 - Data indexed to support Amazon Q in Quick. This includes the following:
@@ -40,26 +42,44 @@ Amazon Quick securely stores your Amazon Quick metadata. This includes the follo
   - Your first space creation
   - Your first knowledge base creation
 
-###### Note
+###### Important
 
-Configure a CMK prior to creating the above. Otherwise, Q data will be encrypted by an
-AWS–owned key and cannot be changed later.
+Quick protects data indexed to support Amazon Q with the Amazon Q data key.
+That key is set the first time Amazon Q data is created in your account and cannot be changed
+afterward. To use a customer managed KMS key for Amazon Q data, register it as your account
+default key before creating any Amazon Q data. For more information, see
+[Amazon Q data key](customer-managed-keys.md#customer-managed-keys-q-data-key "customer-managed-keys.md#customer-managed-keys-q-data-key")
+and [Customer managed KMS key scope](customer-managed-keys.md#customer-managed-keys-scope "customer-managed-keys.md#customer-managed-keys-scope").
 
 Amazon Quick securely stores your Amazon Quick data. This includes the following:
 
-- Data-at-rest in SPICE is encrypted using hardware block-level
-  encryption with AWS-managed keys.
-- Data-at-rest other than SPICE is encrypted using Amazon-managed KMS
-  keys. This includes the following:
+- When no customer managed KMS key applies, data at rest in SPICE is
+  encrypted using hardware block-level encryption with keys that AWS owns and manages.
+  For information about using a customer managed KMS key with SPICE datasets,
+  see [Customer managed KMS key scope](customer-managed-keys.md#customer-managed-keys-scope "customer-managed-keys.md#customer-managed-keys-scope").
+- When no customer managed KMS key applies, other data at rest is encrypted with a
+  service-managed key. This includes the following:
 
-  - Email reports
-  - Sample value for filters
+  - Sample values for filters.
+  - User feedback on chat responses, including optional free-text comments. User
+    feedback is not encrypted with your customer managed KMS key or the Amazon Q data key.
+    Report artifacts (including email reports) can be encrypted with your default
+    customer managed KMS key when one is registered. For more information, see
+    [Customer managed KMS key scope](customer-managed-keys.md#customer-managed-keys-scope "customer-managed-keys.md#customer-managed-keys-scope").
 
-When you delete a user, all of that user's metadata is permanently deleted. If you don't
-transfer that user's Amazon Quick objects to another user, all of the deleted user's Amazon Quick objects
-(data sources, datasets, analyses, and so on) are also deleted. When you unsubscribe from
-Amazon Quick, all metadata and any data you have in SPICE is completely and
-permanently deleted.
+- Amazon Quick encrypts cached query results at rest. Amazon Quick caches query results from a
+  SPICE dataset that your customer managed KMS key protects under that same
+  key, and encrypts other cached results with a service-managed key.
+
+When you delete a user, Amazon Quick permanently deletes that user's metadata. What happens to
+the assets that the user owned, and to data such as the user's conversation history, depends
+on how the user is removed. For more information, see
+[User lifecycle and data handling in Amazon Quick](user-lifecycle-data-handling.md "user-lifecycle-data-handling.md").
+
+When you unsubscribe from Amazon Quick, all of your Amazon Quick data is completely and permanently
+deleted. This includes all metadata, any data you have in SPICE, and Amazon Q
+data, including the Quick index. This deletion is immediate; there is no retention period
+during which the data can be recovered.
 
 ## Encryption in transit
 

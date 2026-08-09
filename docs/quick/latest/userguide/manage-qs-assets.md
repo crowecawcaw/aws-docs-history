@@ -4,6 +4,9 @@ Use this section to manage all of the assets in your Amazon Quick account in one
 view. You can manage the following Quick assets: Analyses, Dashboards, Datasets,
 Data sources, Shared folders, and Agents.
 
+For the full model of how user removal affects a user's assets and data, see
+[User lifecycle and data handling in Amazon Quick](user-lifecycle-data-handling.md "user-lifecycle-data-handling.md").
+
 Here are some common reasons to use the asset manager:
 
 - Transfer assets – Quickly transfer assets

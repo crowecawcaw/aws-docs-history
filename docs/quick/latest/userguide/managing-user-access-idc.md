@@ -131,3 +131,10 @@ in Quick. You do not need to delete the user in the Quick
 application. The deleted user will appear in the **Inactive users**
 list in Quick until the first day of the following month. After that
 date passes, the user is automatically removed from the list.
+
+When a user is removed from your identity provider, the user's assets are not
+transferred or deleted automatically. Administrators can review deleted users and
+transfer their assets to another user. To transfer assets that no longer have an
+owner, see [Amazon Quick asset management](manage-qs-assets.md "manage-qs-assets.md").
+For the full model of how user removal affects assets and data, see
+[User lifecycle and data handling in Amazon Quick](user-lifecycle-data-handling.md "user-lifecycle-data-handling.md").

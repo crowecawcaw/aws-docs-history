@@ -81,7 +81,7 @@ While these configuration options are available across most integrations, specif
 ### Service principal for knowledge base operations
 
 If you use a customer-managed key (CMK) as your default CMK and Q data key (see
-[Encrypting your Amazon Quick data with AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md")), Amazon Quick accesses your AWS KMS key
+[Encrypting your Amazon Quick data with AWS Key Management Service customer managed keys](customer-managed-keys.md "customer-managed-keys.md")), Amazon Quick accesses your AWS KMS key
 using the `qbusiness.amazonaws.com` and
 `quicksight.amazonaws.com` service principals during knowledge base sync
 operations.

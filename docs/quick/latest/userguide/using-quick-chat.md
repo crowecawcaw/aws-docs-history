@@ -15,6 +15,7 @@ Quick chat provides you with the following capabilities.
 - [Agent picker](#agent-picker "#agent-picker")
 - [Scoping response generation to specific data](#data-filter "#data-filter")
 - [Chatting with datasets](#chatting-with-datasets "#chatting-with-datasets")
+- [Chatting with Topics](#chatting-with-topics "#chatting-with-topics")
 - [Web search](#web-search "#web-search")
 - [Upload files and chat](#file-uploads "#file-uploads")
 - [Actions](#chat-actions "#chat-actions")
@@ -129,6 +130,35 @@ chat.
 
 For SPICE datasets, the size limit of 2 TB and 2 billion rows applies
 when chatting with the dataset.
+
+## Chatting with Topics
+
+You can chat with your Topics in Amazon Quick to ask natural language questions that
+span multiple datasets. When you select a Topic as your data context in chat,
+the LLM-powered chat agent uses the defined relationships, dataset enrichment metadata,
+and custom instructions to generate cross-dataset SQL queries and return unified
+answers.
+
+To chat with a Topic, use the data filter to select **Specific data and
+apps** and choose your Topic from the list. Or navigate to the Topic and
+choose the chat icon.
+
+The chat agent traverses relationships across datasets, identifying which tables
+contain the relevant columns, constructing SQL with appropriate joins, and returning
+a unified answer. You can view the generated SQL in the Explanation panel to verify
+the correct datasets and joins were used.
+
+Amazon Quick chat supports the following Topic types:
+
+- **New Topics (multi-dataset)** –
+  The LLM-powered chat agent generates cross-dataset SQL with runtime joins.
+  It can produce inner joins, left joins, outer joins, unions, and subqueries
+  based on your defined relationships and custom instructions.
+- **Legacy Topics** – The legacy ML-based
+  fuzzy search model selects one dataset from the Topic and queries only that
+  single dataset. Cross-dataset queries are not supported.
+
+For more information about creating and configuring Topics, see [Working with Amazon Quick Sight Topics](topics.md "topics.md").
 
 ## Web search
 

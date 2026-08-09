@@ -2,9 +2,13 @@
 
 ###### Note
 
-To view the multi-visual experience, the topic author must do the following: add
-named entities, and convert an existing topic to use generative capabilities or
-create a new generative topic. For more information, see [Authoring Q&A](gen-bi-author-q-and-a.md "gen-bi-author-q-and-a.md").
+The Q&A experience described in this section uses legacy Topics. To view
+the multi-visual experience, the legacy Topic author must add named entities and
+convert an existing topic to use generative capabilities or create a new
+generative topic. For more information, see [Authoring Q&A](gen-bi-author-q-and-a.md "gen-bi-author-q-and-a.md").
+
+For the new multi-dataset Topics experience, which uses an LLM-powered chat
+agent to generate cross-dataset SQL queries with runtime joins, see [Using Topics in Amazon Quick chat](topics-in-chat.md "topics-in-chat.md").
 
 Accelerate data-driven decisions with humanistic Q&A that includes:
 

@@ -25,7 +25,7 @@ You have two connectivity options between your private network and AWS:
   connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
 
 If you are using AWS API operations to interact with Amazon Quick through the network,
-clients must support Transport Layer Security (TLS) 1.0. We recommend TLS 1.2. Clients must
+clients must support Transport Layer Security (TLS) 1.2 or later. Clients must
 also support cipher suites with Perfect Forward Secrecy (PFS), such as Ephemeral
 Diffie-Hellman (DHE) or Elliptic Curve Diffie-Hellman Ephemeral (ECDHE). Most modern systems
 such as Java 7 and later support these modes. You must sign requests using an access key ID

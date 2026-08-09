@@ -1,4 +1,4 @@
-# Creating Quick Sight topics
+# Creating Quick Sight Topics
 
 |                                           |
 | ----------------------------------------- |
@@ -8,60 +8,42 @@
 | ------------------------------------------------------------- |
 | Intended audience:<br>Amazon Quick administrators and authors |
 
-To turn on questions for your datasets, you have to create a topic. Quick Sight
-provides a guided workflow for creating topics. You can step out of the guided workflow
-and come back to it later, without disrupting your work.
+To create a Topic, you add one or more enriched datasets, define relationships between
+them, and optionally add custom instructions that guide how the AI interprets cross-dataset
+queries.
 
-There are two ways to create a topic:
+## Creating a Topic
 
-- Create the topic by selecting a dataset. When you create topics in
-  Quick Sight, you can add multiple datasets to them and also enable the topics
-  in analyses.
-- Create the topic using an analysis. When you create a topic in an analysis, or
-  link an existing topic to an analysis, automated data prep learns from how you
-  analyze your data and automatically applies this to your topic.
-  After you share your topic with Quick readers and they use it to ask
-  questions in the search bar, you can see a summary of how the topic is performing. You can
-  also see a list of everything users asked and how well it was responded to, and any answers you
-  have verified. Reviewing the feedback is important so that your business users can continue to
-  be provided with the correct visualizations and answers to their questions.
+Use the following procedure to create a Topic.
 
-## Creating a topic
+###### To create a Topic
 
-Use the following procedure to create a topic.
+1. On the Quick homepage, choose **Data** in
+   the navigation pane at left.
+2. Choose the **Topics** tab, and then choose
+   **Create topic**.
+3. Enter a topic name (for example, "Retail Sales Analytics") and an
+   optional description, then choose **Create**.
+4. Choose **Add dataset** and select the datasets you want
+   to include in the Topic (up to 12 datasets).
+5. After adding datasets, define the relationships between them. For more
+   information, see [Defining relationships between datasets in a Topic](topics-relationships.md "topics-relationships.md").
+6. (Optional) Add custom instructions that provide cross-dataset business
+   rules. For more information, see [Adding custom instructions to a Topic](topics-custom-instructions.md "topics-custom-instructions.md").
+7. Choose **Publish** to make the Topic available to
+   users.
 
-###### To create a topic
+After publishing, share the Topic with business users so they can ask natural
+language questions or use it in analysis. For more information, see [Sharing Quick Sight Topics](topics-sharing.md "topics-sharing.md").
 
-1. On the Quick homepage, choose
-   **Topics**.
-2. On the **Topics** page that opens, choose
-   **Create Topic** at upper right.
-3. On the **Create Topic** page that opens, do the
-   following:
+## Prerequisites
 
-   1. For **Topic name**, enter a descriptive name for
-      the topic.
+Before creating a Topic, confirm that you have the following:
 
-   Your business users identify the topic by this name and use it to
-   ask questions. 2. For **Description**, enter a description for the
-   topic.
-
-   Your users can use this description to get more details about the
-   topic. 3. Choose **Continue**.
-
-4. On the **Add data to topic** page that opens, choose one
-   of the following options:
-
-   - To add one or more datasets that you own or have permission to,
-     choose **Datasets**, and then select the dataset or
-     datasets that you want to add.
-   - To add datasets from dashboards that you have created or that have
-     been shared with you, choose **Datasets from a
-     dashboard**, and then select a dashboard from the list.
-
-5. Choose **Add data**.
-
-Your topic is created and the page for that topic opens. The next step is
-to configure the topic metadata to make it natural-language-friendly for
-your readers. For more information, see [Making Quick Sight topics natural-language-friendly](topics-natural-language.md "topics-natural-language.md"). Or continue to
-the next topic to explore the topic workspace.
+- Amazon Quick Enterprise Edition enabled with Author or Admin role.
+- One or more datasets enriched with semantic metadata (column descriptions,
+  synonyms, and semantic types). For more information, see [Data Preparation Experience (New)](data-prep-experience-new.md "data-prep-experience-new.md").
+- Datasets representing a dimensional model (fact tables and dimension
+  tables) loaded into SPICE or accessible through a supported
+  Direct Query source.
+- Permissions to create Topics and manage datasets.

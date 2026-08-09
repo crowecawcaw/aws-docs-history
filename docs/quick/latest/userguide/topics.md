@@ -8,54 +8,46 @@
 | ------------------------------------------------------------- |
 | Intended audience:<br>Amazon Quick administrators and authors |
 
-_Topics_ are collections of one or more datasets that represent a
-subject area that your business users can ask questions about.
+A _Topic_ in Quick Sight is the multi-dataset semantic layer that
+brings multiple enriched datasets together into a unified data model. Topics let you define
+relationships between datasets so that Quick Sight can perform runtime joins across
+them — whether you're building analysis visuals or asking natural language questions
+through Amazon Quick chat.
 
-With Quick Sight automated data prep, you get an ML-powered assist to help you create a
-topic that is relevant to your end users. The first process begins with automated field
-selection and classification, something like this:
+With Topics, you can:
 
-- Automated data prep chooses a small number of fields to include by default to
-  create a focused data space for readers to explore.
-- Automated data prep selects fields that you use in other assets like reports and
-  dashboards.
-- Automated data prep also imports any additional fields from any related analysis
-  where a topic is enabled.
-- It identifies dates, dimensions, and measures, to learn how fields can be used in
-  answers.
-  This automatic set of fields help the author quickly get started with natural language
-  analytics. Authors can always exclude fields, or include additional fields, as needed by
-  using the **Include** toggle.
+- Add up to 12 datasets to a single Topic and define relationships (join keys)
+  between them.
+- Add custom instructions that guide the AI engine on cross-dataset logic,
+  disambiguation rules, and business definitions.
+- Use the Topic as a data model in Quick Sight analysis sheets to build visuals
+  with fields from multiple datasets — Quick Sight performs runtime inner joins
+  automatically.
+- Use the Topic in Amazon Quick chat where the LLM-powered chat agent traverses
+  relationships across datasets, generates cross-dataset SQL with appropriate joins,
+  and returns unified answers.
+- Preserve each dataset at its native granularity — no pre-joining or
+  denormalization required.
+  Each dataset in a Topic should be independently enriched with semantic metadata
+  (column descriptions, synonyms, semantic types, and custom instructions) before being
+  added to the Topic. For more information about enriching datasets, see [Data Preparation Experience (New)](data-prep-experience-new.md "data-prep-experience-new.md").
 
-Next, automated data prep continues with the process by automatically labeling fields and
-identifying synonyms. Automated data prep updates field names with friendly names and
-synonyms using common terms. For example, a `SLS_PERSON` field might be renamed
-to `Sales person`, and assigned synonyms including: `salesman`,
-`saleswoman`, agent, and `sales representative`. Although you can
-let automated data prep do much of the work, it's worthwhile to review the fields, names,
-and synonyms to further customize them for your end users. For example, if the users refer
-to a sales person as a "rep" or a "dealer" in casual conversation, then you support this
-term by adding `rep` and `dealer` to the synonyms for
-`SLS_PERSON`.
+###### Note
 
-Finally, automated data prep detects the semantic type of each field, by sampling its data
-and examining the formats applied to it by the author during analysis. Automated data prep
-updates the field configuration automatically, setting formats for values used for each
-field. Answers to questions are thus provided in expected formats for dates, currencies,
-identifiers, Booleans, persons, and so on.
+If you have existing Topics that were created before this release, they are now
+classified as _legacy Topics_. Legacy Topics continue to work as
+before. For more information, see [Working with legacy Topics](legacy-topics.md "legacy-topics.md").
 
-To learn more about working with topics, continue on to the following sections in this
-chapter.
+To learn more about working with Topics, continue to the following sections.
 
 ###### Topics
 
-- [Navigating Topics](navigating-topics.md "navigating-topics.md")
-- [Creating Quick Sight topics](topics-create.md "topics-create.md")
-- [Topic workspace](topics-interface.md "topics-interface.md")
-- [Working with datasets in an Quick Sight topic](topics-data.md "topics-data.md")
-- [Making Quick Sight topics natural-language-friendly](topics-natural-language.md "topics-natural-language.md")
-- [Sharing Quick Sight topics](topics-sharing.md "topics-sharing.md")
-- [Managing Amazon Quick Sight topic permissions](topics-sharing-permissions.md "topics-sharing-permissions.md")
-- [Reviewing Quick Sight topic performance and feedback](topics-performance.md "topics-performance.md")
-- [Refreshing Quick Sight topic indexes](topics-index.md "topics-index.md")
-- [Work with Quick Sight topics using the Amazon Quick Sight APIs](topics-cli.md "topics-cli.md")
+- [How Topics work](topics-how-it-works.md "topics-how-it-works.md")
+- [Creating Quick Sight Topics](topics-create.md "topics-create.md")
+- [Defining relationships between datasets in a Topic](topics-relationships.md "topics-relationships.md")
+- [Adding custom instructions to a Topic](topics-custom-instructions.md "topics-custom-instructions.md")
+- [Using Topics in Quick Sight analysis](topics-in-analysis.md "topics-in-analysis.md")
+- [Using Topics in Amazon Quick chat](topics-in-chat.md "topics-in-chat.md")
+- [Sharing Quick Sight Topics](topics-sharing.md "topics-sharing.md")
+- [Working with legacy Topics](legacy-topics.md "legacy-topics.md")
+- [Work with Quick Sight Topics using the Amazon Quick Sight APIs](topics-cli.md "topics-cli.md")

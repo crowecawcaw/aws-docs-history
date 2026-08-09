@@ -19,8 +19,8 @@ pricing](https://aws.amazon.com/quicksuite/pricing/ "https://aws.amazon.com/quic
 ## Compare plans
 
 Amazon Quick has two account types: Free and Plus accounts created at
-[aws.com/quick](https://aws.com/quick "https://aws.com/quick"), and Professional
-and Enterprise accounts provisioned through the AWS Management Console. Most features,
+[aws.com/quick](https://aws.com/quick "https://aws.com/quick"), and Enterprise
+accounts provisioned through the AWS Management Console. Most features,
 including chat with AI agents, spaces, Amazon Quick Flows, Amazon Quick Research, Apps in Amazon Quick,
 extensions, and integrations, are available to both account types.
 

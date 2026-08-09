@@ -2,6 +2,10 @@
 
 ## Turning on Internet Protocol (IP) and VPC endpoint restrictions in Amazon Quick
 
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
+
 You can limit access to your organization's Amazon Quick account to a predefined list
 of IP ranges, VPC IDs, and VPC endpoint IDs. For example, you can create an IP rule that
 allows users to access your Quick account only from IP addresses associated
@@ -11,6 +15,17 @@ only from the VPC that is used for Direct Connect.
 
 For more information about setting up VPC endpoints in Quick, see [Quick Interface VPC endpoints (AWS PrivateLink)](../../../quicksight/latest/developerguide/vpc-interface-endpoints.md "../../../quicksight/latest/developerguide/vpc-interface-endpoints.md") for more
 information about how to setup VPC endpoints.
+
+###### Note
+
+For Quick accounts integrated with IAM Identity Center, browser-based
+authentication requires access to the public AWS sign-in and IAM Identity Center endpoints.
+VPC endpoints do not provide this browser sign-in path. You don't need public
+IP addresses. Outbound internet connectivity, such as a network address
+translation (NAT) gateway or proxy, can provide access to these endpoints. For
+more information, see
+[Enable access to the IAM Identity Center access portal](../../../singlesignon/latest/userguide/enable-identity-center-portal-access.md "../../../singlesignon/latest/userguide/enable-identity-center-portal-access.md") and [Considerations for private access](../../../singlesignon/latest/userguide/private-access-considerations.md "../../../singlesignon/latest/userguide/private-access-considerations.md") in the
+_IAM Identity Center User Guide_.
 
 Only admins with AWS Identity and Access Management (IAM) credentials who have access to the
 Quick console pages can access the IP and VPC endpoint restrictions
@@ -28,9 +43,8 @@ table.
 An _IP rule_ is created when you add a CIDR
 address with a public IP version 4 address to the restrictions table. A VPC endpoint
 rule is created when you add either a VPC ID or a VPC endpoint ID to the
-restrictions table.
-You
-can add up to IP or VPC endpoint rules to the restrictions table.
+restrictions table. You can add up to 100 IP and VPC endpoint rules combined to the
+restrictions table. To request a higher limit, contact AWS Support.
 You can only add rules from the AWS Region where your account is. All traffic that
 is not allowed by either the IP rule or the VPC endpoint rule is blocked when the
 restriction is turned on.
@@ -48,7 +62,7 @@ IP](../../../IAM/latest/UserGuide/reference_policies_examples_aws_deny-ip.md "..
 
 Before you save any rule changes or turn on other rules, make sure that you have a
 rule that includes your IP address or VPC endpoint ID. If there isn’t a rule that
-includes allows your traffic, you can't save your changes.
+allows your traffic, you can't save your changes.
 
 ###### To add an IP or VPC endpoint rule
 
@@ -74,8 +88,8 @@ It can take up to 10 minutes for a rule to be fully implemented.
 
 ### Update an existing rule
 
-After you create an IP pr VPC endpoint rule, use the IP and VPC restrictions table
-to make changes to the rule. Use the procedure bwloe to update an existing IP or VPC
+After you create an IP or VPC endpoint rule, use the IP and VPC restrictions table
+to make changes to the rule. Use the following procedure to update an existing IP or VPC
 endpoint rule in the IP and VPC restrictions table.
 
 ###### To update an existing IP or VPC endpoint rule
@@ -94,17 +108,18 @@ It can take up to 10 minutes for an updated rule to be fully implemented.
 
 ### Delete a rule
 
-Use the procedure below to delete an IP or VPC endpoint rule from the IP and VPC
+Use the following procedure to delete an IP or VPC endpoint rule from the IP and VPC
 endpoint restrictions table.
 
-###### To delete an IP rule
+###### To delete an IP or VPC endpoint rule
 
 1. On the Quick start page, choose **Manage
    QuickSight**, and then choose **Security and
    Permissions**.
 2. Choose **IP and VPC endpoint restrictions**.
-3. Make your changes and choose **Update**. A rule marked
-   for deletion appears with a strike through it.
+3. Locate the rule that you want to delete, and then choose the delete icon
+   next to it. The rule appears with a strikethrough to show that it is marked
+   for deletion.
 4. Choose **Save changes** in the box that appears to delete
    the rule.
 

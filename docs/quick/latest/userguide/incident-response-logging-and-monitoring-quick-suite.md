@@ -49,6 +49,14 @@ To access the analytics dashboard, you need the following permission:
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | IAM administrators | • View all analytics data for the entire instance<br>• Access detailed query and response data<br>• Monitor team adoption and engagement metrics |
 
+###### Important
+
+If you have analytics access, you can view detailed query text,
+failed-query content, and the full conversation context associated with
+negative feedback. Grant analytics access only to authorized
+administrators, and apply your organization's data-handling and
+incident-response policies to analytics review workflows.
+
 ## Analytics dashboard overview
 
 The Amazon Quick analytics dashboard is organized into several key sections that

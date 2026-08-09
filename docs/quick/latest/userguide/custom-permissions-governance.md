@@ -19,16 +19,25 @@ to evaluate them.
 With Deny by Default enabled, new capabilities in a restricted category are
 automatically denied on launch day without administrator action. Administrators
 can then evaluate each new capability and explicitly allow it when ready.
+Restricting a category also restricts the capabilities that already exist in it,
+so you allow the ones your users need.
 
-### Point-in-time semantics
+### How category restriction works
 
-Capabilities that already exist when you enable Deny by Default remain
-available. The restriction is not retroactive. Only capabilities launched after
-enablement are denied. Think of it as a forward-looking filter that protects
-against future changes without disrupting current workflows.
+When you restrict a capability category in a custom permissions profile,
+Quick restricts every capability in that category for assigned
+users. This includes capabilities that Quick launches in the
+future. To keep specific capabilities available, allow them explicitly in the
+profile.
 
-To restrict capabilities that already exist, you must explicitly set them to
-`DENY` in the profile's capabilities configuration.
+### Existing profiles are not changed
+
+Restricting a category affects only the profile you configure it in. Existing
+custom permissions profiles do not inherit the restriction. To use it, either
+create a new profile with the category restricted, or edit an existing profile.
+If you enable it on an existing profile, all capabilities in that category
+become restricted – including capabilities the profile previously
+allowed. Allow the ones your users need.
 
 ### When to use this feature
 
@@ -48,16 +57,16 @@ before new capabilities reach users. Common use cases include:
 
 The following table describes the key terms and concepts for Deny by Default.
 
-| Term                        | Definition                                                                                                                                                                                                         |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Custom permissions profile  | A named configuration object that defines which Amazon Quick capabilities are restricted for a set of users or roles. You can assign profiles at the user, role, or account level.                                 |
-| Capability category         | A named grouping of Amazon Quick capabilities used as the unit of control for Deny by Default. At launch, the supported category is AI (all AI and LLM-powered capabilities).                                      |
-| Deny by Default             | A setting you can enable within a custom permissions profile to automatically restrict any new capability that Quick launches within a designated category, without requiring administrator action at launch time. |
-| Point-in-time semantics     | When you enable Deny by Default for a category, capabilities that already exist at the time of enablement are unaffected. Only capabilities launched after the enablement date are automatically denied.           |
-| Forward-looking restriction | Deny by Default restrictions apply to future capabilities only, not to the current state. They do not remove access to capabilities already available to profile users.                                            |
-| Precedence hierarchy        | Evaluation order when a user has permissions at multiple levels: User overrides Role, which overrides Account. The most specific level takes precedence.                                                           |
-| DefaultCategoryEffects      | The API field that specifies Deny by Default behavior per capability category. Valid values are `DENY_BY_DEFAULT` (restricts new capabilities) and the default behavior when omitted (allow by default).           |
-| Conflict resolution         | When a capability is denied at one level but explicitly allowed at another, the most specific permission (User > Role > Account) wins.                                                                             |
+| Term                       | Definition                                                                                                                                                                                                                                                            |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Custom permissions profile | A named configuration object that defines which Amazon Quick capabilities are restricted for a set of users or roles. You can assign profiles at the user, role, or account level.                                                                                    |
+| Capability category        | A named grouping of Amazon Quick capabilities used as the unit of control for Deny by Default. At launch, the supported category is AI (all AI and LLM-powered capabilities).                                                                                         |
+| Deny by Default            | A setting you can enable within a custom permissions profile to restrict all capabilities in a designated category. Capabilities that Quick launches in that category later are also restricted automatically, without requiring administrator action at launch time. |
+| Category restriction       | Restricting a capability category denies every capability in that category for users assigned to the profile, current and future, except capabilities explicitly allowed in the profile.                                                                              |
+| Profile scope              | Restricting a category affects only the profile it is configured in. Existing custom permissions profiles do not inherit the restriction.                                                                                                                             |
+| Precedence hierarchy       | Evaluation order when a user has permissions at multiple levels: User overrides Role, which overrides Account. The most specific level takes precedence.                                                                                                              |
+| DefaultCategoryEffects     | The API field that specifies Deny by Default behavior per capability category. `DENY_BY_DEFAULT` restricts all capabilities in the category—current and future—except those explicitly allowed. When omitted, the default behavior is allow by default.               |
+| Conflict resolution        | When a capability is denied at one level but explicitly allowed at another, the most specific permission (User > Role > Account) wins.                                                                                                                                |
 
 ## Prerequisites
 
@@ -72,9 +81,15 @@ met.
   - `quicksight:DescribeCustomPermissions`
   - `quicksight:ListCustomPermissions`
   - `quicksight:DeleteCustomPermissions`
-  - `quicksight:UpdateAccountCustomPermissions`
-  - `quicksight:DescribeAccountCustomPermissions`
-  - `quicksight:DeleteAccountCustomPermissions`
+  - `quicksight:DeleteAccountCustomPermission`
+  - `quicksight:DeleteRoleCustomPermission`
+  - `quicksight:DeleteUserCustomPermission`
+  - `quicksight:DescribeAccountCustomPermission`
+  - `quicksight:DescribeRoleCustomPermission`
+  - `quicksight:ListCustomPermissionAssignments`
+  - `quicksight:UpdateAccountCustomPermission`
+  - `quicksight:UpdateRoleCustomPermission`
+  - `quicksight:UpdateUserCustomPermission`
 
 - **Identity configuration** – Your
   Quick account must be integrated with IAM Identity Center, Active Directory,
@@ -103,6 +118,10 @@ enabled. The rules are evaluated in order.
 4. If a capability is not listed and does not belong to a restricted category, the user
    is permitted (allow-by-default behavior is unchanged).
 
+Quick evaluates these rules each time a user accesses a capability,
+based on the capability's category membership at that time. This is why a
+restricted category also covers capabilities that are added later.
+
 This means that when Quick launches a new capability in a restricted category,
 that capability is automatically denied for all users whose profile has
 `DENY_BY_DEFAULT` enabled for that category. No administrator action is required.
@@ -122,7 +141,7 @@ The following table describes the supported categories for Deny by Default.
 
 | Category | Covers                                                                                                                                                                   |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `AI`     | All AI and LLM-powered capabilities in Quick, including<br>chat agents, flows, spaces, knowledge bases, apps AI inference, Q<br>analyses, and Quick Desktop AI features. |
+| `AI`     | All AI and LLM-powered capabilities in Quick, including<br>chat agents, flows, spaces, knowledge bases, apps AI inference, Q<br>analyses, and Quick desktop AI features. |
 
 ###### Note
 
@@ -148,11 +167,11 @@ capabilities** section on the profile configuration page.
       then **Edit**.
 
 2. ###### Step 2: Configure the restriction
-   1. In the **Restrict capabilities** section, select the
-      checkbox for the category you want to restrict (for example,
-      **Restrict AI Capabilities**). Selecting this checkbox
+   1. In the **Restrict capabilities** section, turn on the
+      toggle for the category you want to restrict (for example,
+      **Restrict AI capabilities**). Turning on this toggle
       enables Deny by Default for that category. Any capability in this
-      category that is not explicitly allowed in the profile is automatically
+      category that isn't explicitly allowed in the profile is automatically
       denied for users assigned to this profile.
    2. In the **Capabilities & features** section,
       explicitly allow any capabilities within the restricted category that you
@@ -168,8 +187,8 @@ capabilities** section on the profile configuration page.
 Choose **Create** or **Update** to
 save the profile.
 
-To remove Deny by Default from a profile, edit the profile and clear the
-category checkbox in the **Restrict capabilities** section.
+To remove Deny by Default from a profile, edit the profile and turn off the
+category toggle in the **Restrict capabilities** section.
 Capabilities that were previously denied become available to users assigned to
 the profile.
 
@@ -268,7 +287,7 @@ Default. When you convert, you invert the logic. Instead of listing capabilities
 to deny, you list capabilities to allow. Everything not explicitly allowed is denied.
 
 First, determine which AI capabilities you want to allow. In this case, you want
-users to retain access to Research, Topics, KnowledgeBase, and Spaces.
+users to retain access to Research, Topic, KnowledgeBase, and Space.
 
 Run the following command to update the profile with Deny by Default:
 
@@ -276,13 +295,13 @@ Run the following command to update the profile with Deny by Default:
 aws quicksight update-custom-permissions \
 --aws-account-id `AWSACCOUNTID` \
 --custom-permissions-name "RestrictAI-Finance" \
---capabilities '{"Research": "ALLOW", "Topics": "ALLOW", "KnowledgeBase": "ALLOW", "Spaces": "ALLOW"}' \
+--capabilities '{"Research": "ALLOW", "Topic": "ALLOW", "KnowledgeBase": "ALLOW", "Space": "ALLOW"}' \
 --governance '{"DefaultCategoryEffects": {"AI": "DENY_BY_DEFAULT"}}'
 ```
 
 **Result:** Now when Quick launches any
 new AI capability, it is automatically denied for users with this profile. Only
-Research, Topics, KnowledgeBase, and Spaces are available. Flow, Automate,
+Research, Topic, KnowledgeBase, and Space are available. Flow, Automate,
 ChatAgent, and any future AI capabilities are denied.
 
 ###### Important
@@ -348,9 +367,9 @@ The command returns the following output:
         "CustomPermissionsName": "RestrictAI-Finance",
         "Capabilities": {
             "Research": "ALLOW",
-            "Topics": "ALLOW",
+            "Topic": "ALLOW",
             "KnowledgeBase": "ALLOW",
-            "Spaces": "ALLOW"
+            "Space": "ALLOW"
         },
         "Governance": {
             "DefaultCategoryEffects": {
@@ -369,7 +388,7 @@ full replacement:
 aws quicksight update-custom-permissions \
 --aws-account-id `AWSACCOUNTID` \
 --custom-permissions-name "RestrictAI-Finance" \
---capabilities '{"Research": "ALLOW", "Topics": "ALLOW", "KnowledgeBase": "ALLOW", "Spaces": "ALLOW", "NewAIFeature": "ALLOW"}' \
+--capabilities '{"Research": "ALLOW", "Topic": "ALLOW", "KnowledgeBase": "ALLOW", "Space": "ALLOW", "NewAIFeature": "ALLOW"}' \
 --governance '{"DefaultCategoryEffects": {"AI": "DENY_BY_DEFAULT"}}'
 ```
 
@@ -408,7 +427,7 @@ Author role.
 aws quicksight create-custom-permissions \
 --aws-account-id `AWSACCOUNTID` \
 --custom-permissions-name "Author-LimitedAI" \
---capabilities '{"Research": "ALLOW", "Topics": "ALLOW", "ChatAgent": "ALLOW"}' \
+--capabilities '{"Research": "ALLOW", "Topic": "ALLOW", "ChatAgent": "ALLOW"}' \
 --governance '{"DefaultCategoryEffects": {"AI": "DENY_BY_DEFAULT"}}'
 
 aws quicksight update-role-custom-permission \
@@ -437,7 +456,7 @@ aws quicksight update-user-custom-permission \
 
 - Most users (Readers, Admins without user-level overrides) receive the
   account-level profile with all AI capabilities denied.
-- Authors receive the role-level profile with Research, Topics, and
+- Authors receive the role-level profile with Research, Topic, and
   ChatAgent allowed. All other AI capabilities are denied.
 - The data scientist receives the user-level profile with no restrictions.
   They are not subject to the account-level or role-level Deny by Default
@@ -453,15 +472,5 @@ Verify the following:
   profile is assigned to the user.
 - Check the precedence hierarchy. A user-level or role-level profile
   might override your account-level Deny by Default profile.
-- Confirm that the capability was launched after you enabled Deny by
-  Default. Capabilities that existed before enablement are not
-  affected.
 - Check if the capability is explicitly set to `ALLOW`
   in the profile.
-
-###### I enabled Deny by Default but existing capabilities were not blocked
-
-This is expected behavior. Deny by Default is forward-looking only. It
-restricts capabilities launched after enablement. To block capabilities
-that already exist, explicitly set them to `DENY` in the
-profile's capabilities configuration.

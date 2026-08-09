@@ -1,5 +1,11 @@
 # Authoring Q&A
 
+###### Note
+
+The topics referenced in this section refer to legacy Topics. For information
+about the new multi-dataset Topics experience, which supports cross-dataset
+relationships and runtime joins for both chat and analysis, see [Working with Amazon Quick Sight Topics](topics.md "topics.md").
+
 ## Converting to the Generative Q&A experience
 
 If you have existing topics, you can easily convert these to leverage our new

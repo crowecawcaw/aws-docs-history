@@ -5,6 +5,16 @@
 Powered by Amazon Bedrock: Amazon Q in Quick is built on Amazon Bedrock and includes [automated abuse
 detection](../../../bedrock/latest/userguide/abuse-detection.md "../../../bedrock/latest/userguide/abuse-detection.md") implemented in Amazon Bedrock to enforce safety, security, and the responsible use of AI.
 
+###### Important
+
+For the latest Amazon Quick chat experience — including cross-dataset Q&A
+with multi-dataset Topics, agentic workflows, and LLM-powered natural language
+querying — see [Ask questions, explore data, and get insights with chat in Amazon Quick](using-quick-chat.md "using-quick-chat.md"). To learn about the new multi-dataset Topics that serve as the
+semantic layer for both chat and analysis, see [Working with Amazon Quick Sight Topics](topics.md "topics.md").
+
+The Generative BI features described on this page represent the earlier
+experience. They continue to work as before.
+
 With Amazon Quick chat, you can utilize the Generative BI authoring experience, create
 executive summaries of your data, ask and answer questions of data, and generate data
 stories.
