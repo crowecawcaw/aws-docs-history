@@ -143,7 +143,7 @@ spec:
 ## Node CPU and memory reservations
 
 AWS Batch relies on the default logic of the `bootstrap.sh` file for vCPU and memory reservations. For
-more information about the `bootstrap.sh` file, see [bootstrap.sh](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh"). When you size
+more information about the `bootstrap.sh` file, see [bootstrap.sh](https://github.com/awslabs/amazon-eks-ami/blob/al2/templates/al2/runtime/bootstrap.sh "https://github.com/awslabs/amazon-eks-ami/blob/al2/templates/al2/runtime/bootstrap.sh"). When you size
 your vCPU and memory resources, consider the examples that follow.
 
 ###### Note
@@ -181,7 +181,7 @@ The memory reservation value is calculated in mebibytes using the following:
 - The instance capacity in mebibytes. For example, an 8 GB instance is 7,748 MiB.
 - The `kubeReserved` value. The `kubeReserved` value is the amount of memory to reserve
   for system daemons. The `kubeReserved` value is calculated in the following way: _((11 \* maximum number of pods that is supported by the instance type) + 255)_. For
-  information about the maximum number of pods that's supported by an instance type, see [eni-max-pods.txt](https://github.com/awslabs/amazon-eks-ami/blob/main/nodeadm/internal/kubelet/eni-max-pods.txt "https://github.com/awslabs/amazon-eks-ami/blob/main/nodeadm/internal/kubelet/eni-max-pods.txt")
+  information about the maximum number of pods that's supported by an instance type, see [instance-info.jsonl](https://github.com/awslabs/amazon-eks-ami/blob/main/nodeadm/internal/kubelet/instance-info.jsonl "https://github.com/awslabs/amazon-eks-ami/blob/main/nodeadm/internal/kubelet/instance-info.jsonl")
 - The `HardEvictionLimit` value. When available memory falls below the
   `HardEvictionLimit` value, the instance attempts to evict pods.
 
