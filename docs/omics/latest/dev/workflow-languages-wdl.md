@@ -10,6 +10,7 @@ HealthOmics.
 - [Primitive types in WDL](#workflow-wdl-primitive-types "#workflow-wdl-primitive-types")
 - [Complex types in WDL](#workflow-wdl-complex-types "#workflow-wdl-complex-types")
 - [Directives in WDL](#workflow-wdl-directives "#workflow-wdl-directives")
+- [Other supported runtime attributes](#workflow-wdl-other-runtime-attributes "#workflow-wdl-other-runtime-attributes")
 - [Task metadata in WDL](#workflow-wdl-task-metadata "#workflow-wdl-task-metadata")
 - [WDL workflow definition example](#wdl-example "#wdl-example")
 
@@ -182,6 +183,43 @@ declared, the sizes are summed into a single `/tmp` allocation.
 HealthOmics mounts all ephemeral storage at `/tmp`. If your workflow definition declares multiple
 `disks` entries, the sizes are summed and the total is provisioned as a single `/tmp`
 volume. For more information on the WDL `disks` runtime attribute, see the [WDL 1.1 specification](https://github.com/openwdl/wdl/blob/wdl-1.1/SPEC.md#disks "https://github.com/openwdl/wdl/blob/wdl-1.1/SPEC.md#disks").
+
+## Other supported runtime attributes
+
+### Configure task-level timeout with the `omicsTimeout` runtime attribute
+
+HealthOmics provides a custom `omicsTimeout` attribute to set a maximum task duration
+in your workflow. Specify the timeout duration as an integer (seconds) or a string using one or more of the following units:
+`s`, `m`, `h`, or `d`. For example, `"40m"`,
+`"1h30m"`, or `"1m3s"`.
+
+The following example shows how to specify the `omicsTimeout` attribute in the
+`runtime` section of a WDL task definition. This example sets a timeout of 40 minutes.
+
+```
+    runtime {
+        omicsTimeout: "40m"
+    }
+```
+
+HealthOmics provides the following support for the WDL `omicsTimeout` runtime attribute:
+
+1. HealthOmics supports 1 minute granularity for the timeout value. You can specify a value between 60 seconds
+   and the maximum run duration value.
+2. If you enter a value less than 60, HealthOmics rounds it up to 60 seconds. For values above 60, HealthOmics rounds
+   down to the nearest minute.
+3. If a task times out, HealthOmics cancels the task. This operation can have a
+   duration of one to two minutes.
+4. On task timeout, HealthOmics sets the run and task status to failed, and it cancels the other tasks in the
+   run (for tasks in Starting, Pending, or Running status). HealthOmics exports the outputs from tasks that it
+   completed before the timeout to your designated S3 output location.
+5. Time that a task spends in pending status does not count toward the task duration.
+6. If the run is part of a run group and the run group times out sooner than the task timer, the run and
+   task transition to failed status.
+
+All runs have a maximum duration that the adjustable quota in
+[HealthOmics service quotas](service-quotas.md "service-quotas.md") controls. You can request an
+increase to this quota.
 
 ## Task metadata in WDL
 
