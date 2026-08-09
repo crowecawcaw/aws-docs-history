@@ -19,7 +19,7 @@ based on the canary's frequency. If you configure a timeout value, make it no sh
 15 seconds to allow for Lambda cold starts and the time it takes to boot up the canary
 instrumentation.
 
-## syn-nodejs-puppeteer-16.1
+## syn-nodejs-puppeteer-17.0
 
 ###### Important
 
@@ -49,6 +49,48 @@ support only the following step-level configuration overrides:
 **Major dependencies**:
 
 - Lambda runtime Node.js 22.x
+- Puppeteer-core version 25.2.1
+- Chromium version 150.0.7871.24
+- Firefox version 152.0.2
+
+**Changes in syn-nodejs-puppeteer-17.0**
+
+- Upgrade `Chromium` to 150.0.7871.24 to address the following CVEs:
+
+  - CVE-2026-11645
+
+- Upgrade `ws` to 8.21.0 to address the following CVEs:
+
+  - CVE-2026-48779
+
+- Upgrade `ImageMagick` to 7.1.2-27 to address the following CVEs:
+
+  - CVE-2026-28494
+  - CVE-2026-28691
+  - CVE-2026-28693
+  - CVE-2026-30883
+  - CVE-2026-30929
+  - CVE-2026-30931
+  - CVE-2026-32636
+  - CVE-2026-33900
+  - CVE-2026-33901
+  - CVE-2026-33905
+  - CVE-2026-33908
+
+For more information, see the following:
+
+- [Puppeteer changelog](https://pptr.dev/CHANGELOG "https://pptr.dev/CHANGELOG") on the Puppeteer website
+- [Puppeteer
+  API reference](https://pptr.dev/api "https://pptr.dev/api") on the Puppeteer website
+
+The following earlier runtime versions for Node.js and Puppeteer are still
+supported.
+
+### syn-nodejs-puppeteer-16.1
+
+**Major dependencies**:
+
+- Lambda runtime Node.js 22.x
 - Puppeteer-core version 24.42.0
 - Chromium version 147.0.7727.57
 - Firefox version 147.0.4
@@ -63,15 +105,6 @@ support only the following step-level configuration overrides:
 - Upgrade `ws` to 8.20.1 to address the following CVEs:
 
   - CVE-2026-45736
-
-For more information, see the following:
-
-- [Puppeteer Change log](https://pptr.dev/CHANGELOG#24420-2026-04-20 "https://pptr.dev/CHANGELOG#24420-2026-04-20")
-- [Puppeteer
-  API reference](https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.42.0/docs/api/index.md "https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.42.0/docs/api/index.md")
-
-The following earlier runtime versions for Node.js and Puppeteer are still
-supported.
 
 ### syn-nodejs-puppeteer-16.0
 

@@ -232,6 +232,86 @@ Synthetics runtime, instead of the latest runtime. To do so, find the runtime th
 to use from one of the following tables. Be sure to select the runtime for the correct
 Region. Then paste the ARN for that runtime into the appropriate place in your `template.yml` file, and then run the canary.
 
+The following table lists the ARNs to use for version `syn-nodejs-puppeteer-17.0` of the CloudWatch Synthetics runtime in each AWS Region
+where it is available.
+
+| Region                     | Browser                                                                                              | ARN                                                                    |
+| -------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| US East (N. Virginia)      | Chrome                                                                                               | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:82`            |
+| Firefox                    | `arn:aws:lambda:us-east-1:378653112637:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:23`            |
+| US East (Ohio)             | Chrome                                                                                               | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:85`            |
+| Firefox                    | `arn:aws:lambda:us-east-2:772927465453:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`            |
+| US West (N. California)    | Chrome                                                                                               | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:83`            |
+| Firefox                    | `arn:aws:lambda:us-west-1:332033056316:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`            |
+| US West (Oregon)           | Chrome                                                                                               | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:85`            |
+| Firefox                    | `arn:aws:lambda:us-west-2:760325925879:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`            |
+| Africa (Cape Town)         | Chrome                                                                                               | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:83`           |
+| Firefox                    | `arn:aws:lambda:af-south-1:461844272066:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`           |
+| Asia Pacific (Hong Kong)   | Chrome                                                                                               | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:83`            |
+| Firefox                    | `arn:aws:lambda:ap-east-1:129828061636:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`            |
+| Asia Pacific (Hyderabad)   | Chrome                                                                                               | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:58`           |
+| Firefox                    | `arn:aws:lambda:ap-south-2:280298676434:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`           |
+| Asia Pacific (Jakarta)     | Chrome                                                                                               | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:65`       |
+| Firefox                    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`       |
+| Asia Pacific (Malaysia)    | Chrome                                                                                               | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics:39`       |
+| Firefox                    | `arn:aws:lambda:ap-southeast-5:035872523913:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`       |
+| Asia Pacific (Melbourne)   | Chrome                                                                                               | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:56`       |
+| Firefox                    | `arn:aws:lambda:ap-southeast-4:200724813040:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`       |
+| Asia Pacific (Mumbai)      | Chrome                                                                                               | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:83`           |
+| Firefox                    | `arn:aws:lambda:ap-south-1:724929286329:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`           |
+| Asia Pacific (New Zealand) | Chrome                                                                                               | `arn:aws:lambda:ap-southeast-6:779414629109:layer:Synthetics:39`       |
+| Firefox                    | `arn:aws:lambda:ap-southeast-6:779414629109:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:23`       |
+| Asia Pacific (Osaka)       | Chrome                                                                                               | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:69`       |
+| Firefox                    | `arn:aws:lambda:ap-northeast-3:608016332111:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`       |
+| Asia Pacific (Seoul)       | Chrome                                                                                               | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:86`       |
+| Firefox                    | `arn:aws:lambda:ap-northeast-2:989515803484:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`       |
+| Asia Pacific (Singapore)   | Chrome                                                                                               | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:87`       |
+| Firefox                    | `arn:aws:lambda:ap-southeast-1:068035103298:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`       |
+| Asia Pacific (Sydney)      | Chrome                                                                                               | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:82`       |
+| Firefox                    | `arn:aws:lambda:ap-southeast-2:584677157514:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`       |
+| Asia Pacific (Taipei)      | Chrome                                                                                               | `arn:aws:lambda:ap-east-2:471112897378:layer:Synthetics:46`            |
+| Firefox                    | `arn:aws:lambda:ap-east-2:471112897378:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`            |
+| Asia Pacific (Thailand)    | Chrome                                                                                               | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics:30`       |
+| Firefox                    | `arn:aws:lambda:ap-southeast-7:851725245975:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`       |
+| Asia Pacific (Tokyo)       | Chrome                                                                                               | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:83`       |
+| Firefox                    | `arn:aws:lambda:ap-northeast-1:172291836251:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`       |
+| Canada (Central)           | Chrome                                                                                               | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:83`         |
+| Firefox                    | `arn:aws:lambda:ca-central-1:236629016841:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`         |
+| Canada West (Calgary)      | Chrome                                                                                               | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:114`           |
+| Firefox                    | `arn:aws:lambda:ca-west-1:944448206667:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`            |
+| China (Beijing)            | Chrome                                                                                               | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:82`        |
+| Firefox                    | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`        |
+| China (Ningxia)            | Chrome                                                                                               | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:83`    |
+| Firefox                    | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`    |
+| Europe (Frankfurt)         | Chrome                                                                                               | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:83`         |
+| Firefox                    | `arn:aws:lambda:eu-central-1:122305336817:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`         |
+| Europe (Ireland)           | Chrome                                                                                               | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:84`            |
+| Firefox                    | `arn:aws:lambda:eu-west-1:563204233543:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`            |
+| Europe (London)            | Chrome                                                                                               | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:82`            |
+| Firefox                    | `arn:aws:lambda:eu-west-2:565831452869:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`            |
+| Europe (Milan)             | Chrome                                                                                               | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:84`           |
+| Firefox                    | `arn:aws:lambda:eu-south-1:525618516618:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`           |
+| Europe (Paris)             | Chrome                                                                                               | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:83`            |
+| Firefox                    | `arn:aws:lambda:eu-west-3:469466506258:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`            |
+| Europe (Spain)             | Chrome                                                                                               | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:58`           |
+| Firefox                    | `arn:aws:lambda:eu-south-2:029793053121:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`           |
+| Europe (Stockholm)         | Chrome                                                                                               | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:83`           |
+| Firefox                    | `arn:aws:lambda:eu-north-1:162938142733:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`           |
+| Europe (Zurich)            | Chrome                                                                                               | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:57`         |
+| Firefox                    | `arn:aws:lambda:eu-central-2:224218992030:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`         |
+| Israel (Tel Aviv)          | Chrome                                                                                               | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:55`         |
+| Firefox                    | `arn:aws:lambda:il-central-1:313249807427:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`         |
+| Mexico (Central)           | Chrome                                                                                               | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics:31`         |
+| Firefox                    | `arn:aws:lambda:mx-central-1:654654265476:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`         |
+| Middle East (UAE)          | Chrome                                                                                               | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:50`         |
+| Firefox                    | `arn:aws:lambda:me-central-1:239544149032:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:14`         |
+| South America (São Paulo)  | Chrome                                                                                               | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:84`            |
+| Firefox                    | `arn:aws:lambda:sa-east-1:783765544751:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22`            |
+| AWS GovCloud (US-East)     | Chrome                                                                                               | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:78` |
+| Firefox                    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22` |
+| AWS GovCloud (US-West)     | Chrome                                                                                               | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:79` |
+| Firefox                    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:AWS-CW-SyntheticsNodeJsPuppeteer-Firefox:22` |
+
 The following table lists the ARNs to use for version `syn-nodejs-puppeteer-16.1` of the CloudWatch Synthetics runtime in each AWS Region
 where it is available.
 
@@ -1245,6 +1325,86 @@ where it is available.
 | AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:40` |
 | AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:40` |
 
+The following table lists the ARNs to use for version `syn-nodejs-playwright-8.0` of the CloudWatch Synthetics runtime in each AWS Region
+where it is available.
+
+| Region                     | Browser                                                                                               | ARN                                                                                           |
+| -------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| US East (N. Virginia)      | Chrome                                                                                                | `arn:aws:lambda:us-east-1:378653112637:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`            |
+| Firefox                    | `arn:aws:lambda:us-east-1:378653112637:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`            |
+| US East (Ohio)             | Chrome                                                                                                | `arn:aws:lambda:us-east-2:772927465453:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`            |
+| Firefox                    | `arn:aws:lambda:us-east-2:772927465453:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`            |
+| US West (N. California)    | Chrome                                                                                                | `arn:aws:lambda:us-west-1:332033056316:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`            |
+| Firefox                    | `arn:aws:lambda:us-west-1:332033056316:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`            |
+| US West (Oregon)           | Chrome                                                                                                | `arn:aws:lambda:us-west-2:760325925879:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`            |
+| Firefox                    | `arn:aws:lambda:us-west-2:760325925879:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`            |
+| Africa (Cape Town)         | Chrome                                                                                                | `arn:aws:lambda:af-south-1:461844272066:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`           |
+| Firefox                    | `arn:aws:lambda:af-south-1:461844272066:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`           |
+| Asia Pacific (Hong Kong)   | Chrome                                                                                                | `arn:aws:lambda:ap-east-1:129828061636:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`            |
+| Firefox                    | `arn:aws:lambda:ap-east-1:129828061636:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`            |
+| Asia Pacific (Hyderabad)   | Chrome                                                                                                | `arn:aws:lambda:ap-south-2:280298676434:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`           |
+| Firefox                    | `arn:aws:lambda:ap-south-2:280298676434:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`           |
+| Asia Pacific (Jakarta)     | Chrome                                                                                                | `arn:aws:lambda:ap-southeast-3:246953257743:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`       |
+| Firefox                    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`       |
+| Asia Pacific (Malaysia)    | Chrome                                                                                                | `arn:aws:lambda:ap-southeast-5:035872523913:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`       |
+| Firefox                    | `arn:aws:lambda:ap-southeast-5:035872523913:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`       |
+| Asia Pacific (Melbourne)   | Chrome                                                                                                | `arn:aws:lambda:ap-southeast-4:200724813040:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`       |
+| Firefox                    | `arn:aws:lambda:ap-southeast-4:200724813040:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`       |
+| Asia Pacific (Mumbai)      | Chrome                                                                                                | `arn:aws:lambda:ap-south-1:724929286329:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`           |
+| Firefox                    | `arn:aws:lambda:ap-south-1:724929286329:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`           |
+| Asia Pacific (New Zealand) | Chrome                                                                                                | `arn:aws:lambda:ap-southeast-6:779414629109:layer:AWS-CW-SyntheticsNodeJsPlaywright:29`       |
+| Firefox                    | `arn:aws:lambda:ap-southeast-6:779414629109:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:23`       |
+| Asia Pacific (Osaka)       | Chrome                                                                                                | `arn:aws:lambda:ap-northeast-3:608016332111:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`       |
+| Firefox                    | `arn:aws:lambda:ap-northeast-3:608016332111:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`       |
+| Asia Pacific (Seoul)       | Chrome                                                                                                | `arn:aws:lambda:ap-northeast-2:989515803484:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`       |
+| Firefox                    | `arn:aws:lambda:ap-northeast-2:989515803484:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`       |
+| Asia Pacific (Singapore)   | Chrome                                                                                                | `arn:aws:lambda:ap-southeast-1:068035103298:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`       |
+| Firefox                    | `arn:aws:lambda:ap-southeast-1:068035103298:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`       |
+| Asia Pacific (Sydney)      | Chrome                                                                                                | `arn:aws:lambda:ap-southeast-2:584677157514:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`       |
+| Firefox                    | `arn:aws:lambda:ap-southeast-2:584677157514:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`       |
+| Asia Pacific (Taipei)      | Chrome                                                                                                | `arn:aws:lambda:ap-east-2:471112897378:layer:AWS-CW-SyntheticsNodeJsPlaywright:30`            |
+| Firefox                    | `arn:aws:lambda:ap-east-2:471112897378:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`            |
+| Asia Pacific (Thailand)    | Chrome                                                                                                | `arn:aws:lambda:ap-southeast-7:851725245975:layer:AWS-CW-SyntheticsNodeJsPlaywright:27`       |
+| Firefox                    | `arn:aws:lambda:ap-southeast-7:851725245975:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`       |
+| Asia Pacific (Tokyo)       | Chrome                                                                                                | `arn:aws:lambda:ap-northeast-1:172291836251:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`       |
+| Firefox                    | `arn:aws:lambda:ap-northeast-1:172291836251:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`       |
+| Canada (Central)           | Chrome                                                                                                | `arn:aws:lambda:ca-central-1:236629016841:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`         |
+| Firefox                    | `arn:aws:lambda:ca-central-1:236629016841:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`         |
+| Canada West (Calgary)      | Chrome                                                                                                | `arn:aws:lambda:ca-west-1:944448206667:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`            |
+| Firefox                    | `arn:aws:lambda:ca-west-1:944448206667:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`            |
+| China (Beijing)            | Chrome                                                                                                | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:AWS-CW-SyntheticsNodeJsPlaywright:27`        |
+| Firefox                    | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`        |
+| China (Ningxia)            | Chrome                                                                                                | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:AWS-CW-SyntheticsNodeJsPlaywright:27`    |
+| Firefox                    | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`    |
+| Europe (Frankfurt)         | Chrome                                                                                                | `arn:aws:lambda:eu-central-1:122305336817:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`         |
+| Firefox                    | `arn:aws:lambda:eu-central-1:122305336817:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`         |
+| Europe (Ireland)           | Chrome                                                                                                | `arn:aws:lambda:eu-west-1:563204233543:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`            |
+| Firefox                    | `arn:aws:lambda:eu-west-1:563204233543:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`            |
+| Europe (London)            | Chrome                                                                                                | `arn:aws:lambda:eu-west-2:565831452869:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`            |
+| Firefox                    | `arn:aws:lambda:eu-west-2:565831452869:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`            |
+| Europe (Milan)             | Chrome                                                                                                | `arn:aws:lambda:eu-south-1:525618516618:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`           |
+| Firefox                    | `arn:aws:lambda:eu-south-1:525618516618:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`           |
+| Europe (Paris)             | Chrome                                                                                                | `arn:aws:lambda:eu-west-3:469466506258:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`            |
+| Firefox                    | `arn:aws:lambda:eu-west-3:469466506258:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`            |
+| Europe (Spain)             | Chrome                                                                                                | `arn:aws:lambda:eu-south-2:029793053121:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`           |
+| Firefox                    | `arn:aws:lambda:eu-south-2:029793053121:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`           |
+| Europe (Stockholm)         | Chrome                                                                                                | `arn:aws:lambda:eu-north-1:162938142733:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`           |
+| Firefox                    | `arn:aws:lambda:eu-north-1:162938142733:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`           |
+| Europe (Zurich)            | Chrome                                                                                                | `arn:aws:lambda:eu-central-2:224218992030:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`         |
+| Firefox                    | `arn:aws:lambda:eu-central-2:224218992030:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`         |
+| Israel (Tel Aviv)          | Chrome                                                                                                | `arn:aws:lambda:il-central-1:313249807427:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`         |
+| Firefox                    | `arn:aws:lambda:il-central-1:313249807427:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`         |
+| Mexico (Central)           | Chrome                                                                                                | `arn:aws:lambda:mx-central-1:654654265476:layer:AWS-CW-SyntheticsNodeJsPlaywright:29`         |
+| Firefox                    | `arn:aws:lambda:mx-central-1:654654265476:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`         |
+| Middle East (UAE)          | Chrome                                                                                                | `arn:aws:lambda:me-central-1:239544149032:layer:AWS-CW-SyntheticsNodeJsPlaywright:20`         |
+| Firefox                    | `arn:aws:lambda:me-central-1:239544149032:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:14`         |
+| South America (São Paulo)  | Chrome                                                                                                | `arn:aws:lambda:sa-east-1:783765544751:layer:AWS-CW-SyntheticsNodeJsPlaywright:28`            |
+| Firefox                    | `arn:aws:lambda:sa-east-1:783765544751:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22`            |
+| AWS GovCloud (US-East)     | Chrome                                                                                                | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:AWS-CW-SyntheticsNodeJsPlaywright:27` |
+| Firefox                    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22` |
+| AWS GovCloud (US-West)     | Chrome                                                                                                | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:AWS-CW-SyntheticsNodeJsPlaywright:27` |
+| Firefox                    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:AWS-CW-SyntheticsNodeJsPlaywright-Firefox:22` |
+
 The following table lists the ARNs to use for version `syn-nodejs-playwright-7.1` of the CloudWatch Synthetics runtime in each AWS Region
 where it is available.
 
@@ -1969,6 +2129,49 @@ where it is available.
 | AWS GovCloud (US-East)     | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:AWS-CW-SyntheticsNodeJsPlaywright:1` |
 | AWS GovCloud (US-West)     | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:AWS-CW-SyntheticsNodeJsPlaywright:1` |
 
+The following table lists the ARNs to use for version `syn-nodejs-5.2` of the CloudWatch Synthetics runtime in each AWS Region
+where it is available.
+
+| Region                     | ARN                                                                                 |
+| -------------------------- | ----------------------------------------------------------------------------------- |
+| US East (N. Virginia)      | `arn:aws:lambda:us-east-1:378653112637:layer:AWS-CW-SyntheticsNodeJs:18`            |
+| US East (Ohio)             | `arn:aws:lambda:us-east-2:772927465453:layer:AWS-CW-SyntheticsNodeJs:18`            |
+| US West (N. California)    | `arn:aws:lambda:us-west-1:332033056316:layer:AWS-CW-SyntheticsNodeJs:18`            |
+| US West (Oregon)           | `arn:aws:lambda:us-west-2:760325925879:layer:AWS-CW-SyntheticsNodeJs:18`            |
+| Africa (Cape Town)         | `arn:aws:lambda:af-south-1:461844272066:layer:AWS-CW-SyntheticsNodeJs:18`           |
+| Asia Pacific (Hong Kong)   | `arn:aws:lambda:ap-east-1:129828061636:layer:AWS-CW-SyntheticsNodeJs:18`            |
+| Asia Pacific (Hyderabad)   | `arn:aws:lambda:ap-south-2:280298676434:layer:AWS-CW-SyntheticsNodeJs:18`           |
+| Asia Pacific (Jakarta)     | `arn:aws:lambda:ap-southeast-3:246953257743:layer:AWS-CW-SyntheticsNodeJs:18`       |
+| Asia Pacific (Malaysia)    | `arn:aws:lambda:ap-southeast-5:035872523913:layer:AWS-CW-SyntheticsNodeJs:18`       |
+| Asia Pacific (Melbourne)   | `arn:aws:lambda:ap-southeast-4:200724813040:layer:AWS-CW-SyntheticsNodeJs:18`       |
+| Asia Pacific (Mumbai)      | `arn:aws:lambda:ap-south-1:724929286329:layer:AWS-CW-SyntheticsNodeJs:18`           |
+| Asia Pacific (New Zealand) | `arn:aws:lambda:ap-southeast-6:779414629109:layer:AWS-CW-SyntheticsNodeJs:18`       |
+| Asia Pacific (Osaka)       | `arn:aws:lambda:ap-northeast-3:608016332111:layer:AWS-CW-SyntheticsNodeJs:18`       |
+| Asia Pacific (Seoul)       | `arn:aws:lambda:ap-northeast-2:989515803484:layer:AWS-CW-SyntheticsNodeJs:18`       |
+| Asia Pacific (Singapore)   | `arn:aws:lambda:ap-southeast-1:068035103298:layer:AWS-CW-SyntheticsNodeJs:18`       |
+| Asia Pacific (Sydney)      | `arn:aws:lambda:ap-southeast-2:584677157514:layer:AWS-CW-SyntheticsNodeJs:18`       |
+| Asia Pacific (Taipei)      | `arn:aws:lambda:ap-east-2:471112897378:layer:AWS-CW-SyntheticsNodeJs:18`            |
+| Asia Pacific (Thailand)    | `arn:aws:lambda:ap-southeast-7:851725245975:layer:AWS-CW-SyntheticsNodeJs:18`       |
+| Asia Pacific (Tokyo)       | `arn:aws:lambda:ap-northeast-1:172291836251:layer:AWS-CW-SyntheticsNodeJs:18`       |
+| Canada (Central)           | `arn:aws:lambda:ca-central-1:236629016841:layer:AWS-CW-SyntheticsNodeJs:18`         |
+| Canada West (Calgary)      | `arn:aws:lambda:ca-west-1:944448206667:layer:AWS-CW-SyntheticsNodeJs:18`            |
+| China (Beijing)            | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:AWS-CW-SyntheticsNodeJs:18`        |
+| China (Ningxia)            | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:AWS-CW-SyntheticsNodeJs:18`    |
+| Europe (Frankfurt)         | `arn:aws:lambda:eu-central-1:122305336817:layer:AWS-CW-SyntheticsNodeJs:18`         |
+| Europe (Ireland)           | `arn:aws:lambda:eu-west-1:563204233543:layer:AWS-CW-SyntheticsNodeJs:18`            |
+| Europe (London)            | `arn:aws:lambda:eu-west-2:565831452869:layer:AWS-CW-SyntheticsNodeJs:18`            |
+| Europe (Milan)             | `arn:aws:lambda:eu-south-1:525618516618:layer:AWS-CW-SyntheticsNodeJs:18`           |
+| Europe (Paris)             | `arn:aws:lambda:eu-west-3:469466506258:layer:AWS-CW-SyntheticsNodeJs:18`            |
+| Europe (Spain)             | `arn:aws:lambda:eu-south-2:029793053121:layer:AWS-CW-SyntheticsNodeJs:18`           |
+| Europe (Stockholm)         | `arn:aws:lambda:eu-north-1:162938142733:layer:AWS-CW-SyntheticsNodeJs:18`           |
+| Europe (Zurich)            | `arn:aws:lambda:eu-central-2:224218992030:layer:AWS-CW-SyntheticsNodeJs:18`         |
+| Israel (Tel Aviv)          | `arn:aws:lambda:il-central-1:313249807427:layer:AWS-CW-SyntheticsNodeJs:18`         |
+| Mexico (Central)           | `arn:aws:lambda:mx-central-1:654654265476:layer:AWS-CW-SyntheticsNodeJs:18`         |
+| Middle East (UAE)          | `arn:aws:lambda:me-central-1:239544149032:layer:AWS-CW-SyntheticsNodeJs:10`         |
+| South America (São Paulo)  | `arn:aws:lambda:sa-east-1:783765544751:layer:AWS-CW-SyntheticsNodeJs:18`            |
+| AWS GovCloud (US-East)     | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:AWS-CW-SyntheticsNodeJs:18` |
+| AWS GovCloud (US-West)     | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:AWS-CW-SyntheticsNodeJs:18` |
+
 The following table lists the ARNs to use for version `syn-nodejs-5.1`
 of the CloudWatch Synthetics runtime in each AWS Region where it is available.
 
@@ -2266,6 +2469,49 @@ of the CloudWatch Synthetics runtime in each AWS Region where it is available.
 | South America (São Paulo)  | `arn:aws:lambda:sa-east-1:783765544751:layer:AWS-CW-SyntheticsNodeJs:1`            |
 | AWS GovCloud (US-East)     | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:AWS-CW-SyntheticsNodeJs:1` |
 | AWS GovCloud (US-West)     | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:AWS-CW-SyntheticsNodeJs:1` |
+
+The following table lists the ARNs to use for version `syn-python-selenium-12.0` of the CloudWatch Synthetics runtime in each AWS Region
+where it is available.
+
+| Region                     | ARN                                                                             |
+| -------------------------- | ------------------------------------------------------------------------------- |
+| US East (N. Virginia)      | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics_Selenium:69`            |
+| US East (Ohio)             | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics_Selenium:72`            |
+| US West (N. California)    | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics_Selenium:70`            |
+| US West (Oregon)           | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics_Selenium:71`            |
+| Africa (Cape Town)         | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics_Selenium:70`           |
+| Asia Pacific (Hong Kong)   | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics_Selenium:69`            |
+| Asia Pacific (Hyderabad)   | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics_Selenium:57`           |
+| Asia Pacific (Jakarta)     | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics_Selenium:64`       |
+| Asia Pacific (Malaysia)    | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics_Selenium:39`       |
+| Asia Pacific (Melbourne)   | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics_Selenium:55`       |
+| Asia Pacific (Mumbai)      | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics_Selenium:70`           |
+| Asia Pacific (New Zealand) | `arn:aws:lambda:ap-southeast-6:779414629109:layer:Synthetics_Selenium:45`       |
+| Asia Pacific (Osaka)       | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics_Selenium:68`       |
+| Asia Pacific (Seoul)       | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics_Selenium:73`       |
+| Asia Pacific (Singapore)   | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics_Selenium:74`       |
+| Asia Pacific (Sydney)      | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics_Selenium:69`       |
+| Asia Pacific (Taipei)      | `arn:aws:lambda:ap-east-2:471112897378:layer:Synthetics_Selenium:32`            |
+| Asia Pacific (Thailand)    | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics_Selenium:30`       |
+| Asia Pacific (Tokyo)       | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics_Selenium:70`       |
+| Canada (Central)           | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics_Selenium:70`         |
+| Canada West (Calgary)      | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics_Selenium:113`           |
+| China (Beijing)            | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics_Selenium:68`        |
+| China (Ningxia)            | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics_Selenium:68`    |
+| Europe (Frankfurt)         | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics_Selenium:70`         |
+| Europe (Ireland)           | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics_Selenium:71`            |
+| Europe (London)            | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics_Selenium:69`            |
+| Europe (Milan)             | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics_Selenium:71`           |
+| Europe (Paris)             | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics_Selenium:70`            |
+| Europe (Spain)             | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics_Selenium:57`           |
+| Europe (Stockholm)         | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics_Selenium:70`           |
+| Europe (Zurich)            | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics_Selenium:56`         |
+| Israel (Tel Aviv)          | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics_Selenium:54`         |
+| Mexico (Central)           | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics_Selenium:31`         |
+| Middle East (UAE)          | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics_Selenium:49`         |
+| South America (São Paulo)  | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics_Selenium:71`            |
+| AWS GovCloud (US-East)     | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics_Selenium:66` |
+| AWS GovCloud (US-West)     | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics_Selenium:67` |
 
 The following table lists the ARNs to use for version `syn-python-selenium-11.1` of the CloudWatch Synthetics runtime in each AWS Region
 where it is available.

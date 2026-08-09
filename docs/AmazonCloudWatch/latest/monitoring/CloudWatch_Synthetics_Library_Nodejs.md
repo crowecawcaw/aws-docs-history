@@ -6,7 +6,7 @@ for Node.js. This runtime does not have any browser or framework included.
 The naming convention for these runtime versions is `syn-`language`
  -`majorversion`.`minorversion``.
 
-## syn-nodejs-5.1
+## syn-nodejs-5.2
 
 ###### Important
 
@@ -20,14 +20,37 @@ namespace will be deprecated in a future release.
 
 - AWS Lambda runtime Node.js 22.x
 
+**Changes in syn-nodejs-5.2**
+
+- Multi checks blueprint bug fix – The runtime now correctly resolves
+  `${AWS_SECRET:...}` references in global variables and SigV4
+  authentication configuration to their stored secret values.
+- Upgrade `protobufjs` to 7.5.6 to address the following CVEs:
+
+  - CVE-2026-41242
+
+- Upgrade `jsonpath` to 1.3.0 to address the following CVEs:
+
+  - CVE-2026-1615
+
+- Upgrade `fast-xml-parser` to 5.9.3 to address the following CVEs:
+
+  - CVE-2026-25896
+
+The following earlier runtime versions for Node.js are still supported.
+
+### syn-nodejs-5.1
+
+**Major dependencies**:
+
+- AWS Lambda runtime Node.js 22.x
+
 **Changes in syn-nodejs-5.1**
 
 - Fix bug where HTTP headers with array values were not being captured properly.
 - Upgrade `ws` to 8.20.1 to address the following CVEs:
 
   - CVE-2026-45736
-
-The following earlier runtime versions for Node.js are still supported.
 
 ### syn-nodejs-5.0
 

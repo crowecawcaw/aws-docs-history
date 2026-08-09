@@ -20,7 +20,7 @@ You can view the evaluation state in the alarm details in the console, or by usi
 
 ## Alarm evaluation settings
 
-When you create an alarm, you specify three settings to enable CloudWatch to evaluate when to change the alarm state:
+When you create an alarm, you specify 3 settings to enable CloudWatch to evaluate when to change the alarm state:
 
 - **Period** is the length of time to use to evaluate the metric or expression to create each individual data point for an alarm. It is expressed in seconds.
 - **Evaluation Periods** is the number of the most recent periods, or data points, to evaluate when determining alarm state.
@@ -35,13 +35,13 @@ If the number of evaluation periods multiplied by the length of each evaluation 
 exceeds one day, the alarm is evaluated once per hour. For more details about how these
 multi-day alarms are evaluated, see [Example of evaluating a multi-day alarm](#evaluate-multiday-alarm "#evaluate-multiday-alarm").
 
-In the following figure, the alarm threshold for a metric alarm is set to three units.
-Both **Evaluation Period** and **Datapoints to Alarm** are 3. That is, when all existing data points in the most recent three consecutive periods are
+In the following figure, the alarm threshold for a metric alarm is set to 3 units.
+Both **Evaluation Period** and **Datapoints to Alarm** are 3. That is, when all existing data points in the most recent 3 consecutive periods are
 above the threshold, the alarm goes to `ALARM` state. In the figure, this happens
 in the third through fifth time periods. At period six, the value dips below the threshold, so
 one of the periods being evaluated is not breaching, and the alarm state changes back to
 `OK`. During the ninth time period, the threshold is breached again, but for only
-one period. Consequently, the alarm state remains `OK`.
+1 period. Consequently, the alarm state remains `OK`.
 
 ![Alarm threshold trigger alarm.](images/alarm_graph.png)
 

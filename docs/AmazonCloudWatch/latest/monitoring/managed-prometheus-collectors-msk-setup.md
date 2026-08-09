@@ -22,8 +22,8 @@ group on these attributes when you query your metrics with PromQL.
 This procedure assumes familiarity with Amazon MSK cluster administration and Amazon
 VPC networking concepts.
 
-- Amazon MSK cluster in provisioned mode (managed collectors do not support
-  Amazon MSK Serverless or Amazon MSK Express)
+- Amazon MSK cluster in provisioned mode, with standard or express brokers.
+  Managed collectors do not support Amazon MSK Serverless.
 - Open Monitoring enabled on the cluster. For more information, see [Open
   Monitoring with Prometheus](../../../msk/latest/developerguide/open-monitoring.md "../../../msk/latest/developerguide/open-monitoring.md") in the _Amazon MSK Developer
   Guide_.
@@ -214,7 +214,7 @@ is scraping host-level metrics.
 
 After the collector begins delivering your Amazon MSK metrics to CloudWatch, the CloudWatch console
 provides an automatic dashboard named **MSK OTel**. To open
-it, sign in to the AWS Management Console, open the CloudWatch console, choose
+it, see [MSK OTel](https://console.aws.amazon.com/cloudwatch/home?#dashboards/templates/msk-otel "https://console.aws.amazon.com/cloudwatch/home?#dashboards/templates/msk-otel"), or sign in to the AWS Management Console, open the CloudWatch console, choose
 **Dashboards** in the navigation pane, choose
 **Automatic dashboards**, and then choose
 **MSK OTel**. You can start monitoring your clusters without
@@ -238,8 +238,7 @@ Guide_.
 
 ## Current limitations
 
-- Managed collectors do not support Amazon MSK Serverless or Amazon MSK Express
-  clusters.
+- Managed collectors do not support Amazon MSK Serverless clusters.
 - Managed collectors do not support public access combined with KRaft metadata
   mode.
 - Each Amazon MSK cluster and CloudWatch dataset combination requires one

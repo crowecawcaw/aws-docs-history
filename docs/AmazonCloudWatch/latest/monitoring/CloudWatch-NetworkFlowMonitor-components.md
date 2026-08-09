@@ -68,7 +68,7 @@ that you need, or if creating new monitors would be helpful.
 **Network health indicator (NHI)**
 The _network health indicator_ (NHI) is a binary value that informs you
 whether there were AWS network issues for one or more of the network flows tracked by a monitor,
-during a time period that you choose. When the NHI value is 1, or **Degraded**,
+during a time period that you choose. When the NHI value is 100, or **Degraded**,
 there was an AWS network issue for at least one network flow. With the NHI indicator,
 you can quickly decide whether to focus troubleshooting efforts on an AWS network issue
 or network problems originating with your workloads.

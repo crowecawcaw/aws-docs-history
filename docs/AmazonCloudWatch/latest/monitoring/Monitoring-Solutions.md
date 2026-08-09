@@ -23,6 +23,7 @@ deliver them to CloudWatch.
 - [Amazon CloudWatch solution: Prometheus metric collection on Amazon Amazon EC2](Solution-Prometheus-On-EC2.md "Solution-Prometheus-On-EC2.md")
 - [Amazon CloudWatch solution: Prometheus metric collection on Amazon ECS](Solution-Prometheus-On-ECS.md "Solution-Prometheus-On-ECS.md")
 - [Amazon CloudWatch solution: Amazon MSK insights](Solution-Prometheus-On-MSK.md "Solution-Prometheus-On-MSK.md")
+- [Amazon CloudWatch solution: Amazon OpenSearch Service insights](Solution-Prometheus-On-OpenSearch.md "Solution-Prometheus-On-OpenSearch.md")
 
 **How do solution dashboards work?**
 

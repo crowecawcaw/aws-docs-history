@@ -21,8 +21,8 @@ see [Integrate Amazon MSK](managed-prometheus-collectors-msk-setup.md "managed-p
 
 This solution is relevant for the following conditions:
 
-- An Amazon MSK cluster in provisioned mode. Managed collectors do not support Amazon
-  MSK Serverless or Amazon MSK Express clusters.
+- An Amazon MSK cluster in provisioned mode, with standard or express brokers. Managed
+  collectors do not support Amazon MSK Serverless clusters.
 - Open Monitoring enabled on the cluster, which exposes the JMX Exporter (port 11001)
   and Node Exporter (port 11002).
 - Amazon VPC with DNS enabled, and at least two subnets in different Availability
@@ -83,7 +83,7 @@ metric enrichment](CloudWatch-OTelEnrichment.md "CloudWatch-OTelEnrichment.md").
 
 After the collector begins delivering your Amazon MSK metrics to CloudWatch, the CloudWatch console
 provides an automatic dashboard named **MSK OTel**. To open it,
-sign in to the AWS Management Console, open the CloudWatch console, choose
+see [MSK OTel](https://console.aws.amazon.com/cloudwatch/home?#dashboards/templates/msk-otel "https://console.aws.amazon.com/cloudwatch/home?#dashboards/templates/msk-otel"), or sign in to the AWS Management Console, open the CloudWatch console, choose
 **Dashboards** in the navigation pane, choose
 **Automatic dashboards**, and then choose
 **MSK OTel**. You can start monitoring your clusters without

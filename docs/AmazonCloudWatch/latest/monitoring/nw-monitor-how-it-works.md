@@ -91,7 +91,7 @@ monitor is delayed by a few hours while AWS collects data to perform anomaly det
 
 To provide the NHI value, Network Synthetic Monitor applies statistical correlation across AWS
 sample datasets, as well as to the packet loss and round-trip latency metrics for traffic
-simulating your network path. NHI can be one of two values: 1 or 0. A value of 1
+simulating your network path. NHI can be one of two values: 100 or 0. A value of 100
 indicates that Network Synthetic Monitor observed a network degradation within the AWS controlled network
 path. A value of 0 indicates that Network Synthetic Monitor did not observe any network degradation for the AWS
 network along the path. Using the NHI value enables you to more quickly gain awareness of

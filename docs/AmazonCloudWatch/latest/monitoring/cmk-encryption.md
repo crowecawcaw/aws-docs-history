@@ -185,6 +185,15 @@ with a new key ARN. The caller must have `kms:Decrypt` permission on both
 the current key and the new key. CloudWatch begins using the new key for subsequent encryption
 operations.
 
+###### Note
+
+If the currently associated key has been deleted, is scheduled for deletion,
+is pending import, is unavailable, or has been disabled, CloudWatch does not require
+`kms:Decrypt` permission on the current key and the rotation proceeds.
+If the key was only disabled, consider re-enabling it rather than rotating,
+because re-enabling allows CloudWatch to resume decrypting existing metric data
+encrypted with that key.
+
 ### To remove the customer managed key
 
 To remove the customer managed key and revert to AWS owned key encryption, call
@@ -196,14 +205,106 @@ aws cloudwatch disassociate-dataset-kms-key \
     --dataset-name default
 ```
 
+###### Note
+
+If the currently associated key has been deleted, is scheduled for deletion, is
+pending import, is unavailable, or has been disabled, CloudWatch does not require
+`kms:Decrypt` permission on that key and the disassociation proceeds.
+If the key was only disabled, consider re-enabling it instead of disassociating,
+because re-enabling allows CloudWatch to resume decrypting your existing metric
+data.
+
 ###### Important
 
 After you disassociate a customer managed key, there is a 3-hour enforcement
 window during which CloudWatch still requires `kms:Decrypt` permission on the
 previously associated key. Don't disable or delete the key during this window.
 
-If your key is in a disabled state, you must re-enable the key before you can
-disassociate it from the Dataset.
+## Recovering from a deleted or unusable KMS key
+
+If the customer managed KMS key associated with your dataset is deleted, scheduled
+for deletion, or becomes unavailable, your dataset enters a degraded state:
+
+- CloudWatch can't encrypt new metric data that you publish to the dataset, and
+  ingestion fails.
+- CloudWatch can't decrypt existing data that was encrypted with the unusable key,
+  so query operations fail.
+
+Your recovery options depend on the key state:
+
+- **Key is disabled** — Re-enable the key in AWS KMS.
+  This is the preferred recovery path because CloudWatch can resume decrypting your
+  existing metric data once the key is active again.
+- **Key is pending deletion** — Cancel the key
+  deletion in AWS KMS before the waiting period expires. Once the key returns to an
+  enabled state, CloudWatch resumes normal operations.
+- **Key has been permanently deleted or is otherwise
+  unrecoverable** — Remove the stale association or rotate to a new key
+  (see below). Note that existing data encrypted with the deleted key is
+  permanently unreadable.
+
+If the key is permanently deleted or otherwise unrecoverable, you can remove the
+association or rotate to a new key without needing access to the old key:
+
+### Remove the stale key association
+
+Call `DisassociateDatasetKmsKey` to remove the association with the
+unusable key. CloudWatch reverts to AWS owned key encryption for new data. Existing data
+that was encrypted with the deleted key is no longer readable.
+
+```
+aws cloudwatch disassociate-dataset-kms-key \
+    --dataset-name default
+```
+
+### Rotate to a new key
+
+Call `AssociateDatasetKmsKey` with a new, valid KMS key ARN. CloudWatch
+validates the new key and associates it with your dataset. Access to the previously
+associated key is not required. Existing data that was encrypted with the deleted key
+is no longer readable, but new data is encrypted with the new key.
+
+```
+aws cloudwatch associate-dataset-kms-key \
+    --dataset-name default \
+    --kms-key-arn arn:aws:kms:`region`:`account-id`:key/`new-key-id`
+```
+
+### Error responses for unusable keys
+
+When you call `DisassociateDatasetKmsKey` or
+`AssociateDatasetKmsKey` (rotation path) and the currently associated key
+is inaccessible, CloudWatch does not require access to that key and the operation
+proceeds normally. This applies when:
+
+- The key has been deleted (KMS returns `NotFoundException`).
+- The key is in the `PendingDeletion`, `PendingImport`,
+  or `Unavailable` state.
+- The key has been disabled.
+
+If you call these operations when the key is accessible but the caller lacks
+`kms:Decrypt` permission, the operation fails with one of the following
+errors. Each error message includes the KMS request ID for troubleshooting.
+
+`ResourceNotFoundException`
+
+The specified KMS key does not exist. Message format:
+`KMS key `key-arn`does not exist. KMS request id:`request-id`.`
+
+`ValidationException`
+
+The specified KMS key is in an unusable state that is not tolerated on this
+code path. Message format:
+`KMS key `key-arn`is in an unusable state:`state-description`. KMS request id: `request-id`.`
+
+`AccessDeniedException`
+
+The specified KMS key is disabled, or the caller lacks permission. Message
+format:
+`KMS key `key-arn`is disabled. KMS request id:`request-id`.`
+
+For more information about KMS key states, see [Key states of AWS KMS keys](../../../kms/latest/developerguide/key-state.md "../../../kms/latest/developerguide/key-state.md")
+in the _AWS Key Management Service Developer Guide_.
 
 ## Scoping down key policy access
 

@@ -28,6 +28,7 @@ We charge for Prometheus collectors by the hour, and CloudWatch OpenTelemetry me
 ###### Topics
 
 - [Integrate Amazon MSK](managed-prometheus-collectors-msk-setup.md "managed-prometheus-collectors-msk-setup.md")
+- [Integrate Amazon OpenSearch Service](managed-prometheus-collectors-opensearch-setup.md "managed-prometheus-collectors-opensearch-setup.md")
 - [Integrate Amazon EKS](managed-prometheus-collectors-eks-setup.md "managed-prometheus-collectors-eks-setup.md")
 - [VPC-connected managed collector](managed-prometheus-collectors-vpc-setup.md "managed-prometheus-collectors-vpc-setup.md")
 - [Scraper configuration](managed-prometheus-collectors-scraper-configuration.md "managed-prometheus-collectors-scraper-configuration.md")

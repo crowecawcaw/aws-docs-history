@@ -12,7 +12,30 @@ reference](https://www.selenium.dev/selenium/docs/api/py/api.html "https://www.s
 The naming convention for these runtime versions is `syn-`language`
  -`framework`-`majorversion`.`minorversion``.
 
-## syn-python-selenium-11.1
+## syn-python-selenium-12.0
+
+**Major dependencies**:
+
+- Python 3.12
+- Selenium 4.32.0
+- Chromium version 150.0.7871.24
+
+**Changes in syn-python-selenium-12.0**
+
+- Upgrade `Chromium` to 150.0.7871.24 to address the following CVEs:
+
+  - CVE-2026-11645
+
+For more information, see the following:
+
+- [Selenium changelog](https://www.selenium.dev/blog/ "https://www.selenium.dev/blog/") on the Selenium website
+- [Selenium
+  API documentation](https://www.selenium.dev/selenium/docs/api/py/api.html "https://www.selenium.dev/selenium/docs/api/py/api.html") on the Selenium website
+
+The following earlier runtime versions for Python and Selenium are still
+supported.
+
+### syn-python-selenium-11.1
 
 **Major dependencies**:
 
@@ -26,16 +49,6 @@ The naming convention for these runtime versions is `syn-`language`
 
   - CVE-2026-44431
   - CVE-2026-44432
-
-For more information, see the following:
-
-- [Selenium
-  Change log](https://www.selenium.dev/blog/2025/selenium-4-32-released "https://www.selenium.dev/blog/2025/selenium-4-32-released")
-- [Selenium
-  documentation](https://www.selenium.dev/selenium/docs/api/py/api.html "https://www.selenium.dev/selenium/docs/api/py/api.html")
-
-The following earlier runtime versions for Python and Selenium are still
-supported.
 
 ### syn-python-selenium-11.0
 
@@ -66,13 +79,6 @@ supported.
 
 - Applied security patches and updated browser versions.
 
-For more information, see the following:
-
-- [Selenium
-  Change log](https://www.selenium.dev/blog/2025/selenium-4-32-released "https://www.selenium.dev/blog/2025/selenium-4-32-released")
-- [Selenium
-  documentation](https://www.selenium.dev/selenium/docs/api/py/api.html "https://www.selenium.dev/selenium/docs/api/py/api.html")
-
 ### syn-python-selenium-9.0
 
 **Major dependencies**:
@@ -84,13 +90,6 @@ For more information, see the following:
 **Changes in syn-python-selenium-9.0**
 
 - Applied security patches and updated browser versions.
-
-For more information, see the following:
-
-- [Selenium
-  Change log](https://www.selenium.dev/blog/2025/selenium-4-32-released "https://www.selenium.dev/blog/2025/selenium-4-32-released")
-- [Selenium
-  documentation](https://www.selenium.dev/selenium/docs/api/py/api.html "https://www.selenium.dev/selenium/docs/api/py/api.html")
 
 ### syn-python-selenium-8.0
 
@@ -105,13 +104,6 @@ For more information, see the following:
 - Applied security patches and updated Selenium and browser versions.
 - Modified failed HAR network request log level from ERROR to INFO.
 
-For more information, see the following:
-
-- [Selenium
-  Change log](https://www.selenium.dev/blog/2025/selenium-4-32-released "https://www.selenium.dev/blog/2025/selenium-4-32-released")
-- [Selenium
-  documentation](https://www.selenium.dev/selenium/docs/api/py/api.html "https://www.selenium.dev/selenium/docs/api/py/api.html")
-
 ### syn-python-selenium-7.0
 
 **Major dependencies**:
@@ -124,13 +116,6 @@ For more information, see the following:
 
 - Applied security patches and updated Selenium and browser versions.
 
-For more information, see the following:
-
-- [Selenium
-  Change log](https://www.selenium.dev/blog/2025/selenium-4-32-released "https://www.selenium.dev/blog/2025/selenium-4-32-released")
-- [Selenium
-  documentation](https://www.selenium.dev/selenium/docs/api/py/api.html "https://www.selenium.dev/selenium/docs/api/py/api.html")
-
 ### syn-python-selenium-6.0
 
 **Major dependencies**:
@@ -142,13 +127,6 @@ For more information, see the following:
 **Changes in syn-python-selenium-6.0**
 
 - Upgrade from Python 3.9 to Python 3.11.
-
-For more information, see the following:
-
-- [Selenium
-  Change log](https://www.selenium.dev/blog/2024/selenium-4-21-released/ "https://www.selenium.dev/blog/2024/selenium-4-21-released/")
-- [Selenium
-  documentation](https://www.selenium.dev/selenium/docs/api/py/api.html "https://www.selenium.dev/selenium/docs/api/py/api.html")
 
 ### syn-python-selenium-5.1
 

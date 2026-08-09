@@ -9,6 +9,7 @@ your organization or accounts and ensure consistent monitoring coverage.
 - [How rules work](#telemetry-config-rules-behavior "#telemetry-config-rules-behavior")
 - [Creating a telemetry enablement rule](#telemetry-config-rules-create "#telemetry-config-rules-create")
 - [Managing telemetry rules](#telemetry-config-rules-manage "#telemetry-config-rules-manage")
+- [Encrypting log groups with customer managed keys](#telemetry-config-rules-encryption "#telemetry-config-rules-encryption")
 - [Supported data sources](#telemetry-config-troubleshoot-service "#telemetry-config-troubleshoot-service")
 
 ## How rules work
@@ -147,6 +148,8 @@ When you create a telemetry enablement rule, you specify:
 - The telemetry types to enable (metrics, logs, or traces)
 - Optional tags to filter which resources the rule affects
 - Optional target Regions to replicate the rule across multiple Regions
+- Optional AWS KMS key ARN to encrypt log groups created by the rule with a customer
+  managed key
 
 ###### To create a telemetry enablement rule
 
@@ -172,7 +175,11 @@ When you create a telemetry enablement rule, you specify:
     this rule to apply. The current Region is automatically designated as the home Region for
     the rule. If you select **All regions**, new Regions are automatically
     included when you opt in to them.
-11. Choose **Create rule**.
+11. (Optional) For **KMS key ARN**, enter the ARN of an AWS KMS key to
+    encrypt log groups created by this rule. For cross-Region rules, you must use a multi-Region
+    key (key ID starts with `mrk-`). For more information, see
+    [Encrypting log groups with customer managed keys](#telemetry-config-rules-encryption "#telemetry-config-rules-encryption").
+12. Choose **Create rule**.
 
 ## Managing telemetry rules
 
@@ -203,6 +210,114 @@ originally created. The home Region is displayed in the informational alert.
 You can add or modify tags on replicated rules in spoke Regions. Tag changes made in
 spoke Regions apply only to the local copy of the rule and are not replicated back to the
 home Region.
+
+## Encrypting log groups with customer managed keys
+
+You can encrypt log groups created by telemetry enablement rules using a customer
+managed AWS KMS key. Encrypting log groups with a customer managed key gives you control over
+key rotation and helps meet compliance requirements. When you specify a AWS KMS key ARN in your
+rule's destination configuration, CloudWatch automatically associates the key with each log group
+created during remediation.
+
+### Requirements for KMS keys
+
+- For cross-Region rules, you must use a multi-Region AWS KMS key. Multi-Region keys
+  have a key ID that starts with `mrk-`. This ensures consistent encryption
+  across all Regions where the rule is applied.
+- For rules that target a single Region, both single-Region and multi-Region keys are
+  accepted.
+- The AWS KMS key must be enabled and accessible to the service-linked role used by
+  telemetry rules.
+- When you create or update a rule with a AWS KMS key ARN, the service validates that
+  the key exists and is enabled by calling `kms:DescribeKey`.
+
+### Required KMS key policy
+
+Your AWS KMS key policy must allow the CloudWatch Logs service to use the key for encryption. Add
+the following statement to your key policy:
+
+```
+{
+    "Sid": "AllowCloudWatchLogsToUseKey",
+    "Effect": "Allow",
+    "Principal": { "Service": "logs.amazonaws.com" },
+    "Action": [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:GenerateDataKey*",
+        "kms:DescribeKey"
+    ],
+    "Resource": "*",
+    "Condition": {
+        "StringEquals": {
+            "aws:SourceOrgID": "`your-organization-id`"
+        },
+        "ArnLike": {
+            "kms:EncryptionContext:aws:logs:arn": "arn:aws:logs:*:*:log-group:*"
+        }
+    }
+}
+```
+
+Replace `your-organization-id` with your AWS Organizations
+organization ID. The `aws:SourceOrgID` condition ensures that only accounts in
+your organization can use the key for log group encryption.
+
+###### Note
+
+For organization-scope rules that remediate across member accounts, this key policy
+grants the CloudWatch Logs service in member accounts permission to encrypt and decrypt log data
+using your key. The telemetry rules service-linked role does not directly perform
+encryption or decryption—it only associates the key with the log group.
+
+### Service-linked role permissions for encryption
+
+The telemetry rules service-linked role requires additional permissions to support
+AWS KMS key encryption. The following permissions are automatically added to the
+service-linked role when you use AWS KMS encryption with telemetry rules:
+
+- `kms:DescribeKey` – Allows the service to validate that the AWS KMS
+  key exists, is enabled, and is a multi-Region key (for cross-Region rules). This
+  permission is used during rule creation and update validation. The call is always
+  same-account (the service-linked role describes the key in the rule creator's own
+  account).
+- `logs:AssociateKmsKey` – Allows the service to associate the
+  AWS KMS key with log groups created during remediation. This permission is scoped to log
+  groups that are tagged with
+  `CloudWatchTelemetryRuleManaged: true`, which limits the association to
+  log groups managed by telemetry rules.
+
+###### Note
+
+The service-linked role does not perform encryption or decryption of log data
+directly. After the service associates the AWS KMS key with a log group, CloudWatch Logs uses
+the key for all subsequent encrypt and decrypt operations on that log group. Cross-account
+AWS KMS access during remediation is handled by the AWS KMS key policy (granting the
+`logs.amazonaws.com` service principal access), not by the service-linked
+role.
+
+### How multi-Region keys work with telemetry rules
+
+Multi-Region AWS KMS keys share the same key ID across Regions. When a telemetry rule
+with a AWS KMS key is applied in multiple Regions, the service automatically resolves the key
+ARN to the target Region. For example, if you provide the key ARN
+`arn:aws:kms:us-east-1:123456789012:key/mrk-1234abcd` and the rule creates a log
+group in `eu-west-1`, the service uses
+`arn:aws:kms:eu-west-1:123456789012:key/mrk-1234abcd` for encryption in that
+Region.
+
+You must ensure that the multi-Region key is replicated to all Regions where the rule
+applies. If the key has not been replicated to a target Region, remediation for resources in
+that Region fails, and the service retries the operation.
+
+### Updating encryption settings
+
+When you update a rule to add a AWS KMS key, the service applies the key only to log
+groups that the rule creates after the update. The service does not retroactively encrypt
+log groups that the rule created before you added the key.
+
+When you remove the AWS KMS key ARN from a rule, the service changes the encryption
+configuration that it previously applied to the rule's managed log groups.
 
 ## Supported data sources
 

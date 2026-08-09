@@ -53,7 +53,7 @@ each dimension as `MyName`=`MyValue`, and
 with [get-metric-statistics](../../../cli/latest/reference/cloudwatch/get-metric-statistics.md "../../../cli/latest/reference/cloudwatch/get-metric-statistics.md") or [put-metric-alarm](../../../cli/latest/reference/cloudwatch/put-metric-alarm.md "../../../cli/latest/reference/cloudwatch/put-metric-alarm.md") you use the
 format `Name=``MyName`,
 `Value=``MyValue`. For example, the following command
-publishes a `Buffers` metric with two dimensions named `InstanceId`
+publishes a `Buffers` metric with 2 dimensions named `InstanceId`
 and `InstanceType`.
 
 ```
@@ -109,8 +109,8 @@ second, CloudWatch aggregates the data to a minimum granularity of 1 second. Clo
 average (sum of all items divided by number of items) of the values received for each
 period, as well as the number of samples, maximum value, and minimum value for the same time
 period. For example, the `PageViewCount` metric from the previous examples
-contains three data points with time stamps just seconds apart. If you have your period set
-to 1 minute, CloudWatch aggregates the three data points because they all have time stamps within
+contains 3 data points with time stamps just seconds apart. If you have your period set
+to 1 minute, CloudWatch aggregates the 3 data points because they all have time stamps within
 a 1-minute period.
 
 You can use the **get-metric-statistics** command to retrieve statistics
@@ -146,7 +146,7 @@ The following is example output.
 You can aggregate your data before you publish to CloudWatch. When you have multiple data
 points per minute, aggregating data minimizes the number of calls to
 **put-metric-data**. For example, instead of calling
-**put-metric-data** multiple times for three data points that are within 3
+**put-metric-data** multiple times for 3 data points that are within 3
 seconds of each other, you can aggregate the data into a statistic set that you publish with
 one call, using the `--statistic-values` parameter.
 

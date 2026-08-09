@@ -73,7 +73,7 @@ aws amp create-scraper \
 
 After the collector begins delivering your Amazon EKS metrics to CloudWatch, the CloudWatch console
 provides an automatic dashboard named **EKS OTel**. To open
-it, sign in to the AWS Management Console, open the CloudWatch console, choose
+it, see [EKS OTel](https://console.aws.amazon.com/cloudwatch/home?#dashboards/templates/eks-otel "https://console.aws.amazon.com/cloudwatch/home?#dashboards/templates/eks-otel"), or sign in to the AWS Management Console, open the CloudWatch console, choose
 **Dashboards** in the navigation pane, choose
 **Automatic dashboards**, and then choose
 **EKS OTel**. You can start monitoring your clusters without
