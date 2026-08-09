@@ -1,6 +1,6 @@
 # Developing Lambda functions locally
 
-You can move your Lambda functions from the Lambda console to your preferred IDE, which provides a full development environment where you can use other local development
+You can move your Lambda functions from the Lambda console to your preferred integrated development environment (IDE), which provides a full development environment where you can use other local development
 options like AWS SAM and AWS CDK. The Lambda console supports opening functions directly in Visual Studio Code, Kiro, or Cursor.
 
 ## Key benefits of local development
@@ -14,15 +14,15 @@ While the Lambda console provides a quick way to edit and test functions, local 
 
 ## Prerequisites
 
-Before developing Lambda functions locally using VS Code, Kiro, and Cursor, you must install them using the instructions below:
+Before developing Lambda functions locally using Visual Studio Code, Kiro, and Cursor, you must install them using the instructions below:
 
-- **VS Code**: For installation instructions, see [Download VS Code](https://code.visualstudio.com/download "https://code.visualstudio.com/download").
+- **Visual Studio Code**: For installation instructions, see [Download Visual Studio Code](https://code.visualstudio.com/download "https://code.visualstudio.com/download").
 - **Kiro**: For installation instructions, see [Getting started with Kiro](https://kiro.dev/docs/getting-started/installation/ "https://kiro.dev/docs/getting-started/installation/").
 - **Cursor**: For installation instructions, see [Download Cursor](https://cursor.com/download "https://cursor.com/download").
 
 You also need the following:
 
-- **AWS Toolkit for Visual Studio Code**: For VS Code installation instructions, see [Setting up the AWS Toolkit for Visual Studio Code](../../../toolkit-for-vscode/latest/userguide/setup-toolkit.md "../../../toolkit-for-vscode/latest/userguide/setup-toolkit.md"). For an overview, see
+- **AWS Toolkit for Visual Studio Code**: For Visual Studio Code installation instructions, see [Setting up the AWS Toolkit for Visual Studio Code](../../../toolkit-for-vscode/latest/userguide/setup-toolkit.md "../../../toolkit-for-vscode/latest/userguide/setup-toolkit.md"). For an overview, see
   [AWS Toolkit for Visual Studio Code](https://aws.amazon.com/visualstudiocode/ "https://aws.amazon.com/visualstudiocode/").
 - **AWS credentials**: For information about configuring credentials, see [Setting up your AWS credentials](../../../toolkit-for-vscode/latest/userguide/setup-credentials.md "../../../toolkit-for-vscode/latest/userguide/setup-credentials.md").
 - **AWS SAM CLI**: For installation instructions, see [Installing the AWS SAM CLI](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install.md").
@@ -36,7 +36,7 @@ If you already have an AWS account and profile configured locally, ensure that t
 
 To develop Lambda functions locally, you need AWS credentials to securely access and manage AWS resources on your behalf, just like they would in the cloud.
 
-The AWS Toolkit for VS Code supports the following authentication methods:
+The AWS Toolkit for Visual Studio Code supports the following authentication methods:
 
 - IAM user long-term credentials
 - Temporary credentials from assumed roles
@@ -94,7 +94,7 @@ Complete the following steps to authenticate to your AWS account:
 
 ###### Note
 
-The following steps apply to VS Code, Kiro, and Cursor. Because Kiro and Cursor are built on VS Code, the authentication flow is the same across all three IDEs.
+The following steps apply to Visual Studio Code, Kiro, and Cursor. Because Kiro and Cursor are built on Visual Studio Code, the authentication flow is the same across all three IDEs.
 
 1. Open the Sign In panel in your IDE:
 
@@ -137,11 +137,11 @@ For details on using AWS in your IDE, see the _[AWS Toolkit for Visual Studio Co
 
 ## Working with functions locally
 
-After opening your function in your preferred IDE, follow these steps to access and manage your functions. For the example below we have used VS Code.
+After opening your function in your preferred IDE, follow these steps to access and manage your functions. For the example below we have used Visual Studio Code.
 
 1. Select the AWS icon in the sidebar to open the AWS Explorer:
 
-![AWS Toolkit icon in VS Code sidebar.](images/console-to-ide-awsIcon.png) 2. In the AWS Explorer, select the region with your Lambda function:
+![AWS Toolkit icon in Visual Studio Code sidebar.](images/console-to-ide-awsIcon.png) 2. In the AWS Explorer, select the region with your Lambda function:
 
 ![AWS Explorer showing region selection.](images/console-to-ide-lambdaTreeView.png) 3. Under your selected region, expand the Lambda section to view and manage your functions:
 
@@ -157,7 +157,7 @@ With your function opened in your IDE, you can:
 
 ## Convert your function to an AWS SAM template and use IaC tools
 
-In all supported IDEs (VS Code, Kiro, and Cursor), you can convert your Lambda function to an AWS SAM template by choosing the **Convert to AWS SAM Application** icon next to your Lambda function.
+In all supported IDEs (Visual Studio Code, Kiro, and Cursor), you can convert your Lambda function to an AWS SAM template by choosing the **Convert to AWS SAM Application** icon next to your Lambda function.
 You are prompted to select an AWS SAM project location. Once selected, your Lambda function is converted to a `template.yaml` file that is saved in your new AWS SAM project.
 
 With your function converted to an AWS SAM template, you can:
@@ -180,8 +180,8 @@ These tools provide additional capabilities for defining, testing, and deploying
 
 ## Next steps
 
-To learn more about working with Lambda functions in VS Code, see the following resources:
+To learn more about working with Lambda functions in Visual Studio Code, see the following resources:
 
-- [Working with AWS Lambda functions](../../../toolkit-for-vscode/latest/userguide/building-lambda.md "../../../toolkit-for-vscode/latest/userguide/building-lambda.md") in the AWS Toolkit for VS Code User Guide
-- [Working with serverless applications](../../../toolkit-for-vscode/latest/userguide/serverless-apps.md "../../../toolkit-for-vscode/latest/userguide/serverless-apps.md") in the AWS Toolkit for VS Code User Guide
+- [Working with AWS Lambda functions](../../../toolkit-for-vscode/latest/userguide/building-lambda.md "../../../toolkit-for-vscode/latest/userguide/building-lambda.md") in the AWS Toolkit for Visual Studio Code User Guide
+- [Working with serverless applications](../../../toolkit-for-vscode/latest/userguide/serverless-apps.md "../../../toolkit-for-vscode/latest/userguide/serverless-apps.md") in the AWS Toolkit for Visual Studio Code User Guide
 - [Infrastructure as code](foundation-iac.md "foundation-iac.md") in the Lambda Developer Guide
