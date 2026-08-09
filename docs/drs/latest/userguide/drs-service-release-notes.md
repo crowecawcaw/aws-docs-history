@@ -1,5 +1,15 @@
 # AWS Elastic Disaster Recovery Service Release Notes
 
+## August 2026
+
+- AWS Elastic Disaster Recovery automatically preserves Unified Extensible Firmware Interface
+  (UEFI) boot mode for Linux source servers that boot using UEFI firmware.
+  Previously, AWS Elastic Disaster Recovery converted Linux UEFI source servers to legacy
+  Basic Input/Output System (BIOS) during recovery and drill launches. With this
+  change, your recovered instances launch with the same UEFI boot mode as
+  your source servers. This eliminates the need for post-launch boot
+  configuration adjustments.
+
 ## July 2026
 
 - With AWS Elastic Disaster Recovery, you can now choose a **Recovery mode** in your launch configurations. Choose **Fast** to skip the conversion process and reduce recovery time. This mode launches instances directly from replicated snapshots. Choose **Optimal** (default) to run the full conversion process before launch. To use Fast recovery mode, you must have version 6.42.20 or later of the agent. For more information, see [Editing the default AWS DRS launch settings](editing-launch-settings.md "editing-launch-settings.md").

@@ -9,7 +9,6 @@ message, its cause, and the resolution.
 - [Error: Root privileges required](#error-root-privileges "#error-root-privileges")
 - [Error: Invalid disk path format](#error-disk-path-format "#error-disk-path-format")
 - [Error: Kernel headers version mismatch](#error-kernel-headers-mismatch "#error-kernel-headers-mismatch")
-- [Error: Connection timed out during installation](#error-connection-timeout "#error-connection-timeout")
 - [Error: GLIBC version not found](#error-glibc-version "#error-glibc-version")
 - [Error: Unsupported Linux kernel version](#error-unsupported-kernel "#error-unsupported-kernel")
 - [Error: gcc not found](#error-gcc-not-found "#error-gcc-not-found")
@@ -141,26 +140,6 @@ manually from one of the following sources:
 Multiple kernel-headers versions can coexist safely. Installing new headers does
 not affect the running kernel.
 
-## Error: Connection timed out during installation
-
-**Error message:**
-**`urlopen error [Errno 110] Connection timed out`**
-
-**Cause:** Outbound TCP port 443 is blocked between the
-source server and AWS Elastic Disaster Recovery endpoints.
-
-**Resolution:** Verify that your firewall or security
-group allows outbound traffic on port 443 to the following endpoints:
-
-- `drs.`region`.amazonaws.com`
-- `s3.`region`.amazonaws.com`
-
-Test connectivity with the following command:
-
-```
-`$` curl -v https://drs.`region`.amazonaws.com
-```
-
 ## Error: GLIBC version not found
 
 **Error message:**
@@ -190,31 +169,106 @@ section.
 ## Error: gcc not found
 
 **Error message:**
-**`gcc was not found and could not be automatically fetched`**
+**`gcc was not found and could not be automatically fetched from the configured repositories`**
 
 **Cause:** The `gcc` compiler is required to
-compile the replication driver but is not installed, and the installer could not fetch it
-from the configured repositories.
+compile the replication driver, and the installer could not install it.
 
-**Resolution:** Install `gcc`
-manually:
+**Resolution:** Identify which condition prevented the
+installation and apply the corresponding fix. The following conditions are the most
+common.
+
+**Unreachable package repositories**
+
+Check whether the repositories respond:
+
+```
+`$` sudo apt-get update
+```
+
+On RHEL, CentOS, and Amazon Linux, use the following command instead:
+
+```
+`$` sudo yum makecache
+```
+
+On SUSE, use the following command instead:
+
+```
+`$` sudo zypper refresh
+```
+
+If the command fails, restore repository access and run the installer again. If the
+server reaches the internet through a web proxy, configure that proxy for the package
+manager as well.
+
+**gcc missing from the repositories**
+
+Check whether the configured repositories offer `gcc`:
+
+```
+`$` apt-cache policy gcc
+```
+
+On RHEL, CentOS, and Amazon Linux, use the following command instead:
+
+```
+`$` yum info gcc
+```
+
+On SUSE, use the following command instead:
+
+```
+`$` zypper info gcc
+```
+
+If no candidate version is listed, and this server is not permitted to reach an
+external repository, install `gcc` and `make` from local media or
+from an internal repository, and then run the installer again.
+
+**Package manager lock contention**
+
+Check whether another package operation is running:
+
+```
+`$` pgrep -af 'apt|dpkg|yum|dnf|zypper|unattended'
+```
+
+The pattern covers the package managers and the unattended upgrade service, which
+is a common holder of the lock. Because the command matches full command lines, it can
+also list itself; disregard that entry. If it lists a package operation, wait for that
+operation to finish and then run the installer again.
+
+**Insufficient free space**
+
+Check the file systems that hold the package cache and the installation
+target:
+
+```
+`$` df -h /var /usr
+```
+
+If either is full, delete unneeded files and run the installer again.
+
+If none of the preceding conditions applies, install `gcc` and
+`make` manually and then run the installer again:
 
 - **RHEL/CentOS/Amazon Linux:**
 
 ```
-`$` sudo yum install gcc
+`$` sudo yum install gcc make
 ```
 
 - **Debian/Ubuntu:**
 
 ```
-`$` sudo apt-get install gcc
+`$` sudo apt-get install gcc make
 ```
 
 - **SUSE:**
 
 ```
-`$` sudo zypper install gcc
+`$` sudo zypper install gcc make
 ```
 
 ## Error: Permission denied when loading kernel driver

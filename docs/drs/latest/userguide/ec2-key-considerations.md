@@ -53,3 +53,7 @@ template for use with AWS Elastic Disaster Recovery.
 12. **Tags** – Launch template tags always take
     precedence over tags set in the AWS Elastic Disaster Recovery console or tags manually added to
     the server.
+13. **Launch template AMI** – Make sure your
+    launch template AMI matches the boot mode of your source server. If the
+    source uses Unified Extensible Firmware Interface (UEFI), the chosen
+    AMI must support UEFI.

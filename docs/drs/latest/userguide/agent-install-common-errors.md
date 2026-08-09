@@ -19,6 +19,7 @@ configuration, IAM, and agent lifecycle. These errors occur on both Linux and Wi
 - [Error: Secure connection failed while downloading installation files](#error-download-ssl-failure "#error-download-ssl-failure")
 - [Error: Operating system is not supported](#error-unsupported-os "#error-unsupported-os")
 - [Error: Invalid endpoint](#error-invalid-endpoint "#error-invalid-endpoint")
+- [Error: Connection attempt failed on port 443](#error-connection-timeout "#error-connection-timeout")
 
 ## Error: Outdated agent installer version
 
@@ -289,3 +290,42 @@ well-formed endpoint URL.
   URL.
 - Verify that the `--region` value is a valid AWS Region code, for
   example `us-east-1`.
+
+## Error: Connection attempt failed on port 443
+
+**Error:** The installer cannot reach the AWS Elastic Disaster Recovery
+endpoint and returns this error:
+**`Connection attempt to `region` on port 443
+ failed.`**
+
+**Cause:** The source server cannot open an outbound TCP
+connection on port 443 to the AWS Elastic Disaster Recovery endpoints. This error is usually caused by one of
+the following:
+
+- A missing route from the source server to the AWS Elastic Disaster Recovery endpoints
+- A firewall that blocks outbound connections, either on the source server or on
+  a network appliance
+- An incorrect web proxy configuration on the source server, for example a proxy
+  that does not pass HTTPS traffic
+
+**Resolution:** Verify that your firewall, security group,
+and web proxy configuration allow outbound traffic on port 443 to the following
+endpoints:
+
+- `drs.`region`.amazonaws.com`
+- `s3.`region`.amazonaws.com`
+
+To test connectivity on Linux, run the following command on the source server:
+
+```
+`$` curl -v https://drs.`region`.amazonaws.com
+```
+
+To test connectivity on Windows, run the following command on the source server:
+
+```
+Test-NetConnection drs.`region`.amazonaws.com -Port 443
+```
+
+To avoid this error, verify connectivity to these endpoints from the source server
+before you run the AWS Elastic Disaster Recovery agent installer.
