@@ -27,7 +27,7 @@ The architecture diagram shows the end-to-end flow:
 1. Model weights are downloaded from Hugging Face to Amazon S3.
 2. vLLM streams the model directly from S3 to GPU memory using Run:ai Model Streamer.
 3. Users send inference requests to the vLLM endpoint.
-   When you complete these steps, you have a vLLM inference endpoint that you can use to interact with a Ministral model through a chat frontend application.
+   When you complete these steps, you have a vLLM inference endpoint that you can use to interact with a Ministral model through a chat frontend application. For additional information on optimizing model loading time on Amazon EKS, see [Accelerate model loading on Amazon EKS](ml-inference-fast-model-loading.md "ml-inference-fast-model-loading.md").
 
 ## Prerequisites
 
@@ -164,6 +164,8 @@ This deployment uses the following AWS DLC for [vLLM 0.21.0](https://gallery.ecr
 The image tag indicates vLLM 0.21.0 with GPU support, Python 3.12, CUDA 13.0, Ubuntu 22.04, optimized for EC2-based workloads, and SOCI-enabled for faster container startup.
 
 This manifest creates a Deployment that runs vLLM on a GPU node and streams the model directly from S3 into GPU memory using Run:ai Model Streamer. The manifest also creates a ClusterIP Service that exposes the vLLM endpoint on port 8000 for in-cluster access.
+
+For additional information on optimizing model loading time on Amazon EKS, see [Accelerate model loading on Amazon EKS](ml-inference-fast-model-loading.md "ml-inference-fast-model-loading.md"). The following example uses `--enforce-eager` to accelerate load times in a getting started scenario. We recommend using other techniques to accelerate model load times as detailed in [The --enforce-eager trade-off](ml-inference-fast-model-loading.md#model-loading-enforce-eager-tradeoff "ml-inference-fast-model-loading.md#model-loading-enforce-eager-tradeoff").
 
 Apply the manifest:
 

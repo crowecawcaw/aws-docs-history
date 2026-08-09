@@ -319,6 +319,6 @@ For rollback readiness insights, the `describe-insight` command returns similar 
 }
 ```
 
-If you find a rollback readiness insight with `"status": "ERROR"`, you must address the issue before performing the rollback, or use the `--force` flag to bypass insight checks. For more information about the rollback process, see [Rollback cluster to previous Kubernetes version](rollback-cluster.md "rollback-cluster.md").
+If you find a rollback readiness insight with `"status": "ERROR"`, you must address the issue before performing the rollback, or use the `--force` flag to bypass insight checks. For more information about the rollback process, see [Roll back a cluster to a previous Kubernetes version](rollback-cluster.md "rollback-cluster.md").
 
 If an insight shows `UNKNOWN` status, EKS was unable to evaluate the insight. The rollback is blocked until the insight can be evaluated successfully, or you use the `--force` flag to bypass insight checks.

@@ -55,7 +55,7 @@ Amazon EKS returns insights related to Kubernetes version rollback readiness und
 
 Rollback readiness insights only check EKS-managed add-on versions. For self-managed add-ons, or if you have overridden the version of a managed add-on outside of the EKS add-on lifecycle, insights do not detect version incompatibilities. You are responsible for validating compatibility of those add-ons with the target version before rolling back.
 
-Insights with ERROR or UNKNOWN status block the rollback until the issue is resolved. You can use the `--force` flag to bypass insight checks if you choose to proceed at your own risk. Insights with WARNING status are advisory and do not prevent rollback. For more information, see [Rollback cluster to previous Kubernetes version](rollback-cluster.md "rollback-cluster.md").
+Insights with ERROR or UNKNOWN status block the rollback until the issue is resolved. You can use the `--force` flag to bypass insight checks if you choose to proceed at your own risk. Insights with WARNING status are advisory and do not prevent rollback. For more information, see [Roll back a cluster to a previous Kubernetes version](rollback-cluster.md "rollback-cluster.md").
 
 ## Get started
 

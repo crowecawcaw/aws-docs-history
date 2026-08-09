@@ -12,6 +12,10 @@ To receive notifications of all source file changes to this specific documentati
 https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/automode/auto-change.adoc.atom
 ```
 
+## August 5, 2026
+
+**Feature**: The Amazon EKS Auto Mode load balancer controller now supports multi-cluster target groups, matching the behavior of the AWS Load Balancer Controller. With this feature, you can share the same target group ARN across multiple `TargetGroupBinding` resources, so a single target group can serve multiple Kubernetes clusters (in the same VPC) or accept targets from other sources. For more information, see [Configure multi-cluster target groups](auto-multi-cluster-target-groups.md "auto-multi-cluster-target-groups.md").
+
 ## July 27, 2026
 
 **Feature**: The Amazon Elastic Kubernetes Service (Amazon EKS) Auto Mode load balancer controller now supports features from AWS Load Balancer Controller v2.13 and v2.14.
@@ -24,6 +28,8 @@ https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/auto
 - targetType field in IngressClassParams – You can now set the default target type (instance or IP) directly in IngressClassParams, removing the need to annotate every Ingress resource individually.
 - Subnet discovery by reachability – Subnet selection no longer strictly requires kubernetes.io/role tags. The controller now falls back to route-table-based reachability analysis when tags are absent. The controller doesn’t currently support this fallback for load balancers with an ip-address-type of dualstack.
 - IPv4 IP Address Manager (IPAM) support for ALB – An internet-facing ALB can now draw its public IPv4 addresses from an Amazon Virtual Private Cloud (Amazon VPC) IPAM pool instead of from AWS-managed address ranges. This gives you predictable IP address blocks for allow lists. Specify the pool with the alb.ingress.kubernetes.io/ipam-ipv4-pool-id annotation. For more information, see [Simplify ALB’s public IP address assignment with VPC IPAM](https://aws.amazon.com/blogs/networking-and-content-delivery/simplify-albs-public-ip-address-assignment-with-vpc-ipam/ "https://aws.amazon.com/blogs/networking-and-content-delivery/simplify-albs-public-ip-address-assignment-with-vpc-ipam/").
+
+**Feature**: Added the `Balanced` consolidation policy for EKS Auto Mode NodePools. Setting `spec.disruption.consolidationPolicy: Balanced` scores each consolidation action by weighing compute cost savings against disruption cost. It skips actions where the disruption outweighs the savings. If you use `WhenEmpty` today, you can switch to `Balanced` to gain the cost savings of consolidation. If you use `WhenEmptyOrUnderutilized` today, you can switch to `Balanced` to eliminate pod disruption for marginal benefits. `WhenEmpty` and `WhenEmptyOrUnderutilized` are unchanged, and existing NodePools keep their current behavior. For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md "create-node-pool.md") and [Disruption](https://karpenter.sh/docs/concepts/disruption/ "https://karpenter.sh/docs/concepts/disruption/") in the Karpenter documentation.
 
 ## July 21, 2026
 

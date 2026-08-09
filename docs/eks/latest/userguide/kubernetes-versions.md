@@ -23,7 +23,6 @@ The following Kubernetes versions are currently available in Amazon EKS standard
 - `1.36`
 - `1.35`
 - `1.34`
-- `1.33`
 
 For important changes to be aware of for each version in standard support, see [Kubernetes versions standard support](kubernetes-versions-standard.md "kubernetes-versions-standard.md").
 
@@ -31,15 +30,15 @@ For important changes to be aware of for each version in standard support, see [
 
 The following Kubernetes versions are currently available in Amazon EKS extended support:
 
+- `1.33`
 - `1.32`
 - `1.31`
-- `1.30`
 
 For important changes to be aware of for each version in extended support, see [Kubernetes versions extended support](kubernetes-versions-extended.md "kubernetes-versions-extended.md").
 
 ## Version rollback
 
-Clusters upgraded through in-place upgrade can be rolled back to the previous minor version within 7 days of the upgrade completing. To roll back to a version in extended support, you must first change the cluster’s upgrade policy to `EXTENDED`. Clusters that were automatically upgraded at the end of extended support cannot be rolled back. For more information, see [Rollback cluster to previous Kubernetes version](rollback-cluster.md "rollback-cluster.md").
+Clusters upgraded through in-place upgrade can be rolled back to the previous minor version within 7 days of the upgrade completing. To roll back to a version in extended support, you must first change the cluster’s upgrade policy to `EXTENDED`. Clusters that were automatically upgraded at the end of extended support cannot be rolled back. For more information, see [Roll back a cluster to a previous Kubernetes version](rollback-cluster.md "rollback-cluster.md").
 
 ## Amazon EKS Kubernetes release calendar
 
@@ -63,7 +62,6 @@ https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/vers
 | `1.33`             | April 23, 2025    | May 29, 2025       | July 29, 2026           | July 29, 2027           |
 | `1.32`             | December 11, 2024 | January 23, 2025   | March 23, 2026          | March 23, 2027          |
 | `1.31`             | August 13, 2024   | September 26, 2024 | November 26, 2025       | November 26, 2026       |
-| `1.30`             | April 17, 2024    | May 23, 2024       | July 23, 2025           | July 23, 2026           |
 
 ## Get version information with AWS CLI
 

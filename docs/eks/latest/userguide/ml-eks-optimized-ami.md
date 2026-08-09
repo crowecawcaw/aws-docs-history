@@ -33,7 +33,7 @@ When using Amazon Elastic Fabric Adapter (EFA) with the EKS-optimized AL2023 or 
 
 ## EKS AL2023 NVIDIA AMIs
 
-When using the [NVIDIA GPU operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html") with the EKS-optimized AL2023 NVIDIA AMIs, you must disable the operator installation of the driver and toolkit, as these are already included in the EKS AMIs. The EKS-optimized AL2023 NVIDIA AMIs do not include the NVIDIA Kubernetes device plugin or the NVIDIA DRA driver, and these must be installed separately. For more information, see [Manage NVIDIA GPU devices on Amazon EKS](device-management-nvidia.md "device-management-nvidia.md").
+When using the [NVIDIA GPU operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html") with the EKS-optimized AL2023 NVIDIA AMIs, you must disable the operator installation of the driver and toolkit, as these are already included in the EKS AMIs. The EKS-optimized AL2023 NVIDIA AMIs do not include the NVIDIA Kubernetes device plugin or the NVIDIA DRA driver, and these must be installed separately. For more information, see [Manage NVIDIA GPUs on Amazon EKS](device-management-nvidia.md "device-management-nvidia.md").
 
 In addition to the standard EKS AMI components, the EKS-optimized AL2023 NVIDIA AMIs include the following components.
 

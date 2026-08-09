@@ -22,17 +22,14 @@ The following table lists the latest version of the Amazon EKS add-on type for e
 
 | Kubernetes version | `kube-proxy` version |
 | ------------------ | -------------------- |
-| 1.36               | v1.36.0-eksbuild.9   |
+| 1.36               | v1.36.0-eksbuild.14  |
 | 1.35               | v1.35.3-eksbuild.13  |
 | 1.34               | v1.34.6-eksbuild.13  |
 | 1.33               | v1.33.10-eksbuild.13 |
 | 1.32               | v1.32.13-eksbuild.16 |
 | 1.31               | v1.31.14-eksbuild.20 |
-| 1.30               | v1.30.14-eksbuild.38 |
 
 ###### Note
-
-An earlier version of the documentation was incorrect. `kube-proxy` versions `v1.28.5`, `v1.27.9`, and `v1.26.12` aren’t available.
 
 If you’re self-managing this add-on, the versions in the table might not be the same as the available self-managed versions.
 
@@ -44,12 +41,11 @@ The following table lists the latest available self-managed `kube-proxy` contain
 
 | Version | kube-proxy                   |
 | ------- | ---------------------------- |
-| 1.36    | v1.36.0-eksbuild.9           |
+| 1.36    | v1.36.0-eksbuild.14          |
 | 1.35    | v1.35.3-eksbuild.13          |
 | 1.34    | v1.34.6-eksbuild.13          |
 | 1.33    | v1.33.10-minimal-eksbuild.13 |
 | 1.32    | v1.32.13-minimal-eksbuild.16 |
 | 1.31    | v1.31.14-minimal-eksbuild.20 |
-| 1.30    | v1.30.14-minimal-eksbuild.38 |
 
 When you [update an Amazon EKS add-on type](updating-an-add-on.md "updating-an-add-on.md"), you specify a valid Amazon EKS add-on version, which might not be a version listed in this table. This is because [Amazon EKS add-on](workloads-add-ons-available-eks.md#add-ons-kube-proxy "workloads-add-ons-available-eks.md#add-ons-kube-proxy") versions don’t always match container image versions specified when updating the self-managed type of this add-on. When you update the self-managed type of this add-on, you specify a valid container image version listed in this table.

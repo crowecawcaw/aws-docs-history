@@ -269,4 +269,4 @@ To allow users to cancel in-progress rollback operations, grant the `eks:CancelU
 }
 ```
 
-For more information about the full cluster rollback process, see [Rollback cluster to previous Kubernetes version](rollback-cluster.md "rollback-cluster.md").
+For more information about the full cluster rollback process, see [Roll back a cluster to a previous Kubernetes version](rollback-cluster.md "rollback-cluster.md").

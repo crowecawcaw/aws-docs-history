@@ -139,4 +139,4 @@ aws eks update-nodegroup-version \
 
 The node group rollback respects your configured update settings (`maxUnavailable` or `maxUnavailablePercentage`) and update strategy (Rolling or Force), the same as an upgrade.
 
-For more information about the full cluster rollback process, see [Rollback cluster to previous Kubernetes version](rollback-cluster.md "rollback-cluster.md").
+For more information about the full cluster rollback process, see [Roll back a cluster to a previous Kubernetes version](rollback-cluster.md "rollback-cluster.md").

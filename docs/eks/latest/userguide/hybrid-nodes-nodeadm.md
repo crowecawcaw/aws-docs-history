@@ -314,7 +314,7 @@ spec:
 
 ## Node Config for customizing kubelet (Optional)
 
-You can pass kubelet configuration and flags in your `nodeadm` configuration. See the example below for how to add an additional node label `abc.amazonaws.com/test-label` and config for setting `shutdownGracePeriod` to 30 seconds.
+You can pass kubelet configuration and flags in your `nodeadm` configuration. See the following example for how to add an additional node label `abc.example.com/test-label` and set the kubelet config `shutdownGracePeriod` to 30 seconds. For more information about kubelet configuration options, see the [Kubelet Configuration (v1beta1) reference](https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/ "https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/") in the Kubernetes documentation. For more information about kubelet command-line flags, see the [kubelet CLI reference](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/ "https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/") in the Kubernetes documentation.
 
 ```
 apiVersion: node.eks.aws/v1alpha1
@@ -327,7 +327,7 @@ spec:
     config:           # Map of kubelet config and values
        shutdownGracePeriod: 30s
     flags:            # List of kubelet flags
-       - --node-labels=abc.company.com/test-label=true
+       - --node-labels=abc.example.com/test-label=true
   hybrid:
     ssm:
       activationCode: # SSM hybrid activation code

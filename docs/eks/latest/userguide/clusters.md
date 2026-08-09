@@ -13,7 +13,7 @@ This section provides in-depth guidance on the full lifecycle management of Kube
 - [Amazon EKS Provisioned Control Plane](eks-provisioned-control-plane.md "eks-provisioned-control-plane.md")
 - [Prepare for Kubernetes version upgrades and troubleshoot misconfigurations with cluster insights](cluster-insights.md "cluster-insights.md")
 - [Update existing cluster to new Kubernetes version](update-cluster.md "update-cluster.md")
-- [Rollback cluster to previous Kubernetes version](rollback-cluster.md "rollback-cluster.md")
+- [Roll back a cluster to a previous Kubernetes version](rollback-cluster.md "rollback-cluster.md")
 - [Delete a cluster](delete-cluster.md "delete-cluster.md")
 - [Cluster API server endpoint](cluster-endpoint.md "cluster-endpoint.md")
 - [Deploy Windows nodes on EKS clusters](windows-support.md "windows-support.md")

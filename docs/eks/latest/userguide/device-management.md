@@ -4,7 +4,9 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Manage hardware devices on Amazon EKS
 
-Amazon EKS supports two Kubernetes mechanisms for managing specialized hardware devices in EKS clusters: _Dynamic Resource Allocation (DRA)_ and _device plugins_. Both mechanisms enable workloads to access hardware accelerators such as NVIDIA GPUs and AWS Trainium chips, and high-performance network devices such as Elastic Fabric Adapter (EFA). It’s recommended to use DRA drivers for new deployments with Kubernetes versions 1.34 and later when using EKS managed node groups or self-managed nodes, as DRA provides richer device selection, topology-aware scheduling, and device sharing capabilities that are not possible with device plugins.
+Amazon EKS supports two Kubernetes mechanisms for managing specialized hardware devices in EKS clusters: _Dynamic Resource Allocation (DRA)_ and _device plugins_. Both mechanisms enable workloads to access hardware accelerators such as NVIDIA GPUs and AWS Trainium chips, and high-performance network devices such as Elastic Fabric Adapter (EFA).
+
+We recommend using DRA drivers for new deployments with Kubernetes versions 1.34 and later when using [static capacity provisioning](https://karpenter.sh/docs/concepts/nodepools/#static-nodepool "https://karpenter.sh/docs/concepts/nodepools/#static-nodepool") in Karpenter, EKS managed node groups, or self-managed nodes. DRA is not currently supported with EKS Auto Mode. DRA provides richer device selection, topology-aware scheduling, and device sharing capabilities that are not possible with device plugins.
 
 Reference the Kubernetes documentation for [Dynamic Resource Allocation](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/ "https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/") and [device plugins](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/device-plugins/ "https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/device-plugins/") for general information about these two Kubernetes features.
 
@@ -24,27 +26,31 @@ DRA enables:
 - Attribute-based device selection using [Common Expression Language (CEL)](https://kubernetes.io/docs/reference/using-api/cel/ "https://kubernetes.io/docs/reference/using-api/cel/") expressions.
 - Topology-aware allocation that ensures devices are co-located on the same PCIe switch or NUMA domain.
 - Device sharing between multiple containers or Pods through shared `ResourceClaim` references.
-- Constraint-based scheduling that aligns different device types
+- Dynamic partitioning and sharing of NVIDIA GPUs when using MIG or time-slicing
 
 ## DRA drivers for Amazon EKS
 
 The following DRA drivers are commonly used for managing specialized hardware devices in Amazon EKS clusters.
 
+NVIDIA DRA driver
+
+The [NVIDIA DRA driver for GPUs](https://github.com/kubernetes-sigs/dra-driver-nvidia-gpu "https://github.com/kubernetes-sigs/dra-driver-nvidia-gpu") on GitHub enables flexible allocation and dynamic configuration of NVIDIA GPUs. See [Use the NVIDIA DRA driver or device plugin on Amazon EKS](device-management-nvidia-dra-device-plugin.md "device-management-nvidia-dra-device-plugin.md") for information on managing GPUs with the NVIDIA DRA driver and [Use P6e-GB200 UltraServers with Amazon EKS](ml-eks-nvidia-ultraserver.md "ml-eks-nvidia-ultraserver.md") for information on using `ComputeDomains` for Multi-Node NVLink (MNNVL) workloads with EC2 Grace-Blackwell instances.
+
 EFA DRA driver
 
-The EFA DRA driver ([DRANET](https://github.com/kubernetes-sigs/dranet "https://github.com/kubernetes-sigs/dranet")) manages Elastic Fabric Adapter (EFA) device allocation with topology-aware scheduling that pairs EFA interfaces with their topologically-local GPUs or Neuron devices, and supports device sharing between Pods. For more information, see [Manage EFA devices on Amazon EKS](device-management-efa.md "device-management-efa.md").
+The EFA DRA driver ([DRANET](https://github.com/kubernetes-sigs/dranet "https://github.com/kubernetes-sigs/dranet") on GitHub) manages Elastic Fabric Adapter (EFA) device allocation with topology-aware scheduling that pairs EFA interfaces with their topologically-local GPUs or Neuron devices, and supports device sharing between Pods. For more information, see [Manage EFA devices on Amazon EKS](device-management-efa.md "device-management-efa.md").
 
 Neuron DRA driver
 
-The Neuron DRA driver manages AWS Trainium and AWS Inferentia2 device allocation with topology-aware scheduling, connected device subset allocation, and Logical NeuronCore (LNC) configuration, without requiring custom scheduler extensions.
-
-NVIDIA DRA driver
-
-The [NVIDIA DRA driver for GPUs](https://github.com/kubernetes-sigs/nvidia-dra-driver-gpu "https://github.com/kubernetes-sigs/nvidia-dra-driver-gpu") enables flexible allocation and dynamic reconfiguration of NVIDIA GPUs, including support for `ComputeDomain` resources for Multi-Node NVLink (MNNVL) workloads on EC2 Grace-Blackwell instances. For more information on using `ComputeDomains` with EC2 Grace-Blackwell instances, see [Use P6e-GB200 UltraServers with Amazon EKS](ml-eks-nvidia-ultraserver.md "ml-eks-nvidia-ultraserver.md").
+The Neuron DRA driver manages AWS Trainium and AWS Inferentia2 device allocation with topology-aware scheduling, connected device subset allocation, and Logical NeuronCore (LNC) configuration, without requiring custom scheduler extensions. For more information, see [Manage Neuron devices on Amazon EKS](device-management-neuron.md "device-management-neuron.md").
 
 ## Device plugins for Amazon EKS
 
 The following device plugins are commonly used for managing specialized hardware devices in Amazon EKS clusters.
+
+NVIDIA device plugin
+
+The [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin "https://github.com/NVIDIA/k8s-device-plugin") on GitHub advertises NVIDIA GPUs as `nvidia.com/gpu` extended resources and tracks the health of GPUs.
 
 EFA device plugin
 
@@ -54,19 +60,17 @@ Neuron device plugin
 
 The [Neuron device plugin](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-setup.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-setup.html") exposes Neuron hardware as `aws.amazon.com/neuroncore` and `aws.amazon.com/neuron` extended resources. It discovers available Neuron devices on each node, advertises them as allocatable resources, and manages their lifecycle.
 
-NVIDIA device plugin
-
-The [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin "https://github.com/NVIDIA/k8s-device-plugin") advertises NVIDIA GPUs as `nvidia.com/gpu` extended resources and tracks the health of GPUs.
-
 ## Considerations
 
 Before using DRA drivers on Amazon EKS, review the following considerations:
 
-- DRA is available on Amazon EKS with Kubernetes version 1.33 and above, but it is recommended for Kubernetes versions 1.34 and later due to an upstream [Kubernetes issue](https://github.com/kubernetes/kubernetes/issues/133920 "https://github.com/kubernetes/kubernetes/issues/133920"). Your cluster control plane and nodes must be running a Kubernetes version that supports DRA.
-- DRA is not currently compatible with Karpenter or EKS Auto Mode provisioned compute. You must use EKS managed node groups or self-managed nodes with DRA drivers.
-- DRA drivers and device plugins for the same device type **must** not run simultaneously on the same node. Uninstall the device plugin before installing the corresponding DRA driver, or deploy them on separate nodes. See upstream Kubernetes [KEP-5004](https://github.com/kubernetes/enhancements/issues/5004 "https://github.com/kubernetes/enhancements/issues/5004") for updates on DRA driver and device plugin compatibility.
-- DRA uses different Kubernetes API resources (`ResourceClaim`, `ResourceClaimTemplate`, `DeviceClass`) than device plugins (`resource.limits`, `resource.requests`). Migrating from device plugins to DRA requires updating your workload specifications.
-- Device plugins remain fully supported for all Kubernetes versions. If your cluster runs a Kubernetes version earlier than 1.34, or if you use Karpenter or EKS Auto Mode, continue using device plugins. The NVIDIA DRA driver is not supported on Bottlerocket; use the NVIDIA device plugin on Bottlerocket nodes. The EFA and Neuron DRA drivers are supported on Bottlerocket.
+- DRA is available on Amazon EKS with Kubernetes version 1.33 and above, but it is recommended for Kubernetes versions 1.34 and later because of an upstream [Kubernetes issue](https://github.com/kubernetes/kubernetes/issues/133920 "https://github.com/kubernetes/kubernetes/issues/133920") on GitHub. Your cluster control plane and nodes must be running a Kubernetes version that supports DRA.
+- DRA is not currently compatible with EKS Auto Mode.
+- DRA is not currently compatible with Karpenter when using dynamically provisioned capacity. You must use static capacity provisioning in Karpenter, or EKS managed node groups or self-managed nodes with DRA drivers.
+- DRA drivers and device plugins for the same device type **must** not run simultaneously on the same node. Uninstall the device plugin before installing the corresponding DRA driver, or deploy them on separate nodes. Running both DRA driver and device plugin for the same device on the same node can cause silent oversubscription of the underlying hardware devices.
+- DRA uses different Kubernetes API resources (`ResourceClaim`, `ResourceClaimTemplate`, `DeviceClass`) than device plugins (`resource.limits`, `resource.requests`). You can use DRA to manage the device plugin extended resources without changing your workload specifications. For more information about extended resources in DRA, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/#extended-resource "https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/#extended-resource") on the Kubernetes website.
+- The DRA drivers for NVIDIA, EFA, and Neuron are compatible with both the EKS-optimized AL2023 AMIs and the Bottlerocket AMIs. If you are using the NVIDIA DRA driver with Bottlerocket, disable the NVIDIA device plugin that is included in the Bottlerocket NVIDIA variants.
+- Device plugins remain fully supported for all Kubernetes versions.
 
 ## DRA ResourceClaim vs ResourceClaimTemplate
 
@@ -106,4 +110,7 @@ For examples of using `ResourceClaim` objects to share EFA devices between Pods,
 
 - [Manage EFA devices on Amazon EKS](device-management-efa.md "device-management-efa.md")
 - [Manage Neuron devices on Amazon EKS](device-management-neuron.md "device-management-neuron.md")
-- [Manage NVIDIA GPU devices on Amazon EKS](device-management-nvidia.md "device-management-nvidia.md")
+- [Manage NVIDIA GPUs on Amazon EKS](device-management-nvidia.md "device-management-nvidia.md")
+- [Use the NVIDIA DRA driver or device plugin on Amazon EKS](device-management-nvidia-dra-device-plugin.md "device-management-nvidia-dra-device-plugin.md")
+- [Use multi-instance GPUs (MIG) with NVIDIA GPUs on Amazon EKS](device-management-nvidia-mig.md "device-management-nvidia-mig.md")
+- [Use time-slicing with NVIDIA GPUs on Amazon EKS](device-management-nvidia-time-slicing.md "device-management-nvidia-time-slicing.md")
