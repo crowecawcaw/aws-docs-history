@@ -55,7 +55,8 @@ Required? Yes
 A default value to use when a matchmaking request does not provide
 one for a player.
 
-Allowed values: Any value allowed for the player attribute.
+Allowed values: Any value allowed for the player attribute. An
+empty string is treated as not providing a default.
 
 Required? No
 

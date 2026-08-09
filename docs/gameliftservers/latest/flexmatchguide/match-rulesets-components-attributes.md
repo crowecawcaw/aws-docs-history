@@ -17,4 +17,4 @@ There are two reasons you might declare player attributes in a rule set:
 - _default_ (optional) – Enter a default
   value to use if a matchmaking request doesn't provide an attribute value. If no
   default is declared and a request doesn't include a value, FlexMatch can't fulfill
-  the request.
+  the request. An empty string is treated as not providing a default.
