@@ -55,7 +55,7 @@ to fulfill the original request. A subsegment can contain additional details abo
 external HTTP API, or an SQL database. You can even define arbitrary subsegments to instrument specific functions
 or lines of code in your application.
 
-![Subsegments provide more granular information](images/scorekeep-cw-timeline-segment.png)
+![Subsegments provide more granular information](/images/xray/latest/devguide/images/scorekeep-cw-timeline-segment.png)
 
 For services that don't send their own segments, like Amazon DynamoDB, X-Ray uses subsegments to generate
 _inferred segments_ and downstream nodes on the trace map. This lets you see all of your
@@ -99,7 +99,7 @@ A service graph is a JSON document that contains information about the services 
 your application. The X-Ray console uses the service graph to generate a visualization or _service
 map_.
 
-![Trace map](images/scorekeep-gettingstarted-cw-servicemap-simplified.png)
+![Trace map](/images/xray/latest/devguide/images/scorekeep-gettingstarted-cw-servicemap-simplified.png)
 
 For a distributed application, X-Ray combines nodes from all services that process requests with the same
 trace ID into a single service graph. The first service that the request hits adds a [tracing header](#xray-concepts-tracingheader "#xray-concepts-tracingheader") that is propagated between the front end and
