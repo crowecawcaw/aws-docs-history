@@ -33,7 +33,6 @@ The following operations use the table recreation pattern:
 
 | Operation                        | Approach                                  |
 | -------------------------------- | ----------------------------------------- |
-| `DROP COLUMN`                    | Exclude column from new table             |
 | `ALTER COLUMN TYPE`              | Cast data type during migration           |
 | `ALTER COLUMN SET/DROP NOT NULL` | Change constraint in new table definition |
 | `ALTER COLUMN SET/DROP DEFAULT`  | Define default in new table definition    |
@@ -46,6 +45,7 @@ The following ALTER TABLE operations are supported directly without table recrea
 - `ALTER TABLE ... RENAME COLUMN` – Rename a column
 - `ALTER TABLE ... RENAME TO` – Rename a table
 - `ALTER TABLE ... ADD COLUMN` – Add a new column
+- `ALTER TABLE ... DROP COLUMN` – Drop a column, except a primary key column
 
 **Safety features:** When executing DDL migrations, AI agents present the migration plan, verify data compatibility, confirm row counts, and request explicit approval before any destructive operations like DROP TABLE.
 

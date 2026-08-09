@@ -21,8 +21,11 @@ Distributed Processing Units (DPUs), and storage, measured in GiB-month.
 
 DPUs measure how much work the system does to run your SQL workload and are comprised of
 three components for single-Region clusters: Compute DPUs, Read DPUs, and Write DPUs.
-Multi-Region clusters incur an additional MultiRegion Write DPU component. For details, see
-[Multi-Region billing](#billing-multiregion-write-dpu "#billing-multiregion-write-dpu").
+Multi-Region clusters incur an additional MultiRegion Write DPU component. For more information
+about Multi-Region billing, see
+[Multi-Region billing](#billing-multiregion-write-dpu "#billing-multiregion-write-dpu"). Clusters with
+change data capture (CDC) enabled incur an additional Stream DPU component. For more information
+about CDC billing, see [Stream DPU](#billing-stream-dpu "#billing-stream-dpu").
 
 The following table summarizes the components that Aurora DSQL uses to meter your database
 activity. On your bill, you see only two line items: one for storage and one for DPU, which
@@ -33,6 +36,7 @@ is the sum of each of the individual components.
 | Compute DPU   | Query processing             | CPU time                 |
 | Read DPU      | Read data from your database | Bytes read from storage  |
 | Write DPU     | Write data to your database  | Bytes written to storage |
+| Stream DPU    | CDC streaming (when enabled) | Bytes streamed           |
 | Storage       | Table storage                | GiB-month                |
 
 ## DPU component metering explained
@@ -120,6 +124,21 @@ row.
 ```
 ReadDPU = max(Bytes Read, 2048) × 0.00000183105
 ```
+
+### Stream DPU
+
+Stream DPUs apply only when you enable change data capture (CDC) on your cluster. Aurora DSQL
+measures Stream DPUs by the total bytes streamed to your target Amazon Kinesis Data Streams
+stream. When there are no changes to stream, you incur no Stream DPU charges.
+
+The following formula shows how to calculate Stream DPUs:
+
+```
+StreamDPU = Bytes Streamed × 0.0000023283
+```
+
+Aurora DSQL bills Stream DPUs at the same rate as all other DPU components. For more information
+about CDC streams, see [Change data capture streams](cdc-streams.md "cdc-streams.md").
 
 ### Billing examples
 
@@ -393,6 +412,7 @@ DPU metrics| CloudWatch metric | Description | Dimension |
 | `ReadDPU` | Read usage component | ClusterId |
 | `ComputeDPU` | Query processing component | ClusterId |
 | `MultiRegionWriteDPU` | Multi-Region replication (multi-Region clusters only) | ClusterId |
+| `StreamDPU` | CDC streaming (clusters with CDC enabled only) | `ClusterId`, `StreamId` |
 | `TotalDPU` | Sum of all DPU components | ClusterId |
 
 ### Viewing DPU metrics

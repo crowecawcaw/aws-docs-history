@@ -6,7 +6,30 @@ history](doc-history.md "doc-history.md").
 
 ## 2026
 
+### August 2026
+
+August 3, 2026
+
+🐘 _PostgreSQL Compatibility_ — **ALTER TABLE DROP
+COLUMN** — Aurora DSQL now supports `ALTER TABLE ... DROP COLUMN` to remove a
+column from an existing table, You can drop multiple columns in a single statement.
+Dropping a primary key column isn't supported. For more information,
+see [ALTER TABLE](alter-table-syntax-support.md "alter-table-syntax-support.md").
+
+August 3, 2026
+
+🐘 _PostgreSQL Compatibility_ — **ALTER TABLE ADD CONSTRAINT and VALIDATE CONSTRAINT** — Aurora DSQL now supports `ALTER TABLE ... ADD CONSTRAINT ... NOT VALID` for adding `CHECK` constraints without validating existing data, and `ALTER TABLE ASYNC ... VALIDATE CONSTRAINT` for validating existing data against constraints later. The `NOT VALID` option allows adding constraints to large tables without blocking operations. The validation runs as an asynchronous DDL job that can be monitored using `sys.jobs`. For more information, see [ALTER TABLE](alter-table-syntax-support.md "alter-table-syntax-support.md").
+
 ### July 2026
+
+July 15, 2026
+
+✨ _AI Integration_ — **Aurora DSQL Assist in the Aurora DSQL
+Playground** — Aurora DSQL Assist is a new artificial intelligence (AI) assistant in the
+Aurora DSQL Playground that helps you go from idea to working query. You can generate and fix SQL
+from natural language and design schemas and indexes for the distributed architecture of
+Aurora DSQL. You can also explore errors and documentation conversationally. For more
+information about Aurora DSQL Assist, see the [Aurora DSQL Playground website](https://playground.dsql.demo.aws/ "https://playground.dsql.demo.aws/").
 
 July 6, 2026
 
@@ -72,6 +95,18 @@ configuration objects, or event logs alongside relational data. Aurora DSQL enab
 compression by default, storing larger `JSON` payloads more efficiently.
 
 ### April 2026
+
+April 28, 2026
+
+🆕 _Feature_ — **Cost Estimator in the Aurora DSQL
+Playground** — The Aurora DSQL Playground now includes a Cost Estimator that helps you
+estimate the cost of running your workload on Aurora DSQL. You can pin queries to build a
+representative workload and review the estimated Distributed Processing Units (DPUs) those
+queries consume. The estimator also shows how the AWS Free Tier allowance of 100,000 DPUs per month applies to your
+workload.
+
+To get started with the Cost Estimator, see the [Aurora DSQL Playground website](https://playground.dsql.demo.aws/ "https://playground.dsql.demo.aws/"). For more
+information about how Aurora DSQL meters usage, see [Billing and Metering in Aurora DSQL](billing-metering.md "billing-metering.md").
 
 April 24, 2026
 

@@ -15,10 +15,13 @@ ALTER TABLE [ IF EXISTS ] name
     RENAME TO new_name
 ALTER TABLE [ IF EXISTS ] name
     SET SCHEMA new_schema
+ALTER TABLE ASYNC [ IF EXISTS ] [ ONLY ] name [ * ]
+    VALIDATE CONSTRAINT constraint_name
 
 where action is one of:
 
     ADD [ COLUMN ] [ IF NOT EXISTS ] column_name data_type [ STORAGE { PLAIN | EXTERNAL | EXTENDED | MAIN | DEFAULT } ]
+    DROP [ COLUMN ] [ IF EXISTS ] column_name [ RESTRICT | CASCADE ]
     ALTER [ COLUMN ] column_name SET DEFAULT expression
     ALTER [ COLUMN ] column_name DROP DEFAULT
     ALTER [ COLUMN ] column_name DROP NOT NULL
@@ -27,9 +30,15 @@ where action is one of:
     ALTER [ COLUMN ] column_name { SET GENERATED { ALWAYS | BY DEFAULT } | SET sequence_option | RESTART [ [ WITH ] restart ] } [...]
     ALTER [ COLUMN ] column_name DROP IDENTITY [ IF EXISTS ]
     ALTER [ COLUMN ] column_name SET STORAGE { PLAIN | EXTERNAL | EXTENDED | MAIN | DEFAULT }
+    ADD table_constraint NOT VALID
     ADD table_constraint_using_index
     DROP CONSTRAINT [ IF EXISTS ] constraint_name [ RESTRICT | CASCADE ]
     OWNER TO { new_owner | CURRENT_ROLE | CURRENT_USER | SESSION_USER }
+
+and table_constraint is:
+
+    [ CONSTRAINT constraint_name ]
+    CHECK ( expression )
 
 and table_constraint_using_index is:
 
@@ -44,6 +53,17 @@ and table_constraint_using_index is:
 This form adds a new column to the table, using the same syntax as
 [CREATE TABLE](create-table-syntax-support.md "create-table-syntax-support.md"). If `IF NOT EXISTS` is
 specified and a column already exists with this name, no error is thrown.
+
+**`DROP [ COLUMN ] [ IF EXISTS ]`**
+
+This form drops a column from a table. Indexes and table constraints involving the
+column will be automatically dropped except for primary key constraints. Dropping of
+primary key columns is not supported. Multivariate statistics referencing the dropped
+column will also be removed if the removal of the column would cause the statistics to
+contain data for only a single column. You will need to say `CASCADE` if
+anything outside the table depends on the column, for example, foreign key references or
+views. If `IF EXISTS` is specified and the column does not exist, no error is
+thrown. In this case a notice is issued instead.
 
 **`SET`/`DROP DEFAULT`**
 
@@ -96,6 +116,18 @@ see [Working with sequences and identity columns](sequences-identity-columns-wor
 This form sets the storage mode for a column. For details on the available storage
 modes, see [Storage mode](create-table-syntax-support.md#create-table-storage "create-table-syntax-support.md#create-table-storage") on the [CREATE TABLE](create-table-syntax-support.md "create-table-syntax-support.md") page.
 
+**`ADD `table_constraint` NOT VALID`**
+
+This form adds a new `CHECK` constraint to a table. In Aurora DSQL,
+`CHECK` constraints added via `ALTER TABLE ADD CONSTRAINT` must
+use the `NOT VALID` option. Aurora DSQL creates the constraint but doesn't immediately
+validate it against existing data. This allows the constraint to be added without scanning
+the entire table. The constraint applies immediately to all new rows and updates.
+
+After adding a constraint with `NOT VALID`, use `ALTER TABLE ASYNC ...
+ VALIDATE CONSTRAINT` to validate that existing data also satisfies the constraint.
+The validation runs as an asynchronous DDL job. You can monitor its progress using `sys.jobs`.
+
 **`ADD `table_constraint_using_index``**
 
 This form adds a new `UNIQUE` constraint to a table based on an existing
@@ -111,19 +143,32 @@ After this command is executed, the index is "owned" by the constraint, in the s
 way as if the index had been built by a regular `CREATE UNIQUE INDEX ASYNC`
 command. In particular, dropping the constraint will make the index disappear too.
 
+**`VALIDATE CONSTRAINT`**
+
+This form validates a constraint that was previously created with the `NOT
+ VALID` option. This command is an asynchronous DDL operation that doesn't block
+other transactions. When you run `ALTER TABLE ASYNC ... VALIDATE CONSTRAINT`,
+Aurora DSQL immediately returns a `job_id`.
+
+You can monitor the status of this asynchronous job using the `sys.jobs`
+system view. You can also use `sys.wait_for_job(`'job_id'`)`
+to block the current session until the validation completes or fails.
+
+The validation job scans the entire table to verify that all existing rows satisfy
+the constraint. Once validation completes successfully, Aurora DSQL marks the constraint as valid
+and the query planner enforces it for all queries. If validation fails because
+existing rows violate the constraint, the job fails and the constraint remains in the
+`NOT VALID` state.
+
+This command validates only constraints that you created with the `NOT
+ VALID` option. Attempting to validate an already-valid constraint results in an
+error.
+
 **`DROP CONSTRAINT [ IF EXISTS ]`**
 
 This form drops the specified constraint on a table, along with any index
 underlying the constraint. If `IF EXISTS` is specified and the constraint
 does not exist, no error is thrown. In this case a notice is issued instead.
-
-###### Important
-
-Currently, adding a new constraint is supported with the `CREATE TABLE`
-expression. `ALTER TABLE ADD CONSTRAINT` (mirroring support for
-`DROP CONSTRAINT`) is not yet available. If you have questions about this
-upcoming feature, please contact AWS Support or reach out directly via the
-[DSQL Public Discord](https://discord.com/invite/nEF6ksFWru "https://discord.com/invite/nEF6ksFWru").
 
 **`OWNER TO`**
 
@@ -172,20 +217,27 @@ New name for the table.
 
 Data type of the new column.
 
+**`table_constraint`**
+
+A `CHECK` constraint definition. In Aurora DSQL, `CHECK` constraints
+must be added with the `NOT VALID` option using `ALTER TABLE ADD
+ CONSTRAINT`. See [CREATE TABLE](create-table-syntax-support.md "create-table-syntax-support.md") for the full `CHECK` constraint
+syntax.
+
 **`constraint_name`**
 
 Name of a new or existing constraint.
 
 **`CASCADE`**
 
-Automatically drop objects that depend on the dropped constraint (for example,
-views referencing the column), and in turn all objects that depend on those
+Automatically drop objects that depend on the dropped column or constraint (for
+example, views referencing the column), and in turn all objects that depend on those
 objects.
 
 **`RESTRICT`**
 
-Refuse to drop the constraint if there are any dependent objects. This is the
-default behavior.
+Refuse to drop the column or constraint if there are any dependent objects. This is
+the default behavior.
 
 **`new_owner`**
 
@@ -194,3 +246,19 @@ The user name of the new owner of the table.
 **`new_schema`**
 
 The name of the schema to which the table will be moved.
+
+## Notes
+
+The `DROP COLUMN` form does not physically remove the column, but simply makes
+it invisible to SQL operations. Subsequent insert and update operations in the table will store
+a null value for the column. Thus, dropping a column is quick but it will not immediately
+reduce the on-disk size of your table, as the space occupied by the dropped column is not
+reclaimed. The space will be reclaimed over time as existing rows are updated.
+
+If a dropped column is referenced as an `INCLUDE` column in the primary key, the
+primary key definition will be updated to remove the dropped column.
+
+A table in Aurora DSQL can have at most 255 active columns at one time and a maximum of 1600
+columns over the lifetime of the table. Dropping a column does not reclaim its attribute
+number. It removes it from the set of active columns but the dropped column continues to count
+against the lifetime limit of 1600 columns. For more information, see [Database limits in Aurora DSQL](CHAP_quotas.md#SECTION_database-limits "CHAP_quotas.md#SECTION_database-limits").
