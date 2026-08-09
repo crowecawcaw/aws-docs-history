@@ -2,7 +2,9 @@
 
 ###### Note
 
-Business context and semantic search is in preview for AWS Glue and is subject to change.
+Business context and semantic search are in preview for AWS Glue in the following
+AWS Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland).
+This feature is subject to change.
 
 This tutorial walks you through creating a glossary, tagging assets, and using
 semantic search to discover data by meaning.
@@ -13,6 +15,9 @@ semantic search to discover data by meaning.
 - The AWS CLI installed and configured.
 - At least one table registered in the Data Catalog.
 - An IAM role or user with permissions for AWS Glue Data Catalog actions.
+- Additional permissions are required to search catalogs encrypted with a
+  customer managed KMS key. For more information,
+  see [Encrypting Catalog assets with AWS KMS customer managed key](encrypt-glue-data-catalog.md#encrypt-context-search "encrypt-glue-data-catalog.md#encrypt-context-search").
 
 Attach the following IAM policy to grant the required permissions:
 
