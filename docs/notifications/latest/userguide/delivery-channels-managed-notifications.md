@@ -15,7 +15,7 @@ You can add delivery channels from the console to have your AWS managed notifica
 ###### Note
 
 Emails you receive from User Notifications are sent from the domain `@aws.com`. The prefix of the emails you receive reflect the AWS service
-sending the communication. For example, notifications from AWS Health are sent from the email `health@aws.com`.
+sending the communication. For example, notifications from AWS Health are sent from the email `health@aws.com`, and notifications from AWS Marketplace are sent from `marketplace@aws.com`.
 
 Aggregated notifications are sent from `notifications@aws.com`. If your organization uses an email allow list, add the `@aws.com` domain to ensure you receive all User Notifications emails.
 
