@@ -42,10 +42,8 @@ Wait until the cluster has been deleted before proceeding with subsequent steps.
 
   - Choose **Roles**.
   - Select the role named **AWSPCS-getstarted-role** then choose
-    **Delete**.
-  - After the role has been deleted, choose **Policies**.
-  - Select the policy named **AWSPCS-getstarted-policy** then choose
-    **Delete**.
+    **Delete**. Deleting the role detaches the AWS managed policies from it.
+    You do not delete the managed policies themselves, because AWS owns and maintains them.
 
 - Open the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
 

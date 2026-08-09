@@ -262,9 +262,6 @@ These node groups are supported by
         EfsFilesystemSecurityGroupId: !GetAtt [ EfsStorage, Outputs.SecurityGroupId ]
         FSxLustreFilesystemSecurityGroupId: !GetAtt [ FSxLStorage, Outputs.FSxLustreSecurityGroupId ]
         SshKeyName: !Ref KeyName
-        EfsFilesystemId: !GetAtt [ EfsStorage, Outputs.EFSFilesystemId ]
-        FSxLustreFilesystemId: !GetAtt [ FSxLStorage, Outputs.FSxLustreFilesystemId ]
-        FSxLustreFilesystemMountName: !GetAtt [ FSxLStorage, Outputs.FSxLustreMountName ]
       TemplateURL: !Sub 'https://${HpcRecipesS3Bucket}.s3.amazonaws.com/${HpcRecipesBranch}/recipes/pcs/getting_started/assets/cfn-pcs-lt-efs-fsxl.yaml'
 
   # Compute Node groups - Login Nodes
@@ -304,6 +301,75 @@ These node groups are supported by
       AmiId: !GetAtt [PcsSampleAmi, AmiId]
       InstanceConfigs:
         - InstanceType: !FindInMap [ Architecture, ComputeNodeInstances, !Ref NodeArchitecture ]
+
+```
+
+Both node groups include a `NodeLifecycleActions` block that mounts
+shared storage and forwards node logs to Amazon CloudWatch Logs at the
+`nodeBootstrapped` stage. This replaces the older approach of mounting
+file systems through launch-template user data. Amazon EFS is mounted at
+`/home` for user home directories, and FSx for Lustre is mounted at
+`/shared` for high-performance scratch storage. A fourth action forwards
+node lifecycle action logs to Amazon CloudWatch Logs. The mount and directory
+actions use `EVERY_BOOT` so that they run on every reboot and keep storage
+available, while `configure-cloudwatch-logs` uses
+`FIRST_BOOT_ONLY` because the CloudWatch agent configuration persists
+across reboots and does not need to be reapplied. For more information about node
+lifecycle actions, see [Node lifecycle actions](cng-node-lifecycle-actions.md "cng-node-lifecycle-actions.md"). For details on the
+scripts that AWS maintains, see [AWS-maintained
+scripts](cng-node-lifecycle-actions-vetted-scripts.md "cng-node-lifecycle-actions-vetted-scripts.md").
+
+```
+
+      NodeLifecycleActions:
+        ScriptCachingPolicy: CACHE_ONCE
+        Stages:
+          NodeBootstrapped:
+            # Forward node lifecycle action logs to CloudWatch Logs. Runs first so the
+            # actions that follow have their output captured from the node's first boot.
+            - Name: configure-cloudwatch-logs
+              ScriptSource:
+                ScriptLocation: !Sub 's3://aws-pcs-repo-${AWS::Region}/aws-pcs-node-lifecycle-scripts/configure-cloudwatch-logs-v1-latest.sh'
+              OnError: CONTINUE
+              ExecutionPolicy: FIRST_BOOT_ONLY
+            # Mount EFS as the home-directory base at /home and create home dirs on first login.
+            - Name: configure-efs-homes
+              ScriptSource:
+                ScriptLocation: !Sub 's3://aws-pcs-repo-${AWS::Region}/aws-pcs-node-lifecycle-scripts/configure-efs-homes-v1-latest.sh'
+              Arguments:
+                - '--efs-id'
+                - !GetAtt [ EfsStorage, Outputs.EFSFilesystemId ]
+                - '--home-base'
+                - '/home'
+                - '--options'
+                - 'tls'
+              OnError: CONTINUE
+              ExecutionPolicy: EVERY_BOOT
+            # Mount FSx for Lustre at /shared for high-performance shared scratch storage.
+            - Name: mount-fsx-lustre
+              ScriptSource:
+                ScriptLocation: !Sub 's3://aws-pcs-repo-${AWS::Region}/aws-pcs-node-lifecycle-scripts/mount-fsx-lustre-v1-latest.sh'
+              Arguments:
+                - '--fsx-dns-name'
+                - !GetAtt FSxLustreLookup.DNSName
+                - '--mount-name'
+                - !GetAtt FSxLustreLookup.MountName
+                - '--mount-point'
+                - '/shared'
+              OnError: CONTINUE
+              ExecutionPolicy: EVERY_BOOT
+            # Set /shared to world-writable sticky mode (1777). Runs after mount-fsx-lustre
+            # so it applies to the mounted file system, not an empty directory.
+            - Name: set-shared-dir-mode
+              ScriptSource:
+                ScriptLocation: !Sub 'https://${HpcRecipesS3Bucket}.s3.us-east-1.amazonaws.com/${HpcRecipesBranch}/recipes/pcs-scripts/open_shared_dir/assets/set-shared-dir-mode-v1.0.0.sh'
+              Arguments:
+                - '--path'
+                - '/shared'
+                - '--mode'
+                - '1777'
+              OnError: CONTINUE
+              ExecutionPolicy: EVERY_BOOT
 
 ```
 

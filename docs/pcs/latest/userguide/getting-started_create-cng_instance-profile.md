@@ -11,35 +11,6 @@ Amazon EC2, which also creates the instance profile for your compute node groups
 ###### To create the role and instance profile
 
 - Navigate to the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
-- Under **Access management**, choose **Policies**.
-
-  - Choose **Create policy**.
-  - Under **Specify permissions**, for **Policy editor**,
-    choose **JSON**.
-  - Replace the contents of the text editor with the following:
-
-  JSON
-
-  ```
-  `{
-   "Version":"2012-10-17",
-   "Statement": [
-   {
-   "Action": [
-   "pcs:RegisterComputeNodeGroupInstance"
-   ],
-   "Resource": "*",
-   "Effect": "Allow"
-   }
-   ]
-  }`
-
-  ```
-  - Choose **Next**.
-  - Under **Review and create**, for **Policy name**, enter
-    `AWSPCS-getstarted-policy`.
-  - Choose **Create policy**.
-
 - Under **Access management**, choose **Roles**.
 - Choose **Create role**.
 - Under **Select trusted entity**:
@@ -55,10 +26,22 @@ Amazon EC2, which also creates the instance profile for your compute node groups
 
 - Under **Add permissions**:
 
-  - In **Permissions policies**, search for **AWSPCS-getstarted-policy**.
-  - Check the box beside **AWSPCS-getstarted-policy** to add it to the role.
+  - In **Permissions policies**, search for **AWSPCSComputeNodePolicy**.
+    This AWS managed policy grants the one permission a node needs to register with, and connect
+    to, your AWS PCS cluster.
+  - Check the box beside **AWSPCSComputeNodePolicy** to add it to the role.
   - In **Permissions policies**, search for **AmazonSSMManagedInstanceCore**.
+    This AWS managed policy lets you connect to nodes with Amazon EC2 Systems Manager (SSM), so you can reach
+    them without opening SSH or managing key pairs.
   - Check the box beside **AmazonSSMManagedInstanceCore** to add it to the role.
+  - In **Permissions policies**, search for **AmazonS3ReadOnlyAccess**.
+    This AWS managed policy lets nodes download the node lifecycle action scripts from Amazon S3,
+    including the scripts that AWS maintains to mount storage and forward logs.
+  - Check the box beside **AmazonS3ReadOnlyAccess** to add it to the role.
+  - In **Permissions policies**, search for **CloudWatchAgentServerPolicy**.
+    This AWS managed policy lets the `configure-cloudwatch-logs` node lifecycle action
+    create log streams and forward each node's lifecycle action logs to Amazon CloudWatch Logs.
+  - Check the box beside **CloudWatchAgentServerPolicy** to add it to the role.
   - Choose **Next**.
 
 - Under **Name, review, and create**:

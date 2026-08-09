@@ -25,7 +25,9 @@ in the same VPC as your cluster.
    - Under **File system details**
 
      - For **Name**, enter `getstarted-fsx`
-     - For **Deployment and storage type**, choose **Persistent, SSD**
+     - For **Deployment and storage type**, choose **Persistent, SSD**.
+       Persistent file systems store data durably, which suits a shared directory that outlives
+       individual compute nodes.
      - For **Throughput per unit of storage**, choose **125 MB/s/TiB**
      - For **Storage capacity**, enter 1.2 TiB
      - For **Metadata Configuration**, choose **Automatic**
@@ -37,7 +39,8 @@ in the same VPC as your cluster.
        `hpc-networking:Large-Scale-HPC`
      - For **VPC Security Groups**, leave the security group named `default`
      - For **Subnet**, choose the subnet where the name starts with
-       `hpc-networking:PrivateSubnetA`
+       `hpc-networking:PrivateSubnetA`. Place the file system in the same subnet as
+       your compute nodes so that they reach it over the local network.
 
    - Leave the other options set to their default values.
    - Choose **Next**.
@@ -45,8 +48,10 @@ in the same VPC as your cluster.
 5. On the **Review and create** page, choose **Create file
    system**. This returns you to the **File systems** page.
 6. Navigate to the details page for the FSx for Lustre file system you created.
-7. Make a note of the **File system ID** and the **Mount
-   name**. You use this information later.
+7. Make a note of the **DNS name** and the **Mount
+   name**. You provide both values later when you configure the node lifecycle action
+   that mounts this file system. The `mount-fsx-lustre` script mounts the file system
+   by its DNS name, not its file system ID.
 
 ###### Note
 

@@ -115,17 +115,17 @@ following table. If the checksums match, then it's safe to run the installation 
 
 If the checksums don't match, don't run the installation script. Contact [Support](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
 
-For example, the following command generates the SHA256 checksum for the Slurm 25.11.6-2
+For example, the following command generates the SHA256 checksum for the Slurm 25.11.7-1
 tarball.
 
 ```
-`$` sha256sum aws-pcs-slurm-25.11-installer-25.11.6-2.tar.gz
+`$` sha256sum aws-pcs-slurm-25.11-installer-25.11.7-1.tar.gz
 ```
 
 Example output:
 
 ```
-553e74598fcc65b532b57bfa9a89820cd00ac8f233aa464c7d194d35540f3ec5 aws-pcs-slurm-25.11-installer-25.11.6-2.tar.gz
+901305999c4b572229aade737d66865fcb6b52fe0c9c1f27d03f1ffda3b9cf13 aws-pcs-slurm-25.11-installer-25.11.7-1.tar.gz
 ```
 
 The following tables list the checksums for recent versions of the installers. Replace
@@ -149,6 +149,7 @@ AWS PCS agent| Installer | Download URL | SHA256 checksum |
 
 Slurm installer| Installer | Download URL | SHA256 checksum |
 | --- | --- | --- |
+| Slurm 25.11.7-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.7-1.tar.gz<br>`` | `<br>901305999c4b572229aade737d66865fcb6b52fe0c9c1f27d03f1ffda3b9cf13<br>` |
 | Slurm 25.11.6-2 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.6-2.tar.gz<br>`` | `<br>553e74598fcc65b532b57bfa9a89820cd00ac8f233aa464c7d194d35540f3ec5<br>` |
 | Slurm 25.11.6-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.6-1.tar.gz<br>`` | `<br>8eddffd39aa31fef7d4e73106627212ec9ec14ac66d3f37acd8a95406ab3a8af<br>` |
 | Slurm 25.11.2-1 | ``<br>https://aws-pcs-repo-`us-east-1`.s3.`us-east-1`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.2-1.tar.gz<br>`` | `<br>aa063bc01b2ccd84a82402e8b8dbcd8c7401ebd2e0a670c867d77167944d621a<br>` |
