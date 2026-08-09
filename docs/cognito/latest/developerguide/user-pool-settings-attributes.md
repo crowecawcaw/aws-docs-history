@@ -248,6 +248,12 @@ the user continues to create the new account, your app must call the
 the previous account to the newly created account, and marks the attribute unverified
 in the previous account.
 
+Aliases can also transfer between accounts when a user verifies an attribute with
+`VerifyUserAttribute`. If a user verifies an email address or phone
+number that is already a verified alias on another account, Amazon Cognito transfers the alias
+to their account and marks the attribute as unverified on the original account. This
+transfer doesn't raise an `AliasExistsException`.
+
 Phone numbers and email addresses only become active aliases for a user after your
 user verifies the phone numbers and email addresses. We recommend that you choose
 automatic verification of email addresses and phone numbers if you use them as

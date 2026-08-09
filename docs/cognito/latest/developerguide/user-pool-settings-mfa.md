@@ -47,9 +47,10 @@ Before you set up MFA, consider the following:
 
 - Users can either have MFA _or_ sign in with
   passwordless factors, with one exception: passkeys with user verification can satisfy
-  MFA requirements when you set `FactorConfiguration` to
+  MFA requirements as first-factor when you set `FactorConfiguration` to
   `MULTI_FACTOR_WITH_USER_VERIFICATION` in your user pool
-  `WebAuthnConfiguration`.
+  `WebAuthnConfiguration`. Passkeys cannot be used as a second factor to
+  password sign-in.
 
   - You can't set MFA to required in user pools that support [one-time passwords](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless").
   - You can't add `EMAIL_OTP` or
@@ -71,15 +72,15 @@ Before you set up MFA, consider the following:
     configuration of MFA factors on users' ability to sign in with passwordless
     factors.
 
-| User pool MFA setting               | User MFA status        | Webauthn/OTP available                             | Prompted for MFA after password sign-in | Can sign in with WebAuthn/OTP                      |
-| ----------------------------------- | ---------------------- | -------------------------------------------------- | --------------------------------------- | -------------------------------------------------- |
-| Required                            | Configured             | No                                                 | Yes                                     | No                                                 |
-| Required                            | Not configured         | No                                                 | No (can't sign in)                      | No                                                 |
-| Optional                            | Configured             | Can set up WebAuthn but can't sign in with passkey | Yes                                     | No                                                 |
-| Optional                            | Not configured         | Yes                                                | No                                      | Yes                                                |
-| Optional (with passkey MFA enabled) | Passkey MFA configured | Yes                                                | Yes (after password sign-in)            | Yes (passkey with user verification satisfies MFA) |
-| Required (with passkey MFA enabled) | Passkey MFA configured | Yes                                                | Yes (after password sign-in)            | Yes (passkey with user verification satisfies MFA) |
-| Off                                 | Any                    | Yes                                                | No                                      | Yes                                                |
+| User pool MFA setting               | User MFA status        | Webauthn/OTP available                             | Prompted for MFA after password sign-in                          | Can sign in with WebAuthn/OTP                                    |
+| ----------------------------------- | ---------------------- | -------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Required                            | Configured             | No                                                 | Yes                                                              | No                                                               |
+| Required                            | Not configured         | No                                                 | No (can't sign in)                                               | No                                                               |
+| Optional                            | Configured             | Can set up WebAuthn but can't sign in with passkey | Yes                                                              | No                                                               |
+| Optional                            | Not configured         | Yes                                                | No                                                               | Yes                                                              |
+| Optional (with passkey MFA enabled) | Passkey MFA configured | Yes                                                | Yes (passkey with user verification satisfies MFA independently) | Yes (passkey with user verification satisfies MFA independently) |
+| Required (with passkey MFA enabled) | Passkey MFA configured | Yes                                                | Yes (passkey with user verification satisfies MFA independently) | Yes (passkey with user verification satisfies MFA independently) |
+| Off                                 | Any                    | Yes                                                | No                                                               | Yes                                                              |
 
 - A user's preferred MFA method influences the methods they can use to recover their
   password. Users whose preferred MFA is by email message can't receive a password-reset

@@ -173,6 +173,85 @@ The response confirms the updated replica status:
 }
 ```
 
+## Supported API operations in secondary Regions
+
+Amazon Cognito supports a subset of API operations in secondary Regions. The operations
+available depend on the replica's status. Replicas in `INACTIVE` status support
+a limited set of read and configuration operations. Replicas in `ACTIVE` status
+support additional authentication and session management operations. Operations that aren't
+listed here are only available in the primary Region.
+
+### Operations for INACTIVE secondary Regions
+
+Replica user pools in secondary Regions in `INACTIVE` status allow the following Amazon Cognito
+API operations.
+
+- [AdminGetDevice](../../../cognito-user-identity-pools/latest/APIReference/API_AdminGetDevice.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminGetDevice.md")
+- [AdminGetUser](../../../cognito-user-identity-pools/latest/APIReference/API_AdminGetUser.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminGetUser.md")
+- [AdminListDevices](../../../cognito-user-identity-pools/latest/APIReference/API_AdminListDevices.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminListDevices.md")
+- [AdminListGroupsForUser](../../../cognito-user-identity-pools/latest/APIReference/API_AdminListGroupsForUser.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminListGroupsForUser.md")
+- [AdminListUserAuthEvents](../../../cognito-user-identity-pools/latest/APIReference/API_AdminListUserAuthEvents.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminListUserAuthEvents.md")
+- [AssociateWebACL](../../../cognito-user-identity-pools/latest/APIReference/API_AssociateWebACL.md "../../../cognito-user-identity-pools/latest/APIReference/API_AssociateWebACL.md")
+- [CreateUserPoolDomain](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolDomain.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolDomain.md")
+- [DeleteUserPoolDomain](../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserPoolDomain.md "../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserPoolDomain.md")
+- [DeleteUserPoolReplica](../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserPoolReplica.md "../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserPoolReplica.md")
+- [DescribeIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeIdentityProvider.md")
+- [DescribeManagedLoginBranding](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBranding.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBranding.md")
+- [DescribeManagedLoginBrandingByClient](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBrandingByClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBrandingByClient.md")
+- [DescribeResourceServer](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeResourceServer.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeResourceServer.md")
+- [DescribeRiskConfiguration](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeRiskConfiguration.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeRiskConfiguration.md")
+- [DescribeTerms](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeTerms.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeTerms.md")
+- [DescribeUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.md")
+- [DescribeUserPoolClient](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.md")
+- [DescribeUserPoolDomain](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolDomain.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolDomain.md")
+- [DisassociateWebACL](../../../cognito-user-identity-pools/latest/APIReference/API_DisassociateWebACL.md "../../../cognito-user-identity-pools/latest/APIReference/API_DisassociateWebACL.md")
+- [GetGroup](../../../cognito-user-identity-pools/latest/APIReference/API_GetGroup.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetGroup.md")
+- [GetLogDeliveryConfiguration](../../../cognito-user-identity-pools/latest/APIReference/API_GetLogDeliveryConfiguration.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetLogDeliveryConfiguration.md")
+- [GetSigningCertificate](../../../cognito-user-identity-pools/latest/APIReference/API_GetSigningCertificate.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetSigningCertificate.md")
+- [GetUICustomization](../../../cognito-user-identity-pools/latest/APIReference/API_GetUICustomization.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetUICustomization.md")
+- [GetUserPoolMfaConfig](../../../cognito-user-identity-pools/latest/APIReference/API_GetUserPoolMfaConfig.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetUserPoolMfaConfig.md")
+- [ListIdentityProviders](../../../cognito-user-identity-pools/latest/APIReference/API_ListIdentityProviders.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListIdentityProviders.md")
+- [ListGroups](../../../cognito-user-identity-pools/latest/APIReference/API_ListGroups.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListGroups.md")
+- [ListResourceServers](../../../cognito-user-identity-pools/latest/APIReference/API_ListResourceServers.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListResourceServers.md")
+- [ListTagsForResource](../../../cognito-user-identity-pools/latest/APIReference/API_ListTagsForResource.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListTagsForResource.md")
+- [ListTerms](../../../cognito-user-identity-pools/latest/APIReference/API_ListTerms.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListTerms.md")
+- [ListUserPoolClients](../../../cognito-user-identity-pools/latest/APIReference/API_ListUserPoolClients.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListUserPoolClients.md")
+- [ListUserPoolClientSecrets](../../../cognito-user-identity-pools/latest/APIReference/API_ListUserPoolClientSecrets.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListUserPoolClientSecrets.md")
+- [ListUserPoolReplicas](../../../cognito-user-identity-pools/latest/APIReference/API_ListUserPoolReplicas.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListUserPoolReplicas.md")
+- [ListUserPools](../../../cognito-user-identity-pools/latest/APIReference/API_ListUserPools.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListUserPools.md")
+- [ListUsers](../../../cognito-user-identity-pools/latest/APIReference/API_ListUsers.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListUsers.md")
+- [ListUsersInGroup](../../../cognito-user-identity-pools/latest/APIReference/API_ListUsersInGroup.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListUsersInGroup.md")
+- [SetLogDeliveryConfiguration](../../../cognito-user-identity-pools/latest/APIReference/API_SetLogDeliveryConfiguration.md "../../../cognito-user-identity-pools/latest/APIReference/API_SetLogDeliveryConfiguration.md")
+- [SetRiskConfiguration](../../../cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.md "../../../cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.md")
+- [SetUserPoolMfaConfig](../../../cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.md "../../../cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.md")
+- [TagResource](../../../cognito-user-identity-pools/latest/APIReference/API_TagResource.md "../../../cognito-user-identity-pools/latest/APIReference/API_TagResource.md")
+- [UntagResource](../../../cognito-user-identity-pools/latest/APIReference/API_UntagResource.md "../../../cognito-user-identity-pools/latest/APIReference/API_UntagResource.md")
+- [UpdateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md")
+- [UpdateUserPoolDomain](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.md")
+- [UpdateUserPoolReplica](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolReplica.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolReplica.md")
+
+### Additional operations for ACTIVE secondary Regions
+
+Replica user pools in secondary Regions in `ACTIVE` status allow all of the preceding
+operations, plus the following authentication and session management operations.
+
+- [AdminInitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md")
+- [AdminRespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md")
+- [AdminUpdateAuthEventFeedback](../../../cognito-user-identity-pools/latest/APIReference/API_AdminUpdateAuthEventFeedback.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminUpdateAuthEventFeedback.md")
+- [AdminUserGlobalSignOut](../../../cognito-user-identity-pools/latest/APIReference/API_AdminUserGlobalSignOut.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminUserGlobalSignOut.md")
+- [GetDevice](../../../cognito-user-identity-pools/latest/APIReference/API_GetDevice.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetDevice.md")
+- [GetIdentityProviderByIdentifier](../../../cognito-user-identity-pools/latest/APIReference/API_GetIdentityProviderByIdentifier.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetIdentityProviderByIdentifier.md")
+- [GetTokensFromRefreshToken](../../../cognito-user-identity-pools/latest/APIReference/API_GetTokensFromRefreshToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetTokensFromRefreshToken.md")
+- [GetUser](../../../cognito-user-identity-pools/latest/APIReference/API_GetUser.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetUser.md")
+- [GetUserAuthFactors](../../../cognito-user-identity-pools/latest/APIReference/API_GetUserAuthFactors.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetUserAuthFactors.md")
+- [GlobalSignOut](../../../cognito-user-identity-pools/latest/APIReference/API_GlobalSignOut.md "../../../cognito-user-identity-pools/latest/APIReference/API_GlobalSignOut.md")
+- [InitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md")
+- [ListDevices](../../../cognito-user-identity-pools/latest/APIReference/API_ListDevices.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListDevices.md")
+- [ListWebAuthnCredentials](../../../cognito-user-identity-pools/latest/APIReference/API_ListWebAuthnCredentials.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListWebAuthnCredentials.md")
+- [RespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md")
+- [RevokeToken](../../../cognito-user-identity-pools/latest/APIReference/API_RevokeToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_RevokeToken.md")
+- [UpdateAuthEventFeedback](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateAuthEventFeedback.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateAuthEventFeedback.md")
+
 ## Failover in multi-Region user pools
 
 With multi-Region user pools, you can fail over managed login, federated login, and

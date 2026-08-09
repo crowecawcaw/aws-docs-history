@@ -944,12 +944,13 @@ provider. It will return an [AuthenticationResponseJSON](https://www.w3.org/TR/w
 You can set up users who complete sign-in with a username-password flow to be prompted
 for additional verification with a one-time password from an email message, SMS message, or
 code-generating application. MFA is distinct from passwordless sign-in with one-time
-passwords. However, passkeys with user verification can satisfy MFA requirements when you
-configure `FactorConfiguration` as
+passwords. However, passkeys with user verification can satisfy MFA requirements as
+first-factor when you configure `FactorConfiguration` as
 `MULTI_FACTOR_WITH_USER_VERIFICATION` in your user pool
-`WebAuthnConfiguration`. For password-based flows, MFA in user pools is a
-challenge-response model where a user first demonstrates they know the password, then
-demonstrates that they have access to their registered second-factor device.
+`WebAuthnConfiguration`. Passkeys cannot be used as a second factor to
+password sign-in. For password-based flows, MFA in user pools is a challenge-response
+model where a user first demonstrates they know the password, then demonstrates that they
+have access to their registered second-factor device.
 
 ###### Implementation resources
 

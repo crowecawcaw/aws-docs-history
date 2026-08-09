@@ -25,17 +25,41 @@ Example:
 
 **Enhanced authentication**
 
-Call the [GetCredentialsForIdentity](../../../cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.md "../../../cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.md") API operation with a `Logins` map with the
-name `cognito-identity.amazonaws.com` and a value of the token from
-`GetOpenIdTokenForDeveloperIdentity`.
+Call the [GetCredentialsForIdentity](../../../cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.md "../../../cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.md") API operation with a `Logins` map where the
+key is the issuer of the token returned by `GetOpenIdTokenForDeveloperIdentity`,
+and the value is the token itself.
 
-Example:
+The issuer (and therefore the required logins key) depends on the Region of your identity
+pool. See [Token issuer by Region](#token-issuer-by-region "#token-issuer-by-region") for
+the complete list of Regions and their token issuers.
+
+Example for an identity pool in a Region that uses the global issuer:
 
 ```
 "Logins": {
         "cognito-identity.amazonaws.com": "eyJra12345EXAMPLE"
     }
 ```
+
+Example for an identity pool in a newer Region (such as eu-south-2):
+
+```
+"Logins": {
+        "cognito-identity.eu-south-2.amazonaws.com": "eyJra12345EXAMPLE"
+    }
+```
+
+###### Important
+
+The logins map key must exactly match the `iss` (issuer) claim in the token.
+If they do not match, `GetCredentialsForIdentity` returns:
+`NotAuthorizedException: Invalid login token. Issuer doesn't match
+ providerName`
+
+###### Tip
+
+To determine the correct logins key programmatically, decode the token (a JWT) and read
+the `iss` claim value. Use that value as the logins map key.
 
 `GetCredentialsForIdentity` with developer-authenticated identities returns
 temporary credentials for the default authenticated role of the identity pool.
@@ -142,6 +166,13 @@ DeveloperAuthenticationProvider developerProvider = new DeveloperAuthenticationP
 CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider( context, developerProvider, Regions.USEAST1);
 ```
 
+###### Note
+
+Older versions of the AWS SDK for Android (2.x and earlier) use
+`cognito-identity.amazonaws.com` as the internal provider name for
+developer-authenticated identities. If your identity pool is in a newer Region that uses a
+regionalized issuer, upgrade to a current SDK version. For more information, see [Regional token issuer format](#regional-token-issuer-format "#regional-token-issuer-format").
+
 ### iOS - objective-C
 
 To use developer-authenticated identities, implement your own identity provider class
@@ -215,6 +246,13 @@ manage who the current provider is in your `logins` implementation of
 }
 ```
 
+###### Note
+
+Older versions of the AWS SDK for iOS (2.x and earlier) use
+`cognito-identity.amazonaws.com` as the internal provider name for
+developer-authenticated identities. If your identity pool is in a newer Region that uses a
+regionalized issuer, upgrade to a current SDK version. For more information, see [Regional token issuer format](#regional-token-issuer-format "#regional-token-issuer-format").
+
 ### iOS - swift
 
 To use developer-authenticated identities, implement your own identity provider class
@@ -287,14 +325,25 @@ override func logins () -> AWSTask<NSDictionary> {
 ### JavaScript
 
 Once you obtain an identity ID and session token from your backend, you will pass them
-into the `AWS.CognitoIdentityCredentials` provider. Here's an example.
+into the `AWS.CognitoIdentityCredentials` provider. The logins key must match the
+token's `iss` claim. For identity pools in Regions that use the global issuer,
+use `cognito-identity.amazonaws.com`. For identity pools in other Regions, use
+`cognito-identity.`region`.amazonaws.com`. For more
+information, see [Regional token issuer format](#regional-token-issuer-format "#regional-token-issuer-format").
 
 ```
+const token = 'TOKEN_RETURNED_FROM_YOUR_PROVIDER';
+
+// Extract the issuer from the token
+const payload = token.split('.')[1];
+const claims = JSON.parse(Buffer.from(payload, 'base64url').toString());
+const providerName = claims.iss;
+
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({
    IdentityPoolId: 'IDENTITY_POOL_ID',
    IdentityId: 'IDENTITY_ID_RETURNED_FROM_YOUR_PROVIDER',
    Logins: {
-      'cognito-identity.amazonaws.com': 'TOKEN_RETURNED_FROM_YOUR_PROVIDER'
+      [providerName]: token
    }
 });
 ```
@@ -528,6 +577,82 @@ String token = response.getToken();
 Following the preceding steps, you should be able to integrate developer-authenticated
 identities in your app. If you have any issues or questions please feel free to post in our
 [forums](https://forums.aws.amazon.com/forum.jspa?forumID=173 "https://forums.aws.amazon.com/forum.jspa?forumID=173").
+
+## Regional token issuer format
+
+The OpenID Connect token returned by `GetOpenIdTokenForDeveloperIdentity`
+contains an `iss` (issuer) claim. The format of this claim depends on the AWS
+Region of the identity pool.
+
+When you call `GetCredentialsForIdentity` (enhanced flow), the logins map key
+**must exactly match** the token's `iss`
+claim.
+
+### Token issuer by Region
+
+The token issuer value depends on the Region of your identity pool.
+
+- **Regions that use the global issuer** (us-east-1,
+  us-east-2, us-west-1, us-west-2, ap-northeast-1, ap-northeast-2, ap-northeast-3,
+  ap-south-1, ap-southeast-1, ap-southeast-2, ca-central-1, eu-central-1, eu-north-1,
+  eu-west-1, eu-west-2, eu-west-3, sa-east-1):
+  `cognito-identity.amazonaws.com`
+- **The China Regions** (cn-north-1):
+  `cognito-identity.cn-north-1.amazonaws.com.cn`
+- **All remaining commercial AWS Regions**:
+  `cognito-identity.`region`.amazonaws.com`
+
+### Determining the logins key programmatically
+
+Rather than hardcoding the logins key, you can extract it from the token:
+
+###### Java
+
+```
+import java.util.Base64;
+import org.json.JSONObject;
+
+String[] parts = token.split("\\.");
+String payload = new String(Base64.getUrlDecoder().decode(parts[1]));
+String issuer = new JSONObject(payload).getString("iss");
+// Use 'issuer' as the logins map key in GetCredentialsForIdentity
+```
+
+###### Python
+
+```
+import base64, json
+
+payload = token.split('.')[1]
+# Add padding if needed
+payload += '=' * (4 - len(payload) % 4)
+claims = json.loads(base64.urlsafe_b64decode(payload))
+issuer = claims['iss']
+# Use 'issuer' as the logins map key
+```
+
+###### JavaScript
+
+```
+const payload = token.split('.')[1];
+const claims = JSON.parse(Buffer.from(payload, 'base64url').toString());
+const issuer = claims.iss;
+// Use 'issuer' as the logins map key
+```
+
+### Migration considerations
+
+If you are migrating an identity pool to a Region that uses a regionalized issuer, be
+aware of the following:
+
+1. Clients that hardcode `cognito-identity.amazonaws.com` as the logins key
+   will fail against the new Region's identity pool.
+2. Client code must be updated to use the regionalized issuer
+   (`cognito-identity.`new-region`.amazonaws.com`),
+   or to dynamically read the `iss` claim from the token (recommended).
+3. Older versions of the AWS Mobile SDKs hardcode the global issuer. This includes
+   the AWS SDK for Android 2.x and earlier, and the AWS SDK for iOS 2.x and earlier. If
+   your identity pool uses a regionalized issuer, upgrade to a current SDK version.
 
 ## Connect to an existing social identity
 
