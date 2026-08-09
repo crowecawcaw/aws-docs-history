@@ -27,27 +27,31 @@ select certain versions of supported software via the `devicefarm-cli` tooling.
 
 The following table contains the selectable software and the test hosts that contain them.
 
-| Software / Tool | Hosts that support this software   | Command to use in your test spec |
-| --------------- | ---------------------------------- | -------------------------------- |
-| Java 17         | amazon\_linux\_2<br>macos\_sequoia | `devicefarm-cli use java 17`     |
-| Java 11         | amazon\_linux\_2<br>macos\_sequoia | `devicefarm-cli use java 11`     |
-| Java 8          | amazon\_linux\_2<br>macos\_sequoia | `devicefarm-cli use java 8`      |
-| Node.js 22      | amazon\_linux\_2<br>macos\_sequoia | `devicefarm-cli use node 22`     |
-| Node.js 20      | amazon\_linux\_2<br>macos\_sequoia | `devicefarm-cli use node 20`     |
-| Node.js 18      | amazon\_linux\_2<br>macos\_sequoia | `devicefarm-cli use node 18`     |
-| Node.js 16      | amazon\_linux\_2                   | `devicefarm-cli use node 16`     |
-| Python 3.12     | amazon\_linux\_2<br>macos\_sequoia | `devicefarm-cli use python 3.12` |
-| Python 3.11     | amazon\_linux\_2<br>macos\_sequoia | `devicefarm-cli use python 3.11` |
-| Python 3.10     | amazon\_linux\_2<br>macos\_sequoia | `devicefarm-cli use python 3.10` |
-| Python 3.9      | amazon\_linux\_2<br>macos\_sequoia | `devicefarm-cli use python 3.9`  |
-| Python 3.8      | amazon\_linux\_2                   | `devicefarm-cli use python 3.8`  |
-| Ruby 3.2        | amazon\_linux\_2<br>macos\_sequoia | `devicefarm-cli use ruby 3.2`    |
-| Ruby 2.7        | amazon\_linux\_2                   | `devicefarm-cli use ruby 2.7`    |
-| Appium 3        | amazon\_linux\_2<br>macos\_sequoia | `devicefarm-cli use appium 3`    |
-| Appium 2        | amazon\_linux\_2<br>macos\_sequoia | `devicefarm-cli use appium 2`    |
-| Appium 1        | amazon\_linux\_2                   | `devicefarm-cli use appium 1`    |
-| Xcode 26        | macos\_sequoia                     | `devicefarm-cli use xcode 26`    |
-| Xcode 16        | macos\_sequoia                     | `devicefarm-cli use xcode 16`    |
+| Software / Tool | Hosts that support this software                   | Command to use in your test spec |
+| --------------- | -------------------------------------------------- | -------------------------------- |
+| Java 25         | macos\_tahoe                                       | `devicefarm-cli use java 25`     |
+| Java 17         | amazon\_linux\_2<br>macos\_sequoia<br>macos\_tahoe | `devicefarm-cli use java 17`     |
+| Java 11         | amazon\_linux\_2<br>macos\_sequoia                 | `devicefarm-cli use java 11`     |
+| Java 8          | amazon\_linux\_2<br>macos\_sequoia                 | `devicefarm-cli use java 8`      |
+| Node.js 24      | macos\_tahoe                                       | `devicefarm-cli use node 24`     |
+| Node.js 22      | amazon\_linux\_2<br>macos\_sequoia<br>macos\_tahoe | `devicefarm-cli use node 22`     |
+| Node.js 20      | amazon\_linux\_2<br>macos\_sequoia                 | `devicefarm-cli use node 20`     |
+| Node.js 18      | amazon\_linux\_2<br>macos\_sequoia                 | `devicefarm-cli use node 18`     |
+| Node.js 16      | amazon\_linux\_2                                   | `devicefarm-cli use node 16`     |
+| Python 3.14     | macos\_tahoe                                       | `devicefarm-cli use python 3.14` |
+| Python 3.12     | amazon\_linux\_2<br>macos\_sequoia<br>macos\_tahoe | `devicefarm-cli use python 3.12` |
+| Python 3.11     | amazon\_linux\_2<br>macos\_sequoia                 | `devicefarm-cli use python 3.11` |
+| Python 3.10     | amazon\_linux\_2<br>macos\_sequoia                 | `devicefarm-cli use python 3.10` |
+| Python 3.9      | amazon\_linux\_2<br>macos\_sequoia                 | `devicefarm-cli use python 3.9`  |
+| Python 3.8      | amazon\_linux\_2                                   | `devicefarm-cli use python 3.8`  |
+| Ruby 4.0        | amazon\_linux\_2<br>macos\_tahoe                   | `devicefarm-cli use ruby 4.0`    |
+| Ruby 3.2        | amazon\_linux\_2<br>macos\_sequoia                 | `devicefarm-cli use ruby 3.2`    |
+| Ruby 2.7        | amazon\_linux\_2                                   | `devicefarm-cli use ruby 2.7`    |
+| Appium 3        | amazon\_linux\_2<br>macos\_sequoia<br>macos\_tahoe | `devicefarm-cli use appium 3`    |
+| Appium 2        | amazon\_linux\_2<br>macos\_sequoia<br>macos\_tahoe | `devicefarm-cli use appium 2`    |
+| Appium 1        | amazon\_linux\_2                                   | `devicefarm-cli use appium 1`    |
+| Xcode 26        | macos\_sequoia<br>macos\_tahoe                     | `devicefarm-cli use xcode 26`    |
+| Xcode 16        | macos\_sequoia                                     | `devicefarm-cli use xcode 16`    |
 
 The test host also includes commonly used supporting tools for each software version, such
 as the `pip` and `npm` package managers (included with Python and

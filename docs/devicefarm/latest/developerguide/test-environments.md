@@ -13,8 +13,8 @@ of each test in your automated test suite.
 ## Standard test environment
 
 When you run a test in the standard environment, Device Farm provides detailed logs and
-reporting for every case in your test suite. You can view performance data, videos,
-screenshots, and logs for each test to pinpoint and fix issues in your app.
+reporting for every case in your test suite. You can view videos, screenshots, and logs for
+each test to pinpoint and fix issues in your app.
 
 ###### Note
 

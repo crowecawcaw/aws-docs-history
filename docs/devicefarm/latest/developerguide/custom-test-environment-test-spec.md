@@ -127,14 +127,17 @@ as a test run artifact.
 ```
 version: 0.1
 
+# The following field(s) allow you to select which Device Farm test host is used for your test run.
 android_test_host: `amazon_linux_2`
-ios_test_host: `macos_sequoia`
+
+# Let Device Farm automatically select the iOS test host based on the device's iOS version.
+ios_test_host: default
 
 phases:
   install:
     commands:
       # Setup your environment by installing and/or validating software
-      - devicefarm-cli use python 3.11
+      - devicefarm-cli use python 3.12
       - python --version
 
   pre_test:
@@ -181,32 +184,33 @@ phases:
     commands:
       # The Appium server is written using Node.js. In order to run your desired version of Appium,
       # you first need to set up a Node.js environment that is compatible with your version of Appium.
-      - devicefarm-cli use node 20
+      - devicefarm-cli use node 22
       - node --version
 
       # Use the devicefarm-cli to select a preinstalled major version of Appium.
-      - devicefarm-cli use appium 2
+      - devicefarm-cli use appium 3
       - appium --version
 
       # The Device Farm service periodically updates the preinstalled Appium versions over time to
       # incorporate the latest minor and patch versions for each major version. If you wish to
       # select a specific version of Appium, you can use NPM to install it.
-      # - npm install -g appium@2.19.0
+      # - npm install -g appium@3.3.0
 
-      # When running Android tests with Appium version 2, the uiautomator2 driver is preinstalled using driver
-      # version 2.44.1 for Appium 2.5.1  If you want to install a different version of the driver,
+      # When running Android tests with Appium version 3, the UiAutomator2 driver
+      # version 6 is pre-installed.
+      # If you want to install a different version of the driver,
       # you can use the Appium extension CLI to uninstall the existing uiautomator2 driver
       # and install your desired version:
       # - |-
       #   if [ $DEVICEFARM_DEVICE_PLATFORM_NAME = "Android" ];
       #   then
       #     appium driver uninstall uiautomator2;
-      #     appium driver install uiautomator2@2.34.0;
+      #     appium driver install uiautomator2@7.1.2;
       #   fi;
 
       # Based on Appium framework's recommendation, we recommend setting the Appium server's
-      # base path explicitly for accepting commands. If you prefer the legacy base path of /wd/hub,
-      # please set it here.
+      # base path explicitly for accepting commands. For Appium 3, this is empty by default.
+      # If you prefer the legacy base path of /wd/hub, please set it here.
       - export APPIUM_BASE_PATH=
 
       # Use the devicefarm-cli to setup a Java environment, with which you can run your test suite.
@@ -231,11 +235,11 @@ phases:
           --log-no-colors --relaxed-security --default-capabilities \
           "{\"appium:deviceName\": \"$DEVICEFARM_DEVICE_NAME\", \
           \"platformName\": \"$DEVICEFARM_DEVICE_PLATFORM_NAME\", \
+          \"appium:app\": \"$DEVICEFARM_APP_PATH\", \
           \"appium:udid\":\"$DEVICEFARM_DEVICE_UDID\", \
           \"appium:platformVersion\": \"$DEVICEFARM_DEVICE_OS_VERSION\", \
-          \"appium:chromedriverExecutableDir\": \"$DEVICEFARM_CHROMEDRIVER_EXECUTABLE_DIR\", \
           \"appium:automationName\": \"UiAutomator2\"}" \
-          >> $DEVICEFARM_LOG_DIR/appium.log 2>&1 &;
+          >> $DEVICEFARM_LOG_DIR/appium.log 2>&1 &
 
       # This code snippet is to wait until the Appium server starts.
       - |-
@@ -254,7 +258,6 @@ phases:
   test:
     commands:
       # Your test package is downloaded and unpackaged into the $DEVICEFARM_TEST_PACKAGE_PATH directory.
-      - echo "Navigate to test package directory"
       - cd $DEVICEFARM_TEST_PACKAGE_PATH
       - echo "Starting the Appium TestNG test"
 
@@ -275,7 +278,7 @@ phases:
       #     testng.xml -d $DEVICEFARM_LOG_DIR/test-output -verbose 10
 
   # The post-test phase contains commands that are run after your tests have completed.
-  # If you need to run any commands to generating logs and reports on how your test performed,
+  # If you need to run any commands to generate logs and reports on how your test performed,
   # we recommend adding them to this section.
   post_test:
     commands:
@@ -287,6 +290,7 @@ phases:
 artifacts:
   # By default, Device Farm will collect your artifacts from the $DEVICEFARM_LOG_DIR directory.
   - $DEVICEFARM_LOG_DIR
+
 ```
 
 Appium iOS
@@ -298,7 +302,7 @@ run on iOS.
 version: 0.1
 
 # The following fields(s) allow you to select which Device Farm test host is used for your test run.
-ios_test_host: `macos_sequoia`
+ios_test_host: `macos_tahoe`
 
 phases:
 
@@ -311,36 +315,36 @@ phases:
     commands:
       # The Appium server is written using Node.js. In order to run your desired version of Appium,
       # you first need to set up a Node.js environment that is compatible with your version of Appium.
-      - devicefarm-cli use node 20
+      - devicefarm-cli use node 24
       - node --version
 
       # Use the devicefarm-cli to select a preinstalled major version of Appium.
-      - devicefarm-cli use appium 2
+      - devicefarm-cli use appium 3
       - appium --version
 
       # The Device Farm service periodically updates the preinstalled Appium versions over time to
       # incorporate the latest minor and patch versions for each major version. If you wish to
       # select a specific version of Appium, you can use NPM to install it.
-      # - npm install -g appium@2.19.0
+      # - npm install -g appium@3.3.0
 
-      # When running iOS tests with Appium version 2, the XCUITest driver is preinstalled using driver
-      # version 9.10.5 for Appium 2.5.4. If you want to install a different version of the driver,
+      # When running iOS tests with Appium version 3, the XCUITest driver version 10 is pre-installed.
+      # If you want to install a different version of the driver,
       # you can use the Appium extension CLI to uninstall the existing XCUITest driver
       # and install your desired version:
       # - |-
       #   if [ $DEVICEFARM_DEVICE_PLATFORM_NAME = "iOS" ];
       #   then
       #     appium driver uninstall xcuitest;
-      #     appium driver install xcuitest@10.0.0;
+      #     appium driver install xcuitest@11.17.7;
       #   fi;
 
       # Based on Appium framework's recommendation, we recommend setting the Appium server's
-      # base path explicitly for accepting commands. If you prefer the legacy base path of /wd/hub,
-      # please set it here.
+      # base path explicitly for accepting commands. For Appium 3, this is empty by default.
+      # If you prefer the legacy base path of /wd/hub, please set it here.
       - export APPIUM_BASE_PATH=
 
       # Use the devicefarm-cli to setup a Java environment, with which you can run your test suite.
-      - devicefarm-cli use java 17
+      - devicefarm-cli use java 25
       - java -version
 
   # The pre-test phase contains commands for setting up your test environment.
@@ -351,14 +355,14 @@ phases:
       - export CLASSPATH=$CLASSPATH:$DEVICEFARM_TEST_PACKAGE_PATH/dependency-jars/*
 
       # Device Farm provides multiple pre-built versions of WebDriverAgent (WDA), a required
-      # Appium dependency for iOS, where each version corresponds to the XCUITest driver version selected.
+      # Appium dependency for iOS, where each version corresponds to a version of the XCUITest driver.
       # If Device Farm cannot find a corresponding version of WDA for your XCUITest driver,
       # the latest available version is selected by default.
       - |-
         APPIUM_DRIVER_VERSION=$(appium driver list --installed --json | jq -r ".xcuitest.version" | cut -d "." -f 1);
         CORRESPONDING_APPIUM_WDA=$(env | grep "DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH_V${APPIUM_DRIVER_VERSION}")
         if [[ ! -z "$APPIUM_DRIVER_VERSION" ]] && [[ ! -z "$CORRESPONDING_APPIUM_WDA" ]]; then
-          echo "Using Device Farm's prebuilt WDA version ${APPIUM_DRIVER_VERSION}.x, which corresponds with your driver";
+          echo "Using a prebuilt version of the WDA app corresponding with your XCUITest driver version ${APPIUM_DRIVER_VERSION}";
           DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH=$(echo $CORRESPONDING_APPIUM_WDA | cut -d "=" -f2)
         else
           LATEST_SUPPORTED_WDA_VERSION=$(env | grep "DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH_V" | sort -V -r | head -n 1)
@@ -367,13 +371,13 @@ phases:
         fi;
 
       # For iOS versions 16 and below only, the device unique identifier (UDID) needs to modified for Appium tests
-      # on Device Farm to remove the hypens.
+      # on Device Farm to remove the hyphens.
       - |-
-        if [ $DEVICEFARM_DEVICE_PLATFORM_NAME = "iOS" ]; then
+        if [ $(echo $DEVICEFARM_DEVICE_OS_VERSION | cut -d "." -f 1) -le 16 ];
+        then
+          DEVICEFARM_DEVICE_UDID_FOR_APPIUM=$(echo $DEVICEFARM_DEVICE_UDID | tr -d "-");
+        else
           DEVICEFARM_DEVICE_UDID_FOR_APPIUM=$DEVICEFARM_DEVICE_UDID;
-          if [ $(echo $DEVICEFARM_DEVICE_OS_VERSION | cut -d "." -f 1) -le 16 ]; then
-            DEVICEFARM_DEVICE_UDID_FOR_APPIUM=$(echo $DEVICEFARM_DEVICE_UDID | tr -d "-");
-          fi;
         fi;
 
       # We recommend starting the Appium server process in the background using the command below.
@@ -412,7 +416,6 @@ phases:
   test:
     commands:
       # Your test package is downloaded and unpackaged into the $DEVICEFARM_TEST_PACKAGE_PATH directory.
-      - echo "Navigate to test package directory"
       - cd $DEVICEFARM_TEST_PACKAGE_PATH
       - echo "Starting the Appium TestNG test"
 
@@ -433,7 +436,7 @@ phases:
       #     testng.xml -d $DEVICEFARM_LOG_DIR/test-output -verbose 10
 
   # The post-test phase contains commands that are run after your tests have completed.
-  # If you need to run any commands to generating logs and reports on how your test performed,
+  # If you need to run any commands to generate logs and reports on how your test performed,
   # we recommend adding them to this section.
   post_test:
     commands:
@@ -457,7 +460,7 @@ version: 0.1
 
 # The following fields(s) allow you to select which Device Farm test host is used for your test run.
 android_test_host: `amazon_linux_2`
-ios_test_host: `macos_sequoia`
+ios_test_host: `macos_tahoe`
 
 phases:
 
@@ -470,46 +473,47 @@ phases:
     commands:
       # The Appium server is written using Node.js. In order to run your desired version of Appium,
       # you first need to set up a Node.js environment that is compatible with your version of Appium.
-      - devicefarm-cli use node 20
+      - devicefarm-cli use node 22
       - node --version
 
       # Use the devicefarm-cli to select a preinstalled major version of Appium.
-      - devicefarm-cli use appium 2
+      - devicefarm-cli use appium 3
       - appium --version
 
       # The Device Farm service periodically updates the preinstalled Appium versions over time to
       # incorporate the latest minor and patch versions for each major version. If you wish to
       # select a specific version of Appium, you can use NPM to install it.
-      # - npm install -g appium@2.19.0
+      # - npm install -g appium@3.3.0
 
-      # When running Android tests with Appium version 2, the uiautomator2 driver is preinstalled using driver
-      # version 2.44.1 for Appium 2.5.1  If you want to install a different version of the driver,
+      # When running Android tests with Appium version 3, the UiAutomator2 driver
+      # version 6 is pre-installed.
+      # If you want to install a different version of the driver,
       # you can use the Appium extension CLI to uninstall the existing uiautomator2 driver
       # and install your desired version:
       # - |-
       #   if [ $DEVICEFARM_DEVICE_PLATFORM_NAME = "Android" ];
       #   then
       #     appium driver uninstall uiautomator2;
-      #     appium driver install uiautomator2@2.34.0;
+      #     appium driver install uiautomator2@7.1.2;
       #   fi;
 
-      # When running iOS tests with Appium version 2, the XCUITest driver is preinstalled using driver
-      # version 9.10.5 for Appium 2.5.4. If you want to install a different version of the driver,
+      # When running iOS tests with Appium version 3, the XCUITest driver version 10 is pre-installed.
+      # If you want to install a different version of the driver,
       # you can use the Appium extension CLI to uninstall the existing XCUITest driver
       # and install your desired version:
       # - |-
       #   if [ $DEVICEFARM_DEVICE_PLATFORM_NAME = "iOS" ];
       #   then
       #     appium driver uninstall xcuitest;
-      #     appium driver install xcuitest@10.0.0;
+      #     appium driver install xcuitest@11.17.7;
       #   fi;
 
       # Based on Appium framework's recommendation, we recommend setting the Appium server's
-      # base path explicitly for accepting commands. If you prefer the legacy base path of /wd/hub,
-      # please set it here.
+      # base path explicitly for accepting commands. For Appium 3, this is empty by default.
+      # If you prefer the legacy base path of /wd/hub, please set it here.
       - export APPIUM_BASE_PATH=
 
-      # Use the devicefarm-cli to setup a Java environment, with which you can run your test suite.
+      # Use the devicefarm-cli to setup a Java environment.
       - devicefarm-cli use java 17
       - java -version
 
@@ -520,16 +524,16 @@ phases:
       - export CLASSPATH=$CLASSPATH:$DEVICEFARM_TEST_PACKAGE_PATH/*
       - export CLASSPATH=$CLASSPATH:$DEVICEFARM_TEST_PACKAGE_PATH/dependency-jars/*
 
-      # Device Farm provides multiple pre-built versions of WebDriverAgent (WDA), a required
-      # Appium dependency for iOS, where each version corresponds to the XCUITest driver version selected.
-      # If Device Farm cannot find a corresponding version of WDA for your XCUITest driver,
-      # the latest available version is selected by default.
+      # Device Farm provides different pre-built versions of WebDriverAgent (WDA), an essential Appium
+      # dependency for iOS devices, and each version is suggested for its corresponding version of
+      # XCUITest driver. If Device Farm cannot find a corresponding version of WDA for your XCUITest
+      # driver, the latest available version is selected by default.
       - |-
         if [ $DEVICEFARM_DEVICE_PLATFORM_NAME = "iOS" ]; then
           APPIUM_DRIVER_VERSION=$(appium driver list --installed --json | jq -r ".xcuitest.version" | cut -d "." -f 1);
           CORRESPONDING_APPIUM_WDA=$(env | grep "DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH_V${APPIUM_DRIVER_VERSION}")
           if [[ ! -z "$APPIUM_DRIVER_VERSION" ]] && [[ ! -z "$CORRESPONDING_APPIUM_WDA" ]]; then
-            echo "Using Device Farm's prebuilt WDA version ${APPIUM_DRIVER_VERSION}.x, which corresponds with your driver";
+            echo "Using a prebuilt version of the WDA app corresponding with your XCUITest driver version ${APPIUM_DRIVER_VERSION}";
             DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH=$(echo $CORRESPONDING_APPIUM_WDA | cut -d "=" -f2)
           else
             LATEST_SUPPORTED_WDA_VERSION=$(env | grep "DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH_V" | sort -V -r | head -n 1)
@@ -539,7 +543,7 @@ phases:
         fi;
 
       # For iOS versions 16 and below only, the device unique identifier (UDID) needs to modified for Appium tests
-      # on Device Farm to remove the hypens.
+      # on Device Farm to remove the hyphens.
       - |-
         if [ $DEVICEFARM_DEVICE_PLATFORM_NAME = "iOS" ]; then
           DEVICEFARM_DEVICE_UDID_FOR_APPIUM=$DEVICEFARM_DEVICE_UDID;
@@ -548,6 +552,11 @@ phases:
           fi;
         fi;
 
+      # Appium downloads Chromedriver using a feature that is considered insecure for multitenant
+      # environments. This is not a problem for Device Farm because each test host is allocated
+      # exclusively for one customer, then terminated entirely. For more information, please see
+      # https://github.com/appium/appium/blob/master/packages/appium/docs/en/guides/security.md
+
       # We recommend starting the Appium server process in the background using the command below.
       # The Appium server log will be written to the $DEVICEFARM_LOG_DIR directory.
       # The environment variables passed as capabilities to the server will be automatically assigned
@@ -555,11 +564,13 @@ phases:
       # For more information about which environment variables are set and how they're set, please see
       # https://docs.aws.amazon.com/devicefarm/latest/developerguide/custom-test-environment-variables.html
       - |-
-        if [ $DEVICEFARM_DEVICE_PLATFORM_NAME = "Android" ]; then
+        if [ $DEVICEFARM_DEVICE_PLATFORM_NAME = "Android" ];
+        then
           appium --base-path=$APPIUM_BASE_PATH --log-timestamp \
             --log-no-colors --relaxed-security --default-capabilities \
             "{\"appium:deviceName\": \"$DEVICEFARM_DEVICE_NAME\", \
             \"platformName\": \"$DEVICEFARM_DEVICE_PLATFORM_NAME\", \
+            \"browserName\": \"Chrome\", \
             \"appium:udid\":\"$DEVICEFARM_DEVICE_UDID\", \
             \"appium:platformVersion\": \"$DEVICEFARM_DEVICE_OS_VERSION\", \
             \"appium:chromedriverExecutableDir\": \"$DEVICEFARM_CHROMEDRIVER_EXECUTABLE_DIR\", \
@@ -570,15 +581,16 @@ phases:
             --log-no-colors --relaxed-security --default-capabilities \
             "{\"appium:deviceName\": \"$DEVICEFARM_DEVICE_NAME\", \
             \"platformName\": \"$DEVICEFARM_DEVICE_PLATFORM_NAME\", \
+            \"browserName\": \"Safari\", \
             \"appium:udid\":\"$DEVICEFARM_DEVICE_UDID_FOR_APPIUM\", \
             \"appium:platformVersion\": \"$DEVICEFARM_DEVICE_OS_VERSION\", \
-            \"appium:derivedDataPath\": \"$DEVICEFARM_WDA_DERIVED_DATA_PATH\", \
+            \"appium:derivedDataPath\": \"$DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH\", \
             \"appium:usePrebuiltWDA\": true, \
             \"appium:automationName\": \"XCUITest\"}" \
             >> $DEVICEFARM_LOG_DIR/appium.log 2>&1 &
         fi;
 
-      # This code snippet is to wait until the Appium server starts.
+      # This code will wait until the Appium server starts.
       - |-
         appium_initialization_time=0;
         until curl --silent --fail "http://0.0.0.0:4723${APPIUM_BASE_PATH}/status"; do
@@ -595,9 +607,8 @@ phases:
   test:
     commands:
       # Your test package is downloaded and unpackaged into the $DEVICEFARM_TEST_PACKAGE_PATH directory.
-      - echo "Navigate to test package directory"
       - cd $DEVICEFARM_TEST_PACKAGE_PATH
-      - echo "Starting the Appium TestNG test"
+      - echo "Starting the Appium TestNG Web test"
 
       # The following command runs your Appium Java TestNG test.
       # For more information, please see TestNG's documentation here:
@@ -606,9 +617,7 @@ phases:
         java -Dappium.screenshots.dir=$DEVICEFARM_SCREENSHOT_PATH org.testng.TestNG -testjar *-tests.jar \
           -d $DEVICEFARM_LOG_DIR/test-output -verbose 10
 
-      # To run your tests with a testng.xml file that is a part of your test package,
-      # use the following commands instead:
-
+      # To run your tests with a testng.xml file, use the following commands instead:
       # - echo "Unzipping the tests JAR file"
       # - unzip *-tests.jar
       # - |-
@@ -616,7 +625,7 @@ phases:
       #     testng.xml -d $DEVICEFARM_LOG_DIR/test-output -verbose 10
 
   # The post-test phase contains commands that are run after your tests have completed.
-  # If you need to run any commands to generating logs and reports on how your test performed,
+  # If you need to run any commands to generate logs and reports on how your test performed,
   # we recommend adding them to this section.
   post_test:
     commands:

@@ -26,13 +26,15 @@ differing versions of Appium if needed.
 
 Device Farm comes pre-configured with different Appium server versions based on the test host.
 The host comes with tooling that enables the pre-configured version with the device
-platform's default driver (UiAutomator2 for Android, and XCUITest for iOS).
+platform's default driver (UiAutomator2 for Android, and XCUITest for iOS). For example, on
+the macos\_tahoe test host, Appium 3 is the default version and comes
+preinstalled with a compatible XCUITest driver for iOS.
 
 ```
 phases:
   install:
     commands:
-      - export APPIUM_VERSION=`2`
+      - export APPIUM_VERSION=`3`
       - devicefarm-cli use appium $APPIUM_VERSION
 ```
 
@@ -79,7 +81,7 @@ phases:
         APPIUM_DRIVER_VERSION=$(appium driver list --installed --json | jq -r ".xcuitest.version" | cut -d "." -f 1);
         CORRESPONDING_APPIUM_WDA=$(env | grep "DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH_V${APPIUM_DRIVER_VERSION}")
         if [[ ! -z "$APPIUM_DRIVER_VERSION" ]] && [[ ! -z "$CORRESPONDING_APPIUM_WDA" ]]; then
-          echo "Using Device Farm's prebuilt WDA version ${APPIUM_DRIVER_VERSION}.x, which corresponds with your driver";
+          echo "Using a prebuilt version of the WDA app corresponding with your XCUITest driver version ${APPIUM_DRIVER_VERSION}";
           DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH=$(echo $CORRESPONDING_APPIUM_WDA | cut -d "=" -f2)
         else
           LATEST_SUPPORTED_WDA_VERSION=$(env | grep "DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH_V" | sort -V -r | head -n 1)

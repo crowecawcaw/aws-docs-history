@@ -25,20 +25,15 @@ You must have a project in Device Farm. Follow the instructions in [Creating a p
    project**, enter a **Project Name**, and then choose
    **Create**.
 4. Open your project, and then choose **Create run**.
-5. (Optional) Under **Run settings**, in the **Run name** section, enter a name for your run.
-   If no name is provided, the Device Farm console will name your run 'My Device Farm run' by default.
-6. (Optional) Under **Run settings**, in the **Job timeout** section, you can specify the
-   execution timeout for your test run. If you're using unlimited testing slots, confirm that **Unmetered**
-   is selected under **Billing method**.
-7. Under **Run settings**, in the **Run type** section, select your run type.
+5. Under **Select app and run type**, in the **Run type** section, select your run type.
    Select **Android app** if you do not have an app ready for testing, or if you are testing an android (.apk) app.
    Select **iOS app** if you are testing an iOS (.ipa) app. Select **Web app** if you want to test
    web applications.
-8. Under **Select app**, in the **App selection options** section, choose
+6. Under **Select app**, in the **App selection options** section, choose
    **Select sample app provided by Device Farm** if you do not have an app available for testing.
    If you are bringing your own app, select **Upload own app**, and choose your application file.
    If you're uploading an iOS app, be sure to choose **iOS device**, as opposed to a simulator.
-9. Under **Configure test**, choose one of the available test frameworks.
+7. Under **Configure test**, choose one of the available test frameworks.
 
 ###### Note
 
@@ -47,17 +42,17 @@ standard, built-in test suite. If you choose **Built-in: Fuzz**, and the
 **Event count**, **Event throttle**, and
 **Randomizer seed** boxes appear, you can change or keep the values.
 
-For information about the available test suites, see [Test frameworks and built-in tests in AWS Device Farm](test-types.md "test-types.md"). 10. If you didn't choose **Built-in: Fuzz**, select **Choose File** under
-**Select test package**. Browse to and choose the file that contains your tests. 11. For your testing environment, choose **Run your test in our standard environment** or
+For information about the available test suites, see [Test frameworks and built-in tests in AWS Device Farm](test-types.md "test-types.md"). 8. If you didn't choose **Built-in: Fuzz**, select **Choose File** under
+**Select test package**. Browse to and choose the file that contains your tests. 9. For your testing environment, choose **Run your test in our standard environment** or
 **Run your test in a custom environment**. For more
-information, see [Test environments in AWS Device Farm](test-environments.md "test-environments.md"). 12. If you're using a custom test environment, you can optionally do the following:
+information, see [Test environments in AWS Device Farm](test-environments.md "test-environments.md"). 10. If you're using a custom test environment, you can optionally do the following:
 
     * If you want to edit the default test spec in a custom test environment, choose
      **Edit** to update the default YAML specification.
     * If you changed the test spec, choose **Save as New** to update it.
     * You may configure envirnonment variables. Variables supplied here will take precedence over any that may be configured on the parent project.
 
-13. Under **Select devices**, do one of the following:
+11. Under **Select devices**, do one of the following:
 
     * To choose a built-in device pool to run the tests against, for **Device
      pool**, choose **Top Devices**.
@@ -68,7 +63,14 @@ information, see [Test environments in AWS Device Farm](test-environments.md "te
     * Select **Manually select devices** and choose the desired devices you want
      to run against. This configuration will not be saved.
 
-For more information, see [Device support in AWS Device Farm](devices.md "devices.md"). 14. (Optional) To add additional configuration, open the **Additional configuration** dropdown.
+For more information, see [Device support in AWS Device Farm](devices.md "devices.md"). 12. (Optional) To configure run-level properties, update the **Run Settings** section. Here you can do the following:
+
+    * Assign your run with a custom **Run name**. If no name is provided, the Device Farm console will name your run 'My Device Farm run' by default.
+    * Choose **Generate test report** under **Test Insights** to get a detailed structured test report for each job and an aggregated summary at the run level. This insight is generated in addition to any test report that you might generate as part of your test execution.
+    * Assign a **Job timeout**, which is the maximum number of minutes a job can run on a device. If your tests are complete before the job timeout, the job completes, and you are not charged for the remainder of the job timeout. The default is 150 minutes.
+    * Choose a **Billing method**. By default, if you do not have slots purchased on your account, the Device Farm console selects Metered. If you have slots, the console defaults to Unmetered.
+
+13. (Optional) To add additional configuration, open the **Additional configuration** dropdown.
 In this section, you can do any of the following:
 
     * To provide an execution role ARN, or override one configured on the parent project, use the Exectuion role ARN field.
@@ -87,7 +89,6 @@ In this section, you can do any of the following:
     * To preset the device locale for the run, in **Device locale**, choose the
      locale.
     * Select **Enable video recording** to record video during testing.
-    * Select **Enable app performance data capture** to capture performance data from the device.
 
 ###### Note
 
@@ -96,7 +97,7 @@ at this time.
 
 ###### Note
 
-If you have private devices, configuration specific to private devices is also displayed. 15. At the bottom of the page, choose **Create run** to schedule the run.
+If you have private devices, configuration specific to private devices is also displayed. 14. At the bottom of the page, choose **Confirm and start run** to schedule the run.
 
 Device Farm starts the run as soon as devices are available, typically within a few minutes. During your test
 run, the Device Farm console displays a pending icon

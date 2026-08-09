@@ -8,6 +8,10 @@ provides more flexibility, simpler configurations, is more cost efficient, and r
 significantly less maintenance overhead when compared to the VPCE connectivity
 method.
 
+VPC endpoint (VPCE) connectivity is not supported on newer test hosts, including
+macos\_tahoe. To run tests that require private connectivity on these
+hosts, use VPC-ENI.
+
 ###### Note
 
 Using Amazon VPC Endpoint Services with Device Farm is only supported for customers with

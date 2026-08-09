@@ -75,17 +75,14 @@ Now that you have a project, you can create and then start a run. For more infor
 1. On the **Automated tests** tab, choose **Create run**.
    Alternatively, you can follow the in-console tutorial by selecting **Create
    run with tutorial**.
-2. (Optional) Under **Run settings**, in the **Run name** section,
-   enter a name for your run. If no name is provided, the Device Farm console will name your run
-   'My Device Farm run' by default.
-3. Under **Run settings**, in the **Run type** section, select your run type.
+2. Under **Select app and run type**, in the **Run type** section, select your run type.
    Select **Android app** if you do not have an app ready for testing, or if you are testing an android (.apk) app.
    Select **iOS app** if you are testing an iOS (.ipa) app.
-4. Under **Select app**, in the **App selection options** section, choose
+3. Under **Select app**, in the **App selection options** section, choose
    **Select sample app provided by Device Farm** if you do not have an app available for testing.
    If you are bringing your own app, select **Upload own app**, and choose your application file.
    If you're uploading an iOS app, be sure to choose **iOS device**, as opposed to a simulator.
-5. Under **Configure test**, in the **Select test framework** section, choose one of the
+4. Under **Configure test**, in the **Select test framework** section, choose one of the
    testing frameworks or built-in test suites. For information about each option, see [Test frameworks and built-in tests in AWS Device Farm](test-types.md "test-types.md").
 
    - If you have not yet packaged your tests for Device Farm, choose **Built-in:
@@ -97,9 +94,9 @@ Now that you have a project, you can create and then start a run. For more infor
      corresponding testing framework, and then upload the file that contains your
      tests.
 
-6. Under **Select devices**, choose **Use Device Pool** and
+5. Under **Select devices**, choose **Use Device Pool** and
    **Top Devices**.
-7. (Optional) To add additional configuration, open the **Additional configuration** dropdown.
+6. (Optional) To add additional configuration, open the **Additional configuration** dropdown.
    In this section, you can do any of the following:
 
    - To provide other data for Device Farm to use during the run, next to **Add extra
@@ -117,7 +114,6 @@ Now that you have a project, you can create and then start a run. For more infor
    - To preset the device locale for the run, in **Device locale**, choose the
      locale.
    - Select **Enable video recording** to record video during testing.
-   - Select **Enable app performance data capture** to capture performance data from the device.
 
 ###### Note
 
@@ -126,7 +122,14 @@ at this time.
 
 ###### Note
 
-If you have private devices, configuration specific to private devices is also displayed. 8. At the bottom of the page, choose **Create run** to schedule the run.
+If you have private devices, configuration specific to private devices is also displayed. 7. (Optional) To configure run-level properties, update the **Run Settings** section. Here you can do the following:
+
+    * Assign your run with a custom **Run name**. If no name is provided, the Device Farm console will name your run 'My Device Farm run' by default.
+    * Choose **Generate test report** under **Test Insights** to get a detailed structured test report for each job and an aggregated summary at the run level. This insight is generated in addition to any test report that you might generate as part of your test execution.
+    * Assign a **Job timeout**, which is the maximum number of minutes a job can run on a device. If your tests are complete before the job timeout, the job completes, and you are not charged for the remainder of the job timeout. The default is 150 minutes.
+    * Choose a **Billing method**. By default, if you do not have slots purchased on your account, the Device Farm console selects Metered. If you have slots, the console defaults to Unmetered.
+
+8. At the bottom of the page, choose **Confirm and start run** to schedule the run.
 
 Device Farm starts the run as soon as devices are available, typically within a few minutes.
 To

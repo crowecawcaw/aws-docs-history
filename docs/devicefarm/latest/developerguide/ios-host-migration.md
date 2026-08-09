@@ -1,5 +1,7 @@
 # Migrating your custom test environments to the new iOS test hosts
 
+For the full list of available test hosts and how to select one, see [Hosts for custom test environments](custom-test-environments-hosts.md "custom-test-environments-hosts.md").
+
 To migrate existing tests from the legacy host to the new macOS test host, you will need to
 develop new test spec files based on your pre-existing ones.
 
@@ -20,9 +22,11 @@ use the new test host.
 
 ### Step 1: Creating a new test spec files with the console
 
-1. Sign in to the [AWS Device Farm console](https://console.aws.amazon.com/devicefarm "https://console.aws.amazon.com/devicefarm").
-2. Navigate to the Device Farm project containing your automation tests.
-3. Download a copy of the existing test spec your wish to onboard with.
+1. Decide which test host you want to use. For the list of available iOS test hosts and
+   how to select one, see [Hosts for custom test environments](custom-test-environments-hosts.md "custom-test-environments-hosts.md").
+2. Sign in to the [AWS Device Farm console](https://console.aws.amazon.com/devicefarm "https://console.aws.amazon.com/devicefarm").
+3. Navigate to the Device Farm project containing your automation tests.
+4. Download a copy of the existing test spec your wish to onboard with.
 
    1. Click the "Project Settings" option and navigate to the **Uploads**
       tab.
@@ -30,26 +34,27 @@ use the new test host.
    3. Click the **Download** button to make a local copy of this
       file.
 
-4. Navigate back to the Project page and click **Create run**.
-5. Fill in the options on the wizard as if you were to start a new run, but stop at the **Select
+5. Navigate back to the Project page and click **Create run**.
+6. Fill in the options on the wizard as if you were to start a new run, but stop at the **Select
    test spec** option.
-6. Using the iOS test spec selected by default, click the **Create a test spec**
+7. Using the iOS test spec selected by default, click the **Create a test spec**
    button.
-7. Modify the test specification that was selected by _default_ in
+8. Modify the test specification that was selected by _default_ in
    the text editor.
 
-   1. If not already present, modify the test spec file to select the new host using:
+   1. Set `ios_test_host` to the test host that fits your test requirements. For
+      example:
 
    ```
-   ios_test_host: macos_sequoia
+   ios_test_host: macos_tahoe
    ```
    2. From the copy of your test spec downloaded in a prior step, review each `phase`.
    3. Copy commands from the old test spec's phases into each respective phase in the
       new test spec, ignoring commands related to installing or selecting Java, Python,
       Node.js, Ruby, Appium, or Xcode.
 
-8. Enter a new file name in the **Save as** text box.
-9. Click the **Save as new** button to save your changes.
+9. Enter a new file name in the **Save as** text box.
+10. Click the **Save as new** button to save your changes.
 
 For an example of a test spec file you can use as a reference, see the example provided
 in [Test spec examples](custom-test-environment-test-spec.md#custom-test-environment-test-spec-example "custom-test-environment-test-spec.md#custom-test-environment-test-spec-example").
@@ -60,36 +65,30 @@ In the new test host, pre-installed software versions are selected using a new
 standardized version management tool called `devicefarm-cli`. This tooling is now
 the recommended approach for using the various software we provide on the test hosts.
 
-As an example, you would add the following line to use a different JDK 17 your test
-environment:
+For example, add the following line to use JDK 25 in your test environment:
 
 ```
-- devicefarm-cli use java 17
+- devicefarm-cli use java 25
 ```
 
 For more information on the software supported available, please review: [Supported software within custom test environments](custom-test-environments-hosts-software.md "custom-test-environments-hosts-software.md").
 
 ### Step 3: Using Appium and its dependencies via the software selection tooling
 
-The new test host only supports Appium 2.x and above. Please explicitly select the
-Appium version using the `devicefarm-cli`, while removing legacy tooling such as `avm`. For example:
+Explicitly select the Appium version using the `devicefarm-cli`. On the
+macos\_tahoe test host, Appium 3 is the default version:
 
 ```
-# This line using 'avm' should be removed
-# - avm 2.3.1
-
-# And the following lines should be added
-- devicefarm-cli use appium 2 # Selects the version
+- devicefarm-cli use appium 3 # Selects the version
 - appium --version            # Prints the version
 ```
 
 The Appium version selected with `devicefarm-cli` comes preinstalled with a
 compatible version of the XCUITest driver for iOS.
 
-Additionally, you will need to update your test spec to use `DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH_V9` instead of `DEVICEFARM_WDA_DERIVED_DATA_PATH`. The new environment variable points to a pre-built
-version of WebDriverAgent 9.x, which is the latest supported version for Appium 2 tests.
-
-For more information, review [Selecting a WebDriverAgent version for iOS tests](test-types-appium.md#test-types-appium-select-wda "test-types-appium.md#test-types-appium-select-wda") and [Environment variables for Appium tests](custom-test-environment-variables.md#custom-test-environment-variables-appium "custom-test-environment-variables.md#custom-test-environment-variables-appium").
+When you use the default test spec, Device Farm automatically selects WebDriverAgent (WDA) to
+match your installed XCUITest driver. For more information about how this selection works,
+see [Selecting a WebDriverAgent version for iOS tests](test-types-appium.md#test-types-appium-select-wda "test-types-appium.md#test-types-appium-select-wda") and [Environment variables for Appium tests](custom-test-environment-variables.md#custom-test-environment-variables-appium "custom-test-environment-variables.md#custom-test-environment-variables-appium").
 
 ## Differences between the new and legacy test hosts
 

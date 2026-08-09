@@ -99,9 +99,6 @@ devicefarm {
     // Optional. Set to "off" if you want to disable device video recording during a run. Default is "on"
     // videoRecording "on"
 
-    // Optional. Set to "off" if you want to disable device performance monitoring during a run. Default is "on"
-    // performanceMonitoring "on"
-
     // Optional. Add this if you have a subscription and want to use your unmetered slots
     // useUnmeteredDevices()
 
