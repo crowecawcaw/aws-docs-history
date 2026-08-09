@@ -6,9 +6,9 @@ the prerequisites, migration process, and rollback procedures.
 Before starting the migration, make sure your application follows the recommendations in [Architect your cluster for high availability](bp-cluster-management.md#bp-high-availability "bp-cluster-management.md#bp-high-availability").
 This helps avoid downtime during the process.
 
-###### Note
+###### Automatic migration update
 
-Automatic migrations to hsm2m.medium will begin on January 20th, 2026.
+As of January 20, 2026, automatic migrations to hsm2m.medium have begun.
 
 ## Overview of the hsm1.medium to hsm2m.medium migration process
 
@@ -28,7 +28,7 @@ Here's how the migration works:
    (hsm2m.medium) to replace the first HSM.
 3. Before migrating each subsequent HSM, AWS CloudHSM creates a new full backup of the
    entire cluster.
-4. AWS CloudHSM repeats steps 3 and 4 for each HSM in the cluster, migrating one HSM at
+4. AWS CloudHSM repeats steps 2 and 3 for each HSM in the cluster, migrating one HSM at
    a time.
 5. Each individual HSM migration takes approximately 30 minutes.
 
@@ -64,6 +64,11 @@ For a list of known migration issues, see [Known issues for AWS CloudHSM cluster
 ###### Note
 
 The previous restriction which prevented customers with token key workloads from migrating has been removed.
+
+###### Exemption from SDK connection requirement
+
+If your cluster has had no SDK or client connections for the past 14 days, your cluster is
+exempt from the 7-day SDK connection requirement.
 
 ## Cluster limited-write mode
 
@@ -169,6 +174,7 @@ If you decide to roll back, do it before this deadline. The rollback uses the la
 ###### Warning
 
 Be cautious about rolling back after a migration is complete. If you complete a migration and then use AWS CloudHSM to create new keys or users, rolling back can result in data loss.
+For example, a key created in hsm2m.medium might not be available in hsm1.medium when the rollback has completed.
 See [Synchronizing Data After a Rollback](#cluster-rollback-datasync "#cluster-rollback-datasync") to learn how to mitigate data loss after a rollback.
 
 Console

@@ -16,6 +16,8 @@ The following issues impact the PKCS #11 library for AWS CloudHSM.
 - [Issue: Incorrect sequence of function calls gives undefined results instead of failing](#ki-pkcs11-11 "#ki-pkcs11-11")
 - [Issue: Read Only Session is not supported in SDK 5](#ki-pkcs11-13 "#ki-pkcs11-13")
 - [Issue: cryptoki.h header file is Windows-only](#ki-pkcs11-14 "#ki-pkcs11-14")
+- [Issue: C\_GetAttributeValue returns CKR\_DEVICE\_ERROR when throttled](#ki-pkcs11-15 "#ki-pkcs11-15")
+- [Issue: The PKCS #11 library does not retry throttled certificate storage operations](#ki-pkcs11-16 "#ki-pkcs11-16")
 
 ## Issue: AES key wrap in version 3.0.0 of the PKCS #11 library does not validate IVs before use
 
@@ -211,3 +213,38 @@ The following tables show the correct function call sequences for PKCS #11 opera
 - **Issue:** With AWS CloudHSM Client SDK 5 versions 5.0.0 through 5.4.0 on Linux, the header file `/opt/cloudhsm/include/pkcs11/cryptoki.h` is only compatible with Windows operating systems.
 - **Impact:** You may encounter issues when trying to include this header file in your application on Linux-based operating systems.
 - **Resolution status:** Upgrade to AWS CloudHSM Client SDK 5 version 5.4.1 or above, which includes a Linux-compatible version of this header file.
+
+## Issue: `C_GetAttributeValue` returns `CKR_DEVICE_ERROR` when throttled
+
+When a `C_GetAttributeValue` call is throttled, it returns
+`CKR_DEVICE_ERROR`. Other throttled operations return
+`CKR_FUNCTION_FAILED`.
+
+- **Impact:** If your application only retries on
+  `CKR_FUNCTION_FAILED`, it does not retry these throttled
+  requests.
+- **Workaround:** Retry throttled operations with exponential
+  backoff on both `CKR_DEVICE_ERROR` and `CKR_FUNCTION_FAILED`.
+  If throttling persists, add more HSMs to your cluster to increase the total read
+  and write rate, or reduce your request rate. For more information, see
+  [HSM throttling](troubleshoot-hsm-throttling.md "troubleshoot-hsm-throttling.md").
+- **Resolution status:** We are implementing a fix to return
+  `CKR_FUNCTION_FAILED` for throttled `C_GetAttributeValue`
+  calls. We will announce the updated PKCS #11 library on the
+  [version history](client-history.md "client-history.md") page.
+
+## Issue: The PKCS #11 library does not retry throttled certificate storage operations
+
+When you exceed rate limits for certificate storage operations, the PKCS #11 library
+does not automatically retry these throttled operations.
+
+- **Impact:** A throttled certificate storage operation returns
+  an error to your application instead of being retried automatically.
+- **Workaround:** Retry throttled certificate storage operations
+  in your application with exponential backoff. If throttling persists, add more HSMs
+  to your cluster to increase the total read and write rate, or reduce your request
+  rate. For more information, see
+  [HSM throttling](troubleshoot-hsm-throttling.md "troubleshoot-hsm-throttling.md").
+- **Resolution status:** We are implementing automatic retries for
+  throttled certificate storage operations. We will announce the updated PKCS #11
+  library on the [version history](client-history.md "client-history.md") page.

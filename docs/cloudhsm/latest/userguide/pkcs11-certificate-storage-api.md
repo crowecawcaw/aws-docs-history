@@ -33,3 +33,14 @@ Continues a search for certificate objects.
 **`C_FindObjectsFinal`**
 
 Ends a search for certificate objects.
+
+###### Throttling return codes
+
+When certificate storage throttles an operation for exceeding the read or write rate
+limit, the return code depends on the operation. Write operations
+(`C_CreateObject`, `C_SetAttributeValue`, and
+`C_DestroyObject`) and the `C_FindObjectsInit` read
+operation return `CKR_FUNCTION_FAILED`. `C_GetAttributeValue`
+currently returns `CKR_DEVICE_ERROR`. In all cases, follow the best
+practices for handling throttling in
+[HSM throttling](troubleshoot-hsm-throttling.md "troubleshoot-hsm-throttling.md").

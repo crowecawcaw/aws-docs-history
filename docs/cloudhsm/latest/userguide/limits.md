@@ -25,5 +25,10 @@ System quotas| Resource | Quota for hsm1.medium | Quota for hsm2m.medium |
 | Required password length | 8 to 32 characters | 8 to 32 characters |
 | Maximum number of concurrent client connections per cluster[1](#QuotaNote1 "#QuotaNote1") | 900 | 900 |
 | Maximum number of PKCS#11 sessions per application | 1,024 | 1,024 |
+| Maximum stored certificates per cluster[2](#QuotaNote2 "#QuotaNote2") | Not supported | 60 |
+| Certificate storage read operations per second per HSM[2](#QuotaNote2 "#QuotaNote2") | Not supported | 10 |
+| Certificate storage write operations per second per HSM[2](#QuotaNote2 "#QuotaNote2") | Not supported | 1 |
 
 [1] A client connection for Client SDK 3 is a client daemon. For Client SDK 5, a client connection is an application.
+
+[2] Certificate storage is available only on hsm2m.medium clusters. For more information, see [Certificate storage limits](pkcs11-certificate-storage-limits.md "pkcs11-certificate-storage-limits.md").
