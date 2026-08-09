@@ -70,7 +70,7 @@ Before you can begin this procedure, complete the following:
     selected. Scroll down and select **DNS Server Tools**,
     and then choose **Next**.
 
-![Installing Microsoft AD Tools, the Add Roles and Features Wizard Features Tree with tools selected.](images/ms-install-ad-tools.png) 12. Review the information and choose **Install**. When
+![Installing Microsoft AD Tools, the Add Roles and Features Wizard Features Tree with tools selected.](/images/directoryservice/latest/admin-guide/images/ms-install-ad-tools.png) 12. Review the information and choose **Install**. When
 the feature installation is finished, the Active Directory Domain
 Services and Active Directory Lightweight Directory Services Tools are
 available from the Start menu in the **Administrative

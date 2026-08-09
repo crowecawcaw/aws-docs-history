@@ -16,6 +16,7 @@ The following is a list of compatible AWS applications and services:
 - AWS IAM Identity Center
 - AWS License Manager
 - AWS Management Console
+- AWS Private Certificate Authority
 - FSx for Windows File Server
 - WorkSpaces
   For more information, see [Enabling access to AWS applications and services for your AWS Managed Microsoft AD](ms_ad_enable_apps_services.md "ms_ad_enable_apps_services.md").
