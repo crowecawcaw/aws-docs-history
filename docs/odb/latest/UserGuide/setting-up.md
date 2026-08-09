@@ -4,13 +4,16 @@ Before you can begin using Oracle Database@AWS, make sure you're signed up for A
 necessary users. Then you can purchase Oracle Database@AWS from AWS Marketplace by accepting a private
 offer from Oracle or by subscribing to a public offer.
 
-###### Required SCP permission for odb:GetOciOnboardingStatus
+###### Required SCP permissions for US East (N. Virginia)
 
 If your organization uses service control policies (SCPs) that restrict AWS Regions,
-the `odb:GetOciOnboardingStatus` action must be allowed in
-US East (N. Virginia). This requirement applies to all accounts that use Oracle Database@AWS. The service
-might call this API in US East (N. Virginia) regardless of the Region where you operate
-Oracle Database@AWS. Without this permission, the service fails to initialize.
+the following actions must be allowed in US East (N. Virginia). The service might call these APIs
+in US East (N. Virginia) regardless of the Region where you operate Oracle Database@AWS.
+
+- `odb:GetOciOnboardingStatus` – Without this permission, the service
+  fails to initialize.
+- `license-manager:ListReceivedGrants` – Without this permission,
+  operations that depend on grant validation might experience delays.
 
 ## Sign up for an AWS account
 

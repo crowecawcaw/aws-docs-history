@@ -73,12 +73,12 @@ You can use Oracle Database@AWS in the following AWS Regions:
 | ------------------ | -------------- | ---------------------- |
 | Europe (Frankfurt) | `eu-central-1` | `euc1-az1`, `euc1-az2` |
 | Europe (Zurich)    | `eu-central-2` | `euc2-az1`, `euc2-az3` |
-| Europe (Stockholm) | `eu-north-1`   | `eun1-az2`             |
+| Europe (Stockholm) | `eu-north-1`   | `eun1-az1`, `eun1-az2` |
 | Europe (Milan)     | `eu-south-1`   | `eus1-az3`             |
 | Europe (Spain)     | `eu-south-2`   | `eus2-az1`, `eus2-az3` |
 | Europe (Ireland)   | `eu-west-1`    | `euw1-az1`, `euw1-az3` |
 | Europe (London)    | `eu-west-2`    | `euw2-az1`, `euw2-az3` |
-| Europe (Paris)     | `eu-west-3`    | `euw3-az2`             |
+| Europe (Paris)     | `eu-west-3`    | `euw3-az1`, `euw3-az2` |
 
 **Asia Pacific**
 
