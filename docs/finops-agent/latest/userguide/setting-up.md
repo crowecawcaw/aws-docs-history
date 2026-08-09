@@ -4,11 +4,11 @@ AWS FinOps Agent is in preview release and is subject to change.
 
 When you create an agent, the creation wizard can create the required IAM roles and attach the policies for you. Most customers do not need to configure IAM manually. For the standard flow, see [Creating an agent](creating-an-agent.md "creating-an-agent.md").
 
-Use this topic if your IAM administrator manages permissions centrally, or if you want to author the roles and policies yourself. AWS FinOps Agent uses four IAM policies and two IAM roles. This topic walks through each policy, the roles that the policies attach to, and how to enable the AWS services that the agent depends on.
+Use this topic if your IAM administrator manages permissions centrally, or if you want to author the roles and policies yourself. AWS FinOps Agent uses 4 IAM policies and 2 IAM roles. This topic walks through each policy, the roles that the policies attach to, and how to enable the AWS services that the agent depends on.
 
 ## Step 1: Create IAM policies
 
-Create the following four IAM policies. The policy names shown are samples and can be customized.
+Create the following 4 IAM policies. The policy names shown are samples and can be customized.
 
 ### Policy 1: Admin setup policy
 
@@ -92,7 +92,7 @@ Sample name: `FinOpsAgentAgentPolicy`
 
 This policy defines what AWS services and data the AWS FinOps Agent can read in your account. The agent uses these permissions to query billing and cost data, retrieve optimization recommendations, look up infrastructure details, and correlate cost changes with operational metrics. This policy will be attached to the agent IAM role in [Step 2](#setting-up-step-2 "#setting-up-step-2").
 
-You have two options for creating this policy:
+You have 2 options for creating this policy:
 
 - **Option 1: Auto-create during agent creation (recommended).** The agent creation wizard creates the policy as an AWS managed policy and attaches it to the agent role automatically. You can skip this section and let the wizard handle it.
 - **Option 2: Author the policy manually.** Create the policy with the JSON below if your IAM administrator manages all permissions centrally. You will need to attach this policy to the agent IAM role in [Step 2](#setting-up-step-2 "#setting-up-step-2") manually.
@@ -230,7 +230,7 @@ Sample name: `FinOpsAgentOperatorPolicy`
 
 This policy defines what actions the web application can perform with the AWS FinOps Agent service. It covers managing conversations, tasks, automations, context files, and reports. This policy will be attached to the operator IAM role in [Step 2](#setting-up-step-2 "#setting-up-step-2").
 
-You have two options for creating this policy:
+You have 2 options for creating this policy:
 
 - **Option 1: Auto-create during agent creation (recommended).** The agent creation wizard creates the policy as an AWS managed policy and attaches it to the operator role automatically. You can skip this section and let the wizard handle it.
 - **Option 2: Author the policy manually.** Create the policy with the JSON below if your IAM administrator manages all permissions centrally. You will need to attach this policy to the operator IAM role in [Step 2](#setting-up-step-2 "#setting-up-step-2") manually.
@@ -329,15 +329,15 @@ The Cost Explorer read actions in this policy are optional and not required to a
 }
 ```
 
-## Step 2: Create two IAM roles
+## Step 2: Create 2 IAM roles
 
-AWS FinOps Agent requires two IAM roles. Each role serves a different purpose and is assumed by the AWS FinOps Agent service to perform different operations.
+AWS FinOps Agent requires 2 IAM roles. Each role serves a different purpose and is assumed by the AWS FinOps Agent service to perform different operations.
 
 The **agent role** (sample name: `FinOpsAgentRole`) is the role the AWS FinOps Agent service assumes to query your AWS billing data, optimization recommendations, and infrastructure metrics. When you ask the agent a question about your costs, the service uses this role to call AWS APIs like AWS Cost Explorer and AWS Compute Optimizer. Attach [Policy 2 (FinOpsAgentAgentPolicy)](#setting-up-agent-policy "#setting-up-agent-policy") to this role.
 
 The **operator role** (sample name: `FinOpsAgentOperatorRole`) is the role the AWS FinOps Agent service assumes to perform web application operations. When you send a chat message, create a task, or upload a context file, the service uses this role's credentials to execute those actions. Attach [Policy 3 (FinOpsAgentOperatorPolicy)](#setting-up-operator-policy "#setting-up-operator-policy") to this role.
 
-Create two IAM roles using the trust policy below, then attach the corresponding permissions policy from [Step 1](#setting-up-step-1 "#setting-up-step-1").
+Create 2 IAM roles using the trust policy below, then attach the corresponding permissions policy from [Step 1](#setting-up-step-1 "#setting-up-step-1").
 
 | IAM role (sample name)    | Attach this policy from Step 1         |
 | ------------------------- | -------------------------------------- |
