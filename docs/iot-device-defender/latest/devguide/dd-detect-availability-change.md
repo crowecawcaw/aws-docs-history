@@ -19,9 +19,10 @@ to new customers starting August 31, 2026.
 ### Self-managed alternative for cloud-side metrics
 
 Detailed instructions and sample code are available in the [IoT
-Device Anomaly Detection](https://github.com/aws-samples/sample-iot-device-anomaly-detection "https://github.com/aws-samples/sample-iot-device-anomaly-detection") GitHub project. This open-source, serverless
-pipeline allows you to replicate similar functionality to the AWS IoT Device Defender detect feature
-for cloud-side metrics monitoring in your own AWS account. It is built on AWS
+Device Anomaly Detection](https://github.com/aws-samples/sample-iot-device-anomaly-detection "https://github.com/aws-samples/sample-iot-device-anomaly-detection") project on the GitHub website. With this
+open-source, serverless pipeline, you can replicate functionality similar to the
+AWS IoT Device Defender detect feature for cloud-side metrics monitoring in your own AWS
+account. It is built on AWS
 serverless services including AWS IoT, Amazon Managed Service for Apache Flink,
 AWS Lambda, Amazon Kinesis, Amazon SageMaker AI, Amazon DynamoDB, Amazon API Gateway, Amazon Simple Notification Service, and Amazon CloudWatch. The
 project includes an AWS Serverless Application Model (SAM) template that
@@ -80,7 +81,7 @@ TCP connections, destination IP addresses, and packet or byte counters), you can
 an open-source agent on your devices and publish the metrics to AWS IoT over MQTT.
 Options include the [AWS IoT Device Client](https://github.com/awslabs/aws-iot-device-client "https://github.com/awslabs/aws-iot-device-client"), [Telegraf](https://github.com/influxdata/telegraf "https://github.com/influxdata/telegraf") (using its MQTT
 output plugin), or [osquery](https://github.com/osquery/osquery "https://github.com/osquery/osquery")
-combined with an Eclipse Paho MQTT client. The GitHub project's README also
+combined with an Eclipse Paho MQTT client. The GitHub project README also
 includes instructions on how to ingest the device-published metrics through AWS IoT
 rules and extend the security profile schemas provided in the sample code.
 
@@ -116,8 +117,8 @@ feature continues to be fully available.
 Can I migrate gradually?
 
 Yes. You can deploy the sample code in your account and run it alongside
-AWS IoT Device Defender detect. Both evaluate the same AWS IoT data, which allows you to
-compare results and migrate security profiles incrementally.
+AWS IoT Device Defender detect. Both evaluate the same AWS IoT data, so you can compare
+results and migrate security profiles incrementally.
 
 How can I get help if I have issues?
 
