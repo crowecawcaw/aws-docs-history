@@ -20,12 +20,16 @@ The IAM account used for EKS cluster creation should have these minimal access l
 | IAM              | **Limited:*<br>• List, Read, Write, Permissions Management |
 | Systems Manager  | **Limited:*<br>• List, Read                                |
 
+###### Note
+
+`eksctl` v0.215.0 no longer publishes ARMv6 and ARMv7 binaries. Use `arm64` for ARM systems.
+
 ## For Unix
 
 To download the latest release, run:
 
 ```
-# for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
+# for ARM systems, set ARCH to: `arm64`
 ARCH=amd64
 PLATFORM=$(uname -s)_$ARCH
 
@@ -44,8 +48,6 @@ sudo install -m 0755 /tmp/eksctl /usr/local/bin && rm /tmp/eksctl
 Direct download (latest release):
 
 - [AMD64/x86\_64](https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_amd64.zip "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_amd64.zip")
-- [ARMv6](https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_armv6.zip "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_armv6.zip")
-- [ARMv7](https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_armv7.zip "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_armv7.zip")
 - [ARM64](https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_arm64.zip "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_arm64.zip")
 
 Make sure to unzip the archive to a folder in the `PATH` variable.
@@ -56,21 +58,21 @@ Optionally, verify the checksum:
 2. Use Command Prompt to manually compare `CertUtil`'s output to the checksum file downloaded.
 
 ```
-  REM Replace amd64 with armv6, armv7 or arm64
+  REM Replace amd64 with arm64
   CertUtil -hashfile eksctl_Windows_amd64.zip SHA256
 ```
 
 3. Using PowerShell to automate the verification using the `-eq` operator to get a `True` or `False` result:
 
 ```
-# Replace amd64 with armv6, armv7 or arm64
+# Replace amd64 with arm64
  (Get-FileHash -Algorithm SHA256 .\eksctl_Windows_amd64.zip).Hash -eq ((Get-Content .\eksctl_checksums.txt) -match 'eksctl_Windows_amd64.zip' -split ' ')[0]
 ```
 
 ### Using Git Bash:
 
 ```
-# for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
+# for ARM systems, set ARCH to: `arm64`
 ARCH=amd64
 PLATFORM=windows_$ARCH
 
