@@ -1,9 +1,5 @@
 # Building Rust Lambda functions with Cargo Lambda in AWS SAM
 
-|                                                                             |
-| --------------------------------------------------------------------------- |
-| This feature is in preview<br>release for AWS SAM and is subject to change. |
-
 Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) with your Rust AWS Lambda functions.
 
 ###### Topics
@@ -11,6 +7,7 @@ Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) w
 - [Prerequisites](#building-rust-prerequisites "#building-rust-prerequisites")
 - [Configuring AWS SAM to use with Rust Lambda functions](#building-rust-configure "#building-rust-configure")
 - [Examples](#building-rust-examples "#building-rust-examples")
+- [Optimizing Rust builds in GitHub Actions](#building-rust-optimize-ci "#building-rust-optimize-ci")
 
 ## Prerequisites
 
@@ -30,48 +27,19 @@ _Cargo Lambda documentation_.
 Building and testing Rust Lambda functions requires Docker. For installation
 instructions, see [Installing Docker](install-docker.md "install-docker.md").
 
-**Opt in to AWS SAM CLI beta feature**
-
-Since this feature is in preview, you must opt in using one of the following methods:
-
-1. Use the environment variable: `SAM_CLI_BETA_RUST_CARGO_LAMBDA=1`.
-2. Add the following to your `samconfig.toml` file:
-
-```
-[default.build.parameters]
-beta_features = true
-[default.sync.parameters]
-beta_features = true
-```
-
-3. Use the `--beta-features` option when using a supported AWS SAM CLI command. For example:
-
-```
-`$` `sam build --beta-features`
-```
-
-4. Choose option `y` when the AWS SAM CLI prompts you to opt in. The following is an example:
-
-```
-`$` `sam build`
-Starting Build use cache
-Build method "rust-cargolambda" is a beta feature.
-Please confirm if you would like to proceed
-You can also enable this beta feature with "sam build --beta-features". [y/N]: `y`
-```
-
 ## Configuring AWS SAM to use with Rust Lambda functions
 
 ### Step 1: Configure your AWS SAM template
 
 Configure your AWS SAM template with the following:
 
-- **Binary** – Optional. Specify when your template contains multiple
-  Rust Lambda functions.
+- **Binary** – Optional. Specify when a single Cargo package
+  defines more than one binary, to identify which binary to build for this function. You don't need this property when
+  each function is its own Cargo package, such as in a Cargo workspace.
 - **BuildMethod** – `rust-cargolambda`.
 - **CodeUri** – path to your `Cargo.toml` file.
 - **Handler** – `bootstrap`.
-- **Runtime** – `provided.al2`.
+- **Runtime** – `provided.al2023`.
 
 To learn more about custom runtimes, see [Custom AWS Lambda runtimes](../../../lambda/latest/dg/runtimes-custom.md "../../../lambda/latest/dg/runtimes-custom.md") in the
 _AWS Lambda Developer Guide_.
@@ -91,7 +59,7 @@ Resources:
     Properties:
       CodeUri: ./rust_app
       Handler: bootstrap
-      Runtime: provided.al2
+      Runtime: provided.al2023
 ...
 ```
 
@@ -138,7 +106,7 @@ Which runtime would you like to use?
         22 - ruby3.2
         23 - rust (provided.al2)
         24 - rust (provided.al2023)
-Runtime: `23`
+Runtime: `24`
 
 Based on your selections, the only Package type available is Zip.
 We will proceed to selecting the Package type as Zip.
@@ -157,7 +125,7 @@ Project name [sam-app]: `hello-rust`
     Generating application:
     -----------------------
     Name: hello-rust
-    Runtime: rust (provided.al2)
+    Runtime: rust (provided.al2023)
     Architectures: x86_64
     Dependency Manager: cargo
     Application Template: hello-world
@@ -203,12 +171,13 @@ Resources:
     Properties:
       CodeUri: ./rust_app
       Handler: bootstrap
-      Runtime: provided.al2
+      Runtime: provided.al2023
       Architectures:
         - x86_64
       Events:
         HelloWorld:
           Type: Api
+          Properties:
             Path: /hello
             Method: get
 ```
@@ -228,15 +197,8 @@ If you plan on running the **sam local invoke** command in MacOS, you need to bu
 ```
 `hello-rust$` `sam build`
 Starting Build use cache
-Build method "rust-cargolambda" is a beta feature.
-Please confirm if you would like to proceed
-You can also enable this beta feature with "sam build --beta-features". [y/N]: `y`
-
-Experimental features are enabled for this session.
-Visit the docs page to learn more about the AWS Beta terms https://aws.amazon.com/service-terms/.
-
 Cache is invalid, running build and copying resources for following functions (HelloWorldFunction)
-Building codeuri: /Users/.../hello-rust/rust_app runtime: provided.al2 metadata: {'BuildMethod': 'rust-cargolambda'} architecture: x86_64 functions: HelloWorldFunction
+Building codeuri: /Users/.../hello-rust/rust_app runtime: provided.al2023 metadata: {'BuildMethod': 'rust-cargolambda'} architecture: x86_64 functions: HelloWorldFunction
 Running RustCargoLambdaBuilder:CargoLambdaBuild
 Running RustCargoLambdaBuilder:RustCopyAndRename
 
@@ -373,7 +335,7 @@ Resources:
     Properties:
       CodeUri: ./rust_app   # Points to dir of Cargo.toml
       Handler: bootstrap    # Do not change, as this is the default executable name produced by Cargo Lambda
-      Runtime: provided.al2
+      Runtime: provided.al2023
       Architectures:
         - arm64
 ...
@@ -385,11 +347,11 @@ function.
 
 ```
 `hello-rust$` `sam local invoke`
-Invoking bootstrap (provided.al2)
+Invoking bootstrap (provided.al2023)
 Local image was not found.
-Removing rapid images for repo public.ecr.aws/sam/emulation-provided.al2
+Removing rapid images for repo public.ecr.aws/sam/emulation-provided.al2023
 Building image.....................................................................................................................................
-Using local image: public.ecr.aws/lambda/provided:al2-rapid-arm64.
+Using local image: public.ecr.aws/lambda/provided:al2023-rapid-arm64.
 
 Mounting /Users/.../hello-rust/.aws-sam/build/HelloWorldFunction as /var/task:ro,delegated, inside runtime container
 START RequestId: fbc55e6e-0068-45f9-9f01-8e2276597fc6 Version: $LATEST
@@ -426,14 +388,19 @@ Resources:
     Properties:
       CodeUri: ./
       Handler: bootstrap
-      Runtime: provided.al2
+      Runtime: provided.al2023
 ...
 ```
 
 ### Multiple Lambda function project
 
 **Here is an example of a serverless application containing multiple Rust Lambda
-functions.**
+functions, organized as a Cargo workspace.**
+
+We recommend a Cargo workspace for applications with multiple Rust Lambda functions. Each function is
+its own package, so functions can declare independent dependencies while sharing common code through a library package.
+Each package produces a single binary named after the package, so you don't need to set the `Binary` build
+property.
 
 Project directory structure:
 
@@ -441,13 +408,48 @@ Project directory structure:
 .
 ├── Cargo.lock
 ├── Cargo.toml
-├── src
-│   ├── function_a.rs
-│   └── function_b.rs
+├── function_a
+│   ├── Cargo.toml
+│   └── src
+│       └── main.rs
+├── function_b
+│   ├── Cargo.toml
+│   └── src
+│       └── main.rs
 └── template.yaml
 ```
 
-AWS SAM template:
+Workspace `Cargo.toml` file, at the root of the project:
+
+```
+[workspace]
+resolver = "2"
+members = [
+    "function_a",
+    "function_b",
+]
+
+[workspace.dependencies]
+lambda_runtime = "0.13"
+serde = { version = "1", features = ["derive"] }
+tokio = { version = "1", features = ["macros", "rt"] }
+```
+
+`Cargo.toml` file for each function, such as `function_a/Cargo.toml`:
+
+```
+[package]
+name = "function_a"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+lambda_runtime = { workspace = true }
+serde = { workspace = true }
+tokio = { workspace = true }
+```
+
+AWS SAM template. The `CodeUri` of each function points to that function's package directory:
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -458,44 +460,157 @@ Resources:
     Type: AWS::Serverless::Function
     Metadata:
       BuildMethod: rust-cargolambda
+    Properties:
+      CodeUri: ./function_a
+      Handler: bootstrap
+      Runtime: provided.al2023
+  FunctionB:
+    Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: rust-cargolambda
+    Properties:
+      CodeUri: ./function_b
+      Handler: bootstrap
+      Runtime: provided.al2023
+```
+
+###### Note
+
+The AWS SAM CLI builds every function in the workspace into the workspace's shared
+`target` directory, so Cargo compiles shared dependencies once instead of once for
+each function. This behavior requires AWS SAM CLI version 1.165.0 or later. On earlier versions, each
+function is built in its own `target` directory and the full dependency tree is recompiled for every
+function, which makes builds slower as you add functions.
+
+Give each function package a unique binary name. Package names are unique within a workspace, so the default binary name
+is already unique. If you override the binary name with a `[[bin]]` section, don't give two packages the same
+binary name. They compile to the same path in the shared `target` directory and overwrite each other. The
+AWS SAM CLI logs a warning when it detects this.
+
+Alternatively, a single package can define multiple binaries. In that case, use the `Binary` build property to
+select the binary for each function:
+
+```
+Resources:
+  FunctionA:
+    Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: rust-cargolambda
       BuildProperties:
         Binary: function_a
     Properties:
       CodeUri: ./
       Handler: bootstrap
-      Runtime: provided.al2
-  FunctionB:
-    Type: AWS::Serverless::Function
-    Metadata:
-      BuildMethod: rust-cargolambda
-      BuildProperties:
-        Binary: function_b
-    Properties:
-      CodeUri: ./
-      Handler: bootstrap
-      Runtime: provided.al2
+      Runtime: provided.al2023
 ```
 
-`Cargo.toml` file:
+## Optimizing Rust builds in GitHub Actions
+
+Rust builds are compute intensive, and a continuous integration runner starts with no compiled artifacts. Applications with
+several functions that share large dependencies, such as an AWS SDK, can spend most of their build time
+compiling the same dependencies. The following practices reduce build time in GitHub Actions.
+
+**Use AWS SAM CLI version 1.165.0 or later for workspaces**
+
+Version 1.165.0 and later build every member of a Cargo workspace into the workspace's shared
+`target` directory, so shared dependencies are compiled once per build instead of once for each
+function. Specify the minimum version when you install the AWS SAM CLI so that a build doesn't
+silently fall back to the slower behavior.
+
+**Cache the Cargo registry and `target` directory**
+
+Cache the Cargo registry (`~/.cargo/registry` and
+`~/.cargo/git/db`) and the workspace `target` directory between runs, so that
+unchanged dependencies are restored instead of recompiled. Use a separate cache for each compilation target. A job
+that cross-compiles release artifacts for `arm64` produces different artifacts than a job that compiles
+natively for `x86_64`, so a shared cache never matches.
+
+**Include build settings in the cache key**
+
+Cargo includes settings such as `opt-level` and `codegen-units` in the
+fingerprint that it uses to decide whether a compiled artifact can be reused. If you change the
+`[profile.release]` section of your workspace `Cargo.toml` file without changing the
+cache key, the cache is restored but every crate is recompiled anyway. Include a hash of the workspace
+`Cargo.toml` file in the cache key so that changing a profile setting starts a new cache.
+
+**Commit your `Cargo.lock` file**
+
+Lambda functions are executables, so commit your `Cargo.lock` file. This gives you reproducible
+builds and a stable cache key that changes only when your dependencies change.
+
+**Tune the release profile for build time and cold start**
+
+Your function code is recompiled on every run, because it changes more often than your dependencies. The default
+release profile optimizes for runtime throughput, which many Lambda functions don't need. Optimizing for size produces
+smaller binaries, which also helps cold start time, and increasing the number of code generation units increases
+parallelism during compilation. Leave link time optimization (`lto`) disabled, because it makes compilation
+slower. Add the following to your workspace `Cargo.toml` file:
 
 ```
-[package]
-name = "test-handler"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-lambda_runtime = "0.6.0"
-serde = "1.0.136"
-tokio = { version = "1", features = ["macros"] }
-tracing = { version = "0.1", features = ["log"] }
-tracing-subscriber = { version = "0.3", default-features = false, features = ["fmt"] }
-
-[[bin]]
-name = "function_a"
-path = "src/function_a.rs"
-
-[[bin]]
-name = "function_b"
-path = "src/function_b.rs"
+[profile.release]
+opt-level = "s"
+codegen-units = 256
+lto = false
+strip = true
 ```
+
+Measure the effect on your own application. These settings trade a small amount of runtime performance for build
+time and binary size.
+
+**Avoid duplicate workflow runs**
+
+A workflow that runs on both `push` and `pull_request` events runs twice for the same commit.
+GitHub Actions caches are scoped by branch and pull request, so the two runs write to different cache
+scopes and neither reuses the other's cache. Use a concurrency group that is keyed on the head commit, so that only one
+run builds each commit.
+
+The following workflow builds a Cargo workspace of Rust Lambda functions for `arm64`, and applies
+the preceding practices:
+
+```
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Collapse the push and pull_request runs for the same commit into a single run.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.sha || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-unknown-linux-gnu
+
+      # Cache the Cargo registry and the workspace target directory. The key covers
+      # the compilation target, Cargo.lock, and the workspace Cargo.toml, so that
+      # changing a dependency or a release profile setting starts a new cache
+      # instead of restoring one whose artifacts Cargo discards.
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry/index
+            ~/.cargo/registry/cache
+            ~/.cargo/git/db
+            target
+          key: cargo-arm64-${{ hashFiles('Cargo.lock', 'Cargo.toml') }}
+          restore-keys: |
+            cargo-arm64-
+
+      - name: Install build tools
+        run: pip install cargo-lambda 'aws-sam-cli>=1.165.0'
+
+      - name: Build
+        run: sam build
+```
+
+The `restore-keys` entry lets a run start from the most recent cache when the key doesn't match exactly, so that a
+dependency change reuses the crates that didn't change instead of compiling everything again.
