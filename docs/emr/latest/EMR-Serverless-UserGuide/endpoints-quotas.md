@@ -77,9 +77,9 @@ automatically increases the quotas based on your usage.
 The following table lists the service quotas for EMR Serverless. For more information,
 refer to [AWS service quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md").
 
-| Name                             | Default limit | Adjustable? | Description                                                                                         |
-| -------------------------------- | ------------- | ----------- | --------------------------------------------------------------------------------------------------- |
-| Max concurrent vCPUs per account | 16            | Yes         | The maximum number of vCPUs that can concurrently run for the account<br>in the current AWS Region. |
+| Name                             | Default limit | Adjustable? | Description                                                                                                                                            |
+| -------------------------------- | ------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Max concurrent vCPUs per account | 16            | Yes         | The maximum number of vCPUs that can concurrently run for the account<br>in the current AWS Region.<br>Valid Period: 1 minute<br>Valid Statistics: Sum |
 
 ## API limits
 
