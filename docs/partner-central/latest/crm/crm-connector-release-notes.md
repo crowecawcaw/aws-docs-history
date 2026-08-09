@@ -4,6 +4,7 @@ This section contains the release history for the AWS Partner Customer Relations
 
 ###### Topics
 
+- [Version 3.20 (July 17, 2026)](#3.20 "#3.20")
 - [Version 3.19 (June 23, 2026)](#3.19 "#3.19")
 - [Version 3.18 (April 16, 2026)](#3.18 "#3.18")
 - [Version 3.17 (March 31, 2026)](#3.17 "#3.17")
@@ -26,6 +27,15 @@ This section contains the release history for the AWS Partner Customer Relations
 - [Version 1.6 (January 13, 2023)](#1.6 "#1.6")
 - [Version 1.5 (January 13, 2023)](#1.5 "#1.5")
 - [Version 1.4 (December 7, 2022)](#1.4 "#1.4")
+
+## Version 3.20 (July 17, 2026)
+
+AWS Partner CRM Connector version 3.20 contains the following bug fixes:
+
+### Bug fixes
+
+- Fixed an issue where agreement synchronization could fail for accounts that contained agreements with incomplete Marketplace data. The connector now skips individual agreements that it cannot process. A single incomplete agreement no longer stops the entire synchronization.
+- Removed two redundant validation rules from the **ACE Opportunity** object. These rules duplicated checks that AWS Partner Central already enforces on the server. Removing these rules reduces the number of active validation rules with no loss of validation coverage.
 
 ## Version 3.19 (June 23, 2026)
 
