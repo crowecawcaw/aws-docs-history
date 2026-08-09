@@ -29,7 +29,7 @@ window.MediaSource.canConstructInDedicatedWorker);
     		}
 	})();
 </script>
-<script src="https://player.live-video.net/1.54.1/amazon-ivs-jw-provider.min.js">
+<script src="https://player.live-video.net/1.55.0/amazon-ivs-jw-provider.min.js">
 </script>
 ```
 

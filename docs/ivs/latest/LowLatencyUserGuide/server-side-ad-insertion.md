@@ -75,9 +75,9 @@ aws ivs create-ad-configuration \
 
 The `--post-roll-configuration` parameter is optional. If omitted, post-roll configuration defaults to disabled
 (`enabled`: false) with a duration of 15 seconds (`durationSeconds`: 15). If provided, both `enabled` and `durationSeconds` are required.
-If omitted, you can enable it later using the [UpdateAdConfiguration](Https://https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_UpdateAdConfiguration.html "Https://https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_UpdateAdConfiguration.html") API.
+If omitted, you can enable it later using the [UpdateAdConfiguration](../LowLatencyAPIReference/API_UpdateAdConfiguration.md "../LowLatencyAPIReference/API_UpdateAdConfiguration.md") API.
 
-For [UpdateAdConfiguration](Https://https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_UpdateAdConfiguration.html "Https://https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_UpdateAdConfiguration.html"): if `--post-roll-configuration` is not included in
+For [UpdateAdConfiguration](../LowLatencyAPIReference/API_UpdateAdConfiguration.md "../LowLatencyAPIReference/API_UpdateAdConfiguration.md"): if `--post-roll-configuration` is not included in
 the request, the existing post-roll configuration is not modified. If included, both fields are required.
 
 Save the arn value from the response. You need it in the next step.
