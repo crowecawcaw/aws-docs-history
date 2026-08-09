@@ -130,7 +130,9 @@ When a _required_ engine patch becomes available in an AWS Region, every AWS acc
 
 ![Amazon DocumentDB console showing the Scheduled changes tab for engine patch upgrades.](images/scheduled-changes.png)
 
-Notifications go out approximately two days before the auto-apply window opens. For example, a required patch released Monday at 00:00 UTC becomes eligible for auto-apply on Wednesday at 00:00 UTC. If your cluster's maintenance window is Wednesday at 12:00 UTC, the patch auto-applies that Wednesday—about 12 hours after the auto-apply window opens. If your maintenance window is Tuesday at 12:00 UTC, the patch waits a full week before auto-applying.
+Required engine patches follow a single lead time of approximately 30 days. When a patch becomes available in your Region, Amazon DocumentDB sends the notification described above. At that point, the patch's `AutoAppliedAfterDate` is set to approximately 30 days later. Until that date, the patch stays pending: You can apply it at any time, or defer it by moving your cluster's maintenance window to a later day. On or after the `AutoAppliedAfterDate`, the patch auto-applies during the cluster's next maintenance window.
+
+For example, a required patch that becomes available on June 1, 2026 has an `AutoAppliedAfterDate` of approximately July 1, 2026. You receive the notification on June 1, 2026, and if you take no action, the patch auto-applies during your cluster's first maintenance window on or after July 1, 2026.
 
 You have two options after receiving the notification: self-apply the patch before the auto-apply date, or wait for it to auto-apply during an upcoming maintenance window (the default). To self-apply, open the cluster's **Maintenance & backups** tab and look for the entry of type `system-update`.
 

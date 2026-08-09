@@ -6,6 +6,11 @@ move data in and out of your Amazon DocumentDB cluster. This section discusses
 the purpose of each of these tools and configurations to help you
 achieve better performance.
 
+###### MongoDB Database Tools version requirement
+
+Use MongoDB Database Tools up to and including version 100.11.0 for Amazon DocumentDB.
+To download, see [MongoDB Database Tools releases](https://www.mongodb.com/download-center/database-tools/releases/archive "https://www.mongodb.com/download-center/database-tools/releases/archive") on the MongoDB website.
+
 ###### Topics
 
 - [mongodump](#backup_restore-dump_restore_import_export_data-mongodump "#backup_restore-dump_restore_import_export_data-mongodump")
@@ -29,11 +34,6 @@ collections dumped from the default 1 using the
 `--numParallelCollections` option. A good rule of thumb
 is to start with one worker per vCPU on your Amazon DocumentDB cluster's
 primary instance.
-
-###### Note
-
-Use MongoDB Database Tools up to and including version 100.6.1 for Amazon DocumentDB.
-To download, see [MongoDB Database Tools releases](https://www.mongodb.com/download-center/database-tools/releases/archive "https://www.mongodb.com/download-center/database-tools/releases/archive").
 
 ### Example usage
 

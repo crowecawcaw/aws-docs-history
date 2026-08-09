@@ -623,7 +623,7 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 | [$geoNear](geoNear.md "geoNear.md")                               | Yes | Yes | Yes | Yes          | Yes             |
 | $graphLookup                                                      | No  | No  | No  | No           | No              |
 | [$group](group.md "group.md")                                     | Yes | Yes | Yes | Yes          | Yes             |
-| [$indexStats](indexStats.md "indexStats.md")                      | Yes | Yes | Yes | Yes          | Yes             |
+| [$indexStats](indexStats.md "indexStats.md")                      | Yes | Yes | Yes | Yes          | No              |
 | [$limit](limit.md "limit.md")                                     | Yes | Yes | Yes | Yes          | Yes             |
 | $listLocalSessions                                                | No  | No  | No  | No           | No              |
 | $listSessions                                                     | No  | No  | No  | No           | No              |

@@ -295,10 +295,10 @@ or `mongorestore` utilities. When you create a new
 database in Amazon DocumentDB using `mongorestore`, you need to
 re-create the user roles in addition to the restore operation.
 
-###### Note
+###### MongoDB Database Tools version requirement
 
-Use MongoDB Database Tools up to and including version 100.6.1 for Amazon DocumentDB.
-To download, see [MongoDB Database Tools releases](https://www.mongodb.com/download-center/database-tools/releases/archive "https://www.mongodb.com/download-center/database-tools/releases/archive").
+Use MongoDB Database Tools up to and including version 100.11.0 for Amazon DocumentDB.
+To download, see [MongoDB Database Tools releases](https://www.mongodb.com/download-center/database-tools/releases/archive "https://www.mongodb.com/download-center/database-tools/releases/archive") on the MongoDB website.
 
 ### Result ordering
 
