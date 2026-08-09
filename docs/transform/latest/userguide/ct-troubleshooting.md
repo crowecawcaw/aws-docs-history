@@ -80,4 +80,4 @@ Continuous modernization not visible in the web application
 If continuous modernization does not appear after you sign in to the AWS Transform web
 application, sign in with the IAM credentials of the AWS account where AWS Transform is enabled
 instead of AWS IAM Identity Center. For steps, see
-[AWS Transform web application (Optional)](ct-working-with.md#ct-web-application "ct-working-with.md#ct-web-application").
+[AWS Transform web application](ct-working-with.md#ct-web-application "ct-working-with.md#ct-web-application").

@@ -333,43 +333,73 @@ By default, resources are tagged with the tags you define in
 Tags passed with `--tags` are merged over any configured default tags, and
 `--tags` wins for any key set in both places.
 
-## AWS Transform web application (Optional)
+## AWS Transform web application
 
-The AWS Transform web application is an optional interface for monitoring continuous
-modernization analyses, findings, and remediations across your portfolio of code
-sources.
+Use the AWS Transform web application to create and run analyses, review findings, create
+remediations, and track generated pull requests across your code sources.
 
-Before using the AWS Transform web application, you need to have a user identity enabled to
-access AWS Transform in your organization. For information about enabling AWS Transform, see
+Before you use the web application, your organization must enable your user identity to
+access AWS Transform. For more information about setting up AWS Transform, see
 [Setting up AWS Transform](transform-setup.md "transform-setup.md").
 
-To use the AWS Transform web application:
+### Sign in
 
-1. Visit `https://aws.amazon.com/transform/` and sign in using
+To access the AWS Transform web application, complete the following steps.
+
+1. Open `https://aws.amazon.com/transform/` and sign in with
    AWS IAM Identity Center credentials.
-2. If continuous modernization does not appear after you sign in, sign in with
-   IAM credentials instead. To enable IAM credentials sign-in:
+2. If continuous modernization does not appear, sign in with IAM credentials
+   instead:
 
    1. In the AWS Management Console, open AWS Transform and choose
       **Settings**.
-   2. In the **Access AWS Transform with IAM credentials**
-      section, enable IAM credentials access.
-   3. On the same settings page, copy the sign-in link shown under
-      **Web application URL (with IAM)**.
-   4. Paste the sign-in URL into the same browser window where the AWS
-      Management Console is open. This ensures the web application uses the AWS credentials
-      from that account.
+   2. Turn on **Access AWS Transform with IAM
+      credentials**.
+   3. Copy the **Web application URL (with IAM)**
+      and paste it into the same browser window where the console is
+      open.
 
 3. Open the left navigation menu and choose **continuous
-   modernization**. The Dashboard displays summary statistics including sources,
-   repositories, total findings by severity, and analysis types.
-4. Use the **Analyses**,
-   **Findings**, and
-   **Remediations** tabs to view detailed
-   results.
-5. Chat with AWS Transform directly from the web application to ask questions about
-   your analyses, findings, or remediations.
+   modernization**.
 
-The web application is designed for enterprise-scale operations where you need
-centralized visibility into continuous modernization analyses and remediations across multiple
-codebases.
+### Infrastructure prerequisites
+
+The web application requires deployed infrastructure to run analyses. Open the
+**Settings** tab and use the AWS CloudFormation quick-create links to
+deploy the following stacks in order:
+
+1. `AtxDispatcherStack` – Message dispatcher (always
+   required).
+2. Compute stack – `AtxInfrastructureStack` (AWS Batch) or
+   `atx-runner` (Amazon EC2).
+3. `atx-scheduler` – Required for recurring scheduled
+   analyses.
+4. `AtxSecurityAgentStack-<region>` – Required only for
+   security analysis.
+
+For CLI-based provisioning and networking configuration, see
+[Remote execution](#ct-remote-execution "#ct-remote-execution").
+
+### Getting started workflow
+
+1. **Provision infrastructure** – Deploy the
+   required stacks from the **Settings** tab.
+2. **Connect sources** – Open the
+   **Sources** tab and add repositories from GitHub,
+   GitLab, or Bitbucket.
+3. **Run or schedule an analysis** – Open the
+   **Analyses** tab, select repositories, choose an analysis
+   type, and choose **Run**. To run on a recurring cadence
+   (daily, weekly, or monthly), choose **Schedule**
+   instead.
+4. **Review findings** – Open the
+   **Findings** tab to view results by
+   severity.
+5. **Create a remediation** – Select findings
+   and choose **Create remediation**.
+6. **Review pull requests** – Open the
+   **Remediations** tab to view generated PR links per
+   repository.
+
+Chat with AWS Transform directly from the web application to ask questions about your
+analyses, findings, or remediations.

@@ -1,11 +1,10 @@
 # Release notes
 
 The following release notes cover the latest changes to [Migrations (including VMware)](transform-app-vmware.md "transform-app-vmware.md").
-For supported AWS Transform regions, see [Supported Regions](regions.md "regions.md"). For supported target
+For a list of changes across the full AWS Transform service, see the [changelog](change-log.md "change-log.md"). For supported AWS Transform
+regions, see [Supported Regions](regions.md "regions.md"). For supported target
 regions, see the [account
 connector setup page](transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions "transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions").
-
-For a list of changes across the full AWS Transform service, see the [changelog](change-log.md "change-log.md").
 
 ## July 2026
 
