@@ -76,7 +76,7 @@ Stack](https://github.com/awslabs/cid-framework/tree/main/data-collection/deploy
    [on
    GitHub](https://github.com/awslabs/cid-framework/tree/main/data-collection#modules "https://github.com/awslabs/cid-framework/tree/main/data-collection#modules").
 
-![Data Read Role CloudFormation - modules selection](/images/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2c-data-read-permissions-stack-create-modules.png)
+![Data Read Role CloudFormation - modules selection](images/data-collection/update-process/data-read-permissions/2c-data-read-permissions-stack-create-modules.png)
 
 1. Please make sure you specify **Data Collection Account Id** correctly.
    It is not the Management Account Id; it’s an ID of the dedicated Data
