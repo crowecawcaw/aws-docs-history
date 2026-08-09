@@ -163,6 +163,41 @@ query filters on messages where the value of `instanceId` equals
 `"i-abcde123"` and returns all of the log events that contain the
 specified value.
 
+###### Dot notation and JSON-encoded string fields
+
+Dot notation traverses only fields that are stored as structurally nested
+JSON objects at ingest time. If a field's value is a JSON-encoded string (a
+string whose content happens to be valid JSON), dot notation treats it as an
+opaque leaf value and does not access sub-fields within it.
+
+This commonly occurs with:
+
+- Logs transformed by OCSF pipelines (for example,
+  `api.request.data` is typed as `json_t` in the
+  OCSF schema)
+- Any log source where variable-structure payloads are serialized as strings
+  before ingestion
+
+For example, if `api.request.data` contains
+`{"startTime":1234,"endTime":5678}` as a string value, then
+`api.request.data.startTime` returns no results because CloudWatch Logs Insights
+treats the entire string as a single leaf value rather than a nested object.
+
+To access sub-fields within a JSON-encoded string, use
+`jsonParse` to convert the string into a traversable map.
+
+**Example: Query using jsonParse for a JSON-encoded string
+field**
+
+```
+fields jsonParse(api.request.data).startTime as startTime
+```
+
+This query uses `jsonParse` to parse the JSON-encoded string in
+`api.request.data` into a map, and then accesses the
+`startTime` sub-field with dot notation. For more information about
+`jsonParse`, see [Structure types](CWL_QuerySyntax-operations-functions.md#CWL_QuerySyntax-structure-types "CWL_QuerySyntax-operations-functions.md#CWL_QuerySyntax-structure-types").
+
 ###### Note
 
 CloudWatch Logs Insights can extract a maximum of 200 log event fields from a JSON log. For

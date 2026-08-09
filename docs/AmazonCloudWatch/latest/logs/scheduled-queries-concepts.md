@@ -6,7 +6,8 @@ queries run and where results are delivered.
 ## IAM role separation
 
 Scheduled queries require two separate IAM roles: one for executing queries and
-another for delivering results to Amazon S3 or Amazon EventBridge event buses. Understanding why this separation exists helps you
+another for delivering results to destinations such as Amazon S3 buckets, Amazon EventBridge event
+buses, or lookup tables. Understanding why this separation exists helps you
 configure permissions correctly and use the security and operational benefits it
 provides.
 
@@ -90,6 +91,26 @@ Example permissions policy for S3 destination delivery role:
                 "s3:PutObject"
             ],
             "Resource": "arn:aws:s3:::your-scheduled-query-results-bucket/*"
+        }
+    ]
+}
+```
+
+Example permissions policy for a lookup table destination delivery
+role:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLookupTable",
+                "logs:UpdateLookupTable",
+                "logs:GetQueryResults"
+            ],
+            "Resource": "*"
         }
     ]
 }
@@ -223,6 +244,10 @@ EventBridge destinations are optimized for real-time automation. When query resu
 trigger immediate actions—like sending alerts, starting workflows, or updating
 systems—EventBridge delivers results as events that your applications can respond to
 instantly. By default all query completion events are automatically sent as events to the default event bus, enabling integration with downstream processing systems, Lambda functions, or other event-driven architectures. Results are only published to destinations when query is executed successfully.
+Lookup table destinations are optimized for keeping reference data current. A
+lookup table destination automatically populates or refreshes the specified lookup
+table with the query results on each scheduled execution, so other queries can
+reference the latest data with the `lookup` command.
 
 **Amazon S3 destinations**
 
@@ -244,6 +269,19 @@ Best for:
   functions
 - Real-time alerting and notification systems
 - Event-driven architectures and microservices
+
+**Lookup table destinations**
+
+Automatically create or refresh a lookup table with query results on
+each scheduled execution. Each refresh is a full replacement of the
+table content. Best for:
+
+- Keeping reference data current for the `lookup`
+  command in your log queries
+- Maintaining allowlists, denylists, or entity inventories
+  derived from log data
+- Enriching queries with recent activity summaries, such as
+  active user or resource lists
 
 ## Query result format and structure
 

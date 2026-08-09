@@ -1,8 +1,9 @@
 # lookup
 
 Use `lookup` to enrich your query results with reference data
-from a lookup table. A lookup table contains CSV data that you upload to
-Amazon CloudWatch Logs. When a query runs, the `lookup` command matches a
+from a lookup table. You can populate a lookup table with CSV data that you
+upload to Amazon CloudWatch Logs, or with the results of a completed or cancelled log
+query. When a query runs, the `lookup` command matches a
 field in your log events against a field in the lookup table and appends the
 specified output fields to the results.
 
@@ -25,7 +26,7 @@ from the CloudWatch console or by using the Amazon CloudWatch Logs API.
    **Manage**.
 4. Choose **Create lookup table**.
 5. Enter a name for the lookup table. The name can contain only
-   alphanumeric characters, hyphens, and underscores.
+   alphanumeric characters and underscores.
 6. (Optional) Enter a description.
 7. Upload a CSV file. The file must include a header row with
    column names, use UTF-8 encoding, and not exceed 10 MB.
@@ -42,6 +43,19 @@ To update a lookup table, select the table and choose
 new CSV file to replace all existing content. To delete a lookup table,
 choose **Actions**,
 **Delete**.
+
+Instead of uploading CSV data, you can also create or update a lookup
+table from the results of a completed or cancelled log query that you
+run in the Log Analytics console or with the Amazon CloudWatch Logs API.
+Specify the query ID with the `queryId` parameter of the
+`CreateLookupTable` or `UpdateLookupTable` API.
+A cancelled query populates the table with the partial results that
+were available when the query was stopped.
+You must specify either the CSV content or a query ID, but not both.
+Updating a table is a full replacement operation—all existing
+content is replaced regardless of the source. To refresh a lookup table
+with query results automatically on a schedule, use a scheduled query
+with a lookup table destination. For more information, see [Configuring lookup table destinations for scheduled queries](scheduled-queries-lookup-table-destination.md "scheduled-queries-lookup-table-destination.md").
 
 ###### Note
 

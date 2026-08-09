@@ -19,7 +19,7 @@ will attempt to process only the log events that are known to contain that index
 and the queried value, and that CloudWatch Logs has detected a value for that field in the
 past.
 
-You can also leverage your field indexes to create efficient queries of larger numbers
+You can also use your field indexes to create efficient queries of larger numbers
 of log groups. When you use the `filterIndex` command in your query instead
 of the `filter` command, the query will run against selected log groups on
 log events that have field indexes. These queries can scan as many as 10,000 log groups
@@ -71,12 +71,14 @@ If you create a field index policy in a monitoring account, that policy is not
 used for log groups in linked source accounts. A field index policy applies only in
 the account where it is created.
 
-The rest of the topics in this section explain how to create field indexes. For
-information about referring to field indexes in your queries, see [filterIndex](CWL_QuerySyntax-FilterIndex.md "CWL_QuerySyntax-FilterIndex.md")
+The rest of the topics in this section explain automatically indexed fields and how
+to create field indexes. For information about referring to field indexes in your
+queries, see [filterIndex](CWL_QuerySyntax-FilterIndex.md "CWL_QuerySyntax-FilterIndex.md")
 and [filter](CWL_QuerySyntax-Filter.md "CWL_QuerySyntax-Filter.md").
 
 ###### Topics
 
+- [Automatically indexed fields](CloudWatchLogs-Field-Indexing-Automatic.md "CloudWatchLogs-Field-Indexing-Automatic.md")
 - [Field index syntax and quotas](CloudWatchLogs-Field-Indexing-Syntax.md "CloudWatchLogs-Field-Indexing-Syntax.md")
 - [Create an account-level field index policy](CloudWatchLogs-Field-Indexing-CreateAccountLevel.md "CloudWatchLogs-Field-Indexing-CreateAccountLevel.md")
 - [Create a log-group level field index policy](CloudWatchLogs-Field-Indexing-CreateLogGroupLevel.md "CloudWatchLogs-Field-Indexing-CreateLogGroupLevel.md")

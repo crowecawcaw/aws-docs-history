@@ -8,7 +8,7 @@ deployed fixes. You are limited to 100 concurrent CloudWatch Logs Insights QL pe
 including queries added to dashboards. Additionally, you can run 15 concurrent queries for
 either OpenSearch Service PPL or OpenSearch Service SQL.
 
-CloudWatch Logs Insights supports three query languages that you can use for your queries:
+CloudWatch Logs Insights supports 3 query languages that you can use for your queries:
 
 - A purpose-built **Logs Insights query language (Logs Insights
   QL)** with a few simple but powerful commands.
@@ -98,7 +98,7 @@ line-by-line explanation of how the query works. For more information, see [Use 
 language to generate and update CloudWatch Logs Insights queries](CloudWatchLogs-Insights-Query-Assist.md "CloudWatchLogs-Insights-Query-Assist.md").
 
 Queries using any of the supported query languages time out after 60 minutes, if they have
-not completed. Query results are available for seven days.
+not completed. Query results are available for 7 days.
 
 CloudWatch Logs Insights queries incur charges based on the amount of uncompressed log data
 scanned, regardless of query language. For more information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").

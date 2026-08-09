@@ -62,5 +62,5 @@ The execution history displays:
 - **Execution status** - Running, Complete, Failed, Timeout, or InvalidQuery
 - **Triggered time** - When the query was executed
 - **Destinations** - Processing status for each configured
-  destination including S3 and EventBridge
+  destination including S3, EventBridge, and lookup tables
 - **Error messages** - Details about any failures in query execution or destination processing

@@ -40,7 +40,7 @@ fields @timestamp, @message
 
 ## Indexed fields and the filter command
 
-If you have created field indexes for a log group, you can leverage
+If you have created field indexes for a log group, you can use
 those field indexes to make your `filter` queries more
 efficient and reduce scanned volume. For example, suppose you have
 created a field index for `requestId`. Then, any CloudWatch Logs Insights query on that log group that includes
@@ -70,7 +70,7 @@ request ID, using indexes**
 
 This example assumes that you have created a field index on
 `requestId`. For log groups that use this field index,
-the query will leverage field indexes to attempt to scan the least
+the query will use field indexes to attempt to scan the least
 amount of log events to find events with `requestId` with a
 value of `123456`
 

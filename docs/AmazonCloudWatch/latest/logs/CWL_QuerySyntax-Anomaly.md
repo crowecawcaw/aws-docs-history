@@ -4,7 +4,7 @@ Use `anomaly` to automatically identify unusual patterns and
 potential issues within your log data using machine learning.
 
 The `anomaly` command extends the existing `pattern`
-functionality and leverages advanced analytics to help identify potential
+functionality and uses advanced analytics to help identify potential
 anomalies in log data. You can use `anomaly` to reduce the time
 it takes to identify and resolve operational issues by automatically
 surfacing unusual patterns or behaviors in your logs.

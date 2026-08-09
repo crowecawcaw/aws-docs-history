@@ -16,7 +16,7 @@ the following keywords:
   have names that start with the string that you specify. If you omit
   this, all log groups are queried.
 
-You can include as many as five prefixes in the list.
+You can include as many as 5 prefixes in the list.
 
 - `accountIdentifier` runs the query against log groups
   in the specified AWS account. This works only when you run the
@@ -32,7 +32,7 @@ list.
   Access. If you omit this, the default of Standard log class is used.
   For more information about log classes, see [Log classes](CloudWatch_Logs_Log_Classes.md "CloudWatch_Logs_Log_Classes.md").
   Because you can specify large numbers of log groups to query this way, we
-  recommend that you use `SOURCE` only in queries that leverage
+  recommend that you use `SOURCE` only in queries that use
   field indexes that you have created. For more information about indexing
   fields in log groups, see [Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md")
 
@@ -122,7 +122,7 @@ each with a `key` and optional `values` array.
   `payment*` matches values that start with `payment`.
 - Use `!` as a prefix for negation. For example,
   `!production` matches values that are not `production`.
-- You can include as many as five tag filters, each with up to five values.
+- You can include as many as 5 tag filters, each with up to 5 values.
   The following example selects all log groups tagged with
   `team=team1 OR team=team2`.
 

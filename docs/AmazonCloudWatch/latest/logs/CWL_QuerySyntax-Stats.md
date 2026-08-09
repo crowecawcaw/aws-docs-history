@@ -209,15 +209,8 @@ FIELDS strlen(@message) AS message_length
 
 **Notes and limitations**
 
-The maximum number of `stats` commands in a query
-depends on the log class:
-
-- Standard log class: maximum of 10 `stats` commands per
-  query
-- Infrequent Access log class: maximum of 2 `stats` commands per
-  query
-
-These quotas can't be changed.
+A query can have a maximum of 10 `stats` commands. This
+quota can't be changed.
 
 If you use a `sort` or `limit` command, it must
 appear after the last `stats` command. If it is before the
