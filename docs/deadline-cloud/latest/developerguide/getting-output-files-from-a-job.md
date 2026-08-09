@@ -41,7 +41,7 @@ To see how this process works, first start the Deadline Cloud worker agent in an
 previously submitted jobs finish running. Then delete the job logs from the logs directory:
 
 ```
-rm -rf ~/devdemo-logs/queue-*
+rm -rf ~/demoenv-logs/queue-*
 ```
 
 Next, submit a job with this job bundle. After the worker running in your CloudShell
@@ -67,7 +67,7 @@ The log shows that a file was detected as output and uploaded to Amazon S3:
 2024-07-17 02:13:10,873 INFO Uploading output files to Job Attachments
 2024-07-17 02:13:10,873 INFO ----------------------------------------------
 2024-07-17 02:13:10,873 INFO Started syncing outputs using Job Attachments
-2024-07-17 02:13:10,955 INFO Found 1 file totaling 117.0 B in output directory: /sessions/session-7efa/assetroot-`assetroot-3751a`/output_dir
+2024-07-17 02:13:10,955 INFO Found 1 file totaling 117.0 B in output directory: /sessions/session-7efa/assetroot-`3751a`/output_dir
 2024-07-17 02:13:10,956 INFO Uploading output manifest to DeadlineCloud/Manifests/farm-0011/queue-2233/job-4455/step-6677/task-6677-0/2024-07-17T02:13:10.835545Z_sessionaction-8899-1/c6808439dfc59f86763aff5b07b9a76c_output
 2024-07-17 02:13:10,988 INFO Uploading 1 output file to S3: `s3BucketName`/DeadlineCloud/Data
 2024-07-17 02:13:11,011 INFO Uploaded 117.0 B / 117.0 B of 1 file (Transfer rate: 0.0 B/s)

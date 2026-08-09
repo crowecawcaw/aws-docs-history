@@ -104,7 +104,7 @@ command:
 ```
 deadline bundle submit ./lora_training \
   --queue-id `gpu-queue-id` \
-  --parameter DatasetPath=~/training_images \
+  --parameter DatasetPath="$HOME/training_images" \
   --parameter InstancePrompt="a photo of ohwx dog" \
   --parameter OutputDir=/tmp/lora_output \
   --parameter MaxTrainSteps=1500 \

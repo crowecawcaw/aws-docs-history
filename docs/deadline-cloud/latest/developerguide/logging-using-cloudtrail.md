@@ -174,7 +174,7 @@ The following example shows a CloudTrail event that demonstrates the
 
 ```
 {
-    "eventVersion": "0",
+    "eventVersion": "1.11",
     "userIdentity": {
         "type": "AssumedRole",
         "principalId": "EXAMPLE-PrincipalID:EXAMPLE-Session",
@@ -208,7 +208,7 @@ The following example shows a CloudTrail event that demonstrates the
         "X-Amz-Client-Token": "12abc12a-1234-1abc-123a-1a11bc1111a",
         "description": "example-description",
         "tags": {
-            "purpose_1": "e2e"
+            "purpose_1": "e2e",
             "purpose_2": "tag_test"
         }
     },
@@ -220,8 +220,8 @@ The following example shows a CloudTrail event that demonstrates the
     "readOnly": false,
     "eventType": "AwsApiCall",
     "managementEvent": true,
-    "recipientAccountId": "111122223333"
-    "eventCategory": "Management",
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management"
 }
 
 ```

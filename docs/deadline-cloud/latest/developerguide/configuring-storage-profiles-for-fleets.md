@@ -18,11 +18,11 @@ WORKER_CFG_ID=sp-`00112233445566778899aabbccddeeff`
 
 FLEET_WORKER_MODE=$( \
   aws deadline get-fleet --farm-id $FARM_ID --fleet-id $FLEET_ID \
-   --query '.configuration.customerManaged.mode' \
+   --query 'configuration.customerManaged.mode' \
 )
 FLEET_WORKER_CAPABILITIES=$( \
   aws deadline get-fleet --farm-id $FARM_ID --fleet-id $FLEET_ID \
-   --query '.configuration.customerManaged.workerCapabilities' \
+   --query 'configuration.customerManaged.workerCapabilities' \
 )
 
 aws deadline update-fleet --farm-id $FARM_ID --fleet-id $FLEET_ID \

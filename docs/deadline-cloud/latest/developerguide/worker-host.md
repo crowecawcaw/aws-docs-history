@@ -320,7 +320,7 @@ sudo mkdir -p /var/log/amazon/deadline
 2. Set the owner and group to the worker agent user:
 
 ```
-sudo chown -R deadline-worker:deadline-worker /var/log/amazon/deadline
+sudo chown -R deadline-worker-agent:deadline-worker-agent /var/log/amazon/deadline
 ```
 
 3. Set permissions to 750:

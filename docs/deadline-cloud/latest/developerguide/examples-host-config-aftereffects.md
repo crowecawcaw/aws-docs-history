@@ -19,13 +19,15 @@ alive during peak usage hours, or use one fleet for After Effects
 renders through conda and a separate fleet for After Effects with Red
 Giant through this host configuration script.
 
-The
-[aftereffects\_redgiant\_persistent](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects/aftereffects_redgiant_persistent "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects/aftereffects_redgiant_persistent")
-variant supports persistent EBS volumes. The first worker installs the
-software once to the persistent volume; subsequent worker boots restore
-it through NTFS directory junctions in seconds instead of reinstalling.
-Use the persistent variant for fleets that scale up and down frequently.
-For details on configuring persistent volumes, see
+The script uses a persistent volume automatically when your fleet has
+one configured. The first worker installs the software once to the
+persistent volume; subsequent worker boots restore it in seconds instead
+of reinstalling. If no persistent volume is attached, the script performs
+a normal install. No separate script or flag is required. Configure a
+persistent volume if your fleets scale up and down frequently. For more
+information about how the script uses persistent volumes, see [Persistent Volumes (Automatic)](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects/aftereffects_redgiant#persistent-volumes-automatic "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects/aftereffects_redgiant#persistent-volumes-automatic") in the
+`aftereffects_redgiant` README on GitHub. For more information
+about configuring persistent volumes on a fleet, see
 [Persistent storage for service-managed fleets](smf-persistent-storage-dev.md "smf-persistent-storage-dev.md").
 
 To use this script, you need:

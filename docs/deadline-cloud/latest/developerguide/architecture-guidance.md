@@ -107,6 +107,20 @@ Use [storage profiles](storage-profiles-and-path-mapping.md "storage-profiles-an
 
 When using Deadline Cloud service-managed fleets, [host configuration scripts](smf-admin.md "smf-admin.md") and [VPC resource endpoints](smf-vpc.md "smf-vpc.md") enable workers to directly mount and access shared storage or other services available in your VPC.
 
+### Perforce source control
+
+Many studios keep their project files in Perforce. When your artists already submit their work to a Perforce server as changelists, workers can sync a Perforce client workspace directly from that server as an alternative to job attachments. Your jobs then render the same file revisions your artists submitted. The Deadline Cloud integration for Unreal Engine includes Perforce sync support. For more information, see [Creating a Perforce render job](../userguide/epic-unreal-engine.md#unreal-engine-perforce-render-job "../userguide/epic-unreal-engine.md#unreal-engine-perforce-render-job") in the _Deadline Cloud User Guide_.
+
+Two practices keep Perforce sync fast at scale:
+
+Sync deltas onto persistent worker storage
+
+Persist the client workspace between jobs so that each sync downloads only the file revisions that changed since the last job that used that workspace, instead of the full project. On service-managed fleets, enable [persistent storage](../userguide/volumes.md "../userguide/volumes.md") so volumes carrying the synced workspace are reused across workers.
+
+Cache Perforce data close to your fleet
+
+Sync speed depends on the network path between your workers and your Perforce server. That path can have low throughput or high latency, for example when the commit server is on-premises or in a distant AWS Region. A Perforce edge server in the same Region as your fleet acts as a cache for depot data. Deploy it using the Perforce commit-edge topology and Perforce-native replication. Each asset revision then crosses the slower link once into the edge server, and workers sync from the edge over the regional network. Workers on service-managed fleets can reach the edge server through [VPC resource endpoints](smf-vpc.md "smf-vpc.md"). An edge server comes with operational responsibilities, including Perforce licensing, monitoring of replication lag, and backups. A job that targets a specific changelist can start only after the edge server has replicated that changelist.
+
 ## Job monitoring and output management
 
 After jobs submitted to Deadline Cloud are successfully completed, a person or process will download the job output to use in the business workflow outside of Deadline Cloud. After job failure, job logs and monitoring information help diagnose issues.

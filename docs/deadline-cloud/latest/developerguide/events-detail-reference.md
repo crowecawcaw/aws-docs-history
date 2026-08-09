@@ -149,7 +149,7 @@ reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../.
         "farmId": "farm-12345678900000000000000000000000",
         "fleetId": "fleet-12345678900000000000000000000000",
         "oldFleetSize": 1,
-        "newFleetSize": 5,
+        "newFleetSize": 5
     }
 }
 ```
@@ -574,7 +574,7 @@ reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../.
     "version": "0",
     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
     "detail-type": "Task Run Status Change",
-    "source": "aws.aws.deadline",
+    "source": "aws.deadline",
     "account": "111122223333",
     "time": "2017-12-22T18:43:48Z",
     "region": "aa-example-1",

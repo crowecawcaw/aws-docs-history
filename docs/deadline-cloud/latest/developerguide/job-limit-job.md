@@ -37,7 +37,7 @@ JSON
             "name": "`amount.name`",
             "min": "1"
         }
-    }
+    ]
 }
 ```
 
@@ -69,7 +69,7 @@ JSON
             "name": "amount.`name_2`",
             "min": "1"
         }
-    }
+    ]
 }
 ```
 

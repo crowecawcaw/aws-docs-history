@@ -4,21 +4,29 @@ You can bring your own license server to use with a Deadline Cloud service-manag
 your own license, you can configure a license server using a queue environment in your farm. To
 configure your license server, you should already have a farm and queue set up.
 
-How you connect to a software license server depends on the configuration of your fleet and
-the requirements of the software vendor. Typically, you access the server in one of two
-ways:
+Service-managed fleet workers run in infrastructure that AWS manages, outside your VPC, so
+they reach a license server in one of three ways:
 
-- Directly to the license server. Your workers obtain a license from software vendor's
-  license server using the Internet. All of your workers must be able to connect to the
-  server.
-- Through a license proxy. Your workers connect to a proxy server in your local network.
-  Only the proxy server is allowed to connect to the vendor's license server over the
-  Internet.
-  With the instructions below, you use Amazon EC2 Systems Manager (SSM) to forward ports from a worker
-  instance to your license server or proxy instance. In the example below if your license server
-  is unable to provide a license, Deadline Cloud's usage based licensing will be used.
-  Remove the sections that don't apply to your pipeline or products for which you don't want to
-  use usage based licensing after exhausting your licenses.
+- Through a VPC resource endpoint. Workers connect to a license server in your VPC
+  through VPC Lattice using a private domain name, without a queue environment or port
+  forwarding. For setup steps, see [Connect VPC resources to your SMF with VPC resource endpoints](smf-vpc.md "smf-vpc.md"). Set
+  the application's license environment variable to the resource endpoint's domain name
+  the same way as for a server address in [Step 3: Connect a rendering application to an endpoint](cmf-ubl.md "cmf-ubl.md").
+- Through Amazon EC2 Systems Manager (SSM) port forwarding. A queue environment forwards license ports
+  from each worker to an Amazon EC2 instance in your account that hosts the license server, or
+  that proxies traffic to it. The rest of this page covers this option.
+- Directly over the internet. Your workers obtain a license from the software vendor's
+  license server using the internet.
+  With the resource endpoint and port forwarding options, the license server doesn't have
+  to be in the same VPC or account as the resource gateway or proxy instance. The gateway or
+  proxy only needs network access to the server, for example through VPC peering, a transit
+  gateway, or a VPN connection.
+
+With the following instructions, you use SSM to forward ports from a worker
+instance to your license server or proxy instance. In this example, if your license server
+is unable to provide a license, Deadline Cloud usage-based licensing is used as a fallback.
+Remove the sections that don't apply to your pipeline or products for which you don't want to
+use usage based licensing after exhausting your licenses.
 
 ###### Topics
 
@@ -459,7 +467,7 @@ license traffic to your license server
       the license server.
 
 ```
-`lobal
+`global
  log 127.0.0.1 local2
  chroot /var/lib/haproxy
  user haproxy

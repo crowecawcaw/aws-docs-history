@@ -339,7 +339,7 @@ Resources:
                   "farmId": "farm-12345678900000000000000000000000",
                   "fleetId": "fleet-12345678900000000000000000000000",
                   "oldFleetSize": 1,
-                  "newFleetSize": 5,
+                  "newFleetSize": 5
               }
           }
           """

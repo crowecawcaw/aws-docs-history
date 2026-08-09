@@ -313,6 +313,9 @@ for this tutorial:
    your queue role and no longer need it, remove it:
 
 ```
+QUEUE_ROLE=$(aws deadline get-queue --farm-id `FARM-ID` --queue-id `QUEUE-ID` \
+  --query 'roleArn' --output text | awk -F/ '{print $NF}')
+
 aws iam delete-role-policy \
   --role-name "$QUEUE_ROLE" \
   --policy-name ReadFineTuningDatasets

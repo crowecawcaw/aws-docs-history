@@ -72,7 +72,7 @@ for the specified `farmId` for Deadline Cloud:
   "source": ["aws.deadline"],
   "detail-type": ["Fleet Size Recommendation Change"],
   "detail": {
-     "farmId": "farm-12345678900000000000000000000000"
+     "farmId": ["farm-12345678900000000000000000000000"]
   }
 }
 ```

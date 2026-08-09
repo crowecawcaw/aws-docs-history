@@ -198,9 +198,9 @@ aws iam put-role-policy --role-name FleetWorkerRoleName --policy-name FleetWorke
                        "max": 4096
                    },
                    "osFamily": "`OS_FAMILY`",
-                   "cpuArchitectureType": "x86_64",
-               },
-           },
+                   "cpuArchitectureType": "x86_64"
+               }
+           }
        }
    }
    ```

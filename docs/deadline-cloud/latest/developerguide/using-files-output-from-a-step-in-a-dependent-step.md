@@ -36,7 +36,7 @@ First start the Deadline Cloud worker agent in an CloudShell tab. Let any previo
 jobs finish running, then delete the job logs from the logs directory:
 
 ```
-rm -rf ~/devdemo-logs/queue-*
+rm -rf ~/demoenv-logs/queue-*
 ```
 
 Next, submit a job using the modified `job_attachments_devguide_output` job
@@ -95,5 +95,5 @@ Late in the same log, you can see the output from the step named "DependentStep"
 
 ```
 2024-07-17 02:52:06,213 INFO Output:
-2024-07-17 02:52:06,216 INFO Script location: /sessions/session-`5b33f`/assetroot-`assetroot-3751a`/script.sh
+2024-07-17 02:52:06,216 INFO Script location: /sessions/session-`5b33f`/assetroot-`3751a`/script.sh
 ```

@@ -147,11 +147,11 @@ Here are some ways you can make your job bundle portable.
 
     ```
     if [[ "$(uname)" == MINGW* || "$(uname -s)" == MSYS_NT* ]]; then
-        # Code for Windows
+        : # Code for Windows
     elif [[ "$(uname)" == Darwin ]]; then
-        # Code for MacOS
+        : # Code for MacOS
     else
-        # Code for Linux and other operating systems
+        : # Code for Linux and other operating systems
     fi
     ```
 

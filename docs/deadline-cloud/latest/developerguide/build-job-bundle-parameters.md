@@ -36,7 +36,7 @@ Each element of the `parameterValues` list must be one of the following:
     is passed to the `CreateJob` operation as the [maxFailedTasksCount](../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-maxFailedTasksCount "../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-maxFailedTasksCount") parameter.
   - `deadline:maxRetriesPerTask` – The value must be an integer. It
     is passed to the `CreateJob` operation as the [maxRetriesPerTask](../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-maxRetriesPerTask "../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-maxRetriesPerTask") parameter.
-  - `deadline:maxWorkercount` – The value must be an integer. It is
+  - `deadline:maxWorkerCount` – The value must be an integer. It is
     passed to the `CreateJob` operation as the [maxWorkerCount](../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-maxRetriesPerTask "../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-maxRetriesPerTask") parameter.
     A job template is always a template rather than a specific job to run. A parameter values
     file enables a job bundle to either act as a template if some parameters don't have values

@@ -19,10 +19,10 @@ QUEUE1_ID=queue-`00112233445566778899aabbccddeeff`
 QUEUE2_ID=queue-`00112233445566778899aabbccddeeff`
 
 aws deadline update-queue --farm-id $FARM_ID --queue-id $QUEUE1_ID \
-  --required-file-system-location-names-to-add FSComm FS1
+  --required-file-system-location-names-to-add FSCommon FS1
 
 aws deadline update-queue --farm-id $FARM_ID --queue-id $QUEUE2_ID \
-  --required-file-system-location-names-to-add FSComm FS2
+  --required-file-system-location-names-to-add FSCommon FS2
 ```
 
 A queue's configuration also includes a list of allowed storage profiles that applies
