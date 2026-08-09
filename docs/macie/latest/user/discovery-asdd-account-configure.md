@@ -435,7 +435,7 @@ haven't added any custom data identifiers. 4. In the **Custom data identifiers**
 
 To review or test the settings for a custom data identifier before you add or remove
 it, choose the link icon (
-![The link icon, which is a blue box that has an arrow in it.](images/icon-external-link.png)
+![The link icon, which is a blue box that has an arrow in it.](/images/macie/latest/user/images/icon-external-link.png)
 ) next to the identifier's name. Macie opens
 a page that displays the identifier's settings. To also test the identifier with sample
 data, enter up to 1,000 characters of text in the **Sample data** box on
@@ -545,7 +545,7 @@ lists. 4. In the **Allow lists** section, choose **Edit**. 5. Do any of the foll
 
 To review the settings for an allow list before you add or remove it, choose the link
 icon (
-![The link icon, which is a blue box that has an arrow in it.](images/icon-external-link.png)
+![The link icon, which is a blue box that has an arrow in it.](/images/macie/latest/user/images/icon-external-link.png)
 ) next to the list's name. Macie opens a page that displays the
 list's settings. If the list specifies a regular expression (_regex_), you can also use this page to test the regex with sample data. To do
 this, enter up to 1,000 characters of text in the **Sample data** box, and

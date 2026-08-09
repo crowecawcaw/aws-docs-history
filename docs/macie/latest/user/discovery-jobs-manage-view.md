@@ -21,7 +21,7 @@ operation of the Amazon Macie API.
    **Jobs** page opens and displays the number of jobs in your
    inventory and a table of those jobs.
 3. At the top of the page, optionally choose refresh (
-   ![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
+   ![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
    ) to retrieve
    the current status of each job.
 4. In the **Jobs** table, review summary information for your
@@ -62,7 +62,7 @@ operation of the Amazon Macie API.
      ) for the filter. This changes the filter's
      operator from _equals_ to _not equals_
      (
-     ![The not equals icon, which is an empty gray circle that has a backslash in it.](/images/macie/latest/user/images/icon-operator-not-equals.png)
+     ![The not equals icon, which is an empty gray circle that has a backslash in it.](images/icon-operator-not-equals.png)
      ).
    - To remove a filter, choose the remove filter icon
      (

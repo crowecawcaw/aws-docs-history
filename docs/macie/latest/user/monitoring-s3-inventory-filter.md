@@ -82,7 +82,7 @@ organization, it also doesn't display data for accounts that automated discovery
 disabled for. To display this data, choose **X** in the
 **Is monitored by automated discovery** filter token below
 the filter box. 3. At the top of the page, optionally choose refresh (
-![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
+![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
 ) to retrieve
 the latest bucket metadata from Amazon S3. 4. Place your cursor in the filter box, and then choose the field to use for the
 condition. 5. Choose or enter the appropriate type of value for the field, keeping the

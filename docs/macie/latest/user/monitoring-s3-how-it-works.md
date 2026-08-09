@@ -196,7 +196,7 @@ occurs:
 
 - Macie detects a relevant AWS CloudTrail event.
 - You refresh your inventory data by choosing refresh (
-  ![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
+  ![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
   ) on the Amazon Macie
   console. Depending on the size of your data estate, you can refresh the data as
   frequently as every five minutes.
