@@ -74,6 +74,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 | UpdatePricingPlan                                                                                                               | [iottwinmaker:UpdatePricingPlan](#list_iottwinmaker-action-UpdatePricingPlan "#list_iottwinmaker-action-UpdatePricingPlan")                         |                            |                   | Write          |
 | UpdateScene                                                                                                                     | [iottwinmaker:UpdateScene](#list_iottwinmaker-action-UpdateScene "#list_iottwinmaker-action-UpdateScene")                                           |                            |                   | Write          |
 | UpdateWorkspace                                                                                                                 | [iottwinmaker:UpdateWorkspace](#list_iottwinmaker-action-UpdateWorkspace "#list_iottwinmaker-action-UpdateWorkspace")                               |                            |                   | Write          |
+| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | iottwinmaker.amazonaws.com | Write             |
 
 ## Actions defined by AWS IoT TwinMaker
 

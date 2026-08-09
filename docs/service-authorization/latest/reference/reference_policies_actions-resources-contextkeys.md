@@ -393,6 +393,7 @@ request matches one of the values in the policy statement.
 - [Amazon Bedrock (bedrock)](list_bedrock.md "list_bedrock.md")
 - [Amazon Bedrock Agentcore (bedrock-agentcore)](list_bedrock-agentcore.md "list_bedrock-agentcore.md")
 - [Amazon Bedrock Powered by AWS Mantle (bedrock-mantle)](list_bedrock-mantle.md "list_bedrock-mantle.md")
+- [Amazon Bedrock Web Search (bedrock-websearch)](list_bedrock-websearch.md "list_bedrock-websearch.md")
 - [Amazon Bio Discovery (researchstudio)](list_researchstudio.md "list_researchstudio.md")
 - [Amazon Braket (braket)](list_braket.md "list_braket.md")
 - [Amazon Chime (chime)](list_chime.md "list_chime.md")
