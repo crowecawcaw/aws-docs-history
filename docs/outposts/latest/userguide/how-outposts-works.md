@@ -136,6 +136,13 @@ more information, see:
 - [Application/workload routing](../../../whitepapers/latest/aws-outposts-high-availability-design/applicationworkload-routing.md "../../../whitepapers/latest/aws-outposts-high-availability-design/applicationworkload-routing.md") in the _AWS Outposts High Availability Design
   and Architecture Considerations_ AWS Whitepaper
 
+###### IPv6 support
+
+You can create dual-stack (IPv6) subnets on your Outpost. AWS Outposts supports IPv6 traffic
+only between subnets in the same Outpost. The service link does not support IPv6 between
+your Outpost and the AWS Region. In addition, AWS Outposts cannot use IPv6 over the internet
+gateway.
+
 ## Local gateways
 
 Outposts racks include a local gateway to provide connectivity to your on-premises network. If
@@ -147,6 +154,10 @@ and subnet route tables that are associated with an Outposts rack. For more info
   Outposts racks](outposts-local-gateways.md "outposts-local-gateways.md")
 - [Application/workload routing](../../../whitepapers/latest/aws-outposts-high-availability-design/applicationworkload-routing.md "../../../whitepapers/latest/aws-outposts-high-availability-design/applicationworkload-routing.md") in the _AWS Outposts High Availability Design
   and Architecture Considerations_ AWS Whitepaper
+
+###### IPv6 support
+
+The local gateway supports only IPv4 traffic. It does not support IPv6.
 
 ## Local network interfaces
 
