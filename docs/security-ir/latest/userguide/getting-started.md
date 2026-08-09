@@ -5,7 +5,7 @@
 - [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Onboarding guide](onboarding-guide.md "onboarding-guide.md")
 - [RACI matrix](raci-matrix.md "raci-matrix.md")
-- [Setup proactive response and alert triaging workflows](setup-monitoring-and-investigation-workflows.md "setup-monitoring-and-investigation-workflows.md")
+- [Proactive response and alert triaging](setup-monitoring-and-investigation-workflows.md "setup-monitoring-and-investigation-workflows.md")
 - [Validating your AWS Security Incident Response configuration](config-validation.md "config-validation.md")
 
 ## Sign up for an AWS account

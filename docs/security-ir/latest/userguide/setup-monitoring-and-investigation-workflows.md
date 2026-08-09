@@ -1,4 +1,4 @@
-# Setup proactive response and alert triaging workflows
+# Proactive response and alert triaging
 
 AWS Security Incident Response monitors and investigates threat alerts generated from Amazon GuardDuty and third-party threat detection tools using Security Hub CSPM integrations. AWS Security Incident Response automatically triages all supported alerts so your team can focus on the most critical issues.
 
@@ -6,7 +6,7 @@ AWS Security Incident Response monitors and investigates threat alerts generated
 
 AWS Security Incident Response doesn't require you to enable Amazon GuardDuty. However, the proactive response feature relies on receiving threat findings from detection services. If you don't have Amazon GuardDuty or Security Hub CSPM configured to ingest findings, AWS Security Incident Response won't have alerts to monitor and investigate, which limits the value of this feature.
 
-AWS Security Incident Response monitors and investigates findings across all covered accounts and active supported AWS Regions in your organization. To facilitate this functionality, AWS Security Incident Response automatically creates a service-linked role in all covered member accounts within your AWS Organizations. However, for the management account, you must manually create the service-linked role to enable monitoring.
+AWS Security Incident Response monitors and investigates findings across all covered accounts and active supported AWS Regions in your organization. To facilitate this functionality, AWS Security Incident Response automatically creates a service-linked role in all covered member accounts within your AWS Organizations.
 
 If you [onboard](deploy-configure.md "deploy-configure.md") to AWS Security Incident Response in the AWS Management Console, Security Incident Response automatically creates the `AWSServiceRoleForSecurityIncidentResponse_Triage` service-linked role in your AWS Organizations management account and in all accounts that are in scope. If you onboarding using the API/CLI, then you must create the role manually. For more information, see [Enable Security Incident Response and configure your incident response team using the API/CLI](enable-sir-using-cli.md "enable-sir-using-cli.md").
 
