@@ -277,6 +277,10 @@ Choose from resources that are already integrated with AWS Security Agent.
 
 We recommend selecting and adding relevant GitHub repositories to your penetration test, so AWS Security Agent can develop an understanding of your application context, and generate ready-to-implement code fixes through pull requests (when enabled)
 
+###### Tip
+
+When you select a repository, you can specify a branch. By default, the service uses the primary branch. To use a different branch, enter the branch name in the field next to the repository.
+
 ###### Note
 
 Resources selected from available sources remain synchronized with their original location. If you update a GitHub repository or S3 file, the penetration test will use the updated version.

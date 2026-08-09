@@ -42,6 +42,21 @@ If the penetration test agent is unable to make calls to the configured target U
 - Penetration testing is currently only available for HTTP/HTTPS endpoints serving traffic on ports 80 or 443
 - If you have a WAF configured, check that you WAF is not blocking penetration test traffic. You can allowlist penetration test traffic by `User-Agent` header, which will be set to `securityagent` by default
 
+## Endpoint validation failed during a penetration test
+
+A penetration test failing during endpoint validation indicates that your endpoint is not accessible from the penetration testing environment. The steps for debugging this issue will depend on if you have configured a VPC for your penetration test:
+
+- For a non-VPC penetration test:
+
+  - Ensure the target endpoint has a public DNS record that resolves to a publicly accessible IP address
+  - Verify that your target endpoint can be reached without special networking requirements. Some common blockers are a specific VPN required to reach the endpoint or a WAF that blocks public internet traffic
+  - Attempt to reach the target endpoint using `curl` or a browser and verify you receive a valid response
+
+- For a VPC penetration test:
+
+  - Ensure the selected VPC/subnet has proper routing to the target endpoint (e.g., via VPN tunnel or VPC peering), DNS resolution is correctly configured for the private domain (e.g., Route 53 Resolver or custom DNS), and security group rules allow outbound traffic to the target
+  - To debug further, launch an EC2 instance in your account with the same VPC, subnet, and security group as your penetration test. Connect to the EC2 instance and verify that networking requests to your target endpoint succeed
+
 ## Getting additional help
 
 If you continue to experience issues after trying these troubleshooting steps:
