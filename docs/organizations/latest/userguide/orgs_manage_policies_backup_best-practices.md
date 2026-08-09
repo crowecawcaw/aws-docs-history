@@ -16,11 +16,11 @@ can control which settings can be added to, changed, or removed by child policie
 using the [child control inheritance
 operators](policy-operators.md#child-control-operators "policy-operators.md#child-control-operators").
 
-## Validate changes to your backup policies checking using `GetEffectivePolicy`
+## Validate changes to your backup policies checking using `DescribeEffectivePolicy`
 
 After you make a change to a backup policy, check the effective policies for
 representative accounts below the level where you made the change. You can [view the effective policy by using
-the AWS Management Console](orgs_manage_policies_effective.md "orgs_manage_policies_effective.md"), or by using the [GetEffectivePolicy](../APIReference/API_GetEffectivePolicy.md "../APIReference/API_GetEffectivePolicy.md") API operation or one of its AWS CLI or AWS SDK variants.
+the AWS Management Console](orgs_manage_policies_effective.md "orgs_manage_policies_effective.md"), or by using the [DescribeEffectivePolicy](../APIReference/API_DescribeEffectivePolicy.md "../APIReference/API_DescribeEffectivePolicy.md") API operation or one of its AWS CLI or AWS SDK variants.
 Ensure that the change you made had the intended impact on the effective policy.
 
 ## Start simply and make small changes

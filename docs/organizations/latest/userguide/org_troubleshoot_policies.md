@@ -142,7 +142,7 @@ the example consists of two objects, each of which is a correct value for a
 
 ## Policy document exceeds maximum size
 
-The maximum size of an SCP document is 5,120 characters. This maximum size includes all
+The maximum size of an SCP document is 10,240 characters. This maximum size includes all
 characters, including white space. To reduce the size of your SCP, you can remove
 all white space characters (such as spaces and line breaks) that are outside
 quotation marks.

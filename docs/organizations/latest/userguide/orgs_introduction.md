@@ -47,7 +47,7 @@ with [AWS CloudFormation StackSets](../../../AWSCloudFormation/latest/UserGuide/
 
 As you create new accounts, you can group them into organizational units (OUs),
 or groups of accounts that serve a single application or service.
-Apply tag polices to classify or track resources in your organization,
+Apply tag policies to classify or track resources in your organization,
 and provide attribute-based access control for users or applications.
 In addition, you can delegate responsibility for supported AWS services to accounts
 so users can manage them on behalf of your organization.

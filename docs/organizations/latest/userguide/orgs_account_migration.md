@@ -160,7 +160,7 @@ organization to join the new organization.
    migrating account. For information about inviting accounts, see [Inviting an AWS account to join your organization](orgs_manage_accounts_invites.md "orgs_manage_accounts_invites.md").
 2. Accept the invitation to join the new organization. For more information, see
    [Accepting an invitation from an organization](orgs_manage_accounts_invites.md#orgs_manage_accounts_accept-decline-invite "orgs_manage_accounts_invites.md#orgs_manage_accounts_accept-decline-invite"). Accounts that are
-   migrated from one another organization to another will be automatically added to
+   migrated from one organization to another will be automatically added to
    the root of the new organization. Before moving an account to an organizational
    unit (OU) in the new organization, it is recommended that you check that migrating account has the appropriate organization policies and OU
    permissions.

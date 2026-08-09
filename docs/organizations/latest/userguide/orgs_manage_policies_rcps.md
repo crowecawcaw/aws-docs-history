@@ -81,13 +81,15 @@ RCPs apply to actions for the following AWS services:
 - [AWS CodeCommit](../../../codecommit.md "../../../codecommit.md") `(prefix:codecommit)`
 - [AWS CodePipeline](../../../codepipeline.md "../../../codepipeline.md") `(prefix:codepipeline)`
 - [AWS Cost Optimization Hub](../../../cost-management/latest/userguide/cost-optimization-hub.md "../../../cost-management/latest/userguide/cost-optimization-hub.md") `(prefix:cost-optimization-hub)`
+- [Amazon EventBridge](../../../eventbridge.md "../../../eventbridge.md") `(prefix:events)`
 - [AWS Fault Injection Service](../../../fis.md "../../../fis.md") `(prefix:fis)`
 - [AWS Health](../../../health.md "../../../health.md") `(prefix:health)`
 - [AWS Key Management Service](../../../kms.md "../../../kms.md") `(prefix:kms)`
+- [Amazon OpenSearch Service](../../../opensearch-service.md "../../../opensearch-service.md") `(prefix:opensearch)`
 - [AWS Pricing Calculator](../../../awsaccountbilling/latest/aboutv2/price-changes.md "../../../awsaccountbilling/latest/aboutv2/price-changes.md") `(prefix:pricing)`
 - [AWS Private CA Connector for Active Directory](../../../privateca/latest/userguide/connector-for-ad.md "../../../privateca/latest/userguide/connector-for-ad.md") `(prefix:pca-connector-ad)`
 - [AWS Secrets Manager](../../../secretsmanager.md "../../../secretsmanager.md") `(prefix:secretsmanager)`
-- [AWS Security Token Service](../../../iam.md "../../../iam.md") `(prefix:sts)`
+- [AWS Security Token Service](../../../iam.md#sts "../../../iam.md#sts") `(prefix:sts)`
 - [AWS Sign-In](../../../signin.md "../../../signin.md") `(prefix:signin)`
 - [AWS Support](../../../aws-support.md "../../../aws-support.md") `(prefix:support)`
 - [AWS Transfer Family](../../../transfer.md "../../../transfer.md") `(prefix:transfer)`

@@ -18,7 +18,7 @@ The two approaches for migrating to all features are _standard migration_ and _a
 
 Standard migration is the self-service process available to all AWS Organizations customers to enable the all features mode.
 
-Assisted migration is process available to Enterprise Support plan customers to request that AWS migrate their organization to the all features mode of your behalf.
+Assisted migration is the process available to Enterprise Support plan customers to request that AWS migrate their organization to the all features mode on your behalf.
 
 ###### Note
 

@@ -81,7 +81,7 @@ additional characteristics about these policy types, see [Quotas and service lim
 
 | Policy type                | Policy category | Affects management account | Maximum number you can attach to a root, OU, or account | Maximum size      | Supports viewing effective policy for OU or account |
 | -------------------------- | --------------- | -------------------------- | ------------------------------------------------------- | ----------------- | --------------------------------------------------- |
-| SCP                        | Authorization   | No                         | 5                                                       | 5120 characters   | No                                                  |
+| SCP                        | Authorization   | No                         | 10                                                      | 10,240 characters | No                                                  |
 | RCP                        | Authorization   | No                         | 5                                                       | 5120 characters   | No                                                  |
 | Declarative policy         | Declarative     | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
 | Backup policy              | Declarative     | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |

@@ -10,7 +10,7 @@ permissions:
 
 - `organizations:DescribeOrganizationalUnit`
 - `organizations:DescribeOrganization` – required only when using the Organizations console
-- `organizations:ListOrganizationsUnitsForParent`– required only when using the Organizations console
+- `organizations:ListOrganizationalUnitsForParent`– required only when using the Organizations console
 - `organizations:ListRoots` – required only when using the Organizations console
 
 AWS Management Console

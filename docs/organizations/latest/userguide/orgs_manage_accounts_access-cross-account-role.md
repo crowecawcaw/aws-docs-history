@@ -26,20 +26,18 @@ AWS Management Console
 2. Start by creating the managed policy that you need later in [Step 14](#step-choose-group "#step-choose-group").
 
 In the navigation pane, choose **Policies** and
-then choose **Create policy**. 3. On the Visual editor tab, choose **Choose a
-service**, enter `STS` in the
+then choose **Create policy**. 3. Choose the **Visual** option. 4. For **Service**, enter `STS` in the
 search box to filter the list, and then choose the
-**STS** option. 4. In the **Actions** section, enter
+**STS** option. 5. For **Actions allowed**, enter
 `assume` in the search box to filter the
 list, and then choose the **AssumeRole**
-option. 5. In the **Resources** section, choose **Specific**,
-choose **Add ARNs** 6. In the **Specify ARN(s)** section, choose **Other account**
-for Resource in. 7. Enter the ID of the member account you just created 8. For **Resource role name with path**, enter the name of the role that you
-created in the previous section (we recommended naming it
+option. 6. For **Resources**, choose **Specific**,
+and then choose **Add ARNs**. 7. For **Resources in**, choose **Other account**, and enter the ID of the member account you just created. 8. For **Resource role name with path**, enter the name of the role that you
+created previously (we recommended naming it
 `OrganizationAccountAccessRole`). 9. Choose **Add ARNs** when the dialog box displays
 the correct ARN. 10. (Optional) If you want to require multi-factor authentication
 (MFA), or restrict access to the role from a specified IP address
-range, then expand the Request conditions section, and select the
+range, expand **Request conditions**, and select the
 options you want to enforce. 11. Choose **Next**. 12. On the **Review and create** page, enter a name
 for the new policy. For example :
 `GrantAccessToOrganizationAccountAccessRole`.
@@ -47,7 +45,7 @@ You can also add an optional description. 13. Choose **Create policy** to save y
 policy. 14. Now that you have the policy available, you can attach it to a
 group.
 
-In the navigation pane, choose **User groups**
+In the navigation pane, choose **IAM user groups**
 and then choose the name of the group (not the check box) whose
 members you want to be able to assume the role in the member
 account. If necessary, you can create a new group. 15. Choose the **Permissions** tab, choose
@@ -56,7 +54,7 @@ account. If necessary, you can create a new group. 15. Choose the **Permissions*
 typing the name of your policy to filter the list until you can see
 the name of the policy you just created in [Step 2](#step-create-policy "#step-create-policy") through [Step 13](#step-end-policy "#step-end-policy"). You can also filter out all of the
 AWS managed policies by choosing **All types**
-and then choosing **Customer managed**. 17. Check the box next to your policy, and then choose
+and then choosing **Customer managed**. 17. Select the check box next to your policy, and then choose
 **Attach policies**.
 
 IAM users that are members of the group now have permissions to switch to the new

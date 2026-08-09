@@ -27,7 +27,7 @@ steps:
 2. To run reports from a delegated administrator account, the account must be
    registered as a delegated administrator for the EC2 service.
 3. You must have an S3 bucket before you generate the report. Create a new bucket or use an existing one. The bucket must be in the same Region where you make the request. The bucket must have an appropriate bucket policy. For a sample S3 policy,
-   see _Sample Amazon S3 policy_ under [Examples](../../../AWSEC2/latest/APIReference/API_StartDeclarativePoliciesReport.md#API_StartDeclarativePoliciesReport_Examples "../../../AWSEC2/latest/APIReference/API_StartDeclarativePoliciesReport.md#API_StartDeclarativePoliciesReport_Examples") in the _Amazon EC2 API Reference_
+   see _Sample Amazon S3 policy_ under [Examples](../../../AWSEC2/latest/APIReference/API_StartDeclarativePoliciesReport.md#API_StartDeclarativePoliciesReport_Examples "../../../AWSEC2/latest/APIReference/API_StartDeclarativePoliciesReport.md#API_StartDeclarativePoliciesReport_Examples") in the _Amazon EC2 API Reference_.
 4. You must enable trusted access for Amazon EC2. This creates a read-only service-linked
    role that generates the account status report of the existing
    configuration for accounts across your organization.

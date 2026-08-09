@@ -127,8 +127,8 @@ throttling quota at any given second.
 _Rate_ is the fixed pace that tokens are added to the token bucket
 per second.
 
-_Burst_ is the maximum number of token that can be added and the
-maximum number of token that can be used per second.
+_Burst_ is the maximum number of tokens that can be added and the
+maximum number of tokens that can be used per second.
 
 For example, the `DescribeAccount` API is limited for a single
 AWS account to 20 requests per second as the baseline rate and to 30 requests per

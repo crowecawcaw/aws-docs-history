@@ -3,7 +3,7 @@
 _A management account_ is the AWS account you use to create your organization.
 
 The management account is the ultimate owner of the organization,
-having final control over security, infrastructure, and finance policies.
+having final control over security, infrastructure, payment, and policies.
 This account has the role of a payer account and is responsible
 for paying all charges accrued by the accounts in its organization.
 

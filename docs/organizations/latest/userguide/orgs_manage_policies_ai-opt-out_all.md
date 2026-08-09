@@ -20,7 +20,7 @@ AWS Management Console
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
-2. On the **[AI services opt-out policies](https://console.aws.amazon.com/organizations/v2/home/policies/aiservices-opt-out-policy "https://console.aws.amazon.com/organizations/v2/home/policies/aiservices-opt-out-policy")** page, choose **Opt out from all services**.
+2. On the **[AI services opt-out policies](https://console.aws.amazon.com/organizations/v2/home/policies/aiservices-opt-out-policy "https://console.aws.amazon.com/organizations/v2/home/policies/aiservices-opt-out-policy")** page, choose **Opt out from all services**. If the policy is disabled, choose **Enable AI services opt-out policies**, and then choose **Opt out from all services**.
 3. On the **Opt out from all services** confirmation page, choose **Opt out from all services**.
 
 AWS CLI & AWS SDKs
@@ -66,7 +66,7 @@ The following is a list of AWS services supported by the AI services opt-out pol
 - [Amazon Quick](../../../quicksight.md "../../../quicksight.md")
 - [Amazon Rekognition](../../../rekognition.md "../../../rekognition.md")
 - [Amazon Security Lake](../../../security-lake.md "../../../security-lake.md")
-- [AWS Supply Chain](../../../aws-supply-chain.md "../../../aws-supply-chain.md")
+- [AWS Supply Chain](https://aws.amazon.com/products/connect/decisions/ "https://aws.amazon.com/products/connect/decisions/")
 - [Amazon Textract](../../../textract.md "../../../textract.md")
 - [Amazon Transcribe](../../../transcribe.md "../../../transcribe.md")
 - [AWS Transform](../../../transform/latest/userguide/what-is.md "../../../transform/latest/userguide/what-is.md")

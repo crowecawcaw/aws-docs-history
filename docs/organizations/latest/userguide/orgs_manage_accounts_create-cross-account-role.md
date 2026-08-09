@@ -77,7 +77,7 @@ AWS Management Console
 17. On the **Review and create** page, enter a name
     for the new policy and then choose **Create
     policy** to save your changes.
-18. Choose **User groups** in the
+18. Choose **IAM user groups** in the
     navigation pane and then choose the name of the group (not the check
     box) that you want to use to delegate administration of the member
     account.
