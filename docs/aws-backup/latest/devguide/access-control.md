@@ -72,6 +72,7 @@ AWS Backup resource ARNs| Resource type | ARN format | Example unique ID |
 | Recovery point for Amazon Timestream | `arn:aws:backup:`region`:`account-id`:recovery-point:*` | `recovery-point:1a2b3cde-f405-6789-012g-3456hi789012_beta` |
 | Recovery point for AWS CloudFormation template | `arn:aws:backup:`region`:`account-id`:recovery-point:*` | `recovery-point:1a2b3cde-f405-6789-012g-3456hi789012` |
 | Recovery point for SAP HANA database on Amazon EC2 instance | `arn:aws:backup:`region`:`account-id`:recovery-point:*` | `recovery-point:1a2b3cde-f405-6789-012g-3456hi789012` |
+| Backup access point | `arn:aws:backup:`region`:`account-id`:accesspoint/*` | `accesspoint/my-access-point` |
 
 Resources that support full AWS Backup management all have recovery points in the format
 `arn:aws:backup:`region`:`account-id:`:recovery-point:*`.
@@ -142,6 +143,13 @@ AWS Backup defines its own set of condition keys. To see a list of AWS Backup co
 see [Condition keys
 for AWS Backup](../../../service-authorization/latest/reference/list_awsbackup.md#awsbackup-policy-keys "../../../service-authorization/latest/reference/list_awsbackup.md#awsbackup-policy-keys") in the _Service Authorization Reference_.
 
+For restore testing selections, AWS Backup passes the IAM role to the service principal
+`restore-testing.backup.amazonaws.com`, not
+`backup.amazonaws.com`. If you use the [`iam:PassedToService`](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_PassedToService "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_PassedToService") condition key for
+`CreateRestoreTestingSelection` or
+`UpdateRestoreTestingSelection`, set the value to
+`restore-testing.backup.amazonaws.com`. For more information, see [Using roles for restore testing](using-service-linked-roles-AWSServiceRoleForBackupRestoreTesting.md "using-service-linked-roles-AWSServiceRoleForBackupRestoreTesting.md").
+
 ## API permissions: actions, resources, and conditions reference
 
 When you are setting up [Access control](access-control.md "access-control.md") and writing a permissions policy that you can attach to an IAM identity (identity-based
@@ -162,15 +170,18 @@ Use the scroll bars to see the rest of the table.
 
 AWS Backup API and required permissions for actions| AWS Backup API operations | Required permissions (API actions) | Resources |
 | --- | --- | --- |
+| [CreateBackupAccessPoint](../APIReference/API_CreateBackupAccessPoint.md "../APIReference/API_CreateBackupAccessPoint.md") | `backup:CreateBackupAccessPoint`<br>`s3:CreateAccessPoint`<br>`s3:GetAccessPoint` | `arn:aws:backup:`region`:`account-id`:recovery-point:*` |
 | [CreateBackupPlan](../APIReference/API_CreateBackupPlan.md "../APIReference/API_CreateBackupPlan.md") | `backup:CreateBackupPlan` | `arn:aws:backup:`region`:`account-id`:backup-plan:*` |
 | [CreateBackupSelection](../APIReference/API_CreateBackupSelection.md "../APIReference/API_CreateBackupSelection.md") | `backup:CreateBackupSelection` | `arn:aws:backup:`region`:`account-id`:backup-plan:*` |
 | [CreateBackupVault](../APIReference/API_CreateBackupVault.md "../APIReference/API_CreateBackupVault.md") | `backup:CreateBackupVault`<br>`backup-storage:MountCapsule`<br>`kms:CreateGrant`<br>`kms:GenerateDataKey`<br>`kms:Decrypt`<br>`kms:RetireGrant`<br>`kms:DescribeKey` | `arn:aws:backup:`region`:`account-id`:backup-vault:*`<br>For `backup-storage`: \*<br>For `kms`: `arn:aws:kms:`region`:`account-id`:key/`keystring`` |
+| [DeleteBackupAccessPoint](../APIReference/API_DeleteBackupAccessPoint.md "../APIReference/API_DeleteBackupAccessPoint.md") | `backup:DeleteBackupAccessPoint`<br>`s3:GetAccessPoint`<br>`s3:DeleteAccessPoint` | `arn:aws:backup:`region`:`account-id`:accesspoint/*` |
 | [DeleteBackupPlan](../APIReference/API_DeleteBackupPlan.md "../APIReference/API_DeleteBackupPlan.md") | `backup:DeleteBackupPlan` | `arn:aws:backup:`region`:`account-id`:backup-plan:*` |
 | [DeleteBackupSelection](../APIReference/API_DeleteBackupSelection.md "../APIReference/API_DeleteBackupSelection.md") | `backup:DeleteBackupSelection` | `arn:aws:backup:`region`:`account-id`:backup-plan:*` |
 | [DeleteBackupVault](../APIReference/API_DeleteBackupVault.md "../APIReference/API_DeleteBackupVault.md") | `backup:DeleteBackupVault` 1 | `arn:aws:backup:`region`:`account-id`:backup-vault:*` |
 | [DeleteBackupVaultAccessPolicy](../APIReference/API_DeleteBackupVaultAccessPolicy.md "../APIReference/API_DeleteBackupVaultAccessPolicy.md") | `backup:DeleteBackupVaultAccessPolicy` | `arn:aws:backup:`region`:`account-id`:backup-vault:*` |
 | [DeleteBackupVaultNotifications](../APIReference/API_DeleteBackupVaultNotifications.md "../APIReference/API_DeleteBackupVaultNotifications.md") | `backup:DeleteBackupVaultNotifications` 1 | `arn:aws:backup:`region`:`account-id`:backup-vault:*` |
 | [DeleteRecoveryPoint](../APIReference/API_DeleteRecoveryPoint.md "../APIReference/API_DeleteRecoveryPoint.md") | `backup:DeleteRecoveryPoint` 1 | 2 |
+| [DescribeBackupAccessPoint](../APIReference/API_DescribeBackupAccessPoint.md "../APIReference/API_DescribeBackupAccessPoint.md") | `backup:DescribeBackupAccessPoint`<br>`s3:GetAccessPoint` | `arn:aws:backup:`region`:`account-id`:accesspoint/*` |
 | [DescribeBackupJob](../APIReference/API_DescribeBackupJob.md "../APIReference/API_DescribeBackupJob.md") | `backup:DescribeBackupJob` | |
 | [DescribeBackupVault](../APIReference/API_DescribeBackupVault.md "../APIReference/API_DescribeBackupVault.md") | `backup:DescribeBackupVault` 1 | `arn:aws:backup:`region`:`account-id`:backup-vault:*` |
 | [DescribeProtectedResource](../APIReference/API_DescribeProtectedResource.md "../APIReference/API_DescribeProtectedResource.md") | `backup:DescribeProtectedResource` | |
@@ -186,6 +197,9 @@ AWS Backup API and required permissions for actions| AWS Backup API operations |
 | [GetBackupVaultNotifications](../APIReference/API_GetBackupVaultNotifications.md "../APIReference/API_GetBackupVaultNotifications.md") | `backup:GetBackupVaultNotifications` 1 | `arn:aws:backup:`region`:`account-id`:backup-vault:*` |
 | [GetRecoveryPointRestoreMetadata](../APIReference/API_GetRecoveryPointRestoreMetadata.md "../APIReference/API_GetRecoveryPointRestoreMetadata.md") | `backup:GetRecoveryPointRestoreMetadata` 1 | `arn:aws:backup:`region`:`account-id`:backup-vault:*` |
 | [GetSupportedResourceTypes](../APIReference/API_GetSupportedResourceTypes.md "../APIReference/API_GetSupportedResourceTypes.md") | `backup:GetSupportedResourceTypes` | |
+| [ListBackupAccessPoints](../APIReference/API_ListBackupAccessPoints.md "../APIReference/API_ListBackupAccessPoints.md") | `backup:ListBackupAccessPoints` | |
+| [ListBackupAccessPointsByRecoveryPoint](../APIReference/API_ListBackupAccessPointsByRecoveryPoint.md "../APIReference/API_ListBackupAccessPointsByRecoveryPoint.md") | `backup:ListBackupAccessPointsByRecoveryPoint` | `arn:aws:backup:`region`:`account-id`:recovery-point:*` |
+| [ListBackupAccessPointsByResource](../APIReference/API_ListBackupAccessPointsByResource.md "../APIReference/API_ListBackupAccessPointsByResource.md") | `backup:ListBackupAccessPointsByResource` | |
 | [ListBackupJobs](../APIReference/API_ListBackupJobs.md "../APIReference/API_ListBackupJobs.md") | `backup:ListBackupJobs` | |
 | [ListBackupPlans](../APIReference/API_ListBackupPlans.md "../APIReference/API_ListBackupPlans.md") | `backup:ListBackupPlans` | |
 | [ListBackupPlanTemplates](../APIReference/API_ListBackupPlanTemplates.md "../APIReference/API_ListBackupPlanTemplates.md") | `backup:ListBackupPlanTemplates` | |

@@ -71,6 +71,16 @@ document. To make this table easier for you to read, the examples omit the field
 `"IamRoleArn"`. The wildcard `*` represents zero or more
 non-whitespace characters.
 
+###### Important
+
+The `*` wildcard does not match whitespace characters such as spaces. If
+your tag values contain spaces, a single `*` will not match the entire value.
+For example, `prod*` will match `prod_server` but will not match
+`prod server`. To match a value with spaces, each space must be explicitly
+included in the pattern (for example, `prod *` matches
+`prod server`). We recommend avoiding spaces in tag values used with wildcard
+conditions.
+
 ###### Example: Select all resources in my account
 
 ```

@@ -277,6 +277,13 @@ which recovery point is included in the restore test. You must indicate with
 must indicate through `IncludeVaults` from which vaults the recovery
 points can be chosen.
 
+`SelectionWindowDays`: The selection window is calculated from the
+actual job execution time, not the plan's scheduled start time. Because jobs can
+start anywhere within the `StartWindowHours` period, set
+`SelectionWindowDays` to be greater than your backup frequency interval
+plus your `StartWindowHours` value to avoid edge-case recovery point
+exclusions.
+
 A selection can have one or more protected resource ARNs or can have one or more
 conditions, but it cannot have not both.
 

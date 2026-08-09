@@ -15,6 +15,11 @@ centralized experience. For S3, you can create continuous backups and restore yo
 application data stored in S3 and restore the backups to a point-in-time with a single
 click.
 
+## Backup access points
+
+AWS Backup lets you access S3 backup data directly through S3 access points, without
+initiating a restore. For more information, see [Access points](backup-access-points.md "backup-access-points.md").
+
 ## Backup tiering
 
 Amazon S3 is the only resource that supports backup tiering to a lower cost warm storage tier.

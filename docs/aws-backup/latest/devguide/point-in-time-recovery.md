@@ -60,13 +60,6 @@ Be aware of the following considerations for point-in-time recovery:
   up until the most recent activity as indicated by `LatestRestorableTime`
   (typically less than 5 minutes); Amazon S3 allows restores up
   until the most recent 15 minutes of activity.
-- **Aurora continuous backup limitations** —
-  Aurora continuous backup data remains within the Aurora service and is not copied into the
-  AWS Backup data plane. AWS Backup invokes point-in-time recovery by calling Aurora APIs. As a
-  result, Aurora continuous backups cannot be placed in a backup vault for immutability
-  (vault lock) and do not support the logically air-gapped vault feature. To use vault
-  lock or logically air-gapped vaults with Aurora, use periodic snapshot backups
-  instead.
 
 ###### Important
 
@@ -309,20 +302,16 @@ down on this page in [Working with Continuous backups](point-in-time-recovery.md
 
 ###### Important
 
-Aurora continuous backup data remains within the Aurora service (in Aurora-managed
-Amazon S3 buckets) and is not copied into the AWS Backup data plane. AWS Backup performs point-in-time
-recovery by calling Aurora APIs. Because of this architecture:
+Aurora continuous backups are supported in vaults protected by AWS Backup Vault Lock,
+and the vault's minimum and maximum retention settings are enforced on the recovery
+point. However, Aurora continuous backups do not support the logically air-gapped vault
+feature. To use a logically air-gapped vault with Aurora, use periodic snapshot backups
+instead.
 
-- You cannot place Aurora continuous backups into a backup vault for
-  immutability (AWS Backup Vault Lock).
-- You cannot use the logically air-gapped vault feature with Aurora
-  continuous backups.
-- To use vault lock or logically air-gapped vaults with Aurora, use
-  periodic (manual) snapshot backups, which are always full snapshots.
-  The recovery point objective (RPO) for Aurora continuous backups is typically less
-  than 5 minutes, as Aurora copies data to Amazon S3 continuously in the background. Use the
-  `LatestRestorableTime` value to determine the most recent point to which you
-  can restore.
+The recovery point objective (RPO) for Aurora continuous backups is typically less
+than 5 minutes, as Aurora copies data to Amazon S3 continuously in the background. Use the
+`LatestRestorableTime` value to determine the most recent point to which you
+can restore.
 
 **Retention periods and backup windows:** When you enable
 or change continuous backup settings for an Aurora cluster, AWS Backup calls

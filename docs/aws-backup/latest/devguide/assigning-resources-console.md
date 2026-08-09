@@ -90,4 +90,11 @@ plan.
   begin with`, or `Does not end with`.
 
 3. Choose a **Value** from the list.
-4. To further refine using another tag, choose **Add tag**.
+
+###### Important
+
+Wildcard conditions such as "Begins with" or "Does not begin with" do not match
+spaces. For example, `prod*` matches `prod_server` but not
+`prod server`. To match values with spaces, include each space explicitly
+in the pattern (for example, `prod *` matches `prod server`).
+We recommend avoiding spaces in tag values used with wildcard conditions. 4. To further refine using another tag, choose **Add tag**.
