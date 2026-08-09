@@ -216,7 +216,7 @@ globally-routable IPv6 addresses.
 
 ###### Note
 
-On July 30, 2026, Security Hub CSPM will remove this control from the [AWS Foundational Security Best Practices (FSBP) standard](fsbp-standard.md "fsbp-standard.md"). This control will now be available in the
+On Aug 3, 2026, Security Hub CSPM removed this control from the [AWS Foundational Security Best Practices (FSBP) standard](fsbp-standard.md "fsbp-standard.md"). This control will be available in the
 [NIST SP 800-53 Rev. 5 standard](nist-standard.md "nist-standard.md"), the
 [NIST SP 800-171 Revision 2 standard](standards-reference-nist-800-171.md "standards-reference-nist-800-171.md"), and the [PCI DSS v4.0.1 standard](pci-standard.md "pci-standard.md").
 

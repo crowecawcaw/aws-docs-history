@@ -478,8 +478,22 @@ To enable IAM authentication for a DB cluster, see [Enabling and disabling IAM d
 
 **Parameters:** None
 
-This control checks whether automatic minor version upgrades are enabled for the RDS
-database instance.
+This control checks whether an Amazon RDS DB instance has automatic minor version upgrades
+enabled. The control fails if automatic minor version upgrades are not enabled for the RDS DB
+instance.
+
+###### Note
+
+This control evaluates each Amazon RDS DB instance independently. For Amazon Aurora clusters,
+automatic minor version upgrades require that you enable this setting on the cluster. You
+must also enable this setting on all instances in the cluster. A `PASSED`
+finding for an individual instance doesn't guarantee that upgrades occur if you haven't also
+enabled the setting at the cluster level.
+
+This control also doesn't account for configurations that don't support automatic minor
+version upgrades. These include Aurora clusters in an Aurora global database and Aurora MySQL
+clusters with cross-Region read replicas. For these configurations, the control might
+produce evaluation results that don't accurately reflect the actual upgrade behavior.
 
 Automatic minor version upgrades periodically update a database to recent database engine
 versions. However, the upgrade might not always include the latest database engine

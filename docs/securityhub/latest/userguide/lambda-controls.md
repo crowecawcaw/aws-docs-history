@@ -92,7 +92,8 @@ SI-2(4), NIST.800-53.r5 SI-2(5), PCI DSS v4.0.1/12.3.4
 **Parameters:**
 
 - `runtime`: `dotnet10, dotnet8, java25, java21, java17, java11,
- java8.al2, nodejs24.x, nodejs22.x, python3.14, python3.13, python3.12, python3.11,
+ java8.al2, java17.al2023, java11.al2023, java8.al2023, nodejs24.x, nodejs22.x, 
+ python3.14, python3.13, python3.12, python3.11,
  python3.10, ruby4.0, ruby3.4, ruby3.3` (not
   customizable)
 
