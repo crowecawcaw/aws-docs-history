@@ -4,7 +4,7 @@ The steps for managing the streaming modes are the same across all supported web
 
 1. In the client, choose **Session**, **Preferences**.
 
-![Session is located inside the menu in the top-right of the interface.](images/web-preferences-menu.png) 2. Under the **Display** tab, choose one of the following options from the **Streaming options** section:
+![Session is located inside the menu in the top-right of the interface.](/images/dcv/latest/userguide/images/web-preferences-menu.png) 2. Under the **Display** tab, choose one of the following options from the **Streaming options** section:
 
     * **Best responsiveness**
     * **Best quality**
@@ -35,7 +35,7 @@ Metrics are displayed for the current Amazon DCV session connection.
 
 1. In the client, choose **Session**, **Preferences**.
 
-![Session is located inside the menu in the top-right of the interface.](images/web-preferences-menu.png) 2. Under the **Display** tab, enable the toggle to show **Streaming metrics in the toolbar**. 3. Close the **Preferences** modal. 4. The streaming metrics are then displayed in the center of the client toolbar.
+![Session is located inside the menu in the top-right of the interface.](/images/dcv/latest/userguide/images/web-preferences-menu.png) 2. Under the **Display** tab, enable the toggle to show **Streaming metrics in the toolbar**. 3. Close the **Preferences** modal. 4. The streaming metrics are then displayed in the center of the client toolbar.
 
 ![Streaming metrics in the center of the client toolbar.](images/web-toolbar-streaming-metrics.png) 5. Click on the streaming metrics to see more detailed streaming data like in the following example.
 
