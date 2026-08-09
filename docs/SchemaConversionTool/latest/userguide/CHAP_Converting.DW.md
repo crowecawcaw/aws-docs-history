@@ -317,7 +317,7 @@ schema items from the left panel of your project and view the converted schema i
 center panels of your project. The lower-center panel displays the properties of and the
 SQL command to create the converted schema, as shown following.
 
-![Choose source schema item](images/select_schema_item.png)
+![Choose source schema item](/images/SchemaConversionTool/latest/userguide/images/select_schema_item.png)
 
 After you have converted your schema,
 you can save your project.
