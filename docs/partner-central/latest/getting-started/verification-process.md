@@ -31,9 +31,9 @@ If verification fails, choose **Refresh** to generate a new QR code and repeat t
 
 ## Complete business verification
 
-###### Important
+###### Who can complete business verification
 
-You must complete identity verification before you can start business verification. Ensure you have your company's legal name, tax ID, and location information before you continue.
+To complete business verification, you must represent a legally registered business entity. Your business must have a country of incorporation and a valid business tax ID or business registration number. The exact type depends on your country. Examples include an Employer Identification Number (EIN), Value Added Tax number (VAT), or Goods and Services Tax number (GST). You can't verify with a personal tax ID, such as a Social Security Number (SSN), or a personal name. Sole proprietors and freelancers without a registered business, students, unregistered partnerships, and schools or other non-commercial entities can't complete business verification.
 
 ###### To complete business verification
 
