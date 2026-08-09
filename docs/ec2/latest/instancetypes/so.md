@@ -190,127 +190,127 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 
 ## Network specifications
 
-| Instance type     | Baseline / Burst bandwidth (Gbps) | EFA   | ENA    | ENA Express | Network cards | Max. network interfaces | IP addresses per interface | IPv6  |
-| ----------------- | --------------------------------- | ----- | ------ | ----------- | ------------- | ----------------------- | -------------------------- | ----- |
-| **D2**            |
-| d2.xlarge         | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| d2.2xlarge        | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| d2.4xlarge        | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| d2.8xlarge        | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| **D3**            |
-| d3.xlarge 1       | 3.0 / 15.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 3                          | ✓ Yes |
-| d3.2xlarge 1      | 6.0 / 15.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 5                          | ✓ Yes |
-| d3.4xlarge 1      | 12.5 / 15.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 10                         | ✓ Yes |
-| d3.8xlarge        | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 20                         | ✓ Yes |
-| **D3en**          |
-| d3en.xlarge 1     | 6.0 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 3                          | ✓ Yes |
-| d3en.2xlarge 1    | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 5                          | ✓ Yes |
-| d3en.4xlarge      | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 10                         | ✓ Yes |
-| d3en.6xlarge      | 40 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| d3en.8xlarge      | 50 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
-| d3en.12xlarge     | 75 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 30                         | ✓ Yes |
-| **H1**            |
-| h1.2xlarge 1      | 2.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| h1.4xlarge 1      | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| h1.8xlarge        | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| h1.16xlarge       | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| **I3**            |
-| i3.large 1        | 0.75 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| i3.xlarge 1       | 1.25 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i3.2xlarge 1      | 2.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i3.4xlarge 1      | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| i3.8xlarge        | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| i3.16xlarge       | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| i3.metal          | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **I3en**          |
-| i3en.large 1      | 2.1 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| i3en.xlarge 1     | 4.2 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i3en.2xlarge 1    | 8.4 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i3en.3xlarge 1    | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i3en.6xlarge      | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| i3en.12xlarge     | 50 Gigabit                        | ✓ Yes | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| i3en.24xlarge     | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| i3en.metal        | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **I4g**           |
-| i4g.large 1       | 0.781 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| i4g.xlarge 1      | 1.875 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i4g.2xlarge 1     | 4.687 / 12.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i4g.4xlarge 1     | 9.375 / 25.0                      | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| i4g.8xlarge       | 18.75 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| i4g.16xlarge      | 37.5 Gigabit                      | ✓ Yes | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **I4i**           |
-| i4i.large 1       | 0.781 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| i4i.xlarge 1      | 1.875 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i4i.2xlarge 1     | 4.687 / 12.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i4i.4xlarge 1     | 9.375 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| i4i.8xlarge       | 18.75 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| i4i.12xlarge      | 28.12 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| i4i.16xlarge      | 37.5 Gigabit                      | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| i4i.24xlarge      | 56.25 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 15                      | 30                         | ✓ Yes |
-| i4i.32xlarge      | 75 Gigabit                        | ✓ Yes | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| i4i.metal         | 75 Gigabit                        | ✓ Yes | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **I7i**           |
-| i7i.large 1       | 1.171 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| i7i.xlarge 1      | 2.343 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i7i.2xlarge 1     | 4.687 / 12.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i7i.4xlarge 1     | 9.375 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| i7i.8xlarge       | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| i7i.12xlarge      | 28.12 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| i7i.16xlarge      | 37.5 Gigabit                      | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| i7i.24xlarge      | 56.25 Gigabit                     | ✓ Yes | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| i7i.48xlarge      | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| i7i.metal-24xl    | 56.25 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| i7i.metal-48xl    | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **I7ie**          |
-| i7ie.large 1      | 2.083 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| i7ie.xlarge 1     | 4.166 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i7ie.2xlarge 1    | 8.333 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i7ie.3xlarge 1    | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i7ie.6xlarge 1    | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| i7ie.12xlarge 1   | 25.0 / 50.0                       | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 8                       | 50                         | ✓ Yes |
-| i7ie.18xlarge 1   | 37.5 / 75.0                       | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| i7ie.24xlarge 1   | 50.0 / 100.0                      | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| i7ie.48xlarge     | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| i7ie.metal-24xl 1 | 50.0 / 100.0                      | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| i7ie.metal-48xl   | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **I8g**           |
-| i8g.large 1       | 1.172 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| i8g.xlarge 1      | 2.344 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i8g.2xlarge 1     | 4.688 / 12.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i8g.4xlarge 1     | 9.375 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| i8g.8xlarge       | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| i8g.12xlarge      | 28.12 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| i8g.16xlarge      | 37.5 Gigabit                      | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| i8g.24xlarge      | 56.25 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| i8g.48xlarge      | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| i8g.metal-24xl    | 56.25 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| i8g.metal-48xl 1  | 90.0 / 100.0                      | ✓ Yes | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **I8ge**          |
-| i8ge.large 1      | 2.1 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| i8ge.xlarge 1     | 4.2 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i8ge.2xlarge 1    | 8.4 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i8ge.3xlarge 1    | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 6                       | 30                         | ✓ Yes |
-| i8ge.6xlarge      | 37.5 Gigabit                      | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 10                      | 30                         | ✓ Yes |
-| i8ge.12xlarge     | 75 Gigabit                        | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 12                      | 30                         | ✓ Yes |
-| i8ge.18xlarge     | 112.5 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 16                      | 50                         | ✓ Yes |
-| i8ge.24xlarge     | 150 Gigabit                       | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 16                      | 50                         | ✓ Yes |
-| i8ge.48xlarge     | 180 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 1             | 24                      | 50                         | ✓ Yes |
-| i8ge.metal-24xl   | 150 Gigabit                       | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 16                      | 50                         | ✓ Yes |
-| i8ge.metal-48xl   | 180 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 1             | 24                      | 50                         | ✓ Yes |
-| **Im4gn**         |
-| im4gn.large 1     | 3.125 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| im4gn.xlarge 1    | 6.25 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| im4gn.2xlarge 1   | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| im4gn.4xlarge     | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| im4gn.8xlarge     | 50 Gigabit                        | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| im4gn.16xlarge    | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **Is4gen**        |
-| is4gen.medium 1   | 1.562 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| is4gen.large 1    | 3.125 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| is4gen.xlarge 1   | 6.25 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| is4gen.2xlarge 1  | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| is4gen.4xlarge    | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| is4gen.8xlarge    | 50 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| Instance type       | Baseline / Burst bandwidth (Gbps) | EFA   | ENA    | ENA Express | ENA queues per interface (Default/Maximum) | Network cards | Max. network interfaces | IP addresses per interface | IPv6  |
+| ------------------- | --------------------------------- | ----- | ------ | ----------- | ------------------------------------------ | ------------- | ----------------------- | -------------------------- | ----- |
+| **D2**              |
+| d2.xlarge 3         | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| d2.2xlarge 3        | High                              | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| d2.4xlarge 3        | High                              | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| d2.8xlarge 3        | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| **D3**              |
+| d3.xlarge 1 3       | 3.0 / 15.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 3                          | ✓ Yes |
+| d3.2xlarge 1 3      | 6.0 / 15.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 5                          | ✓ Yes |
+| d3.4xlarge 1 3      | 12.5 / 15.0                       | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 10                         | ✓ Yes |
+| d3.8xlarge 3        | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 32                                         | 1             | 3                       | 20                         | ✓ Yes |
+| **D3en**            |
+| d3en.xlarge 1 3     | 6.0 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 3                          | ✓ Yes |
+| d3en.2xlarge 1 3    | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 5                          | ✓ Yes |
+| d3en.4xlarge 3      | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 32                                         | 1             | 4                       | 10                         | ✓ Yes |
+| d3en.6xlarge 3      | 40 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 32                                         | 1             | 4                       | 15                         | ✓ Yes |
+| d3en.8xlarge 3      | 50 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 32                                         | 1             | 4                       | 20                         | ✓ Yes |
+| d3en.12xlarge 3     | 75 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 32                                         | 1             | 3                       | 30                         | ✓ Yes |
+| **H1**              |
+| h1.2xlarge 1 3      | 2.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| h1.4xlarge 1 3      | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| h1.8xlarge 3        | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| h1.16xlarge 3       | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 8                       | 50                         | ✓ Yes |
+| **I3**              |
+| i3.large 1 3        | 0.75 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| i3.xlarge 1 3       | 1.25 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i3.2xlarge 1 3      | 2.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i3.4xlarge 1 3      | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| i3.8xlarge 3        | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| i3.16xlarge 3       | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| i3.metal 3          | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **I3en**            |
+| i3en.large 1 3      | 2.1 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| i3en.xlarge 1 3     | 4.2 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i3en.2xlarge 1 3    | 8.4 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i3en.3xlarge 1 3    | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 32                                         | 1             | 4                       | 15                         | ✓ Yes |
+| i3en.6xlarge 3      | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
+| i3en.12xlarge 3     | 50 Gigabit                        | ✓ Yes | ✓ Yes  | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
+| i3en.24xlarge 3     | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✗ No        | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| i3en.metal 3        | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✗ No        | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **I4g**             |
+| i4g.large 1 3       | 0.781 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| i4g.xlarge 1 3      | 1.875 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i4g.2xlarge 1 3     | 4.687 / 12.0                      | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i4g.4xlarge 1 3     | 9.375 / 25.0                      | ✗ No  | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| i4g.8xlarge 3       | 18.75 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| i4g.16xlarge 3      | 37.5 Gigabit                      | ✓ Yes | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **I4i**             |
+| i4i.large 1 3       | 0.781 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| i4i.xlarge 1 3      | 1.875 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i4i.2xlarge 1 3     | 4.687 / 12.0                      | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i4i.4xlarge 1 3     | 9.375 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| i4i.8xlarge 3       | 18.75 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| i4i.12xlarge 3      | 28.12 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| i4i.16xlarge 3      | 37.5 Gigabit                      | ✗ No  | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| i4i.24xlarge 3      | 56.25 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 15                      | 30                         | ✓ Yes |
+| i4i.32xlarge 3      | 75 Gigabit                        | ✓ Yes | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| i4i.metal 3         | 75 Gigabit                        | ✓ Yes | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **I7i**             |
+| i7i.large 1 3       | 1.171 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| i7i.xlarge 1 3      | 2.343 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i7i.2xlarge 1 3     | 4.687 / 12.0                      | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i7i.4xlarge 1 3     | 9.375 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| i7i.8xlarge 3       | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| i7i.12xlarge 3      | 28.12 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| i7i.16xlarge 3      | 37.5 Gigabit                      | ✗ No  | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| i7i.24xlarge 3      | 56.25 Gigabit                     | ✓ Yes | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| i7i.48xlarge 3      | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| i7i.metal-24xl 3    | 56.25 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| i7i.metal-48xl 3    | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **I7ie**            |
+| i7ie.large 1 3      | 2.083 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| i7ie.xlarge 1 3     | 4.166 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i7ie.2xlarge 1 3    | 8.333 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i7ie.3xlarge 1 3    | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i7ie.6xlarge 1 3    | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| i7ie.12xlarge 1 3   | 25.0 / 50.0                       | ✗ No  | ✓ Yes  | ✓ Yes       | 16                                         | 1             | 8                       | 50                         | ✓ Yes |
+| i7ie.18xlarge 1 3   | 37.5 / 75.0                       | ✗ No  | ✓ Yes  | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| i7ie.24xlarge 1 3   | 50.0 / 100.0                      | ✗ No  | ✓ Yes  | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| i7ie.48xlarge 3     | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| i7ie.metal-24xl 1 3 | 50.0 / 100.0                      | ✗ No  | ✓ Yes  | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| i7ie.metal-48xl 3   | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **I8g**             |
+| i8g.large 1 3       | 1.172 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| i8g.xlarge 1 3      | 2.344 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i8g.2xlarge 1 3     | 4.688 / 12.0                      | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i8g.4xlarge 1 3     | 9.375 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| i8g.8xlarge 3       | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| i8g.12xlarge 3      | 28.12 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| i8g.16xlarge 3      | 37.5 Gigabit                      | ✗ No  | ✓ Yes  | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| i8g.24xlarge 3      | 56.25 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| i8g.48xlarge 3      | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| i8g.metal-24xl 3    | 56.25 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| i8g.metal-48xl 1 3  | 90.0 / 100.0                      | ✓ Yes | ✓ Yes  | ✓ Yes       | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **I8ge**            |
+| i8ge.large 1        | 2.1 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 2 / 2                                      | 1             | 3                       | 10                         | ✓ Yes |
+| i8ge.xlarge 1       | 4.2 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 4 / 4                                      | 1             | 4                       | 15                         | ✓ Yes |
+| i8ge.2xlarge 1      | 8.4 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8 / 8                                      | 1             | 4                       | 15                         | ✓ Yes |
+| i8ge.3xlarge 1      | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 8 / 16                                     | 1             | 6                       | 30                         | ✓ Yes |
+| i8ge.6xlarge        | 37.5 Gigabit                      | ✗ No  | ✓ Yes  | ✓ Yes       | 8 / 32                                     | 1             | 10                      | 30                         | ✓ Yes |
+| i8ge.12xlarge       | 75 Gigabit                        | ✗ No  | ✓ Yes  | ✓ Yes       | 16 / 64                                    | 1             | 12                      | 30                         | ✓ Yes |
+| i8ge.18xlarge       | 112.5 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 16 / 128                                   | 1             | 16                      | 50                         | ✓ Yes |
+| i8ge.24xlarge       | 150 Gigabit                       | ✗ No  | ✓ Yes  | ✓ Yes       | 16 / 128                                   | 1             | 16                      | 50                         | ✓ Yes |
+| i8ge.48xlarge       | 180 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 50                         | ✓ Yes |
+| i8ge.metal-24xl 3   | 150 Gigabit                       | ✗ No  | ✓ Yes  | ✓ Yes       | 16                                         | 1             | 16                      | 50                         | ✓ Yes |
+| i8ge.metal-48xl 3   | 180 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 32                                         | 1             | 24                      | 50                         | ✓ Yes |
+| **Im4gn**           |
+| im4gn.large 1 3     | 3.125 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| im4gn.xlarge 1 3    | 6.25 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| im4gn.2xlarge 1 3   | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| im4gn.4xlarge 3     | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✓ Yes       | 16                                         | 1             | 8                       | 30                         | ✓ Yes |
+| im4gn.8xlarge 3     | 50 Gigabit                        | ✗ No  | ✓ Yes  | ✓ Yes       | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
+| im4gn.16xlarge 3    | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✓ Yes       | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **Is4gen**          |
+| is4gen.medium 1 3   | 1.562 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1                                          | 1             | 2                       | 4                          | ✓ Yes |
+| is4gen.large 1 3    | 3.125 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| is4gen.xlarge 1 3   | 6.25 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| is4gen.2xlarge 1 3  | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| is4gen.4xlarge 3    | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 16                                         | 1             | 8                       | 30                         | ✓ Yes |
+| is4gen.8xlarge 3    | 50 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
 
 ###### Note
 
@@ -321,6 +321,8 @@ see [instance network bandwidth](../../../AWSEC2/latest/UserGuide/ec2-instance-n
 
 2 These instances support enhanced networking using the
 Intel 82599 VF interface.
+
+3 These instance types do not support configurable ENA queue allocation.
 
 ## Amazon EBS specifications
 

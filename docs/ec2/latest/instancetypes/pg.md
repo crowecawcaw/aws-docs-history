@@ -139,81 +139,81 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 
 ## Network specifications
 
-| Instance type | Baseline / Burst bandwidth (Gbps) | EFA   | ENA    | ENA Express | Network cards | Max. network interfaces | IP addresses per interface | IPv6  |
-| ------------- | --------------------------------- | ----- | ------ | ----------- | ------------- | ----------------------- | -------------------------- | ----- |
-| **A1**        |
-| a1.medium 1   | 0.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| a1.large 1    | 0.75 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| a1.xlarge 1   | 1.25 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| a1.2xlarge 1  | 2.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| a1.4xlarge 1  | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| a1.metal 1    | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| **C1**        |
-| c1.medium     | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1             | 2                       | 6                          | ✗ No  |
-| c1.xlarge     | High                              | ✗ No  | ✗ No   | ✗ No        | 1             | 4                       | 15                         | ✗ No  |
-| **C3**        |
-| c3.large      | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c3.xlarge     | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c3.2xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c3.4xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c3.8xlarge    | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| **C4**        |
-| c4.large      | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c4.xlarge     | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c4.2xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c4.4xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c4.8xlarge    | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| **G3**        |
-| g3.4xlarge 1  | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| g3.8xlarge    | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| g3.16xlarge   | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **I2**        |
-| i2.xlarge     | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i2.2xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i2.4xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| i2.8xlarge    | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| **M1**        |
-| m1.small      | Low                               | ✗ No  | ✗ No   | ✗ No        | 1             | 2                       | 4                          | ✗ No  |
-| m1.medium     | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1             | 2                       | 6                          | ✗ No  |
-| m1.large      | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1             | 3                       | 10                         | ✗ No  |
-| m1.xlarge     | High                              | ✗ No  | ✗ No   | ✗ No        | 1             | 4                       | 15                         | ✗ No  |
-| **M2**        |
-| m2.xlarge     | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1             | 4                       | 15                         | ✗ No  |
-| m2.2xlarge    | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1             | 4                       | 30                         | ✗ No  |
-| m2.4xlarge    | High                              | ✗ No  | ✗ No   | ✗ No        | 1             | 8                       | 30                         | ✗ No  |
-| **M3**        |
-| m3.medium     | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1             | 2                       | 6                          | ✗ No  |
-| m3.large      | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1             | 3                       | 10                         | ✗ No  |
-| m3.xlarge     | High                              | ✗ No  | ✗ No   | ✗ No        | 1             | 4                       | 15                         | ✗ No  |
-| m3.2xlarge    | High                              | ✗ No  | ✗ No   | ✗ No        | 1             | 4                       | 30                         | ✗ No  |
-| **M4**        |
-| m4.large      | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 1             | 2                       | 10                         | ✓ Yes |
-| m4.xlarge     | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| m4.2xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| m4.4xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| m4.10xlarge   | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| m4.16xlarge   | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| **P3**        |
-| p3.2xlarge 1  | 2.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| p3.8xlarge    | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| p3.16xlarge   | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| **P3dn**      |
-| p3dn.24xlarge | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **R3**        |
-| r3.large      | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| r3.xlarge     | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| r3.2xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| r3.4xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| r3.8xlarge    | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| **R4**        |
-| r4.large 1    | 0.75 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| r4.xlarge 1   | 1.25 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| r4.2xlarge 1  | 2.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| r4.4xlarge 1  | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| r4.8xlarge    | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| r4.16xlarge   | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **T1**        |
-| t1.micro      | Very Low                          | ✗ No  | ✗ No   | ✗ No        | 1             | 2                       | 2                          | ✗ No  |
+| Instance type   | Baseline / Burst bandwidth (Gbps) | EFA   | ENA    | ENA Express | ENA queues per interface (Default/Maximum) | Network cards | Max. network interfaces | IP addresses per interface | IPv6  |
+| --------------- | --------------------------------- | ----- | ------ | ----------- | ------------------------------------------ | ------------- | ----------------------- | -------------------------- | ----- |
+| **A1**          |
+| a1.medium 1 3   | 0.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 2                       | 4                          | ✓ Yes |
+| a1.large 1 3    | 0.75 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| a1.xlarge 1 3   | 1.25 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| a1.2xlarge 1 3  | 2.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| a1.4xlarge 1 3  | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| a1.metal 1 3    | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| **C1**          |
+| c1.medium 3     | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1                                          | 1             | 2                       | 6                          | ✗ No  |
+| c1.xlarge 3     | High                              | ✗ No  | ✗ No   | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✗ No  |
+| **C3**          |
+| c3.large 3      | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c3.xlarge 3     | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c3.2xlarge 3    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c3.4xlarge 3    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c3.8xlarge 3    | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| **C4**          |
+| c4.large 3      | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c4.xlarge 3     | High                              | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c4.2xlarge 3    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c4.4xlarge 3    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c4.8xlarge 3    | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| **G3**          |
+| g3.4xlarge 1    | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | —                                          | 1             | 8                       | 30                         | ✓ Yes |
+| g3.8xlarge      | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | —                                          | 1             | 8                       | 30                         | ✓ Yes |
+| g3.16xlarge     | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | —                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **I2**          |
+| i2.xlarge 3     | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i2.2xlarge 3    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| i2.4xlarge 3    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| i2.8xlarge 3    | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| **M1**          |
+| m1.small 3      | Low                               | ✗ No  | ✗ No   | ✗ No        | 1                                          | 1             | 2                       | 4                          | ✗ No  |
+| m1.medium 3     | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1                                          | 1             | 2                       | 6                          | ✗ No  |
+| m1.large 3      | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✗ No  |
+| m1.xlarge 3     | High                              | ✗ No  | ✗ No   | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✗ No  |
+| **M2**          |
+| m2.xlarge 3     | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1                                          | 1             | 4                       | 15                         | ✗ No  |
+| m2.2xlarge 3    | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1                                          | 1             | 4                       | 30                         | ✗ No  |
+| m2.4xlarge 3    | High                              | ✗ No  | ✗ No   | ✗ No        | 1                                          | 1             | 8                       | 30                         | ✗ No  |
+| **M3**          |
+| m3.medium 3     | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1                                          | 1             | 2                       | 6                          | ✗ No  |
+| m3.large 3      | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✗ No  |
+| m3.xlarge 3     | High                              | ✗ No  | ✗ No   | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✗ No  |
+| m3.2xlarge 3    | High                              | ✗ No  | ✗ No   | ✗ No        | 8                                          | 1             | 4                       | 30                         | ✗ No  |
+| **M4**          |
+| m4.large 3      | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 2                       | 10                         | ✓ Yes |
+| m4.xlarge 3     | High                              | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| m4.2xlarge 3    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| m4.4xlarge 3    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| m4.10xlarge 3   | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| m4.16xlarge 3   | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| **P3**          |
+| p3.2xlarge 1    | 2.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | —                                          | 1             | 4                       | 15                         | ✓ Yes |
+| p3.8xlarge      | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | —                                          | 1             | 8                       | 30                         | ✓ Yes |
+| p3.16xlarge     | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | —                                          | 1             | 8                       | 30                         | ✓ Yes |
+| **P3dn**        |
+| p3dn.24xlarge 3 | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✗ No        | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **R3**          |
+| r3.large 3      | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| r3.xlarge 3     | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| r3.2xlarge 3    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| r3.4xlarge 3    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| r3.8xlarge 3    | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| **R4**          |
+| r4.large 1 3    | 0.75 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| r4.xlarge 1 3   | 1.25 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| r4.2xlarge 1 3  | 2.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| r4.4xlarge 1 3  | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| r4.8xlarge 3    | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| r4.16xlarge 3   | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **T1**          |
+| t1.micro 3      | Very Low                          | ✗ No  | ✗ No   | ✗ No        | 1                                          | 1             | 2                       | 2                          | ✗ No  |
 
 ###### Note
 
@@ -224,6 +224,8 @@ see [instance network bandwidth](../../../AWSEC2/latest/UserGuide/ec2-instance-n
 
 2 These instances support enhanced networking using the
 Intel 82599 VF interface.
+
+3 These instance types do not support configurable ENA queue allocation.
 
 ## Amazon EBS specifications
 

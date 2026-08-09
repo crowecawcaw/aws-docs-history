@@ -222,129 +222,129 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 
 ## Network specifications
 
-| Instance type      | Baseline / Burst bandwidth (Gbps) | EFA   | ENA   | ENA Express | Network cards | Max. network interfaces | IP addresses per interface | IPv6  |
-| ------------------ | --------------------------------- | ----- | ----- | ----------- | ------------- | ----------------------- | -------------------------- | ----- |
-| **DL1**            |
-| dl1.24xlarge       | 4x 100 Gigabit                    | ✗ No  | ✓ Yes | ✗ No        | 4             | 60                      | 50                         | ✓ Yes |
-| **DL2q**           |
-| dl2q.24xlarge      | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **F2**             |
-| f2.6xlarge         | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| f2.12xlarge        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| f2.48xlarge        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **G4ad**           |
-| g4ad.xlarge 1      | 2.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| g4ad.2xlarge 1     | 4.167 / 10.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| g4ad.4xlarge 1     | 8.333 / 10.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| g4ad.8xlarge       | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| g4ad.16xlarge      | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| **G4dn**           |
-| g4dn.xlarge 1      | 5.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| g4dn.2xlarge 1     | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| g4dn.4xlarge 1     | 20.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| g4dn.8xlarge       | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| g4dn.12xlarge      | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| g4dn.16xlarge      | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| g4dn.metal         | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **G5**             |
-| g5.xlarge 1        | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| g5.2xlarge 1       | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| g5.4xlarge 1       | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| g5.8xlarge         | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| g5.12xlarge        | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| g5.16xlarge        | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| g5.24xlarge        | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| g5.48xlarge        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 7                       | 50                         | ✓ Yes |
-| **G5g**            |
-| g5g.xlarge 1       | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| g5g.2xlarge 1      | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| g5g.4xlarge 1      | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| g5g.8xlarge        | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| g5g.16xlarge       | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| g5g.metal          | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **G6**             |
-| g6.xlarge 1        | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| g6.2xlarge 1       | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| g6.4xlarge 1       | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| g6.8xlarge         | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| g6.12xlarge        | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| g6.16xlarge        | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| g6.24xlarge        | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| g6.48xlarge        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **G6e**            |
-| g6e.xlarge 1       | 2.5 / 20.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| g6e.2xlarge 1      | 5.0 / 20.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| g6e.4xlarge        | 20 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| g6e.8xlarge        | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| g6e.12xlarge       | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 10                      | 30                         | ✓ Yes |
-| g6e.16xlarge       | 35 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| g6e.24xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 20                      | 50                         | ✓ Yes |
-| g6e.48xlarge       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 4             | 40                      | 50                         | ✓ Yes |
-| **G6f**            |
-| g6f.large 1        | 1.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 10                         | ✓ Yes |
-| g6f.xlarge 1       | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| g6f.2xlarge 1      | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| g6f.4xlarge 1      | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| **Gr6**            |
-| gr6.4xlarge 1      | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| gr6.8xlarge        | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| **Gr6f**           |
-| gr6f.4xlarge 1     | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| **G7**             |
-| g7.2xlarge 1       | 40.0 / 60.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 64                         | ✓ Yes |
-| g7.4xlarge 1       | 80.0 / 100.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 64                         | ✓ Yes |
-| g7.8xlarge         | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 10                      | 64                         | ✓ Yes |
-| g7.12xlarge        | 175 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 12                      | 64                         | ✓ Yes |
-| g7.24xlarge        | 350 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| g7.48xlarge        | 700 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
-| **G7e**            |
-| g7e.2xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 64                         | ✓ Yes |
-| g7e.4xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 64                         | ✓ Yes |
-| g7e.8xlarge        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 8                       | 64                         | ✓ Yes |
-| g7e.12xlarge       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 10                      | 64                         | ✓ Yes |
-| g7e.24xlarge       | 800 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 20                      | 64                         | ✓ Yes |
-| g7e.48xlarge       | 1600 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 4             | 40                      | 64                         | ✓ Yes |
-| **Inf1**           |
-| inf1.xlarge 1      | 5.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 10                         | ✓ Yes |
-| inf1.2xlarge 1     | 5.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 10                         | ✓ Yes |
-| inf1.6xlarge       | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| inf1.24xlarge      | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 11                      | 30                         | ✓ Yes |
-| **Inf2**           |
-| inf2.xlarge 1      | 2.083 / 15.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| inf2.8xlarge 1     | 16.667 / 25.0                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| inf2.24xlarge      | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| inf2.48xlarge      | 100 Gigabit                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **P4d**            |
-| p4d.24xlarge       | 4x 100 Gigabit                    | ✓ Yes | ✓ Yes | ✗ No        | 4             | 60                      | 50                         | ✓ Yes |
-| **P4de**           |
-| p4de.24xlarge      | 4x 100 Gigabit                    | ✓ Yes | ✓ Yes | ✗ No        | 4             | 60                      | 50                         | ✓ Yes |
-| **P5**             |
-| p5.4xlarge         | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 4                       | 30                         | ✓ Yes |
-| p5.48xlarge        | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32            | 64                      | 50                         | ✓ Yes |
-| **P5e**            |
-| p5e.48xlarge       | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32            | 64                      | 50                         | ✓ Yes |
-| **P5en**           |
-| p5en.48xlarge      | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 16            | 64                      | 50                         | ✓ Yes |
-| **P6-B200**        |
-| p6-b200.48xlarge   | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 8             | 32                      | 50                         | ✓ Yes |
-| **P6-B300**        |
-| p6-b300.48xlarge   | 6400 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 17            | 68                      | 50                         | ✓ Yes |
-| **P6e-GB200**      |
-| p6e-gb200.36xlarge | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 17            | 39                      | 50                         | ✓ Yes |
-| **Trn1**           |
-| trn1.2xlarge 1     | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| trn1.32xlarge      | 8x 100 Gigabit                    | ✓ Yes | ✓ Yes | ✗ No        | 8             | 40                      | 50                         | ✓ Yes |
-| **Trn1n**          |
-| trn1n.32xlarge     | 16x 100 Gigabit                   | ✓ Yes | ✓ Yes | ✗ No        | 16            | 80                      | 50                         | ✓ Yes |
-| **Trn2**           |
-| trn2.3xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 2                       | 15                         | ✓ Yes |
-| trn2.48xlarge      | 16x 200 Gigabit                   | ✓ Yes | ✓ Yes | ✗ No        | 16            | 32                      | 50                         | ✓ Yes |
-| **Trn2u**          |
-| trn2u.48xlarge     | 16x 200 Gigabit                   | ✓ Yes | ✓ Yes | ✗ No        | 16            | 32                      | 50                         | ✓ Yes |
-| **VT1**            |
-| vt1.3xlarge        | 3.12 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| vt1.6xlarge        | 6.25 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| vt1.24xlarge       | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
+| Instance type        | Baseline / Burst bandwidth (Gbps) | EFA   | ENA   | ENA Express | ENA queues per interface (Default/Maximum) | Network cards | Max. network interfaces | IP addresses per interface | IPv6  |
+| -------------------- | --------------------------------- | ----- | ----- | ----------- | ------------------------------------------ | ------------- | ----------------------- | -------------------------- | ----- |
+| **DL1**              |
+| dl1.24xlarge 2       | 4x 100 Gigabit                    | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 4             | 60                      | 50                         | ✓ Yes |
+| **DL2q**             |
+| dl2q.24xlarge 2      | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **F2**               |
+| f2.6xlarge 2         | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| f2.12xlarge 2        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| f2.48xlarge 2        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **G4ad**             |
+| g4ad.xlarge 1 2      | 2.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 2                       | 4                          | ✓ Yes |
+| g4ad.2xlarge 1 2     | 4.167 / 10.0                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 2                       | 4                          | ✓ Yes |
+| g4ad.4xlarge 1 2     | 8.333 / 10.0                      | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 3                       | 10                         | ✓ Yes |
+| g4ad.8xlarge 2       | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 4                       | 15                         | ✓ Yes |
+| g4ad.16xlarge 2      | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
+| **G4dn**             |
+| g4dn.xlarge 1 2      | 5.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| g4dn.2xlarge 1 2     | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| g4dn.4xlarge 1 2     | 20.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 3                       | 10                         | ✓ Yes |
+| g4dn.8xlarge 2       | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 4                       | 15                         | ✓ Yes |
+| g4dn.12xlarge 2      | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
+| g4dn.16xlarge 2      | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 4                       | 15                         | ✓ Yes |
+| g4dn.metal 2         | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **G5**               |
+| g5.xlarge 1 2        | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| g5.2xlarge 1 2       | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| g5.4xlarge 1 2       | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
+| g5.8xlarge 2         | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
+| g5.12xlarge 2        | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| g5.16xlarge 2        | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
+| g5.24xlarge 2        | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| g5.48xlarge 2        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 7                       | 50                         | ✓ Yes |
+| **G5g**              |
+| g5g.xlarge 1 2       | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| g5g.2xlarge 1 2      | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| g5g.4xlarge 1 2      | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| g5g.8xlarge 2        | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| g5g.16xlarge 2       | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| g5g.metal 2          | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **G6**               |
+| g6.xlarge 1 2        | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| g6.2xlarge 1 2       | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| g6.4xlarge 1 2       | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| g6.8xlarge 2         | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| g6.12xlarge 2        | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| g6.16xlarge 2        | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| g6.24xlarge 2        | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| g6.48xlarge 2        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **G6e**              |
+| g6e.xlarge 1 2       | 2.5 / 20.0                        | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| g6e.2xlarge 1 2      | 5.0 / 20.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| g6e.4xlarge 2        | 20 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| g6e.8xlarge 2        | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| g6e.12xlarge 2       | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 1             | 10                      | 30                         | ✓ Yes |
+| g6e.16xlarge 2       | 35 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| g6e.24xlarge 2       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 2             | 20                      | 50                         | ✓ Yes |
+| g6e.48xlarge 2       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 4             | 40                      | 50                         | ✓ Yes |
+| **G6f**              |
+| g6f.large 1 2        | 1.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 2                                          | 1             | 2                       | 10                         | ✓ Yes |
+| g6f.xlarge 1 2       | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| g6f.2xlarge 1 2      | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| g6f.4xlarge 1 2      | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| **Gr6**              |
+| gr6.4xlarge 1 2      | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| gr6.8xlarge 2        | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| **Gr6f**             |
+| gr6f.4xlarge 1 2     | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| **G7**               |
+| g7.2xlarge 1         | 40.0 / 60.0                       | ✗ No  | ✓ Yes | ✗ No        | 8 / 8                                      | 1             | 4                       | 64                         | ✓ Yes |
+| g7.4xlarge 1         | 80.0 / 100.0                      | ✗ No  | ✓ Yes | ✗ No        | 8 / 16                                     | 1             | 8                       | 64                         | ✓ Yes |
+| g7.8xlarge           | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 8 / 32                                     | 1             | 10                      | 64                         | ✓ Yes |
+| g7.12xlarge          | 175 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 16 / 64                                    | 1             | 12                      | 64                         | ✓ Yes |
+| g7.24xlarge          | 350 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 16 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| g7.48xlarge          | 700 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 2             | 24                      | 64                         | ✓ Yes |
+| **G7e**              |
+| g7e.2xlarge 2        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 64                         | ✓ Yes |
+| g7e.4xlarge 2        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 16                                         | 1             | 8                       | 64                         | ✓ Yes |
+| g7e.8xlarge 2        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 64                         | ✓ Yes |
+| g7e.12xlarge 2       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 1             | 10                      | 64                         | ✓ Yes |
+| g7e.24xlarge 2       | 800 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 2             | 20                      | 64                         | ✓ Yes |
+| g7e.48xlarge 2       | 1600 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 4             | 40                      | 64                         | ✓ Yes |
+| **Inf1**             |
+| inf1.xlarge 1 2      | 5.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 4                       | 10                         | ✓ Yes |
+| inf1.2xlarge 1 2     | 5.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 4                       | 10                         | ✓ Yes |
+| inf1.6xlarge 2       | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
+| inf1.24xlarge 2      | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 11                      | 30                         | ✓ Yes |
+| **Inf2**             |
+| inf2.xlarge 1 2      | 2.083 / 15.0                      | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| inf2.8xlarge 1 2     | 16.667 / 25.0                     | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| inf2.24xlarge 2      | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| inf2.48xlarge 2      | 100 Gigabit                       | ✗ No  | ✓ Yes | ✗ No        | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **P4d**              |
+| p4d.24xlarge 2       | 4x 100 Gigabit                    | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 4             | 60                      | 50                         | ✓ Yes |
+| **P4de**             |
+| p4de.24xlarge 2      | 4x 100 Gigabit                    | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 4             | 60                      | 50                         | ✓ Yes |
+| **P5**               |
+| p5.4xlarge 2         | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 16                                         | 1             | 4                       | 30                         | ✓ Yes |
+| p5.48xlarge 2        | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 32            | 64                      | 50                         | ✓ Yes |
+| **P5e**              |
+| p5e.48xlarge 2       | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 32            | 64                      | 50                         | ✓ Yes |
+| **P5en**             |
+| p5en.48xlarge 2      | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 16            | 64                      | 50                         | ✓ Yes |
+| **P6-B200**          |
+| p6-b200.48xlarge 2   | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 8             | 32                      | 50                         | ✓ Yes |
+| **P6-B300**          |
+| p6-b300.48xlarge 2   | 6400 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 17            | 68                      | 50                         | ✓ Yes |
+| **P6e-GB200**        |
+| p6e-gb200.36xlarge 2 | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 17            | 39                      | 50                         | ✓ Yes |
+| **Trn1**             |
+| trn1.2xlarge 1 2     | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| trn1.32xlarge 2      | 8x 100 Gigabit                    | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 8             | 40                      | 50                         | ✓ Yes |
+| **Trn1n**            |
+| trn1n.32xlarge 2     | 16x 100 Gigabit                   | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 16            | 80                      | 50                         | ✓ Yes |
+| **Trn2**             |
+| trn2.3xlarge 2       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 16                                         | 1             | 2                       | 15                         | ✓ Yes |
+| trn2.48xlarge 2      | 16x 200 Gigabit                   | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 16            | 32                      | 50                         | ✓ Yes |
+| **Trn2u**            |
+| trn2u.48xlarge 2     | 16x 200 Gigabit                   | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 16            | 32                      | 50                         | ✓ Yes |
+| **VT1**              |
+| vt1.3xlarge 2        | 3.12 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| vt1.6xlarge 2        | 6.25 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| vt1.24xlarge 2       | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
 
 ###### Note
 
@@ -352,6 +352,8 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 use a network I/O credit mechanism to burst beyond their baseline bandwidth on a best effort basis.
 Other instances types can sustain their maximum performance indefinitely. For more information,
 see [instance network bandwidth](../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md "../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md").
+
+2 These instance types do not support configurable ENA queue allocation.
 
 ## Amazon EBS specifications
 

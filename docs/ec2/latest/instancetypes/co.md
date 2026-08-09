@@ -451,351 +451,351 @@ With these instance types, you can optimize an instance's bandwidth for either n
 or Amazon EBS performance. The following table shows the default networking bandwidth performance for these
 instance types. For the supported configurable weightings, see [Configurable bandwidth weighting preferences](../../../AWSEC2/latest/UserGuide/configure-bandwidth-weighting.md "../../../AWSEC2/latest/UserGuide/configure-bandwidth-weighting.md").
 
-| Instance type       | Baseline / Burst bandwidth (Gbps) | EFA   | ENA   | ENA Express | Network cards | Max. network interfaces | IP addresses per interface | IPv6  |
-| ------------------- | --------------------------------- | ----- | ----- | ----------- | ------------- | ----------------------- | -------------------------- | ----- |
-| **C5**              |
-| c5.large 1          | 0.75 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c5.xlarge 1         | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c5.2xlarge 1        | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c5.4xlarge 1        | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c5.9xlarge          | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c5.12xlarge         | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c5.18xlarge         | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| c5.24xlarge         | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| c5.metal            | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **C5a**             |
-| c5a.large 1         | 0.75 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c5a.xlarge 1        | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c5a.2xlarge 1       | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c5a.4xlarge 1       | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c5a.8xlarge         | 10 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c5a.12xlarge        | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c5a.16xlarge        | 20 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| c5a.24xlarge        | 20 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **C5ad**            |
-| c5ad.large 1        | 0.75 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c5ad.xlarge 1       | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c5ad.2xlarge 1      | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c5ad.4xlarge 1      | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c5ad.8xlarge        | 10 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c5ad.12xlarge       | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c5ad.16xlarge       | 20 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| c5ad.24xlarge       | 20 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **C5d**             |
-| c5d.large 1         | 0.75 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c5d.xlarge 1        | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c5d.2xlarge 1       | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c5d.4xlarge 1       | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c5d.9xlarge         | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c5d.12xlarge        | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c5d.18xlarge        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| c5d.24xlarge        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| c5d.metal           | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **C5n**             |
-| c5n.large 1         | 3.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c5n.xlarge 1        | 5.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c5n.2xlarge 1       | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c5n.4xlarge 1       | 15.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c5n.9xlarge         | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c5n.18xlarge        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| c5n.metal           | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **C6a**             |
-| c6a.large 1         | 0.781 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c6a.xlarge 1        | 1.562 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c6a.2xlarge 1       | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c6a.4xlarge 1       | 6.25 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c6a.8xlarge         | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c6a.12xlarge        | 18.75 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c6a.16xlarge        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c6a.24xlarge        | 37.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c6a.32xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c6a.48xlarge        | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c6a.metal           | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **C6g**             |
-| c6g.medium 1        | 0.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| c6g.large 1         | 0.75 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c6g.xlarge 1        | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c6g.2xlarge 1       | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c6g.4xlarge 1       | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c6g.8xlarge         | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c6g.12xlarge        | 20 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c6g.16xlarge        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| c6g.metal           | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **C6gd**            |
-| c6gd.medium 1       | 0.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| c6gd.large 1        | 0.75 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c6gd.xlarge 1       | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c6gd.2xlarge 1      | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c6gd.4xlarge 1      | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c6gd.8xlarge        | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c6gd.12xlarge       | 20 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c6gd.16xlarge       | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| c6gd.metal          | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **C6gn**            |
-| c6gn.medium 1       | 1.6 / 16.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| c6gn.large 1        | 3.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c6gn.xlarge 1       | 6.3 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c6gn.2xlarge 1      | 12.5 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c6gn.4xlarge        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c6gn.8xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c6gn.12xlarge       | 75 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c6gn.16xlarge       | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **C6i**             |
-| c6i.large 1         | 0.781 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c6i.xlarge 1        | 1.562 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c6i.2xlarge 1       | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c6i.4xlarge 1       | 6.25 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c6i.8xlarge         | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c6i.12xlarge        | 18.75 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c6i.16xlarge        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c6i.24xlarge        | 37.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c6i.32xlarge        | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c6i.metal           | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **C6id**            |
-| c6id.large 1        | 0.781 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c6id.xlarge 1       | 1.562 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c6id.2xlarge 1      | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c6id.4xlarge 1      | 6.25 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c6id.8xlarge        | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c6id.12xlarge       | 18.75 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c6id.16xlarge       | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c6id.24xlarge       | 37.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c6id.32xlarge       | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c6id.metal          | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **C6in**            |
-| c6in.large 1        | 3.125 / 25.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c6in.xlarge 1       | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c6in.2xlarge 1      | 12.5 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c6in.4xlarge 1      | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c6in.8xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c6in.12xlarge       | 75 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c6in.16xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c6in.24xlarge       | 150 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c6in.32xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 16                      | 50                         | ✓ Yes |
-| c6in.metal          | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 16                      | 50                         | ✓ Yes |
-| **C7a**             |
-| c7a.medium 1        | 0.39 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| c7a.large 1         | 0.781 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c7a.xlarge 1        | 1.562 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c7a.2xlarge 1       | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c7a.4xlarge 1       | 6.25 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c7a.8xlarge         | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c7a.12xlarge        | 18.75 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c7a.16xlarge        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c7a.24xlarge        | 37.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c7a.32xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c7a.48xlarge        | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c7a.metal-48xl      | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **C7g**             |
-| c7g.medium 1        | 0.52 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| c7g.large 1         | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c7g.xlarge 1        | 1.876 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c7g.2xlarge 1       | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c7g.4xlarge 1       | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c7g.8xlarge         | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c7g.12xlarge        | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c7g.16xlarge        | 30 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c7g.metal           | 30 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **C7gd**            |
-| c7gd.medium 1       | 0.52 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| c7gd.large 1        | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c7gd.xlarge 1       | 1.876 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c7gd.2xlarge 1      | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c7gd.4xlarge 1      | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c7gd.8xlarge        | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c7gd.12xlarge       | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c7gd.16xlarge       | 30 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c7gd.metal          | 30 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **C7gn**            |
-| c7gn.medium 1       | 3.125 / 25.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| c7gn.large 1        | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c7gn.xlarge 1       | 12.5 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c7gn.2xlarge 1      | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c7gn.4xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c7gn.8xlarge        | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c7gn.12xlarge       | 150 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c7gn.16xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c7gn.metal          | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **C7i**             |
-| c7i.large 1         | 0.781 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c7i.xlarge 1        | 1.562 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c7i.2xlarge 1       | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c7i.4xlarge 1       | 6.25 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c7i.8xlarge         | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c7i.12xlarge        | 18.75 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c7i.16xlarge        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c7i.24xlarge        | 37.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c7i.48xlarge        | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c7i.metal-24xl      | 37.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c7i.metal-48xl      | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **C7i-flex**        |
-| c7i-flex.large 1    | 0.39 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c7i-flex.xlarge 1   | 0.781 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c7i-flex.2xlarge 1  | 1.562 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c7i-flex.4xlarge 1  | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c7i-flex.8xlarge 1  | 6.25 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c7i-flex.12xlarge 1 | 9.375 / 18.75                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c7i-flex.16xlarge 1 | 12.5 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **C8a**             |
-| c8a.medium 1        | 0.52 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| c8a.large 1         | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 20                         | ✓ Yes |
-| c8a.xlarge 1        | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
-| c8a.2xlarge 1       | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 40                         | ✓ Yes |
-| c8a.4xlarge 1       | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 40                         | ✓ Yes |
-| c8a.8xlarge         | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 10                      | 40                         | ✓ Yes |
-| c8a.12xlarge        | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 12                      | 64                         | ✓ Yes |
-| c8a.16xlarge        | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8a.24xlarge        | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8a.48xlarge        | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c8a.metal-24xl      | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8a.metal-48xl      | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| **C8g**             |
-| c8g.medium 1        | 0.52 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| c8g.large 1         | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c8g.xlarge 1        | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c8g.2xlarge 1       | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c8g.4xlarge 1       | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c8g.8xlarge         | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c8g.12xlarge        | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c8g.16xlarge        | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c8g.24xlarge        | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c8g.48xlarge        | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c8g.metal-24xl      | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c8g.metal-48xl      | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **C8gb**            |
-| c8gb.medium 1       | 2.083 / 16.666                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| c8gb.large 1        | 4.166 / 20.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c8gb.xlarge 1       | 8.333 / 26.666                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c8gb.2xlarge 1      | 16.666 / 33.333                   | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c8gb.4xlarge        | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c8gb.8xlarge        | 66.66 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 30                         | ✓ Yes |
-| c8gb.12xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 30                         | ✓ Yes |
-| c8gb.16xlarge       | 133.33 Gigabit                    | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 16                      | 50                         | ✓ Yes |
-| c8gb.24xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 50                         | ✓ Yes |
-| c8gb.48xlarge       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 50                         | ✓ Yes |
-| c8gb.metal-24xl     | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 50                         | ✓ Yes |
-| c8gb.metal-48xl     | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 50                         | ✓ Yes |
-| **C8gd**            |
-| c8gd.medium 1       | 0.52 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| c8gd.large 1        | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c8gd.xlarge 1       | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c8gd.2xlarge 1      | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c8gd.4xlarge 1      | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c8gd.8xlarge        | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c8gd.12xlarge       | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c8gd.16xlarge       | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c8gd.24xlarge       | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c8gd.48xlarge       | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c8gd.metal-24xl     | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| c8gd.metal-48xl     | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
-| **C8gn**            |
-| c8gn.medium 1       | 3.125 / 25.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| c8gn.large 1        | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c8gn.xlarge 1       | 12.5 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c8gn.2xlarge 1      | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c8gn.4xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
-| c8gn.8xlarge        | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 30                         | ✓ Yes |
-| c8gn.12xlarge       | 150 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 30                         | ✓ Yes |
-| c8gn.16xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 16                      | 50                         | ✓ Yes |
-| c8gn.24xlarge       | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 50                         | ✓ Yes |
-| c8gn.48xlarge       | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 50                         | ✓ Yes |
-| c8gn.metal-24xl     | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 50                         | ✓ Yes |
-| c8gn.metal-48xl     | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 50                         | ✓ Yes |
-| **C8i**             |
-| c8i.large 1         | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 20                         | ✓ Yes |
-| c8i.xlarge 1        | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8i.2xlarge 1       | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8i.4xlarge 1       | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c8i.8xlarge         | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 50                         | ✓ Yes |
-| c8i.12xlarge        | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
-| c8i.16xlarge        | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8i.24xlarge        | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8i.32xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c8i.48xlarge        | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c8i.96xlarge        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c8i.metal-48xl      | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c8i.metal-96xl      | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| **C8id**            |
-| c8id.large 1        | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 20                         | ✓ Yes |
-| c8id.xlarge 1       | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8id.2xlarge 1      | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8id.4xlarge 1      | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c8id.8xlarge        | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 50                         | ✓ Yes |
-| c8id.12xlarge       | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
-| c8id.16xlarge       | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8id.24xlarge       | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8id.32xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c8id.48xlarge       | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c8id.96xlarge       | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c8id.metal-48xl     | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c8id.metal-96xl     | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| **C8i-flex**        |
-| c8i-flex.large 1    | 0.468 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 20                         | ✓ Yes |
-| c8i-flex.xlarge 1   | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8i-flex.2xlarge 1  | 1.875 / 15.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8i-flex.4xlarge 1  | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c8i-flex.8xlarge 1  | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 10                      | 50                         | ✓ Yes |
-| c8i-flex.12xlarge 1 | 11.25 / 22.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 12                      | 50                         | ✓ Yes |
-| c8i-flex.16xlarge 1 | 15.0 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 16                      | 64                         | ✓ Yes |
-| **C8in**            |
-| c8in.large 1        | 3.125 / 25.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
-| c8in.xlarge 1       | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8in.2xlarge 1      | 12.5 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8in.4xlarge 1      | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c8in.8xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 50                         | ✓ Yes |
-| c8in.12xlarge       | 75 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
-| c8in.16xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8in.24xlarge       | 150 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8in.32xlarge       | 200 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8in.48xlarge       | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c8in.96xlarge       | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
-| c8in.metal-48xl     | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c8in.metal-96xl     | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
-| **C8ine**           |
-| c8ine.large         | 3.125 Gigabit                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
-| c8ine.xlarge        | 6.25 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8ine.2xlarge       | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8ine.4xlarge       | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c8ine.8xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c8ine.12xlarge      | 75 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 12                      | 50                         | ✓ Yes |
-| **C8ib**            |
-| c8ib.large 1        | 2.083 / 16.667                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
-| c8ib.xlarge 1       | 4.166 / 20.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8ib.2xlarge 1      | 8.333 / 26.667                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8ib.4xlarge 1      | 16.666 / 33.333                   | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c8ib.8xlarge        | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 50                         | ✓ Yes |
-| c8ib.12xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
-| c8ib.16xlarge       | 66.66 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8ib.24xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8ib.32xlarge       | 133.33 Gigabit                    | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8ib.48xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c8ib.96xlarge       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
-| c8ib.metal-48xl     | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c8ib.metal-96xl     | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
-| **C9g**             |
-| c9g.medium 1        | 0.55 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 20                         | ✓ Yes |
-| c9g.large 1         | 1.0 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 20                         | ✓ Yes |
-| c9g.xlarge 1        | 2.1 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c9g.2xlarge 1       | 4.25 / 17.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c9g.4xlarge 1       | 8.5 / 17.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c9g.8xlarge         | 17 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 50                         | ✓ Yes |
-| c9g.12xlarge        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
-| c9g.16xlarge        | 34 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c9g.24xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c9g.48xlarge        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c9g.metal-48xl      | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| **C9gd**            |
-| c9gd.medium 1       | 0.55 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 20                         | ✓ Yes |
-| c9gd.large 1        | 1.0 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 20                         | ✓ Yes |
-| c9gd.xlarge 1       | 2.1 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c9gd.2xlarge 1      | 4.25 / 17.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c9gd.4xlarge 1      | 8.5 / 17.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c9gd.8xlarge        | 17 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 50                         | ✓ Yes |
-| c9gd.12xlarge       | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
-| c9gd.16xlarge       | 34 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c9gd.24xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c9gd.48xlarge       | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c9gd.metal-48xl     | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| Instance type         | Baseline / Burst bandwidth (Gbps) | EFA   | ENA   | ENA Express | ENA queues per interface (Default/Maximum) | Network cards | Max. network interfaces | IP addresses per interface | IPv6  |
+| --------------------- | --------------------------------- | ----- | ----- | ----------- | ------------------------------------------ | ------------- | ----------------------- | -------------------------- | ----- |
+| **C5**                |
+| c5.large 1 2          | 0.75 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c5.xlarge 1 2         | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c5.2xlarge 1 2        | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c5.4xlarge 1 2        | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c5.9xlarge 2          | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c5.12xlarge 2         | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c5.18xlarge 2         | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c5.24xlarge 2         | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c5.metal 2            | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **C5a**               |
+| c5a.large 1 2         | 0.75 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c5a.xlarge 1 2        | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c5a.2xlarge 1 2       | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c5a.4xlarge 1 2       | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c5a.8xlarge 2         | 10 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c5a.12xlarge 2        | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c5a.16xlarge 2        | 20 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c5a.24xlarge 2        | 20 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **C5ad**              |
+| c5ad.large 1 2        | 0.75 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c5ad.xlarge 1 2       | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c5ad.2xlarge 1 2      | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c5ad.4xlarge 1 2      | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c5ad.8xlarge 2        | 10 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c5ad.12xlarge 2       | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c5ad.16xlarge 2       | 20 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c5ad.24xlarge 2       | 20 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **C5d**               |
+| c5d.large 1 2         | 0.75 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c5d.xlarge 1 2        | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c5d.2xlarge 1 2       | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c5d.4xlarge 1 2       | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c5d.9xlarge 2         | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c5d.12xlarge 2        | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c5d.18xlarge 2        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c5d.24xlarge 2        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c5d.metal 2           | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **C5n**               |
+| c5n.large 1 2         | 3.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c5n.xlarge 1 2        | 5.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c5n.2xlarge 1 2       | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c5n.4xlarge 1 2       | 15.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
+| c5n.9xlarge 2         | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
+| c5n.18xlarge 2        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| c5n.metal 2           | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **C6a**               |
+| c6a.large 1 2         | 0.781 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c6a.xlarge 1 2        | 1.562 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c6a.2xlarge 1 2       | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c6a.4xlarge 1 2       | 6.25 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c6a.8xlarge 2         | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c6a.12xlarge 2        | 18.75 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c6a.16xlarge 2        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c6a.24xlarge 2        | 37.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c6a.32xlarge 2        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c6a.48xlarge 2        | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c6a.metal 2           | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **C6g**               |
+| c6g.medium 1 2        | 0.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 2                       | 4                          | ✓ Yes |
+| c6g.large 1 2         | 0.75 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c6g.xlarge 1 2        | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c6g.2xlarge 1 2       | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c6g.4xlarge 1 2       | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c6g.8xlarge 2         | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c6g.12xlarge 2        | 20 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c6g.16xlarge 2        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c6g.metal 2           | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **C6gd**              |
+| c6gd.medium 1 2       | 0.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 2                       | 4                          | ✓ Yes |
+| c6gd.large 1 2        | 0.75 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c6gd.xlarge 1 2       | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c6gd.2xlarge 1 2      | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c6gd.4xlarge 1 2      | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c6gd.8xlarge 2        | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c6gd.12xlarge 2       | 20 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c6gd.16xlarge 2       | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c6gd.metal 2          | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **C6gn**              |
+| c6gn.medium 1 2       | 1.6 / 16.0                        | ✗ No  | ✓ Yes | ✗ No        | 1                                          | 1             | 2                       | 4                          | ✓ Yes |
+| c6gn.large 1 2        | 3.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c6gn.xlarge 1 2       | 6.3 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c6gn.2xlarge 1 2      | 12.5 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c6gn.4xlarge 2        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16                                         | 1             | 8                       | 30                         | ✓ Yes |
+| c6gn.8xlarge 2        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
+| c6gn.12xlarge 2       | 75 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
+| c6gn.16xlarge 2       | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **C6i**               |
+| c6i.large 1           | 0.781 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 2 / 2                                      | 1             | 3                       | 10                         | ✓ Yes |
+| c6i.xlarge 1          | 1.562 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 4 / 4                                      | 1             | 4                       | 15                         | ✓ Yes |
+| c6i.2xlarge 1         | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 8 / 8                                      | 1             | 4                       | 15                         | ✓ Yes |
+| c6i.4xlarge 1         | 6.25 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 8 / 16                                     | 1             | 8                       | 30                         | ✓ Yes |
+| c6i.8xlarge           | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 8                       | 30                         | ✓ Yes |
+| c6i.12xlarge          | 18.75 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 8                       | 30                         | ✓ Yes |
+| c6i.16xlarge          | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 15                      | 50                         | ✓ Yes |
+| c6i.24xlarge          | 37.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 15                      | 50                         | ✓ Yes |
+| c6i.32xlarge          | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 15                      | 50                         | ✓ Yes |
+| c6i.metal 2           | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **C6id**              |
+| c6id.large 1          | 0.781 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 2 / 2                                      | 1             | 3                       | 10                         | ✓ Yes |
+| c6id.xlarge 1         | 1.562 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 4 / 4                                      | 1             | 4                       | 15                         | ✓ Yes |
+| c6id.2xlarge 1        | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 8 / 8                                      | 1             | 4                       | 15                         | ✓ Yes |
+| c6id.4xlarge 1        | 6.25 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 8 / 16                                     | 1             | 8                       | 30                         | ✓ Yes |
+| c6id.8xlarge          | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 8                       | 30                         | ✓ Yes |
+| c6id.12xlarge         | 18.75 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 8                       | 30                         | ✓ Yes |
+| c6id.16xlarge         | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 15                      | 50                         | ✓ Yes |
+| c6id.24xlarge         | 37.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 15                      | 50                         | ✓ Yes |
+| c6id.32xlarge         | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 15                      | 50                         | ✓ Yes |
+| c6id.metal 2          | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **C6in**              |
+| c6in.large 1          | 3.125 / 25.0                      | ✗ No  | ✓ Yes | ✗ No        | 2 / 2                                      | 1             | 3                       | 10                         | ✓ Yes |
+| c6in.xlarge 1         | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 4 / 4                                      | 1             | 4                       | 15                         | ✓ Yes |
+| c6in.2xlarge 1        | 12.5 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 8 / 8                                      | 1             | 4                       | 15                         | ✓ Yes |
+| c6in.4xlarge 1        | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 8 / 16                                     | 1             | 8                       | 30                         | ✓ Yes |
+| c6in.8xlarge          | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 32                                    | 1             | 8                       | 30                         | ✓ Yes |
+| c6in.12xlarge         | 75 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 32                                    | 1             | 8                       | 30                         | ✓ Yes |
+| c6in.16xlarge         | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 32                                    | 1             | 15                      | 50                         | ✓ Yes |
+| c6in.24xlarge         | 150 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 32 / 32                                    | 1             | 15                      | 50                         | ✓ Yes |
+| c6in.32xlarge         | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 32                                    | 2             | 16                      | 50                         | ✓ Yes |
+| c6in.metal 2          | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 2             | 16                      | 50                         | ✓ Yes |
+| **C7a**               |
+| c7a.medium 1 2        | 0.39 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1                                          | 1             | 2                       | 4                          | ✓ Yes |
+| c7a.large 1 2         | 0.781 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c7a.xlarge 1 2        | 1.562 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c7a.2xlarge 1 2       | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c7a.4xlarge 1 2       | 6.25 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c7a.8xlarge 2         | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c7a.12xlarge 2        | 18.75 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c7a.16xlarge 2        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c7a.24xlarge 2        | 37.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c7a.32xlarge 2        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| c7a.48xlarge 2        | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| c7a.metal-48xl 2      | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **C7g**               |
+| c7g.medium 1 2        | 0.52 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1                                          | 1             | 2                       | 4                          | ✓ Yes |
+| c7g.large 1 2         | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c7g.xlarge 1 2        | 1.876 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c7g.2xlarge 1 2       | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c7g.4xlarge 1 2       | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c7g.8xlarge 2         | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c7g.12xlarge 2        | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c7g.16xlarge 2        | 30 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c7g.metal 2           | 30 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **C7gd**              |
+| c7gd.medium 1 2       | 0.52 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1                                          | 1             | 2                       | 4                          | ✓ Yes |
+| c7gd.large 1 2        | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c7gd.xlarge 1 2       | 1.876 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c7gd.2xlarge 1 2      | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c7gd.4xlarge 1 2      | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c7gd.8xlarge 2        | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c7gd.12xlarge 2       | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c7gd.16xlarge 2       | 30 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c7gd.metal 2          | 30 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **C7gn**              |
+| c7gn.medium 1 2       | 3.125 / 25.0                      | ✗ No  | ✓ Yes | ✗ No        | 1                                          | 1             | 2                       | 4                          | ✓ Yes |
+| c7gn.large 1 2        | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c7gn.xlarge 1 2       | 12.5 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c7gn.2xlarge 1 2      | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c7gn.4xlarge 2        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16                                         | 1             | 8                       | 30                         | ✓ Yes |
+| c7gn.8xlarge 2        | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
+| c7gn.12xlarge 2       | 150 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
+| c7gn.16xlarge 2       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| c7gn.metal 2          | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **C7i**               |
+| c7i.large 1 2         | 0.781 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c7i.xlarge 1 2        | 1.562 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c7i.2xlarge 1 2       | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c7i.4xlarge 1 2       | 6.25 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c7i.8xlarge 2         | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c7i.12xlarge 2        | 18.75 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c7i.16xlarge 2        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c7i.24xlarge 2        | 37.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c7i.48xlarge 2        | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| c7i.metal-24xl 2      | 37.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c7i.metal-48xl 2      | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **C7i-flex**          |
+| c7i-flex.large 1 2    | 0.39 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c7i-flex.xlarge 1 2   | 0.781 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 2                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c7i-flex.2xlarge 1 2  | 1.562 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c7i-flex.4xlarge 1 2  | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c7i-flex.8xlarge 1 2  | 6.25 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c7i-flex.12xlarge 1 2 | 9.375 / 18.75                     | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c7i-flex.16xlarge 1 2 | 12.5 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 15                      | 50                         | ✓ Yes |
+| **C8a**               |
+| c8a.medium 1          | 0.52 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1 / 1                                      | 1             | 2                       | 4                          | ✓ Yes |
+| c8a.large 1           | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 2 / 2                                      | 1             | 3                       | 20                         | ✓ Yes |
+| c8a.xlarge 1          | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 4 / 4                                      | 1             | 4                       | 20                         | ✓ Yes |
+| c8a.2xlarge 1         | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 8 / 8                                      | 1             | 4                       | 40                         | ✓ Yes |
+| c8a.4xlarge 1         | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 8 / 16                                     | 1             | 8                       | 40                         | ✓ Yes |
+| c8a.8xlarge           | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8 / 32                                     | 1             | 10                      | 40                         | ✓ Yes |
+| c8a.12xlarge          | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 16 / 64                                    | 1             | 12                      | 64                         | ✓ Yes |
+| c8a.16xlarge          | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 16                      | 64                         | ✓ Yes |
+| c8a.24xlarge          | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 128                                   | 1             | 16                      | 64                         | ✓ Yes |
+| c8a.48xlarge          | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c8a.metal-24xl        | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 128                                   | 1             | 16                      | 64                         | ✓ Yes |
+| c8a.metal-48xl        | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| **C8g**               |
+| c8g.medium 1 2        | 0.52 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1                                          | 1             | 2                       | 4                          | ✓ Yes |
+| c8g.large 1 2         | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c8g.xlarge 1 2        | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c8g.2xlarge 1 2       | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c8g.4xlarge 1 2       | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c8g.8xlarge 2         | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c8g.12xlarge 2        | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c8g.16xlarge 2        | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c8g.24xlarge 2        | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c8g.48xlarge 2        | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| c8g.metal-24xl 2      | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| c8g.metal-48xl 2      | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **C8gb**              |
+| c8gb.medium 1         | 2.083 / 16.666                    | ✗ No  | ✓ Yes | ✗ No        | 1 / 1                                      | 1             | 2                       | 4                          | ✓ Yes |
+| c8gb.large 1          | 4.166 / 20.0                      | ✗ No  | ✓ Yes | ✗ No        | 2 / 2                                      | 1             | 3                       | 10                         | ✓ Yes |
+| c8gb.xlarge 1         | 8.333 / 26.666                    | ✗ No  | ✓ Yes | ✗ No        | 4 / 4                                      | 1             | 4                       | 15                         | ✓ Yes |
+| c8gb.2xlarge 1        | 16.666 / 33.333                   | ✗ No  | ✓ Yes | ✗ No        | 8 / 8                                      | 1             | 4                       | 15                         | ✓ Yes |
+| c8gb.4xlarge          | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 16                                     | 1             | 8                       | 30                         | ✓ Yes |
+| c8gb.8xlarge          | 66.66 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 10                      | 30                         | ✓ Yes |
+| c8gb.12xlarge         | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 12                      | 30                         | ✓ Yes |
+| c8gb.16xlarge         | 133.33 Gigabit                    | ✓ Yes | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 16                      | 50                         | ✓ Yes |
+| c8gb.24xlarge         | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 16 / 128                                   | 1             | 24                      | 50                         | ✓ Yes |
+| c8gb.48xlarge         | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 2             | 24                      | 50                         | ✓ Yes |
+| c8gb.metal-24xl       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 50                         | ✓ Yes |
+| c8gb.metal-48xl       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 2             | 24                      | 50                         | ✓ Yes |
+| **C8gd**              |
+| c8gd.medium 1 2       | 0.52 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1                                          | 1             | 2                       | 4                          | ✓ Yes |
+| c8gd.large 1 2        | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 2                                          | 1             | 3                       | 10                         | ✓ Yes |
+| c8gd.xlarge 1 2       | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c8gd.2xlarge 1 2      | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
+| c8gd.4xlarge 1 2      | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c8gd.8xlarge 2        | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c8gd.12xlarge 2       | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| c8gd.16xlarge 2       | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c8gd.24xlarge 2       | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
+| c8gd.48xlarge 2       | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
+| c8gd.metal-24xl 2     | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| c8gd.metal-48xl 2     | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
+| **C8gn**              |
+| c8gn.medium 1         | 3.125 / 25.0                      | ✗ No  | ✓ Yes | ✗ No        | 1 / 1                                      | 1             | 2                       | 4                          | ✓ Yes |
+| c8gn.large 1          | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 2 / 2                                      | 1             | 3                       | 10                         | ✓ Yes |
+| c8gn.xlarge 1         | 12.5 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 4 / 4                                      | 1             | 4                       | 15                         | ✓ Yes |
+| c8gn.2xlarge 1        | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 8 / 8                                      | 1             | 4                       | 15                         | ✓ Yes |
+| c8gn.4xlarge          | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 16                                     | 1             | 8                       | 30                         | ✓ Yes |
+| c8gn.8xlarge          | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 10                      | 30                         | ✓ Yes |
+| c8gn.12xlarge         | 150 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 12                      | 30                         | ✓ Yes |
+| c8gn.16xlarge         | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 16                      | 50                         | ✓ Yes |
+| c8gn.24xlarge         | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 16 / 128                                   | 1             | 24                      | 50                         | ✓ Yes |
+| c8gn.48xlarge         | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 2             | 24                      | 50                         | ✓ Yes |
+| c8gn.metal-24xl       | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 50                         | ✓ Yes |
+| c8gn.metal-48xl       | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 2             | 24                      | 50                         | ✓ Yes |
+| **C8i**               |
+| c8i.large 1           | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 2 / 2                                      | 1             | 3                       | 20                         | ✓ Yes |
+| c8i.xlarge 1          | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 4 / 4                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c8i.2xlarge 1         | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 8 / 8                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c8i.4xlarge 1         | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 8 / 16                                     | 1             | 8                       | 50                         | ✓ Yes |
+| c8i.8xlarge           | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 10                      | 50                         | ✓ Yes |
+| c8i.12xlarge          | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 12                      | 50                         | ✓ Yes |
+| c8i.16xlarge          | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 16                      | 64                         | ✓ Yes |
+| c8i.24xlarge          | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 128                                   | 1             | 16                      | 64                         | ✓ Yes |
+| c8i.32xlarge          | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c8i.48xlarge          | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c8i.96xlarge          | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c8i.metal-48xl        | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c8i.metal-96xl        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| **C8id**              |
+| c8id.large 1          | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 2 / 2                                      | 1             | 3                       | 20                         | ✓ Yes |
+| c8id.xlarge 1         | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 4 / 4                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c8id.2xlarge 1        | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 8 / 8                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c8id.4xlarge 1        | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 8 / 16                                     | 1             | 8                       | 50                         | ✓ Yes |
+| c8id.8xlarge          | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 10                      | 50                         | ✓ Yes |
+| c8id.12xlarge         | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 12                      | 50                         | ✓ Yes |
+| c8id.16xlarge         | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 16                      | 64                         | ✓ Yes |
+| c8id.24xlarge         | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 128                                   | 1             | 16                      | 64                         | ✓ Yes |
+| c8id.32xlarge         | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c8id.48xlarge         | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c8id.96xlarge         | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c8id.metal-48xl       | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c8id.metal-96xl       | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| **C8i-flex**          |
+| c8i-flex.large 1      | 0.468 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1 / 1                                      | 1             | 3                       | 20                         | ✓ Yes |
+| c8i-flex.xlarge 1     | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 2 / 2                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c8i-flex.2xlarge 1    | 1.875 / 15.0                      | ✗ No  | ✓ Yes | ✗ No        | 4 / 4                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c8i-flex.4xlarge 1    | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 4 / 8                                      | 1             | 8                       | 50                         | ✓ Yes |
+| c8i-flex.8xlarge 1    | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 4 / 16                                     | 1             | 10                      | 50                         | ✓ Yes |
+| c8i-flex.12xlarge 1   | 11.25 / 22.5                      | ✗ No  | ✓ Yes | ✗ No        | 8 / 32                                     | 1             | 12                      | 50                         | ✓ Yes |
+| c8i-flex.16xlarge 1   | 15.0 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 8 / 32                                     | 1             | 16                      | 64                         | ✓ Yes |
+| **C8in**              |
+| c8in.large 1          | 3.125 / 25.0                      | ✗ No  | ✓ Yes | ✗ No        | 2 / 2                                      | 1             | 4                       | 20                         | ✓ Yes |
+| c8in.xlarge 1         | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 4 / 4                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c8in.2xlarge 1        | 12.5 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 8 / 8                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c8in.4xlarge 1        | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 8 / 16                                     | 1             | 8                       | 50                         | ✓ Yes |
+| c8in.8xlarge          | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 32                                    | 1             | 8                       | 50                         | ✓ Yes |
+| c8in.12xlarge         | 75 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 12                      | 50                         | ✓ Yes |
+| c8in.16xlarge         | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 16                      | 64                         | ✓ Yes |
+| c8in.24xlarge         | 150 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 128                                   | 1             | 16                      | 64                         | ✓ Yes |
+| c8in.32xlarge         | 200 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 16                      | 64                         | ✓ Yes |
+| c8in.48xlarge         | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c8in.96xlarge         | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 2             | 24                      | 64                         | ✓ Yes |
+| c8in.metal-48xl       | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c8in.metal-96xl       | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 2             | 24                      | 64                         | ✓ Yes |
+| **C8ine**             |
+| c8ine.large           | 3.125 Gigabit                     | ✗ No  | ✓ Yes | ✗ No        | 2 / 2                                      | 1             | 4                       | 20                         | ✓ Yes |
+| c8ine.xlarge          | 6.25 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 4 / 4                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c8ine.2xlarge         | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 8 / 8                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c8ine.4xlarge         | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 16 / 16                                    | 1             | 8                       | 50                         | ✓ Yes |
+| c8ine.8xlarge         | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 32 / 32                                    | 1             | 8                       | 50                         | ✓ Yes |
+| c8ine.12xlarge        | 75 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 32 / 64                                    | 1             | 12                      | 50                         | ✓ Yes |
+| **C8ib**              |
+| c8ib.large 1          | 2.083 / 16.667                    | ✗ No  | ✓ Yes | ✗ No        | 2 / 2                                      | 1             | 4                       | 20                         | ✓ Yes |
+| c8ib.xlarge 1         | 4.166 / 20.0                      | ✗ No  | ✓ Yes | ✗ No        | 4 / 4                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c8ib.2xlarge 1        | 8.333 / 26.667                    | ✗ No  | ✓ Yes | ✗ No        | 8 / 8                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c8ib.4xlarge 1        | 16.666 / 33.333                   | ✗ No  | ✓ Yes | ✗ No        | 8 / 16                                     | 1             | 8                       | 50                         | ✓ Yes |
+| c8ib.8xlarge          | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 32                                    | 1             | 8                       | 50                         | ✓ Yes |
+| c8ib.12xlarge         | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 12                      | 50                         | ✓ Yes |
+| c8ib.16xlarge         | 66.66 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 16                      | 64                         | ✓ Yes |
+| c8ib.24xlarge         | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 128                                   | 1             | 16                      | 64                         | ✓ Yes |
+| c8ib.32xlarge         | 133.33 Gigabit                    | ✗ No  | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 16                      | 64                         | ✓ Yes |
+| c8ib.48xlarge         | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c8ib.96xlarge         | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 2             | 24                      | 64                         | ✓ Yes |
+| c8ib.metal-48xl       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c8ib.metal-96xl       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 2             | 24                      | 64                         | ✓ Yes |
+| **C9g**               |
+| c9g.medium 1          | 0.55 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1 / 1                                      | 1             | 2                       | 20                         | ✓ Yes |
+| c9g.large 1           | 1.0 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 2 / 2                                      | 1             | 3                       | 20                         | ✓ Yes |
+| c9g.xlarge 1          | 2.1 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 4 / 4                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c9g.2xlarge 1         | 4.25 / 17.0                       | ✗ No  | ✓ Yes | ✗ No        | 8 / 8                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c9g.4xlarge 1         | 8.5 / 17.0                        | ✗ No  | ✓ Yes | ✗ No        | 8 / 16                                     | 1             | 8                       | 50                         | ✓ Yes |
+| c9g.8xlarge           | 17 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 10                      | 50                         | ✓ Yes |
+| c9g.12xlarge          | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 12                      | 50                         | ✓ Yes |
+| c9g.16xlarge          | 34 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 16                      | 64                         | ✓ Yes |
+| c9g.24xlarge          | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c9g.48xlarge          | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c9g.metal-48xl        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| **C9gd**              |
+| c9gd.medium 1         | 0.55 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1 / 1                                      | 1             | 2                       | 20                         | ✓ Yes |
+| c9gd.large 1          | 1.0 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 2 / 2                                      | 1             | 3                       | 20                         | ✓ Yes |
+| c9gd.xlarge 1         | 2.1 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 4 / 4                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c9gd.2xlarge 1        | 4.25 / 17.0                       | ✗ No  | ✓ Yes | ✗ No        | 8 / 8                                      | 1             | 4                       | 30                         | ✓ Yes |
+| c9gd.4xlarge 1        | 8.5 / 17.0                        | ✗ No  | ✓ Yes | ✗ No        | 8 / 16                                     | 1             | 8                       | 50                         | ✓ Yes |
+| c9gd.8xlarge          | 17 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 8 / 32                                     | 1             | 10                      | 50                         | ✓ Yes |
+| c9gd.12xlarge         | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 12                      | 50                         | ✓ Yes |
+| c9gd.16xlarge         | 34 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 64                                    | 1             | 16                      | 64                         | ✓ Yes |
+| c9gd.24xlarge         | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 16 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c9gd.48xlarge         | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
+| c9gd.metal-48xl       | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
 
 ###### Note
 
@@ -803,6 +803,8 @@ instance types. For the supported configurable weightings, see [Configurable ban
 use a network I/O credit mechanism to burst beyond their baseline bandwidth on a best effort basis.
 Other instances types can sustain their maximum performance indefinitely. For more information,
 see [instance network bandwidth](../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md "../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md").
+
+2 These instance types do not support configurable ENA queue allocation.
 
 For `c6in.32xlarge`, `c6in.metal`, you must attach at least 2 ENIs, to separate network
 cards, to achieve 200 Gbps throughput. Each ENI attached to a network card can achieve up to 170 Gbps.

@@ -61,25 +61,27 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 
 ## Network specifications
 
-| Instance type   | Baseline / Burst bandwidth (Gbps) | EFA   | ENA   | ENA Express | Network cards | Max. network interfaces | IP addresses per interface | IPv6  |
-| --------------- | --------------------------------- | ----- | ----- | ----------- | ------------- | ----------------------- | -------------------------- | ----- |
-| **Hpc6a**       |
-| hpc6a.48xlarge  | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 2                       | 50                         | ✓ Yes |
-| **Hpc6id**      |
-| hpc6id.32xlarge | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 2             | 2                       | 50                         | ✓ Yes |
-| **Hpc7a**       |
-| hpc7a.12xlarge  | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 2             | 4                       | 50                         | ✓ Yes |
-| hpc7a.24xlarge  | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 2             | 4                       | 50                         | ✓ Yes |
-| hpc7a.48xlarge  | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 2             | 4                       | 50                         | ✓ Yes |
-| hpc7a.96xlarge  | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 2             | 4                       | 50                         | ✓ Yes |
-| **Hpc7g**       |
-| hpc7g.4xlarge   | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 4                       | 50                         | ✓ Yes |
-| hpc7g.8xlarge   | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 4                       | 50                         | ✓ Yes |
-| hpc7g.16xlarge  | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 4                       | 50                         | ✓ Yes |
-| **Hpc8a**       |
-| hpc8a.96xlarge  | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 2             | 4                       | 50                         | ✓ Yes |
+| Instance type     | Baseline / Burst bandwidth (Gbps) | EFA   | ENA   | ENA Express | ENA queues per interface (Default/Maximum) | Network cards | Max. network interfaces | IP addresses per interface | IPv6  |
+| ----------------- | --------------------------------- | ----- | ----- | ----------- | ------------------------------------------ | ------------- | ----------------------- | -------------------------- | ----- |
+| **Hpc6a**         |
+| hpc6a.48xlarge 1  | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 1             | 2                       | 50                         | ✓ Yes |
+| **Hpc6id**        |
+| hpc6id.32xlarge 1 | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 2             | 2                       | 50                         | ✓ Yes |
+| **Hpc7a**         |
+| hpc7a.12xlarge 1  | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 16                                         | 2             | 4                       | 50                         | ✓ Yes |
+| hpc7a.24xlarge 1  | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 16                                         | 2             | 4                       | 50                         | ✓ Yes |
+| hpc7a.48xlarge 1  | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 16                                         | 2             | 4                       | 50                         | ✓ Yes |
+| hpc7a.96xlarge 1  | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 16                                         | 2             | 4                       | 50                         | ✓ Yes |
+| **Hpc7g**         |
+| hpc7g.4xlarge 1   | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 16                                         | 1             | 4                       | 50                         | ✓ Yes |
+| hpc7g.8xlarge 1   | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 4                       | 50                         | ✓ Yes |
+| hpc7g.16xlarge 1  | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 4                       | 50                         | ✓ Yes |
+| **Hpc8a**         |
+| hpc8a.96xlarge    | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 32 / 128                                   | 2             | 4                       | 50                         | ✓ Yes |
 
 ###### Note
+
+1 These instance types do not support configurable ENA queue allocation.
 
 For `hpc6id.32xlarge`, you must attach at least 2 ENIs, to separate network
 cards, to achieve 200 Gbps throughput. Each ENI attached to a network card can achieve up to 170 Gbps.
