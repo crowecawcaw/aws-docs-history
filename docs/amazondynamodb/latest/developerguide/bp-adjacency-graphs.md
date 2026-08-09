@@ -37,36 +37,66 @@ The projections for the global secondary index look like the following.
 
 ## Materialized graph pattern
 
-Many applications are built around understanding rankings across peers, common
-relationships between entities, neighbor entity state, and other types of graph style
-workflows. For these types of applications, consider the following schema design
-pattern.
+Many applications need to understand rankings across peers, relationships between
+entities, and neighbor entity state. If your application uses these types of graph style
+workflows, consider the following schema design pattern.
 
-![Graph example number 1.](images/1513869910203-418.png)
+As a real-world example, consider a social networking application. In this application,
+people have relationships with other people, possess skills, live in places, and have
+associated dates (such as birthdates). Each person is a _node_ in the
+graph. The connections between people, such as friendships, are
+_edges_. The associations between people and their attributes (skills,
+places, dates) are also edges.
 
-![Graph example number 2.](images/1513852802235-256.png)
+With the materialized graph pattern, you can store both nodes and edges in a single
+DynamoDB table and efficiently traverse relationships. The following diagrams show how to
+model this social networking graph. The first diagram shows the primary table structure.
+The subsequent diagrams show the global secondary index projections.
 
-![Graph example number 3.](images/1513852905360-671.png)
+![Primary table schema for the materialized graph pattern in DynamoDB, showing people as partition keys with their edges as items within each partition.](images/1513869910203-418.png)
 
-The preceding schema shows a graph data structure that is defined by a set of data
-partitions containing the items that define the edges and nodes of the graph. Edge items
-contain a `Target` and a `Type` attribute. These attributes are used as
-part of a composite key name "TypeTarget" to identify the item in a partition in the primary
-table or in a second global secondary index.
+![First global secondary index projection in DynamoDB, built on the overloaded Data attribute for queries by dates, names, places, and skills.](images/1513852802235-256.png)
 
-The first global secondary index is built on the `Data` attribute. This
-attribute uses global secondary index-overloading as described earlier to index several
-different attribute types, namely `Dates`, `Names`, `Places`,
-and `Skills`. Here, one global secondary index is effectively indexing four
-different attributes.
+![Second global secondary index projection in DynamoDB, built on the TypeTarget composite key for reverse lookups.](images/1513852905360-671.png)
+
+The table uses the following key structure:
+
+- **Partition key** – The entity ID (for example,
+  `Person-1`, `Person-2`). Each partition contains one node item
+  and multiple edge items.
+- **Sort key** – For node items, the entity's own ID.
+  For edge items, a composite of the edge type and target (for example,
+  `Friend-Person-2` or `Skill-DynamoDB`).
+
+Edge items contain a `Target` and a `Type` attribute. These form
+the composite key "TypeTarget" that identifies items in the primary table and in the second
+global secondary index. For example, "Person-1 is friends with Person-2" produces `Type=Friend`,
+`Target=Person-2`, and `TypeTarget=Friend-Person-2`.
+
+The first global secondary index is built on the `Data` attribute. This attribute uses global secondary index
+overloading to index several attribute types within the same index:
+
+- `Dates` – birthdates, join dates (for example,
+  `1971-12-21`)
+- `Names` – display names (for example,
+  `Ana Carolina Silva`)
+- `Places` – locations (for example, `Seattle`)
+- `Skills` – competencies (for example, `DynamoDB`)
+
+You can use this single global secondary index to query for all people born on a specific date, all
+people in a location, or all people with a specific skill.
+
+The second global secondary index uses `TypeTarget` as its partition key for reverse lookups.
+For example, you can find all people who list `Person-2` as a friend by
+querying for `TypeTarget=Friend-Person-2`.
 
 As you insert items into the table, you can use an intelligent sharding strategy to
 distribute item sets with large aggregations (birthdate, skill) across as many logical
 partitions on the global secondary indexes as are needed to avoid hot read/write
 problems.
 
-The result of this combination of design patterns is a solid datastore for highly
-efficient real-time graph workflows. These workflows can provide high-performance neighbor
+With this combination of design patterns, you get a solid datastore for highly
+efficient real-time graph workflows. You can use it to build high-performance neighbor
 entity state and edge aggregation queries for recommendation engines, social-networking
 applications, node rankings, subtree aggregations, and other common graph use cases.
 
@@ -92,8 +122,8 @@ Neptune](../../../neptune/latest/userguide.md "../../../neptune/latest/userguide
 
 ###### Note
 
-If you need to query highly connected datasets or execute queries that need to traverse
-multiple nodes (also known as multi-hop queries) with millisecond latency, you should
-consider using [Amazon Neptune](../../../neptune/latest/userguide.md "../../../neptune/latest/userguide.md"). Amazon Neptune is a
-purpose-built, high-performance graph database engine optimized for storing billions of
-relationships and querying the graph with millisecond latency.
+If you need to query highly connected datasets or traverse multiple nodes (multi-hop
+queries) with millisecond latency, consider using [Amazon
+Neptune](../../../neptune/latest/userguide.md "../../../neptune/latest/userguide.md"). Amazon Neptune is a purpose-built, high-performance graph database engine.
+It is optimized for storing billions of relationships and querying the graph with
+millisecond latency.

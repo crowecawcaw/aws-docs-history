@@ -220,6 +220,7 @@ endpoint naming conventions are:
 - `dynamodb.`<region>`.api.aws`
 - ``<account-id>`.ddb.`<region>`.api.aws`
 - `streams-dynamodb.`<region>`.api.aws`
+- `search-dynamodb.`<region>`.api.aws`
 - `dax.`<region>`.api.aws`
 - `dynamodb-fips.`<region>`.api.aws`
 

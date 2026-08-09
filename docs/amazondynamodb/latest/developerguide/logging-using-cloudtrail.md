@@ -134,6 +134,7 @@ events, if you don't want the streams events to be logged. For more information,
 - [PutItem](../APIReference/API_PutItem.md "../APIReference/API_PutItem.md")
 - [Query](../APIReference/API_Query.md "../APIReference/API_Query.md")
 - [Scan](../APIReference/API_Scan.md "../APIReference/API_Scan.md")
+- [SearchVectors](../APIReference/API_SearchVectors.md "../APIReference/API_SearchVectors.md")
 - [TransactGetItems](../APIReference/API_TransactGetItems.md "../APIReference/API_TransactGetItems.md")
 - [TransactWriteItems](../APIReference/API_TransactWriteItems.md "../APIReference/API_TransactWriteItems.md")
 - [UpdateItem](../APIReference/API_UpdateItem.md "../APIReference/API_UpdateItem.md")

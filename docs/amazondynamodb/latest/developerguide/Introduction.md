@@ -205,9 +205,8 @@ Amazon S3](S3DataImport.HowItWorks.md "S3DataImport.HowItWorks.md") into a new D
 DynamoDB supports [zero-ETL integration with
 Amazon Redshift](../../../redshift/latest/mgmt/zero-etl-using.md "../../../redshift/latest/mgmt/zero-etl-using.md") and [Using an OpenSearch Ingestion pipeline with
 Amazon DynamoDB](../../../opensearch-service/latest/developerguide/configure-client-ddb.md "../../../opensearch-service/latest/developerguide/configure-client-ddb.md").
-These integrations enable you to run complex analytics and use advanced search
-capabilities on your DynamoDB table data. For example, you can perform full-text and
-vector search, and semantic search on your DynamoDB data. Zero-ETL integrations have no
+With these integrations, you can run complex analytics and use advanced search
+capabilities on your DynamoDB table data. Zero-ETL integrations have no
 impact on production workloads running on DynamoDB.
 
 ### Caching

@@ -5,8 +5,8 @@ perform up to 25 `PutItem` and `DeleteItem` requests together. However, `BatchWr
 support `UpdateItem` operations. When it comes to bulk updates, the distinction lies in the
 requirements and the nature of the update. You can use other DynamoDB APIs such as
 `TransactWriteItems` for batch size up to 100. When more items are involved, you can use
-services such as AWS Glue, Amazon EMR, AWS Step Functions or use custom scripts and tools
-like DynamoDB-shell for bulk updates.
+services such as AWS Glue, Amazon EMR, AWS Step Functions, custom scripts and tools
+like DynamoDB-shell, or the open-source Bulk Executor for DynamoDB for bulk updates.
 
 ###### Topics
 

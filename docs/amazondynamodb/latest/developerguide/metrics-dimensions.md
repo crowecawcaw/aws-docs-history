@@ -104,6 +104,8 @@ applicable to that metric.
 - [WriteThrottleEvents](#WriteThrottleEvents "#WriteThrottleEvents")
 - [Usage metrics](#w2aac41c15c13b7c11 "#w2aac41c15c13b7c11")
 - [FaultInjectionServiceInducedErrors](#FaultInjectionServiceInducedErrors "#FaultInjectionServiceInducedErrors")
+- [VectorSearchRequestBytes](#VectorSearchRequestBytes "#VectorSearchRequestBytes")
+- [VectorWriteRequestBytes](#VectorWriteRequestBytes "#VectorWriteRequestBytes")
 
 ### AccountMaxReads
 
@@ -1238,6 +1240,45 @@ Dimensions: `TableName`, `Operation`
 
 Valid Statistics:
 
+- `Sum`
+- `SampleCount`
+
+### VectorSearchRequestBytes
+
+The number of bytes processed by `SearchVectors` operations on a
+vector index over the specified time period. This value scales with the size of
+the vector data that the search examines and returns, which grows with the
+number of dimensions in the index.
+
+Units: `Bytes`
+
+Dimensions: `TableName`, `VectorIndexName`
+
+Valid Statistics:
+
+- `Minimum`
+- `Maximum`
+- `Average`
+- `Sum`
+- `SampleCount`
+
+### VectorWriteRequestBytes
+
+The number of bytes processed by write operations (`PutItem`,
+`UpdateItem`, `DeleteItem`, `BatchWriteItem`,
+`TransactWriteItems`) that replicate data to a vector index over the
+specified time period. This value scales with the size of the data
+replicated to the index.
+
+Units: `Bytes`
+
+Dimensions: `TableName`, `VectorIndexName`
+
+Valid Statistics:
+
+- `Minimum`
+- `Maximum`
+- `Average`
 - `Sum`
 - `SampleCount`
 

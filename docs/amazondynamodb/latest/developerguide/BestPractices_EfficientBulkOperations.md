@@ -35,6 +35,15 @@ overwritten. You can't read from Global Secondary Indexes (GSIs). See, [Backfill
 
 Trade-off – Execution time is inversely proportional to rate-limit. See [Rate limited bulk operations in DynamoDB Shell](https://aws.amazon.com/blogs/database/rate-limited-bulk-operations-in-dynamodb-shell/ "https://aws.amazon.com/blogs/database/rate-limited-bulk-operations-in-dynamodb-shell/").
 
+- Bulk Executor for DynamoDB – an open-source command-line tool that uses AWS Glue on the
+  back end for parallel execution of bulk tasks such as count, find, delete, update, copy, fill,
+  load, and diff. No coding is required for built-in commands, and you can extend it with custom
+  commands using Python. It supports rate-limiting and provides cost estimates before execution.
+  Bulk Executor is open source and does not include any official support.
+
+Trade-off – Requires an AWS Glue environment (created during bootstrap). Execution time
+is inversely proportional to the rate limit. Custom commands require Python. See [Introducing open source Bulk Executor for Amazon DynamoDB](https://aws.amazon.com/blogs/database/introducing-open-source-bulk-executor-for-amazon-dynamodb/ "https://aws.amazon.com/blogs/database/introducing-open-source-bulk-executor-for-amazon-dynamodb/").
+
 ## Using the pattern
 
 Bulk updates can have significant cost implications especially if you use the on-demand throughput mode.

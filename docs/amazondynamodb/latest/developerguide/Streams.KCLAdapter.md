@@ -19,8 +19,8 @@ simplifies coding by providing useful abstractions above the low-level Kinesis D
 information about the KCL, see the [Developing consumers using the Kinesis
 client library](../../../kinesis/latest/dev/developing-consumers-with-kcl.md "../../../kinesis/latest/dev/developing-consumers-with-kcl.md") in the _Amazon Kinesis Data Streams Developer Guide_.
 
-DynamoDB recommends using KCL version 3.x with AWS SDK for Java v2.x. The current DynamoDB Streams
-Kinesis Adapter version 1.x with AWS SDK for AWS SDK for Java v1.x will continue to be fully supported
+DynamoDB recommends using KCL version 3.5.x+ with AWS SDK for Java v2.x. The current DynamoDB Streams
+Kinesis Adapter version 1.x with AWS SDK for Java v1.x will continue to be fully supported
 throughout its lifecycle as intended during the transitional period in alignment
 with [AWS SDKs and Tools
 maintenance policy](../../../sdkref/latest/guide/maint-policy.md "../../../sdkref/latest/guide/maint-policy.md").
@@ -33,8 +33,8 @@ applications using version 1.x to the latest KCL version before January 30, 2026
 find the latest KCL version, see the [Amazon Kinesis Client
 Library](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client") page on GitHub. For information about the latest KCL versions, see
 [Use Kinesis
-Client Library](../../../streams/latest/dev/kcl.md "../../../streams/latest/dev/kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see
-Migrating from KCL 1.x to KCL 3.x.
+Client Library](../../../streams/latest/dev/kcl.md "../../../streams/latest/dev/kcl.md"). For information about migrating from KCL 1.x to KCL 3.5.x+, see
+[Migrating from KCL 1.x to KCL 3.5.x+](streams-migrating-kcl.md "streams-migrating-kcl.md").
 
 The following diagram shows how these libraries interact with one another.
 
