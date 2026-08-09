@@ -88,7 +88,7 @@ data, do the following:
     The **Prefixes** filter and the **Storage Lens
      groups** filter can’t be applied at the same time.
     3. To update a filter, choose **Apply**.
-    4. To remove a filter, click on the **X** next to the filter.
+    4. To remove a filter, choose the **X** next to the filter.
 
 6. In any section in your S3 Storage Lens dashboard, to see data for a specific metric, for
 **Metric**, choose the metric name. 7. In any chart or visualization in your S3 Storage Lens dashboard, you can drill down into

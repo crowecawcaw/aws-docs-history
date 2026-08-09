@@ -221,7 +221,7 @@ the following:
   lost** type to your Amazon SNS topic.
 
 After you save the notification configuration, Amazon S3 posts a test message,
-which you get via email.
+which you get through email.
 
 For instructions, see [Enabling and configuring event notifications using the Amazon S3 console](enable-event-notifications.md "enable-event-notifications.md").
 

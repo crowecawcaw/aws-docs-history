@@ -32,7 +32,7 @@ information, see [Setting permissions for website access](WebsiteAccessPermissio
   to use HTTPS, you can do one of the following:
 
   - (Recommended) Use [AWS Amplify
-    Hosting](../../../amplify/latest/userguide/welcome.html.md "../../../amplify/latest/userguide/welcome.html.md") to host static website content stored on S3.
+    Hosting](../../../amplify/latest/userguide/welcome.md "../../../amplify/latest/userguide/welcome.md") to host static website content stored on S3.
     Amplify Hosting is a fully managed service that makes it easy to
     deploy your websites on a globally available content delivery
     network (CDN) powered by Amazon CloudFront, allowing secure static

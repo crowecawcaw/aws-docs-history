@@ -34,7 +34,7 @@ Using S3 Access Grants in Amazon SageMaker AI Unified Studio, you can share your
 
 [Using Amazon S3 Access Grants with Amazon SageMaker AI Studio and the SDK for Python (Boto3) plugin](https://aws.amazon.com/about-aws/whats-new/2024/07/amazon-s3-access-grants-integrate-sagemaker-studio/ "https://aws.amazon.com/about-aws/whats-new/2024/07/amazon-s3-access-grants-integrate-sagemaker-studio/")
 
-Using S3 Access Grants in Amazon SageMaker AI Studio notebooks is now easier when using the SDK for Python (Boto3) plugin. Set up access grants for IAM principals and AWS IAM Identity Center directory users, beforehand. Although Amazon SageMaker AI Studio does not natively support identity provider directory users, you can write custom Python code, using the plugin that allows these identities to access S3 data via S3 Access Grants. The data access is taking place with the help of the plugin and not through Amazon SageMaker AI.
+Using S3 Access Grants in Amazon SageMaker AI Studio notebooks is now easier when using the SDK for Python (Boto3) plugin. Set up access grants for IAM principals and AWS IAM Identity Center directory users, beforehand. Although Amazon SageMaker AI Studio does not natively support identity provider directory users, you can write custom Python code, using the plugin that allows these identities to access S3 data through S3 Access Grants. The data access is taking place with the help of the plugin and not through Amazon SageMaker AI.
 
 **AWS Glue**
 

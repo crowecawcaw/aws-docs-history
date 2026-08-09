@@ -182,7 +182,7 @@ specific low-latency use case.
   applications faster. You can use Amazon EC2 to launch as many or as few virtual
   servers as you need, configure security and networking, and manage
   storage.
-- [AWS Lambda](../../../lambda/latest/dg/welcome.html.md "../../../lambda/latest/dg/welcome.html.md") – Lambda is a compute service that lets you run
+- [AWS Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md") – Lambda is a compute service that lets you run
   code without provisioning or managing servers. You configure notification
   settings on a bucket, and grant Amazon S3 permission to invoke a function on the
   function's resource-based permissions policy.

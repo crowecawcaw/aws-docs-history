@@ -27,7 +27,7 @@ walkthrough:
    user.
 2. Account administrator attaches a user policy to the user granting additional
    permissions.
-3. User then tries permissions granted via both the bucket policy and the user
+3. User then tries permissions granted through both the bucket policy and the user
    policy.
    For this example, you will need an AWS account. Instead of using the root user credentials of
    the account, you will create an administrator user (see [About using an administrator user to create resources and grant permissions](example-walkthroughs-managing-access.md#about-using-root-credentials "example-walkthroughs-managing-access.md#about-using-root-credentials")).

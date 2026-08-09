@@ -53,7 +53,7 @@ You add only one rule in a replication configuration in the following scenarios:
   If you want to replicate different subsets of objects, you add multiple rules in a
   replication configuration. In each rule, you specify a filter that selects a different subset.
   For example, you might choose to replicate objects that have either `tax/` or
-  `document/` key prefixes. To do this, you add two rules, one that specifies the
+  `document/` key prefixes. To do this, you add 2 rules, one that specifies the
   `tax/` key prefix filter and another that specifies the `document/`
   key prefix. For more information about object key prefixes, see [Organizing objects using prefixes](using-prefixes.md "using-prefixes.md").
 
@@ -76,8 +76,8 @@ whether to replicate delete markers.
   disabled by using the values `Enabled` or `Disabled`. If a rule
   is disabled, Amazon S3 doesn't perform the actions specified in the rule.
 - The `<Priority>` element indicates which rule has precedence
-  whenever two or more replication rules conflict. Amazon S3 attempts to replicate objects
-  according to all replication rules. However, if there are two or more rules with the
+  whenever 2 or more replication rules conflict. Amazon S3 attempts to replicate objects
+  according to all replication rules. However, if there are 2 or more rules with the
   same destination bucket, then objects are replicated according to the rule with the
   highest priority. The higher the number, the higher the priority.
 - The `<DeleteMarkerReplication>` element indicates whether to
@@ -482,10 +482,10 @@ If you specify the `<Filter>` element, you must also include the
 this example, the value that you set for the `<Priority>` element is
 irrelevant because there is only one rule.
 
-In the following configuration, the filter specifies one prefix and two tags. The rule
+In the following configuration, the filter specifies 1 prefix and 2 tags. The rule
 applies to the subset of objects that have the specified key prefix and tags.
 Specifically, it applies to objects that have the
-`Tax/` prefix in their key names and the two
+`Tax/` prefix in their key names and the 2
 specified object tags. In this example, the value that you set for the
 `<Priority>` element is irrelevant because there is only one rule.
 
@@ -546,7 +546,7 @@ You can specify a storage class for the object replicas as follows:
 
 You can specify any storage class that Amazon S3 supports.
 
-###### Example 2: Replication configuration with two rules
+###### Example 2: Replication configuration with 2 rules
 
 ###### Example
 
@@ -559,7 +559,7 @@ In the following replication configuration, the rules specify the following:
   replicate objects with the key name
   `PersonalDoc/documentA`.
 - Although both rules specify a value for the `<Priority>`
-  element, the rule priority is irrelevant because the rules apply to two distinct
+  element, the rule priority is irrelevant because the rules apply to 2 distinct
   sets of objects. The next example shows what happens when rule priority is applied.
 - The second rule specifies the S3 Standard-IA storage class for object replicas.
   Amazon S3 uses the specified storage class for those object replicas.
@@ -605,9 +605,9 @@ In the following replication configuration, the rules specify the following:
 </ReplicationConfiguration>
 ```
 
-###### Example 3: Replication configuration with two rules with overlapping prefixes
+###### Example 3: Replication configuration with 2 rules with overlapping prefixes
 
-In this configuration, the two rules specify filters with overlapping key prefixes,
+In this configuration, the 2 rules specify filters with overlapping key prefixes,
 `star` and
 `starship`. Both rules apply to objects with the
 key name `starship-x`. In this case, Amazon S3 uses the

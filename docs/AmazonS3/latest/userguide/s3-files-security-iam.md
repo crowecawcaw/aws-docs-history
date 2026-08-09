@@ -96,7 +96,7 @@ permissions to the `ReadOnly` IAM role. Replace
 ### Example: Grant access to an S3 Files access point
 
 The following file system policy uses a condition element to grant a specific
-access point full access to the file system when mounting via the access point
+access point full access to the file system when mounting through the access point
 specified. Replace the access point ARN and account ID with your values. For more
 information, see [Creating access points for an S3 file system](s3-files-access-points-creating.md "s3-files-access-points-creating.md").
 

@@ -69,7 +69,7 @@ or delete objects. Therefore, this example explicitly requires a `ReadWrite` ses
 ### Monitoring lifecycle rules
 
 For objects stored in directory buckets, S3 Lifecycle generates AWS CloudTrail management and data event logs.
-For more information, see [CloudTrail log file examples for S3 Express One Zone](s3-express-log-files.md "s3-express-log-files.md").
+For more information, see [CloudTrail log file examples for directory buckets](s3-express-log-files.md "s3-express-log-files.md").
 
 For more information about creating lifecycle configurations and troubleshooting S3 Lifecycle related issues, see the following topics:
 

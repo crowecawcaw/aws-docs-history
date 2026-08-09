@@ -44,6 +44,10 @@ buckets with DNS-compliant bucket names. For more information, see [General purp
   shared dataset. This approach makes it simpler to focus on building the right
   access policy for an application without disrupting what any other application
   is doing within the shared dataset. For more information, see [Managing access to shared datasets with access points](access-points.md "access-points.md").
+- **Browsing and managing data** – Storage
+  Browser for Amazon S3 is an open source component that you can add to your web
+  applications to provide your end users with a simple interface for browsing
+  and managing Amazon S3 data. For more information, see [Working with Storage Browser for Amazon S3](storage-browser.md "storage-browser.md").
 - **High-throughput workloads** – Mountpoint
   for Amazon S3 is a high-throughput open source file client for mounting an Amazon S3
   general purpose bucket as a local file system. With Mountpoint, your applications can access

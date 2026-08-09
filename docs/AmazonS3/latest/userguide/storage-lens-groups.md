@@ -200,7 +200,7 @@ You can use the following filters in an S3 Storage Lens group:
 
 ### Storage Lens group object tags
 
-You can [create a Storage Lens group](storage-lens-groups-create.md "storage-lens-groups-create.md") that includes up to 10 object tag filters. The
+You can [Creating a Storage Lens group](storage-lens-groups-create.md "storage-lens-groups-create.md") that includes up to 10 object tag filters. The
 following example includes two object tag key-value pairs as filters for a Storage
 Lens group that's named
 `Marketing-Department`. To use this example,

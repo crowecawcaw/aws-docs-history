@@ -500,7 +500,7 @@ indicate each level within your prefixes. If the prefix delimiter is undefined, 
 
 ###### Note
 
-When you're updating your Storage Lens dashboard configuration via API, the
+When you're updating your Storage Lens dashboard configuration through the API, the
 _delimiter_ and the updated _prefix delimiter_ must be defined in the same way, or you'll receive an
 error. The delimiter only applies to prefix-level metrics that are exported to the
 default metrics report. The prefix delimiter applies to all prefixes that are exported

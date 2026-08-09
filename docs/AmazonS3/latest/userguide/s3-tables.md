@@ -122,7 +122,7 @@ analytics applications.
   quickly get business insights from your data. Quick seamlessly discovers
   AWS data sources and delivers fast and responsive query performance by using
   the Quick Super-fast, Parallel, In-Memory, Calculation Engine (SPICE).
-- [**AWS Lake Formation**](../../../lake-formation/latest/dg/what-is-lake-formation.html.md "../../../lake-formation/latest/dg/what-is-lake-formation.html.md") – Lake Formation is a managed
+- [**AWS Lake Formation**](../../../lake-formation/latest/dg/what-is-lake-formation.md "../../../lake-formation/latest/dg/what-is-lake-formation.md") – Lake Formation is a managed
   service that streamlines the
   process
   to set up, secure, and manage your data lakes. Lake Formation helps you discover your data

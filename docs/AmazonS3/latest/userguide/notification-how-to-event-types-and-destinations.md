@@ -76,6 +76,14 @@ Amazon Simple Queue Service FIFO (First-In-First-Out) queues aren't supported as
 notification destination. To send a notification for an Amazon S3 event to an Amazon SQS
 FIFO queue, you can use Amazon EventBridge. For more information, see [Enabling Amazon EventBridge](enable-event-notifications-eventbridge.md "enable-event-notifications-eventbridge.md").
 
+###### Amazon SQS message size
+
+Amazon S3 event notification messages can be up to 64 KB. We recommend that you
+set the queue's `MaximumMessageSize` attribute to at least 64 KB. If
+an event notification exceeds the queue's configured
+`MaximumMessageSize`, Amazon SQS rejects the notification and doesn't
+deliver the event.
+
 ### Lambda function
 
 You can use AWS Lambda to extend other AWS services with custom logic, or

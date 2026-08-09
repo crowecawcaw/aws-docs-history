@@ -71,7 +71,7 @@ that the user uploads.
 
 The preceding bucket policy grants conditional permission to user
 Dave in Account B. While this policy is in effect, it is possible
-for Dave to get the same permission without any condition via some
+for Dave to get the same permission without any condition through some
 other policy. For example, Dave can belong to a group, and you grant
 the group `s3:PutObject` permission without any
 condition. To avoid such permission loopholes, you can write a

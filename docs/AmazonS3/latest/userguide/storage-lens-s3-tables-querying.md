@@ -17,7 +17,7 @@ Before you begin, ensure that you have:
 
 ## Integration overview
 
-For detailed information about integrating S3 Tables with AWS analytics services, including prerequisites, IAM role configuration, and step-by-step procedures, see [Integrating Amazon S3 Tables with AWS analytics services.](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md")
+For detailed information about integrating S3 Tables with AWS analytics services, including prerequisites, IAM role configuration, and step-by-step procedures, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
 
 After you enable S3 Tables export and set up analytics integration, you can query your S3 Storage Lens data using AWS analytics services such as Amazon Athena, Amazon Redshift, and Amazon EMR. This enables you to perform custom analysis, create dashboards, and derive insights from your storage data using standard SQL.
 
@@ -249,7 +249,7 @@ FROM "s3tablescatalog/aws-s3"."lens_my-config_exp"."default_storage_metrics";
 
 **Problem:** You receive access denied errors when running queries.
 
-**Solution:** Verify that AWS Lake Formation permissions are correctly configured. For more information, see [Integrating Amazon S3 Tables with AWS analytics services.](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md")
+**Solution:** Verify that AWS Lake Formation permissions are correctly configured. For more information, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
 
 ## Next steps
 

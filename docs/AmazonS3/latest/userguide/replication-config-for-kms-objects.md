@@ -192,9 +192,9 @@ encrypted by using KMS keys (SSE-KMS or DSSE-KMS).
   AWS KMS actions for the KMS keys**
 
   - You must grant `kms:Decrypt` permissions for the
-    AWS KMS key that's used to decrypt the source object.
+    AWS KMS key that protects the source object.
   - You must grant `kms:Encrypt` permissions for the
-    AWS KMS key that's used to encrypt the object replica.
+    AWS KMS key that will protect the object replica.
 
 - **`kms:GenerateDataKey` action for
   replicating plaintext objects** – If you're replicating

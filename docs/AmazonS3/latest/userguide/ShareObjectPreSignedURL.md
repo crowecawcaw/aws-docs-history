@@ -163,8 +163,8 @@ At this time, the AWS Toolkit for Visual Studio does not support Visual Studio f
 1. Install the AWS Toolkit for Visual Studio using the following instructions, [Installing and setting up the Toolkit for Visual Studio](../../../toolkit-for-visual-studio/latest/user-guide/setup.md "../../../toolkit-for-visual-studio/latest/user-guide/setup.md") in the _AWS Toolkit for Visual Studio User Guide_.
 2. Connect to AWS using the following steps, [Connecting to AWS](../../../AWSToolkitVS/latest/UserGuide/connect.md "../../../AWSToolkitVS/latest/UserGuide/connect.md") in the
    _AWS Toolkit for Visual Studio User Guide_.
-3. In the left side panel labeled **AWS Explorer**, double-click the bucket containing your object.
-4. Right-click the object you wish to have a presigned URL generated for and select **Create Pre-Signed URL...**.
+3. In the left side panel labeled **AWS Explorer**, open the bucket containing your object.
+4. Open the context menu for the object you wish to have a presigned URL generated for and select **Create Pre-Signed URL...**.
 5. In the pop-up window, set the expiration date and time for your presigned URL.
 6. The **Object Key**, should pre-populate based on the object you selected.
 7. Choose **GET** to specify that this presigned URL will be used for

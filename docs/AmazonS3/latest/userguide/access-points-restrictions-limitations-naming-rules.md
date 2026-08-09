@@ -1,6 +1,6 @@
 # Access points naming rules, restrictions, and limitations
 
-Access points are named network endpoints attached to a bucket or a volume on an Amazon FSx file system that simplify managing data.
+Access points are named network endpoints attached to a bucket, a volume on an Amazon FSx file system, or an Amazon S3 recovery point in AWS Backup that simplify managing data.
 When you create an access point you choose a name and the AWS Region to create it in. The
 following topics provide information about access point naming rules, restrictions and
 limitations.
@@ -10,6 +10,7 @@ limitations.
 - [Naming rules for access points](#access-points-names "#access-points-names")
 - [Restrictions and limitations for access points](#access-points-restrictions-limitations "#access-points-restrictions-limitations")
 - [Restrictions and limitations for access points attached to a volume on an Amazon FSx file system](#access-points-restrictions-limitations-fsx "#access-points-restrictions-limitations-fsx")
+- [Restrictions and limitations for access points attached to an Amazon S3 recovery point in AWS Backup](#access-points-restrictions-limitations-backup "#access-points-restrictions-limitations-backup")
 
 ## Naming rules for access points
 
@@ -66,7 +67,7 @@ Amazon S3 access points have the following restrictions and limitations:
   [Authenticating
   Requests (AWS Signature Version 4)](../API/sig-v4-authenticating-requests.md "../API/sig-v4-authenticating-requests.md") in the _Amazon Simple Storage Service API Reference_.
 - Access points only support requests over HTTPS. Amazon S3 will automatically respond
-  with an HTTP redirect for any requests made via HTTP, to upgrade the request to
+  with an HTTP redirect for any requests made over HTTP, to upgrade the request to
   HTTPS.
 - Access points don't support anonymous access.
 - After you create an access point, you can't change its block public access
@@ -101,4 +102,24 @@ The following are specific limitations when using access points attached to a vo
 - Multipart uploads are limited to 5GB.
 - FSx for OpenZFS deployment type and storage class support varies by AWS Region. For more information, see
   [Availability by AWS Region](../../../fsx/latest/OpenZFSGuide/available-aws-regions.md "../../../fsx/latest/OpenZFSGuide/available-aws-regions.md") in the _OpenZFS User
+  Guide_.
+
+## Restrictions and limitations for access points attached to an Amazon S3 recovery point in AWS Backup
+
+The following are specific limitations when using access points attached to an S3 recovery point in AWS Backup:
+
+- Access points for S3 recovery points are read-only. Write operations such as
+  `PutObject`, `DeleteObject`, `CopyObject`
+  and multipart uploads are not supported.
+- Use the AWS Backup `CreateBackupAccessPoint` API or the AWS Backup console to
+  create access points. The S3 `CreateAccessPoint` API is not supported.
+- To delete these access points use the AWS Backup `DeleteBackupAccessPoint` API
+  or the AWS Backup console.
+- Each account can have up to 5 access points per recovery point, regardless of
+  status.
+- Access point names share the S3 access point namespace. A name used by a
+  backup access point cannot be reused for a standard S3 access point in the same
+  account and Region.
+- For more information, see [Backup access
+  points](../../../aws-backup/latest/devguide/backup-access-points.md "../../../aws-backup/latest/devguide/backup-access-points.md") in the _AWS Backup Developer
   Guide_.

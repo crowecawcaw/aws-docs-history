@@ -82,7 +82,7 @@ Alternatively, for an IAM Identity Center use case, use the following policy whi
      following example includes the necessary AWS KMS permissions for the IAM role in the
      policy. If you do not use this feature, you can remove these permissions from
      your IAM policy.
-    + You can restrict the IAM role to access S3 data only if the credentials are vended by S3 Access Grants. This example shows you how to add a `Condition` statement for a specific S3 Access Grants instance. To use this `Condition`, replace the S3 Access Grants instance ARN in the `Condition` statement with your S3 Access Grants instance ARN, which has the format:
+    + You can restrict the IAM role to access S3 data only if the credentials are vended by S3 Access Grants. This example shows you how to add a `Condition` statement for a specific S3 Access Grants instance. To use this `Condition`, replace the S3 Access Grants instance ARN in the `Condition` statement with your S3 Access Grants instance ARN. This has the format:
      `arn:aws:s3:`region`:`accountId`:access-grants/default`
 
 _iam-policy.json_

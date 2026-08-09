@@ -13,6 +13,7 @@ increase, see [AWS Service Quotas](../../../general/latest/gr/aws_service_limits
 
 - [Creating access points with S3 buckets](#create-access-points "#create-access-points")
 - [Creating access points with Amazon FSx](#create-access-points-with-fsx "#create-access-points-with-fsx")
+- [Creating access points with AWS Backup](#create-access-points-with-backup "#create-access-points-with-backup")
 - [Creating access points restricted to a virtual private cloud](access-points-vpc.md "access-points-vpc.md")
 - [Managing public access to access points for general purpose buckets](access-points-bpa-settings.md "access-points-bpa-settings.md")
 
@@ -117,3 +118,12 @@ snapshots, user and group quotas, and compression.
 For instructions on creating an access point and attaching it to an FSx for OpenZFS volume see,
 [Creating an access point](../../../fsx/latest/OpenZFSGuide/create-access-points.md "../../../fsx/latest/OpenZFSGuide/create-access-points.md") in the
 _FSx for OpenZFS User Guide_.
+
+## Creating access points with AWS Backup
+
+AWS Backup creates and attaches access points to S3 recovery points, providing read-only access to
+S3 backup data using S3 APIs. These access points are created through the AWS Backup console or the
+`CreateBackupAccessPoint` API, not through S3 access point APIs.
+
+For instructions on creating a backup access point, see [Backup access
+points](../../../aws-backup/latest/devguide/backup-access-points.md "../../../aws-backup/latest/devguide/backup-access-points.md") in the _AWS Backup Developer Guide_.

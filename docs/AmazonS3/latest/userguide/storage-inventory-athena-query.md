@@ -4,10 +4,9 @@ You can query Amazon S3 Inventory files with standard SQL queries by using Amazo
 Regions where Athena is available. To check for AWS Region availability, see the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/").
 
 Athena can query Amazon S3 Inventory files in [Apache optimized row columnar (ORC)](https://orc.apache.org/ "https://orc.apache.org/"), [Apache Parquet](https://parquet.apache.org/ "https://parquet.apache.org/"), or
-comma-separated values (CSV) format. When you use Athena to query inventory files, we
-recommend that you use ORC-formatted or Parquet-formatted inventory files.
-The ORC and Parquet formats provide faster query performance and lower query
-costs. ORC and Parquet are self-describing, type-aware columnar file formats
+comma-separated values (CSV) format. For best query speed and lower costs, use ORC-formatted
+or Parquet-formatted inventory files.
+ORC and Parquet are columnar file formats
 designed for [Apache Hadoop](http://hadoop.apache.org/ "http://hadoop.apache.org/").
 The columnar format lets the reader read, decompress, and process only the columns that are
 required for the current query. The ORC and Parquet formats for Amazon S3

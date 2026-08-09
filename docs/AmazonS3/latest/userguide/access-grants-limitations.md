@@ -12,7 +12,7 @@ You can create **1 S3 Access Grants instance** per AWS Region per account. See [
 
 **S3 Access Grants location**
 
-You can register **1,000 S3 Access Grants locations** per S3 Access Grants instance. See [Register an S3 Access Grants location](access-grants-location.md "access-grants-location.md").
+You can register **1,000 S3 Access Grants locations** per S3 Access Grants instance. See [Working with S3 Access Grants locations](access-grants-location.md "access-grants-location.md").
 
 **Grant**
 

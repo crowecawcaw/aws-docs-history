@@ -84,17 +84,20 @@ An inventory list file contains a list of the objects in the source bucket and m
 Objects in Amazon S3 Inventory reports aren't guaranteed to be sorted in any order.
 
 An inventory list file contains a list of the objects in the source bucket and metadata
-for each listed object. These default fields are always included:
+for each listed object. The following fields are always included:
 
 - **Bucket name** – The name of the bucket that the
   inventory is for.
+- **Key name** – The object key name (or key) that
+  uniquely identifies the object in the bucket. When you're using the CSV file format, the
+  key name is URL-encoded and must be decoded before you can use it.
+
+You can choose to include the following additional metadata fields in the report:
+
 - **ETag** – The entity tag (ETag) is a hash of the
   object. The ETag reflects changes only to the contents of an object, not to its metadata.
   The ETag can be an MD5 digest of the object data. Whether it is depends on how the object
   was created and how it is encrypted. For more information, see [Object](../API/API_Object.md "../API/API_Object.md") in the _Amazon Simple Storage Service API Reference_.
-- **Key name** – The object key name (or key) that
-  uniquely identifies the object in the bucket. When you're using the CSV file format, the
-  key name is URL-encoded and must be decoded before you can use it.
 - **Last modified date** – The object creation date
   or the last modified date, whichever is the latest.
 - **Size** – The object size in bytes, not including
@@ -104,9 +107,6 @@ for each listed object. These default fields are always included:
   `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`,
   `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, `DEEP_ARCHIVE`, `OUTPOSTS`,
   `GLACIER_IR`, `SNOW`, or `EXPRESS_ONEZONE`. For more information, see [Understanding and managing Amazon S3 storage classes](storage-class-intro.md "storage-class-intro.md").
-
-You can choose to include the following additional metadata fields in the report:
-
 - **Checksum algorithm** – Indicates the algorithm
   that's used to create the checksum for the object. For more information, see [Using supported checksum algorithms](checking-object-integrity-upload.md#using-additional-checksums "checking-object-integrity-upload.md#using-additional-checksums").
 - **Encryption status** – The server-side encryption

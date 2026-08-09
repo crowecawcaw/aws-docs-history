@@ -33,7 +33,7 @@ S3 Files returns an error when you attempt to create a file system scoped to a p
 Since S3 Files renames objects individually on the S3 bucket, both directories will be
 visible on the S3 bucket until the rename is fully completed. Objects written after the
 directory was renamed but before that rename is fully synchronized will not be moved. To
-simplify data reorganization work, we recommend you do not create new objects via the S3
+simplify data reorganization work, we recommend you do not create new objects through the S3
 bucket while renaming a matching directory.
 
 For example, if you run `mv /mnt/s3files/projects/alpha /mnt/s3files/projects/beta`, the rename completes instantly on the file system. On the S3 bucket, S3 Files begins copying and deleting each object to its new key within the S3 bucket (replacing the `projects/alpha/` prefix with `projects/beta/`) and deleting the original. During this process, the S3 bucket temporarily contains objects under both `projects/alpha/` and `projects/beta/`. Once all objects have been moved, only `projects/beta/` remains.

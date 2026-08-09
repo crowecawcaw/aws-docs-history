@@ -95,8 +95,8 @@ systems.
   `efs-utils`** – `efs-utils` writes S3
   object key names directly in logs which it stores in the directory
   `/var/log/amazon/efs`. If your S3 key names contain sensitive
-  information, you should restrict access to this directory via POSIX permissions.
-  For example, you could restrict access via the command
+  information, you should restrict access to this directory through POSIX permissions.
+  For example, you could restrict access through the command
   `sudo chmod 700 /var/log/amazon/efs`.
 
 ## Monitoring

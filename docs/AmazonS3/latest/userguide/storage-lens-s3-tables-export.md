@@ -15,7 +15,7 @@ There is no additional charge for exporting S3 Storage Lens metrics to AWS-manag
 5. On the **Dashboard** page, navigate to **Metrics export and publishing** section.
 6. To enable Table Export for **Default metrics report**, select **Table bucket** in the Bucket type.
 7. To enable Table Export for **Expanded prefixes metrics report**, select **Table bucket** in the Bucket type.
-8. Review dashboard config and click **Submit**.
+8. Review dashboard config and choose **Submit**.
 
 ###### Note
 
@@ -27,7 +27,7 @@ There is no additional charge for exporting S3 Storage Lens metrics to AWS-manag
 
 ###### Note
 
-By default, records in your S3 tables don't expire. To help minimize storage costs for your tables, you can enable and configure record expiration for the tables. With this option, Amazon S3 automatically removes records from a table when the records expire. See: [Record expiration for tables.](s3-tables-record-expiration.md "s3-tables-record-expiration.md")
+By default, records in your S3 tables don't expire. To help minimize storage costs for your tables, you can enable and configure record expiration for the tables. With this option, Amazon S3 automatically removes records from a table when the records expire. For more information, see [Record expiration for tables](s3-tables-record-expiration.md "s3-tables-record-expiration.md").
 
 ## Enable S3 Tables export using the AWS CLI
 

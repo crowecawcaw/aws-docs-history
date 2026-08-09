@@ -38,7 +38,7 @@ careful review and adaptation to meet the unique needs of your organization's en
   use CloudFront to improve the performance of your website. For more information, see
   [Speeding up your website with Amazon CloudFront](website-hosting-cloudfront-walkthrough.md "website-hosting-cloudfront-walkthrough.md").
 - [Deploying a static website to AWS Amplify Hosting from an S3 general purpose bucket](website-hosting-amplify.md "website-hosting-amplify.md") –
-  We recommend that you use [AWS Amplify Hosting](../../../amplify/latest/userguide/welcome.html.md "../../../amplify/latest/userguide/welcome.html.md")
+  We recommend that you use [AWS Amplify Hosting](../../../amplify/latest/userguide/welcome.md "../../../amplify/latest/userguide/welcome.md")
   to host static website content stored on S3. Amplify Hosting is a fully managed service that makes it easy to deploy your websites on a
   globally available content delivery network (CDN) powered by Amazon CloudFront, allowing secure static website hosting without extensive setup. With AWS Amplify Hosting, you can select the location of your objects within your general purpose bucket, deploy your content to a managed CDN, and generate a public HTTPS URL for your website to be accessible anywhere. For more information, see [Deploying a static
   website from S3 using the Amplify console](../../../amplify/latest/userguide/deploy--from-amplify-console.md "../../../amplify/latest/userguide/deploy--from-amplify-console.md") in the _AWS Amplify Hosting

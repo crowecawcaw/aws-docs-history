@@ -7,7 +7,7 @@ are unsupported or limited for S3 Tables.
   policies to allow public access.
 - Presigned URLs to access objects associated with a table are not supported.
 - Requests made over HTTP are not supported. Amazon S3 automatically responds with an
-  HTTP redirect for any requests made via HTTP to upgrade the requests to
+  HTTP redirect for any requests made over HTTP to upgrade the requests to
   HTTPS.
 - You must use AWS Signature Version 4 when making requests to an access point by
   using the REST APIs.

@@ -75,7 +75,7 @@ The policy in this example includes three policy statements:
 - The second statement in the policy allows users to change the priority of jobs or
   update a job’s status provided that the job the user is updating matches the user’s
   department.
-- The third statement allows a user to update a Batch Operations job’s tags at any time via a
+- The third statement allows a user to update a Batch Operations job’s tags at any time through a
   `PutJobTagging` request as long as (1) their department tag is preserved and
   (2) the job they’re updating is within their department.
 

@@ -296,9 +296,9 @@ grant additional permissions to Amazon S3:
 
     + To replicate encrypted objects, you also need to grant the necessary AWS Key Management Service
      (AWS KMS) key permissions. For more information, see [Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
-    + To use Object Lock with replication, you must grant two additional
+    + To use Object Lock with replication, you must grant 2 additional
      permissions on the source S3 bucket in the AWS Identity and Access Management (IAM) role that you use to
-     set up replication. The two additional permissions are
+     set up replication. The 2 additional permissions are
      `s3:GetObjectRetention` and `s3:GetObjectLegalHold`. If
      the role has an `s3:Get*` permission statement, that statement
      satisfies the requirement. For more information, see [Using Object Lock with S3 Replication](object-lock-managing.md#object-lock-managing-replication "object-lock-managing.md#object-lock-managing-replication").
@@ -419,9 +419,9 @@ permission for the `s3:ReplicateObjectAnnotation` action. In this policy,
 
 - If you want to replicate encrypted objects, you also must grant the necessary
   AWS Key Management Service (AWS KMS) key permissions. For more information, see [Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
-- To use Object Lock with replication, you must grant two additional permissions on
+- To use Object Lock with replication, you must grant 2 additional permissions on
   the source S3 bucket in the AWS Identity and Access Management (IAM) role that you use to set up replication.
-  The two additional permissions are `s3:GetObjectRetention` and
+  The 2 additional permissions are `s3:GetObjectRetention` and
   `s3:GetObjectLegalHold`. If the role has an `s3:Get*`
   permission statement, that statement satisfies the requirement. For more information,
   see [Using Object Lock with S3 Replication](object-lock-managing.md#object-lock-managing-replication "object-lock-managing.md#object-lock-managing-replication").

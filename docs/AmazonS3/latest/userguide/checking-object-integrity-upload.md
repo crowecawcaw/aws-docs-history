@@ -112,7 +112,7 @@ In Amazon S3, there are two types of supported checksums:
 ###### Note
 
 All PUT requests require a full object checksum type. You must specify a
-full object checksum type if you're uploading your object via PUT
+full object checksum type if you're uploading your object through PUT
 request.
 
 - **Composite checksums:** A composite checksum is

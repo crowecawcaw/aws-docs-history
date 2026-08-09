@@ -56,7 +56,7 @@ you can retrieve full object CRC-based checksums using the `HeadObject` or
 `GetObject` request. If you use the SHA-1 or SHA-256 algorithm while
 uploading your appended data, you can retrieve a checksum of the appended parts and verify
 their integrity using the SHA checksums returned on prior PutObject responses. For more
-information, see [Data protection and encryption](s3-express-data-protection.html.md "s3-express-data-protection.html.md").
+information, see [Data protection and encryption](s3-express-data-protection.md "s3-express-data-protection.md").
 
 ## Appending data to your objects by using the AWS CLI, AWS SDKs and the REST API
 

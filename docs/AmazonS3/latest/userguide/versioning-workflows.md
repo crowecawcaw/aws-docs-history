@@ -132,7 +132,7 @@ delete a version. If your `DELETE` operation specifies the
 `versionId`, that object version is permanently deleted, and Amazon S3 doesn't
 insert a delete marker.
 
-![How DELETE versionId permanently deletes a specific object version.](images/versioning_DELETE_versioningEnabled2.png)
+![How DELETE versionId permanently deletes a specific object version.](/images/AmazonS3/latest/userguide/images/versioning_DELETE_versioningEnabled2.png)
 
 You can add more security by configuring a bucket to enable multi-factor
 authentication (MFA) delete. When you enable MFA delete for a bucket, the bucket owner

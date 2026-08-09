@@ -9,7 +9,7 @@ policy. With these findings, you can take immediate and precise corrective actio
 restore your bucket access to what you intended.
 
 The Amazon S3 console presents an **External access summary** in the S3 console next to your list of general purpose buckets.
-In the summary, you can click on the active findings for each AWS Region to see the details of the finding in
+In the summary, you can choose the active findings for each AWS Region to see the details of the finding in
 the IAM Access Analyzer for S3 page. External acces findings in **External access summary** are automatically updated once every 24 hours.
 
 When reviewing a bucket that allows public access, on the IAM Access Analyzer for S3 page, you can block all public access to the

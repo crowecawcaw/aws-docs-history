@@ -293,7 +293,8 @@ Configuring S3 Inventory for directory buckets is not supported in the Amazon Si
 configure Amazon S3 Inventory for. 4. Choose the **Management** tab. 5. Under **Inventory configurations**, choose **Create inventory
 configuration**. 6. For **Inventory configuration name**, enter a name. 7. For **Inventory scope**, do the following:
 
-    * Enter an optional prefix.
+    * Enter an optional prefix. Don't include the bucket name in the
+     prefix.
     * Choose which object versions to include, either **Current versions
      only** or **Include all versions**.
 

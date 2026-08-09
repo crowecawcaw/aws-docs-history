@@ -8,7 +8,7 @@ You can create **com.amazonaws.s3-global.accesspoint** endpoints for Multi-Regio
 SDKs. To learn more about how to configure an interface endpoint for Multi-Region Access Point, see [Interface VPC endpoints](../../../vpc/latest/privatelink/vpce-interface.md "../../../vpc/latest/privatelink/vpce-interface.md") in the
 _VPC User Guide_.
 
-To make requests to a Multi-Region Access Point via interface endpoints, follow these steps to configure the
+To make requests to a Multi-Region Access Point through interface endpoints, follow these steps to configure the
 VPC and the Multi-Region Access Point.
 
 ###### To configure a Multi-Region Access Point to use with AWS PrivateLink
@@ -92,7 +92,7 @@ JSON
 
 And of course, the individual buckets would each need a policy to support access from
 requests submitted through VPC endpoint. The following example policy grants read access
-to any anonymous users, which would include requests made through the VPC endpoint.
+to any anonymous users. This would include requests made through the VPC endpoint.
 
 JSON
 

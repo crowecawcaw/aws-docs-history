@@ -8,7 +8,7 @@ You can view a Amazon S3 Storage Lens dashboard from the Amazon S3 console, AWS 
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. On the left navigation pane, navigate to **Storage Lens**.
 3. Choose **Dashboards**.
-4. From the **Dashboards** list, click on the dashboard that you want to
+4. From the **Dashboards** list, choose the dashboard that you want to
    view. You can now view the details of your Storage Lens dashboard.
 
 ###### Example

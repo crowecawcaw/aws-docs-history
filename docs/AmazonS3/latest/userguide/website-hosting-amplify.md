@@ -1,6 +1,6 @@
 # Deploying a static website to AWS Amplify Hosting from an S3 general purpose bucket
 
-We recommend that you use [AWS Amplify Hosting](../../../amplify/latest/userguide/welcome.html.md "../../../amplify/latest/userguide/welcome.html.md")
+We recommend that you use [AWS Amplify Hosting](../../../amplify/latest/userguide/welcome.md "../../../amplify/latest/userguide/welcome.md")
 to host static website content stored on S3.
 Amplify Hosting is a fully managed service that makes
 it easy to deploy your websites on a globally available content delivery network (CDN)

@@ -47,10 +47,9 @@ This page describes the limitations and quotas when using S3 Files.
 
 The following quotas can be increased by contacting AWS Support.
 
-| Resource                      | Default quota |
-| ----------------------------- | ------------- |
-| File systems per AWS account  | 1,000         |
-| Access points per file system | 10,000        |
+| Resource                     | Default quota |
+| ---------------------------- | ------------- |
+| File systems per AWS account | 1,000         |
 
 To request an increase, open the [AWS Support Center](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home"),
 choose **Create Case**, then choose **Service Limit Increase**.
@@ -59,6 +58,7 @@ The following quotas cannot be changed.
 
 | Resource                                            | Quota  |
 | --------------------------------------------------- | ------ |
+| Access points per file system                       | 25,000 |
 | Connections per file system                         | 25,000 |
 | Mount targets per file system per Availability Zone | 1      |
 | Security groups per mount target                    | 5      |

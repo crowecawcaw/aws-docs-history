@@ -22,9 +22,22 @@ actions:
 - Automate backup scheduling and retention by centrally configuring backup
   policies.
 - Restore backups of Amazon S3 data to a point in time that you specify.
+- Access backup data directly through S3 access points without initiating a restore,
+  enabling targeted file recovery, data validation, and compliance auditing.
   Along with AWS Backup, you can use S3 Versioning and
   S3 Replication to help recover from accidental deletions and perform your own
   self-recovery operations.
+
+###### Accessing backup data
+
+AWS Backup lets you read Amazon S3 backup data directly through S3 access points without
+initiating a full restore. You create a backup access point for a specific S3 recovery
+point, and AWS Backup provisions an S3 access point that you can use with standard S3 read
+operations such as `GetObject`, `HeadObject`, and
+`ListObjectsV2`.
+
+For more information, see [Backup access points](../../../aws-backup/latest/devguide/backup-access-points.md "../../../aws-backup/latest/devguide/backup-access-points.md")
+in the _AWS Backup Developer Guide_.
 
 ###### Prerequisites
 

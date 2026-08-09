@@ -35,7 +35,7 @@ Comparing server access log delivery options| Capability | Amazon CloudWatch Log
 | Destinations | CloudWatch Logs log group, Amazon S3 (JSON or Parquet), or Amazon Data Firehose. The CloudWatch Logs log group<br>delivery can be extended to mirror logs to S3 Tables in Iceberg format. | Amazon S3 bucket (space-delimited text) |
 | Log format | Structured JSON (log group), JSON or Apache Parquet (Amazon S3), Apache Iceberg<br>(S3 Tables) | Space-delimited text |
 | Querying | CloudWatch Logs Insights (log group), Amazon Athena or Spark (S3 Tables) | Amazon Athena |
-| SQL analytics via S3 Tables | Yes (automatic Iceberg mirror) | No (requires ETL) |
+| SQL analytics through S3 Tables | Yes (automatic Iceberg mirror) | No (requires ETL) |
 | Cross-account aggregation | Yes (Amazon S3 and Firehose destinations support cross-account delivery) | No (same account only) |
 | Cross-Region aggregation | Yes (Amazon S3 and Firehose destinations support cross-Region delivery) | No (same Region only) |
 | AWS KMS encryption | Yes | No (SSE-S3 only) |

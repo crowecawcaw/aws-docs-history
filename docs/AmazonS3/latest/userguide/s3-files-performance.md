@@ -6,7 +6,7 @@ S3 Files.
 
 ## Performance summary
 
-|                                                |                                                            |
+| Specification                                  | Value                                                      |
 | ---------------------------------------------- | ---------------------------------------------------------- |
 | Aggregate read throughput per file system      | Up to terabytes per second                                 |
 | Aggregate write throughput per file system     | 1–5 GiB/s                                                  |

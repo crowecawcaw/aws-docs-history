@@ -8,9 +8,9 @@ specified root directory and its subdirectories. When you create a file system u
 AWS Management Console, S3 Files automatically creates one access point for the file
 system.
 
-A file system can have a maximum of 10,000 access points unless you request an increase.
-For more information, see [Unsupported features, limits, and quotas](s3-files-quotas.md "s3-files-quotas.md"). You can create access points using the S3 console,
-AWS CLI, or AWS SDK.
+A file system can have a maximum of 25,000 access points. For more information, see
+[Unsupported features, limits, and quotas](s3-files-quotas.md "s3-files-quotas.md"). You can create access
+points using the Amazon S3 console, AWS CLI, or AWS SDK.
 
 Access points for an S3 file system cannot be edited after creation. If you want to make
 updates, you have to delete the existing access point and create a new one.

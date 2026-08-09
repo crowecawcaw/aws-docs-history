@@ -36,4 +36,4 @@ The following figure shows that deleting a specified object version permanently 
 version of the object. Only the bucket owner can delete a specified object
 version.
 
-![A permanent object deletion using a specified version ID.](images/versioning_DELETE_versioningEnabled2.png)
+![A permanent object deletion using a specified version ID.](/images/AmazonS3/latest/userguide/images/versioning_DELETE_versioningEnabled2.png)

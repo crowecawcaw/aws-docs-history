@@ -6,7 +6,7 @@ general purpose bucket naming, including naming rules, best practices, and an ex
 general purpose bucket with a name that includes a globally unique identifier (GUID).
 
 For information about object key names, see [Creating object key
-names](../../../en_us/AmazonS3/latest/userguide/object-keys.md "../../../en_us/AmazonS3/latest/userguide/object-keys.md").
+names](object-keys.md "object-keys.md").
 
 To create a general purpose bucket, see [Creating a general purpose bucket](create-bucket-overview.md "create-bucket-overview.md").
 

@@ -1,6 +1,6 @@
 # Private connectivity from your VPC
 
-To reduce the amount of time your packets spend on the network, configure your virtual private cloud (VPC) with a gateway endpoint to access directory buckets in Availability Zones while keeping traffic within the AWS network, and at no additional cost.
+To reduce network latency, configure your virtual private cloud (VPC) with a gateway endpoint to access directory buckets in Availability Zones. This keeps traffic within the AWS network at no additional cost.
 
 ###### To configure a gateway VPC endpoint
 
@@ -30,8 +30,8 @@ To reduce the amount of time your packets spend on the network, configure your v
     tag key and the tag value.
 12. Choose **Create endpoint**.
     To learn more about gateway VPC endpoints, see [Gateway endpoints](../../../vpc/latest/privatelink/gateway-endpoints.md "../../../vpc/latest/privatelink/gateway-endpoints.md") in the _AWS PrivateLink Guide_.
-    For the data
-    residency use cases, we recommend enabling access to your buckets only from your VPC using
+    For data
+    residency use cases, enable access to your buckets only from your VPC using
     gateway VPC endpoints. When access is restricted to a VPC or a VPC endpoint, you can access the objects through the AWS Management Console, the REST
     API, AWS CLI, and AWS SDKs.
 

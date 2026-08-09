@@ -24,7 +24,7 @@ At this time, the AWS Toolkit for Visual Studio doesn't support Visual Studio fo
 1. Install the AWS Toolkit for Visual Studio using the following instructions, [Installing and setting up the Toolkit for Visual Studio](../../../toolkit-for-visual-studio/latest/user-guide/setup.md "../../../toolkit-for-visual-studio/latest/user-guide/setup.md") in the _AWS Toolkit for Visual Studio User Guide_.
 2. Connect to AWS using the following steps, [Connecting to AWS](../../../AWSToolkitVS/latest/UserGuide/connect.md "../../../AWSToolkitVS/latest/UserGuide/connect.md") in the
    _AWS Toolkit for Visual Studio User Guide_.
-3. In the left side panel labeled **AWS Explorer**, right-click the bucket you wish to have an object uploaded to.
+3. In the left side panel labeled **AWS Explorer**, open the context menu for the bucket you wish to have an object uploaded to.
 4. Choose **Create Pre-Signed URL...**.
 5. In the pop-up window, set the expiration date and time for your presigned URL.
 6. For **Object Key**, set the name of the file to be uploaded. The file you're uploading must match this name exactly. If an object with the same object key already exists in the

@@ -204,7 +204,7 @@ while uploading.
 
 You can use conditional writes for [PutObject](../API/API_PutObject.md "../API/API_PutObject.md") or [CompleteMultipartUpload](../API/API_CompleteMultipartUpload.md "../API/API_CompleteMultipartUpload.md") requests.
 
-For more information about conditional requests see, [Add preconditions to S3 operations with conditional requests](conditional-requests.md "conditional-requests.md").
+For more information, see [How to prevent object overwrites with conditional writes](conditional-writes.md "conditional-writes.md").
 
 ## Multipart upload and pricing
 

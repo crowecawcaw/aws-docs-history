@@ -143,7 +143,7 @@ metric shown in S3 Storage Lens and from the number reported by the Amazon Cloud
 
 ## Deleting folders
 
-This section explains how to use the Amazon S3 console to delete folders from an S3 bucket.
+Use the Amazon S3 console to delete folders from an S3 bucket.
 
 For information about Amazon S3 features and pricing, see [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/").
 
@@ -157,12 +157,12 @@ For information about Amazon S3 features and pricing, see [Amazon S3](https://aw
 4. In the **Objects** list, select the checkboxes next to the folders and
    objects that you want to delete.
 5. Choose **Delete**.
-6. On the **Delete objects** page, verify that the names of the folders
-   and objects that you selected for deletion are listed under **Specified
+6. On the **Delete objects** page, verify that the folders
+   and objects you chose are listed under **Specified
    objects**.
 7. In the **Delete objects** box, enter `delete`, and choose **Delete objects**.
 
 ###### Warning
 
-This action deletes all specified objects. When deleting folders, wait for the delete action to finish before adding new objects to the folder.
+This action deletes all specified objects. When you delete folders, wait for the delete to finish before you add new objects to the folder.
 Otherwise, new objects might be deleted as well.

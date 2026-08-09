@@ -48,6 +48,11 @@ Amazon Simple Queue Service FIFO (First-In-First-Out) queues aren't supported as
 notification destination. To send a notification for an Amazon S3 event to an Amazon SQS
 FIFO queue, you can use Amazon EventBridge. For more information, see [Enabling Amazon EventBridge](enable-event-notifications-eventbridge.md "enable-event-notifications-eventbridge.md").
 
+###### Note
+
+AWS Lambda durable functions aren't supported as an Amazon S3 event notification
+destination.
+
 ###### Warning
 
 If your notification writes to the same bucket that triggers the notification, it could cause an execution loop. For example, if the bucket triggers a Lambda function each time an object is uploaded, and the function uploads an object to the bucket, then the function indirectly triggers itself. To avoid this, use two buckets, or configure the trigger to only apply to a prefix used for incoming objects.

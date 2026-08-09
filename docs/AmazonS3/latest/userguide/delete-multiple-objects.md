@@ -90,9 +90,9 @@ permanent.
 
 If you're experiencing any issues with deleting your objects, see [I want to permanently delete versioned objects](troubleshooting-versioning.md#delete-objects-permanent "troubleshooting-versioning.md#delete-objects-permanent").
 
-For examples of how to delete multiple objects with the AWS SDKs, see [Delete multiple objects](../API/s3_example_s3_DeleteObjects_section.md "../API/s3_example_s3_DeleteObjects_section.md") in the _Amazon S3 API Reference_.
+For examples of how to delete multiple objects with the AWS SDKs, see [Delete multiple objects](../../../code-library/latest/ug/s3_example_s3_DeleteObjects_section.md "../../../code-library/latest/ug/s3_example_s3_DeleteObjects_section.md") in the _AWS SDK Code Examples_.
 
-For general information about using different AWS SDKs, see [Developing with Amazon S3 using the AWS SDKs](../API/sdk-general-information-section.md "../API/sdk-general-information-section.md") in the _Amazon S3 API Reference_.
+For general information about using different AWS SDKs, see [Developing with Amazon S3 using the AWS SDKs](../../../code-library/latest/ug/sdk-general-information-section.md "../../../code-library/latest/ug/sdk-general-information-section.md") in the _AWS SDK Code Examples_.
 
 You can use the AWS SDKs to delete multiple objects using the Multi-Object Delete
 API. However, if your application requires it, you can send REST requests directly.
