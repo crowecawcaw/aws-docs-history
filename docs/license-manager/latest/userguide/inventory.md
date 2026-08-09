@@ -18,8 +18,7 @@ instance counts accurate, we recommend manually deregistering instances in Syste
 can run cleanup operations.
 
 Querying Systems Manager inventory requires a Resource Data Sync to store
-inventory in an Amazon S3 bucket, Amazon Athena to aggregate inventory data from organizational
-accounts, and AWS Glue to provide a fast query experience. For more information, see
+inventory in an Amazon S3 bucket. For more information, see
 [Using service-linked roles for License Manager](using-service-linked-roles.md "using-service-linked-roles.md").
 
 Resource inventory tracking is also useful if your organization does not restrict AWS

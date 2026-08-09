@@ -4,19 +4,6 @@ The following information can help you troubleshoot issues when using AWS Licens
 Before you start, confirm that your License Manager setup meets the requirements stated in
 [Settings in License Manager](settings.md "settings.md").
 
-## Cross-account discovery error
-
-While setting up cross-account discovery, you may encounter the following error message on
-the **Inventory search** page:
-
-_Athena Exception: Athena Query failed because - Insufficient
-permissions to execute the query. Please migrate your Catalog to enable access to this
-database._
-
-This can occur if your Athena service uses the Athena-managed data catalog rather than the
-AWS Glue Data Catalog. For upgrade instructions, see [Upgrading
-to the AWS Glue Data Catalog Step-by-Step](../../../athena/latest/ug/glue-upgrade.md "../../../athena/latest/ug/glue-upgrade.md").
-
 ## Management account cannot disassociate resources from a self-managed license
 
 If a member account of an Organization deletes the
@@ -46,11 +33,8 @@ may briefly continue to appear in the License Manager resource inventory before 
 
 ## New child account instances are slow to appear in resource inventory
 
-When cross-account support is enabled, License Manager updates customer accounts at 1 PM daily by
-default. Instances added later in the day show up in the management account resource inventory on
-the following day. You can change the frequency at which the update script runs by editing the
-`LicenseManagerResourceSynDataProcessJobTrigger` in the AWS Glue console for the management
-account.
+When cross-account support is enabled, it can take up to 24 hours for newly added child
+account instances to appear in the management account resource inventory.
 
 ## After enabling cross-account mode, child account instances are slow to appear
 

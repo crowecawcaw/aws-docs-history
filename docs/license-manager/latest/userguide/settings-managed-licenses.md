@@ -45,18 +45,8 @@ accounts.
 
 License Manager uses [Systems Manager inventory](../../../systems-manager/latest/userguide/systems-manager-inventory.md "../../../systems-manager/latest/userguide/systems-manager-inventory.md")
 to discover software usage. Verify that you have configured Systems Manager inventory on all of your
-resources. Querying Systems Manager inventory requires the following:
-
-- [Resource data
-  sync](../../../systems-manager/latest/userguide/sysman-inventory-datasync.md "../../../systems-manager/latest/userguide/sysman-inventory-datasync.md") to store inventory in an Amazon S3 bucket.
-- [Amazon Athena](../../../athena/latest/ug/what-is.md "../../../athena/latest/ug/what-is.md") to aggregate inventory data from your accounts in
-  AWS Organizations.
-- [AWS Glue](../../../glue.md "../../../glue.md") to provide a fast query
-  experience.
-
-###### Note
-
-Commercial AWS partition regions (aws) do not require Amazon Athena or AWS Glue to query or aggregate inventory data for Systems Manager inventory to discover software usage. However, Amazon Athena and AWS Glue are still required for other partitions such as aws-us-gov, aws-cn, and aws-iso regions.
+resources. Querying Systems Manager inventory requires a [resource data
+sync](../../../systems-manager/latest/userguide/sysman-inventory-datasync.md "../../../systems-manager/latest/userguide/sysman-inventory-datasync.md") to store inventory in an Amazon S3 bucket.
 
 ## Simple Notification Service (SNS)
 
