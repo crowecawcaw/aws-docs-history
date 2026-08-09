@@ -41,7 +41,7 @@ Complete the following procedure to deploy an existing bot.
 
 
 
-    ![The Wickr IO new message button.](images/wickrio-new-message.png)
+    ![The Wickr IO new message button.](/images/wickr/latest/wickrio/images/wickrio-new-message.png)
     2. In the search bar, search for your bot by display name.
 
 
