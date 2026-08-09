@@ -52,6 +52,12 @@ Custom agents are flexible and can automate a wide range of operational tasks. C
 
 For information about custom agent limits, see [Quotas](quotas.md "quotas.md").
 
+## Dynamic subagent delegation
+
+Custom agents can delegate work to subagents during long-running or complex invocations. When an invocation approaches its context window limit, the agent automatically creates a subagent to continue the work. The subagent has access to the same tools and skills as the parent agent.
+
+Dynamic subagent delegation lets your custom agents complete detailed analyses, long multi-step workflows, and other tasks that would otherwise exceed context limits. You do not need to configure anything to use this capability.
+
 ## Next steps
 
 - [Creating a custom agent](custom-agents-creating-a-custom-agent.md "custom-agents-creating-a-custom-agent.md") – Define your first custom agent with a system prompt, tools, and skills.

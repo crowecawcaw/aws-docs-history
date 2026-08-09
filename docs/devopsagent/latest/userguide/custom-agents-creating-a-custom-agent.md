@@ -118,6 +118,18 @@ Remove the use_kubectl tool from cluster-audit-agent.
 
 When selecting tools, follow the principle of least privilege — assign only the tools the agent needs to accomplish its task. This reduces the risk of unintended actions and keeps the agent focused.
 
+## Release Manager tools
+
+Custom agents have access to Release Manager tools. These tools let your agent create, list, get, and cancel Release Manager tasks. Your agent can also analyze a release readiness review report to surface findings and recommended actions.
+
+To use Release Manager tools, assign them to your custom agent through Chat. For example:
+
+```
+Add the release manager tools to my release-pipeline-agent.
+```
+
+For more information about release management capabilities, see [Release management](working-with-devops-agent-release-management-index.md "working-with-devops-agent-release-management-index.md").
+
 ## Configuring skills
 
 Skills provide your custom agent with additional domain knowledge, investigation procedures, or specialized capabilities. When a custom agent runs, it loads its assigned skills and can reference their instructions during invocation.

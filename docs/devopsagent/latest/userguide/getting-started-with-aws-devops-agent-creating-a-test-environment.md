@@ -532,7 +532,7 @@ This step is for ensuring that the above tests are now in an alarm state.
    4. **Name your investigation:** example: `Oncall_investigation_1:2025-10-27`
    5. **AWS Account ID** for the incident
    6. **Region** where the incident occurred
-   7. **Priority** - AWS DevOpsAgent allows for two concurrent investigations. The Priority allows for you to define the order of execution of your investigations.
+   7. **Priority** - AWS DevOpsAgent allows for 2 concurrent investigations. The Priority allows for you to define the order of execution of your investigations.
 
 5. Choose Investigate to launch the investigation.
 6. Choose your Investigation listed in the dashboard. You will be taken to the Investigation Details screen where you can view the granular steps that DevOps Agent is taking.

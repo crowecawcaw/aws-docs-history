@@ -22,6 +22,10 @@ AWS DevOps Agent On Demand Tasks provides comprehensive capabilities to help you
 
 **Recommendation filtering** – Query incident prevention recommendations with specific criteria, such as recommendations related to particular services or operational concerns. Chat explains the impact and implementation considerations for each recommendation. For example, "Show me recommendations that will prevent incidents involving DynamoDB" or "Which recommendations would help me detect request latency issues quicker?"
 
+### Investigation prompt
+
+In AWS DevOps Agent chat, you see a prompt to create a formal investigation when a complex issue needs deeper root cause analysis. You do not need to wait for a full analysis in the conversation. Choose the prompt to launch an investigation for a thorough, step-by-step analysis.
+
 ## Accessing Chat
 
 Chat is available as a persistent panel in the DevOps Agent Space web app. The left sidebar includes a **+ New chat** button, a **Pages** section for navigating to Incidents, Improvements, and Topology, and a **Chats** section that displays your recent conversations. Choose **View all** to see your full conversation history.
@@ -63,6 +67,14 @@ Chat maintains conversation history to enable you to continue previous discussio
 **Continuing conversations** – Select any conversation from your history to resume where you left off. Chat maintains the full context of previous messages, enabling you to ask follow-up questions that reference earlier parts of the conversation. When you switch pages while viewing a conversation, the conversation context remains but page-specific context updates based on your current location.
 
 Note that conversation history is isolated within each Agent Space. Conversations in one Agent Space are not visible or accessible from other Agent Spaces. This isolation ensures that sensitive information remains compartmentalized according to your organizational boundaries.
+
+## Starting an investigation from Chat
+
+In AWS DevOps Agent chat, you see a prompt to create a formal investigation when a complex issue comes up. Investigations provide a structured, step-by-step analysis that goes deeper than a conversational exchange.
+
+When you see an investigation prompt, choose it to create a new investigation. The investigation opens in the Incident Response view. You can continue chatting while the investigation runs.
+
+For more information about investigations, see [Autonomous incident response](production-operations-autonomous-incident-response.md "production-operations-autonomous-incident-response.md").
 
 ## Generating artifacts
 

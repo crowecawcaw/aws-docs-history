@@ -219,6 +219,51 @@ AWS DevOps Agent initiates outbound connections to your third-party systems and 
     - `44.224.219.86`
     - `54.201.89.243`
 
+  - South America (São Paulo) (sa-east-1)
+
+    - `54.207.222.14`
+    - `54.232.201.242`
+    - `54.94.247.213`
+    - `54.94.50.36`
+    - `54.20.8.106`
+    - `52.67.155.119`
+
+  - Asia Pacific (Mumbai) (ap-south-1)
+
+    - `13.126.209.199`
+    - `13.234.6.24`
+    - `35.154.102.216`
+    - `13.200.172.217`
+    - `13.235.168.21`
+    - `13.206.231.7`
+
+  - Asia Pacific (Singapore) (ap-southeast-1)
+
+    - `18.139.13.125`
+    - `47.130.240.215`
+    - `54.179.238.173`
+    - `54.169.147.211`
+    - `52.77.189.96`
+    - `52.77.31.188`
+
+  - Canada (Central) (ca-central-1)
+
+    - `3.96.5.29`
+    - `3.99.39.12`
+    - `99.79.90.221`
+    - `16.52.252.11`
+    - `16.52.242.49`
+    - `15.157.224.32`
+
+  - Europe (London) (eu-west-2)
+
+    - `13.42.228.66`
+    - `16.60.62.58`
+    - `35.176.240.10`
+    - `16.60.67.127`
+    - `3.9.91.248`
+    - `35.179.253.69`
+
 ### Outbound traffic from your VPC to AWS DevOps Agent
 
 For outbound traffic from your AWS VPC to AWS DevOps Agent (for example, using [Invoking DevOps Agent through Webhook](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md "configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md")), you can use VPC Endpoints to keep this network traffic isolated to AWS networks. For more information, see [VPC Endpoints (AWS PrivateLink)](aws-devops-agent-security-vpc-endpoints-aws-privatelink.md "aws-devops-agent-security-vpc-endpoints-aws-privatelink.md").

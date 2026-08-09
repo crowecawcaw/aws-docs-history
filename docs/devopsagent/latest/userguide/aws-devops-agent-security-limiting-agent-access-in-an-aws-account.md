@@ -30,7 +30,7 @@ The `AIDevOpsAgentAccessPolicy` managed policy provides the default set of read-
 
 ### Extending permissions beyond the default
 
-AWS DevOps Agent supports a curated set of additional permissions beyond the default managed policy. These permissions are included in the guardrail but are not enabled by default. To use them, add the specific permissions to your role as an inline policy.
+The default `AIDevOpsAgentAccessPolicy` managed policy grants only a subset of what the guardrail allows. The guardrail also permits every action in the `ReadOnlyAccess` AWS managed policy, plus a few additional permissions. To use a permission the guardrail allows but the default policy does not grant, add it to your role as an inline policy.
 
 For example, to allow the agent to read objects from your S3 buckets during investigations, add an inline policy to your role:
 
@@ -57,18 +57,16 @@ Because `s3:GetObject` and `s3:ListBucket` are included in the guardrail, this i
 
 ### Supported additional permissions
 
-The following permissions are included in the guardrail and can be enabled by adding them to your role as an inline policy. These are not granted by default — you must explicitly opt in.
+You can enable any permission the guardrail supports by adding it to your role as an inline policy. These are not granted by default — you must explicitly opt in.
 
-| Service                | Actions                                                                        | Use case                                                                        |
-| ---------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
-| Amazon Athena          | `athena:GetQuery*`, `athena:StartQueryExecution`, `athena:StopQueryExecution`  | Run Athena queries against your data catalog and retrieve managed query results |
-| Amazon CloudWatch Logs | `logs:GetLogRecord`                                                            | Retrieve individual log records when investigating application issues           |
-| Amazon DynamoDB        | `dynamodb:Scan`, `dynamodb:Query`, `dynamodb:GetItem`, `dynamodb:BatchGetItem` | Read items from your DynamoDB tables during investigations                      |
-| Amazon S3              | `s3:GetObject`, `s3:ListBucket`                                                | Read application data, logs, or configuration stored in S3                      |
-| AWS Glue               | `glue:GetPartition`                                                            | Read partition metadata from the Glue Data Catalog for Athena queries           |
-| AWS KMS                | `kms:Decrypt`                                                                  | Decrypt encrypted resources such as S3 objects                                  |
-| AWS Support            | `support:DescribeCommunications`                                               | Read AWS Support case communications relevant to an investigation               |
-| AWS Systems Manager    | `ssm:GetParameter`                                                             | Read Systems Manager parameters used by your applications                       |
+We have fully tested and verified that only the permissions in the `AIDevOpsAgentAccessPolicy` managed policy are safe for use with the agent. The other permissions the guardrail supports have not been tested with the agent. Enabling them falls under the [AWS shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/"). You are responsible for evaluating whether those actions are appropriate for the agent to perform against your resources. Scope them to follow the principle of least privilege.
+
+The following table lists the additional permissions the guardrail supports beyond the `ReadOnlyAccess` managed policy.
+
+| Service       | Actions                                                   | Use case                                       |
+| ------------- | --------------------------------------------------------- | ---------------------------------------------- |
+| Amazon Athena | `athena:StartQueryExecution`, `athena:StopQueryExecution` | Run Athena queries against your data catalog   |
+| AWS KMS       | `kms:Decrypt`                                             | Decrypt encrypted resources such as S3 objects |
 
 ### Permissions blocked by the guardrail
 
