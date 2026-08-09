@@ -519,7 +519,8 @@ publishes to Firehose.
   "open": {
     "ipAddress": "192.0.2.1",
     "timestamp": "2017-08-09T22:00:19.652Z",
-    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60"
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60",
+    "isBotEvent": "Unlikely"
   }
 }
 ```
@@ -544,7 +545,8 @@ publishes to Firehose.
       ]
     },
     "timestamp": "2017-08-09T23:51:25.570Z",
-    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36",
+    "isBotEvent": "Likely"
   },
   "mail": {
     "commonHeaders": {
