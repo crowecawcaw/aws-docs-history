@@ -4,14 +4,12 @@ Amazon Textract makes it easy to add document text detection and analysis to you
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+Amazon Textract is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
 ## How Amazon Textract differs
-
-The following differences apply to Amazon Textract:
 
 - In AWS GovCloud (US) Regions, AWS does not use or store AI Content processed by this AI Service to develop and improve that Service or technologies of AWS or its affiliates. Opt-out policies are not currently applicable to these Regions.
 

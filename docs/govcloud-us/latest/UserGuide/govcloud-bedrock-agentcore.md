@@ -14,17 +14,18 @@ This service is available in the following AWS GovCloud (US) Regions:
 
 The following differences apply to Amazon Bedrock AgentCore:
 
-- AgentCore Memory is not available.
 - AgentCore Gateway does not include semantic search functionality.
-- AgentCore Harness is not available.
-- AgentCore Policy is not available.
 - AWS Agent Registry (Preview) is not available.
+- Bedrock Guardrails Policy is not availalbe
+- Temporal Policy is not available
 - The following CloudFormation resources are not available:
 
   - `AWS::BedrockAgentCore::OnlineEvaluationConfig`
   - `AWS::BedrockAgentCore::OAuth2CredentialProvider`
   - `AWS::BedrockAgentCore::Evaluator`
   - `AWS::BedrockAgentCore::ApiKeyCredentialProvider`
+  - `AWS::BedrockAgentCore::Policy`
+  - `AWS::BedrockAgentCore::PolicyEngine`
 
 ## Documentation
 

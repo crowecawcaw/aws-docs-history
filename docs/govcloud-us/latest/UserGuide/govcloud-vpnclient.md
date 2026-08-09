@@ -4,14 +4,12 @@ AWS Client VPN is a managed client-based Site-to-Site VPN service that enables y
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+AWS Client VPN is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
-## How Client VPN differs
-
-The following differences apply to Client VPN:
+## How AWS Client VPN differs
 
 - AWS Client VPN endpoints in AWS GovCloud (US) operate using FIPS 140-3 validated cryptographic modules. Site-to-Site VPN connections created in AWS GovCloud (US) might require a different set of algorithms to establish a tunnel, depending on your client configuration. For more information about FIPS 140-3, see "Cryptographic Module Validation Program" on the NIST Computer Security Resource Center website.
 - Use SSL (HTTPS) when you make calls to the service in the AWS GovCloud (US) Region. In other AWS Regions, you can use HTTP or HTTPS.

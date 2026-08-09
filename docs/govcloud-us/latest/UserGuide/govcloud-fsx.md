@@ -13,7 +13,7 @@ This service is available in the following AWS GovCloud (US) Regions:
 
 The following differences apply to Amazon FSx:
 
-- Amazon FSx for Lustre Persistent\_2 is not available.
+- Amazon FSx for Lustre Persistent 2 with the Intelligent-Tiering storage class is not available.
 - For Amazon FSx for OpenZFS, the following features are not available:
 
   - Single-AZ 2 deployment type

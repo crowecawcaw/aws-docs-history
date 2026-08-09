@@ -25,7 +25,7 @@ The following differences apply to AWS Directory Service:
   - Amazon WorkMail
   - Amazon Chime
   - AWS Management Console
-  - Connect Customer only in available in AWS GovCloud (US-West).
+  - Connect Customer is only available in AWS GovCloud (US-West)
   - AWS IAM Identity Center
 
 - The following AWS Managed Microsoft AD features are not currently supported in AWS GovCloud (US):
