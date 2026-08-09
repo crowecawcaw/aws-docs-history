@@ -5,7 +5,7 @@ For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.
 
 # RDS Database Stack | Update Performance Insights (Managed Automation)
 
-Update Performance Insights for a DB instance or Multi-AZ DB cluster. Amazon RDS Performance Insights is a database performance tuning and monitoring feature that helps you assess the load on your database. You can change settings, enable, or disable the feature.
+Update Performance Insights for a DB instance or Multi-AZ DB cluster. Amazon RDS Performance Insights is a database performance tuning and monitoring feature that helps you assess the load on your database. You can change settings, turn on, or turn off the feature.
 
 **Full classification:** Management | Advanced stack components | RDS database stack | Update Performance Insights (managed automation)
 

@@ -182,9 +182,33 @@ changes the default for one existing parameter (**InstanceType**).
   You can, instead, choose T2 instances and use the CreditSpecification unlimited option.
 - For more information about Amazon EC2, including size recommendations, see [Amazon Elastic Compute Cloud
   Documentation](https://aws.amazon.com/documentation/ec2/ "https://aws.amazon.com/documentation/ec2/").
-  To update your EC2 stack with additional volumes after they're created, see
+
+- To update your EC2 stack with additional volumes after they're created, see
   [EC2 Instance stack: Updating (With Additional
-  Volumes)](management-advanced-ec2-instance-stack-update-with-additional-volumes.md "management-advanced-ec2-instance-stack-update-with-additional-volumes.md")
+  Volumes)](management-advanced-ec2-instance-stack-update-with-additional-volumes.md "management-advanced-ec2-instance-stack-update-with-additional-volumes.md").
+- Remove stale computer objects before provisioning an instance.
+  If you plan to provision a new instance (Windows or Linux) using a hostname that already
+  exists in Active Directory, for example, when restoring from an AMI or re-using a hostname
+  from a previous stack, you must first run the
+  [Management |
+  Directory Service | Computer object | Remove](management-directory-computer-object-remove.md "management-directory-computer-object-remove.md") change type (ct-3d0lrfb8eckuu)
+  to remove the stale computer object. AMS does not provision an instance if a computer
+  object with the same hostname already exists in Active Directory.
+
+If you don't remove the stale object, you might experience RFC rejection, duplicate computer
+objects in the wrong Organizational Unit (OU), broken domain join, DNS record conflicts, and
+inaccessible instances (RDP failures on Windows, or Kerberos authentication and SSH failures
+on Linux). This is especially important when the source AMI was captured from a running
+domain-joined instance without first preparing it. On Windows, this means not running
+`Invoke-AMSSysprep`, and on Linux, not running the AMS preparation script
+(`prepare_instance_for_ami_and_shutdown.sh`).
+
+Without preparation, the AMI retains the previous instance's machine credentials (computer
+account SID and password on Windows, or Kerberos keytab on Linux), which causes trust
+relationship failures and object conflicts when a new instance boots from it. For more
+information on instance preparation, see the Tips section of
+[Deployment |
+Advanced stack components | AMI | Create](deployment-advanced-ami-create.md "deployment-advanced-ami-create.md") (ct-3rqqu43krekby).
 
 ## Execution Input Parameters
 

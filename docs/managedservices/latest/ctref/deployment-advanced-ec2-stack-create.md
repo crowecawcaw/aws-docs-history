@@ -163,10 +163,32 @@ capacity to support AMS tools such as EPS, SSM, and Cloudwatch in addition to
 the application workload. For more information, see
 [Choosing the Right EC2 Instance Type for Your Application](https://aws.amazon.com/blogs/aws/choosing-the-right-ec2-instance-type-for-your-application/ "https://aws.amazon.com/blogs/aws/choosing-the-right-ec2-instance-type-for-your-application/").
 
-To create an EC2 stack with additional volumes, see
-[EC2 Stack | Create (with Additional Volumes)](deployment-advanced-ec2-stack-create-with-additional-volumes.md "deployment-advanced-ec2-stack-create-with-additional-volumes.md").
+- To create an EC2 stack with additional volumes, see
+  [EC2 Stack | Create (with Additional Volumes)](deployment-advanced-ec2-stack-create-with-additional-volumes.md "deployment-advanced-ec2-stack-create-with-additional-volumes.md").
+- You can add up to 50 tags, but to do so you must enable the **Additional configuration** view.
+- Remove stale computer objects before provisioning an instance.
+  If you plan to provision a new instance (Windows or Linux) using a hostname that already
+  exists in Active Directory, for example, when restoring from an AMI or re-using a hostname
+  from a previous stack, you must first run the
+  [Management |
+  Directory Service | Computer object | Remove](management-directory-computer-object-remove.md "management-directory-computer-object-remove.md") change type (ct-3d0lrfb8eckuu)
+  to remove the stale computer object. AMS does not provision an instance if a computer
+  object with the same hostname already exists in Active Directory.
 
-You can add up to 50 tags, but to do so you must enable the **Additional configuration** view.
+If you don't remove the stale object, you might experience RFC rejection, duplicate computer
+objects in the wrong Organizational Unit (OU), broken domain join, DNS record conflicts, and
+inaccessible instances (RDP failures on Windows, or Kerberos authentication and SSH failures
+on Linux). This is especially important when the source AMI was captured from a running
+domain-joined instance without first preparing it. On Windows, this means not running
+`Invoke-AMSSysprep`, and on Linux, not running the AMS preparation script
+(`prepare_instance_for_ami_and_shutdown.sh`).
+
+Without preparation, the AMI retains the previous instance's machine credentials (computer
+account SID and password on Windows, or Kerberos keytab on Linux), which causes trust
+relationship failures and object conflicts when a new instance boots from it. For more
+information on instance preparation, see the Tips section of
+[Deployment |
+Advanced stack components | AMI | Create](deployment-advanced-ami-create.md "deployment-advanced-ami-create.md") (ct-3rqqu43krekby).
 
 If needed, see [EC2 instance stack create fail](../userguide/rfc-troubleshoot.md#rfc-valid-execute-ec2-create "../userguide/rfc-troubleshoot.md#rfc-valid-execute-ec2-create").
 

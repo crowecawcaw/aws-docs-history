@@ -127,8 +127,29 @@ aws amscm create-rfc --cli-input-json file://ComputerObjectRemoveRfc.json --exec
 
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
-For information about Directory Service, see the
-[Directory Service Admin Guide](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md").
+- For information about Directory Service, see the
+  [Directory Service Admin Guide](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md").
+- Remove stale computer objects before provisioning an instance.
+  If you plan to provision a new instance (Windows or Linux) using a hostname that already
+  exists in Active Directory, for example, when restoring from an AMI or re-using a hostname
+  from a previous stack, you must run this change type first to remove the stale computer object.
+  AMS does not provision an instance if a computer object with the same hostname already
+  exists in Active Directory.
+
+If you don't remove the stale object, you might experience RFC rejection, duplicate computer
+objects in the wrong Organizational Unit (OU), broken domain join, DNS record conflicts, and
+inaccessible instances (RDP failures on Windows, or Kerberos authentication and SSH failures
+on Linux). This is especially important when the source AMI was captured from a running
+domain-joined instance without first preparing it. On Windows, this means not running
+`Invoke-AMSSysprep`, and on Linux, not running the AMS preparation script
+(`prepare_instance_for_ami_and_shutdown.sh`).
+
+Without preparation, the AMI retains the previous instance's machine credentials (computer
+account SID and password on Windows, or Kerberos keytab on Linux), which causes trust
+relationship failures and object conflicts when a new instance boots from it. For more
+information on instance preparation, see the Tips section of
+[Deployment |
+Advanced stack components | AMI | Create](deployment-advanced-ami-create.md "deployment-advanced-ami-create.md") (ct-3rqqu43krekby).
 
 ## Execution Input Parameters
 
