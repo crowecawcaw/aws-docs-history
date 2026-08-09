@@ -1,8 +1,8 @@
 # Synchronize records from external sources
 
-###### Upcoming namespace migration
+###### Migration Now Open
 
-AWS Agent Registry is currently in public preview under the bedrock-agentcore namespace. Starting August 6, 2026, the service moves to the agent-registry namespace. If you use AWS Agent Registry, you must update your endpoints, IAM policies, SDK clients, CLI scripts, and registry data. For more information about migrating from public preview, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
+AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on September 17, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
 
 ## Overview
 
@@ -14,7 +14,22 @@ For Public MCP servers that don’t require authentication or authorization:
 
 ### Console
 
-1. Open the registry detail page.
+###### Example
+
+AWS Agent Registry namespace
+
+1. Open the registry detail page in the [AWS Agent Registry console](https://console.aws.amazon.com/agent-registry/home?region=us-east-1# "https://console.aws.amazon.com/agent-registry/home?region=us-east-1#").
+2. In the **Registry records** section, choose **Create record**.
+3. Choose **Synchronize from endpoint**.
+4. Under **Record details**, for **Type**, choose **MCP**. The **Descriptor** is set to **MCP server**.
+5. For **Endpoint**, enter the public MCP server URL (e.g., `https://knowledge-mcp.global.api.aws`). Must be a valid HTTPS URL.
+6. Under **Credential type**, choose **None**.
+7. (Optional) In the **Tags** section, choose **Add new tag** to attach one or more tags to the record. Each tag has a key and an optional value.
+8. Choose **Create record**.
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
+1. Open the registry detail page in the [Bedrock-AgentCore console](https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1# "https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1#").
 2. In the **Registry records** section, choose **Create record**.
 3. Choose **Synchronize from endpoint**.
 4. Under **Record details**, choose **MCP** as the record type.
@@ -25,6 +40,30 @@ For Public MCP servers that don’t require authentication or authorization:
 The record is created in CREATING status. The registry connects to the endpoint, extracts server and tool definitions, and populates the record’s descriptors. After synchronization completes, the record transitions to DRAFT. If synchronization fails, the record transitions to CREATE\_FAILED status with the error details available in the Status Reason field. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").
 
 ### AWS CLI
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+aws agent-registry-control create-registry-record \
+  --registry-id $REGISTRY_ID \
+  --name "aws-knowledge-server" \
+  --display-name "AWS Knowledge Server" \
+  --record-type MCP \
+  --descriptors '{
+    "mcpServer": {
+      "source": {
+        "fromUrl": {
+          "url": "https://knowledge-mcp.global.api.aws"
+        }
+      }
+    }
+  }' \
+  --region us-east-1
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 aws bedrock-agentcore-control create-registry-record \
@@ -42,6 +81,36 @@ aws bedrock-agentcore-control create-registry-record \
 ```
 
 ### AWS SDK
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+import boto3
+
+client = boto3.client('agent-registry-control')
+
+response = client.create_registry_record(
+    registryId='<registryId>',
+    name='aws-knowledge-server',
+    displayName='AWS Knowledge Server',
+    recordType='MCP',
+    descriptors={
+        'mcpServer': {
+            'source': {
+                'fromUrl': {
+                    'url': 'https://knowledge-mcp.global.api.aws'
+                }
+            }
+        }
+    }
+)
+print(f"Record ARN: {response['recordArn']}")
+print(f"Status: {response['status']}")  # CREATING
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 import boto3
@@ -63,7 +132,11 @@ print(f"Record ARN: {response['recordArn']}")
 print(f"Status: {response['status']}")  # CREATING
 ```
 
-The record is created in CREATING status. The synchronization time varies from seconds to minutes, depending on the size of the metadata. After synchronization completed, it transitions to DRAFT with descriptors extracted from the MCP server, including server and tools definitions.
+###### Note
+
+In the `agent-registry` namespace, sync configuration moves inside each descriptor as `source` (only supported on `mcpServer` and `a2aAgentCard` primary descriptors). The top-level `synchronizationType`/`synchronizationConfiguration` fields no longer exist.
+
+The record is created in CREATING status. The synchronization time varies from seconds to minutes, depending on the size of the metadata. After synchronization completes, it transitions to DRAFT with descriptors extracted from the MCP server, including server and tools definitions.
 
 ## Synchronize from an OAuth-protected MCP server
 
@@ -71,7 +144,28 @@ When the MCP server is protected by OAuth, you will need to create an M2M client
 
 ### Console
 
-1. Open the registry detail page.
+###### Example
+
+AWS Agent Registry namespace
+
+1. Open the registry detail page in the [AWS Agent Registry console](https://console.aws.amazon.com/agent-registry/home?region=us-east-1# "https://console.aws.amazon.com/agent-registry/home?region=us-east-1#").
+2. In the **Registry records** section, choose **Create record**.
+3. Choose **Synchronize from endpoint**.
+4. Under **Record details**, for **Type**, choose **MCP**. The **Descriptor** is set to **MCP server**.
+5. For **Endpoint**, enter the OAuth-protected MCP server URL. Must be a valid HTTPS URL.
+6. Under **Credential type**, choose **OAuth**.
+7. For **Credential provider**, select or enter the credential provider ARN from AgentCore Identity.
+8. (Optional) Expand **Additional configuration** to configure:
+
+   1. **Scopes** — OAuth scopes to request when obtaining an access token.
+   2. **Custom parameters** — Additional key-value parameters for the OAuth token request.
+
+9. (Optional) In the **Tags** section, choose **Add new tag** to attach one or more tags to the record. Each tag has a key and an optional value.
+10. Choose **Create record**.
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
+1. Open the registry detail page in the [Bedrock-AgentCore console](https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1# "https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1#").
 2. In the **Registry records** section, choose **Create record**.
 3. Choose **Synchronize from endpoint**.
 4. Under **Record details**, choose **MCP** as the record type.
@@ -88,6 +182,41 @@ When the MCP server is protected by OAuth, you will need to create an M2M client
 The record is created in CREATING status. The registry connects to the endpoint using the OAuth credentials, extracts server and tool definitions, and populates the record’s descriptors. After synchronization completes, the record transitions to DRAFT. If synchronization fails, the record transitions to CREATE\_FAILED status with the error details available in the Status Reason field. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").
 
 ### AWS CLI
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+aws agent-registry-control create-registry-record \
+  --registry-id $REGISTRY_ID \
+  --name "oauth-mcp-server" \
+  --display-name "OAuth MCP Server" \
+  --record-type MCP \
+  --descriptors '{
+    "mcpServer": {
+      "source": {
+        "fromUrl": {
+          "url": "$MCP_OAUTH_URL",
+          "credentialProviderConfigurations": [
+            {
+              "credentialProviderType": "OAUTH",
+              "credentialProvider": {
+                "oauthCredentialProvider": {
+                  "providerArn": "$OAUTH_PROVIDER_ARN",
+                  "grantType": "CLIENT_CREDENTIALS"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }' \
+  --region us-east-1
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 aws bedrock-agentcore-control create-registry-record \
@@ -120,6 +249,10 @@ aws bedrock-agentcore-control create-registry-record \
 
 **Additional IAM permissions required:**
 
+###### Note
+
+These sync-related IAM permissions authorize workload identity and OAuth credential provider resources managed by AgentCore Identity. Those resources intentionally remain under the `bedrock-agentcore` namespace, so this policy does not change.
+
 ```
 {
     "Statement":
@@ -143,12 +276,16 @@ aws bedrock-agentcore-control create-registry-record \
             ],
             "Resource":
             [
-                "arn:aws:bedrock-agentcore:*:<account>:token-vault/*"
+                "arn:aws:bedrock-agentcore:<region>:<account>:token-vault/default/oauth2credentialprovider/<oauthProviderName>"
             ]
         }
     ]
 }
 ```
+
+###### Note
+
+Scope the `GetResourceOauth2Token` statement to the specific OAuth credential provider ARN whose access token this role needs. Avoid wildcards in the provider segment of the ARN — patterns such as `token-vault/` or `token-vault/default/oauth2credentialprovider/` grant access to every OAuth credential provider in the account, which can enable cross-team credential access. Follow the principle of least privilege by naming the specific provider in the `Resource` field, for example `arn:aws:bedrock-agentcore:<region>:<account>:token-vault/default/oauth2credentialprovider/<oauthProviderName>`.
 
 Limitations:
 
@@ -157,15 +294,33 @@ Limitations:
 
 ## Synchronize from an IAM-protected MCP server
 
-For MCP servers on AgentCore Runtime or AgentCore Gateway, specify an IAM role for SigV4 signing. The role must have permission to access the target service. For example: `bedrock-agentcore:InvokeAgentRuntime` or `bedrock-agentcore:InvokeAgentRuntimeForUser` on AgentCore Runtime; `bedrock-agentcore:InvokeGateway` on AgentCore Gateway.
+For MCP servers on Amazon Bedrock AgentCore Runtime or Amazon Bedrock AgentCore Gateway, specify an IAM role for SigV4 signing. The role must have permission to access the target service. For example: `bedrock-agentcore:InvokeAgentRuntime` or `bedrock-agentcore:InvokeAgentRuntimeForUser` on AgentCore Runtime; `bedrock-agentcore:InvokeGateway` on AgentCore Gateway.
 
-Besides the IAM role, you must specify `service` field for SigV4 signing. If your MCP runs on AgentCore Runtime or AgentCore Gateway, the value should be `bedrock-agentcore` . If your MCP runs on API gateway, it should be `execute-api` , and if your MCP runs on lambda, it should be `lambda`.
+Besides the IAM role, you must specify the `service` field for SigV4 signing. If your MCP runs on AgentCore Runtime or AgentCore Gateway, the value should be `agent-registry`. If your MCP runs on Amazon API Gateway, it should be `execute-api`, and if your MCP runs on AWS Lambda, it should be `lambda`.
 
 `region` value is optional. By default, the request will be signed with same region as the registry.
 
 ### Console
 
-1. Open the registry detail page.
+###### Example
+
+AWS Agent Registry namespace
+
+1. Open the registry detail page in the [AWS Agent Registry console](https://console.aws.amazon.com/agent-registry/home?region=us-east-1# "https://console.aws.amazon.com/agent-registry/home?region=us-east-1#").
+2. In the **Registry records** section, choose **Create record**.
+3. Choose **Synchronize from endpoint**.
+4. Under **Record details**, for **Type**, choose **MCP**. The **Descriptor** is set to **MCP server**.
+5. For **Endpoint**, enter the IAM-protected MCP server URL. Must be a valid HTTPS URL.
+6. Under **Credential type**, choose **IAM**.
+7. For **Role ARN**, enter the IAM role ARN to assume for SigV4 signing.
+8. For **Service**, enter the service name for SigV4 signing (for example, `agent-registry`, `execute-api`, `lambda`).
+9. (Optional) Expand **Additional configuration** and choose a **Region** for SigV4 signing. If not specified, the registry’s own region is used.
+10. (Optional) In the **Tags** section, choose **Add new tag** to attach one or more tags to the record. Each tag has a key and an optional value.
+11. Choose **Create record**.
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
+1. Open the registry detail page in the [Bedrock-AgentCore console](https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1# "https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1#").
 2. In the **Registry records** section, choose **Create record**.
 3. Choose **Synchronize from endpoint**.
 4. Under **Record details**, choose **MCP** as the record type.
@@ -179,6 +334,42 @@ Besides the IAM role, you must specify `service` field for SigV4 signing. If you
 The record is created in CREATING status. The registry connects to the endpoint using IAM credentials, extracts server and tool definitions, and populates the record’s descriptors. After synchronization completes, the record transitions to DRAFT. If synchronization fails, the record transitions to CREATE\_FAILED status with the error details available in the Status Reason field. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").
 
 ### AWS CLI
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+aws agent-registry-control create-registry-record \
+  --registry-id $REGISTRY_ID \
+  --name "gateway-mcp-server" \
+  --display-name "Gateway MCP Server" \
+  --record-type MCP \
+  --descriptors '{
+    "mcpServer": {
+      "source": {
+        "fromUrl": {
+          "url": "$MCP_IAM_URL",
+          "credentialProviderConfigurations": [
+            {
+              "credentialProviderType": "IAM",
+              "credentialProvider": {
+                "iamCredentialProvider": {
+                  "roleArn": "$IAM_ROLE_ARN",
+                  "service": "$SIGNING_SERVICE",
+                  "region": "$SIGNING_REGION"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }' \
+  --region us-east-1
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 aws bedrock-agentcore-control create-registry-record \
@@ -212,6 +403,10 @@ aws bedrock-agentcore-control create-registry-record \
 
 **Additional IAM permissions required:**
 
+###### Note
+
+This `iam:PassRole` policy authorizes registry to hand off a role to AgentCore Identity for outbound sync. The `iam:PassedToService` condition value `bedrock-agentcore.amazonaws.com` refers to the AgentCore Identity service principal and does not change.
+
 ```
 {
     "Statement":
@@ -244,7 +439,27 @@ Provide the agent card URL or the agent’s base URL where `.well-known/agent-ca
 
 ### Console
 
-1. Open the registry detail page.
+###### Example
+
+AWS Agent Registry namespace
+
+1. Open the registry detail page in the [AWS Agent Registry console](https://console.aws.amazon.com/agent-registry/home?region=us-east-1# "https://console.aws.amazon.com/agent-registry/home?region=us-east-1#").
+2. In the **Registry records** section, choose **Create record**.
+3. Choose **Synchronize from endpoint**.
+4. Under **Record details**, for **Type**, choose **Agent**. The **Descriptor** is set to **A2A Agent Card**.
+5. For **Endpoint**, enter the agent card URL (e.g., `https://agent.example.com/.well-known/agent-card.json`). Must be a valid HTTPS URL.
+6. Under **Credential type**, choose the appropriate authorization method:
+
+   1. **None** — For publicly accessible agent cards.
+   2. **IAM** — For agents hosted on AgentCore Runtime or Gateway. Provide the **Role ARN** and **Service** name.
+   3. **OAuth** — For OAuth-protected agents. Select or enter the **Credential provider** ARN.
+
+7. (Optional) In the **Tags** section, choose **Add new tag** to attach one or more tags to the record. Each tag has a key and an optional value.
+8. Choose **Create record**.
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
+1. Open the registry detail page in the [Bedrock-AgentCore console](https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1# "https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1#").
 2. In the **Registry records** section, choose **Create record**.
 3. Choose **Synchronize from endpoint**.
 4. Under **Record details**, choose **Agent** as the record type.
@@ -261,6 +476,30 @@ The record is created in CREATING status. The registry connects to the endpoint,
 
 ### AWS CLI
 
+###### Example
+
+AWS Agent Registry namespace
+
+```
+aws agent-registry-control create-registry-record \
+  --registry-id $REGISTRY_ID \
+  --name "travel-agent" \
+  --display-name "Travel Agent" \
+  --record-type AGENT \
+  --descriptors '{
+    "a2aAgentCard": {
+      "source": {
+        "fromUrl": {
+          "url": "https://agent.example.com/.well-known/agent-card.json"
+        }
+      }
+    }
+  }' \
+  --region us-east-1
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
 ```
 aws bedrock-agentcore-control create-registry-record \
   --registry-id $REGISTRY_ID \
@@ -271,7 +510,39 @@ aws bedrock-agentcore-control create-registry-record \
   --region us-east-1
 ```
 
-You can also specify credential providers for A2A synchronization, for example you can synchronize from an agent hosted on AgentCore:
+You can also specify credential providers for A2A synchronization, for example you can synchronize from an agent hosted on AgentCore. Use `agent-registry` as the `service` field when the sync target is an agent hosted on AgentCore Runtime or Gateway.
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+aws agent-registry-control create-registry-record \
+  --registry-id $REGISTRY_ID \
+  --name "a2a_agent_record" \
+  --display-name "A2A Agent Record" \
+  --record-type AGENT \
+  --descriptors "{
+    \"a2aAgentCard\": {
+      \"source\": {
+        \"fromUrl\": {
+          \"url\": \"$A2A_URL\",
+          \"credentialProviderConfigurations\": [{
+            \"credentialProviderType\": \"IAM\",
+            \"credentialProvider\": {
+              \"iamCredentialProvider\": {
+                \"roleArn\": \"$IAM_INVOKER_ROLE\",
+                \"service\": \"agent-registry\"
+              }
+            }
+          }]
+        }
+      }
+    }
+  }"
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 aws bedrock-agentcore-control create-registry-record \
@@ -300,11 +571,26 @@ aws bedrock-agentcore-control create-registry-record \
 ### Console
 
 1. Open the record detail page for an MCP or Agent record that has synchronization configured.
-2. Choose the **Sync** button in the header actions.
-3. In the confirmation dialog, review the message that syncing will revert the record to draft state.
-4. Choose **Sync** to confirm.
 
-The record transitions to UPDATING status during synchronization. After completion, it returns to DRAFT with updated descriptors from the source. If synchronization fails, the record transitions to UPDATE\_FAILED status with the error details available in the Status Reason field. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").
+###### Example
+
+AWS Agent Registry namespace
+
+1. From the record detail page in the [AWS Agent Registry console](https://console.aws.amazon.com/agent-registry/home?region=us-east-1# "https://console.aws.amazon.com/agent-registry/home?region=us-east-1#"), choose **Manage**, then choose **Synchronization**.
+2. In the confirmation dialog, review the message that syncing will revert the record to draft state.
+3. Choose **Sync** to confirm.
+
+Alternatively, you can trigger synchronization during editing:
+
+1. From the record detail page, choose **Manage**, then choose **Edit**.
+2. Under **Synchronize from endpoint**, select the **Re-sync from endpoint** checkbox.
+3. Choose **Save changes**.
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
+1. From the record detail page in the [Bedrock-AgentCore console](https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1# "https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1#"), choose the **Sync** button in the header actions.
+2. In the confirmation dialog, review the message that syncing will revert the record to draft state.
+3. Choose **Sync** to confirm.
 
 Alternatively, you can trigger synchronization during editing:
 
@@ -312,7 +598,23 @@ Alternatively, you can trigger synchronization during editing:
 2. Under **Synchronize from endpoint**, select the **Re-sync from endpoint** checkbox.
 3. Choose **Save changes**.
 
+The record transitions to UPDATING status during synchronization. After completion, it returns to DRAFT with updated descriptors from the source. If synchronization fails, the record transitions to UPDATE\_FAILED status with the error details available in the Status Reason field. For troubleshooting, see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").
+
 ### AWS CLI
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+aws agent-registry-control update-registry-record \
+  --registry-id $REGISTRY_ID \
+  --record-id $RECORD_ID \
+  --trigger-synchronization \
+  --region us-east-1
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 aws bedrock-agentcore-control update-registry-record \
@@ -323,6 +625,25 @@ aws bedrock-agentcore-control update-registry-record \
 ```
 
 ### AWS SDK
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+import boto3
+
+client = boto3.client('agent-registry-control')
+
+response = client.update_registry_record(
+    registryId='<registryId>',
+    recordId='<recordId>',
+    triggerSynchronization=True
+)
+print(f"Status: {response['status']}")
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 import boto3
@@ -339,6 +660,6 @@ print(f"Status: {response['status']}")
 
 ###### Note
 
-If the record is in a non-DRAFT status (e.g., APPROVED), the update creates a new DRAFT revision. The approved revision remains searchable.
+If the record is in a non-DRAFT status (e.g., APPROVED), the update creates a new DRAFT revision. The approved revision remains discoverable.
 
 **Troubleshooting** : see [Record synchronization errors](registry-troubleshooting.md#registry-troubleshooting-sync-errors "registry-troubleshooting.md#registry-troubleshooting-sync-errors").

@@ -46,6 +46,10 @@ Any principal that passes the IAM or JWT authentication and authorization gate h
 
 If you expose the harness to end users you do not fully trust (employees, external consumers, or third-party integrations), validate and sanitize messages in your application layer before passing them to `InvokeHarness`. This includes stripping content-block types or model configuration fields you do not want dispatched. This is the same pattern as any service that accepts payloads from authorized callers, such as Lambda, Amazon API Gateway, and Amazon SQS.
 
+###### Note
+
+The harness rejects `toolUse` blocks in the final message server-side, as shown in the following example. For **AgentCore Runtime** deployments (non-harness), AgentCore Runtime provides no server-side protection. Your agent entrypoint must validate that the prompt field is a string and reject or strip `toolUse` content blocks before passing input to the agent framework. See [Security best practices for AgentCore Runtime](runtime-security-best-practices.md "runtime-security-best-practices.md").
+
 Tools run only as a result of model reasoning. The harness does not accept a [toolUse](../APIReference/API_HarnessToolUseBlock.md "../APIReference/API_HarnessToolUseBlock.md") block in the final message of an `InvokeHarness` request, so a caller cannot name a tool and have it dispatched directly.
 
 The following example shows a request that the harness is configured to reject. The final message contains a `toolUse` block naming the built-in `shell` tool:

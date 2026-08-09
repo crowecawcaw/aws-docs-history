@@ -1,8 +1,8 @@
 # Sample use cases
 
-###### Upcoming namespace migration
+###### Migration Now Open
 
-AWS Agent Registry is currently in public preview under the bedrock-agentcore namespace. Starting August 6, 2026, the service moves to the agent-registry namespace. If you use AWS Agent Registry, you must update your endpoints, IAM policies, SDK clients, CLI scripts, and registry data. For more information about migrating from public preview, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
+AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on September 17, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
 
 Below you will find some examples use cases where registry can be used.
 
@@ -20,7 +20,11 @@ An administrator reviewing the registry notices that a new team is building a tr
 
 ## Share reusable skills across agents
 
-A team has developed a skill for extracting structured data from PDF documents. They received positive feedback about the effectiveness of this skill, and were asked to broadly share this skill across the organization to boost collective productivity. Instead of reaching out to each team independently, they publish the skill to the registry with detailed markdown documentation and a structured definition. Other agent builders discover the skill through search and integrate it into their own agents, accelerating development across the organization.
+A team has developed a skill for extracting structured data from PDF documents. They received positive feedback about the effectiveness of this skill, and were asked to broadly share this skill across the organization to boost collective productivity. Instead of reaching out to each team independently, they publish the skill to the registry with detailed markdown documentation and a structured definition. Other agent builders discover the skill through search or by browsing the approved-record catalog, and integrate it into their own agents, accelerating development across the organization.
+
+## Explore the registry catalog before committing to a search
+
+A builder who is new to the registry doesn’t yet know what’s available and can’t craft a specific search query. They browse the approved-record catalog through the console or `ListDiscoverableRegistryRecords`, filter by record type (say, MCP servers), and page through results to get a sense of what tools exist in the organization. When they find several records that look promising, they fetch full details in a single call with `BatchGetDiscoverableRegistryRecord` and pick the ones that fit their workflow.
 
 ## Enforce quality standards through curation
 

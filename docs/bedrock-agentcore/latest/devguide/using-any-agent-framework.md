@@ -25,7 +25,9 @@ app = BedrockAgentCoreApp()
 @app.entrypoint
 def agent_invocation(payload, context):
     """Handler for agent invocation"""
-    user_message = payload.get("prompt", "No prompt found in input, please guide customer to create a json payload with prompt key")
+    user_message = payload.get("prompt", "")
+    if not isinstance(user_message, str) or not user_message.strip():
+        return {"error": "Invalid input: 'prompt' must be a non-empty string"}
     result = agent(user_message)
     print("context:\n-------\n", context)
     print("result:\n*******\n", result)
@@ -67,7 +69,7 @@ def agent_invocation(payload, context):
     print("received payload")
     print(payload)
 
-    tmp_msg = {"messages": [{"role": "user", "content": payload.get("prompt", "No prompt found in input, please guide customer as to what tools can be used")}]}
+    tmp_msg = {"messages": [{"role": "user", "content": str(payload.get("prompt", "No prompt found in input, please guide customer as to what tools can be used"))}]}
     tmp_output = graph.invoke(tmp_msg)
     print(tmp_output)
 
@@ -130,7 +132,8 @@ app = BedrockAgentCoreApp()
 
 @app.entrypoint
 def agent_invocation(payload, context):
-    return asyncio.run(call_agent_async(payload.get("prompt", "what is Bedrock Agentcore Runtime?"), payload.get("user_id",USER_ID), context.session_id))
+    query = str(payload.get("prompt", "what is Bedrock Agentcore Runtime?"))
+    return asyncio.run(call_agent_async(query, payload.get("user_id",USER_ID), context.session_id))
 
 app.run()
 ```
@@ -188,7 +191,7 @@ app = BedrockAgentCoreApp()
 @app.entrypoint
 async def agent_invocation(payload, context):
     logger.debug(f"Received payload: {payload}")
-    query = payload.get("prompt", "How can I help you today?")
+    query = str(payload.get("prompt", "How can I help you today?"))
 
     try:
         result = await main(query)

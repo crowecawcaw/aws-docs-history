@@ -22,3 +22,4 @@ Cedar is a formal policy language that provides precise, verifiable access contr
 - [Common policy patterns](policy-common-patterns.md "policy-common-patterns.md")
 - [Getting started with guardrails in the AgentCore CLI](policy-guardrails-getting-started.md "policy-guardrails-getting-started.md")
 - [Guardrails in policies](policy-guardrails-in-policies.md "policy-guardrails-in-policies.md")
+- [Temporal policies](policy-temporal.md "policy-temporal.md")

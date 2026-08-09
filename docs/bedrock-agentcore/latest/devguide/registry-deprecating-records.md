@@ -1,12 +1,12 @@
 # Deprecating registry records
 
-###### Upcoming namespace migration
+###### Migration Now Open
 
-AWS Agent Registry is currently in public preview under the bedrock-agentcore namespace. Starting August 6, 2026, the service moves to the agent-registry namespace. If you use AWS Agent Registry, you must update your endpoints, IAM policies, SDK clients, CLI scripts, and registry data. For more information about migrating from public preview, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
+AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on September 17, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
 
 ## Overview
 
-Deprecation of a Registry Record removes the record from being discoverable in the Search Results (via SearchRegistryRecords API) as well as the Registry’s MCP endpoint. Deprecated is a Terminal State and once a record is in this state, it cannot be edited or transitioned to any other state. The Record can still be found via ListRegistryRecords and GetRegistryRecord APIs for auditing purposes, but cannot be un-deprecated.
+When you deprecate a registry record, you remove it from the discoverable data-plane APIs (`SearchDiscoverableRegistryRecords`, `ListDiscoverableRegistryRecords`, `BatchGetDiscoverableRegistryRecord`) and from the registry’s MCP endpoint. Deprecated is a terminal state — after a record reaches this state, you cannot edit it or transition it to any other state. You can still find the record by using the `ListRegistryRecords` and `GetRegistryRecord` APIs for auditing purposes, but you cannot un-deprecate it.
 
 Deprecate a record for reasons like you have decommissioned the resource, a newer version of the resource is published (with an independent record in the registry), the resource has known issues due to which you do not want other builders to discover the resource, or internal policy requires removal of the resource record.
 
@@ -25,6 +25,21 @@ Deprecation is available from any record status.
 
 ### AWS CLI
 
+###### Example
+
+AWS Agent Registry namespace
+
+```
+aws agent-registry-control update-registry-record-status \
+  --registry-id "<registryId>" \
+  --record-id "<recordId>" \
+  --status DEPRECATED \
+  --status-reason "Replaced by v2" \
+  --region us-east-1
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
 ```
 aws bedrock-agentcore-control update-registry-record-status \
   --registry-id "<registryId>" \
@@ -35,6 +50,27 @@ aws bedrock-agentcore-control update-registry-record-status \
 ```
 
 ### AWS SDK
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+import boto3
+
+client = boto3.client('agent-registry-control')
+
+response = client.update_registry_record_status(
+    registryId='<registryId>',
+    recordId='<recordId>',
+    status='DEPRECATED',
+    statusReason='Replaced by v2'
+)
+print(f"Status: {response['status']}")  # DEPRECATED
+print(f"StatusReason: {response['statusReason']}")
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 import boto3

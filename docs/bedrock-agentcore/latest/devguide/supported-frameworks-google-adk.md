@@ -11,8 +11,8 @@ This page explains how to instrument a [Google Agent Development Kit (ADK)](http
   - [From event records](#google-adk-extraction-event-records "#google-adk-extraction-event-records")
   - [From span attributes](#google-adk-extraction-attributes "#google-adk-extraction-attributes")
 
-- [Example spans with event records](#google-adk-examples-with "#google-adk-examples-with")
-- [Example spans without event records](#google-adk-examples-without "#google-adk-examples-without")
+- [Example spans in split telemetry](#google-adk-examples-split "#google-adk-examples-split")
+- [Example spans in unified telemetry](#google-adk-examples-unified "#google-adk-examples-unified")
 
 ## Instrument your agent
 
@@ -43,7 +43,7 @@ dependencies = [
 
 ###### Note
 
-Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks.md#supported-frameworks-setup "supported-frameworks.md#supported-frameworks-setup").
+Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup "supported-frameworks-telemetry.md#supported-frameworks-setup").
 
 ## How spans are identified
 
@@ -61,30 +61,30 @@ Google ADK emits a nested span tree: an outer `invocation` span (`CHAIN`) wraps 
 
 Google ADK wraps its conversation content in the Gemini content format. The user prompt is nested under a `new_message` object as `{"new_message": {"parts": [{"text": "…​"}], "role": "user"}}`, and the agent response is nested under a `content` object as `{"content": {"parts": [{"text": "…​"}], "role": "model"}}`. AgentCore Evaluations unwraps these structures and joins the `parts` text with newlines. Tool definitions arrive as a serialized Gemini request; AgentCore Evaluations reads the available tools from `config.tools[].function_declarations[]`.
 
-The location of this content depends on how telemetry was collected. The identifying attribute (`openinference.span.kind`) is on the span in both cases. For more information, see [Spans, event records, and telemetry signals](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md").
+The location of this content depends on how telemetry was collected. The identifying attribute (`openinference.span.kind`) is on the span in both cases. For more information, see [Telemetry setup and delivery](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md").
 
 ### From event records
 
-When telemetry is split, AgentCore Evaluations reads content from the event record correlated to each span:
+With split telemetry, AgentCore Evaluations reads content from the event record correlated to each span:
 
 - **User prompt**: from the invoke agent span’s event record, in `body.input`. AgentCore Evaluations unwraps the `new_message.parts` text.
 - **Agent response**: from the invoke agent span’s event record, in `body.output`. AgentCore Evaluations unwraps the `content.parts` text.
 - **Tool call**: the tool name from the `tool.name` attribute on the execute tool span. The tool arguments and result come from that span’s event record, in `body.input` and `body.output`.
 
-For examples, see [Example spans with event records](#google-adk-examples-with "#google-adk-examples-with").
+For more information, see [Example spans in split telemetry](#google-adk-examples-split "#google-adk-examples-split").
 
 ### From span attributes
 
-When telemetry is not split, the same content stays on the span as attributes:
+With unified telemetry, the same content stays on the span as attributes:
 
 - **User prompt** and **agent response**: from `input.value` and `output.value` on the invoke agent span. AgentCore Evaluations unwraps the `new_message.parts` and `content.parts` text.
 - **Tool call**: the tool name from `tool.name`, and the arguments and result from `input.value` and `output.value`, on the execute tool span.
 
-For examples, see [Example spans without event records](#google-adk-examples-without "#google-adk-examples-without").
+For more information, see [Example spans in unified telemetry](#google-adk-examples-unified "#google-adk-examples-unified").
 
-## Example spans with event records
+## Example spans in split telemetry
 
-When telemetry is split, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from a Google ADK travel-planning agent deployed on Amazon Bedrock AgentCore Runtime.
+With split telemetry, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from a Google ADK travel-planning agent deployed on Amazon Bedrock AgentCore Runtime.
 
 ###### Note
 
@@ -203,7 +203,7 @@ The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute t
 ```
 
 Inference span
-The `openinference.span.kind` attribute (`LLM`) on the `call_llm` span identifies this as an inference span. It carries the model metadata and, in the indexed `llm.input_messages.` and `llm.output_messages.` attributes, the messages for the model call.
+The `openinference.span.kind` attribute (`LLM`) on the `call_llm` span identifies this as an inference span. It carries the model metadata and, in the indexed `llm.input_messages.*` and `llm.output_messages.*` attributes, the messages for the model call.
 
 ```
 {
@@ -233,9 +233,9 @@ The `openinference.span.kind` attribute (`LLM`) on the `call_llm` span identifie
 }
 ```
 
-## Example spans without event records
+## Example spans in unified telemetry
 
-When telemetry is not split, the same content stays on the span attributes and no separate event record is produced. The following examples are from a Google ADK travel-planning agent.
+With unified telemetry, the same content stays on the span attributes and no separate event record is produced. The following examples are from a Google ADK travel-planning agent.
 
 ###### Note
 
@@ -301,7 +301,7 @@ The `input.value` attribute holds the tool arguments, and the `output.value` att
 ```
 
 Inference span
-The `openinference.span.kind` attribute (`LLM`) on the `call_llm` span identifies this as an inference span. The messages for the model call are inline on the indexed `llm.input_messages.` and `llm.output_messages.` attributes.
+The `openinference.span.kind` attribute (`LLM`) on the `call_llm` span identifies this as an inference span. The messages for the model call are inline on the indexed `llm.input_messages.*` and `llm.output_messages.*` attributes.
 
 ```
 {

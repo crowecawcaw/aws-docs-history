@@ -163,6 +163,10 @@ print(f"Cedar Statement: {response['definition']['cedar']['statement']}")
 
 Update a policy’s definition.
 
+###### Note
+
+If the updated policy is a temporal policy, or the update adds or removes temporal expressions, updating it invalidates the engine’s active temporal policy sessions. In-flight sessions return an HTTP 409 `ConflictException` and must be restarted. For more information, see [Session invalidation](policy-temporal.md#policy-temporal-session-invalidation "policy-temporal.md#policy-temporal-session-invalidation").
+
 ###### Example
 
 AWS CLI

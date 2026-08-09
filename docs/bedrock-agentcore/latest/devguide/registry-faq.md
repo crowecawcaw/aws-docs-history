@@ -1,13 +1,13 @@
 # Comprehensive registry migration guide
 
-_AWS Agent Registry — Migrating from Public Preview to General Availability_
+_AWS Agent Registry — Migrating to the new `agent-registry` namespace_
 
 ## Introduction
 
-As part of launching as Generally Available (GA) on August 6, 2026, AWS Agent Registry is introducing significant changes to the service principal, data and API model. If you used AWS Agent Registry during the public preview, you must complete a migration that spans three areas:
+As part of the August 6, 2026 launch of the new `agent-registry` namespace, AWS Agent Registry is introducing significant changes to the service principal, data and API model. If you used AWS Agent Registry under the `bedrock-agentcore` namespace, you must complete a migration that spans three areas:
 
 1. **Namespace and configuration changes** – We are moving AWS Agent Registry from the AWS Bedrock AgentCore namespace into its own dedicated namespace. This namespace change applies only to AWS Agent Registry. All other AgentCore offerings—such as Identity, Gateway, Runtime, and Policy—remain unaffected. For AWS Agent Registry, the service namespace changes from `bedrock-agentcore` to `agent-registry`. This affects every surface that references the service: endpoints, IAM policies, SDK clients, CLI commands, resource ARNs, and observability integrations. You must update your code and infrastructure to use the new namespace.
-2. **API schema changes** – The registry and registry record data models are updated based on customer feedback during the public preview. These changes break backward compatibility with the existing API schemas. Your application code that constructs or parses API requests and responses must be updated to reflect the new schema, as part of migrating to the new namespace.
+2. **API schema changes** – The registry and registry record data models are updated based on customer feedback from the `bedrock-agentcore` namespace. These changes break backward compatibility with the existing API schemas. Your application code that constructs or parses API requests and responses must be updated to reflect the new schema, as part of migrating to the new namespace.
 3. **Data migration** – You must migrate your existing registries and registry records from the old namespace to the new one. We provide migration tooling to extract your data, transform it to the new schema, and load it into the new namespace. The data is migrated to the same account and region — only the namespace changes.
 
 This guide covers each area in detail with before-and-after examples to help you plan and execute your migration.
@@ -16,7 +16,7 @@ This guide covers each area in detail with before-and-after examples to help you
 
 There are two important milestones you must remember for this migration:
 
-- **August 6, 2026** — AWS Agent Registry becomes Generally Available, and the new `agent-registry` namespace officially launches. If you have existing registries and records, you have simultaneous access to the `bedrock-agentcore` and `agent-registry` namespaces. Migration tooling becomes available in the [agentcore-samples GitHub repository](https://github.com/awslabs/agentcore-samples "https://github.com/awslabs/agentcore-samples"). You can begin the process of migration.
+- **August 6, 2026** — The new `agent-registry` namespace for AWS Agent Registry officially launches. Access the service in the [AWS Agent Registry console](https://console.aws.amazon.com/agent-registry/home?region=us-east-1# "https://console.aws.amazon.com/agent-registry/home?region=us-east-1#"). If you have existing registries and records, you have simultaneous access to the `bedrock-agentcore` and `agent-registry` namespaces. Migration tooling becomes available in the [agentcore-samples repository](https://github.com/awslabs/agentcore-samples/tree/main/01-features/07-centralize-and-govern-your-ai-infrastructure/03-registry/04-migrate-to-new-namespace "https://github.com/awslabs/agentcore-samples/tree/main/01-features/07-centralize-and-govern-your-ai-infrastructure/03-registry/04-migrate-to-new-namespace") on the GitHub website. You can begin the process of migration.
 
 ###### Note
 
@@ -57,7 +57,7 @@ If you have automation that parses ARNs or stores them, update those references 
 ###### Note
 
 If you currently use the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md")
-AWS Managed Policy for AWS Agent Registry access (see [BedrockAgentCoreFullAccess policy details](security-iam-awsmanpol.md#security-iam-awsmanpol-BedrockAgentCoreFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-BedrockAgentCoreFullAccess")), you must replace it with the new **AgentRegistryFullAccess** managed policy (available at GA). The old BedrockAgentCoreFullAccess managed policy will **NOT** be updated to include `agent-registry:*` permissions.
+AWS Managed Policy for AWS Agent Registry access (see [BedrockAgentCoreFullAccess policy details](security-iam-awsmanpol.md#security-iam-awsmanpol-BedrockAgentCoreFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-BedrockAgentCoreFullAccess")), you must replace it with the new **AgentRegistryFullAccess** managed policy (available on August 6, 2026). The old BedrockAgentCoreFullAccess managed policy will **NOT** be updated to include `agent-registry:*` permissions.
 
 ### SDK, CLI, and infrastructure
 
@@ -82,11 +82,84 @@ Update any CloudTrail Lake queries, Athena queries, SIEM integrations, EventBrid
 | EventBridge source      | `aws.bedrock-agentcore`           | `aws.agent-registry`           |
 | CloudWatch namespace    | `AWS/BedrockAgentCore`            | `AWS/AgentRegistry`            |
 
+#### EventBridge notifications
+
+Under the `bedrock-agentcore` namespace, AWS Agent Registry emitted two Amazon EventBridge events under the `aws.bedrock-agentcore` event source. The event source now changes to `aws.agent-registry`, resource ARNs adopt the new namespace, and notification coverage expands to the full registry-record and registry lifecycle. Events continue to go to the **default** EventBridge bus in the resource’s own account. You must update any EventBridge rules that match on the old source or the old detail-type strings.
+
+| Surface                | Old value                                                           | New value                                               |
+| ---------------------- | ------------------------------------------------------------------- | ------------------------------------------------------- |
+| Event source           | `aws.bedrock-agentcore`                                             | `aws.agent-registry`                                    |
+| Resource ARN namespace | `arn:aws:bedrock-agentcore:{region}:{account}:registry/…​`          | `arn:aws:agent-registry:{region}:{account}:registry/…​` |
+| Event bus              | Default bus                                                         | Default bus _(unchanged)_                               |
+| Registry-record events | 1 detail type (`Registry Record State changed to Pending Approval`) | 5 detail types (full approval lifecycle)                |
+| Registry events        | 1 detail type (`Registry State transitions from Creating to Ready`) | 7 detail types (full registry lifecycle)                |
+| Event `detail` payload | `registryRecordId`, `registryId` (records)                          | _(unchanged)_                                           |
+
+###### Important
+
+The registry (parent) detail type changed from a sentence to a short status string. A rule that matched detail type `Registry State transitions from Creating to Ready` no longer fires — update it to `Registry Ready`. The registry-record detail type `Registry Record State changed to Pending Approval` is unchanged, so rules matching it continue to work after you update the `source`.
+
+**Registry-record events.** Emitted when a registry record transitions between approval-workflow states. `Resources` is the full record ARN; `detail` contains `registryRecordId` and `registryId`.
+
+| Detail type                                         | Trigger                                                |
+| --------------------------------------------------- | ------------------------------------------------------ |
+| `Registry Record State changed to Draft`            | Record version enters `DRAFT`                          |
+| `Registry Record State changed to Pending Approval` | `SubmitRegistryRecordForApproval` called _(unchanged)_ |
+| `Registry Record State changed to Approved`         | Record transitions to `APPROVED`                       |
+| `Registry Record State changed to Rejected`         | Record transitions to `REJECTED`                       |
+| `Registry Record State changed to Deprecated`       | Record transitions to `DEPRECATED`                     |
+
+**Registry events.** Emitted on registry provisioning and lifecycle transitions. `Resources` is the full registry ARN; `detail` contains `registryId` and `registryName`.
+
+| Detail type              | Trigger                                                                                                                              |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `Registry Creating`      | Registry enters `CREATING`                                                                                                           |
+| `Registry Ready`         | Registry becomes `READY`<br>_(replaces the `bedrock-agentcore` namespace value `Registry State transitions from Creating to Ready`)_ |
+| `Registry Create Failed` | Registry enters `CREATE_FAILED`                                                                                                      |
+| `Registry Updating`      | Registry enters `UPDATING`                                                                                                           |
+| `Registry Update Failed` | Registry enters `UPDATE_FAILED`                                                                                                      |
+| `Registry Deleting`      | Registry enters `DELETING`                                                                                                           |
+| `Registry Delete Failed` | Registry enters `DELETE_FAILED`                                                                                                      |
+
+**Example event (registry record).**
+
+**Before (`bedrock-agentcore` namespace, to be deprecated):**
+
+```
+{
+  "version": "0",
+  "detail-type": "Registry Record State changed to Pending Approval",
+  "source": "aws.bedrock-agentcore",
+  "account": "123456789012",
+  "region": "us-west-2",
+  "resources": ["arn:aws:bedrock-agentcore:us-west-2:123456789012:registry/REG_ID/record/REC_ID"],
+  "detail": { "registryRecordId": "REC_ID", "registryId": "REG_ID" }
+}
+```
+
+**After (`agent-registry` namespace):**
+
+```
+{
+  "version": "0",
+  "detail-type": "Registry Record State changed to Pending Approval",
+  "source": "aws.agent-registry",
+  "account": "123456789012",
+  "region": "us-west-2",
+  "resources": ["arn:aws:agent-registry:us-west-2:123456789012:registry/REG_ID/record/REC_ID"],
+  "detail": { "registryRecordId": "REC_ID", "registryId": "REG_ID" }
+}
+```
+
+###### Note
+
+To match any registry-record state change with a single rule, match on the `source` (`aws.agent-registry`) plus a `detail-type` prefix of `Registry Record State changed to`. To match any registry lifecycle change, match on the `Registry ` detail-type prefix.
+
 ### Example: Updating IAM policies
 
 Replace the action prefix and resource ARN namespace in all your IAM policies.
 
-**Before (public preview):**
+**Before (`bedrock-agentcore` namespace, to be deprecated):**
 
 ```
 {
@@ -113,7 +186,7 @@ Replace the action prefix and resource ARN namespace in all your IAM policies.
 }
 ```
 
-**After (General Availability):**
+**After (`agent-registry` namespace):**
 
 ```
 {
@@ -162,7 +235,7 @@ Do not replace every `bedrock-agentcore` action — these identity resources int
 
 Update the service name, client class, and endpoint URL in your SDK calls.
 
-**Before (public preview):**
+**Before (`bedrock-agentcore` namespace, to be deprecated):**
 
 ```
 import boto3
@@ -180,7 +253,7 @@ dp_client = session.client(
 )
 ```
 
-**After (General Availability):**
+**After (`agent-registry` namespace):**
 
 ```
 import boto3
@@ -202,7 +275,7 @@ dp_client = session.client(
 
 Replace the CLI namespace in all scripts and automation.
 
-**Before (public preview):**
+**Before (`bedrock-agentcore` namespace, to be deprecated):**
 
 ```
 aws bedrock-agentcore-control create-registry \
@@ -212,7 +285,7 @@ aws bedrock-agentcore-control create-registry \
     --endpoint-url https://bedrock-agentcore-control.us-west-2.amazonaws.com
 ```
 
-**After (General Availability):**
+**After (`agent-registry` namespace):**
 
 ```
 aws agent-registry-control create-registry \
@@ -224,7 +297,7 @@ aws agent-registry-control create-registry \
 
 ## API schema changes
 
-In addition to the namespace migration, we updated the registry and registry record data models for General Availability. These changes improve the consistency and extensibility of the API based on feedback from the public preview. This section covers each change category with before and after examples so you can update your application code.
+In addition to the namespace migration, we updated the registry and registry record data models in the `agent-registry` namespace. These changes improve the consistency and extensibility of the API based on feedback from the `bedrock-agentcore` namespace. This section covers each change category with before and after examples so you can update your application code.
 
 ### Change 1: Registry entity updates
 
@@ -235,7 +308,7 @@ The specific field changes are:
 - `authorizerType` and `authorizerConfiguration` are moved inside a new `discoveryConfiguration` object.
 - `approvalConfiguration.autoApproval` (boolean) is replaced with `approvalConfiguration.autoApprovalRules` (array of enum strings). The value `"APPROVE_ALL"` has the same semantic meaning as `autoApproval: true`. Rules specified in the enum list are applied. Not specifying (null) means approval is needed.
 
-**Before (public preview):**
+**Before (`bedrock-agentcore` namespace, to be deprecated):**
 
 ```
 {
@@ -249,7 +322,7 @@ The specific field changes are:
 }
 ```
 
-**After (General Availability): with Approval ALL**
+**After (`agent-registry` namespace): with Approval ALL**
 
 ```
 {
@@ -265,7 +338,7 @@ The specific field changes are:
 }
 ```
 
-**After (General Availability): with NULL in enum list**
+**After (`agent-registry` namespace): with NULL in enum list**
 
 ```
 {
@@ -306,7 +379,7 @@ The following fields are renamed:
 | `schemaVersion` / `protocolVersion` | `dataSchemaVersion` | Unified version field for all descriptor types.                                           |
 | `synchronizationConfiguration`      | `source`            | Moved inside each descriptor (including `additionalData` children).                       |
 
-**Before (public preview):**
+**Before (`bedrock-agentcore` namespace, to be deprecated):**
 
 ```
 {
@@ -359,7 +432,7 @@ The following fields are renamed:
 }
 ```
 
-**After (General Availability):**
+**After (`agent-registry` namespace):**
 
 ```
 {
@@ -412,7 +485,7 @@ Exactly one primary descriptor key may be populated per record. The valid primar
 
 `source` is per-descriptor rather than a single top-level block. It attaches to descriptors that carry a `source` field in the schema — `mcpServer` and `a2aAgentCard`. The `tools` child (under `mcpServer.additionalData`), the `agentSkillsDefinition` parent, and the `custom` descriptor carry no `source`.
 
-At GA, only `source.fromUrl` is supported.
+In the `agent-registry` namespace, only `source.fromUrl` is supported.
 
 Auto-synchronization is only triggered for the `mcpServer` and `a2aAgentCard` primary descriptors — that is, MCP and AGENT record types. A `source` on the `skillMd` child is persisted but not used to run sync, and SKILL records cannot be auto-synchronized. CUSTOM records must be created manually by providing `data` directly.
 
@@ -428,7 +501,7 @@ The MCP search tool `search_registry_records` becomes `search_discoverable_regis
 
 ### Change 5: New browsing APIs
 
-Two new data plane APIs support building browsing and catalog experiences over approved records. These APIs do not require any explicit migration; we mention them here as additions to the AWS Agent Registry API model at GA.
+Two new data plane APIs support building browsing and catalog experiences over approved records. These APIs do not require any explicit migration; we mention them here as additions to the AWS Agent Registry API model in the `agent-registry` namespace.
 
 **ListDiscoverableRegistryRecords** — Returns a paginated list of approved registry records. Use this to build browsing interfaces over published content.
 
@@ -503,16 +576,16 @@ At launch, exactly one entry (one registry, 1-100 record IDs) is accepted. The g
 
 ### Change 6: List APIs adopt structured filters parameter
 
-In public preview, List APIs expose each filterable field as its own query parameter (for example, `--status READY`, `--recordType MCP`). In GA, a single structured `filters` parameter replaces these discrete parameters. The `filters` value is a list of `{ "name": "<dotted.path>", "values": ["<value>"] }` entries where `name` is a dot-delimited attribute path. New filterable fields, including nested ones, become new `name` paths rather than new API parameters. List operations also change from `GET` to `POST`. Pagination parameters (`maxResults`, `nextToken`) are unchanged.
+In the `bedrock-agentcore` namespace, List APIs expose each filterable field as its own query parameter (for example, `--status READY`, `--recordType MCP`). In the `agent-registry` namespace, a single structured `filters` parameter replaces these discrete parameters. The `filters` value is a list of `{ "name": "<dotted.path>", "values": ["<value>"] }` entries where `name` is a dot-delimited attribute path. New filterable fields, including nested ones, become new `name` paths rather than new API parameters. List operations also change from `GET` to `POST`. Pagination parameters (`maxResults`, `nextToken`) are unchanged.
 
-**Before (public preview):**
+**Before (`bedrock-agentcore` namespace, to be deprecated):**
 
 ```
 GET /registries?status=READY&authorizerType=AWS_IAM
 GET /registries/{registryId}/records?name=my-agent&status=APPROVED&recordType=MCP
 ```
 
-**After (General Availability):**
+**After (`agent-registry` namespace):**
 
 ```
 // ListRegistries
@@ -541,38 +614,30 @@ GET /registries/{registryId}/records?name=my-agent&status=APPROVED&recordType=MC
 
 ## Data migration
 
-You must migrate your existing registries and registry records from the `bedrock-agentcore` namespace to the `agent-registry` namespace. We provide a script to assist with the migration. The script handles extraction of existing data, transformation from the old schema to the new schema, and loading into registries in the new namespace. The script creates new registries in the `agent-registry` namespace within the same account and region. It migrates all existing records from your old registries to the new ones, accounting for namespace and API schema changes.
+You must migrate your existing registries and registry records from the `bedrock-agentcore` namespace to the `agent-registry` namespace. We provide a migration tool to assist with the migration. The tool handles extraction of existing data, transformation from the old schema to the new schema, and loading into registries in the new namespace. The tool creates new registries in the `agent-registry` namespace within the same account and region. It migrates all existing records from your old registries to the new ones, accounting for namespace and API schema changes.
+
+The migration tool is available in the [agentcore-samples repository](https://github.com/awslabs/agentcore-samples/tree/main/01-features/07-centralize-and-govern-your-ai-infrastructure/03-registry/04-migrate-to-new-namespace "https://github.com/awslabs/agentcore-samples/tree/main/01-features/07-centralize-and-govern-your-ai-infrastructure/03-registry/04-migrate-to-new-namespace") on the GitHub website. For full setup instructions, command reference, and operational guidance, see the repository README.
 
 ### Choosing your migration approach
 
-The right approach depends on the scale of your registry usage and your operational environment.
+The right approach depends on whether a one-time full migration is sufficient or whether you need unattended execution and the ability to run an incremental load at cutover.
 
-#### Case 1: Small-scale migration with direct script execution
+#### Case 1: Simple migration
 
-- **Profile:** Fewer than 5 registries and fewer than 100 records. You have direct access to a terminal or CloudShell in the target account.
-- **Approach:** Run the migration Python script directly. The script connects to the preview namespace, lists your registries and records, transforms the data to the GA schema, and creates them in the new namespace. This is the simplest path and requires no infrastructure deployment.
+- **Profile:** A one-time full migration is sufficient. You do not need to run incremental loads or leave jobs running unattended.
+- **Approach:** Run the migration tool directly from your terminal or AWS CloudShell. No infrastructure to deploy. The tool connects to the `bedrock-agentcore` namespace, extracts your registries and records, transforms the data to the `agent-registry` schema, and creates them in the new namespace. This is the simplest path and requires no infrastructure deployment.
 
-#### Case 2: Managed migration with Lambda or Glue
+#### Case 2: Managed migration with AWS Glue
 
-- **Profile:** You do not have direct terminal access to the target environment, or you prefer a managed execution model.
-- **Approach:** Deploy the migration as an AWS Lambda function or AWS Glue job. The migration engine performs the same extract-transform-load workflow but runs as a managed job within your account. For most accounts, the full migration completes in under 15 minutes.
+- **Profile:** You prefer unattended execution, or you plan to run both registry versions in parallel for a period and need an incremental load at cutover to capture any records created or updated in the `bedrock-agentcore` namespace after the initial full run.
+- **Approach:** Deploy the migration as AWS Glue jobs using the provided CDK stack. The jobs run in your account without depending on an open terminal session.
 
-The migration engine:
+The typical flow is: run a full migration to bring the `agent-registry` namespace up to date, then operate both namespaces in parallel while you validate and update your integrations. When you are ready to cut over, run an incremental load to sync any records that changed during the parallel period, verify, and switch traffic to the `agent-registry` namespace.
 
-- **Extracts** registries and records from the preview namespace, supporting both full and incremental loads. It paginates through all API responses and serializes the data to a staging location.
-- **Transforms** each record by applying the API schema changes (field renames, descriptor restructuring, new required fields).
-- **Loads** the transformed data into the new `agent-registry` namespace, creating registries and records using the GA API.
-- **Generates a report** summarizing what was migrated, any errors encountered, and record counts for verification.
+#### Case 3: Active-active migration
 
-#### Case 3: Dual-write migration for active production workloads
-
-- **Profile:** You have built a platform or automation pipeline on top of the public preview APIs and are actively writing new data in production.
-- **Approach:** Use a dual-write migration strategy to avoid data loss during the transition:
-
-  - **Update your writer** – Modify your application to write to both the preview namespace and the new `agent-registry` namespace simultaneously.
-  - **Run the migration script with deduplication** – Execute the migration tooling to migrate historical data. The script deduplicates based on the `name` field, so records that already exist in the new namespace (from your dual-write) are not duplicated.
-  - **Switch your reader** – After you verify that all data exists in the new namespace, update your application to read exclusively from `agent-registry`.
-  - **Remove the dual-write** – After confirming all reads and writes are successful on the new namespace, remove the preview namespace writer from your application.
+- **Profile:** You have built a platform or automation pipeline on top of the `bedrock-agentcore` namespace APIs and are continuously writing new records in production.
+- **Approach:** Start with a full migration using the managed AWS Glue-based approach to bring all historical data into the `agent-registry` namespace. Then point your platform or pipeline at the `agent-registry` namespace in addition to the `bedrock-agentcore` namespace — your application writes to both simultaneously. Use this active-active period to validate your integrations and build confidence in the `agent-registry` namespace. Once you are satisfied, cut over all reads and writes to `agent-registry` and decommission the `bedrock-agentcore` namespace integration.
 
 ### Verifying your migration
 
@@ -584,11 +649,57 @@ After running the migration, confirm that your data was migrated correctly:
 - Update your IAM policies, endpoints, and SDK clients as described in the Namespace and configuration changes section.
 - Verify that your applications can successfully read and write using the new namespace.
 
+### Update IAM trust policies for synchronized records
+
+If any of your registry records use **Synchronize** with the **IAM role** credential type, you must update the role’s trust policy before running the live load. The service principal that assumes the role changed from `bedrock-agentcore.amazonaws.com` to `agent-registry.amazonaws.com` in the new namespace. Records that use OAuth credentials or no authorization are unaffected.
+
+###### Note
+
+The migration tool cannot detect this — the tool never assumes the sync role. The registry service assumes it asynchronously after the record is created. If you skip this step, the migrated record arrives in the `agent-registry` namespace pointing at the same role, and synchronization fails until the role trusts the new principal.
+
+Update the trust policy on the role referenced by each affected record.
+
+**Before (`bedrock-agentcore` namespace, to be deprecated):**
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": { "Service": "bedrock-agentcore.amazonaws.com" },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
+**After (`agent-registry` namespace):**
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": { "Service": "agent-registry.amazonaws.com" },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
+If a record has already failed for this reason, the migrated record exists in `CREATE_FAILED` status. The migration tool refuses to overwrite a record in a failure status, so fixing the trust policy alone does not resolve it. To recover:
+
+1. Update the trust policy on the affected role.
+2. Delete the `CREATE_FAILED` record from the `agent-registry` namespace.
+3. Re-run the load.
+
 ## FAQ
 
 ### What is changing in AWS Agent Registry?
 
-AWS Agent Registry is moving from the public preview `bedrock-agentcore` namespace to the generally available `agent-registry` namespace. The migration spans three areas: namespace and configuration changes (endpoints, IAM, SDK, CLI, ARNs, observability), API schema changes (restructured data model for registries and records), and data migration (moving your existing registries and records to the new namespace).
+AWS Agent Registry is moving from the `bedrock-agentcore` namespace to the new dedicated `agent-registry` namespace. The migration spans three areas: namespace and configuration changes (endpoints, IAM, SDK, CLI, ARNs, observability), API schema changes (restructured data model for registries and records), and data migration (moving your existing registries and records to the new namespace).
 
 ### Can I continue using Registry on the `bedrock-agentcore` namespace?
 
@@ -610,7 +721,7 @@ Migration time depends on the number of registries and records in your account. 
 
 ### What if I have a large-scale deployment with active writes?
 
-If you are actively writing data to the preview namespace in production, use the dual-write migration strategy as described in Case 3. This approach ensures no data is lost during the transition by writing to both namespaces simultaneously, migrating historical data with deduplication, and then cutting over reads.
+If you are actively writing data to the `bedrock-agentcore` namespace in production, use the active-active migration approach as described in Case 3. Start with a full migration to bring the `agent-registry` namespace up to date, then write to both namespaces simultaneously to validate your integrations and build confidence in the new namespace. Cut over reads and writes to `agent-registry` when you are ready.
 
 ### Where can I get help?
 

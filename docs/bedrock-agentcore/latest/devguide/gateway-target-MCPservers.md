@@ -42,7 +42,7 @@ Make a PUT request to /gateways/ { gatewayIdentifier}/synchronize with the targe
 The following types of the authorization strategy are supported.
 
 - No authorization – The gateway invokes the MCP server without preconfigured authorization. This approach is not recommended.
-- OAuth – The gateway supports both two-legged OAuth (Client Credentials grant type) and three-legged OAuth (Authorization Code grant type). You configure the authorization provider in Amazon Bedrock AgentCore Identity in the same account and Region for the gateway to make calls to the MCP server.
+- OAuth – The gateway supports two-legged OAuth (`CLIENT_CREDENTIALS` grant type), three-legged OAuth (`AUTHORIZATION_CODE` grant type), and on-behalf-of token exchange (`TOKEN_EXCHANGE` grant type). You configure the authorization provider in Amazon Bedrock AgentCore Identity in the same account and Region for the gateway to make calls to the MCP server. If you use on-behalf-of token exchange, review the on-behalf-of token exchange considerations for this target type.
 - IAM ( [AWS Signature Version 4 (Sig V4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md") ) – The gateway signs requests to the MCP server using SigV4 with the gateway service role credentials. You configure an `IamCredentialProvider` with a required service name for SigV4 signing and an optional Region (defaults to the gateway Region).
 - API key – The gateway uses an API key credential provider to authenticate with the MCP server. You configure the API key provider in Amazon Bedrock AgentCore Identity in the same account and Region as the gateway.
 
@@ -73,6 +73,14 @@ For accounts that are enabled for MCP version updates, you can modify the gatewa
 ###### Tip
 
 If your MCP server is hosted on AgentCore Runtime, you can avoid repeated initialization with the MCP server on each request. Enable [MCP sessions](gateway-sessions.md "gateway-sessions.md") on your gateway, or add `Mcp-Session-Id` as an allowed request and response header in the target’s `metadataConfiguration`. This results in lower latency for subsequent tool calls. This guidance applies to version `2025-11-25` and earlier. Version `2026-07-28` is stateless and does not use the `Mcp-Session-Id` header.
+
+**On-behalf-of token exchange considerations**
+
+The following limitations apply when you use on-behalf-of token exchange (the `TOKEN_EXCHANGE` grant type) as the outbound authorization for an MCP server target:
+
+- **No static tool discovery** – On-behalf-of token exchange does not support providing a static tool catalog upfront. The `mcpToolSchema` field is available only for the `AUTHORIZATION_CODE` grant type (three-legged OAuth), not for `TOKEN_EXCHANGE`. The gateway must instead discover the MCP server’s tools, either through synchronization or at invocation time.
+- **Authorization servers with 2LO support** – If your authorization server allows machine-to-machine authentication (the `CLIENT_CREDENTIALS` grant, also known as two-legged OAuth), you can use DEFAULT listing mode. In DEFAULT listing mode, the gateway runs a background synchronization during `CreateGatewayTarget`, `UpdateGatewayTarget`, and `SynchronizeGatewayTargets` to fetch the MCP server’s tools (using `tools/list`), prompts, and resources. No inbound user token exists during these control plane operations, so the synchronization uses the machine-to-machine token instead of on-behalf-of token exchange.
+- **Authorization servers without 2LO support** – If your authorization server doesn’t support machine-to-machine authentication, use DYNAMIC listing mode instead. In DYNAMIC mode, the gateway discovers the MCP server’s capabilities at invocation time. Because an inbound user token is present and can be exchanged at that point, the gateway requires no control plane background synchronization.
 
 ## Connecting to an OAuth-protected MCP server using Authorization Code flow
 

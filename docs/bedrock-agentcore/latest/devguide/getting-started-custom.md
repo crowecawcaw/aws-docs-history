@@ -96,10 +96,10 @@ class InvocationResponse(BaseModel):
 async def invoke_agent(request: InvocationRequest):
     try:
         user_message = request.input.get("prompt", "")
-        if not user_message:
+        if not isinstance(user_message, str) or not user_message.strip():
             raise HTTPException(
                 status_code=400,
-                detail="No prompt found in input. Please provide a 'prompt' key in the input."
+                detail="Invalid input: 'prompt' must be a non-empty string"
             )
 
         result = strands_agent(user_message)

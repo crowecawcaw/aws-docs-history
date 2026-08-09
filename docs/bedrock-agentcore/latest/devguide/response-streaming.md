@@ -12,9 +12,10 @@ agent = Agent()
 @app.entrypoint
 async def agent_invocation(payload):
     """Handler for agent invocation"""
-    user_message = payload.get(
-        "prompt", "No prompt found in input, please guide customer to create a json payload with prompt key"
-    )
+    user_message = payload.get("prompt", "")
+    if not isinstance(user_message, str) or not user_message.strip():
+        yield {"error": "Invalid input: 'prompt' must be a non-empty string"}
+        return
     stream = agent.stream_async(user_message)
     async for event in stream:
         print(event)

@@ -6,11 +6,7 @@ Before using AgentCore optimization features, make sure the following are in pla
 
 Recommendations and A/B testing have the same agent requirements as AgentCore Evaluations:
 
-- An agent deployed on AgentCore Runtime with observability enabled, or an agent built with a supported framework configured with [AgentCore Observability](observability.md "observability.md"). Supported frameworks:
-
-  - Strands Agents
-  - LangGraph with `opentelemetry-instrumentation-langchain` or `openinference-instrumentation-langchain`
-
+- An agent deployed on AgentCore Runtime with observability enabled, or an agent built with a supported framework configured with [AgentCore Observability](observability.md "observability.md"). For more information about supported frameworks and instrumentation libraries, see [Supported agent frameworks](supported-frameworks.md "supported-frameworks.md").
 - [Transaction Search](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search-getting-started.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search-getting-started.md") enabled in CloudWatch.
 - Agent sessions with telemetry data in CloudWatch Logs. Invoke your agent and wait 2–5 minutes for CloudWatch to ingest the telemetry before starting a recommendation or A/B test.
 

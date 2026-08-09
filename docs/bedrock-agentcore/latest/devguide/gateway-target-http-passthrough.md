@@ -14,6 +14,7 @@ Adding an HTTP passthrough target to your gateway is useful when you want to:
 - [Target configuration](#gateway-target-http-passthrough-config "#gateway-target-http-passthrough-config")
 - [Creating an HTTP passthrough target](#gateway-target-http-passthrough-create "#gateway-target-http-passthrough-create")
 - [Invoking an HTTP passthrough target](#gateway-target-http-passthrough-invoke "#gateway-target-http-passthrough-invoke")
+- [Supported HTTP methods](#gateway-target-http-passthrough-methods "#gateway-target-http-passthrough-methods")
 - [Outbound authorization](#gateway-target-http-passthrough-auth "#gateway-target-http-passthrough-auth")
 
 ## Target configuration
@@ -289,6 +290,20 @@ curl -X POST https://gateway-id.gateway.bedrock-agentcore.us-west-2.amazonaws.co
     -H "Authorization: Bearer <token>" \
     -d '{"jsonrpc": "2.0", "id": 1, "method": "tools/list"}'
 ```
+
+## Supported HTTP methods
+
+The gateway supports the HTTP methods used by the protocols that passthrough targets implement: MCP servers, A2A agents, and inference endpoints. These protocols rely on a specific subset of methods for invoking services and routing traffic.
+
+The gateway supports the following HTTP methods:
+
+- `POST` – Used by all passthrough target protocols as the primary method. MCP uses POST for JSON-RPC messages, A2A uses POST for sending messages and managing tasks, and inference endpoints use POST for completions and chat requests.
+- `GET` – Used by MCP for SSE stream subscriptions, by A2A for retrieving task status and listing tasks, and by inference endpoints for listing models.
+- `DELETE` – Used by A2A for removing push notification configurations and by inference endpoints for deleting resources.
+
+The gateway does not support `PATCH`, `PUT`, `HEAD`, or `OPTIONS` methods. Passthrough targets are designed for invoking services and routing traffic, and these methods are outside that scope.
+
+If a client sends a request with an unsupported HTTP method, the gateway returns an error.
 
 ## Outbound authorization
 

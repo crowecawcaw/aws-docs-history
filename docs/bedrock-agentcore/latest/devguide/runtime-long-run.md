@@ -118,7 +118,7 @@ agent = Agent(tools=[start_background_task])
 @app.entrypoint
 def main(payload):
     """Main entrypoint - handles user messages."""
-    user_message = payload.get("prompt", "Try: start_background_task(3)")
+    user_message = str(payload.get("prompt", "Try: start_background_task(3)"))
     return {"message": agent(user_message).message}
 
 if __name__ == "__main__":

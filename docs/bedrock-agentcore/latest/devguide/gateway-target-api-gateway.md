@@ -31,7 +31,7 @@ When you add an API Gateway REST API as a gateway target you need to provide an 
 
 ### Tool Filters
 
-Tool filters allow you to select REST API operations using path and method combinations. Each filter supports two path matching strategies:
+Tool filters allow you to select REST API operations using path and method combinations. Each filter supports 2 path matching strategies:
 
 - **Explicit paths** – Matches a single specific path, such as `/pets/{petId}`
 - **Wildcard paths** – Matches all paths starting with the specified prefix, such as /pets/\*
@@ -190,7 +190,7 @@ To set up your API Gateway target, AgentCore Gateway calls the [GetExport](../..
 
 The exported OpenAPI specification must include `operationId` fields for all operations that you want to expose as tools. The `operationId` is used as the tool name in the MCP interface.
 
-You can update your REST API to ensure that the OpenAPI definition returned by [GetExport](../../../apigateway/latest/api/API_GetExport.md "../../../apigateway/latest/api/API_GetExport.md") has `operationId` set. This is an alternative to providing a tool override. The following explains two ways to set the `operationId`.
+You can update your REST API to ensure that the OpenAPI definition returned by [GetExport](../../../apigateway/latest/api/API_GetExport.md "../../../apigateway/latest/api/API_GetExport.md") has `operationId` set. This is an alternative to providing a tool override. The following explains 2 ways to set the `operationId`.
 
 #### Set the operationID by updating your OpenAPI definition
 

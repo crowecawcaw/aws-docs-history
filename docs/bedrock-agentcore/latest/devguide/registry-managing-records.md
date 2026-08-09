@@ -4,7 +4,7 @@ Registry records represent the individual resources published into a registry. E
 
 ###### Topics
 
-- [Supported record types](registry-supported-record-types.md "registry-supported-record-types.md")
+- [Supported record types and descriptors](registry-supported-record-types.md "registry-supported-record-types.md")
 - [Record lifecycle](registry-record-lifecycle.md "registry-record-lifecycle.md")
 - [Create and manage records](registry-create-manage-records.md "registry-create-manage-records.md")
 - [Synchronize records from external sources](registry-sync-records.md "registry-sync-records.md")

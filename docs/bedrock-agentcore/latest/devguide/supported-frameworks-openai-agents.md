@@ -11,8 +11,8 @@ This page explains how to instrument an [OpenAI Agents](https://openai.github.io
   - [From event records](#openai-agents-extraction-event-records "#openai-agents-extraction-event-records")
   - [From span attributes](#openai-agents-extraction-attributes "#openai-agents-extraction-attributes")
 
-- [Example spans with event records](#openai-agents-examples-with "#openai-agents-examples-with")
-- [Example spans without event records](#openai-agents-examples-without "#openai-agents-examples-without")
+- [Example spans in split telemetry](#openai-agents-examples-split "#openai-agents-examples-split")
+- [Example spans in unified telemetry](#openai-agents-examples-unified "#openai-agents-examples-unified")
 
 ## Instrument your agent
 
@@ -66,7 +66,7 @@ dependencies = [
 
 ###### Note
 
-Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks.md#supported-frameworks-setup "supported-frameworks.md#supported-frameworks-setup").
+Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup "supported-frameworks-telemetry.md#supported-frameworks-setup").
 
 ## How spans are identified
 
@@ -104,27 +104,27 @@ With the OpenInference library, the `AGENT` and `CHAIN` spans are empty structur
 
 OpenAI Agents serializes messages in a parts-based format, in which each message carries a `parts` array of typed content blocks (for example, `[{"role": "user", "parts": [{"type": "text", "content": "…​"}]}]`). With the OpenTelemetry library, AgentCore Evaluations parses the text out of these parts. With the OpenInference library, the model output is the full OpenAI Response object, and AgentCore Evaluations reads the response text from `output[].content[].text`.
 
-The location of this content depends on how telemetry was collected. The identifying attribute (`gen_ai.operation.name` or `openinference.span.kind`) is on the span in both cases. For more information, see [Spans, event records, and telemetry signals](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md").
+The location of this content depends on how telemetry was collected. The identifying attribute (`gen_ai.operation.name` or `openinference.span.kind`) is on the span in both cases. For more information, see [Telemetry setup and delivery](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md").
 
 ### From event records
 
-When telemetry is split, AgentCore Evaluations reads conversation content from the event record correlated to each span. The location of tool inputs and outputs differs between the two libraries:
+With split telemetry, AgentCore Evaluations reads conversation content from the event record correlated to each span. The location of tool inputs and outputs differs between the two libraries:
 
 - **OpenTelemetry**:
 
   - **User prompt** and **agent response**: from the invoke agent span’s event record, in `body.input` and `body.output`.
-  - **Tool call**: the tool name from `gen_ai.tool.name`, and the arguments and result from `gen_ai.tool.call.arguments` and `gen_ai.tool.call.result` on the execute tool span. With the OpenTelemetry library, tool arguments and results remain on the span attributes even when telemetry is split.
+  - **Tool call**: the tool name from `gen_ai.tool.name`, and the arguments and result from `gen_ai.tool.call.arguments` and `gen_ai.tool.call.result` on the execute tool span. With the OpenTelemetry library, tool arguments and results remain on the span attributes even with split telemetry.
 
 - **OpenInference**:
 
   - **User prompt** and **agent response**: reconstructed from the inference span’s event record. AgentCore Evaluations reads the messages from `body.input` and `body.output`, then backfills the empty invoke agent span with the user prompt and agent response.
   - **Tool call**: the tool name from `tool.name` on the execute tool span. The tool arguments and result come from that span’s event record, in `body.input` and `body.output`.
 
-For examples, see [Example spans with event records](#openai-agents-examples-with "#openai-agents-examples-with").
+For more information, see [Example spans in split telemetry](#openai-agents-examples-split "#openai-agents-examples-split").
 
 ### From span attributes
 
-When telemetry is not split, the same content stays on the span as attributes. The attributes depend on the instrumentation library:
+With unified telemetry, the same content stays on the span as attributes. The attributes depend on the instrumentation library:
 
 - **OpenTelemetry**:
 
@@ -133,14 +133,14 @@ When telemetry is not split, the same content stays on the span as attributes. T
 
 - **OpenInference**:
 
-  - **User prompt** and **agent response**: from the indexed message attributes on the inference span (`llm.input_messages.` and `llm.output_messages.`), then backfilled onto the empty invoke agent span.
+  - **User prompt** and **agent response**: from the indexed message attributes on the inference span (`llm.input_messages.*` and `llm.output_messages.*`), then backfilled onto the empty invoke agent span.
   - **Tool call**: the tool name from `tool.name`, and the arguments and result from `input.value` and `output.value`, on the execute tool span.
 
-For examples, see [Example spans without event records](#openai-agents-examples-without "#openai-agents-examples-without").
+For more information, see [Example spans in unified telemetry](#openai-agents-examples-unified "#openai-agents-examples-unified").
 
-## Example spans with event records
+## Example spans in split telemetry
 
-When telemetry is split, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from an OpenAI Agents travel-planning agent deployed on Amazon Bedrock AgentCore Runtime. The same agent is shown under each instrumentation library.
+With split telemetry, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from an OpenAI Agents travel-planning agent deployed on Amazon Bedrock AgentCore Runtime. The same agent is shown under each instrumentation library.
 
 ###### Note
 
@@ -208,7 +208,7 @@ The correlated event record carries the conversation. Each message’s `content`
 ```
 
 Execute tool span
-The `gen_ai.operation.name` attribute (`execute_tool`) identifies this as an execute tool span; `gen_ai.tool.name` holds the tool name. With the OpenTelemetry library, the tool arguments and result stay on the span attributes even when telemetry is split.
+The `gen_ai.operation.name` attribute (`execute_tool`) identifies this as an execute tool span; `gen_ai.tool.name` holds the tool name. With the OpenTelemetry library, the tool arguments and result stay on the span attributes even with split telemetry.
 
 ```
 {
@@ -425,9 +425,9 @@ The `openinference.span.kind` attribute (`LLM`) identifies this as an inference 
 }
 ```
 
-## Example spans without event records
+## Example spans in unified telemetry
 
-When telemetry is not split, the same content stays on the span attributes and no separate event record is produced. The following examples are from an OpenAI Agents travel-planning agent. The same agent is shown under each instrumentation library.
+With unified telemetry, the same content stays on the span attributes and no separate event record is produced. The following examples are from an OpenAI Agents travel-planning agent. The same agent is shown under each instrumentation library.
 
 ###### Note
 
@@ -550,7 +550,7 @@ The `input.value` attribute holds the tool arguments, and the `output.value` att
 ```
 
 Inference span
-The message content is inline on the indexed attributes. The `llm.input_messages.` attributes hold the system prompt and user prompt, and the `llm.output_messages.` attributes hold the agent response. AgentCore Evaluations reconstructs the user prompt and agent response from this span and backfills the empty invoke agent (`AGENT`) span.
+The message content is inline on the indexed attributes. The `llm.input_messages.*` attributes hold the system prompt and user prompt, and the `llm.output_messages.*` attributes hold the agent response. AgentCore Evaluations reconstructs the user prompt and agent response from this span and backfills the empty invoke agent (`AGENT`) span.
 
 ```
 {

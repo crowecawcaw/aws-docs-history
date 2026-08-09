@@ -15,8 +15,8 @@ To use AgentCore Evaluations online evaluation features, you need:
 - **AWS Account** with appropriate IAM permissions
 - **Amazon Bedrock** access with model invocation permissions (required when using a custom evaluator)
 - **Amazon CloudWatch** access for viewing evaluation results
-- **Transaction Search** enabled in CloudWatch - see Enable Transaction Search
-- **AWS Distro for OpenTelemetry (ADOT) SDK** instrumenting your agent. Use AgentCore Observability instructions to configure observability for agents hosted on AgentCore Runtime and agents hosted elsewhere.
+- An agent built with a supported framework and instrumentation library. For more information about supported frameworks and instrumentation libraries, see [Supported agent frameworks](supported-frameworks.md "supported-frameworks.md").
+- An agent deployed on AgentCore Runtime with observability enabled, or an agent built with a supported framework configured with [AgentCore Observability](observability.md "observability.md"), including Transaction Search. For more information about telemetry setup, see [Telemetry setup and delivery](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md").
 
 ## IAM user permissions
 

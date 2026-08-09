@@ -1,18 +1,18 @@
 # Concepts and terminology
 
-###### Upcoming namespace migration
+###### Migration Now Open
 
-AWS Agent Registry is currently in public preview under the bedrock-agentcore namespace. Starting August 6, 2026, the service moves to the agent-registry namespace. If you use AWS Agent Registry, you must update your endpoints, IAM policies, SDK clients, CLI scripts, and registry data. For more information about migrating from public preview, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
+AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on September 17, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
 
 ## Registry
 
-A registry is a centralized catalog that you create in your AWS account to organize and manage resources. Each registry has a name, a description, an authorization configuration that controls how consumers access the search and MCP APIs, and an approval configuration that determines whether records require manual review before becoming discoverable.
+A registry is a centralized catalog that you create in your AWS account to organize and manage resources. Each registry has a name, a description, an authorization configuration that controls how consumers access the discoverable data-plane APIs and the MCP endpoint, and an approval configuration that determines whether records require manual review before becoming discoverable.
 
 How you organize your registries depends on your needs — for example, dedicated registries for different resource types (an agent registry, an MCP server registry, a skill registry), registries for different stages of development (production, QA, development), independent registries for different teams or business units, or a single registry for your entire organization.
 
 ## Registry record
 
-A registry record represents the metadata for an individual resource published into a registry. Each record captures key metadata that describes the underlying resource — providing information about what it is, what it does, and how it can be found. Records have a name, optional description, version, type and resource-type-specific metadata.
+A registry record represents the metadata for an individual resource published into a registry. Each record captures key metadata that describes the underlying resource — providing information about what it is, what it does, and how it can be found. Records have a `name`, an optional human-readable `displayName`, an optional description, a `recordVersion`, a `recordType` (`AGENT`, `MCP`, `SKILL`, or `CUSTOM`), and resource-type-specific descriptors that carry the actual content. The combination of `name` and `recordVersion` must be unique within the registry (used as a dedup key), so the same `name` can be reused across different versions of the same resource.
 
 ## Resource types
 
@@ -28,10 +28,14 @@ A registry record represents the metadata for an individual resource published i
 
 When you configure a registry record to synchronize metadata from an external source (outbound authorization) AWS Agent Registry needs credentials to access that source. A credential provider stores the authorization details — either OAuth credentials or an IAM role — that AWS Agent Registry uses to invoke the external resource’s endpoint during synchronization. You reference a credential provider by its ARN when configuring synchronization on a record. For more information, see [Manage credential providers](identity-outbound-credential-provider.md "identity-outbound-credential-provider.md").
 
-**Registry Authorization is of 2 types -**
+Registry authorization has two types:
 
-1. **Inbound Authorization** : This configuration enables Registry Administrators to control how Consumers can search the Registry (via AWS CLI, AWS SDK or by Invoking the MCP Endpoint). Registry supports IAM based and JWT based inbound Authorization. Registry Administrators specify this as part of the workflow for creating a Registry.
-2. **Outbound Authorization:** As part of Synchronizing MCP and A2A Records with their remote endpoints (for records where synchronization is setup), the registry requires outbound credentials to invoke the remote resource at the specified endpoint and retrieve metadata. Publishers provide these credentials as part of setting up the synchronization job for a particular registry record.
+1. **Inbound authorization**: Use this configuration to control how your consumers search, browse, and invoke the registry’s discoverable data-plane APIs and MCP endpoint (via the AWS CLI, AWS SDK, or an MCP-compatible client). The registry supports IAM-based and JWT-based inbound authorization. You specify inbound authorization as part of the workflow for creating a registry.
+2. **Outbound authorization**: When you configure a record for synchronization with a remote MCP or A2A endpoint, the registry needs outbound credentials to invoke the remote resource at the specified endpoint and retrieve metadata. You provide these credentials as part of setting up the synchronization job for a particular registry record.
+
+## Tags
+
+You can attach tags to registries and registry records for cost allocation, access control, and organizational tracking. Each tag is a key-value pair, and both keys and values are strings you define. Tags do not affect the runtime behavior of a registry or a record — they exist as metadata that you and your organization can use to categorize resources across an AWS account.
 
 ## Key Personas
 
@@ -39,16 +43,22 @@ Personas that use the Registry can vary from organization to organization. Howev
 
 **Administrator**
 
-The Administrator is the owner of the registry infrastructure. They are responsible for creating and configuring registries within the AWS account, deciding how each registry is organized (by team, environment, or resource type), and choosing the authorization method (IAM or JWT) that determines how consumers access the registry. Administrators set up the approval workflow — deciding whether records require manual review or are auto-approved — and configure Amazon EventBridge integrations to connect the registry to the organization’s existing notification and review systems. They manage IAM permissions to control which publishers, curators, and consumers can access each registry. Because they are the admin, they also have full access to create, update, and delete records, and can approve, reject, or deprecate records when needed.
+As an administrator, you own the registry infrastructure. You create and configure registries within the AWS account, decide how each registry is organized (by team, environment, or resource type), and choose the authorization method (IAM or JWT) that determines how consumers access the registry. You set up the approval workflow — deciding whether records require manual review or are auto-approved — and configure Amazon EventBridge integrations to connect the registry to your organization’s existing notification and review systems. You manage IAM permissions to control which publishers, curators, and consumers can access each registry. As the admin, you also have full access to create, update, and delete records, and can approve, reject, or deprecate records when needed.
 
 **Publisher**
 
-The Publisher is a builder within the organization who has created a resource — an MCP server, an agent, a skill, or some other tool — and wants to make it discoverable to others. Publishers create registry records that describe their resources, providing the metadata, definitions, and version information that will help others find and understand what the resource does. They iterate on records in Draft status, refining descriptions and schemas until the record is ready, then submit it for approval. If a record is rejected, the publisher reviews the curator’s feedback, makes the necessary changes, and resubmits. Publishers can also configure URL-based synchronization so that their records stay in sync with live MCP servers without manual updates.
+As a publisher, you are a builder within the organization who has created a resource — an MCP server, an agent, a skill, or some other tool — and wants to make it discoverable to others. You create registry records that describe your resources, providing the metadata, definitions, and version information that helps others find and understand what the resource does. You iterate on records in Draft status, refining descriptions and schemas until the record is ready, then submit it for approval. If a record is rejected, you review the curator’s feedback, make the necessary changes, and resubmit. You can also configure URL-based synchronization so that your records stay in sync with live MCP servers without manual updates.
 
 **Curator / Approver**
 
-The Curator is the quality gatekeeper of the registry, and can often be the Administrator of the Registry as well. They are responsible for reviewing records that publishers have submitted for approval, evaluating each record against the organization’s standards for security, compliance, metadata completeness, and any other criteria the organization defines. Curators approve records that meet these standards — making them visible in search results and through the MCP endpoint — and reject records that don’t, providing clear feedback on what needs to be fixed. When a resource is decommissioned, has known issues, or is superseded by a newer version, the curator deprecates the record to remove it from discovery. Curators ensure that the registry remains a trusted, high-quality catalog that builders across the organization can rely on.
+As a curator, you are the quality gatekeeper of the registry, and can often also be the administrator of the registry. You review records that publishers have submitted for approval, evaluating each record against your organization’s standards for security, compliance, metadata completeness, and any other criteria your organization defines. You approve records that meet these standards — making them visible via the discoverable data-plane APIs (search, list, batch-get) and through the MCP endpoint — and reject records that don’t, providing clear feedback on what needs to be fixed. When a resource is decommissioned, has known issues, or is superseded by a newer version, you deprecate the record to remove it from discovery. As a curator, you help keep the registry a trusted, high-quality catalog that builders across the organization can rely on.
 
 **Consumer**
 
-The Consumer is anyone — human or agent — who needs to find and use resources. Consumers search the registry using natural language queries or keyword lookups to discover MCP servers, agents, skills, and other resources that have been approved and published. They can also connect to the registry’s MCP endpoint using any MCP-compatible client to discover available tools programmatically. Consumers only see approved records, so they can trust that everything they find in the registry has been reviewed and meets the organization’s quality standards. Consumers may authorize via IAM credentials or JWT tokens from a corporate identity provider, depending on how the registry is configured.
+As a consumer, you are a human or agent that needs to find and use resources. You can discover approved records in three ways:
+
+- **Search** with natural language queries or keyword lookups to find records that match a topic, capability, or use case (`SearchDiscoverableRegistryRecords`).
+- **Browse** the catalog of approved records with a paginated list, optionally filtered by record type, and retrieve details for one or many records at a time (`ListDiscoverableRegistryRecords` and `GetDiscoverableRegistryRecord` / `BatchGetDiscoverableRegistryRecord`).
+- **Connect** to the registry’s MCP endpoint from any MCP-compatible client to discover available tools programmatically (`InvokeRegistryMcp`).
+
+As a consumer, you only see approved records, so you can trust that everything you find in the registry has been reviewed and meets the organization’s quality standards. You can authorize via IAM credentials or JWT tokens from a corporate identity provider, depending on how the registry is configured.

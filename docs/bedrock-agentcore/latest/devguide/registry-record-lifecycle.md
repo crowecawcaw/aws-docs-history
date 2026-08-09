@@ -1,8 +1,8 @@
 # Record lifecycle
 
-###### Upcoming namespace migration
+###### Migration Now Open
 
-AWS Agent Registry is currently in public preview under the bedrock-agentcore namespace. Starting August 6, 2026, the service moves to the agent-registry namespace. If you use AWS Agent Registry, you must update your endpoints, IAM policies, SDK clients, CLI scripts, and registry data. For more information about migrating from public preview, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
+AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on September 17, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
 
 ## Status transitions
 
@@ -11,7 +11,7 @@ Create → DRAFT → Submit → PENDING_APPROVAL → Approve → APPROVED
                                │                          │
                                │ Reject                   │ Edit (new DRAFT
                                ▼                          │  revision; approved
-                          REJECTED ── Approve (direct) ───┘  stays in search)
+                          REJECTED ── Approve (direct) ───┘  stays discoverable)
                                │
                                └── Edit → DRAFT
 
@@ -27,28 +27,39 @@ Create → DRAFT → Submit → PENDING_APPROVAL → Approve → APPROVED
 
 ## How edits affect status
 
-| Current status    | Effect of edit                                                                                |
-| ----------------- | --------------------------------------------------------------------------------------------- |
-| DRAFT             | Updated in place. Stays DRAFT.                                                                |
-| PENDING\_APPROVAL | New DRAFT revision. Pending revision discarded. Not visible in search (never approved).       |
-| APPROVED          | New DRAFT revision. Approved revision stays visible in search until new revision is approved. |
-| REJECTED          | New DRAFT revision. Must go through normal submit-and-approve flow again.                     |
-| DEPRECATED        | Deprecated Records cannot be edited; Deprecated is a Terminal state                           |
+| Current status    | Effect of edit                                                                                                       |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------- |
+| DRAFT             | Updated in place. Stays DRAFT.                                                                                       |
+| PENDING\_APPROVAL | New DRAFT revision. Pending revision discarded. Not visible via the discovery APIs or MCP endpoint (never approved). |
+| APPROVED          | New DRAFT revision. Approved revision stays discoverable until the new revision is approved.                         |
+| REJECTED          | New DRAFT revision. Must go through normal submit-and-approve flow again.                                            |
+| DEPRECATED        | Deprecated Records cannot be edited; Deprecated is a Terminal state                                                  |
+
+###### Note
+
+To temporarily hide an approved record from discovery without deprecating it, reject the record. Rejected records are not returned by the discovery APIs or the MCP endpoint. When you want to make the record discoverable again, edit and re-approve it to create a new approved revision.
 
 ## Dual-revision behavior
 
 Editing an APPROVED record creates a new DRAFT revision while the approved revision remains active:
 
-- **Search and MCP endpoint** — Returns the approved revision.
-- **Get and List APIs** — Returns the latest (DRAFT) revision.
+- **Discovery APIs (`SearchDiscoverableRegistryRecords`, `ListDiscoverableRegistryRecords`, `BatchGetDiscoverableRegistryRecord`) and the MCP endpoint (`InvokeRegistryMcp`)** — Return the approved revision.
+- **Management APIs (`GetRegistryRecord`, `ListRegistryRecords`)** — Return the latest revision (which may be DRAFT).
 
-Once the edited revision of the record is reviewed and approved, then Search and MCP Endpoint also start showing the new (approved) revision.
+Once a curator reviews and approves the edited revision, the discovery APIs and MCP endpoint start showing the new (approved) revision.
 
 ## Visibility rules
 
-| API                   | Returns                      |
-| --------------------- | ---------------------------- |
-| SearchRegistryRecords | Only approved revisions      |
-| InvokeRegistryMcp     | Only approved revisions      |
-| GetRegistryRecord     | Latest revision (any status) |
-| ListRegistryRecords   | Latest revision (any status) |
+| API                                | Returns                      |
+| ---------------------------------- | ---------------------------- |
+| SearchDiscoverableRegistryRecords  | Only approved revisions      |
+| ListDiscoverableRegistryRecords    | Only approved revisions      |
+| GetDiscoverableRegistryRecord      | Only approved revisions      |
+| BatchGetDiscoverableRegistryRecord | Only approved revisions      |
+| InvokeRegistryMcp                  | Only approved revisions      |
+| GetRegistryRecord                  | Latest revision (any status) |
+| ListRegistryRecords                | Latest revision (any status) |
+
+###### Note
+
+`SearchDiscoverableRegistryRecords` was named `SearchRegistryRecords` in the `bedrock-agentcore` namespace. The `ListDiscoverableRegistryRecords` and `BatchGetDiscoverableRegistryRecord` APIs are only available in the `agent-registry` namespace.

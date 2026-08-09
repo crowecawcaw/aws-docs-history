@@ -129,6 +129,7 @@ Implement proper error handling in your application to provide a better user exp
 
 Follow these best practices when using the `InvokeAgentRuntime` operation:
 
+- **Validate the prompt field is a string in your agent entrypoint**—The payload arrives as parsed JSON, so the `prompt` field can be any JSON type (string, list, object). If a non-string value containing a `toolUse` content block reaches your agent framework, the framework might execute the named tool directly. Model reasoning and guardrail evaluation are bypassed. Always enforce `isinstance(prompt, str)` before passing input to the agent. For more information, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md "runtime-security-best-practices.md").
 - Use session management to maintain conversation context for a better user experience.
 - Process streaming responses incrementally to provide real-time feedback to users.
 - Implement proper error handling and retry logic for a robust application.

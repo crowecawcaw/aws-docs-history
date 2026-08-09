@@ -14,6 +14,9 @@ For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/a
 - [AWS managed policy: BedrockAgentCoreNetworkServiceRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreNetworkServiceRolePolicy "#security-iam-awsmanpol-BedrockAgentCoreNetworkServiceRolePolicy")
 - [AWS managed policy: AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy](#security-iam-awsmanpol-AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy "#security-iam-awsmanpol-AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy")
 - [AWS managed policy: BedrockAgentCoreRuntimeIdentityServiceRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeIdentityServiceRolePolicy "#security-iam-awsmanpol-BedrockAgentCoreRuntimeIdentityServiceRolePolicy")
+- [AWS managed policy: BedrockAgentCoreRuntimeInstancesServiceRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesServiceRolePolicy "#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesServiceRolePolicy")
+- [AWS managed policy: BedrockAgentCoreRuntimeInstancesOperatorRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesOperatorRolePolicy "#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesOperatorRolePolicy")
+- [AWS managed policy: BedrockAgentCoreRuntimeInstancesInstanceRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesInstanceRolePolicy "#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesInstanceRolePolicy")
 - [AgentCore updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
 ## AWS managed policy: BedrockAgentCoreFullAccess
@@ -99,12 +102,70 @@ You can view the complete policy at [BedrockAgentCoreRuntimeIdentityServiceRoleP
 
 For more information about the service-linked role that uses this policy, see [Using service-linked roles for Amazon Bedrock AgentCore](service-linked-roles.md "service-linked-roles.md").
 
+## AWS managed policy: BedrockAgentCoreRuntimeInstancesServiceRolePolicy
+
+This policy is attached to a service-linked role that allows the service to perform actions on your behalf. You cannot attach this policy to your users, groups, or roles.
+
+This policy grants permissions that allow AgentCore to clean up the Amazon EC2 compute resources that a capacity provider creates for the Instances compute type.
+
+**Permissions details**
+
+This policy includes the following permissions:
+
+- `ec2` (Amazon Elastic Compute Cloud) – Allows the service to describe compute resources and to terminate instances, detach and delete Amazon EBS volumes, and delete launch templates that the service manages. Access is scoped to resources that AgentCore manages, using the `ec2:ManagedResourceOperator` condition key.
+- `autoscaling` (Amazon EC2 Auto Scaling) – Allows the service to describe and delete the Auto Scaling groups that it creates, and to complete lifecycle actions. Access is scoped to resources tagged with `bedrock-agentcore:capacity-provider-id`.
+- `events` (Amazon EventBridge) – Allows the service to remove targets from, and delete, the EventBridge rules that it manages. Access is scoped to resources with the `events:ManagedBy` condition key set to `bedrock-agentcore.amazonaws.com`.
+
+**Policy contents**
+
+You can view the complete policy at [BedrockAgentCoreRuntimeInstancesServiceRolePolicy](../../../aws-managed-policy/latest/reference/BedrockAgentCoreRuntimeInstancesServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreRuntimeInstancesServiceRolePolicy.md").
+
+For more information about the service-linked role that uses this policy, see [Using service-linked roles for Amazon Bedrock AgentCore](service-linked-roles.md "service-linked-roles.md").
+
+## AWS managed policy: BedrockAgentCoreRuntimeInstancesOperatorRolePolicy
+
+You can attach [BedrockAgentCoreRuntimeInstancesOperatorRolePolicy](../../../aws-managed-policy/latest/reference/BedrockAgentCoreRuntimeInstancesOperatorRolePolicy.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreRuntimeInstancesOperatorRolePolicy.md") to the capacity provider operator role that you specify when you create a capacity provider for the Instances compute type. AgentCore assumes the operator role to create and manage compute resources in your account on your behalf.
+
+This policy grants permissions that allow AgentCore to create and manage the Amazon EC2 compute and associated resources for a capacity provider.
+
+**Permissions details**
+
+This policy includes the following permissions:
+
+- `ec2` (Amazon Elastic Compute Cloud) – Allows the service to describe, create, tag, and manage the EC2 resources that back a capacity provider, including launch templates, fleets, instances, network interfaces, and Amazon EBS volumes. Access to create resources is scoped by the `bedrock-agentcore:capacity-provider-id` request tag, and access to manage existing resources is scoped by the `ec2:ManagedResourceOperator` condition key. Instances are launched only from Amazon-owned AMIs.
+- `autoscaling` (Amazon EC2 Auto Scaling) – Allows the service to create and manage the Auto Scaling groups that launch instances. Access is scoped to Auto Scaling groups named with the `agentcore-managed-instances-` prefix and tagged with `bedrock-agentcore:capacity-provider-id`.
+- `events` (Amazon EventBridge) – Allows the service to create and manage the EventBridge rules (named with the `agentcore-lifecycle-events-` prefix) that deliver instance lifecycle events.
+- `iam` – Allows the service to create the Auto Scaling service-linked role and to pass the default instance role (with the `AmazonBedrockAgentCoreCapacityProviderDefaultInstanceRole` prefix) to Amazon EC2.
+
+**Policy contents**
+
+You can view the complete policy at [BedrockAgentCoreRuntimeInstancesOperatorRolePolicy](../../../aws-managed-policy/latest/reference/BedrockAgentCoreRuntimeInstancesOperatorRolePolicy.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreRuntimeInstancesOperatorRolePolicy.md").
+
+## AWS managed policy: BedrockAgentCoreRuntimeInstancesInstanceRolePolicy
+
+This is the default policy for the instance role of instances managed by AgentCore Runtime Instances. AgentCore attaches this policy to the default instance role that it creates for a capacity provider.
+
+This policy grants permissions that allow an instance to write its system logs.
+
+**Permissions details**
+
+This policy includes the following permissions:
+
+- `bedrock-agentcore` (Amazon Bedrock AgentCore) – Allows an instance to call `PutSystemLogEvents` so that AgentCore can collect system logs from the instance.
+
+**Policy contents**
+
+You can view the complete policy at [BedrockAgentCoreRuntimeInstancesInstanceRolePolicy](../../../aws-managed-policy/latest/reference/BedrockAgentCoreRuntimeInstancesInstanceRolePolicy.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreRuntimeInstancesInstanceRolePolicy.md").
+
 ## AgentCore updates to AWS managed policies
 
 View details about updates to AWS managed policies for AgentCore since this service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed on the AgentCore Document history page.
 
 | Change                                                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Date               |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| [BedrockAgentCoreRuntimeInstancesServiceRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesServiceRolePolicy "#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesServiceRolePolicy") – New policy                                                              | Added a new AWS managed policy that allows AgentCore to clean up the Amazon EC2 compute resources created for the Instances compute type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | August 6, 2026     |
+| [BedrockAgentCoreRuntimeInstancesOperatorRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesOperatorRolePolicy "#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesOperatorRolePolicy") – New policy                                                           | Added a new AWS managed policy that allows AgentCore to create and manage Amazon EC2 compute and associated resources for a capacity provider through the operator role.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | August 6, 2026     |
+| [BedrockAgentCoreRuntimeInstancesInstanceRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesInstanceRolePolicy "#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesInstanceRolePolicy") – New policy                                                           | Added a new AWS managed policy that serves as the default instance role policy for instances managed by AgentCore Runtime Instances, allowing an instance to write its system logs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | August 6, 2026     |
 | [AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy](#security-iam-awsmanpol-AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy "#security-iam-awsmanpol-AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy") – Updated policy | Added Amazon Bedrock Mantle permissions ( `bedrock-mantle:CreateInference` , `bedrock-mantle:CallWithBearerToken` ) to allow Amazon Bedrock AgentCore Memory to invoke Mantle models.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | July 17, 2026      |
 | [BedrockAgentCoreFullAccess](#security-iam-awsmanpol-BedrockAgentCoreFullAccess "#security-iam-awsmanpol-BedrockAgentCoreFullAccess") – Updated policy                                                                                                                               | Added Amazon Elastic Container Registry permissions ( `ecr:DescribeRepositories` , `ecr:DescribeImages` , `ecr:ListImages` ) to allow Amazon Bedrock AgentCore to access container images for runtime deployments. Added Amazon Bedrock permissions ( `bedrock:InvokeModel` , `bedrock:InvokeModelWithResponseStream` ) to allow Amazon Bedrock AgentCore Evaluations to invoke foundation models and inference profiles for evaluation purposes. Added CloudWatch Logs permissions for evaluations ( `logs:CreateLogGroup` for /aws/bedrock-agentcore/evaluations/\<br>• log groups, `logs:PutIndexPolicy` , `logs:DescribeIndexPolicies` ) to support evaluation logging and indexing.                                                                                                                                             | December 2, 2025   |
 | [BedrockAgentCoreFullAccess](#security-iam-awsmanpol-BedrockAgentCoreFullAccess "#security-iam-awsmanpol-BedrockAgentCoreFullAccess") – Updated policy                                                                                                                               | Added the `cloudtrail:CreateServiceLinkedChannel` permission to allow Amazon Bedrock AgentCore to create a CloudTrail service-linked channel for the Application Signals feature. Added `kms:CreateGrant` permission to allow the Amazon Bedrock AgentCore Gateway service to create grants on customer managed keys for the S3 vectors service used for semantic search. Added `kms:ListGrants` permission to check if previously created grants exist. Added S3 permissions to create bucket, put bucket policy, versioning, put object for buckets with prefix bedrock-agentcore-runtime-. Added list buckets, list objects in the bucket, and get object permissions. Added ECR permissions to describe repositories, list images, and describe images. Added logs `PutResourcePolicy` permissions to enable transaction search. | November 3, 2025   |

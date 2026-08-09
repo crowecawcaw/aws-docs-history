@@ -6,7 +6,7 @@ To invoke your gateway and gateway target, you’ll need to make sure that the f
 - [Outbound authorization](gateway-outbound-auth.md "gateway-outbound-auth.md") – Authorization and authentication to the gateway target.
   To learn how to obtain and configure credentials, review the provider documentation for the methods that you choose.
 
-The following sectiions provide examples of obtaining and configuring credentials for different use cases.
+The following sections provide examples of obtaining and configuring credentials for different use cases.
 
 ###### Topics
 

@@ -394,7 +394,7 @@ We recommend that you don’t include `*pycache*` folders in your agent’s depl
 
 If your function uses only pure Python packages and modules, you can use the `uv pip install` command to install your dependencies on any local build machine and create your .zip file. Many popular Python libraries, including NumPy and Pandas, are not pure Python and contain code written in C or C. When you add libraries containing C/C code to your deployment package, you must build your package correctly to make it compatible with the AgentCore Runtime execution environment.
 
-Most packages available on the Python Package Index ( [PyPI](https://pypi.org/ "https://pypi.org/") ) are available as "wheels" (.whl files). A .whl file is a type of ZIP file which contains a built distribution with pre-compiled binaries for a particular operating system and instruction set architecture. To make your deployment package compatible with Amazon Bedrock AgentCore AgentCore Runtime, you install the wheel for Linux operating systems and **arm64** instruction set architecture.
+Most packages available on the Python Package Index ( [PyPI](https://pypi.org/ "https://pypi.org/") ) are available as "wheels" (.whl files). A .whl file is a type of ZIP file which contains a built distribution with pre-compiled binaries for a particular operating system and instruction set architecture. To make your deployment package compatible with Amazon Bedrock AgentCore Runtime, you install the wheel for Linux operating systems and **arm64** instruction set architecture.
 
 Some packages may only be available as source distributions. For these packages, you need to compile and build the C/C++ components yourself.
 
@@ -404,6 +404,6 @@ To see what distributions are available for your required package, do the follow
 2. Choose the version of the package you want to use.
 3. Choose **Download files**.
 
-If your package is only available as a source distribution, you need to build the C/C++ libraries yourself. To make your package compatible with the Amazon Bedrock AgentCore AgentCore Runtime execution environment, you need to build it in an environment that uses the same Amazon Linux operating system with **arm64** instruction set. You can do this by building your package in an Amazon Elastic Compute Cloud (Amazon EC2) Linux instance.
+If your package is only available as a source distribution, you need to build the C/C++ libraries yourself. To make your package compatible with the Amazon Bedrock AgentCore Runtime execution environment, you need to build it in an environment that uses the same Amazon Linux operating system with **arm64** instruction set. You can do this by building your package in an Amazon Elastic Compute Cloud (Amazon EC2) Linux instance.
 
 To learn how to launch and connect to an Amazon EC2 Linux instance, see [Get started with Amazon EC2](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md") in the _Amazon EC2 User Guide_.

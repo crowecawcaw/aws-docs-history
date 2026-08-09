@@ -4,18 +4,12 @@ If you have an agent already up and running in AgentCore Runtime, you can skip t
 
 ###### Topics
 
-- [Pick a supported framework](#supported-frameworks "#supported-frameworks")
+- [Pick a supported framework](#create-deploy-agent-frameworks "#create-deploy-agent-frameworks")
 - [Create and deploy your agent](#create-deploy-agent-steps "#create-deploy-agent-steps")
 
 ## Pick a supported framework
 
-AgentCore Evaluations currently supports the following agentic frameworks and instrumentation libraries
-
-- Strands Agent
-- LangGraph configured with one of the following instrumentation libraries
-
-  - `opentelemetry-instrumentation-langchain`
-  - `openinference-instrumentation-langchain`
+Build your agent with a framework and instrumentation library that AgentCore Evaluations supports. For more information about supported frameworks and instrumentation libraries, see [Supported agent frameworks](supported-frameworks.md "supported-frameworks.md").
 
 ## Create and deploy your agent
 

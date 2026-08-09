@@ -181,7 +181,7 @@ For each span found, check if the `scope.name` is one of the supported values:
 - [`opentelemetry.instrumentation.langchain`](https://opentelemetry.io/docs/zero-code/python/instrumentations/#libraries) — provided by the [`opentelemetry-instrumentation-langchain`](https://pypi.org/project/opentelemetry-instrumentation-langchain/) package for LangChain / LangGraph agents
 - [`openinference.instrumentation.langchain`](https://github.com/Arize-ai/openinference/tree/main/python/instrumentation/openinference-instrumentation-langchain) — provided by the [`openinference-instrumentation-langchain`](https://pypi.org/project/openinference-instrumentation-langchain/) package for LangChain / LangGraph agents
 
-For the canonical list of supported scopes and span format expectations, see [AgentCore Evaluation — Understanding input spans](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/understanding-input-spans.html#agent-span-supported-scopes).
+For the canonical list of supported scopes and span format expectations, see [AgentCore Evaluation — Supported agent frameworks](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/supported-frameworks.html) and [Generic framework support](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/supported-frameworks-generic.html).
 
 Spans with unsupported scopes will be ignored by the evaluation service. If ALL spans have unsupported scopes, evaluations will return empty results.
 
@@ -323,7 +323,7 @@ If the body is malformed, empty, or uses an unexpected structure, this causes:
 - `AgentSpanMappingException` — can't extract user query from agent span
 - `ToolSpanMappingException` — can't extract tool output from tool span
 
-**Reference:** [Understanding input spans — Event structure](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/understanding-input-spans.html)
+**Reference:** [Telemetry setup and delivery — What the service reads from a span](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/supported-frameworks-telemetry.html#supported-frameworks-telemetry-spans)
 
 ---
 
@@ -524,7 +524,8 @@ Remind the user to review the exported data before sharing and remove any sensit
 | ... | ... | yes/no | e.g., "Missing matching log event" |
 
 ### References
-- [Understanding input spans](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/understanding-input-spans.html)
+- [Supported agent frameworks](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/supported-frameworks.html)
+- [Telemetry setup and delivery](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/supported-frameworks-telemetry.html)
 - [Create online evaluation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/create-online-evaluations.html)
 - [Getting started with on-demand evaluation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/getting-started-on-demand.html)
 - [Observability setup](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-configure.html)

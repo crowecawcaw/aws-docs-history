@@ -24,7 +24,7 @@ When working with Lambda targets, be aware of the following limitations and cons
 - If you are using an existing AWS Lambda function and import it as a tool into the gateway, you will need to change the function code to account for a schema change for event and context objects
 - The Lambda function must return a valid JSON response that can be parsed by the gateway
 - Lambda function timeouts should be configured appropriately to handle the expected processing time of your tools
-- Consider implementing error handling in your LLambda function to provide meaningful error messages to the client
+- Consider implementing error handling in your Lambda function to provide meaningful error messages to the client
 
 ## Lambda function tool schema
 

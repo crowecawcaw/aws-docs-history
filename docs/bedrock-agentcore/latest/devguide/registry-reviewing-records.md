@@ -1,8 +1,8 @@
 # Reviewing registry records
 
-###### Upcoming namespace migration
+###### Migration Now Open
 
-AWS Agent Registry is currently in public preview under the bedrock-agentcore namespace. Starting August 6, 2026, the service moves to the agent-registry namespace. If you use AWS Agent Registry, you must update your endpoints, IAM policies, SDK clients, CLI scripts, and registry data. For more information about migrating from public preview, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
+AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on September 17, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
 
 ## Overview
 
@@ -10,7 +10,83 @@ As a curator, you review records in Pending Approval status against your organiz
 
 ## View pending records
 
-Filter by PENDING\_APPROVAL status via console, AWS CLI, or ListRegistryRecords API.
+As a curator, you can find records awaiting review from the registry detail page, AWS CLI, or AWS SDK.
+
+### Console
+
+###### Example
+
+AWS Agent Registry namespace
+
+1. Open the [AWS Agent Registry console](https://console.aws.amazon.com/agent-registry/home?region=us-east-1# "https://console.aws.amazon.com/agent-registry/home?region=us-east-1#").
+2. In the navigation pane, choose **Registry**, and then choose the registry you want to review.
+3. In the **Registry records** section, the **Pending approval** status summary counter shows how many records are awaiting review.
+4. Filter the records table by **Status** to show only records in **Pending approval** status.
+5. Choose a record’s name to open its detail page and review its content.
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
+1. Open the AWS Agent Registry page in the [Bedrock-AgentCore console](https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1# "https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1#").
+2. In the navigation pane, choose **Registry**, and then choose the registry you want to review.
+3. In the **Registry records** section, the **Pending approval** status summary counter shows how many records are awaiting review.
+4. Filter the records table by **Status** to show only records in **Pending approval** status.
+5. Choose a record’s name to open its detail page and review its content.
+
+### AWS CLI
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+aws agent-registry-control list-registry-records \
+  --registry-id "<registryId>" \
+  --filters '[{"name": "status", "values": ["PENDING_APPROVAL"]}]' \
+  --region us-east-1
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
+```
+aws bedrock-agentcore-control list-registry-records \
+  --registry-id "<registryId>" \
+  --status PENDING_APPROVAL \
+  --region us-east-1
+```
+
+### AWS SDK
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+import boto3
+
+client = boto3.client('agent-registry-control')
+
+response = client.list_registry_records(
+    registryId='<registryId>',
+    filters=[{'name': 'status', 'values': ['PENDING_APPROVAL']}]
+)
+for record in response['registryRecords']:
+    print(f"{record['displayName']} ({record['name']}) - {record['recordType']}")
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
+```
+import boto3
+
+client = boto3.client('bedrock-agentcore-control')
+
+response = client.list_registry_records(
+    registryId='<registryId>',
+    status='PENDING_APPROVAL'
+)
+for record in response['registryRecords']:
+    print(f"{record['name']} - {record['descriptorType']}")
+```
 
 ## Approve a record
 
@@ -23,6 +99,21 @@ Filter by PENDING\_APPROVAL status via console, AWS CLI, or ListRegistryRecords 
 
 ### AWS CLI
 
+###### Example
+
+AWS Agent Registry namespace
+
+```
+aws agent-registry-control update-registry-record-status \
+  --registry-id "<registryId>" \
+  --record-id "<recordId>" \
+  --status APPROVED \
+  --status-reason "Reviewed and approved" \
+  --region us-east-1
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
 ```
 aws bedrock-agentcore-control update-registry-record-status \
   --registry-id "<registryId>" \
@@ -33,6 +124,27 @@ aws bedrock-agentcore-control update-registry-record-status \
 ```
 
 ### AWS SDK
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+import boto3
+
+client = boto3.client('agent-registry-control')
+
+response = client.update_registry_record_status(
+    registryId='<registryId>',
+    recordId='<recordId>',
+    status='APPROVED',
+    statusReason='Reviewed and approved'
+)
+print(f"Status: {response['status']}")  # APPROVED
+print(f"StatusReason: {response['statusReason']}")
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 import boto3
@@ -60,6 +172,21 @@ print(f"StatusReason: {response['statusReason']}")
 
 ### AWS CLI
 
+###### Example
+
+AWS Agent Registry namespace
+
+```
+aws agent-registry-control update-registry-record-status \
+  --registry-id "<registryId>" \
+  --record-id "<recordId>" \
+  --status REJECTED \
+  --status-reason "Missing tool input schemas" \
+  --region us-east-1
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
 ```
 aws bedrock-agentcore-control update-registry-record-status \
   --registry-id "<registryId>" \
@@ -70,6 +197,27 @@ aws bedrock-agentcore-control update-registry-record-status \
 ```
 
 ### AWS SDK
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+import boto3
+
+client = boto3.client('agent-registry-control')
+
+response = client.update_registry_record_status(
+    registryId='<registryId>',
+    recordId='<recordId>',
+    status='REJECTED',
+    statusReason='Missing tool input schemas'
+)
+print(f"Status: {response['status']}")  # REJECTED
+print(f"StatusReason: {response['statusReason']}")
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 import boto3

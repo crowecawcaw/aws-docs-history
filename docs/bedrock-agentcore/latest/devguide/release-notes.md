@@ -2,6 +2,44 @@
 
 We recommend subscribing to the RSS feed so updates to these notes are delivered to your Inbox.
 
+## August 2026
+
+### Memory, policy, and harness are now available in AWS GovCloud (US-West)
+
+AgentCore memory, policy, and harness are now available in the AWS GovCloud (US-West) Region (`us-gov-west-1`).
+
+You can now give your agents short-term and long-term memory. You can enforce authorization and content policies on agent actions. You can also run agents on the fully managed harness, with no orchestration code and no container to build.
+
+These capabilities join AgentCore runtime, gateway, identity, built-in tools, observability, and evaluations, which were already available in the Region.
+
+For more information about Region support, see [Supported AWS Regions](agentcore-regions.md "agentcore-regions.md"). For more information about AgentCore in AWS GovCloud (US), see the [AWS GovCloud (US) documentation for AgentCore](../../../govcloud-us/latest/UserGuide/govcloud-bedrock-agentcore.md "../../../govcloud-us/latest/UserGuide/govcloud-bedrock-agentcore.md"). For more information about Amazon Bedrock AgentCore, see [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/ "https://aws.amazon.com/bedrock/agentcore/") on the AWS website.
+
+### Runtime: Instances compute type with capacity providers
+
+AgentCore Runtime now offers the **Instances** compute type. Instances runs your agents on AWS managed Amazon EC2 infrastructure in your own AWS account. You define the compute with a capacity provider, which specifies the operating system, allowed instance types, networking, and storage. AgentCore handles provisioning, scaling, and teardown. Instances support persistent sessions of up to 14 days and GPU-accelerated instance types. Multiple agents can collaborate on a shared instance. Your data stays in your account, and you can apply existing Savings Plans and On-Demand Capacity Reservations (ODCRs). At launch, Instances support Linux on `x86_64` and `arm64`. See [Run agents on Instances with capacity providers](runtime-instances-how-it-works.md "runtime-instances-how-it-works.md").
+
+### AWS Agent Registry launches under the new `agent-registry` namespace
+
+AWS Agent Registry launches under the new `agent-registry` namespace. With AWS Agent Registry, you can create a private, governed catalog of agents, tools, skills, MCP servers, and custom resources, and expose it through the AWS console, control-plane and data-plane APIs, or the registry’s MCP endpoint. This release adds two new discovery APIs (`ListDiscoverableRegistryRecords` for paginated browsing and `BatchGetDiscoverableRegistryRecord` for bulk retrieval), record tagging, a required `recordType` field, and a redesigned **Record directory** console page that unifies browse and search. Available in nine AWS Regions. See [AWS Agent Registry Developer Guide](registry.md "registry.md").
+
+### Gateway: Configurable rate limits
+
+AgentCore Gateway now supports customer-configurable rate limiting, giving gateway owners fine-grained control over how callers consume gateway resources. Previously, rate limits were service-managed only (a static default per gateway with manual per-account overrides). Customers can now define their own rate limits scoped to specific callers, targets, tools, or models — enabling multi-tenant isolation without application-layer workarounds.
+
+Rate limits use a dimensional scoping model. Each limit defines `dimensionKeys` — the axes along which traffic is bucketed — and `entries` — specific dimension-value combinations with their own rates. Supported dimension types include JWT claims (`$.context.jwt.sub`), IAM principals (`iam.sourceIdentity`), target names, tool names, and qualified model IDs. Wildcard (`*`) catch-all entries provide default rate buckets, while the most-specific-match-wins evaluation model lets you layer group-level fairness with individual-level caps.
+
+Three enforcement metrics are supported:
+
+- **Requests (RPS/RPM)** — Cap the number of requests per second or per minute. Applies to all target types.
+- **Tokens (TPM)** — Cap token consumption per minute for inference workloads. Applies to inference targets using known operation paths (`/v1/chat/completions`, `/v1/messages`, `/v1/responses`). Uses pre-check estimation with post-response reconciliation for accurate budget tracking.
+- **Connections** — Cap the rate of new connections opened per second. Protects downstream targets from connection exhaustion independent of request rate.
+
+Multiple limits can be configured on a single gateway and are evaluated using AND semantics — a request must pass all applicable limits. The effective rate is `min(service_managed, customer_configured)`, meaning customers can tighten but never exceed the service ceiling. Setting `rate=0` on an entry acts as an explicit block for that dimension combination, enabling emergency caller isolation without gateway reconfiguration.
+
+Rate limit configuration changes propagate to the data plane fleet within 30 seconds. The system fails open on transient errors — individual enforcement failures allow the affected request rather than blocking customer traffic.
+
+Six API operations manage rate limits: `CreateRateLimit`, `GetRateLimit`, `UpdateRateLimit`, `DeleteRateLimit`, `ListRateLimits`, and `BatchPutRateLimitEntries`. See [Configure rate limits for your AgentCore gateway](gateway-rate-limits.md "gateway-rate-limits.md").
+
 ## July 2026
 
 ### Gateway: Web Search connector version 1.2.0 adds request-level filters and target-level include list
@@ -28,11 +66,22 @@ Set `UNIFIED_TRACES_DESTINATION_ENABLED=true` on an agent runtime to deliver its
 
 This feature requires CloudWatch Transaction Search with trace segments sent to CloudWatch Logs, `logs:PutResourcePolicy` on the agent’s execution role, and ADOT version 0.18.0 or later. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md").
 
+### Amazon Bedrock AgentCore Evaluations and Optimizations: AWS PrivateLink support
+
+With Amazon Bedrock AgentCore Evaluations and Optimizations, you can now call APIs over AWS PrivateLink without traversing the public internet. This covers batch evaluations, online evaluations, recommendations, A/B testing, and configuration bundles. Create a VPC interface endpoint using the service name `com.amazonaws.region.bedrock-agentcore`. Attach endpoint policies to control which principals, actions, and resources are allowed. This feature is available in all commercial AWS Regions where Amazon Bedrock AgentCore Evaluations and Optimizations is available.
+
+### Evaluations: Expanded agent framework support
+
+Amazon Bedrock AgentCore Evaluations now evaluates agents built with OpenAI Agents, LlamaIndex, Google ADK, and Claude Agent SDK, in addition to Strands Agents and LangGraph. Each framework is supported through its OpenTelemetry or OpenInference instrumentation library, and the documentation lists the scope name and recommended version for each combination.
+
+Evaluations also adds generic framework support, which evaluates agents beyond the frameworks listed above. Configure your framework or your own custom instrumentation to emit telemetry in the OpenTelemetry generative AI semantic conventions or the OpenInference semantic conventions, and Evaluations classifies your spans and extracts the values that evaluators need. The documentation lists the scope names, identifying attributes, and content attributes to set.
+
+Each framework has its own page covering how to instrument your agent, how spans are identified, how the service extracts the values it needs, and example spans. See [Supported agent frameworks](supported-frameworks.md "supported-frameworks.md").
+
 ### Runtime and Built-in Tools: ActiveSessionCount Metric
 
 AgentCore runtime and built-in tools now publish an `ActiveSessionCount` metric directly to your AWS account in the `AWS/Bedrock-AgentCore` CloudWatch namespace. This real-time gauge shows how many sessions are currently active, published once per minute per service type. Use the `Service` dimension — with values `AgentCore.Runtime`, `AgentCore.CodeInterpreter`, or `AgentCore.Browser` — to filter by workload type. Use this metric to monitor capacity utilization, set CloudWatch alarms for unexpected usage spikes, and understand your session quota consumption. Available in all AWS Regions where AgentCore runtime is available. See [AgentCore runtime metrics](observability-runtime-metrics.md "observability-runtime-metrics.md").
-
-## June 2026
+== June 2026
 
 ### Runtime: Increased Default Service Quotas
 
@@ -208,7 +257,7 @@ Gateway and Policy services are now available across all availability zones with
 
 ### AgentCore Registry is now in Public Preview
 
-AWS Agent Registry for centralized agent discovery and governance launched in Preview. Customers can create a private, governed catalog and discovery layer for agents, tools, skills, MCP servers, and custom resources. Accessible via Console UI, APIs, or as an MCP server queryable from IDEs. Supports IAM and OAuth (Custom JWT) based access. See [blog](https://aws.amazon.com/blogs/machine-learning/the-future-of-managing-agents-at-scale-aws-agent-registry-now-in-preview/ "https://aws.amazon.com/blogs/machine-learning/the-future-of-managing-agents-at-scale-aws-agent-registry-now-in-preview/") and [documentation](registry.md "registry.md").
+AWS Agent Registry for centralized agent discovery and governance launched in Preview. With AWS Agent Registry, you can create a private, governed catalog and discovery layer for agents, tools, skills, MCP servers, and custom resources. Accessible via Console UI, APIs, or as an MCP server queryable from IDEs. Supports IAM and OAuth (Custom JWT) based access. See [The future of managing agents at scale: AWS Agent Registry now in Preview](https://aws.amazon.com/blogs/machine-learning/the-future-of-managing-agents-at-scale-aws-agent-registry-now-in-preview/ "https://aws.amazon.com/blogs/machine-learning/the-future-of-managing-agents-at-scale-aws-agent-registry-now-in-preview/") on the AWS Machine Learning Blog, and [AWS Agent Registry Developer Guide](registry.md "registry.md").
 
 ### Observability: Cross-Account Monitoring
 

@@ -12,6 +12,7 @@ AgentCore uses the following service-linked roles:
 - `AWSServiceRoleForBedrockAgentCoreRuntimeIdentity` - Manages workload identity access tokens and OAuth credentials for agent runtimes
 - `AWSServiceRoleForBedrockAgentCoreGatewayNetwork` - Manages Amazon VPC Lattice resources for AgentCore Gateway private connectivity
 - `AWSServiceRoleForBedrockAgentCoreIdentity` - Manages Amazon VPC Lattice resources for AgentCore Identity connectivity to private identity providers
+- `AWSServiceRoleForBedrockAgentCoreRuntimeInstances` - Cleans up the compute resources that a capacity provider creates for the Instances compute type
 
 ## AgentCore service-linked role permissions
 
@@ -385,6 +386,128 @@ The service-linked role can only manage VPC Lattice resource gateways that are t
 
 For more information about configuring private identity providers, see [Connect to private identity providers in your VPC](identity-private-idp.md "identity-private-idp.md").
 
+### Runtime Instances service-linked role
+
+AgentCore uses the service-linked role named `AWSServiceRoleForBedrockAgentCoreRuntimeInstances` to clean up the compute resources that a capacity provider creates for the Instances compute type. AgentCore uses this role to release resources such as EC2 instances, Amazon EBS volumes, launch templates, Auto Scaling groups, and Amazon EventBridge rules when a session ends or a capacity provider is deleted. Cleanup runs through the service-linked role so that AgentCore can release these resources even if the capacity provider operator role is later modified or deleted.
+
+The `AWSServiceRoleForBedrockAgentCoreRuntimeInstances` service-linked role trusts the following services to assume the role:
+
+- `runtime-instances.bedrock-agentcore.amazonaws.com`
+
+The role permissions policy allows AgentCore to complete the following actions on the specified resources. The permissions are scoped to resources that AgentCore manages, using the `ec2:ManagedResourceOperator` condition key, the `bedrock-agentcore:capacity-provider-id` resource tag, and the `events:ManagedBy` condition key.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowDescribeResources",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstanceStatus",
+                "ec2:DescribeInstances",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DescribeVolumes",
+                "ec2:DescribeLaunchTemplates",
+                "ec2:DescribeLaunchTemplateVersions",
+                "autoscaling:DescribeAutoScalingGroups"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "AllowCleanupManagedLaunchTemplate",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DeleteLaunchTemplate",
+                "ec2:DeleteLaunchTemplateVersions"
+            ],
+            "Resource": "arn:aws:ec2:*:*:launch-template/*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ManagedResourceOperator": "bedrock-agentcore.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "AllowCleanupAutoScalingGroup",
+            "Effect": "Allow",
+            "Action": [
+                "autoscaling:DeleteAutoScalingGroup",
+                "autoscaling:CompleteLifecycleAction"
+            ],
+            "Resource": "arn:aws:autoscaling:*:*:autoScalingGroup:*",
+            "Condition": {
+                "Null": {
+                    "aws:ResourceTag/bedrock-agentcore:capacity-provider-id": "false"
+                }
+            }
+        },
+        {
+            "Sid": "AllowCleanupEventBridge",
+            "Effect": "Allow",
+            "Action": [
+                "events:RemoveTargets",
+                "events:DeleteRule"
+            ],
+            "Resource": "arn:aws:events:*:*:rule/*",
+            "Condition": {
+                "StringEquals": {
+                    "events:ManagedBy": "bedrock-agentcore.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "AllowCleanupEBSVolumes",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DeleteVolume"
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:*:volume/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ManagedResourceOperator": "bedrock-agentcore.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "AllowDetachEBSVolumes",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DetachVolume"
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:*:volume/*",
+                "arn:aws:ec2:*:*:instance/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ManagedResourceOperator": "bedrock-agentcore.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "AllowTerminateManagedInstances",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:TerminateInstances"
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:*:instance/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ManagedResourceOperator": "bedrock-agentcore.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
 ## Creating a service-linked role for AgentCore
 
 You don’t need to manually create service-linked roles. AgentCore creates them automatically when needed:
@@ -393,6 +516,7 @@ You don’t need to manually create service-linked roles. AgentCore creates them
 - **Identity service-linked role** : Created when you create or update an AgentCore Runtime on or after **October 13, 2025**
 - **Gateway service-linked role** : Created when you create a AgentCore Gateway target with a managed private endpoint ( `managedVpcResource` ) configuration
 - **Identity Network service-linked role** : Created when you configure a private endpoint for a VPC hosted identity provider ( `managedVpcResource` ) configuration
+- **Runtime Instances service-linked role** : Created when you create a capacity provider for the Instances compute type
 
 If you delete a service-linked role and then need to create it again, you can use the same process to re-create the role in your account. When you create the appropriate AgentCore resources, AgentCore creates the service-linked role for you again.
 
@@ -461,11 +585,26 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 }
 ```
 
+**For the Runtime Instances service-linked role**
+
+```
+{
+    "Effect": "Allow",
+    "Action": "iam:CreateServiceLinkedRole",
+    "Resource": "arn:aws:iam::*:role/aws-service-role/runtime-instances.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreRuntimeInstances",
+    "Condition": {
+        "StringEquals": {
+            "iam:AWSServiceName": "runtime-instances.bedrock-agentcore.amazonaws.com"
+        }
+    }
+}
+```
+
 These permissions are already included in the AWS managed policy [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md").
 
 ## Editing a service-linked role for AgentCore
 
-AgentCore does not allow you to edit the `AWSServiceRoleForBedrockAgentCoreNetwork` , `AWSServiceRoleForBedrockAgentCoreRuntimeIdentity` , `AWSServiceRoleForBedrockAgentCoreGatewayNetwork` , or `AWSServiceRoleForBedrockAgentCoreIdentity` service-linked roles. After you create a service-linked role, you cannot change the name of the role because various entities might reference the role. However, you can edit the description of the role using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role").
+AgentCore does not allow you to edit the `AWSServiceRoleForBedrockAgentCoreNetwork` , `AWSServiceRoleForBedrockAgentCoreRuntimeIdentity` , `AWSServiceRoleForBedrockAgentCoreGatewayNetwork` , `AWSServiceRoleForBedrockAgentCoreIdentity` , or `AWSServiceRoleForBedrockAgentCoreRuntimeInstances` service-linked roles. After you create a service-linked role, you cannot change the name of the role because various entities might reference the role. However, you can edit the description of the role using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role").
 
 ## Deleting a service-linked role for AgentCore
 
@@ -475,6 +614,7 @@ If you no longer need to use a feature or service that requires a service-linked
 - **Identity service-linked role** : Delete all AgentCore Runtime resources
 - **Gateway service-linked role** : Delete all AgentCore Gateway targets that use managed private endpoints ( `managedVpcResource` configuration)
 - **Identity Network service-linked role** : Delete all AgentCore Identity resources that use managed private endpoints for VPC hosted identity providers ( `managedVpcResource` configuration). This includes outbound OAuth credential providers and inbound JWT authorizer configurations (on AgentCore Runtime or Gateway).
+- **Runtime Instances service-linked role** : Delete all capacity providers.
 
 ### Cleaning up a service-linked role
 
@@ -497,6 +637,7 @@ If you want to remove a service-linked role, you must first delete the appropria
 - `AWSServiceRoleForBedrockAgentCoreRuntimeIdentity` : Delete all AgentCore Runtime resources
 - `AWSServiceRoleForBedrockAgentCoreGatewayNetwork` : Delete all AgentCore Gateway targets that use managed private endpoints. After all managed targets are deleted, AgentCore releases the managed VPC Lattice resource gateways that are no longer in use.
 - `AWSServiceRoleForBedrockAgentCoreIdentity` : Delete all AgentCore Identity resources that use managed private endpoints for VPC hosted identity providers. This includes outbound OAuth credential providers and inbound JWT authorizer configurations (on AgentCore Runtime or Gateway) that have a `managedVpcResource` private endpoint. After all managed private endpoint configurations are removed, AgentCore releases the managed VPC Lattice resource gateways that are no longer in use.
+- `AWSServiceRoleForBedrockAgentCoreRuntimeInstances` : Delete all capacity providers. Deleting a capacity provider stops and deletes its sessions and releases the associated compute resources.
 
 ### Manually delete the service-linked role
 

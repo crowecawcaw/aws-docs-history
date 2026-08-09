@@ -23,13 +23,7 @@ To use AgentCore Evaluations OnDemand Evaluation features, you need:
 
 ## Supported frameworks
 
-AgentCore Evaluations currently supports the following agentic frameworks and instrumentation libraries:
-
-- Strands Agents
-- LangGraph configured with one of the following instrumentation libraries:
-
-  - `opentelemetry-instrumentation-langchain`
-  - `openinference-instrumentation-langchain`
+Build your agent with a framework and instrumentation library that AgentCore Evaluations supports. For more information about supported frameworks and instrumentation libraries, see [Supported agent frameworks](supported-frameworks.md "supported-frameworks.md").
 
 ## Step 1: Create and deploy your agent
 

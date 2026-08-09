@@ -23,6 +23,7 @@ Before starting, make sure you have the following:
 
 - **AWS credentials** configured.
 - **A bootstrapped CDK environment**.
+- **AgentCore CLI version 0.20.0 or later**. Earlier versions don’t include the policy form and enforcement mode options used in this guide.
 
 Install the AgentCore CLI:
 

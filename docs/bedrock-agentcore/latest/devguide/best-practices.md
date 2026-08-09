@@ -16,7 +16,7 @@ Your data stored in AgentCore Memory is always encrypted at rest using AWS KMS k
 
 When processing conversational data through the CreateEvent API and extracting long-term memory via LLM, it is important to protect against memory poisoning and prompt injection attacks that could compromise data integrity or system behavior. These security concerns are critical as they can lead to corrupted memory stores and manipulated system responses.
 
-Following AWS's shared responsibility model, AWS is responsible for securing Amazon Bedrock Amazon Bedrock AgentCore infrastructure. However, customers bear the responsibility for secure application development, input validation, and preventing prompt injection vulnerabilities in the memory extraction service. This is similar to how AWS provides secure database engines like RDS, but customers must prevent SQL injection in their applications.
+Following the AWS shared responsibility model, AWS is responsible for securing Amazon Bedrock AgentCore infrastructure. However, customers bear the responsibility for secure application development, input validation, and preventing prompt injection vulnerabilities in the memory extraction service. This is similar to how AWS provides secure database engines like RDS, but customers must prevent SQL injection in their applications.
 
 **Threats**
 
@@ -30,7 +30,7 @@ Following AWS's shared responsibility model, AWS is responsible for securing Ama
 
 ## Least-privilege principle
 
-Identity-based policies determine whether someone can create, access, or delete Amazon Bedrock Amazon Bedrock AgentCore resources in your account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and recommendations:
+Identity-based policies determine whether you can create, access, or delete Amazon Bedrock AgentCore resources in your account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and recommendations:
 
 - **Get started with AWS managed policies and move toward least-privilege permissions** – To get started granting permissions to your users and workloads, use the AWS managed policies that grant permissions for many common use cases. They are available in your AWS account. We recommend that you reduce permissions further by defining AWS customer managed policies that are specific to your use cases.
 - **Apply least-privilege permissions** – When you set permissions with IAM policies, grant only the permissions required to perform a task. You do this by defining the actions that can be taken on specific resources under specific conditions, also known as least-privilege permissions.

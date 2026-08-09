@@ -28,12 +28,8 @@ The AgentCore SDK provides two dataset runners that share the same [dataset sche
 Both runners require:
 
 - Python 3.10+
-- An agent deployed on AgentCore Runtime with observability enabled, or an agent built with a supported framework configured with [AgentCore Observability](observability-configure.md#observability-configure-3p "observability-configure.md#observability-configure-3p"). Supported frameworks:
-
-  - Strands Agents
-  - LangGraph with `opentelemetry-instrumentation-langchain` or `openinference-instrumentation-langchain`
-
-- Transaction Search enabled in CloudWatch; see [Enable Transaction Search](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search-getting-started.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search-getting-started.md")
+- An agent built with a supported framework and instrumentation library. For more information about supported frameworks and instrumentation libraries, see [Supported agent frameworks](supported-frameworks.md "supported-frameworks.md").
+- An agent deployed on AgentCore Runtime with observability enabled, or an agent built with a supported framework configured with [AgentCore Observability](observability.md "observability.md"), including Transaction Search. For more information about telemetry setup, see [Telemetry setup and delivery](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md").
 - The AgentCore SDK installed: `pip install bedrock-agentcore`
 - AWS credentials configured with permissions for `bedrock-agentcore`, `bedrock-agentcore-control`, and `logs` (CloudWatch)
 

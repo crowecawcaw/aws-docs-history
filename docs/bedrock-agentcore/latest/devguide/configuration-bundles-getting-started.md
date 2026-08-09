@@ -250,7 +250,7 @@ agent.hooks.add_callback(BeforeModelCallEvent, dynamic_config_hook)
 
 @app.entrypoint
 def invoke(payload, context):
-    result = agent(payload.get("prompt", "Hello"))
+    result = agent(str(payload.get("prompt", "Hello")))
     return {"response": str(result)}
 
 

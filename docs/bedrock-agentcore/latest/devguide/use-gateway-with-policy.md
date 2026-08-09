@@ -10,6 +10,7 @@ Policy evaluation applies only to MCP tools. Regardless of the policy evaluation
 
 - [List AgentCore Gateway Tools with Policy in AgentCore](#list-gateway-tools "#list-gateway-tools")
 - [Call gateway tools with policy](#call-gateway-tools "#call-gateway-tools")
+- [Passing the policy session ID for temporal policies](#use-gateway-policy-session-id "#use-gateway-policy-session-id")
 - [Policy responses](#policy-responses "#policy-responses")
 
 ## List AgentCore Gateway Tools with Policy in AgentCore
@@ -146,6 +147,35 @@ result = call_gateway_tool(
 )
 print(json.dumps(result, indent=2))
 ````
+
+## Passing the policy session ID for temporal policies
+
+To enable temporal policy evaluation, include the `x-amzn-bedrock-agentcore-policy-session-id` header
+in your requests. This groups multiple invocations into a single session for session-aware policy
+enforcement.
+
+```
+curl -X POST \
+  https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "x-amzn-bedrock-agentcore-policy-session-id: YOUR_SESSION_ID" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": "test-temporal-policy",
+    "method": "tools/call",
+    "params": {
+      "name": "tool_name",
+      "arguments": {arguments}
+    }
+  }'
+```
+
+The Gateway does not generate a session ID on your behalf. You must generate the session ID and send it
+on every request, starting with your first request. If you omit the header, or send an empty value, the
+Gateway does not establish a session. If the associated policy engine contains a temporal policy,
+requests without a session ID fail with a validation error. Send the same ID with every request in the
+same session.
 
 ## Policy responses
 

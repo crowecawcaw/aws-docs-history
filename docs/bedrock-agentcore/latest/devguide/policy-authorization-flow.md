@@ -119,6 +119,34 @@ Contains the tool arguments:
 }
 ```
 
+## Session context for temporal policies
+
+When a `x-amzn-bedrock-agentcore-policy-session-id` header is present, the Gateway includes the session
+context in the authorization request passed to the policy engine. The session context provides the
+accumulated action history for the current session. Temporal policy rules evaluate constraints over
+time using this history.
+
+```
+{
+  "principal": "AgentCore::OAuthUser::\"12345678-1234-1234-1234-123456789012\"",
+  "action": "AgentCore::Action::\"PaymentTool___transfer_funds\"",
+  "resource": "AgentCore::Gateway::\"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway\"",
+  "context": {
+    "input": {
+      "amount": 500,
+      "recipient": "account-789"
+    }
+  },
+  "sessionId": "12345678-1234-1234-1234-123456789012"
+}
+```
+
+The `sessionId` field links the current request to its session history. The policy engine resolves the
+session state and evaluates all applicable temporal rules against the accumulated action chain.
+
+For details on supplying the session ID, the session lifecycle, and how identity propagates across
+multi-hop calls, see [Policy sessions and identity propagation](policy-session-based-temporal.md "policy-session-based-temporal.md").
+
 ## Policy evaluation
 
 Cedar evaluates:

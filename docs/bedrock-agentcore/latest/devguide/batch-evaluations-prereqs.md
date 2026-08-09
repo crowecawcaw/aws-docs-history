@@ -2,15 +2,13 @@
 
 Before you can run batch evaluations, make sure the following are in place.
 
-## Agent requirements
+## Setup
 
-- An agent deployed on AgentCore Runtime with observability enabled, or an agent built with a supported framework configured with [AgentCore Observability](observability.md "observability.md"). Supported frameworks:
+Set up the following before you run batch evaluations:
 
-  - Strands Agents
-  - LangGraph with `opentelemetry-instrumentation-langchain` or `openinference-instrumentation-langchain`
-
-- [Transaction Search](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search-getting-started.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search-getting-started.md") enabled in CloudWatch (required when using CloudWatch as the session source).
-- Agent sessions with telemetry data in CloudWatch Logs. Invoke your agent and wait 2–5 minutes for CloudWatch to ingest the telemetry before starting a batch evaluation.
+- An agent built with a supported framework and instrumentation library. For more information about supported frameworks and instrumentation libraries, see [Supported agent frameworks](supported-frameworks.md "supported-frameworks.md").
+- An agent deployed on AgentCore Runtime with observability enabled, or an agent built with a supported framework configured with [AgentCore Observability](observability.md "observability.md"), including Transaction Search. For more information about telemetry setup, see [Telemetry setup and delivery](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md").
+- An agent invoked with telemetry data in CloudWatch Logs. Wait 2–5 minutes for CloudWatch to ingest the telemetry before starting a batch evaluation.
 
 ## AWS credentials and permissions
 

@@ -103,7 +103,7 @@ agent.hooks.add_callback(BeforeModelCallEvent, dynamic_config_hook)
 
 @app.entrypoint
 def invoke(payload, context):
-    result = agent(payload.get("prompt", "Hello"))
+    result = agent(str(payload.get("prompt", "Hello")))
     return {"response": str(result)}
 
 
@@ -148,7 +148,7 @@ def build_agent() -> Agent:
 @app.entrypoint
 def invoke(payload, context):
     agent = build_agent()
-    result = agent(payload.get("prompt", "Hello"))
+    result = agent(str(payload.get("prompt", "Hello")))
     return {"response": str(result)}
 
 
@@ -194,7 +194,7 @@ def build_graph():
 @app.entrypoint
 def invoke(payload, context):
     graph = build_graph()
-    result = graph.invoke({"messages": [{"role": "user", "content": payload.get("prompt", "Hello")}]})
+    result = graph.invoke({"messages": [{"role": "user", "content": str(payload.get("prompt", "Hello"))}]})
     return {"response": result["messages"][-1].content}
 
 
@@ -234,7 +234,7 @@ def build_agent() -> LlmAgent:
 def invoke(payload, context):
     agent = build_agent()
     # ADK agent invocation logic
-    result = agent.invoke(payload.get("prompt", "Hello"))
+    result = agent.invoke(str(payload.get("prompt", "Hello")))
     return {"response": str(result)}
 
 
@@ -268,7 +268,7 @@ def invoke(payload, context):
         model=model_id,
         messages=[
             {"role": "system", "content": system_prompt},
-            {"role": "user", "content": payload.get("prompt", "Hello")},
+            {"role": "user", "content": str(payload.get("prompt", "Hello"))},
         ],
     )
     return {"response": response.choices[0].message.content}

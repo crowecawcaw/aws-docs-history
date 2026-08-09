@@ -1,18 +1,85 @@
 # Using the Registry MCP endpoint
 
-###### Upcoming namespace migration
+###### Migration Now Open
 
-AWS Agent Registry is currently in public preview under the bedrock-agentcore namespace. Starting August 6, 2026, the service moves to the agent-registry namespace. If you use AWS Agent Registry, you must update your endpoints, IAM policies, SDK clients, CLI scripts, and registry data. For more information about migrating from public preview, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
+AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on September 17, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
 
 ## Overview
 
-Each registry exposes an MCP-compatible endpoint following [2025-11-25 specification](https://modelcontextprotocol.io/specification/2025-11-25 "https://modelcontextprotocol.io/specification/2025-11-25") . The endpoint supports tool listing and tool invocation for searching registry records.
+Each registry exposes an MCP-compatible endpoint following the [2025-11-25 specification](https://modelcontextprotocol.io/specification/2025-11-25 "https://modelcontextprotocol.io/specification/2025-11-25") on the Model Context Protocol website. The endpoint supports tool listing and tool invocation for searching registry records.
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+https://agent-registry.<region>.api.aws/registry/<registryId>/mcp
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 https://bedrock-agentcore.<region>.amazonaws.com/registry/<registryId>/mcp
 ```
 
-The MCP contains one tool named "search\_registry\_records".
+In the `agent-registry` namespace, the MCP endpoint exposes all three discovery data-plane APIs as MCP tools:
+
+- `search_discoverable_registry_records` — Natural language search for approved records.
+- `list_discoverable_registry_records` — Paginated listing of approved records.
+- `batch_get_discoverable_registry_record` — Bulk retrieval of full record content by record ID.
+
+In the `bedrock-agentcore` namespace, only the `search_registry_records` tool is exposed. The following tables show the tool definitions:
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+Tool name: search_discoverable_registry_records
+
+Description:
+Searches for approved registry records using natural language queries. Returns metadata for matching records.
+
+Parameters:
+- searchQuery (required): string - Natural language search query
+- maxResults: integer - Maximum number of results to return (1-20, default 10)
+- filter: object - Optional metadata filter using structured JSON operators. Supports field-level operators ($eq, $ne,
+  $in) and logical operators ($and, $or) on filterable fields (name, recordType, recordVersion). Example:
+  {"recordType": {"$eq": "MCP"}}
+
+---
+
+Tool name: list_discoverable_registry_records
+
+Description:
+Returns paginated summaries of approved records in the registry. Summaries include record metadata but not descriptor
+content. Use batch_get_discoverable_registry_record to fetch full descriptors after identifying the records you need.
+
+Parameters:
+- maxResults: integer - Maximum number of results per page (1-100, default 20)
+- nextToken: string - Pagination token from a previous response. Omit for the first page.
+- filters: array - Optional list of filter entries in the form {"name": "<field>", "values": ["<value>"]}. Supported
+  filter names: recordType (valid values: AGENT, MCP, SKILL, CUSTOM) and descriptorType (valid values: a2aAgentCard,
+  mcpServer, agentSkillsDefinition, custom). Duplicate filter names are rejected. If you specify multiple values for
+  a single filter, the values are joined by OR. If you specify multiple filters, the filters are joined by AND.
+
+---
+
+Tool name: batch_get_discoverable_registry_record
+
+Description:
+Retrieves the full descriptor content for up to 100 approved records in a single call. Common use case: after
+identifying records with list_discoverable_registry_records or search_discoverable_registry_records, fetch their full
+descriptors in one call rather than making one call per record.
+
+Parameters:
+- recordIds (required): array - List of 1-100 record ARNs or IDs to retrieve from the registry.
+
+The response returns HTTP 200 even on partial failure. Records that could not be retrieved appear in an errors list
+with an errorCode (RESOURCE_NOT_FOUND, ACCESS_DENIED, or INTERNAL_ERROR) rather than causing the whole call to fail.
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 Tool name: search_registry_records
@@ -36,15 +103,38 @@ You can connect to registry from an existing MCP client, such as Kiro, Claude, e
 
 The MCP endpoint will use the same **CustomJWTAuthorizerConfiguration** to authorize the incoming requests.
 
-The `.well-known/oauth-protected-resource` path is: `https://bedrock-agentcore.<region>.amazonaws.com/.well-known/oauth-protected-resource/registry/<registryId>/mcp`.
+The `.well-known/oauth-protected-resource` path is: `https://agent-registry.<region>.api.aws/.well-known/oauth-protected-resource/registry/<registryId>/mcp` (`https://bedrock-agentcore.<region>.amazonaws.com/.well-known/oauth-protected-resource/registry/<registryId>/mcp` for registries still on the `bedrock-agentcore` namespace).
 
 The client can discover the metadata from `WWW-Authenticate` header as well:
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+www-authenticate: Bearer resource_metadata="https://agent-registry.<region>.api.aws/.well-known/oauth-protected-resource/registry/<registryId>/mcp"
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 www-authenticate: Bearer resource_metadata="https://bedrock-agentcore.<region>.amazonaws.com/.well-known/oauth-protected-resource/registry/<registryId>/mcp"
 ```
 
 Once you obtained the access token, you can validate it:
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+curl -s -X POST "https://agent-registry.<region>.api.aws/registry/<registryId>/mcp" \
+  -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_discoverable_registry_records","arguments":{"searchQuery":"weather"}}}'
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 curl -s -X POST "https://bedrock-agentcore.<region>.amazonaws.com/registry/<registryId>/mcp" \
@@ -63,7 +153,27 @@ Depending on your authorization server and organization’s security requirement
 
 #### Use bearer token
 
-In most IDEs, you can configure authorization header bearer token in an mcp configuration. For example, [Kiro supports](https://kiro.dev/blog/introducing-remote-mcp/#securing-mcp-connections "https://kiro.dev/blog/introducing-remote-mcp/#securing-mcp-connections") environment variables using the `${ENV_VAR}` syntax. You can use following example:
+In most IDEs, you can configure authorization header bearer token in an mcp configuration. For example, Kiro IDE supports environment variables using the `${ENV_VAR}` syntax. For details, see [Securing MCP connections](https://kiro.dev/blog/introducing-remote-mcp/#securing-mcp-connections "https://kiro.dev/blog/introducing-remote-mcp/#securing-mcp-connections") on the Kiro website. You can use following example:
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+{
+  "mcpServers": {
+    "my-registry": {
+      "type": "http",
+      "url": "https://agent-registry.<region>.api.aws/registry/<registryId>/mcp",
+      "headers": {
+        "Authorization": "Bearer ${ACCESS_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 {
@@ -85,6 +195,27 @@ You can create a new client based on authorization code grant in your authorizat
 
 Once you have the client ID, make sure you allowlist it in registry:
 
+###### Example
+
+AWS Agent Registry namespace
+
+```
+aws agent-registry-control update-registry \
+  --registry-id <registryId> \
+  --discovery-configuration '{
+    "authorizerConfiguration": {
+      "optionalValue": {
+        "customJWTAuthorizer": {
+          "discoveryUrl": "https://<example-domain>/.well-known/openid-configuration",
+          "allowedClients": ["<client-id>"]
+        }
+      }
+    }
+  }'
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
 ```
 aws bedrock-agentcore-control update-registry \
   --registry-id <registryId> \
@@ -99,6 +230,27 @@ aws bedrock-agentcore-control update-registry \
 ```
 
 Then you can configure your MCP client if it supports specifying clientId. An example in Claude code:
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+{
+  "mcpServers": {
+    "pre-registered-registry": {
+      "type": "http",
+      "url": "https://agent-registry.<region>.api.aws/registry/<registryId>/mcp",
+      "oauth": {
+        "clientId": "<client-id>",
+        "callbackPort": "<port-number>"
+      }
+    }
+  }
+}
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 {
@@ -121,7 +273,28 @@ Some authorization servers like Auth0 and Cognito don’t let you configure a ra
 
 #### Dynamic client registration
 
-Most MCP client applications support dynamic client registration. In this case, you should NOT specify `allowedClients` value in registry. Instead, you can choose to set `allowedAudience` . The value can be the same as your MCP registry. You should configure your authorization server to issue JWT with `aud` field with the same value as in `allowedAudience`.
+Most MCP client applications support dynamic client registration. In this case, you should NOT specify `allowedClients` value in registry. Instead, you can choose to set `allowedAudience`. The value can be the same as your MCP registry. You should configure your authorization server to issue JWT with `aud` field with the same value as in `allowedAudience`.
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+aws agent-registry-control update-registry \
+  --registry-id <registryId> \
+  --discovery-configuration '{
+    "authorizerConfiguration": {
+      "optionalValue": {
+        "customJWTAuthorizer": {
+          "discoveryUrl": "https://<example-domain>/.well-known/openid-configuration",
+          "allowedAudience": ["https://agent-registry.<region>.api.aws/registry/<registryId>/mcp"]
+        }
+      }
+    }
+  }'
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 aws bedrock-agentcore-control update-registry \
@@ -137,6 +310,23 @@ aws bedrock-agentcore-control update-registry \
 ```
 
 Then you can configure your MCP client simply using an url:
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+{
+  "mcpServers": {
+    "dcr-registry": {
+      "type": "http",
+      "url": "https://agent-registry.<region>.api.aws/registry/<registryId>/mcp"
+    }
+  }
+}
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 {
@@ -161,6 +351,20 @@ Common errors when you setup dynamic client registration:
 
 For MCP initialization and tool listing:
 
+###### Example
+
+AWS Agent Registry namespace
+
+```
+{
+    "Effect": "Allow",
+    "Action": "agent-registry:InvokeRegistryMcp",
+    "Resource": "arn:aws:agent-registry:*:<account>:registry/*"
+}
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
 ```
 {
     "Effect": "Allow",
@@ -170,6 +374,24 @@ For MCP initialization and tool listing:
 ```
 
 For searching via MCP tool invocation, you also need:
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+{
+    "Effect": "Allow",
+    "Action":
+    [
+        "agent-registry:InvokeRegistryMcp",
+        "agent-registry:SearchDiscoverableRegistryRecords"
+    ],
+    "Resource": "arn:aws:agent-registry:*:<account>:registry/*"
+}
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 {
@@ -185,6 +407,21 @@ For searching via MCP tool invocation, you also need:
 
 You can verify permission with command:
 
+###### Example
+
+AWS Agent Registry namespace
+
+```
+curl -s -X POST "https://agent-registry.<region>.api.aws/registry/<registryId>/mcp" \
+  -H "Content-Type: application/json" \
+  -H "X-Amz-Security-Token: ${AWS_SESSION_TOKEN}" \
+  --aws-sigv4 "aws:amz:<region>:agent-registry" \
+  --user "${AWS_ACCESS_KEY_ID}:${AWS_SECRET_ACCESS_KEY}" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_discoverable_registry_records","arguments":{"searchQuery":"weather"}}}'
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
+
 ```
 curl -s -X POST "https://bedrock-agentcore.<region>.amazonaws.com/registry/<registryId>/mcp" \
   -H "Content-Type: application/json" \
@@ -196,7 +433,35 @@ curl -s -X POST "https://bedrock-agentcore.<region>.amazonaws.com/registry/<regi
 
 ### IAM-based MCP client setup
 
-You can use [mcp-proxy-for-aws](https://github.com/aws/mcp-proxy-for-aws "https://github.com/aws/mcp-proxy-for-aws") to connect to an IAM-based registry. For example, in Kiro mcp.json:
+You can use [mcp-proxy-for-aws](https://github.com/aws/mcp-proxy-for-aws "https://github.com/aws/mcp-proxy-for-aws") on the GitHub website to connect to an IAM-based registry. For example, in Kiro mcp.json:
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+{
+  "mcpServers": {
+    "iam-based-registry": {
+      "disabled": false,
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-proxy-for-aws@latest",
+        "https://agent-registry.<region>.api.aws/registry/<registryId>/mcp",
+        "--service",
+        "agent-registry",
+        "--region",
+        "<region>",
+        "--profile",
+        "my-profile"
+      ]
+    }
+  }
+}
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 {

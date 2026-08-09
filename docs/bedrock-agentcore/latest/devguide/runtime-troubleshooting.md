@@ -29,6 +29,8 @@ This troubleshooting topic helps you identify and resolve common issues when wor
 - [My S3 Files or EFS mount times out](#troubleshoot-byo-storage-mount-timeout "#troubleshoot-byo-storage-mount-timeout")
 - [I get "Permission Denied" when writing to my mounted filesystem](#troubleshoot-byo-storage-write-permission-denied "#troubleshoot-byo-storage-write-permission-denied")
 - [My container fails to start with HTTP 424 error on high-layer images](#troubleshoot-runtime-overlay-mount-failure "#troubleshoot-runtime-overlay-mount-failure")
+- [My capacity provider is in state CREATE\_FAILED](#troubleshoot-instances-capacity-provider-create-failed "#troubleshoot-instances-capacity-provider-create-failed")
+- [My agents on Instances do not have access to their credentials](#troubleshoot-instances-credentials-access "#troubleshoot-instances-credentials-access")
 - [Best practices](#best-practices "#best-practices")
 
 ## My agent invocations fail with "This runtime is not MMDSv2-enabled" ValidationException
@@ -115,7 +117,7 @@ pip install --upgrade boto3 botocore
 **Solution:** Several factors can cause this:
 
 - **Missing permissions for the caller.** Make sure that the caller’s credentials has `bedrock-agentcore:CreateAgentRuntime`.
-- **Execution Role cannot be assumed by Bedrock Amazon Bedrock AgentCore.** Make sure that the execution role follows this guidance on [permissions for Amazon Bedrock AgentCore Runtime execution role](runtime-permissions.md "runtime-permissions.md").
+- **Execution Role cannot be assumed by Amazon Bedrock AgentCore.** Make sure that the execution role follows this guidance on [permissions for Amazon Bedrock AgentCore Runtime execution role](runtime-permissions.md "runtime-permissions.md").
 
 ## My Docker build fails with "exec /bin/sh: exec format error"
 
@@ -138,7 +140,7 @@ In summary, your Docker container must meet these requirements:
 
 ## My long-running tool gets interrupted after 15 minutes
 
-For information, see [Handle asynchronous and long running agents with Amazon Bedrock Amazon Bedrock AgentCore Runtime](runtime-long-run.md "runtime-long-run.md") for full details.
+For information, see [Handle asynchronous and long-running agents with Amazon Bedrock AgentCore Runtime](runtime-long-run.md "runtime-long-run.md") for full details.
 
 **When this occurs:** During long-running agent operations or complex workflows
 
@@ -575,6 +577,22 @@ docker inspect <image> | jq '.[0].RootFS.Layers | length'
 ```
 
 - **Squash layers:** Use `docker build --squash` or a tool like `docker-squash` to flatten your image layers.
+
+## My capacity provider is in state CREATE\_FAILED
+
+**When this occurs:** After you call `CreateCapacityProvider` for the Instances compute type, the capacity provider does not reach `ACTIVE` and instead enters `CREATE_FAILED`.
+
+**Why this happens:** A capacity provider relies on multiple resources (such as a launch template and an Auto Scaling group) that the capacity provider operator role must be able to create. Missing permissions on that role lead to a creation failure.
+
+**Solution:** Call the `GetCapacityProvider` API to retrieve the failure reason in the `statusReason` field. The `statusReason` identifies the resources that failed to create. Grant the capacity provider operator role the permissions it needs to create those resources, and then create the capacity provider again. For more information about the operator role, see [Security model and permissions for Runtime Instances](runtime-instances-security.md "runtime-instances-security.md").
+
+## My agents on Instances do not have access to their credentials
+
+**When this occurs:** An agent running on an Instances session cannot obtain the credentials it needs to call AWS services.
+
+**Why this happens:** The runtime execution role is missing or cannot be assumed by AgentCore.
+
+**Solution:** Make sure the execution role you configured for your runtime exists and allows `bedrock-agentcore.amazonaws.com` to call `sts:AssumeRole`. For more information, see [permissions for Amazon Bedrock AgentCore Runtime execution role](runtime-permissions.md "runtime-permissions.md").
 
 ## Best practices
 

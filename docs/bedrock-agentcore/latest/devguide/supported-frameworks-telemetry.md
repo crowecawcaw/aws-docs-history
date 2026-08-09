@@ -1,80 +1,98 @@
-# Spans, event records, and telemetry signals
+# Telemetry setup and delivery
 
-Amazon Bedrock AgentCore Evaluations processes two telemetry signals to understand your agent’s behavior:
+Your agent emits spans that Amazon Bedrock AgentCore Evaluations uses to reconstruct each session. For how AgentCore represents sessions, traces, and spans, see [Understand observability for agentic resources in AgentCore](observability-telemetry.md "observability-telemetry.md").
 
-- **Spans** describe individual operations. A span carries metadata about an operation: its name, scope, timestamps, and attributes. A span might also carry the conversation content, or that content might live in a separate event record.
-- **Event records** carry payload content in a `body` field: the inputs and outputs of models, tools, and the agent. An event record is correlated to its span by a shared `traceId` and `spanId`. Event records follow the OpenTelemetry events convention. For more information, see [References](#supported-frameworks-telemetry-references "#supported-frameworks-telemetry-references").
-  To evaluate a session, the service needs both the spans and, where applicable, their correlated event records. For each span, the service does the following:
-
-1. Identifies the span’s type from framework-specific attributes. For details, see the per-framework pages.
-2. Reads the values it needs, such as the user prompt, the agent response, and tool inputs and outputs. These values come from the span’s attributes or from its correlated event record.
+To score a session, the service needs the conversation content: the model prompts, the model completions, and the tool inputs and outputs. Where that content sits depends on how your agent delivers telemetry, and that is what this page explains.
 
 **Topics**
 
-- [How ADOT splits telemetry](#supported-frameworks-telemetry-collection "#supported-frameworks-telemetry-collection")
-- [Where spans and event records are stored](#supported-frameworks-telemetry-location "#supported-frameworks-telemetry-location")
-- [Where the service reads content](#supported-frameworks-telemetry-extraction "#supported-frameworks-telemetry-extraction")
+- [Set up observability](#supported-frameworks-setup "#supported-frameworks-setup")
+- [Telemetry delivery modes](#supported-frameworks-telemetry-modes "#supported-frameworks-telemetry-modes")
+
+  - [Unified telemetry (recommended)](#supported-frameworks-telemetry-unified "#supported-frameworks-telemetry-unified")
+  - [Split telemetry](#supported-frameworks-telemetry-split "#supported-frameworks-telemetry-split")
+
+- [What the service reads from a span](#supported-frameworks-telemetry-spans "#supported-frameworks-telemetry-spans")
 - [References](#supported-frameworks-telemetry-references "#supported-frameworks-telemetry-references")
+- [Sample agents](#supported-frameworks-samples "#supported-frameworks-samples")
 
-## How ADOT splits telemetry
+## Set up observability
 
-When your agent runs with the AWS Distro for OpenTelemetry (ADOT), telemetry is **split**. As spans are exported, ADOT extracts the large conversation content (model prompts and completions, tool inputs and outputs) out of the span attributes and emits it as separate **event records**. The resulting span carries only metadata and small attributes.
+Instrumenting your agent is one part of producing telemetry that the evaluation service can read. Your agent must also have observability enabled, so that it exports its telemetry to Amazon CloudWatch. Complete the following steps:
 
-This split keeps span documents small, although it preserves the full conversation content in event records.
+1. **Enable Amazon CloudWatch Transaction Search.** Evaluation requires it in both delivery modes. See [Enabling AgentCore observability](observability-configure.md#observability-configure-builtin "observability-configure.md#observability-configure-builtin").
+2. **Enable observability for your agent**, based on where you host it:
 
-```
-                          ADOT collection (split)
+   - **On Amazon Bedrock AgentCore Runtime**: see [Enabling observability in agent code for AgentCore-hosted agents](observability-configure.md#observability-configure-custom "observability-configure.md#observability-configure-custom").
+   - **Hosted outside AgentCore Runtime** (Amazon ECS, Amazon EKS, AWS Lambda, or another environment): see [Enabling observability for agents hosted outside of AgentCore](observability-configure.md#observability-configure-3p "observability-configure.md#observability-configure-3p"). This is also where you set the log group that receives your telemetry.
 
-   Instrumented agent
-          |
-          |  span with attributes + content
-          v
-   +--------------------+
-   |       ADOT         |  extracts conversation content
-   +--------------------+
-          |                          |
-          | span                     | event record(s)
-          | (metadata, attributes)   | (body: input / output messages)
-          v                          v
-   +--------------------+   +-----------------------+
-   |  aws/spans         |   |  event-record         |
-   |  log group         |   |  log group            |
-   +--------------------+   +-----------------------+
-          |                          |
-          +-----------+--------------+
-                      v
-            Evaluation service
-       (joins span + event record by traceId / spanId)
-```
+3. **Check which delivery mode your agent uses**, so that you know where your telemetry lands. Agents that you created on or after July 20, 2026 use unified telemetry by default, and agents that you created before that date use split telemetry. Unified telemetry needs ADOT version 0.18.0 or later (`aws-opentelemetry-distro>=0.18.0`). Earlier versions send spans to the shared `aws/spans` log group.
 
-After the split, the conversation content lives in the event record `body` (for example, `body.input.messages` and `body.output.messages`), and the span carries the identifying attributes used to classify it.
+For an agent on AgentCore Runtime, you switch modes with the `UNIFIED_TRACES_DESTINATION_ENABLED` environment variable: set it to `true` for unified telemetry, or `false` for split telemetry. For the environment variables, the IAM permissions, and the full procedure for each hosting option, see [Span destination for agents hosted in Amazon Bedrock AgentCore runtime](observability-configure.md#observability-configure-unified-traces "observability-configure.md#observability-configure-unified-traces").
 
-## Where spans and event records are stored
+Changing the delivery mode does not move telemetry that AgentCore already delivered. Older spans stay in the log group they were written to, so the service still evaluates a session that you recorded before the change.
 
-When ADOT collects telemetry, it exports spans and event records to Amazon CloudWatch, but to **different** locations.
+## Telemetry delivery modes
 
-- **Spans** are stored in the `aws/spans` log group. This log group is created when **Transaction Search** is enabled, which is a prerequisite for evaluation. For details on enabling Transaction Search, see [AgentCore Observability](observability-telemetry.md "observability-telemetry.md").
-- **Event records** are stored in a log group that depends on where your agent is hosted:
+AgentCore delivers your agent’s telemetry in one of two modes:
 
-  - **On Amazon Bedrock AgentCore Runtime**: the Runtime emits event records to its log group, `/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>`, in the `otel-rt-logs` log stream, and configures this export for you.
-  - **Hosted outside AgentCore Runtime** (for example, on Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), or AWS Lambda): your agent emits event records to the log group you configure through the `OTEL_EXPORTER_OTLP_LOGS_HEADERS` environment variable.
+- **Unified telemetry** (recommended) keeps everything together. The attributes carrying the model payloads and the tool requests and responses stay on the span, and all of your agent’s telemetry goes to one log group.
+- **Split telemetry** separates the two. The AWS Distro for OpenTelemetry (ADOT) moves those attributes off the span into separate records, which go to a different log group than the spans.
 
-To evaluate a session, the service reads spans from `aws/spans` and joins them with their correlated event records from the appropriate log group.
+AgentCore Evaluations reads both modes. You do not choose between them in the evaluation service, and the same evaluators give you the same results either way. We recommend unified telemetry, which is available in all AWS commercial Regions where AgentCore Runtime is available.
 
-## Where the service reads content
+### Unified telemetry (recommended)
 
-Conversation content can live in different places, depending on the framework and instrumentation library. The evaluation service reads it from whichever location holds it:
+With unified telemetry, all of your agent’s telemetry goes to one log group. Spans go to the `spans` log stream in that log group, next to the agent’s own logs and console output. The span keeps the attributes that carry the model payloads and the tool requests and responses, so the service reads everything it needs from the span itself.
 
-- **Event record body**: when ADOT splits the content into a separate event record (described above), the service reads it from the event record `body` correlated to the span.
-- **Span attributes**: some instrumentation libraries keep the content on the span as attributes.
-- **Inline span events**: some instrumentation libraries attach the content to the span as inline events.
+![Unified telemetry: ADOT sends each span with its content to one log group](images/evaluations-unified-telemetry.png)
 
-The identifying attributes used to classify a span always remain on the span in every case. This includes the attribute that marks a span as an invoke agent span or an execute tool span. Only the location of the larger conversation content differs. The per-framework pages list both the identifying attributes and the content locations for each instrumentation library.
+Which log group holds the spans depends on where you host the agent:
+
+- **On Amazon Bedrock AgentCore Runtime**: the agent’s log group, `/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>`. AgentCore sets this up for you.
+- **Hosted outside AgentCore Runtime**: the log group that you name in the `OTEL_EXPORTER_OTLP_TRACES_HEADERS` environment variable.
+
+Keeping spans and logs in one place helps beyond evaluation. You can look at traces and logs together, you can write AWS Identity and Access Management (IAM) policies and set up customer managed key (CMK) encryption for a single agent, and you can export everything an agent produces by subscribing to one log group.
+
+### Split telemetry
+
+With split telemetry, ADOT takes the large payloads off the span. As it exports each span, it pulls out the attributes carrying the model payloads and the tool requests and responses, and sends them as separate **event records**, leaving the span with its metadata and its smaller attributes. Event records exist only in this mode, and they follow the OpenTelemetry events convention.
+
+Each event record links back to its span through a shared `traceId` and `spanId`, and the content sits in the record `body`, for example in `body.input.messages` and `body.output.messages`.
+
+![Split telemetry: ADOT sends spans to aws/spans and conversation content to the agent log group as event records](images/evaluations-split-telemetry.png)
+
+The two kinds of record then go to different places:
+
+- **Spans** go to the shared `aws/spans` log group. CloudWatch creates this log group when you turn on Transaction Search.
+- **Event records** go to a separate log group. On AgentCore Runtime, that is the agent’s log group, in the `otel-rt-logs` log stream, which AgentCore sets up for you. Outside AgentCore Runtime, it is the log group that you name in the `OTEL_EXPORTER_OTLP_LOGS_HEADERS` environment variable.
+
+To evaluate a session, the service reads spans from `aws/spans` and matches them to their event records.
+
+## What the service reads from a span
+
+For each span in a session, the service does the following:
+
+1. Works out what kind of span it is, based on the attributes the framework set. A span can be an **invoke agent span** (the top-level agent run), an **execute tool span** (a single tool call), or an **inference span** (a single model call).
+2. Reads the values it needs, such as the user prompt, the agent response, and tool inputs and outputs. For example, the user prompt comes from the user-role message in the agent input, and the agent response comes from the assistant-role message in the agent output.
+
+The attributes that identify a span always stay on the span, in both delivery modes. Only the conversation content moves. Where that content sits within the span also depends on your instrumentation library: most libraries record it as span attributes, and some attach it to the span as events. For each library, the per-framework pages list the identifying attributes, say where the content sits, and show example spans for both modes.
 
 ## References
 
-These OpenTelemetry specifications describe the conventions that AgentCore Evaluations builds on:
+AgentCore Evaluations builds on the following OpenTelemetry specifications:
 
-- [Trace semantic conventions](https://opentelemetry.io/docs/specs/semconv/general/trace/ "https://opentelemetry.io/docs/specs/semconv/general/trace/"): the structure and semantics of spans and traces.
-- [Event semantic conventions](https://opentelemetry.io/docs/specs/semconv/general/events/ "https://opentelemetry.io/docs/specs/semconv/general/events/"): the structure and semantics of event records.
-- [Generative-AI semantic conventions](https://github.com/open-telemetry/semantic-conventions-genai "https://github.com/open-telemetry/semantic-conventions-genai"): the `gen_ai.*` attributes used to describe agent, model, and tool operations.
+- [Trace semantic conventions](https://opentelemetry.io/docs/specs/semconv/general/trace/ "https://opentelemetry.io/docs/specs/semconv/general/trace/") on the OpenTelemetry website: how spans and traces are structured and what they mean.
+- [Event semantic conventions](https://opentelemetry.io/docs/specs/semconv/general/events/ "https://opentelemetry.io/docs/specs/semconv/general/events/") on the OpenTelemetry website: how event records are structured and what they mean.
+- [Generative-AI semantic conventions](https://github.com/open-telemetry/semantic-conventions-genai "https://github.com/open-telemetry/semantic-conventions-genai") on the GitHub website: the `gen_ai.*` attributes that describe agent, model, and tool operations.
+
+## Sample agents
+
+The following examples show how to instrument a Strands agent hosted outside Amazon Bedrock AgentCore Runtime. Each example exports telemetry to Amazon CloudWatch using ADOT. They focus on observability setup rather than the evaluation API. The examples use Strands, but the same hosting and telemetry-export pattern applies to other supported frameworks, such as LangGraph.
+
+- **Amazon EKS:**
+  [Observability for an EKS-hosted agent](https://github.com/awslabs/agentcore-samples/tree/main/06-workshops/06-AgentCore-observability/06-Agentcore-observability-for-eks-hosted-agent "https://github.com/awslabs/agentcore-samples/tree/main/06-workshops/06-AgentCore-observability/06-Agentcore-observability-for-eks-hosted-agent") and [Strands agent on Amazon EKS](https://github.com/awslabs/agentcore-samples/tree/main/03-integrations/agents-hosted-outside-runtime/agents-on-eks "https://github.com/awslabs/agentcore-samples/tree/main/03-integrations/agents-hosted-outside-runtime/agents-on-eks"), both on the GitHub website.
+- **Amazon ECS:**
+  [Strands agent on Amazon ECS](https://github.com/awslabs/agentcore-samples/tree/main/03-integrations/agents-hosted-outside-runtime/agents-on-ecs "https://github.com/awslabs/agentcore-samples/tree/main/03-integrations/agents-hosted-outside-runtime/agents-on-ecs") on the GitHub website.
+- **AWS Lambda:**
+  [Strands agent in AWS Lambda](https://github.com/awslabs/agentcore-samples/tree/main/03-integrations/agents-hosted-outside-runtime/agents-on-aws-lambda/02-agent-in-lambda "https://github.com/awslabs/agentcore-samples/tree/main/03-integrations/agents-hosted-outside-runtime/agents-on-aws-lambda/02-agent-in-lambda") on the GitHub website.

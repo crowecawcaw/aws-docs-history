@@ -11,8 +11,8 @@ This page explains how to instrument a [Strands Agents](https://strandsagents.co
   - [From event records](#strands-extraction-event-records "#strands-extraction-event-records")
   - [From inline span events](#strands-extraction-inline-events "#strands-extraction-inline-events")
 
-- [Example spans with event records](#strands-examples-with "#strands-examples-with")
-- [Example spans without event records](#strands-examples-without "#strands-examples-without")
+- [Example spans in split telemetry](#strands-examples-split "#strands-examples-split")
+- [Example spans in unified telemetry](#strands-examples-unified "#strands-examples-unified")
 
 ## Instrument your agent
 
@@ -20,7 +20,7 @@ The Strands Agents SDK includes built-in telemetry and requires no additional in
 
 ###### Note
 
-Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks.md#supported-frameworks-setup "supported-frameworks.md#supported-frameworks-setup").
+Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup "supported-frameworks-telemetry.md#supported-frameworks-setup").
 
 ## How spans are identified
 
@@ -34,31 +34,31 @@ Strands sets the `gen_ai.operation.name` attribute on each span. The evaluation 
 
 ## How evaluation fields are extracted
 
-The location of the conversation content depends on how telemetry was collected. When ADOT splits telemetry, the content is in a separate event record. When telemetry is not split, the content stays on the span as inline events. For more information, see [Spans, event records, and telemetry signals](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md"). The identifying attribute (`gen_ai.operation.name`) is on the span in both cases.
+Where the conversation content sits depends on the telemetry delivery mode. With split telemetry, the content is in a separate event record. With unified telemetry, the content stays on the span, as events attached to it. For more information, see [Telemetry setup and delivery](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md"). The identifying attribute (`gen_ai.operation.name`) is on the span in both modes.
 
 ### From event records
 
-When telemetry is split, the service reads content from the event record correlated to each span:
+With split telemetry, the service reads content from the event record correlated to each span:
 
 - **User prompt**: from the agent input messages (`input.messages`), the content of the message with a user role.
 - **Agent response**: from the agent output messages (`output.messages`), the content of the message with an assistant role.
 - **Tool call**: the tool name from the `gen_ai.tool.name` attribute on the execute tool span. The tool arguments and result come from that span’s event record (`input` and `output`).
 
-For examples, see [Example spans with event records](#strands-examples-with "#strands-examples-with").
+For more information, see [Example spans in split telemetry](#strands-examples-split "#strands-examples-split").
 
 ### From inline span events
 
-When telemetry is not split, the same content is carried in inline span events instead of a separate event record:
+With unified telemetry, the same content is carried in inline span events instead of a separate event record:
 
 - **User prompt**: from the `gen_ai.user.message` event, the `content` attribute.
 - **Agent response**: from the `gen_ai.choice` event, the `message` attribute.
 - **Tool call**: the tool name from the `gen_ai.tool.name` attribute on the span. The tool arguments come from the `gen_ai.tool.message` event, and the result comes from the `gen_ai.choice` event.
 
-For examples, see [Example spans without event records](#strands-examples-without "#strands-examples-without").
+For more information, see [Example spans in unified telemetry](#strands-examples-unified "#strands-examples-unified").
 
-## Example spans with event records
+## Example spans in split telemetry
 
-When telemetry is split, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from a Strands travel-planning agent deployed on Amazon Bedrock AgentCore Runtime.
+With split telemetry, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from a Strands travel-planning agent deployed on Amazon Bedrock AgentCore Runtime.
 
 ###### Note
 
@@ -201,9 +201,9 @@ The correlated event record carries the tool input (arguments) and output (resul
 }
 ```
 
-## Example spans without event records
+## Example spans in unified telemetry
 
-When telemetry is not split, the same content is carried in inline span events on the span, with no separate event record. The following examples are from a Strands travel-planning agent.
+With unified telemetry, the same content is carried in inline span events on the span, with no separate event record. The following examples are from a Strands travel-planning agent.
 
 ###### Note
 

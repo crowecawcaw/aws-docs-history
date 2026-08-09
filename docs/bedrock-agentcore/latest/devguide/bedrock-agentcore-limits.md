@@ -36,18 +36,30 @@ When working with AgentCore Runtime, you need to be aware of the service limits 
 
 The following table describes the resource allocation limits for AgentCore Runtime. You can request increases for some quotas using the Service Quotas console.
 
-| Limit                                                            | Default Value                                                                        | Adjustable | Notes                                                           |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ---------- | --------------------------------------------------------------- |
-| Active session workloads per account                             | 5,000 in US East (N. Virginia) and US West (Oregon), and 2,500 in other AWS Regions. | Yes        | Can be increased via Service Quotas                             |
-| Total agents per account                                         | 1,000                                                                                | Yes        | Can be increased via Service Quotas                             |
-| Versions per agent                                               | 1,000                                                                                | Yes        | Can be increased via Service Quotas                             |
-| Endpoints (aliases) per agent                                    | 10                                                                                   | Yes        | Can be increased via Service Quotas                             |
-| Maximum size for a Docker image in an AgentCore Runtime          | 2 GB                                                                                 | No         |                                                                 |
-| Maximum size for a direct code deployment package (compressed)   | 250 MB                                                                               | No         | ZIP file size limit for direct code deployment                  |
-| Maximum size for a direct code deployment package (uncompressed) | 750 MB                                                                               | No         | Unzipped package size limit for direct code deployment          |
-| Maximum hardware allocation per session                          | 2vCPU/8GB                                                                            | No         | The maximum memory/CPU usage and allocation per Runtime session |
+| Limit                                                            | Default Value                                                                        | Adjustable | Notes                                                                                                                                                     |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Active session workloads per account                             | 5,000 in US East (N. Virginia) and US West (Oregon), and 2,500 in other AWS Regions. | Yes        | Can be increased via Service Quotas                                                                                                                       |
+| Total agents per account                                         | 1,000                                                                                | Yes        | Can be increased via Service Quotas                                                                                                                       |
+| Versions per agent                                               | 1,000                                                                                | Yes        | Can be increased via Service Quotas                                                                                                                       |
+| Endpoints (aliases) per agent                                    | 10                                                                                   | Yes        | Can be increased via Service Quotas                                                                                                                       |
+| Maximum size for a Docker image in an AgentCore Runtime          | 2 GB                                                                                 | No         |                                                                                                                                                           |
+| Maximum size for a direct code deployment package (compressed)   | 250 MB                                                                               | No         | ZIP file size limit for direct code deployment                                                                                                            |
+| Maximum size for a direct code deployment package (uncompressed) | 750 MB                                                                               | No         | Unzipped package size limit for direct code deployment                                                                                                    |
+| Maximum hardware allocation per session                          | 2vCPU/8GB                                                                            | No         | The maximum memory/CPU usage and allocation per Runtime session                                                                                           |
+| Capacity providers per account                                   | 1,000                                                                                | No         | Applies to the Instances compute type in your account. Counts all capacity providers that you have not deleted, including those being created or deleted. |
+| Agents per capacity provider session                             | 20                                                                                   | No         | Applies to the Instances compute type. The maximum number of agents that you can run on a single capacity provider session.                               |
 
 For more information about service quotas and how to request increases, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
+
+###### Note
+
+Because the **Instances** compute type provisions Amazon EC2 resources in your own account, your account’s quotas for those resources apply in addition to the AgentCore quotas in the preceding table. AgentCore calls the following services on your behalf to provision and manage instances, which consumes your account’s quotas. For high-throughput workloads, you might need to request increases for the following:
+
+- **Amazon EC2** – the running instance count for the instance families you select, and the request rates for the instance operations that AgentCore calls, such as `RunInstances`, `CreateFleet`, `DescribeInstances`, `TerminateInstances`, and `CreateTags`. For more information, see [Amazon EC2 service quotas](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md").
+- **Amazon EBS** – the volume quotas for the volume types you use, and the request rates for the volume operations that AgentCore calls, such as `CreateVolume`, `AttachVolume`, `DetachVolume`, `DeleteVolume`, and `DescribeVolumes`. For more information, see [Quotas for Amazon EBS](../../../ebs/latest/userguide/ebs-resource-quotas.md "../../../ebs/latest/userguide/ebs-resource-quotas.md").
+- **Amazon VPC** – the number of network interfaces, and the request rates for the network interface operations that AgentCore calls, such as `AttachNetworkInterface` and `DescribeNetworkInterfaces`. For more information, see [Amazon VPC quotas](../../../vpc/latest/userguide/amazon-vpc-limits.md "../../../vpc/latest/userguide/amazon-vpc-limits.md").
+- **Amazon EC2 Auto Scaling** – a single shared quota that applies to all Amazon EC2 Auto Scaling API calls, rather than to an individual operation. This quota isn’t available in the Service Quotas console. To request an increase, open an AWS Support case. For more information, see [Request throttling for the Amazon EC2 Auto Scaling API](../../../autoscaling/ec2/userguide/ec2-auto-scaling-quotas.md#api-request-throttling "../../../autoscaling/ec2/userguide/ec2-auto-scaling-quotas.md#api-request-throttling").
+  To request an increase for a quota that is available in the Service Quotas console, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
 
 ### Invocation limits
 
@@ -255,8 +267,10 @@ Amazon Bedrock AgentCore Gateway has the following service quotas. You can reque
 | ListGatewayTargets API rate                                                        | 10 transactions per second  | Yes        |
 | DeleteGatewayTarget API rate                                                       | 5 transactions per second   | Yes        |
 | Concurrent target operations (total of Create/Update/DeleteTarget) on same gateway | 5                           | Yes        |
-| tool-call/tool-list rate at gateway level                                          | 1000 concurrent connections | Yes        |
-| tool-call/tool-list rate at account level                                          | 1000 concurrent connections | Yes        |
+| tool-call/tool-list rate at gateway level                                          | 200 transactions per second | Yes        |
+| tool-call/tool-list rate at account level                                          | 200 transactions per second | Yes        |
+| tool-call/tool-list concurrent connections at gateway level                        | 5000 concurrent connections | Yes        |
+| tool-call/tool-list concurrent connections at account level                        | 5000 concurrent connections | Yes        |
 | Search-based tool-call rate                                                        | 25 transactions per minute  | Yes        |
 | Maximum tool-call/tool-list/tool-search payload size                               | 6 MB                        | Yes        |
 | Rate of Web Search Tool requests                                                   | 10 transactions per second  | Yes        |
@@ -550,19 +564,20 @@ The following table describes the quotas for resource-based policies:
 
 The following table describes the rate limits for AgentCore Registry APIs after which you will be throttled. You can request increases for some quotas using the Service Quotas console.
 
-| Limit                                    | Value  | Adjustable | Notes                               |
-| ---------------------------------------- | ------ | ---------- | ----------------------------------- |
-| CreateRegistry API rate                  | 5 TPS  | Yes        | Transactions per second per account |
-| GetRegistry API rate                     | 5 TPS  | Yes        | Transactions per second per account |
-| UpdateRegistry API rate                  | 5 TPS  | Yes        | Transactions per second per account |
-| DeleteRegistry API rate                  | 5 TPS  | Yes        | Transactions per second per account |
-| ListRegistries API rate                  | 5 TPS  | Yes        | Transactions per second per account |
-| CreateRegistryRecord API rate            | 5 TPS  | Yes        | Transactions per second per account |
-| GetRegistryRecord API rate               | 10 TPS | Yes        | Transactions per second per account |
-| UpdateRegistryRecord API rate            | 5 TPS  | Yes        | Transactions per second per account |
-| DeleteRegistryRecord API rate            | 10 TPS | Yes        | Transactions per second per account |
-| ListRegistryRecords API rate             | 10 TPS | Yes        | Transactions per second per account |
-| SubmitRegistryRecordForApproval API rate | 10 TPS | Yes        | Transactions per second per account |
-| UpdateRegistryRecordStatus API rate      | 10 TPS | Yes        | Transactions per second per account |
-| SearchRegistryRecords API rate           | 5 TPS  | Yes        | Transactions per second per account |
-| InvokeRegistryMcp API rate               | 5 TPS  | Yes        | Transactions per second per account |
+| Limit                                       | Value  | Adjustable | Notes                               |
+| ------------------------------------------- | ------ | ---------- | ----------------------------------- |
+| CreateRegistry API rate                     | 5 TPS  | Yes        | Transactions per second per account |
+| GetRegistry API rate                        | 5 TPS  | Yes        | Transactions per second per account |
+| UpdateRegistry API rate                     | 5 TPS  | Yes        | Transactions per second per account |
+| DeleteRegistry API rate                     | 5 TPS  | Yes        | Transactions per second per account |
+| ListRegistries API rate                     | 5 TPS  | Yes        | Transactions per second per account |
+| CreateRegistryRecord API rate               | 5 TPS  | Yes        | Transactions per second per account |
+| GetRegistryRecord API rate                  | 10 TPS | Yes        | Transactions per second per account |
+| UpdateRegistryRecord API rate               | 5 TPS  | Yes        | Transactions per second per account |
+| DeleteRegistryRecord API rate               | 10 TPS | Yes        | Transactions per second per account |
+| ListRegistryRecords API rate                | 10 TPS | Yes        | Transactions per second per account |
+| SubmitRegistryRecordForApproval API rate    | 10 TPS | Yes        | Transactions per second per account |
+| UpdateRegistryRecordStatus API rate         | 10 TPS | Yes        | Transactions per second per account |
+| SearchDiscoverableRegistryRecords API rate  | 10 TPS | Yes        | Transactions per second per account |
+| ListDiscoverableRegistryRecords API rate    | 10 TPS | Yes        | Transactions per second per account |
+| BatchGetDiscoverableRegistryRecord API rate | 10 TPS | Yes        | Transactions per second per account |

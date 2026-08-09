@@ -8,6 +8,7 @@ This topic consolidates security best practices for Amazon Bedrock AgentCore Run
 - [IAM and least privilege](#security-bp-iam-least-privilege "#security-bp-iam-least-privilege")
 - [Resource-based policies and cross-account access](#security-bp-resource-policies "#security-bp-resource-policies")
 - [Confused deputy prevention](#security-bp-confused-deputy "#security-bp-confused-deputy")
+- [Input validation](#security-bp-input-validation "#security-bp-input-validation")
 - [Front your runtime with an AgentCore Gateway](#security-bp-front-with-gateway "#security-bp-front-with-gateway")
 - [Authentication best practices](#security-bp-authentication "#security-bp-authentication")
 - [Credential and secret management](#security-bp-credentials "#security-bp-credentials")
@@ -94,6 +95,34 @@ Protect your execution roles from the confused deputy problem by using global co
 - **Use the full ARN when possible** — If you know the specific runtime resource, use its full ARN in `aws:SourceArn` instead of wildcards.
 
 For more information, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+
+## Input validation
+
+Validate all input that your agent entrypoint receives before passing it to an agent framework:
+
+- **Enforce string type on the prompt field**—The `payload` your entrypoint receives is parsed from arbitrary JSON. A caller can send a non-string value (such as a list or object) in the `prompt` field. If your agent framework accepts non-string content blocks—particularly `toolUse` blocks—the framework might dispatch a tool directly. This bypasses model reasoning, guardrails, and system prompt enforcement. Always validate that the prompt is a string before passing it to the agent:
+
+```
+@app.entrypoint
+def invoke(payload, context):
+    user_message = payload.get("prompt", "")
+    if not isinstance(user_message, str) or not user_message.strip():
+        return {"error": "Invalid input: 'prompt' must be a non-empty string"}
+    result = agent(user_message)
+    return {"response": result.message}
+```
+
+- **Reject or strip `toolUse` content blocks**—If your agent accepts structured message arrays (for multi-turn conversation), filter out any `toolUse` content blocks from user-supplied messages. A `toolUse` block in the message history can cause the agent framework’s event loop to execute the named tool immediately without model evaluation.
+- **Validate payload structure with a schema**—Use Pydantic, Zod, or an equivalent schema library to enforce that the request body conforms to your expected structure. Define `prompt` as `str` (not `Any`) in your schema:
+
+```
+from pydantic import BaseModel
+
+class InvocationRequest(BaseModel):
+    prompt: str  # Enforces string type at the schema level
+```
+
+- **Do not rely on default values as validation**—A pattern like `payload.get("prompt", "Hello")` provides a default but does not reject non-string input. The value returned is whatever the caller sent, which might be a dict or list containing content blocks.
 
 ## Front your runtime with an AgentCore Gateway
 

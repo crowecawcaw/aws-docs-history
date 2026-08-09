@@ -8,7 +8,6 @@ This evaluation type complements online evaluation by offering precise control o
 
 ###### Topics
 
-- [IAM permissions for on-demand evaluation](iam-permissions-on-demand.md "iam-permissions-on-demand.md")
+- [Prerequisites](ondemand-evaluations-prereqs.md "ondemand-evaluations-prereqs.md")
 - [Getting started with on-demand evaluation](getting-started-on-demand.md "getting-started-on-demand.md")
 - [Ground truth evaluations](ground-truth-evaluations.md "ground-truth-evaluations.md")
-- [Understanding input spans](understanding-input-spans.md "understanding-input-spans.md")

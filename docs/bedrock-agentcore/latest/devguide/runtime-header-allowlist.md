@@ -64,9 +64,9 @@ agent = Agent()
 @app.entrypoint
 def agent_invocation(payload, context: RequestContext):
     """Handler for agent invocation"""
-    user_message = payload.get(
-        "prompt", "No prompt found in input, please guide customer to create a json payload with prompt key"
-    )
+    user_message = payload.get("prompt", "")
+    if not isinstance(user_message, str) or not user_message.strip():
+        return {"error": "Invalid input: 'prompt' must be a non-empty string"}
     app.logger.info("invoking agent with user message: %s", payload)
     response = agent(user_message)
 

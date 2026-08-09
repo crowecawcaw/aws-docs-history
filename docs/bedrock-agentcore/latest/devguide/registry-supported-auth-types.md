@@ -1,27 +1,51 @@
 # Supported Inbound Authorization types
 
-###### Upcoming namespace migration
+###### Migration Now Open
 
-AWS Agent Registry is currently in public preview under the bedrock-agentcore namespace. Starting August 6, 2026, the service moves to the agent-registry namespace. If you use AWS Agent Registry, you must update your endpoints, IAM policies, SDK clients, CLI scripts, and registry data. For more information about migrating from public preview, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
+AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on September 17, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
 
-Inbound authorization allows registry administrators to control which users can search for records in the registry (via AWS CLI, SDK, console, or MCP server). Administrators can configure inbound authorization using IAM or JWT.
+Inbound authorization allows registry administrators to control which consumers can discover records in the registry — search, browse the approved-record catalog, invoke the registry’s MCP endpoint — via the AWS CLI, SDK, console, or an MCP-compatible client. Administrators can configure inbound authorization using IAM or JWT.
 
 ## IAM-based authorization
 
 IAM-based authorization uses the caller’s AWS IAM credentials (SigV4 signing) for authorization. Use this option if your consumers already have AWS IAM access.
 
-### To set up IAM-based authorization
+### Setting up IAM-based authorization
 
 1. Create or use an existing IAM identity for your registry consumers.
 2. Create an identity-based IAM policy with the following permissions:
 
-   1. `bedrock-agentcore:SearchRegistryRecords`
-   2. `bedrock-agentcore:InvokeRegistryMcp`
-   3. You can optionally scope the IAM Permissions to the specific Registry Resource if you want to limit which registry a particular consumer can search in
+   1. `agent-registry:SearchDiscoverableRegistryRecords`
+   2. `agent-registry:ListDiscoverableRegistryRecords`
+   3. `agent-registry:GetDiscoverableRegistryRecord`
+   4. `agent-registry:InvokeRegistryMcp`
+   5. To restrict a consumer to specific registries in the same AWS account, list the target registry ARN(s) in the `Resource` field of the identity-based policy. Omit this scope (or use `"Resource": "*"`) to grant access to every registry in the account.
 
 3. Attach the policy to the consumer identity (IAM User or Role).
 
 ### Example policy
+
+###### Example
+
+AWS Agent Registry namespace
+
+```
+{
+"Version": "2012-10-17",
+  "Statement": [{
+    "Effect": "Allow",
+    "Action": [
+      "agent-registry:SearchDiscoverableRegistryRecords",
+      "agent-registry:ListDiscoverableRegistryRecords",
+      "agent-registry:GetDiscoverableRegistryRecord",
+      "agent-registry:InvokeRegistryMcp"
+    ],
+    "Resource": "arn:aws:agent-registry:us-east-1:123456789012:registry/<YOUR_REGISTRY_ID>"
+  }]
+}
+```
+
+Amazon Bedrock AgentCore namespace (to be deprecated)
 
 ```
 {
@@ -66,4 +90,4 @@ You cannot change authorization Type after a Registry has been created. Addition
 
 ## Authorization scope
 
-The authorization type you configure only affects the data plane APIs — SearchRegistryRecords and InvokeRegistryMcp. All control plane APIs (CreateRegistry, CreateRegistryRecord, UpdateRegistryRecordStatus, and others) always require IAM authorization, regardless of the registry’s authorization setting.
+The authorization type you configure only affects the data plane APIs — SearchDiscoverableRegistryRecords, ListDiscoverableRegistryRecords, BatchGetDiscoverableRegistryRecord, and InvokeRegistryMcp. All control plane APIs (CreateRegistry, CreateRegistryRecord, UpdateRegistryRecordStatus, and others) always require IAM authorization, regardless of the registry’s authorization setting.

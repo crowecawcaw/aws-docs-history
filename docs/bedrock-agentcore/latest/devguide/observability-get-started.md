@@ -1,6 +1,6 @@
 # Get started with AgentCore Observability
 
-Amazon Bedrock Amazon Bedrock AgentCore Observability helps you trace, debug, and monitor agent performance in production environments. This guide helps you implement observability features in your agent applications.
+Amazon Bedrock AgentCore Observability helps you trace, debug, and monitor agent performance in production environments. This guide helps you implement observability features in your agent applications.
 
 ###### Topics
 
@@ -119,6 +119,8 @@ agent = Agent(
 def strands_agent_bedrock(payload):
     """Invoke the agent with a payload"""
     user_input = payload.get("prompt")
+    if not isinstance(user_input, str) or not user_input:
+        return "Error: 'prompt' must be a non-empty string"
     response = agent(user_input)
     return response.message['content'][0]['text']
 

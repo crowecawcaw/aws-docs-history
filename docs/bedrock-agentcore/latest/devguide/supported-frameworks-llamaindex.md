@@ -11,8 +11,8 @@ This page explains how to instrument a [LlamaIndex](https://docs.llamaindex.ai/ 
   - [From event records](#llamaindex-extraction-event-records "#llamaindex-extraction-event-records")
   - [From span attributes](#llamaindex-extraction-attributes "#llamaindex-extraction-attributes")
 
-- [Example spans with event records](#llamaindex-examples-with "#llamaindex-examples-with")
-- [Example spans without event records](#llamaindex-examples-without "#llamaindex-examples-without")
+- [Example spans in split telemetry](#llamaindex-examples-split "#llamaindex-examples-split")
+- [Example spans in unified telemetry](#llamaindex-examples-unified "#llamaindex-examples-unified")
 - [Best practices for LlamaIndex agents](#llamaindex-best-practices "#llamaindex-best-practices")
 
 ## Instrument your agent
@@ -67,7 +67,7 @@ dependencies = [
 
 ###### Note
 
-Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks.md#supported-frameworks-setup "supported-frameworks.md#supported-frameworks-setup").
+Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup "supported-frameworks-telemetry.md#supported-frameworks-setup").
 
 ## How spans are identified
 
@@ -103,29 +103,29 @@ The LlamaIndex agent is a **workflow**, and its top-level span is emitted before
 
 LlamaIndex also serializes content as nested JSON. Tool arguments are wrapped as `{"kwargs": {…​}}`, and tool results are wrapped as `{"blocks": [{"text": "…​"}], …​}`. AgentCore Evaluations unwraps these forms. When a LlamaIndex ReAct agent produces output in the form `Thought: …​ Answer: <response>`, AgentCore Evaluations extracts the text after `Answer:` as the agent response.
 
-The location of this content depends on how telemetry was collected. The identifying attribute (`traceloop.span.kind` or `openinference.span.kind`) is on the span in both cases. For more information, see [Spans, event records, and telemetry signals](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md").
+The location of this content depends on how telemetry was collected. The identifying attribute (`traceloop.span.kind` or `openinference.span.kind`) is on the span in both cases. For more information, see [Telemetry setup and delivery](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md").
 
 ### From event records
 
-When telemetry is split, AgentCore Evaluations reads content from the event record correlated to each span:
+With split telemetry, AgentCore Evaluations reads content from the event record correlated to each span:
 
 - **User prompt** and **agent response**: reconstructed from the inference spans' event records, in `body.output`. With the OpenTelemetry library, the user prompt comes from the chat-history content and the agent response from the model-result content. With the OpenInference library, the user prompt is the plain-text input message and the agent response is the model output (with the text after `Answer:` used for a ReAct agent).
 - **Tool call**: the tool name from the execute tool span. The tool arguments and result come from that span’s event record, in `body.input` (unwrapped from `{"kwargs": {…​}}`) and `body.output` (unwrapped from `{"blocks": […​]}`).
 
-For examples, see [Example spans with event records](#llamaindex-examples-with "#llamaindex-examples-with").
+For more information, see [Example spans in split telemetry](#llamaindex-examples-split "#llamaindex-examples-split").
 
 ### From span attributes
 
-When telemetry is not split, the same content stays on the span as attributes. The attributes depend on the instrumentation library:
+With unified telemetry, the same content stays on the span as attributes. The attributes depend on the instrumentation library:
 
 - **OpenTelemetry**: the content is on the `traceloop.entity.input` and `traceloop.entity.output` attributes of each span. AgentCore Evaluations applies the same chat-history, result, and tool unwrapping to these values.
-- **OpenInference**: the inference content is on the indexed message attributes (`llm.input_messages.` and `llm.output_messages.`). Tool arguments come from `input.value` (unwrapped from `{"kwargs": {…​}}`) and the tool result from `output.value` (unwrapped from `{"blocks": […​]}`).
+- **OpenInference**: the inference content is on the indexed message attributes (`llm.input_messages.*` and `llm.output_messages.*`). Tool arguments come from `input.value` (unwrapped from `{"kwargs": {…​}}`) and the tool result from `output.value` (unwrapped from `{"blocks": […​]}`).
 
-For examples, see [Example spans without event records](#llamaindex-examples-without "#llamaindex-examples-without").
+For more information, see [Example spans in unified telemetry](#llamaindex-examples-unified "#llamaindex-examples-unified").
 
-## Example spans with event records
+## Example spans in split telemetry
 
-When telemetry is split, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from a LlamaIndex ReAct travel-planning agent deployed on Amazon Bedrock AgentCore Runtime. The same agent is shown under each instrumentation library.
+With split telemetry, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from a LlamaIndex ReAct travel-planning agent deployed on Amazon Bedrock AgentCore Runtime. The same agent is shown under each instrumentation library.
 
 ###### Note
 
@@ -402,9 +402,9 @@ The `openinference.span.kind` attribute (`LLM`) identifies this as an inference 
 }
 ```
 
-## Example spans without event records
+## Example spans in unified telemetry
 
-When telemetry is not split, the same content stays on the span attributes and no separate event record is produced. The following examples are from a LlamaIndex ReAct travel-planning agent. The same agent is shown under each instrumentation library.
+With unified telemetry, the same content stays on the span attributes and no separate event record is produced. The following examples are from a LlamaIndex ReAct travel-planning agent. The same agent is shown under each instrumentation library.
 
 ###### Note
 
@@ -496,7 +496,7 @@ The `input.value` attribute holds the tool arguments (wrapped in `kwargs`), and 
 ```
 
 Inference span
-The message content is inline on the indexed attributes. The `llm.input_messages.` attributes hold the system prompt and user prompt, and the `llm.output_messages.` attributes hold the model output, from which AgentCore Evaluations extracts the text after `Answer:` as the agent response.
+The message content is inline on the indexed attributes. The `llm.input_messages.*` attributes hold the system prompt and user prompt, and the `llm.output_messages.*` attributes hold the model output, from which AgentCore Evaluations extracts the text after `Answer:` as the agent response.
 
 ```
 {
