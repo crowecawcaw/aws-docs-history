@@ -96,7 +96,7 @@ The following diagram outlines the steps for creating an App Runner service:
    1. Open the [App Runner console](https://console.aws.amazon.com/apprunner "https://console.aws.amazon.com/apprunner"), and in the **Regions** list, select your AWS Region.
    2. If the AWS account doesn't have any App Runner services yet, the console home page is displayed. Choose **Create an App Runner service**.
 
-   ![App Runner console home page showing the create service button](images/getting-started-home.png)
+   ![App Runner console home page showing the create service button](/images/apprunner/latest/dg/images/getting-started-home.png)
 
    If the AWS account has existing services, the **Services** page with a list of your services is displayed. Choose **Create
    service**.
@@ -283,7 +283,7 @@ The console displays a few types of logs in several sections:
     * Application logs – The output of the web application that's deployed to your App Runner service. The console
      combines the output from all running instances into a single log stream.
 
-![The Logs tab on the App Runner service dashboard page](images/service-dashboad-logs.png) 4. To find specific deployments, scope down the deployment log list by entering a search term. You can search for any value that appears in the
+![The Logs tab on the App Runner service dashboard page](/images/apprunner/latest/dg/images/service-dashboad-logs.png) 4. To find specific deployments, scope down the deployment log list by entering a search term. You can search for any value that appears in the
 table. 5. To view a log's content, choose **View full log** (event log) or the log stream name (deployment and application logs). 6. Choose **Download** to download a log. For a deployment log stream, select a log stream first. 7. Choose **View in CloudWatch** to open the CloudWatch console and use its full capabilities to explore your App Runner service logs. For a deployment
 log stream, select a log stream first.
 

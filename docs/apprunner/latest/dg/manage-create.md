@@ -56,7 +56,7 @@ a container instance of this image.
    If the AWS account has existing services, the **Services** page with a list of your services is displayed. Choose **Create
    service**.
 
-   ![App Runner console services page](images/getting-started-services.png) 3. On the **Source and deployment** page, in the **Source** section, for **Repository
+   ![App Runner console services page](/images/apprunner/latest/dg/images/getting-started-services.png) 3. On the **Source and deployment** page, in the **Source** section, for **Repository
    type**, choose **Source code repository**. 4. Select a **Provider Type**. Choose either **GitHub** or **Bitbucket**. 5. Next select an account or organization for the Provider that you've used before, or choose **Add new**. Then, go
    through the process of providing your code repository credentials and choosing an account or organization to connect to. 6. For **Repository**, select the repository that contains your application code. 7. For **Branch**, select the branch that you want to deploy. 8. For **Source directory**, enter the directory in the source repository that stores your application code and configuration
    files.
@@ -108,7 +108,7 @@ a container instance of this image.
 **Result:** If the service is created successfully, the console displays the service dashboard with a
 **Service overview** of the new service.
 
-![App Runner service dashboard page](images/getting-started-create-dashboard.png) 6. Verify that your service is running.
+![App Runner service dashboard page](/images/apprunner/latest/dg/images/getting-started-create-dashboard.png) 6. Verify that your service is running.
 
     1. On the service dashboard page, wait until the service **Status** is **Running**.
     2. Choose the **Default domain** value. It's the URL to your service's website.
