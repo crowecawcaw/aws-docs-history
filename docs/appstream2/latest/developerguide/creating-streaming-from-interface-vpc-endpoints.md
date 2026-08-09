@@ -4,6 +4,10 @@ You can use an interface VPC endpoint in your Amazon Web Services account to res
 traffic between your Amazon VPC and WorkSpaces Applications to the Amazon network. After you create this
 endpoint, you configure your WorkSpaces Applications stack or image builder to use it.
 
+###### Note
+
+Streaming from Interface VPC Endpoints is currently not supported for fleets powered by Windows Desktop operating system (such as Windows 11).
+
 **Prerequisites**
 
 Before you set up interface VPC endpoints for WorkSpaces Applications, be aware of the following prerequisites:

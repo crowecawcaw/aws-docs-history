@@ -53,6 +53,10 @@ with a Linux fleet, please make sure these settings are disabled.
 
    After you create the interface endpoint, you can use it to keep
    streaming traffic within your VPC.
+
+   ###### Note
+
+   Streaming from Interface VPC Endpoints is currently not supported for fleets powered by Windows Desktop operating system (such as Windows 11).
    - **Embed WorkSpaces Applications (Optional)** — To embed an
      WorkSpaces Applications streaming session in a webpage, specify the domain to host the
      embedded streaming session. Embedded streaming sessions are only

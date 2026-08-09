@@ -12,8 +12,7 @@ In particular, you can apply the following Windows settings to your fleets:
 
 - **Time Zone** — Determines the system time used by Windows
   and any applications that rely on the operating system time. WorkSpaces Applications makes available
-  the same options for this setting as Windows Server 2012 R2, Windows Server 2016,
-  and Windows Server 2019.
+  the same options for this setting as Windows Server 2019 or later.
 - **Display Language** — Determines the display language
   used by the Windows operating system and certain Windows applications.
 - **System Locale** — Determines the code pages (ANSI,
@@ -33,5 +32,6 @@ In particular, you can apply the following Windows settings to your fleets:
 - [Specify a Default System Locale](configure-default-system-locale.md "configure-default-system-locale.md")
 - [Specify a Default User Locale](configure-default-user-locale.md "configure-default-user-locale.md")
 - [Specify a Default Input Method](configure-default-input-method.md "configure-default-input-method.md")
+- [Configuring Chinese and Korean input methods on the image](configure-chinese-korean-input-methods.md "configure-chinese-korean-input-methods.md")
 - [Special Considerations for Application Settings Persistence](special-considerations-app-settings-persistence.md "special-considerations-app-settings-persistence.md")
 - [Special Considerations for Japanese Language Settings](special-considerations-japanese-language-settings.md "special-considerations-japanese-language-settings.md")

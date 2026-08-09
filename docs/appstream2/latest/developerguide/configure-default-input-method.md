@@ -38,7 +38,9 @@ input method.
 ###### Note
 
 Currently, WorkSpaces Applications supports only **English (United
-States)** and **Japanese**. 5. The language that you chose appears in the list of languages you added to
+States)** and **Japanese** as
+admin-configurable default input methods. To configure Chinese or Korean
+input methods on your image, see [Configuring Chinese and Korean input methods on the image](configure-chinese-korean-input-methods.md "configure-chinese-korean-input-methods.md"). 5. The language that you chose appears in the list of languages you added to
 Windows. 6. Choose **Advanced Settings**. Under **Override for
 default input method**, choose the input method for the language
 you added. 7. Choose **Save**. 8. Log off and log in again. To do so, choose the Windows
