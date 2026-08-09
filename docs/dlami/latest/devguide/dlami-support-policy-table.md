@@ -28,6 +28,7 @@ continue to receive security patches.
 | Operating System  | End of patch |
 | ----------------- | ------------ |
 | Amazon Linux 2023 | 2029-06-30   |
+| Ubuntu 26.04      | 2031-04-30   |
 | Ubuntu 24.04      | 2029-04-30   |
 | Ubuntu 22.04      | 2027-04-30   |
 
