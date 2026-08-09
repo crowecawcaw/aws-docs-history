@@ -138,31 +138,31 @@ applies these values according to the broker's instance type and deployment mode
 
 | Instance type   | Deployment mode | `max-length` | `max-queues` | `max-connections` |
 | --------------- | --------------- | ------------ | ------------ | ----------------- |
-| mq.m7g.medium   | Single-instance | N/A          | 2,500        | 100               |
+| mq.m7g.medium   | Single-instance | 500,000      | 100          | 100               |
 | Cluster         | 500,000         | 100          | 100          |
-| mq.m7g.large    | Single-instance | N/A          | 20,000       | 5,000             |
-| Cluster         | 8,000,000       | 10,000       | 5,000        |
-| mq.m7g.xlarge   | Single-instance | N/A          | 30,000       | 10,000            |
-| Cluster         | 9,000,000       | 15,000       | 10,000       |
-| mq.m7g.2xlarge  | Single-instance | N/A          | 40,000       | 20,000            |
-| Cluster         | 10,000,000      | 40,000       | 20,000       |
-| mq.m7g.4xlarge  | Single-instance | N/A          | 60,000       | 40,000            |
-| Cluster         | 12,000,000      | 30,000       | 40,000       |
-| mq.m7g.8xlarge  | Single-instance | N/A          | 80,000       | 80,000            |
-| Cluster         | 20,000,000      | 40,000       | 80,000       |
-| mq.m7g.12xlarge | Single-instance | N/A          | 100,000      | 120,000           |
-| Cluster         | 30,000,000      | 20,000       | 120,000      |
-| mq.m7g.16xlarge | Single-instance | N/A          | 120,000      | 160,000           |
-| Cluster         | 40,000,000      | 50,000       | 160,000      |
+| mq.m7g.large    | Single-instance | N/A          | 20,000       | 4,000             |
+| Cluster         | 8,000,000       | 4,000        | 15,000       |
+| mq.m7g.xlarge   | Single-instance | N/A          | 30,000       | 8,000             |
+| Cluster         | 9,000,000       | 5,000        | 20,000       |
+| mq.m7g.2xlarge  | Single-instance | N/A          | 60,000       | 15,000            |
+| Cluster         | 10,000,000      | 6,000        | 40,000       |
+| mq.m7g.4xlarge  | Single-instance | N/A          | 150,000      | 30,000            |
+| Cluster         | 12,000,000      | 10,000       | 100,000      |
+| mq.m7g.8xlarge  | Single-instance | N/A          | 260,000      | 60,000            |
+| Cluster         | 20,000,000      | 20,000       | 200,000      |
+| mq.m7g.12xlarge | Single-instance | N/A          | 280,000      | 90,000            |
+| Cluster         | 30,000,000      | 30,000       | 300,000      |
+| mq.m7g.16xlarge | Single-instance | N/A          | 300,000      | 120,000           |
+| Cluster         | 40,000,000      | 40,000       | 400,000      |
 
 | Instance type | Deployment mode | `max-length` | `max-queues` | `max-connections` |
 | ------------- | --------------- | ------------ | ------------ | ----------------- |
 | t3.micro      | Single-instance | N/A          | 500          | 500               |
 | m5.large      | Single-instance | N/A          | 20,000       | 4,000             |
-| m5.large      | Cluster         | 8,000,000    | 10,000       | 15,000            |
+| m5.large      | Cluster         | 8,000,000    | 4,000        | 15,000            |
 | m5.xlarge     | Single-instance | N/A          | 30,000       | 8,000             |
-| m5.xlarge     | Cluster         | 9,000,000    | 10,000       | 20,000            |
+| m5.xlarge     | Cluster         | 9,000,000    | 5,000        | 20,000            |
 | m5.2xlarge    | Single-instance | N/A          | 60,000       | 15,000            |
-| m5.2xlarge    | Cluster         | 10,000,000   | 10,000       | 40,000            |
+| m5.2xlarge    | Cluster         | 10,000,000   | 6,000        | 40,000            |
 | m5.4xlarge    | Single-instance | N/A          | 150,000      | 30,000            |
 | m5.4xlarge    | Cluster         | 12,000,000   | 10,000       | 100,000           |
