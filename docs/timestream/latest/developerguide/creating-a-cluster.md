@@ -225,7 +225,9 @@ For multi-node clusters, you will receive:
     * **Cluster read/write endpoint**: Distributes traffic to
      writer/reader nodes
     * **Cluster read-only endpoint**: Distributes traffic to all
-     nodes capable of read operations (available when reader-only nodes are configured)
+     nodes capable of read operations. This endpoint is only created when at least one reader-only
+     node is present in the cluster. If your cluster has no reader-only nodes, the read-only
+     endpoint will not be available.
     * **Node endpoints**: Direct access to specific nodes for
      workload isolation
 

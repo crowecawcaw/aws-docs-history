@@ -46,4 +46,5 @@ select any of the available topics below.
 ###### Topics
 
 - [Encryption at rest](EncryptionAtRest-InfluxDB.md "EncryptionAtRest-InfluxDB.md")
+- [Encrypting resources with customer managed keys](influxdb2-cmk-encryption.md "influxdb2-cmk-encryption.md")
 - [Encryption in transit](EncryptionInTransit-for-influx-db.md "EncryptionInTransit-for-influx-db.md")

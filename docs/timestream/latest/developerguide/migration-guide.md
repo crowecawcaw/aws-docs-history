@@ -3,13 +3,14 @@ data ingestion and single-digit millisecond query response times for real-time a
 
 # Migration Guide
 
-This guide presents two approaches for migrating time-series data from Amazon Timestream for LiveAnalytics to Timestream for InfluxDB, and to [Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.md") or [RDS PostgreSQL](../../../AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.md "../../../AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.md") with a intermediate layer for [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/"). For migrations to other database services, we recommend consulting the specific documentation for importing data from S3 into your chosen service.
+This guide presents approaches for migrating time-series data from Amazon Timestream for LiveAnalytics to Amazon Timestream for InfluxDB 3 (recommended for most workloads), Amazon Timestream for InfluxDB 2 (for low-latency operational workloads), and to [Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.md") or [RDS PostgreSQL](../../../AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.md "../../../AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.md") (for non-time-series use cases) with an intermediate layer for [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/").
 
 In this guide, we walk through following steps:
 
 1. Export your data from Timestream for LiveAnalytics to Amazon S3.
-2. Ingesting data to Timestream for InfluxDB.
-3. Ingestion data to PostgreSQL.
+2. Migrating to Amazon Timestream for InfluxDB 3 (recommended for most workloads).
+3. Ingesting data to Amazon Timestream for InfluxDB 2.
+4. Ingesting data to PostgreSQL.
 
 ###### Topics
 

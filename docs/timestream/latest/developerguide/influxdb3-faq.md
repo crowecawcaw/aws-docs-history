@@ -27,10 +27,10 @@ Running Python plugins inside your cluster with write, schedule, and request tri
 Running your own Python plugins from public and private repositories: parameter group setup, repository access secrets, multi-repository configurations, and troubleshooting.
 
 **Storage and billing**
-Decoupled compute/storage architecture on Amazon S3, billing components, and automatic backups.
+Decoupled compute/storage architecture on Amazon S3, billing components, automatic backups, and customer-managed backup and restore.
 
 **Security and access**
-VPC deployment, AWS Identity and Access Management access control, and managed security policies.
+VPC deployment, AWS Identity and Access Management access control, customer managed encryption keys (CMK), and managed security policies.
 
 ###### Topics
 

@@ -7,17 +7,30 @@ Since time-series applications have unique requirements and characteristics, we 
 
 ## Alternative services evaluation
 
-**Use-case fits into Amazon Timestream for InfluxDB**
+**Large-scale analytics, high cardinality, or new workloads (recommended)**
 
-We recommend [Timestream for InfluxDB](timestream-for-influxdb.md "timestream-for-influxdb.md"), if your Timestream for LiveAnalytics table has less than 10 million cardinality ([series keys](https://docs.influxdata.com/influxdb/v2/reference/key-concepts/data-elements/#series "https://docs.influxdata.com/influxdb/v2/reference/key-concepts/data-elements/#series")), meaning the unique combinations of [Amazon Timestream for LiveAnalytics concepts](concepts.md "concepts.md") or if you can reduce your table's cardinality under 10 million. Timestream for InfluxDB gives you access to the capabilities of the open source version of InfluxDB. Choosing this path provides existing time-series functionality such as time-series analytics functions provided by [Flux](https://docs.influxdata.com/influxdb/v2/query-data/flux/ "https://docs.influxdata.com/influxdb/v2/query-data/flux/"), tasks (equivalent to [Scheduled queries](scheduled-query.md "scheduled-query.md")) and other similar functions offered by Timestream for LiveAnalytics. Timestream for InfluxDB also provides [InfluxQL](https://docs.influxdata.com/influxdb/v2/query-data/influxql/ "https://docs.influxdata.com/influxdb/v2/query-data/influxql/") (an SQL-like query language) to interact with InfluxDB for querying and analyzing your time-series data.
+We recommend [Amazon Timestream for InfluxDB 3 Enterprise](influxdb3.md "influxdb3.md") for most LiveAnalytics migrations. InfluxDB 3 is built on Apache Arrow, DataFusion, and Parquet with Amazon S3 object storage, supporting unlimited cardinality, standard SQL and InfluxQL queries, multi-node clusters (up to 15 nodes), and a built-in Python processing engine. It is the recommended target for workloads with more than 1 million series, complex analytical queries, or any new greenfield deployment.
+
+**Low-latency operational monitoring (less than 1 million series)**
+
+We recommend [Amazon Timestream for InfluxDB 2](timestream-for-influxdb.md "timestream-for-influxdb.md"), if your Timestream for LiveAnalytics table has less than 10 million cardinality ([series keys](https://docs.influxdata.com/influxdb/v2/reference/key-concepts/data-elements/#series "https://docs.influxdata.com/influxdb/v2/reference/key-concepts/data-elements/#series")), meaning the unique combinations of [Amazon Timestream for LiveAnalytics concepts](concepts.md "concepts.md") or if you can reduce your table's cardinality under 10 million. Amazon Timestream for InfluxDB 2 provides single-instance or Multi-AZ deployments with single-digit millisecond query response times, [Flux](https://docs.influxdata.com/influxdb/v2/query-data/flux/ "https://docs.influxdata.com/influxdb/v2/query-data/flux/") and [InfluxQL](https://docs.influxdata.com/influxdb/v2/query-data/influxql/ "https://docs.influxdata.com/influxdb/v2/query-data/influxql/") query support, and tasks (equivalent to [Scheduled queries](scheduled-query.md "scheduled-query.md")).
 
 **Prefer using SQL instead of InfluxQL**
 
-We recommend implementing Amazon Aurora or RDS PostgreSQL. These databases offer full SQL functionality while providing effective [time-series data management](../../../AmazonRDS/latest/UserGuide/PostgreSQL_Partitions.md "../../../AmazonRDS/latest/UserGuide/PostgreSQL_Partitions.md") capabilities. Time-series analytics can either be implemented using the built-in database functions where available, or managed at the application layer.
+Amazon Timestream for InfluxDB 3 supports native SQL (standard SQL via Apache DataFusion) as well as InfluxQL.
+If your LiveAnalytics workloads use SQL, Amazon Timestream for InfluxDB 3 is the direct migration path—there
+is no need to move to any other SQL based engine. InfluxDB 3's SQL implementation
+is purpose-built for time-series data with optimized time-based functions, GROUP BY time intervals,
+and columnar storage that outperforms general-purpose relational databases for time-series
+analytics.
 
 **Require high-scale data ingestion (exceeding 1 million records per second)**
 
-We recommend using Amazon DynamoDB or other AWS [NoSQL](https://aws.amazon.com/nosql/ "https://aws.amazon.com/nosql/") databases. These databases can be selected based on your specific application needs. Time-series analytics can either be implemented using the built-in database functions where available, or managed at the application layer.
+While Amazon Timestream for InfluxDB 3 Enterprise is built for large-scale time-series workloads, a single
+cluster cannot currently support more than 1 million records per second. For workloads exceeding
+this threshold, data would need to be sharded across multiple InfluxDB 3 clusters. If sharding
+is not an option, NoSQL engines like Amazon DynamoDB could be a good alternative for use cases
+that involve low complexity analytics.
 
 Before beginning your data migration to the chosen alternate AWS service, it is crucial to assess several key factors that will significantly influence your migration strategy and its ultimate success. These evaluations will help shape your approach, identify potential challenges, and ensure a smoother transition during the migration process.
 
@@ -27,7 +40,10 @@ Assess your data migration scope by defining exact retention requirements. Consi
 
 **Query pattern compatibility analysis**
 
-Query compatibility between your source (Timestream for LiveAnalytics) and target service requires thorough evaluation, as time-series databases handle query languages and features differently. Conduct comprehensive testing to identify syntax differences, functional gaps, and performance variations between systems. Test all business-critical queries or if possible all queries that your applications rely on to ensure they will function correctly after migration and are performant.
+While Amazon Timestream for InfluxDB 3 supports SQL, the SQL dialect does not match LiveAnalytics 1:1. Thorough
+testing of all business-critical queries is required before migration. We recommend running
+your existing query set against InfluxDB 3 in a dev cluster to identify syntax differences
+and validate performance meets your requirements.
 
 **Data transformation planning**
 

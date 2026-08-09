@@ -71,7 +71,8 @@ Common causes include insufficient IAM permissions, invalid VPC subnet or securi
 Multi-node Enterprise clusters provide two types of cluster endpoints: a
 **read/write endpoint** that routes traffic to writer/reader
 nodes, and a **read-only endpoint** that routes traffic to
-all nodes capable of read operations. There are also node-specific endpoints for direct
+all nodes capable of read operations (only available when the cluster includes
+reader-only nodes). There are also node-specific endpoints for direct
 access to individual nodes, but these are not recommended for production use as they do
 not provide automatic failover. For more information, see
 [Scaling a cluster](multi-node-scaling.md "multi-node-scaling.md").
