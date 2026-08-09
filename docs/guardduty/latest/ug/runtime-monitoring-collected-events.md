@@ -80,17 +80,17 @@ your resource types and corresponding responses. The following table includes th
 field names and descriptions of the DNS
 events that Runtime Monitoring collects to detect potential threats.
 
-| Field name               | Description                                                                                                                                 |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Socket Type              | Type of socket to indicate communication semantics. For example,<br>`SOCK_RAW`.                                                             |
-| Address Family           | Represents the communication protocol associated with the address. For example,<br>the address family `AF_INET` is used for IP v4 protocol. |
-| Direction ID             | The ID of the connection direction.                                                                                                         |
-| Protocol Number          | The layer 4 protocol number such as 17 for UDP and 6 for TCP.                                                                               |
-| DNS Remote Endpoint IP   | The remote IP of the connection.                                                                                                            |
-| DNS Remote Endpoint Port | The port number of the connection.                                                                                                          |
-| DNS Local Endpoint IP    | The local IP of the connection.                                                                                                             |
-| DNS Local Endpoint Port  | The port number of the connection.                                                                                                          |
-| DNS Payload              | The payload of DNS packets that contains DNS queries and<br>responses.                                                                      |
+| Field name               | Description                                                                                                                                |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Socket Type              | Type of socket to indicate communication semantics. For example,<br>`SOCK_RAW`.                                                            |
+| Address Family           | Represents the communication protocol associated with the address. For example,<br>the address family `AF_INET` is used for IPv4 protocol. |
+| Direction ID             | The ID of the connection direction.                                                                                                        |
+| Protocol Number          | The layer 4 protocol number such as 17 for UDP and 6 for TCP.                                                                              |
+| DNS Remote Endpoint IP   | The remote IP of the connection.                                                                                                           |
+| DNS Remote Endpoint Port | The port number of the connection.                                                                                                         |
+| DNS Local Endpoint IP    | The local IP of the connection.                                                                                                            |
+| DNS Local Endpoint Port  | The port number of the connection.                                                                                                         |
+| DNS Payload              | The payload of DNS packets that contains DNS queries and<br>responses.                                                                     |
 
 ## Open events
 
@@ -121,7 +121,7 @@ Mprotect events that Runtime Monitoring collects to detect potential threats.
 | Field name     | Description                                                                  |
 | -------------- | ---------------------------------------------------------------------------- |
 | Address Range  | The address range for which the access protections were modified.            |
-| Memory Regions | Specifies the Region of a process's address space such as stack and<br>heap. |
+| Memory Regions | Specifies the region of a process's address space such as stack and<br>heap. |
 | Flags          | Represents options that control the behavior of this event.                  |
 
 ## Mount events
@@ -191,7 +191,7 @@ socket events that Runtime Monitoring collects to detect potential threats.
 
 | Field name      | Description                                                                                                                                                                                  |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Address family  | Represents the communication protocol associated with the address. For example,<br>the address family `AF_INET` is used for IP version of 4 protocol.                                        |
+| Address family  | Represents the communication protocol associated with the address. For example,<br>the address family `AF_INET` is used for IPv4 protocol.                                                   |
 | Socket Type     | Type of socket to indicate communication semantics. For example,<br>`SOCK_RAW`.                                                                                                              |
 | Protocol number | Specifies a particular protocol within the address family. Usually there is a<br>single protocol in address families. For example, the address family `AF_INET`<br>only has the IP protocol. |
 
@@ -203,7 +203,7 @@ connect events that Runtime Monitoring collects to detect potential threats.
 
 | Field name           | Description                                                                                                                                                                                  |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Address family       | Represents the communication protocol associated with the address. For example,<br>the address family `AF_INET` is used for IP v4 protocol.                                                  |
+| Address family       | Represents the communication protocol associated with the address. For example,<br>the address family `AF_INET` is used for IPv4 protocol.                                                   |
 | Socket Type          | Type of socket to indicate communication semantics. For example,<br>`SOCK_RAW`.                                                                                                              |
 | Protocol Number      | Specifies a particular protocol within the address family. Usually there is a<br>single protocol in address families. For example, the address family `AF_INET`<br>only has the IP protocol. |
 | Filepath             | Path of the socket file if the address family is<br>`AF_UNIX`.                                                                                                                               |
@@ -261,13 +261,13 @@ Bind events provide visibility into binding of network sockets by processes runn
 The following table includes the field names and descriptions of the
 bind events that Runtime Monitoring collects to detect potential threats.
 
-| Field name          | Description                                                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Address Family      | Represents the communication protocol associated with the address. For example,<br>the address family `AF_INET` is used for IP v4 protocol. |
-| Socket type         | Type of socket to indicate communication semantics. For example,<br>`SOCK_RAW`.                                                             |
-| Protocol number     | The layer 4 protocol number such as 17 for UDP and 6 for TCP.                                                                               |
-| Local endpoint IP   | The local IP of the connection.                                                                                                             |
-| Local endpoint port | The port number of the connection.                                                                                                          |
+| Field name          | Description                                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Address Family      | Represents the communication protocol associated with the address. For example,<br>the address family `AF_INET` is used for IPv4 protocol. |
+| Socket type         | Type of socket to indicate communication semantics. For example,<br>`SOCK_RAW`.                                                            |
+| Protocol number     | The layer 4 protocol number such as 17 for UDP and 6 for TCP.                                                                              |
+| Local endpoint IP   | The local IP of the connection.                                                                                                            |
+| Local endpoint port | The port number of the connection.                                                                                                         |
 
 ## Listen events
 
@@ -276,13 +276,13 @@ to accept incoming connections. A process running on your monitored resource set
 The following table includes the field names and descriptions of the
 listen events that Runtime Monitoring collects to detect potential threats.
 
-| Field name          | Description                                                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Address Family      | Represents the communication protocol associated with the address. For example,<br>the address family `AF_INET` is used for IP v4 protocol. |
-| Socket type         | Type of socket to indicate communication semantics. For example,<br>`SOCK_RAW`.                                                             |
-| Protocol number     | The layer 4 protocol number such as 17 for UDP and 6 for TCP.                                                                               |
-| Local endpoint IP   | The local IP of the connection.                                                                                                             |
-| Local endpoint port | The port number of the connection.                                                                                                          |
+| Field name          | Description                                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Address Family      | Represents the communication protocol associated with the address. For example,<br>the address family `AF_INET` is used for IPv4 protocol. |
+| Socket type         | Type of socket to indicate communication semantics. For example,<br>`SOCK_RAW`.                                                            |
+| Protocol number     | The layer 4 protocol number such as 17 for UDP and 6 for TCP.                                                                              |
+| Local endpoint IP   | The local IP of the connection.                                                                                                            |
+| Local endpoint port | The port number of the connection.                                                                                                         |
 
 ## Rename events
 

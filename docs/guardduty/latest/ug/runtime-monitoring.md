@@ -8,10 +8,9 @@ the GuardDuty console. For more information, see [Configuring protection plans](
 Runtime Monitoring observes and analyzes operating system-level, networking, and file events to help
 you detect potential threats in specific AWS workloads in your environment.
 
-**Supported AWS resources in Runtime Monitoring** – GuardDuty had
-initially released Runtime Monitoring to support only Amazon Elastic Kubernetes Service (Amazon EKS) resources. Now, you can use the
-Runtime Monitoring feature to provide threat detection for your AWS Fargate Amazon Elastic Container Service (Amazon ECS) and
-Amazon Elastic Compute Cloud (Amazon EC2) resources as well.
+**Supported AWS resources in Runtime Monitoring** – Runtime Monitoring
+provides threat detection coverage for Amazon Elastic Kubernetes Service (Amazon EKS), Amazon Elastic Container Service (Amazon ECS) on AWS Fargate,
+and Amazon Elastic Compute Cloud (Amazon EC2) resources.
 
 GuardDuty doesn't support Amazon EKS clusters running on AWS Fargate.
 

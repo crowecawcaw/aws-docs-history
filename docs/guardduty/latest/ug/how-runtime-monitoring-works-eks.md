@@ -69,7 +69,7 @@ can monitor the EKS clusters in your account by using one of the following appro
 
 ###### Topics
 
-- [Monitor all EKS clusters](#gdu-security-agent-all-eks-custers "#gdu-security-agent-all-eks-custers")
+- [Monitor all EKS clusters](#gdu-security-agent-all-eks-clusters "#gdu-security-agent-all-eks-clusters")
 - [Exclude selective EKS clusters](#eks-runtime-using-exclusion-tags "#eks-runtime-using-exclusion-tags")
 - [Include selective EKS clusters](#eks-runtime-using-inclusion-tags "#eks-runtime-using-inclusion-tags")
 
@@ -128,7 +128,7 @@ AWS resources](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest
 - For a potentially new EKS cluster that you don't want to monitor, make sure to add
   the `GuardDutyManaged`:`false` key-value pair at the time of
   creating this EKS cluster.
-- This approach will also have the same consideration as specified for [Monitor all EKS clusters](#gdu-security-agent-all-eks-custers "#gdu-security-agent-all-eks-custers").
+- This approach will also have the same consideration as specified for [Monitor all EKS clusters](#gdu-security-agent-all-eks-clusters "#gdu-security-agent-all-eks-clusters").
 
 #### Include selective EKS clusters
 
@@ -142,7 +142,7 @@ receive the runtime events.
 - By using inclusion tags, GuardDuty will automatically deploy and manage the security
   agent only for the selective EKS clusters that are tagged with
   `GuardDutyManaged`:`true` as the key-value pair.
-- Using this approach will also have the same impact as specified for [Monitor all EKS clusters](#gdu-security-agent-all-eks-custers "#gdu-security-agent-all-eks-custers").
+- Using this approach will also have the same impact as specified for [Monitor all EKS clusters](#gdu-security-agent-all-eks-clusters "#gdu-security-agent-all-eks-clusters").
 
 **Considerations**
 
@@ -163,7 +163,7 @@ AWS resources](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest
 - For a potentially new EKS cluster that you don't want to monitor, make sure to add
   the `GuardDutyManaged`:`false` key-value pair at the time of
   creating this EKS cluster.
-- This approach will also have the same consideration as specified for [Monitor all EKS clusters](#gdu-security-agent-all-eks-custers "#gdu-security-agent-all-eks-custers").
+- This approach will also have the same consideration as specified for [Monitor all EKS clusters](#gdu-security-agent-all-eks-clusters "#gdu-security-agent-all-eks-clusters").
 
 1For more information about tagging selective EKS clusters,
 see [Tagging your

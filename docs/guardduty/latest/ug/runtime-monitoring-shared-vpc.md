@@ -83,7 +83,7 @@ the shared VPC owner account, see [Enabling GuardDuty Runtime Monitoring](runtim
 ### Using with manually managed agent
 
 When you use shared VPC with manually managed agent, validate that there is no explicit `Deny` endpoint
-policy that blocks any account that needs to use the shared VPC. This will prevent the security agent from sending telemetry
+policy that blocks any account that needs to use the shared VPC. This prevents the security agent from sending telemetry
 to GuardDuty, resulting in an `Unhealthy` coverage status. For setting up the endpoint policy, see
 [Example shared VPC endpoint policy](#guardduty-runtime-monitoring-shared-vpc-endpoint-policy-example "#guardduty-runtime-monitoring-shared-vpc-endpoint-policy-example").
 

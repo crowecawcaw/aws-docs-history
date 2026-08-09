@@ -13,7 +13,7 @@ the deployed agent performs against the CPU and memory limits for the GuardDuty 
 2. [Amazon ECS Container
    Insights metrics](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md")
    After the GuardDuty security agent gets deployed and you assess that the coverage status of your
-   cluster is **Healthy**, you can set up and view the Container insight
+   cluster is **Healthy**, you can set up and view the Container Insights
    metrics.
 
 **Evaluate performance of the security agent**

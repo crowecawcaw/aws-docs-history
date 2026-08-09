@@ -17,14 +17,5 @@ following procedure, make sure to install the security agent.
 2. In the navigation pane, choose **Runtime Monitoring**.
 3. Under the **Configuration** tab, choose
    **Enable** to enable Runtime Monitoring for your account.
-4. For GuardDuty to receive the runtime events from one or more resource types
-   – an Amazon EC2 instance, Amazon ECS cluster, or an Amazon EKS cluster, use the
-   following options to manage the security agent for these resources:
-
-###### To enable GuardDuty security agent
-
-    * [Enabling automated security agent for Amazon EC2 instance](managing-gdu-agent-ec2-automated.md "managing-gdu-agent-ec2-automated.md")
-    * [Managing security agent manually for Amazon EC2 resource](managing-gdu-agent-ec2-manually.md "managing-gdu-agent-ec2-manually.md")
-    * [Managing automated security agent for Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md")
-    * [Managing security agent automatically for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md")
-    * [Managing security agent manually for Amazon EKS cluster](managing-gdu-agent-eks-manually.md "managing-gdu-agent-eks-manually.md")
+4. Manage the security agent for your resource type. For more
+   information, see [Managing GuardDuty security agents](runtime-monitoring-managing-agents.md "runtime-monitoring-managing-agents.md").

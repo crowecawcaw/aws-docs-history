@@ -90,8 +90,9 @@ Finding type: `UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.Outside
 
 ###### Note
 
-To include multiple API caller IPs you can add a new API Caller IPv4
-address filter for each.
+To include multiple API caller IPs you can add each IP address
+to the list of values for Equals or NotEquals conditions, or use wildcard
+patterns for Matches or NotMatches conditions.
 
 - [Recon:EC2/Portscan](guardduty_finding-types-ec2.md#recon-ec2-portscan "guardduty_finding-types-ec2.md#recon-ec2-portscan")
   – Use a suppression rule to automatically archive findings when using a

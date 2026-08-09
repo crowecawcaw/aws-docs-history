@@ -45,6 +45,7 @@ GuardDuty publishes the following usage metrics `Hourly` to Amazon CloudWatch un
 | RDS Protection                | AuroraScaleout           | MonitoredAcuHours  | Count (ACU-Hours)  | Aurora Scaleout ACU hours monitored                   |
 | RDS Protection                | RDS                      | MonitoredVcpuHours | Count (vCPU-Hours) | Amazon RDS vCPU hours monitored                       |
 | Lambda Protection             | LambdaNetworkLogs        | AnalyzedBytes      | Bytes              | Volume of Lambda network logs analyzed                |
+| AI Protection                 | AIDataEvents             | AnalyzedBytes      | Bytes              | Volume of AI data events analyzed                     |
 
 **Metrics Dimensions**
 
@@ -100,6 +101,7 @@ The following protection plans include a 30-day free trial:
 - Runtime Monitoring
 - RDS Protection
 - Lambda Protection
+- AI Protection
 - Malware Protection for EC2 (only for GuardDuty-initiated scans when enabled with Foundational Threat Detection)
 
 ### Using AWS Pricing Calculator

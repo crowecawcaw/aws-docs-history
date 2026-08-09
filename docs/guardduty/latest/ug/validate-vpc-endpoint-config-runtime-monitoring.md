@@ -34,10 +34,10 @@ is set up correctly in the VPC owner account:
    image shows the inbound rules for a security group that is associated with the VPC
    used by the GuardDuty security agent.
 
-If you don't already have a security group that has an in-bound port 443 enabled,
+If you don't already have a security group that has an inbound port 443 enabled,
 [Create a security group](../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#creating-security-group "../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#creating-security-group") in the
 _Amazon EC2 User Guide_.
 
-If there is an issue while restricting the in-bound permissions to your VPC (or
+If there is an issue while restricting the inbound permissions to your VPC (or
 cluster), allow inbound traffic on port 443 from any IP address
 (0.0.0.0/0).
