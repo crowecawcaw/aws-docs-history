@@ -37,7 +37,7 @@ app.
 ![Scan gateway QR page displaying Gateway ID 30aea4f85652 and MAC address 3333-4444-1111-2222.](images/scan-5.png)
 
 You can also select the copy icon (
-![Icon representing the copy or duplicate function with two overlapping squares.](/images/Monitron/latest/user-guide/images/copy-icon.png)
+![Icon representing the copy or duplicate function with two overlapping squares.](images/copy-icon.png)
 ) to copy the MAC address.
 
 ###### Note
@@ -54,4 +54,4 @@ scanning process if permissions haven't already been granted.
 
 **On iOS devices**
 
-![Permission dialog requesting camera access for Monitron app to scan gateway QR code.](/images/Monitron/latest/user-guide/images/scan-4.png)
+![Permission dialog requesting camera access for Monitron app to scan gateway QR code.](images/scan-4.png)

@@ -49,7 +49,7 @@ Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/main
    1. Choose your Kinesis stream.
    2. Click **Create function**.
 
-![Lambda function configuration form with basic information and Kinesis trigger settings.](/images/Monitron/latest/user-guide/images/lambda-kinesis-trigger.png)
+![Lambda function configuration form with basic information and Kinesis trigger settings.](images/lambda-kinesis-trigger.png)
 
 ## Step 4: Enable Kinesis trigger in AWS Lambda console
 

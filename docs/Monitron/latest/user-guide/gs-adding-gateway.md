@@ -33,7 +33,7 @@ gateways, see [Where to Install Your Gateway](installing-gateway.md#where-gatewa
 Guide_. 4. Plug the gateway in and make sure that the LED lights on the top
 alternatively blink yellow and blue.
 
-![Orange rectangular device with a smiling face and a hand pointing to it.](/images/Monitron/latest/user-guide/images/gs-gateway-turnon.png) 5. Push the button on the side of the gateway to put it into
+![Orange rectangular device with a smiling face and a hand pointing to it.](images/gs-gateway-turnon.png) 5. Push the button on the side of the gateway to put it into
 commissioning mode. The lights will start blinking rapidly. 6. In the mobile app, choose **Next**. 7. Choose **Add gateway**.
 
 Amazon Monitron searches for the gateway, which can take a few moments. When
