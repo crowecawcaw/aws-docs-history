@@ -142,7 +142,7 @@ dracut -f -v
    rpm -qa | grep -e '^systemd-[0-9]\+\|^udev-[0-9]\+'`systemd-208-11.el7_0.2.x86_64`
    ```
 
-   In the above Red Hat Enterprise Linux 7 example, the
+   In this Red Hat Enterprise Linux 7 example, the
    **systemd** version is 208, so predictable
    network interface names must be disabled. 2. Disable predictable network interface names by adding the
    `net.ifnames=0` option to the

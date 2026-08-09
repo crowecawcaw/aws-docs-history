@@ -30,6 +30,8 @@ Console
      instance**
    - **Status check failed for attached
      EBS**
+   - **Status check failed for
+     application**
      For more information, see [Status check metrics](viewing_metrics_with_cloudwatch.md#status-check-metrics "viewing_metrics_with_cloudwatch.md#status-check-metrics").
 
 AWS CLI

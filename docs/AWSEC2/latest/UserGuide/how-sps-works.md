@@ -6,7 +6,7 @@ Regions or Availability
 Zones where your Spot request is likely to succeed. Each Region or Availability Zone is
 scored on a scale from 1 to 10, with 10 indicating that your Spot request is highly
 likely to succeed, and 1 indicating that your Spot request is not likely to
-succeed.
+succeed. Zonal results can include Availability Zones and Local Zones.
 
 ###### To use the Spot placement score feature, follow these steps:
 
@@ -77,10 +77,15 @@ Regions for which you've filtered. To find the highest-scored Availability Zone 
 Region, specify only that Region, and the response will return a scored list of all
 of the Availability Zones in that Region.
 
+By default, Spot placement score ignores Local Zones. To include them, set
+`IncludeLocalZones` to `true`. For regional scores, Local Zone
+capacity counts toward the score for its parent Region. For zonal scores, the
+response can include individual Local Zone scores.
+
 ## Step 3: Review the recommendations
 
 The Spot placement score for each Region or Availability Zone is calculated based on the target
-capacity, the composition of the instance types, the historical and current Spot
+capacity, the composition of the instance types, the current Spot
 usage trends, and the time of the request. Because Spot capacity is constantly
 fluctuating, the same Spot placement score request can yield different scores when calculated at
 different times.
@@ -102,6 +107,10 @@ as the Spot placement score configuration (target capacity, target capacity unit
 types or instance attributes), and is configured to use the
 `capacity-optimized` allocation strategy. Otherwise, the likelihood
 of getting available Spot capacity will not align with the score.
+
+If your score includes Local Zones, configure the subsequent Spot request
+to use the same Local Zones. Otherwise, the likelihood of obtaining capacity might not
+align with the score.
 
 While a Spot placement score serves as a guideline, and no score guarantees that your Spot
 request will be fully or partially fulfilled, you can use the following information

@@ -16,5 +16,6 @@ time of each event.
 ###### Contents
 
 - [Status checks for Amazon EC2 instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md")
+- [Application status checks](application-status-checks.md "application-status-checks.md")
 - [State change events for Amazon EC2 instances](monitoring-instance-state-changes.md "monitoring-instance-state-changes.md")
 - [Scheduled events for Amazon EC2 instances](monitoring-instances-status-check_sched.md "monitoring-instances-status-check_sched.md")

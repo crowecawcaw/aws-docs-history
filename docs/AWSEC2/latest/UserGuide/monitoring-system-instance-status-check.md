@@ -1,18 +1,18 @@
 # Status checks for Amazon EC2 instances
 
-With instance status monitoring, you can quickly determine whether Amazon EC2 has detected
-any problems that might prevent your instances from running applications. Amazon EC2 performs
-automated checks on every running EC2 instance to identify hardware and software issues.
-You can view the results of these status checks to identify specific and detectable
-problems. The event status data augments the information that Amazon EC2 already provides
-about the state of each instance (such as `pending`, `running`,
-`stopping`) and the utilization metrics that Amazon CloudWatch monitors (CPU
-utilization, network traffic, and disk activity).
+With status checks, you can quickly determine whether there are problems that
+might prevent your instances from running your applications. Amazon EC2 provides four types
+of status checks: system, instance, attached EBS, and application. System, instance,
+and attached EBS status checks are managed by Amazon EC2 and run automatically on every
+instance. Application status checks are opt-in and monitor the HTTP or HTTPS responses of applications running on your instances. You can view the results of all status checks in the Amazon EC2
+console, the AWS CLI, or the AWS SDKs.
 
 Status checks are performed every minute, returning a pass or a fail status. If all
 checks pass, the overall status of the instance is **OK**. If one or
-more checks fail, the overall status is **impaired**. Status checks are
-built into Amazon EC2, so they cannot be disabled or deleted.
+more checks fail, the overall status is **impaired**. System,
+instance, and attached EBS status checks are managed by Amazon EC2 and cannot be disabled
+or deleted. Application status checks are opt-in; you create, associate, and manage
+them yourself.
 
 When a status check fails, the corresponding CloudWatch metric for status checks is
 incremented. For more information, see [Status check metrics](viewing_metrics_with_cloudwatch.md#status-check-metrics "viewing_metrics_with_cloudwatch.md#status-check-metrics"). You can use these metrics to create CloudWatch
@@ -32,11 +32,12 @@ For more information, see [Automatic instance recovery](ec2-instance-recover.md 
 
 ## Types of status checks
 
-There are three types of status checks.
+There are four types of status checks.
 
 - [System status checks](#system-status-checks "#system-status-checks")
 - [Instance status checks](#instance-status-checks "#instance-status-checks")
 - [Attached EBS status checks](#attached-ebs-status-checks "#attached-ebs-status-checks")
+- [Application status checks](#application-status-checks-summary "#application-status-checks-summary")
 
 ### System status checks
 
@@ -152,3 +153,34 @@ the _Amazon EC2 Auto Scaling User Guide_.
 
 The attached EBS status check metric is available only for Nitro
 instances.
+
+### Application status checks
+
+Use application status checks to monitor the
+network reachability and availability of applications running on your Amazon EC2
+instances. With application status checks, you can monitor HTTP and
+HTTPS responses at the application level. Application status checks run only
+on instances you associate them with.
+
+You configure each application status check to request an HTTP path on your
+application endpoint and define the response codes that indicate a healthy
+response.
+
+You can suppress application status checks during application restarts or
+deployments to avoid false-positive failures during expected downtime. For more
+information, see [Handling deployment, in-place patching, and replacements](application-status-checks.md#asc-handling-deployment-and-patching "application-status-checks.md#asc-handling-deployment-and-patching").
+
+The following are examples of problems that can cause application status
+checks to fail:
+
+- Application process crashed or stopped responding
+- Application returned an HTTP response code indicating an internal
+  application service error or other problem
+- Application port not reachable
+- A software or underlying hardware issue has caused your instance to
+  fail and become unresponsive
+
+If an application status check fails, we increment the
+`StatusCheckFailed_Application` metric.
+
+For information about configuring application status checks, see [Application status checks](application-status-checks.md "application-status-checks.md").

@@ -1,6 +1,6 @@
 # Spot placement score
 
-The Spot placement score feature can recommend an AWS Region or Availability Zone based
+The Spot placement score feature can recommend an AWS Region, Availability Zone, or Local Zone based
 on your Spot capacity requirements. Spot capacity fluctuates, and you can't be sure that
 you'll always get the capacity that you need. A Spot placement score indicates how likely it is that a Spot
 request will succeed in a Region or Availability Zone.

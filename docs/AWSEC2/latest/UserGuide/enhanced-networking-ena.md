@@ -68,7 +68,7 @@ follows:
   supported distribution, so that ENA enhanced networking is enabled for your
   instance automatically. For more information, see [ENA Linux Kernel Driver Release Notes](https://github.com/amzn/amzn-drivers/blob/master/kernel/linux/ena/RELEASENOTES.md "https://github.com/amzn/amzn-drivers/blob/master/kernel/linux/ena/RELEASENOTES.md").
 - Windows instances –
-  If the instance is running Windows Server 2008 R2 SP1, ensure that is has
+  If the instance is running Windows Server 2008 R2 SP1, ensure that it has
   the [SHA-2 code signing support update](https://support.microsoft.com/en-us/help/4474419/sha-2-code-signing-support-update "https://support.microsoft.com/en-us/help/4474419/sha-2-code-signing-support-update").
 - Use [AWS CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell") from the AWS Management Console, or install and configure the [AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md") or the
   [AWS Tools for Windows PowerShell](../../../powershell/latest/userguide.md "../../../powershell/latest/userguide.md") on any computer you choose,

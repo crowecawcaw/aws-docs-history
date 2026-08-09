@@ -18,6 +18,12 @@ Ensure that you have the required permissions. For more information, see [Requir
   [Guidance for Building a Spot Placement Score Tracker Dashboard on
   AWS](https://aws.amazon.com/solutions/guidance/building-a-spot-placement-score-tracker-dashboard-on-aws/ "https://aws.amazon.com/solutions/guidance/building-a-spot-placement-score-tracker-dashboard-on-aws/").
 
+###### Local Zones
+
+To include Local Zones when using the Amazon EC2 console, your account must have at least
+one Local Zone enabled. For more information, see [Getting started with AWS
+Local Zones](../../../local-zones/latest/ug/getting-started.md "../../../local-zones/latest/ug/getting-started.md") in the _AWS Local Zones User Guide_.
+
 ## Calculate using instance attributes
 
 ###### To calculate a Spot placement score by specifying instance attributes
@@ -60,12 +66,14 @@ Ensure that you have the required permissions. For more information, see [Requir
     **Regions to evaluate**, select the Regions to
     evaluate, and then choose **Calculate placement
     scores**.
-14. (Optional) To display the Spot placement score for the Availability Zones in the
+14. (Optional) Under **Score options**, select
+    **Include Local Zones**.
+15. (Optional) To display the Spot placement score for the Availability Zones in the
     displayed Regions, select the **Provide placement scores per
     Availability Zone** checkbox. A list of scored Availability
     Zones is useful if you want to launch all of your Spot capacity into a
     single Availability Zone.
-15. (Optional) To edit your compute requirements and get a new placement
+16. (Optional) To edit your compute requirements and get a new placement
     score, choose **Edit**, make the necessary adjustments, and
     then choose **Calculate placement scores**.
 
@@ -95,12 +103,14 @@ Ensure that you have the required permissions. For more information, see [Requir
    **Regions to evaluate**, select the Regions to
    evaluate, and then choose **Calculate placement
    scores**.
-10. (Optional) To display the Spot placement score for the Availability Zones in the
+10. (Optional) Under **Score options**, select
+    **Include Local Zones**.
+11. (Optional) To display the Spot placement score for the Availability Zones in the
     displayed Regions, select the **Provide placement scores per
     Availability Zone** checkbox. A list of scored Availability
     Zones is useful if you want to launch all of your Spot capacity into a
     single Availability Zone.
-11. (Optional) To edit the list of instance types and get a new placement
+12. (Optional) To edit the list of instance types and get a new placement
     score, choose **Edit**, make the necessary adjustments, and
     then choose **Calculate placement scores**.
 
@@ -202,7 +212,8 @@ The following is example output.
     },
     "DryRun": true,
     "MaxResults": 0,
-    "NextToken": ""
+    "NextToken": "",
+    "IncludeLocalZones": true
 }
 
 ```
@@ -224,13 +235,17 @@ The following is example output.
    all of your Spot capacity into a single Availability Zone. If you
    omit this parameter, it defaults to `false`, and the
    response returns a list of scored
-   Regions. 4. (Optional) For `RegionNames`, specify the Regions to use as a filter. You must specify the Region
+   Regions. 4. (Optional) For `IncludeLocalZones`, specify
+   `true` to include Local Zones. For regional scores, Local Zone
+   capacity counts toward the parent Region. For zonal scores, the
+   response can include individual Local Zone scores. If omitted or set to
+   `false`, Local Zones are ignored. 5. (Optional) For `RegionNames`, specify the Regions to use as a filter. You must specify the Region
    code, for example, `us-east-1`.
 
    With a Region filter, the response returns only the Regions that you specify. If you specified
    `true` for `SingleAvailabilityZone`, the
    response returns only the Availability Zones in the specified
-   Regions. 5. You can include either `InstanceTypes` or
+   Regions. 6. You can include either `InstanceTypes` or
    `InstanceRequirements`, but not both in the same
    configuration.
 
@@ -288,7 +303,8 @@ returned.
 ```
 
 Example output if `SingleAvailabilityZone` is set to
-`true` – a scored list of Availability Zones is
+`true` – a scored list of Availability Zones and, when
+`IncludeLocalZones` is `true`, Local Zones is
 returned.
 
 ```

@@ -1,9 +1,9 @@
 # Amazon EC2 managed instances
 
 An _Amazon EC2 managed instance_ is an EC2 instance that is
-provisioned and managed by a designated service provider, such as Amazon EKS through [EKS Auto Mode](../../../eks/latest/userguide/automode.md "../../../eks/latest/userguide/automode.md").
-Managed instances provide a simplified way for running compute workloads on Amazon EC2 by
-allowing you to delegate operational control of the instance to a service provider.
+provisioned and managed by a designated service provider. Managed instances provide a
+simplified way for running compute workloads on Amazon EC2 by allowing you to delegate
+operational control of the instance to a service provider.
 
 Delegated control is the only change introduced for managed instances. The technical
 specifications and billing remain the same as non-managed EC2 instances. Because managed
@@ -17,6 +17,21 @@ You can’t directly modify the settings of a managed instance or terminate it. 
 and specific operations are determined by the agreement between you and the service
 provider. However, you can add, modify, or remove tags from your managed instances, allowing
 you to categorize them within your AWS environment.
+
+The following AWS services offer managed instances:
+
+- [EKS Auto
+  Mode](../../../eks/latest/userguide/automode.md "../../../eks/latest/userguide/automode.md")
+- [Amazon ECS managed
+  instances](../../../AmazonECS/latest/developerguide/ManagedInstances.md "../../../AmazonECS/latest/developerguide/ManagedInstances.md")
+- [WorkSpaces Core managed
+  instances](../../../workspaces-core/latest/pg/deploy-instances.md "../../../workspaces-core/latest/pg/deploy-instances.md")
+- [Lambda managed
+  instances](../../../lambda/latest/dg/lambda-managed-instances.md "../../../lambda/latest/dg/lambda-managed-instances.md")
+- [Amazon EC2 Fast
+  Launch](win-ami-config-fast-launch.md "win-ami-config-fast-launch.md")
+- [Bedrock
+  AgentCore runtime instances](../../../bedrock-agentcore/latest/devguide/runtime-instances-how-it-works.md "../../../bedrock-agentcore/latest/devguide/runtime-instances-how-it-works.md")
 
 ###### Contents
 
@@ -154,22 +169,24 @@ appear in your Amazon EC2 console views and API list operations.
 
 ### What is managed resource visibility?
 
-AWS services such as Amazon EKS, Amazon ECS, WorkSpaces Core, and AWS Lambda provision and operate
-Amazon EC2 instances directly within your account. These services assume responsibility
-for scaling, OS patches, security updates, and lifecycle management. The resulting
-Amazon EC2 instances, Amazon EC2 launch templates, Amazon EBS volumes, and network interfaces (ENIs) appear
-alongside your customer-managed resources in the Amazon EC2 console and APIs. Managed
-resource visibility settings give you control over whether these managed resources
-surface in your resource views.
+AWS services such as Amazon EKS, Amazon ECS, WorkSpaces Core, AWS Lambda, and Amazon Bedrock
+AgentCore provision and operate Amazon EC2 instances directly within your account. These
+services assume responsibility for scaling, OS patches, security updates, and
+lifecycle management. The resulting Amazon EC2 instances, Amazon EC2 launch templates, Amazon EBS
+volumes, snapshots, and network interfaces (ENIs) appear alongside your
+customer-managed resources in the Amazon EC2 console and APIs. Managed resource
+visibility settings give you control over whether these managed resources surface
+in your resource views.
 
 ### Affected resource types
 
-| Resource type               | Services that provision these resources                                                                               | Description                                           |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| Amazon EC2 instances        | Amazon EKS worker nodes, Amazon ECS container instances, AWS Lambda execution<br>environments, Amazon WorkSpaces Core | Primary resource type affected by visibility settings |
-| Amazon EC2 launch templates | Amazon EKS, Amazon ECS, Amazon WorkSpaces Core                                                                        | Launch templates created by managed services          |
-| Amazon EBS volumes          | Amazon EKS, Amazon ECS, Amazon WorkSpaces Core                                                                        | Volumes attached to managed instances                 |
-| Network interfaces (ENIs)   | Amazon EKS, Amazon ECS, AWS Lambda, Amazon WorkSpaces Core                                                            | Network interfaces provisioned for managed workloads  |
+| Resource type               | Services that provision these resources                                                                                                         | Description                                           |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| Amazon EC2 instances        | Amazon EKS worker nodes, Amazon ECS container instances, AWS Lambda execution<br>environments, Amazon WorkSpaces Core, Amazon Bedrock AgentCore | Primary resource type affected by visibility settings |
+| Amazon EC2 launch templates | Amazon EKS, Amazon ECS, Amazon WorkSpaces Core, Amazon Bedrock AgentCore                                                                        | Launch templates created by managed services          |
+| Amazon EBS volumes          | Amazon EKS, Amazon ECS, Amazon WorkSpaces Core, Amazon Bedrock AgentCore,<br>Amazon EC2 Fast Launch                                             | Volumes attached to managed instances                 |
+| Amazon EBS snapshots        | Amazon EC2 Fast Launch                                                                                                                          | Snapshots managed by Amazon EC2 Fast Launch           |
+| Network interfaces (ENIs)   | Amazon EKS, Amazon ECS, AWS Lambda, Amazon WorkSpaces Core, Amazon Bedrock<br>AgentCore                                                         | Network interfaces provisioned for managed workloads  |
 
 ###### Note
 
@@ -307,5 +324,23 @@ charges.
 
 ## Get started with managed instances
 
-For guidance on using managed instances, see [Automate cluster infrastructure with EKS
-Auto Mode](../../../eks/latest/userguide/automode.md "../../../eks/latest/userguide/automode.md") in the _Amazon EKS User Guide_.
+To get started with managed instances, see the documentation for your preferred
+service provider:
+
+- [Automate cluster infrastructure
+  with EKS Auto Mode](../../../eks/latest/userguide/automode.md "../../../eks/latest/userguide/automode.md") in the _Amazon EKS User
+  Guide_
+- [Amazon ECS managed
+  instances](../../../AmazonECS/latest/developerguide/ManagedInstances.md "../../../AmazonECS/latest/developerguide/ManagedInstances.md") in the _Amazon ECS Developer
+  Guide_
+- [Deploy managed
+  instances](../../../workspaces-core/latest/pg/deploy-instances.md "../../../workspaces-core/latest/pg/deploy-instances.md") in the _WorkSpaces Core
+  Planning Guide_
+- [Lambda managed
+  instances](../../../lambda/latest/dg/lambda-managed-instances.md "../../../lambda/latest/dg/lambda-managed-instances.md") in the _Lambda Developer
+  Guide_
+- [Amazon EC2 Fast
+  Launch](win-ami-config-fast-launch.md "win-ami-config-fast-launch.md") in this guide
+- [Bedrock
+  AgentCore runtime instances](../../../bedrock-agentcore/latest/devguide/runtime-instances-how-it-works.md "../../../bedrock-agentcore/latest/devguide/runtime-instances-how-it-works.md") in the _Amazon
+  Bedrock AgentCore Developer Guide_

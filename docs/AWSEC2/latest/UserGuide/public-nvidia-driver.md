@@ -49,6 +49,7 @@ instructions for your Linux distribution in [Option 2: Install with the CUDA too
 | G6        | Tesla        | L-Series       | L4                     | 525.0 or later         |
 | G6e       | Tesla        | L-Series       | L40S                   | 535.0 or later         |
 | Gr6       | Tesla        | L-Series       | L4                     | 525.0 or later         |
+| G7        | Tesla        | RTX series     | RTX PRO 4500 Blackwell | 595 or later           |
 | G7e       | Tesla        | RTX series     | RTX PRO 6000 Blackwell | 575.0 or later         |
 | P3        | Tesla        | V-Series       | V100                   | --                     |
 | P4d       | Tesla        | A-Series       | A100                   | --                     |
