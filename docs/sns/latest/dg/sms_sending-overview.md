@@ -586,10 +586,10 @@ topic.
 The type of message that you're sending:
 
 - **`Promotional`**
-  (default) – Non-critical messages, such as marketing
+  – Non-critical messages, such as marketing
   messages.
 - **`Transactional`**
-  – Critical messages that support customer transactions, such
+  (default) – Critical messages that support customer transactions, such
   as one-time passcodes for multi-factor authentication.
 
 This message-level attribute overrides the account-level attribute
