@@ -59,6 +59,11 @@ You will specify this Outpost when you create a quote and place your order.
 
 - Determine the AWS Availability Zone to associate with your site.
 
+###### Unsupported Availability Zones
+
+AWS Outposts doesn't support the following Availability Zones: use1-az3, usw1-az2, euw1-az2, and apne1-az3. To use
+AWS Outposts in these AWS Regions, select a different Availability Zone.
+
 ###### To create an Outpost
 
 1. In the navigation pane, choose **Outposts**.
