@@ -32,6 +32,6 @@ here. For more information about managing plugins, see [Extend your workspace wi
 - [OpenSearch](using-opensearch-in-AMG.md "using-opensearch-in-AMG.md")
 - [OpenTSDB](using-opentsdb-in-AMG.md "using-opentsdb-in-AMG.md")
 - [PostgreSQL](using-postgresql-in-AMG.md "using-postgresql-in-AMG.md")
-- [Templ](tempo-data-source.md "tempo-data-source.md")
+- [Tempo](tempo-data-source.md "tempo-data-source.md")
 - [TestData](testdata-data-source.md "testdata-data-source.md")
 - [Zipkin](zipkin-data-source.md "zipkin-data-source.md")

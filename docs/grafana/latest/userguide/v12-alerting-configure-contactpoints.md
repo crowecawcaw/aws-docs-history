@@ -116,8 +116,7 @@ The following table lists the contact point types supported by Grafana.
 | Name       | Type        |
 | ---------- | ----------- |
 | Amazon SNS | `sns`       |
-| OpsGenie   | `opsgenie`  |
-| Pager Duty | `pagerduty` |
+| PagerDuty  | `pagerduty` |
 | Slack      | `slack`     |
 | VictorOps  | `victorops` |
 
