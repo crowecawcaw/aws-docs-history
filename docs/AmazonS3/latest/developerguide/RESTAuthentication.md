@@ -442,7 +442,7 @@ without proxying the request. The idea is to construct a "presigned" request and
 it as a URL that an end-user's browser can retrieve. Additionally, you can limit a
 presigned request by specifying an expiration time.
 
-For more information on using query parameters to authenticate requests , see [Authenticating Requests: Using Query Parameters (AWS Signature Version 4)](../API/sigv4-query-string-auth.md "../API/sigv4-query-string-auth.md") in the
+For more information about using query parameters to authenticate requests, see [Authenticating Requests: Using Query Parameters (AWS Signature Version 4)](../API/sigv4-query-string-auth.md "../API/sigv4-query-string-auth.md") in the
 _Amazon Simple Storage Service API Reference_. For examples of using the AWS SDKs to generating presigned URLs, see [Sharing objects with presigned URLs](../userguide/ShareObjectPreSignedURL.md "../userguide/ShareObjectPreSignedURL.md") .
 
 ### Creating a signature

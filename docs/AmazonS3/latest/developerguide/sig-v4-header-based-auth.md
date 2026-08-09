@@ -318,7 +318,7 @@ SigningKey           = HMAC-SHA256(`<DateRegionServiceKey>`, "aws4_request")
 
 ###### Note
 
-Some use cases can process signature keys for up to 7 days. For more information see [Share an Object with Others](../dev/ShareObjectPreSignedURL.md "../dev/ShareObjectPreSignedURL.md").
+Some use cases can process signature keys for up to 7 days. For more information, see [Share an Object with Others](../dev/ShareObjectPreSignedURL.md "../dev/ShareObjectPreSignedURL.md").
 
 For a list of Region strings, see [Regions and
 Endpoints](../../../general/latest/gr/rande.md#s3_region "../../../general/latest/gr/rande.md#s3_region") in the _AWS General Reference_.
