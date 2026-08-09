@@ -13,6 +13,8 @@ see [How IPAM works](how-it-works-ipam.md "how-it-works-ipam.md").
 - [View IP address history using the AWS CLI](tutorials-historical-insights.md "tutorials-historical-insights.md")
 - [Bring your ASN to IPAM](tutorials-byoasn.md "tutorials-byoasn.md")
 - [Bring your IP addresses to IPAM](tutorials-byoip-ipam.md "tutorials-byoip-ipam.md")
+- [Set up delegated RPKI for BYOIP
+  prefixes](tutorials-byoip-bgp-security.md "tutorials-byoip-bgp-security.md")
 - [Transfer a BYOIP IPv4 CIDR to IPAM](tutorials-byoip-ipam-transfer-ipv4.md "tutorials-byoip-ipam-transfer-ipv4.md")
 - [Plan VPC IP address space for subnet IP allocations](tutorials-subnet-planning.md "tutorials-subnet-planning.md")
 - [Allocate sequential Elastic IP addresses from an IPAM pool](tutorials-eip-pool.md "tutorials-eip-pool.md")

@@ -205,3 +205,7 @@ aws ec2 get-ipam-pool-cidrs --ipam-pool-id ipam-pool-1234567890abcdef0
 ```
 
 Cleanup is complete.
+
+## Next steps
+
+To automate ROA management for your ASN and IP prefixes, see [Monitor BGP route protection](monitor-bgp-route-security.md "monitor-bgp-route-security.md").

@@ -13,6 +13,11 @@ Managing public IP address space with IPAM has the following benefits:
   distribute your public IPs across Regions to resources like EC2 instances and [application load balancers](../../../elasticloadbalancing/latest/application/load-balancer-ip-pools.md "../../../elasticloadbalancing/latest/application/load-balancer-ip-pools.md"). Without IPAM, you have to onboard your
   public IPs for each AWS Region.
 
+###### Note
+
+To monitor RPKI validity, detect route overlaps, and automate ROA management for
+your BYOIP prefixes, see [Monitor BGP route protection](monitor-bgp-route-security.md "monitor-bgp-route-security.md") and [Tutorial: Set up delegated RPKI for BYOIP prefixes](tutorials-byoip-bgp-security.md "tutorials-byoip-bgp-security.md").
+
 ###### Contents
 
 - [Verify domain control](tutorials-byoip-ipam-domain-verification-methods.md "tutorials-byoip-ipam-domain-verification-methods.md")

@@ -17,5 +17,6 @@ the IPAM account.
 - [Monitor CIDR usage with the IPAM dashboard](monitor-cidr-usage-ipam.md "monitor-cidr-usage-ipam.md")
 - [Monitor CIDR usage by resource](monitor-cidr-compliance-ipam.md "monitor-cidr-compliance-ipam.md")
 - [Monitor IPAM with Amazon CloudWatch](cloudwatch-ipam.md "cloudwatch-ipam.md")
+- [Monitor BGP route protection](monitor-bgp-route-security.md "monitor-bgp-route-security.md")
 - [View IP address history](view-history-cidr-ipam.md "view-history-cidr-ipam.md")
 - [View public IP insights](view-public-ip-insights.md "view-public-ip-insights.md")
