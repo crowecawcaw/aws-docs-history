@@ -7,7 +7,28 @@ discovers and uses the credentials.
 To verify that credentials are available, run the following command from your application
 or launch script:
 
+Ubuntu (Linux) or Windows
+
 ```
+aws sts get-caller-identity
+```
+
+Proton runtime
+
+On the Proton runtime, the AWS CLI for Windows installs to
+`C:\Program Files\Amazon\AWSCLIV2\aws.exe`, but it is not
+automatically added to the Windows `%PATH%`. To run the command,
+use the full path in your launch script or `.bat` file:
+
+```
+"C:\Program Files\Amazon\AWSCLIV2\aws.exe" sts get-caller-identity
+```
+
+To make `aws.exe` available without the full path, add the
+directory to `PATH` at the top of your launch script:
+
+```
+SET "PATH=%PATH%;C:\Program Files\Amazon\AWSCLIV2"
 aws sts get-caller-identity
 ```
 

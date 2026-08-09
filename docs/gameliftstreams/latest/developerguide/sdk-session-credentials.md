@@ -15,6 +15,9 @@ SET "S3_CONFIG_PATH=s3://`my-app-bucket`/configs/app-config.json"
 SET "LOCAL_CONFIG_DIR=%TEMP%\my-app-config"
 SET "LOCAL_CONFIG_FILE=%LOCAL_CONFIG_DIR%\app-config.json"
 
+REM --- Add AWS CLI to PATH (required for Proton runtime) ---
+SET "PATH=%PATH%;C:\Program Files\Amazon\AWSCLIV2"
+
 REM --- Create local directory if it doesn't exist ---
 IF NOT EXIST "%LOCAL_CONFIG_DIR%" (mkdir "%LOCAL_CONFIG_DIR%")
 
