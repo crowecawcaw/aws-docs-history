@@ -1,7 +1,7 @@
 # Exploring managed nodes using Amazon Q
 
 Systems Manager integration with Amazon Q Developer lets you ask questions about managed nodes in
-your fleet from anywhere in the AWS Management Console where the Amazon Q interface is
+your fleet. You can access this feature from anywhere in the AWS Management Console where the Amazon Q interface is
 available.
 
 For more information about interacting with Amazon Q, see [Chatting with Amazon Q Developer about AWS](../../../amazonq/latest/qdeveloper-ug/chat-with-q.md "../../../amazonq/latest/qdeveloper-ug/chat-with-q.md") in the _Amazon Q Developer User

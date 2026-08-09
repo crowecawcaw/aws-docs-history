@@ -1,7 +1,7 @@
 # Creating a custom patch baseline for Linux
 
 Use the following procedure to create a custom patch baseline for Linux
-managed nodes in Patch Manager, a tool in AWS Systems Manager.
+managed nodes in Patch Manager.
 
 For information about creating a patch baseline for macOS managed nodes,
 see [Creating a custom patch baseline for macOS](patch-manager-create-a-patch-baseline-for-macos.md "patch-manager-create-a-patch-baseline-for-macos.md"). For

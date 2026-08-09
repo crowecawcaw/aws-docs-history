@@ -1,6 +1,6 @@
 # Run commands at scale
 
-You can use Run Command, a tool in AWS Systems Manager, to run commands on a fleet of managed
+You can use Run Command to run commands on a fleet of managed
 nodes by using the `targets`. The `targets` parameter accepts
 a `Key,Value` combination based on tags that you specified for your
 managed nodes. When you run the command, the system locates and attempts to run the
@@ -14,8 +14,8 @@ You can also use the `targets` parameter to target a list of specific
 managed node IDs, as described in the next section.
 
 To control how commands run across hundreds or thousands of managed nodes,
-Run Command also includes parameters for restricting how many nodes can simultaneously
-process a request and how many errors can be thrown by a command before the command
+Run Command includes parameters for restricting concurrency. You can limit how many nodes
+process a request simultaneously and how many errors can occur before the command
 is canceled.
 
 ###### Contents
@@ -63,7 +63,7 @@ resource types in your grouping criteria.
 
 ###### Note
 
-In order to send commands that target a resource group, you must have been
+To send commands that target a resource group, you must have been
 granted AWS Identity and Access Management (IAM) permissions to list or view the resources that
 belong to that group. For more information, see [Set up permissions](../../../ARG/latest/userguide/gettingstarted-prereqs.md#gettingstarted-prereqs-permissions "../../../ARG/latest/userguide/gettingstarted-prereqs.md#gettingstarted-prereqs-permissions") in the _AWS Resource Groups User
 Guide_.
@@ -96,7 +96,7 @@ resource types in your grouping criteria.
 
 ###### Note
 
-In order to send commands that target a resource group, you must have been
+To send commands that target a resource group, you must have been
 granted IAM permissions to list, or view, the resources that belong to
 that group. For more information, see [Set up permissions](../../../ARG/latest/userguide/gettingstarted-prereqs.md#gettingstarted-prereqs-permissions "../../../ARG/latest/userguide/gettingstarted-prereqs.md#gettingstarted-prereqs-permissions") in the _AWS Resource Groups User
 Guide_.
@@ -125,7 +125,7 @@ The following examples show how to target managed nodes by using the
 `instanceids` key with the `targets` parameter. You
 can use this key to target managed AWS IoT Greengrass core devices because each device is
 assigned an mi-`ID_number`. You can view device IDs in
-Fleet Manager, a tool in AWS Systems Manager.
+Fleet Manager.
 
 Linux & macOS
 

@@ -1,6 +1,6 @@
 # Troubleshooting Systems Manager Run Command
 
-Run Command, a tool in AWS Systems Manager, provides status details with each command execution.
+Run Command provides status details with each command execution.
 For more information about the details of command statuses, see [Understanding command statuses](monitor-commands.md "monitor-commands.md"). You can also use the
 information in this topic to help troubleshoot problems with Run Command.
 

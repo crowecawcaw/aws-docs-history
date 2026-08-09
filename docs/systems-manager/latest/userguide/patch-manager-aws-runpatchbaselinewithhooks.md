@@ -1,7 +1,7 @@
 # SSM Command document for patching: `AWS-RunPatchBaselineWithHooks`
 
 AWS Systems Manager supports `AWS-RunPatchBaselineWithHooks`, a Systems Manager document
-(SSM document) for Patch Manager, a tool in AWS Systems Manager. This SSM document performs
+(SSM document) for Patch Manager. This SSM document performs
 patching operations on managed nodes for both security related and other types of
 updates.
 
@@ -271,7 +271,7 @@ Ubuntu Server.
 `Snapshot ID` is a unique ID (GUID) used by Patch Manager to ensure
 that a set of managed nodes that are patched in a single operation all have
 the exact same set of approved patches. Although the parameter is defined as
-optional, our best practice recommendation depends on whether or not you're
+optional, our best practice recommendation depends on whether you're
 running `AWS-RunPatchBaselineWithHooks` in a maintenance window,
 as described in the following table.
 

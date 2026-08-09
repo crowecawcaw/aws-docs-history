@@ -60,11 +60,10 @@ procedure:
 - **Case 1**: You're using a VPC endpoint to
   privately connect your VPC to supported AWS services and VPC endpoint services
   powered by AWS PrivateLink.
-- **Case 2**: You plan to use an S3 bucket that you
-  create as part of your Systems Manager operations, such as for storing output for Run Command
-  commands or Session Manager sessions to an S3 bucket. Before proceeding, follow the
-  steps in [Create a custom S3 bucket policy for an instance profile](setup-instance-permissions.md#instance-profile-custom-s3-policy "setup-instance-permissions.md#instance-profile-custom-s3-policy"). The information
-  about S3 bucket policies in that topic also applies to your service role.
+- **Case 2**: You plan to use an S3 bucket for
+  storing Run Command command output or Session Manager session logs. Before proceeding, follow the
+  steps in [Create a custom S3 bucket policy for an instance profile](setup-instance-permissions.md#instance-profile-custom-s3-policy "setup-instance-permissions.md#instance-profile-custom-s3-policy"). The S3 bucket
+  policy information in that topic also applies to your service role.
 
 ###### Note
 
@@ -252,7 +251,7 @@ JSONJSON
 ```
 
 3. Open PowerShell in administrative mode, and in the directory where
-   you created the JSON file, run [New-IAMRole](../../../powershell/latest/reference/items/Register-IAMRolePolicy.md "../../../powershell/latest/reference/items/Register-IAMRolePolicy.md") as follows to create a service role.
+   you created the JSON file, run [New-IAMRole](../../../powershell/latest/reference/items/New-IAMRole.md "../../../powershell/latest/reference/items/New-IAMRole.md") as follows to create a service role.
 
 ```
 New-IAMRole `
@@ -325,10 +324,9 @@ AWS IoT Greengrass core devices](../../../greengrass/v2/developerguide/setting-u
 
 ## Update the AWS IoT Greengrass token exchange role and install SSM Agent on your edge devices
 
-The final step for setting up and configuring your AWS IoT Greengrass core devices for Systems Manager
-requires you to update the AWS IoT Greengrass AWS Identity and Access Management (IAM) device service role, also called the
-_token exchange role_, and deploy AWS Systems Manager Agent (SSM Agent) to
-your AWS IoT Greengrass devices. For information about these processes, see [Install the
+The final step requires you to update the AWS IoT Greengrass AWS Identity and Access Management (IAM) device service role
+(the _token exchange role_) and deploy SSM Agent to
+your AWS IoT Greengrass devices. For information, see [Install the
 AWS Systems Manager Agent](../../../greengrass/v2/developerguide/install-systems-manager-agent.md "../../../greengrass/v2/developerguide/install-systems-manager-agent.md") in the _AWS IoT Greengrass Version 2 Developer Guide_.
 
 After you deploy SSM Agent to your devices, AWS IoT Greengrass automatically registers your devices

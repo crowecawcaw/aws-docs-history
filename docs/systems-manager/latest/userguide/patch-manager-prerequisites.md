@@ -104,7 +104,7 @@ root user accounts, respectively, to install patches.
 On macOS, however, for Brew and Brew Cask, Homebrew doesn't support its commands
 running under the root user account. As a result, Patch Manager queries for and runs
 Homebrew commands as either the owner of the Homebrew directory, or as a valid user
-belonging to the Homebrew directory’s owner group. Therefore, in order to install
+belonging to the Homebrew directory’s owner group. Therefore, to install
 patches, the owner of the `homebrew` directory also needs
 recursive owner permissions for the `/usr/local`
 directory.

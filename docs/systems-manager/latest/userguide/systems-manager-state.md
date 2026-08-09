@@ -1,6 +1,6 @@
 # AWS Systems Manager State Manager
 
-State Manager, a tool in AWS Systems Manager, is a secure and scalable configuration management service
+State Manager is a secure and scalable configuration management service
 that automates the process of keeping your managed nodes and other AWS resources in a
 state that you define. To get started with State Manager, open the [Systems Manager console](https://console.aws.amazon.com//systems-manager/state-manager "https://console.aws.amazon.com//systems-manager/state-manager"). In the navigation pane,
 choose **State Manager**.
@@ -89,10 +89,10 @@ runs:
 
     When you create an association, you specify a schedule for when
      State Manager applies the configuration. State Manager supports most standard cron
-     and rate expressions for scheduling when an association runs. State Manager
+     and rate expressions for scheduling. It
      also supports cron expressions that include a day of the week and the
-     number sign (#) to designate the *n*th day of a month
-     to run an association and the (L) sign to indicate the last
+     number sign (#) to designate the *n*th day of a month.
+     Use the (L) sign to indicate the last
      *X* day of the month.
 
 

@@ -1,6 +1,6 @@
 # Troubleshooting Parameter Store
 
-Use the following information to help you troubleshoot problems with Parameter Store, a tool in AWS Systems Manager.
+Use the following information to help you troubleshoot problems with Parameter Store.
 
 ## Troubleshooting throughput issues
 

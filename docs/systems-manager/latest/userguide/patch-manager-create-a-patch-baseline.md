@@ -1,6 +1,6 @@
 # Working with patch baselines
 
-A patch baseline in Patch Manager, a tool in AWS Systems Manager, defines which patches are
+A patch baseline in Patch Manager defines which patches are
 approved for installation on your managed nodes. You can specify approved or
 rejected patches one by one. You can also create auto-approval rules to specify that
 certain types of updates (for example, critical updates) should be automatically

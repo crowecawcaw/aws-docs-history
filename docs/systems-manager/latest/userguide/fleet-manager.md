@@ -1,6 +1,6 @@
 # AWS Systems Manager Fleet Manager
 
-Fleet Manager, a tool in AWS Systems Manager, is a unified user interface (UI) experience that helps you
+Fleet Manager is a unified user interface (UI) experience that helps you
 remotely manage your nodes running on AWS or on premises. With Fleet Manager, you can view the
 health and performance status of your entire server fleet from one console. You can also
 gather data from individual nodes to perform common troubleshooting and management tasks

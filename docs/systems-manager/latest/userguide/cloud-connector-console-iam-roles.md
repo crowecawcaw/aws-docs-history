@@ -29,7 +29,7 @@ The console creates the roles in this order:
 ###### Note
 
 The Systems Manager console creates these roles only during the Cloud Connector setup
-wizard. If you create a Cloud Connector with the AWS CLI (as described in [Step 2: Create an Systems Manager Cloud Connector](cloud-connector-create-ssm-connector.md "cloud-connector-create-ssm-connector.md")), you must create the
+wizard. If you create a Cloud Connector with the AWS CLI (as described in [Step 2: Create a Systems Manager Cloud Connector](cloud-connector-create-ssm-connector.md "cloud-connector-create-ssm-connector.md")), you must create the
 roles yourself. The trust and permissions policies in this section show the
 JSON you can use to recreate them. If you recreate the roles, do the
 following:

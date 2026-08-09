@@ -1,6 +1,6 @@
 # Viewing available patches
 
-With Patch Manager, a tool in AWS Systems Manager, you can view all available patches for a
+With Patch Manager, you can view all available patches for a
 specified operating system and, optionally, a specific operating system
 version.
 

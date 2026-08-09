@@ -168,7 +168,7 @@ information:
   or greater and less than 31 days.
 - If you specify the optional `Seconds` field, its value can be 0
   (zero). For example: `cron(0 */30 * * * ? *)`
-- For an association that collects metadata for Inventory, a tool in AWS Systems Manager,
+- For an association that collects metadata for Inventory,
   we recommend using a rate expression.
 - State Manager doesn't currently support specifying months in cron expressions for
   associations.

@@ -16,7 +16,7 @@ managed node.
 
 ###### Note
 
-You must allow AWS KMS encryption in order to reset passwords on your
+You must allow AWS KMS encryption to reset passwords on your
 managed nodes from the AWS Systems Manager console. For more information, see [Reset a password on a managed node](fleet-manager-reset-password.md#managed-instance-reset-a-password "fleet-manager-reset-password.md#managed-instance-reset-a-password").
 
 You can use a key that you created in your AWS account. You can also use a

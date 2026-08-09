@@ -1,6 +1,6 @@
 # Accessing the Red Hat Knowledge base portal
 
-You can use Fleet Manager, a tool in AWS Systems Manager, to access the Knowledge base portal if you
+You can use Fleet Manager to access the Knowledge base portal if you
 are a Red Hat customer. You are considered a Red Hat customer if you run Red Hat Enterprise Linux
 (RHEL) instances or use RHEL services on AWS. The Knowledge base portal includes
 binaries, and knowledge-share and discussion forums for community support that are

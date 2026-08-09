@@ -13,7 +13,7 @@ node.
 5. To copy or cut a file, select the **File name** of
    the directory that contains the file you want to copy or cut. To copy or
    cut a directory, choose the button next to the directory that you want
-   to copy or cut and then proceed to step 8.
+   to copy or cut. Then proceed to step 8.
 6. Choose the button next to the file you want to copy or cut.
 7. In the **Actions** menu, choose
    **Copy** or **Cut**.

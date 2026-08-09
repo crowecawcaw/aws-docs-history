@@ -10,12 +10,12 @@ this section applies if you choose one of the following options in the
   If you don't plan to use one of these options, you can skip this
   section.
 
-When you create a resource data sync in the SSM console, if you choose one
-of the AWS Organizations options, then Systems Manager automatically allows all OpsData sources in
-the selected Regions for all AWS accounts in your organization (or in the
-selected organizational units). For example, even if you haven't turned Explorer
-on in a Region, if you select an AWS Organizations option for your resource data sync,
-then Systems Manager automatically collects OpsData from that Region. To create a resource
+When you create a resource data sync in the SSM console and choose one
+of the AWS Organizations options, Systems Manager automatically allows all OpsData sources in
+the selected Regions for all AWS accounts in your organization or selected
+organizational units. For example, even if you haven't turned Explorer
+on in a Region, selecting an AWS Organizations option causes
+Systems Manager to automatically collect OpsData from that Region. To create a resource
 data sync without allowing OpsData sources, specify
 **EnableAllOpsDataSources** as false when creating the data
 sync. For more information, see the `EnableAllOpsDataSources`

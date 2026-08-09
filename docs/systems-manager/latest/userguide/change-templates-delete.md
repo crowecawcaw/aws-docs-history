@@ -8,7 +8,7 @@ date. Existing customers can continue to use the service as normal. For more
 information, see [AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
 
 This topic describes how to delete templates that you have created in
-Change Manager, a tool in Systems Manager. If you are using Change Manager for an organization, this
+Change Manager. If you are using Change Manager for an organization, this
 procedure is performed in your delegated administrator account.
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").

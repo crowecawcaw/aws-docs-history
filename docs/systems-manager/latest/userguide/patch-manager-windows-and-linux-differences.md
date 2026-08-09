@@ -1,7 +1,7 @@
 # Patching operation differences between Linux and Windows Server
 
 This topic describes important differences between Linux and Windows Server patching in
-Patch Manager, a tool in AWS Systems Manager.
+Patch Manager.
 
 ###### Note
 
@@ -19,7 +19,7 @@ updates.
 ## Difference 1: Patch evaluation
 
 Patch Manager uses different processes on Windows managed nodes and Linux managed
-nodes in order to evaluate which patches should be present.
+nodes to evaluate which patches should be present.
 
 ###### Linux
 
@@ -83,7 +83,7 @@ another patch allowed by the baseline.
 
 Windows Server, however, doesn't support the concept of patch dependencies. You can
 add a patch to the **Rejected patches** list in a custom
-baseline for Windows Server, but the result depends on (1) whether or not the rejected
+baseline for Windows Server, but the result depends on (1) whether the rejected
 patch is already installed on a managed node, and (2) which option you choose
 for **Rejected patches action**.
 

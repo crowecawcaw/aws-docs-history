@@ -1,6 +1,6 @@
 # Using Application Manager to manage CloudFormation templates
 
-Application Manager, a tool in AWS Systems Manager, includes a template library and other tools to
+Application Manager includes a template library and other tools to
 help you manage AWS CloudFormation templates. This section includes the following
 information.
 
@@ -100,7 +100,7 @@ template as an SSM document. Replace each `example
 
 ###### Before you begin
 
-Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have
+Install and configure the AWS CLI or the AWS Tools for PowerShell if you have
 not already. For information, see [Installing or updating the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
 and [Installing the AWS Tools for PowerShell](../../../powershell/latest/userguide/pstools-getting-set-up.md "../../../powershell/latest/userguide/pstools-getting-set-up.md").
 

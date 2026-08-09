@@ -1,6 +1,6 @@
 # Update or delete maintenance window resources using the console
 
-You can update or delete a maintenance window in Maintenance Windows, a tool in AWS Systems Manager.
+You can update or delete a maintenance window in Maintenance Windows.
 You can also update or delete the targets or tasks of a maintenance window. If you
 edit the details of a maintenance window, you can change the schedule, targets, and
 tasks. You can also specify names and descriptions for windows, targets, and tasks,

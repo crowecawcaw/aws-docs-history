@@ -9,7 +9,7 @@ information, see [AWS Systems Manager Change Manager availability change](chang
 
 If you're specified as a reviewer for change templates in Change Manager, a tool in
 AWS Systems Manager, you're notified when a new change template, or new version of a
-change template, is awaiting your review. An Amazon Simple Notification Service (Amazon SNS) topic sends the
+change template is awaiting your review. An Amazon Simple Notification Service (Amazon SNS) topic sends the
 notifications.
 
 ###### Note

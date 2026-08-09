@@ -317,7 +317,7 @@ For more information about configuring Amazon SNS notifications for Run Command,
 ###### Two: To update config data JSON format
 
 - To update the JSON formatting of the existing config settings for the
-  CloudWatch agent, use **Run Command**, a tool in AWS Systems Manager, or log
+  CloudWatch agent, use **Run Command**, or log
   in to the node directly with an RDP connection to run the following
   Windows PowerShell commands on the node, one at a time.
 

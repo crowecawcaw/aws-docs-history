@@ -10,8 +10,8 @@ virtual machines](../../../AWSEC2/latest/UserGuide/amazon-linux-2-virtual-machin
 For general information about Kernel Live Patching, see [Kernel Live Patching on AL2](../../../linux/al2/ug/al2-live-patching.md "../../../linux/al2/ug/al2-live-patching.md") in the
 _Amazon Linux 2 User Guide_.
 
-After you turn on Kernel Live Patching on an Amazon Linux 2 managed node, you can use Patch Manager, a tool in
-AWS Systems Manager, to apply kernel live patches to the managed node. Using Patch Manager is an
+After you turn on Kernel Live Patching on an Amazon Linux 2 managed node, you can use Patch Manager
+to apply kernel live patches to the managed node. Using Patch Manager is an
 alternative to using existing yum workflows on the node to apply the updates.
 
 ###### Before you begin
@@ -97,13 +97,13 @@ We recommend the following strategy to patch your managed nodes with kernel live
 updates:
 
 1. Turn on Kernel Live Patching on your Amazon Linux 2 managed nodes.
-2. Use Run Command, a tool in AWS Systems Manager, to run a `Scan` operation on
+2. Use Run Command to run a `Scan` operation on
    your managed nodes using the predefined
    `AWS-AmazonLinux2DefaultPatchBaseline` or a custom patch
    baseline that also targets only `Security` updates with severity
    classified as `Critical` and `Important`, and the
    `Bugfix` severity of `All`.
-3. Use Compliance, a tool in AWS Systems Manager, to review whether non-compliance for
+3. Use Compliance to review whether non-compliance for
    patching is reported for any of the managed nodes that were scanned. If so,
    view the node compliance details to determine whether any kernel live
    patches are missing from the managed node.

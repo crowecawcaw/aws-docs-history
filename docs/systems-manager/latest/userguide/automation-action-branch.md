@@ -6,8 +6,8 @@ runbook based on the results of that evaluation.
 
 When you specify the `aws:branch` action for a step, you specify
 `Choices` that the automation must evaluate. The `Choices` can
-be based on either a value that you specified in the `Parameters` section of
-the runbook, or a dynamic value generated as the output from the previous step. The
+be based on a value from the `Parameters` section of
+the runbook, or a dynamic value generated as output from the previous step. The
 automation evaluates each choice by using a Boolean expression. If the first choice is
 true, then the automation jumps to the step designated for that choice. If the first
 choice is false, the automation evaluates the next choice. The automation continues

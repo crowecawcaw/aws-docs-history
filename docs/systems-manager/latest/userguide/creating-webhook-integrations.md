@@ -26,7 +26,7 @@ either the Systems Manager Automation console or your preferred command line too
 
 To create an integration using command line tools, you must create the
 required `SecureString` parameter for an integration. Automation uses
-a reserved namespace in Parameter Store, a tool in Systems Manager, to store information about
+a reserved namespace in Parameter Store to store information about
 your integration. If you create an integration using the AWS Management Console, Automation
 handles this process for you. Following the namespace, you must specify the type
 of integration you want to create and then the name of your integration.

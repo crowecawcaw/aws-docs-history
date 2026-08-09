@@ -1,6 +1,6 @@
 # Manage OpsItems
 
-OpsCenter, a tool in AWS Systems Manager, tracks OpsItems from their creation to resolution. If you
+OpsCenter tracks OpsItems from their creation to resolution. If you
 set up OpsCenter for cross-account administration, a delegated administrator or
 management account can manage OpsItems from their account. For more information, see [(Optional) Manually set up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md "OpsCenter-getting-started-multiple-accounts.md").
 

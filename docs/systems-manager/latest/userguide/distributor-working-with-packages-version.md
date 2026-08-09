@@ -71,12 +71,11 @@ updates the manifest file and associated SSM document for you.
 7. For **S3 key prefix**, enter the subfolder of the
    bucket where your installable assets are stored.
 8. For **Upload software**, navigate to the
-   installable software files that you want to attach to the new
-   version. Installable files from existing versions aren't
-   automatically copied over to a new version; you must upload any
-   installable files from older versions of the package if you want any
-   of the same installable files to be part of the new version. You can
-   upload more than one software file in a single action.
+   installable software files for the new
+   version. Files from existing versions aren't
+   copied to the new version automatically. Upload
+   files from older versions if you want them in the new version. You can
+   upload more than one file in a single action.
 9. For **Target platform**, verify that the target
    operating system platform shown for each installable file is
    correct. If the operating system shown isn't correct, choose the

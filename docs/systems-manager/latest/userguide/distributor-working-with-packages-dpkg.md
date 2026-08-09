@@ -6,7 +6,7 @@ package, only the entire package.
 ## Deleting a package using the console
 
 You can use the AWS Systems Manager console to delete a package or a package version
-from Distributor, a tool in AWS Systems Manager. Deleting a package deletes all versions of a
+from Distributor. Deleting a package deletes all versions of a
 package from Distributor.
 
 ###### To delete a package using the console

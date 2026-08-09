@@ -1,7 +1,7 @@
 # Control access to maintenance windows using the AWS CLI
 
 The following procedures describe how to use the AWS Command Line Interface (AWS CLI) to create the
-required permissions and roles for Maintenance Windows, a tool in AWS Systems Manager.
+required permissions and roles for Maintenance Windows.
 
 ###### Topics
 

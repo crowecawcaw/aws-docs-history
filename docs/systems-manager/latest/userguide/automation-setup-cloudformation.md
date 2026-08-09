@@ -1,6 +1,6 @@
 # Create service roles for Automation by using CloudFormation
 
-You can create a service role for Automation, a tool in AWS Systems Manager, from an
+You can create a service role for Automation from an
 AWS CloudFormation template. After you create the service role, you can specify the service
 role in runbooks using the parameter `AutomationAssumeRole`.
 

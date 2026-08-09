@@ -1,6 +1,6 @@
 # AWS Systems Manager Patch Manager
 
-Patch Manager, a tool in AWS Systems Manager, automates the process of patching managed nodes with both
+Patch Manager automates the process of patching managed nodes with both
 security-related updates and other types of updates.
 
 ###### Note

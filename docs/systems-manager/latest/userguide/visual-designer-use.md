@@ -1,7 +1,7 @@
 # Using the visual design experience
 
-Learn to create, edit and run runbook workflows using the visual design experience. After your workflow
-is ready, you can save it or export it. You can also use the visual design experience for rapid
+Learn to create, edit, and run runbook workflows using the visual design experience. When your workflow
+is ready, save or export it. You can also use it for rapid
 prototyping.
 
 ## Create a runbook workflow
@@ -17,21 +17,21 @@ You can now design a workflow for your new runbook.
 
 ## Design a runbook
 
-To design a runbook workflow using the visual design experience, you drag an automation action from
-the **Actions** browser into the canvas, placing it where you want it in
-your runbook's workflow. You can also re-order actions in your workflow by dragging them to
-a different location. As you drag an action onto the canvas, a line appears wherever you can
-drop the action in your workflow. After an action is dropped onto the canvas, its code is
-auto-generated and added inside your runbook's content.
+To design a runbook workflow, drag an automation action from
+the **Actions** browser into the canvas. Place it where you want it in
+your workflow. You can re-order actions by dragging them to
+a different location. As you drag an action onto the canvas, a line shows where you can
+drop it. After you drop an action, its code is
+auto-generated and added to your runbook's content.
 
-If you know the name of the action you want to add, use the search box at the top of the
-**Actions** browser to find the action.
+Use the search box at the top of the
+**Actions** browser to find an action by name.
 
 After you drop an action onto the canvas, configure it using the
-**Form** panel on the right. This panel contains the
+**Form** panel on the right. This panel has
 **General**, **Inputs**, **Outputs**,
-and **Configuration** tabs for each automation action or API action that
-you place on the canvas. For example, the **General** tab consists of the
+and **Configuration** tabs for each action
+on the canvas. The **General** tab has the
 following sections:
 
 - The **Step name** identifies the step. Specify a unique value for

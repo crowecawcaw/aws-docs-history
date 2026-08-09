@@ -1,6 +1,6 @@
 # Edit Distributor package tags in the console
 
-After you have added a package to Distributor, a tool in AWS Systems Manager, you can edit the
+After you have added a package to Distributor, you can edit the
 package's tags in the Systems Manager console. These tags are applied to the package, and
 aren't connected to tags on the managed node on which you want to deploy the
 package. Tags are case sensitive key and value pairs that can help you group and

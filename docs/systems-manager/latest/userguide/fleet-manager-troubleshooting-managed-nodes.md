@@ -26,7 +26,7 @@ information, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-ag
   communicate with the Systems Manager service. If you don't assign an instance profile to
   the instance, you register it using a [hybrid
   activation](activations.md "activations.md"), which is not a common scenario.
-- SSM Agent must be able to connect to a Systems Manager endpoint in order to register
+- SSM Agent must be able to connect to a Systems Manager endpoint to register
   itself with the service. Thereafter, the managed node must be available to the
   service, which is confirmed by the service sending a signal every five minutes
   to check the instance's health.

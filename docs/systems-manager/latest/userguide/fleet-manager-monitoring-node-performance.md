@@ -1,6 +1,6 @@
 # Monitoring managed node performance
 
-You can use Fleet Manager, a tool in AWS Systems Manager, to view performance data about your
+You can use Fleet Manager to view performance data about your
 managed nodes in real time. The performance data is retrieved from performance
 counters.
 
@@ -13,7 +13,7 @@ The following performance counters are available in Fleet Manager:
 
 ###### Note
 
-Fleet Manager uses Session Manager, a tool in AWS Systems Manager, to retrieve performance data. For
+Fleet Manager uses Session Manager to retrieve performance data. For
 Amazon Elastic Compute Cloud (Amazon EC2) instances, the instance profile attached to your managed
 instances must provide permissions for Session Manager to use this feature. For more
 information about adding Session Manager permissions to an instance profile, see [Add Session Manager permissions to an existing IAM role](getting-started-add-permissions-to-existing-profile.md "getting-started-add-permissions-to-existing-profile.md").

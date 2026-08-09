@@ -1,6 +1,6 @@
 # Working with Patch Manager resources and compliance using the console
 
-To use Patch Manager, a tool in AWS Systems Manager, complete the following tasks. These tasks are
+To use Patch Manager, complete the following tasks. These tasks are
 described in more detail in this section.
 
 1. Verify that the AWS predefined patch baseline for each operating system type
@@ -11,7 +11,7 @@ described in more detail in this section.
    (optional, but recommended).
 3. Do one of the following:
 
-   - (Recommended) Configure a patch policy in Quick Setup, a tool in Systems Manager,
+   - (Recommended) Configure a patch policy in Quick Setup,
      that lets you install missing patches on a schedule for an entire
      organization, a subset of organizational units, or a single
      AWS account. For more information, see [Configure patching for instances in an organization using a Quick Setup patch policy](quick-setup-patch-manager.md "quick-setup-patch-manager.md").

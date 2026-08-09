@@ -35,14 +35,16 @@ Systems Manager uses the `ssmmessages` endpoint for the following types of API
 operations:
 
 - Operations from Systems Manager Agent (SSM Agent) to the Systems Manager service in the cloud.
-- Operations from SSM Agent to Session Manager, a tool in AWS Systems Manager, in the cloud. This
+- Operations from SSM Agent to Session Manager in the cloud. This
   endpoint is required to create and delete session channels with the Session Manager service
-  in the cloud. Additionally, if connectivity is allowed, SSM Agent receives
-  `Command` documents through this Amazon Message Gateway
-  Service. If connectivity is not allowed, SSM Agent receives
-  `Command` documents through the Amazon Message Delivery
-  Service. For more information, see [Actions, resources, and condition keys for Amazon Message Gateway
-  Service](../../../service-authorization/latest/reference/list_amazonmessagegatewayservice.md "../../../service-authorization/latest/reference/list_amazonmessagegatewayservice.md").
+  in the cloud.
+
+If connectivity is allowed, SSM Agent receives
+`Command` documents through Amazon Message Gateway
+Service. If connectivity is not allowed, SSM Agent receives
+`Command` documents through Amazon Message Delivery
+Service. For more information, see [Actions, resources, and condition keys for Amazon Message Gateway
+Service](../../../service-authorization/latest/reference/list_amazonmessagegatewayservice.md "../../../service-authorization/latest/reference/list_amazonmessagegatewayservice.md").
 
 ###### Note
 
@@ -53,7 +55,7 @@ However, it can take up to 1 hour for a connection to be terminated after the
 permission is removed. This is the same behavior as when the IAM instance role
 or IAM service role is deleted.
 
-Note that the `ssmmessages:OpenControlChannel` permission is
+The `ssmmessages:OpenControlChannel` permission is
 included in the managed policy [AmazonSSMManagedInstanceCore](../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md "../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md"), which is used in the instructions for
 [creating an IAM instance profile](setup-instance-permissions.md#instance-profile-add-permissions "setup-instance-permissions.md#instance-profile-add-permissions") for EC2 instances and for [creating an IAM service role](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md") for non-EC2 instances.
 
@@ -79,27 +81,34 @@ whenever available instead of the `ec2messages:*` endpoint
 (Amazon Message Delivery Service).
 
 If you provide access to `ssmmessages:*` in your AWS Identity and Access Management (IAM) permission
-policies, SSM Agent connects to the `ssmmessages:*` endpoint, even if your IAM
-instance profile is configured to allow both endpoints. This includes policies for [IAM instance profiles](setup-instance-permissions.md#instance-profile-add-permissions "setup-instance-permissions.md#instance-profile-add-permissions") and [IAM service roles](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md") you have created
+policies, SSM Agent connects to the `ssmmessages:*` endpoint. This applies even
+if your IAM instance profile is configured to allow both endpoints. This includes
+policies for [IAM instance profiles](setup-instance-permissions.md#instance-profile-add-permissions "setup-instance-permissions.md#instance-profile-add-permissions") and [IAM service roles](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md") you have created
 yourself, and for IAM instance profiles created by the [Quick Setup Host management configuration](quick-setup-host-management.md "quick-setup-host-management.md") and
 [Default Host
 Management Configuration](quick-setup-default-host-management-configuration.md "quick-setup-default-host-management-configuration.md").
 
 If you have provided permissions for both endpoints and monitor API operations using, for
-example, CloudWatch Metrics, you will see no calls to `ec2messages:*`.
+example, CloudWatch Metrics, you see no calls to `ec2messages:*`.
 
 For AWS Regions launched before 2024: You can safely remove `ec2messages:*` permissions from your policies at this time.
 
 ###### Endpoint connection failover
 
-For AWS Regions launched before 2024 only: If your IAM instance profile does not
-provide permissions for `ssmmessages:*` at the time the agent starts, but
-only `ec2messages:*`, SSM Agent connects to the `ec2messages:*` endpoint. If you have both
-`ssmmessages:*` and `ec2messages:*` at the time
-SSM Agent starts, but remove `ssmmessages:*` after the agent starts, SSM Agent
-soon switches the connection to the `ec2messages:*` endpoint.
-For Regions launched in 2024 and later, only the `ssmmessages:*` endpoint is
-supported.
+The following failover behavior applies to AWS Regions launched before 2024
+only.
+
+If your IAM instance profile provides only `ec2messages:*`
+permissions when the agent starts, SSM Agent connects to the
+`ec2messages:*` endpoint.
+
+If your IAM instance profile provides both `ssmmessages:*` and
+`ec2messages:*` permissions when the agent starts, but you
+later remove `ssmmessages:*`, SSM Agent switches to the
+`ec2messages:*` endpoint.
+
+For Regions launched in 2024 and later, only the `ssmmessages:*` endpoint
+is supported.
 
 For more information about the `ssmmessages` and `ec2messages:*` endpoints, see the following topics in the _AWS Service Authorization Reference_.
 
@@ -118,7 +127,7 @@ are displayed in the Documents node.
 
 `DescribeInstanceProperties`
 
-Systems Manager runs this API operations to render specific nodes in the Amazon EC2
+Systems Manager runs this API operation to render specific nodes in the Amazon EC2
 console. Results of the `DescribeInstanceProperties` operation are displayed in the
 Fleet Manager node.
 
@@ -146,7 +155,7 @@ Change Calendar console.
 `PutConfigurePackageResult`
 
 SSM Agent runs this API operation to publish installation error and latency
-metrics for public Distributor packages to the package owner’s
+metrics for public Distributor packages to the package owner's
 account.
 
 `RegisterManagedInstance`
@@ -168,7 +177,7 @@ access the managed node.
 `UpdateInstanceAssociationStatus`
 
 SSM Agent runs this API operation to update an association. This API
-operation is required for State Manager, a tool in AWS Systems Manager, to function.
+operation is required for State Manager to function.
 
 `UpdateInstanceInformation`
 

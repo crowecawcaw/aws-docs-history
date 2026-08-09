@@ -30,5 +30,5 @@ list, such as `EC2` or `VPC`. 5. (Optional) To view additional details about an 
 as **AWS-DiagnoseUnmanagedEC2NetworkIssues**.
 
 In the details pane, you can review information about all the steps attempted
-during the operation, and about all the inputs and outputs for the
+during the operation. You can also review all the inputs and outputs for the
 execution.

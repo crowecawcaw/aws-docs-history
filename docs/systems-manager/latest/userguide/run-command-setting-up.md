@@ -1,6 +1,6 @@
 # Setting up Run Command
 
-Before you can manage nodes by using Run Command, a tool in AWS Systems Manager, configure an
+Before you can manage nodes by using Run Command, configure an
 AWS Identity and Access Management (IAM) policy for any user who will run commands. If you use any global
 condition keys for the `SendCommand` action in your IAM policies, you must
 include the `aws:ViaAWSService` condition key and set the boolean value to

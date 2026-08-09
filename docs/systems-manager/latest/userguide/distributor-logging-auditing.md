@@ -1,12 +1,12 @@
 # Auditing and logging Distributor activity
 
-You can use AWS CloudTrail to audit activity related to Distributor, a tool in AWS Systems Manager. For
+You can use AWS CloudTrail to audit activity related to Distributor. For
 more information about auditing and logging options for Systems Manager, see [Logging and monitoring in AWS Systems Manager](monitoring.md "monitoring.md").
 
 ## Audit Distributor activity using CloudTrail
 
 CloudTrail captures API calls made in the AWS Systems Manager console, the AWS Command Line Interface (AWS CLI), and
-the Systems Manager SDK. The information can be viewed in the CloudTrail console or stored in an
+the Systems Manager SDK. You can view this information in the CloudTrail console or store it in an
 Amazon Simple Storage Service (Amazon S3) bucket. One bucket is used for all CloudTrail logs for your
 account.
 

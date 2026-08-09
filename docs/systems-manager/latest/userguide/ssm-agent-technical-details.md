@@ -183,7 +183,7 @@ versions before 2.3.612.0, the account is created the first time SSM Agent start
 restarts after installation. On version 2.3.612.0 and later, the
 `ssm-user` account is created the first time a session is started on
 an instance. This `ssm-user` is the default OS user when a session starts
-in Session Manager, a tool in AWS Systems Manager. You can change the permissions by moving
+in Session Manager. You can change the permissions by moving
 `ssm-user` to a less-privileged group or by changing the
 `sudoers` file. The `ssm-user` account isn't
 removed from the system when SSM Agent is uninstalled.
@@ -279,7 +279,7 @@ without a `curl` command.
 ## SSM Agent communications with AWS managed S3 buckets
 
 In the course of performing various Systems Manager operations, AWS Systems Manager Agent (SSM Agent)
-accesses a number of Amazon Simple Storage Service (Amazon S3) buckets. These S3 buckets are publicly
+accesses several Amazon Simple Storage Service (Amazon S3) buckets. These S3 buckets are publicly
 accessible, and by default, SSM Agent connects to them using `HTTP` calls.
 
 However, if you're using a virtual private cloud (VPC) endpoint in your Systems Manager
@@ -561,7 +561,7 @@ To recover from hibernation, address the underlying cause:
   instances**, or re-register the node if hardware changes are
   significant.
 - **For connectivity issues**: Verify network
-  connectivity and make sure that the required endpoints are accessible. For
+  connectivity and make sure the required endpoints are accessible. For
   more information, see [Troubleshooting managed node availability using ssm-cli](troubleshooting-managed-nodes-using-ssm-cli.md "troubleshooting-managed-nodes-using-ssm-cli.md").
 
 After you resolve the underlying issue, the agent should automatically exit

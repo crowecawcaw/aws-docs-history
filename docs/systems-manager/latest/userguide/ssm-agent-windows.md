@@ -13,7 +13,7 @@ Windows Server AMIs published _before_ November 2016 use the
 EC2Config service to process requests and configure instances.
 
 Unless you have a specific reason for using the EC2Config service, or an earlier
-version of SSM Agent, to process Systems Manager requests, we recommend that you download and
+version of SSM Agent to process Systems Manager requests, we recommend that you download and
 install the latest version of SSM Agent to each of your Amazon Elastic Compute Cloud (Amazon EC2) instances or
 non-EC2 machines that are configured for Systems Manager in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment.
 

@@ -110,7 +110,7 @@ IAM role for Automation runbook execution is supplied and the Automation
 actions used in the runbook. As a result, the condition key can produce
 unexpected behavior. For this reason, we recommend you don't use it.
 
-Systems Manager supports a number of its own condition keys. For more information, see
+Systems Manager supports several of its own condition keys. For more information, see
 [Condition Keys for AWS Systems Manager](../../../service-authorization/latest/reference/list_awssystemsmanager.md#awssystemsmanager-policy-keys "../../../service-authorization/latest/reference/list_awssystemsmanager.md#awssystemsmanager-policy-keys") in the _Service Authorization
 Reference_. The actions and resources you can use a Systems Manager-specific
 condition key with are listed in [Resource types defined by AWS Systems Manager](../../../service-authorization/latest/reference/list_awssystemsmanager.md#awssystemsmanager-policy-keys "../../../service-authorization/latest/reference/list_awssystemsmanager.md#awssystemsmanager-policy-keys") in the _Service

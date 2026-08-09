@@ -7,7 +7,7 @@ starting November 7, 2025. If you would like to use Change Manager, sign up prio
 date. Existing customers can continue to use the service as normal. For more
 information, see [AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
 
-Using the Builder for change templates in Change Manager, a tool in AWS Systems Manager,
+Using the Builder for change templates in Change Manager,
 you can configure the runbook workflow defined in your change template
 without having to use JSON or YAML syntax. After you specify your options,
 the system converts your input into the YAML format that Systems Manager can use to
@@ -79,7 +79,7 @@ the document. For more information about using Markdown, see
 AWS](../../../general/latest/gr/aws-markdown.md "../../../general/latest/gr/aws-markdown.md").
 
 We recommend providing questions for users to answer about their
-change requests to help approvers decide whether or not to grant
+change requests to help approvers decide whether to grant
 each change request, such as listing any manual steps required to
 run as part of the change and a rollback plan.
 

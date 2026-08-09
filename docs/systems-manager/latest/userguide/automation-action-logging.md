@@ -1,6 +1,6 @@
 # Logging Automation action output with CloudWatch Logs
 
-Automation, a tool in AWS Systems Manager, integrates with Amazon CloudWatch Logs. You can send the output
+Automation integrates with Amazon CloudWatch Logs. You can send the output
 from `aws:executeScript` actions in your runbooks to the log group you
 specify. Systems Manager doesn't create a log group or any log streams for documents that don't
 use `aws:executeScript` actions. If the document does use

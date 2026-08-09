@@ -1,11 +1,11 @@
 # Setting up Distributor
 
-Before you use Distributor, a tool in AWS Systems Manager, to create, manage, and deploy software
+Before you use Distributor to create, manage, and deploy software
 packages, follow these steps.
 
 ## Complete Distributor prerequisites
 
-Before you use Distributor, a tool in AWS Systems Manager, be sure your environment meets the
+Before you use Distributor, be sure your environment meets the
 following requirements.
 
 Distributor prerequisites| Requirement | Description |
@@ -44,7 +44,7 @@ policy to your instance profile. For more information, see [Configure instance p
 
 Using AWS Identity and Access Management (IAM) policies, you can control who can create, deploy, and
 manage packages. You also control which Run Command and State Manager API operations they
-can perform on managed nodes. Like Distributor, both Run Command and State Manager, are tools
+can perform on managed nodes. Like Distributor, both Run Command and State Manager are tools
 in AWS Systems Manager.
 
 ###### ARN Format

@@ -35,7 +35,7 @@ For information about configuring IAM permissions for Systems Manager to your
 instance, see [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").
 
 - **Create additional resources as needed**
-  – Run Command, a tool in Systems Manager, includes many tasks that don't require you
+  – Run Command includes many tasks that don't require you
   to create resources other than those listed in this prerequisites topic. For
   that reason, we provide a simple Run Command task for you to use your first time
   through the tutorials. You also need an EC2 instance that is configured to use

@@ -1,7 +1,7 @@
 # Creating associations that run MOF files
 
 You can run Managed Object Format (MOF) files to enforce a target state on Windows Server
-managed nodes with State Manager, a tool in AWS Systems Manager, by using the
+managed nodes with State Manager, by using the
 `AWS-ApplyDSCMofs` SSM document. The `AWS-ApplyDSCMofs`
 document has two execution modes. With the first mode, you can configure the association
 to scan and report if the managed nodes are in the desired state defined in the
@@ -450,7 +450,7 @@ the schedule that you defined and according to the following rules:
 ###### Note
 
 The `AWS-ApplyDSCMofs` is a Systems Manager Command document. This means that
-you can also run this document by using Run Command, a tool in AWS Systems Manager. For more
+you can also run this document by using Run Command. For more
 information, see [AWS Systems Manager Run Command](run-command.md "run-command.md").
 
 ## Troubleshooting issues when creating associations that run MOF files
@@ -540,7 +540,7 @@ follows.
 `bucket-region`:`amzn-s3-demo-bucket`.
 Here is an example: `us-west-1:amzn-s3-demo-bucket;`
 
-- If Region-specific syntax doesn't fix the problem, then make sure that the
+- If Region-specific syntax doesn't fix the problem, then ensure the
   targeted nodes can access Amazon S3 in the desired Region. To verify this:
 
   1.  Find the endpoint name for Amazon S3 in the appropriate Amazon S3 Region.
@@ -606,5 +606,5 @@ access, then the association fails and no compliance data is reported.
 If a resource in a second MOF fails, then Systems Manager _does_ report
 compliance data. For example, if a MOF tries to create a file on a drive that
 doesn’t exist, then Systems Manager reports compliance because the
-`AWS-ApplyDSCMofs` document is able to process completely, which
+`AWS-ApplyDSCMofs` document can process completely, which
 means the association successfully runs.

@@ -1,7 +1,7 @@
 # Setting up Maintenance Windows
 
 Before users in your AWS account can create and schedule maintenance window tasks
-using Maintenance Windows, a tool in AWS Systems Manager, they must be granted the necessary permissions. In
+using Maintenance Windows, they must be granted the necessary permissions. In
 addition, you must create an IAM service role for maintenance windows and the IAM
 policy to attach to it.
 

@@ -1,10 +1,10 @@
 # Patching managed nodes on demand
 
-Using the **Patch now** option in Patch Manager, a tool in AWS Systems Manager,
+Using the **Patch now** option in Patch Manager,
 you can run on-demand patching operations from the Systems Manager console. This means you
-don’t have to create a schedule in order to update the compliance status of your
+don’t have to create a schedule to update the compliance status of your
 managed nodes or to install patches on noncompliant nodes. You also don’t need to
-switch the Systems Manager console between Patch Manager and Maintenance Windows, a tool in AWS Systems Manager, in
+switch the Systems Manager console between Patch Manager and Maintenance Windows, in
 order to set up or modify a scheduled patching window.
 
 **Patch now** is especially useful when you must apply zero-day
@@ -188,7 +188,7 @@ instance, not those of the IAM user performing this task. For more
 information, see [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md") or [Create the IAM
 service role required for Systems Manager in hybrid and multicloud
 environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md"). In addition, if the specified S3 bucket is
-in a different AWS account, make sure that the instance profile or
+in a different AWS account, ensure the instance profile or
 IAM service role associated with the managed node has the
 necessary permissions to write to that bucket. 9. (Optional) If you want to run SSM documents as lifecycle hooks
 during specific points of the patching operation, do the
@@ -213,7 +213,7 @@ following:
 10. Choose **Patch now**.
 
 The **Association execution summary** page opens.
-(Patch now uses associations in State Manager, a tool in AWS Systems Manager, for its
+(Patch now uses associations in State Manager, for its
 operations.) In the **Operation summary** area, you can
 monitor the status of scanning or patching on the managed nodes you
 specified.

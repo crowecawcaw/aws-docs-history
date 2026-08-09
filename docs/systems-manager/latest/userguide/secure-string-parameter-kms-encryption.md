@@ -293,7 +293,7 @@ advanced `SecureString`, use the `PutParameter` operation
 with the `Overwrite` parameter. The `Type` must be
 `SecureString` and the `Tier` value must be
 `Advanced`. The `KeyId` parameter, which identifies a
-customer managed key, is optional. If you omit it, Parameter Store uses the AWS managed key for
+customer managed key is optional. If you omit it, Parameter Store uses the AWS managed key for
 the account. You can specify any KMS key that the principal has permission to
 use, even if you used a different KMS key to encrypt the standard
 parameter.

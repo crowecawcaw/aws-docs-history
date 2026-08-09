@@ -1,6 +1,6 @@
 # Managing OS user accounts and groups on managed nodes using Fleet Manager
 
-You can use Fleet Manager, a tool in AWS Systems Manager, to manage operating system (OS) user
+You can use Fleet Manager to manage operating system (OS) user
 accounts and groups on your managed nodes. For example, you can create and delete
 users and groups. Additionally, you can view details like group membership, user
 roles, and status.

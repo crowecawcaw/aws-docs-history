@@ -34,9 +34,9 @@ documentation resources. For information about using MCP with Amazon Q for the
 command line, see [Using MCP with
 Amazon Q Developer](../../../amazonq/latest/qdeveloper-ug/command-line-mcp.md "../../../amazonq/latest/qdeveloper-ug/command-line-mcp.md") in the _Amazon Q Developer User Guide_.
 
-For more information about the AWS Documentation MCP server see [AWS Documentation MCP Server](https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server/ "https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server/").
+For more information about the AWS Documentation MCP server, see [AWS Documentation MCP Server](https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server "https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server") on the GitHub website.
 
-Install and configure the AWS CLI, if you have not already. For information,
+Install and configure the AWS CLI if you have not already. For information,
 see [Installing or
 updating the latest version of the AWS CLI.](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
 
@@ -119,7 +119,7 @@ The statement follows the Cedar policy language structure as documented in the A
 
 4. Paste the policy statement into a new Cedar file to validate the
    syntax. You can also validate the statement using the [Cedar
-   playground](https://www.cedarpolicy.com/en/playground "https://www.cedarpolicy.com/en/playground").
+   policy validation](https://docs.cedarpolicy.com/policies/validation.html "https://docs.cedarpolicy.com/policies/validation.html") tool on the Cedar policy website.
 5. After validating the statement, save the Cedar file.
 6. From your terminal, run the following AWS CLI command to create an SSM
    document using your policy content. Before using approval policies in a

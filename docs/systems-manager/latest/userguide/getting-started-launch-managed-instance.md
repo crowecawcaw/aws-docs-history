@@ -55,9 +55,9 @@ quickly, so it doesn't cover all possible options.
       group from the list of existing security groups.
 
 8. If you aren't using Default Host Management Configuration, expand the
-   **Advanced details** section, and for **IAM
+   **Advanced details** section. For **IAM
    instance profile**, choose the instance profile that you created
-   when getting set up in [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").
+   in [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").
 9. Keep the default selections for the other configuration settings for your
    instance.
 10. Review a summary of your instance configuration in the

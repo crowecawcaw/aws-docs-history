@@ -1,6 +1,6 @@
 # How security patches are selected
 
-The primary focus of Patch Manager, a tool in AWS Systems Manager, is on installing operating
+The primary focus of Patch Manager is on installing operating
 systems security-related updates on managed nodes. By default, Patch Manager doesn't
 install all available patches, but rather a smaller set of patches focused on
 security.
@@ -166,7 +166,7 @@ list provides examples for a fictitious CentOS 9.2 Amazon Machine Image
 
 All updates are downloaded from the remote repos configured on the
 managed node. Therefore, the node must have outbound access to the
-internet in order to connect to the repos so the patching can be
+internet to connect to the repos so the patching can be
 performed.
 
 CentOS Stream
@@ -273,7 +273,7 @@ preconfigured repos on a node.
 
 All updates are downloaded from the remote repos configured on the
 managed node. Therefore, the node must have outbound access to the
-internet in order to connect to the repos so the patching can be
+internet to connect to the repos so the patching can be
 performed.
 
 Oracle Linux managed nodes use Yum as the package manager, and Yum uses
@@ -303,7 +303,7 @@ usually three preconfigured repos on a node.
 
 All updates are downloaded from the remote repos configured on the
 managed node. Therefore, the node must have outbound access to the
-internet in order to connect to the repos so the patching can be
+internet to connect to the repos so the patching can be
 performed.
 
 ###### Note

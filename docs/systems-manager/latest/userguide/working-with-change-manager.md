@@ -7,7 +7,7 @@ starting November 7, 2025. If you would like to use Change Manager, sign up prio
 date. Existing customers can continue to use the service as normal. For more
 information, see [AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
 
-With Change Manager, a tool in AWS Systems Manager, users across your organization or in a single
+With Change Manager, users across your organization or in a single
 AWS account can perform change-related tasks for which they have been granted the
 necessary permissions. Change Manager tasks include the following:
 

@@ -1,6 +1,6 @@
 # AWS Systems Manager Compliance
 
-You can use Compliance, a tool in AWS Systems Manager, to scan your fleet of managed nodes for patch
+You can use Compliance to scan your fleet of managed nodes for patch
 compliance and configuration inconsistencies. You can collect and aggregate data from
 multiple AWS accounts and Regions, and then drill down into specific resources that aren’t
 compliant. By default, Compliance displays current compliance data about patching in

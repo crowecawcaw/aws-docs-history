@@ -1,6 +1,6 @@
 # Viewing logs on managed nodes
 
-You can use Fleet Manager, a tool in AWS Systems Manager, to view log data stored on your managed
+You can use Fleet Manager to view log data stored on your managed
 nodes. For Windows managed nodes, you can view Windows event logs and copy their
 details from the console. To help you search events, filter Windows event logs by
 **Event level**, **Event ID**, **Event

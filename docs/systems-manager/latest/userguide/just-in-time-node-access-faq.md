@@ -2,9 +2,8 @@
 
 ## How do I move from Session Manager to just-in-time node access?
 
-After setting up the unified console and enabling just-in-time node access, you
-must modify your existing IAM policies to complete the move to just-in-time node
-access. This includes adding the required permissions for just-in-time node access
+After setting up the unified console and enabling just-in-time node access,
+modify your existing IAM policies to complete the transition. This includes adding the required permissions for just-in-time node access
 and removing permission for the `StartSession` API operation for
 Session Manager. For more information about IAM policies for just-in-time node access see
 [Setting up just-in-time access with Systems Manager](systems-manager-just-in-time-node-access-setting-up.md "systems-manager-just-in-time-node-access-setting-up.md").

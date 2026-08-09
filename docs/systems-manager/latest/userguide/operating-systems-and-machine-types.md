@@ -46,7 +46,7 @@ OS vendors including AWS typically don't provide security patches or other updat
 Continuing to use an EOL system greatly increases the risk of not being able to apply upgrades, including security
 fixes, and other operational problems. AWS does not test Systems Manager functionality on OS versions that have reached EOL.
 
-Patch Manager, a tool in Systems Manager, might not support all the OS versions listed in
+Patch Manager might not support all the OS versions listed in
 this topic. For a list of OS versions supported by Patch Manager, see [Patch Manager prerequisites](patch-manager-prerequisites.md "patch-manager-prerequisites.md").
 
 ###### Operating system types
@@ -155,7 +155,7 @@ website.
 
 ## Supported machine types in hybrid and multicloud environments
 
-Systems Manager supports a number of machine types as _managed
+Systems Manager supports several machine types as _managed
 nodes_. A managed node is any machine configured to work with
 Systems Manager.
 

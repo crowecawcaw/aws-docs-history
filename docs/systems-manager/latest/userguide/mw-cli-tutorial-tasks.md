@@ -181,10 +181,10 @@ the _output_ of the Run Command
 command associated with your maintenance window task
 executions.
 
-You could view this data, however, using the AWS CLI. (You could also
+You can view this data using the AWS CLI. You can also
 view the output in the Systems Manager console or in a log file stored in an
-Amazon Simple Storage Service (Amazon S3) bucket, if you had configured the maintenance window to
-store command output there.) You would find that the output of the
+Amazon Simple Storage Service (Amazon S3) bucket, if you configured the maintenance window to
+store output there. The output of the
 **df** command on an EC2 instance for Linux is
 similar to the following.
 

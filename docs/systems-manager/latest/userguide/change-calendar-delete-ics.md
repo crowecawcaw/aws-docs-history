@@ -1,7 +1,7 @@
 # Deleting all events imported from a third-party calendar
 
-If you no longer want any of the events that you imported from a third-party
-provider included in your calendar, you can delete the imported iCalendar
+If you no longer want events that you imported from a third-party
+provider, you can delete the imported iCalendar
 `.ics` file.
 
 ###### To delete all events imported from a third-party calendar

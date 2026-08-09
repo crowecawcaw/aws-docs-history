@@ -1,7 +1,7 @@
 # SSM Command document for patching: `AWS-RunPatchBaseline`
 
 AWS Systems Manager supports `AWS-RunPatchBaseline`, a Systems Manager document (SSM
-document) for Patch Manager, a tool in AWS Systems Manager. This SSM document performs patching
+document) for Patch Manager. This SSM document performs patching
 operations on managed nodes for both security related and other types of updates.
 When the document is run, it uses the patch baseline specified as the "default" for
 an operating system type if no patch group is specified. Otherwise, it uses the
@@ -22,7 +22,7 @@ Patch Manager also supports the legacy SSM document
 patching on Windows managed nodes only. We encourage you to use
 `AWS-RunPatchBaseline` instead because it supports patching on
 Linux, macOS, and Windows Server managed nodes. Version 2.0.834.0
-or later of SSM Agent is required in order to use the
+or later of SSM Agent is required to use the
 `AWS-RunPatchBaseline` document.
 
 Windows Server
@@ -155,7 +155,7 @@ Ubuntu Server.
 **Usage**: Optional.
 
 `AssociationId` is the ID of an existing association in
-State Manager, a tool in AWS Systems Manager. It's used by Patch Manager to add compliance data
+State Manager. It's used by Patch Manager to add compliance data
 to a specified association. This association is related to a patching
 operation that's [set up in a patch
 policy in Quick Setup](quick-setup-patch-manager.md "quick-setup-patch-manager.md").
@@ -182,14 +182,14 @@ one by running [create-association](../../../cli/latest/reference/ssm/create-ass
 `Snapshot ID` is a unique ID (GUID) used by Patch Manager to ensure
 that a set of managed nodes that are patched in a single operation all have
 the exact same set of approved patches. Although the parameter is defined as
-optional, our best practice recommendation depends on whether or not you're
+optional, our best practice recommendation depends on whether you're
 running `AWS-RunPatchBaseline` in a maintenance window, as
 described in the following table.
 
 `AWS-RunPatchBaseline` best practices| Mode | Best practice | Details |
 | --- | --- | --- |
 | Running `AWS-RunPatchBaseline` inside a<br>maintenance window | Don't supply a Snapshot ID. Patch Manager will supply it for<br>you. | If you use a maintenance window to run<br>`AWS-RunPatchBaseline`, you shouldn't<br>provide your own generated Snapshot ID. In this<br>scenario, Systems Manager provides a GUID value based on the<br>maintenance window execution ID. This ensures that a<br>correct ID is used for all the invocations of<br>`AWS-RunPatchBaseline` in that<br>maintenance window.<br>If you do specify a value in this scenario, note that<br>the snapshot of the patch baseline might not remain in<br>place for more than 3 days. After that, a new snapshot<br>will be generated even if you specify the same ID after<br>the snapshot expires. |
-| Running `AWS-RunPatchBaseline` outside of a<br>maintenance window | Generate and specify a custom GUID value for the Snapshot<br>ID.¹ | When you aren't using a maintenance window to run<br>`AWS-RunPatchBaseline`, we recommend that<br>you generate and specify a unique Snapshot ID for each<br>patch baseline, particularly if you're running the<br>`AWS-RunPatchBaseline` document on<br>multiple managed nodes in the same operation. If you<br>don't specify an ID in this scenario, Systems Manager generates a<br>different Snapshot ID for each managed node the command<br>is sent to. This might result in varying sets of patches<br>being specified among the managed nodes.<br>For instance, say that you're running the<br>`AWS-RunPatchBaseline` document directly<br>through Run Command, a tool in AWS Systems Manager, and targeting a<br>group of 50 managed nodes. Specifying a custom Snapshot<br>ID results in the generation of a single baseline<br>snapshot that is used to evaluate and patch all the<br>nodes, ensuring that they end up in a consistent state. |
+| Running `AWS-RunPatchBaseline` outside of a<br>maintenance window | Generate and specify a custom GUID value for the Snapshot<br>ID.¹ | When you aren't using a maintenance window to run<br>`AWS-RunPatchBaseline`, we recommend that<br>you generate and specify a unique Snapshot ID for each<br>patch baseline, particularly if you're running the<br>`AWS-RunPatchBaseline` document on<br>multiple managed nodes in the same operation. If you<br>don't specify an ID in this scenario, Systems Manager generates a<br>different Snapshot ID for each managed node the command<br>is sent to. This might result in varying sets of patches<br>being specified among the managed nodes.<br>For instance, say that you're running the<br>`AWS-RunPatchBaseline` document directly<br>through Run Command, and targeting a<br>group of 50 managed nodes. Specifying a custom Snapshot<br>ID results in the generation of a single baseline<br>snapshot that is used to evaluate and patch all the<br>nodes, ensuring that they end up in a consistent state. |
 | ¹ You can use any tool capable of generating a<br>GUID to generate a value for the Snapshot ID parameter.<br>For example, in PowerShell, you can use the<br>`New-Guid` cmdlet to generate a GUID in<br>the format of<br>`12345699-9405-4f69-bc5e-9315aEXAMPLE`. |
 
 ### Parameter name: `InstallOverrideList`

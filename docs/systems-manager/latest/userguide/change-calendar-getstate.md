@@ -1,7 +1,7 @@
 # Getting the state of a change calendar
 
 You can get the overall state of a calendar or the state of a calendar at a
-specific time in Change Calendar, a tool in AWS Systems Manager. You can also show the next time that
+specific time in Change Calendar. You can also show the next time that
 the calendar state changes from `OPEN` to `CLOSED`, or the
 reverse.
 

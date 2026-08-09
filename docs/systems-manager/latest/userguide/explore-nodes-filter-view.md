@@ -1,7 +1,7 @@
 # Choosing a filter view for managed node summaries
 
 The **Explore nodes** page in Systems Manager lets you view aggregated data
-about your fleet according to a number of available filter views.
+about your fleet according to several available filter views.
 
 ###### To choose a filter view for managed node summaries
 
@@ -34,4 +34,4 @@ about your fleet according to a number of available filter views.
      such as `Node type = Managed EC2 instances`.
      After optionally filtering the list, you can view details about a specific managed
      node by choosing its ID in the **Node ID** column. From that
-     detailed view, you can perform a number of actions on the node.
+     detailed view, you can perform several actions on the node.

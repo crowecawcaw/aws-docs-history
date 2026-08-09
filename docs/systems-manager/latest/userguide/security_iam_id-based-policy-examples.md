@@ -273,10 +273,10 @@ arn:aws:ssm:us-east-2:`aws-account-ID`:document/`Systems-Manager-document-name`
   AWS Systems Manager.
 - Get information about Automation workflows.
 
-If you want to give a user permission to use this document to send
-commands on any node for which the user has access, you could specify an
-entry similar to the following in the `Resource` section and
-remove the other node entries. The following example uses the
+To give a user permission to use this document to send
+commands on any node they have access to, specify an
+entry similar to the following in the `Resource` section.
+Remove the other node entries. This example uses the
 US East (Ohio) Region (us-east-2).
 
 ```

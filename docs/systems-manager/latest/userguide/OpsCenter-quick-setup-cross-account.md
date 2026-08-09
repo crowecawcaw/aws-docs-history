@@ -1,6 +1,6 @@
 # (Optional) Configure OpsCenter to manage OpsItems across accounts by using Quick Setup
 
-Quick Setup, a tool in AWS Systems Manager, simplifies setup and configuration tasks for
+Quick Setup simplifies setup and configuration tasks for
 Systems Manager tools. Quick Setup for OpsCenter helps you complete the following tasks for
 managing OpsItems across accounts:
 

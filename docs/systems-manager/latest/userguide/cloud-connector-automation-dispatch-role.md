@@ -53,7 +53,7 @@ This policy includes the following permissions.
   execution. The `iam:PassedToService` condition restricts
   the pass to `ssm.amazonaws.com`, and the
   `iam:AssociatedResourceARN` condition restricts it to
-  the `AWS-InstallSsmAgentOnAzure` runbook and automation
+  the `AWS-InstallSSMAgentOnAzure` runbook and automation
   executions in the connector's AWS Region.
 - `iam:ListRoleTags` – Allows State Manager to read tags
   on roles to confirm they belong to the same Cloud Connector before
@@ -67,7 +67,7 @@ This policy includes the following permissions.
   connector to determine which targets are eligible.
 - `ssm:StartAutomationExecution` – Allows State Manager
   to start an Automation execution of the
-  `AWS-InstallSsmAgentOnAzure` runbook against the
+  `AWS-InstallSSMAgentOnAzure` runbook against the
   connector's targets.
 - `sts:AssumeRole` – Allows State Manager to assume the
   Azure federation role so it can authenticate to Azure when resolving

@@ -83,7 +83,7 @@ variable `interpolationType`:
 documents that don’t use double braces: `{{ }}`
 
 For parameters that you use often, we recommend that you store
-those parameters in Parameter Store, a tool in AWS Systems Manager. Then, you can
+those parameters in Parameter Store. Then, you can
 define parameters in your document that reference Parameter Store
 parameters as their default value. To reference a Parameter Store
 parameter, use the following syntax.

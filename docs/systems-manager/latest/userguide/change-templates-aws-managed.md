@@ -10,7 +10,7 @@ information, see [AWS Systems Manager Change Manager availability change](chang
 You can use the sample change template
 `AWS-HelloWorldChangeTemplate`, which uses the sample Automation
 runbook `AWS-HelloWorld`, to test the review and approval process
-after you have finished setting up Change Manager, a tool in AWS Systems Manager. This template
+after you have finished setting up Change Manager. This template
 is designed for testing or verifying your configured permissions, approver
 assignments, and approval process. Approval to use this change template in your
 organization or account has already been provided by AWS. Any change request

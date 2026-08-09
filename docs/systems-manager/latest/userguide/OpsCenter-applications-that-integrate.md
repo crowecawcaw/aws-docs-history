@@ -1,6 +1,6 @@
 # Integrate OpsCenter with other AWS services
 
-OpsCenter, a tool in AWS Systems Manager, integrates with multiple AWS services to diagnose
+OpsCenter integrates with multiple AWS services to diagnose
 and remediate issues with AWS resources. You must set up the AWS service before you
 integrate it with OpsCenter.
 
@@ -249,7 +249,7 @@ Security Hub CSPM findings.
 4. In the **Security Hub CSPM findings** section, choose
    **Edit.**
 5. Choose the slider to change **Enabled** to
-   **Disabled**. If you aren't able to toggle the slider,
+   **Disabled**. If you can't toggle the slider,
    Security Hub CSPM hasn't been enabled for your AWS account.
 6. Choose **Save** to save your configuration. OpsCenter no
    longer creates OpsItems based on Security Hub CSPM findings.
@@ -270,7 +270,7 @@ source in Explorer. For information about changing settings in Explorer, see
 
 ## Understanding OpsCenter integration with Incident Manager
 
-Incident Manager, a tool in AWS Systems Manager, provides an incident management console that
+Incident Manager provides an incident management console that
 helps you mitigate and recover from incidents affecting your AWS hosted
 applications. An _incident_ is any unplanned
 interruption or reduction in quality of services. After you set up and configure

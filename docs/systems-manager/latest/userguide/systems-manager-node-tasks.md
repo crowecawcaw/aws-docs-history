@@ -1,6 +1,6 @@
 # Performing node management tasks with AWS Systems Manager
 
-The following topics describe how to complete common node tasks using the unified
+The following topics describe how to complete common node tasks. You can use the unified
 AWS Systems Manager console for an AWS Organizations organization and single AWS accounts.
 
 ###### Topics

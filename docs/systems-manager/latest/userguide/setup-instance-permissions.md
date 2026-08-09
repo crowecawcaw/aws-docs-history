@@ -150,7 +150,7 @@ permissions to a new role or to a role you already created.
 
 ###### Note
 
-You can use Quick Setup, a tool in AWS Systems Manager, to quickly configure an instance
+You can use Quick Setup to quickly configure an instance
 profile on all instances in your AWS account. Quick Setup also creates an IAM
 service role (or _assume_ role), which allows Systems Manager to
 securely run commands on your instances on your behalf. By using Quick Setup, you

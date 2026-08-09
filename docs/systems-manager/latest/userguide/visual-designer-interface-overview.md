@@ -10,7 +10,7 @@ Get to know the visual design experience with an overview of the interface compo
 - The **Actions** browser contains the **Actions**,
   **AWS APIs**, and **Runbooks** tabs.
 - The _canvas_ is where you drag and drop actions into your workflow
-  graph, change the order of actions, and select actions to configure or view.
+  graph. You can also change the order of actions and select them to configure.
 - The **Form** panel is where you can view and edit the properties of
   any action that you selected on the canvas. Select the **Content** toggle
   to view the YAML or JSON for your runbook, with the currently selected action highlighted.
@@ -26,22 +26,22 @@ the following tabs:
 
 - The **Actions** tab provides a list of automation actions that you
   can drag and drop into your runbook's workflow graph in the canvas.
-- The **AWS APIs** tab provides a list of AWS APIs that you can
-  drag and drop into your runbook's workflow graph in the canvas.
-- The **Runbooks** tab provides several ready-to-use, reusable
-  runbooks as building blocks that you can use for a variety of use cases. For example,
-  you can use runbooks to perform common remediation tasks on Amazon EC2 instances in your
-  workflow without having to re-create the same actions.
+- The **AWS APIs** tab lists AWS APIs that you can
+  drag and drop into your runbook's workflow graph.
+- The **Runbooks** tab provides ready-to-use runbooks
+  as building blocks. For example,
+  you can use them to perform common remediation tasks on Amazon EC2 instances
+  without re-creating the same actions.
 
 ![Visual design experience actions browser](images/visual_designer_actions_multi_view.png)
 
 ## Canvas
 
-After you choose an action to add to your automation, drag it to the canvas and drop it
-into your workflow graph. You can also drag and drop actions to move them to different
-places in your runbook's workflow. If your workflow is complex, you might not be able to
-view all of it in the canvas panel. Use the controls at the top of the canvas to zoom in or
-out. To view different parts of a workflow, you can drag the workflow graph in the canvas.
+After you choose an action, drag it to the canvas and drop it
+into your workflow graph. You can also drag actions to reorder them.
+If your workflow is complex, you might not see
+all of it at once. Use the controls at the top to zoom in or
+out. To view other parts, drag the workflow graph in the canvas.
 
 Drag an action from the **Actions** browser, and drop it into your
 runbook's workflow graph. A line shows where it will be placed in your workflow. To change

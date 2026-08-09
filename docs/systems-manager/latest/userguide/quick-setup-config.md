@@ -1,6 +1,6 @@
 # Create an AWS Config configuration recorder using Quick Setup
 
-With Quick Setup, a tool in AWS Systems Manager, you can quickly create a configuration
+With Quick Setup, you can quickly create a configuration
 recorder powered by AWS Config. Use the configuration recorder to detect changes in your
 resource configurations and capture the changes as configuration items. If you're
 unfamiliar with AWS Config, we recommend learning more about the service by reviewing the

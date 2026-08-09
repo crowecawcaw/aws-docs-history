@@ -18,7 +18,7 @@ the virtual private cloud (VPC) they belong to.
 
 ## Problem category: Security group configuration and HTTPS communications
 
-A diagnosis operation might find that SSM Agent isn't able to communicate with
+A diagnosis operation might find that SSM Agent can't communicate with
 the Systems Manager service over HTTPS. In those cases, you can choose to execute an
 Automation runbook that attempts to update security groups that are attached to
 the instances.

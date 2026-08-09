@@ -19,7 +19,7 @@ Generally, you use actions in your runbook's workflow that return output that yo
 to use in subsequent actions. It's important to make sure your input values are correct to
 avoid errors in your runbook's workflow. Input values are also important because they
 determine whether the action returns the expected output. For example, when using the
-`aws:executeAwsApi` action, you want to make sure that you're providing the
+`aws:executeAwsApi` action, you want to ensure you're providing the
 right value for the API operation.
 
 ## Define output data for an action
@@ -40,18 +40,18 @@ return, or output, the `State` of an Amazon EC2 instance and branch your runbook
 workflow based on the output. You choose to name the output
 `InstanceState`, and use the `String` data type.
 
-The process to define the actual value of the output differs, depending on the action.
-For example, if you're using the `aws:executeScript` action, you must use
-`return` statements in your functions to provide data to your outputs. With
-other actions like `aws:executeAwsApi`,
+How you define the output value depends on the action.
+For example, with `aws:executeScript`, use
+`return` statements in your functions to provide data to outputs. With
+actions like `aws:executeAwsApi`,
 `aws:waitForAwsResourceProperty`, and
 `aws:assertAwsResourceProperty`, a `Selector` is required. The
-`Selector`, or `PropertySelector` as some actions refer to it, is a
-JSONPath string that is used to process the JSON response from an API
-operation. It's important to understand how the JSON response object from an API operation
-is structured so you can select the correct value for your output. Using the
-`DescribeInstances` API operation mentioned earlier, see the following example
-JSON response:
+`Selector` (also called `PropertySelector`) is a
+JSONPath string that processes the JSON response from an API
+operation. You need to understand how the JSON response is
+structured so you can select the correct value. Using the
+`DescribeInstances` API operation, see the following example
+response:
 
 ```
 {

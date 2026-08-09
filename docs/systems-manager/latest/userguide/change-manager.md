@@ -7,7 +7,7 @@ starting November 7, 2025. If you would like to use Change Manager, sign up prio
 date. Existing customers can continue to use the service as normal. For more
 information, see [AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
 
-Change Manager, a tool in AWS Systems Manager, is an enterprise change management framework for
+Change Manager is an enterprise change management framework for
 requesting, approving, implementing, and reporting on operational changes to your
 application configuration and infrastructure. From a single _delegated administrator account_, if you use AWS Organizations, you can manage changes across multiple
 AWS accounts and across AWS Regions. Alternatively, using a _local account_, you can manage changes for a single AWS account. Use
@@ -88,11 +88,10 @@ approved change requests are permitted when runbook workflows run. This approach
 you avoid unintentional results while changes are being implemented.
 
 In addition to restricting the changes that can be made when a runbook workflow runs,
-Change Manager also helps you control concurrency and error thresholds. You choose how many
-resources a runbook workflow can run on at once, how many accounts the change can run in
-at once, and how many failures to allow before the process is stopped and (if the
-runbook includes a rollback script) rolled back. You can also monitor the progress of
-changes being made by using CloudWatch alarms.
+Change Manager helps you control concurrency and error thresholds. You choose how many
+resources a runbook workflow can run on at once and how many accounts it can run in
+simultaneously. You also set how many failures to allow before the process stops and,
+if the runbook includes a rollback script, rolls back. You can monitor progress by using CloudWatch alarms.
 
 After a runbook workflow has completed, you can review details about the changes made.
 These details include the reason for a change request, which change template was used,
@@ -316,7 +315,7 @@ running immediately, the change request must be approved, and there must not any
 blocking events in Change Calendar to prevent the workflow from running. When approvals
 have been received and the calendar isn't blocked (or permission has been given to
 bypass blocking calendar events), the `StartChangeRequestExecution`
-action is able to complete.
+action can complete.
 
 ### Runbook workflow
 

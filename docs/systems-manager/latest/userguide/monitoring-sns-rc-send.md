@@ -1,7 +1,7 @@
 # Use Run Command to send a command that returns status notifications
 
 The following procedures show how to use the AWS Command Line Interface (AWS CLI) or AWS Systems Manager
-console to send a command through Run Command, a tool in AWS Systems Manager, that is configured
+console to send a command through Run Command, that is configured
 to return status notifications.
 
 ## Sending a Run Command that returns notifications (console)

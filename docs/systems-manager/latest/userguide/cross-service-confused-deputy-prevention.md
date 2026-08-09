@@ -74,12 +74,11 @@ JSON
 
 Systems Manager Inventory, Explorer, and Compliance enable you to create a resource
 data sync to centralize storage of your operations data (OpsData) in a
-central Amazon Simple Storage Service bucket. If you want to encrypt a resource data sync by
-using AWS Key Management Service (AWS KMS), then you must either create a new key that includes
-the following policy, or you must update an existing key and add this policy
-to it. The `aws:SourceArn` and `aws:SourceAccount`
-condition keys in this policy prevent the confused deputy problem. Here is
-an example policy.
+central Amazon Simple Storage Service bucket. To encrypt a resource data sync with
+AWS Key Management Service (AWS KMS), create a new key that includes
+the following policy, or update an existing key to add this policy.
+The `aws:SourceArn` and `aws:SourceAccount`
+condition keys in this policy prevent the confused deputy problem.
 
 JSON
 

@@ -1,6 +1,6 @@
 # AWS Systems Manager OpsCenter
 
-OpsCenter, a tool in AWS Systems Manager, provides a central location where operations engineers and
+OpsCenter provides a central location where operations engineers and
 IT professionals can view, investigate, and resolve operational work items (OpsItems) related
 to AWS resources. OpsCenter is designed to reduce mean time to resolution for issues
 impacting AWS resources. OpsCenter aggregates and standardizes OpsItems across services while

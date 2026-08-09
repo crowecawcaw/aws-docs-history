@@ -226,11 +226,10 @@ Allowed actions: `DescribeParameters`,
 `GetParameter`, `GetParameters`,
 `GetParameterHistory`
 
-When you folllow the steps in [Creating a resource share in AWS RAM](../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-create "../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-create") in the
+When you follow the steps in [Creating a resource share in AWS RAM](../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-create "../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-create") in the
 _AWS RAM User Guide_, choose `Parameter Store Advanced
- Parameters` as the resource type and either of these managed
-permissions, depending on whether you want users to view parameter history or
-not.
+ Parameters` as the resource type. Select either of the managed
+permissions based on whether you want users to view parameter history.
 
 ###### Note
 

@@ -6,8 +6,8 @@ Systems Manager Quick Setup requires a role that allows Systems Manager to secur
 
 1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Policies**, and then **Create Policy**
-3. Add the `SsmOnboardingInlinePolicy` policy using the JSON below. (This policy enables actions required in order to attach instance profile permissions to instances you specify. For example allowing creation of instance profiles and associating them with EC2 instances).
-4. Once complete, in the navigation pane, choose **Roles**, and then choose **Create role**.
+3. Add the `SsmOnboardingInlinePolicy` policy using the JSON below. This policy enables actions required to attach instance profile permissions to instances you specify. For example, it allows you to create instance profiles and associate them with EC2 instances.
+4. After completing this step, in the navigation pane, choose **Roles**, and then choose **Create role**.
 5. For **Trusted entity type**, keep it as default (service).
 6. Under **Use case**, choose **Systems Manager**, then choose **Next**.
 7. On the **Add permissions** page:

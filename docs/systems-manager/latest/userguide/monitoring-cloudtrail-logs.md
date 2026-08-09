@@ -4,9 +4,9 @@ AWS Systems Manager is integrated with [AWS CloudTrail](../../../awscloudtrail/l
 that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures
 all
 API calls for Systems Manager as events. The calls captured include calls from the Systems Manager console
-and code calls to the Systems Manager API operations. Using the information collected by CloudTrail, you can
-determine the request that was made to Systems Manager, the IP address from which the request was
-made, when it was made, and additional details.
+and code calls to the Systems Manager API operations. You can use CloudTrail information to
+determine the request that was made to Systems Manager, the source IP address,
+and when it was made.
 
 Every event or log entry contains information about who generated the request. The identity
 information helps you determine the following:
@@ -43,7 +43,7 @@ CloudTrail Lake event data stores and queries incur costs. When you create an ev
 
 [Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations performed on or in a
 resource (for example, creating or opening a control channel). These are also known as data
-plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log
+plane operations. Data events are often high-volume activities. By default, CloudTrail doesn't log
 data events. The CloudTrail **Event history** doesn't record data events.
 
 Additional charges apply for data events. For more information about CloudTrail pricing, see

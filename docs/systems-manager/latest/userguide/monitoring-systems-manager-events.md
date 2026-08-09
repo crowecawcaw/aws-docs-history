@@ -13,7 +13,7 @@ end of this topic.
 ###### Note
 
 When a service in your AWS account emits an event, it always goes to your
-account’s default event bus. To write a rule that responds to events from
+account's default event bus. To write a rule that responds to events from
 AWS services in your account, associate it with the default event bus. You can
 create a rule on a custom event bus that looks for events from AWS services, but
 this rule only engages when you receive such an event from another account through
@@ -33,7 +33,7 @@ on the same event bus. 5. For **Event bus**, choose the event bus that you want 
 associate with this rule. If you want this rule to respond to matching events
 that come from your own AWS account, select **default**. When
 an AWS service in your account emits an event, it always goes to your
-account’s default event bus. 6. For **Rule type**, choose **Rule with an event
+account's default event bus. 6. For **Rule type**, choose **Rule with an event
 pattern**. 7. Choose **Next**. 8. For **Event source**, choose **AWS events or EventBridge
 partner events**. 9. In the **Event pattern** section, choose **Event
 pattern form**. 10. For **Event source**, choose **AWS

@@ -4,7 +4,7 @@
 Amazon Elastic Compute Cloud (EC2) instances. EBS volumes behave like raw, unformatted block devices. You
 can mount these volumes as devices on your instances.
 
-You can use Fleet Manager, a tool in AWS Systems Manager, to manage Amazon EBS volumes on your managed
+You can use Fleet Manager to manage Amazon EBS volumes on your managed
 instances. For example, you can initialize an EBS volume, format a partition, and mount
 the volume to make it available for use.
 

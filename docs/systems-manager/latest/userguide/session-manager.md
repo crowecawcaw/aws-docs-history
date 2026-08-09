@@ -158,7 +158,7 @@ rotation.
 - **Logging support**
 
 Session Manager provide you with options for logging session histories in your
-AWS account through integration with a number of other AWS services. For
+AWS account through integration with several other AWS services. For
 more information, see [Logging session activity](session-manager-auditing.md "session-manager-auditing.md") and [Enabling and disabling session logging](session-manager-logging.md "session-manager-logging.md").
 
 - **Configurable shell profiles**

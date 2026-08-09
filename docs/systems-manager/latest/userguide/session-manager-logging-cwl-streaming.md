@@ -2,7 +2,7 @@
 
 You can send a continual stream of session data logs to Amazon CloudWatch Logs. Essential
 details, such as the commands a user has run in a session, the ID of the user who
-ran the commands, and timestamps for when the session data is streamed to CloudWatch Logs, are
+ran the commands, and timestamps for when the session data is streamed to CloudWatch Logs are
 included when streaming session data. When streaming session data, the logs are
 JSON-formatted to help you integrate with your existing logging solutions. Streaming
 session data isn't supported for interactive commands.

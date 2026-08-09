@@ -1,6 +1,6 @@
 # Specify maximum session duration
 
-Session Manager, a tool in AWS Systems Manager, allows you to specify the maximum duration of a
+With Session Manager, you can specify the maximum duration of a
 session before it ends. By default, sessions do not have a maximum duration. The
 value you specify for maximum session duration must be between 1 and 1,440
 minutes.

@@ -43,7 +43,7 @@ following:
 
 - The Fleet Manager console does not display Amazon EC2 nodes that have been
   terminated.
-- Systems Manager requires accurate time references in order to perform operations on your
+- Systems Manager requires accurate time references to perform operations on your
   machines. If the date and time aren't set correctly on your managed nodes, the
   machines might not match the signature date of your API requests. For more
   information, see [Use cases and best practices](systems-manager-best-practices.md "systems-manager-best-practices.md").

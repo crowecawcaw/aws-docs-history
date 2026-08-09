@@ -11,7 +11,7 @@ technical documentation.
 ###### [Automation](systems-manager-automation.md "systems-manager-automation.md")
 
 - Create self-service Automation runbooks for infrastructure.
-- Use Automation, a tool in AWS Systems Manager, to simplify creating Amazon Machine Images (AMIs)
+- Use Automation to simplify creating Amazon Machine Images (AMIs)
   from the AWS Marketplace or custom AMIs, using public Systems Manager documents (SSM
   documents) or by authoring your own workflows.
 - [Build and maintain AMIs](automation-tutorial-update-ami.md "automation-tutorial-update-ami.md")
@@ -27,7 +27,7 @@ technical documentation.
 
 ###### [Inventory](systems-manager-inventory.md "systems-manager-inventory.md")
 
-- Use Inventory, a tool in AWS Systems Manager, with AWS Config to audit your application
+- Use Inventory with AWS Config to audit your application
   configurations over time.
 
 ###### [Maintenance Windows](maintenance-windows.md "maintenance-windows.md")
@@ -39,7 +39,7 @@ technical documentation.
 
 ###### [Parameter Store](systems-manager-parameter-store.md "systems-manager-parameter-store.md")
 
-- Use Parameter Store, a tool in AWS Systems Manager, to centrally manage global configuration
+- Use Parameter Store to centrally manage global configuration
   settings.
 - [How
   AWS Systems Manager Parameter Store uses AWS KMS](../../../kms/latest/developerguide/services-parameter-store.md "../../../kms/latest/developerguide/services-parameter-store.md").
@@ -48,7 +48,7 @@ technical documentation.
 
 ###### [Patch Manager](patch-manager.md "patch-manager.md")
 
-- Use Patch Manager, a tool in AWS Systems Manager, to roll out patches at scale and increase fleet
+- Use Patch Manager to roll out patches at scale and increase fleet
   compliance visibility across your nodes.
 - [Integrate Patch Manager with
   AWS Security Hub CSPM](patch-manager-security-hub-integration.md "patch-manager-security-hub-integration.md") to receive alerts when nodes in your fleet go out of compliance
@@ -62,7 +62,7 @@ technical documentation.
 
 - [Manage Instances at Scale without SSH Access Using EC2 Run
   Command](https://aws.amazon.com/blogs/aws/manage-instances-at-scale-without-ssh-access-using-ec2-run-command/ "https://aws.amazon.com/blogs/aws/manage-instances-at-scale-without-ssh-access-using-ec2-run-command/").
-- Audit all API calls made by or on behalf of Run Command, a tool in AWS Systems Manager, using
+- Audit all API calls made by or on behalf of Run Command using
   AWS CloudTrail.
 - When you send a command using Run Command, don't include sensitive information formatted
   as plaintext, such as passwords, configuration data, or other secrets. All Systems Manager API

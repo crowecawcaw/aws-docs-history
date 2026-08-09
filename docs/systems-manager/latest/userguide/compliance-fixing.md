@@ -17,10 +17,10 @@ For more information about running a command, see [AWS Systems Manager Run Comm
 ###### Specify Compliance as the target of an EventBridge event
 
 You can also configure Amazon EventBridge to perform an action in response to Systems Manager
-Compliance events. For example, if one or more managed nodes fail to install
-Critical patch updates or run an association that installs anti-virus software, then
-you can configure EventBridge to run the `AWS-RunPatchBaseline` document or the
-`AWS-RefreshAssocation` document when the Compliance event occurs.
+Compliance events. For example, if nodes fail to install
+Critical patches or run an anti-virus association,
+you can configure EventBridge to run `AWS-RunPatchBaseline` or
+`AWS-RefreshAssociation` when the Compliance event occurs.
 
 Use the following procedure to configure Compliance as the target of an EventBridge
 event.

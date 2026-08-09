@@ -2,7 +2,7 @@
 
 The options on the **Settings** pages enable and configure features in
 the Systems Manager unified console. The options displayed depend on the account you are logged into
-and whether or not you have already set up Systems Manager.
+and whether you have already set up Systems Manager.
 
 ###### Note
 
@@ -11,10 +11,10 @@ The options on the **Settings** page don't affect Systems Manager tools
 
 ## Account setup settings
 
-If Systems Manager is enabled, and if you are logged into an account that is not a member of
-Organizations or if the delegated administrator has not added your Organizations account to Systems Manager, the
-**Account setup** page shows the option to **Disable
-Systems Manager**. Disabling Systems Manager means Systems Manager doesn't display the unified console.
+If Systems Manager is enabled, the **Account setup** page shows the option to **Disable
+Systems Manager** if either of the following is true: your account is not a member of
+Organizations, or the delegated administrator has not added your Organizations account to Systems Manager.
+Disabling Systems Manager means Systems Manager doesn't display the unified console.
 All Systems Manager tools still function.
 
 ## Organizational setup settings
@@ -57,16 +57,16 @@ permissions and configurations to communicate with Systems Manager services.
 
 DHMC provides the following benefits:
 
-- **Automatic IAM role assignment** - Ensures
+- **Automatic IAM role assignment** – Ensures
   EC2 instances have the required IAM roles and policies to function as
-  managed nodes
-- **Drift remediation** - Automatically
+  managed nodes.
+- **Drift remediation** – Automatically
   corrects configuration drift when instances lose their managed node
-  status
-- **Simplified onboarding** - Reduces manual
-  configuration steps for new instances
-- **Consistent configuration** - Maintains
-  uniform settings across your EC2 fleet
+  status.
+- **Simplified onboarding** – Reduces manual
+  configuration steps for new instances.
+- **Consistent configuration** – Maintains
+  uniform settings across your EC2 fleet.
 
 #### Configuring drift remediation frequency
 
@@ -109,14 +109,14 @@ perform security analysis, and understand your infrastructure composition.
 
 Inventory collection provides the following benefits:
 
-- **Compliance monitoring** - Track installed
-  software and configurations for compliance reporting
-- **Security analysis** - Identify outdated
-  software and potential security vulnerabilities
-- **Asset management** - Maintain an up-to-date
-  inventory of your infrastructure
-- **Query capabilities** - Use collected data
-  with Amazon Q Developer for natural language queries
+- **Compliance monitoring** – Track installed
+  software and configurations for compliance reporting.
+- **Security analysis** – Identify outdated
+  software and potential security vulnerabilities.
+- **Asset management** – Maintain an up-to-date
+  inventory of your infrastructure.
+- **Query capabilities** – Use collected data
+  with Amazon Q Developer for natural language queries.
 
 #### Types of inventory data collected
 
@@ -222,7 +222,7 @@ nodes from being configured as managed nodes.
 
 Systems Manager can diagnose and help you remediate several types of deployment failures, as
 well as drifted configurations. Systems Manager can also identify Amazon Elastic Compute Cloud (Amazon EC2) instances
-in your account or organization that Systems Manager isn't able to treat as a _managed node_. The EC2 instance diagnosis process can
+in your account or organization that Systems Manager can't treat as a _managed node_. The EC2 instance diagnosis process can
 identify issues related to misconfigurations for a virtual private cloud (VPC), in a
 Domain Name Service (DNS) setting, or in an Amazon Elastic Compute Cloud (Amazon EC2) security group.
 

@@ -1,7 +1,7 @@
 # Using the BaselineOverride parameter
 
 You can define patching preferences at runtime using the baseline override feature
-in Patch Manager, a tool in AWS Systems Manager. Do this by specifying an Amazon Simple Storage Service (Amazon S3) bucket
+in Patch Manager. Do this by specifying an Amazon Simple Storage Service (Amazon S3) bucket
 containing a JSON object with a list of patch baselines. The patching operation uses
 the baselines provided in the JSON object that match the host operating system
 instead of applying the rules from the default patch baseline.
@@ -15,7 +15,7 @@ characters: backtick (`), single quote ('), double quote ("), and dollar sign
 Except when a patching operation uses a patch policy, using the
 `BaselineOverride` parameter doesn't overwrite the patch compliance
 of the baseline provided in the parameter. The output results are recorded in the
-Stdout logs from Run Command, a tool in AWS Systems Manager. The results only print out packages
+Stdout logs from Run Command. The results only print out packages
 that are marked as `NON_COMPLIANT`. This means the package is marked as
 `Missing`, `Failed`, `InstalledRejected`, or
 `InstalledPendingReboot`.

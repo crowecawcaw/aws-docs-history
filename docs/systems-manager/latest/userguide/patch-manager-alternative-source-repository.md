@@ -1,7 +1,7 @@
 # How to specify an alternative patch source repository (Linux)
 
 When you use the default repositories configured on a managed node for patching
-operations, Patch Manager, a tool in AWS Systems Manager, scans for or installs security-related
+operations, Patch Manager scans for or installs security-related
 patches. This is the default behavior for Patch Manager. For complete information about
 how Patch Manager selects and installs security patches, see [How security patches are selected](patch-manager-selecting-patches.md "patch-manager-selecting-patches.md").
 
@@ -113,7 +113,7 @@ packages. Any of the following will affect the patching behavior:
   without properly formatted **Classification**, **Severity**, and **Date**
   values) _will_ be included in the
   prefiltered list of patches. (They must still meet the other patch
-  baseline rule requirements in order to be installed.)
+  baseline rule requirements to be installed.)
 
 ## Sample uses for alternative patch source repositories
 

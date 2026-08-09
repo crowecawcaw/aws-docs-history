@@ -10,7 +10,7 @@ To minimize the impact on your server availability, we recommend that you
 configure a maintenance window to run patching during times that won't interrupt
 your business operations.
 
-You must configure roles and permissions for Maintenance Windows, a tool in AWS Systems Manager, before
+You must configure roles and permissions for Maintenance Windows before
 beginning this procedure. For more information, see [Setting up Maintenance Windows](setting-up-maintenance-windows.md "setting-up-maintenance-windows.md").
 
 ###### To create a maintenance window for patching

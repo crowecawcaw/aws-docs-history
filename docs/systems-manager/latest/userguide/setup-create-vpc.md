@@ -175,10 +175,10 @@ endpoints:
   Session Manager, Run Command, or SSM Agent logs.
 
 For information about the AWS managed S3 buckets that SSM Agent must be able to
-access, see [SSM Agent communications with AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions"). If you're using a virtual
-private cloud (VPC) endpoint in your Systems Manager operations, you must provide explicit
-permission in an EC2 instance profile for Systems Manager, or in a service role for non-EC2
-managed nodes in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment.
+access, see [SSM Agent communications with AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions"). If you're using a VPC
+endpoint in your Systems Manager operations, you must provide explicit
+permission in an EC2 instance profile or in a service role for non-EC2
+managed nodes.
 
 ## Create an interface VPC endpoint policy
 

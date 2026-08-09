@@ -37,7 +37,7 @@ resources. For more information, see [Using Amazon CloudWatch dashboards hosted
 
 Using Amazon EventBridge, you can configure rules to alert you to changes in
 Systems Manager resources, and to direct EventBridge to take actions based on the
-content of those events. EventBridge provides support for a number of events that
+content of those events. EventBridge provides support for several events that
 are emitted by various Systems Manager tools. For more information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md").
 
 **Amazon CloudWatch Logs and SSM Agent logs**
@@ -49,17 +49,17 @@ data to a log group in CloudWatch Logs for analysis. For more information, see [
 
 **AWS Systems Manager Compliance**
 
-You can use Compliance, a tool in AWS Systems Manager, to scan your fleet of managed
+You can use Compliance to scan your fleet of managed
 nodes for patch compliance and configuration inconsistencies. You can
 collect and aggregate data from multiple AWS accounts and AWS Regions,
 and then drill down into specific resources that aren’t compliant. By
 default, Compliance displays current compliance data about patching in
-Patch Manager, a tool in AWS Systems Manager, and associations in State Manager, a tool in
+Patch Manager, and associations in State Manager, a tool in
 AWS Systems Manager. For more information, see [AWS Systems Manager Compliance](systems-manager-compliance.md "systems-manager-compliance.md").
 
 **AWS Systems Manager Explorer**
 
-Explorer, a tool in AWS Systems Manager, is a customizable operations dashboard that
+Explorer is a customizable operations dashboard that
 reports information about your AWS resources. Explorer displays an
 aggregated view of operations data (OpsData) for your AWS accounts and
 across AWS Regions. In Explorer, OpsData includes metadata about your EC2
@@ -72,12 +72,12 @@ information, see [AWS Systems Manager Explorer](Explorer.md "Explorer.md").
 
 **AWS Systems Manager OpsCenter**
 
-OpsCenter, a tool in AWS Systems Manager, provides a central location where
+OpsCenter provides a central location where
 operations engineers and IT professionals can view, investigate, and resolve
 operational work items (OpsItems) related to AWS resources. OpsCenter
 aggregates and standardizes OpsItems across services while providing contextual
 investigation data about each OpsItem, related OpsItems, and related resources.
-OpsCenter also provides runbooks in Automation, a tool in AWS Systems Manager, that
+OpsCenter also provides runbooks in Automation, that
 you can use to quickly resolve issues. OpsCenter is integrated with
 Amazon EventBridge. This means you can create EventBridge rules that automatically create
 OpsItems for any AWS service that publishes events to EventBridge. For more

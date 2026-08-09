@@ -3,8 +3,7 @@
 Use the following procedure to import an iCalendar (`.ics`)
 file from a supported third-party calendar application. The events contained in
 the file are incorporated into the rules for your open or closed calendar. You
-can import a file into a new calendar you are creating with Change Calendar (a tool in
-AWS Systems Manager) or into an existing calendar.
+can import the file into a new calendar or into an existing calendar.
 
 After you import the `.ics` file, you can remove individual
 events from it using the Change Calendar interface. For information, see [Deleting a Change Calendar event](change-calendar-delete-event.md "change-calendar-delete-event.md"). You can also delete all

@@ -1,9 +1,9 @@
 # Deleting Systems Manager resources and artifacts
 
-As a best practice, we recommend that you delete Systems Manager resources and artifacts if you
-no longer need to view data about those resources or use the artifacts in any way. The
-following table lists each Systems Manager tool or artifact and a link to more information about
-deleting the resources or artifacts created by Systems Manager.
+We recommend that you delete Systems Manager resources and artifacts that you
+no longer need. The
+following table lists each Systems Manager tool or artifact with a link to more information about
+deleting those resources.
 
 | Capability or artifact           | Details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

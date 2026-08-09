@@ -9,7 +9,7 @@ information, see [AWS Systems Manager Change Manager availability change](chang
 
 The following procedures describe how to use the AWS Command Line Interface (AWS CLI) (on
 Linux, macOS, or Windows Server) or AWS Tools for Windows PowerShell to create a change request in
-Change Manager, a tool in AWS Systems Manager.
+Change Manager.
 
 ###### To create a change template
 

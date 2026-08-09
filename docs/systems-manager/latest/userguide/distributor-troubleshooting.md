@@ -1,7 +1,7 @@
 # Troubleshooting AWS Systems Manager Distributor
 
 The following information can help you troubleshoot problems that might occur when you
-use Distributor, a tool in AWS Systems Manager.
+use Distributor.
 
 ###### Topics
 

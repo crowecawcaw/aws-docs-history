@@ -1,7 +1,7 @@
 # Updating or deleting a custom patch baseline
 
 You can update or delete a custom patch baseline that you have created in
-Patch Manager, a tool in AWS Systems Manager. When you update a patch baseline, you can
+Patch Manager. When you update a patch baseline, you can
 change its name or description, its approval rules, and its exceptions for
 approved and rejected patches. You can also update the tags that are applied
 to the patch baseline. You can't change the operating system type that a

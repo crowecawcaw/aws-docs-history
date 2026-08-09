@@ -1,7 +1,7 @@
 # Creating a custom patch baseline for Windows Server
 
 Use the following procedure to create a custom patch baseline for Windows
-managed nodes in Patch Manager, a tool in AWS Systems Manager.
+managed nodes in Patch Manager.
 
 For information about creating a patch baseline for Linux managed nodes,
 see [Creating a custom patch baseline for Linux](patch-manager-create-a-patch-baseline-for-linux.md "patch-manager-create-a-patch-baseline-for-linux.md"). Fo

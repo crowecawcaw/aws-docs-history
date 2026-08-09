@@ -1,6 +1,6 @@
 # Working with OS file systems using Fleet Manager
 
-You can use Fleet Manager, a tool in AWS Systems Manager, to work with the file system on your
+You can use Fleet Manager to work with the file system on your
 managed nodes. Using Fleet Manager, you can view information about the directory and file
 data stored on the volumes attached to your managed nodes. For example, you can view
 the name, size, extension, owner, and permissions for your directories and files. Up
@@ -23,7 +23,7 @@ and directories can't be undone.
 
 ###### Note
 
-Fleet Manager uses Session Manager, a tool in AWS Systems Manager, to view text previews and
+Fleet Manager uses Session Manager to view text previews and
 `tail` files. For Amazon Elastic Compute Cloud (Amazon EC2) instances, the instance
 profile attached to your managed instances must provide permissions for Session Manager
 to use this feature. For more information about adding Session Manager permissions to

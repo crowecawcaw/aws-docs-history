@@ -1,6 +1,6 @@
 # Learn Quick Setup terminology and details
 
-Quick Setup, a tool in AWS Systems Manager, displays the results of all configuration managers
+Quick Setup displays the results of all configuration managers
 you've created across all AWS Regions in the **Configuration
 managers** table on the Quick Setup home page. From this page, you can
 **View details** of each configuration, delete configurations from

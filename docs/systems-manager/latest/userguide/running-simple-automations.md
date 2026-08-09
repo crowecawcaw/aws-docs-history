@@ -38,7 +38,7 @@ accounts.
 ###### Before you begin
 
 Before you complete the following procedures, you must create the IAM service
-role and configure a trust relationship for Automation, a tool in AWS Systems Manager. For
+role and configure a trust relationship for Automation. For
 more information, see [Task 1: Create a service role for Automation](automation-setup-iam.md#create-service-role "automation-setup-iam.md#create-service-role").
 
 The following procedures describe how to use the Systems Manager console or your preferred

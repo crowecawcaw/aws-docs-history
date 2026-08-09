@@ -7,7 +7,7 @@ starting November 7, 2025. If you would like to use Change Manager, sign up prio
 date. Existing customers can continue to use the service as normal. For more
 information, see [AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
 
-When you create a change request in Change Manager, a tool in AWS Systems Manager, the
+When you create a change request in Change Manager, the
 change template you select typically does the following:
 
 - Designates approvers for the change request or specifies how many

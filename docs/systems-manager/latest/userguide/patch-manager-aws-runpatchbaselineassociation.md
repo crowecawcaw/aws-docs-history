@@ -30,7 +30,7 @@ should choose [AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patc
 - When you use the `AWS-RunPatchBaselineAssociation` document,
   you can specify a tag key pair in the document's `BaselineTags`
   parameter field. If a custom patch baseline in your AWS account shares
-  these tags, Patch Manager, a tool in AWS Systems Manager, uses that tagged baseline when it
+  these tags, Patch Manager uses that tagged baseline when it
   runs on the target instances instead of the currently specified "default"
   patch baseline for the operating system type.
 
@@ -62,7 +62,7 @@ Tag keys and values can't contain the following characters: backtick
   compliance information that is stored and reported per a specific _association_. Patch compliance data generated
   outside of this association isn't overwritten.
 - The patch compliance information reported after running
-  `AWS-RunPatchBaselineAssociation` indicates whether or not an
+  `AWS-RunPatchBaselineAssociation` indicates whether an
   instance is in compliance. It doesn't include patch-level details, as
   demonstrated by the output of the following AWS Command Line Interface (AWS CLI) command. The
   command filters on `Association` as the compliance type:
@@ -271,7 +271,7 @@ access, in the format
 **Usage**: Required.
 
 `AssociationId` is the ID of an existing association in
-State Manager, a tool in AWS Systems Manager. It's used by Patch Manager to add compliance data
+State Manager. It's used by Patch Manager to add compliance data
 to a specified association. This association is related to a patch
 `Scan` operation enabled in a [Host Management configuration
 created in Quick Setup](quick-setup-host-management.md "quick-setup-host-management.md"). By sending patching results as association

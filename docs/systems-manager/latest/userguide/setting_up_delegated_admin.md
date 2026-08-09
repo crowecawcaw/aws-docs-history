@@ -77,7 +77,7 @@ to manage OpsItems centrally. For more information, see [(Optional) Configure Op
 
 ## Using a delegated administrator with Quick Setup
 
-Quick Setup is a tool in Systems Manager that helps you to quickly configure frequently used AWS
+Quick Setup helps you to quickly configure frequently used AWS
 services and features with recommended best practices. You can configure a delegated
 administrator account for Quick Setup to help you deploy and manage configurations across
 accounts and Regions using AWS Organizations. A delegated administrator for Quick Setup can create,

@@ -15,7 +15,7 @@ scale-in or scale-out events to naturally launch newer instances.
 
 Complete the following tasks before you begin this example.
 
-- Configure IAM roles for Automation, a tool in AWS Systems Manager. Systems Manager
+- Configure IAM roles for Automation. Systems Manager
   requires an instance profile role and a service role ARN to process
   automations. For more information, see [Setting up Automation](automation-setup.md "automation-setup.md").
 

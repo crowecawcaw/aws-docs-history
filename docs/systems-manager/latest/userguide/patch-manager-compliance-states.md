@@ -69,6 +69,6 @@ are described in the following table.
 results based on the [describe-instance-patches](../../../cli/latest/reference/ssm/describe-instance-patches.md "../../../cli/latest/reference/ssm/describe-instance-patches.md") command,
 such as the values for `Classification` and
 `Severity`. This is done to help prevent exceeding the
-data limit for individual nodes in Inventory, a tool in AWS Systems Manager. To
+data limit for individual nodes in Inventory. To
 view all patch details, you can use the
 [describe-available-patches](../../../cli/latest/reference/ssm/describe-available-patches.md "../../../cli/latest/reference/ssm/describe-available-patches.md") command.

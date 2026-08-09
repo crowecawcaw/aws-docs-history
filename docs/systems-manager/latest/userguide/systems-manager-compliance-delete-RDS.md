@@ -1,7 +1,7 @@
 # Deleting a resource data sync for Compliance
 
-If you no longer want to use AWS Systems Manager Compliance to view compliance data, then we
-also recommend deleting resource data syncs used for Compliance data collection.
+If you no longer want to use AWS Systems Manager Compliance to view compliance data, we
+recommend deleting resource data syncs used for Compliance data collection.
 
 ###### To delete a Compliance resource data sync
 

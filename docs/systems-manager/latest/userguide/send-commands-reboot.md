@@ -1,6 +1,6 @@
 # Handling reboots when running commands
 
-If you use Run Command, a tool in AWS Systems Manager, to run scripts that reboot managed
+If you use Run Command to run scripts that reboot managed
 nodes, we recommend that you specify an exit code in your script. If you attempt to
 reboot a node from a script by using some other mechanism, the script execution
 status might not be updated correctly, even if the reboot is the last step in your

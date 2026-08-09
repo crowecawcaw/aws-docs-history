@@ -7,7 +7,7 @@ patching operations that are based on a patch policy. Patch policies use
 their own patch baseline specifications. For more information about patch
 policies, see [Patch policy configurations in Quick Setup](patch-manager-policies.md "patch-manager-policies.md").
 
-When you create a custom patch baseline in Patch Manager, a tool in AWS Systems Manager, you
+When you create a custom patch baseline in Patch Manager, you
 can set the baseline as the default for the associated operating system type as
 soon as you create it. For information, see [Working with custom patch baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md").
 

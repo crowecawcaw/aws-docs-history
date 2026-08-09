@@ -1,7 +1,7 @@
 # Troubleshooting Systems Manager Automation
 
 Use the following information to help you troubleshoot problems with AWS Systems Manager
-Automation, a tool in AWS Systems Manager. This topic includes specific tasks to resolve issues
+Automation. This topic includes specific tasks to resolve issues
 based on Automation error messages.
 
 ###### Topics

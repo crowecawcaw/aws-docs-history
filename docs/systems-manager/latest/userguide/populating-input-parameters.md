@@ -1,6 +1,6 @@
 # Creating input parameters that populate AWS resources
 
-Automation, a tool in Systems Manager, populates AWS resources in the AWS Management Console that match
+Automation populates AWS resources in the AWS Management Console that match
 the resource type you define for an input parameter. Resources in your AWS account
 that match the resource type are displayed in a dropdown list for you to choose. You
 can define input parameter types for Amazon Elastic Compute Cloud (Amazon EC2) instances, Amazon Simple Storage Service (Amazon S3)

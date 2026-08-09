@@ -1,6 +1,6 @@
 # Stop and start EC2 instances automatically on a schedule using Quick Setup
 
-With Quick Setup, a tool in AWS Systems Manager, you can configure Resource Scheduler to
+With Quick Setup, you can configure Resource Scheduler to
 automate the starting and stopping of Amazon Elastic Compute Cloud (Amazon EC2) instances.
 
 This Quick Setup configuration helps you reduce operational costs by starting and

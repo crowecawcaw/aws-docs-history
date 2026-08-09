@@ -16,7 +16,7 @@ perform the following types of tasks.
 Before you begin working with runbooks, [configure roles for Automation](automation-setup-iam.md "automation-setup-iam.md") to
 add an `iam:PassRole` policy that references the ARN of the
 instance profile you want to grant access to. Optionally, configure Amazon EventBridge
-for Automation, a tool in AWS Systems Manager. For more information, see [Setting up Automation](automation-setup.md "automation-setup.md"). This
+for Automation. For more information, see [Setting up Automation](automation-setup.md "automation-setup.md"). This
 walkthrough also requires that you specify the name of an AWS Identity and Access Management (IAM)
 instance profile. For more information about creating an IAM instance
 profile, see [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").

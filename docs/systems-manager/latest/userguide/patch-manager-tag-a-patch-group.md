@@ -1,8 +1,8 @@
 # Creating and managing patch groups
 
-If you are _not_ using patch policies in your
-operations, you can organize your patching efforts by adding managed nodes to patch
-groups by using tags.
+If you are _not_ using patch policies, you
+can organize patching by adding managed nodes to patch
+groups using tags.
 
 ###### Note
 
@@ -11,9 +11,8 @@ _patch policies_. For information about working with
 patch policies, see [Patch policy configurations in Quick Setup](patch-manager-policies.md "patch-manager-policies.md").
 
 Patch group functionality is not supported in the console for account-Region
-pairs that did not already use patch groups before patch policy support was
-released on December 22, 2022. Patch group functionality is still available in
-account-Region pairs that began using patch groups before this date.
+pairs that didn't use patch groups before December 22, 2022. It is still available in
+account-Region pairs that used patch groups before this date.
 
 To use tags in patching operations, you must apply the tag key `Patch
  Group` or `PatchGroup` to your managed nodes. You must also

@@ -7,7 +7,7 @@ solution, to search using text prompts.
 
 ###### Before you begin
 
-In order to use the **Explore nodes** feature, you must first onboard
+To use the **Explore nodes** feature, you must first onboard
 your organization or account to the unified Systems Manager console. For more information, see
 [Setting up Systems Manager unified console for an organization](systems-manager-setting-up-organizations.md "systems-manager-setting-up-organizations.md").
 

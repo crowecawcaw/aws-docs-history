@@ -1,7 +1,7 @@
 # Create OpsItems manually
 
 When you find an operational issue, you can manually create an OpsItem from
-OpsCenter, a tool in AWS Systems Manager, to manage and resolve the issue.
+OpsCenter to manage and resolve the issue.
 
 If you set up OpsCenter for cross-account administration, a Systems Manager delegated
 administrator or AWS Organizations management account can create OpsItems for member accounts.

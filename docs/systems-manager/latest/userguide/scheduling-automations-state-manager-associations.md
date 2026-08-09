@@ -25,7 +25,7 @@ Be aware of the following important details before you run an automation by usin
 State Manager:
 
 - Before you can create an association that uses a runbook, verify that you
-  configured permissions for Automation, a tool in AWS Systems Manager. For more
+  configured permissions for Automation. For more
   information, see [Setting up Automation](automation-setup.md "automation-setup.md").
 - State Manager associations that use runbooks contribute to the maximum number of
   concurrently running automations in your AWS account. You can have a maximum
@@ -155,7 +155,7 @@ about Cron and Rate expressions for State Manager, see [Cron and rate expression
 
 Rate expressions are the preferred scheduling mechanism for State Manager
 associations that use runbooks. Rate expressions allow more flexibility
-for running associations in the event that you reach the maximum number
+for running associations if you reach the maximum number
 of concurrently running automations. With a rate schedule, Systems Manager can
 retry the automation shortly after receiving notification that
 concurrent automations have reached their maximum and have been
@@ -209,7 +209,7 @@ AWS Tools for PowerShell to create a State Manager association that runs an auto
 
 Before you complete the following procedure, make sure you have created an
 IAM service role that contains the permissions necessary to run the runbook,
-and configured a trust relationship for Automation, a tool in AWS Systems Manager. For
+and configured a trust relationship for Automation. For
 more information, see [Task 1: Create a service role for Automation](automation-setup-iam.md#create-service-role "automation-setup-iam.md#create-service-role").
 
 ###### To create an association that runs an automation

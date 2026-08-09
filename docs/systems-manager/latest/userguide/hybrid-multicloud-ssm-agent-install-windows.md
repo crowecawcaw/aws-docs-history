@@ -138,7 +138,7 @@ DisplayName : Amazon SSM Agent
 
 The machine is now a _managed node_. These managed
 nodes are now identified with the prefix "mi-". You can view managed nodes on the
-**Managed node** page in Fleet Manager, by using the AWS CLI command
+**Managed node** page in Fleet Manager by using the AWS CLI command
 [describe-instance-information](../../../cli/latest/reference/ssm/describe-instance-information.md "../../../cli/latest/reference/ssm/describe-instance-information.md"), or by using the API command
 [DescribeInstanceInformation](../APIReference/API_DescribeInstanceInformation.md "../APIReference/API_DescribeInstanceInformation.md").
 

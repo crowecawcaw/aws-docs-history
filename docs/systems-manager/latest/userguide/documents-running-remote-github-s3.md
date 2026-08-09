@@ -34,10 +34,10 @@ document-specific IAM restrictions.
 To properly restrict document execution, use one of these approaches:
 
 - **Allowlist approved sources**: If you need
-  to use nested document execution, restrict access to only approved sources
-  using appropriate controls for each source type: IAM policies to control
-  `ssm:GetDocument` for SSM document sources, IAM and Amazon S3
-  bucket policies for Amazon S3 sources, and network settings (such as VPC endpoints
+  to use nested document execution, restrict access to only approved sources.
+  Use IAM policies to control
+  `ssm:GetDocument` for SSM document sources. Use IAM and Amazon S3
+  bucket policies for Amazon S3 sources. Use network settings (such as VPC endpoints
   or security groups) for public Internet sources.
 - **Restrict access to AWS-RunDocument**:
   Deny `ssm:SendCommand` on `AWS-RunDocument` and any

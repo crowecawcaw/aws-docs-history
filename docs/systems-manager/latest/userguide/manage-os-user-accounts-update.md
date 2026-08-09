@@ -1,7 +1,7 @@
 # Updating user or group membership using Fleet Manager
 
-Instead of logging on directly to a server to update a user account or group,
-you can use the Fleet Manager console to perform the same tasks.
+You don't need to log on directly to a server to update a user account or group.
+You can use the Fleet Manager console to perform these tasks.
 
 ###### To add an OS user account to a new group using Fleet Manager
 

@@ -1,6 +1,6 @@
 # Setting up Change Calendar
 
-Complete the following before using Change Calendar, a tool in AWS Systems Manager.
+Complete the following before using Change Calendar.
 
 ## Install latest command line tools
 

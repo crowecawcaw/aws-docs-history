@@ -69,9 +69,9 @@ For information about using EventBridge to monitor Systems Manager events, see [
 
 A Cloud Connector is a Systems Manager resource that establishes a trust relationship between
 your AWS account and a third-party cloud provider. With Cloud Connectors, you can
-onboard and manage virtual machines from other cloud environments at scale directly from
-the AWS Management Console without signing in to individual VMs, running scripts, or manually
-installing agents.
+onboard and manage virtual machines from other cloud environments at scale. You don't
+need to sign in to individual VMs, run scripts, or manually
+install agents.
 
 When you create a Cloud Connector, Systems Manager discovers associated VMs, and installs SSM Agent on each VM. New
 VMs that come online are enrolled automatically. After onboarding, VMs appear as managed

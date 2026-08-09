@@ -8,8 +8,8 @@ created by your organization's management account.
 
 The management account in Organizations can designate one account within your organization as a
 delegated administrator. When you register an account as a delegated administrator for
-Quick Setup, this account automatically becomes a delegated administrator for AWS CloudFormation
-StackSets and Systems Manager Explorer as well, since these services are required to deploy and
+Quick Setup, this account also becomes a delegated administrator for AWS CloudFormation
+StackSets and Systems Manager Explorer. These services are required to deploy and
 monitor Quick Setup configurations.
 
 ###### Note

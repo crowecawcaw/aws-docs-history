@@ -1,6 +1,6 @@
 # Configuring permissions for Systems Manager Application Manager
 
-You can use all features of Application Manager, a tool in AWS Systems Manager, if your AWS Identity and Access Management (IAM)
+You can use all features of Application Manager if your AWS Identity and Access Management (IAM)
 entity (such as a user, group, or role) has access to the API operations listed in this
 topic. The API operations are separated into two tables to help you understand the
 different functions they perform.

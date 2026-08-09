@@ -1,7 +1,7 @@
 # Referencing AWS Secrets Manager secrets from Parameter Store parameters
 
 AWS Secrets Manager helps you organize and manage important configuration data such as
-credentials, passwords, and license keys. Parameter Store, a tool in AWS Systems Manager, is
+credentials, passwords, and license keys. Parameter Store is
 integrated with Secrets Manager so that you can retrieve Secrets Manager secrets when using other
 AWS services that already support references to Parameter Store parameters. These
 services include Amazon Elastic Compute Cloud (Amazon EC2), Amazon Elastic Container Service (Amazon ECS), AWS Lambda, CloudFormation, AWS CodeBuild,

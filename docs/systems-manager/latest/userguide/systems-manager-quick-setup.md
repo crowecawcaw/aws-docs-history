@@ -1,6 +1,6 @@
 # AWS Systems Manager Quick Setup
 
-Use Quick Setup, a tool in AWS Systems Manager, to quickly configure frequently used Amazon Web Services services
+Use Quick Setup to quickly configure frequently used Amazon Web Services services
 and features with recommended best practices. Quick Setup simplifies setting up services,
 including Systems Manager, by automating common or recommended tasks. These tasks include, for
 example, creating required AWS Identity and Access Management (IAM) instance profile roles and setting up

@@ -18,7 +18,7 @@ By default, the S3 bucket uses server-side encryption with Amazon S3 managed key
 (SSE-S3).
 
 You can instead use server-side encryption with AWS KMS keys (SSE-KMS) using a
-customer managed key (CMK) as an alternative to Amazon S3 managed keys, as explained in [Changing to an AWS KMS customer managed key to encrypt S3 resources](remediate-s3-bucket-encryption.md "remediate-s3-bucket-encryption.md").
+customer managed key as an alternative to Amazon S3 managed keys, as explained in [Changing to an AWS KMS customer managed key to encrypt S3 resources](remediate-s3-bucket-encryption.md "remediate-s3-bucket-encryption.md").
 
 ###### Contents of the bucket policy
 

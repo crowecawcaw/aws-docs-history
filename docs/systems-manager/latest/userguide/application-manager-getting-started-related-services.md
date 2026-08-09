@@ -1,6 +1,6 @@
 # Setting up related services
 
-Application Manager, a tool in AWS Systems Manager, displays resources and information from other
+Application Manager displays resources and information from other
 AWS services and Systems Manager tools. To maximize the amount of operations information
 displayed in Application Manager, we recommend that you set up and configure these other services
 or tools _before_ you use Application Manager.

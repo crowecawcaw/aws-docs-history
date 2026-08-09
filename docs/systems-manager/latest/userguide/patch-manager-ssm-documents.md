@@ -70,9 +70,8 @@ AWS Regions.
 
 This SSM document prompts Windows Update to download and install the
 specified updates and reboot managed nodes as needed. Use this document with
-State Manager, a tool in AWS Systems Manager, to ensure Windows Update maintains its
-configuration. You can also run it manually using Run Command, a tool in AWS Systems Manager,
-to change the Windows Update configuration.
+State Manager to ensure Windows Update maintains its
+configuration. You can also run it manually using Run Command to change the Windows Update configuration.
 
 The available parameters in this document support specifying a category of
 updates to install (or whether to turn off automatic updates), as well as
@@ -133,7 +132,7 @@ The legacy document `AWS-ApplyPatchBaseline` applies only to
 Windows Server managed nodes, and doesn't provide support for application patching.
 The newer `AWS-RunPatchBaseline` provides the same support for both
 Windows and Linux systems. Version 2.0.834.0 or later of
-SSM Agent is required in order to use the `AWS-RunPatchBaseline`
+SSM Agent is required to use the `AWS-RunPatchBaseline`
 document.
 
 For more information about the `AWS-RunPatchBaseline` SSM

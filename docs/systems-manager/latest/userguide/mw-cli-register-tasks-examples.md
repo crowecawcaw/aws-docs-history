@@ -1,6 +1,6 @@
 # Examples: Register tasks with a maintenance window
 
-You can register a task in Run Command, a tool in AWS Systems Manager, with a
+You can register a task in Run Command, with a
 maintenance window using the AWS Command Line Interface (AWS CLI), as demonstrated in [Register tasks with the maintenance window](mw-cli-tutorial-tasks.md "mw-cli-tutorial-tasks.md"). You can also register
 tasks for Systems Manager Automation workflows, AWS Lambda functions, and AWS Step Functions
 tasks, as demonstrated later in this topic.
@@ -199,6 +199,21 @@ option:**
 The following examples demonstrate how to register Lambda
 function tasks with a maintenance window using the AWS CLI.
 
+###### Important
+
+Lambda functions must be in the same AWS account as
+the maintenance window when using the service-linked
+role (`AWSServiceRoleForAmazonSSM`).
+Cross-account Lambda invocation is not supported with
+the service-linked role. If you need to invoke a Lambda
+function in a different account, specify a custom
+service role using the
+`--service-role-arn` parameter with
+permissions explicitly scoped to the target account,
+and add a resource-based policy on the target Lambda
+function granting invoke access to your custom
+role.
+
 For these examples, the user who created the Lambda
 function named it `SSMrestart-my-instances` and
 created two parameters called `instanceId` and
@@ -299,6 +314,14 @@ option:**
 The following examples demonstrate how to register Step Functions
 state machine tasks with a maintenance window using the
 AWS CLI.
+
+###### Important
+
+Step Functions state machines must be in the same
+AWS account as the maintenance window.
+Cross-account Step Functions invocation is not supported
+regardless of whether you use the service-linked role
+or a custom service role.
 
 ###### Note
 

@@ -79,10 +79,10 @@ pairs to organize, track, or control access for this role. 10. Choose **Create r
 ## Using the AWS CLI to create an IAM service role for Systems Manager hybrid activations
 
 Use the following procedure to create a service role for hybrid activation. This
-procedure uses the `AmazonSSMManagedInstanceCore` policy Systems Manager core
-functionality. Depending on your use case, you might need to add additional policies
-to your service role for your non-EC2 machines in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment to be
-able to access other tools or AWS services.
+procedure uses the `AmazonSSMManagedInstanceCore` policy for Systems Manager core
+functionality. Depending on your use case, you might need to add more policies
+to your service role so that your non-EC2 machines can
+access other AWS services.
 
 ###### S3 bucket policy requirement
 
@@ -295,7 +295,7 @@ JSONJSON
 ```
 
 3. Open PowerShell in administrative mode, and in the directory
-   where you created the JSON file, run [New-IAMRole](../../../powershell/latest/reference/items/Register-IAMRolePolicy.md "../../../powershell/latest/reference/items/Register-IAMRolePolicy.md") as follows to create a service role.
+   where you created the JSON file, run [New-IAMRole](../../../powershell/latest/reference/items/New-IAMRole.md "../../../powershell/latest/reference/items/New-IAMRole.md") as follows to create a service role.
    This example creates a role named `SSMServiceRole`.
    You can choose another name if you prefer.
 

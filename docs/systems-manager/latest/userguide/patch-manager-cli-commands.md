@@ -1,7 +1,7 @@
 # Working with Patch Manager resources using the AWS CLI
 
 The section includes examples of AWS Command Line Interface (AWS CLI) commands that you can use to
-perform configuration tasks for Patch Manager, a tool in AWS Systems Manager.
+perform configuration tasks for Patch Manager.
 
 For an illustration of using the AWS CLI to patch a server environment by using a custom
 patch baseline, see [Tutorial: Patch a server environment using the AWS CLI](patch-manager-patch-servers-using-the-aws-cli.md "patch-manager-patch-servers-using-the-aws-cli.md").

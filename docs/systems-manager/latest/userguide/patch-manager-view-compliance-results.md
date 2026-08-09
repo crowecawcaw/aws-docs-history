@@ -103,7 +103,7 @@ Compliance, a tool in AWS Systems Manager:
      **Patches**.
 
 **Option 3** – Navigate from
-Fleet Manager, a tool in AWS Systems Manager.
+Fleet Manager.
 
     * In the navigation pane, choose **Fleet Manager**.
     * In the **Managed instances** area, choose

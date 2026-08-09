@@ -1,6 +1,6 @@
 # Getting started with Compliance
 
-To get started with Compliance, a tool in AWS Systems Manager, complete the following
+To get started with Compliance, complete the following
 tasks.
 
 | Task                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | For more information                                                                                                                                        |

@@ -7,7 +7,7 @@ third-party partner products. With Security Hub CSPM, you can check your environ
 security industry standards and best practices. Security Hub CSPM helps you to analyze your
 security trends and identify the highest priority security issues.
 
-By using the integration between Patch Manager, a tool in AWS Systems Manager, and Security Hub CSPM, you can
+By using the integration between Patch Manager, and Security Hub CSPM, you can
 send findings about noncompliant nodes from Patch Manager to Security Hub CSPM. A finding is the
 observable record of a security check or security-related detection. Security Hub CSPM can then
 include those patch-related findings in its analysis of your security

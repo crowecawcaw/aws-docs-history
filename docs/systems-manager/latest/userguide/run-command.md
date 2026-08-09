@@ -1,17 +1,17 @@
 # AWS Systems Manager Run Command
 
-Using Run Command, a tool in AWS Systems Manager, you can remotely and securely manage the
+Using Run Command, you can remotely and securely manage the
 configuration of your managed nodes. A _managed node_ is any Amazon Elastic Compute Cloud
 (Amazon EC2) instance or non-EC2 machine in your [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment that has been configured
-for Systems Manager. Run Command allows you to automate common administrative tasks and perform one-time
+for Systems Manager. With Run Command, you can automate common administrative tasks and perform one-time
 configuration changes at scale. You can use Run Command from the AWS Management Console, the AWS Command Line Interface
 (AWS CLI), AWS Tools for Windows PowerShell, or the AWS SDKs. Run Command is offered at no additional cost. To get
 started with Run Command, open the [Systems Manager console](https://console.aws.amazon.com//systems-manager/run-command "https://console.aws.amazon.com//systems-manager/run-command"). In the navigation pane, choose
 **Run Command**.
 
 Administrators use Run Command to install or bootstrap applications, build a deployment
-pipeline, capture log files when an instance is removed from an Auto Scaling group, join instances
-to a Windows domain, and more.
+pipeline, capture log files when an instance is removed from an Auto Scaling group, and join instances
+to a Windows domain.
 
 The Run Command API follows an eventual consistency model, due to the distributed nature of
 the system supporting the API. This means that the result of an API command you run that

@@ -1,6 +1,6 @@
 # Creating a change calendar
 
-When you create an entry in Change Calendar, a tool in AWS Systems Manager, you're creating a Systems Manager
+When you create an entry in Change Calendar, you're creating a Systems Manager
 document (SSM document) that uses the `text` format.
 
 ###### To create a change calendar

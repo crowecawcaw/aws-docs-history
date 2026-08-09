@@ -1,7 +1,7 @@
 # Working with patch compliance reports
 
 Use the information in the following topics to help you generate and work with
-patch compliance reports in Patch Manager, a tool in AWS Systems Manager.
+patch compliance reports in Patch Manager.
 
 The information in the following topics apply no matter which method or type of
 configuration you're using for your patching operations:

@@ -1,6 +1,6 @@
 # Working with associations using IAM
 
-State Manager, a tool in AWS Systems Manager, uses [targets](systems-manager-state-manager-targets-and-rate-controls.md#systems-manager-state-manager-targets-and-rate-controls-about-targets "systems-manager-state-manager-targets-and-rate-controls.md#systems-manager-state-manager-targets-and-rate-controls-about-targets") to choose which instances you configure your associations with.
+State Manager uses [targets](systems-manager-state-manager-targets-and-rate-controls.md#systems-manager-state-manager-targets-and-rate-controls-about-targets "systems-manager-state-manager-targets-and-rate-controls.md#systems-manager-state-manager-targets-and-rate-controls-about-targets") to choose which instances you configure your associations with.
 Originally, associations were created by specifying a document name
 (`Name`) and instance ID (`InstanceId`). This created an
 association between a document and an instance or managed node. Associations used to
@@ -20,7 +20,7 @@ each resource in the account isn't checked for that `InstanceId`.
 
 Following are some cases with confusing behavior:
 
-- [DescribeAssociation](../APIReference/API_DescribeActivations.md "../APIReference/API_DescribeActivations.md"), [DeleteAssociation](../APIReference/API_DeleteAssociation.md "../APIReference/API_DeleteAssociation.md"), and [UpdateAssociation](../APIReference/API_UpdateAssociation.md "../APIReference/API_UpdateAssociation.md") use `instance`,
+- [DescribeAssociation](../APIReference/API_DescribeAssociation.md "../APIReference/API_DescribeAssociation.md"), [DeleteAssociation](../APIReference/API_DeleteAssociation.md "../APIReference/API_DeleteAssociation.md"), and [UpdateAssociation](../APIReference/API_UpdateAssociation.md "../APIReference/API_UpdateAssociation.md") use `instance`,
   `managed-instance`, and `document` resources to
   specify the deprecated way of referring to associations. This includes all
   associations created with the deprecated `InstanceId`

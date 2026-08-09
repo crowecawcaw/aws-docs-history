@@ -2,13 +2,12 @@
 
 By default, Session Manager authenticates connections using the credentials of the
 system-generated `ssm-user` account that is created on a
-managed node. (On Linux and macOS machines, this account is added to
-`/etc/sudoers/`.) If you choose, you can instead
-authenticate sessions using the credentials of an operating system (OS) user
-account, or a domain user for instances joined to an Active Directory. In this
-case, Session Manager verifies that the OS account that you specified exists on the node,
-or in the domain, before starting the session. If you attempt to start a session
-using an OS account that doesn't exist on the node, or in the domain, the
+managed node. On Linux and macOS machines, this account is added to
+`/etc/sudoers/`. You can instead
+authenticate sessions using the credentials of an OS user
+account, or a domain user for instances joined to Active Directory. In this
+case, Session Manager verifies that the OS account exists on the node,
+or in the domain, before starting the session. If the OS account doesn't exist on the node or in the domain, the
 connection fails.
 
 ###### Note

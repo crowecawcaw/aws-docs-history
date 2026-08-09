@@ -1,7 +1,7 @@
 # Understanding default EventBridge rules created by Integrated Setup
 
 During the integrated setup process for Explorer and OpsCenter, you can choose to
-enable a number of default rules that are based on events detected by Amazon EventBridge. When
+enable several default rules that are based on events detected by Amazon EventBridge. When
 these events are detected, the system automatically creates OpsItems in AWS Systems Manager
 OpsCenter.
 

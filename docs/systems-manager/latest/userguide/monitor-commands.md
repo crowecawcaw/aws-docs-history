@@ -1,6 +1,6 @@
 # Understanding command statuses
 
-Run Command, a tool in AWS Systems Manager, reports detailed status information about the different
+Run Command reports detailed status information about the different
 states a command experiences during processing and for each managed node that processed
 the command. You can monitor command statuses using the following methods:
 
@@ -123,7 +123,7 @@ complete within this time period.
 ###### Note
 
 Run Command relies on the SSM Agent document terminal response to determine
-whether or not the command was delivered to the agent. SSM Agent must send an
+whether the command was delivered to the agent. SSM Agent must send an
 `ExecutionTimedOut` signal for an invocation or command to be
 marked as `ExecutionTimedOut`.
 

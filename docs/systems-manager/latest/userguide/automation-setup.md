@@ -1,6 +1,6 @@
 # Setting up Automation
 
-To set up Automation, a tool in AWS Systems Manager, you must verify user access to the
+To set up Automation, you must verify user access to the
 Automation service and situationally configure roles so that the service can perform
 actions on your resources. We also recommend that you opt in to the adaptive concurrency
 mode in your Automation preferences. Adaptive concurrency automatically scales your

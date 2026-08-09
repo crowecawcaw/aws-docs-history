@@ -1,6 +1,6 @@
 # Working with parameters in Parameter Store using Run Command commands
 
-You can work with parameters in Run Command, a tool in AWS Systems Manager. For more
+You can work with parameters in Run Command. For more
 information, see [AWS Systems Manager Run Command](run-command.md "run-command.md").
 
 ## Running a String parameter using the console

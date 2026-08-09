@@ -27,7 +27,7 @@ Automation execution role (Automation assume role)
 
 The IAM role that Automation assumes to execute the
 agent installation runbook. This role assumes the Azure
-federation role to authenticate with Azure via OIDC,
+federation role to authenticate with Azure through OIDC,
 creates hybrid activations, and manages managed instances.
 For the trust policy and permissions required by this
 role, see [Automation assume role](cloud-connector-automation-assume-role.md "cloud-connector-automation-assume-role.md").

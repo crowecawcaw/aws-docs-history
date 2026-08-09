@@ -1,6 +1,6 @@
 # Set up Amazon EC2 host management using Quick Setup
 
-Use Quick Setup, a tool in AWS Systems Manager, to quickly configure required security roles
+Use Quick Setup to quickly configure required security roles
 and commonly used Systems Manager tools on your Amazon Elastic Compute Cloud (Amazon EC2) instances. You can use
 Quick Setup in an individual account or across multiple accounts and AWS Regions by
 integrating with AWS Organizations. These tools help you manage and monitor the health of
@@ -117,7 +117,7 @@ types of metadata:
      – Hotfix ID, installed by, installed date,
      and more (Windows Server nodes only).
 
-For more information about Inventory, a tool in AWS Systems Manager,
+For more information about Inventory,
 see [AWS Systems Manager Inventory](systems-manager-inventory.md "systems-manager-inventory.md").
 
 ###### Note
@@ -128,7 +128,7 @@ selected a few nodes.
 
 **Scan instances for missing patches daily**
 
-Enables Patch Manager, a tool in Systems Manager, to scan your nodes
+Enables Patch Manager to scan your nodes
 daily and generate a report in the
 **Compliance** page. The report shows
 how many nodes are patch-compliant according to the

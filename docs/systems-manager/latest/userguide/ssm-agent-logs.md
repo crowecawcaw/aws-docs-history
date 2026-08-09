@@ -40,7 +40,7 @@ Linux and macOS
 
 ###### To allow SSM Agent debug logging on Linux and macOS managed nodes
 
-1. Either use Session Manager, a tool in AWS Systems Manager, to connect to the
+1. Either use Session Manager to connect to the
    managed node where you want to allow debug logging, or log on to
    the managed node. For more information, see [Working with Session Manager](session-manager-working-with.md "session-manager-working-with.md").
 2. Locate the **seelog.xml.template**

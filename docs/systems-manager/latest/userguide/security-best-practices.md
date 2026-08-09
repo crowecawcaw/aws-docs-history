@@ -1,6 +1,6 @@
 # Security best practices for Systems Manager
 
-AWS Systems Manager provides a number of security features to consider as you develop and
+AWS Systems Manager provides several security features to consider as you develop and
 implement your own security policies. The following best practices are general
 guidelines and don’t represent a complete security solution. Because these best
 practices might not be appropriate or sufficient for your environment, treat them as
@@ -45,7 +45,7 @@ For more information, see [Configuring SSM Agent to use a proxy on Linux nodes](
 
 **Use SecureString parameters to encrypt and protect secret data**
 
-In Parameter Store, a tool in AWS Systems Manager, a `SecureString`
+In Parameter Store, a `SecureString`
 parameter is any sensitive data that needs to be stored and referenced
 in a secure manner. If you have data that you don't want users to alter
 or reference in plaintext, such as passwords or license keys, create
@@ -117,7 +117,7 @@ _Amazon VPC User Guide_.
 **Restrict Session Manager users to sessions using interactive commands and
 specific SSM session documents**
 
-Session Manager, a tool in AWS Systems Manager, provides [several
+Session Manager provides [several
 methods for starting sessions](session-manager-working-with-sessions-start.md "session-manager-working-with-sessions-start.md") to your managed nodes. For the
 most secure connections, you can require users to connect using the
 _interactive commands_ method to limit user

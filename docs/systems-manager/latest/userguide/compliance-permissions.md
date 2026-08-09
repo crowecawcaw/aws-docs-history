@@ -1,10 +1,9 @@
 # Configuring permissions for Compliance
 
-As a security best practice, we recommend that you update the AWS Identity and Access Management (IAM) role
-used by your managed nodes with the following permissions to restrict the node's ability
-to use the [PutComplianceItems](../APIReference/API_PutComplianceItems.md "../APIReference/API_PutComplianceItems.md") API action. This API action registers a compliance type
-and other compliance details on a designated resource, such as an Amazon EC2 instance or a
-managed node.
+As a best practice, update the AWS Identity and Access Management (IAM) role
+used by your managed nodes with the following permissions. This restricts the node's ability
+to use the [PutComplianceItems](../APIReference/API_PutComplianceItems.md "../APIReference/API_PutComplianceItems.md") API action, which registers a compliance type
+and other details on a resource such as a managed node.
 
 If your node is an Amazon EC2 instance, you must update the IAM instance profile used by
 the instance with the following permissions. For more information about instance

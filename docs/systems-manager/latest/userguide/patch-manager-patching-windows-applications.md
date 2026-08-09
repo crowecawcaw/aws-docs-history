@@ -1,7 +1,7 @@
 # Patching applications released by Microsoft on Windows Server
 
 Use the information in this topic to help you prepare to patch applications on
-Windows Server using Patch Manager, a tool in AWS Systems Manager.
+Windows Server using Patch Manager.
 
 ###### Microsoft application patching
 
@@ -64,7 +64,7 @@ Microsoft Docs Blog website. For example, you could do the following:
 1. Save the script from the blog post in a file.
 2. Upload the file to an Amazon Simple Storage Service (Amazon S3) bucket or other accessible
    location.
-3. Use Run Command, a tool in AWS Systems Manager, to run the script on your managed nodes
+3. Use Run Command to run the script on your managed nodes
    using the Systems Manager document (SSM document)
    `AWS-RunPowerShellScript` with a command similar to the
    following.

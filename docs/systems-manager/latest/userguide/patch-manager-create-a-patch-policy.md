@@ -1,6 +1,6 @@
 # Creating a patch policy
 
-A patch policy is a configuration you set up using Quick Setup, a tool in AWS Systems Manager.
+A patch policy is a configuration you set up using Quick Setup.
 Patch policies provide more extensive and more centralized control over your
 patching operations than is available with other methods of configuring patching. A
 patch policy defines the schedule and baseline to use when automatically patching

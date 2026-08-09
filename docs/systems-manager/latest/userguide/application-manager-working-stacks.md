@@ -1,6 +1,6 @@
 # Working with CloudFormation templates and stacks in Application Manager
 
-Application Manager, a tool in AWS Systems Manager, helps you provision and manage resources for your
+Application Manager helps you provision and manage resources for your
 applications by integrating with AWS CloudFormation. You can create, edit, and delete CloudFormation
 templates and stacks in Application Manager. A _stack_ is a collection of
 AWS resources that you can manage as a single unit. This means you can create,
@@ -52,7 +52,7 @@ cost data.
 Adding the `AppManagerCFNStackKey` tag will trigger a stack update.
 Any manual configurations that were performed after the stack was originally
 deployed will not be reflected after the user tag is added. For more information
-about resource update behaviors, see [Update behaviors of stack resources](../../../AWSCloudFormation/latest/UserGuide/ using-cfn-updating-stacks-update-behaviors.md "../../../AWSCloudFormation/latest/UserGuide/ using-cfn-updating-stacks-update-behaviors.md") in the
+about resource update behaviors, see [Update behaviors of stack resources](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md") in the
 _AWS CloudFormation User Guide_
 
 ## Before you begin

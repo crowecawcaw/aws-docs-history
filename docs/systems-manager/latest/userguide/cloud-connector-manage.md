@@ -24,7 +24,7 @@ aws ssm update-cloud-connector \
 ###### Delete a Cloud Connector
 
 Deleting the last Cloud Connector in an AWS account also deletes the
-associated service-linked recorder.
+associated AWS Config service-linked recorder.
 
 ```
 aws ssm delete-cloud-connector \

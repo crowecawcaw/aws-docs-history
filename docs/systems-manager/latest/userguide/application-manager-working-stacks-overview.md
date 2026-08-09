@@ -1,6 +1,6 @@
 # Using Application Manager to manage CloudFormation stacks
 
-Application Manager, a tool in AWS Systems Manager, helps you provision and manage resources for
+Application Manager helps you provision and manage resources for
 your applications by integrating with AWS CloudFormation. You can create, edit, and
 delete CloudFormation templates and stacks in Application Manager. A
 _stack_ is a collection of AWS resources that you can
@@ -125,7 +125,7 @@ stack](../../../AWSCloudFormation/latest/UserGuide/using-cfn-cli-creating-stack.
 
 ###### Before you begin
 
-Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have
+Install and configure the AWS CLI or the AWS Tools for PowerShell if you have
 not already. For information, see [Installing or updating the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
 and [Installing the AWS Tools for PowerShell](../../../powershell/latest/userguide/pstools-getting-set-up.md "../../../powershell/latest/userguide/pstools-getting-set-up.md").
 

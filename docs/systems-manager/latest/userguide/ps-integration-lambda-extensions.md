@@ -76,7 +76,7 @@ _AWS Lambda Developer Guide_.
 
 Instantiation
 
-For most Lambda functions, Lambda instantiates separate instances
+For most Lambda functions, Lambda creates separate instances
 corresponding to the concurrency level that your function requires. Each
 instance is isolated and maintains its own local cache of your
 configuration data. For more information about Lambda instances and
@@ -279,10 +279,10 @@ GET http://localhost:`port`/systemsmanager/parameters/get?name=`parameter-name`&
 ```
 
 In this example, `parameter-name` represents the full
-parameter name, such as `MyParameter`, for a parameter not in a
-hierarchy, or `%2FDev%2FProduction%2FEast%2FProject-ABC%2FMyParameter`
-for a parameter named `/Dev/Production/East/Project-ABC/MyParameter` that
-is part of a hierarchy.
+parameter name. For a parameter not in a hierarchy, use a name like
+`MyParameter`. For a hierarchical parameter, use the URL-encoded path,
+such as `%2FDev%2FProduction%2FEast%2FProject-ABC%2FMyParameter`
+for `/Dev/Production/East/Project-ABC/MyParameter`.
 
 ###### Note
 

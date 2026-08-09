@@ -8,22 +8,22 @@ default, the bucket uses server-side encryption with Amazon S3 managed keys (SSE
 You can review the content of these policies in [S3 bucket policies for the unified Systems Manager console](remediate-s3-bucket-policies.md "remediate-s3-bucket-policies.md").
 
 However, you can instead use server-side encryption with AWS KMS keys (SSE-KMS)
-using a customer managed key (CMK) as an alternative to an AWS KMS key.
+using a customer managed key as an alternative to an AWS KMS key.
 
-Complete the following tasks in order to configure Systems Manager to use your CMK.
+Complete the following tasks to configure Systems Manager to use your KMS key.
 
-## Task 1: Add a tag to an existing CMK
+## Task 1: Add a tag to an existing KMS key
 
-AWS Systems Manager uses your CMK only if it is tagged with the following key-value
+AWS Systems Manager uses your KMS key only if it is tagged with the following key-value
 pair:
 
 - Key: `SystemsManagerManaged`
 - Value: `true`
 
 Use the following procedure to provide access for encrypting the S3 bucket with
-your CMK.
+your KMS key.
 
-###### To add a tag to your existing CMK
+###### To add a tag to your existing KMS key
 
 1. Open the AWS KMS console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
 2. In the left navigation, choose **Customer managed
@@ -41,12 +41,12 @@ your CMK.
 
 7. Choose **Save**.
 
-## Task 2: Modify an existing CMK key policy
+## Task 2: Modify an existing KMS key policy
 
 Use the following procedure to update the [KMS key policy](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") of your
-CMK to allow AWS Systems Manager roles to encrypt the S3 bucket on your behalf.
+KMS key to allow AWS Systems Manager roles to encrypt the S3 bucket on your behalf.
 
-###### To modify an existing CMK key policy
+###### To modify an existing KMS key policy
 
 1. Open the AWS KMS console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
 2. In the left navigation, choose **Customer managed
@@ -94,14 +94,14 @@ administrator account, locate the bucket in the format
 
 ###### Tip
 
-Alternatively, you can update the CMK key policy using the [aws:PrincipalOrgID](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principalorgid "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principalorgid") condition key to grant AWS Systems Manager access to your
-CMK.
+Alternatively, you can update the KMS key policy using the [aws:PrincipalOrgID](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principalorgid "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principalorgid") condition key to grant AWS Systems Manager access to your
+KMS key.
 
-## Task 3: Specify the CMK in Systems Manager settings
+## Task 3: Specify the KMS key in Systems Manager settings
 
 After completing the previous two tasks, use the following procedure to change the
 S3 bucket encryption. This change ensures that the associated Quick Setup configuration
-process can add permissions for Systems Manager to accept your CMK.
+process can add permissions for Systems Manager to accept your KMS key.
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **Settings**.

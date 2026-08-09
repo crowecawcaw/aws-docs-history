@@ -72,7 +72,7 @@ and **Patch State**, such as `Installed`,
 ###### Note
 
 Patch _states_ do not indicate
-whether or not a managed node is _compliant_. Patch compliance is not innately tied to
+whether a managed node is _compliant_. Patch compliance is not innately tied to
 patch states, nor is it defined by AWS, by operating system (OS)
 vendors, or by third parties such as security consulting firms. Instead,
 you define what patch compliance means for managed nodes in your

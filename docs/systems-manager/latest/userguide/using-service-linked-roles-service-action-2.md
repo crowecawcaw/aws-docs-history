@@ -35,7 +35,7 @@ You must create a service-linked role if you want to use Explorer and
 OpsCenter, tools in Systems Manager, across multiple AWS accounts. For OpsCenter, you
 must manually create the service-linked role. For more information, see [(Optional) Manually set up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md "OpsCenter-getting-started-multiple-accounts.md").
 
-For Explorer, if you create a resource data sync by using Systems Manager in the
+For Explorer if you create a resource data sync by using Systems Manager in the
 AWS Management Console, you can create the service-linked role by choosing the
 **Create role** button. If you want to create a resource
 data sync programmatically, then you must create the role before you create the

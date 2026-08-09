@@ -1,6 +1,6 @@
 # AWS Systems Manager Distributor
 
-Distributor, a tool in AWS Systems Manager, helps you package and publish software to AWS Systems Manager managed
+Distributor helps you package and publish software to AWS Systems Manager managed
 nodes. You can package and publish your own software or use Distributor to find and publish
 AWS-provided agent software packages, such as **AmazonCloudWatchAgent**,
 or third-party packages such as **Trend Micro.** Publishing a package
@@ -88,13 +88,13 @@ the default package version is changed to a different version.
 - **Completely reinstall packages, or perform in-place
   updates**
 
-To install a new package version, you can completely uninstall the current
-version and install a new one in its place, or only update the current version
-with new and updated components, according to an _update
-script_ that you provide. Your package application is unavailable
-during a reinstallation, but can remain available during an in-place update.
-In-place updates are especially useful for security monitoring applications or
-other scenarios where you need to avoid application downtime.
+To install a new package version, you can uninstall the current
+version and install a new one, or update the current version
+in place using an _update
+script_. Your package is unavailable
+during a reinstallation but can remain available during an in-place update.
+In-place updates are useful for security monitoring or
+other scenarios where you need to avoid downtime.
 
 - **Console, CLI, PowerShell, and SDK access to Distributor
   capabilities**

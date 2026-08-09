@@ -11,7 +11,7 @@ This overview is provided through individual report boxes, called _widgets_, whi
 
 ###### Before you begin
 
-In order to review node insights, you must first onboard your organization or account
+To review node insights, you must first onboard your organization or account
 to the unified Systems Manager console. For more information, see [Setting up AWS Systems Manager](systems-manager-setting-up-console.md "systems-manager-setting-up-console.md").
 
 After onboarding, open the [Systems
@@ -38,8 +38,8 @@ active connection to the service.
 ###### Note
 
 This is different from how AWS Config defines an instance as unmanaged. If
-an instance is currently stopped, AWS Config reports what the status of the
-instance was the last time a "heartbeat" connection was made between
+an instance is currently stopped, AWS Config reports the status from the
+last "heartbeat" connection between
 SSM Agent on the instance and the Systems Manager service.
 
 When the instance restarts, it automatically reconnects to the Systems Manager service,
@@ -52,9 +52,9 @@ after starting, the instance is likely not properly configured for Systems Manag
 management. In this case, we recommend running a diagnosis to identify why the
 instance remains in an unmanaged state. For more information, see [Diagnosing and remediating unmanaged Amazon EC2 instances in Systems Manager](remediating-unmanaged-instances.md "remediating-unmanaged-instances.md").
 
-If the diagnostic scan is not able to determine the issue, refer to the
-following topics to verify that the requirements for SSM Agent, AWS Identity and Access Management (IAM)
-roles, and Systems Manager prerequisites have all been met:
+If the diagnostic scan can't determine the issue, refer to the
+following topics to verify that requirements for SSM Agent, AWS Identity and Access Management (IAM)
+roles, and Systems Manager prerequisites have been met:
 
 - [Troubleshooting SSM Agent](troubleshooting-ssm-agent.md "troubleshooting-ssm-agent.md")
 - [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md")
@@ -62,10 +62,10 @@ roles, and Systems Manager prerequisites have all been met:
 
 **Managed node types**
 
-Indicates how many managed nodes in your fleet are EC2 instances and how many
-are other server types, including servers on your own premises (on-premises
-servers), AWS IoT Greengrass core devices, AWS IoT and non-AWS edge devices, and
-virtual machines (VMs), including VMs in other cloud environments. You can hover
+Shows how many managed nodes in your fleet are EC2 instances and how many
+are other server types. Other types include on-premises
+servers, AWS IoT Greengrass core devices, AWS IoT and non-AWS edge devices, and
+virtual machines (VMs) in other cloud environments. Hover
 over the **Node types** graphic to access links to more details
 in the **Explore nodes** page.
 

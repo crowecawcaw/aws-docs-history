@@ -35,7 +35,7 @@ complex, multi-step patching operation that accomplishes the following:
   established.)
   The examples in this tutorial are for demonstration purposes only and not meant to
   be implemented as-is into production environments. Also, keep in mind that the
-  lifecycle hooks feature of Patch Manager, a tool in Systems Manager, with the
+  lifecycle hooks feature of Patch Manager, with the
   `AWS-RunPatchBaselineWithHooks` document can support numerous other
   scenarios. Here are several examples.
 
@@ -56,7 +56,7 @@ complex, multi-step patching operation that accomplishes the following:
 
 This script immediately blocks new incoming requests and provides five
 seconds for already active ones to complete before beginning the patching
-operation. For the `sleep` option, specify a number of seconds
+operation. For the `sleep` option, specify several seconds
 greater than it usually takes for incoming requests to complete.
 
 ```
@@ -104,7 +104,7 @@ iptables -D INPUT -j DROP -p tcp --syn --destination-port
 /usr/bin/curl -m 10 -vk -A "" http://localhost:443/health-check || exit 1
 ```
 
-4. Create an association in State Manager, a tool in AWS Systems Manager, to issue the
+4. Create an association in State Manager to issue the
    operation by performing the following steps:
 
    1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").

@@ -1,8 +1,8 @@
 # Visual design experience for Automation runbooks
 
 AWS Systems Manager Automation provides a low-code visual design experience that helps you create automation
-runbooks. The visual design experience provides a drag-and-drop interface with the option to add your own
-code so you can create and edit runbooks more easily. With the visual design experience, you can do the
+runbooks. It offers a drag-and-drop interface with the option to add your own
+code. With the visual design experience, you can do the
 following:
 
 - Control conditional statements.

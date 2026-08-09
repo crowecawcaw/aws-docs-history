@@ -52,7 +52,7 @@ Here is how the process of using InSpec profiles with Compliance works:
    repository, or in an S3 bucket.
 3. Run Compliance with your InSpec profiles by using the Systems Manager document
    (SSM document) `AWS-RunInspecChecks`. You can begin a
-   Compliance scan by using Run Command, a tool in AWS Systems Manager, for on-demand
+   Compliance scan by using Run Command, for on-demand
    scans, or you can schedule regular Compliance scans by using State Manager, a
    tool in AWS Systems Manager.
 4. Identify noncompliant nodes by using the Compliance API or the

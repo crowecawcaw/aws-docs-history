@@ -18,7 +18,7 @@ Security Hub CSPM are usually visible in Explorer within seconds of being create
 
 Note the following important information:
 
-- Explorer is integrated with OpsCenter, a tool in Systems Manager. After you
+- Explorer is integrated with OpsCenter. After you
   enable Explorer integration with Security Hub CSPM, OpsCenter automatically creates
   OpsItems for Security Hub CSPM findings. Depending on your AWS environment, enabling
   integration can result in large numbers of OpsItems, at a cost.

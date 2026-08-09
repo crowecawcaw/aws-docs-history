@@ -29,7 +29,7 @@ groups?](../../../ARG/latest/userguide/resource-groups.md "../../../ARG/latest/u
 Tagging for AWS](https://aws.amazon.com/blogs/aws/resource-groups-and-tagging/ "https://aws.amazon.com/blogs/aws/resource-groups-and-tagging/") in the _AWS News
 Blog_.
 
-For information about quotas for Maintenance Windows, a tool in AWS Systems Manager, in
+For information about quotas for Maintenance Windows, in
 addition to those specified in the following examples, see
 [Systems Manager service quotas](../../../general/latest/gr/ssm.md#limits_ssm "../../../general/latest/gr/ssm.md#limits_ssm") in the
 _Amazon Web Services General Reference_.

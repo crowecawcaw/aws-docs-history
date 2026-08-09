@@ -73,7 +73,7 @@ For Linux operating systems, you can define the repositories that should
 be used for patching operations as part of your patch baseline. This allows
 you to ensure that updates are installed only from trusted repositories
 regardless of what repositories are configured on the managed node. For
-Linux, you also have the ability to update any package on the managed node,
+Linux, you also can update any package on the managed node,
 not just those that are classified as operating system security updates. You
 can also generate patch reports that are sent to an S3 bucket of your
 choice. For a single managed node, reports include details of all patches
@@ -93,11 +93,9 @@ devices and Amazon Elastic Compute Cloud (Amazon EC2) instances through an inter
 browser-based shell or through the AWS CLI. Session Manager provides secure and
 auditable edge device and instance management without needing to open
 inbound ports, maintain bastion hosts, or manage SSH keys. Session Manager also
-allows you to comply with corporate policies that require controlled access
-to edge devices and instances, strict security practices, and fully
-auditable logs with edge device and instance access details, while still
-providing end users with simple one-click cross-platform access to your edge
-devices and EC2 instances.
+helps you comply with corporate policies that require controlled access
+to edge devices, strict security practices, and fully
+auditable logs with access details.
 
 State Manager
 Use [State Manager](systems-manager-state.md "systems-manager-state.md") to automate the
@@ -222,7 +220,7 @@ are distributed across your business units or applications, how they trend
 over time, and how they vary by category. You can group and filter
 information in Explorer to focus on items that are relevant to you and that
 require action. When you identify high priority issues, you can use
-OpsCenter, a tool in Systems Manager, to run Automation runbooks and resolve those
+OpsCenter to run Automation runbooks and resolve those
 issues.
 
 Incident Manager

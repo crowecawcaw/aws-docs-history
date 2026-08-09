@@ -1,7 +1,7 @@
 # Viewing individual node details and taking action on a node
 
 From a list in the **Explore nodes** page in Systems Manager, you can select an
-individual node in order to view comprehensive details about the machine or perform a
+individual node to view comprehensive details about the machine or perform a
 variety of actions on the node. The **General** page in the detail page
 presents comprehensive information about the node.
 

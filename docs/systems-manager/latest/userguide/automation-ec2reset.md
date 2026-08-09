@@ -8,7 +8,7 @@ combination of AWS Systems Manager actions, AWS CloudFormation actions, and AWS 
 that automate the steps normally required to reset the local administrator
 password.
 
-You can use Automation, a tool in AWS Systems Manager, with the
+You can use Automation with the
 `AWSSupport-ResetAccess` runbook to solve the following
 problems:
 

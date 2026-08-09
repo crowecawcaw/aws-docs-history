@@ -61,11 +61,10 @@ Note the following information.
   _All_ tag keys specified in the association
   must be currently assigned to the node. If they aren't, State Manager
   fails to target the node for an association.
-- If you want to use the console _and_ you want
-  to target your nodes by using more than one tag key for an
-  automation association and five tag keys for a command association,
-  assign the tag keys to an AWS Resource Groups group and add the nodes to it.
-  You can then choose the **Resource Group** option
+- If you want to use the console _and_ target
+  nodes by using more than one tag key (automation) or five tag keys
+  (command), assign the tag keys to an AWS Resource Groups group. Add the nodes
+  to the group. You can then choose the **Resource Group** option
   in the **Targets** list when you create the
   State Manager association.
 - You can specify a maximum of five tag keys by using the AWS CLI. If

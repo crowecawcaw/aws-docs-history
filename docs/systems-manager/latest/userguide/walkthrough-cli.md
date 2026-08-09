@@ -74,7 +74,7 @@ command IDs. For managed AWS IoT Greengrass core devices, use the
 mi-`ID_number` for instance ID. The
 command ID is returned as a response to
 **send-command**. Instance IDs are available from
-Fleet Manager, a tool in AWS Systems Manager..
+Fleet Manager.
 
 Linux & macOS
 

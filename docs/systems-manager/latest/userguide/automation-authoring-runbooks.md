@@ -1,6 +1,6 @@
 # Authoring Automation runbooks
 
-Each runbook in Automation, a tool in AWS Systems Manager, defines an automation. Automation
+Each runbook in Automation defines an automation. Automation
 runbooks define the actions that are performed during an automation. In the runbook
 content, you define the input parameters, outputs, and actions that Systems Manager performs
 on your managed instances and AWS resources.

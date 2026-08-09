@@ -130,7 +130,7 @@ Required: No
 
 [onCancel](#canProp "#canProp")
 
-Indicates which step the automation should go to in the event that a user
+Indicates which step the automation should go to if a user
 cancels the automation. Automation runs the cancellation workflow for a
 maximum of two minutes.
 

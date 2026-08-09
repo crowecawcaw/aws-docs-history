@@ -7,12 +7,11 @@ AWS accounts and AWS Regions.
 
 To use Systems Manager, nodes must be [managed](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types"), which means SSM Agent is installed on the machine and the agent can
 communicate with the Systems Manager service. To help you identify why nodes aren't reporting as
-_managed_, Systems Manager offers a one-click agent issue diagnosis and
-remediation runbook that you can configure to run automatically according to a schedule you
-define. This feature helps identify why nodes can't connect to Systems Manager, including networking
-misconfigurations. This feature also provides recommended runbooks for remediating
-networking issues and other problems preventing nodes from being configured as managed
-nodes.
+_managed_, Systems Manager offers a one-click diagnosis and
+remediation runbook. You can configure this runbook to run automatically on a schedule.
+This feature helps identify why nodes can't connect to Systems Manager, including networking
+misconfigurations. It also provides recommended runbooks for remediating
+issues preventing nodes from being managed.
 
 The unified console experience also includes a dashboard that provides a high-level
 overview of your nodes. You can drill down for more specific node insights such as which
@@ -173,11 +172,11 @@ PowerShell.
 **AWS SDKs**
 
 AWS provides software development kits (SDKs) that consist of libraries
-and sample code for various programming languages and platforms (for
-example, [Java](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/"), [Python](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/"), [Ruby](https://aws.amazon.com/sdk-for-ruby/ "https://aws.amazon.com/sdk-for-ruby/"), [.NET](https://aws.amazon.com/sdk-for-net/ "https://aws.amazon.com/sdk-for-net/"), [iOS and Android](https://aws.amazon.com/mobile/resources/ "https://aws.amazon.com/mobile/resources/"), and
-[others](https://aws.amazon.com/tools/#sdk "https://aws.amazon.com/tools/#sdk")). The SDKs
+and sample code for various programming languages and platforms. Supported
+languages include [Java](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/"), [Python](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/"), [Ruby](https://aws.amazon.com/sdk-for-ruby/ "https://aws.amazon.com/sdk-for-ruby/"), [.NET](https://aws.amazon.com/sdk-for-net/ "https://aws.amazon.com/sdk-for-net/"), [iOS and Android](https://aws.amazon.com/mobile/resources/ "https://aws.amazon.com/mobile/resources/"), and
+[others](https://aws.amazon.com/tools/#sdk "https://aws.amazon.com/tools/#sdk"). The SDKs
 provide a convenient way to grant programmatic access to Systems Manager. For
-information about the AWS SDKs, including how to download and install
+information about downloading and installing
 them, see [Tools for Amazon Web
 Services](https://aws.amazon.com/tools/#sdk "https://aws.amazon.com/tools/#sdk").
 

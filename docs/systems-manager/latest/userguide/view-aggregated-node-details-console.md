@@ -9,10 +9,10 @@ Lists all managed nodes in your organization or account.
 ![A list of managed nodes in the Explore nodes page](images/2-explore-nodes-managed-nodes.png)
 
 Node types
-Provides tabs for viewing data separately for Amazon Elastic Compute Cloud (Amazon EC2) instances
-and other machine types, including servers on your own premises (on-premises
-servers), AWS IoT Greengrass core devices, AWS IoT and non-AWS edge devices, and
-virtual machines (VMs), including VMs in other cloud environments.
+Provides tabs for viewing data for Amazon Elastic Compute Cloud (Amazon EC2) instances
+and other machine types separately. Other types include on-premises
+servers, AWS IoT Greengrass core devices, AWS IoT and non-AWS edge devices, and
+VMs in other cloud environments.
 
 ![Lists of managed nodes on node type tabs](images/2-explore-nodes-node-types.png)
 
@@ -33,9 +33,9 @@ specific operating systems, such as **Amazon Linux** and
 
 ![Lists of managed nodes on agent tabs](images/2-explore-nodes-agent-versions.png)
 
-In addition, for each of these views, you can further refine the list of nodes
-reported by choosing to view only nodes for a certain property, such as node status,
-AWS account ID, organization unit ID, and more.
+For each view, you can refine the node list by
+filtering on properties such as node status,
+AWS account ID, or organization unit ID.
 
 You can customize the report display by choosing which of the available data columns
 are displayed in the **Explore nodes** page. You can also download

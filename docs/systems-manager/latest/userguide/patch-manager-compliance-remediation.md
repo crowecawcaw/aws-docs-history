@@ -3,7 +3,7 @@
 Many of the same AWS Systems Manager tools and processes you can use to check
 managed nodes for patch compliance can be used to bring nodes into
 compliance with the patch rules that currently apply to them. To bring
-managed nodes into patch compliance, Patch Manager, a tool in AWS Systems Manager, must run
+managed nodes into patch compliance, Patch Manager must run
 a `Scan and install` operation. (If your goal is only to identify
 noncompliant managed nodes and not remediate them, run a `Scan`
 operation instead. For more information, see [Identifying noncompliant managed nodes](patch-manager-find-noncompliant-nodes.md "patch-manager-find-noncompliant-nodes.md").)

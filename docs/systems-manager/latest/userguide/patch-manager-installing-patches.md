@@ -1,6 +1,6 @@
 # How patches are installed
 
-Patch Manager, a tool in AWS Systems Manager, uses the operating system built-in package manager
+Patch Manager uses the operating system built-in package manager
 to install updates on managed nodes. For example, it uses the Windows Update API on
 Windows Server and `DNF` on Amazon Linux 2023. Patch Manager respects existing package manager
 and repository configurations on the nodes, including settings such as repository status,
@@ -97,7 +97,7 @@ version is applied. 7. The YUM update API (Amazon Linux 2) or the DNF update API
      (security and nonsecurity updates).
 
 
-    For Amazon Linux 2, if a baseline with **Include
+    For Amazon Linux 2 if a baseline with **Include
      nonsecurity updates** is selected, has a
      SEVERITY list of `[Critical, Important]` and
      a CLASSIFICATION list of `[Security,

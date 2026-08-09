@@ -54,7 +54,7 @@ This policy includes the following permissions.
   (`DescribeInstanceInformation`); to tag activations and
   managed instances (`AddTagsToResource`); to read the
   installation runbook (`GetDocument` on
-  `AWS-InstallSsmAgentOnAzure`); and to read the Cloud
+  `AWS-InstallSSMAgentOnAzure`); and to read the Cloud
   Connector configuration (`GetCloudConnector`).
 - `iam:PassRole` – Allows Automation to pass the
   managed instance role to Systems Manager when registering an Azure virtual
@@ -101,7 +101,7 @@ This policy includes the following permissions.
             "Effect": "Allow",
             "Action": "ssm:GetDocument",
             "Resource": [
-                "arn:aws:ssm:us-east-1:*:document/AWS-InstallSsmAgentOnAzure"
+                "arn:aws:ssm:us-east-1:*:document/AWS-InstallSSMAgentOnAzure"
             ]
         },
         {

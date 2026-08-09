@@ -1,6 +1,6 @@
 # Using pseudo parameters when registering maintenance window tasks
 
-When you register a task in Maintenance Windows, a tool in AWS Systems Manager, you specify the parameters
+When you register a task in Maintenance Windows, you specify the parameters
 that are unique to each of the four task types. (In CLI commands, these are provided
 using the `--task-invocation-parameters` option.)
 

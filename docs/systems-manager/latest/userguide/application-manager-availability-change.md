@@ -19,17 +19,16 @@ Application Signals is a paid service that includes a free tier.
 
 **AWS Console for SAP Applications**
 
-If your primary use case is to manage and operate your SAP HANA-based
-applications on AWS, use AWS Console for SAP Applications, a new
-centralized management experience that provides SAP customers with an
-application-centric view to register and manage their SAP HANA-based
+If your primary use case is to manage SAP HANA-based
+applications on AWS, use AWS Console for SAP Applications. This
+centralized experience provides an
+application-centric view to register and manage SAP HANA-based
 applications running on AWS. The console offers a unified dashboard to view
 your registered SAP applications, understand your landing zone setup, and
-gain visibility into the resources consumed by your SAP workloads. From the
-application details page, customers can view application topology, associated
-resources, and perform management operations including application-aware
-start/stop, automated validation of SAP workload configurations, and
-scheduled operations. To learn more, see the [AWS Console for SAP Applications announcement](https://aws.amazon.com/blogs/awsforsap/announcing-aws-console-for-sap-applications-a-unified-experience-to-register-and-manage-your-sap-applications-on-aws/ "https://aws.amazon.com/blogs/awsforsap/announcing-aws-console-for-sap-applications-a-unified-experience-to-register-and-manage-your-sap-applications-on-aws/").
+gain visibility into resources consumed by your SAP workloads. From the
+application details page, you can view application topology, associated
+resources, and perform operations including application-aware
+start/stop and automated validation. To learn more, see the [AWS Console for SAP Applications announcement](https://aws.amazon.com/blogs/awsforsap/announcing-aws-console-for-sap-applications-a-unified-experience-to-register-and-manage-your-sap-applications-on-aws/ "https://aws.amazon.com/blogs/awsforsap/announcing-aws-console-for-sap-applications-a-unified-experience-to-register-and-manage-your-sap-applications-on-aws/").
 
 **Tagging**
 

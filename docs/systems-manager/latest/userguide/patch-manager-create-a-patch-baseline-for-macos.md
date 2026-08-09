@@ -1,7 +1,7 @@
 # Creating a custom patch baseline for macOS
 
 Use the following procedure to create a custom patch baseline for macOS
-managed nodes in Patch Manager, a tool in AWS Systems Manager.
+managed nodes in Patch Manager.
 
 For information about creating a patch baseline for Windows Server managed
 nodes, see [Creating a custom patch baseline for Windows Server](patch-manager-create-a-patch-baseline-for-windows.md "patch-manager-create-a-patch-baseline-for-windows.md"). For

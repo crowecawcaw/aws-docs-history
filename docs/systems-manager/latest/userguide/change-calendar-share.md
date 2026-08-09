@@ -1,6 +1,6 @@
 # Sharing a change calendar
 
-You can share a calendar in Change Calendar, a tool in AWS Systems Manager, with other
+You can share a calendar in Change Calendar with other
 AWS accounts by using the AWS Systems Manager console. When you share a calendar, the
 calendar is read-only to users in the shared account. Maintenance windows, State Manager
 associations, and automations aren't shared.

@@ -8,7 +8,7 @@ custom patch baseline, patch groups, and a maintenance window.
 - Install or update the SSM Agent on your managed nodes. To patch Linux
   managed nodes, your nodes must be running SSM Agent version
   2.0.834.0 or later. For more information, see [Updating the SSM Agent using Run Command](run-command-tutorial-update-software.md#rc-console-agentexample "run-command-tutorial-update-software.md#rc-console-agentexample").
-- Configure roles and permissions for Maintenance Windows, a tool in AWS Systems Manager. For
+- Configure roles and permissions for Maintenance Windows. For
   more information, see [Setting up Maintenance Windows](setting-up-maintenance-windows.md "setting-up-maintenance-windows.md").
 - Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
 
@@ -364,7 +364,7 @@ The system returns information like the following.
 ```
 
 7. Run the following command to get patch summary states per-managed node for
-   a patch group. The per-managed node summary includes a number of patches in
+   a patch group. The per-managed node summary includes several patches in
    the respective patch states per managed node for a patch group.
 
 Linux & macOS

@@ -241,7 +241,7 @@ on the target machine.
 **Solution**: `DeliveryTimedOut` is
 the expected response code for this scenario. The command to install SSM Agent on
 the target node changes the node ID of the source node. Because the node ID has
-changed, the source node isn't able to reply to the target node that the command
+changed, the source node can't reply to the target node that the command
 failed, completed, or timed out while executing.
 
 ### Unable to load node associations

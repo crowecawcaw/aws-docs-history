@@ -1,6 +1,6 @@
 # Create the service roles for Automation using the console
 
-If you need to create a service role for Automation, a tool in AWS Systems Manager, complete
+If you need to create a service role for Automation complete
 the following tasks. For more information about when a service role is required for
 Automation, see [Setting up Automation](automation-setup.md "automation-setup.md").
 

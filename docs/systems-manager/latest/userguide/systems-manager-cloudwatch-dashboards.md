@@ -1,7 +1,7 @@
 # Using Amazon CloudWatch dashboards hosted by Systems Manager
 
-Amazon CloudWatch dashboards are customizable home pages in the CloudWatch console that you can use to
-monitor your resources in a single view, even those resources that are spread across
+Amazon CloudWatch dashboards are customizable home pages in the CloudWatch console. You can use them to
+monitor your resources in a single view, even resources spread across
 different AWS Regions. You can use CloudWatch dashboards to create customized views of the
 metrics and alarms for your AWS resources. With dashboards, you can create the
 following:

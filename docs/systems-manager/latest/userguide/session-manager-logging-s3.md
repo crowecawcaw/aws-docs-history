@@ -16,7 +16,7 @@ hosted–style buckets.
 
 ###### Amazon S3 bucket encryption
 
-In order to send logs to your Amazon S3 bucket with encryption, encryption must be
+To send logs to your Amazon S3 bucket with encryption, encryption must be
 allowed on the bucket. For more information about Amazon S3 bucket encryption, see
 [Amazon S3 Default Encryption for S3 Buckets](../../../AmazonS3/latest/dev/bucket-encryption.md "../../../AmazonS3/latest/dev/bucket-encryption.md").
 

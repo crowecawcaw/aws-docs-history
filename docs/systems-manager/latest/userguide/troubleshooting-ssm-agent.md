@@ -121,7 +121,7 @@ more information about how to manage VPC endpoints, see [Improve the security of
 
 ## Verify your VPC configuration
 
-If you are using a virtual private cloud (VPC), in order to manage EC2 instances
+If you are using a virtual private cloud (VPC), to manage EC2 instances
 with Systems Manager, your VPC endpoints must be configured properly for
 `ssm.`region`.amazonaws.com`,
 `ssmmessages.`region`.amazonaws.com`, and

@@ -5,7 +5,7 @@ in AWS Systems Manager. To deploy the packages, use either the AWS Management Co
 You can deploy one version of one package per command. You can install new packages
 or update existing installations in place. You can choose to deploy a specific
 version or choose to always deploy the latest version of a package for deployment.
-We recommend using State Manager, a tool in AWS Systems Manager, to install packages. Using
+We recommend using State Manager to install packages. Using
 State Manager helps ensure that your managed nodes are always running the most up-to-date
 version of your package.
 
@@ -33,7 +33,7 @@ using Distributor. Otherwise, Systems Manager can still register the application
 ## Installing or updating a package one time using the console
 
 You can use the AWS Systems Manager console to install or update a package one time.
-When you configure a one-time installation, Distributor uses [AWS Systems Manager Run Command](run-command.md "run-command.md"), a tool in AWS Systems Manager, to
+When you configure a one-time installation, Distributor uses [AWS Systems Manager Run Command](run-command.md "run-command.md"), to
 perform the installation.
 
 ###### To install or update a package one time using the console

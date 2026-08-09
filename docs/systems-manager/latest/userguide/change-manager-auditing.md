@@ -7,7 +7,7 @@ starting November 7, 2025. If you would like to use Change Manager, sign up prio
 date. Existing customers can continue to use the service as normal. For more
 information, see [AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
 
-You can audit activity in Change Manager, a tool in AWS Systems Manager, by using Amazon CloudWatch and
+You can audit activity in Change Manager by using Amazon CloudWatch and
 AWS CloudTrail alarms.
 
 For more information about auditing and logging options for Systems Manager, see [Logging and monitoring in AWS Systems Manager](monitoring.md "monitoring.md").

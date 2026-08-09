@@ -32,7 +32,7 @@ associate them with the IAM role.
 3. Create an [IAM role for service account](../../../eks/latest/userguide/iam-roles-for-service-accounts.md "../../../eks/latest/userguide/iam-roles-for-service-accounts.md") and attach the policy to
    it. For more information, see [Create an IAM role for a service account](../../../eks/latest/userguide/iam-roles-for-service-accounts.md "../../../eks/latest/userguide/iam-roles-for-service-accounts.md") in the
    _Amazon EKS User Guide_.
-4. If you use a private Amazon EKS cluster, make sure that the VPC that
+4. If you use a private Amazon EKS cluster, ensure the VPC that
    the cluster is in has an AWS STS endpoint. For information about
    creating an endpoint, see [Interface VPC endpoints](../../../IAM/latest/UserGuide/reference_interface_vpc_endpoints.md "../../../IAM/latest/UserGuide/reference_interface_vpc_endpoints.md") in the _AWS Identity and Access Management User
    Guide_.

@@ -6,7 +6,7 @@ account `111122223333`, and the `us-east-1` Region.
 
 ## Prerequisites
 
-Before you begin, make sure that you have the following:
+Before you begin, make sure you have the following:
 
 - An AWS account.
 - A place to run AWS CLI commands. You can use AWS CloudShell, a local client with the
@@ -37,7 +37,7 @@ aws ssm put-parameter \
 
 ## Step 2: Retrieve the parameter value
 
-Run the [`get-parameter`](../../../cli/latest/reference/ssm/get-parameter.md "../../../cli/latest/reference/ssm/get-parameter.md")
+Run the [get-parameter](../../../cli/latest/reference/ssm/get-parameter.md "../../../cli/latest/reference/ssm/get-parameter.md")
 command to retrieve the value of a single parameter. The following example retrieves the value of the `/myapp/dev/log-level` parameter.
 
 ```
@@ -83,7 +83,7 @@ aws ssm put-parameter \
 
 ## Step 4: Retrieve multiple parameters
 
-Run the [`get-parameters`](../../../cli/latest/reference/ssm/get-parameters.md "../../../cli/latest/reference/ssm/get-parameters.md") command
+Run the [get-parameters](../../../cli/latest/reference/ssm/get-parameters.md "../../../cli/latest/reference/ssm/get-parameters.md") command
 to specify up to 10 parameters in a list. The following example specifies the `/myapp/dev/log-level` and
 `/myapp/dev/subnet-ids` parameters by name.
 
@@ -198,7 +198,7 @@ Parameter Store creates a new version of the parameter each time you update it, 
 }
 ```
 
-Run the [`get-parameter-history`](../../../cli/latest/reference/ssm/get-parameter-history.md "../../../cli/latest/reference/ssm/get-parameter-history.md") command
+Run the [get-parameter-history](../../../cli/latest/reference/ssm/get-parameter-history.md "../../../cli/latest/reference/ssm/get-parameter-history.md") command
 to view the history of the `/myapp/dev/log-level` parameter.
 
 ```
@@ -234,7 +234,7 @@ The response includes previous versions of the parameter, including the version 
 
 ## Step 7: Retrieve parameters by path
 
-Run the [`get-parameters-by-path`](../../../cli/latest/reference/ssm/get-parameters-by-path.md "../../../cli/latest/reference/ssm/get-parameters-by-path.md") command to retrieve
+Run the [get-parameters-by-path](../../../cli/latest/reference/ssm/get-parameters-by-path.md "../../../cli/latest/reference/ssm/get-parameters-by-path.md") command to retrieve
 parameters under the `/myapp/dev/` path. The `--recursive` option includes
 parameters in lower levels of the hierarchy.
 

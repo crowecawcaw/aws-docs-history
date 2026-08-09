@@ -7,7 +7,7 @@ starting November 7, 2025. If you would like to use Change Manager, sign up prio
 date. Existing customers can continue to use the service as normal. For more
 information, see [AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
 
-The tasks in this topic apply if you're using Change Manager, a tool in AWS Systems Manager, with
+The tasks in this topic apply if you're using Change Manager with
 an organization that is set up in AWS Organizations. If you want to use Change Manager only with a
 single AWS account, skip to the topic [Configuring Change Manager options and best practices](change-manager-account-setup.md "change-manager-account-setup.md").
 
@@ -56,7 +56,7 @@ The delegated administrator account must be the only member of the organizationa
   for change requester roles, or custom job functions, that you want to
   use for your Change Manager operations**
 
-In order to create change requests in Change Manager, users in your member
+To create change requests in Change Manager, users in your member
 accounts must be granted AWS Identity and Access Management (IAM) permissions that allow them to
 access only the Automation runbooks and change templates you choose to make
 available to them.

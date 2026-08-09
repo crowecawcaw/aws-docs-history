@@ -1,6 +1,6 @@
 # Working with Amazon ECS in Application Manager
 
-With Application Manager, a tool in AWS Systems Manager, you can view and manage your Amazon Elastic Container Service
+With Application Manager, you can view and manage your Amazon Elastic Container Service
 (Amazon ECS) cluster infrastructure. Application Manager applies a tag to your Amazon ECS cluster
 using the Amazon Resource Name (ARN) of the cluster as the tag value. Application Manager
 provides a component runtime view of the compute, networking, and storage

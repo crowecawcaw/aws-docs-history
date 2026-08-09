@@ -46,7 +46,7 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 
 ###### Parameter Store parameters
 
-The types of parameters you can create in Parameter Store, a tool in AWS Systems Manager,
+The types of parameters you can create in Parameter Store,
 include `String`, `StringList`, and
 `SecureString`.
 

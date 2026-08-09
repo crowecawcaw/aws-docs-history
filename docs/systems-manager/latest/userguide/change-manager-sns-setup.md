@@ -7,7 +7,7 @@ starting November 7, 2025. If you would like to use Change Manager, sign up prio
 date. Existing customers can continue to use the service as normal. For more
 information, see [AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
 
-You can configure Change Manager, a tool in AWS Systems Manager, to send notifications to an
+You can configure Change Manager to send notifications to an
 Amazon Simple Notification Service (Amazon SNS) topic for events related to change requests and
 change templates. Complete the following tasks to receive notifications for the
 Change Manager events you add a topic to.

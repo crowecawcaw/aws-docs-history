@@ -7,12 +7,11 @@ you specify.
 
 ## State Manager and Maintenance Windows: Key use cases
 
-State Manager, a tool in AWS Systems Manager, sets and maintains the targeted state configuration
+State Manager sets and maintains the targeted state configuration
 for managed nodes and AWS resources within your AWS account. You can define
-combinations of configurations and targets as association objects. State Manager is the
-recommended tool if you want to maintain all managed nodes in your account in a
-consistent state, use Amazon EC2 Auto Scaling to generate new nodes, or have strict compliance
-reporting requirements for the managed nodes in your account.
+combinations of configurations and targets as association objects. Use State Manager if you
+want to maintain a consistent state across all managed nodes, use Amazon EC2 Auto Scaling to generate
+new nodes, or have strict compliance reporting requirements.
 
 The main use cases for State Manager are as follows:
 
@@ -29,10 +28,9 @@ The main use cases for State Manager are as follows:
 A **maintenance window** takes one or more actions on
 AWS resources within a given time window. You can define a single maintenance
 window with start and end times. You can specify multiple tasks to run within this
-maintenance window. Use Maintenance Windows, a tool in AWS Systems Manager, if your high priority
-operations include patching your managed nodes, running multiple types of tasks on
-your nodes during an update period, or controlling when update operations can be run
-on your nodes.
+maintenance window. Use Maintenance Windows if your priorities
+include patching managed nodes, running multiple task types during
+an update period, or controlling when updates run.
 
 The main use cases for Maintenance Windows are as follows:
 
@@ -42,10 +40,9 @@ The main use cases for Maintenance Windows are as follows:
   maintenance window.
 - **Patching:** A maintenance window can provide
   patching support for all managed nodes in a single Region that are tagged with a
-  specific tag or resource group. Because patching usually involves bringing down
-  nodes (for example, removing nodes from a load balancer), patching, and post
-  processing (putting nodes back into production), patching can be achieved as a
-  series of tasks within a given patch time window.
+  specific tag or resource group. Patching usually involves removing nodes from a
+  load balancer, applying patches, and putting nodes back into production. You can
+  achieve this as a series of tasks within a patch time window.
 
 ###### Note
 

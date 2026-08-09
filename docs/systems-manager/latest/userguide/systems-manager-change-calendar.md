@@ -1,6 +1,6 @@
 # AWS Systems Manager Change Calendar
 
-Change Calendar, a tool in AWS Systems Manager, allows you to set up date and time ranges when actions you
+With Change Calendar, you can set up date and time ranges when actions you
 specify (for example, in [Systems Manager Automation](systems-manager-automation.md "systems-manager-automation.md")
 runbooks) might or might not be performed in your AWS account. In Change Calendar, these ranges
 are called _events_. When you create a Change Calendar entry, you're creating a

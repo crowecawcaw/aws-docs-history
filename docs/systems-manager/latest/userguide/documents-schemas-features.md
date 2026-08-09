@@ -59,13 +59,12 @@ system is evaluated before the `precondition`. For documents that use
 schema 2.0 or earlier, incompatible plugins throw an error.
 
 For example, in a schema version 2.2 document, if `precondition` isn't
-specified and the `aws:runShellScript` plugin is listed, then the step
-runs on Linux instances, but the system skips it on Windows Server instances because the
-`aws:runShellScript` isn't compatible with Windows Server instances.
-However, for a schema version 2.0 document, if you specify the
-`aws:runShellScript` plugin, and then run the document on a Windows Server
-instances, the execution fails. You can see an example of the precondition parameter
-in an SSM document later in this section.
+specified and the `aws:runShellScript` plugin is listed, the step
+runs on Linux instances but is skipped on Windows Server instances. This is because
+`aws:runShellScript` isn't compatible with Windows Server.
+In a schema version 2.0 document, specifying
+`aws:runShellScript` and running the document on a Windows Server
+instance causes the execution to fail.
 
 ## Schema version 2.2
 
@@ -401,8 +400,7 @@ doesn’t use double braces: `{{ }}`
 
 ###### Schema version 2.2 State Manager example
 
-You can use the following SSM document with State Manager, a tool in Systems Manager,
-to download and install the ClamAV antivirus software. State Manager enforces a
+You can use the following SSM document with State Manager to download and install the ClamAV antivirus software. State Manager enforces a
 specific configuration, which means that each time the State Manager association
 is run, the system checks to see if the ClamAV software is installed. If
 not, State Manager reruns this document.
@@ -613,7 +611,7 @@ description: 'Install or uninstall the latest version or specified version of an
   AwsVssComponents, and AmazonCloudWatchAgent, and AWSSupport-EC2Rescue.'
 parameters:
   action:
-    description: "(Required) Specify whether or not to install or uninstall the package."
+    description: "(Required) Specify whether to install or uninstall the package."
     type: String
     allowedValues:
     - Install
@@ -642,7 +640,7 @@ JSON
    "description": "Install or uninstall the latest version or specified version of an AWS package. Available packages include the following: AWSPVDriver, AwsEnaNetworkDriver, AwsVssComponents, and AmazonCloudWatchAgent, and AWSSupport-EC2Rescue.",
    "parameters": {
       "action": {
-         "description":"(Required) Specify whether or not to install or uninstall the package.",
+         "description":"(Required) Specify whether to install or uninstall the package.",
          "type":"String",
          "allowedValues":[
             "Install",

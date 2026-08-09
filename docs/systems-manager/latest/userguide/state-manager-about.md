@@ -1,6 +1,6 @@
 # Understanding how State Manager works
 
-State Manager, a tool in AWS Systems Manager, is a secure and scalable service that automates the
+State Manager is a secure and scalable service that automates the
 process of keeping managed nodes in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") infrastructure in a state that you
 define.
 

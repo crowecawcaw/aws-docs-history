@@ -36,8 +36,8 @@ You can perform the following actions on this page:
 
 - Choose the options menu in a widget to view display options. Choose
   **Enlarge** to expand a widget. Choose
-  **Refresh** to update the data in a widget. Click and
-  drag your cursor in a widget data display to select a specific range. You
+  **Refresh** to update the data in a widget. Select
+  a range in a widget data display to view a specific time range. You
   can then choose **Apply time range**.
 
 ![Alarm widget options in Application Manager.](images/application-manager-Monitoring-3.png)

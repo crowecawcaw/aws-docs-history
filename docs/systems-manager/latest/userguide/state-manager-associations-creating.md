@@ -1,6 +1,6 @@
 # Creating associations
 
-State Manager, a tool in AWS Systems Manager, helps you keep your AWS resources in a state that
+State Manager helps you keep your AWS resources in a state that
 you define and reduce configuration drift. To do this, State Manager uses associations.
 An _association_ is a configuration that you assign to your AWS
 resources. The configuration defines the state that you want to maintain on your
@@ -46,9 +46,9 @@ The system also runs associations according to the following rules:
 
 - State Manager attempts to run the association on all specified or targeted
   nodes during an interval.
-- If an association doesn't run during an interval (because, for example, a
-  concurrency value limited the number of nodes that could process the
-  association at one time), then State Manager attempts to run the association
+- If an association doesn't run during an interval (for example, because a
+  concurrency value limited the number of nodes that could process it),
+  State Manager attempts to run the association
   during the next interval.
 - State Manager runs the association after changes to the association's
   configuration, target nodes, documents, or parameters. For more information,

@@ -1,6 +1,6 @@
 # Setting up Fleet Manager
 
-Before users in your AWS account can use Fleet Manager, a tool in AWS Systems Manager, to monitor
+Before users in your AWS account can use Fleet Manager to monitor
 and manage your managed nodes, they must be granted the necessary permissions. In
 addition, any Amazon Elastic Compute Cloud (Amazon EC2) instances; AWS IoT Greengrass core devices; and on-premises
 servers, edge devices, and virtual machines (VMs) to be monitored and managed using
@@ -17,7 +17,7 @@ machines meet the requirements for managed nodes.
 
 ###### Tip
 
-You can also use Quick Setup, a tool in AWS Systems Manager, to help you quickly
+You can also use Quick Setup to help you quickly
 configure your Amazon EC2 instances as managed instances in an individual
 account. If your business or organization uses AWS Organizations, you can also
 configure instances across multiple organizational units (OUs) and

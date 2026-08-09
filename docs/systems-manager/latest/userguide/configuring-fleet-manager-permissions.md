@@ -1,6 +1,6 @@
 # Controlling access to Fleet Manager
 
-To use Fleet Manager, a tool in AWS Systems Manager, your AWS Identity and Access Management (IAM) user or role must
+To use Fleet Manager, your AWS Identity and Access Management (IAM) user or role must
 have the required permissions. You can create an IAM policy that provides access
 to all Fleet Manager features, or modify your policy to grant access to the features you
 choose. You then grant these permissions to users, or identities, in your

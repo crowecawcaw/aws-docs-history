@@ -1,6 +1,6 @@
 # Specify an idle session timeout value
 
-Session Manager, a tool in AWS Systems Manager, allows you to specify the amount of time to
+With Session Manager, you can specify the amount of time to
 allow a user to be inactive before the system ends a session. By default,
 sessions time out after 20 minutes of inactivity. You can modify this setting to
 specify that a session times out between 1 and 60 minutes of inactivity. Some

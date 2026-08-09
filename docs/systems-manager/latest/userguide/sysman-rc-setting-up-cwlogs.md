@@ -1,6 +1,6 @@
 # Configuring Amazon CloudWatch Logs for Run Command
 
-When you send a command by using Run Command, a tool in AWS Systems Manager, you can specify where
+When you send a command by using Run Command, you can specify where
 you want to send the command output. By default, Systems Manager returns only the first 24,000
 characters of the command output. If you want to view the full details of the command
 output, you can specify an Amazon Simple Storage Service (Amazon S3) bucket. Or you can specify Amazon CloudWatch Logs. If you

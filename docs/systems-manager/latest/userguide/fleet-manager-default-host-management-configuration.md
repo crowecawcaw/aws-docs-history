@@ -34,7 +34,7 @@ see [AWS managed policy: AmazonSSMManagedEC2InstanceDefaultPolicy](security-iam-
 
 The procedures in this topic are intended to be performed only by administrators.
 Therefore, we recommend implementing _least privilege
-access_ in order to prevent non-administrative users from configuring
+access_ to prevent non-administrative users from configuring
 or modifying the Default Host Management Configuration. To view example policies
 that restrict access to the Default Host Management Configuration, see [Least privilege policy examples for Default Host Management Configuration](#least-privilege-examples "#least-privilege-examples")
 later in this topic.
@@ -58,7 +58,7 @@ permissions to your instance, or recreate the instance.
 
 ## Prerequisites
 
-In order to use Default Host Management Configuration in the AWS Region and
+To use Default Host Management Configuration in the AWS Region and
 AWS account where you activate the setting, the following requirements must be
 met.
 

@@ -1,6 +1,6 @@
 # Running commands from the console
 
-You can use Run Command, a tool in AWS Systems Manager, from the AWS Management Console to configure managed
+You can use Run Command from the AWS Management Console to configure managed
 nodes without having to log into them. This topic includes an example that shows how
 to [update SSM Agent](run-command-tutorial-update-software.md#rc-console-agentexample "run-command-tutorial-update-software.md#rc-console-agentexample") on a managed node
 by using Run Command.

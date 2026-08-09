@@ -1,6 +1,6 @@
 # Create OpsItems
 
-After you set up OpsCenter, a tool in AWS Systems Manager, and integrate it with your
+After you set up OpsCenter, and integrate it with your
 AWS services, your AWS services automatically create OpsItems based on default rules,
 events, or alarms.
 

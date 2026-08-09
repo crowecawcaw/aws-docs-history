@@ -222,7 +222,7 @@ behalf:
 - `AWS-QuickSetup-SSM-RoleForEnablingExplorer` – Grants
   permissions to the `AWS-EnableExplorer` automation runbook. The
   `AWS-EnableExplorer` runbook configures Explorer, a tool in
-  Systems Manager, to display information for multiple AWS accounts and
+  Systems Manager to display information for multiple AWS accounts and
   AWS Regions.
 - `AWSServiceRoleForAmazonSSM` – A service-linked role
   that grants access to AWS resources managed and used by Systems Manager.

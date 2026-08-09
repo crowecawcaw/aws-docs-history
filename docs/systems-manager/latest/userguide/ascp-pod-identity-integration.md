@@ -126,7 +126,7 @@ defaults to using IAM Roles for Service Accounts (IRSA).
 kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-provider-aws/main/examples/ExampleDeployment-PodIdentity.yaml
 ```
 
-6. If you use a private Amazon EKS cluster, make sure that the VPC that
+6. If you use a private Amazon EKS cluster, ensure the VPC that
    the cluster is in has an AWS STS endpoint. For information about
    creating an endpoint, see [Interface VPC endpoints](../../../IAM/latest/UserGuide/reference_interface_vpc_endpoints.md "../../../IAM/latest/UserGuide/reference_interface_vpc_endpoints.md") in the _AWS Identity and Access Management User
    Guide_.
@@ -148,7 +148,7 @@ kubectl exec -it $(kubectl get pods | awk '/`pod-identity-deployment`/{print $1}
 1. Create a permissions policy that grants `ssm:GetParameters`
    and `ssm:DescribeParameters` permission to the parameters
    that the Pod needs to access.
-2. Create a parameter in Parameter Store, if you do not already have one. For
+2. Create a parameter in Parameter Store if you do not already have one. For
    information, see [Creating Parameter Store parameters in Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
 
 ## Troubleshoot

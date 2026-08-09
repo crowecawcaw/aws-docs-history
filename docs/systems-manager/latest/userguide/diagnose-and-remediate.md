@@ -8,7 +8,7 @@ working in a single account, you can select targets in a single Region at a time
 
 Systems Manager can diagnose and help you remediate several types of deployment failures, as well as
 drifted configurations. Systems Manager can also identify Amazon Elastic Compute Cloud (Amazon EC2) instances in your account
-or organization that Systems Manager isn't able to treat as a _managed
+or organization that Systems Manager can't treat as a _managed
 node_. The EC2 instance diagnosis process can identify issues related to
 misconfigurations for a virtual private cloud (VPC), in a Domain Name Service (DNS) setting,
 or in an Amazon Elastic Compute Cloud (Amazon EC2) security group.
@@ -29,7 +29,7 @@ more information, see [Create the IAM service role required for Systems Manager 
 
 ###### Before you begin
 
-In order to use the **Diagnose and remediate** feature to detect
+To use the **Diagnose and remediate** feature to detect
 unmanaged EC2 instances, you must first onboard your organization or account to the
 unified Systems Manager console. During this process, you must choose the option to create IAM
 roles and managed policies required for these operations. For more information, see

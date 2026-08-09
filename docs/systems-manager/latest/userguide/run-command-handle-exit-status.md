@@ -5,7 +5,7 @@ codes.
 
 ## Specify exit codes in commands
 
-Using Run Command, a tool in AWS Systems Manager, you can specify exit codes to determine how
+Using Run Command, you can specify exit codes to determine how
 commands are handled. By default, the exit code of the last command run in a script
 is reported as the exit code for the entire script. For example, you have a script
 that contains three commands. The first one fails but the following ones succeed.

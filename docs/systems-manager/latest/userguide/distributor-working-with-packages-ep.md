@@ -1,6 +1,6 @@
 # Edit Distributor package permissions in the console
 
-After you add a package to Distributor, a tool in AWS Systems Manager, you can edit the
+After you add a package to Distributor, you can edit the
 package's permissions in the Systems Manager console. You can add other AWS accounts to a
 package's permissions. Packages can be shared with other accounts in the same
 AWS Region only. Cross-Region sharing isn't supported. By default, packages are
