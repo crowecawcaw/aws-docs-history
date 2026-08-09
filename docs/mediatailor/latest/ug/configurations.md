@@ -15,6 +15,7 @@ information about setting up your CDN, see [Using a CDN to optimize MediaTailor 
 - [Understanding AWS Elemental MediaTailor ad insertion behavior](ad-behavior.md "ad-behavior.md")
 - [MediaTailor server-guided ad insertion overview and implementation](server-guided.md "server-guided.md")
 - [MediaTailor ad server integration requirements](vast.md "vast.md")
+- [Ad buffet](ad-buffet.md "ad-buffet.md")
 - [MediaTailor playback configuration management](working-with-configurations.md "working-with-configurations.md")
 - [Integrating a content source for MediaTailor ad insertion](integrating-origin.md "integrating-origin.md")
 - [Integrating AWS Elemental MediaTailor with Google's ad platforms](gam-integration.md "gam-integration.md")

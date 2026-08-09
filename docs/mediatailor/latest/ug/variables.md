@@ -18,6 +18,9 @@ MediaTailor supports four types of dynamic variables:
   by your video player. See [MediaTailor player variables for ADS requests](variables-player.md "variables-player.md").
 - **Domain variables** with **Configuration aliases** – Dynamic URL domains for multi-origin
   configurations.
+- **Service variables** – Reserved
+  `aws.*` parameters that control session-level behavior in MediaTailor.
+  See [Service variables](variables-service.md "variables-service.md").
 - **Configuration aliases** – Predefined
   mappings for dynamic variable replacement. See [Configuration
   aliases](configuration-aliases-overview.md "configuration-aliases-overview.md").
@@ -38,6 +41,7 @@ Use dynamic ad variables to:
 - [Session variables](variables-session.md "variables-session.md")
 - [Player variables](variables-player.md "variables-player.md")
 - [Domain variables](variables-domains.md "variables-domains.md")
+- [Service variables](variables-service.md "variables-service.md")
 - [Configuration
   aliases](configuration-aliases-overview.md "configuration-aliases-overview.md")
 - [Passing ADS
