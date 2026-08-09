@@ -10,7 +10,7 @@ latest version. For prior versions, see the _Archive_ section of
 
 ![](images/install-licorderdetail-shared-png.png) 3. On the **License Information** page, choose **Generate**.
 
-![](/images/elemental-cf2/latest/installguide/images/install-licinfo-shared-png.png) 4. On the **Generate Licenses** page, select **Choose File** to browse to and select your `.key` file. 5. This returns you to the **Generate Licenses** page,
+![](images/install-licinfo-shared-png.png) 4. On the **Generate Licenses** page, select **Choose File** to browse to and select your `.key` file. 5. This returns you to the **Generate Licenses** page,
 with your `.key` file selected. Choose **Upload License Key**.
 
 ![](images/install-genlic-shared-png.png) 6. This takes you to the **View Licenses** page, where you can download a `.tgz` file. This is a compressed, aggregated file that contains all the license files that you need for this system.
