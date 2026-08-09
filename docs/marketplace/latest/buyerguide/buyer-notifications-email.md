@@ -1,43 +1,53 @@
 # Email and chatbot notifications for AWS Marketplace events
 
-###### Default Email Notifications
+###### Update your email filters
+
+When you opt in to managed notifications, AWS Marketplace email is sent from `marketplace@aws.com` instead of `no-reply@marketplace.aws`. If you filter, forward, or allowlist AWS Marketplace email, update your rules to allow `marketplace@aws.com` so you don't miss notifications. All accounts are enrolled in the new experience automatically by January 2027.
+
+###### Default email notifications
 
 As a buyer in AWS Marketplace, you automatically receive email notifications when the following events occur:
 
 - You accept an offer
 - A seller publishes a private offer set to your account
-- A seller publishes a new private offer that is related to a private offer that you
-  accepted previously
+- A seller publishes a new private offer related to a private offer you accepted previously
 - A seller publishes an update to a previously accepted offer
 - An agreement is expiring in the next 30, 60, or 90 days (contract model)
 - A seller submits an agreement cancellation request for your review
 - An agreement cancellation request is approved (or auto-approved), denied, or withdrawn
 - A billing adjustment (refund) is processed for one of your agreements
-  These notifications are sent by default to the email address associated with your AWS account ID. No setup is required.
+  These notifications are sent to your account's root user email address. They are moving to AWS User Notifications—opt in to start receiving them from `marketplace@aws.com` and to add more recipients and delivery channels.
 
 ###### Note
 
-If you are missing AWS Marketplace emails, check your spam folder or adjust email settings. Email
-notifications from AWS Marketplace are sent from `no-reply@marketplace.aws`. Providers such
-as Google and Yahoo may filter these. For instructions, see [Prevent valid emails from going to Spam (Google)](https://support.google.com/mail/answer/1366858?sjid=4026678185875351798-NA#unmark_spam "https://support.google.com/mail/answer/1366858?sjid=4026678185875351798-NA#unmark_spam") or [Block and unblock email addresses in Yahoo
-Mail](https://help.yahoo.com/kb/SLN28140.html "https://help.yahoo.com/kb/SLN28140.html").
+If you are missing AWS Marketplace emails, check your spam folder or adjust email settings. When you opt in to managed notifications, email is sent from `marketplace@aws.com`, otherwise it is sent from `no-reply@marketplace.aws`. Add the sending address to your allowed senders. Providers such as Google and Yahoo may filter these—see [Prevent valid emails from going to Spam (Google)](https://support.google.com/mail/answer/1366858?sjid=4026678185875351798-NA#unmark_spam "https://support.google.com/mail/answer/1366858?sjid=4026678185875351798-NA#unmark_spam") or [Block and unblock email addresses in Yahoo Mail](https://help.yahoo.com/kb/SLN28140.html "https://help.yahoo.com/kb/SLN28140.html").
 
-###### Custom Notifications with AWS User Notifications
+###### Managed notifications (recommended)
 
-For more flexibility and control, you can use _AWS User Notifications_ to route specific AWS Marketplace events to custom delivery channels. This allows you to:
+AWS Marketplace buyer notifications are delivered through [AWS User Notifications managed notifications](../../../notifications/latest/userguide/managed-notifications.md "../../../notifications/latest/userguide/managed-notifications.md"). Opt in to:
 
-- **Target specific teams** - Send agreement expiration notices to procurement, billing updates to finance teams, etc.
-- **Choose delivery channels** - Receive notifications via email distribution lists, Amazon Chime, Microsoft Teams, or Slack
-- **Create custom notification rules** - Configure exactly which events trigger notifications and who receives them
+- View notifications in the console notification center
+- Receive them by email (your root user address plus additional addresses you add), in the AWS Console Mobile Application, and in Amazon Q Developer in chat applications
+- Subscribe by category—Products and Solutions, Agreements and Subscriptions, Private Offers, and Pricing Changes
+  Notifications are sent from `marketplace@aws.com`.
 
-###### Example: Notifying Your Procurement Team About Expiring Agreements
+###### Opt in and add delivery channels
 
-If you'd like to notify your procurement team when agreements are expiring, you can:
+To opt in to managed notifications and choose how you receive them:
 
-1. Navigate to the AWS User Notifications Console
-2. Find the **Notification Configurations** section
-3. Choose **Create notification configuration**
-4. Add a name and description
+1. Open the [Managed notifications](https://console.aws.amazon.com/notifications/home#/managed-notifications "https://console.aws.amazon.com/notifications/home#/managed-notifications") page in the AWS User Notifications console. You can also open the AWS Marketplace **Notifications** page in the console and choose **AWS managed notifications subscriptions**.
+2. AWS Marketplace notifications are grouped by category: Products and Solutions, Agreements and Subscriptions, Private Offers, and Pricing Changes. For each category you want to receive, choose the account contacts that are notified.
+3. Add delivery channels. By default, notifications are sent to your account's root user email address. You can add more email addresses, Amazon Q Developer in chat applications (such as Slack and Microsoft Teams), and the AWS Console Mobile Application.
+   For detailed steps, see [AWS managed notification subscriptions](../../../notifications/latest/userguide/manage-mns.md "../../../notifications/latest/userguide/manage-mns.md") in the _AWS User Notifications User Guide_.
+
+###### Create a custom notification configuration (optional)
+
+Beyond the preceding category subscriptions, you can build your own notification configuration in AWS User Notifications to route a specific event to specific recipients. For example, to notify your procurement team when agreements are expiring:
+
+1. Open the AWS User Notifications console at [https://console.aws.amazon.com/notifications/](https://console.aws.amazon.com/notifications/ "https://console.aws.amazon.com/notifications/").
+2. Find the **Notification Configurations** section.
+3. Choose **Create notification configuration**.
+4. Add a name and description.
 5. **Create an Event Rule:**
 
    - Choose **AWS Marketplace Agreement Service** as the service name
@@ -55,6 +65,10 @@ If you'd like to notify your procurement team when agreements are expiring, you 
 In order to verify the email address, make sure that a user with access to the AWS console is part of the distribution list. From there, you may add and remove emails to the list without having to verify again.
 
 ![Pattern builder section showing AWS Marketplace Agreement Service selected with Purchase Agreement Ending - Acceptor event type and US East N. Virginia region.](images/UNO-Agreement-Ending-example.png)
+
+###### Legacy email notifications (being retired)
+
+Previously, AWS Marketplace sent buyer email from `no-reply@marketplace.aws` to your root user email address only. This experience is being retired—all accounts move to managed notifications by January 2027. To avoid interruption, opt in to managed notifications and update any email rules to allow `marketplace@aws.com`.
 
 ###### Learn More
 
