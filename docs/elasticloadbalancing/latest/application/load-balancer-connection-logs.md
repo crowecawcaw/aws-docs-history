@@ -154,20 +154,21 @@ If the load balancer is unable to establish a connection, the load balancer
 stores one of the following reason codes in the connection
 log.
 
-| Code                              | Description                                                  |
-| --------------------------------- | ------------------------------------------------------------ |
-| `ClientCertMaxChainDepthExceeded` | The maximum client certificate chain depth has been exceeded |
-| `ClientCertMaxSizeExceeded`       | The maximum client certificate size has been exceeded        |
-| `ClientCertCrlHit`                | Client certificate has been revoked by the CA                |
-| `ClientCertCrlProcessingError`    | CRL processing error                                         |
-| `ClientCertUntrusted`             | Client certificate is untrusted                              |
-| `ClientCertNotYetValid`           | Client certificate is not yet valid                          |
-| `ClientCertExpired`               | Client certificate is expired                                |
-| `ClientCertTypeUnsupported`       | Client certificate type is unsupported                       |
-| `ClientCertInvalid`               | Client certificate is invalid                                |
-| `ClientCertPurposeInvalid`        | Client certificate purpose is invalid                        |
-| `ClientCertRejected`              | Client certificate is rejected by custom server validation   |
-| `UnmappedConnectionError`         | Unmapped runtime connection error                            |
+| Code                              | Description                                                                 |
+| --------------------------------- | --------------------------------------------------------------------------- |
+| `ClientCertMaxChainDepthExceeded` | The maximum client certificate chain depth has been exceeded                |
+| `ClientCertMaxSizeExceeded`       | The maximum client certificate size has been exceeded                       |
+| `ClientCertCrlHit`                | Client certificate has been revoked by the CA                               |
+| `ClientCertCrlProcessingError`    | CRL processing error                                                        |
+| `ClientCertUntrusted`             | Client certificate is untrusted                                             |
+| `ClientCertNotYetValid`           | Client certificate is not yet valid                                         |
+| `ClientCertExpired`               | Client certificate is expired                                               |
+| `ClientCertTypeUnsupported`       | Client certificate type is unsupported                                      |
+| `ClientCertInvalid`               | Client certificate is invalid                                               |
+| `ClientCertPurposeInvalid`        | Client certificate purpose is invalid                                       |
+| `ClientCertRejected`              | Client certificate is rejected by custom server validation                  |
+| `UnmappedConnectionError`         | Unmapped runtime connection error                                           |
+| `ClientCertIncompatible`          | Client certificate is incompatible with the chosen listener security policy |
 
 ## Example log entries
 

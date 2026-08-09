@@ -38,6 +38,19 @@ for the secure connection.
     PQ-TLS, TLS 1.3 only, or TLS 1.2 only, thereby minimizing service disruption during the transition
     to post-quantum cryptography. You can progressively migrate to more restrictive security policies
     as your client applications develop the capability to negotiate PQ-TLS for key exchange operations.
+  - Security policies with RFC 9151 in their names help you comply with RFC 9151, which
+    defines TLS requirements for the Commercial National Security Algorithm (CNSA) 1.0
+    suite as specified by the US National Security Agency (NSA). To help with transition,
+    they are available in two categories: strict policies that enforce full RFC 9151
+    requirements, and interop policies (containing "INTEROP" in their name) that support
+    both RFC 9151-compliant and non-RFC 9151 ciphers to facilitate gradual transition.
+    We recommend starting with `ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07`
+    to minimize disruption, then gradually moving to stricter policies as clients support
+    RFC 9151. You can use the `tls_protocol`, `tls_cipher`, and
+    `tls_keyexchange` fields in ALB connection logs to monitor client connections.
+    For more information about RFC 9151, see
+    [RFC 9151](https://datatracker.ietf.org/doc/html/rfc9151 "https://datatracker.ietf.org/doc/html/rfc9151")
+    on the IETF website.
 
 - To meet compliance and security standards that require disabling certain TLS protocol versions, or to
   support legacy clients requiring deprecated ciphers, you can use one of the `ELBSecurityPolicy-TLS-`
@@ -63,6 +76,7 @@ for the secure connection.
   but not backend connections. The security policy for backend connections depends
   on the listener security policy. If any of your listeners are using:
 
+  - **RFC 9151 policy (including any interop policy)** – Backend connections use `ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07`
   - **FIPS post-quantum TLS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-FIPS-PQ-2025-09`
   - **FIPS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-FIPS-2023-04`
   - **Post-quantum TLS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-PQ-2025-09`
@@ -83,6 +97,12 @@ for the secure connection.
   - [Protocols by policy](describe-ssl-policies.md#fips-protocols "describe-ssl-policies.md#fips-protocols")
   - [Ciphers by policy](describe-ssl-policies.md#fips-policy-ciphers "describe-ssl-policies.md#fips-policy-ciphers")
   - [Policies by cipher](describe-ssl-policies.md#fips-cipher-policies "describe-ssl-policies.md#fips-cipher-policies")
+
+- [RFC 9151 (CNSA 1.0) security policies](describe-ssl-policies.md#rfc9151-security-policies "describe-ssl-policies.md#rfc9151-security-policies")
+
+  - [Protocols by policy](describe-ssl-policies.md#rfc9151-protocols "describe-ssl-policies.md#rfc9151-protocols")
+  - [Ciphers by policy](describe-ssl-policies.md#rfc9151-policy-ciphers "describe-ssl-policies.md#rfc9151-policy-ciphers")
+  - [Policies by cipher](describe-ssl-policies.md#rfc9151-cipher-policies "describe-ssl-policies.md#rfc9151-cipher-policies")
 
 - [FS supported policies](describe-ssl-policies.md#fs-supported-policies "describe-ssl-policies.md#fs-supported-policies")
 
@@ -303,6 +323,103 @@ The following table describes the FIPS security policies that support each ciphe
 | *_OpenSSL_<br>• – AES256-GCM-SHA384<br>*_IANA_<br>• – TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384                      | • ELBSecurityPolicy-TLS13-1-2-Ext2-FIPS-2023-04<br>• ELBSecurityPolicy-TLS13-1-2-Ext2-FIPS-PQ-2025-09<br>• ELBSecurityPolicy-TLS13-1-2-Ext1-FIPS-2023-04<br>• ELBSecurityPolicy-TLS13-1-1-FIPS-2023-04<br>• ELBSecurityPolicy-TLS13-1-2-Ext1-FIPS-PQ-2025-09<br>• ELBSecurityPolicy-TLS13-1-0-FIPS-2023-04<br>• ELBSecurityPolicy-TLS13-1-0-FIPS-PQ-2025-09                                                                                                                                                                                                                                                                                                                                                                                                               | 9d           |
 | *_OpenSSL_<br>• – AES256-SHA256<br>*_IANA_<br>• – TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA256                          | • ELBSecurityPolicy-TLS13-1-2-Ext2-FIPS-2023-04<br>• ELBSecurityPolicy-TLS13-1-2-Ext2-FIPS-PQ-2025-09<br>• ELBSecurityPolicy-TLS13-1-2-Ext1-FIPS-2023-04<br>• ELBSecurityPolicy-TLS13-1-2-Ext1-FIPS-PQ-2025-09<br>• ELBSecurityPolicy-TLS13-1-1-FIPS-2023-04<br>• ELBSecurityPolicy-TLS13-1-0-FIPS-2023-04<br>• ELBSecurityPolicy-TLS13-1-0-FIPS-PQ-2025-09                                                                                                                                                                                                                                                                                                                                                                                                               | 3d           |
 | *_OpenSSL_<br>• – AES256-SHA<br>*_IANA_<br>• – TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA                                | • ELBSecurityPolicy-TLS13-1-2-Ext2-FIPS-2023-04<br>• ELBSecurityPolicy-TLS13-1-2-Ext2-FIPS-PQ-2025-09<br>• ELBSecurityPolicy-TLS13-1-1-FIPS-2023-04<br>• ELBSecurityPolicy-TLS13-1-0-FIPS-2023-04<br>• ELBSecurityPolicy-TLS13-1-0-FIPS-PQ-2025-09                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 35           |
+
+## RFC 9151 (CNSA 1.0) security policies
+
+With Application Load Balancer, you can use security policies to comply with RFC 9151, which
+defines TLS requirements for the Commercial National Security Algorithm (CNSA) 1.0
+suite as specified by the US National Security Agency (NSA). RFC 9151 specifies how
+to use the CNSA suite with TLS 1.2 and TLS 1.3 protocols, defining the cryptographic
+requirements for secure communications that meet government security standards. To
+learn more about RFC 9151, see [RFC 9151](https://datatracker.ietf.org/doc/html/rfc9151 "https://datatracker.ietf.org/doc/html/rfc9151") on the IETF website.
+
+RFC 9151 policies are available in two categories:
+
+- **Strict policies** – Enforce strict RFC 9151 cipher and signature scheme requirements. Use these when all your clients can support RFC 9151.
+- **Interop policies** – Support both RFC 9151-compliant and non-RFC 9151 ciphers and signature schemes to facilitate a gradual transition to RFC 9151 compliance. Use these when you are uncertain whether all clients can support RFC 9151, or you want to avoid disrupting clients during the transition. All interop policies contain "INTEROP" in their policy name.
+
+We recommend starting with the interop policy `ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07`,
+which supports clients that can negotiate classical TLS 1.3, TLS 1.2, or strict RFC 9151
+algorithms, minimizing disruption. You can gradually move to stricter policies as your
+clients can negotiate strict RFC 9151. You can use the `tls_protocol`,
+`tls_cipher`, and `tls_keyexchange` fields in ALB connection logs
+to monitor how clients are connecting.
+
+###### Important
+
+When you select an RFC 9151 security policy for your listener, the load balancer
+uses `ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07` for backend
+connections to targets and other services. However, the load balancer cannot guarantee
+or enforce RFC 9151 compliance on egress connections, including connections to targets,
+or customer-configured external services (such as third-party identity providers or
+authentication endpoints).
+
+It is your responsibility to ensure the following:
+
+- Your targets and any external services you configure can support the protocols and ciphers in the backend connection policy.
+- For strict RFC 9151 compliance between the load balancer and your targets, your targets must have RFC 9151-compliant certificates and ciphers implemented.
+- If your backend targets only support TLS 1.0 or TLS 1.1, connections will fail. You must update the protocols and ciphers on your targets to align with the ciphers supported by the `ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07` policy.
+
+###### Contents
+
+- [Protocols by policy](#rfc9151-protocols "#rfc9151-protocols")
+- [Ciphers by policy](#rfc9151-policy-ciphers "#rfc9151-policy-ciphers")
+- [Policies by cipher](#rfc9151-cipher-policies "#rfc9151-cipher-policies")
+
+### Protocols by policy
+
+The following table describes the protocols that each RFC 9151 security policy supports.
+
+| Security policies                                         | TLS 1.3 | TLS 1.2 | TLS 1.1 | TLS 1.0 |
+| --------------------------------------------------------- | ------- | ------- | ------- | ------- |
+| ELBSecurityPolicy-TLS13-1-3-RFC9151-FIPS-2023-07          | Yes     | No      | No      | No      |
+| ELBSecurityPolicy-TLS13-1-2-RFC9151-FIPS-2023-07          | Yes     | Yes     | No      | No      |
+| ELBSecurityPolicy-TLS13-1-2-Ext0-RFC9151-FIPS-2023-07     | Yes     | Yes     | No      | No      |
+| ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP1-FIPS-2023-07 | Yes     | Yes     | No      | No      |
+| ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP2-FIPS-2023-07 | Yes     | Yes     | No      | No      |
+| ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07 | Yes     | Yes     | No      | No      |
+| ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07 | Yes     | Yes     | No      | No      |
+
+### Ciphers by policy
+
+The following table describes the ciphers that each RFC 9151 security policy supports.
+
+| Security policy                                           | Ciphers                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ELBSecurityPolicy-TLS13-1-3-RFC9151-FIPS-2023-07          | • TLS\_AES\_256\_GCM\_SHA384                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ELBSecurityPolicy-TLS13-1-2-RFC9151-FIPS-2023-07          | • TLS\_AES\_256\_GCM\_SHA384<br>• ECDHE-ECDSA-AES256-GCM-SHA384<br>• ECDHE-RSA-AES256-GCM-SHA384                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ELBSecurityPolicy-TLS13-1-2-Ext0-RFC9151-FIPS-2023-07     | • TLS\_AES\_256\_GCM\_SHA384<br>• ECDHE-ECDSA-AES256-GCM-SHA384<br>• ECDHE-RSA-AES256-GCM-SHA384<br>• AES256-GCM-SHA384                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP1-FIPS-2023-07 | • TLS\_AES\_256\_GCM\_SHA384<br>• TLS\_AES\_128\_GCM\_SHA256<br>• ECDHE-ECDSA-AES256-GCM-SHA384<br>• ECDHE-RSA-AES256-GCM-SHA384<br>• ECDHE-ECDSA-AES128-GCM-SHA256<br>• ECDHE-RSA-AES128-GCM-SHA256                                                                                                                                                                                                                                                                                                                                                         |
+| ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP2-FIPS-2023-07 | • TLS\_AES\_256\_GCM\_SHA384<br>• TLS\_AES\_128\_GCM\_SHA256<br>• ECDHE-ECDSA-AES256-GCM-SHA384<br>• ECDHE-RSA-AES256-GCM-SHA384<br>• ECDHE-ECDSA-AES128-GCM-SHA256<br>• ECDHE-RSA-AES128-GCM-SHA256<br>• ECDHE-ECDSA-AES256-SHA384<br>• ECDHE-RSA-AES256-SHA384<br>• ECDHE-ECDSA-AES128-SHA256<br>• ECDHE-RSA-AES128-SHA256                                                                                                                                                                                                                                 |
+| ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07 | • TLS\_AES\_256\_GCM\_SHA384<br>• TLS\_AES\_128\_GCM\_SHA256<br>• ECDHE-ECDSA-AES256-GCM-SHA384<br>• ECDHE-RSA-AES256-GCM-SHA384<br>• ECDHE-ECDSA-AES256-SHA384<br>• ECDHE-RSA-AES256-SHA384<br>• ECDHE-ECDSA-AES256-SHA<br>• ECDHE-RSA-AES256-SHA<br>• ECDHE-ECDSA-AES128-GCM-SHA256<br>• ECDHE-RSA-AES128-GCM-SHA256<br>• ECDHE-ECDSA-AES128-SHA256<br>• ECDHE-RSA-AES128-SHA256<br>• ECDHE-ECDSA-AES128-SHA<br>• ECDHE-RSA-AES128-SHA                                                                                                                     |
+| ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07 | • TLS\_AES\_256\_GCM\_SHA384<br>• TLS\_AES\_128\_GCM\_SHA256<br>• ECDHE-ECDSA-AES256-GCM-SHA384<br>• ECDHE-RSA-AES256-GCM-SHA384<br>• ECDHE-ECDSA-AES256-SHA384<br>• ECDHE-RSA-AES256-SHA384<br>• ECDHE-ECDSA-AES256-SHA<br>• ECDHE-RSA-AES256-SHA<br>• ECDHE-ECDSA-AES128-GCM-SHA256<br>• ECDHE-RSA-AES128-GCM-SHA256<br>• ECDHE-ECDSA-AES128-SHA256<br>• ECDHE-RSA-AES128-SHA256<br>• ECDHE-ECDSA-AES128-SHA<br>• ECDHE-RSA-AES128-SHA<br>• AES256-GCM-SHA384<br>• AES256-SHA256<br>• AES256-SHA<br>• AES128-GCM-SHA256<br>• AES128-SHA256<br>• AES128-SHA |
+
+### Policies by cipher
+
+The following table describes the RFC 9151 security policies that support each cipher.
+
+| Cipher name                                                                                                      | Security policies                                                                                                                                                                                                                                                                                                                                                                                                               | Cipher suite |
+| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| *_OpenSSL_<br>• – TLS\_AES\_256\_GCM\_SHA384<br>*_IANA_<br>• – TLS\_AES\_256\_GCM\_SHA384                        | • ELBSecurityPolicy-TLS13-1-3-RFC9151-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-Ext0-RFC9151-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP1-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP2-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07 | 1302         |
+| *_OpenSSL_<br>• – TLS\_AES\_128\_GCM\_SHA256<br>*_IANA_<br>• – TLS\_AES\_128\_GCM\_SHA256                        | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP1-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP2-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                        | 1301         |
+| *_OpenSSL_<br>• – ECDHE-ECDSA-AES256-GCM-SHA384<br>*_IANA_<br>• – TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 | • ELBSecurityPolicy-TLS13-1-2-RFC9151-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-Ext0-RFC9151-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP1-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP2-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                       | c02c         |
+| *_OpenSSL_<br>• – ECDHE-RSA-AES256-GCM-SHA384<br>*_IANA_<br>• – TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384     | • ELBSecurityPolicy-TLS13-1-2-RFC9151-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-Ext0-RFC9151-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP1-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP2-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                       | c030         |
+| *_OpenSSL_<br>• – AES256-GCM-SHA384<br>*_IANA_<br>• – TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384                      | • ELBSecurityPolicy-TLS13-1-2-Ext0-RFC9151-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                                                                                                                                                          | 9d           |
+| *_OpenSSL_<br>• – ECDHE-ECDSA-AES128-GCM-SHA256<br>*_IANA_<br>• – TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256 | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP1-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP2-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                        | c02b         |
+| *_OpenSSL_<br>• – ECDHE-RSA-AES128-GCM-SHA256<br>*_IANA_<br>• – TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256     | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP1-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP2-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                        | c02f         |
+| *_OpenSSL_<br>• – ECDHE-ECDSA-AES256-SHA384<br>*_IANA_<br>• – TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA384     | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP2-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                                                                                       | c024         |
+| *_OpenSSL_<br>• – ECDHE-RSA-AES256-SHA384<br>*_IANA_<br>• – TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384         | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP2-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                                                                                       | c028         |
+| *_OpenSSL_<br>• – ECDHE-ECDSA-AES128-SHA256<br>*_IANA_<br>• – TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_CBC\_SHA256     | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP2-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                                                                                       | c023         |
+| *_OpenSSL_<br>• – ECDHE-RSA-AES128-SHA256<br>*_IANA_<br>• – TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256         | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP2-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                                                                                       | c027         |
+| *_OpenSSL_<br>• – ECDHE-ECDSA-AES256-SHA<br>*_IANA_<br>• – TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA           | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                                                                                                                                                      | c00a         |
+| *_OpenSSL_<br>• – ECDHE-RSA-AES256-SHA<br>*_IANA_<br>• – TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA               | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                                                                                                                                                      | c014         |
+| *_OpenSSL_<br>• – ECDHE-ECDSA-AES128-SHA<br>*_IANA_<br>• – TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_CBC\_SHA           | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                                                                                                                                                      | c009         |
+| *_OpenSSL_<br>• – ECDHE-RSA-AES128-SHA<br>*_IANA_<br>• – TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA               | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP3-FIPS-2023-07<br>• ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                                                                                                                                                      | c013         |
+| *_OpenSSL_<br>• – AES256-SHA256<br>*_IANA_<br>• – TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA256                          | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                                                                                                                                                                                                                     | 3d           |
+| *_OpenSSL_<br>• – AES256-SHA<br>*_IANA_<br>• – TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA                                | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                                                                                                                                                                                                                     | 35           |
+| *_OpenSSL_<br>• – AES128-GCM-SHA256<br>*_IANA_<br>• – TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256                      | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                                                                                                                                                                                                                     | 9c           |
+| *_OpenSSL_<br>• – AES128-SHA256<br>*_IANA_<br>• – TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256                          | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                                                                                                                                                                                                                     | 3c           |
+| *_OpenSSL_<br>• – AES128-SHA<br>*_IANA_<br>• – TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA                                | • ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07                                                                                                                                                                                                                                                                                                                                                                     | 2f           |
 
 ## FS supported policies
 

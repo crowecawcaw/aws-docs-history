@@ -126,27 +126,43 @@ You can specify a single Outpost subnet. The following restrictions apply:
   - Automated target weights
   - FIPS security policies
 
-An Application Load Balancer can be deployed on c5/c5d, m5/m5d, or r5/r5d instances on an Outpost. The
+An Application Load Balancer can be deployed on c5/c5d, m5/m5d,
+r5/r5d, c7i, m7i, or r7i instances on an Outpost. The
 following table shows the size and EBS volume per instance type that the load balancer
 can use on an Outpost:
 
 | Instance type and size | EBS volume (GB) |
 | ---------------------- | --------------- |
 | **c5/c5d**             |
-| large                  | 50              |
-| xlarge                 | 50              |
-| 2xlarge                | 50              |
-| 4xlarge                | 100             |
+| large                  | 25              |
+| xlarge                 | 25              |
+| 2xlarge                | 25              |
+| 4xlarge                | 25              |
 | **m5/m5d**             |
-| large                  | 50              |
-| xlarge                 | 50              |
-| 2xlarge                | 100             |
-| 4xlarge                | 100             |
+| large                  | 25              |
+| xlarge                 | 25              |
+| 2xlarge                | 25              |
+| 4xlarge                | 25              |
 | **r5/r5d**             |
-| large                  | 50              |
-| xlarge                 | 100             |
-| 2xlarge                | 100             |
-| 4xlarge                | 100             |
+| large                  | 25              |
+| xlarge                 | 25              |
+| 2xlarge                | 25              |
+| 4xlarge                | 25              |
+| **c7i**                |
+| large                  | 25              |
+| xlarge                 | 25              |
+| 2xlarge                | 25              |
+| 4xlarge                | 25              |
+| **m7i**                |
+| large                  | 25              |
+| xlarge                 | 25              |
+| 2xlarge                | 25              |
+| 4xlarge                | 25              |
+| **r7i**                |
+| large                  | 25              |
+| xlarge                 | 25              |
+| 2xlarge                | 25              |
+| 4xlarge                | 25              |
 
 ## Load balancer security groups
 
