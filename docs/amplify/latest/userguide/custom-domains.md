@@ -42,6 +42,7 @@ When initiating a DomainAssociation request for an Amplify app with a domain tha
 - [Adding a custom domain managed by Amazon Route 53](to-add-a-custom-domain-managed-by-amazon-route-53.md "to-add-a-custom-domain-managed-by-amazon-route-53.md")
 - [Adding a custom domain managed by a third-party DNS provider](to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md "to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md")
 - [Updating DNS records for a domain managed by GoDaddy](to-add-a-custom-domain-managed-by-godaddy.md "to-add-a-custom-domain-managed-by-godaddy.md")
+- [Updating DNS records for a domain managed by Cloudflare](to-add-a-custom-domain-managed-by-cloudflare.md "to-add-a-custom-domain-managed-by-cloudflare.md")
 - [Updating the SSL/TLS certificate for a domain](to-update-certificate.md "to-update-certificate.md")
 - [Managing subdomains](to-manage-subdomains.md "to-manage-subdomains.md")
 - [Setting up wildcard subdomains](wildcard-subdomain-support.md "wildcard-subdomain-support.md")
