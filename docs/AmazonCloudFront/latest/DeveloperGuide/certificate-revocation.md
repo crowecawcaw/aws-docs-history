@@ -42,17 +42,22 @@ revoked certificates are terminated.
 
 CloudFront validates the entire certificate chain — the leaf certificate and up to
 three intermediate certificates — each against their respective OCSP
-responder URLs. Root certificates in the trust store are excluded from OCSP
-validation.
+responder URLs. Certificates in the trust store are treated as trust anchors and
+are excluded from OCSP validation. This applies to any certificate in the trust
+store, whether it is a root CA or an intermediate CA. When you place an
+intermediate CA in your trust store, it becomes a trust anchor and chain validation
+terminates at that certificate. Only the certificates below it in the
+chain are OCSP-validated.
 
 ### Enable OCSP
 
 Enable OCSP on your trust store. When enabled, CloudFront automatically performs
 OCSP validation for any client certificate that contains an OCSP responder URL
-in its Authority Information Access (AIA) extension. Once OCSP is enabled, the
-entire client certificate chain must have an OCSP URL. If any certificate in
-the client certificate chain doesn't contain an OCSP URL, CloudFront will not
-establish the connection.
+in its Authority Information Access (AIA) extension. Once OCSP is enabled, every
+certificate in the client certificate chain below the trust anchor must have an
+OCSP URL. If any certificate below the trust anchor doesn't contain an OCSP
+URL, CloudFront does not establish the connection. Certificates in the trust store
+(trust anchors) are exempt from this requirement.
 
 CloudFront caches OCSP responses at the edge to reduce round-trip time and protect
 against OCSP responder downtime. OCSP responses are cached for approximately 30

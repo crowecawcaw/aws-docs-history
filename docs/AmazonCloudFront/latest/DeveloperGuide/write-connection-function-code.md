@@ -93,10 +93,30 @@ below:
         "subject": "string",
         "validity": {
           "notBefore": "string",
-          "notAfter": "string",
+          "notAfter": "string"
         },
-        "sha256Fingerprint": "string"
-      }
+        "sha256Fingerprint": "string",
+        "ocspEndpoint": "string",
+        "san": "string",
+        "spki": "string",
+        "sanHex": "string"
+      },
+      "intermediates": [
+        {
+          "serialNumber": "string",
+          "issuer": "string",
+          "subject": "string",
+          "validity": {
+            "notBefore": "string",
+            "notAfter": "string"
+          },
+          "sha256Fingerprint": "string",
+          "ocspEndpoint": "string",
+          "san": "string",
+          "spki": "string",
+          "sanHex": "string"
+        }
+      ]
     }
   },
   "clientIp": "string",
@@ -120,11 +140,31 @@ Below is an example of the event object structure:
           "notBefore": "2025-09-10T23:43:10Z",
           "notAfter": "2055-09-11T00:43:02Z"
         },
-        "sha256Fingerprint": "_w6bJ7aOAlGOj7NUhJxTfsfee-ONg_xop3_PTgTJpqs="
-      }
+        "sha256Fingerprint": "_w6bJ7aOAlGOj7NUhJxTfsfee-ONg_xop3_PTgTJpqs=",
+        "ocspEndpoint": "http://ocsp.example.com",
+        "san": "DNS:api.example.com,DNS:www.example.com,URI:urn:example:client:123,IP Address:192.168.1.100,email:alejandro_rosalez@example.com",
+        "spki": "30820122300d06092a864886f70d01010105000382010f003082010a0282010100b8efe87db798500320936...",
+        "sanHex": "3058820f6170692e6578616d706c652e636f6d820f7777772e6578616d706c652e636f6d8619..."
+      },
+      "intermediates": [
+        {
+          "serialNumber": "00:d4:04:a5:fd:cb:20:37:54",
+          "issuer": "C=US, O=Example Corp, CN=Example Root CA",
+          "subject": "C=US, O=Example Corp, CN=Example Intermediate CA",
+          "validity": {
+            "notBefore": "2024-01-01T00:00:00Z",
+            "notAfter": "2034-01-01T23:59:59Z"
+          },
+          "sha256Fingerprint": "3a8c6b...",
+          "ocspEndpoint": "http://ocsp.example.com/intermediate",
+          "san": "DNS:ca.example.com,URI:urn:ca:intermediate:001",
+          "spki": "30820122300d06092a864886f70d01010105000382010f003082010a0282010100b389dd513b0f1f14cac1...",
+          "sanHex": "302b820e63612e6578616d706c652e636f6d..."
+        }
+      ]
     }
   },
-  "clientIp": "127.0.0.1",
+  "clientIp": "192.0.2.1",
   "endpoint": "d3lch071jze0cb.cloudfront.net",
   "distributionId": "E1NXS4MQZH501R",
   "connectionId": "NpvTe1925xfj24a67sPQr7ae42BIq03FGhJJKfrQYWZcWZFp96SIIg=="

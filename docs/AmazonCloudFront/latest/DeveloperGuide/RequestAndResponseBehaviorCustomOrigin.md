@@ -116,6 +116,11 @@ The `X-Forwarded-For` header contains IPv4 addresses (such as
 192.0.2.44) and IPv6 addresses (such as
 2001:0db8:85a3::8a2e:0370:7334).
 
+When parsing IPv6 addresses in the
+`X-Forwarded-For` header, use standard IP address
+parsing libraries that can handle any valid RFC 4291 IPv6
+format.
+
 Also note that the `X-Forwarded-For` header may be modified by
 every node on the path to the current server (CloudFront). For more information,
 see section 8.1 in [RFC 7239](https://datatracker.ietf.org/doc/html/rfc7239 "https://datatracker.ietf.org/doc/html/rfc7239").

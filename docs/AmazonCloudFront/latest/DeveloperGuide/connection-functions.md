@@ -108,17 +108,37 @@ The full specification of client certificate properties available on the connect
   "clientCertificate": {
     "certificates": {
       "leaf": {
-        "subject": "CN=client.example.com,O=Example Corp,C=US", // Distinguished Name (DN) of the certificate holder
-        "issuer": "CN=Example Corp Intermediate CA,O=Example Corp,C=US", // Distinguished Name (DN) of the certificate authority that issued this certificate
         "serialNumber": "4a:3f:5c:92:d1:e8:7b:6c", // Unique serial number assigned by the issuing CA (hexadecimal)
+        "issuer": "CN=Example Corp Intermediate CA,O=Example Corp,C=US", // Distinguished Name (DN) of the certificate authority that issued this certificate.
+        "subject": "CN=client.example.com,O=Example Corp,C=US", // Distinguished Name (DN) of the certificate holder.
         "validity": {
           "notBefore": "2024-01-15T00:00:00Z", // Certificate validity start date (ISO 8601 format)
           "notAfter": "2025-01-14T23:59:59Z"   // Certificate expiration date (ISO 8601 format)
         },
         "sha256Fingerprint": "a1b2c3d4e5f6...abc123def456", // SHA-256 hash of the certificate (64 hex characters)
+        "ocspEndpoint": "http://ocsp.example.com", // OCSP responder URL from the certificate's AIA extension.
+        "san": "DNS:client.example.com,DNS:api.example.com", // Subject Alternative Names.
+        "spki": "30820122300d06092a864886f70d01010105000382010f003082010a0282010100...", // Subject Public Key Info (DER-encoded, hex).
+        "sanHex": "3032820f636c69656e742e6578616d706c652e636f6d820f6170692e6578616d706c652e636f6d..." // Subject Alternative Names (DER-encoded, hex).
       },
-    },
-  },
+      "intermediates": [
+        {
+          "serialNumber": "00:d4:04:a5:fd:cb:20:37:54", // Serial number of the intermediate certificate.
+          "issuer": "CN=Example Corp Root CA,O=Example Corp,C=US", // Issuer of the intermediate certificate.
+          "subject": "CN=Example Corp Intermediate CA,O=Example Corp,C=US", // Subject of the intermediate certificate.
+          "validity": {
+            "notBefore": "2020-01-01T00:00:00Z",
+            "notAfter": "2030-01-01T23:59:59Z"
+          },
+          "sha256Fingerprint": "b2c3d4e5f6a1...def456abc123",
+          "ocspEndpoint": "http://ocsp.example.com/intermediate",
+          "san": "DNS:ca.example.com",
+          "spki": "30820122300d06092a864886f70d01010105000382010f003082010a0282010100b389dd513b...",
+          "sanHex": "3015820d63612e6578616d706c652e636f6d..."
+        }
+      ]
+    }
+  }
 }
 ```
 
