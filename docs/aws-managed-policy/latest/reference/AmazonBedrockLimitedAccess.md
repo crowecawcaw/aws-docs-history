@@ -12,13 +12,13 @@ You can attach `AmazonBedrockLimitedAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: June 29, 2025, 22:22 UTC
-- **Edited time:** April 09, 2026, 04:42 UTC
+- **Edited time:** August 04, 2026, 05:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonBedrockLimitedAccess`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -109,6 +109,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "bedrock-mantle:CreateInference"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "BedrockWebSearch",
+      "Effect" : "Allow",
+      "Action" : [
+        "bedrock-websearch:InvokeSearch",
+        "bedrock-websearch:InvokeFetch"
+      ],
+      "Resource" : "arn:aws:bedrock-websearch:*:*:*"
     },
     {
       "Sid" : "MarketplaceOperationsFromBedrockFor3pModels",

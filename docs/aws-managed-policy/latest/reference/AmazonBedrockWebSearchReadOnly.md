@@ -1,24 +1,24 @@
-# AmazonBedrockMantleFullAccess
+# AmazonBedrockWebSearchReadOnly
 
-**Description**: Provides full access to Amazon Bedrock Mantle as well as limited access to related services that are required by it
+**Description**: Provides read-only access to Amazon Bedrock Web Search. Data remains within the AWS network boundary.
 
-`AmazonBedrockMantleFullAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AmazonBedrockWebSearchReadOnly` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AmazonBedrockMantleFullAccess` to your users, groups, and roles.
+You can attach `AmazonBedrockWebSearchReadOnly` to your users, groups, and roles.
 
 ## Policy details
 
 - **Type**: AWS managed policy
-- **Creation time**: December 04, 2025, 07:19 UTC
-- **Edited time:** August 04, 2026, 04:42 UTC
+- **Creation time**: August 03, 2026, 16:57 UTC
+- **Edited time:** August 03, 2026, 16:57 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AmazonBedrockMantleFullAccess`
+  `arn:aws:iam::aws:policy/AmazonBedrockWebSearchReadOnly`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -30,35 +30,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "BedrockMantleAll",
-      "Effect" : "Allow",
-      "Action" : [
-        "bedrock-mantle:*"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "BedrockWebSearch",
+      "Sid" : "AmazonBedrockWebSearchReadOnly",
       "Effect" : "Allow",
       "Action" : [
         "bedrock-websearch:InvokeSearch",
         "bedrock-websearch:InvokeFetch"
       ],
       "Resource" : "arn:aws:bedrock-websearch:*:*:*"
-    },
-    {
-      "Sid" : "MarketplaceOperationsFromBedrockMantleFor3pModels",
-      "Effect" : "Allow",
-      "Action" : [
-        "aws-marketplace:Subscribe",
-        "aws-marketplace:ViewSubscriptions"
-      ],
-      "Resource" : "*",
-      "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaLast" : "bedrock-mantle.amazonaws.com"
-        }
-      }
     }
   ]
 }

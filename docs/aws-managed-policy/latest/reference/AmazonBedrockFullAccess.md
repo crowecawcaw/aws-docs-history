@@ -12,13 +12,13 @@ You can attach `AmazonBedrockFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: December 06, 2023, 15:47 UTC
-- **Edited time:** February 12, 2026, 17:59 UTC
+- **Edited time:** August 04, 2026, 05:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonBedrockFullAccess`
 
 ## Policy version
 
-**Policy version:** v10 (default)
+**Policy version:** v11 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -44,6 +44,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "bedrock-mantle:*"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "BedrockWebSearch",
+      "Effect" : "Allow",
+      "Action" : [
+        "bedrock-websearch:InvokeSearch",
+        "bedrock-websearch:InvokeFetch"
+      ],
+      "Resource" : "arn:aws:bedrock-websearch:*:*:*"
     },
     {
       "Sid" : "DescribeKey",

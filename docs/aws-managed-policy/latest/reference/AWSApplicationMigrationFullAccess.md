@@ -12,13 +12,13 @@ You can attach `AWSApplicationMigrationFullAccess` to your users, groups, and ro
 
 - **Type**: AWS managed policy
 - **Creation time**: April 07, 2021, 06:56 UTC
-- **Edited time:** July 23, 2026, 07:27 UTC
+- **Edited time:** August 03, 2026, 10:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSApplicationMigrationFullAccess`
 
 ## Policy version
 
-**Policy version:** v13 (default)
+**Policy version:** v14 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -303,6 +303,79 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:TagKeys" : [
             "map-migrated",
             "aws-apn-id"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "FSxDescribeOperations",
+      "Effect" : "Allow",
+      "Action" : [
+        "fsx:DescribeVolumes",
+        "fsx:DescribeSnapshots"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "mgn.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "FSxCreateVolume",
+      "Effect" : "Allow",
+      "Action" : "fsx:CreateVolume",
+      "Resource" : [
+        "arn:aws:fsx:*:*:volume/*/*",
+        "arn:aws:fsx:*:*:storage-virtual-machine/*/*"
+      ],
+      "Condition" : {
+        "Null" : {
+          "aws:RequestTag/AWSApplicationMigrationServiceManaged" : "false"
+        },
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "mgn.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "FSxDeleteVolumeAndTag",
+      "Effect" : "Allow",
+      "Action" : [
+        "fsx:DeleteVolume",
+        "fsx:TagResource"
+      ],
+      "Resource" : "arn:aws:fsx:*:*:volume/*/*",
+      "Condition" : {
+        "Null" : {
+          "aws:ResourceTag/AWSApplicationMigrationServiceManaged" : "false"
+        },
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "mgn.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "FSxCreateSnapshot",
+      "Effect" : "Allow",
+      "Action" : "fsx:CreateSnapshot",
+      "Resource" : [
+        "arn:aws:fsx:*:*:snapshot/*/*",
+        "arn:aws:fsx:*:*:volume/*/*"
+      ],
+      "Condition" : {
+        "Null" : {
+          "aws:RequestTag/AWSApplicationMigrationServiceManaged" : "false"
+        },
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "mgn.amazonaws.com"
           ]
         }
       }

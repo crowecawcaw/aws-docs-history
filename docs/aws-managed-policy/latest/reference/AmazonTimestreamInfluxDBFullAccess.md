@@ -12,13 +12,13 @@ You can attach `AmazonTimestreamInfluxDBFullAccess` to your users, groups, and r
 
 - **Type**: AWS managed policy
 - **Creation time**: March 14, 2024, 22:53 UTC
-- **Edited time:** February 12, 2026, 17:57 UTC
+- **Edited time:** August 03, 2026, 22:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonTimestreamInfluxDBFullAccess`
 
 ## Policy version
 
-**Policy version:** v17 (default)
+**Policy version:** v18 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -51,7 +51,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "timestream-influxdb:ListDbClusters",
         "timestream-influxdb:ListDbInstancesForCluster",
         "timestream-influxdb:RebootDbInstance",
-        "timestream-influxdb:RebootDbCluster"
+        "timestream-influxdb:RebootDbCluster",
+        "timestream-influxdb:CreateDbBackup",
+        "timestream-influxdb:GetDbBackup",
+        "timestream-influxdb:ListDbBackups",
+        "timestream-influxdb:DeleteDbBackup",
+        "timestream-influxdb:RestoreFromDbBackup"
       ],
       "Resource" : "arn:aws:timestream-influxdb:*:*:*"
     },
