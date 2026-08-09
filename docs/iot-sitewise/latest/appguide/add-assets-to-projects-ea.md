@@ -21,10 +21,10 @@ assets.
 
 1. In the navigation bar, choose the **Assets** icon.
 
-![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png) 2. (Optional) Choose a project in the projects drop-down list to show only assets from a
+![The "Assets" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png) 2. (Optional) Choose a project in the projects drop-down list to show only assets from a
 specific project.
 
-![The "Assets" page, with the projects drop-down list called out.](images/asset-library-choose-project-console.png) 3. Choose an asset in the **Assets** hierarchy, and then choose
+![The "Assets" page, with the projects drop-down list called out.](/images/iot-sitewise/latest/appguide/images/asset-library-choose-project-console.png) 3. Choose an asset in the **Assets** hierarchy, and then choose
 **Add asset to project**.
 
 ![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](images/asset-library-add-asset-to-project-console.png)
@@ -36,7 +36,7 @@ to that asset) to a project. To create a dashboard to compare two assets that ar
 of a common parent asset, add that common parent to the project. 4. In the **Add assets to project** dialog box, choose **Create
 new project**, then choose **Next**.
 
-![Add assets to project dialog, step 1 of 2.](images/asset-library-add-assets-to-new-project-console.png) 5. In **Project name**, enter a name for your project. If you plan to
+![Add assets to project dialog, step 1 of 2.](/images/iot-sitewise/latest/appguide/images/asset-library-add-assets-to-new-project-console.png) 5. In **Project name**, enter a name for your project. If you plan to
 create multiple projects, each with a distinct set of assets, choose a descriptive
 name.
 
@@ -86,4 +86,4 @@ from.
 
 ![The "Projects" page with "Wind Farm 3" highlighted.](images/projects-portal-admin-choose-project-console.png) 3. Choose **Remove all assets from project**.
 
-![The "Projects" page with "Remove all assets from project" button highlighted.](/images/iot-sitewise/latest/appguide/images/project-remove-all-assets-console.png) 4. In the dialog box, confirm that you want to remove the assets.
+![The "Projects" page with "Remove all assets from project" button highlighted.](images/project-remove-all-assets-console.png) 4. In the dialog box, confirm that you want to remove the assets.

@@ -13,7 +13,7 @@ them to work with the project.
 
 1. In the navigation bar, choose the **Projects** icon.
 
-![The "Projects" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project to which to assign project
+![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project to which to assign project
 owners.
 
 ![The "Projects" page with "Create project" highlighted.](images/projects-portal-admin-choose-project-console.png) 3. In the **Project owners** section of the project details page, choose
