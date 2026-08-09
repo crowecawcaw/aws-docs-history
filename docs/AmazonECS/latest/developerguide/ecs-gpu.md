@@ -1,8 +1,8 @@
 # Amazon ECS task definitions for GPU workloads
 
 Amazon ECS supports workloads that use GPUs, when you create clusters with container instances
-that support GPUs. Amazon EC2 GPU-based container instances that use the p2, p3, p5, g3, g4, and
-g5 instance types provide access to NVIDIA GPUs. For more information, see [Linux Accelerated Computing
+that support GPUs. Amazon EC2 GPU-based container instances that use the p2, p3, p4d, p5, g3,
+g4, g5, g6, g6e, and g6f instance types provide access to NVIDIA GPUs. For more information, see [Linux Accelerated Computing
 Instances](../../../ec2/latest/instancetypes/ac.md "../../../ec2/latest/instancetypes/ac.md") in the _Amazon EC2 Instance Types guide_.
 
 Amazon ECS provides a GPU-optimized AMI that comes with pre-configured NVIDIA kernel drivers
@@ -13,53 +13,58 @@ consideration at a container level. Amazon ECS schedules to available container 
 support GPUs and pin physical GPUs to proper containers for optimal performance.
 
 The following Amazon EC2 GPU-based instance types are supported. For more information, see
-[Amazon EC2 P2 Instances](https://aws.amazon.com/ec2/instance-types/p2/ "https://aws.amazon.com/ec2/instance-types/p2/"), [Amazon EC2 P3 Instances](https://aws.amazon.com/ec2/instance-types/p3/ "https://aws.amazon.com/ec2/instance-types/p3/"), [Amazon EC2 P4d Instances](https://aws.amazon.com/ec2/instance-types/p4/ "https://aws.amazon.com/ec2/instance-types/p4/"), [Amazon EC2 P5 Instances](https://aws.amazon.com/ec2/instance-types/p5/ "https://aws.amazon.com/ec2/instance-types/p5/"), [Amazon EC2 G3 Instances](https://aws.amazon.com/ec2/instance-types/g3/ "https://aws.amazon.com/ec2/instance-types/g3/"), [Amazon EC2 G4 Instances](https://aws.amazon.com/ec2/instance-types/g4/ "https://aws.amazon.com/ec2/instance-types/g4/"), [Amazon EC2 G5 Instances](https://aws.amazon.com/ec2/instance-types/g5/ "https://aws.amazon.com/ec2/instance-types/g5/"), [Amazon EC2 G6 Instances](https://aws.amazon.com/ec2/instance-types/g6/ "https://aws.amazon.com/ec2/instance-types/g6/"), and [Amazon EC2 G6e Instances](https://aws.amazon.com/ec2/instance-types/g6e/ "https://aws.amazon.com/ec2/instance-types/g6e/").
+[Amazon EC2 P2 Instances](https://aws.amazon.com/ec2/instance-types/p2/ "https://aws.amazon.com/ec2/instance-types/p2/"), [Amazon EC2 P3 Instances](https://aws.amazon.com/ec2/instance-types/p3/ "https://aws.amazon.com/ec2/instance-types/p3/"), [Amazon EC2 P4d Instances](https://aws.amazon.com/ec2/instance-types/p4/ "https://aws.amazon.com/ec2/instance-types/p4/"), [Amazon EC2 P5 Instances](https://aws.amazon.com/ec2/instance-types/p5/ "https://aws.amazon.com/ec2/instance-types/p5/"), [Amazon EC2 G3 Instances](https://aws.amazon.com/ec2/instance-types/g3/ "https://aws.amazon.com/ec2/instance-types/g3/"), [Amazon EC2 G4 Instances](https://aws.amazon.com/ec2/instance-types/g4/ "https://aws.amazon.com/ec2/instance-types/g4/"), [Amazon EC2 G5 Instances](https://aws.amazon.com/ec2/instance-types/g5/ "https://aws.amazon.com/ec2/instance-types/g5/"), [Amazon EC2 G6 Instances](https://aws.amazon.com/ec2/instance-types/g6/ "https://aws.amazon.com/ec2/instance-types/g6/"), [Amazon EC2 G6e Instances](https://aws.amazon.com/ec2/instance-types/g6e/ "https://aws.amazon.com/ec2/instance-types/g6e/"), and [Amazon EC2 G6f Instances](https://aws.amazon.com/ec2/instance-types/g6f/ "https://aws.amazon.com/ec2/instance-types/g6f/").
 
-| Instance type | GPUs | GPU memory (GiB) | vCPUs | Memory (GiB) |
-| ------------- | ---- | ---------------- | ----- | ------------ |
-| p3.2xlarge    | 1    | 16               | 8     | 61           |
-| p3.8xlarge    | 4    | 64               | 32    | 244          |
-| p3.16xlarge   | 8    | 128              | 64    | 488          |
-| p3dn.24xlarge | 8    | 256              | 96    | 768          |
-| p4d.24xlarge  | 8    | 320              | 96    | 1152         |
-| p5.48xlarge   | 8    | 640              | 192   | 2048         |
-| g3s.xlarge    | 1    | 8                | 4     | 30.5         |
-| g3.4xlarge    | 1    | 8                | 16    | 122          |
-| g3.8xlarge    | 2    | 16               | 32    | 244          |
-| g3.16xlarge   | 4    | 32               | 64    | 488          |
-| g4dn.xlarge   | 1    | 16               | 4     | 16           |
-| g4dn.2xlarge  | 1    | 16               | 8     | 32           |
-| g4dn.4xlarge  | 1    | 16               | 16    | 64           |
-| g4dn.8xlarge  | 1    | 16               | 32    | 128          |
-| g4dn.12xlarge | 4    | 64               | 48    | 192          |
-| g4dn.16xlarge | 1    | 16               | 64    | 256          |
-| g5.xlarge     | 1    | 24               | 4     | 16           |
-| g5.2xlarge    | 1    | 24               | 8     | 32           |
-| g5.4xlarge    | 1    | 24               | 16    | 64           |
-| g5.8xlarge    | 1    | 24               | 32    | 128          |
-| g5.16xlarge   | 1    | 24               | 64    | 256          |
-| g5.12xlarge   | 4    | 96               | 48    | 192          |
-| g5.24xlarge   | 4    | 96               | 96    | 384          |
-| g5.48xlarge   | 8    | 192              | 192   | 768          |
-| g6.xlarge     | 1    | 24               | 4     | 16           |
-| g6.2xlarge    | 1    | 24               | 8     | 32           |
-| g6.4xlarge    | 1    | 24               | 16    | 64           |
-| g6.8xlarge    | 1    | 24               | 32    | 128          |
-| g6.16.xlarge  | 1    | 24               | 64    | 256          |
-| g6.12xlarge   | 4    | 96               | 48    | 192          |
-| g6.24xlarge   | 4    | 96               | 96    | 384          |
-| g6.48xlarge   | 8    | 192              | 192   | 768          |
-| g6.metal      | 8    | 192              | 192   | 768          |
-| gr6.4xlarge   | 1    | 24               | 16    | 128          |
-| g6e.xlarge    | 1    | 48               | 4     | 32           |
-| g6e.2xlarge   | 1    | 48               | 8     | 64           |
-| g6e.4xlarge   | 1    | 48               | 16    | 128          |
-| g6e.8xlarge   | 1    | 48               | 32    | 256          |
-| g6e16.xlarge  | 1    | 48               | 64    | 512          |
-| g6e12.xlarge  | 4    | 192              | 48    | 384          |
-| g6e24.xlarge  | 4    | 192              | 96    | 768          |
-| g6e48.xlarge  | 8    | 384              | 192   | 1536         |
-| gr6.8xlarge   | 1    | 24               | 32    | 256          |
+| Instance type | GPUs        | GPU memory (GiB) | vCPUs | Memory (GiB) |
+| ------------- | ----------- | ---------------- | ----- | ------------ |
+| p3.2xlarge    | 1           | 16               | 8     | 61           |
+| p3.8xlarge    | 4           | 64               | 32    | 244          |
+| p3.16xlarge   | 8           | 128              | 64    | 488          |
+| p3dn.24xlarge | 8           | 256              | 96    | 768          |
+| p4d.24xlarge  | 8           | 320              | 96    | 1152         |
+| p5.48xlarge   | 8           | 640              | 192   | 2048         |
+| g3s.xlarge    | 1           | 8                | 4     | 30.5         |
+| g3.4xlarge    | 1           | 8                | 16    | 122          |
+| g3.8xlarge    | 2           | 16               | 32    | 244          |
+| g3.16xlarge   | 4           | 32               | 64    | 488          |
+| g4dn.xlarge   | 1           | 16               | 4     | 16           |
+| g4dn.2xlarge  | 1           | 16               | 8     | 32           |
+| g4dn.4xlarge  | 1           | 16               | 16    | 64           |
+| g4dn.8xlarge  | 1           | 16               | 32    | 128          |
+| g4dn.12xlarge | 4           | 64               | 48    | 192          |
+| g4dn.16xlarge | 1           | 16               | 64    | 256          |
+| g5.xlarge     | 1           | 24               | 4     | 16           |
+| g5.2xlarge    | 1           | 24               | 8     | 32           |
+| g5.4xlarge    | 1           | 24               | 16    | 64           |
+| g5.8xlarge    | 1           | 24               | 32    | 128          |
+| g5.16xlarge   | 1           | 24               | 64    | 256          |
+| g5.12xlarge   | 4           | 96               | 48    | 192          |
+| g5.24xlarge   | 4           | 96               | 96    | 384          |
+| g5.48xlarge   | 8           | 192              | 192   | 768          |
+| g6.xlarge     | 1           | 24               | 4     | 16           |
+| g6.2xlarge    | 1           | 24               | 8     | 32           |
+| g6.4xlarge    | 1           | 24               | 16    | 64           |
+| g6.8xlarge    | 1           | 24               | 32    | 128          |
+| g6.16.xlarge  | 1           | 24               | 64    | 256          |
+| g6.12xlarge   | 4           | 96               | 48    | 192          |
+| g6.24xlarge   | 4           | 96               | 96    | 384          |
+| g6.48xlarge   | 8           | 192              | 192   | 768          |
+| g6.metal      | 8           | 192              | 192   | 768          |
+| gr6.4xlarge   | 1           | 24               | 16    | 128          |
+| g6e.xlarge    | 1           | 48               | 4     | 32           |
+| g6e.2xlarge   | 1           | 48               | 8     | 64           |
+| g6e.4xlarge   | 1           | 48               | 16    | 128          |
+| g6e.8xlarge   | 1           | 48               | 32    | 256          |
+| g6e16.xlarge  | 1           | 48               | 64    | 512          |
+| g6e12.xlarge  | 4           | 192              | 48    | 384          |
+| g6e24.xlarge  | 4           | 192              | 96    | 768          |
+| g6e48.xlarge  | 8           | 384              | 192   | 1536         |
+| gr6.8xlarge   | 1           | 24               | 32    | 256          |
+| g6f.large     | 1/8 (0.125) | 3                | 2     | 8            |
+| g6f.xlarge    | 1/8 (0.125) | 3                | 4     | 16           |
+| g6f.2xlarge   | 1/4 (0.25)  | 6                | 8     | 32           |
+| g6f.4xlarge   | 1/2 (0.5)   | 12               | 16    | 64           |
+| gr6f.4xlarge  | 1/2 (0.5)   | 12               | 16    | 128          |
 
 You can retrieve the Amazon Machine Image (AMI) ID for Amazon ECS-optimized AMIs by querying
 the AWS Systems Manager Parameter Store API. Using this parameter, you don't need to manually look up

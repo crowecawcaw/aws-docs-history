@@ -95,10 +95,12 @@ try
  Initialize-ECSAgent -Cluster `MyCluster` -EnableTaskIAMRole
 
  $taskAction = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -ExecutionPolicy Bypass -File C:\ProgramData\Amazon\ECS\complete-lifecycle.ps1"
- $taskTrigger = New-ScheduledTaskTrigger -Once -At ((Get-Date).AddSeconds(60))
+ $taskTriggerOnce = New-ScheduledTaskTrigger -Once -At ((Get-Date).AddSeconds(60))
+ $taskTriggerStartup = New-ScheduledTaskTrigger -AtStartup
+ $taskTriggerStartup.Delay = "PT60S"
  $settings = New-ScheduledTaskSettingsSet -StartWhenAvailable
  $taskPrincipal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount -RunLevel Highest
- Register-ScheduledTask -TaskName "CompleteLifecycleHook" -Action $taskAction -Trigger $taskTrigger -Principal $taskPrincipal -Settings $settings -Force
+ Register-ScheduledTask -TaskName "CompleteLifecycleHook" -Action $taskAction -Trigger $taskTriggerOnce, $taskTriggerStartup -Principal $taskPrincipal -Settings $settings -Force
 }
 catch
 {
@@ -107,15 +109,15 @@ catch
  $region = Invoke-RestMethod -Method Get -Uri http://169.254.169.254/latest/meta-data/placement/region -Headers @{"X-aws-ec2-metadata-token" = $token}
  Complete-ASLifecycleAction -InstanceId $INSTANCE -LifecycleHookName $lifecycleHookName -AutoScalingGroupName $autoScalingGroupName -LifecycleActionResult ABANDON -Region $region
 }
-</powershell>
-<persist>true</persist>`
+</powershell>`
 ```
 
 This user data script does the following:
 
 - Initializes the Amazon ECS agent with the warm pools check enabled.
-- Creates a scheduled task that waits 30 seconds after user data completes, then
-  signals the lifecycle hook to proceed. The delay allows EC2Launch to save its
-  state so that user data re-runs correctly on subsequent boots.
+- Creates a scheduled task that waits 60 seconds after user data completes, and then
+  signals the lifecycle hook to proceed.
+- Creates a scheduled task that runs on every subsequent reboot, and
+  signals the lifecycle hook to proceed after 60 seconds.
 - If initialization fails, the lifecycle action is completed with
   `ABANDON` so the instance is terminated and replaced.

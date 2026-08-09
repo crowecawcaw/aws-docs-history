@@ -279,8 +279,8 @@ access, run the following commands to diagnose agent connectivity issues:
 
 ```
 # check service status
-nsenter -t 1 -m -p systemctl restart ecs
-nsenter -t 1 -m -p systemctl restart containerd
+nsenter -t 1 -m -p systemctl status ecs
+nsenter -t 1 -m -p systemctl status containerd
 
 # restart stopped services
 nsenter -t 1 -m -p systemctl restart ecs
