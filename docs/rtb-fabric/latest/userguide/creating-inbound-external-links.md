@@ -8,7 +8,7 @@ Inbound external links enable external partners (such as SSPs) to send traffic t
 
 Note the following about inbound external links:
 
-- **Opt-in feature** – External link capability must be explicitly enabled for your account. Use the Service Quotas tool to request access to external link functionality.
+- **Quota** – By default, you can create up to two inbound external links per gateway. To request a quota increase, see [Quotas for AWS RTB Fabric](rtb-fabric-quotas.md "rtb-fabric-quotas.md").
 - **Limited console support** – Inbound external links can only be created and managed through the RTB Fabric API, AWS CLI, or AWS CloudFormation.
   To create new inbound external links, use the `CreateInboundExternalLink` API on an external responder gateway. Both use cases produce the same result — an inbound external link — but differ in the returned endpoint format. `CreateResponderGateway` with `gatewayType` as `EXTERNAL` returns an external inbound endpoint (e.g. "rtb-gw-target123.123456789012.gateway.rtbfabric.us-east-1.amazonaws.com"), while `CreateInboundExternalLink` on an internal responder gateway returns a domain name as link endpoint.
 

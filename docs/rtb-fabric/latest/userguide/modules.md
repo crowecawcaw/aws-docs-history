@@ -100,7 +100,7 @@ A _filter criterion_ is the smallest unit of a filter. Each
 criterion is a predicate on a single field in the OpenRTB bid request. A criterion
 contains two fields:
 
-- `key` – A JSON path expression that identifies a field in the bid request body. Use
+- `path` – A JSON path expression that identifies a field in the bid request body. Use
   standard JSON path syntax starting with `$.` to navigate the OpenRTB request structure
   (for example, `$.device.geo.country`).
 - `values` – An array of strings representing the desired values. A criterion matches
@@ -111,7 +111,7 @@ flag is set to `1` (true):
 
 ```
 {
-    "key": "$.regs.coppa",
+    "path": "$.regs.coppa",
     "values": ["1"]
 }
 ```
@@ -120,7 +120,7 @@ The following example criterion matches bid requests originating from the United
 
 ```
 {
-    "key": "$.device.geo.country",
+    "path": "$.device.geo.country",
     "values": ["USA", "CAN"]
 }
 ```
@@ -148,11 +148,11 @@ Both criteria must be satisfied:
 {
     "criteria": [
         {
-            "key": "$.regs.coppa",
+            "path": "$.regs.coppa",
             "values": ["1"]
         },
         {
-            "key": "$.device.geo.country",
+            "path": "$.device.geo.country",
             "values": ["USA", "CAN"]
         }
     ]
@@ -177,11 +177,11 @@ express complex filtering rules. The following example matches two types of requ
     {
         "criteria": [
             {
-                "key": "$.regs.coppa",
+                "path": "$.regs.coppa",
                 "values": ["1"]
             },
             {
-                "key": "$.device.geo.country",
+                "path": "$.device.geo.country",
                 "values": ["USA", "CAN"]
             }
         ]
@@ -189,7 +189,7 @@ express complex filtering rules. The following example matches two types of requ
     {
         "criteria": [
             {
-                "key": "$.site.domain",
+                "path": "$.site.domain",
                 "values": ["example.com"]
             }
         ]
@@ -292,11 +292,11 @@ that have the COPPA flag set to true and originate from the United States or Can
  {
  "criteria": [
  {
- "key": "$.regs.coppa",
+ "path": "$.regs.coppa",
  "values": ["1"]
  },
  {
- "key": "$.device.geo.country",
+ "path": "$.device.geo.country",
  "values": ["USA", "CAN"]
  }
  ]
@@ -337,11 +337,11 @@ _either_ of the following conditions:
  {
  "criteria": [
  {
- "key": "$.regs.coppa",
+ "path": "$.regs.coppa",
  "values": ["1"]
  },
  {
- "key": "$.device.geo.country",
+ "path": "$.device.geo.country",
  "values": ["USA", "CAN"]
  }
  ]
@@ -349,7 +349,7 @@ _either_ of the following conditions:
  {
  "criteria": [
  {
- "key": "$.site.domain",
+ "path": "$.site.domain",
  "values": ["example.com"]
  }
  ]
@@ -390,7 +390,7 @@ additional header attached:
  {
  "criteria": [
  {
- "key": "$.device.devicetype",
+ "path": "$.device.devicetype",
  "values": ["1", "4"]
  }
  ]
@@ -433,7 +433,7 @@ of excluded traffic still passes through for monitoring purposes:
  {
  "criteria": [
  {
- "key": "$.site.domain",
+ "path": "$.site.domain",
  "values": ["trusted-publisher.com", "premium-ads.com"]
  }
  ]
@@ -486,7 +486,7 @@ module filters COPPA-flagged requests from the remaining traffic:
  {
  "criteria": [
  {
- "key": "$.regs.coppa",
+ "path": "$.regs.coppa",
  "values": ["1"]
  }
  ]

@@ -16,14 +16,14 @@ Your AWS account has the following quotas related to RTB Fabric.
 
 The following quotas apply to RTB Fabric resources in your account.
 
-| Resource                          | Default quota | Adjustable | Description                                                                                          |
-| --------------------------------- | ------------- | ---------- | ---------------------------------------------------------------------------------------------------- |
-| Number of Gateways                | 2             | Yes        | The maximum number of requester and responder gateways combined that you can create in your account. |
-| Links per Gateway                 | 2             | Yes        | The maximum number of links that can be created from a single gateway.                               |
-| Modules per Flow                  | 2             | Yes        | The maximum number of modules that can be configured in a single flow.                               |
-| Availability Zones per Gateway    | 1             | Yes        | The maximum number of Availability Zones that can be configured per gateway.                         |
-| External outbound links supported | No            | Yes        | Indicates whether gateways can be configured with outbound external links. Supported values: 0 or 1. |
-| External inbound links supported  | No            | Yes        | Indicates whether gateways can be configured with inbound external links. Supported values: 0 or 1.  |
+| Resource                            | Default quota | Adjustable | Description                                                                                                                                                                                    |
+| ----------------------------------- | ------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Number of Gateways                  | 2             | Yes        | The maximum number of requester and responder gateways combined that you can create in your account.                                                                                           |
+| Links per Gateway                   | 2             | Yes        | The maximum number of standard links that can be created from a single gateway. For external links, see the External inbound links per gateway and External outbound links per gateway quotas. |
+| Modules per Flow                    | 2             | Yes        | The maximum number of modules that can be configured in a single flow.                                                                                                                         |
+| Availability Zones per Gateway      | 1             | Yes        | The maximum number of Availability Zones that can be configured per gateway.                                                                                                                   |
+| External inbound links per gateway  | 2             | Yes        | The maximum number of inbound external links that can be created from a single gateway.                                                                                                        |
+| External outbound links per gateway | 2             | Yes        | The maximum number of outbound external links that can be created from a single gateway.                                                                                                       |
 
 ## Throughput quotas
 

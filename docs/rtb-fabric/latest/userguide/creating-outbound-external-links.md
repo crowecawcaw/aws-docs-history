@@ -4,7 +4,7 @@ Outbound external links enable connectivity between your requester gateway and e
 
 Note the following about outbound external links:
 
-- **Opt-in feature** – External link capability must be explicitly enabled for your account. Use the Service Quotas tool to request access to external link functionality.
+- **Quota** – By default, you can create up to two outbound external links per gateway. To request a quota increase, see [Quotas for AWS RTB Fabric](rtb-fabric-quotas.md "rtb-fabric-quotas.md").
 - **Multiple creation methods** – You can create outbound external links using the AWS Management Console, the RTB Fabric API, the AWS CLI, or AWS CloudFormation.
   For more information, see [CreateOutboundExternalLink](../api/API_CreateOutboundExternalLink.md "../api/API_CreateOutboundExternalLink.md") in the _RTB Fabric API Reference_.
 
