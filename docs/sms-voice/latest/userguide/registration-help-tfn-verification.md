@@ -103,3 +103,65 @@ registration number that match your form entries.
 | Entity not found         | Business not found in third-party verification<br>databases                                 | Upload an official business registration document as<br>proof of identity. This is common for recently formed<br>businesses or entities not in commercial databases. |
 | DBA/trade name used      | Registration uses a "doing business as" name instead of<br>the legal entity name            | Replace with the legal name from your incorporation<br>documents. Your DBA can be used in other fields like brand<br>name.                                           |
 | Recently formed business | Business was recently incorporated and hasn't appeared<br>in verification databases yet     | Upload your incorporation certificate or IRS CP 575<br>letter as supporting documentation                                                                            |
+
+## Government entities
+
+Government agencies, departments, and contractor-operated government
+programs are not listed in commercial business databases (such as Dun &
+Bradstreet). Automated business verification fails for these entities
+regardless of how you complete the registration form. To prevent a
+verification failure, upload one of the following IRS documents using the
+optional business registration document field when you first submit your
+registration:
+
+- **IRS CP 575** — EIN
+  Confirmation Letter (issued when the IRS originally assigned your
+  EIN).
+- **IRS 147C** — EIN
+  Verification Letter (you can request this at any time; see the
+  instructions below).
+- **IRS SS-4** —
+  Employer Identification Number Application.
+
+A W-9 form is **not accepted** because it is
+self-certified and does not meet IRS document verification standards.
+
+### How to obtain a 147C letter
+
+If you do not have your original CP 575 or SS-4, you can request a
+147C EIN Verification Letter from the IRS:
+
+1. Call the IRS Business and Specialty Tax line at
+   1-800-829-4933.
+2. Request a 147C letter be faxed to your
+   organization.
+
+###### Note
+
+The IRS typically fulfills 147C requests the same
+day.
+
+### Name matching for government entities
+
+The company name on your registration must exactly match the name on
+your IRS letter. Government entity names sometimes span multiple lines on
+IRS documents. When you enter the name on the registration form, combine
+all name lines with a space and omit special characters except hyphens
+and ampersands.
+
+For example, if the IRS letter shows:
+
+```
+DEPARTMENT OF DEFENSE
+DEFENSE HEALTH AGENCY
+```
+
+Enter: `DEPARTMENT OF DEFENSE DEFENSE HEALTH
+ AGENCY`
+
+### Contractor-operated programs
+
+If a government program is operated by a private contractor, use the
+**government agency's** EIN and legal name
+on the registration form, not the contractor's. The registration must
+identify the entity on whose behalf messages are sent.

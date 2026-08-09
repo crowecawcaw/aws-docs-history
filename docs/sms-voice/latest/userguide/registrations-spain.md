@@ -1,6 +1,6 @@
 # Spain sender ID registration in AWS End User Messaging SMS
 
-All alphanumeric sender IDs used to send SMS messages to Spanish mobile numbers (+34) must be registered in the CNMC (Comisión Nacional de los Mercados y la Competencia) National Alias Registry. Unregistered sender IDs cannot deliver messages to Spanish recipients.
+All alphanumeric sender IDs used to send SMS messages to Spanish mobile numbers (+34) must be registered in the CNMC (Comisión Nacional de los Mercados y la Competencia) National Alias Registry. Unregistered sender IDs cannot deliver messages to Spanish recipients. Your Spain sender ID registrations are case-sensitive at the carrier level. The exact casing that you register with CNMC must match what you submit through the AWS End User Messaging console.
 
 Starting September 15, 2026, unregistered alphanumeric sender IDs will be blocked by Spanish mobile operators and will not deliver messages to Spanish recipients. Generic sender IDs that do not clearly identify your business are not permitted by CNMC and cannot be registered.
 
@@ -71,7 +71,7 @@ For **Registration form name**, enter a friendly name.
 
 Choose **Next**. 3. In the **Sender ID info** section, enter the following:
 
-    * For **Sender ID**, enter the sender ID to register. The sender ID must be between 3 and 11 alphanumeric characters.
+    * For **Sender ID**, enter the sender ID to register. The sender ID must be between 3 and 11 alphanumeric characters. The value you enter must use the exact same casing as your CNMC registration. For example, if you registered "MyBrand" with CNMC, you must enter "MyBrand"—not "MYBRAND" or "mybrand." The AWS End User Messaging console displays sender IDs in uppercase. However, the downstream partner stores the exact casing that you entered at submission time.
 
 Choose **Next**. 4. In the **Alias relationship type** section, select the type that matches how you established the right to use this sender ID:
 
