@@ -34,6 +34,7 @@ see [Building the connection URL](jdbc20-build-connection-url.md "jdbc20-build-c
 - [DisableIsValidQuery](#jdbc20-disableisvalidquery-option "#jdbc20-disableisvalidquery-option")
 - [enableFetchRingBuffer](#jdbc20-enablefetchringbuffer-option "#jdbc20-enablefetchringbuffer-option")
 - [enableMultiSqlSupport](#jdbc20-enablemultisqlsupport-option "#jdbc20-enablemultisqlsupport-option")
+- [EnableTableTypes](#jdbc20-enabletabletypes-option "#jdbc20-enabletabletypes-option")
 - [fetchRingBufferSize](#jdbc20-fetchringbuffersize-option "#jdbc20-fetchringbuffersize-option")
 - [ForceLowercase](#jdbc20-forcelowercase-option "#jdbc20-forcelowercase-option")
 - [groupFederation](#jdbc20-groupFederation-option "#jdbc20-groupFederation-option")
@@ -433,6 +434,29 @@ in a Statement object.
 
 The driver returns an error for multiple SQL commands in a single
 Statement.
+
+## EnableTableTypes
+
+- Default Value – true
+- Data Type – Boolean
+
+This option specifies whether the driver recognizes detailed table type
+information from the data source in the results of the `getTables` and
+`getTableTypes` `DatabaseMetaData` methods. By default, the
+driver recognizes detailed table types.
+
+This parameter is optional. It is available in driver versions 2.2.8 and
+later.
+
+**true**
+
+The driver recognizes the following table types: TABLE, VIEW, SYSTEM
+TABLE, SYSTEM VIEW, EXTERNAL TABLE, and LOCAL TEMPORARY.
+
+**false**
+
+The driver normalizes the detailed table type information into the
+generic TABLE and VIEW table types.
 
 ## fetchRingBufferSize
 

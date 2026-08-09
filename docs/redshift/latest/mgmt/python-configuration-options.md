@@ -170,6 +170,24 @@ The user ID to use with Amazon Redshift.
 
 This parameter is optional.
 
+## enable\_table\_types
+
+- Default value – True
+- Data type – Boolean
+
+Specifies whether the connector recognizes detailed table type information from the
+data source in the results of the `get_tables` and
+`get_table_types` metadata methods. By default, the connector recognizes
+detailed table types.
+
+- True: The connector recognizes the following table types: TABLE, VIEW,
+  SYSTEM TABLE, SYSTEM VIEW, EXTERNAL TABLE, and LOCAL TEMPORARY.
+- False: The connector normalizes the detailed table type information into
+  the generic TABLE and VIEW table types.
+
+This parameter is optional. It is available in connector versions 2.1.16 and
+later.
+
 ## endpoint\_url
 
 - Default value – None
