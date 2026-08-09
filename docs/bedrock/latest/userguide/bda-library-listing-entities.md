@@ -1,6 +1,6 @@
 # Listing Library Entities
 
-Use the [ListDataAutomationLibraryEntities](../APIReference/API_data-automation_ListDataAutomationLibraryEntities.md "../APIReference/API_data-automation_ListDataAutomationLibraryEntities.md") api to retrieve the list of entities.
+Use the [ListDataAutomationLibraryEntities](bedrock/latest/APIReference/API_data-automation_ListDataAutomationLibraryEntities.md "bedrock/latest/APIReference/API_data-automation_ListDataAutomationLibraryEntities.md") API to retrieve the list of entities.
 
 ## AWS CLI Example:
 

@@ -1,6 +1,6 @@
 # Data Automation Library
 
-AWS Bedrock Data Automation Library enables you to enhance BDA's understanding of your content and generate more accurate insights from your data. A Data Automation Library serves as a container that stores entities and can be associated with BDA projects to improve extraction accuracy across multiple entity types and modalities for your specific use cases. Currently, Data Automation Library supports [Custom Vocabulary](bda-library-custom-vocabulary.md "bda-library-custom-vocabulary.md") to enhance extraction accuracy for audio and video content. Limits related to this feature are in the [Quotas and Limits](bda-limits.md "bda-limits.md") page.
+Amazon Bedrock Data Automation Library enables you to enhance BDA's understanding of your content and generate more accurate insights from your data. A Data Automation Library serves as a container that stores entities and can be associated with BDA projects to improve extraction accuracy across multiple entity types and modalities for your specific use cases. Currently, Data Automation Library supports [Custom Vocabulary](bda-library-custom-vocabulary.md "bda-library-custom-vocabulary.md") to enhance extraction accuracy for audio and video content. Limits related to this feature are in the [Quotas and Limits](bedrock/latest/userguide/bda-limits.md "bedrock/latest/userguide/bda-limits.md") page.
 
 ## Key Benefits
 
@@ -18,10 +18,10 @@ When ingestion is completed, a folder with the name of the job ID is created in 
 
 **Basic workflow:**
 
-1. **Create a library** — Use [CreateDataAutomationLibrary](../APIReference/API_data-automation_CreateDataAutomationLibrary.md "../APIReference/API_data-automation_CreateDataAutomationLibrary.md") to initialize an empty library container.
-2. **Add entities to your library** — Use [InvokeDataAutomationLibraryIngestionJob](../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") to add your domain-specific entities.
-3. **Associate the library with a project** — Link the library during project creation with [CreateDataAutomationProject](../APIReference/API_data-automation_CreateDataAutomationProject.md "../APIReference/API_data-automation_CreateDataAutomationProject.md"), or update an existing project with [UpdateDataAutomationProject](../APIReference/API_data-automation_UpdateDataAutomationProject.md "../APIReference/API_data-automation_UpdateDataAutomationProject.md").
-4. **Process your content** — Run jobs using [InvokeDataAutomationAsync](../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md "../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md") through the associated project to apply enhanced extraction accuracy across your content.
+1. **Create a library** — Use [CreateDataAutomationLibrary](bedrock/latest/APIReference/API_data-automation_CreateDataAutomationLibrary.md "bedrock/latest/APIReference/API_data-automation_CreateDataAutomationLibrary.md") to initialize an empty library container.
+2. **Add entities to your library** — Use [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") to add your domain-specific entities.
+3. **Associate the library with a project** — Link the library during project creation with [CreateDataAutomationProject](bedrock/latest/APIReference/API_data-automation_CreateDataAutomationProject.md "bedrock/latest/APIReference/API_data-automation_CreateDataAutomationProject.md"), or update an existing project with [UpdateDataAutomationProject](bedrock/latest/APIReference/API_data-automation_UpdateDataAutomationProject.md "bedrock/latest/APIReference/API_data-automation_UpdateDataAutomationProject.md").
+4. **Process your content** — Run jobs using [InvokeDataAutomationAsync](bedrock/latest/APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md "bedrock/latest/APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md") through the associated project to apply enhanced extraction accuracy across your content.
 
 ## Key Concepts
 

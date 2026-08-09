@@ -229,14 +229,14 @@ Follow these steps to manage model access programmatically:
 
 ### Prerequisites
 
-- Attach the [AmazonBedrockFullAccess](../../../aws-managed-policy/latest/reference/AmazonBedrockFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonBedrockFullAccess.md") policy to the IAM user/role used for the SDK/CLI.
-- Bedrock SDK Setup: [Set up the AWS SDK for Amazon Bedrock](sdk-general-information-section.md "sdk-general-information-section.md")
+- Attach the [AmazonBedrockFullAccess](aws-managed-policy/latest/reference/AmazonBedrockFullAccess.md "aws-managed-policy/latest/reference/AmazonBedrockFullAccess.md") policy to the IAM user/role used for the SDK/CLI.
+- Bedrock SDK Setup: [Set up the AWS SDK for Amazon Bedrock](bedrock/latest/userguide/sdk-general-information-section.md "bedrock/latest/userguide/sdk-general-information-section.md")
 
 Note: Below instructions use python3 for the examples
 
 - If you are using the AWS CLI, these commands require AWS CLI version 2.27.42 or later.
   Run `aws --version` to check your version and
-  [update if needed](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+  [update if needed](cli/latest/userguide/getting-started-install.md "cli/latest/userguide/getting-started-install.md").
 - Note the modelId of the model for which the access needs to be managed.
 
 ### Step 1: List foundation model agreement offers
@@ -245,8 +245,8 @@ Use this API to get the agreement offers for a particular model. This will provi
 
 Documentation
 
-- API: [ListFoundationModelAgreementOffers](../APIReference/API_ListFoundationModelAgreementOffers.md "../APIReference/API_ListFoundationModelAgreementOffers.md")
-- CLI Documentation: [list-foundation-model-agreement-offers](../../../cli/latest/reference/bedrock/list-foundation-model-agreement-offers.md "../../../cli/latest/reference/bedrock/list-foundation-model-agreement-offers.md")
+- API: [ListFoundationModelAgreementOffers](bedrock/latest/APIReference/API_ListFoundationModelAgreementOffers.md "bedrock/latest/APIReference/API_ListFoundationModelAgreementOffers.md")
+- CLI Documentation: [list-foundation-model-agreement-offers](cli/latest/reference/bedrock/list-foundation-model-agreement-offers.md "cli/latest/reference/bedrock/list-foundation-model-agreement-offers.md")
 
 AWS CLI
 
@@ -275,8 +275,8 @@ Used to put the first-time user use-case form required only for Anthropic models
 
 Documentation
 
-- API: [PutUseCaseForModelAccess](../APIReference/API_PutUseCaseForModelAccess.md "../APIReference/API_PutUseCaseForModelAccess.md")
-- CLI Documentation: [put-use-case-for-model-access](../../../cli/latest/reference/bedrock/put-use-case-for-model-access.md "../../../cli/latest/reference/bedrock/put-use-case-for-model-access.md")
+- API: [PutUseCaseForModelAccess](bedrock/latest/APIReference/API_PutUseCaseForModelAccess.md "bedrock/latest/APIReference/API_PutUseCaseForModelAccess.md")
+- CLI Documentation: [put-use-case-for-model-access](cli/latest/reference/bedrock/put-use-case-for-model-access.md "cli/latest/reference/bedrock/put-use-case-for-model-access.md")
 
 AWS CLI
 
@@ -333,8 +333,8 @@ Used to create agreement (access) for the foundation model. Use the offer token 
 
 Documentation
 
-- API: [CreateFoundationModelAgreement](../APIReference/API_CreateFoundationModelAgreement.md "../APIReference/API_CreateFoundationModelAgreement.md")
-- CLI Documentation: [create-foundation-model-agreement](../../../cli/latest/reference/bedrock/create-foundation-model-agreement.md "../../../cli/latest/reference/bedrock/create-foundation-model-agreement.md")
+- API: [CreateFoundationModelAgreement](bedrock/latest/APIReference/API_CreateFoundationModelAgreement.md "bedrock/latest/APIReference/API_CreateFoundationModelAgreement.md")
+- CLI Documentation: [create-foundation-model-agreement](cli/latest/reference/bedrock/create-foundation-model-agreement.md "cli/latest/reference/bedrock/create-foundation-model-agreement.md")
 
 AWS CLI
 
@@ -369,8 +369,8 @@ Used to check if the foundation model currently has access or not. Use the model
 
 Documentation
 
-- API: [GetFoundationModelAvailability](../APIReference/API_GetFoundationModelAvailability.md "../APIReference/API_GetFoundationModelAvailability.md")
-- CLI Documentation: [get-foundation-model-availability](../../../cli/latest/reference/bedrock/get-foundation-model-availability.md "../../../cli/latest/reference/bedrock/get-foundation-model-availability.md")
+- API: [GetFoundationModelAvailability](bedrock/latest/APIReference/API_GetFoundationModelAvailability.md "bedrock/latest/APIReference/API_GetFoundationModelAvailability.md")
+- CLI Documentation: [get-foundation-model-availability](cli/latest/reference/bedrock/get-foundation-model-availability.md "cli/latest/reference/bedrock/get-foundation-model-availability.md")
 
 AWS CLI
 
@@ -411,8 +411,8 @@ Deleting model access is not enough for blocking access in the future since invo
 
 Documentation
 
-- API: [DeleteFoundationModelAgreement](../APIReference/API_DeleteFoundationModelAgreement.md "../APIReference/API_DeleteFoundationModelAgreement.md")
-- CLI Documentation: [delete-foundation-model-agreement](../../../cli/latest/reference/bedrock/delete-foundation-model-agreement.md "../../../cli/latest/reference/bedrock/delete-foundation-model-agreement.md")
+- API: [DeleteFoundationModelAgreement](bedrock/latest/APIReference/API_DeleteFoundationModelAgreement.md "bedrock/latest/APIReference/API_DeleteFoundationModelAgreement.md")
+- CLI Documentation: [delete-foundation-model-agreement](cli/latest/reference/bedrock/delete-foundation-model-agreement.md "cli/latest/reference/bedrock/delete-foundation-model-agreement.md")
 
 AWS CLI
 
@@ -429,7 +429,7 @@ delete_foundation_model_agreement_reponse = bedrock_client.delete_foundation_mod
 
 ## Access Amazon Bedrock foundation models in AWS GovCloud (US)
 
-AWS GovCloud (US) accounts are linked on a one-to-one basis with standard AWS commercial accounts. This linked commercial account is used for billing, service access, support purposes, and access to Amazon Bedrock Model Marketplace. For more information about the relationship between GovCloud and commercial accounts, see [Standard account linking in AWS GovCloud (US)](../../../govcloud-us/latest/UserGuide/getting-started-standard-account-linking.md "../../../govcloud-us/latest/UserGuide/getting-started-standard-account-linking.md").
+AWS GovCloud (US) accounts are linked on a one-to-one basis with standard AWS commercial accounts. This linked commercial account is used for billing, service access, support purposes, and access to Amazon Bedrock Model Marketplace. For more information about the relationship between GovCloud and commercial accounts, see [Standard account linking in AWS GovCloud (US)](govcloud-us/latest/UserGuide/getting-started-standard-account-linking.md "govcloud-us/latest/UserGuide/getting-started-standard-account-linking.md").
 
 For third-party models, model access needs to be enabled in both the linked AWS commercial account in addition the AWS GovCloud account. For models provided by Amazon Bedrock, model access only needs to be enabled in the GovCloud account. This is a manual process.
 
@@ -444,7 +444,7 @@ Model access can be enabled in an AWS commercial account using 2 ways:
 
 In AWS GovCloud (US), you use the **Model access** page in the Amazon Bedrock console in the `us-gov-west-1` region to enable foundation models as described below:
 
-1. Make sure you have [permissions to request model access](model-access.md#model-access-permissions "model-access.md#model-access-permissions") to request access, or modify access, to Amazon Bedrock foundation models. It is recommended to attach the [AmazonBedrockFullAccess](../../../aws-managed-policy/latest/reference/AmazonBedrockFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonBedrockFullAccess.md") policy to the user/role being used.
+1. Make sure you have [permissions to request model access](bedrock/latest/userguide/model-access.md#model-access-permissions "bedrock/latest/userguide/model-access.md#model-access-permissions") to request access, or modify access, to Amazon Bedrock foundation models. It is recommended to attach the [AmazonBedrockFullAccess](aws-managed-policy/latest/reference/AmazonBedrockFullAccess.md "aws-managed-policy/latest/reference/AmazonBedrockFullAccess.md") policy to the user/role being used.
 2. Sign into the Amazon Bedrock console in the `us-gov-west-1` region at [https://console.aws.amazon.com/bedrock/](https://console.aws.amazon.com/bedrock/ "https://console.aws.amazon.com/bedrock/").
 3. In the left navigation pane, under **Bedrock configurations**, choose **Model access**.
 4. On the **Model access** page, choose **Modify model access**.

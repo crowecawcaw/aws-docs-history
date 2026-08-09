@@ -120,7 +120,7 @@ For more information on S3 SSE-KMS configurations, see [Specifying KMS Encryptio
 ###### Note
 
 The bucket ACL must be disabled in order for the bucket policy to take effect.
-For more information, see [Disabling ACLs for all new buckets and enforcing Object Ownership](../../../AmazonS3/latest/userguide/ensure-object-ownership.md "../../../AmazonS3/latest/userguide/ensure-object-ownership.md").
+For more information, see [Disabling ACLs for all new buckets and enforcing Object Ownership](AmazonS3/latest/userguide/ensure-object-ownership.md "AmazonS3/latest/userguide/ensure-object-ownership.md").
 
 ## Set up an CloudWatch Logs destination
 

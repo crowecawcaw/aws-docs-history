@@ -1,12 +1,11 @@
 # Cross-region inference for knowledge bases with structured data store
 
 Starting May 10, 2026, Amazon Bedrock Knowledge Bases with structured data store will use cross-region
-inference to process your API requests. With cross-region inference, Amazon Bedrock Knowledge Bases will automatically select the optimal
-region within your geography to process your inference request, maximizing available compute
-resources and model availability, and providing the best customer experience. This applies
-to the [GenerateQuery](../APIReference/API_agent-runtime_GenerateQuery.md "../APIReference/API_agent-runtime_GenerateQuery.md"),
-[Retrieve](../APIReference/API_agent-runtime_Retrieve.md "../APIReference/API_agent-runtime_Retrieve.md"), and
-[RetrieveAndGenerate](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md")
+inference to process your API requests. With cross-Region inference, Amazon Bedrock Knowledge Bases will select a
+AWS Region within your geography to process your inference request. This applies
+to the [GenerateQuery](bedrock/latest/APIReference/API_agent-runtime_GenerateQuery.md "bedrock/latest/APIReference/API_agent-runtime_GenerateQuery.md"),
+[Retrieve](bedrock/latest/APIReference/API_agent-runtime_Retrieve.md "bedrock/latest/APIReference/API_agent-runtime_Retrieve.md"), and
+[RetrieveAndGenerate](bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.md "bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.md")
 API operations when used with a structured data store.
 
 Cross-region inference requests stay within the AWS Regions that are part of the
@@ -32,4 +31,4 @@ with structured data store.
 Cross-region inference is automatically enabled for all knowledge bases with structured
 data store. No configuration changes are required. For more information about cross-region
 inference and supported Regions, see
-[Increase throughput with cross-Region inference](cross-region-inference.md "cross-region-inference.md").
+[Route model inference requests across AWS Regions with cross-Region inference](cross-region-inference.md "cross-region-inference.md").

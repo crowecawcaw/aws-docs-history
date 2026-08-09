@@ -2,52 +2,33 @@
 
 Global cross-Region inference extends cross-Region inference beyond geographic
 boundaries, enabling the routing of inference requests to supported commercial
-AWS Regions worldwide, optimizing available resources and enabling higher model
-throughput.
+AWS Regions worldwide.
 
 ## Benefits of global cross-Region inference
 
-Global cross-Region inference for Anthropic's Claude Sonnet 4.5 delivers multiple
-advantages over traditional geographic cross-Region inference profiles:
+With global cross-Region inference for the Anthropic Claude Sonnet
+4.5 model, you get the following advantages over a geographic cross-Region inference
+profile:
 
-- **Enhanced throughput during peak demand** –
-  Global cross-Region inference provides improved resilience during periods of
-  peak demand by using compute across AWS Regions worldwide. This is
-  particularly important for business-critical applications where downtime or
-  degraded performance can have significant financial or reputational
-  impacts.
-- **Cost-efficiency** – Global cross-Region
-  inference for Anthropic's Claude Sonnet 4.5 offers approximately 10% savings
-  on both input and output token pricing compared to geographic cross-Region
-  inference. The price is calculated based on the AWS Region from which the
-  request is made (source AWS Region). This means organizations can benefit
-  from improved resilience with even lower costs. This pricing model makes
-  global cross-Region inference a cost-effective solution for organizations
-  looking to optimize their generative AI deployments. By improving resource
-  use and enabling higher throughput without additional costs, it
-  helps organizations maximize the value of their investment in Amazon Bedrock.
+- **Cost-efficiency** – You save approximately
+  10% on both input and output token pricing compared to geographic
+  cross-Region inference. Amazon Bedrock calculates the price based on the AWS Region
+  from which you make the request (the source AWS Region).
 - **Streamlined monitoring** – When using
   global cross-Region inference, CloudWatch and CloudTrail continue to record log entries
   in your source AWS Region, simplifying observability and management. Even
   though your requests are processed across different AWS Regions worldwide,
   you maintain a centralized view of your application's performance and usage
   patterns through your familiar AWS monitoring tools.
-- **On-demand quota flexibility** – With global
-  cross-Region inference, your workloads are no longer limited by individual
-  Regional capacity. Instead of being restricted to the capacity available in
-  a specific AWS Region, your requests can use compute across the
-  AWS global infrastructure. This provides access to a much larger pool of
-  resources, making it less complicated to handle high-volume workloads and
-  sudden traffic spikes.
+- **Worldwide request routing** – With global
+  cross-Region inference, your requests can be processed by compute across
+  supported commercial AWS Regions worldwide rather than within a single
+  geography.
 
 ## Global cross-Region inference considerations
 
 Note the following information about Global cross-Region inference:
 
-- Global Cross-Region inference profiles provide higher throughput than an
-  inference profile tied to a particular geography. An inference profile tied
-  to a particular geography offers higher throughput than single-region
-  inference.
 - To see the default quotas for cross-Region throughput when using Global
   inference profiles, refer to the **Global Cross-region
   model inference requests per minute for ${Model}** and

@@ -29,14 +29,14 @@ credential provider type).
   For complete instructions — including creating the gateway target with the AWS SDK or
   AWS CLI, configuring the gateway service role and trust policy, controlling which
   retrieval parameters the agent can set, invoking the tools, and the full input and response
-  schemas — see [Amazon Bedrock Managed Knowledge Bases as Connector Target](../../../bedrock-agentcore/latest/devguide/gateway-target-connector-managed-kb.md "../../../bedrock-agentcore/latest/devguide/gateway-target-connector-managed-kb.md") in the
+  schemas — see [Amazon Bedrock Managed Knowledge Bases as Connector Target](bedrock-agentcore/latest/devguide/gateway-target-connector-managed-kb.md "bedrock-agentcore/latest/devguide/gateway-target-connector-managed-kb.md") in the
   _Amazon Bedrock AgentCore Developer Guide_.
 
 ## Invoke with Strands Agents
 
 If you have an existing agent built with the [Strands Agents SDK](https://strandsagents.com/latest/ "https://strandsagents.com/latest/") and the
 [AgentCore
-starter toolkit](../../../bedrock-agentcore/latest/devguide/runtime-get-started-toolkit.md "../../../bedrock-agentcore/latest/devguide/runtime-get-started-toolkit.md"), you can connect it to your knowledge base gateway target
+starter toolkit](bedrock-agentcore/latest/devguide/runtime-get-started-toolkit.md "bedrock-agentcore/latest/devguide/runtime-get-started-toolkit.md"), you can connect it to your knowledge base gateway target
 by switching the MCP client to use SigV4 authentication against the gateway
 endpoint.
 

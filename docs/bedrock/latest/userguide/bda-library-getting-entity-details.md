@@ -1,6 +1,6 @@
 # Getting Library Entity Details
 
-Use the [GetDataAutomationLibraryEntity](../APIReference/API_data-automation_GetDataAutomationLibraryEntity.md "../APIReference/API_data-automation_GetDataAutomationLibraryEntity.md") api to retrieve the list of vocabulary for an entity.
+Use the [GetDataAutomationLibraryEntity](bedrock/latest/APIReference/API_data-automation_GetDataAutomationLibraryEntity.md "bedrock/latest/APIReference/API_data-automation_GetDataAutomationLibraryEntity.md") API to retrieve the list of vocabulary for an entity.
 
 ## AWS CLI Example:
 

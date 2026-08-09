@@ -1,6 +1,6 @@
 # Getting Library Details
 
-Use the [GetDataAutomationLibrary](../APIReference/API_data-automation_GetDataAutomationLibrary.md "../APIReference/API_data-automation_GetDataAutomationLibrary.md") API to retrieve information about an existing library.
+Use the [GetDataAutomationLibrary](bedrock/latest/APIReference/API_data-automation_GetDataAutomationLibrary.md "bedrock/latest/APIReference/API_data-automation_GetDataAutomationLibrary.md") API to retrieve information about an existing library.
 
 ## AWS CLI Example:
 

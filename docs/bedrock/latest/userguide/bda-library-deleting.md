@@ -1,6 +1,6 @@
 # Deleting a Library
 
-Use the [DeleteDataAutomationLibrary](../APIReference/API_data-automation_DeleteDataAutomationLibrary.md "../APIReference/API_data-automation_DeleteDataAutomationLibrary.md") api to delete library with its entities.
+Use the [DeleteDataAutomationLibrary](bedrock/latest/APIReference/API_data-automation_DeleteDataAutomationLibrary.md "bedrock/latest/APIReference/API_data-automation_DeleteDataAutomationLibrary.md") API to delete the library and its entities.
 
 ## AWS CLI Example:
 

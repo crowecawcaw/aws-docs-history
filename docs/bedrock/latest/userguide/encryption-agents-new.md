@@ -5,11 +5,11 @@ involved in protecting sensitive data. At the same time, it enables you to build
 applications that meet strict encryption compliance and regulatory requirements.
 
 Amazon Bedrock uses default AWS-owned keys to automatically encrypt agent's information. This includes control plane data and session data. You
-can't view, manage, or audit the use of AWS owned keys. For more information, see [AWS owned keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk").
+can't view, manage, or audit the use of AWS owned keys. For more information, see [AWS owned keys](kms/latest/developerguide/concepts.md#aws-owned-cmk "kms/latest/developerguide/concepts.md#aws-owned-cmk").
 
 While you can't disable this layer of encryption, you can choose to use customer managed keys instead of AWS-owned keys to encrypt agent's information.
 Amazon Bedrock supports the use of a symmetric customer managed keys (CMK) that you can create, own, and manage
-instead of the default AWS owned encryption. For more information, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk").
+instead of the default AWS owned encryption. For more information, see [Customer managed keys](kms/latest/developerguide/concepts.md#customer-cmk "kms/latest/developerguide/concepts.md#customer-cmk").
 
 ###### Important
 

@@ -1,9 +1,8 @@
 # Geographic cross-Region inference
 
 Geographic cross-Region inference keeps data processing within specified geographic
-boundaries (such as US, EU, and APAC) while providing higher throughput than single-region
-inference. This option is ideal for organizations with data residency requirements and
-compliance regulations.
+boundaries (such as US, EU, and APAC). This option is ideal for organizations with data
+residency requirements and compliance regulations.
 
 ## Geographic cross-Region inference considerations
 
@@ -121,15 +120,15 @@ inference in the following ways:
   the ID of the inference profile as the `modelId` when sending an
   [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md"), [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md"), [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md"), or [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") request.
   An inference profile defines one or more Regions to which it can route
-  inference requests originating from your source Region. Use of cross-Region
-  inference increases throughput and performance by using compute across the
+  inference requests originating from your source Region. Cross-Region
+  inference routes requests by using compute across the
   Regions defined in the inference profile. For more
   information, see [Making inference requests](inference.md "inference.md")
 - **Batch inference** – Submit requests
   asynchronously with batch inference by specifying the ID of the inference
   profile as the `modelId` when sending a [CreateModelInvocationJob](../APIReference/API_CreateModelInvocationJob.md "../APIReference/API_CreateModelInvocationJob.md") request.
   Using an inference profile lets you use compute across multiple
-  AWS Regions and achieve faster processing times for your batch jobs. After
+  AWS Regions. After
   the job is complete, you can retrieve the output files from the Amazon S3 bucket
   in the source Region.
 - **Agents** – Specify the ID of the

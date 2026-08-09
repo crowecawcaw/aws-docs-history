@@ -40,7 +40,7 @@ Inference capabilities| Capability | `bedrock-runtime` | `bedrock-mantle` |
 
 Operational| Item | `bedrock-runtime` | `bedrock-mantle` |
 | --- | --- | --- |
-| AWS [SigV4](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md") authentication | | |
+| AWS [SigV4](AmazonS3/latest/API/sig-v4-authenticating-requests.md "AmazonS3/latest/API/sig-v4-authenticating-requests.md") authentication | | |
 | [Bedrock API key (also works with OpenAI SDK)](api-keys.md "api-keys.md") | | |
 | [Usage attribution](cost-management.md "cost-management.md") | [IAM](cost-mgmt-iam-principal-tracking.md "cost-mgmt-iam-principal-tracking.md"), [per-request metadata tagging](cost-mgmt-request-metadata.md "cost-mgmt-request-metadata.md") | [Projects](projects.md "projects.md"), [Workspaces](workspaces.md "workspaces.md") |
 

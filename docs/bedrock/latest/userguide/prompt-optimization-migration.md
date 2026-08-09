@@ -4,9 +4,9 @@ Amazon Bedrock offers prompt optimization, a model migration and optimization to
 get the best performance from foundation models. Amazon Bedrock provides two prompt optimization
 options.
 
-- [Simple optimization](prompt-management-optimize.md "prompt-management-optimize.md") performs a fast, heuristic rewrite of a single
+- [Simple optimization](bedrock/latest/userguide/prompt-management-optimize.md "bedrock/latest/userguide/prompt-management-optimize.md") performs a fast, heuristic rewrite of a single
   short prompt for one model.
-- [Advanced Prompt Optimization](advanced-prompt-optimization-how.md "advanced-prompt-optimization-how.md") (AdvPO) allows you to optimize your
+- [Advanced Prompt Optimization](bedrock/latest/userguide/advanced-prompt-optimization-how.md "bedrock/latest/userguide/advanced-prompt-optimization-how.md") (AdvPO) allows you to optimize your
   prompts for any model on Bedrock while comparing your original prompts to optimized
   prompts across up to 5 models simultaneously.
 

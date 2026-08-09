@@ -191,7 +191,7 @@ not run a build workflow or extract rules from source documents. You must first 
 and test your policy interactively (using the console, API, or Kiro CLI), then export
 the tested policy definition for use in your template. For more information, see [Export a policy version for deployment](#export-policy-version "#export-policy-version").
 
-For the complete property reference of the policy resource, see [AWS::Bedrock::AutomatedReasoningPolicy](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-automatedreasoningpolicy.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-automatedreasoningpolicy.md") in the _CloudFormation Template
+For the complete property reference of the policy resource, see [AWS::Bedrock::AutomatedReasoningPolicy](AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-automatedreasoningpolicy.md "AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-automatedreasoningpolicy.md") in the _CloudFormation Template
 Reference_.
 
 ### Example: Deploy a policy and guardrail

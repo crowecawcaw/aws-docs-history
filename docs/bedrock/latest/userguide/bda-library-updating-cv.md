@@ -1,6 +1,6 @@
 # Updating Vocabulary Entities
 
-Use the [InvokeDataAutomationLibraryIngestionJob](../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") with "UPSERT" operation type to update existing vocabulary entities for the same entityId. This will replace the entire entity with the new content.
+Use the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") with "UPSERT" operation type to update existing vocabulary entities for the same entityId. This will replace the entire entity with the new content.
 
 ###### Important
 

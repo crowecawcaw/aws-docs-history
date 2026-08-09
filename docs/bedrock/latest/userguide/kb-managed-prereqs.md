@@ -8,7 +8,7 @@ models.
 
 Before you can create a managed knowledge base, you must fulfill the following
 prerequisites. For general permissions requirements, see
-[Set up permissions for a user or role to create and manage knowledge bases](knowledge-base-prereq-permissions-general.md "knowledge-base-prereq-permissions-general.md")
+[Set up permissions for a user or role to create and manage knowledge bases](bedrock/latest/userguide/knowledge-base-prereq-permissions-general.md "bedrock/latest/userguide/knowledge-base-prereq-permissions-general.md")
 
 1. Make sure your data is in a [supported data
    source connector](kb-managed-connect-ds.md "kb-managed-connect-ds.md").
@@ -44,7 +44,7 @@ prerequisites. For general permissions requirements, see
    that you'll use by following the steps at [Request access to models](model-access.md "model-access.md"). This is not required when using managed
    reranking.
 6. (Optional) If you plan to connect to your knowledge base through AgentCore
-   Gateway, see [Connect to your knowledge base through AgentCore Gateway](kb-gateway-target.md "kb-gateway-target.md") in Test your knowledge base with queries and responses.
+   Gateway, see [Connect to your knowledge base through AgentCore Gateway](bedrock/latest/userguide/kb-gateway-target.md "bedrock/latest/userguide/kb-gateway-target.md") in Test your knowledge base with queries and responses.
 7. (Optional) To encrypt data storage in your managed knowledge base with a custom KMS key, specify `ServerSideEncryptionConfiguration` during knowledge base creation. You also need to add the required KMS permissions to the service role. For more information, see [Encryption of data storage in fully managed knowledge base](encryption-kb.md#encryption-kb-managed-ingestion "encryption-kb.md#encryption-kb-managed-ingestion").
 
 ```

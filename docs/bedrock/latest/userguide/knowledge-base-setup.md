@@ -121,7 +121,7 @@ you took note of.
 | Metadata management (second mapping field) | Bedrock-managed metadata field                        | metadataField                                     | The name of the field in which to store metadata that Amazon Bedrock<br>manages.    |
 
 For more detailed documentation on setting up a vector store in Amazon OpenSearch Serverless, see
-[Working with vector search collections](../../../opensearch-service/latest/developerguide/serverless-vector-search.md "../../../opensearch-service/latest/developerguide/serverless-vector-search.md") in the
+[Working with vector search collections](opensearch-service/latest/developerguide/serverless-vector-search.md "opensearch-service/latest/developerguide/serverless-vector-search.md") in the
 Amazon OpenSearch Service Developer Guide.
 
 Amazon OpenSearch Service Managed Clusters
@@ -610,7 +610,7 @@ Amazon Bedrock through the AWS Secrets Manager.
 
 ###### To set up a secret for your Pinecone configuration
 
-1. Follow the steps at [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md"), setting the key as
+1. Follow the steps at [Create an AWS Secrets Manager secret](secretsmanager/latest/userguide/create_secret.md "secretsmanager/latest/userguide/create_secret.md"), setting the key as
    `apiKey` and the value as the API key to access your
    Pinecone index.
 2. To find your API key, open your [Pinecone console](https://app.pinecone.io/ "https://app.pinecone.io/") and select **API
@@ -664,7 +664,7 @@ configuration to Amazon Bedrock through the AWS Secrets Manager.
 
 1. Enable TLS to use your database with Amazon Bedrock by following the steps at
    [Transport Layer Security (TLS)](https://docs.redis.com/latest/rc/security/database-security/tls-ssl/ "https://docs.redis.com/latest/rc/security/database-security/tls-ssl/").
-2. Follow the steps at [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md"). Set up the following keys with
+2. Follow the steps at [Create an AWS Secrets Manager secret](secretsmanager/latest/userguide/create_secret.md "secretsmanager/latest/userguide/create_secret.md"). Set up the following keys with
    the appropriate values from your Redis Enterprise Cloud configuration in the
    secret:
 

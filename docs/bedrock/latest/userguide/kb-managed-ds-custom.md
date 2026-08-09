@@ -44,4 +44,4 @@ enable document-level access control. For details, see [Document-level access co
 
 After setting up your custom data source, you can add documents into it and directly
 ingest them into the knowledge base. Unlike other data sources, you don't need to sync a
-custom data source. To learn how to ingest documents directly, see [Ingest changes directly into a knowledge base](kb-direct-ingestion.md "kb-direct-ingestion.md").
+custom data source. To learn how to ingest documents directly, see [Ingest changes directly into a knowledge base](bedrock/latest/userguide/kb-direct-ingestion.md "bedrock/latest/userguide/kb-direct-ingestion.md").

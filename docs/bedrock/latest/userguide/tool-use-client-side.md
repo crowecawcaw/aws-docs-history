@@ -119,7 +119,7 @@ For more details on the using Function Calling on Responses API and Chat Complet
 
 **Using Converse API for client-side tooling**
 
-You can use the [Converse API](conversation-inference.md "conversation-inference.md") to let a model use a tool in a conversation. The following Python examples show how to use a tool that returns the most popular song on a fictional radio station.
+You can use the [Converse API](bedrock/latest/userguide/conversation-inference.md "bedrock/latest/userguide/conversation-inference.md") to let a model use a tool in a conversation. The following Python examples show how to use a tool that returns the most popular song on a fictional radio station.
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -278,4 +278,4 @@ if __name__ == "__main__":
 
 **Using Invoke APIs for client-side tool use**
 
-It is possible to use tools with the base inference operations ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")). To find the inference parameters that you pass in the request body, see the [inference parameters](model-parameters.md "model-parameters.md") for the model that you want to use.
+It is possible to use tools with the base inference operations ([InvokeModel](bedrock/latest/APIReference/API_runtime_InvokeModel.md "bedrock/latest/APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.md "bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.md")). To find the inference parameters that you pass in the request body, see the [inference parameters](bedrock/latest/userguide/model-parameters.md "bedrock/latest/userguide/model-parameters.md") for the model that you want to use.

@@ -5,7 +5,7 @@ single short prompt for one model. It works best for prompts of approximately 1k
 less. You can choose the model that you want to optimize the prompt for and then generate a
 revised prompt. Simple optimization does not use evaluation data or support multiple models.
 For evaluation-driven optimization where your evaluation steers the prompt rewriting across
-multiple models, see [Advanced Prompt Optimization](advanced-prompt-optimization-how.md "advanced-prompt-optimization-how.md").
+multiple models, see [Advanced Prompt Optimization](bedrock/latest/userguide/advanced-prompt-optimization-how.md "bedrock/latest/userguide/advanced-prompt-optimization-how.md").
 
 After you submit a prompt for simple optimization, Amazon Bedrock analyzes the components of the prompt.
 If the analysis is successful, it then rewrites the prompt. You can then copy and use the text

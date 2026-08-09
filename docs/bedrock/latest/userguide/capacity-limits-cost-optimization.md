@@ -4,14 +4,14 @@ Amazon Bedrock offers flexible capacity options to match your workload requireme
 
 ## Capacity Options
 
-| Capacity Type          | Use Case                                   | Key Characteristics                                                                                           |
-| ---------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| On-Demand: Flex        | Sporadic, low-volume workloads             | • Lowest cost per token<br>• Best-effort availability<br>• May experience throttling<br>• No SLA              |
-| On-Demand: Standard    | Regular production workloads               | • Balanced cost and performance<br>• Moderate throughput guarantees<br>• Standard SLA<br>• Most common choice |
-| On-Demand: Priority    | High-priority, latency-sensitive apps      | • Highest on-demand cost<br>• Premium throughput allocation<br>• Enhanced SLA<br>• Reduced throttling risk    |
-| Reserved Tier          | Consistent, high-volume workloads          | • Reserved model units<br>• Guaranteed capacity<br>• 1 or 3 month commitments<br>• Predictable performance    |
-| Batch                  | Large-scale, non-time-sensitive processing | • 50% cost savings vs on-demand<br>• 24-hour processing window<br>• Ideal for bulk inference                  |
-| Cross-Region Inference | High availability, traffic bursting        | • Automatic failover<br>• Route to less-busy regions<br>• Improved uptime<br>• Uses on-demand pricing         |
+| Capacity Type          | Use Case                                                | Key Characteristics                                                                                                                                    |
+| ---------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| On-Demand: Flex        | Sporadic, low-volume workloads                          | • Lowest cost per token<br>• Best-effort availability<br>• May experience throttling<br>• No SLA                                                       |
+| On-Demand: Standard    | Regular production workloads                            | • Balanced cost and performance<br>• Moderate throughput guarantees<br>• Standard SLA<br>• Most common choice                                          |
+| On-Demand: Priority    | High-priority, latency-sensitive apps                   | • Highest on-demand cost<br>• Premium throughput allocation<br>• Enhanced SLA<br>• Reduced throttling risk                                             |
+| Reserved Tier          | Consistent, high-volume workloads                       | • Reserved model units<br>• Guaranteed capacity<br>• 1 or 3 month commitments<br>• Predictable performance                                             |
+| Batch                  | Large-scale, non-time-sensitive processing              | • 50% cost savings vs on-demand<br>• 24-hour processing window<br>• Ideal for bulk inference                                                           |
+| Cross-Region Inference | Workloads that can be processed outside a single Region | • Routes requests across the Regions in the inference profile<br>• Lowers token costs for some models with global profiles<br>• Uses on-demand pricing |
 
 ## Limits & Quotas
 
@@ -89,7 +89,7 @@ Amazon Bedrock offers flexible capacity options to match your workload requireme
 - Standard on-demand for moderate bursts
 - Priority on-demand for critical peak periods
 - Batch for offline processing
-- Cross-region for failover only
+- Use Cross-Region inference for workloads that can be processed outside a single Region.
 
 **Cost Monitoring**
 

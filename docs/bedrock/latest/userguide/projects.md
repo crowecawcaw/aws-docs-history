@@ -11,7 +11,7 @@ Projects can only be used with models that use the OpenAI-compatible APIs agains
 A Project is a logical boundary used to isolate workloads such as applications, environments, or experiments within Amazon Bedrock. Projects provide:
 
 - **Access isolation**: Control who can access specific project resources using [IAM policies for Amazon Bedrock Projects](security-iam-projects.md "security-iam-projects.md")
-- **Cost monitoring**: Track spending at the project level using [AWS tags](../../../whitepapers/latest/tagging-best-practices/what-are-tags.md "../../../whitepapers/latest/tagging-best-practices/what-are-tags.md") and [AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md")
+- **Cost monitoring**: Track spending at the project level using [AWS tags](whitepapers/latest/tagging-best-practices/what-are-tags.md "whitepapers/latest/tagging-best-practices/what-are-tags.md") and [AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md")
 
 Projects allow you to manage multiple generative AI workloads in production without creating separate AWS accounts or organizations, reducing operational complexity while maintaining security and governance.
 
@@ -76,7 +76,7 @@ Replace `<your-region>` with your AWS region (e.g., us-east-1, us-west-2).
 
 ###### Note
 
-Amazon Bedrock offers [two types of keys](api-keys-how.md "api-keys-how.md"): short-term and long-term. While you can use long-term API keys for exploration of Amazon Bedrock, we recommend short-term keys for applications with greater security requirements. If you use long-term keys with Projects, note that the default policy attached to long term keys only allows you to get and list projects, but not create/update/archive them. If you would like your long-term key to manage projects, then you will have to assign additional IAM policies to your keys to enable these operations.
+Amazon Bedrock offers [two types of keys](bedrock/latest/userguide/api-keys-how.md "bedrock/latest/userguide/api-keys-how.md"): short-term and long-term. While you can use long-term API keys for exploration of Amazon Bedrock, we recommend short-term keys for applications with greater security requirements. If you use long-term keys with Projects, note that the default policy attached to long term keys only allows you to get and list projects, but not create/update/archive them. If you would like your long-term key to manage projects, then you will have to assign additional IAM policies to your keys to enable these operations.
 
 ### Step 2: Discover Available Models
 

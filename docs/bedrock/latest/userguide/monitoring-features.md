@@ -11,3 +11,4 @@ create or to job state changes, rather than to traffic on the
 - [Monitor Amazon Bedrock Guardrails using CloudWatch metrics](monitoring-guardrails-cw-metrics.md "monitoring-guardrails-cw-metrics.md")
 - [Monitor Amazon Bedrock Agents using CloudWatch Metrics](monitoring-agents-cw-metrics.md "monitoring-agents-cw-metrics.md")
 - [Monitor Amazon Bedrock job state changes using Amazon EventBridge](monitoring-eventbridge.md "monitoring-eventbridge.md")
+- [Monitor Web Search](monitoring-web-search.md "monitoring-web-search.md")

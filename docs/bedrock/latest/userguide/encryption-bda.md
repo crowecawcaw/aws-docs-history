@@ -7,9 +7,9 @@ BDA offers two options for encrypting your data:
 1. AWS owned keys – By default, BDA encrypts your data with AWS owned keys. You can't view,
    manage, or use AWS owned keys, or audit their use. However, you don't have to take
    any action or change any programs to protect the keys that encrypt your data. For
-   more information, see [AWS owned keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk") in the AWS Key Management Service Developer Guide.
+   more information, see [AWS owned keys](kms/latest/developerguide/concepts.md#aws-owned-cmk "kms/latest/developerguide/concepts.md#aws-owned-cmk") in the AWS Key Management Service Developer Guide.
 2. Customer managed keys – You can choose to encrypt your data with customer managed keys that
-   you manage yourself. For more information about AWS KMS keys, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the AWS Key Management Service Developer
+   you manage yourself. For more information about AWS KMS keys, see [Customer managed keys](kms/latest/developerguide/concepts.md#customer-cmk "kms/latest/developerguide/concepts.md#customer-cmk") in the AWS Key Management Service Developer
    Guide. BDA does not support customer managed keys for use in the
    Amazon Bedrock console, only for API operations.
    Amazon Bedrock Data Automation automatically enables encryption at rest using
@@ -53,7 +53,7 @@ general steps:
 1. (Prerequisite) Ensure that your IAM role has permissions for the
    CreateKey action.
 2. Follow the steps at
-   [Creating keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md")
+   [Creating keys](kms/latest/developerguide/create-keys.md "kms/latest/developerguide/create-keys.md")
    to create a customer managed key using the AWS KMS console or
    the CreateKey operation.
 3. Creation of the key returns an ARN that you can use for operations
@@ -63,7 +63,7 @@ general steps:
 4. Create and attach a key policy to the key with the required
    permissions. To create a key policy, follow the steps at
    [Creating a
-   key policy](../../../kms/latest/developerguide/key-policy-create.md "../../../kms/latest/developerguide/key-policy-create.md")
+   key policy](kms/latest/developerguide/key-policy-create.md "kms/latest/developerguide/key-policy-create.md")
    in the AWS KMS Developer Guide.
 
 ## Permissions and key policies for Amazon Bedrock Data Automation resources
@@ -311,9 +311,9 @@ When calling `CreateDataAutomationLibrary`, attach the following policy to grant
 
 ## Monitoring your encryption keys for Amazon Bedrock Data Automation
 
-When you use an AWS KMS customer managed key with your Amazon Bedrock Data Automation resources, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [Amazon CloudWatch](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track requests that Amazon Bedrock Data Automation
+When you use an AWS KMS customer managed key with your Amazon Bedrock Data Automation resources, you can use [AWS CloudTrail](awscloudtrail/latest/userguide/cloudtrail-user-guide.md "awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [Amazon CloudWatch](AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track requests that Amazon Bedrock Data Automation
 sends to AWS KMS. The following is an example AWS CloudTrail event for
-[CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") to monitor AWS KMS operations called by Amazon Bedrock Data Automation
+[CreateGrant](kms/latest/APIReference/API_CreateGrant.md "kms/latest/APIReference/API_CreateGrant.md") to monitor AWS KMS operations called by Amazon Bedrock Data Automation
 to create a primary grant:
 
 ```

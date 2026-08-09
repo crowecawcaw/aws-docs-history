@@ -69,7 +69,7 @@ name of your knowledge base service role, and
 }
 ```
 
-For more general guidance, see [Configure access to Amazon S3 buckets](s3-bucket-access.md "s3-bucket-access.md").
+For more general guidance, see [Configure access to Amazon S3 buckets](bedrock/latest/userguide/s3-bucket-access.md "bedrock/latest/userguide/s3-bucket-access.md").
 
 ### KMS key policy for encrypted buckets
 

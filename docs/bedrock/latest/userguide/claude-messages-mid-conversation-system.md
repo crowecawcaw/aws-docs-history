@@ -41,7 +41,7 @@ Mid-conversation system messages are designed to work with prompt caching. Cache
 
 Once a mid-conversation system message becomes part of the stable history, it can itself be read from cache on subsequent turns. Avoid editing or removing a previously sent mid-conversation system message, because changing earlier messages invalidates the cache from that point forward.
 
-For more information about prompt caching, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
+For more information about prompt caching, see [Prompt caching for faster model inference](bedrock/latest/userguide/prompt-caching.md "bedrock/latest/userguide/prompt-caching.md").
 
 ## Response behavior
 

@@ -1,6 +1,6 @@
 # Server-side tool use
 
-If you use the Responses API to invoke the model, then it can use server-side tool calling, in addition to the client-side tool calling we discussed before. Server-side tool calling is a mechanism where tools (APIs, functions, workflows) are executed in a trusted, backend environment, not on the client. This improves the security, reliability, and governance posture of the application. Before Amazon Bedrock executes the Lambda function which implements the tool use, it ensures that the Lambda function has the same IAM policy as that of the application that calls it. As Amazon Bedrock is driving the execution of the tools against, clients can focus on implementing their business logic, rather than adding tool functionality. Amazon Bedrock also supports the highest governance standards such as ISO, SOC, and HIPAA eligible. Customers can either submit their own custom Lambda function to run the tool or use existing pre-defined tools, such as notes and tasks. Server-side tools using the Responses API is available starting with OpenAI's GPT OSS 20B/120B models, with support for other models coming soon. You can use the Models API to discover available models that you can use with the Responses API. For more details on the Responses API, see [Generate responses using OpenAI APIs](bedrock-mantle.md "bedrock-mantle.md").
+If you use the Responses API to invoke the model, then it can use server-side tool calling, in addition to the client-side tool calling we discussed before. Server-side tool calling is a mechanism where tools (APIs, functions, workflows) are executed in a trusted, backend environment, not on the client. This improves the security, reliability, and governance posture of the application. Before Amazon Bedrock executes the Lambda function which implements the tool use, it ensures that the Lambda function has the same IAM policy as that of the application that calls it. As Amazon Bedrock is driving the execution of the tools against, clients can focus on implementing their business logic, rather than adding tool functionality. Amazon Bedrock also supports the highest governance standards such as ISO, SOC, and HIPAA eligible. Customers can either submit their own custom Lambda function to run the tool or use existing pre-defined tools, such as notes and tasks. Server-side tools using the Responses API is available starting with OpenAI's GPT OSS 20B/120B models, with support for other models coming soon. You can use the Models API to discover available models that you can use with the Responses API. For more details on the Responses API, see [Generate responses using OpenAI APIs](bedrock/latest/userguide/bedrock-mantle.md "bedrock/latest/userguide/bedrock-mantle.md").
 
 There are two types of tools you can use with Amazon Bedrock: Custom tools using Lambda, or pre-defined tools supported by Bedrock. In this section we will review how to create a custom Lambda tool with the Responses API. Let's discuss both in details.
 
@@ -15,7 +15,7 @@ By using a Lambda function as a custom tool in Bedrock, you can extend the capab
 - Easy Integration: Lambda functions appear alongside built-in tools seamlessly.
   To let a model in Amazon Bedrock use a tool to complete a response for a message, you send the message and the definitions for one or more tools to the model. Based on your application's prompt, if the model determines that one of the tools can help generate a response, it returns a request for Bedrock to use the tool and send the tool results back to the model. The model then uses the results to generate a response to the original message.
 
-The following steps show how to use a tool with the [Responses API](bedrock-mantle.md "bedrock-mantle.md").
+The following steps show how to use a tool with the [Responses API](bedrock/latest/userguide/bedrock-mantle.md "bedrock/latest/userguide/bedrock-mantle.md").
 
 **How it works**
 
@@ -93,7 +93,7 @@ def lambda_handler(event, context):
 
 **Step 2: Deploy the Lambda function**
 
-Next, use your IAM role to deploy this Lambda function to get an ARN. You can read more on deploying a Lambda function [here](../../../lambda/latest/dg/getting-started.md "../../../lambda/latest/dg/getting-started.md").
+Next, use your IAM role to deploy this Lambda function to get an ARN. You can read more in [Getting started with Lambda](lambda/latest/dg/getting-started.md "lambda/latest/dg/getting-started.md") in the Lambda Developer Guide.
 
 ```
 # Example using AWS CLI
@@ -109,7 +109,7 @@ Let's say that your ARN is: `arn:aws:lambda:us-west-2:123456789012:function:my-c
 
 **Step 3: Define the message and tool definition in your inference request**
 
-To send the message and tool definition, you use the [Responses API](bedrock-mantle.md "bedrock-mantle.md") operations. Amazon Bedrock uses the [connectors and remote MCP servers functionality](https://platform.openai.com/docs/guides/tools-connectors-mcp "https://platform.openai.com/docs/guides/tools-connectors-mcp") of the Responses API to provide tool-use capability. The definition of the tool is a JSON schema that you pass in the mcp request parameter to the Create operation. In the `connector_id` field in the Responses connectors API, you can pass in the Lambda ARN that you have created in the previous step. You do not need to provide authorization credentials since Bedrock uses the same IAM roles and policy that is used for your application that invokes the model. The following is an example schema for a tool that gets the most popular song played on a radio station.
+To send the message and tool definition, you use the [Responses API](bedrock/latest/userguide/bedrock-mantle.md "bedrock/latest/userguide/bedrock-mantle.md") operations. Amazon Bedrock uses the [connectors and remote MCP servers functionality](https://platform.openai.com/docs/guides/tools-connectors-mcp "https://platform.openai.com/docs/guides/tools-connectors-mcp") of the Responses API to provide tool-use capability. The definition of the tool is a JSON schema that you pass in the mcp request parameter to the Create operation. In the `connector_id` field in the Responses connectors API, you can pass in the Lambda ARN that you have created in the previous step. You do not need to provide authorization credentials since Bedrock uses the same IAM roles and policy that is used for your application that invokes the model. The following is an example schema for a tool that gets the most popular song played on a radio station.
 
 ```
 from openai import OpenAI
@@ -134,7 +134,7 @@ print(resp.output_text)
 
 **Step 4: Bedrock calls the tool and passes the response back to the model**
 
-The ability to use the connector tool is available in the models that support the [Responses API](https://platform.openai.com/docs/api-reference/responses/create "https://platform.openai.com/docs/api-reference/responses/create"). Check which tools support your model [here](bedrock-mantle.md "bedrock-mantle.md"). When you're using tools using the Responses API, you only pay for [tokens](https://platform.openai.com/docs/pricing "https://platform.openai.com/docs/pricing") used when importing tool definitions or making tool calls. There are no additional fees involved per tool call.
+The ability to use the connector tool is available in the models that support the [Responses API](https://platform.openai.com/docs/api-reference/responses/create "https://platform.openai.com/docs/api-reference/responses/create"). Check which tools support your model in [Generate responses using OpenAI APIs](bedrock/latest/userguide/bedrock-mantle.md "bedrock/latest/userguide/bedrock-mantle.md"). When you're using tools using the Responses API, you only pay for [tokens](https://platform.openai.com/docs/pricing "https://platform.openai.com/docs/pricing") used when importing tool definitions or making tool calls. There are no additional fees involved per tool call.
 
 When you specify a Lambda function in the `tools` parameter, the API will attempt to get a list of tools from the server. If successful in retrieving the list of tools, a new `mcp_list_tools` output item will appear in the model response output. The `tools` property of this object will show the tools that were successfully imported. Once the model has access to these tool definitions, it may choose to call them depending on what's in the model's context. When the model decides to call a Lambda tool, the API will make a request to the Lambda function to call the tool and put its output into the model's context. You can read more on the list tools and calling tools in the [OpenAI documentation](https://platform.openai.com/docs/guides/tools-connectors-mcp?quickstart-panels=connector "https://platform.openai.com/docs/guides/tools-connectors-mcp?quickstart-panels=connector"). Note that your Lambda function must have the same IAM roles and policy attached to it as that of the application calling the model in Bedrock, otherwise the Lambda function will fail. The following is the error definition.
 
@@ -201,7 +201,7 @@ print(resp.output)
 
 ## Server-side tool-use integration with AgentCore Gateway
 
-Amazon Bedrock now supports [AgentCore Gateway](../../../bedrock-agentcore/latest/devguide/gateway.md "../../../bedrock-agentcore/latest/devguide/gateway.md") as a server-side tool calling integration type. This feature allows you to connect your models directly to AgentCore Gateway endpoints, enabling seamless access to tools managed through the gateway infrastructure.
+Amazon Bedrock now supports [AgentCore Gateway](bedrock-agentcore/latest/devguide/gateway.md "bedrock-agentcore/latest/devguide/gateway.md") as a server-side tool calling integration type. This feature allows you to connect your models directly to AgentCore Gateway endpoints, enabling seamless access to tools managed through the gateway infrastructure.
 
 The AgentCore Gateway integration follows the same pattern as Lambda function integration, with one key difference.
 
@@ -311,6 +311,6 @@ Your Bedrock execution role needs permission to invoke the AgentCore Gateway:
 
 ### Next Steps
 
-- Learn more about [creating AgentCore Gateways](../../../bedrock-agentcore/latest/devguide/gateway-create.md "../../../bedrock-agentcore/latest/devguide/gateway-create.md")
-- Explore [gateway target types](../../../bedrock-agentcore/latest/devguide/gateway-targets.md "../../../bedrock-agentcore/latest/devguide/gateway-targets.md")
-- Review [gateway security best practices](../../../bedrock-agentcore/latest/devguide/gateway-security.md "../../../bedrock-agentcore/latest/devguide/gateway-security.md")
+- Learn more about [creating AgentCore Gateways](bedrock-agentcore/latest/devguide/gateway-create.md "bedrock-agentcore/latest/devguide/gateway-create.md")
+- Explore [gateway target types](bedrock-agentcore/latest/devguide/gateway-targets.md "bedrock-agentcore/latest/devguide/gateway-targets.md")
+- Review [gateway security best practices](bedrock-agentcore/latest/devguide/gateway-security.md "bedrock-agentcore/latest/devguide/gateway-security.md")

@@ -1,6 +1,6 @@
 # Listing Libraries
 
-Use the [ListDataAutomationLibraries](../APIReference/API_data-automation_ListDataAutomationLibraries.md "../APIReference/API_data-automation_ListDataAutomationLibraries.md") api to retrieve the list of libraries.
+Use the [ListDataAutomationLibraries](bedrock/latest/APIReference/API_data-automation_ListDataAutomationLibraries.md "bedrock/latest/APIReference/API_data-automation_ListDataAutomationLibraries.md") API to retrieve the list of libraries.
 
 ## AWS CLI Example:
 

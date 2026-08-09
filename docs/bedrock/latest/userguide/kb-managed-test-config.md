@@ -218,7 +218,7 @@ is `"entertainment"` by adding the following filter:
 - To remove a filter group, choose the trash can icon
   (
 
-![Trash can icon representing a delete action.](/images/bedrock/latest/userguide/images/icons/trash.png)
+![Trash can icon representing a delete action.](images/icons/trash.png)
 
 ) next to the group. To remove a filter, choose the
 delete icon (
@@ -227,7 +227,7 @@ delete icon (
 
 ) next to the filter.
 
-![Delete a filter or filter group.](/images/bedrock/latest/userguide/images/kb/filter-delete.png)
+![Delete a filter or filter group.](images/kb/filter-delete.png)
 
 The following image shows an example filter configuration that returns
 all documents written after `2018` whose genre is

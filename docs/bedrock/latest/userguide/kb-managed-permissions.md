@@ -25,7 +25,7 @@ A policy cannot be shared between multiple roles when the service role is used.
 The following policy allows Amazon Bedrock to assume this role and create and manage
 knowledge bases. You can restrict
 the scope of the permission by using one or more global condition context keys. For
-more information, see [AWS global condition context keys.](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") Set the
+more information, see [AWS global condition context keys.](IAM/latest/UserGuide/reference_policies_condition-keys.md "IAM/latest/UserGuide/reference_policies_condition-keys.md") Set the
 `aws:SourceAccount` value to your account ID. Use the
 `ArnEquals` or `ArnLike` condition to restrict the scope to
 specific knowledge bases.

@@ -6,7 +6,7 @@ You can provide domain-specific words and phrases per language, which enables BD
 
 You are responsible for the integrity of your own data when you use Bedrock Data Automation Library. Do not enter confidential information, personal information (PII), or protected health information (PHI) into a custom vocabulary.
 
-You can find the list of supported languages for Custom Vocabulary [here](bda-limits.md "bda-limits.md"). Note that only the characters listed in your language's [character set](bda-library-character-sets.md "bda-library-character-sets.md") can be used in a custom vocabulary.
+You can find the list of supported languages for Custom Vocabulary in the [Amazon Bedrock Data Automation quotas and limits](bedrock/latest/userguide/bda-limits.md "bedrock/latest/userguide/bda-limits.md") page. Note that only the characters listed in your language's [character set](bda-library-character-sets.md "bda-library-character-sets.md") can be used in a custom vocabulary.
 
 ## How to use?
 

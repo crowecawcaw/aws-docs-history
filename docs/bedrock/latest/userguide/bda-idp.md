@@ -49,7 +49,7 @@ The following section goes over an example of a blueprint prompt for an audio bl
 a blueprint to extract information from a conversation between a customer and a customer service representative. The screenshot
 below shows the prompt window on the console.
 
-![](images/bda/audio-bpa-prompt.png)
+![Amazon Bedrock Data Automation audio blueprint prompt configuration.](images/bda/audio-bpa-prompt.png)
 
 At the bottom of the screenshot you can see the AI generated prompt based on the input in the box. We can see how the fields we
 mention get processed. Next, we can look at the blueprint created from the prompt.

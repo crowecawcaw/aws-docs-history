@@ -70,8 +70,9 @@ Console
    modalities:
 
    - **Visual content in documents**:
-     Processes embedded visuals in .pdf, .docx, .ppt, .pptx
-     files.
+     Processes standalone image files (.png, .jpg, .jpeg, .jpe,
+     .tif, .tiff, .gif, .bmp, .webp, .svg, .jp2, .heic) and
+     embedded visuals in .pdf, .docx, .ppt, .pptx files.
    - **Audio files**: Processes
      .mp3, .wav, .m4a, .flac, .ogg files.
    - **Video files**: Processes

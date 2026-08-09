@@ -154,4 +154,4 @@ mask file must conform to the following parameters:
 
 For more information on Amazon Titan Image Generator prompt engineering, see [Amazon Titan Image Generator G1 models Prompt Engineering Best Practices](https://d2eo22ngex1n9g.cloudfront.net/Documentation/User+Guides/Titan/Amazon+Titan+Image+Generator+Prompt+Engineering+Guidelines.pdf "https://d2eo22ngex1n9g.cloudfront.net/Documentation/User+Guides/Titan/Amazon+Titan+Image+Generator+Prompt+Engineering+Guidelines.pdf").
 
-For general prompt engineering guidelines, see [Prompt Engineering Guidelines](prompt-engineering-guidelines.md "prompt-engineering-guidelines.md").
+For general prompt engineering guidelines, see [Prompt Engineering Guidelines](bedrock/latest/userguide/prompt-engineering-guidelines.md "bedrock/latest/userguide/prompt-engineering-guidelines.md").

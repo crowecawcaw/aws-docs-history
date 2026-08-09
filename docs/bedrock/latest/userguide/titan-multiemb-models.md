@@ -72,7 +72,7 @@ time. Shorter embedding lengths are less detailed but will improve the response 
 ## Preparing datasets
 
 For the training dataset, create a `.jsonl`file with multiple JSON lines. Each JSON line contains both an `image-ref` and `caption` attributes similar to
-[Sagemaker Augmented Manifest format](../../../sagemaker/latest/dg/augmented-manifest.md "../../../sagemaker/latest/dg/augmented-manifest.md"). A validation dataset is required. Auto-captioning is not currently supported.
+[Sagemaker Augmented Manifest format](sagemaker/latest/dg/augmented-manifest.md "sagemaker/latest/dg/augmented-manifest.md"). A validation dataset is required. Auto-captioning is not currently supported.
 
 ```
 
@@ -86,7 +86,7 @@ For both the training and validation datasets, you will create `.jsonl`files wit
 
 The Amazon S3 paths need to be in the same folders where you have provided permissions for Amazon Bedrock to access the
 data by attaching an IAM policy to your Amazon Bedrock service role. For more information on granting an IAM policies for training data,
-see [Grant custom jobs access to your training data](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-model-customization "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-model-customization").
+see [Grant custom jobs access to your training data](bedrock/latest/userguide/security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-model-customization "bedrock/latest/userguide/security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-model-customization").
 
 ## Hyperparameters
 

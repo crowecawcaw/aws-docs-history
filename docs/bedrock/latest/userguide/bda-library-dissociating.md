@@ -1,6 +1,6 @@
 # Dissociation of Library from a Project
 
-You can dissociate a library from a project using the [UpdateDataAutomationProject](../APIReference/API_data-automation_UpdateDataAutomationProject.md "../APIReference/API_data-automation_UpdateDataAutomationProject.md") API.
+You can dissociate a library from a project using the [UpdateDataAutomationProject](bedrock/latest/APIReference/API_data-automation_UpdateDataAutomationProject.md "bedrock/latest/APIReference/API_data-automation_UpdateDataAutomationProject.md") API.
 
 ## AWS CLI Example:
 

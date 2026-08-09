@@ -1,6 +1,6 @@
 # Deleting Vocabulary List
 
-Use the [InvokeDataAutomationLibraryIngestionJob](../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") with "DELETE" operation type to remove specific entities from your library.
+Use the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") with "DELETE" operation type to remove specific entities from your library.
 
 ## AWS CLI Example:
 
@@ -24,7 +24,7 @@ aws s3 cp vocabulary-manifest.json s3://my-bucket/manifests/
 
 #### Step 3: Start the ingestion job
 
-Use the [InvokeDataAutomationLibraryIngestionJob](../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") to start a vocabulary ingestion job with an operation type DELETE
+Use the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") to start a vocabulary ingestion job with an operation type DELETE
 
 **Request**
 

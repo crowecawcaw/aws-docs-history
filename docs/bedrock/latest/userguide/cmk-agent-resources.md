@@ -29,7 +29,7 @@ To use a customer managed key, complete the following steps:
 You can create a symmetric customer managed key by using the AWS Management Console,
 or the AWS Key Management Service APIs.
 
-First make sure that you have `CreateKey` permissions and then, follow the steps for [Creating symmetric customer managed key](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS Key Management Service
+First make sure that you have `CreateKey` permissions and then, follow the steps for [Creating symmetric customer managed key](kms/latest/developerguide/create-keys.md#create-symmetric-cmk "kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS Key Management Service
 Developer Guide_.
 
 **Key policy** - key policies control access to your customer managed key
@@ -37,15 +37,15 @@ Developer Guide_.
 contains statements that determine who can use the key and how they can use it. When you
 create your customer managed key, you can specify a key policy. For more information, see
 [Managing
-access to customer managed key](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") in the _AWS Key Management Service
+access to customer managed key](kms/latest/developerguide/overview.md "kms/latest/developerguide/overview.md") in the _AWS Key Management Service
 Developer Guide_.
 
 If you have created your agent after January 22, 2025 and want to use customer managed key to encrypt your agent's information, make sure that the user or the role calling the agent
 API operations has the following permissions in the key policy:
 
-- [kms:GenerateDataKey](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") – returns a unique symmetric data key for use outside of
+- [kms:GenerateDataKey](kms/latest/APIReference/API_GenerateDataKey.md "kms/latest/APIReference/API_GenerateDataKey.md") – returns a unique symmetric data key for use outside of
   AWS KMS.
-- [kms:Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") – decrypts ciphertext that was encrypted by a KMS key.
+- [kms:Decrypt](kms/latest/APIReference/API_Decrypt.md "kms/latest/APIReference/API_Decrypt.md") – decrypts ciphertext that was encrypted by a KMS key.
 
 Creation of the key returns an `Arn` for the key that you can use as the `customerEncryptionKeyArn`, when creating your agent.
 

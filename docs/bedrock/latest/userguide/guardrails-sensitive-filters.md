@@ -233,7 +233,7 @@ does not apply to the following:
   enabled [Monitor model invocation using CloudWatch Logs and Amazon S3](model-invocation-logging.md "model-invocation-logging.md"), the
   `input` field in Amazon CloudWatch Logs always contains the original,
   unmodified request regardless of guardrail intervention. To protect
-  sensitive information in your logs, use [Amazon CloudWatch log data protection](../../../AmazonCloudWatch/latest/logs/mask-sensitive-log-data.md "../../../AmazonCloudWatch/latest/logs/mask-sensitive-log-data.md").
+  sensitive information in your logs, use [Amazon CloudWatch log data protection](AmazonCloudWatch/latest/logs/mask-sensitive-log-data.md "AmazonCloudWatch/latest/logs/mask-sensitive-log-data.md").
 - **Guardrails trace output** — The
   `match` field in [GuardrailPiiEntityFilter](../APIReference/API_runtime_GuardrailPiiEntityFilter.md "../APIReference/API_runtime_GuardrailPiiEntityFilter.md") that is returned in API responses
   (such as the `trace` object of the Converse API) contains the

@@ -45,7 +45,7 @@ creating or updating a project. The fallback blueprint is specified under the
 
 The following example creates a project with two regular blueprints and one fallback
 blueprint. For more information about the fallback blueprint configuration, see
-[DocumentCustomOutputConfiguration](../APIReference/API_data-automation_DocumentCustomOutputConfiguration.md "../APIReference/API_data-automation_DocumentCustomOutputConfiguration.md")
+[DocumentCustomOutputConfiguration](bedrock/latest/APIReference/API_data-automation_DocumentCustomOutputConfiguration.md "bedrock/latest/APIReference/API_data-automation_DocumentCustomOutputConfiguration.md")
 in the API Reference.
 
 **Python SDK**
@@ -123,7 +123,7 @@ processed:
 | `NO_MATCH`         | No blueprint matched and no fallback blueprint was configured.                               |
 | `FALLBACK`         | No regular blueprint matched, but the fallback blueprint was used to generate custom output. |
 
-The following is an example output snippet from the [InvokeDataAutomationAsync](../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md "../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md") API when a fallback blueprint is used:
+The following is an example output snippet from the [InvokeDataAutomationAsync](bedrock/latest/APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md "bedrock/latest/APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md") API when a fallback blueprint is used:
 
 ```
 {

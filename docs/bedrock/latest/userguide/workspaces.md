@@ -13,7 +13,7 @@ If you are using the OpenAI-compatible APIs (Responses API, Chat Completions), u
 A Workspace is a logical boundary used to isolate workloads such as applications, environments, or experiments within Amazon Bedrock when using the Anthropic Messages API. Workspaces are the same underlying resource as [Projects (OpenAI-compatible)](projects.md "projects.md") — they are managed using the Projects API and provide the same capabilities:
 
 - **Access isolation**: Control who can access specific workspace resources using [IAM policies for Amazon Bedrock Projects](security-iam-projects.md "security-iam-projects.md")
-- **Cost monitoring**: Track spending at the workspace level using [AWS tags](../../../whitepapers/latest/tagging-best-practices/what-are-tags.md "../../../whitepapers/latest/tagging-best-practices/what-are-tags.md") and [AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md")
+- **Cost monitoring**: Track spending at the workspace level using [AWS tags](whitepapers/latest/tagging-best-practices/what-are-tags.md "whitepapers/latest/tagging-best-practices/what-are-tags.md") and [AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md")
 - **Observability**: Track usage metrics and patterns per workspace for monitoring and optimization.
 
 Workspaces allow you to manage multiple generative AI workloads in production without creating separate AWS accounts or organizations, reducing operational complexity while maintaining security and governance.

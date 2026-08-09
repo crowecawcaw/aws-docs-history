@@ -23,7 +23,7 @@ For InvokeModel API with Anthropic Claude models, use the `output_config.format`
 
 Add the `strict: true` flag to tool definitions to enable schema validation on tool names and inputs. The model's tool calls will then follow the defined tool input schema.
 
-These mechanisms can be used independently or together in the same request. Refer to [Bedrock API documentation](../APIReference/welcome.md "../APIReference/welcome.md") for more details.
+These mechanisms can be used independently or together in the same request. Refer to [Bedrock API documentation](bedrock/latest/APIReference/welcome.md "bedrock/latest/APIReference/welcome.md") for more details.
 
 ### Request workflow
 

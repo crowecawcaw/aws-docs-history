@@ -13,7 +13,7 @@ For more information, see [Model customization access and security](custom-model
 
 To use a cross-region inference profile for a teacher model in a Distillation job, your service role must
 have permissions to invoke the inference profile in an AWS Region, in addition to the model in each Region
-in the inference profile. For a policy example, see [(Optional) Permissions to create a Distillation job with a cross-region inference profile](custom-model-job-access-security.md#custom-models-cross-region-inference-profile-permissions "custom-model-job-access-security.md#custom-models-cross-region-inference-profile-permissions"). For more information about cross-region inference, see [Increase throughput with cross-Region inference](cross-region-inference.md "cross-region-inference.md").
+in the inference profile. For a policy example, see [(Optional) Permissions to create a Distillation job with a cross-region inference profile](custom-model-job-access-security.md#custom-models-cross-region-inference-profile-permissions "custom-model-job-access-security.md#custom-models-cross-region-inference-profile-permissions"). For more information about cross-region inference, see [Route model inference requests across AWS Regions with cross-Region inference](cross-region-inference.md "cross-region-inference.md").
 
 ## Choose teacher and student models for distillation
 
@@ -30,7 +30,7 @@ for distillation. For more information, see [Prepare your training datasets for 
 
 The following table shows which models and AWS Regions Amazon Bedrock Model Distillation supports for teacher and student
 models. If you use a Cross Region Inference Profile, only System Inference Profiles are supported for model distillation.
-For more information, see [Increase throughput with cross-Region inference](cross-region-inference.md "cross-region-inference.md").
+For more information, see [Route model inference requests across AWS Regions with cross-Region inference](cross-region-inference.md "cross-region-inference.md").
 
 ###### Important
 

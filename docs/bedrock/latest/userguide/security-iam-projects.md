@@ -1,6 +1,6 @@
 # IAM policies for Amazon Bedrock Projects
 
-You can use IAM policies to control access to Amazon Bedrock Projects resources. These are standard IAM identity-based policies that you attach to IAM users, groups, or roles. The policies use the `Resource` element to scope permissions to specific project ARNs. For general information about creating and managing IAM policies, see [Managing IAM policies](../../../IAM/latest/UserGuide/access_policies_manage.md "../../../IAM/latest/UserGuide/access_policies_manage.md") in the _IAM User Guide_.
+You can use IAM policies to control access to Amazon Bedrock Projects resources. These are standard IAM identity-based policies that you attach to IAM users, groups, or roles. The policies use the `Resource` element to scope permissions to specific project ARNs. For general information about creating and managing IAM policies, see [Managing IAM policies](IAM/latest/UserGuide/access_policies_manage.md "IAM/latest/UserGuide/access_policies_manage.md") in the _IAM User Guide_.
 
 ## Example IAM policies for Projects
 

@@ -47,7 +47,22 @@ Within `dataSourceConfiguration`, you must specify the following:
     supported for the Custom connector.
   - `mediaExtractionConfiguration` (optional) – Configuration
     for extracting media (images, audio, video) from data source files.
-    **Optional fields:**
+    Contains three sub-configurations that you can enable independently:
+
+    - `imageExtractionConfiguration` (optional) –
+      Processes, extracts, and indexes content from standalone image
+      files (.png, .jpg, .jpeg, .jpe, .tif, .tiff, .gif, .bmp, .webp,
+      .svg, .jp2, .heic) and embedded visuals in .pdf, .docx, .ppt,
+      .pptx files.
+    - `audioExtractionConfiguration` (optional) –
+      Processes, extracts, and indexes content from supported audio
+      files (.mp3, .wav, .m4a, .flac, .ogg).
+    - `videoExtractionConfiguration` (optional) –
+      Processes, extracts, and indexes content from supported video
+      files (.mp4, .mov, .m4v).
+      For the full field reference, see [MediaExtractionConfiguration](../APIReference/API_agent_MediaExtractionConfiguration.md "../APIReference/API_agent_MediaExtractionConfiguration.md") in the Amazon Bedrock API
+      Reference.
+      **Optional fields:**
 
 | Field                          | Description                                                                                                                                                                                                 |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -95,6 +110,7 @@ To learn more about a specific connector and its configuration, select a topic b
 
 ###### Topics
 
+- [Box](kb-managed-ds-box.md "kb-managed-ds-box.md")
 - [Amazon S3](kb-managed-ds-s3.md "kb-managed-ds-s3.md")
 - [Confluence](kb-managed-ds-confluence.md "kb-managed-ds-confluence.md")
 - [Custom](kb-managed-ds-custom.md "kb-managed-ds-custom.md")

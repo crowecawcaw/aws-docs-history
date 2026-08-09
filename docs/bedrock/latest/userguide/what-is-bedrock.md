@@ -89,9 +89,9 @@ response = client.invoke_model(
 
 Bedrock supports [100+ foundation models](models.md "models.md") from industry-leading providers, including Amazon, Anthropic, DeepSeek, Moonshot AI, MiniMax, and OpenAI.
 
-|                                                                               |                                                                                    |              |                                                                                    |                                                                        |            |
-| ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------ | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
-| Amazon logo with curved arrow from A to Z forming a smile.<br>**Amazon Nova** | Orange rounded square icon with white radial loading spinner design.<br>**Claude** | **DeepSeek** | Spherical icon with horizontal stripes or segments across its surface.<br>**Kimi** | Red waveform icon representing audio or voice activity.<br>**MiniMax** | **OpenAI** |
+|                                                                               |                                                                                    |                                |                                                                                    |                                                                        |                            |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | -------------------------- |
+| Amazon logo with curved arrow from A to Z forming a smile.<br>**Amazon Nova** | Orange rounded square icon with white radial loading spinner design.<br>**Claude** | DeepSeek logo.<br>**DeepSeek** | Spherical icon with horizontal stripes or segments across its surface.<br>**Kimi** | Red waveform icon representing audio or voice activity.<br>**MiniMax** | OpenAI logo.<br>**OpenAI** |
 
 ## What's new?
 
@@ -102,8 +102,8 @@ Bedrock supports [100+ foundation models](models.md "models.md") from industry-l
 
 ## Start Building
 
-|                                                                        |                                                                                                                                                                         |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cloud icon with bidirectional arrows indicating sync or data transfer. | Explore the [APIs supported by Amazon Bedrock](apis.md "apis.md") and [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md") supported by Amazon Bedrock. |
-| Wrench and screwdriver icon on purple background.                      | Build using the [Making inference requests](inference.md "inference.md") operations provided by Amazon Bedrock.                                                         |
-|                                                                        | Customize your models to improve performance and quality. [Customize your model to improve its performance for your use case](custom-models.md "custom-models.md")      |
+|                                                                                                             |                                                                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cloud icon with bidirectional arrows indicating sync or data transfer.                                      | Explore the [APIs supported by Amazon Bedrock](apis.md "apis.md") and [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md") supported by Amazon Bedrock. |
+| Wrench and screwdriver icon on purple background.                                                           | Build using the [Making inference requests](inference.md "inference.md") operations provided by Amazon Bedrock.                                                         |
+| Amazon Bedrock model customization options including fine-tuning, continued pre-training, and distillation. | Customize your models to improve performance and quality. [Customize your model to improve its performance for your use case](custom-models.md "custom-models.md")      |

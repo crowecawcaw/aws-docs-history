@@ -116,7 +116,7 @@ or not a submitted file is an image or a document using internal models and perf
 
 ## Standard routing for the InvokeDataAutomation API
 
-The [InvokeDataAutomation](../APIReference/API_data-automation-runtime_InvokeDataAutomation.md "../APIReference/API_data-automation-runtime_InvokeDataAutomation.md") API will also look at indicators of whether or not a submitted PNG or JPEG file is an image or a document using internal models and perform routing automatically. The default procedures are listed in the table below.
+The [InvokeDataAutomation](bedrock/latest/APIReference/API_data-automation-runtime_InvokeDataAutomation.md "bedrock/latest/APIReference/API_data-automation-runtime_InvokeDataAutomation.md") API will also look at indicators of whether or not a submitted PNG or JPEG file is an image or a document using internal models and perform routing automatically. The default procedures are listed in the table below.
 
 PNGs and JPEGs list Semantic Classifier as a default behavior. This means that BDA will look at indicators of whether or not a submitted file is an image or a document using internal models and perform routing automatically. PDF and TIFF files will be routed to Documents modality for processing. InvokeDataAutomation API does not currently support Audio and Video files.
 

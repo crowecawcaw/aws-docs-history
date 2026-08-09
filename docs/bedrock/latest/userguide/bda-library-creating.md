@@ -1,6 +1,6 @@
 # Creating Library
 
-Use the [CreateDataAutomationLibrary](../APIReference/API_data-automation_CreateDataAutomationLibrary.md "../APIReference/API_data-automation_CreateDataAutomationLibrary.md") API to create a new library container.
+Use the [CreateDataAutomationLibrary](bedrock/latest/APIReference/API_data-automation_CreateDataAutomationLibrary.md "bedrock/latest/APIReference/API_data-automation_CreateDataAutomationLibrary.md") API to create a new library container.
 
 ## AWS CLI Example:
 

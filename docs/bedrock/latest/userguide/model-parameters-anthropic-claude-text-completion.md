@@ -2,4 +2,4 @@
 
 ###### Important
 
-This page has moved. For more information, see [Messages API](inference-messages-api.md "inference-messages-api.md").
+This page has moved. For more information, see [Messages API](bedrock/latest/userguide/inference-messages-api.md "bedrock/latest/userguide/inference-messages-api.md").

@@ -1,6 +1,6 @@
 # Adding New Vocabulary Entities
 
-You can add vocabulary to your library using the [InvokeDataAutomationLibraryIngestionJob](../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") API. You can provide vocabulary through an S3 manifest file or inline payload.
+You can add vocabulary to your library using the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") API. You can provide vocabulary through an S3 manifest file or inline payload.
 
 ###### Important
 
@@ -38,7 +38,7 @@ aws s3 cp vocabulary-manifest.json s3://my-bucket/manifests/
 
 ### Step 3: Start the ingestion job
 
-Use the [InvokeDataAutomationLibraryIngestionJob](../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") to start a vocabulary ingestion job.
+Use the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") to start a vocabulary ingestion job.
 
 **AWS CLI Example:**
 
@@ -74,7 +74,7 @@ aws bedrock-data-automation-data-automation invoke-data-automation-library-inges
 
 This option can be used for quick updates with up to 100 phrases.
 
-Use the [InvokeDataAutomationLibraryIngestionJob](../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") to start a vocabulary ingestion job.
+Use the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") to start a vocabulary ingestion job.
 
 **AWS CLI Example:**
 

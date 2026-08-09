@@ -13,7 +13,7 @@ Looking for inference profile IDs for a specific model? Each model's inference p
 
 ## Supported cross-Region inference profiles
 
-You can carry out [cross-Region inference](cross-region-inference.md "cross-region-inference.md") with cross-Region (system-defined) inference profiles. Cross-Region inference allows you to seamlessly manage unplanned traffic bursts by using compute across different AWS Regions. With cross-Region inference, you can distribute traffic across multiple AWS Regions.
+You can carry out [cross-Region inference](cross-region-inference.md "cross-region-inference.md") with cross-Region (system-defined) inference profiles. With cross-Region inference, you can distribute traffic across multiple AWS Regions by using compute in each of those Regions.
 
 Cross-Region (system-defined) inference profiles are named after the model that they support and defined by the Regions that they support. To understand how a cross-Region inference profile handles your requests, review the following definitions:
 

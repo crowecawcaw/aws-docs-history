@@ -23,7 +23,7 @@ operations. The following shows an example policy you can use.
 
 You can optionally restrict the scope of the permission for [cross-service confused deputy
 prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md") by using one or more global condition context keys with the
-`Condition` field. For more information, see [AWS global condition context keys.](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md")
+`Condition` field. For more information, see [AWS global condition context keys.](IAM/latest/UserGuide/reference_policies_condition-keys.md "IAM/latest/UserGuide/reference_policies_condition-keys.md")
 
 - Set the `aws:SourceAccount` value to your account ID.
 - (Optional) Use the `ArnEquals` or `ArnLike` condition to
