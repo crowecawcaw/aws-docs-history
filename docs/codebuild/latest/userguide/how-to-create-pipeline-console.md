@@ -22,7 +22,7 @@ To create a pipeline that only tests your source code:
    - An administrator user in your AWS account. For more information,
      see [Creating your first AWS account root user and group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the
      _user Guide_.
-   - An user in your AWS account with permission to use the following
+   - A user in your AWS account with permission to use the following
      minimum set of actions:
 
    ```
@@ -87,7 +87,7 @@ provider**, do one of the following:
     * If your source code is stored in an S3 bucket, choose
      **Amazon S3**. For **Bucket**, select the
      S3 bucket that contains your source code. For **S3 object
-     key**, enter the name of the file the contains the source code
+     key**, enter the name of the file that contains the source code
      (for example, ``file-name`.zip`). Choose
      **Next**.
     * If your source code is stored in an AWS CodeCommit repository, choose

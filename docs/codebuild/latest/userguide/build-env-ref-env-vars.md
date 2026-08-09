@@ -48,7 +48,7 @@ CODEBUILD\_INITIATOR
 
 The entity that started the build. If CodePipeline started the build, this is the
 pipeline's name (for example, `codepipeline/my-demo-pipeline`).
-If an user started the build, this is the user's name (for example,
+If a user started the build, this is the user's name (for example,
 `MyUserName`). If the Jenkins plugin for CodeBuild started the
 build, this is the string `CodeBuild-Jenkins-Plugin`.
 

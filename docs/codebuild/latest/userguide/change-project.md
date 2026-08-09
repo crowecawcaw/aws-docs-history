@@ -542,11 +542,11 @@ do one of the following:
 
 - To use on-demand fleets managed by AWS CodeBuild, choose **On-demand**. With on-demand fleets,
   CodeBuild provides compute for your builds. The machines are destroyed when the build finishes. On-demand fleets
-  are fully managed, and includes automatic scaling capabilities to handle spikes in demand.
+  are fully managed, and include automatic scaling capabilities to handle spikes in demand.
 - To use reserved capacity fleets managed by AWS CodeBuild, choose **Reserved capacity**, and then select a **Fleet name**. With
   reserved capacity fleets, you configure a set of dedicated instances for your build environment. These machines
-  remain idle, ready to process builds or tests immediately and reduces build durations. With reserved capacity fleets,
-  your machines are always running and will continue to incur costs as long they're provisioned.
+  remain idle, ready to process builds or tests immediately, and reduce build durations. With reserved capacity fleets,
+  your machines are always running and will continue to incur costs as long as they're provisioned.
 
 For information, see [Run builds on reserved capacity fleets](fleets.md "fleets.md").
 
@@ -611,7 +611,7 @@ project to build Docker images. Otherwise, all associated builds
 that attempt to interact with the Docker daemon fail. You must also start
 the Docker daemon so that your builds can interact with it. One way to do
 this is to initialize the Docker daemon in the `install` phase of
-your build spec by running the following build commands. Do not run these
+your buildspec by running the following build commands. Do not run these
 commands if you chose a build environment image provided by CodeBuild with
 Docker support.
 

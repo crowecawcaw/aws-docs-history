@@ -1,6 +1,6 @@
 # AWS SDKs and tools reference for AWS CodeBuild
 
-To use one the AWS SDKs or tools to automate AWS CodeBuild, see the following resources.
+To use one of the AWS SDKs or tools to automate AWS CodeBuild, see the following resources.
 
 If you want to use the AWS CLI to run CodeBuild, see the [Command line reference](cmd-ref.md "cmd-ref.md").
 

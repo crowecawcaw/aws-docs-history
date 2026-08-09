@@ -9,7 +9,7 @@ shows you how to set up a build project that:
   build project's buildspec file to show you how to incorporate more than one source and create
   more than one set of artifacts.
 
-To learn how to to create a pipeline that uses multiple source inputs to CodeBuild to create
+To learn how to create a pipeline that uses multiple source inputs to CodeBuild to create
 multiple output artifacts, see [Sample of a CodePipeline/CodeBuild integration with multiple input sources and output artifacts](sample-codepipeline.md#sample-pipeline-multi-input-output "sample-codepipeline.md#sample-pipeline-multi-input-output").
 
 ###### Topics

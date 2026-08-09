@@ -39,7 +39,7 @@ following when you create a project. For information, see [Create a build projec
    - Select **Use override credentials for this project only** to use a custom source credential to override your account's credential settings.
 
      1. From the populated credential list, choose one of the options under **OAuth app**.
-     2. You can also create new OAuth app token by selecting **create a new Oauth app token connection** in the description.
+     2. You can also create a new OAuth app token by selecting **create a new Oauth app token connection** in the description.
 
 To review your authorized OAuth apps, navigate to [Application authorizations](https://bitbucket.org/account/settings/app-authorizations/ "https://bitbucket.org/account/settings/app-authorizations/")
 on Bitbucket, and verify that an application named `AWS CodeBuild (`region`)` is listed.

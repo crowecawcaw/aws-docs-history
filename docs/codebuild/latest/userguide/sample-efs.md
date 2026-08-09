@@ -55,7 +55,7 @@ A file system created in Amazon EFS is supported on Linux platforms only.
 
 ### Step 1: Create a VPC using CloudFormation
 
-Create your VPC with an CloudFormation template.
+Create your VPC with a CloudFormation template.
 
 1. Follow the instructions in [CloudFormation VPC template](cloudformation-vpc-template.md "cloudformation-vpc-template.md") to use CloudFormation to create a
    VPC.
@@ -174,7 +174,7 @@ information:
 
 18. For **Build specification**, choose **Insert
 build commands**, and then choose **Switch to
-editor**. 19. Enter the following build spec commands into the editor. Replace
+editor**. 19. Enter the following buildspec commands into the editor. Replace
 `<file_system_identifier>`
 with the identifier you entered in step 17. Use capital letters (for
 example, `CODEBUILD_MY_EFS`).

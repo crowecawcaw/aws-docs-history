@@ -113,7 +113,7 @@ The environment variables that will be present in the build environment. See [en
 ###### Note
 
 Note that **compute-type** and **fleet**
-cannot be provided in the same identifer of a single build.
+cannot be provided in the same identifier of a single build.
 
 **ignore-failure**
 
@@ -235,7 +235,7 @@ The environment variables that will be present in the build environment. See [en
 ###### Note
 
 Note that **compute-type** and **fleet**
-cannot be provided in the same identifer of a single build.
+cannot be provided in the same identifier of a single build.
 
 **ignore-failure**
 
@@ -384,9 +384,9 @@ For more information, see [Build matrix](batch-build.md#batch_build_matrix "batc
 ## `batch/build-fanout`
 
 Defines a _build fanout_. A build fanout is
-used to define a task that is split into multiple builds that runs in parallel. For more information, see [Execute parallel tests in batch builds](parallel-test.md "parallel-test.md").
+used to define a task that is split into multiple builds that run in parallel. For more information, see [Execute parallel tests in batch builds](parallel-test.md "parallel-test.md").
 
-This element contains an build task that can be split into multiple builds. The `build-fanout`
+This element contains a build task that can be split into multiple builds. The `build-fanout`
 section contains the following properties.
 
 **parallelism**

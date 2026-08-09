@@ -1,7 +1,7 @@
 # Configure parallel tests with Java (Maven)
 
 The following is sample of a `buildspec.yml` that shows parallel test execution
-with Java on an Linux platform:
+with Java on a Linux platform:
 
 ```
 version: 0.2

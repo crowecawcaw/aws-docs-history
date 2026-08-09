@@ -127,7 +127,7 @@ secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secr
 2. Fastlane Match pass phrase - To enable Fastlane Match to decrypt the
    certificates and profiles stored in the S3 bucket, it is necessary to add the
    encryption passphrase that you configured in the Match setup step to the CodeBuild
-   project’s environment variables.
+   project's environment variables.
 
    1. Secret key - `MATCH_PASSWORD`
    2. Secret value - `<match passphrase to decrypt
@@ -257,7 +257,7 @@ The following are security considerations for this tutorial.
 
 - Ensure your S3 bucket has appropriate security settings, including encryption
   at rest. In particular, make sure the bucket has no public access and restrict
-  access to only CodeBuild and the system that needs to have an access.
+  access to only CodeBuild and the system that needs to have access.
 - Consider using AWS Secrets Manager for storing sensitive information like the
   MATCH\_PASSWORD and FASTLANE\_SESSION.
 

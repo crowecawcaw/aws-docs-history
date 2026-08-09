@@ -82,7 +82,7 @@ in to the AWS Management Console by using one of the following:
 - An administrator user in your AWS account. For more information, see
   [Creating Your First AWS account root user and Group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the
   _user Guide_.
-- An user in your AWS account with permission to create or modify the
+- A user in your AWS account with permission to create or modify the
   customer managed key. For more information, see [Permissions
   Required to Use the AWS KMS Console](../../../kms/latest/developerguide/iam-policies.md#console-permissions "../../../kms/latest/developerguide/iam-policies.md#console-permissions") in the _AWS KMS
   Developer Guide_.

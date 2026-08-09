@@ -29,7 +29,7 @@ valid for 5 minutes after the request. If you repeat the
 parameter, CodeBuild returns a parameter mismatch error. 4. If you run the **start-build-batch** command with the
 `--generate-cli-skeleton` option, JSON-formatted data is output to
 the `<json-file>` file. This file is similar to the
-skelton produced by the **start-build** command, with the addition of the
+skeleton produced by the **start-build** command, with the addition of the
 following object. For more information about the common objects, see [Run a build (AWS CLI)](run-build-cli.md "run-build-cli.md").
 
 Modify this file to add any build overrides, and save your results.
@@ -49,7 +49,7 @@ Modify this file to add any build overrides, and save your results.
 ```
 
 The `buildBatchConfigOverride` object is a [ProjectBuildBatchConfig](../APIReference/API_ProjectBuildBatchConfig.md "../APIReference/API_ProjectBuildBatchConfig.md") structure that contains the batch build
-configuration overides for this build.
+configuration overrides for this build.
 
 `combineArtifacts`
 

@@ -286,7 +286,7 @@ default, then, you cannot run a single command that relies on the state of any p
 commands.
 
 **Recommended solutions:** We recommend that you use
-build spec version 0.2, which solves this issue. If you must use buildspec version 0.1,
+buildspec version 0.2, which solves this issue. If you must use buildspec version 0.1,
 we recommend that you use the shell command chaining operator (for example,
 `&&` in Linux) to combine multiple commands into a single
 command. Or include a shell script in your source code that contains multiple commands,
@@ -608,7 +608,7 @@ build project and are using an older Docker image that includes an expired root
 certificate.
 
 **Recommended solution:** Update the Docker image that is
-being used in your AWS CodeBuild the project. For more information, see [Docker images provided by CodeBuild](build-env-ref-available.md "build-env-ref-available.md").
+being used in your AWS CodeBuild project. For more information, see [Docker images provided by CodeBuild](build-env-ref-available.md "build-env-ref-available.md").
 
 ## Error: "Unable to download certificate from S3. AccessDenied"
 
@@ -751,7 +751,7 @@ provided by AWS CodeBuild, and your builds fail with the message `Build containe
 not included in your build image. CodeBuild needs `sh` to run build commands and
 scripts.
 
-**Recommended solution:** If `sh` in not
+**Recommended solution:** If `sh` is not
 present in your build image, be sure to include it before you start any more builds that
 use your image. (CodeBuild already includes `sh` in its build images.)
 
@@ -792,7 +792,7 @@ tags that have the key `jobId` to have a different key, such as
 been reached.
 
 **Recommended solutions:** Wait until other builds are
-complete, or increase the concurrrent build limit for the project, and start the build
+complete, or increase the concurrent build limit for the project, and start the build
 again. For more information, see [Project configuration](create-project.md#create-project-console-project-config "create-project.md#create-project-console-project-config").
 
 ## Accessing GitHub metadata in locally cached builds
@@ -841,7 +841,7 @@ you don't have permission to install a Bitbucket webhook.
 
 **Recommended solutions:**
 
-- To accept the new permission, you should have received any email with a subject
+- To accept the new permission, you should have received an email with a subject
   titled **Action required - Scopes for AWS CodeStar have changed**
   sent by Bitbucket, `notifications-noreply@bitbucket.org`. The email contains
   a link to grant the webhook permissions to your existing CodeConnections Bitbucket app installation.

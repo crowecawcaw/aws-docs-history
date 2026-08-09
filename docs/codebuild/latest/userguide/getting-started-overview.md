@@ -393,20 +393,20 @@ version of the Java Development Kit (JDK) and Apache Maven.
 On the **Create build project** page, you might see an
 error message similar to the following: **You are not authorized to
 perform this operation.**. This is most likely because you
-signed in to the AWS Management Console as an user who does not have permissions to
-create a build project.. To fix this, sign out of the AWS Management Console, and then
+signed in to the AWS Management Console as a user who does not have permissions to
+create a build project. To fix this, sign out of the AWS Management Console, and then
 sign back in with credentials belonging to one of the following IAM
 entities:
 
     * An administrator user in your AWS account. For more
      information, see [Creating your first AWS account root user and group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the
      *user Guide*.
-    * An user in your AWS account with the
+    * A user in your AWS account with the
      `AWSCodeBuildAdminAccess`,
      `AmazonS3ReadOnlyAccess`, and
      `IAMFullAccess` managed policies attached to that
      user or to an IAM group that the user belongs to. If
-     you do not have an user or group in your AWS account with
+     you do not have a user or group in your AWS account with
      these permissions, and you cannot add these permissions to your
      user or group, contact your AWS account administrator for
      assistance. For more information, see [AWS managed (predefined) policies for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies "auth-and-access-control-iam-identity-based-access-control.md#managed-policies").Both options include administrator permissions that allow you to create a
@@ -1113,18 +1113,18 @@ After you run the **create-project** command, an error
 message similar to the following might be output: **User:
 `user-ARN` is not authorized to perform:
 codebuild:CreateProject**. This is most likely because you
-configured the AWS CLI with the credentials of an user who does not have sufficient
+configured the AWS CLI with the credentials of a user who does not have sufficient
 permissions to use CodeBuild to create build projects. To fix this, configure the AWS CLI
 with credentials belonging to one of the following IAM entities:
 
 - An administrator user in your AWS account. For more information, see
   [Creating your first AWS account root user and group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the
   _user Guide_.
-- An user in your AWS account with the
+- A user in your AWS account with the
   `AWSCodeBuildAdminAccess`,
   `AmazonS3ReadOnlyAccess`, and `IAMFullAccess`
   managed policies attached to that user or to an IAM group that the user
-  belongs to. If you do not have an user or group in your AWS account with
+  belongs to. If you do not have a user or group in your AWS account with
   these permissions, and you cannot add these permissions to your user or
   group, contact your AWS account administrator for assistance. For more
   information, see [AWS managed (predefined) policies for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies "auth-and-access-control-iam-identity-based-access-control.md#managed-policies").

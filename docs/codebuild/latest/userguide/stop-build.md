@@ -1,6 +1,6 @@
 # Stop builds in AWS CodeBuild
 
-You can use the AWS CodeBuild console, AWS CLI,or AWS SDKs to stop a build in
+You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to stop a build in
 AWS CodeBuild.
 
 ###### Topics

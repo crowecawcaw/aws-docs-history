@@ -57,6 +57,6 @@ One of the key strengths of CodeBuild's implementation is its ability to handle 
 CodeBuild automatically collects and combines the test reports from each environment into a unified test report at the batch build level. This consolidation provides
 a comprehensive view of test results while maintaining the efficiency benefits of parallel execution.
 
-The following is the diagram explains the complete concept of parallel test execution in AWS CodeBuild.
+The following diagram explains the complete concept of parallel test execution in AWS CodeBuild.
 
 ![Concept diagram of parallel test execution.](images/parallel-test.png)

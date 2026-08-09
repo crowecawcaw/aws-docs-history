@@ -15,7 +15,7 @@ See [Updating a resource share](../../../ram/latest/userguide/working-with-shari
 
 Use the [disassociate-resource-share](../../../cli/latest/reference/ram/disassociate-resource-share.md "../../../cli/latest/reference/ram/disassociate-resource-share.md") command.
 
-**To unshare project that you own (CodeBuild command)**
+**To unshare a project that you own (CodeBuild command)**
 
 Run the [delete-resource-policy](../../../cli/latest/reference/codebuild/delete-resource-policy.md "../../../cli/latest/reference/codebuild/delete-resource-policy.md") command and specify the ARN of the project you want
 to unshare:

@@ -49,6 +49,11 @@ the identifier of the squashed merge commit.
 Use a regular expression to specify a filter. For an event to trigger a build,
 every filter within the group associated with it must evaluate to true.
 
+CodeBuild evaluates filter patterns using RE2 regular expression syntax, which
+does not support lookahead, lookbehind, backreferences, or atomic groups. For more information,
+see the RE2 [Syntax](https://github.com/google/re2/wiki/Syntax "https://github.com/google/re2/wiki/Syntax")
+page on the GitHub website.
+
 `ACTOR_ACCOUNT_ID` (`ACTOR_ID` in the
 console)
 

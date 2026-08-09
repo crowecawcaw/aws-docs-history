@@ -29,7 +29,7 @@ environment variables, buildspec, or default build timeout period. 2. If you run
 project, and then skip to step 6 of this procedure. To get a list of build
 projects, see [View build project
 names](view-project-list.md "view-project-list.md"). 3. If you run the **start-build** command with the
-`--idempotency-token` option, a unique case-sensitive identifier
+`--idempotency-token` option, a unique case-sensitive identifier,
 or token, is included with the `start-build` request. The token
 is valid for 5 minutes after the request. If you repeat the
 `start-build` request with the same token, but change a

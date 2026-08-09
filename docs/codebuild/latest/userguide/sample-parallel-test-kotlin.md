@@ -1,7 +1,7 @@
 # Configure parallel tests with Kotlin
 
 The following is sample of a `buildspec.yml` that shows parallel test execution
-with Kotlin on an Linux platform:
+with Kotlin on a Linux platform:
 
 ```
 version: 0.2

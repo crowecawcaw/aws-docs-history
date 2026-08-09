@@ -496,7 +496,7 @@ all commands at the top of the buildspec file, then the phase-level user
 takes precedence. For example, if globally `run-as` specifies
 User-1, and for the `install` phase only a
 `run-as` statement specifies User-2, then all commands in
-then buildspec file are run as User-1 _except_ commands in the `install` phase, which
+the buildspec file are run as User-1 _except_ commands in the `install` phase, which
 are run as User-2.
 
 phases/\*/**on-failure**
@@ -511,7 +511,7 @@ phase. This can be one of the following values:
   represented by `count` with an error message that matches the regular expression `.*`.
   Note that `count` must be between 0 and 100. For example, valid values include `RETRY-4` and `RETRY-8`.
 - `RETRY-`regex`` - Retry the build up to 3 times, and use `regex`
-  to include a regular expression to match a specifed error message. For example, valid values include `Retry-.*Error: Unable to connect to database.*` and `RETRY-invalid+`.
+  to include a regular expression to match a specified error message. For example, valid values include `Retry-.*Error: Unable to connect to database.*` and `RETRY-invalid+`.
 - `RETRY-`count`-`regex`` - Retry the build for a specified number of times, as
   represented by `count`. Note that `count` must be between 0 and 100. You can also use `regex`
   to include a regular expression to match the error message. For example, valid values include `Retry-3-.*connection timed out.*` and `RETRY-8-invalid+`.
@@ -999,7 +999,7 @@ artifacts/**secondary-artifacts**
 
 Optional sequence. Represents one or more artifact definitions as a mapping
 between an artifact identifier and an artifact definition. Each artifact
-identifiers in this block must match an artifact defined in the
+identifier in this block must match an artifact defined in the
 `secondaryArtifacts` attribute of your project. Each separate
 definition has the same syntax as the `artifacts` block above.
 

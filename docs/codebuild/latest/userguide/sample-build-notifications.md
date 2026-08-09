@@ -117,7 +117,7 @@ To subscribe a recipient to a topic:
      browser.
 
 For more information, see [Subscribe to a topic](../../../sns/latest/dg/SubscribeTopic.md "../../../sns/latest/dg/SubscribeTopic.md") in the _Amazon SNS Developer
-Guide_. 4. If you are using an user instead of an AWS root account or an administrator
+Guide_. 4. If you are using a user instead of an AWS root account or an administrator
 user to work with CloudWatch Events, add the following statement (between `###
  BEGIN ADDING STATEMENT HERE ###` and `### END
  ADDING STATEMENT HERE ###`) to the user (or IAM group the

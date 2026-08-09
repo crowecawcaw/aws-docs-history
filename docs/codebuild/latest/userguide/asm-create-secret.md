@@ -1,6 +1,6 @@
 # Create and store a token in a Secrets Manager secret
 
-If you choose to use to store your access token using Secrets Manager, you can use either an existing
+If you choose to store your access token using Secrets Manager, you can use either an existing
 secret connection or create a new secret. To create a new secret, do the following:
 
 AWS Management Console
@@ -56,7 +56,7 @@ aws secretsmanager create-secret --region `<aws-region>` \
                 Key=codebuild:source:provider,Value=`<provider>`
 ```
 
-The Secrets Manager secrets that CodeBuild accept must be in the same account and AWS Region as the CodeBuild project and must be in the following JSON format:
+The Secrets Manager secrets that CodeBuild accepts must be in the same account and AWS Region as the CodeBuild project and must be in the following JSON format:
 
 ```
 {

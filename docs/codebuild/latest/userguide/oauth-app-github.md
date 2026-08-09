@@ -17,13 +17,13 @@ following when you create a project. For information, see [Create a build projec
    - If you chose to use account level credentials for **Service**, choose which service you'd like to use to store your token and do the following:
 
      1. If you choose to use **Secrets Manager**, you can choose to use an existing secret connection or create a new secret, and then choose **Save**.
-        For more information how to create a new secret, see [Create and store a token in a Secrets Manager secret](asm-create-secret.md "asm-create-secret.md").
+        For more information about how to create a new secret, see [Create and store a token in a Secrets Manager secret](asm-create-secret.md "asm-create-secret.md").
      2. If you choose to use **CodeBuild** and then choose **Save**.
 
    - Select **Use override credentials for this project only** to use a custom source credential to override your account's credential settings.
 
      1. From the populated credential list, choose one of the options under **OAuth app**.
-     2. You can also create new OAuth app token by selecting **create a new Oauth app token connection** in the description.
+     2. You can also create a new OAuth app token by selecting **create a new Oauth app token connection** in the description.
 
 To review your authorized OAuth apps, navigate to [Applications](https://github.com/settings/applications "https://github.com/settings/applications") on GitHub,
 and verify that an application named `AWS CodeBuild (`region`)` owned by

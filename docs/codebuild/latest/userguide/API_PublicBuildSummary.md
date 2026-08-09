@@ -18,7 +18,7 @@ Required: No
 
 **primaryArtifact**
 
-Represents a resolved build artifact. A resolve artifact is an artifact that is built and
+Represents a resolved build artifact. A resolved artifact is an artifact that is built and
 deployed to the destination, such as Amazon S3.
 
 Type: [ResolvedArtifact](../APIReference/API_ResolvedArtifact.md "../APIReference/API_ResolvedArtifact.md") object

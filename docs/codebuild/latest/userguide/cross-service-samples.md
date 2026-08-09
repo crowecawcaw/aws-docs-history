@@ -21,8 +21,8 @@ uses the Amazon VPC, and then review the generated project file and variables.
 Shows how to use AWS CodePipeline to create a build with batch builds as well as
 multiple input sources and multiple output artifacts. Included in this section
 are example JSON files that show pipeline structures that create batch builds
-with separate artifacts, and combined artifacts. An additonal JSON sample is
-provided that show the pipeline structure with multiple input sources and
+with separate artifacts, and combined artifacts. An additional JSON sample is
+provided that shows the pipeline structure with multiple input sources and
 multiple output artifacts.
 
 [AWS Config sample](how-to-integrate-config.md "how-to-integrate-config.md")

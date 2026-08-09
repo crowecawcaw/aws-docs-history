@@ -22,7 +22,7 @@ AWS SDKs to accomplish these tasks is outside the scope of this topic.
 ## Prerequisites
 
 1. Answer the questions in [Plan a build](planning.md "planning.md").
-2. If you are using an user to access CodePipeline instead of an AWS root account or
+2. If you are using a user to access CodePipeline instead of an AWS root account or
    an administrator user, attach the managed policy named
    `AWSCodePipelineFullAccess` to the user (or to the IAM group to
    which the user belongs). Using an AWS root account is not recommended. This

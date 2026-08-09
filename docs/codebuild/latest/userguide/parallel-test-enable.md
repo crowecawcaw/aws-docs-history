@@ -2,12 +2,12 @@
 
 To run tests in parallel, update the batch build buildspec file to include the build-fanout
 field and the number of parallel builds to split the test suite in the `parallelism` field as
-shown below. The `parallelism` field specifies how many independent executors are setup to execute
+shown below. The `parallelism` field specifies how many independent executors are set up to execute
 the test suite.
 
 To run the tests in multiple parallel execution environments, set the `parallelism` field to a
-value greater than zero. In example below, `parallelism` is set to five, meaning CodeBuild starts
-five identical builds that executes a portion of the test suite in parallel.
+value greater than zero. In the example below, `parallelism` is set to five, meaning CodeBuild starts
+five identical builds that execute a portion of the test suite in parallel.
 
 You can use the [codebuild-tests-run](parallel-test-tests-run.md "parallel-test-tests-run.md") CLI command to split and run your tests.
 Your test files will be split up, and a portion of your tests run in each build. This reduces

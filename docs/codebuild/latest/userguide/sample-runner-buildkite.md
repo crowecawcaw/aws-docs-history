@@ -51,7 +51,7 @@ Tokens](https://buildkite.com/docs/agent/v3/tokens "https://buildkite.com/docs/a
        secret in AWS Secrets Manager with a secret value equal to the Buildkite
        agent token you generated above.
      - (Optional) If you would like to use CodeBuild managed credentials
-       for your job, select your job’s source repository provider under
+       for your job, select your job's source repository provider under
        **Buildkite source credential options** and
        verify that credentials are configured for your account.
        Additionally, verify that your Buildkite pipeline uses
@@ -60,7 +60,7 @@ Tokens](https://buildkite.com/docs/agent/v3/tokens "https://buildkite.com/docs/a
    ###### Note
 
    Buildkite requires source credentials within the build environment
-   in order to pull your job’s source. See [Authenticating Buildkite to a Private Repository](#sample-runner-buildkite-config "#sample-runner-buildkite-config") for available
+   to pull the source for your job. See [Authenticating Buildkite to a Private Repository](#sample-runner-buildkite-config "#sample-runner-buildkite-config") for available
    source credential options.
    - (Optional) In **Environment**:
 
@@ -101,7 +101,7 @@ Buildkite job starts.
 
 ###### To create a new webhook in Buildkite
 
-1. Navigate to your Buildkite organization’s **Settings**
+1. Open your Buildkite organization's **Settings**
    page.
 2. Under **Integrations**, select **Notification
    Services**.
@@ -128,17 +128,17 @@ Buildkite job starts.
 
 ## Step 4: Update your Buildkite pipeline steps
 
-In this step, you will update your Buildkite pipeline’s steps in order to add
+In this step, update the steps of your Buildkite pipeline to add
 necessary labels and optional overrides. For the full list of supported label overrides,
 see [Label overrides supported with the CodeBuild-hosted Buildkite runner](buildkite-runner-update-labels.md "buildkite-runner-update-labels.md").
 
 ###### Update your pipeline steps
 
-1. Navigate to your Buildkite pipeline steps page by selecting your Buildkite
+1. Open the Buildkite pipeline steps page by choosing your Buildkite
    pipeline, choosing **Settings**, and then choosing
    **Steps**.
 
-If you haven’t already, choose **Convert to YAML
+If you haven't already, choose **Convert to YAML
 steps**.
 
 ![Steps to update YAML.](images/buildkite-steps.png) 2. At a minimum, you will need to specify a [Buildkite agent tag](https://buildkite.com/docs/agent/v3/cli-start#agent-targeting "https://buildkite.com/docs/agent/v3/cli-start#agent-targeting") referencing the name of your CodeBuild pipeline.
@@ -246,7 +246,7 @@ steps:
 4. Optionally, you can provide labels outside of those that CodeBuild supports. These
    labels will be ignored for the purpose of overriding attributes of the build,
    but will not fail the webhook request. For example, adding `myLabel:
- “testLabel"` as a label will not prevent the build from
+ "testLabel"` as a label will not prevent the build from
    running.
 
 ## Step 5: Review your results
@@ -277,13 +277,13 @@ external private source repository, you can use one of the following options.
 ###### To authenticate with CodeBuild
 
 CodeBuild offers managed credentials handling for Supported source types. In order to
-use CodeBuild source credentials to pull your job’s source repository, you can use the
+use CodeBuild source credentials to pull your job's source repository, you can use the
 following steps:
 
 1. In the CodeBuild console, navigate to **Edit project** or create
    a new CodeBuild project using the steps in [Step 2: Create a CodeBuild project with a webhook](#sample-runner-buildkite-create-project "#sample-runner-buildkite-create-project").
 2. Under **Buildkite source credential options**, select your
-   job’s source repository provider.
+   job's source repository provider.
 
    1. If you would like to use account-level CodeBuild credentials, verify that
       they are configured correctly. Additionally, if your project has an
@@ -352,6 +352,6 @@ modify the setup configuration of your self-hosted runners:
 - `CODEBUILD_CONFIG_BUILDKITE_CREDENTIAL_DISABLE`: By default, CodeBuild
   will load account or project level source credentials into the build
   environment, as these credentials are used by the Buildkite agent to pull the
-  job’s source repository. To disable this behavior, you can add this environment
+  job's source repository. To disable this behavior, you can add this environment
   variable to your project with the value set to `true`, which will
   prevent source credentials from being loaded into the build environment.

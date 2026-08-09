@@ -43,7 +43,7 @@ following:
     * An administrator user in your AWS account. For more information, see
      [Creating Your First AWS account root user and Group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the
      *user Guide*.
-    * An user in your AWS account with permission to perform the following
+    * A user in your AWS account with permission to perform the following
      minimum set of actions:
 
 

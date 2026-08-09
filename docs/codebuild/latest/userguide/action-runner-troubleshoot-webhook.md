@@ -68,12 +68,12 @@ If the error persists, use the following instructions to debug the issue.
    `https://github.com/`user-name`/`repository-name`/settings/hooks`
    to view your repository's webhook settings. On this page, you'll see a webhook
    that was created for your repository.
-2. Choose **Edit** and conﬁrm that the webhook is enabled to
-   deliver **Workﬂow jobs** events.
+2. Choose **Edit** and confirm that the webhook is enabled to
+   deliver **Workflow jobs** events.
 
 ![Workflow job events are enabled in your webhook.](images/github-actions-workflow-jobs.png) 3. Navigate to the **Recent Deliveries** tab, find the
 corresponding `workflow_job.queued` event, and expand the event. 4. Review the **labels** field in the
-**Payload** and make sure it’s as expected. 5. Finally, review the **Response** tab, as this contains the
+**Payload** and make sure it's as expected. 5. Finally, review the **Response** tab, as this contains the
 response or error message returned from CodeBuild.
 
 ![The response or error message returned from CodeBuild.](images/github-actions-workflow-jobs-response.png) 6. Alternatively, you can debug webhook failures using GitHub's APIs. You can
@@ -102,7 +102,7 @@ gh api \
 deployment has been approved.
 
 **Possible causes:** CodeBuild fetches the deployment and
-environment associated with the GitHub Actions job if they exist to verify if the is
+environment associated with the GitHub Actions job if they exist to verify if the deployment is
 approved. If CodeBuild fails to fetch either the deployment or environment, the CodeBuild build
 may be triggered prematurely.
 

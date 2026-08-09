@@ -20,7 +20,7 @@ offers optimized start-up speeds. AWS Lambda supports faster builds due to a low
 so builds aren't waiting in queue to run. For more information, see [Run builds on AWS Lambda compute](lambda.md "lambda.md").
 
 With the EC2 compute mode, you can run your builds with on-demand or reserved capacity fleets. For on-demand fleets,
-you can select pre-defined compute types such as`BUILD_GENERAL1_SMALL` or
+you can select pre-defined compute types such as `BUILD_GENERAL1_SMALL` or
 `BUILD_GENERAL1_LARGE`. For more information, see [About on-demand environment types](#environment.types "#environment.types").
 For reserved capacity fleets, you can select your compute configurations including vCPU, memory and disk space. After
 specifying the configurations, CodeBuild will choose a supported compute type that matches your requirements. For more information, see [About reserved capacity environment types](#environment-reserved-capacity.types "#environment-reserved-capacity.types").
@@ -70,8 +70,10 @@ US East (N. Virginia)
 | Windows          | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
 | Windows          | 8     | 16 GiB  | 128 GB        | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
 | Windows          | 16    | 32 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.16cpu.32gib`       |
+| Windows          | 32    | 64 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.32cpu.64gib`       |
 | Windows          | 36    | 72 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.36cpu.72gib`       |
 | Windows          | 48    | 96 GiB  | 512 GB        | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
+| Windows          | 64    | 128 GiB | 512 GB        | `GENERAL`    | `reserved.x86-64.64cpu.128gib`      |
 | Windows          | 72    | 144 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.72cpu.144gib`      |
 | Windows          | 96    | 192 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
 | Windows EC2      | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
@@ -99,6 +101,7 @@ US East (Ohio)
 | Linux            | 16    | 32 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.16cpu.32gib`       |
 | Linux            | 36    | 72 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.36cpu.72gib`       |
 | Linux            | 48    | 96 GiB  | 512 GB        | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
+| Linux            | 96    | 192 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
 | Linux            | 48    | 96 GiB  | 824 GB (SSD)  | `NVME`       | `reserved.x86-64.48cpu.96gib.nvme`  |
 | Linux            | 72    | 144 GiB | 824 GB (SSD)  | `NVME`       | `reserved.x86-64.72cpu.144gib.nvme` |
 | Linux EC2        | 2     | 4 GiB   | 64 GB         | `GENERAL`    | `reserved.x86-64.2cpu.4gib`         |
@@ -115,8 +118,11 @@ US East (Ohio)
 | Windows          | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
 | Windows          | 8     | 16 GiB  | 128 GB        | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
 | Windows          | 16    | 32 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.16cpu.32gib`       |
+| Windows          | 32    | 64 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.32cpu.64gib`       |
 | Windows          | 36    | 72 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.36cpu.72gib`       |
 | Windows          | 48    | 96 GiB  | 512 GB        | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
+| Windows          | 64    | 128 GiB | 512 GB        | `GENERAL`    | `reserved.x86-64.64cpu.128gib`      |
+| Windows          | 96    | 192 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
 | Windows EC2      | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
 | Windows EC2      | 8     | 16 GiB  | 128 GB        | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
 
@@ -204,8 +210,10 @@ US West (Oregon)
 | Windows          | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
 | Windows          | 8     | 16 GiB  | 128 GB        | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
 | Windows          | 16    | 32 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.16cpu.32gib`       |
+| Windows          | 32    | 64 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.32cpu.64gib`       |
 | Windows          | 36    | 72 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.36cpu.72gib`       |
 | Windows          | 48    | 96 GiB  | 512 GB        | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
+| Windows          | 64    | 128 GiB | 512 GB        | `GENERAL`    | `reserved.x86-64.64cpu.128gib`      |
 | Windows          | 72    | 144 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.72cpu.144gib`      |
 | Windows          | 96    | 192 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
 | Windows EC2      | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
@@ -235,6 +243,7 @@ Asia Pacific (Tokyo)
 | Linux            | 48    | 96 GiB  | 512 GB        | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
 | Linux            | 72    | 144 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.72cpu.144gib`      |
 | Linux            | 96    | 192 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
+| Linux            | 48    | 96 GiB  | 824 GB (SSD)  | `NVME`       | `reserved.x86-64.48cpu.96gib.nvme`  |
 | Linux            | 72    | 144 GiB | 824 GB (SSD)  | `NVME`       | `reserved.x86-64.72cpu.144gib.nvme` |
 | Linux EC2        | 2     | 4 GiB   | 64 GB         | `GENERAL`    | `reserved.x86-64.2cpu.4gib`         |
 | Linux EC2        | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
@@ -246,8 +255,10 @@ Asia Pacific (Tokyo)
 | Windows          | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
 | Windows          | 8     | 16 GiB  | 128 GB        | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
 | Windows          | 16    | 32 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.16cpu.32gib`       |
+| Windows          | 32    | 64 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.32cpu.64gib`       |
 | Windows          | 36    | 72 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.36cpu.72gib`       |
 | Windows          | 48    | 96 GiB  | 512 GB        | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
+| Windows          | 64    | 128 GiB | 512 GB        | `GENERAL`    | `reserved.x86-64.64cpu.128gib`      |
 | Windows          | 72    | 144 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.72cpu.144gib`      |
 | Windows          | 96    | 192 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
 | Windows EC2      | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
@@ -333,8 +344,10 @@ Asia Pacific (Mumbai)
 | Windows          | 4     | 8 GiB   | 128 GB       | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
 | Windows          | 8     | 16 GiB  | 128 GB       | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
 | Windows          | 16    | 32 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.16cpu.32gib`       |
+| Windows          | 32    | 64 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.32cpu.64gib`       |
 | Windows          | 36    | 72 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.36cpu.72gib`       |
 | Windows          | 48    | 96 GiB  | 512 GB       | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
+| Windows          | 64    | 128 GiB | 512 GB       | `GENERAL`    | `reserved.x86-64.64cpu.128gib`      |
 | Windows          | 72    | 144 GiB | 824 GB       | `GENERAL`    | `reserved.x86-64.72cpu.144gib`      |
 | Windows          | 96    | 192 GiB | 824 GB       | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
 | Windows EC2      | 4     | 8 GiB   | 128 GB       | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
@@ -373,8 +386,10 @@ Asia Pacific (Singapore)
 | Windows          | 4     | 8 GiB   | 128 GB       | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
 | Windows          | 8     | 16 GiB  | 128 GB       | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
 | Windows          | 16    | 32 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.16cpu.32gib`       |
+| Windows          | 32    | 64 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.32cpu.64gib`       |
 | Windows          | 36    | 72 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.36cpu.72gib`       |
 | Windows          | 48    | 96 GiB  | 512 GB       | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
+| Windows          | 64    | 128 GiB | 512 GB       | `GENERAL`    | `reserved.x86-64.64cpu.128gib`      |
 | Windows          | 72    | 144 GiB | 824 GB       | `GENERAL`    | `reserved.x86-64.72cpu.144gib`      |
 | Windows          | 96    | 192 GiB | 824 GB       | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
 | Windows EC2      | 4     | 8 GiB   | 128 GB       | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
@@ -404,6 +419,7 @@ Asia Pacific (Sydney)
 | Linux            | 48    | 96 GiB  | 512 GB        | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
 | Linux            | 72    | 144 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.72cpu.144gib`      |
 | Linux            | 96    | 192 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
+| Linux            | 48    | 96 GiB  | 824 GB (SSD)  | `NVME`       | `reserved.x86-64.48cpu.96gib.nvme`  |
 | Linux            | 72    | 144 GiB | 824 GB (SSD)  | `NVME`       | `reserved.x86-64.72cpu.144gib.nvme` |
 | Linux EC2        | 2     | 4 GiB   | 64 GB         | `GENERAL`    | `reserved.x86-64.2cpu.4gib`         |
 | Linux EC2        | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
@@ -418,8 +434,10 @@ Asia Pacific (Sydney)
 | Windows          | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
 | Windows          | 8     | 16 GiB  | 128 GB        | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
 | Windows          | 16    | 32 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.16cpu.32gib`       |
+| Windows          | 32    | 64 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.32cpu.64gib`       |
 | Windows          | 36    | 72 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.36cpu.72gib`       |
 | Windows          | 48    | 96 GiB  | 512 GB        | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
+| Windows          | 64    | 128 GiB | 512 GB        | `GENERAL`    | `reserved.x86-64.64cpu.128gib`      |
 | Windows          | 72    | 144 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.72cpu.144gib`      |
 | Windows          | 96    | 192 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
 | Windows EC2      | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
@@ -449,6 +467,7 @@ Europe (Frankfurt)
 | Linux            | 48    | 96 GiB  | 512 GB        | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
 | Linux            | 72    | 144 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.72cpu.144gib`      |
 | Linux            | 96    | 192 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
+| Linux            | 48    | 96 GiB  | 824 GB (SSD)  | `NVME`       | `reserved.x86-64.48cpu.96gib.nvme`  |
 | Linux            | 72    | 144 GiB | 824 GB (SSD)  | `NVME`       | `reserved.x86-64.72cpu.144gib.nvme` |
 | Linux EC2        | 2     | 4 GiB   | 64 GB         | `GENERAL`    | `reserved.x86-64.2cpu.4gib`         |
 | Linux EC2        | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
@@ -463,8 +482,10 @@ Europe (Frankfurt)
 | Windows          | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
 | Windows          | 8     | 16 GiB  | 128 GB        | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
 | Windows          | 16    | 32 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.16cpu.32gib`       |
+| Windows          | 32    | 64 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.32cpu.64gib`       |
 | Windows          | 36    | 72 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.36cpu.72gib`       |
 | Windows          | 48    | 96 GiB  | 512 GB        | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
+| Windows          | 64    | 128 GiB | 512 GB        | `GENERAL`    | `reserved.x86-64.64cpu.128gib`      |
 | Windows          | 72    | 144 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.72cpu.144gib`      |
 | Windows          | 96    | 192 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
 | Windows EC2      | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
@@ -508,8 +529,10 @@ Europe (Ireland)
 | Windows          | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
 | Windows          | 8     | 16 GiB  | 128 GB        | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
 | Windows          | 16    | 32 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.16cpu.32gib`       |
+| Windows          | 32    | 64 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.32cpu.64gib`       |
 | Windows          | 36    | 72 GiB  | 256 GB        | `GENERAL`    | `reserved.x86-64.36cpu.72gib`       |
 | Windows          | 48    | 96 GiB  | 512 GB        | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
+| Windows          | 64    | 128 GiB | 512 GB        | `GENERAL`    | `reserved.x86-64.64cpu.128gib`      |
 | Windows          | 72    | 144 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.72cpu.144gib`      |
 | Windows          | 96    | 192 GiB | 824 GB        | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
 | Windows EC2      | 4     | 8 GiB   | 128 GB        | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
@@ -537,6 +560,8 @@ South America (São Paulo)
 | Linux            | 36    | 72 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.36cpu.72gib`       |
 | Linux            | 48    | 96 GiB  | 512 GB       | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
 | Linux            | 72    | 144 GiB | 824 GB       | `GENERAL`    | `reserved.x86-64.72cpu.144gib`      |
+| Linux            | 96    | 192 GiB | 824 GB       | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
+| Linux            | 48    | 96 GiB  | 824 GB (SSD) | `NVME`       | `reserved.x86-64.48cpu.96gib.nvme`  |
 | Linux            | 72    | 144 GiB | 824 GB (SSD) | `NVME`       | `reserved.x86-64.72cpu.144gib.nvme` |
 | Linux EC2        | 2     | 4 GiB   | 64 GB        | `GENERAL`    | `reserved.x86-64.2cpu.4gib`         |
 | Linux EC2        | 4     | 8 GiB   | 128 GB       | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
@@ -545,9 +570,12 @@ South America (São Paulo)
 | Windows          | 4     | 8 GiB   | 128 GB       | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
 | Windows          | 8     | 16 GiB  | 128 GB       | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
 | Windows          | 16    | 32 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.16cpu.32gib`       |
+| Windows          | 32    | 64 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.32cpu.64gib`       |
 | Windows          | 36    | 72 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.36cpu.72gib`       |
 | Windows          | 48    | 96 GiB  | 512 GB       | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
+| Windows          | 64    | 128 GiB | 512 GB       | `GENERAL`    | `reserved.x86-64.64cpu.128gib`      |
 | Windows          | 72    | 144 GiB | 824 GB       | `GENERAL`    | `reserved.x86-64.72cpu.144gib`      |
+| Windows          | 96    | 192 GiB | 824 GB       | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
 | Windows EC2      | 4     | 8 GiB   | 128 GB       | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
 | Windows EC2      | 8     | 16 GiB  | 128 GB       | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
 
@@ -575,7 +603,7 @@ to choose the compute types instead of `ATTRIBUTE_BASED_COMPUTE`. For more infor
 
 ### Supported instance families
 
-AWS CodeBuild supports the following instances for reserved capacity fleets.:
+AWS CodeBuild supports the following instances for reserved capacity fleets:
 
 - General purpose: M5 | M5a | M5ad | M5d | M5dn | M5n | M5zn | M6a | M6g | M6gd | M6i | M6id | M6idn | M6in | M7a | M7g | M7gd | M7i | M7i-flex | M8g | T3 | T3a | T4g
 - Compute optimized: C5 | C5a | C5ad | C5d | C5n | C6a | C6g | C6gd | C6gn | C6i | C6id | C6in | C7a | C7g | C7gd | C7gn | C7i | C7i-flex | C8g

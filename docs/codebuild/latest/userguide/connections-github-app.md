@@ -9,7 +9,7 @@ to [GitHub webhook events](github-webhook.md "github-webhook.md") using [CreateW
 ###### Note
 
 CodeConnections is available in fewer regions than CodeBuild. You can use cross-region connections in CodeBuild. Connections
-created in opt-in regions, cannot be used in other regions. For more information, see
+created in opt-in Regions cannot be used in other Regions. For more information, see
 [AWS CodeConnections endpoints and quotas](../../../general/latest/gr/codestar_connections.md "../../../general/latest/gr/codestar_connections.md").
 
 ###### Topics
@@ -150,16 +150,16 @@ _**Possible cause:** You might have been using the GitHub app and haven't grante
 **Recommended solution:** To grant the required permission scope, follow the instructions
 in [Navigating to the GitHub App you want to review or modify](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#navigating-to-the-github-app-you-want-to-review-or-modify "https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#navigating-to-the-github-app-you-want-to-review-or-modify") to configure the installed app. Under the permissions section,
 you'll see the app doesn't have webhooks permission, and there is an option for you to review the newly requested permissions.
-Review and accept the new permissions. For more infomation, see [Approving updated permissions for a GitHub App](https://docs.github.com/en/apps/using-github-apps/approving-updated-permissions-for-a-github-app "https://docs.github.com/en/apps/using-github-apps/approving-updated-permissions-for-a-github-app").
+Review and accept the new permissions. For more information, see [Approving updated permissions for a GitHub App](https://docs.github.com/en/apps/using-github-apps/approving-updated-permissions-for-a-github-app "https://docs.github.com/en/apps/using-github-apps/approving-updated-permissions-for-a-github-app").
 
-_**Possible cause:** The connection was working as expected, but suddenly doesn’t have access to the repositories._
+_**Possible cause:** The connection was working as expected, but suddenly doesn't have access to the repositories._
 
-**Possible solution:** Start by reviewing your [authorizations](https://docs.github.com/en/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps "https://docs.github.com/en/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps") and your [installations](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps "https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps"), then verify the GitHub App is authorized and installed. If the GitHub App installation is suspended, then you need to unsuspended it.
+**Possible solution:** Start by reviewing your [authorizations](https://docs.github.com/en/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps "https://docs.github.com/en/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps") and your [installations](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps "https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps"), then verify the GitHub App is authorized and installed. If the GitHub App installation is suspended, then you need to unsuspend it.
 If the GitHub App is not authorized for a [UAT
 (User Access Token)](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user "https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user") connection, or not installed for an [IAT (Installation Access Token)](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation "https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation") connection, the existing connection is not usable any more, and you will need to create a new connection. Note that reinstalling the GitHub App will not
 revive the previous connection that was associated to the old installation.
 
-**Possible solution:** If the connection is a UAT connection, make sure the connection is not concurrently being used, such as a being used in multiple CodeBuild concurrent runs of build.
+**Possible solution:** If the connection is a UAT connection, make sure the connection is not concurrently being used, such as being used in multiple CodeBuild concurrent runs of build.
 This is because GitHub immediately invalidates a previously issued UAT if an expiring token is refreshed by the connection. If you need to use UAT connection for multiple concurrent CodeBuild builds, you can
 create multiple connections and use each connection independently.
 

@@ -25,7 +25,7 @@ To debug failed Buildkite webhook events:
    correlate the webhook event to your Buildkite job.
 3. Select the **Response** tab and check the response body.
    Verify that the **Response** status code is `200`
-   and the **Response** body doesn’t contain any unexpected
+   and the **Response** body doesn't contain any unexpected
    messages.
 
 ![Response for the webhook.](images/buildkite-request.png)

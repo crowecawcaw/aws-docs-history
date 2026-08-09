@@ -85,13 +85,13 @@ see [AWS CodeBuild permissions reference](auth-and-access-control-permissions-re
 The AWS account owns the resources that are created in the account, regardless
 of who created the resources. Specifically, the resource owner is the AWS account
 of the [principal
-entity](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md") (that is, the root account, an user, or an IAM role) that
+entity](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md") (that is, the root account, a user, or an IAM role) that
 authenticates the resource creation request. The following examples illustrate how
 this works:
 
 - If you use the root account credentials of your AWS account to create a
   rule, your AWS account is the owner of the CodeBuild resource.
-- If you create an user in your AWS account and grant permissions to
+- If you create a user in your AWS account and grant permissions to
   create CodeBuild resources to that user, the user can create CodeBuild resources.
   However, your AWS account, to which the user belongs, owns the CodeBuild
   resources.

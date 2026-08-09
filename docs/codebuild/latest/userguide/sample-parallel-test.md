@@ -7,7 +7,7 @@ samples for various frameworks, illustrating the usage of the `codebuild-tests-r
 - Each example below includes a `parallelism` level of five, meaning that five identical execution
   environments will be created to split your tests across. You can choose a `parallelism` level to suit
   your project by modifying the `parallelism` value in the `build-fanout` section.
-- Each example below shows configuring your tests to be split by the test file name, which is by
+- Each example below shows configuring your tests to be split by the test file name, which is the
   default. This distributes the tests evenly across the parallel execution environments.
   Before you get started, see [Execute parallel tests in batch builds](parallel-test.md "parallel-test.md") for more information.
 

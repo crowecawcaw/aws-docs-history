@@ -96,7 +96,7 @@ reports:
     base-directory: `<test report directory>`
 ```
 
-If you are using the the `NunitXml` report format, change the
+If you are using the `NunitXml` report format, change the
 `file-format` value to the following.
 
 ```

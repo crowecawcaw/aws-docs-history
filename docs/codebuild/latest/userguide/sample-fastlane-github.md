@@ -136,7 +136,7 @@ secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secr
 2. Fastlane Match pass phrase - To enable Fastlane Match to decrypt the
    certificates and profiles stored in the Git repository, it is necessary to add
    the encryption passphrase that you configured in the Match setup step to the
-   CodeBuild project’s environment variables.
+   CodeBuild project's environment variables.
 
    1. Secret key - `MATCH_PASSWORD`
    2. Secret value - `<match passphrase to decrypt
@@ -158,7 +158,7 @@ secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secr
    ```
 
    You can generate your PAT on the GitHub console in **Your
-   Proﬁle > Settings > Developers Settings > Personal Access
+   Profile > Settings > Developers Settings > Personal Access
    Token**. For more information, see the following guide:
    [https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens").
 

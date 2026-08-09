@@ -47,5 +47,5 @@ you can use the following command with the `codebuild-glob-search` CLI:
 codebuild-glob-search '**/__tests__/*.js'
 ```
 
-This command will search for all files with a `.js` extension inside the `__tests__`directory and its
+This command will search for all files with a `.js` extension inside the `__tests__` directory and its
 subdirectories, as denoted by the pattern.

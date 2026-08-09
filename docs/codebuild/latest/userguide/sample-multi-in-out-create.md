@@ -109,7 +109,7 @@ You can override the version of the primary source using the API with the
 `sourceVersion` attribute in `StartBuild`. To override one or more
 secondary source versions, use the `secondarySourceVersionOverride` attribute.
 
-The JSON-formatted input to the the `start-build` command in the AWS CLI might look like:
+The JSON-formatted input to the `start-build` command in the AWS CLI might look like:
 
 ```
 {

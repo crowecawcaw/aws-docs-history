@@ -10,7 +10,7 @@ CodeBuild creates new report groups with the following pattern:
 
 ###### Note
 
-If the discovered report files have the same format type, they will be placed in to the same report group or report.
+If the discovered report files have the same format type, they will be placed into the same report group or report.
 
 Report auto-discover is configured by your project environment variables:
 
@@ -21,7 +21,7 @@ for all builds. To disable this feature, set `CODEBUILD_CONFIG_AUTO_DISCOVER` to
 
 _`CODEBUILD_CONFIG_AUTO_DISCOVER_DIR`_
 
-(Optional) This variable determines where CodeBuild searches for potential report files. Note that by default,
+(Optional) This variable determines where CodeBuild searches for potential report files. Note that
 CodeBuild searches in `**/*` by default.
 
 These environment variables can be modified during the build phase. For example, if you only want to enable report auto-discover

@@ -5,8 +5,8 @@ supported through [AWS CodeConnections](../../../dtconsole/latest/userguide/welc
 
 ###### Note
 
-CodeConnections is available in less regions than CodeBuild. You can use cross-region connections in CodeBuild. Connections
-created in opt-in regions, cannot be used in other regions. For more information, see
+CodeConnections is available in fewer regions than CodeBuild. You can use cross-region connections in CodeBuild. Connections
+created in opt-in Regions cannot be used in other Regions. For more information, see
 [AWS CodeConnections endpoints and quotas](../../../general/latest/gr/codestar_connections.md "../../../general/latest/gr/codestar_connections.md").
 
 ###### Topics

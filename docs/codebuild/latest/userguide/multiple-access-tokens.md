@@ -13,7 +13,7 @@ You can set your source credentials at three different levels:
    allows you to set up multiple access tokens with different permission scopes in the same project, and not use the default
    account level credentials.
 3. **Project level fallback credentials:** You can set a project level fallback credential by using `NO_SOURCE` as primary source
-   type and define a secret or connection on it. This is can be used when you have multiple sources on a project, but want to use the
+   type and define a secret or connection on it. Use this when you have multiple sources on a project but want to use the
    same credentials for them, or when you don't want to use the default account level credentials for your project.
 
 ###### Topics
@@ -29,7 +29,7 @@ Use the following instructions to create a Secrets Manager secret or a CodeConne
 
 - [Create and store a token in a Secrets Manager secret](asm-create-secret.md "asm-create-secret.md").
 - [Create a connection to GitHub](../../../dtconsole/latest/userguide/connections-create-github.md "../../../dtconsole/latest/userguide/connections-create-github.md")
-- [Create a connection to to GitHub Enterprise Server](../../../dtconsole/latest/userguide/connections-create-gheserver.md "../../../dtconsole/latest/userguide/connections-create-gheserver.md")
+- [Create a connection to GitHub Enterprise Server](../../../dtconsole/latest/userguide/connections-create-gheserver.md "../../../dtconsole/latest/userguide/connections-create-gheserver.md")
 - [Create a connection to Bitbucket](../../../dtconsole/latest/userguide/connections-create-bitbucket.md "../../../dtconsole/latest/userguide/connections-create-bitbucket.md")
 
 ## Step 2: Grant CodeBuild project IAM role access to Secrets Manager secrets

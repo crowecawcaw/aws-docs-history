@@ -5,7 +5,7 @@ repeatedly, by using template files to create and delete a collection of resourc
 as a single unit (a _stack_). For more information, see the
 [CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
 
-The following is an CloudFormation YAML template for configuring a VPC to use AWS CodeBuild. This file
+The following is a CloudFormation YAML template for configuring a VPC to use AWS CodeBuild. This file
 is also available in [samples.zip](samples/samples.zip.md "samples/samples.zip.md").
 
 ```

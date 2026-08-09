@@ -33,4 +33,4 @@ identity information helps you determine the following:
   federated user.
 - Whether the request was made by another AWS service.
   For more information, see the [CloudTrail userIdentity
-  element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md")in the _AWS CloudTrail User Guide_.
+  element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _AWS CloudTrail User Guide_.

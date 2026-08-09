@@ -33,7 +33,7 @@ Processing Standards (FIPS) endpoint in the US East (N. Virginia) Region:
 aws codebuild list-projects --endpoint-url https://codebuild-fips.us-east-1.amazonaws.com
 ```
 
-Include the `https://` at the begining of the endpoint.
+Include the `https://` at the beginning of the endpoint.
 
 The `--endpoint-url` AWS CLI argument is available to all AWS services. For more information about this and
 other AWS CLI arguments, see [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/latest/reference.md").
@@ -45,7 +45,7 @@ Although this example uses the [AWS
 SDK for Java](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/"), you can specify the endpoint with the other AWS SDKs.
 
 Use the `withEndpointConfiguration` method when constructing the
-AWSCodeBuild client. Here is format to use:
+AWSCodeBuild client. Here is the format to use:
 
 ```
 
@@ -62,7 +62,7 @@ AWSCodeBuildClientBuilder](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/serv
 The credentials used in `withCredentials` must be of type `AWSCredentialsProvider`. For more information,
 see [Working with AWS credentials](../../../sdk-for-java/latest/developer-guide/credentials.md "../../../sdk-for-java/latest/developer-guide/credentials.md").
 
-Do not include `https://` at the begining of the endpoint.
+Do not include `https://` at the beginning of the endpoint.
 
 If you want to specify a non-FIPS endpoint, you can use the region instead of the
 actual endpoint. For example, to specify the endpoint in the US East (N. Virginia) region,

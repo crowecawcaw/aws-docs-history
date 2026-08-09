@@ -52,7 +52,7 @@ Create an AWS CodeBuild Lambda Java project and set up the IAM permissions neede
    - For **Runtime(s)**, select **Java**.
    - For **Image**, select **aws/codebuild/amazonlinux-x86\_64-lambda-standard:corretto21**.
    - For **Service role**, leave **New service role** selected. Make a note of the
-     **Role name**. This will be required when you update the project’s IAM permissions later in this sample.
+     **Role name**. You need this when you update the project's IAM permissions later in this sample.
 
 6. Choose **Create build project**.
 7. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").

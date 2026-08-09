@@ -6,18 +6,18 @@ CodeBuild offers the following compute fleets:
 - Reserved capacity fleets
   With on-demand fleets, CodeBuild provides compute for your builds.
   The machines are destroyed when the build finishes. On-demand fleets are
-  fully managed, and includes automatic scaling capabilities to handle spikes in
+  fully managed, and include automatic scaling capabilities to handle spikes in
   demand.
 
 ###### Note
 
-On-demand ﬂeets do not support macOS.
+On-demand fleets do not support macOS.
 
 CodeBuild also offers reserved capacity fleets which contain instances powered by Amazon EC2 that
 are maintained by CodeBuild. With reserved capacity fleets, you configure a set of dedicated
 instances for your build environment. These machines remain idle, ready to process builds or
-tests immediately and reduces build durations. With reserved capacity fleets, your machines
-are always running and will continue to incur costs as long they're provisioned.
+tests immediately, and reduce build durations. With reserved capacity fleets, your machines
+are always running and will continue to incur costs as long as they're provisioned.
 
 ###### Important
 
@@ -82,7 +82,7 @@ Use the following instructions to create a reserved capacity fleet.
    - Select **Configure custom AMI - optional** to
      use a custom Amazon Machine Image (AMI).
 
-     - From the **AMI** drop-down menu, select a
+     - From the **AMI** drop-down menu, select
        an Amazon Machine Image (AMI) for your fleet.
      - In the **Fleet Service Role** field, choose an existing service role.
 
@@ -162,7 +162,7 @@ from the available supported instance types as the finalized `computeConfigurati
 
 ###### Note
 
-CodeBuild will choose the cheapest instance that match all input requirements. The chosen instances' memory,
+CodeBuild will choose the cheapest instance that matches all input requirements. The chosen instances' memory,
 vCPUs, and disk space will all be greater than or equal to the input requirements. You can check the resolved
 `computeConfiguration` in the created or updated fleet.
 

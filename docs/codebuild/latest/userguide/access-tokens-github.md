@@ -57,13 +57,13 @@ following when you create a project. For information, see [Create a build projec
    - If you chose to use account level credentials for **Service**, choose which service you'd like to use to store your token and do the following:
 
      1. If you choose to use **Secrets Manager**, you can choose to use an existing secret connection or create a new secret, and then choose **Save**.
-        For more information how to create a new secret, see [Create and store a token in a Secrets Manager secret](asm-create-secret.md "asm-create-secret.md").
+        For more information about how to create a new secret, see [Create and store a token in a Secrets Manager secret](asm-create-secret.md "asm-create-secret.md").
      2. If you choose to use **CodeBuild**, enter your GitHub personal access token, and then choose **Save**.
 
    - Select **Use override credentials for this project only** to use a custom source credential to override your account's credential settings.
 
      1. From the populated credential list, choose one of the options under **Personal access token**.
-     2. You can also create new personal access token by selecting **create a new personal access token connection** in the description.
+     2. You can also create a new personal access token by selecting **create a new personal access token connection** in the description.
 
 ## Connect GitHub with an access token (CLI)
 

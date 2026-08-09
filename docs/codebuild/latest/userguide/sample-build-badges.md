@@ -16,7 +16,7 @@ authentication.
 
 ## Create a build project with build badges
 
-Use the following one of the following procedures to create a build project with build
+Use one of the following procedures to create a build project with build
 badges enabled. You can use AWS CLI or the AWS Management Console.
 
 ###### To create a build project with build badges enabled (AWS CLI)

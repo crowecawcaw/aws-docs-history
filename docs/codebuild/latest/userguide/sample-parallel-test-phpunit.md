@@ -1,7 +1,7 @@
 # Configure parallel tests with PHPUnit
 
 The following is sample of a `buildspec.yml` that shows parallel test execution
-with PHPUnit on an Linux platform:
+with PHPUnit on a Linux platform:
 
 ```
 version: 0.2

@@ -29,7 +29,7 @@ To learn more about the cache syntax in buildspec file, see [cache](build-spec-r
 ## Generate dynamic keys
 
 A cache key can include shell commands and environment variables to make it unique,
-enabling automatic cache updates when key changes. For example, you can define a key
+enabling automatic cache updates when the key changes. For example, you can define a key
 using the hash of the `package-lock.json` file. When the dependencies in that file
 change, the hash—and therefore the cache key—changes, triggering the automatic creation
 of a new cache.
@@ -113,7 +113,7 @@ cache:
 
 You can use the `cacheNamespace` API field under the `cache` section
 to share a cache across multiple projects. This field defines the scope of the cache. To share a cache,
-must do the following:
+you must do the following:
 
 - Use the same `cacheNamespace`.
 - Specify the same cache `key`.
@@ -135,7 +135,7 @@ This ensures consistency and enables cache sharing across projects.
 
 ### Specify a cache namespace (AWS CLI)
 
-You can use the the `--cache` parameter in the AWS CLI to specify a cache namespace.
+You can use the `--cache` parameter in the AWS CLI to specify a cache namespace.
 
 ```
 --cache '{"type": "S3", "location": "`your-s3-bucket`", "cacheNamespace": "`test-cache-namespace`"}'

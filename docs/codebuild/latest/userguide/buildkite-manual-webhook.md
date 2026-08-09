@@ -23,7 +23,7 @@ In **Runner**:
      prompted to create a new secret in AWS Secrets Manager with a secret value
      equal to the Buildkite agent token you generated above.
     * (Optional) If you would like to use CodeBuild managed credentials for your
-     job, select your job’s source repository provider under **Buildkite
+     job, select your job's source repository provider under **Buildkite
      source credential options** and verify that credentials are
      configured for your account. Additionally, verify that your Buildkite
      pipeline uses **Checkout using HTTPS**.
@@ -41,7 +41,7 @@ In **Runner**:
 
     	+ Note that your buildspec will be ignored unless
     	 `buildspec-override:true` is added as a label.
-    	 Instead, CodeBuild will override it to use commands that will setup the
+    	 Instead, CodeBuild will override it to use commands that will set up the
     	 self-hosted runner.
 
 5. Continue with the default values and then choose **Create build

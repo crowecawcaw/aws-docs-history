@@ -1,6 +1,6 @@
 # Setting up a Buildkite runner programmatically
 
-In order to configure a Buildkite runner project programatically, you will need to
+To configure a Buildkite runner project programmatically, you need to
 configure the following resources:
 
 ###### To create a Buildkite runner programmatically
@@ -15,7 +15,7 @@ configure the following resources:
       `SECRETS_MANAGER`, and a value equal to the Buildkite
       agent token associated with your Buildkite cluster.
    2. Source type equal to `NO_SOURCE`
-   3. Permissions to access the secret created in step 1 in your project’s
+   3. Permissions to access the secret created in step 1 in your project's
       service role
       For example, you can use the following command to create a valid Buildkite
       runner project through the CLI:

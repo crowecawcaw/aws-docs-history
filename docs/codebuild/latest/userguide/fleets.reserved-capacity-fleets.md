@@ -111,7 +111,7 @@ configuration.
 
 The VPC subnets that CodeBuild uses to set up your VPC
 configuration. Note that reserved capacity fleets support only
-one subnet in a single Availablity Zone. Also, ensure that your
+one subnet in a single Availability Zone. Also, ensure that your
 subnets include a NAT gateway.
 
 **Security groups**
@@ -129,7 +129,7 @@ Proxy configurations that apply network access control to your reserved capacity
 
 ###### Note
 
-Proxy configurations don't support VPC, Windows, or MacOS.
+Proxy configurations don't support VPC, Windows, or macOS.
 
 **Default behavior**
 

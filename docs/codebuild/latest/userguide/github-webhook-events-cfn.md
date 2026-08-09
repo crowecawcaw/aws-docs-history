@@ -1,11 +1,11 @@
 # Filter GitHub webhook events (CloudFormation)
 
-To use an CloudFormation template to filter webhook events, use the AWS CodeBuild project's
+To use a CloudFormation template to filter webhook events, use the AWS CodeBuild project's
 `FilterGroups` property.
 
 For more information about GitHub webhook events, see [GitHub webhook events](github-webhook.md "github-webhook.md").
 
-The following YAML-formatted portion of an CloudFormation
+The following YAML-formatted portion of a CloudFormation
 template creates two filter groups. Together, they trigger a build when one or both
 evaluate to true:
 

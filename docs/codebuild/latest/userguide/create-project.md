@@ -473,11 +473,11 @@ Do one of the following:
 
 - To use on-demand fleets managed by AWS CodeBuild, choose **On-demand**. With on-demand fleets,
   CodeBuild provides compute for your builds. The machines are destroyed when the build finishes. On-demand fleets
-  are fully managed, and includes automatic scaling capabilities to handle spikes in demand.
+  are fully managed, and include automatic scaling capabilities to handle spikes in demand.
 - To use reserved capacity fleets managed by AWS CodeBuild, choose **Reserved capacity**, and then select a **Fleet name**. With
   reserved capacity fleets, you configure a set of dedicated instances for your build environment. These machines
-  remain idle, ready to process builds or tests immediately and reduces build durations. With reserved capacity fleets,
-  your machines are always running and will continue to incur costs as long they're provisioned.
+  remain idle, ready to process builds or tests immediately, and reduce build durations. With reserved capacity fleets,
+  your machines are always running and will continue to incur costs as long as they're provisioned.
 
 For information, see [Run builds on reserved capacity fleets](fleets.md "fleets.md").
 
@@ -515,7 +515,7 @@ Do one of the following:
   optimized flexibility during action runs.
 - To use Lambda compute, choose **Lambda**. Lambda compute offers optimized start-up
   speeds for your builds. Lambda supports faster builds due to a lower start-up latency. Lambda also
-  automatically scales, so builds aren’t waiting in queue to run. For information, see
+  automatically scales, so builds aren't waiting in queue to run. For more information, see
   [Run builds on AWS Lambda compute](lambda.md "lambda.md").
 
 **Service role**
@@ -558,7 +558,7 @@ this build project to build Docker images. Otherwise, all
 associated builds that attempt to interact with the Docker daemon fail. You
 must also start the Docker daemon so that your builds can interact with it.
 One way to do this is to initialize the Docker daemon in the
-`install` phase of your build spec by running the following
+`install` phase of your buildspec by running the following
 build commands. Do not run these commands if you chose a build environment
 image provided by CodeBuild with Docker support.
 
@@ -1491,7 +1491,7 @@ artifacts/**path**
 Only used with the `S3` artifact type. Not used for other
 artifact types.
 
-The path in of the output bucket to place ZIP file or folder. If you
+The path of the output bucket in which to place the ZIP file or folder. If you
 do not specify a value for `path`, CodeBuild uses
 `namespaceType` (if specified) and `name` to
 determine the path and name of the build output ZIP file or folder. For
@@ -1825,7 +1825,7 @@ of `TIMED_OUT`.
 #### queuedTimeoutInMinutes
 
 Optional. The number of minutes, between 5 to 480 (8 hours), after which CodeBuild
-stops the build if it is is still queued. If not specified, the default of 60 is
+stops the build if it is still queued. If not specified, the default of 60 is
 used.
 
 #### encryptionKey
@@ -1848,7 +1848,7 @@ project tags. Each tag is expressed as an object with a `key` and a
 #### vpcConfig
 
 Optional. A [VpcConfig](../APIReference/API_VpcConfig.md "../APIReference/API_VpcConfig.md") object
-that contains information information about the VPC configuration for your project.
+that contains information about the VPC configuration for your project.
 For more information, see [Use AWS CodeBuild with Amazon Virtual Private Cloud](vpc-support.md "vpc-support.md").
 
 These properties include:
@@ -1903,7 +1903,7 @@ logs to Amazon S3.
 
 #### fileSystemLocations
 
-Optional. An array of [ProjectFileSystemsLocation](../APIReference/API_ProjectFileSystemLocation.md "../APIReference/API_ProjectFileSystemLocation.md") objects that contains informationabout your
+Optional. An array of [ProjectFileSystemsLocation](../APIReference/API_ProjectFileSystemLocation.md "../APIReference/API_ProjectFileSystemLocation.md") objects that contain information about your
 Amazon EFS configuration.
 
 #### buildBatchConfig

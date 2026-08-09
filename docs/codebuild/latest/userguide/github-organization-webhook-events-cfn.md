@@ -1,6 +1,6 @@
 # Filter GitHub organization webhook events (CloudFormation)
 
-To use an CloudFormation template to filter organization webhook events, use the AWS CodeBuild
+To use a CloudFormation template to filter organization webhook events, use the AWS CodeBuild
 project's `ScopeConfiguration` property. For more information about global
 and organization GitHub webhooks, see [GitHub global and organization webhooks](github-global-organization-webhook.md "github-global-organization-webhook.md").
 
@@ -8,7 +8,7 @@ and organization GitHub webhooks, see [GitHub global and organization webhooks](
 
 Global webhooks and GitHub Enterprise webhooks are not supported by CloudFormation.
 
-The following YAML-formatted portion of an CloudFormation template creates four filter groups.
+The following YAML-formatted portion of a CloudFormation template creates four filter groups.
 Together, they trigger a build when one or all evaluate to true:
 
 - The first filter group specifies pull requests are created or updated on

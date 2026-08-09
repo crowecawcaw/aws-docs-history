@@ -7,14 +7,14 @@ source repositories supported by CodeBuild: GitHub, GitHub Enterprise Server, an
 build project uses GitHub Enterprise Server, you must use Codecov Enterprise.
 
 When you run a build of a CodeBuild project that is integrated with Codecov, Codecov reports that
-analyzes code in your repository are uploaded to Codecov. The build logs include a link to
+analyze code in your repository are uploaded to Codecov. The build logs include a link to
 the reports. This sample shows you how to integrate a Python and a Java build project with
 Codecov. For a list of languages supported by Codecov, see [Codecov supported
 languages](https://docs.codecov.io/docs/supported-languages "https://docs.codecov.io/docs/supported-languages") on the Codecov website.
 
 ## Integrate Codecov into a build project
 
-Use the following procedure to integration Codecov into a build project.
+Use the following procedure to integrate Codecov into a build project.
 
 ###### To integrate Codecov with your build project
 

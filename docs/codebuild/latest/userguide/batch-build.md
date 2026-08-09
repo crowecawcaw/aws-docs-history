@@ -169,7 +169,7 @@ For more information about the build matrix buildspec syntax, see [batch/build-m
 
 A build fanout defines a task that will be split into multiple builds in the batch. This
 can be used for running tests in parallel. CodeBuild creates a separate build for each shard
-of test cases based on the value set in `parallelism` field.
+of test cases based on the value set in the `parallelism` field.
 
 The following example defines a build fanout that creates five builds that run in parallel.
 
@@ -197,7 +197,7 @@ phases:
          --sharding-strategy 'equal-distribution'
 ```
 
-In this example, assuming that there are 100 tests that needs to be run, CodeBuild creates five builds that each
+In this example, assuming that there are 100 tests that need to be run, CodeBuild creates five builds that each
 runs 20 tests in parallel.
 
 For more information about the build graph buildspec syntax, see [batch/build-fanout](batch-build-buildspec.md#build-spec.batch.build-fanout "batch-build-buildspec.md#build-spec.batch.build-fanout").

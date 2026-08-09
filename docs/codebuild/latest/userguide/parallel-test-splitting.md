@@ -2,7 +2,7 @@
 
 AWS CodeBuild's test splitting feature allows you to parallelize your test suite execution across multiple compute
 instances, reducing the overall test run time. This feature is enabled through the batch configuration in your CodeBuild project
-settings and the `codebuild-tests-run`utility in your buildspec file.
+settings and the `codebuild-tests-run` utility in your buildspec file.
 
 The tests are split based on the sharding strategy specified. CodeBuild provides two sharding strategies as specified below:
 

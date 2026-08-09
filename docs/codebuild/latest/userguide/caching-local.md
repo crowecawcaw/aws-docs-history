@@ -39,7 +39,7 @@ If you choose local caching, you must choose one or more of the following cache 
     individual files.
   - Symlinks are used to reference cached directories.
   - Cached directories are linked to your build before it downloads its
-    project sources. Cached items overrides source items if they have the
+    project sources. Cached items override source items if they have the
     same name. Directories are specified using cache paths in the buildspec
     file. For more information, see [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax "build-spec-ref.md#build-spec-ref-syntax").
   - Avoid directory names that are the same in the source and in the

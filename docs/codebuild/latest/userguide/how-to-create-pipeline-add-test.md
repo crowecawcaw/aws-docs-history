@@ -8,7 +8,7 @@
    - An administrator user in your AWS account. For more information,
      see [Creating your first AWS account root user and group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the
      _user Guide_.
-   - An user in your AWS account with permission to perform the
+   - A user in your AWS account with permission to perform the
      following minimum set of actions:
 
    ```
@@ -90,7 +90,7 @@ step in CodePipeline, then two identical builds are created for each commit. One
 is triggered through webhooks and one through CodePipeline. Because billing is on a
 per-build basis, you are billed for both builds. Therefore, if you are using
 CodePipeline, we recommend that you disable webhooks in CodeBuild. In the CodeBuild console,
-clear the **Webhook**box. For more information, see [Change a build project's settings (console)](change-project.md#change-project-console "change-project.md#change-project-console") 13. For **Input artifacts**, select the value for **Output
+clear the **Webhook** box. For more information, see [Change a build project's settings (console)](change-project.md#change-project-console "change-project.md#change-project-console") 13. For **Input artifacts**, select the value for **Output
 artifact** that you noted earlier in this procedure. 14. (Optional) If you want your test action to produce an output artifact, and you set
 up your buildspec accordingly, then for **Output artifact**, enter
 the value you want to assign to the output artifact. 15. Choose **Save**. 16. Choose **Release change**. 17. After the pipeline runs successfully, you can get the test results. In the

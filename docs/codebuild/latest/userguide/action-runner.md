@@ -63,7 +63,7 @@ enterprise, see [GitHub global and organization webhooks](github-global-organiza
 
     	+ Note that your buildspec will be ignored unless
     	 `buildspec-override:true` is added as a label.
-    	 Instead, CodeBuild will override it to use commands that will setup
+    	 Instead, CodeBuild will override it to use commands that will set up
     	 the self-hosted runner.
 
 5. Continue with the default values and then choose **Create build
@@ -91,8 +91,8 @@ following:
   AWS-related settings of your GitHub Actions job to a specific CodeBuild
   project. By including the project name in the YAML, CodeBuild is allowed to
   invoke jobs with the correct project settings. By providing the run ID,
-  CodeBuild will map your build to specific workflow runs and stop the build when
-  the workflow run is cancelled. For more information, see [`github` context](https://docs.github.com/en/actions/learn-github-actions/contexts#github-context "https://docs.github.com/en/actions/learn-github-actions/contexts#github-context").
+  CodeBuild maps your build to specific workflow runs and stops the build when
+  the workflow run is canceled. For more information, see [`github` context](https://docs.github.com/en/actions/learn-github-actions/contexts#github-context "https://docs.github.com/en/actions/learn-github-actions/contexts#github-context").
 
 ```
 runs-on: codebuild-`<project-name>`-${{ github.run_id }}-${{ github.run_attempt }}
@@ -197,7 +197,7 @@ environment, you can install the dependency using GitHub Actions in your
 workflow run. For example, you can use the [`setup-python`](https://github.com/actions/setup-python "https://github.com/actions/setup-python") action to install Python for your build
 environment.
 
-### Run buildspec commands the INSTALL, PRE\_BUILD, and POST\_BUILD phases
+### Run buildspec commands in the INSTALL, PRE\_BUILD, and POST\_BUILD phases
 
 By default, CodeBuild ignores any buildspec commands when running a self-hosted GitHub Actions build. To run buildspec
 commands during the build, `buildspec-override:true` can be added as a suffix to the label:
@@ -217,7 +217,7 @@ There are several limitations when using a buildspec override in a self-hosted G
 - CodeBuild will not download any primary or secondary sources during the `DOWNLOAD_SOURCE` phase. If you have a buildspec file configured,
   only that file will be downloaded from the project's primary source.
 - If a build command fails in the `PRE_BUILD` or `INSTALL` phase, CodeBuild will not start the
-  self-hosted runner and the GitHub Actions workflow job will need to be cancelled manually.
+  self-hosted runner and the GitHub Actions workflow job needs to be canceled manually.
 - CodeBuild fetches the runner token during the `DOWNLOAD_SOURCE` phase, which has an expiration time of one hour.
   If your `PRE_BUILD` or `INSTALL` phases exceed an hour, the runner token may expire before the GitHub self-hosted runner starts.
 
@@ -325,7 +325,7 @@ jobs:
 
 ## Filter GitHub Actions webhook events (CloudFormation)
 
-The following YAML-formatted portion of an CloudFormation
+The following YAML-formatted portion of a CloudFormation
 template creates a filter group that triggers a build when it evaluates to true.
 The following filter group specifies a GitHub Actions workflow job request with a
 workflow name matching the regular expression `\[CI-CodeBuild\]`.

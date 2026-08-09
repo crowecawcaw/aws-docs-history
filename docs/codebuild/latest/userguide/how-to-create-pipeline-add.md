@@ -8,7 +8,7 @@
    - An administrator user in your AWS account. For more information,
      see [Creating your first AWS account root user and group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the
      _user Guide_.
-   - An user in your AWS account with permission to perform the
+   - A user in your AWS account with permission to perform the
      following minimum set of actions:
 
    ```

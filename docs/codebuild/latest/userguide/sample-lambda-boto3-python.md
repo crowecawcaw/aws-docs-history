@@ -1,7 +1,7 @@
 # Update a Lambda function configuration with CodeBuild Lambda Python
 
 The following Python sample uses [Boto3](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/") and CodeBuild Lambda Python to
-update a Lambda function’s configuration. This sample can be extended to manage other AWS resources programmatically. For more
+update a Lambda function's configuration. This sample can be extended to manage other AWS resources programmatically. For more
 information, see [Boto3 documentation](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/").
 
 ## Prerequisites
@@ -9,7 +9,7 @@ information, see [Boto3 documentation](https://aws.amazon.com/sdk-for-python/ "h
 Create or find a Lambda function in your account.
 
 This sample assumes that you have already created a Lambda function in your account and
-will use CodeBuild to update the Lambda function’s environment variables. For more information on setting up a Lambda function through CodeBuild, see the
+will use CodeBuild to update the Lambda function's environment variables. For more information on setting up a Lambda function through CodeBuild, see the
 [Deploy a Lambda function using AWS SAM with CodeBuild Lambda Java](sample-lambda-sam-gradle.md "sample-lambda-sam-gradle.md") sample or visit [AWS Lambda](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/").
 
 ## Set up your source repository
@@ -70,7 +70,7 @@ Create a CodeBuild Lambda Python project.
    - For **Runtime(s)**, select **Python**.
    - For **Image**, select **aws/codebuild/amazonlinux-x86\_64-lambda-standard:python3.12**.
    - For **Service role**, leave **New service role** selected. Make a note of the
-     **Role name**. This will be required when you update the project’s IAM permissions later in this sample.
+     **Role name**. You need this when you update the project's IAM permissions later in this sample.
 
 6. Choose **Create build project**.
 7. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -104,8 +104,8 @@ JSON
 
 ## Set up the project buildspec
 
-In order to update the Lambda function, the script reads environment variables from the buildspec to find
-the Lambda function’s name, environment variable name, and environment variable value.
+To update the Lambda function, the script reads environment variables from the buildspec to find
+the Lambda function's name, environment variable name, and environment variable value.
 
 ###### To set up your project buildspec
 
@@ -133,9 +133,9 @@ phases:
 
 ## Update your Lambda configuration
 
-Use CodeBuild Lambda Python to automatically update your Lambda function’s configuration.
+Use CodeBuild Lambda Python to automatically update your Lambda function's configuration.
 
-###### To update your Lambda function’s configuration
+###### To update your Lambda function's configuration
 
 1. Choose **Start build**.
 2. Once the build has finished, navigate to your Lambda function.

@@ -35,7 +35,7 @@ AWS CodeBuild plugin, on your Jenkins instance, in the Plugin Manager, search fo
    - (Optional) If your source repository is not natively supported by CodeBuild, you can set Amazon S3 as
      the input source type for your project.
 
-2. In the IAMconsole, create an user to be used by the Jenkins plugin.
+2. In the IAM console, create a user to be used by the Jenkins plugin.
 
    - When you create credentials for the user, choose **Programmatic
      Access**.

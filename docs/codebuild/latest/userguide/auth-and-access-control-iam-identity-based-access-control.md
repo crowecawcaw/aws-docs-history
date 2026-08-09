@@ -115,7 +115,7 @@ SDKs.
 AWS addresses many common use cases by providing standalone IAM policies that are created and
 administered by AWS. These AWS managed policies grant necessary permissions for common use cases so
 you can avoid having to investigate what permissions are needed. The managed policies for CodeBuild also
-provide permissions to perform operations in other services, such as IAM, AWS CodeCommit,Amazon EC2, Amazon ECR,
+provide permissions to perform operations in other services, such as IAM, AWS CodeCommit, Amazon EC2, Amazon ECR,
 Amazon SNS, and Amazon CloudWatch Events, as required for the responsibilities for the users who have been granted the
 policy in question. For example, the `AWSCodeBuildAdminAccess` policy is
 an administrative-level user policy that allows users with this policy to create and manage CloudWatch

@@ -66,5 +66,5 @@ phases:
       - echo "Test execution completed"
 ```
 
-In above example, `CODEBUILD_CURRENT_SHARD_FILES` environment variable is
+In the above example, `CODEBUILD_CURRENT_SHARD_FILES` environment variable is
 used to fetch test files assigned to current shard and passed as array to pytest command.

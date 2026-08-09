@@ -14,7 +14,7 @@ shows you how to configure your report so its test results are exported to an S3
 
 ## Run the test report sample
 
-Use the following steps to run the trest report sample.
+Use the following steps to run the test report sample.
 
 ###### Topics
 

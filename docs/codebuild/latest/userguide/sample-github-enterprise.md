@@ -76,7 +76,7 @@ Region, the bucket must be in the US East (Ohio) Region.
 4. In **Source**, in **Source provider**, choose **GitHub Enterprise Server**.
 
    - Choose **Manage account credentials**, and then choose **Personal access token**. For **Service**, choose **Secrets
-     Manager (recommended)**, and configure your secret. Then in **,GitHub Enterprise personal access token**, enter your personal access token and choose **Save**.
+     Manager (recommended)**, and configure your secret. Then in **GitHub Enterprise personal access token**, enter your personal access token and choose **Save**.
    - In **Repository URL**, enter the path to your repository, including the name of the repository.
    - Expand **Additional configuration**.
    - Select **Rebuild every time a code change is pushed to this repository** to rebuild every time a code change is pushed to

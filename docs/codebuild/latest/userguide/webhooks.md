@@ -18,21 +18,21 @@ Bitbucket.
 
 ## Best practices for using webhooks with AWS CodeBuild
 
-For projects that use public repositories to setup webhooks, we recommend the following
+For projects that use public repositories to set up webhooks, we recommend the following
 options:
 
-Setup `ACTOR_ACCOUNT_ID` filters
+Set up `ACTOR_ACCOUNT_ID` filters
 
-Add `ACTOR_ACCOUNT_ID` filters to your project’s webhook filter
+Add `ACTOR_ACCOUNT_ID` filters to your project's webhook filter
 groups to specify which users can trigger a build. Every webhook event delivered
 to CodeBuild comes with sender information that specifies the actor's identifier.
 CodeBuild will filter the webhooks based on the regular expression pattern provided
 in the filters. You can specify the specific users that are allowed to trigger
 builds with this filter. For more information, see [GitHub webhook events](github-webhook.md "github-webhook.md") and [Bitbucket webhook events](bitbucket-webhook.md "bitbucket-webhook.md").
 
-Setup `FILE_PATH` filters
+Set up `FILE_PATH` filters
 
-Add `FILE_PATH` filters to your project’s webhook filter groups to
+Add `FILE_PATH` filters to your project's webhook filter groups to
 include or exclude the files that can trigger a build when changed. For example,
 you can deny build requests for changes to the
 `buildspec.yml` file using a regular expression pattern

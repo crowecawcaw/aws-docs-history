@@ -17,7 +17,7 @@ follows:
 
 This feature allows your GitLab CI/CD pipeline jobs to get native integration with
 AWS, which provides security and convenience through features like IAM,
-AWS CloudTrail, and Amazon VPC. You can access latest instance types, including ARM-based
+AWS CloudTrail, and Amazon VPC. You can access the latest instance types, including ARM-based
 instances.
 
 ###### Topics

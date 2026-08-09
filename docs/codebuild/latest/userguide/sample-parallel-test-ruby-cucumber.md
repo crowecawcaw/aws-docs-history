@@ -1,7 +1,7 @@
 # Configure parallel tests with Ruby (Cucumber)
 
 The following is sample of a `buildspec.yml` that shows parallel test execution
-with Cucumber on an Linux platform:
+with Cucumber on a Linux platform:
 
 ```
 version: 0.2

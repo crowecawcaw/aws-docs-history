@@ -61,7 +61,7 @@ This policy does not allow the caller to override the buildspec in the
 ###### Note
 
 The `codebuild:source.buildspec` condition key supports only the Null
-operator to check the existence of the API field. It doesn’t evaluate the content of
+operator to check the existence of the API field. It doesn't evaluate the content of
 the buildspec.
 
 JSON

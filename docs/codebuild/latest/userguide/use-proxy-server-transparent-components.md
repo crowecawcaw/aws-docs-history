@@ -5,7 +5,7 @@ You need these components to run AWS CodeBuild in a transparent or explicit prox
 - A VPC.
 - One public subnet in your VPC for the proxy server.
 - One private subnet in your VPC for CodeBuild.
-- An internet gateway that allows communcation between the VPC and the
+- An internet gateway that allows communication between the VPC and the
   internet.
   The following diagram shows how the components interact.
 

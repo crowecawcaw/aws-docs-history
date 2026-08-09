@@ -11,7 +11,7 @@ specify a local cache. For more information about local caching, see [Local cach
 
 ## Specify local caching (CLI)
 
-You can use the the `--cache` parameter in the AWS CLI to specify
+You can use the `--cache` parameter in the AWS CLI to specify
 each of the three local cache types.
 
 - To specify a source cache:

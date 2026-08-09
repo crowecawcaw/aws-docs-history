@@ -189,7 +189,7 @@ template
 **To create a report group using the CloudFormation
 template**
 
-You can use an CloudFormation template file to create and provision a report group.
+You can use a CloudFormation template file to create and provision a report group.
 For more information, see [CloudFormation User
 Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
 

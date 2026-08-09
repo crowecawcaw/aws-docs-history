@@ -51,7 +51,7 @@ In the preceding command, replace the following placeholders:
   command with each subsequent next token that is returned, until no more next
   tokens are returned.
 
-For example, if you run this command similar to this:
+For example, if you run a command similar to this:
 
 ```
 aws codebuild list-builds-for-project --project-name codebuild-demo-project --sort-order ASCENDING
@@ -116,7 +116,7 @@ In the preceding command, replace the following placeholders:
   command with each subsequent next token that is returned, until no more next
   tokens are returned.
 
-For example, if you run this command similar to this:
+For example, if you run a command similar to this:
 
 ```
 aws codebuild list-build-batches-for-project --project-name codebuild-demo-project --sort-order ASCENDING
