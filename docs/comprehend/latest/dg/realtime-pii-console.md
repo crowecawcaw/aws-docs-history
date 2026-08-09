@@ -26,7 +26,7 @@ kilobytes of UTF-8 encoded characters. The console displays the results so that 
 The **Offsets** analysis mode identifies the location of PII
 in your text documents. For more information, see [Locate PII entities](how-pii.md#how-pii-locate "how-pii.md#how-pii-locate").
 
-![The PII offsets analysis mode.](images/gs-console-pii.png)
+![The PII offsets analysis mode.](/images/comprehend/latest/dg/images/gs-console-pii.png)
 
 ## Labels
 
