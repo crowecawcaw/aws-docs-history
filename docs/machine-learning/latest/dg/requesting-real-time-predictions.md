@@ -90,7 +90,7 @@ that the `Predict` API call returns, along with the ML model type, the
 name of the target variable, and the predicted class or value. For information about
 interpreting the results, see [Interpreting the Contents of Batch Prediction Files for a Binary Classification ML model](reading-the-batchprediction-output-files.md#interpreting-the-contents-of-batch-prediction-files-for-a-binary-classification-ml-model "reading-the-batchprediction-output-files.md#interpreting-the-contents-of-batch-prediction-files-for-a-binary-classification-ml-model").
 
-![Prediction results pane showing binary classification with predicted label 0 and score 0.03348433.](/images/machine-learning/latest/dg/images/real-time-result.png)
+![Prediction results pane showing binary classification with predicted label 0 and score 0.03348433.](images/real-time-result.png)
 
 ## Creating a Real-Time Endpoint
 
