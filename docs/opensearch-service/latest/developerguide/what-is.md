@@ -103,72 +103,88 @@ version-specific considerations, see [Upgrading Amazon OpenSearch Service domain
 
 AWS provides bug fixes and security updates for versions under standard support. For
 versions in extended support, AWS offers critical security fixes for at least 12
-months after standard support ends, at a flat fee per Normalized Instance Hour (NIH).
-NIH is based on instance size and usage hours.
-
-Extended support charges apply automatically when a domain runs a version that is no
-longer under standard support. To avoid these charges, upgrade to a supported version.
+months after standard support ends. Extended support charges apply automatically when a
+domain runs a version that is no longer under standard support. To avoid these charges,
+upgrade to a supported version. For running version on Extended Support, you will either
+be charged, equal to your instance costs (storage costs are not affected), or a flat fee
+per Normalized Instance Hour (NIH), in addition to the standard instance cost. NIH is
+computed as a factor of the instance size (e.g. medium, large), and number of instance
+hours. For versions where the originally published extended support date has passed, and
+there has been an additional extension to the end of support date, extended support fee
+will be equal to your instance cost (in addition to the instance cost) and storage costs
+are not affected. See [Calculating extended support charges](#calculating-charges "#calculating-charges") below for details and
+examples.
 
 The following tables show the end of support schedule for OpenSearch and legacy
 Elasticsearch versions.
 
-OpenSearch Service supports multiple versions of OpenSearch and legacy open-source Elasticsearch
-versions. For some versions, we have already published end of standard support and
-extended support dates. We recommend that you upgrade to the latest available OpenSearch
-version to get the best use of OpenSearch Service in terms of price-performance, feature richness, and
-security improvements. The following tables provide lists of Elasticsearch and
-OpenSearch versions and their support schedules.
+**Elasticsearch versions**
 
-The end of support schedule for Elasticsearch versions is as follows:
+| Software Version                   | End of Standard Support | Original End of Extended Support | Updated End of Extended Support |
+| ---------------------------------- | ----------------------- | -------------------------------- | ------------------------------- |
+| Elasticsearch versions 1.5 and 2.3 | November 7, 2025        | November 7, 2026                 | November 7, 2027                |
+| Elasticsearch versions 5.1 to 5.5  | November 7, 2025        | November 7, 2026                 | November 7, 2027                |
+| Elasticsearch version 5.6          | November 7, 2025        | November 7, 2028                 | No change                       |
+| Elasticsearch versions 6.0 to 6.7  | November 7, 2025        | November 7, 2026                 | November 7, 2027                |
+| Elasticsearch version 6.8          | November 7, 2027        | Not announced                    | November 7, 2030                |
+| Elasticsearch versions 7.1 to 7.8  | November 7, 2025        | November 7, 2026                 | November 7, 2027                |
+| Elasticsearch version 7.9          | November 7, 2027        | Not announced                    | November 7, 2028                |
+| Elasticsearch version 7.10         | November 7, 2027        | Not announced                    | November 7, 2030                |
 
-| Software Version                   | End of Standard Support | End of Extended Support |
-| ---------------------------------- | ----------------------- | ----------------------- |
-| Elasticsearch versions 1.5 and 2.3 | November 7, 2025        | November 7, 2026        |
-| Elasticsearch versions 5.1 to 5.5  | November 7, 2025        | November 7, 2026        |
-| Elasticsearch versions 5.6         | November 7, 2025        | November 7, 2028        |
-| Elasticsearch versions 6.0 to 6.7  | November 7, 2025        | November 7, 2026        |
-| Elasticsearch versions 6.8         | Not announced           | Not announced           |
-| Elasticsearch versions 7.1 to 7.8  | November 7, 2025        | November 7, 2026        |
-| Elasticsearch versions 7.9         | Not announced           | Not announced           |
-| Elasticsearch versions 7.10        | Not announced           | Not announced           |
+**OpenSearch versions**
 
-The end of support schedule for OpenSearch versions is as follows:
+| Software Version                 | End of Standard Support | Original End of Extended Support | Updated End of Extended Support |
+| -------------------------------- | ----------------------- | -------------------------------- | ------------------------------- |
+| OpenSearch versions 1.0 to 1.2   | November 7, 2025        | November 7, 2026                 | November 7, 2027                |
+| OpenSearch version 1.3           | November 7, 2027        | Not announced                    | November 7, 2030                |
+| OpenSearch versions 2.3 to 2.9   | November 7, 2025        | November 7, 2026                 | November 7, 2027                |
+| OpenSearch version 2.11 to 2.17  | November 7, 2027        | Not announced                    | November 7, 2028                |
+| OpenSearch version 2.19          | November 7, 2027        | Not announced                    | November 7, 2030                |
+| OpenSearch version 3.1 and above | Not announced           | Not announced                    | Not applicable                  |
 
-| Software Version                             | End of Standard Support | End of Extended Support |
-| -------------------------------------------- | ----------------------- | ----------------------- |
-| OpenSearch versions 1.0 through 1.2          | November 7, 2025        | November 7, 2026        |
-| OpenSearch versions 1.3                      | Not announced           | Not announced           |
-| OpenSearch versions 2.3 to 2.9               | November 7, 2025        | November 7, 2026        |
-| OpenSearch versions 2.11 and higher versions | Not announced           | Not announced           |
-
-## Standard support and extended support of OpenSearch and Elasticsearch
-
-AWS provides regular bug fixes and security updates for versions covered under
-Standard Support. For versions under Extended Support, AWS provides critical security
-fixes for a period of at least 12 months after end of standard support, for an
-additional flat fee each Normalized Instance Hour (NIH). NIH is computed as a factor of
-the instance size (e.g. medium, large), and number of instance hours (see calculating
-extended support charges section below for an example). Extended support charges are
-applied automatically when a domain is running a version for which standard support has
-ended. You can upgrade to a recent version that is still covered under standard support
-to avoid extended support charges. For more information on extended support charges, see
-the [pricing page](https://aws.amazon.com/opensearch-service/pricing/#Extended_support_costs "https://aws.amazon.com/opensearch-service/pricing/#Extended_support_costs"). For general information about extended support, see the
-[Extended Support FAQ](https://aws.amazon.com/opensearch-service/faqs/#awt-content-topics#ams#c111#extended-support-9 "https://aws.amazon.com/opensearch-service/faqs/#awt-content-topics#ams#c111#extended-support-9").
+For more information about extended support charges, see the [pricing page](https://aws.amazon.com/opensearch-service/pricing/#Extended_support_costs "https://aws.amazon.com/opensearch-service/pricing/#Extended_support_costs"). For
+general information about extended support, see the [Extended Support FAQ](https://aws.amazon.com/opensearch-service/faqs/#awt-content-topics#ams#c111#extended-support-9 "https://aws.amazon.com/opensearch-service/faqs/#awt-content-topics#ams#c111#extended-support-9").
 
 ## Calculating extended support charges
 
-Domains running versions under extended support will be charged a flat additional
-fee/Normalized Instance Hour (NIH), for example, $0.0065 in the US East (North Virginia)
- Region. NIH is computed as a factor of the instance size (e.g., medium, large), and the
- number of instance hours. For example, if you are running an m7g.medium.search instance
- for 24 hours in the US East (North Virginia) Region, which is priced at $0.068/Instance
-hour (on-demand), you will typically pay $1.632 ($0.068x24). If you are running a
-version that is in extended support, you will pay an additional $0.0065/NIH, which is
- computed as $0.0065 x 24 (number of instance hours) x 2 (size normalization factor; 2
-for medium-sized instances), which comes to $0.312 for extended support for 24 hours.
- The total amount you will pay for 24 hours will be a sum of the standard instance usage
- cost and the extended support cost, which is $1.944 ($1.632+$0.312). The below table
-shows the normalization factor for various instance sizes in OpenSearch Service.
+For version you are running on Extended Support, you will be charged a **flat fee per Normalized Instance Hour (NIH)**, in addition to
+the standard instance cost. NIH is computed as a factor of the instance size (e.g.
+medium, large), and number of instance hours. For versions where the originally published
+extended support date has passed, and there has been an additional extension to the end
+of support date, extended support fee will be equal to your instance cost (in addition to
+the instance cost) and storage costs are not affected. Please see below for Extended
+Support pricing.
+
+**Extended Support charges for Elasticsearch versions 1.5, 2.3,
+5.1–5.5, 6.0–6.7, 7.1–7.8, OpenSearch versions 1.0–1.2, and OpenSearch versions
+2.3–2.9 (from November 7, 2026):** For these versions, the Extended Support
+charges are equal to your instance pricing for the extension period. Storage costs are
+not affected. This extended period gives you additional time to plan and complete your
+upgrades to the latest OpenSearch versions. **Example:**
+If you are running an m7g.medium.search instance priced at $0.068/hr (on-demand) in US
+ East (N. Virginia) for 24 hours, your standard instance cost is $1.632/day
+($0.068×24). The Extended Support surcharge for the extension period will be equal to
+ your instance cost ($1.632/day), effectively doubling your instance pricing to
+~$3.264/day. Storage costs remain unchanged.
+
+**For Elasticsearch version 5.6 (till November 7, 2028)** you will be charged the standard Extended Support rate of $0.0065
+per Normalized Instance Hour (NIH) in US East (N. Virginia). See the [pricing
+page](https://aws.amazon.com/opensearch-service/pricing/#Extended_support_costs "https://aws.amazon.com/opensearch-service/pricing/#Extended_support_costs") for exact pricing by Region.
+
+**Extended Support charges for Elasticsearch versions 6.8, 7.9, and
+7.10, OpenSearch version 1.3, and OpenSearch versions 2.11–2.19 (from November
+2027):** For these versions, you will be charged the standard Extended
+Support rate of $0.0065 per Normalized Instance Hour (NIH) in US East (N. Virginia). See
+ the [pricing page](https://aws.amazon.com/opensearch-service/pricing/#Extended_support_costs "https://aws.amazon.com/opensearch-service/pricing/#Extended_support_costs") for rates in other Regions. **Example:** If you are running an m7g.medium.search instance for 24 hours in
+ US East (N. Virginia), priced at $0.068/hr (on-demand), you will pay $1.632/day
+ ($0.068×24) as the standard instance cost. The Extended Support charge is $0.0065 × 24
+ (instance hours) × 2 (normalization factor for medium) = $0.312/day. Total = $1.944/day
+ ($1.632 + $0.312, excluding storage cost).
+
+See the [pricing page](https://aws.amazon.com/opensearch-service/pricing/#Extended_support_costs "https://aws.amazon.com/opensearch-service/pricing/#Extended_support_costs") for exact pricing by Region.
+
+The table below shows the normalization factor for various instance sizes in
+OpenSearch Service.
 
 | Instance size | Normalization Factor |
 | ------------- | -------------------- |

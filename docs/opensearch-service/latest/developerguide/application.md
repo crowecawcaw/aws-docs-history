@@ -60,6 +60,7 @@ For information about the latest features released for OpenSearch UI, see [Amazo
 - [Using Amazon OpenSearch Service workspaces](application-workspaces.md "application-workspaces.md")
 - [Cross-Region and cross-account data access](application-cross-region-cross-account.md "application-cross-region-cross-account.md")
 - [Managing access to the OpenSearch UI from a VPC endpoint](application-access-ui-from-vpc-endpoint.md "application-access-ui-from-vpc-endpoint.md")
+- [Restricting network access to OpenSearch UI applications](application-network-access.md "application-network-access.md")
 - [Migrating saved objects from OpenSearch Dashboards to OpenSearch UI](application-migration.md "application-migration.md")
 - [Monitoring OpenSearch UI with Amazon CloudWatch](application-monitoring.md "application-monitoring.md")
 - [OpenSearch UI endpoints and quotas](opensearch-ui-endpoints-quotas.md "opensearch-ui-endpoints-quotas.md")
