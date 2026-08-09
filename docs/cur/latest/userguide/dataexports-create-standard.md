@@ -138,6 +138,7 @@ following for your export:
 
     * Parquet – Parquet
     * gzip – text/csv
+    * zip - text/csv
 
 12. Under **Data export storage settings**, choose whether you want your export delivered to the S3 bucket of:
 
