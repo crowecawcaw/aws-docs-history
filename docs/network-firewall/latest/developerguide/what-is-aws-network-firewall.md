@@ -25,10 +25,31 @@ including the following:
 - Perform deep packet inspection on traffic entering or leaving your VPC.
 - Use stateful protocol detection to filter protocols like HTTPS, independent of the
   port used.
-  To enable Network Firewall for a VPC, you perform steps in both Amazon VPC and in
-  Network Firewall. For information about managing your Amazon Virtual Private Cloud VPC, see the
-  [Amazon Virtual Private Cloud User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md"). For more information about how Network Firewall works,
-  see [How AWS Network Firewall works](how-it-works.md "how-it-works.md").
+  By default, AWS Network Firewall operates in **source-preservation mode**. In this mode, the
+  firewall receives traffic from the VPC endpoint, inspects it using the stateful rules engine
+  (supporting Suricata compatible IPS rules, domain filtering, and 5-tuple rules), and sends
+  the filtered traffic back through the VPC endpoint to its destination. The original source and
+  destination IP addresses are preserved throughout inspection. Traffic is steered to the
+  firewall through VPC route tables. This mode supports all protocols (TCP, UDP,
+  ICMP) and is designed for general network security use cases like intrusion prevention,
+  domain-based filtering, and east-west or north-south traffic inspection.
+
+There is another mode of operation, _currently in preview_,
+called **no-source-preservation mode**, where the firewall
+functions as an explicit forward proxy. This mode is available only in the US East (Ohio)
+Region (us-east-2). In this mode, the firewall attaches to a NAT gateway and clients must
+be explicitly configured to send traffic to the proxy through a PrivateLink endpoint. The
+endpoint carries the traffic to the firewall, which filters the traffic based on the
+configured ruleset. If the traffic is allowed, the firewall initiates a new connection with
+the destination using the attached NAT gateway's IP address as the source. Since the original
+IP address of the source is masked, this deployment mode is called no-source-preservation.
+For more information, see
+[No-source-preservation mode](nfw-no-source-preservation.md "nfw-no-source-preservation.md").
+
+To enable Network Firewall for a VPC, you perform steps in both Amazon VPC and in
+Network Firewall. For information about managing your Amazon Virtual Private Cloud VPC, see the
+[Amazon Virtual Private Cloud User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md"). For more information about how Network Firewall works,
+see [How AWS Network Firewall works](how-it-works.md "how-it-works.md").
 
 Network Firewall is supported by AWS Firewall Manager. You can use Firewall Manager to centrally configure and
 manage your firewalls across your accounts and applications in AWS Organizations. You can manage
@@ -82,8 +103,8 @@ The following are the key concepts for Network Firewall:
   VPC.
 - **Firewall subnet** – A subnet that you've
   designated for exclusive use by Network Firewall for a firewall endpoint. A
-  firewall endpoint can't filter traffic coming into or going out of the subnet in
-  which it resides, so don't use your firewall subnets for anything other than
+  firewall endpoint cannot filter traffic coming into or going out of the subnet in
+  which it resides, so do not use your firewall subnets for anything other than
   Network Firewall.
 - **Route table** – A set of rules, called
   routes, that are used to determine where network traffic is directed. You modify
