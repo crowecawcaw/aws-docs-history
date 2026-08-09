@@ -23,7 +23,12 @@ Storage optimization can take several hours. After storage optimization complete
 the instance, you can make additional storage modifications. You can perform a maximum
 of four storage modifications within any 24-hour period. You can view the storage
 optimization progress in the AWS Management Console or by using the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md")
-AWS CLI command.
+AWS CLI command. During optimization, the response includes
+`StorageOperationStatus="Optimizing"` and a
+`StorageOperationPercentProgress` value on the affected volume. The
+per-volume fields also appear on each entry in the
+`AdditionalStorageVolumes` array, so you can identify which volume is being
+optimized. For more information, see [Viewing Amazon RDSDB instance status](accessing-monitoring.md#Overview.DBInstance.Status "accessing-monitoring.md#Overview.DBInstance.Status").
 
 ###### To increase storage for a DB instance
 

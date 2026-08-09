@@ -1,8 +1,10 @@
 # Overview of Amazon RDS Extended Support
 
 After the RDS end of standard support date, if you didn't disable RDS Extended Support during
-the [creation](extended-support-creating-db-instance.md "extended-support-creating-db-instance.md") or [restoration](extended-support-restoring-db-instance.md "extended-support-restoring-db-instance.md") of your DB
-instances, then Amazon RDS will automatically enroll them in RDS Extended Support. Amazon RDS
+the [creation](extended-support-creating-db-instance.md "extended-support-creating-db-instance.md") or [restoration](extended-support-restoring-db-instance.md "extended-support-restoring-db-instance.md") of your DB instances
+and DB clusters, then Amazon RDS will automatically enroll them in RDS Extended Support. You
+can also prevent automatic enrollment by changing the `EngineLifecycleSupport`
+parameter on an existing DB instance or DB cluster. Amazon RDS
 automatically upgrades your DB instance to the last minor version released before the
 RDS end
 of standard support date, if you aren't already running that version. Amazon RDS won't
@@ -24,10 +26,17 @@ still under RDS standard support. If the restore fails, then Amazon RDS will
 automatically enroll your engine in RDS Extended Support with a version that's compatible with the
 snapshot.
 
-You can end enrollment in RDS Extended Support at any time. To end enrollment, upgrade each enrolled
-engine to a newer engine version that's still under RDS standard support. The end of
-RDS Extended Support enrollment will be effective the day that you complete an upgrade to a newer
-engine version that's still under RDS standard support.
+You can end enrollment in RDS Extended Support at any time. To end enrollment, you can change the
+`EngineLifecycleSupport` parameter using the AWS CLI or RDS API. If you disable
+the enrollment status of a DB instance or DB cluster that is already past its standard
+support end date, the instance or cluster automatically upgrades to the next
+supported major version.
+
+You can also upgrade each enrolled engine to a newer engine version that's still under
+RDS
+standard support to end enrollment. The end of RDS Extended Support enrollment becomes effective the
+day that you complete an upgrade to a newer engine version that's still under RDS standard
+support.
 
 For more information about the RDS end of standard support dates and
 the RDS end of Extended Support dates, see [Supported MySQL major versions on Amazon RDS](MySQL.Concepts.VersionMgmt.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar "MySQL.Concepts.VersionMgmt.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar") and [Release calendar for Amazon RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-release-calendar.md#Release.Calendar "../PostgreSQLReleaseNotes/postgresql-release-calendar.md#Release.Calendar").

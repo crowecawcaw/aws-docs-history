@@ -131,3 +131,12 @@ bucket and the SQL Server DB instance. The action lists the names of the buckets
 
 S3 bucket namespaces are global. If you accidentally delete your bucket, another user can create a bucket with the
 same name in a different account. Then the SQL Server Audit data is written to the new bucket.
+
+###### Note
+
+This IAM role is used only for the S3 audit destination. If you also stream audit logs
+to Amazon CloudWatch Logs (the `PUBLISH_TO_CLOUDWATCH` option — see
+[Configuring CloudWatch Log Stream](Appendix.SQLServer.Options.Audit.CloudWatch.md "Appendix.SQLServer.Options.Audit.CloudWatch.md")), you do not need to add any
+CloudWatch Logs permissions (`logs:*`) to this role. CloudWatch delivery is handled
+by an RDS-managed service-linked role (`AWSServiceRoleForRDS`). The S3
+permissions above are sufficient.

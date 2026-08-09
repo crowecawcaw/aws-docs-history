@@ -38,7 +38,10 @@ option to a DB instance is as follows:
      DB instance, choose this option. Specify a retention time in hours. The
      maximum retention time is 35 days.
 
-3. Apply the option group to a new or existing DB instance. Choose one of the
+3. Optionally, add the **PUBLISH\_TO\_CLOUDWATCH** option to the
+   option group so that the audit logs are accessible through CloudWatch
+   (log streams).
+4. Apply the option group to a new or existing DB instance. Choose one of the
    following:
 
    - If you are creating a new DB instance, apply the option group when you launch the

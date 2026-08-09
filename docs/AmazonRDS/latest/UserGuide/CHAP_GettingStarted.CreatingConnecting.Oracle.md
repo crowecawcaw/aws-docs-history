@@ -119,7 +119,7 @@ page.
      section.
 
 
-    ![Network settings for an EC2 instance.](images/EC2_RDS_Connect_NtwkSettings.png)
+    ![Network settings for an EC2 instance.](/images/AmazonRDS/latest/UserGuide/images/EC2_RDS_Connect_NtwkSettings.png)
     6. Leave the default values for the remaining sections.
     7. Review a summary of your EC2 instance configuration in the **Summary** panel, and when you're ready,
      choose **Launch instance**.

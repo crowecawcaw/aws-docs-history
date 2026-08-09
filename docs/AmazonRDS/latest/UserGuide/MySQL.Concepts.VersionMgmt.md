@@ -52,8 +52,8 @@ supports.
 | 8.4.9                | 21 April 2026          | 8 May 2026       | 8 May 2027                       |
 | 8.4.8                | 20 January 2026        | 3 February 2026  | 3 February 2027                  |
 | 8.4.7                | 21 October 2025        | 13 November 2025 | 30 November 2026                 |
-| 8.4.6                | 22 July 2025           | 1 August 2025    | 30 September 2026                |
-| 8.4.5                | 15 April 2025          | 29 April 2025    | 30 September 2026                |
+| 8.4.6                | 22 July 2025           | 1 August 2025    | 31 October 2026                  |
+| 8.4.5                | 15 April 2025          | 29 April 2025    | 31 October 2026                  |
 | 8.4.4                | 21 January 2025        | 19 February 2025 | 31 May 2026                      |
 | 8.4.3                | 15 October 2024        | 21 November 2024 | 31 May 2026                      |
 
@@ -116,9 +116,9 @@ the latest available minor version as often as possible for all major versions.
 | 5.7.44-RDS.20260521\* | Not applicable         | 4 June 2026       | 30 June 2027                     |
 | 5.7.44-RDS.20260212\* | Not applicable         | 26 February 2026  | 28 February 2027                 |
 | 5.7.44-RDS.20251212\* | Not applicable         | 12 December 2025  | 30 December 2026                 |
-| 5.7.44-RDS.20250818\* | Not applicable         | 15 September 2025 | 30 September 2026                |
-| 5.7.44-RDS.20250508\* | Not applicable         | 20 May 2025       | 30 September 2026                |
-| 5.7.44-RDS.20250213\* | Not applicable         | 12 March 2025     | 30 September 2026                |
+| 5.7.44-RDS.20250818\* | Not applicable         | 15 September 2025 | 31 October 2026                  |
+| 5.7.44-RDS.20250508\* | Not applicable         | 20 May 2025       | 31 October 2026                  |
+| 5.7.44-RDS.20250213\* | Not applicable         | 12 March 2025     | 31 October 2026                  |
 | 5.7.44-RDS.20250103\* | Not applicable         | 13 February 2025  | 31 May 2026                      |
 
 \* MySQL Community retired major version 5.7 and won't be releasing new minor

@@ -223,6 +223,29 @@ certificate authority with elliptic curve cryptography (ECC) to establish a
 connection. For information about certificate authorities provided by Amazon RDS, see
 [Certificate authorities](singWithRDS.SSL.md#UsingWithRDS.SSL.RegionCertificateAuthorities "singWithRDS.SSL.md#UsingWithRDS.SSL.RegionCertificateAuthorities").
 
+By default, the value of `ssl_max_protocol_version` in
+RDS for PostgreSQL 16 and later is TLS v1.3. TLS v1.3 doesn't use the cipher configurations specified in the
+`ssl_ciphers` parameter. To use only the ciphers defined in `ssl_ciphers`, you must
+configure `ssl_max_protocol_version` to TLS v1.2.
+
+```
+aws rds modify-db-parameter-group --db-parameter-group-name `<your-parameter-group>` --parameters "ParameterName='ssl_max_protocol_version',ParameterValue='TLSv1.2',ApplyMethod=immediate"
+```
+
+The PostgreSQL configuration parameter [ssl\_tls13\_ciphers](https://www.postgresql.org/docs/18/runtime-config-connection.html#GUC-SSL-TLS13-CIPHERS "https://www.postgresql.org/docs/18/runtime-config-connection.html#GUC-SSL-TLS13-CIPHERS") specifies the cipher suites allowed for
+SSL connections to the database when using TLS v1.3.
+
+In RDS for PostgreSQL 18 and later, you can modify the
+`ssl_tls13_ciphers` parameter to use specific values from the
+allowlisted cipher suites. This is a dynamic parameter that doesn't require a
+database instance reboot.
+
+The following table lists the default and allowlisted custom `ssl_tls13_ciphers` values by engine major version.
+
+| PostgreSQL engine version | Default `ssl_tls13_ciphers` values                                                    | Allowlisted custom `ssl_tls13_ciphers` values        |
+| ------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| 18                        | None. PostgreSQL uses the default set of cipher suites from the TLS library (AWS-LC). | `TLS_AES_128_GCM_SHA256`<br>`TLS_AES_256_GCM_SHA384` |
+
 You can verify the ciphers in use through the methods described in [Determining the SSL connection status](PostgreSQL.Concepts.General.SSL.md#PostgreSQL.Concepts.General.SSL.Status "PostgreSQL.Concepts.General.SSL.md#PostgreSQL.Concepts.General.SSL.Status").
 
 Ciphers may have different names depending on the context:
@@ -232,16 +255,7 @@ Ciphers may have different names depending on the context:
 - The `sslinfo` and `psql` logon banner refer to
   ciphers using their OpenSSL names.
 
-By default, the value of `ssl_max_protocol_version` in
-RDS for PostgreSQL 16 and later is TLS v1.3. You must set the value of this parameter
-to TLS v1.2 as TLS v1.3 doesn't use the cipher configurations specified in the
-`ssl_ciphers` parameter. When you set the value as TLS v1.2,
-connections use only the ciphers that you define in
-`ssl_ciphers`.
-
-```
-aws rds modify-db-parameter-group --db-parameter-group-name `<your-parameter-group>` --parameters "ParameterName='ssl_max_protocol_version',ParameterValue='TLSv1.2',ApplyMethod=immediate"
-```
+For TLS v1.3, OpenSSL and IANA names are the same.
 
 To ensure database connections use SSL, set the `rds.force_ssl
  parameter` to 1 in your parameter group. For more information about

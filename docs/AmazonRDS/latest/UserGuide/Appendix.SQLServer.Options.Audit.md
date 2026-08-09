@@ -6,7 +6,8 @@ create them for on-premises database servers.
 
 RDS uploads the completed audit logs to your S3 bucket, using the IAM role that you
 provide. If you enable retention, RDS keeps your audit logs on your DB instance for the
-configured period of time.
+configured period of time. Additionally, you may also choose to forward them to CloudWatch
+(log streams) or to both destinations simultaneously.
 
 For more information, see [SQL Server Audit (database engine)](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine "https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine") in the Microsoft SQL Server documentation.
 
@@ -25,6 +26,7 @@ auditing with Database Activity Streams for RDS SQL Server, see
 - [Viewing audit logs](Appendix.SQLServer.Options.Audit.AuditRecords.md "Appendix.SQLServer.Options.Audit.AuditRecords.md")
 - [Using SQL Server Audit with Multi-AZ instances](#Appendix.SQLServer.Options.Audit.Multi-AZ "#Appendix.SQLServer.Options.Audit.Multi-AZ")
 - [Configuring an S3 bucket](Appendix.SQLServer.Options.Audit.S3bucket.md "Appendix.SQLServer.Options.Audit.S3bucket.md")
+- [Configuring CloudWatch Log Stream](Appendix.SQLServer.Options.Audit.CloudWatch.md "Appendix.SQLServer.Options.Audit.CloudWatch.md")
 - [Manually creating an IAM role for SQL Server Audit](Appendix.SQLServer.Options.Audit.IAM.md "Appendix.SQLServer.Options.Audit.IAM.md")
 
 ## Support for SQL Server Audit

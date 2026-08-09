@@ -238,7 +238,12 @@ completes. While the storage initialization is underway, the overall instance st
 to **Storage-initialization**, and the progress indicator
 reflects the minimum initialization level across all volumes of the DB instance.
 
-Use the console, AWS CLI, or Amazon RDS API to monitor storage initialization.
+Use the console, AWS CLI, or Amazon RDS API to monitor storage initialization. Blue/green
+deployments are one of several workflows where you can use the
+`StorageOperationStatus` and `StorageOperationPercentProgress` fields
+in the [DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md")
+response to observe per-volume progress. For details on all covered workflows and field
+semantics, see [Viewing Amazon RDSDB instance status](accessing-monitoring.md#Overview.DBInstance.Status "accessing-monitoring.md#Overview.DBInstance.Status").
 
 Console In the AWS Management Console, you see the progress of storage initialization with the DB instance
 status.
@@ -246,8 +251,10 @@ status.
 ![Storage initialization progress indicator for a blue-green deployment.](images/storage-initialization-bg.png)
 
 AWS CLIWith the AWS CLI, you can monitor storage initialization with the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md")
-command. The `PercentProgress` field in the response shows what percentage of
-data has been retrieved from Amazon S3.
+command. The `StorageOperationStatus` and
+`StorageOperationPercentProgress` fields report the per-volume state and
+progress. The legacy `PercentProgress` field continues to report the
+instance-level progress during storage initialization.
 
 ```
 aws rds describe-db-instances --db-instance-identifier my-db-instance
@@ -260,6 +267,8 @@ aws rds describe-db-instances --db-instance-identifier my-db-instance
             "Engine": "postgres",
             "DBInstanceStatus": "**storage-initialization**",
             ...
+            "StorageOperationStatus": "**Initializing**",
+            "StorageOperationPercentProgress": **34**,
             "PercentProgress": "**34**"
         }
     ]
@@ -267,7 +276,8 @@ aws rds describe-db-instances --db-instance-identifier my-db-instance
 ```
 
 Amazon RDS API With the Amazon RDS API, you retrieve the status of storage initialization by calling the [DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md")
-action.
+action. Inspect the `StorageOperationStatus` and
+`StorageOperationPercentProgress` fields in the response.
 
 The progress indicator updates as the background initialization job advances, allowing you
 to track storage readiness before full storage initialization completes. Storage

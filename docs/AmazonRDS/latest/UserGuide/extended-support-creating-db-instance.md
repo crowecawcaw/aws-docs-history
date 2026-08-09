@@ -48,7 +48,7 @@ items:
   specify `open-source-rds-extended-support-disabled` for the
   `--engine-lifecycle-support` option. In the RDS API, specify
   `open-source-rds-extended-support-disabled` for the
-  `LifeCycleSupport` parameter. If you specify
+  `EngineLifecycleSupport` parameter. If you specify
   `open-source-rds-extended-support-disabled` and the RDS
   end of standard support date has passed, creating a DB instance or a Multi-AZ DB cluster will always fail.
 - RDS Extended Support is set at the cluster level. Members of a cluster will always have

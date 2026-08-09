@@ -108,6 +108,14 @@ aws rds modify-db-instance \
   --apply-immediately
 ```
 
+After you modify an additional storage volume, that specific volume enters
+the storage-optimization phase. To monitor optimization progress on the
+modified volume, inspect the corresponding entry in the
+`AdditionalStorageVolumes` array in the [DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md") response. During optimization, that entry's
+`StorageOperationStatus` is set to `Optimizing` and
+`StorageOperationPercentProgress` reports 0–100. For more
+information, see [Monitoring storage operations per volume](CHAP_Storage.md#Welcome.AdditionalStorageVolumes.Monitoring "CHAP_Storage.md#Welcome.AdditionalStorageVolumes.Monitoring").
+
 ### Removing additional storage volumes
 
 You can't delete the `D:` volume, but you can delete other storage

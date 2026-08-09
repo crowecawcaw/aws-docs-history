@@ -98,23 +98,15 @@ aws rds remove-option-from-option-group ^
 ## Deleting the SSRS or PBIRS databases
 
 Removing the `SSRS` or `PBIRS` option doesn't delete the report
-server databases. To delete them, use the following stored procedures.
+server databases. To delete them, use the following stored procedure.
 
 To delete the report server databases, be sure to remove the `SSRS` or
 `PBIRS` option first.
 
-###### To delete the SSRS databases
+###### To delete the SSRS or PBIRS databases
 
-- Use the following stored procedure.
+- Use the following stored procedure. This procedure handles both SSRS and PBIRS databases.
 
 ```
 exec msdb.dbo.rds_drop_ssrs_databases
-```
-
-###### To delete the PBIRS databases (SQL Server 2025 and higher)
-
-- Use the following stored procedure.
-
-```
-exec msdb.dbo.rds_drop_pbirs_databases
 ```

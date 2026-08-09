@@ -13,6 +13,11 @@ status of the DB instance is **storage-optimization**. You can expect elevated l
 single-digit millisecond range, during storage optimization. The DB instance is fully operational after a storage
 modification.
 
+To monitor optimization progress per volume, use the
+`StorageOperationStatus` and `StorageOperationPercentProgress`
+fields in the [DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md") response. During optimization,
+`StorageOperationStatus` is set to `Optimizing`.
+
 ###### Note
 
 After storage optimization completes on the instance, you can make additional storage modifications. You can perform a maximum

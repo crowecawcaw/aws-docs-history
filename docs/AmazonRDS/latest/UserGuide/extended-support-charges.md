@@ -32,7 +32,14 @@ Multi-AZ DB cluster
 past the RDS end of standard support date. To do this, use the AWS CLI or the
 RDS API.
 
+You can also avoid being charged for RDS Extended Support by changing the enrollment status
+of an existing DB instance or DB cluster at any time by modifying the
+`EngineLifecycleSupport` parameter using the AWS CLI or the RDS API. If
+you disable the enrollment status of a DB instance or DB cluster that is already past
+its standard support end date, the instance or cluster automatically upgrades
+to the next supported major version.
+
 In the AWS CLI, specify `open-source-rds-extended-support-disabled` for
 the `--engine-lifecycle-support` option. In the RDS API, specify
 `open-source-rds-extended-support-disabled` for the
-`LifeCycleSupport` parameter. For more information, see [Creating a DB instance or a Multi-AZ DB cluster](extended-support-creating-db-instance.md "extended-support-creating-db-instance.md") or [Restoring a DB instance or a Multi-AZ DB cluster](extended-support-restoring-db-instance.md "extended-support-restoring-db-instance.md").
+`EngineLifecycleSupport` parameter. For more information, see [Creating a DB instance or a Multi-AZ DB cluster](extended-support-creating-db-instance.md "extended-support-creating-db-instance.md") or [Restoring a DB instance or a Multi-AZ DB cluster](extended-support-restoring-db-instance.md "extended-support-restoring-db-instance.md").

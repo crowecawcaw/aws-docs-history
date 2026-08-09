@@ -20,7 +20,7 @@ previous versions, unless otherwise noted in the Microsoft documentation.
 
 SQL Server 2025 includes the following new features:
 
-- External REST endpoint invocation (`sp_invoke_external_rest_endpoint`) – New system stored procedure that enables T-SQL code to call AWS services directly from the database engine, without additional middleware. Use it to invoke AWS services such as AWS Lambda and Amazon Bedrock, call external REST APIs, and build event-driven workflows with AWS infrastructure.
+- External REST endpoint invocation (`sp_invoke_external_rest_endpoint`) – New system stored procedure that enables T-SQL code to call AWS services directly from the database engine, without additional middleware. Use it to invoke AWS services such as AWS Lambda and Amazon Bedrock, call external REST APIs, and build event-driven workflows with AWS infrastructure. You can enable `sp_invoke_external_rest_endpoint` in your DB instance parameter group. For more information, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 - AI and vector support – Native vector data type for storing and querying vector embeddings, vector functions (`VECTOR_DISTANCE`, `VECTOR_NORM`, `VECTOR_NORMALIZE`), and external AI model management for REST inference endpoints.
 - Regular expressions – New T-SQL functions (`REGEXP_LIKE`, `REGEXP_REPLACE`, `REGEXP_SUBSTR`, `REGEXP_INSTR`, `REGEXP_COUNT`, `REGEXP_MATCHES`, `REGEXP_SPLIT_TO_TABLE`) for pattern matching and text manipulation.
 - JSON native binary format – JSON data is stored in an optimized binary format, with built-in functions for parsing, reading, modifying, and formatting JSON.

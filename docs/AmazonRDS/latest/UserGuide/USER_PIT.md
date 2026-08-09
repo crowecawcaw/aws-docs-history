@@ -5,6 +5,16 @@ You can restore a DB instance to a specific point in time, creating a new DB ins
 When you restore a DB instance to a point in time, you can choose the default virtual
 private cloud (VPC) security group. Or you can apply a custom VPC security group to your DB instance.
 
+After the restore completes and the DB instance becomes available, its
+volumes continue to load data blocks from Amazon S3 in the background. During this period, the
+DB instance is fully operational, but performance might not be at its fullest until initialization
+completes. To monitor initialization progress per volume, use the
+`StorageOperationStatus` and `StorageOperationPercentProgress` fields
+in the [DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md")
+response. During initialization, `StorageOperationStatus` is set to
+`Initializing`, and both fields are absent when initialization is complete. For
+more information, see [Viewing Amazon RDSDB instance status](accessing-monitoring.md#Overview.DBInstance.Status "accessing-monitoring.md#Overview.DBInstance.Status").
+
 Restored DB instances are automatically associated with the default DB parameter and option groups. However,
 you can apply a custom parameter group and option group by specifying them during a restore using the AWS CLI or RDS API. If you restore using the console, you can modify the parameter group and option group after the restore completes.
 

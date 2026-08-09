@@ -18,6 +18,13 @@ snapshots](../../../AWSEC2/latest/UserGuide/EBSSnapshots.md "../../../AWSEC2/lat
 To help mitigate the effects of lazy loading on tables to which you require quick access, you can perform operations that involve
 full-table scans, such as `SELECT *`. This allows Amazon RDS to download all of the backed-up table data from S3.
 
+To monitor initialization progress on the restored DB instance, use the
+`StorageOperationStatus` and `StorageOperationPercentProgress` fields
+in the [DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md")
+response. During initialization, `StorageOperationStatus` is set to
+`Initializing`, and both fields are absent when initialization is complete. For
+more information, see [Viewing Amazon RDSDB instance status](accessing-monitoring.md#Overview.DBInstance.Status "accessing-monitoring.md#Overview.DBInstance.Status").
+
 ###### Important
 
 Starting July 1, 2026, you can no longer restore a snapshot to magnetic storage. When

@@ -1,7 +1,9 @@
 # Managing multi-source replication
 
 The following stored procedures set up and manage replication channels on a
-RDS for MySQL multi-source replica. For more information, see [Configuring multi-source-replication for Amazon RDS for MySQL](mysql-multi-source-replication.md "mysql-multi-source-replication.md").
+RDS for MySQL
+multi-source replica. For more information, see
+[Configuring multi-source-replication for Amazon RDS for MySQL](mysql-multi-source-replication.md "mysql-multi-source-replication.md").
 
 These stored procedures are only available with RDS for MySQL DB instances running the
 following engine versions:
@@ -10,8 +12,8 @@ following engine versions:
 - 8.0.35 and higher minor versions
 - 5.7.44 and higher minor versions
   When using stored procedures to manage replication with a replication user configured with
-  `caching_sha2_passwword`, you must configure TLS by specifying
-  `SOURCE_SSL=1`. `caching_sha2_password` is the default
+  `caching_sha2_password`, you must configure TLS by specifying
+  `ssl_encryption=1`. `caching_sha2_password` is the default
   authentication plugin for RDS for MySQL 8.4.
 
 ###### Note

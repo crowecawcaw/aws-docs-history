@@ -13,6 +13,15 @@ deployment, Amazon RDS performs the following actions:
 2. Creates new volumes for the standby replica from the snapshot. These volumes initialize in the background, and
    maximum volume performance is achieved after the data is fully initialized.
 3. Turns on synchronous block-level replication between the volumes of the primary and standby replicas.
+   During the conversion, the DB instance status transitions from
+   **available** to **modifying**, and returns to
+   **available** while the new standby's volumes continue to hydrate
+   in the background. To monitor volume initialization on the new standby, use the
+   `StorageOperationStatus` and
+   `StorageOperationPercentProgress` fields in the [DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md")
+   response. During initialization, `StorageOperationStatus` is set to
+   `Initializing`, and both fields are absent when initialization is
+   complete. For more information, see [Viewing Amazon RDSDB instance status](accessing-monitoring.md#Overview.DBInstance.Status "accessing-monitoring.md#Overview.DBInstance.Status").
 
 ###### Important
 

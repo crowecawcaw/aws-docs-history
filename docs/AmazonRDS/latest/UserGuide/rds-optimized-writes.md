@@ -132,7 +132,7 @@ engine versions that support it in **Engine version**, and then choose a version
 In the **Instance configuration** section, filter for the DB instance classes that support
 RDS Optimized Writes, and then choose a DB instance class.
 
-![The Instance configuration section with the Amazon RDS Optimized Writes filter turned on for DB instance class.](/images/AmazonRDS/latest/UserGuide/images/rds-optimized-writes-class-filter.png)
+![The Instance configuration section with the Amazon RDS Optimized Writes filter turned on for DB instance class.](images/rds-optimized-writes-class-filter.png)
 After you make these selections, you can choose other settings that meet your requirements and finish
 creating the RDS for MySQL database with the console.
 
