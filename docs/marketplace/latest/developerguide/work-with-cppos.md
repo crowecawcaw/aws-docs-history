@@ -36,6 +36,7 @@ CPPOs:
 - [Define the expiration date of agreements](#update-validity-terms-cppo "#update-validity-terms-cppo")
 - [Update pricing](#update-pricing-terms-cppo "#update-pricing-terms-cppo")
 - [Update payment schedule details](#update-payment-schedule-terms-cppo "#update-payment-schedule-terms-cppo")
+- [Update net payment terms](#update-cppo-net-payment-terms "#update-cppo-net-payment-terms")
 - [Publish the CPPO](#release-offer-cppo "#release-offer-cppo")
 - [Define an existing CPPO](#describe-entity-cppo "#describe-entity-cppo")
 
@@ -1550,6 +1551,124 @@ request, see [Working with change sets](catalog-apis.md#working-with-change-sets
 | INVALID\_CURRENCY\_CODE             | **`Provide a supported CurrencyCode.`**                                                                                  |
 | INVALID\_CURRENCY\_CODE             | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                                             |
 | TOO\_MANY\_BACKDATED\_CHARGES       | **`Provide up to 1 scheduled payment before<br>AvailabilityEndDate.`**                                                   |
+
+## Update net payment terms
+
+If the Resale Authorization that you use to create a channel partner private offer
+(CPPO) contains a net payment term, that term is the maximum period that you can
+offer to your buyer. The term from the Resale Authorization is applied to your CPPO
+automatically when you create it.
+
+To offer your buyer a shorter payment period than the one that the seller
+authorized, call the `StartChangeSet` API operation with the
+`UpdateNetPaymentTerms` change type on your offer, as shown in the
+following example. If you want to use the same period that the seller authorized, you
+don't need to call `UpdateNetPaymentTerms`.
+
+###### Note
+
+The term type on an offer is `NetPaymentTerm`, and the term type on
+a Resale Authorization is `ResaleNetPaymentTerm`. For more information
+about setting net payment terms on a Resale Authorization, see [Update net payment terms](work-with-resale-authorizations.md#update-resale-net-payment-terms "work-with-resale-authorizations.md#update-resale-net-payment-terms").
+
+If the Resale Authorization doesn't contain a net payment term, you can't add one
+to the CPPO, and your buyer's payment terms with AWS apply. You also can't remove
+the net payment term from a CPPO when the Resale Authorization contains one.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "UpdateNetPaymentTerms",
+      "Entity": {
+        "Type": "Offer@1.0",
+        "Identifier": "offer-123456789"
+      },
+      "DetailsDocument": {
+        "Terms": [
+          {
+            "Type": "NetPaymentTerm",
+            "PaymentDuePeriod": "P30D"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the
+`UpdateNetPaymentTerms` change type:
+
+- **Entity** (object) (required) – Your
+  offer.
+
+  - **Type** (string) (required) –
+    The `Type` is always `Offer@1.0`.
+  - **Identifier** (string) (required)
+    – Your offer ID. For more information, see [Identifier](catalog-apis.md#identifier "catalog-apis.md#identifier").
+
+- **DetailsDocument** (object) (required)
+  – The JSON value of specifics of the request.
+
+  - **Terms** (array of structures)
+    (required) – List of net payment terms that you want to
+    update. An offer can contain at most one net payment term. Supported
+    terms are:
+
+    - **NetPaymentTerm** (object)
+      (required) – Defines the net payment terms that are
+      negotiated with the buyer.
+
+      - **Type** (string)
+        (required) – Type of the term being updated.
+        This is the object value:
+        `"NetPaymentTerm"`.
+      - **PaymentDuePeriod**
+        (string) (required) – The number of days
+        after the invoice issuance date that payment is due.
+        This field supports the ISO 8601 format. Supported
+        values are `P15D`, `P30D`,
+        `P45D`, `P60D`,
+        `P90D`, and `P120D`. This
+        value can't exceed the
+        `PaymentDuePeriod` in the
+        `ResaleNetPaymentTerm` of the Resale
+        Authorization.
+
+**Synchronous Validations**
+
+The following schema validations are specific to
+`UpdateNetPaymentTerms` actions in the AWS Marketplace Catalog API. These validations
+are performed when you call `StartChangeSet`. If the request doesn't meet
+the following requirements, it will fail with an HTTP response.
+
+| Input field                             | Validation rule                                                                                                        | HTTP code |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | --------- |
+| Terms                                   | Required<br>Only `NetPaymentTerm` is allowed<br>List size must be less than 2                                          | 422       |
+| Terms[].Type                            | Required<br>Can only be `NetPaymentTerm`                                                                               | 422       |
+| Terms[].NetPaymentTerm.PaymentDuePeriod | Required<br>Expected format: ISO 8601 duration<br>Allowed values: ["P15D", "P30D", "P45D", "P60D", "P90D",<br>"P120D"] | 422       |
+
+**Asynchronous Errors**
+
+The following errors are specific to `UpdateNetPaymentTerms` actions on
+a CPPO in the AWS Marketplace Catalog API. These errors are returned when you call
+`DescribeChangeSet` after a change set is processing. For more
+information about using `DescribeChangeSet` to get the status of a change
+request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
+
+| Error code                          | Error message                                                                                                |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| INVALID\_PAYMENT\_DUE\_PERIOD       | **`Provide a supported<br>PaymentDuePeriod.`**                                                               |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION | **`NetPaymentTerm isn't supported because the<br>ResaleAuthorization doesn't contain a<br>NetPaymentTerm.`** |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION | **`Ensure PaymentDuePeriod in NetPaymentTerm is compatible<br>with the ResaleAuthorization.`**               |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION | **`NetPaymentTerm can't be removed because the<br>ResaleAuthorization contains a<br>NetPaymentTerm.`**       |
 
 ## Publish the CPPO
 

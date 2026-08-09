@@ -48,6 +48,7 @@ There are two types of offers:
 - [Update the discoverability of the offer](#update-availability "#update-availability")
 - [Define the expiration date of agreements created using the offer](#update-validity-terms "#update-validity-terms")
 - [Update payment schedule details](#update-payment-schedule-terms "#update-payment-schedule-terms")
+- [Update net payment terms](#update-net-payment-terms "#update-net-payment-terms")
 - [Modify renewal options](#update-renewal-terms "#update-renewal-terms")
 - [Publish an offer](#release-offer "#release-offer")
 - [Describe existing offer details](#describe-entity "#describe-entity")
@@ -1890,6 +1891,138 @@ request, see [Working with change sets](catalog-apis.md#working-with-change-sets
 | INVALID\_CHARGE\_DATES              | **`Provide a first charge date that isn't in the<br>past.`**                                                             |
 | TOO\_MANY\_CHARGES                  | **`Provide up to [x] scheduled payments in<br>PaymentScheduleTerm.`**                                                    |
 
+## Update net payment terms
+
+You can use the Catalog API to set the net payment terms of your offer in AWS Marketplace. A
+net payment term is a term where you specify the number of days after invoice
+issuance by which payment is due.
+
+###### Note
+
+Net payment terms are only supported for private offers, and only apply to
+buyers who have a pay-by-invoice payment method with AWS. If you don't set net
+payment terms, your buyer's payment terms with AWS apply.
+
+To set the net payment term of your offer, call the `StartChangeSet` API
+operation with the `UpdateNetPaymentTerms` change type, as shown in the
+following example.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "UpdateNetPaymentTerms",
+      "Entity": {
+        "Type": "Offer@1.0",
+        "Identifier": "offer-123456789"
+      },
+      "DetailsDocument": {
+        "Terms": [
+          {
+            "Type": "NetPaymentTerm",
+            "PaymentDuePeriod": "P30D"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the
+`UpdateNetPaymentTerms` change type:
+
+- **Entity** (object) (required) – Your
+  offer.
+
+  - **Type** (string) (required) –
+    The `Type` is always `Offer@1.0`.
+  - **Identifier** (string) (required)
+    – Your offer ID. For more information, see [Identifier](catalog-apis.md#identifier "catalog-apis.md#identifier").
+
+- **DetailsDocument** (object) (required)
+  – The JSON value of specifics of the request.
+
+  - **Terms** (array of structures)
+    (required) – List of net payment terms that you want to
+    update. An offer can contain at most one net payment term. Supported
+    terms are:
+
+    - **NetPaymentTerm** (object)
+      – Defines the net payment terms that is negotiated
+      with the buyer.
+
+      - **Type** (string)
+        – Type of the term being updated. This is the
+        object value:
+        `"NetPaymentTerm"`.
+      - **PaymentDuePeriod**
+        (string) – The number of days after the
+        invoice issuance date that payment is due. This
+        field supports the ISO 8601 format. Supported values
+        are `P15D`, `P30D`,
+        `P45D`, `P60D`,
+        `P90D`, and
+        `P120D`.
+
+**Response Syntax**
+
+A change set is created for your request. The response to this request gives you
+the `ChangeSetId` and `ChangeSetArn` for the change set and
+looks like the following.
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
+}
+```
+
+The change request is added to a queue and processed. This includes validating
+information to ensure that it meets the AWS Marketplace guidelines. The validation process can
+take a few minutes.
+
+You can check the status of the request through the AWS Marketplace Management Portal, or directly through
+Catalog API using the `DescribeChangeSet` API operation.
+
+**Synchronous Validations**
+
+The following schema validations are specific to
+`UpdateNetPaymentTerms` actions in the AWS Marketplace Catalog API. These validations
+are performed when you call `StartChangeSet`. If the request doesn't meet
+the following requirements, it will fail with an HTTP response.
+
+| Input Field                             | Validation Rule                                                                                                        | HTTP |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---- |
+| Terms                                   | Required<br>Only `NetPaymentTerm` is allowed<br>List size must be less than 2                                          | 422  |
+| Terms[].Type                            | Required<br>Can only be `NetPaymentTerm`                                                                               | 422  |
+| Terms[].NetPaymentTerm.PaymentDuePeriod | Required<br>Expected format: ISO 8601 duration<br>Allowed values: ["P15D", "P30D", "P45D", "P60D", "P90D",<br>"P120D"] | 422  |
+
+**Asynchronous Errors**
+
+The following errors are specific to `UpdateNetPaymentTerms` actions in
+the AWS Marketplace Catalog API. These errors are returned when you call
+`DescribeChangeSet` after a change set is processing. For more
+information about using `DescribeChangeSet` to get the status of a change
+request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
+
+| Error code                          | Error message                                                                                                |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| INVALID\_PAYMENT\_DUE\_PERIOD       | **`Provide a supported<br>PaymentDuePeriod.`**                                                               |
+| INCOMPATIBLE\_PRODUCT               | **`The following terms aren't supported for the product:<br>[x,y,z].`**                                      |
+| INCOMPATIBLE\_TERMS                 | **`NetPaymentTerm isn't supported for public<br>offers.`**                                                   |
+| INCOMPATIBLE\_TERMS                 | **`The requested change can't be performed after the<br>offer is released.`**                                |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION | **`NetPaymentTerm isn't supported because the<br>ResaleAuthorization doesn't contain a<br>NetPaymentTerm.`** |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION | **`NetPaymentTerm can't be removed because the<br>ResaleAuthorization contains a<br>NetPaymentTerm.`**       |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION | **`Ensure PaymentDuePeriod in NetPaymentTerm is<br>compatible with the<br>ResaleAuthorization.`**            |
+| DUPLICATE\_TERM\_TYPES              | **`Provide a unique list of term<br>types.`**                                                                |
+
 ## Modify renewal options
 
 You can use the Catalog API to control renewal options of the agreements that are
@@ -2267,6 +2400,10 @@ following.
       },
       {
         "Type": "RenewalTerm"
+      },
+      {
+        "Type": "NetPaymentTerm",
+        "PaymentDuePeriod": "P30D"
       }
     ],
     "Rules": [

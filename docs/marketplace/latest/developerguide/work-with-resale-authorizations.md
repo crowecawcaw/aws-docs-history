@@ -43,6 +43,7 @@ There are two types of rules in a Resale Authorization:
 - [Update legal resources](#update-existing-legal-terms "#update-existing-legal-terms")
 - [Update pricing](#update-existing-pricing-terms "#update-existing-pricing-terms")
 - [Update payment schedule](#update-payment-schedule-details "#update-payment-schedule-details")
+- [Update net payment terms](#update-resale-net-payment-terms "#update-resale-net-payment-terms")
 - [Update Resale Authorization details](#update-resale-auth-information "#update-resale-auth-information")
 - [Restrict a Resale Authorization](#restricte-resale-auth "#restricte-resale-auth")
 - [Release a Resale Authorization and make it visible to a Channel Partner](#release-resale-auth "#release-resale-auth")
@@ -1280,6 +1281,142 @@ request, see [Working with change sets](catalog-apis.md#working-with-change-sets
 | INVALID\_CURRENCY\_CODE            | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                       |
 | INCOMPATIBLE\_CURRENCY\_CODE       | **`CurrencyCode can't be changed after the offer is<br>released.`**                                |
 
+## Update net payment terms
+
+You can use the Catalog API to set the net payment terms of your Resale
+Authorization in AWS Marketplace. A net payment term is a term where you specify the number of
+days after invoice issuance by which payment is due.
+
+The net payment term that you set on a Resale Authorization is the maximum term
+that the channel partner can offer to a buyer in a channel partner private offer
+(CPPO). The channel partner can offer the same period or a shorter one, but not a
+longer one. For more information, see [Create a CPPO](work-with-cppos.md#create-offer-using-resale-auth "work-with-cppos.md#create-offer-using-resale-auth").
+
+###### Note
+
+Net payment terms only apply to buyers who have a pay-by-invoice payment method
+with AWS. If you don't set net payment terms on your Resale Authorization, the
+channel partner can't set net payment terms on the CPPO, and the buyer's payment
+terms with AWS apply.
+
+To set the net payment term of your Resale Authorization, call the
+`StartChangeSet` API operation with the
+`UpdateNetPaymentTerms` change type, as shown in the following
+example.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "UpdateNetPaymentTerms",
+      "Entity": {
+        "Type": "ResaleAuthorization@1.0",
+        "Identifier": "resaleauthz-123456789"
+      },
+      "DetailsDocument": {
+        "Terms": [
+          {
+            "Type": "ResaleNetPaymentTerm",
+            "PaymentDuePeriod": "P60D"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the
+`UpdateNetPaymentTerms` change type:
+
+- **Entity** (object) (required) – Your
+  Resale Authorization.
+
+  - **Type** (string) (required) –
+    The `Type` is always
+    `ResaleAuthorization@1.0`.
+  - **Identifier** (string) (required)
+    – Your Resale Authorization ID. For more information, see
+    [Identifier](catalog-apis.md#identifier "catalog-apis.md#identifier").
+
+- **DetailsDocument** (object) (required)
+  – The JSON value of specifics of the request.
+
+  - **Terms** (array of structures)
+    (required) – List of net payment terms that you want to
+    update. A Resale Authorization can contain at most one net payment
+    term. To remove the net payment term, provide an empty list.
+    Supported terms are:
+
+    - **ResaleNetPaymentTerm**
+      (object) – Defines the maximum net payment term that
+      the channel partner can offer to a buyer.
+
+      - **Type** (string)
+        – Type of the term being updated. This is the
+        object value:
+        `"ResaleNetPaymentTerm"`.
+      - **PaymentDuePeriod**
+        (string) – The number of days after the
+        invoice issuance date that payment is due. This
+        field supports the ISO 8601 format. Supported values
+        are `P15D`, `P30D`,
+        `P45D`, `P60D`,
+        `P90D`, and
+        `P120D`.
+
+**Response Syntax**
+
+A change set is created for your request. The response to this request gives you
+the `ChangeSetId` and `ChangeSetArn` for the change set and
+looks like the following.
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
+}
+```
+
+The change request is added to a queue and processed. This includes validating
+information to ensure that it meets the AWS Marketplace guidelines. The validation process can
+take a few minutes.
+
+You can check the status of the request through the AWS Marketplace Management Portal, or directly through
+Catalog API using the `DescribeChangeSet` API operation.
+
+**Synchronous Validations**
+
+The following schema validations are specific to
+`UpdateNetPaymentTerms` actions in the AWS Marketplace Catalog API. These validations
+are performed when you call `StartChangeSet`. If the request doesn't meet
+the following requirements, it will fail with an HTTP response.
+
+| Input field                                   | Validation rule                                                                                                        | HTTP code |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | --------- |
+| Terms                                         | Required<br>Only `ResaleNetPaymentTerm` is allowed<br>List size must be less than 2                                    | 422       |
+| Terms[].Type                                  | Required<br>Can only be `ResaleNetPaymentTerm`                                                                         | 422       |
+| Terms[].ResaleNetPaymentTerm.PaymentDuePeriod | Required<br>Expected format: ISO 8601 duration<br>Allowed values: ["P15D", "P30D", "P45D", "P60D", "P90D",<br>"P120D"] | 422       |
+
+**Asynchronous Errors**
+
+The following errors are specific to `UpdateNetPaymentTerms` actions in
+the AWS Marketplace Catalog API. These errors are returned when you call
+`DescribeChangeSet` after a change set is processing. For more
+information about using `DescribeChangeSet` to get the status of a change
+request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
+
+| Error code           | Error message                                                                                         |
+| -------------------- | ----------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE\_STATUS | **`UpdateNetPaymentTerms request can't be performed after<br>the resale authorization is released.`** |
+| INCOMPATIBLE\_TERMS  | **`ResaleNetPaymentTerm is not supported for the seller<br>account [x].`**                            |
+
 ## Update Resale Authorization details
 
 You can use the Catalog API to update Resale Authorization details in
@@ -1678,6 +1815,11 @@ following.
       "OfferCreatedCount": 0
     },
     "Terms": [
+      {
+        "Type": "ResaleNetPaymentTerm",
+        "Id": "term_id_placeholder",
+        "PaymentDuePeriod": "P60D"
+      },
       {
         "Type": "ResaleUsageBasedPricingTerm",
         "Id": "term_id_placeholder",

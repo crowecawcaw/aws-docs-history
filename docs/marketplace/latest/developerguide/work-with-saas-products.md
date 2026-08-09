@@ -464,7 +464,12 @@ Provide information for the fields to update the
               parameter until the seller delivers a value.
               Must match pattern
               `^[a-zA-Z0-9._~-]+$`. Maximum 256
-              characters.
+              characters. Required for any parameter that is
+              new or that previously had a
+              `DefaultValue` and no longer does,
+              if the product is already public. This
+              protects existing buyers from a required
+              parameter with no default value.
 
           - `Description` (string) (optional)
             – A description of the API endpoint and its
@@ -536,13 +541,14 @@ action.
 
 **Asynchronous Errors**
 
-| Error code                     | Error message                                                                                                                                                         |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID\_DELIVERY\_OPTION\_IDS | **`Provide delivery option IDs that can be found in the<br>product. IDs not found: [x]`**                                                                             |
-| AUDIT\_ERROR                   | **`AWS MP Catalog Audits List<br>• CQ<br>team`**                                                                                                                      |
-| INVALID\_FULFILLMENT\_URL      | **`The URL you provided returned HTTP status code [x].<br>Provide a fulfillment URL that renders with a<br>200.`**                                                    |
-| INVALID\_LAUNCH\_URL           | **`The URL you provided returned HTTP status code [x].<br>Provide a launch URL that renders with a<br>200.`**                                                         |
-| INVALID\_TEMPLATE\_URL         | **`Quick Start URL is invalid. Provide deployment<br>template URL that is published through AWS QuickStarts to<br>Amazon S3. Invalid deployment templates URL: [x]`** |
+| Error code                                    | Error message                                                                                                                                                                                                                                                                              |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| INVALID\_DELIVERY\_OPTION\_IDS                | **`Provide delivery option IDs that can be found in the<br>product. IDs not found: [x]`**                                                                                                                                                                                                  |
+| AUDIT\_ERROR                                  | **`AWS MP Catalog Audits List<br>• CQ<br>team`**                                                                                                                                                                                                                                           |
+| INVALID\_FULFILLMENT\_URL                     | **`The URL you provided returned HTTP status code [x].<br>Provide a fulfillment URL that renders with a<br>200.`**                                                                                                                                                                         |
+| INVALID\_LAUNCH\_URL                          | **`The URL you provided returned HTTP status code [x].<br>Provide a launch URL that renders with a<br>200.`**                                                                                                                                                                              |
+| INVALID\_TEMPLATE\_URL                        | **`Quick Start URL is invalid. Provide deployment<br>template URL that is published through AWS QuickStarts to<br>Amazon S3. Invalid deployment templates URL: [x]`**                                                                                                                      |
+| DEFAULT\_VALUE\_REQUIRED\_FOR\_NEW\_PARAMETER | **`Endpoint '[x]' has parameter '[x]' with no<br>DefaultValue. A DefaultValue is required when the product is<br>already Public and this update either introduces the<br>parameter or removes a DefaultValue the parameter previously<br>had. Provide a DefaultValue for the parameter.`** |
 
 ### Update delivery option visibility
 
