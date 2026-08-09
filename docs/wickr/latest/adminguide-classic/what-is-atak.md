@@ -40,11 +40,11 @@ Dashboard.
 2. On the **Networks** page, choose the **Admin** link,
    to navigate to Wickr Admin Console for that network.
 
-![The Networks page.](/images/wickr/latest/adminguide-classic/images/wickr-admin-console-network-page-admin-link.png)
+![The Networks page.](images/wickr-admin-console-network-page-admin-link.png)
 
 You're redirected to the Wickr Admin Console for a specific network.
 
-![The Dashboard page.](images/wickr-network-admin-console-dashboard-page.png) 3. In the navigation pane of the Wickr Admin Console, choose
+![The Dashboard page.](/images/wickr/latest/adminguide-classic/images/wickr-network-admin-console-dashboard-page.png) 3. In the navigation pane of the Wickr Admin Console, choose
 **Network Settings**, and then choose
 **Security Group**. 4. Choose **Details** next to desired security group for
 which you want to enable ATAK. 5. On the **General** tab, choose
