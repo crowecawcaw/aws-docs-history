@@ -46,19 +46,13 @@ shards in your cluster.
 
 For more information, see [Supported node types](CacheNodes.SupportedTypes.md "CacheNodes.SupportedTypes.md").
 
-- What version of Redis OSS are you running?
-
-Redis OSS versions before 2.8.22 require you to reserve more memory for failover,
-snapshot, synchronizing, and promoting a replica to primary operations. This
-requirement occurs because you must have sufficient memory available for all
-writes that occur during the process.
-
-Redis OSS version 2.8.22 and later use a forkless save process that requires less
-available memory than the earlier process.
+- Valkey and Redis OSS use a forkless save process for failover,
+  snapshot, synchronizing, and promoting a replica to primary operations. This
+  process requires less available memory because writes are managed without
+  forking the process.
 
 For more information, see the following:
 
-    + [How synchronization and backup are implemented](Replication.Redis.Versions.md "Replication.Redis.Versions.md")
     + [Ensuring you have enough memory to make a Valkey or Redis OSS snapshot](BestPractices.BGSAVE.md "BestPractices.BGSAVE.md")
 
 - How write-heavy is your application?
@@ -86,12 +80,12 @@ able to accommodate all your data plus the necessary overhead as described
 in the previous bullet.
 
 For example, suppose that you estimate that the total size of all your items
-is 12 GB. In this case, you can use a `cache.m3.xlarge` node with
-13.3 GB of memory or a `cache.r3.large` node with 13.5 GB of memory.
+is 12 GB. In this case, you can use a `cache.m5.xlarge` node with
+12.93 GB of memory or a `cache.r5.large` node with 13.07 GB of memory.
 However, you might need more memory for `BGSAVE` operations. If your
 application is write-heavy, double the memory requirements to at least 24 GB.
-Thus, use either a `cache.m3.2xlarge` with 27.9 GB of memory or a
-`cache.r3.xlarge` with 30.5 GB of memory.
+Thus, use either a `cache.m5.2xlarge` with 26.04 GB of memory or a
+`cache.r5.xlarge` with 26.32 GB of memory.
 
 ###### Valkey or Redis OSS (cluster mode enabled) with multiple shards
 
@@ -101,11 +95,11 @@ the node type must be able to accommodate `bytes-for-data-and-overhead
 
 For example, suppose that you estimate that the total size of all your items
 to be 12 GB and you have two shards. In this case, you can use a
-`cache.m3.large` node with 6.05 GB of memory (12 GB / 2).
+`cache.m5.large` node with 6.38 GB of memory (12 GB / 2).
 However, you might need more memory for `BGSAVE` operations. If your
 application is write-heavy, double the memory requirements to at least 12 GB per
-shard. Thus, use either a `cache.m3.xlarge` with 13.3 GB of memory or
-a `cache.r3.large` with 13.5 GB of memory.
+shard. Thus, use either a `cache.m5.xlarge` with 12.93 GB of memory or
+a `cache.r5.large` with 13.07 GB of memory.
 
 - Are you using Local Zones?
 

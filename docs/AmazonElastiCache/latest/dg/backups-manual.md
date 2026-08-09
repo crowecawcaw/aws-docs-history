@@ -170,7 +170,7 @@ Output from the operation looks something like the following.
         "CacheSubnetGroupName": "default",
         "Port": 6379,
         "PreferredMaintenanceWindow": "wed:07:30-wed:08:30",
-        "CacheNodeType": "cache.m3.2xlarge",
+        "CacheNodeType": "cache.m5.2xlarge",
         "DataTiering": "disabled"
     }
 }
@@ -233,7 +233,7 @@ Output from this operation looks something like the following.
         "ReplicationGroupDescription": "2 shards 2 nodes each",
         "Port": 6379,
         "PreferredMaintenanceWindow": "sat:03:30-sat:04:30",
-        "CacheNodeType": "cache.r3.large",
+        "CacheNodeType": "cache.r5.large",
         "DataTiering": "disabled"
     }
 }

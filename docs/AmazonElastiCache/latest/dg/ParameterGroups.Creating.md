@@ -21,8 +21,8 @@ console.
 The **Create Parameter Group** screen appears. 4. From the **Family** list, choose the parameter group
 family that will be the template for your parameter group.
 
-The parameter group family, such as _memcached1.4_
-or _redis3.2_ defines
+The parameter group family, such as _memcached1.6_
+or _redis7_ defines
 the actual parameters in your parameter group and their initial values. The
 parameter group family must coincide with the cluster's engine and
 version. 5. In the **Name** box, type in a unique name for this
@@ -108,14 +108,14 @@ The output from this command should look something like this.
 ###### Example
 
 The following example creates a parameter group named
-_myRed28_ using the redis2.8 family as the template.
+_myRed7_ using the redis7 family as the template.
 
 For Linux, macOS, or Unix:
 
 ```
 aws elasticache create-cache-parameter-group \
-    --cache-parameter-group-name `myRed28`  \
-    --cache-parameter-group-family `redis2.8` \
+    --cache-parameter-group-name `myRed7`  \
+    --cache-parameter-group-family `redis7` \
     --description `"My first parameter group"`
 ```
 
@@ -123,8 +123,8 @@ For Windows:
 
 ```
 aws elasticache create-cache-parameter-group ^
-    --cache-parameter-group-name `myRed28`  ^
-    --cache-parameter-group-family `redis2.8` ^
+    --cache-parameter-group-name `myRed7`  ^
+    --cache-parameter-group-family `redis7` ^
     --description `"My first parameter group"`
 ```
 
@@ -133,8 +133,8 @@ The output from this command should look something like this.
 ```
 {
     "CacheParameterGroup": {
-        "CacheParameterGroupName": "myRed28",
-        "CacheParameterGroupFamily": "redis2.8",
+        "CacheParameterGroupName": "myRed7",
+        "CacheParameterGroupFamily": "redis7",
         "Description": "My first parameter group"
     }
 }
@@ -166,7 +166,7 @@ Parameter group naming constraints are as follows:
   family for the parameter group. For example,
   `memcached1.4`.
 - `CacheParameterGroupFamily` — The engine and version
-  family for the parameter group. For example, `redis2.8`.
+  family for the parameter group. For example, `redis7`.
 - `Description` — A user supplied description for the
   parameter group.
 
@@ -208,13 +208,13 @@ The response from this action should look something like this.
 ###### Example
 
 The following example creates a parameter group named
-_myRed28_ using the redis2.8 family as the template.
+_myRed7_ using the redis7 family as the template.
 
 ```
 https://elasticache.us-west-2.amazonaws.com/
    ?Action=CreateCacheParameterGroup
-   &CacheParameterGroupFamily=`redis2.8`
-   &CacheParameterGroupName=`myRed28`
+   &CacheParameterGroupFamily=`redis7`
+   &CacheParameterGroupName=`myRed7`
    &Description=`My%20first%20parameter%20group`
    &SignatureVersion=4
    &SignatureMethod=HmacSHA256
@@ -229,8 +229,8 @@ The response from this action should look something like this.
 <CreateCacheParameterGroupResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
   <CreateCacheParameterGroupResult>
     <CacheParameterGroup>
-      <CacheParameterGroupName>myRed28</CacheParameterGroupName>
-      <CacheParameterGroupFamily>redis2.8</CacheParameterGroupFamily>
+      <CacheParameterGroupName>myRed7</CacheParameterGroupName>
+      <CacheParameterGroupFamily>redis7</CacheParameterGroupFamily>
       <Description>My first parameter group</Description>
     </CacheParameterGroup>
   </CreateCacheParameterGroupResult>

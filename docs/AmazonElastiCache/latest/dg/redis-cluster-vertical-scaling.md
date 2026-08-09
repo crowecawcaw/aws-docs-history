@@ -1,6 +1,6 @@
 # Online vertical scaling by modifying node type
 
-By using online vertical scaling with Valkey version 7.2 or newer, or Redis OSS version 3.2.10 or newer, you can scale
+By using online vertical scaling with Valkey and Redis OSS, you can scale
 your Valkey or Redis OSS clusters dynamically with minimal downtime. This allows your Valkey or Redis OSS cluster
 to serve requests even while scaling.
 
@@ -107,25 +107,24 @@ Output from the above command looks something like this (JSON format).
 ```
 {
 	    "ScaleUpModifications": [
-	        "cache.m3.2xlarge",
-	        "cache.m3.large",
-	        "cache.m3.xlarge",
+	        "cache.m5.2xlarge",
+	        "cache.m5.large",
+	        "cache.m5.xlarge",
 	        "cache.m4.10xlarge",
 	        "cache.m4.2xlarge",
 	        "cache.m4.4xlarge",
 	        "cache.m4.large",
 	        "cache.m4.xlarge",
-	        "cache.r3.2xlarge",
-	        "cache.r3.4xlarge",
-	        "cache.r3.8xlarge",
-	        "cache.r3.large",
-	        "cache.r3.xlarge"
+	        "cache.r5.2xlarge",
+	        "cache.r5.4xlarge",
+	        "cache.r5.12xlarge",
+	        "cache.r5.large",
+	        "cache.r5.xlarge"
 	    ]
 	       "ScaleDownModifications": [
 	        "cache.t2.micro",
 	        "cache.t2.small ",
-	        "cache.t2.medium",
-	       	"cache.t1.small "
+	        "cache.t2.medium"
 	    ],
 }
 ```
@@ -155,7 +154,7 @@ For Linux, macOS, or Unix:
 ```
 aws elasticache modify-replication-group  \
 	    --replication-group-id `my-redis-cluster` \
-	    --cache-node-type `cache.m3.xlarge` \
+	    --cache-node-type `cache.m5.xlarge` \
 	    --apply-immediately
 ```
 
@@ -164,7 +163,7 @@ For Windows:
 ```
 aws elasticache modify-replication-group ^
 	    --replication-group-id `my-redis-cluster` ^
-	    --cache-node-type `cache.m3.xlarge` ^
+	    --cache-node-type `cache.m5.xlarge` ^
 	    --apply-immediately
 ```
 
@@ -208,7 +207,7 @@ Output from the above command looks something like this (JSON format).
             "my-redis-cluster-0001-001",
             "my-redis-cluster-0001-002"
         ],
-        "CacheNodeType": "cache.m3.xlarge",
+        "CacheNodeType": "cache.m5.xlarge",
          "DataTiering": "disabled"
         "PendingModifiedValues": {}
     }
@@ -275,8 +274,8 @@ action and with the following parameters.
 https://elasticache.us-west-2.amazonaws.com/
 	   ?Action=ModifyReplicationGroup
 	   &ApplyImmediately=true
-	   &CacheNodeType=cache.m3.2xlarge
-	   &CacheParameterGroupName=redis32-m3-2xl
+	   &CacheNodeType=cache.m5.2xlarge
+	   &CacheParameterGroupName=redis7-cluster
 	   &ReplicationGroupId=myReplGroup
 	   &SignatureVersion=4
 	   &SignatureMethod=HmacSHA256
@@ -380,26 +379,25 @@ Output from the above command looks something like this (JSON format).
 ```
 {
 	    "ScaleUpModifications": [
-	        "cache.m3.2xlarge",
-	        "cache.m3.large",
-	        "cache.m3.xlarge",
+	        "cache.m5.2xlarge",
+	        "cache.m5.large",
+	        "cache.m5.xlarge",
 	        "cache.m4.10xlarge",
 	        "cache.m4.2xlarge",
 	        "cache.m4.4xlarge",
 	        "cache.m4.large",
 	        "cache.m4.xlarge",
-	        "cache.r3.2xlarge",
-	        "cache.r3.4xlarge",
-	        "cache.r3.8xlarge",
-	        "cache.r3.large",
-	        "cache.r3.xlarge"
+	        "cache.r5.2xlarge",
+	        "cache.r5.4xlarge",
+	        "cache.r5.12xlarge",
+	        "cache.r5.large",
+	        "cache.r5.xlarge"
 	    ]
 
 	       "ScaleDownModifications": [
 	        "cache.t2.micro",
 	        "cache.t2.small ",
-	        "cache.t2.medium ",
-  	      "cache.t1.small"
+	        "cache.t2.medium "
 	    ]
 }
 ```
@@ -550,7 +548,7 @@ https://elasticache.us-west-2.amazonaws.com/
 	   ?Action=ModifyReplicationGroup
 	   &ApplyImmediately=true
 	   &CacheNodeType=cache.t2.micro
-	   &CacheParameterGroupName=redis32-m3-2xl
+	   &CacheParameterGroupName=redis7-cluster
 	   &ReplicationGroupId=myReplGroup
 	   &SignatureVersion=4
 	   &SignatureMethod=HmacSHA256

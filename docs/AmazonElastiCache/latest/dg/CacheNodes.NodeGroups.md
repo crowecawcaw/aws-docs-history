@@ -3,7 +3,7 @@
 A shard (in the API and CLI, a node group) is a hierarchical arrangement of nodes,
 each wrapped in a cluster. Shards support replication. Within a shard, one node
 functions as the read/write primary node. All the other nodes in a shard function as
-read-only replicas of the primary node. Valkey, or Redis OSS version 3.2 and later, support multiple
+read-only replicas of the primary node. Valkey and Redis OSS support multiple
 shards within a cluster (in the API and CLI, a replication group). This support enables
 partitioning your data in a Valkey or Redis OSS (cluster mode enabled) cluster.
 

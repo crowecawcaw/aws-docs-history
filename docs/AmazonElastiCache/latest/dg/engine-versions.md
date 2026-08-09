@@ -533,7 +533,7 @@ Redis OSS improvements added since version 2.8.21 include the following:
 
 - Support for forkless backups and synchronizations, which allows you to
   allocate less memory for backup overhead and more for your application.
-  For more information, see [How synchronization and backup are implemented](Replication.Redis.Versions.md "Replication.Redis.Versions.md"). The forkless process
+  The forkless process
   can impact both latency and throughput. When there is high write
   throughput, when a replica re-syncs, it can be unreachable for the
   entire time it is syncing.

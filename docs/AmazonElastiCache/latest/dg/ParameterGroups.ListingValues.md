@@ -49,20 +49,20 @@ aws elasticache describe-cache-parameters ^
 ###### Example
 
 The following sample code list all the parameters and their values for the
-parameter group _myRedis28_.
+parameter group _myRed7_.
 
 For Linux, macOS, or Unix:
 
 ```
 aws elasticache describe-cache-parameters \
-    --cache-parameter-group-name `myRedis28`
+    --cache-parameter-group-name `myRed7`
 ```
 
 For Windows:
 
 ```
 aws elasticache describe-cache-parameters ^
-    --cache-parameter-group-name `myRed28`
+    --cache-parameter-group-name `myRed7`
 ```
 
 For more information, see [`describe-cache-parameters`](../../../cli/latest/reference/elasticache/describe-cache-parameters.md "../../../cli/latest/reference/elasticache/describe-cache-parameters.md").
@@ -102,20 +102,20 @@ been truncated.
         <Description>The maximum configurable amount of memory to use to store items, in megabytes.</Description>
         <CacheNodeTypeSpecificValues>
           <CacheNodeTypeSpecificValue>
-            <Value>1000</Value>
-            <CacheClusterClass>cache.c1.medium</CacheClusterClass>
+            <Value>512</Value>
+            <CacheClusterClass>cache.t3.micro</CacheClusterClass>
           </CacheNodeTypeSpecificValue>
           <CacheNodeTypeSpecificValue>
-            <Value>6000</Value>
-            <CacheClusterClass>cache.c1.xlarge</CacheClusterClass>
+            <Value>1402</Value>
+            <CacheClusterClass>cache.t3.small</CacheClusterClass>
           </CacheNodeTypeSpecificValue>
           <CacheNodeTypeSpecificValue>
-            <Value>7100</Value>
-            <CacheClusterClass>cache.m1.large</CacheClusterClass>
+            <Value>6537</Value>
+            <CacheClusterClass>cache.m5.large</CacheClusterClass>
           </CacheNodeTypeSpecificValue>
           <CacheNodeTypeSpecificValue>
-            <Value>1300</Value>
-            <CacheClusterClass>cache.m1.small</CacheClusterClass>
+            <Value>13248</Value>
+            <CacheClusterClass>cache.m5.xlarge</CacheClusterClass>
           </CacheNodeTypeSpecificValue>
 
 ...output omitted...
@@ -131,12 +131,12 @@ been truncated.
 ###### Example
 
 The following sample code list all the parameters for the parameter group
-_myRed28_.
+_myRed7_.
 
 ```
 https://elasticache.us-west-2.amazonaws.com/
    ?Action=DescribeCacheParameters
-   &CacheParameterGroupName=`myRed28`
+   &CacheParameterGroupName=`myRed7`
    &SignatureVersion=4
    &SignatureMethod=HmacSHA256
    &Timestamp=20150202T192317Z
@@ -158,20 +158,20 @@ been truncated.
         <Description>The maximum configurable amount of memory to use to store items, in megabytes.</Description>
         <CacheNodeTypeSpecificValues>
           <CacheNodeTypeSpecificValue>
-            <Value>1000</Value>
-            <CacheClusterClass>cache.c1.medium</CacheClusterClass>
+            <Value>512</Value>
+            <CacheClusterClass>cache.t3.micro</CacheClusterClass>
           </CacheNodeTypeSpecificValue>
           <CacheNodeTypeSpecificValue>
-            <Value>6000</Value>
-            <CacheClusterClass>cache.c1.xlarge</CacheClusterClass>
+            <Value>1402</Value>
+            <CacheClusterClass>cache.t3.small</CacheClusterClass>
           </CacheNodeTypeSpecificValue>
           <CacheNodeTypeSpecificValue>
-            <Value>7100</Value>
-            <CacheClusterClass>cache.m1.large</CacheClusterClass>
+            <Value>6537</Value>
+            <CacheClusterClass>cache.m5.large</CacheClusterClass>
           </CacheNodeTypeSpecificValue>
           <CacheNodeTypeSpecificValue>
-            <Value>1300</Value>
-            <CacheClusterClass>cache.m1.small</CacheClusterClass>
+            <Value>13248</Value>
+            <CacheClusterClass>cache.m5.xlarge</CacheClusterClass>
           </CacheNodeTypeSpecificValue>
 
 ...output omitted...

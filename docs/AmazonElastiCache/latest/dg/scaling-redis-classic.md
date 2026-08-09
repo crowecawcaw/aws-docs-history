@@ -184,25 +184,24 @@ Output from the above command looks something like this (JSON format).
 ```
 {
 	    "ScaleUpModifications": [
-	        "cache.m3.2xlarge",
-	        "cache.m3.large",
-	        "cache.m3.xlarge",
+	        "cache.m5.2xlarge",
+	        "cache.m5.large",
+	        "cache.m5.xlarge",
 	        "cache.m4.10xlarge",
 	        "cache.m4.2xlarge",
 	        "cache.m4.4xlarge",
 	        "cache.m4.large",
 	        "cache.m4.xlarge",
-	        "cache.r3.2xlarge",
-	        "cache.r3.4xlarge",
-	        "cache.r3.8xlarge",
-	        "cache.r3.large",
-	        "cache.r3.xlarge"
+	        "cache.r5.2xlarge",
+	        "cache.r5.4xlarge",
+	        "cache.r5.12xlarge",
+	        "cache.r5.large",
+	        "cache.r5.xlarge"
 	    ]
 	       "ScaleDownModifications": [
 	        "cache.t2.micro",
 	        "cache.t2.small ",
-	        "cache.t2.medium ",
-            "cache.t1.small ",
+	        "cache.t2.medium "
 	    ],
 
 	}
@@ -234,8 +233,8 @@ For Linux, macOS, or Unix:
 ```
 aws elasticache modify-cache-cluster \
 	    --cache-cluster-id `my-redis-cache-cluster` \
-	    --cache-node-type `cache.m3.xlarge` \
-	    --cache-parameter-group-name `redis32-m2-xl` \
+	    --cache-node-type `cache.m5.xlarge` \
+	    --cache-parameter-group-name `redis7-cluster` \
 	    --apply-immediately
 ```
 
@@ -244,8 +243,8 @@ For Windows:
 ```
 aws elasticache modify-cache-cluster ^
 	    --cache-cluster-id `my-redis-cache-cluster` ^
-	    --cache-node-type `cache.m3.xlarge` ^
-	    --cache-parameter-group-name `redis32-m2-xl` ^
+	    --cache-node-type `cache.m5.xlarge` ^
+	    --cache-parameter-group-name `redis7-cluster` ^
 	    --apply-immediately
 ```
 
@@ -273,10 +272,10 @@ Output from the above command looks something like this (JSON format).
 	        "CacheSubnetGroupName": "default",
 	        "EngineVersion": "6.0",
 	        "PendingModifiedValues": {
-	            "CacheNodeType": "cache.m3.2xlarge"
+	            "CacheNodeType": "cache.m5.2xlarge"
 	        },
 	        "PreferredMaintenanceWindow": "tue:11:30-tue:12:30",
-	        "CacheNodeType": "cache.m3.medium",
+	        "CacheNodeType": "cache.m5.large",
 	         "DataTiering": "disabled"
 	    }
 	}
@@ -347,8 +346,8 @@ https://elasticache.us-west-2.amazonaws.com/
 	   ?Action=ModifyCacheCluster
 	   &ApplyImmediately=true
 	   &CacheClusterId=MyRedisCacheCluster
-	   &CacheNodeType=cache.m3.xlarge
-	   &CacheParameterGroupName redis32-m2-xl
+	   &CacheNodeType=cache.m5.xlarge
+	   &CacheParameterGroupName redis7-cluster
 	   &Version=2015-02-02
 	   &SignatureVersion=4
 	   &SignatureMethod=HmacSHA256
@@ -465,25 +464,24 @@ Output from the above command looks something like this (JSON format).
 ```
 {
 	    "ScaleUpModifications": [
-	        "cache.m3.2xlarge",
-	        "cache.m3.large",
-	        "cache.m3.xlarge",
+	        "cache.m5.2xlarge",
+	        "cache.m5.large",
+	        "cache.m5.xlarge",
 	        "cache.m4.10xlarge",
 	        "cache.m4.2xlarge",
 	        "cache.m4.4xlarge",
 	        "cache.m4.large",
 	        "cache.m4.xlarge",
-	        "cache.r3.2xlarge",
-	        "cache.r3.4xlarge",
-	        "cache.r3.8xlarge",
-	        "cache.r3.large",
-	        "cache.r3.xlarge"
+	        "cache.r5.2xlarge",
+	        "cache.r5.4xlarge",
+	        "cache.r5.12xlarge",
+	        "cache.r5.large",
+	        "cache.r5.xlarge"
 	    ]
 	       "ScaleDownModifications": [
 	        "cache.t2.micro",
 	        "cache.t2.small ",
-	        "cache.t2.medium ",
-            "cache.t1.small ",
+	        "cache.t2.medium "
 	    ],
 
 	}
@@ -515,8 +513,8 @@ For Linux, macOS, or Unix:
 ```
 aws elasticache modify-cache-cluster \
 	    --cache-cluster-id `my-redis-cache-cluster` \
-	    --cache-node-type `cache.m3.xlarge` \
-	    --cache-parameter-group-name `redis32-m2-xl` \
+	    --cache-node-type `cache.m5.xlarge` \
+	    --cache-parameter-group-name `redis7-cluster` \
 	    --apply-immediately
 ```
 
@@ -525,8 +523,8 @@ For Windows:
 ```
 aws elasticache modify-cache-cluster ^
 	    --cache-cluster-id `my-redis-cache-cluster` ^
-	    --cache-node-type `cache.m3.xlarge` ^
-	    --cache-parameter-group-name `redis32-m2-xl` ^
+	    --cache-node-type `cache.m5.xlarge` ^
+	    --cache-parameter-group-name `redis7-cluster` ^
 	    --apply-immediately
 ```
 
@@ -554,10 +552,10 @@ Output from the above command looks something like this (JSON format).
 	        "CacheSubnetGroupName": "default",
 	        "EngineVersion": "6.0",
 	        "PendingModifiedValues": {
-	            "CacheNodeType": "cache.m3.2xlarge"
+	            "CacheNodeType": "cache.m5.2xlarge"
 	        },
 	        "PreferredMaintenanceWindow": "tue:11:30-tue:12:30",
-	        "CacheNodeType": "cache.m3.medium",
+	        "CacheNodeType": "cache.m5.large",
 	         "DataTiering": "disabled"
 	    }
 	}
@@ -627,8 +625,8 @@ https://elasticache.us-west-2.amazonaws.com/
 	   ?Action=ModifyCacheCluster
 	   &ApplyImmediately=true
 	   &CacheClusterId=MyRedisCacheCluster
-	   &CacheNodeType=cache.m3.xlarge
-	   &CacheParameterGroupName redis32-m2-xl
+	   &CacheNodeType=cache.m5.xlarge
+	   &CacheParameterGroupName redis7-cluster
 	   &Version=2015-02-02
 	   &SignatureVersion=4
 	   &SignatureMethod=HmacSHA256

@@ -8,7 +8,7 @@ ElastiCache Auto Scaling is limited to the following:
 - Data tiering (cluster mode enabled) clusters running Valkey 7.2 onwards, or running Redis OSS
   7.0.7 onwards
 - Instance sizes - Large, XLarge, 2XLarge
-- Instance type families - R7g, R6g, R6gd, R5, M7g, M6g, M5, C7gn
+- Instance type families - R8g, R7g, R6g, R6gd, R5, M8g, M7g, M6g, M5, C8gn, C7gn
 - Auto Scaling in ElastiCache is not supported for clusters running in Global
   datastores, Outposts or Local Zones.
 

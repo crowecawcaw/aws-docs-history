@@ -248,7 +248,7 @@ AWS Cloud
     			 mechanism for Redis OSS server. For more information, see [AUTH](auth.md "auth.md").
     		###### Note
 
-    		For Redis OSS versions between 3.2.6 onward, excluding version 3.2.10, Redis OSS AUTH is the sole option.
+    		RBAC is available on Valkey, and on Redis OSS version 6.0 and later. On earlier Redis OSS versions, AUTH is the sole option.
     		2. For **Security groups**, choose the security groups that you want for
     		 this cluster. A *security group*
     		 acts as a firewall to control network access to your cluster. You

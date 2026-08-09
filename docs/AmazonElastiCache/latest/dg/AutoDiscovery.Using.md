@@ -87,7 +87,7 @@ This operation produces output similar to the following (JSON format):
             "EngineVersion": "1.4.24",
             "PendingModifiedValues": {},
             "PreferredMaintenanceWindow": "sat:06:00-sat:07:00",
-            "CacheNodeType": "cache.r3.large"
+            "CacheNodeType": "cache.r5.large"
         }
     ]
 }

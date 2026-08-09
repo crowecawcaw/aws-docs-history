@@ -1,8 +1,8 @@
 # Limitations
 
 - Durability for ElastiCache is supported on Valkey 9.0 or later.
-- Durability for ElastiCache is supported for the following instance type families: R7g, R6g,
-  M7g, M6g, and C7gn.
+- Durability for ElastiCache is supported for the following instance type families: R8g, R7g, R6g,
+  M8g, M7g, M6g, C8gn, and C7gn.
 - Durability is enabled during cluster creation by selecting either synchronous or
   asynchronous writes. You can switch between the two options after creation, but you cannot disable
   durability once enabled. You cannot enable durability on an existing non-durable

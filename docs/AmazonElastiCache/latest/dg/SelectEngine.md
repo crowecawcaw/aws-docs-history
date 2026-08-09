@@ -64,8 +64,8 @@ Comparison summary of Memcached, Valkey or Redis OSS (cluster mode disabled), an
 | Data types | Simple ‡ | 2.8.x<br>• Complex \* | 3.2.x and later<br>• Complex † |
 | Complex † |
 | Data partitioning | Yes | No | Yes |
-| Cluster is modifiable | Yes | Yes | 3.2.10 and later<br>• Limited |
-| Online resharding | No | No | 3.2.10 and later |
+| Cluster is modifiable | Yes | Yes | Yes<br>• Limited |
+| Online resharding | No | No | Yes |
 | Encryption | in-transit 1.6.12 and later | 4.0.10 and later | 4.0.10 and later |
 | Data tiering | No | 6.2 and later | 6.2 and later |
 | Memory efficiencies | No | Valkey 8.0 and later | Valkey 8.0 and later |

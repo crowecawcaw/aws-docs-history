@@ -90,7 +90,7 @@ This command should produce output similar to the following:
                 "redis2x2-0002-001",
                 "redis2x2-0002-002"
             ],
-            "CacheNodeType": "cache.m3.medium",
+            "CacheNodeType": "cache.m5.large",
             "PendingModifiedValues": {}
         }
     ]

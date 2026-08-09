@@ -314,7 +314,6 @@ differing amounts of reserved memory to succeed. For more information, see the
 following:
 
 - [Snapshot and restore](backups.md "backups.md")
-- [How synchronization and backup are implemented](Replication.Redis.Versions.md "Replication.Redis.Versions.md")
 - [Performance impact of backups of node-based clusters](backups.md#backups-performance "backups.md#backups-performance")
 - [Ensuring you have enough memory to make a Valkey or Redis OSS snapshot](BestPractices.BGSAVE.md "BestPractices.BGSAVE.md")
 

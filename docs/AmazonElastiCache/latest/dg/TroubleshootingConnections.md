@@ -489,12 +489,10 @@ If commands with O(1) time complexity are frequently reported, check the other f
   - info commandstats: Provides a list of commands executed since the engine started, their cumulative executions number, total execution time, and average execution time per command;
   - client list: Provides a list of currently connected clients and relevant information like buffers usage, last command executed, etc;
 
-- Backup and replication: ElastiCache for Redis OSS versions earlier than 2.8.22 use a forked process to create backups and process full syncs with the replicas.
-  This method may incur in significant memory overhead for write intensive use-cases.
+- Backup and replication: ElastiCache uses a forkless backup and replication method,
+  which may delay writes in order to prevent failures.
 
-Starting with ElastiCache Redis OSS 2.8.22, AWS introduced a forkless backup and replication method. The new method may delay writes in order to prevent
-failures.
-Both methods can cause periods of higher CPU utilization, lead to higher response times and consequently lead to client timeouts during their execution.
+This can cause periods of higher CPU utilization, lead to higher response times and consequently lead to client timeouts during its execution.
 Always check if the client failures happen during the backup window or the `SaveInProgress` metric was 1 in the period.
 It is advisable to schedule the backup window for periods of low utilization to minimize the possibility of issues with clients or backup failures.
 

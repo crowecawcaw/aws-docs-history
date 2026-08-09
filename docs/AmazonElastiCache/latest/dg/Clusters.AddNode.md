@@ -144,7 +144,7 @@ This operation produces output similar to the following (JSON format):
             "NumCacheNodes": 5
         },
         "PreferredMaintenanceWindow": "sat:09:00-sat:10:00",
-        "CacheNodeType": "cache.m3.medium",
+        "CacheNodeType": "cache.m5.large",
          "DataTiering": "disabled",
     }
 }

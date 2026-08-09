@@ -5,8 +5,7 @@ unauthorized access of your data on the server.
 
 Amazon ElastiCache for Memcached provides encryption features for data on caches running Memcached versions 1.6.12 or later.
 
-Amazon ElastiCache with Valkey and Redis OSS provides encryption features for data on caches running Valkey 7.2 or later, and Redis OSS versions 3.2.6 (scheduled for EOL, see
-[Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")), 4.0.10 or later.
+Amazon ElastiCache with Valkey and Redis OSS provides encryption features for data on caches running Valkey 7.2 or later, and Redis OSS version 4.0.10 or later.
 Amazon ElastiCache also supports authenticating users with either IAM or Valkey and Redis OSS AUTH, and authorizing user operations using Role-Based Access Control (RBAC).
 
 - In-transit encryption encrypts your data whenever it is moving from one place to another,

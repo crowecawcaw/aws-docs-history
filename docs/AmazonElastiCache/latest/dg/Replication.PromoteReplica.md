@@ -14,7 +14,6 @@ following:
    [Modifying a replication group](Replication.Modify.md "Replication.Modify.md").
 2. Promote the read replica to primary.
 3. Modify the replication group to re-enable Multi-AZ.
-   Multi-AZ is not available on replication groups running Redis OSS 2.6.13 or earlier.
 
 ## Using the AWS Management Console
 

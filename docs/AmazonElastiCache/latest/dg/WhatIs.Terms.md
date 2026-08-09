@@ -1,9 +1,7 @@
 # ElastiCache terminology
 
-In October 2016, Amazon ElastiCache launched support for Redis OSS 3.2. At that point, we added support
-for partitioning your data across up to 500 shards (called node groups in
-the ElastiCache API and AWS CLI). To preserve compatibility with previous versions, we extended
-API version 2015-02-02 operations to include the new Redis OSS functionality.
+Amazon ElastiCache supports partitioning your data across up to 500 shards (called
+node groups in the ElastiCache API and AWS CLI).
 
 At the same time, we began using terminology in the ElastiCache console that is used in this
 new functionality and common across the industry. These changes mean that at some

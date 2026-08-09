@@ -61,7 +61,7 @@ Clusters and replication groups with multiple shards are processed and patched a
      Only one primary node is failed over at a time.
 
 - If encryption is enabled on your current cluster or replication group, you cannot upgrade to
-  an engine version that does not support encryption, such as from 3.2.6 to 3.2.10.
+  an engine version that does not support encryption.
   **Memcached considerations**
 
 When upgrading a node-based Memcached cluster, consider the following.

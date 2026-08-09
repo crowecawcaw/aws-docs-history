@@ -19,8 +19,8 @@ change the cluster's parameter group.
 
 For Redis OSS, the parameter group family and the cluster you're
 assigning it to must be compatible. For example, if your cluster is running
-Redis OSS version 3.2.10, you can only use parameter groups, default or custom, from
-the Redis OSS 3.2 family.
+Redis OSS version 7.1, you can only use parameter groups, default or custom, from
+the Redis OSS 7 family.
 
 - If you change a cluster's parameter group, the values for any
   conditionally modifiable parameter must be the same in both the current and new

@@ -17,6 +17,7 @@ your cache's performance and reliability.
 - [Best practices when working with Valkey and Redis OSS node-based clusters](BestPractices.SelfDesigned.md "BestPractices.SelfDesigned.md")
 - [Caching database query results](caching-database-query-results.md "caching-database-query-results.md")
 - [Caching strategies for Memcached](Strategies.md "Strategies.md")
+- [Amazon ElastiCache (Valkey) for e-commerce applications](ecommerce-caching-valkey.md "ecommerce-caching-valkey.md")
 
 ## TLS enabled dual stack ElastiCache clusters
 

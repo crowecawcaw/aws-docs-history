@@ -38,7 +38,7 @@ also have at least 1 replica. You cannot add a single-node secondary cluster
 to a global datastore if you enabled automatic failover on the primary.
 
 - Global datastores are supported on the following instance families in size
-  large and above: M5, M6g, M7g, R5, R6g, R6gd, R7g, and C7gn. Previous generation
+  large and above: M5, M6g, M7g, M8g, R5, R6g, R6gd, R7g, R8g, C7gn, and C8gn. Previous generation
   instance types (such as M4 and R4) are not supported.
 
 ###### Note

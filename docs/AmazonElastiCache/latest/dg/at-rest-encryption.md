@@ -38,18 +38,14 @@ cases.
 The following constraints on ElastiCache at-rest encryption should be kept in mind when you plan
 your implementation of ElastiCache encryption at-rest:
 
-- At-rest encryption is supported on replication groups running Valkey 7.2 and later, and Redis OSS versions (3.2.6 scheduled for EOL, see
-  [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")),
-
-4.0.10 or later.
-
+- At-rest encryption is supported on replication groups running Valkey 7.2 and later, and Redis OSS version 4.0.10 or later.
 - At-rest encryption is supported only for replication groups running in an Amazon VPC.
 - At-rest encryption is only supported for replication groups running the following node types.
 
-  - R7g, R6gd, R6g, R5, R4, R3
-  - M7g, M6g, M5, M4, M3
+  - R8g, R7g, R6gd, R6g, R5, R4, R3
+  - M8g, M7g, M6g, M5, M4, M3
   - T4g, T3, T2
-  - C7gn
+  - C8gn, C7gn
     For more information, see [Supported node types](CacheNodes.SupportedTypes.md "CacheNodes.SupportedTypes.md")
 
 - At-rest encryption is enabled by setting the parameter `AtRestEncryptionEnabled`
@@ -168,7 +164,7 @@ All serverless caches have at-rest encryption enabled. By default, an AWS-owned 
 When designing your own cache, 'Dev/Test' and 'Production' configurations with the 'Easy create' method have at-rest encryption enabled using the **Default** key. When choosing configuration yourself, make the
 following selections:
 
-- Choose version 3.2.6, 4.0.10 or later as your engine version.
+- Choose version 4.0.10 or later as your engine version.
 - Click the checkbox next to **Enable** for the **Encryption at rest** option.
 - Choose either a **Default key** or **Customer managed CMK**.
   For the step-by-step procedure, see the following:
@@ -192,7 +188,7 @@ The following parameters and their values are necessary to enable encryption on 
 ###### Key Parameters
 
 - `--engine`—Must be `valkey` or `redis`.
-- `--engine-version`—If the engine is Redis OSS, this must be 3.2.6, 4.0.10 or later.
+- `--engine-version`—If the engine is Redis OSS, this must be 4.0.10 or later.
 - `--at-rest-encryption-enabled`—Required to enable at-rest encryption.
 
 ###### Example 1: Valkey or Redis OSS (Cluster Mode Disabled) Cluster with Replicas
@@ -253,7 +249,7 @@ For Linux, macOS, or Unix:
 aws elasticache create-replication-group \
    --replication-group-id `my-clustered-rg` \
    --replication-group-description `"redis clustered cluster"` \
-   --cache-node-type `cache.m3.large` \
+   --cache-node-type `cache.m5.large` \
    --num-node-groups `3` \
    --replicas-per-node-group `2` \
    `--engine `redis`` \
@@ -268,7 +264,7 @@ For Windows:
 aws elasticache create-replication-group ^
    --replication-group-id `my-clustered-rg` ^
    --replication-group-description `"redis clustered cluster"` ^
-   --cache-node-type `cache.m3.large` ^
+   --cache-node-type `cache.m5.large` ^
    --num-node-groups `3` ^
    --replicas-per-node-group `2` ^
    `--engine `redis`` ^

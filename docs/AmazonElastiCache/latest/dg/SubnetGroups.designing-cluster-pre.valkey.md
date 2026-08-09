@@ -154,7 +154,7 @@ AWS Cloud
     	 **Global** attribute indicates whether a parameter group is
     	 part of a global datastore.
     	4. For **Node type**, choose the down arrow (
-    	![Downward-pointing triangle icon, typically used to indicate a dropdown menu.](images/ElastiCache-DnArrow.png)
+    	![Downward-pointing triangle icon, typically used to indicate a dropdown menu.](/images/AmazonElastiCache/latest/dg/images/ElastiCache-DnArrow.png)
     	). In the **Change node type**
     	 dialog box, choose a value for **Instance family**
     	 for the node type that you want. Then choose the node type that you
@@ -243,7 +243,7 @@ AWS Cloud
     			 mechanism for Redis OSS server. For more information, see [AUTH](auth.md "auth.md").
     		###### Note
 
-    		For Valkey and for Redis OSS versions between 3.2.6 onward, excluding version 3.2.10, Redis OSS AUTH is the sole option.
+    		RBAC is available on Valkey, and on Redis OSS version 6.0 and later. On earlier Redis OSS versions, AUTH is the sole option.
     		2. For **Security groups**, choose the security groups that you want for
     		 this cluster. A *security group*
     		 acts as a firewall to control network access to your cluster. You

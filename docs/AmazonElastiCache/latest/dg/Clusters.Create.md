@@ -24,7 +24,7 @@ you're billed for each hour or partial hour that the cluster is active,
 even if you're not actively using it.
 To stop incurring charges for this cluster, you must delete it. See [Deleting a cluster in ElastiCache](Clusters.Delete.md "Clusters.Delete.md").
 
-If you are running Redis OSS 3.2.4 or later, you can create a Valkey or Redis OSS (cluster mode enabled) cluster.
+With Valkey and Redis OSS, you can create a Valkey or Redis OSS (cluster mode enabled) cluster.
 Valkey or Redis OSS (cluster mode enabled) clusters support partitioning your data across 1 to 500
 shards (API/CLI: node groups) but with some limitations. For a comparison of
 Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled), see [Engine versions and upgrading in ElastiCache](engine-versions.md "engine-versions.md").
@@ -91,22 +91,8 @@ AWS Cloud
     	 groups) that you want for this Valkey or Redis OSS (cluster mode enabled) cluster.
 
 
-    	For some versions of Valkey or Redis OSS (cluster mode enabled), you can change the number of shards in your
-    	 cluster dynamically:
-
-
-
-
-    		* **Redis OSS 3.2.10 and later** – If your cluster is
-    		 running Redis OSS 3.2.10 or later versions, you can change the
-    		 number of shards in your cluster dynamically. For more
-    		 information, see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md").
-    		* **Other Redis OSS versions** – If your cluster is
-    		 running a version of Redis OSS before version 3.2.10,
-    		 there's another approach. To change the number of
-    		 shards in your cluster in this case, create a new cluster
-    		 with the new number of shards. For more information, see
-    		 [Restoring from a backup into a new cache](backups-restoring.md "backups-restoring.md").
+    	You can change the number of shards in your cluster
+    	 dynamically. For more information, see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md").
     	6. For **Replicas per shard**, choose the number of read replica nodes
     	 that you want in each shard.
 
@@ -200,7 +186,7 @@ AWS Cloud
     			 mechanism for Valkey or Redis OSS server. For more information, see [AUTH](auth.md "auth.md").
     		###### Note
 
-    		For Redis OSS versions between 3.2.6 onward, excluding version 3.2.10, AUTH is the sole option.
+    		RBAC is available on Valkey, and on Redis OSS version 6.0 and later. On earlier Redis OSS versions, AUTH is the sole option.
     		2. For **Security groups**, choose the security groups that you want for
     		 this cluster. A *security group*
     		 acts as a firewall to control network access to your cluster. You
@@ -346,9 +332,9 @@ https://elasticache.us-west-2.amazonaws.com/
     ?Action=CreateCacheCluster
     &CacheClusterId=my-cluster
     &CacheNodeType=cache.r4.large
-    &CacheParameterGroup=default.redis3.2
+    &CacheParameterGroup=default.redis7
     &Engine=redis
-    &EngineVersion=3.2.4
+    &EngineVersion=7.1
     &NumCacheNodes=1
     &SignatureVersion=4
     &SignatureMethod=HmacSHA256

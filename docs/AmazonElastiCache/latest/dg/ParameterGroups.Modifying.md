@@ -104,7 +104,7 @@ With Valkey and Redis OSS, to find the name and permitted values of the paramete
 The following sample code sets the value of two parameters,
 _reserved-memory-percent_ and
 _cluster-enabled_ on the parameter group
-`myredis32-on-30`. We set
+`myredis7-on-30`. We set
 _reserved-memory-percent_ to `30` (30 percent)
 and _cluster-enabled_ to `yes` so that the
 parameter group can be used with Valkey or Redis OSS (cluster mode enabled) clusters (replication
@@ -114,7 +114,7 @@ For Linux, macOS, or Unix:
 
 ```
 aws elasticache modify-cache-parameter-group \
-    --cache-parameter-group-name `myredis32-on-30` \
+    --cache-parameter-group-name `myredis7-on-30` \
     --parameter-name-values \
         ParameterName=`reserved-memory-percent`,ParameterValue=`30` \
         ParameterName=`cluster-enabled`,ParameterValue=`yes`
@@ -124,7 +124,7 @@ For Windows:
 
 ```
 aws elasticache modify-cache-parameter-group ^
-    --cache-parameter-group-name `myredis32-on-30` ^
+    --cache-parameter-group-name `myredis7-on-30` ^
     --parameter-name-values ^
         ParameterName=`reserved-memory-percent`,ParameterValue=`30` ^
         ParameterName=`cluster-enabled`,ParameterValue=`yes`
@@ -134,7 +134,7 @@ Output from this command will look something like this.
 
 ```
 {
-    "CacheParameterGroupName": "my-redis32-on-30"
+    "CacheParameterGroupName": "my-redis7-on-30"
 }
 ```
 
@@ -203,7 +203,7 @@ With Valkey and Redis OSS, to find the name and permitted values of the paramete
 The following sample code sets the value of two parameters,
 _reserved-memory-percent_ and
 _cluster-enabled_ on the parameter group
-`myredis32-on-30`. We set
+`myredis7-on-30`. We set
 _reserved-memory-percent_ to `30` (30 percent)
 and _cluster-enabled_ to `yes` so that the
 parameter group can be used with Valkey or Redis OSS (cluster mode enabled) clusters (replication
@@ -212,7 +212,7 @@ groups).
 ```
 https://elasticache.us-west-2.amazonaws.com/
    ?Action=ModifyCacheParameterGroup
-   &CacheParameterGroupName=`myredis32-on-30`
+   &CacheParameterGroupName=`myredis7-on-30`
    &ParameterNameValues.member.1.ParameterName=`reserved-memory-percent`
    &ParameterNameValues.member.1.ParameterValue=`30`
    &ParameterNameValues.member.2.ParameterName=`cluster-enabled`

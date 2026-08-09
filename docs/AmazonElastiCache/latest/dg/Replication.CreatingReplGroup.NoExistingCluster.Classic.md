@@ -44,19 +44,19 @@ If you enable Multi-AZ (`--automatic-failover-enabled`), the value of
 The node type for each node in the replication group.
 
 ElastiCache supports the following node types.
-Generally speaking, the current generation types provide more memory and computational power
+Generally speaking, the latest generation types provide more memory and computational power
 at lower cost when compared to their equivalent previous generation counterparts.
 
-For more information on performance details for each node type, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
+For performance details for each node type, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
 
 **--data-tiering-enabled**
 Set this parameter if you are using an r6gd node type. If you don't want data tiering, set `--no-data-tiering-enabled`. For more information, see [Data tiering in ElastiCache](data-tiering.md "data-tiering.md").
 
 **--cache-parameter-group**
 Specify a parameter group that corresponds to your engine version.
-If you are running Redis OSS 3.2.4 or later,
-specify the `default.redis3.2` parameter group or a parameter group
-derived from `default.redis3.2` to create a Valkey or Redis OSS (cluster mode disabled) replication group.
+For example, if you are running Redis OSS 7.1,
+specify the `default.redis7` parameter group or a parameter group
+derived from `default.redis7` to create a Valkey or Redis OSS (cluster mode disabled) replication group.
 For more information, see [Valkey and Redis OSS parameters](ParameterGroups.Engine.md#ParameterGroups.Redis "ParameterGroups.Engine.md#ParameterGroups.Redis").
 
 **--network-type**
@@ -79,7 +79,7 @@ If you want to enable in-transit or at-rest encryption on this replication group
 add either or both of the `--transit-encryption-enabled` or
 `--at-rest-encryption-enabled` parameters and meet the following conditions.
 
-- Your replication group must be running Redis OSS version 3.2.6 or 4.0.10.
+- Your replication group must be running Valkey, or Redis OSS version 4.0.10 or later.
 - The replication group must be created in an Amazon VPC.
 - You must also include the parameter `--cache-subnet-group`.
 - You must also include the parameter `--auth-token` with the customer specified
@@ -168,19 +168,19 @@ If you enable Multi-AZ (`AutomaticFailoverEnabled=true`), the value of
 The node type for each node in the replication group.
 
 ElastiCache supports the following node types.
-Generally speaking, the current generation types provide more memory and computational power
+Generally speaking, the latest generation types provide more memory and computational power
 at lower cost when compared to their equivalent previous generation counterparts.
 
-For more information on performance details for each node type, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
+For performance details for each node type, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
 
 **--data-tiering-enabled**
 Set this parameter if you are using an r6gd node type. If you don't want data tiering, set `--no-data-tiering-enabled`. For more information, see [Data tiering in ElastiCache](data-tiering.md "data-tiering.md").
 
 **CacheParameterGroup**
 Specify a parameter group that corresponds to your engine version.
-If you are running Redis OSS 3.2.4 or later,
-specify the `default.redis3.2` parameter group or a parameter group
-derived from `default.redis3.2` to create a Valkey or Redis OSS (cluster mode disabled) replication group.
+For example, if you are running Redis OSS 7.1,
+specify the `default.redis7` parameter group or a parameter group
+derived from `default.redis7` to create a Valkey or Redis OSS (cluster mode disabled) replication group.
 For more information, see [Valkey and Redis OSS parameters](ParameterGroups.Engine.md#ParameterGroups.Redis "ParameterGroups.Engine.md#ParameterGroups.Redis").
 
 **--network-type**
@@ -203,7 +203,7 @@ If you want to enable in-transit or at-rest encryption on this replication group
 add either or both of the `TransitEncryptionEnabled=true` or
 `AtRestEncryptionEnabled=true` parameters and meet the following conditions.
 
-- Your replication group must be running Redis OSS version 3.2.6 or 4.0.10.
+- Your replication group must be running Valkey, or Redis OSS version 4.0.10 or later.
 - The replication group must be created in an Amazon VPC.
 - You must also include the parameter `CacheSubnetGroup`.
 - You must also include the parameter `AuthToken` with the customer specified

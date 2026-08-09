@@ -161,7 +161,7 @@ Output from this command looks something like this. The shard (node group) ids a
                 "sample-repl-group-0002-001",
                 "sample-repl-group-0002-002"
             ],
-            "CacheNodeType": "cache.m3.medium",
+            "CacheNodeType": "cache.m5.large",
             "DataTiering": "disabled",
             "PendingModifiedValues": {}
         }

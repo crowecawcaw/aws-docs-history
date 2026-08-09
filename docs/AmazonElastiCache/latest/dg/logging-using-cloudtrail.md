@@ -80,7 +80,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
         "cacheClusterId":"test-memcached",
         "engine":"memcached",
         "aZMode":"cross-az",
-        "cacheNodeType":"cache.m1.small",
+        "cacheNodeType":"cache.m5.large",
 
     },
     "responseElements":{
@@ -94,7 +94,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
         },
         "preferredAvailabilityZone":"Multiple",
         "numCacheNodes":2,
-        "cacheNodeType":"cache.m1.small",
+        "cacheNodeType":"cache.m5.large",
 
         "cacheClusterStatus":"creating",
         "autoMinorVersionUpgrade":true,
@@ -182,7 +182,7 @@ The following example shows a CloudTrail log entry that records a `ModifyCacheCl
         "cacheClusterCreateTime":"Dec 1, 2014 10:16:06 PM",
         "preferredAvailabilityZone":"Multiple",
         "numCacheNodes":2,
-        "cacheNodeType":"cache.m1.small",
+        "cacheNodeType":"cache.m5.large",
         "cacheClusterStatus":"modifying",
         "autoMinorVersionUpgrade":true,
         "preferredMaintenanceWindow":"thu:05:00-thu:06:00",

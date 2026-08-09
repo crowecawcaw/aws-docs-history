@@ -86,6 +86,16 @@ To view the list of available service updates, along with other information, go 
      released and available to apply on your clusters.
    - **Recommended Apply By Date**: ElastiCache
      guidance date to apply the updates by.
+   - **Auto-update after due date**:
+     Indicates whether ElastiCache automatically schedules the service
+     update to apply during your cluster's maintenance window after
+     the Recommended Apply By Date passes. ElastiCache sets this
+     value based on the criticality of the patch. You cannot
+     modify this value. If the value is `Yes`, ElastiCache
+     schedules the update automatically. If the value is
+     `No`, ElastiCache does not automatically apply the
+     update after the due date, and you can manually apply it or
+     choose not to apply it.
    - **Status**: The status of the update,
      which is one of the following:
 

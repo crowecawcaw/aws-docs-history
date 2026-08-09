@@ -44,7 +44,7 @@ Data tiering has the following limitations:
 - Scaling between clusters with data tiering enabled and data tiering disabled is not supported. To migrate data from an ElastiCache cluster with data tiering disabled to a cluster with data tiering enabled, you can restore a backup to a new cluster with data tiering enabled. For more information, see [Scaling ElastiCache](Scaling.md "Scaling.md").
 - Auto scaling is supported on clusters using data tiering for Valkey version 7.2 and later, and Redis OSS version 7.0.7 and later. For more information, see [Auto Scaling Valkey and Redis OSS clusters](AutoScaling.md "AutoScaling.md")
 - Data tiering only supports `volatile-lru`, `allkeys-lru`, `volatile-lfu`, `allkeys-lfu` and `noeviction` maxmemory policies.
-- Forkless save is supported for Valkey version 7.2 and later, and Redis OSS version 7.0.7 and later. For more information, see [How synchronization and backup are implemented](Replication.Redis.Versions.md "Replication.Redis.Versions.md").
+- Forkless save is supported for Valkey version 7.2 and later, and Redis OSS version 7.0.7 and later.
 - Items larger than 128 MiB are not moved to SSD.
 - Starting from Valley 8.1 and later, an item whose key + value size is less than 40 bytes will not be moved to the SSD.
 - Data tiering is not supported with durability-enabled clusters.

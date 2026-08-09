@@ -10,8 +10,7 @@ see [Restoring from a backup into a new cache](backups-restoring.md "backups-res
 When you use a Valkey or Redis OSS .rdb file to seed a new node-based cluster, you can do the
 following:
 
-- Upgrade from a nonpartitioned cluster to a Valkey or Redis OSS (cluster mode enabled) node-based cluster running
-  Redis OSS version 3.2.4.
+- Upgrade from a nonpartitioned cluster to a Valkey or Redis OSS (cluster mode enabled) node-based cluster.
 - Specify a number of shards (called node groups in the API and CLI) in the new
   node-based cluster. This number can be different from the number of shards in the node-based cluster
   that was used to create the backup file.
@@ -29,7 +28,7 @@ You can't seed a Valkey or Redis OSS (cluster mode disabled) cluster from an .rd
 ###### Important
 
 - You must ensure that your Valkey or Redis OSS backup data doesn't exceed the resources
-  of the node. For example, you can't upload an .rdb file with 5 GB of Valkey or Redis OSS data to a cache.m3.medium node that has 2.9 GB of memory.
+  of the node. For example, you can't upload an .rdb file with 5 GB of Valkey or Redis OSS data to a cache.t3.medium node that has 3.09 GB of memory.
 
 If the backup is too large, the resulting cluster has a status of
 `restore-failed`. If this happens, you must delete the
