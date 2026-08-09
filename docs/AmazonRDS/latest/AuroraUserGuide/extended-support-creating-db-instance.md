@@ -48,7 +48,7 @@ items:
   specify `open-source-rds-extended-support-disabled` for the
   `--engine-lifecycle-support` option. In the RDS API, specify
   `open-source-rds-extended-support-disabled` for the
-  `LifeCycleSupport` parameter. If you specify
+  `EngineLifecycleSupport` parameter. If you specify
   `open-source-rds-extended-support-disabled` and the Aurora
   end of standard support date has passed, creating an Aurora DB cluster or a
   global cluster will always fail.
