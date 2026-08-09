@@ -373,7 +373,7 @@ sudo /opt/bitnami/configure_app_domain --domain `www.example.com`
 You should see a response similar to the following example. The WordPress
 Multisite software should now be aware of the domain name.
 
-![Result of the domain configuration tool](/images/lightsail/latest/userguide/images/quick-start-configure-domain.png)
+![Result of the domain configuration tool](images/quick-start-configure-domain.png)
 
 ###### Note
 
