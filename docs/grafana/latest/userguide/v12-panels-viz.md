@@ -117,7 +117,7 @@ using thresholds or color scales.
 If you want to present a value as it relates to a min and max value, you have two
 options. First a standard radial [gauge](v12-panels-gauge.md "v12-panels-gauge.md"):
 
-![An image showing an example of a gauge visualization in Grafana.](images/viz/gauge_example.png)
+![An image showing an example of a gauge visualization in Grafana.](/images/grafana/latest/userguide/images/viz/gauge_example.png)
 
 Secondly, Grafana also has a horizontal or vertical [bar gauge](v12-panels-bar-gauge.md "v12-panels-bar-gauge.md") with three distinct display modes.
 
@@ -135,13 +135,13 @@ visualization.
 To display reduced series, or values in a series, from one or more queries, as they
 relate to each other, use a [pie chart](v12-panels-piechart.md "v12-panels-piechart.md") visualization.
 
-![An image showing an example of a pie chart visualization in Grafana.](images/viz/pie_chart_example.png)
+![An image showing an example of a pie chart visualization in Grafana.](/images/grafana/latest/userguide/images/viz/pie_chart_example.png)
 
 ## Heatmaps
 
 To show value distribution over time, use a [heatmap](v12-panels-heatmap.md "v12-panels-heatmap.md") visualization.
 
-![An image showing an example of a heatmap visualization in Grafana.](images/viz/heatmap_example.jpg)
+![An image showing an example of a heatmap visualization in Grafana.](/images/grafana/latest/userguide/images/viz/heatmap_example.jpg)
 
 ## State timeline
 

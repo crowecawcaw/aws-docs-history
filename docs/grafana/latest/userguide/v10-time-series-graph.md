@@ -35,7 +35,7 @@ centered on the point. The choices for this option are:
 before the point. The point is placed on the trailing corner of the
 bar.
 
-- ![An image showing a bar graph aligned around a point.](images/viz/bar-alignment-center.png)
+- ![An image showing a bar graph aligned around a point.](/images/grafana/latest/userguide/images/viz/bar-alignment-center.png)
 
 **Center** –
 The bar is drawn around the point. The point is placed in the center
@@ -100,7 +100,7 @@ Sets the size of the points, from 1 to 40 pixels in diameter.
 
 Choose how Grafana interpolates the series line.
 
-![An image showing different ways of drawing lines between points in Grafana.](images/viz/line-interpolation.png)
+![An image showing different ways of drawing lines between points in Grafana.](/images/grafana/latest/userguide/images/viz/line-interpolation.png)
 
 The options are:
 

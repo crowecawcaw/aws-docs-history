@@ -41,7 +41,7 @@ bar.
 The bar is drawn around the point. The point is placed in the center
 of the bar. This is the default.
 
-- ![An image showing a bar graph aligned after a point.](images/viz/bar-alignment-after.png)
+- ![An image showing a bar graph aligned after a point.](/images/grafana/latest/userguide/images/viz/bar-alignment-after.png)
 
 **After** –
 The bar is drawn after the point. the point is placed on the leading
