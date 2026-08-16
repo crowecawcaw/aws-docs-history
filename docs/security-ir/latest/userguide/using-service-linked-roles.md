@@ -8,6 +8,7 @@ roles for AWS Security Incident Response**
 - [AWS SLR: AWSServiceRoleForSecurityIncidentResponse](#AWSServiceRoleForSecurityIncidentResponse "#AWSServiceRoleForSecurityIncidentResponse")
 - [AWS SLR: AWSServiceRoleForSecurityIncidentResponse\_Triage](#AWSServiceRoleForSecurityIncidentResponse_Triage "#AWSServiceRoleForSecurityIncidentResponse_Triage")
 - [Supported regions for AWS Security Incident Response service-linked roles](#sir-slr-regions "#sir-slr-regions")
+- [Expected CreateServiceLinkedRole events in AWS CloudTrail](#expected-createservicelinkedrole-events "#expected-createservicelinkedrole-events")
 
 **Supports service-linked
 roles:** Yes
@@ -134,3 +135,16 @@ AWS Security Incident Response supports using service-linked roles in all of the
 - Middle East (UAE)
 - South America (São Paulo)
 - Africa (Cape Town)
+
+## Expected `CreateServiceLinkedRole` events in AWS CloudTrail
+
+To deliver new features and to make sure that required resources remain correctly
+configured, AWS Security Incident Response periodically updates the service's underlying infrastructure. Each
+update triggers a deployment that creates the required service-linked role. If the role
+already exists, the `CreateServiceLinkedRole` call returns an exception that
+indicates the role is already present. This exception is expected and handled by the
+service, and the deployment continues normally.
+
+As a result, you might see `InvalidInputException` entries for
+`CreateServiceLinkedRole` in your CloudTrail event history. These entries are expected
+behavior, have no impact on your accounts, and require no action.

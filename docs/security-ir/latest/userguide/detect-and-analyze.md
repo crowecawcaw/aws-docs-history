@@ -45,7 +45,7 @@ By enabling these integrations, you can significantly enhance the scope and effe
 
 ## Detection
 
-With [Proactive Response](setup-monitoring-and-investigation-workflows.md "setup-monitoring-and-investigation-workflows.md"), AWS Security Incident Response ingests findings from Amazon GuardDuty and AWS Security Hub CSPM through Amazon EventBridge rules that are deployed to your accounts during onboarding.
+With [Proactive Response](proactive-response-alert-triaging.md "proactive-response-alert-triaging.md"), AWS Security Incident Response ingests findings from Amazon GuardDuty and AWS Security Hub CSPM through Amazon EventBridge rules that are deployed to your accounts during onboarding.
 
 ## Analysis: Automated triage
 

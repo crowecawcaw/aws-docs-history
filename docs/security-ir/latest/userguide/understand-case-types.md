@@ -33,7 +33,7 @@ Both case types use the same data fields. You can escalate a self-managed case t
 
 ![Create case screen showing options for reactive cases.](images/reactive-cases.png)
 
-For detailed instructions, see [Create a case](create-case.md "create-case.md").
+For detailed instructions, see [Cases](cases.md "cases.md").
 
 ## Watchers
 

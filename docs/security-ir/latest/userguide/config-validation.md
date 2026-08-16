@@ -155,7 +155,7 @@ To verify that EventBridge rules are deployed in member accounts, complete the f
 
 1. Open the Amazon EventBridge console in a covered member account.
 2. Choose **Rules**.
-3. Confirm that rules with `SecurityIncidentResponse` in their name are present and **Enabled**.
+3. Confirm that rules with `SIR` in their name are present and **Enabled**.
 
 If the rules are missing, re-run the proactive response setup from the Security Incident Response console or
 contact AWS Support.
@@ -308,7 +308,9 @@ actions include runbooks for:
 **Verify the CloudFormation StackSet is deployed.**
 Containment requires IAM roles (`AWSSecurityIncidentResponseContainment`
 and `AWSSecurityIncidentResponseContainmentExecution`) in your covered
-accounts:
+accounts. For instructions on deploying these roles, see
+[Deploy containment and EC2 Triage roles](working-with-stacksets.md "working-with-stacksets.md"). To
+verify the StackSet is deployed:
 
 1. Open AWS CloudFormation in your management account.
 2. Choose **StackSets**.
@@ -404,7 +406,7 @@ Use this checklist to confirm your configuration is complete:
 - `AWSServiceRoleForSecurityIncidentResponse_Triage` exists in in-scope member accounts
 - `AWSServiceRoleForSecurityIncidentResponse` exists in delegated administrator account
 - Third-party integrations (if applicable) show as accepting findings in Security Hub CSPM
-- EventBridge rules with `SecurityIncidentResponse` in the name are present and enabled in member accounts
+- EventBridge rules with `SIR` in the name are present and enabled in member accounts
 - Incident response team members are configured with correct contact information and communications enabled
 - Test case created and email notifications received by all team members
 - Test domain finding (`guarddutyc2activityb.com`) archived within 15 minutes

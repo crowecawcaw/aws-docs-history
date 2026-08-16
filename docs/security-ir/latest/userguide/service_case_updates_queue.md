@@ -13,7 +13,7 @@ To create an event rule that monitors for all case updates, repeat these tutoria
                                "Case Created",
                                "Case Updated",
                                "Case Closed",
-                               "Case Comment Created",
+                               "Case Comment Added",
                                "Case Comment Updated"
                              ]
                            }
