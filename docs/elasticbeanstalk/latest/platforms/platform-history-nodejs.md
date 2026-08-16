@@ -6,9 +6,19 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## July 29, 2026 – present
+## August 11, 2026 – present
 
-The following Elastic Beanstalk platform versions for Node.js have been current since July 29, 2026:
+The following Elastic Beanstalk platform versions for Node.js have been current since August 11, 2026:
+
+| Platform Version and _Solution Stack Name_                                                   | AMI              | Node.js versions (npm versions)                | Proxy Server                          | Git    | AWS X-Ray |
+| -------------------------------------------------------------------------------------------- | ---------------- | ---------------------------------------------- | ------------------------------------- | ------ | --------- |
+| **Node.js 24 AL2023 version 6.11.6**<br>_64bit Amazon Linux 2023 v6.11.6 running Node.js 24_ | 2023.12.20260803 | 24.19.0 (11.17.0)<br>Default version: v24.19.0 | nginx 1.30.4 (default), Apache 2.4.68 | 2.50.1 | 3.6.7     |
+| **Node.js 22 AL2023 version 6.11.6**<br>_64bit Amazon Linux 2023 v6.11.6 running Node.js 22_ | 2023.12.20260803 | 22.23.2 (10.9.8)<br>Default version: v22.23.2  | nginx 1.30.4 (default), Apache 2.4.68 | 2.50.1 | 3.6.7     |
+| **Node.js 20 AL2023 version 6.11.6**<br>_64bit Amazon Linux 2023 v6.11.6 running Node.js 20_ | 2023.12.20260803 | 20.20.2 (10.8.2)<br>Default version: 20.20.2   | nginx 1.30.4 (default), Apache 2.4.68 | 2.50.1 | 3.6.7     |
+
+## July 29, 2026 – August 10, 2026
+
+The following Elastic Beanstalk platform versions for Node.js were current between July 29, 2026 and August 10, 2026:
 
 | Platform Version and _Solution Stack Name_                                                   | AMI              | Node.js versions (npm versions)                | Proxy Server                          | Git    | AWS X-Ray |
 | -------------------------------------------------------------------------------------------- | ---------------- | ---------------------------------------------- | ------------------------------------- | ------ | --------- |

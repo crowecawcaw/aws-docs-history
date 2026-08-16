@@ -6,9 +6,25 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## July 29, 2026 – present
+## August 11, 2026 – present
 
-The following Elastic Beanstalk platform versions for Go have been current since July 29, 2026:
+The following Elastic Beanstalk platform versions for Go have been current since August 11, 2026:
+
+| Platform Version and _Solution Stack Name_                                     | AMI              | Language   | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | ---------------- | ---------- | --------- | ------------ |
+| **Go 1 AL2023 version 4.9.6**<br>_64bit Amazon Linux 2023 v4.9.6 running Go 1_ | 2023.12.20260803 | Go 1.25.12 | 3.6.7     | nginx 1.30.4 |
+
+## August 6, 2026 – August 10, 2026
+
+The following Elastic Beanstalk platform versions for Go were current between August 6, 2026 and August 10, 2026:
+
+| Platform Version and _Solution Stack Name_                                     | AMI              | Language   | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | ---------------- | ---------- | --------- | ------------ |
+| **Go 1 AL2023 version 4.9.5**<br>_64bit Amazon Linux 2023 v4.9.5 running Go 1_ | 2023.12.20260727 | Go 1.25.12 | 3.6.5     | nginx 1.30.3 |
+
+## July 29, 2026 – August 5, 2026
+
+The following Elastic Beanstalk platform versions for Go were current between July 29, 2026 and August 5, 2026:
 
 | Platform Version and _Solution Stack Name_                                     | AMI              | Language   | AWS X-Ray | Proxy Server |
 | ------------------------------------------------------------------------------ | ---------------- | ---------- | --------- | ------------ |
