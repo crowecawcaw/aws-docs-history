@@ -36,9 +36,13 @@ More AWS services are making their quota utilization available through Service Q
 
 This is expected behavior and indicates improved monitoring coverage, not a change in your usage.
 
+Q7: Why am I still seeing an Automatic Management notification after my quota was already increased?
+
+Automatic Management Health Events have a fixed 7-day display window. Once an event is raised, it stays visible in the AWS Health Dashboard until it expires 7 days after its creation, even if your utilization has since dropped or the quota increase has already been applied. No new event is generated in that case. The existing one simply remains until the end of its 7-day window.
+
 ## Auto-adjustment process
 
-Q7: What happens when the system automatically requests a quota increase on my behalf?
+Q8: What happens when the system automatically requests a quota increase on my behalf?
 
 When you enable **Notify and Auto-Adjust** mode, the system automatically submits a quota increase request when your usage breaches the configured threshold.
 
@@ -56,19 +60,19 @@ Manual fallback
 
 If the request can't be processed through auto-adjustment, the request result shows as `NOT_APPROVED` and you receive a Health notification. In these cases, submit a quota increase request manually through AWS Service Quotas.
 
-Q8: Are auto-adjust requests evaluated differently than manual Service Quotas requests?
+Q9: Are auto-adjust requests evaluated differently than manual Service Quotas requests?
 
 Yes, auto-adjust requests are processed differently than manual quota increase requests. Auto-adjust requests only work for quotas that support automated processing and are submitted without creating a support case. These requests use a streamlined approval process that may have different criteria than manual requests that go through AWS Support.
 
 If an auto-adjust request isn't approved, you can submit a manual quota increase request through the Service Quotas console or API, which may be approved even if the auto-adjust request wasn't.
 
-Q9: Why don't I see explicit rejection reasons for auto-adjust failures?
+Q10: Why don't I see explicit rejection reasons for auto-adjust failures?
 
 Auto-adjust requests use an automated approval process that doesn't provide detailed rejection reasons. When an auto-adjust request fails, you receive a notification that the request was `NOT_APPROVED`, but specific rejection details aren't available.
 
 For more information about why a quota increase wasn't approved, submit a manual quota increase request through the Service Quotas console, which provides more detailed feedback through the support case process.
 
-Q10: Which quotas support auto-adjust?
+Q11: Which quotas support auto-adjust?
 
 Not all service quotas support auto-adjustment. Only quotas that support automated processing can be auto-adjusted. Auto-adjustable status doesn't guarantee approval. If an auto-adjust request fails, submit a manual quota increase request through the Service Quotas console or API.
 
@@ -80,7 +84,7 @@ To view which quotas are supported in your account:
 
 ## Troubleshooting
 
-Q11: My auto-adjust request failed, but a manual request for the same quota was approved. Why?
+Q12: My auto-adjust request failed, but a manual request for the same quota was approved. Why?
 
 Auto-adjust requests and manual quota increase requests use different approval processes:
 
@@ -89,7 +93,7 @@ Auto-adjust requests and manual quota increase requests use different approval p
 
 If your auto-adjust requests consistently fail, consider submitting manual quota increase requests through the Service Quotas console for those specific quotas.
 
-Q12: How can I track auto-adjust request results?
+Q13: How can I track auto-adjust request results?
 
 You can monitor auto-adjust request results through several methods:
 
