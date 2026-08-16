@@ -62,7 +62,11 @@ receives a response from Amazon Cognito.
 - If you want your users to sign in with federated providers, you must choose a
   domain. This sets up the pages for [managed login](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md").
   For more information, see [Using your own domain for managed login](cognito-user-pools-add-custom-domain.md "cognito-user-pools-add-custom-domain.md").
-- You can't sign in federated users with API operations like [InitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md") and [AdminInitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md"). Federated users can only sign in with the [Login endpoint](login-endpoint.md "login-endpoint.md") or the [Authorize endpoint](authorization-endpoint.md "authorization-endpoint.md").
+- You can't sign in federated users with API operations like [InitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md") and [AdminInitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md"). When you use the built-in authentication flows of
+  Amazon Cognito, federated users can only sign in with the [Login endpoint](login-endpoint.md "login-endpoint.md") or the [Authorize endpoint](authorization-endpoint.md "authorization-endpoint.md"). If
+  you use `CUSTOM_AUTH`, your triggers control the outcome. They are
+  responsible for whether the service issues a token to any user (federated or
+  not).
 - The [Authorize endpoint](authorization-endpoint.md "authorization-endpoint.md") is a _redirection_ endpoint. If you provide an
   `idp_identifier` or `identity_provider` parameter in
   your request, it redirects silently to your IdP, bypassing managed login.

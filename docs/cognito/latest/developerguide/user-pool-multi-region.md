@@ -31,8 +31,8 @@ infrastructure](https://aws.amazon.com/blogs/security/amazon-cognito-unlocks-adv
 - You must configure your user pool with a [multi-Region customer
   managed key](../../../kms/latest/developerguide/multi-region-keys-overview.md "../../../kms/latest/developerguide/multi-region-keys-overview.md") from AWS KMS before enabling replication. The key must be available
   in all AWS Regions that have user pool replicas. For more information, see [Data encryption](data-protection.md#data-encryption "data-protection.md#data-encryption").
-- Your user pool must use a multi-Region OIDC issuer to ensure consistent token
-  validation across Regions. For more information, see [Amazon Cognito user pools as an OIDC issuer](federation-endpoints.md#user-pool-oidc-issuer "federation-endpoints.md#user-pool-oidc-issuer").
+- For consistent token validation across Regions, we recommend that you configure your
+  user pool with an updated issuer. For more information, see [Amazon Cognito user pools as an OIDC issuer](federation-endpoints.md#user-pool-oidc-issuer "federation-endpoints.md#user-pool-oidc-issuer").
 - New secondary user pools start in the `INACTIVE` state. Review and
   configure regional settings before activating the user pool for production use.
 - Regional configurations can differ between replicas. You can configure the following
@@ -54,25 +54,24 @@ infrastructure](https://aws.amazon.com/blogs/security/amazon-cognito-unlocks-adv
 ## Limitations of multi-Region replication
 
 - You can't generate new users in secondary user pools, either by sign-up or by
-  administrator creation. New federated users can only sign in to a secondary user pool in
+  administrator creation. Federated users can only sign in to a secondary user pool in
   the failover state if they have previously signed in to the primary user pool.
 - Users can't reset their passwords or modify their profiles in secondary user pools.
   In a failover state, disable these operations in the user interface and make them
   available after your health check restores access to the primary user pool.
 - You can have at most one secondary replica in an additional Region per user
-  directory. Any user pool can have a secondary replica.
+  directory. Any eligible user pool can have a secondary replica.
 - TOTP MFA is not supported in secondary replicas. Users with TOTP MFA configured must
   authenticate when the user pool in the primary Region is servicing requests.
 - The count of password-based authentication attempts before lockout isn't
   synchronized across Regions. Each replica maintains its own count of failed
   authentication attempts.
-- You can only configure automatic failover of multi-Region user pools with a [custom domain](cognito-user-pools-add-custom-domain.md "cognito-user-pools-add-custom-domain.md").
 
 ## Configuring multi-Region replication
 
 Before you can enable multi-Region replication, ensure your user pool meets the
-prerequisites: Essentials or Plus feature plan, multi-Region customer managed KMS key, and
-multi-Region OIDC issuer configuration.
+prerequisites: Essentials or Plus feature plan and multi-Region customer managed KMS
+key.
 
 AWS Management Console
 
@@ -255,43 +254,27 @@ operations, plus the following authentication and session management operations.
 ## Failover in multi-Region user pools
 
 With multi-Region user pools, you can fail over managed login, federated login, and
-direct API calls between two AWS Regions. Managed login and federation require a custom
-domain configured with your primary user pool. You can't configure a different custom domain
-with replica user pools.
+direct API calls between two AWS Regions. Managed login and federation failover is
+available with either a custom domain or a prefix (Cognito) domain configured with your
+user pool. You can't configure a different custom domain with replica user pools.
 
 ### Failover for managed login, federation, and machine-to-machine authorization
 
-Failover is available when your primary user pool has a [custom domain](cognito-user-pools-add-custom-domain.md "cognito-user-pools-add-custom-domain.md"). When both user
-pools have a [prefix
-domain](cognito-user-pools-assign-domain-prefix.md "cognito-user-pools-assign-domain-prefix.md"), you can manually test operations on the secondary replica by accessing
-the secondary prefix domain directly. Custom domains can be served from either the primary
-or additional replica and Region.
-
-Your user pool requires a custom domain because that domain serves the OAuth 2.0
-resources, including the [authorize](authorization-endpoint.md "authorization-endpoint.md") and [token](token-endpoint.md "token-endpoint.md") endpoints, and handles IdP responses from
+Failover is available when your primary user pool has a [custom domain](cognito-user-pools-add-custom-domain.md "cognito-user-pools-add-custom-domain.md") or a [prefix domain](cognito-user-pools-assign-domain-prefix.md "cognito-user-pools-assign-domain-prefix.md"). Your user pool
+domain serves the OAuth 2.0 resources, including the [authorize](authorization-endpoint.md "authorization-endpoint.md") and [token](token-endpoint.md "token-endpoint.md") endpoints, and handles IdP responses from
 third-party federation providers, including OIDC, SAML, and social providers.
 
-To configure failover, set up a [health check](../../../Route53/latest/DeveloperGuide/dns-failover.md "../../../Route53/latest/DeveloperGuide/dns-failover.md") in Route 53.
-You determine what triggers a healthy or unhealthy state. The health check isn't directly
-tied to your DNS CNAME record, but it controls whether traffic routes to your primary or
-replica user pool.
+To enable failover, set up a [health check](../../../Route53/latest/DeveloperGuide/dns-failover.md "../../../Route53/latest/DeveloperGuide/dns-failover.md") in Route 53
+and set the `Routing` field on your domain. You determine what triggers a
+healthy or unhealthy state. When the health check is in an unhealthy state, Amazon Cognito serves
+managed login pages and authentication operations from the secondary replica user pool.
+When the health check enters a healthy state, Amazon Cognito begins routing traffic back to the
+primary replica.
 
 The DNS record for your custom domain can use Route 53 or any third-party DNS provider.
 Ensure you have a valid CNAME record in your DNS provider pointing to your target alias,
 which is a CloudFront distribution. You can find the alias target on the
 **Domain** page in the Amazon Cognito console.
-
-When the health check is in an unhealthy state, Amazon Cognito serves managed login pages and
-authentication operations for the custom domain from the secondary replica user pool. When
-the health check enters a healthy state, Amazon Cognito begins routing traffic back to the primary
-replica.
-
-Each user pool has its own prefix domain, as these are Region-isolated. You can still
-directly call these endpoints to handle authentication. However, if federation is
-configured with third-party IdPs, then there must be two application configurations for
-each prefix endpoint. As a best practice, use a custom domain to ensure Amazon Cognito handles
-routing to and from managed login automatically based on the Route 53 health check
-status.
 
 ###### To update the health check ID in the console
 

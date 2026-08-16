@@ -549,6 +549,10 @@ read the `email` attribute, but not
 Client is not allowed for code grant flow or for refreshing
 tokens.
 
+A token request with a `redirect_uri` that does not match the
+value from the authorization request, returns `unauthorized_client`
+with an `error_description` of `invalid_redirect`.
+
 **`unsupported_grant_type`**
 
 Returned if `grant_type` is anything other than
