@@ -518,10 +518,40 @@ must retain at least one administrator.
 You can create and update OpenSearch UI application administrators using the
 AWS CLI.
 
+The `value` for both the
+`opensearchDashboards.dashboardAdmin.users` and
+`opensearchDashboards.dashboardAdmin.groups` keys is a JSON array.
+Pass it as a string. We recommend using the array format, for example
+`"[\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"]"`. With this format,
+you can assign multiple users or groups as administrators in a single
+configuration. To assign multiple values, include them as comma-separated entries
+in the array, for example
+`"[\"`value-1`\",\"`value-2`\"]"`.
+
+The values that each key accepts are as follows:
+
+- `opensearchDashboards.dashboardAdmin.users` – The
+  ARN of an IAM user (in the format
+  `arn:aws:iam::`account-id`:user/`user-id``)
+  or the ID of an IAM Identity Center user (in the format
+  `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`).
+- `opensearchDashboards.dashboardAdmin.groups` – The
+  ARN of an IAM role (in the format
+  `arn:aws:iam::`account-id`:role/`role-name``)
+  or the ID of an IAM Identity Center group (in the format
+  `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`).
+
+To grant all signed-in users administrator permissions, set the
+`value` of the
+`opensearchDashboards.dashboardAdmin.users` key to the wildcard
+character (`*`). For example, use `"[\"*\"]"`. This grants
+administrator permissions to every user in your organization or account.
+
 #### Creating OpenSearch UI administrators using the AWS CLI
 
-The following are examples of adding IAM principals and IAM Identity Center users as
-administrators when creating an OpenSearch UI application.
+The following are examples of adding IAM principals, IAM Identity Center users, and
+groups as administrators when creating an OpenSearch UI
+application.
 
 ##### Example 1: Create an OpenSearch UI application that adds an IAM user as an administrator
 
@@ -536,7 +566,7 @@ aws opensearch create-application \
     --app-configs "
         {
         \"key\":\"opensearchDashboards.dashboardAdmin.users\",
-        \"value\":\"arn:aws:iam::`account-id`:user/`user-id`\"
+        \"value\":\"[\\\"arn:aws:iam::`account-id`:user/`user-id`\\\"]\"
         }
     "
 ```
@@ -570,16 +600,67 @@ aws opensearch create-application \
     --app-configs "
         {
         \"key\":\"opensearchDashboards.dashboardAdmin.users\",
-        \"value\":\"`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`\"
+        \"value\":\"[\\\"`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`\\\"]\"
+        }
+    "
+```
+
+##### Example 3: Create an OpenSearch UI application that adds a group as an OpenSearch UI application administrator
+
+Run the following command to create an OpenSearch UI application.
+This command enables IAM Identity Center and adds a group as an application
+administrator. Replace the `placeholder
+ values` with your own information.
+
+Set `key` to
+`opensearchDashboards.dashboardAdmin.groups` and set
+`value` to the group that you want to grant administrator
+permissions to. For the `groups` key, the value can be an
+IAM role ARN (format:
+`arn:aws:iam::`account-id`:role/`role-name``)
+or an IAM Identity Center group ID (format:
+`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`).
+
+```
+aws opensearch create-application \
+    --name myapplication \
+    --iam-identity-center-options "
+        {
+        \"enabled\":true,
+        \"iamIdentityCenterInstanceArn\":\"arn:aws:sso:::instance/ssoins-`instance-id`\",
+        \"iamRoleForIdentityCenterApplicationArn\":\"arn:aws:iam::`account-id`:role/`role-name`\"
+        }
+    " \
+    --app-configs "
+        {
+        \"key\":\"opensearchDashboards.dashboardAdmin.groups\",
+        \"value\":\"[\\\"`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`\\\"]\"
         }
     "
 ```
 
 #### Updating OpenSearch UI administrators using the AWS CLI
 
-The following are examples of updating the IAM principals and IAM Identity Center
-users assigned as administrators for an existing OpenSearch
+The following are examples of updating the IAM principals, IAM Identity Center users,
+and groups assigned as administrators for an existing OpenSearch
 application.
+
+###### Configuration is fully replaced on each update
+
+The `--app-configs` parameter replaces the entire existing
+configuration, not just the keys that you include in the command. Any
+key that you omit from the `--app-configs` payload is removed
+from the application. To preserve existing configuration, you must
+include all of the keys that you want to keep in the same command.
+
+For example, suppose an application is already configured with
+`opensearchDashboards.dashboardAdmin.users` set to
+`["foo"]`. You then run `update-application`
+and pass only `opensearchDashboards.dashboardAdmin.groups`
+set to `["bar"]`. In this case, the command overwrites and
+removes the existing `users` configuration. To add the group
+while keeping the user, include both keys in the same
+`--app-configs` payload, as shown in [Example 4: Update an OpenSearch UI application to add a group while keeping existing users](#update-admin-examples-users-groups-cli "#update-admin-examples-users-groups-cli").
 
 ##### Example 1: Add an IAM user as an administrator for an existing OpenSearch application
 
@@ -594,7 +675,7 @@ aws opensearch update-application \
     --app-configs "
         {
         \"key\":\"opensearchDashboards.dashboardAdmin.users\",
-        \"value\":\"arn:aws:iam::`account-id`:user/`user-id`\"
+        \"value\":\"[\\\"arn:aws:iam::`account-id`:user/`user-id`\\\"]\"
         }
     "
 ```
@@ -621,7 +702,63 @@ aws opensearch update-application \
     --app-configs "
         {
         \"key\":\"opensearchDashboards.dashboardAdmin.users\",
-        \"value\":\"`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`\"
+        \"value\":\"[\\\"`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`\\\"]\"
         }
+    "
+```
+
+##### Example 3: Update an OpenSearch UI application to add a group as an OpenSearch UI application administrator
+
+Run the following command to update an OpenSearch UI application.
+This command adds a group as an application administrator. Replace the
+`placeholder values` with your own
+information.
+
+Set `key` to
+`opensearchDashboards.dashboardAdmin.groups` and set
+`value` to the group that you want to grant administrator
+permissions to. For the `groups` key, the value can be an
+IAM role ARN (format:
+`arn:aws:iam::`account-id`:role/`role-name``)
+or an IAM Identity Center group ID (format:
+`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`).
+
+```
+aws opensearch update-application \
+    --id myapplication \
+    --app-configs "
+        {
+        \"key\":\"opensearchDashboards.dashboardAdmin.groups\",
+        \"value\":\"[\\\"`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`\\\"]\"
+        }
+    "
+```
+
+##### Example 4: Update an OpenSearch UI application to add a group while keeping existing users
+
+Because `--app-configs` replaces the entire configuration,
+you must include every key that you want to keep in a single command.
+The following command adds a group as an administrator while preserving
+the existing user administrators. Pass both the
+`opensearchDashboards.dashboardAdmin.users` and
+`opensearchDashboards.dashboardAdmin.groups` keys in the
+same `--app-configs` payload. Replace the
+`placeholder values` with your own
+information.
+
+```
+aws opensearch update-application \
+    --id myapplication \
+    --app-configs "
+        [
+        {
+        \"key\":\"opensearchDashboards.dashboardAdmin.users\",
+        \"value\":\"[\\\"`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`\\\"]\"
+        },
+        {
+        \"key\":\"opensearchDashboards.dashboardAdmin.groups\",
+        \"value\":\"[\\\"`yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy`\\\"]\"
+        }
+        ]
     "
 ```

@@ -4,118 +4,82 @@ With Amazon OpenSearch Serverless, you don't have to manage capacity yourself. O
 the compute capacity for your account based on the current workload. Serverless compute
 capacity is measured in _OpenSearch Compute Units_ (OCUs).
 Each OCU is a combination of 6 GiB of memory and corresponding virtual CPU (vCPU), as well
-as data transfer to Amazon S3. For more information about the decoupled architecture in OpenSearch Serverless,
-see [How it works](serverless-overview.md#serverless-process "serverless-overview.md#serverless-process").
+as data transfer to the shared storage and Amazon S3. For more information about the decoupled
+architecture in OpenSearch Serverless, see [How it works](serverless-overview.md#serverless-process "serverless-overview.md#serverless-process").
 
-When you create your first collection, OpenSearch Serverless instantiates OCUs based on your redundancy
-settings. By default, redundant active replicas are enabled, which instantiates a minimum of
-1 OCU (0.5 OCU × 2) for indexing and 1 OCU (0.5 OCU × 2) for search. This ensures high
-availability with standby nodes in another Availability Zone.
-
-For development and testing, you can disable the **Enable redundancy**
-setting for a collection. This removes standby replicas and uses only two OCUs (one for
-indexing and one for search).
-
-These OCUs always exist, even when there's no indexing or search activity. All subsequent
-collections can share these OCUs, except for collections with unique AWS KMS keys, which
-instantiate their own set of OCUs. All collections associated with a collection group can
-share the same set of OCUs. Only one type of collection (search, time series, or vector
-search) can be included in a single collection group. For more information, see [Amazon OpenSearch Serverless collection groups](serverless-collection-groups.md "serverless-collection-groups.md").
+OpenSearch Serverless automatically scales compute capacity for your collections. You can set a minimum
+and maximum OCU per collection group, separately for indexing and searching. When not
+actively indexing or searching, OCUs scale down to the minimum OCU value independently for
+indexing and search. If the minimum is set to 0, no OCUs are needed when idle. OpenSearch Serverless offers
+high availability by default without requiring standby nodes or redundancy configuration.
+Collections within a collection group can share OCUs for cost efficiency by pooling compute
+capacity. Only one type of collection (search, time series, or vector search) can be
+included in a single collection group. For more information, see [Amazon OpenSearch Serverless collection groups](serverless-collection-groups.md "serverless-collection-groups.md").
 
 OpenSearch Serverless automatically scales out and adds OCUs as your indexing and search usage grows.
 When traffic decreases, capacity scales back down to the minimum number of OCUs required for
 your data size.
-
-For search and time series collections, the number of OCUs required when idle is
-proportional to data size and index count. For vector collections, OCU requirements depend
-on memory (RAM) to store vector graphs and disk space to store indices. When not idle, OCU
-requirements account for both factors.
-
-Vector collections store index data in OCU local storage. OCU RAM limits are reached
-faster than disk limits, which restricts vector collections by RAM space.
-
-With redundancy enabled, OCU capacity scales down to a minimum of 1 OCU (0.5 OCU x 2) for
-indexing and 1 OCU (0.5 OCU x 2) for search. When you disable redundancy, your collection
-can scale down to 0.5 OCU for indexing and 0.5 OCU for search.
-
-Scaling also factors in the number of shards needed for your collection or index. Each OCU
-supports a specified number of shards, and the number of indexes should be proportional to
-the shard count. The total number of base OCUs required is the maximum of your data, memory,
-and shard requirements. For more information, see [Amazon OpenSearch Serverless cost-effective search capabilities, at any scale](https://aws.amazon.com/blogs/big-data/amazon-opensearch-serverless-cost-effective-search-capabilities-at-any-scale/ "https://aws.amazon.com/blogs/big-data/amazon-opensearch-serverless-cost-effective-search-capabilities-at-any-scale/") on the
-_AWS Big Data Blog_.
 
 For _search_ and _vector search_ collections, all
 data is stored on hot indexes to ensure fast query response times. _Time series_ collections use a combination of hot and warm storage, keeping
 the most recent data in hot storage to optimize query response times for more frequently
 accessed data. For more information, see [Choosing a collection type](serverless-overview.md#serverless-usecase "serverless-overview.md#serverless-usecase").
 
-###### Note
+To manage capacity for your collections and control costs, you specify minimum and maximum
+OCU values at the collection group level, separately for indexing and searching. Every
+collection belongs to a collection group, and OpenSearch Serverless automatically scales compute resources
+within the bounds you configure.
 
-A vector search collection can't share OCUs with _search_ and
-_time series_ collections, even if the vector
-search collection uses the same KMS key as the _search_ or
-_time series_ collections. A new set of OCUs will
-be created for your first vector collection. The OCUs of vector collections are shared
-among the same KMS key collections.
-
-To manage capacity for your collections and to control costs, you can specify the overall
-maximum indexing and search capacity for the current account and Region, and
-OpenSearch Serverless scales out your collection resources automatically based on these
-specifications.
-
-Because indexing and search capacity scale separately, you specify account-level limits
-for each:
-
-- **Maximum indexing capacity** – OpenSearch Serverless can
-  increase indexing capacity up to this number of OCUs.
-- **Maximum search capacity** – OpenSearch Serverless can
-  increase search capacity up to this number of OCUs.
+- **Minimum capacity** – OpenSearch Serverless provisions this
+  number of OCUs regardless of traffic. Use minimum capacity to avoid cold start delays
+  when scaling from zero and to achieve deterministic startup performance for your
+  workloads.
+- **Maximum capacity** – OpenSearch Serverless will not scale
+  beyond this number of OCUs. Use maximum capacity as a budgetary control lever to
+  ensure your collections always stay within a defined spend limit.
+  OpenSearch Serverless automatically scales the number of OCUs within your configured range to process the
+  indexing and search workload.
 
 ###### Note
 
-At this time, capacity settings only apply at the account level. You can't configure
-per-collection capacity limits.
-
-Your goal should be to ensure that the maximum capacity is high enough to handle spikes in
-workload. Based on your settings, OpenSearch Serverless automatically scales out the number of OCUs for
-your collections to process the indexing and search workload.
-
-###### Topics
-
-- [Configuring capacity settings](#serverless-scaling-configure "#serverless-scaling-configure")
-- [Maximum capacity limits](#serverless-scaling-limits "#serverless-scaling-limits")
-- [Monitoring capacity usage](#serverless-scaling-monitoring "#serverless-scaling-monitoring")
+Classic collections can be created without a collection group. For such collections,
+capacity settings apply at the account level and OCUs can be shared across collections
+as long as they use the same AWS KMS keys.
 
 ## Configuring capacity settings
 
-To configure capacity settings in the OpenSearch Serverless console, expand
-**Serverless** in the left navigation pane and select
-**Dashboard**. Specify the maximum indexing and search capacity
-under **Capacity management**:
+To configure capacity settings for a collection group in the OpenSearch Serverless console, navigate
+to the collection group and specify the minimum and maximum OCU values for indexing and
+search under **Capacity limits**.
 
-![Capacity management dashboard showing maximum capacity set to 10 OCUs for both indexing and search.](images/ServerlessCapacity.png)
-
-To configure capacity using the AWS CLI, send an [UpdateAccountSettings](../ServerlessAPIReference/API_UpdateAccountSettings.md "../ServerlessAPIReference/API_UpdateAccountSettings.md") request:
+To update capacity settings for a collection group using the AWS CLI, send an [UpdateCollectionGroup](../ServerlessAPIReference/API_UpdateCollectionGroup.md "../ServerlessAPIReference/API_UpdateCollectionGroup.md") request:
 
 ```
-aws opensearchserverless update-account-settings \
-    --capacity-limits '{ "maxIndexingCapacityInOCU": `8`,"maxSearchCapacityInOCU": `9` }'
+aws opensearchserverless update-collection-group \
+    --id `collection-group-id` \
+    --capacity-limits '{
+        "minIndexingCapacityInOCU": `0`,
+        "maxIndexingCapacityInOCU": `96`,
+        "minSearchCapacityInOCU": `0`,
+        "maxSearchCapacityInOCU": `96`
+    }'
 ```
+
+###### Note
+
+For Classic collections that are not part of a collection group, capacity settings
+are configured at the account level using the [update-account-settings](../../../cli/latest/reference/opensearchserverless/update-account-settings.md "../../../cli/latest/reference/opensearchserverless/update-account-settings.md") command.
 
 ## Maximum capacity limits
 
-The maximum total of indexes a collection can contain is 1000. For all three types of
-collections, the default maximum OCU capacity is 10 OCUs for indexing and 10 OCUs for
-search. The minimum OCU capacity allowed for an account is 1 OCU [0.5 OCU x 2] for
-indexing and 1 OCU [0.5 OCU x 2] for search. For all collections, the maximum allowed
-capacity is 1,700 OCUs for indexing and 1,700 OCUs for search. You can configure the OCU
-count to be any number from 2 to the maximum allowed capacity, in multiples of 2.
+The maximum total of indexes a collection can contain is 1000. The minimum OCU
+capacity for a collection group is 0 OCUs for indexing and 0 OCUs for search. For each
+collection group, the maximum allowed capacity is 1,700 OCUs for indexing and 1,700 OCUs
+for search. You can configure the OCU count to be 2, 4, 8, 16, or any multiple of 16 up
+to the maximum allowed capacity.
 
-Each OCU includes enough hot ephemeral storage for 120 GiB of index data. OpenSearch Serverless
-supports up to 1 TiB of data per index in _search_ and
-_vector search_ collections, and 100 TiB of hot data per index in
-a _time series_ collection. For time series collections, you can
-still ingest more data, which can be stored as warm data in S3.
+For Classic collections, each OCU includes hot ephemeral storage of 120 GiB. OpenSearch Serverless
+supports up to 10 TiB of managed hot storage per collection.
 
 For a list of all quotas, see [OpenSearch Serverless
 quotas](../../../general/latest/gr/opensearch-service.md#opensearch-limits-serverless "../../../general/latest/gr/opensearch-service.md#opensearch-limits-serverless").

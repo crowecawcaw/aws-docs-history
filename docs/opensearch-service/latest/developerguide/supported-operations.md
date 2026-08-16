@@ -157,6 +157,47 @@ PUT https://`domain-name`.`region`.es.amazonaws.com/`shrunken-index`/_settings
 }
 ```
 
+### Split or clone an index
+
+Before you use the `_split` or `_clone` API, you
+must make the source index read-only. Although
+`index.blocks.write: true` is the standard open-source
+method for making an index read-only, OpenSearch Service managed domains don't support
+this setting. If you apply `index.blocks.write`, it is
+removed automatically within 2 minutes.
+
+On OpenSearch Service managed domains, use `index.blocks.read_only: true`
+instead. Make the following request before starting the split or clone
+operation:
+
+```
+PUT https://`domain-name`.`region`.es.amazonaws.com/`source-index`/_settings
+{
+  "settings": {
+    "index.blocks.read_only": true
+  }
+}
+```
+
+After the split or clone operation completes, remove the read-only block
+from both the source index and the new target index:
+
+```
+PUT https://`domain-name`.`region`.es.amazonaws.com/`source-index`/_settings
+{
+  "settings": {
+    "index.blocks.read_only": false
+  }
+}
+
+PUT https://`domain-name`.`region`.es.amazonaws.com/`target-index`/_settings
+{
+  "settings": {
+    "index.blocks.read_only": false
+  }
+}
+```
+
 ### New list APIs
 
 To support large clusters with huge number of indexes and shards, we have
